@@ -57,7 +57,12 @@ namespace Collada.Converters.Meshes
                 Vertices = poly.Vertices;
                 Textures = poly.Textures;
                 Normals = poly.Normals;
-                Polygons = poly.Polygons;
+                Polygons = new();
+                s.CopyPolygons(poly, this);
+                if (!s.CheckPolygons(this))
+                {
+                    throw new Exception("Abstract mesh collada polygons");
+                }
                 return;
             }
             catch (Exception e)

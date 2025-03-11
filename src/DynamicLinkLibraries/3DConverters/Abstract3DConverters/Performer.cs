@@ -105,11 +105,11 @@ namespace Abstract3DConverters
                 }
                 return o as T;
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                e.HandleException("PERFORMER CREATE");
-                throw new IncludedException(e, "PERFORMER CREATE");
+                exception.HandleExceptionDouble("PERFORMER CREATE T");
             }
+            return null;
         }
 
         /// <summary>
@@ -288,7 +288,8 @@ namespace Abstract3DConverters
         /// <param name="outExt">Output unique</param>
         /// <param name="converterDirectory">CrateDirectory</param>
         /// <param name="act">Action</param>
-        public string CreateAndSaveByUniqueName(string fileinput, string outExt, string converterDirectory = null, Action<object> act = null)
+        public string CreateAndSaveByUniqueName(string fileinput, string outExt, 
+            string converterDirectory = null, Action<object> act = null)
         {
             var t = StaticExtensionAbstract3DConverters.FileTypes[outExt];
             var cd = converterDirectory;
@@ -309,7 +310,7 @@ namespace Abstract3DConverters
             if (File.Exists(filename))
             {
                 file = fn + Path.GetRandomFileName() + ext;
-                filename = Path.Combine(dir, file);
+                filename = Path.Combine(cd, file);
             }
             CreateAndSave(fileinput, filename, comment, cd);
             return filename;

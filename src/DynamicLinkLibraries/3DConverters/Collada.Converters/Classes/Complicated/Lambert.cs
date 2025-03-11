@@ -28,7 +28,7 @@ namespace Collada.Converters.Classes.Complicated
             base.Create(xmlElement);
             base.Create(xmlElement);
             var l = new List<Abstract3DConverters.Materials.Material>();
-            var transparent = s.Maximal(Transparent);
+            var transparent = s.Maximal(DiffuseColor);
             var ambient = s.Maximal(Ambient);
             float tr = (float)Transparency;
             if (tr < 0)

@@ -17,8 +17,6 @@ namespace Collada.Converters.Classes.Complicated
     {
 
 
-       
-
         public Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
         public Dictionary<string, OffSet> Inputs { get; private set; } = new();
@@ -29,7 +27,6 @@ namespace Collada.Converters.Classes.Complicated
 
         public float[] Vertices { get; private set; }
 
-        public List<Point> Points { get; private set; } = new();
 
         protected List<float[]> ProtectedVertices { get; set; } = new List<float[]>();
 
@@ -64,6 +61,8 @@ namespace Collada.Converters.Classes.Complicated
         public Tuple<List<float[]>, List<float[]>, List<float[]>, List<int[]>> Tuple { get; private set; }
 
         float[] IGeometry.TransformationMatrix => throw new NotImplementedException();
+
+        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
@@ -175,13 +174,18 @@ namespace Collada.Converters.Classes.Complicated
                         PointTexture point = null;
                         if (offs[2] >= 0)
                         {
-                            point = new PointTexture(this, idx, idt, arr[tn + offs[2]]);
+                            point = s.CreatePointTexture(this, idx, idt, arr[tn + offs[2]]);
                         }
                         else
                         {
-                            point = new PointTexture(this, idx, idt);
+                            point = s.CreatePointTexture(this, idx, idt);
 
                         }
+                        if (point == null)
+                        {
+                            throw new Exception("Triangles");
+                        }
+
                         tn += count;
                         points.Add(point);
                     }

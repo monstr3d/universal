@@ -1,7 +1,7 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using System.Xml;
-/*
+
 namespace Abstract3DConverters.Meshes
 {
     
@@ -102,7 +102,7 @@ namespace Abstract3DConverters.Meshes
                             }
                             else
                             {
-                                im = new Image(ims, creator.Directory);
+                                im = new Image(ims, Creator.Directory);
                                 imgs[ims] = im;
                             }
                         }
@@ -264,4 +264,4 @@ namespace Abstract3DConverters.Meshes
 
     }
 }
-*/
+

@@ -30,6 +30,107 @@ namespace Abstract3DConverters
         #region Service
 
         /// <summary>
+        /// Checks 
+        /// </summary>
+        /// <param name="geometry">Geometry</param>
+        /// <param name="vertex">Vertex</param>
+        /// <param name="texture">Texture</param>
+        /// <param name="normal">Normal</param>
+        /// <returns>True if right</returns>
+        public bool Check(IGeometry geometry, int vertex, int texture, int normal = -1)
+        {
+            if (vertex >= geometry.Vertices.Count)
+            {
+                return false;
+            }
+            if (texture >= geometry.Textures.Count)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks polygon
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public bool CheckPolygon(Polygon polygon)
+        {
+            var mesh = polygon.Mesh;
+            foreach (var point in polygon.Points)
+            {
+                if (!Check(mesh, point.VertexIndex, point.TextureIndex, point.NormalIndex))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        /// <summary>
+        /// Checks polygons of mesh
+        /// </summary>
+        /// <param name="mesh">The mesh</param>
+        /// <returns>True if correct</returns>
+        public bool CheckPolygons(IMesh mesh)
+        {
+            if (mesh.Polygons == null)
+            {
+                return true;
+            }
+            var polygons = mesh.Polygons;
+            foreach (var polygon in polygons)
+            {
+                if (!CheckPolygon(polygon))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Creates textures
+        /// </summary>
+        /// <param name="geometry">Geometry</param>
+        /// <param name="vertex">Vertex</param>
+        /// <param name="texture">Texture</param>
+        /// <param name="normal">Normal</param>
+        /// <returns>Point Texture</returns>
+        public PointTexture ? CreatePointTexture(IGeometry geometry, int vertex, int texture, int normal = -1)
+        {
+            if (!Check(geometry, vertex, texture, normal))
+            {
+                return null;
+            }
+            return new PointTexture(geometry, vertex, texture, normal);
+        }
+
+        /// <summary>
+        /// Copy of polygons
+        /// </summary>
+        /// <param name="from">From</param>
+        /// <param name="to">To</param>
+        public void CopyPolygons(IMesh from, IMesh to)
+        {
+            var source = from.Polygons;
+            var target = to.Polygons;
+            if (target == null)
+            {
+                throw new Exception("CopyPolygons Service");
+            }
+            if (target.Count > 0)
+            {
+                throw new Exception("CopyPolygons Service");
+            }
+            foreach (var polygon in source)
+            {
+                polygon.Copy(to);
+                target.Add(polygon);
+            }
+        }
+
+        /// <summary>
         /// Checks wherether an array is empty
         /// </summary>
         /// <param name="array">The array</param>
@@ -159,13 +260,21 @@ namespace Abstract3DConverters
         /// <param name="element">The element</param>
         /// <param name="colorName">The name of color</param>
         /// <param name="color">The color</param>
-        public void SetColor(XmlElement element, string colorName, Color color)
+        public void SetColor(XmlElement element, string colorName, Color color, bool four = true, bool nonzero = true)
         {
             if (color == null)
             {
                 return;
             }
-            element.SetAttribute(colorName, "#" + color.ByteValue);
+            if (nonzero)
+            {
+                if (color.IsZero)
+                {
+                    return;
+                }
+            }
+            var s = four ? color.ByteValue4 : color.ByteValue;
+            element.SetAttribute(colorName, "#" + s);
         }
 
    /// <summary>
@@ -273,46 +382,6 @@ namespace Abstract3DConverters
                 return false;
             }
             return true;
-        }
-
-        /// <summary>
-        /// Matrix point product
-        /// </summary>
-        /// <param name="a">Matrix</param>
-        /// <param name="point">Point</param>
-        /// <returns>Product</returns>
-        public Point Product(float[,] a, Point point)
-        {
-            return null;
-            /*
-            
-            var vert = new float[3] { 0f, 0f, 0f };
-            var v = point.Vertex;
-            for (var i = 0; i < 3; i++)
-            {
-                vert[i] += a[3, i];
-                for (var j = 0; j < 3; j++)
-                {
-                    vert[i] += a[i, j] * v[j];
-
-                }
-            }
-            var n = point.Normal;
-            if (n != null)
-            {
-              return  new Point(vert, null);
-            }
-            var norm = new float[3] { 0f, 0f, 0f };
-            for (var i = 0; i < 3; i++)
-            {
-                for (var j = 0; j < 3; j++)
-                {
-                    norm[i] += a[i, j] * n[j];
-
-                }
-            }
-            var p = new Point(vert, norm);
-            return p;*/
         }
 
         /// <summary>
@@ -602,6 +671,25 @@ namespace Abstract3DConverters
         }
 
         /// <summary>
+        /// Conversion of collection to string
+        /// </summary>
+        /// <typeparam name="T">Type of element</typeparam>
+        /// <param name="values">Values</param>
+        /// <param name="sep">Separator</param>
+        /// <returns>Conversion result</returns>
+        public string  ToString<T>(IEnumerable<T> values, string sep = " ") where T : struct
+        {
+            var sb = new StringBuilder();
+            foreach (var item in values)
+            {
+                sb.Append(sep);
+                sb.Append(ToString(item));
+            }
+            var str = sb.ToString();
+            return str.Substring(sep.Length);
+        }
+
+        /// <summary>
         /// Converts the string to real
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -742,8 +830,6 @@ namespace Abstract3DConverters
         {
             return ToReal2Array(ToRealArray<T>(s));
         }
-
-
 
         public List<T[]> ToReal3Array<T>(string str) where T : struct
         {

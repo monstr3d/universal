@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
 using Abstract3DConverters;
-using Abstract3DConverters.Interfaces;
-using Collada;
+using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Abstract
 {
@@ -15,9 +10,31 @@ namespace Collada.Converters.Classes.Abstract
     {
         internal Color Color { get; private set; }
 
+        internal Sampler2D Sampler2D { get; private set; }
+
+        internal Surface Surface { get; private set; }
+
+
         protected ColorWrapper(XmlElement element) : base(element, null)
         {
-           Color =  element.Get<ColorObject>().Color;
+            try
+            {
+                var c = element.Get<ColorObject>();
+                if (c != null)
+                {
+                    Color = c.Color;
+                }
+                var t = element.Get<Texture>();
+                if (t != null)
+                {
+                    Sampler2D = t.Sampler2D;
+                    Surface = t.Surface;
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException("ColorWrapper");
+            }
         }
     }
 }

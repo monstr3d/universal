@@ -1,5 +1,8 @@
-﻿using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+
+using ErrorHandler;
 
 namespace Abstract3DConverters.Creators
 {
@@ -7,6 +10,8 @@ namespace Abstract3DConverters.Creators
     [Attributes.Extension([".ac", ".ac3d"])]
     public class AcCreator : LinesMeshCreator
     {
+        #region Fields
+
         List<Material> MaterialsPP { get; } = new();
 
         Service s = new();
@@ -21,37 +26,63 @@ namespace Abstract3DConverters.Creators
         } = 0;
 
 
-        internal int[] Shift { get; private set; } = [0, 0, 0];
-
         private Dictionary<string, MaterialGroup> matGroup = new();
 
-        private List<AbstractMesh> meshes;
+        private List<IMesh> meshes;
+
+        #endregion
+
+        #region Cror
 
         public AcCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
-            meshes = Create(null, lines).ToList();
+            try
+            {
+                meshes = Create(null, lines).ToList();
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("AcCreator constructor");
+            }
         }
+
+        #endregion
 
         #region AbstractMeshCreator Members
 
-        protected override IEnumerable<AbstractMesh> Meshes => meshes;
+        protected override IEnumerable<IMesh> Meshes => meshes;
       
      
         #endregion
 
         internal Effect GetEffect(int i, Image image)
         {
-            var mn = GetMaterialName(i);
-            if (image != null)
+            try
             {
-                mn += "-" + image.Name;
+                var mn = GetMaterialName(i);
+                if (image != null)
+                {
+                    mn += "-" + image.Name;
+                }
+                if (Effects.ContainsKey(mn))
+                {
+                    return Effects[mn];
+                }
+                return new Effect(this, mn, MaterialsPP[i], image);
             }
-            if (Effects.ContainsKey(mn))
+            catch (Exception exception)
             {
-                return Effects[mn];
+                exception.HandleExceptionDouble("GetEffect AC");
             }
-            return new Effect(this, mn, MaterialsPP[i], image);
+            return null;
         }
+
+        internal int GertMaterialNumber(Effect effect)
+        {
+            return MaterialsPP.IndexOf(effect.Material);
+        }
+
+       
 
 
         internal string GetMaterialName(int k)
@@ -156,7 +187,7 @@ namespace Abstract3DConverters.Creators
             Image image = null;
             foreach (var line in lines)
             {
-                var st = s.ToString(line, "texture");
+                var st = s.ToString(line, "texture ");
                 if (st != null)
                 {
                     imstr = s.Trim(st);
@@ -169,7 +200,7 @@ namespace Abstract3DConverters.Creators
                 {
 
                 }
-                var st1 = s.ToString(line, "mat");
+                var st1 = s.ToString(line, "mat ");
                 if (st1 != null)
                 {
                     var k = s.ToReal<int>(st1);
@@ -205,110 +236,110 @@ namespace Abstract3DConverters.Creators
         }
 
 
-        public IEnumerable<AbstractMesh> Create(AbstractMesh parent, List<string> lines, int start = 0, int current = -1)
+        public IEnumerable<IMesh> Create(IMesh parent, List<string> lines, int start = 0, int current = -1)
         {
-            for (var i = 0; i < lines.Count; i++)
-            {
-                var line = lines[i];
-                if (line.StartsWith("OBJECT"))
+                for (var i = 0; i < lines.Count; i++)
                 {
-                    Position = i;
-                    if (line.Equals("OBJECT world"))
+                    var line = lines[i];
+                    if (line.StartsWith("OBJECT"))
                     {
-                        continue;
-                    }   
-                    do
-                    {
-                        yield return new AbstractMeshAC(null, MaterialsPP, lines, this);
-                    }
-                    while (Position <= lines.Count - 1);
-                    yield break;
-                }
-            }
-                yield break;
-                //new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
- 
-            
-            if (Position >= lines.Count)
-            {
-                yield break;
-            }
-
-            if (current == 0)
-            {
-                yield break;
-            }
-            var st = Math.Max(start, Position);
-            if (st >= lines.Count)
-            {
-                yield break;
-            }
-            string name = null;
-             for (var i = st; i < lines.Count; i++)
-            {
-                var line = lines[i];
-                var counter = 0;
-                if (line.StartsWith("OBJECT"))
-                {
-                    var j = i + 1;
-                    if (j >= lines.Count)
-                    {
+                        Position = i;
+                        if (line.Equals("OBJECT world"))
+                        {
+                            continue;
+                        }
+                        do
+                        {
+                            yield return new AbstractMeshAC(null, MaterialsPP, lines, this);
+                        }
+                        while (Position <= lines.Count - 1);
                         yield break;
                     }
-                    var n = s.ToString(lines[j + 1], "name");
-                    if (n != null)
-                    {
-                        name = n;
-                        ++j;
+                }
+                yield break;
+                //new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
 
-                    }
-                    else
+
+                if (Position >= lines.Count)
+                {
+                    yield break;
+                }
+
+                if (current == 0)
+                {
+                    yield break;
+                }
+                var st = Math.Max(start, Position);
+                if (st >= lines.Count)
+                {
+                    yield break;
+                }
+                string name = null;
+                for (var i = st; i < lines.Count; i++)
+                {
+                    var line = lines[i];
+                    var counter = 0;
+                    if (line.StartsWith("OBJECT"))
                     {
-                        name = "";
-                    }
-                    Position = j;
-                    AbstractMeshAC am = null;// var am = new  AbstractMeshAC(null, name, this, 0, lines, MaterialsP, directory);
-                    for (; j < lines.Count; j++)
-                    {
-                        var l = lines[j];
-                        var cnt = s.ToReal<int>(l, "kids ");
-                        if (cnt != null)
+                        var j = i + 1;
+                        if (j >= lines.Count)
                         {
-                            var count = cnt.Value;
-                            if (Position >= lines.Count)
-                            {
-                                yield break;
-                            }
-                            Position = j;
-                            //var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
-                            name = null;
-                            i = j + 1;
-                            var amm = new AbstractMesh(null, null);
-                            yield return amm; 
-                            if (Position >= lines.Count)
-                            {
-                                yield break;
-                            }
-                           counter++;
-                            if (counter == current)
-                            {
-                                yield break;
-                            }
+                            yield break;
+                        }
+                        var n = s.ToString(lines[j + 1], "name");
+                        if (n != null)
+                        {
+                            name = n;
+                            ++j;
 
-                            if (count == 0)
+                        }
+                        else
+                        {
+                            name = "";
+                        }
+                        Position = j;
+                        AbstractMeshAC am = null;// var am = new  AbstractMeshAC(null, name, this, 0, lines, MaterialsP, directory);
+                        for (; j < lines.Count; j++)
+                        {
+                            var l = lines[j];
+                            var cnt = s.ToReal<int>(l, "kids ");
+                            if (cnt != null)
                             {
-                                continue;
-                            }
-                            var enu = Create(am, lines, j, count).ToArray();
-                            foreach (var a in enu)
-                            {
-                                a.Parent = am;
+                                var count = cnt.Value;
+                                if (Position >= lines.Count)
+                                {
+                                    yield break;
+                                }
+                                Position = j;
+                                //var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
+                                name = null;
+                                i = j + 1;
+                                var amm = new AbstractMesh(null, null);
+                                yield return amm;
+                                if (Position >= lines.Count)
+                                {
+                                    yield break;
+                                }
+                                counter++;
+                                if (counter == current)
+                                {
+                                    yield break;
+                                }
+
+                                if (count == 0)
+                                {
+                                    continue;
+                                }
+                                var enu = Create(am, lines, j, count).ToArray();
+                                foreach (var a in enu)
+                                {
+                                    a.Parent = am;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
         protected override void CreateFromLines()
         { 

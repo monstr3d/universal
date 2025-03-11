@@ -32,13 +32,24 @@ namespace Abstract3DConverters.Points
         /// <param name="effect">Effect</param>
         public Polygon(IMesh mesh, PointTexture[] points, Effect effect)
         {
-            //  this.normal = normal;
-            //   CalcualateNormal = (normal == null) ? CalculateNormalPre : CalcNormalFull;
-            Mesh = mesh;
-            Points = points;
-            Effect = effect;
             CalcualateNormal = CalculateNormalPre;
             CaclualateVertexNormal = CaclualateVertexNormalPre;
+            Mesh = mesh;
+            Points = points;
+            foreach (var p in points)
+            {
+                p.Polygon = this;
+            }
+            Effect = effect;
+        }
+
+        public void Copy(IMesh mesh)
+        {
+            foreach (var point in Points)
+            {
+                point.Copy(mesh);
+            }
+            Mesh = mesh;
         }
 
         /// <summary>

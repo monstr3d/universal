@@ -1,7 +1,6 @@
 ﻿using System.Text;
 
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
@@ -11,11 +10,7 @@ namespace Abstract3DConverters.Converters
 
         protected string directory;
 
-
         protected List<string> lines = new();
-
-        protected Service s = new();
-
 
 
         #endregion
@@ -26,7 +21,6 @@ namespace Abstract3DConverters.Converters
         {
 
         }
-
 
         #endregion
 

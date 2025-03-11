@@ -5,22 +5,36 @@
     /// </summary>
     public class Color : ICloneable, IEquatable<Color>
     {
+        #region Fields
+
+        float[] value;
+
+        private float[] rgb = new float[3];
+
+        private Func<float[]> GetRGB;
+
         /// <summary>
-        /// The value
+        /// Service
         /// </summary>
-        public float[] Value { get; private set; }
+        Service s = new();
 
         /// <summary>
         /// Hex symbols
         /// </summary>
         private readonly string s_hex = "0123456789abcdef";
 
+        #endregion
+
+        #region Cror
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="value">The float value</param>
         public Color(float[] value)
-            { this.Value = value; }
+        {
+            this.Value = value;
+        }
 
         /// <summary>
         /// Constructor
@@ -56,12 +70,13 @@
             if (hex)
             {
                 var bt = GetBytes(strings[0]);
-                Value = new float[bt.Length];
+                var val = new float[bt.Length];
                 for (var i = 0; i < bt.Length; i++)
                 {
                     float f = (float)bt[i];
-                    Value[i] = f / 255f;
+                    val[i] = f / 255f;
                 }
+                Value = val;
                 return;
             }
             List<float> values = new List<float>();
@@ -75,13 +90,38 @@
                 values.Add(d);
             }
             Value = values.ToArray();
-
         }
 
         public Color(string color, bool hex = false) : this(color.Split(' '), hex)
         {
         }
 
+        #endregion
+
+        /// <summary>
+        /// The value
+        /// </summary>
+        public float[] Value
+        {
+            get => value;
+            private set
+            {
+                GetRGB = GetRGBInit;
+                this.value = value;
+            }
+        }
+
+        private float[] GetRGBFin()
+        {
+            return rgb;
+        }
+
+        private float[] GetRGBInit()
+        {
+            Array.Copy(Value, rgb, 3);
+            GetRGB = GetRGBFin;
+            return rgb;
+        }
 
 
 
@@ -99,17 +139,37 @@
 
         public string StringValue(string sep = " ")
         {
-            var s = "";
-            foreach (var a in Value)
-            {
-                s += a + sep;
-            }
-            s = s.Substring(0, s.Length - sep.Length);
-            return s;
+            return s.ToString(Value, sep);
         }
 
-       
+        public string StringRGBValue(string sep = " ")
+        {
+            return s.ToString(RGB, sep);
+        }
 
+        /// <summary>
+        /// RGB
+        /// </summary>
+        public float[] RGB => GetRGB();
+
+        /// <summary>
+        /// The is zero sing
+        /// </summary>
+        public bool IsZero
+        {
+            get
+            {
+                foreach (var x in Value)
+                {
+                    if (x > 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+            
 
         public string ByteValue
         {
@@ -129,6 +189,10 @@
                 return s.ToUpper();
             }
         }
+
+        public string ByteValue4NonZero => IsZero ? null : ByteValue4;
+
+        public string ByteValue4 => (Value.Length == 4) ? ByteValue : "FF" + ByteValue;
 
         byte GetByte(string s)
         {

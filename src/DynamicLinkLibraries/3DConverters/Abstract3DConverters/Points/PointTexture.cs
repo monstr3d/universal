@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
+using System.Reflection;
 using Abstract3DConverters.Interfaces;
 using ErrorHandler;
 
@@ -34,6 +34,10 @@ namespace Abstract3DConverters.Points
                 VertexIndex = vertex;
                 TextureIndex = texture;
                 NormalIndex = normal;
+                if (vertex >= geometry.Vertices.Count)
+                {
+
+                }
                 Vertex = geometry.Vertices[vertex];
                 Texture = geometry.Textures[texture];
                 if (geometry.Normals == null)
@@ -47,8 +51,7 @@ namespace Abstract3DConverters.Points
             }
             catch (Exception exception)
             {
-                exception.HandleException("Point texture constructor");
-                throw new IncludedException(exception, "Point texture constructor");
+                exception.HandleExceptionDouble("Point texture constructor");
             }
         }
 
@@ -90,6 +93,15 @@ namespace Abstract3DConverters.Points
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Copy geometry
+        /// </summary>
+        /// <param name="geometry"></param>
+        public void Copy(IGeometry geometry)
+        {
+            Geometry = geometry;
+        }
 
         public Polygon Polygon
         {

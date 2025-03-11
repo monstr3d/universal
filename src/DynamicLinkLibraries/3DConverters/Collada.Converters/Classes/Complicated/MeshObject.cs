@@ -31,6 +31,8 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<MeshObject>();
 
+        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private MeshObject(XmlElement xmlElement, IMeshCreator meshCreator) : base(xmlElement)
         {
             this.meshCreator = meshCreator;
@@ -146,13 +148,17 @@ namespace Collada.Converters.Classes.Complicated
                             PointTexture point = null;
                             if (offs[2] >= 0)
                             {
-                                point = new PointTexture(this, idx, idt, arr[tn + offs[2]]);
+                                point = s.CreatePointTexture(this, idx, idt, arr[tn + offs[2]]);
                             }
                             else
                             {
-                                point = new PointTexture(this, idx, idt);
-
+                                point = s.CreatePointTexture(this, idx, idt);
                             }
+                            if (point == null)
+                            {
+                                throw new Exception("MeshObject");
+                            }
+
                             tn += count;
                             points.Add(point);
                         }

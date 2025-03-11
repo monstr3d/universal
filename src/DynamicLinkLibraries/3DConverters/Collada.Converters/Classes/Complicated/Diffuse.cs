@@ -7,20 +7,20 @@ using Collada.Converters.Classes.Abstract;
 namespace Collada.Converters.Classes.Complicated
 {
 
-    [Tag("emission")]
-    internal class Emission : ColorWrapper
+    [Tag("diffuse")]
+    internal class Diffuse : ColorWrapper
     {
 
-        public static IClear Clear => StaticExtensionCollada.GetClear<Emission>();
+        public static IClear Clear => StaticExtensionCollada.GetClear<Diffuse>();
 
-        private Emission(XmlElement element) : base(element)
+        private Diffuse(XmlElement element) : base(element)
         {
 
         }
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Emission(element);
+            var a = new Diffuse(element);
             return a.Get();
         }
     }

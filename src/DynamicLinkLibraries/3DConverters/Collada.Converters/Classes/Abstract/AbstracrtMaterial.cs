@@ -20,13 +20,13 @@ namespace Collada.Converters.Classes.Abstract
         {
             get;
             set;
-        } = -1;
+        } = 0;
 
         protected double Shinines
         {
             get;
             set;
-        } = -1;
+        } = 0;
 
         protected Color Ambient
         {
@@ -45,11 +45,31 @@ namespace Collada.Converters.Classes.Abstract
             set;
         }
 
-        protected Color Transparent
+        private Color Transparent
         {
             get;
             set;
         }
+
+        protected Color Diffuse
+        {
+            get;
+            set;
+        }
+
+        protected Color DiffuseColor
+        {
+            get
+            {
+                if (Diffuse != null)
+                {
+                    return Diffuse;
+                }
+                return Transparent;
+            }
+        }
+
+        
 
         protected string Name
         {
@@ -93,6 +113,12 @@ namespace Collada.Converters.Classes.Abstract
             {
                 Transparent = trans.Color;
             }
+            var diff = xmlElement.Get<Diffuse>();
+            if (diff != null)
+            {
+                Diffuse = diff.Color;
+            }
+
             var texture = xmlElement.Get<Texture>();
             Image im = null;
             if (texture != null)

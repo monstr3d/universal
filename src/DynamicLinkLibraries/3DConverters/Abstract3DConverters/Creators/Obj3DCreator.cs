@@ -1,8 +1,7 @@
-﻿using System.Linq;
-using System.Linq.Expressions;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters.Creators
@@ -54,7 +53,7 @@ namespace Abstract3DConverters.Creators
 
         internal List<Effect> EffectList { get; private set; } = new();
 
-        protected override IEnumerable<AbstractMesh> Meshes
+        protected override IEnumerable<IMesh> Meshes
         {
             get
             {
@@ -67,23 +66,55 @@ namespace Abstract3DConverters.Creators
             }
         }
 
+        string GetObjectName(string line)
+        {
+            if (line.Contains(objs))
+            {
+               return line.Substring(objs.Length).Trim();
+            }
+            return null;
+        }
+
+        string GetgName(string line)
+        {
+            return s.ToString(line, "g");
+        }
+
+        string GetInititial(string line)
+        {
+            if (line.Contains(objs) | line.StartsWith("g "))
+            {
+                var name = s.ToString(line, "g");
+                if (name == null)
+                {
+                    name = line.Substring(objs.Length).Trim();
+                    GetName = GetObjectName;
+                }
+                else
+                {
+                    GetName = GetgName;
+                }
+                return name;
+            }
+            return null;
+        }
+
+        Func<string, string> GetName;
+
+        string  objs = "# object ";
+    
         void CreateGeometry()
         {
+            GetName = GetInititial;
             try
             {
                 List<int[][]> indexes = null;
 
                 foreach (var line in lines)
                 {
-                    var objs = "# object ";
-                    
-                    if (line.Contains(objs)  | line.StartsWith("g "))
+                    var name = GetName(line);
+                    if (name != null)
                     {
-                        var name = s.ToString(line, "g");
-                        if (name == null)
-                        {
-                            name = line.Substring(objs.Length).Trim();
-                        }
                         Names.Add(name);
                         indexes = new();
                         Indexes.Add(indexes);

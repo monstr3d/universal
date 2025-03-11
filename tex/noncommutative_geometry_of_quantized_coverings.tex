@@ -12099,11 +12099,7 @@ where $k$ is a representative of $\overline k$.
 \pi_1^{\text{ab}}\left(A \right). 
 	\ee
 \end{defn}
-\paragraph{Free  Hurewicz homomorphism.} Let $A$  be an unital $C^*$-algebra, and let $\pi : A \to B\left(\H \right)$ be a faithful  nondegenerate representation   (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). 
-Suppose that there is the Abelian fundamental group $\pi^{\mathrm{ab}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
-$$
-\pi_1^{\text{ab}}\left(A \right)  \bydef \pi_1\left(A\right)/ \left[\pi_1\left(A\right), \pi_1\left(A\right)\right]	
-$$
+\paragraph{Free  Hurewicz homomorphism.} Let $A$  be an unital $C^*$-algebra, and let $\pi : A \to B\left(\H \right)$ be a faithful  nondegenerate representation   (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) 
 and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a unital  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\right)$ is Abelian then there is the natural surjective homomorphism
 \be\label{fundamental_gr_hom_eqn}
 \begin{split}
@@ -12484,33 +12480,73 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 	\subsubsection{Torsion part of Hurewicz homomorphism}
 	
 
-	 Let $p \in \N$ be a prime number and $\sX$ is path connected and $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of an element $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ with  $p\left[\om \right]= 0$. Suppose that there is a $p$-listed  covering $\th_p: \widetilde \sX \to \sX$ such that the composition
+	 Let $p \in \N$ be a prime number and $\sX$ is path connected and $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of an element $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ with  $p\left[\om \right]= 0$. For simplicity we suppose that the map $\om$ is injective.
+	 
+	 
+	 Suppose that there is a $p$-listed  covering $\th_p: \widetilde \sX \to \sX$ such that the composition
 	 $$
 	 \Z\left[\om\right] \cong \Z_p \to \pi_1\left(\sX, x_0 \right) \to G\left(\left. \widetilde \sX \right| \sX \right)
 	 $$
 	 is isomorphism of Abelian groups. It turns out that  the composition $\om \circ \th_p$ represents a trivial element $\left[\om \circ \th_p\right]= p\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$. So there is a homotopy $\Phi : S^1 \times \left[0, 1\right]\to \sX$ with
 	\bean
 	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \\ \Phi\left( s, 1\right) = x_0, \\
-	\forall t\in  \left[0, 1\right]\quad   \Phi\left(x_0, t\right) = x_0
+	\forall t\in  \left[0, 1\right]\quad   \Phi\left(x_0, t\right) = x_0.
 	\eean 
-	which can can be regarded  as a continuous map $\Phi: C\om \to \sX$ where
-	\bean
-C\om \bydef \left( S^1\times  \left[0, 1\right]\right) /\left(\{x_0\} \times  \left[0, 1\right]\cup S^1\times \{0\}\right)/\sim_{\th_p}
-	\eean
-	where the equivalence relation $\sim_{\th_p}$ is given by
-	\bean
-	\left(s', 0 \right) \sim_{\th_p} 	\left(s'', 0 \right)\quad \Leftrightarrow\quad \th_p\left( s'\right) = \th_p\left( s''\right). 
-	\eean
-Let
-	$ C'\om$ be the mapping cone defined by the following way:
-	\begin{itemize}
-		\item there is a mapping cylinder $M_{\th_p}$ (cf. Definition \ref{mapping_cylinder_defn}),
-		\item similarly to \eqref{top_cp_eqn}  $C'\om\bydef M_{\th_p} / j\left(S^1 \right)$. 
-	\end{itemize}
-	If $m_0 \in C'\om$ corresponds to $j\left(S^1 \right)$ the $\om \circ \th_p$ can be represented by a composition
+	From the Lemma \ref{top_red_cone_lem} the homotopy $\Phi$ yields e is a continuous map $F: CS^1\to \sX$ where $CS^1$ is the reduced cone over $S^1$ (cf. Definition \ref{top_red_cone_defn}). On the other hand the map $F$ is such that
+	$$
+\th_p\left( x'\right) = 	\th_p\left( x''\right)\quad \Leftrightarrow \quad F\left(\left[x', 1\right] \right) = F\left(\left[x'', 1\right] \right)
+	$$
+	and from the above equation turns out that there is a decomposition
+	\newline
+	\begin{tikzcd}
+	CS^1 \arrow[rd, "F"]\arrow[rr, "\varphi"] & & C_{\th_p}\arrow[ld]\\
+	& \sX &
+	\end{tikzcd}
+	\\
+where $C_{\th_p}$ is the mapping cone of the covering $\th_p$ (cf. Definition \ref{top_mapping_cone_defn}). One the other hand there is the natural injective continuous map  $\psi: S^1 \hookto C_{\th_p}$ such that the image of $\varphi\left( \left[x, 1\right]\right) = \psi \circ \th_p\left(x \right)$. In result there is the following diagram  
+	\newline
+\begin{tikzcd}
+	S^1 \arrow[rd, "\om"]\arrow[rr, "\psi"] & & C_{\th_p}\arrow[ld]\\
+	& \sX &
+\end{tikzcd}
+\\
+On the other hand there is a given by \eqref{top_cp_eqn} space $C'\th_p$ which is a factor space of $S^1 \times \left[0, 1\right]/\sim_{\th_p}$ where
+\bean
+\forall x', x'' \in S^1 \quad \left(x', 0 \right) \sim_{\th_p}  \left(x'', 0 \right) ,\\
+\forall x', x'' \in S^1 \quad \left(x', 1 \right) \sim_{\th_p}  \left(x'', 1 \right)\quad \Leftrightarrow \quad \th_p\left(x' \right) =  \th_p\left(x'' \right)
+\eean
+If $m_0\in $ is the image of $S^1 \times \{0\}$ then the map $\om: S^1 \to \sX$ can be represented by the following composition
+
 	\be\label{h_fin_comp_eqn}
 	S^1 \xrightarrow{} C'\om\setminus \{m_0\} \to C'\om\to C\om \to \sX.
 	\ee
+The composition of closed paths 
+	$$
+\underbrace{\om * ... * \om}_{p -\text{times}}: \left( S^1, s_0\right) 	\to \left(\sX, x_0 \right) 
+	$$
+can be uniquely lifted up to the closed path $\widetilde \om : $
+
+\paragraph{title}	
+\begin{empt}\label{top_xg_empt}
+	If $\sX$ is  a connected, locally connected and weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}) and $G \subset \pi^{\mathrm{w}}_1\left(\sX, x_0\right)$ is a subgroup then one can naturally construct a topological space ${\sX}\left[G\right]$. As a set ${\sX}\left[G\right]$ equals to $G \times \sX$, and the topology of ${\sX}\left[G\right]$ is generated by sets
+	\be\label{top_xg_eqn}
+	\left( g, \sU\right) \bydef \left\{\left. \left(g, x  \right)\in G \times \sX \right| x \in \sU\right\}
+	\ee
+	where $\sU\subset \sX$ is a connected, semilocally proper space (cf. Definition \ref{top_weakly_semi1_defn}). We leave to the reader the prove of the following statements: 
+	\begin{itemize}
+		\item[(i)] the given by \eqref{top_xg_eqn} family satisfies to the  Definition \ref{top_base_defn}),
+		\item[(ii)] there is the natural   covering $p_G : {\sX}\left[G\right] \to \sX$ such that $G\left(\left. {\sX}\left[G\right] \right| \sX\right)\cong G$.
+	\end{itemize}
+\end{empt}
+\begin{definition}\label{top_xg_defn}
+	Under the hypothesis \ref{top_base_defn} we say that ${\sX}\left[G\right]$ is the $\sX$-$G$-\textit{space}, and the map $p_G : {\sX}\left[G\right] \to \sX$ is the $\sX$-$G$-\textit{covering}.
+\end{definition}
+\begin{empt}\label{top_xgp_empt}
+	Any $\widetilde x \in {\sX}\left[G\right]$ can be obtained by the following algorithm. We define a weak $x_0$-path $\mathfrak p = \left(\sU_0, ..., \sU_n \right)$ such that $p_G\left( \widetilde x\right)= x\in \sU_n$. Then we find a closed $x_0$ path $\mathfrak p'$ which is a representative of $g \in G$. There are the $p_G$-$\widetilde x_0$-lift $\widetilde{\mathfrak p}= \left(\widetilde \sU_1, ..., \widetilde \sU_m\right)$ of the composition $\mathfrak p' \circ \mathfrak p$, and  $\widetilde x$ is a unique point such that $\widetilde x \in \widetilde \sU_m$ and $p_G\left( \widetilde x\right)= x$. Any closed $\widetilde x_0$-path is contractible (cf. Definition \ref{top_contactible_path_defn}),
+\end{empt}
+
+
+\paragraph{title}
 	It follows that $\om = \Phi \circ u$ where the continuous  map $f' : S^1 \to C'\om$ comes from the commutative diagram of the Definition \ref{mapping_cylinder_defn}. 	Moreover   a point $m_0 \in C'_{\th_p}$ which corresponds to $j\left(S^1 \right)$ then the map 	If  a point $m_0 \in M_{\th_p}$ which corresponds to $j\left(S^1 \right)$ then the map  $u : S^1 \to C'\om$  naturally yields a map $u' : S^1 \to C'\om\setminus \{m_0\}$. and one has
 	$$
 	\om = \Phi \circ f'.
@@ -20676,8 +20712,8 @@ is defined to be the pointed set $f_{\#}^{-1}\left(0 \right)$  and is denoted by
 We now show how to map another set of homotopy classes into  $\left[ \sX, \sA; \sY, \sB\right]$ so that its image equals $\ker f_{\#}$.
 \end{definition}
 \begin{definition}\label{top_mapping_cone_defn}\cite{spanier:at}
-The mapping cone $C_f$ of a map $f : \sX' \to \sX$ is defined 
-to be the quotient space of $C\sX' \wedge \sX$ by the identifications $\left[x', 1\right] = f\left( x'\right)$ for all $x' \in \sX'$. Given a map $f: \left(\sX', \sA'\right) \to  \left(\sX, \sA\right)$ there is a functorial imbedding of (X,A) as a closed subpair of 
+The \textit{mapping cone} $C_f$ of a map $f : \sX' \to \sX$ is defined 
+to be the quotient space of $C\sX' \wedge \sX$ by the identifications $\left[x', 1\right] = f\left( x'\right)$ for all $x' \in \sX'$. Given a map $f: \left(\sX', \sA'\right) \to  \left(\sX, \sA\right)$ there is a functorial imbedding of $\left(\sX, \sA \right)$  as a closed subpair of 
 $(C_{f'},C_{f''})$. 
 \end{definition}
 \begin{definition}\label{top_exact_defn}\cite{spanier:at}

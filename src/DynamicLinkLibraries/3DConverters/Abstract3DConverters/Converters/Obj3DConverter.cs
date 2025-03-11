@@ -93,10 +93,10 @@ namespace Abstract3DConverters.Converters
             yield return "Tr " + (1-diff.Opacity);
             yield return "Tf 0";
             yield return "illum 0";
-            yield return "Ka " + diff.AmbientColor.StringValue();
-            yield return "Kd " + diff.Color.StringValue();
-            yield return "Ks " + spec.Color.StringValue();
-            yield return "Ke " + emis.Color.StringValue();
+            yield return "Ka " + diff.AmbientColor.StringRGBValue();
+            yield return "Kd " + diff.Color.StringRGBValue();
+            yield return "Ks " + spec.Color.StringRGBValue();
+            yield return "Ke " + emis.Color.StringRGBValue();
             yield return "map_Ka 0";
             var image = effect.Image;
             var pth =  (image == null) ? "0" : image.GetImageFile();

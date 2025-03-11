@@ -29,7 +29,7 @@
         /// Constructor
         /// </summary>
         /// <param name="extension">Extension</param>
-        /// <param name="trianglesOnly">Supports only triagles</param>
+        /// <param name="trianglesOnly">Supports only triangles</param>
         /// <param name="requiresAbsolute">Requires absolute calculation</param>
         /// <param name="comment">Comment</param>
         public ConverterAttribute(string extension, bool trianglesOnly = false, bool requiresAbsolute = false, 

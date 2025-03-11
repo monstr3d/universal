@@ -9,7 +9,7 @@ namespace Abstract3DConverters.Meshes
     /// <summary>
     /// Abstract mesh
     /// </summary>
-    public class AbstractMesh : IParent, IMesh
+    public class AbstractMesh :  IMesh
     {
         #region Fields
 
@@ -33,10 +33,7 @@ namespace Abstract3DConverters.Meshes
 
         protected float[,] absolute;
 
-        protected List<Point> absolutePoints;
-
-        Func<List<Point>> GetAbsolute;
-
+  
         Func<float[,]> GetRelativeMatrix;
 
         Func<float[,]> GetAbsoluteMatrix;
@@ -370,16 +367,6 @@ namespace Abstract3DConverters.Meshes
 
 
         /// <summary>
-        /// Absolute points
-        /// </summary>
-        public List<Point> AbsolutePoints => GetAbsolute();
-
-        /// <summary>
-        /// Absolute polygons
-        /// </summary>
-       // public List<Polygon> AbsolutePolygons => GetAbsolutePolygons();
-
-        /// <summary>
         /// Relative matrix
         /// </summary>
         public float[,] RelativeMatrix => GetRelativeMatrix();
@@ -487,20 +474,6 @@ namespace Abstract3DConverters.Meshes
         }
 */
 
-        List<Point> GetStart()
-        {
-            throw new Exception("Get Start");
-  
-            CalculateAbsolute();
-            GetAbsolute = GetFinish;
-            return absolutePoints;
-
-        }
-        
-        List<Point> GetFinish()
-        {
-            return absolutePoints;
-        }
 
         float[,] GetRelativeMatrixStart()
         {

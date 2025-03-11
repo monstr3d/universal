@@ -32,7 +32,7 @@ namespace Collada.Converters.Classes.Complicated
             {
                 base.Create(xmlElement);
                 var l = new List<Abstract3DConverters.Materials.Material>();
-                var diffuse = new DiffuseMaterial(Transparent, Ambient, 1f - (float)Transparency);
+                var diffuse = new DiffuseMaterial(DiffuseColor, Ambient, 1f - (float)Transparency);
                 l.Add(diffuse);
                 var emis = new EmissiveMaterial(Emission);
                 l.Add(emis);

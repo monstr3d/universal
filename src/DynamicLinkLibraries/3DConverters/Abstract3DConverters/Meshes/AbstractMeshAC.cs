@@ -13,7 +13,17 @@ namespace Abstract3DConverters.Meshes
 
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
-        List<Material> materials = new();
+        protected override Effect Effect 
+        { 
+            get => base.Effect; 
+            set => base.Effect = value; 
+        }
+
+        List<Material> Materials
+        {
+            get;
+            set;
+        }
 
         List<string> mats = new List<string>();
 
@@ -34,223 +44,209 @@ namespace Abstract3DConverters.Meshes
             private set;
         }
 
-
-
-        internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials, List<string> l, AcCreator creator) : base(null, null, null, creator)
+        internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials1, List<string> l, AcCreator creator) : base(null, null, null, creator)
         {
-            var directory = Creator.Directory;
-            AcCreator = Creator as AcCreator;
-            var i = creator.Position + 1;
-            var ltex = new List<int>();
-            var dd = new Dictionary<int, float[]>();
-            var pos = creator.Position;
-            this.materials = materials;
-            this.l = l;
-            int nv = -1;
-            int ns = -1;
-            int txt = 0;
-            var ds = new Dictionary<int, float[]>();
-            var vrt = new List<float[]>();
-            var line = l[i];
-            var str = s.ToString(line, "name ");
-            if (parent != null)
+            try
             {
-                Parent = parent;
-            }
-
-            if (str != null)
-            {
-                Name = str;
-                ++i;
-            }
-            else
-            {
-                Name = "";
-            }
-            for (; i < l.Count; i++)
-            {
-                line = l[i];
-                var kids = s.ToReal<int>(line, "kids");
-                if (kids != null)
+                var directory = Creator.Directory;
+                AcCreator = Creator as AcCreator;
+                var i = creator.Position + 1;
+                var ltex = new List<int>();
+                var dd = new Dictionary<int, float[]>();
+                var pos = creator.Position;
+                Materials = materials1;
+                this.l = l;
+                int nv = -1;
+                int ns = -1;
+                int txt = 0;
+                var ds = new Dictionary<int, float[]>();
+                var vrt = new List<float[]>();
+                var line = l[i];
+                var str = s.ToString(line, "name ");
+                if (parent != null)
                 {
-                    var n = kids.Value;
-                    AcCreator.Position = i + 1;
-                    if (n > 0)
-                    {
-                        if (parent != null)
-                        {
-                            Parent = parent;
-                        }
-                    }
-                    AbstractMesh m = this;
-                    if (Parent == null & (parent != null))
-                    {
-                        m = parent;
-                    }
-                    Zero();
-                    for (var k = 0; k < n; k++)
-                    {
-                        new AbstractMeshAC(this, materials, l, AcCreator);
-                    }
-                    return;
+                    Parent = parent;
                 }
-                var loc = s.ToString(line, "loc ");
-                if (loc != null)
+
+                if (str != null)
                 {
-                    var location = s.ToRealArray<float>(loc);
-                    TransformationMatrix = [ 1, 0, 0, 0,
+                    Name = str;
+                    ++i;
+                }
+                else
+                {
+                    Name = "";
+                }
+                for (; i < l.Count; i++)
+                {
+                    line = l[i];
+                    var kids = s.ToReal<int>(line, "kids");
+                    if (kids != null)
+                    {
+                        var n = kids.Value;
+                        AcCreator.Position = i + 1;
+                        if (n > 0)
+                        {
+                        }
+                        AbstractMesh m = this;
+                        if (Parent == null & (parent != null))
+                        {
+                            m = parent;
+                        }
+                        Zero();
+                        for (var k = 0; k < n; k++)
+                        {
+                            if (creator.Position + 1 >= l.Count)
+                            {
+                                return;
+                            }
+                            new AbstractMeshAC(this, Materials, l, AcCreator);
+                        }
+                        return;
+                    }
+                    var loc = s.ToString(line, "loc ");
+                    if (loc != null)
+                    {
+                        var location = s.ToRealArray<float>(loc);
+                        TransformationMatrix = [ 1, 0, 0, 0,
                                              0, 1, 0, 0,
                                              0, 0, 1, 0,
                                             location[0], location[1], location[2], 1 ];
-                }
-                var texture = s.ToString(line, "texture ");
-                if (texture != null)
-                {
-                    Image = new Image(texture, directory);
-                }
-                var numvert = s.ToReal<int>(line, "numvert ");
-                if (numvert != null)
-                {
-                    if (vrt.Count > 0)
+                    }
+                    var texture = s.ToString(line, "texture ");
+                    if (texture != null)
                     {
+                        Image = new Image(texture, directory);
+                    }
+                    var numvert = s.ToReal<int>(line, "numvert ");
+                    if (numvert != null)
+                    {
+                        if (vrt.Count > 0)
+                        {
+                            continue;
+                        }
+                        nv = numvert.Value;
+                        var v = new List<float[]>();
+                        Vertices = v;
+                        var j = i + 1;
+                        for (var b = 0; b < nv; b++)
+                        {
+                            var vertex = s.ToRealArray<float>(l[j]);
+                            v.Add(vertex);
+                            vrt.Add(vertex);
+                            ++j;
+                        }
+                        i = j - 1;
                         continue;
                     }
-                    nv = numvert.Value;
-                    var v = new List<float[]>();
-                    Vertices = v;
-                    var j = i + 1;
-                    for (var b = 0; b < nv; b++)
+                    var numsurf = s.ToReal<int>(line, "numsurf ");
+                    if (numsurf != null)
                     {
-                        var vertex = s.ToRealArray<float>(l[j]);
-                        v.Add(vertex);
-                        vrt.Add(vertex);
-                        ++j;
-                    }
-                    i = j - 1;
-                    continue;
-                }
-                var numsurf = s.ToReal<int>(line, "numsurf ");
-                if (numsurf != null)
-                {
-                    ns = numsurf.Value;
-                    int mt = -1;
-                    var nc = numsurf.Value;
-                    if (nc > 0)
-                    {
-                        if (Textures == null)
+                        ns = numsurf.Value;
+                        int mt = -1;
+                        var nc = numsurf.Value;
+                        if (nc > 0)
                         {
-                            Textures = new();
-                        }
-                    }
-                    for (var surf = 0; surf < nc; surf++)
-                    {
-                        i += 2;
-                        var mp = s.ToReal<int>(l[i], "mat ");
-                        if (mp != null)
-                        {
-                            mt = mp.Value;
-                            Effect = AcCreator.GetEffect(mt, Image);
-                            if (!mats.Contains(Effect.Name))
+                            if (Textures == null)
                             {
-                                mats.Add(Effect.Name);
-                            }
-                            else
-                            {
-
-                            }
-                            if (mats.Count != 1)
-                            {
-
+                                Textures = new();
                             }
                         }
-                        ++i;
-                        var refs = s.ToReal<int>(l[i], "refs ");
-                        if (refs != null)
+                        for (var surf = 0; surf < nc; surf++)
                         {
-                            var lp = new List<PointTexture>();
-
-                            var rf = refs.Value;
-                            for (var rr = 0; rr < rf; rr++)
+                            i += 2;
+                            var mp = s.ToReal<int>(l[i], "mat ");
+                            if (mp != null)
                             {
-                                ++i;
-                                var il = l[i];
-                                var ss = s.Split(il);
-                                var key = s.ToReal<int>(ss[0].Trim());
-                                if (!ltex.Contains(key))
+                                mt = mp.Value;
+                                Effect = AcCreator.GetEffect(mt, Image);
+                                if (!mats.Contains(Effect.Name))
                                 {
-                                    ltex.Add(key);
+                                    mats.Add(Effect.Name);
                                 }
-                                Textures.Add([s.ToReal<float>(ss[1].Trim()),
-                                    s.ToReal<float>(ss[2].Trim()) ]);
-                                var pt = new PointTexture(this, key, Textures.Count - 1);
-                                lp.Add(pt);
+                                else
+                                {
+
+                                }
+                                if (mats.Count != 1)
+                                {
+
+                                }
                             }
-                            var polygon = new Polygon(this, lp.ToArray(), Effect);
-                            if (Polygons == null)
+                            ++i;
+                            var refs = s.ToReal<int>(l[i], "refs ");
+                            if (refs != null)
                             {
-                                Polygons = new();
+                                var lp = new List<PointTexture>();
+                                var rf = refs.Value;
+                                for (var rr = 0; rr < rf; rr++)
+                                {
+                                    ++i;
+                                    var il = l[i];
+                                    var ss = s.Split(il);
+                                    var key = s.ToReal<int>(ss[0].Trim());
+                                    if (!ltex.Contains(key))
+                                    {
+                                        ltex.Add(key);
+                                    }
+                                    Textures.Add([s.ToReal<float>(ss[1].Trim()),
+                                    s.ToReal<float>(ss[2].Trim()) ]);
+                                    var pt = s.CreatePointTexture(this, key, Textures.Count - 1);
+                                    if (pt == null)
+                                    {
+                                        lp = null;
+                                        break;
+                                    }
+                                    lp.Add(pt);
+                                }
+                                if (lp == null)
+                                {
+                                    continue;
+                                }
+                                var polygon = new Polygon(this, lp.ToArray(), Effect);
+                                if (Polygons == null)
+                                {
+                                    Polygons = new();
+                                }
+                                Polygons.Add(polygon);
                             }
-                            Polygons.Add(polygon);
                         }
                     }
                 }
+                if (mats.Count > 0)
+                {
+                    Disintegrate();
+                }
             }
-            if (mats.Count > 0)
+            catch (Exception exception)
             {
-                Disintegrate();
+                exception.HandleExceptionDouble("Ac Creator Constructor 1");
             }
         }
 
-        /*            for (var i = 0; i < Points.Count; i++)
-                    {
-                        if (!ltex.Contains(i))
-                        {
-
-                        }
-                    }
-                    if (mats.Count > 1)
-                    {
-                        Disintegrate();
-                    }
-                }
-                    catch (Exception ex)
-                    {
-                        ex.HandleException();
-                    }
-        }
-                }*/
-
+ 
         private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
         {
-            Parent = parent;
-            IMesh pmesh = parent;
-            Polygons = new();
-            Name = pmesh.Name + "_" + Path.GetRandomFileName();
-            Effect = polygon.Effect;
-            var pts = new Dictionary<int, Point>();
-            var dd = new Dictionary<int, int>();
-            var l = new List<int>();
-            int k = 0;
-            /*         foreach (var i in polygon.Indexes)
-                     {
-                         if (!pts.ContainsKey(i))
-                         {
-                             var c = Points.Count;
-                             l.Add(c);
-                             dd[i] = c;
-                             Points.Add(parent.Points[i]);
-                         }
-                         else
-                         {
-                             l.Add(dd[i]);
-                         }
-                     }
-                     var poly = new Polygon(l.ToArray(), Material);
-                     Polygons.Add(poly);*/
+            try
+            {
+
+                Parent = parent;
+                IMesh pmesh = parent;
+                Polygons = new();
+                Name = pmesh.Name + "_" + Path.GetRandomFileName();
+                Effect = polygon.Effect;
+                var dd = new Dictionary<int, int>();
+                var l = new List<int>();
+                int k = 0;
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Ac Creator Constructor 2");
+            }
         }
 
-
-        public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
+        public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, 
+            int count, List<string> l, List<Material> materials1, string directory) :
             base(name, parent, null, creator)
         {
             try
@@ -259,7 +255,7 @@ namespace Abstract3DConverters.Meshes
                 var dd = new Dictionary<int, float[]>();
                 var pos = creator.Position;
                 this.count = count;
-                this.materials = materials;
+                Materials = materials1;
                 this.l = l;
                 int nv = -1;
                 int ns = -1;
@@ -317,7 +313,7 @@ namespace Abstract3DConverters.Meshes
                             i += 2;
                             var mp = s.ToReal<int>(l[i], "mat ");
                             mt = mp.Value;
-                            var mtt = materials[mt].Clone() as Material;
+                            var mtt = Materials[mt].Clone() as Material;
                             var mn = mtt.Name;
                             if (Image != null)
                             {
@@ -391,7 +387,7 @@ namespace Abstract3DConverters.Meshes
                 {
                     int h = 0;
                     h = dp[p];
-                    var mat = materials[h];
+                    var mat = Materials[h];
                     new AbstractMeshAC(this, p, AcCreator);
                 }
             }

@@ -3,7 +3,7 @@ using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Interfaces
 {
-    public interface IMesh : IGeometry
+    public interface IMesh : IGeometry, IParent
     {
         /// <summary>
         /// Effect

@@ -90,7 +90,7 @@ namespace Collada.Converters.MeshCreators
                 ex.HandleException();
             }
             Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
-            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Lambert), typeof(Blinn), typeof(Effect), typeof(Material),
+            typeof(Diffuse), typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Lambert), typeof(Blinn), typeof(Effect), typeof(Material),
             typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(PolyList),
             typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
@@ -286,6 +286,8 @@ namespace Collada.Converters.MeshCreators
                 {
                     Put(xmlElement);
                     var mi = methods[tag];
+          //          xmlElement.OuterXml.Log(1);
+          //          "+++++".Log(1);
                     return (e) => mi.Invoke(null, [e, this]);
                 }
             }

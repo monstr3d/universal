@@ -1,17 +1,24 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using System.Drawing;
+using Abstract3DConverters.Attributes;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
-/*
+
 namespace Abstract3DConverters.Converters
 {
    
-    [Converter(".ac")]
+    [Converter(".ac", false, true)]
     public class AcConverter : LinesMeshConverter
     {
         #region Fields
 
        List<string> materials = new();
+
+        List<Material> MaterialPP
+        {
+            get;
+
+        } = new();
 
      //   Dictionary<string, int> dm = new();
 
@@ -31,7 +38,7 @@ namespace Abstract3DConverters.Converters
 
         protected override List<string> Combine(IEnumerable<object> meshes)
         {
-            lines.AddRange(materials);
+           // lines.AddRange(materials);
             var ms = meshes.ToList();
             var count = ms.Count;
             lines.Add("OBJECT world");
@@ -41,7 +48,13 @@ namespace Abstract3DConverters.Converters
             return lines;
         }
 
-        protected override List<string> CreateLines(AbstractMesh mesh)
+        protected virtual void Add(List<string> parent, List<string> child)
+        {
+            base.Add(parent, child);
+        }
+
+
+        protected override List<string> CreateLines(IMesh mesh)
         {
             var l = new List<string>();
             var children = mesh.Children;
@@ -50,16 +63,18 @@ namespace Abstract3DConverters.Converters
             {
                 l.Add("OBJECT group");
                 AddName(mesh, l);
+                l.Add("kids " + kids);
+                return l;
                 foreach (var im in children)
                 {
-                    var lt = converter.Create(im) as List<string>;
+                    var lt = Converter.Create(im) as List<string>;
                     l.AddRange(lt);
                 }
                 return l;
             }
-            if (mesh.Points == null)
+            if (mesh.Vertices.Count == 0)
             {
-
+                return l;
             }
             var effect = mesh.Effect;
             if (effect == null)
@@ -68,27 +83,33 @@ namespace Abstract3DConverters.Converters
             }
             l.Add("OBJECT poly");
             AddName(mesh, l);
-            var image = effect.Image;
-            if (image != null)
+            if (effect != null)
             {
-                l.Add("texture " + image.Name);
+                var image = effect.Image;
+                if (image != null)
+                {
+                    l.Add("texture " + image.Name);
+                }
             }
-            l.Add("numvert " + mesh.Points.Count);
-            foreach (var point in mesh.AbsolutePoints)
+            l.Add("numvert " + mesh.AbsoluteVertices.Count);
+            foreach (var point in mesh.AbsoluteVertices)
             {
-                l.Add(s.StringValue(point.Vertex));
+                l.Add(s.StringValue(point));
             }
-            l.Add("numsurf " + mesh.AbsolutePolygons.Count);
-            foreach (var polygon in mesh.AbsolutePolygons)
+            l.Add("numsurf " + mesh.Polygons.Count);
+            foreach (var polygon in mesh.Polygons)
             {
                 var mate = polygon.Effect.Name;
                 var i = materials.IndexOf(mate);
+                i =  EffectsSP[polygon.Effect];
+                i = GetMatInd(polygon.Effect);
+                l.Add("SURF 0x10");
                 l.Add("mat " + i);
                 i = polygon.Points.Length;
                 l.Add("refs " + i);
                 foreach (var point in polygon.Points)
                 {
-                    l.Add(point.Index + " " + s.StringValue(point.Texture));
+                    l.Add(point.VertexIndex + " " + s.StringValue(point.Texture));
                 }
 
             }
@@ -97,7 +118,27 @@ namespace Abstract3DConverters.Converters
 
         }
 
-        protected override  Dictionary<string, Effect> Effects
+        internal Dictionary<string, int> MaterialsSP
+        {
+            get;
+        } = new();
+
+        internal Dictionary<Effect, int> EffectsSP
+        {
+            get;
+        } = new();
+
+        internal int GetMatInd(Effect effect)
+        {
+            var n = MaterialPP.IndexOf(effect.Material);
+            if (n < 0)
+            {
+                throw new Exception("GetMatInd");
+            }
+            return n;
+        }
+
+        protected override Dictionary<string, Effect> Effects
         {
             set
             {
@@ -106,44 +147,47 @@ namespace Abstract3DConverters.Converters
                 var i = 0;
                 foreach (var item in value)
                 {
-                    //  dm[item.Key] = i;;
-                    // ++i;
-                    materials.Add(item.Value.Name);
-                    var st = s.Shrink(GetMaterial(item.Value.Material));
-                    lines.Add(st);
+                    EffectsSP[item.Value] = i;
+                    MaterialsSP[item.Key] = i;
+                    ++i;
+                    materials.Add(item.Key);
+                    var mt = item.Value.Material;
+                    if (mt != null)
+                    {
+                        if (MaterialPP.Contains(mt))
+                        {
+                            continue;
+                        }
+                        MaterialPP.Add(mt);
+                        var st = s.Shrink(GetMaterial(item.Key, item.Value.Material));
+                        lines.Add(st);
+                    }
+ 
                 }
             }
-
         }
 
         #endregion
 
         #region Members
 
-        private void AddName(AbstractMesh mesh, List<string> list)
+        private void AddName(IMesh mesh, List<string> list)
         {
             var n = mesh.Name;
-            var nn = "name" + s.Wrap(n);
-            lines.Add(nn);
-            lines.Add("data " + n.Length);
-            lines.Add(n);
+            var nn = "name " + s.Wrap(n);
+            list.Add(nn);
+            list.Add("data " + n.Length);
+            list.Add(n);
         }
 
-    
-        protected override void Add(List<string> parent, List<string> child)
+        string GetMaterial(string name, Material material)
         {
-
-        }
-
-        string GetMaterial(Material material)
-        {
-            var st = "MATERIAL " + s.Wrap(material.Name) + " ";
+            var st = "MATERIAL " + s.Wrap(name) + " ";
             float trans = 0;
             float shi = 0;
             string diff = " 0 0 0 ";
             string emis = " 0 0 0 ";
             string spec = " 0 0 0 ";
-
             if (material is MaterialGroup group)
             {
                 foreach (var mat in group.Children)
@@ -151,7 +195,7 @@ namespace Abstract3DConverters.Converters
                    switch (mat)
                     {
                         case DiffuseMaterial diffuseMaterial:
-                            trans = diffuseMaterial.Opacity - 1;
+                            trans =  1f - diffuseMaterial.Opacity;
                             diff =  GetMaterial(diffuseMaterial);
                             break;
                         case SpecularMaterial specularMaterial:
@@ -164,8 +208,12 @@ namespace Abstract3DConverters.Converters
                             break;
                     }
                 }
+                st += diff + " emis " + emis + " spec " + spec + " shi " + shi + " trans " + trans;
             }
-            st += diff + " emis " + emis + " spec " + spec + " shi " + shi + " trans " + trans;
+            else
+            {
+                throw new Exception("MATERIAL AC");
+            }
             return st;
         }
 
@@ -176,7 +224,7 @@ namespace Abstract3DConverters.Converters
             var col = material.Color;
             if (col != null)
             {
-                s += col.StringValue();
+                s += col.StringRGBValue();
             }
             else
             {
@@ -186,22 +234,36 @@ namespace Abstract3DConverters.Converters
             var amb = material.AmbientColor;
             if (amb != null)
             {
-                return s + amb.StringValue() + " ";
+                return s + amb.StringRGBValue() + " ";
             }
             return  s + "0 0 0 ";
         }
         string GetMaterial(SpecularMaterial material)
         {
-            return  material.Color.StringValue() + " ";
+            if (material == null)
+            {
+                return "0 0 0 ";
+            }
+            if (material.Color == null)
+            {
+                return "0 0 0 ";
+            }
+            return material.Color.StringRGBValue() + " ";
         }
         string GetMaterial(EmissiveMaterial material)
         {
-            return material.Color.StringValue() + " ";
+            if (material == null)
+            {
+                return "0 0 0 ";
+            }
+            if (material.Color == null)
+            {
+                return "0 0 0 ";
+            }
+            return material.Color.StringRGBValue() + " ";
         }
-
  
         #endregion
 
     }
 }
-*/

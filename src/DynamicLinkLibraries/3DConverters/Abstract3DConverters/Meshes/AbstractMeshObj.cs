@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
@@ -50,59 +51,21 @@ namespace Abstract3DConverters.Meshes
                     var l = new List<PointTexture>();
                     foreach (var i in ind)
                     {
-                        var point = new PointTexture(this, i[0], i[1], i[2]);
+                        var point = s.CreatePointTexture(this, i[0], i[1], i[2]);
+                        if (point == null)
+                        {
+                            throw new Exception("AbstractMeshObj");
+                        }
                         l.Add(point);
                     }
                     var polygon = new Polygon(this, l.ToArray(), Effect);
                     Polygons.Add(polygon);
-                }
-                return;
-                var direct = new Dictionary<int, int>();
-
-                foreach (var idx in indexes)
-                {
-                    var pp = new List<PointTexture>();
-                    foreach (var item in idx)
-                    {
-                        float[] norm = null;
-                        int nv = -1;
-                        int nn = -1;
-                        int nt = -1;
-                        var iv = item[0] - 1;
-                        var it = item[1] - 1;
-                        var ino = -1;
-                        if (item.Length > 2)
-                        {
-                            ino = item[2] - 1;
-                        }
-                        if (direct.ContainsKey(iv))
-                        {
-                            nv = direct[iv];
-                        }
-                        else
-                        {
-                        }
-                        try
-                        {
-                            var k = Global[nv];
-                            var txt = new PointTexture(this, nv, k[0], k[1]);
-                            pp.Add(txt);
-                        }
-                        catch (Exception e)
-                        {
-                            e.HandleException();
-                            throw new IncludedException(e, "OBJ TEXUTRE ERROR");
-                        }
-                    }
-                    Polygons.Add(new Polygon(this, pp.ToArray(), Effect));
                 }
             }
             catch (Exception exception)
             {
                 exception.HandleExceptionDouble("AbstractMeshObj 1");
             }
-
-
         }
 
 
@@ -223,7 +186,6 @@ namespace Abstract3DConverters.Meshes
                 shift[0] += vertices.Count;
                 shift[1] += textures.Count;
                 shift[2] += normals.Count;
-                var points = new Dictionary<int, Point>();
                 var dic = new Dictionary<int, int[]>();
                 Normals = normals;
                 foreach (var ind in indexes)
@@ -231,10 +193,6 @@ namespace Abstract3DConverters.Meshes
                     foreach (var item in ind)
                     {
                         int id = item[0];
-                        if (points.ContainsKey(id))
-                        {
-                            continue;
-                        }
                         float[] vert = null;
                         if (id < 0)
                         {
@@ -267,14 +225,9 @@ namespace Abstract3DConverters.Meshes
                                 }
                             }
                         }
-                        var point = new Point(vert, norm);
-                        points[id] = point;
-                        dic[id] = item;
-                    }
+                      }
                 }
 
-                var l = new List<int>(points.Keys);
-                l.Sort();
                 var dp = new Dictionary<int, int>();
                 Polygons = new();
                 foreach (var ind in indexes)
@@ -295,7 +248,12 @@ namespace Abstract3DConverters.Meshes
                         }
                         var nv = item[0];
                         var k = Global[nv];
-                        var pt = new PointTexture(this, nv, k[0], k[1]);
+                        var pt = s.CreatePointTexture(this, nv, k[0], k[1]);
+                        if (pt == null)
+                        {
+                            throw new Exception("AbstractMeshObj");
+                        }
+                       
                         li.Add(pt);
 
                     }

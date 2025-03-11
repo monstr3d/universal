@@ -1,7 +1,6 @@
 ﻿using System.Xml;
 
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
@@ -51,7 +50,8 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
- 
+        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private PolyList(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             try
@@ -135,13 +135,18 @@ namespace Collada.Converters.Classes.Complicated
                         PointTexture point = null;
                         if (offs[2] >= 0)
                         {
-                            point = new PointTexture(this, idx, idt, arr[tn + offs[2]]);
+                            point = s.CreatePointTexture(this, idx, idt, arr[tn + offs[2]]);
                         }
                         else
                         {
-                            point = new PointTexture(this, idx, idt);
+                            point = s.CreatePointTexture(this, idx, idt);
 
                         }
+                        if (point == null)
+                        {
+                            throw new Exception("PolyList");
+                        }
+
                         tn += count;
                         points.Add(point);
                     }
