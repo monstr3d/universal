@@ -5,6 +5,7 @@ using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters.Converters
@@ -88,7 +89,7 @@ namespace Abstract3DConverters.Converters
                 var points = polygon.Points;
                 if (points.Length != 3)
                 {
-                    throw new Exception("Illegal Xaml Polygon");
+                    ("Illegal Xaml Polygon dimension = " + points.Length).Log(-1);
                 }
                 foreach (var point in points)
                 {

@@ -34,10 +34,6 @@ namespace Abstract3DConverters.Points
                 VertexIndex = vertex;
                 TextureIndex = texture;
                 NormalIndex = normal;
-                if (vertex >= geometry.Vertices.Count)
-                {
-
-                }
                 Vertex = geometry.Vertices[vertex];
                 Texture = geometry.Textures[texture];
                 if (geometry.Normals == null)

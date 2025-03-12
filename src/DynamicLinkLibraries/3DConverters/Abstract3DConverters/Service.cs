@@ -39,11 +39,15 @@ namespace Abstract3DConverters
         /// <returns>True if right</returns>
         public bool Check(IGeometry geometry, int vertex, int texture, int normal = -1)
         {
-            if (vertex >= geometry.Vertices.Count)
+            if (Exceeds(geometry.Vertices, vertex))
             {
                 return false;
             }
-            if (texture >= geometry.Textures.Count)
+            if (Exceeds(geometry.Textures, texture))
+            {
+                return false;
+            }
+            if (Exceeds(geometry.Normals, normal))
             {
                 return false;
             }
@@ -145,7 +149,7 @@ namespace Abstract3DConverters
         }
 
         /// <summary>
-        /// Checks wherether an list is empty
+        /// Checks whether an list is empty
         /// </summary>
         /// <param name="list">The list</param>
         /// <returns>True is empty</returns>
@@ -156,6 +160,36 @@ namespace Abstract3DConverters
                 return true;
             }
             return list.Count == 0;
+        }
+
+        /// <summary>
+        /// Checks whether length of array exceeds number
+        /// </summary>
+        /// <param name="array">The array</param>
+        /// <param name="number">The nunber</param>
+        /// <returns>True if exceeds</returns>
+        public bool Exceeds(Array array, int number)
+        {
+            if (IsEmpty(array))
+            {
+                return number >= 0;
+            }
+            return array.Length <= number;
+        }
+
+        /// <summary>
+        /// Checks whether length of array exceeds number
+        /// </summary>
+        /// <param name="list">The array</param>
+        /// <param name="number">The number</param>
+        /// <returns>True if exceeds</returns>
+        public bool Exceeds(IList list, int number)
+        {
+            if (IsEmpty(list))
+            {
+                return number >= 0;
+            }
+            return list.Count <= number;
         }
 
 

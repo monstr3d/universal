@@ -99,12 +99,19 @@ namespace Abstract3DConverters.Converters
             l.Add("numsurf " + mesh.Polygons.Count);
             foreach (var polygon in mesh.Polygons)
             {
-                var mate = polygon.Effect.Name;
-                var i = materials.IndexOf(mate);
-                i =  EffectsSP[polygon.Effect];
-                i = GetMatInd(polygon.Effect);
+              //  var mate = polygon.Effect.Name;
+             //   var i = materials.IndexOf(mate);
+              //  i =  EffectsSP[polygon.Effect];
+                var i = GetMatInd(polygon.Effect);
+                if (i < 0)
+                {
+
+                }
                 l.Add("SURF 0x10");
-                l.Add("mat " + i);
+                if (i >= 0)
+                {
+                    l.Add("mat " + i);
+                }
                 i = polygon.Points.Length;
                 l.Add("refs " + i);
                 foreach (var point in polygon.Points)
@@ -130,6 +137,10 @@ namespace Abstract3DConverters.Converters
 
         internal int GetMatInd(Effect effect)
         {
+            if (effect == null)
+            {
+                return -1;
+            }
             var n = MaterialPP.IndexOf(effect.Material);
             if (n < 0)
             {

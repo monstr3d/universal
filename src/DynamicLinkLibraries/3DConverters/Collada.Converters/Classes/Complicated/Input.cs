@@ -116,9 +116,19 @@ namespace Collada.Converters.Classes.Complicated
             {
                 return null;
             }
+            if (semantic == "JOINT")
+            {
+                return null;
+            }
+            if (semantic == "INV_BIND_MATRIX")
+            {
+                return null;
+            }
+            if (semantic == "WEIGHT")
+            {
+                return null;
+            }
             throw new Exception("Class input exception 3");
         }
-
-
     }
 }

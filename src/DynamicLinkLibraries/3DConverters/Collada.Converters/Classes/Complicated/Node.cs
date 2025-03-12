@@ -45,6 +45,10 @@ namespace Collada.Converters.Classes.Complicated
             {
                 mm = s.Convert(mt.Matrix3D);
             }
+            if (mat == null)
+            {
+
+            }
             var mesh = Create(geom, mat, name, mm);
             if (mesh == null)
             {

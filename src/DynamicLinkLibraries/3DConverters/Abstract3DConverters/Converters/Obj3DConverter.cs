@@ -105,83 +105,78 @@ namespace Abstract3DConverters.Converters
 
         protected override List<string> CreateLines(IMesh mesh)
         {
-            var l = new List<string>();
-            if (!s.HasVertices(mesh))
+            try
             {
-                return l;
-            }
-            l.Add("");
-            l.Add("#");
-            l.Add("# object " + mesh.Name);
-            l.Add("#");
-            l.Add("");
-        //    var points = mesh.AbsolutePoints;
-            var vertices = mesh.AbsoluteVertices;
-            foreach (var v in vertices)
-            {
-                l.Add("v  " + s.StringValue(v));
-            }
-            l.Add("# " + vertices.Count + " vertices");
-            l.Add("");
-            var polygons = mesh.Polygons;
-            foreach (var polygon in polygons)
-            {
-                polygon.GetVertices(vertices);
-                var n = polygon.VertexNormal;
-                l.Add("vn " + s.StringValue(n));
-            }
-            l.Add("# " + polygons.Count + " vertex normals");
-            l.Add("");
-            if (false)
-            {
+                var l = new List<string>();
+                if (!s.HasVertices(mesh))
+                {
+                    return l;
+                }
+                if (s.IsEmpty(mesh.Polygons))
+                {
+                    return l;
+                }
+                l.Add("");
+                l.Add("#");
+                l.Add("# object " + mesh.Name);
+                l.Add("#");
+                l.Add("");
+                //    var points = mesh.AbsolutePoints;
+                var vertices = mesh.AbsoluteVertices;
+                foreach (var v in vertices)
+                {
+                    l.Add("v  " + s.StringValue(v));
+                }
+                l.Add("# " + vertices.Count + " vertices");
+                l.Add("");
+                var polygons = mesh.Polygons;
                 foreach (var polygon in polygons)
                 {
-                    foreach (var point in polygon.Points)
+                    var count = polygon.Points.Length;
+                    polygon.GetVertices(vertices);
+                    var n = polygon.VertexNormal;
+                    l.Add("vn " + s.StringValue(n));
+                }
+                l.Add("# " + polygons.Count + " vertex normals");
+                l.Add("");
+                var txt = mesh.Textures;
+                foreach (var t in txt)
+                {
+                    var str = "vt " + s.StringValue(t);
+                    if (t.Length == 2)
                     {
-                        var pt = point.Texture;
-                        var str = "vt " + s.StringValue(pt);
-                        if (pt.Length == 2)
-                        {
-                            str += " 0.0000";
-                        }
-                        l.Add(str);
-
+                        str += " 0.0000";
                     }
+                    l.Add(str);
                 }
-            }
-            var txt = mesh.Textures;
-            foreach (var t in txt)
-            {
-                var str = "vt " + s.StringValue(t);
-                if (t.Length == 2)
+                l.Add("# " + txt.Count + " texture coords");
+                l.Add("");
+                l.Add("g " + mesh.Name);
+                l.Add("usemtl " + mesh.Effect.Name);
+                l.Add("s 1");
+                for (int i = 0; i < polygons.Count; i++)
                 {
-                    str += " 0.0000";
+                    var str = "f";
+                    var polygon = polygons[i];
+                    var tn = i + numnorm;
+                    for (int j = 0; j < polygon.Points.Length; j++)
+                    {
+                        var p = polygon.Points[j];
+                        str += " " + (p.VertexIndex + numvert) + "/" + +(p.TextureIndex + numtext) + "/" + tn;
+                    }
+                    l.Add(str);
                 }
-                l.Add(str);
+                l.Add("# 0 polygons - " + polygons.Count + " triangles");
+                numvert += vertices.Count;
+                numtext += txt.Count;
+                numnorm += mesh.Polygons.Count;
+                return l;
             }
-            l.Add("# " + txt.Count + " texture coords");
-            l.Add("");
-            l.Add("g " + mesh.Name);
-            l.Add("usemtl " + mesh.Effect.Name);
-            l.Add("s 1");
-            for (int i = 0; i < polygons.Count; i++)
+            catch (Exception exception)
             {
-                var str = "f";
-                var polygon = polygons[i];
-                var tn = i + numnorm;
-                for (int j = 0; j < polygon.Points.Length; j++)
-                {
-                    var p = polygon.Points[j];
-                    str += " " + (p.VertexIndex + numvert) + "/" + +(p.TextureIndex + numtext) + "/" + tn;
-                }
-                l.Add(str);
+                exception.HandleExceptionDouble("Object 3D converter. Create lines");
             }
-            l.Add("# 0 polygons - " + polygons.Count + " triangles");
-            numvert += vertices.Count;
-            numtext += txt.Count;
-            numnorm += mesh.Polygons.Count;
-            return l;
+            return null;
         }
     }
-    
 }

@@ -857,6 +857,24 @@ namespace Collada
             throw new Exception("Collada Get");
         }
 
+        static public XmlElement GetParentXML<T>(this XmlNode element)  where T : class
+        {
+            var tag = typeof(T).GetTag().Tag;
+            var p = element.ParentNode;
+            if (p == null)
+            {
+                return null;
+            }
+            if (p is XmlElement e)
+            {
+                if (e.Name == tag)
+                {
+                    return e;
+                }
+            }
+            return p.GetParentXML<T>();
+        }
+
         static public T GetParent<T>(this XmlNode element) where T : class
         {
             var tag = typeof(T).GetTag().Tag;

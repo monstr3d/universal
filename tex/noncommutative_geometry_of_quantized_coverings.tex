@@ -12520,11 +12520,76 @@ If $m_0\in $ is the image of $S^1 \times \{0\}$ then the map $\om: S^1 \to \sX$ 
 	\be\label{h_fin_comp_eqn}
 	S^1 \xrightarrow{} C'\om\setminus \{m_0\} \to C'\om\to C\om \to \sX.
 	\ee
+The subgroup $\Z\left[\om\right] = \Z_p\left[\om\right]\cong \Z_p \subset \pi_1^{\text{ab}}\left( \sX, x_0\right)$ yields the $\sX$-$\Z_p$-{covering} $P_{\Z_p}: \sX\left[\Z_p\right] \to \sX$ (cf. Definition \ref{top_xg_defn})
 The composition of closed paths 
 	$$
 \underbrace{\om * ... * \om}_{p -\text{times}}: \left( S^1, s_0\right) 	\to \left(\sX, x_0 \right) 
 	$$
-can be uniquely lifted up to the closed path $\widetilde \om : $
+can be uniquely lifted up to the closed contractible  path $\widetilde \om :  \left( S^1, s_0\right) 	\to \left(\sX\left[\Z_p\right], \widetilde x_0 \right)$. If $w' \in C\left( S^1\right)$ is an unitary which represents a generator $\left[w'\right]\in K_1\left(C\left( S^1\right) \right)\cong \Z\left[w'\right] $ then $w'$ can be regarded as a map from $\widetilde \om\left( S^1\right)\to U\left( 1\right)$. This map can be extended up to a map $w: \sX\left[\Z_p\right]\to U\left(1 \right)$ since $\widetilde \om$ is the contractible closed path. The product
+$$
+\prod_{g \in \Z_p} g w : \sX\left[\Z_p\right]\to U\left(1 \right)
+$$
+is invariant with respect to $\Z_p$. So there is $u \in \sX \to U\left(1\right)$ such that
+$$
+\forall \widetilde x \in \sX\left[\Z_p\right] \quad \prod_{g \in \Z_p} g w\left( \widetilde x\right) = u\left(P_{\Z_p}\left( \widetilde x\right)  \right). 
+$$
+There is a  map
+\bean
+\mathrm{pow}_{p}: U\left( 1\right)\to U\left( 1\right),\\
+u \mapsto u^{p},
+\eean
+is such that if $\mathcal W\subset S^1$ is contained in the circular arc $\a$  of the size $\frac{2\pi}{p}$ then the restriction $\mathrm{pow}_{p}|_{\mathcal W}$ has left inverse, i.e.
+\be
+\left.\mathrm{pow}^{-1}_{p}\right|_{{\mathrm{pow}_{p}}\left(\mathcal W \right) }\circ \mathrm{pow}_{p}|_{\mathcal W} = \Id_{\mathcal W}
+\ee
+
+
+
+We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p}}\right]$ is $u_{\sX\left[\Z{p}\right]}$-$p$-\textit{admissible}  if  $u_{\sX\left[\Z{p}\right]}\left( \widetilde \sU\right)$ is a subset of a circular arc $\a$ of size $\frac{2\pi}{p}$.  Consider a family $\widetilde{\mathfrak A}$ of all connected open sets such that any $\widetilde\sU \in\widetilde{\mathfrak A}$ satisfies to following conditions:
+\begin{itemize}
+	\item $\widetilde \sU$ is mapped homeomorphically onto $P_{\Z_{p}}\left(\widetilde \sU\right) \subset \sX$. 
+	\item $\widetilde{\sU}$ is $u_{\sX\left[\Z{p}\right]}$-$p$-{admissible}. 
+\end{itemize}
+Let $\widetilde x_0$ be such that $P_{\Z_{p}}\left( \widetilde x_0\right)= x_0$ and let us construct $v_{\sX\left[\Z_{{p}}\right]} : \sX\left[\Z_{{p}}\right]\to U\left( 1\right)$ such that 
+\be\label{h_vx_eqn}
+\begin{split}
+	v_{\sX\left[\Z_{{p}}\right]}\left( \widetilde x_0\right) = 1,\\
+	v^{p}_{\sX\left[\Z_{{p}}\right]}=  u_\sX \circ C\left(  P_{\Z_{{p}}}\right). 
+\end{split}
+\ee
+If $\widetilde x_1 \in  \sX\left[\Z_{{p}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p}\right]}$-$p$-{admissible} then  a map 
+$$
+v_{\widetilde \sU_1}\bydef \left.\mathrm{pow}^{-1}_{p}\right|_{{\mathrm{pow}_{p}}\left(P_{\Z_{{p}}}\left( \widetilde\sU_1\right)  \right)}: \widetilde \sU_1 \to U\left( 1\right)
+$$	
+is  such that
+\bean
+v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
+\forall  \widetilde x \in \widetilde \sU_1 \quad v^{p}_{\widetilde \sU_1}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p}}}\left(\widetilde x \right).
+\eean   
+Similarly one can construct $v_{\widetilde \sU_2}: \widetilde \sU_1 \to U\left( 1\right)$ such that
+\bean
+\left. v_{\widetilde \sU_1}\right|_{ \widetilde \sU_1\cap  \widetilde \sU_2} = \left. v_{\widetilde \sU_2}\right|_{ \widetilde \sU_1\cap  \widetilde \sU_2},
+\\
+\forall  \widetilde x \in \widetilde \sU_2 \quad v^{p}_{\widetilde \sU_2}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p}}}\left(\widetilde x \right)
+\eean 
+Going on one construct $v_{\widetilde \sU_n}$ and we define 
+$$
+v_{\sX\left[\Z_{{p}}\right]}\left( \widetilde x_1\right)\bydef v_{\widetilde \sU_n}\left( \widetilde x_1\right).
+$$
+If this construction does not provide the unique result then there is a closed path $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ such that 
+\bean
+\widetilde x_0 \in \widetilde \sU_1,\\
+\widetilde x_1 \in \widetilde \sU_n,\\
+v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
+v_{\widetilde \sU_n}\left(\widetilde x_0 \right)= e^{2\pi i k / p}\neq 1.
+\eean
+Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold covering $\widetilde \sX \to \sX\left[\Z_{{p}}\right]$ such that
+$$
+G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p}}\right]\right)= \Z_{p^s} \quad s > 0. 
+$$
+This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p}}\right]}$ is uniquely defined.  So under above hypothesis a covering is quasi-admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_quasi_admissible_defn}). 
+
+
 
 \paragraph{title}	
 \begin{empt}\label{top_xg_empt}
@@ -12538,7 +12603,7 @@ can be uniquely lifted up to the closed path $\widetilde \om : $
 		\item[(ii)] there is the natural   covering $p_G : {\sX}\left[G\right] \to \sX$ such that $G\left(\left. {\sX}\left[G\right] \right| \sX\right)\cong G$.
 	\end{itemize}
 \end{empt}
-\begin{definition}\label{top_xg_defn}
+\begin{definition}\label{top_xg_defn!}
 	Under the hypothesis \ref{top_base_defn} we say that ${\sX}\left[G\right]$ is the $\sX$-$G$-\textit{space}, and the map $p_G : {\sX}\left[G\right] \to \sX$ is the $\sX$-$G$-\textit{covering}.
 \end{definition}
 \begin{empt}\label{top_xgp_empt}
@@ -12640,66 +12705,66 @@ $$
 we suppose that $u\left( s_0\right) = 1$.
 \paragraph{title} 
 \paragraph{Torsion special case}
-Let $\Z_{{p^r}} \subset \pi_1^{\text{ab}}\left(\sX \right)_{\mathrm{tors}}$ be a direct summand of the given by \eqref{h_direc_sum} decomposition, i.e. it corresponds to a maximal covering $P_{\Z_{{p^r}}}:\sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{hurewicz_maximal_defn}). Suppose that a generator of $\Z_{{p^r}}$ is represented by an injective map $\om : \left(S^1, s_0 \right)$. If $\widetilde x_0$ is such that $P_{\Z_{{p^r}}}\left(\widetilde x_0 \right)$ then the $P_{\Z_{{p^r}}}$-lift  $\widetilde \om : \hookto \left(\sX, x_0 \right)$ represents an element   $\left[\om\right]\in \pi_1^{\mathrm{ab}}\left(\sX\left[\Z_{p^r}\right], \widetilde x_0 \right)$ represents a trivial element of $\pi_1\left(\sX\left[\Z_{p^r}\right], \widetilde x_0 \right)$. It follows that there is a continuous map $u_{\sX\left[\Z_{p^r}\right]}: \sX\left[\Z_{p^r}\right]\to U\left(1 \right)$ such that $u_{\sX\left[\Z_{p^r}\right]}\circ \widetilde \om = u$. Let us define  is a continuous map 
+Let $\Z_{{p}} \subset \pi_1^{\text{ab}}\left(\sX \right)_{\mathrm{tors}}$ be a direct summand of the given by \eqref{h_direc_sum} decomposition, i.e. it corresponds to a maximal covering $P_{\Z_{{p}}}:\sX\left[\Z_{p}\right]\to \sX$ (cf. Definition \ref{hurewicz_maximal_defn}). Suppose that a generator of $\Z_{{p}}$ is represented by an injective map $\om : \left(S^1, s_0 \right)$. If $\widetilde x_0$ is such that $P_{\Z_{{p}}}\left(\widetilde x_0 \right)$ then the $P_{\Z_{{p}}}$-lift  $\widetilde \om : \hookto \left(\sX, x_0 \right)$ represents an element   $\left[\om\right]\in \pi_1^{\mathrm{ab}}\left(\sX\left[\Z_{p}\right], \widetilde x_0 \right)$ represents a trivial element of $\pi_1\left(\sX\left[\Z_{p}\right], \widetilde x_0 \right)$. It follows that there is a continuous map $u_{\sX\left[\Z_{p}\right]}: \sX\left[\Z_{p}\right]\to U\left(1 \right)$ such that $u_{\sX\left[\Z_{p}\right]}\circ \widetilde \om = u$. Let us define  is a continuous map 
 \bean
 u_ \sX : \sX \to U\left( 1\right),\\
-\forall x \in  \sX \quad  u_\sX\left( x\right) \bydef  \prod_{\widetilde x \in P^{-1}_{\Z_{p^r}}\left(x \right) }  u_{\sX\left[\Z_{p^r}\right]}\left( \widetilde x\right) 
+\forall x \in  \sX \quad  u_\sX\left( x\right) \bydef  \prod_{\widetilde x \in P^{-1}_{\Z_{p}}\left(x \right) }  u_{\sX\left[\Z_{p}\right]}\left( \widetilde x\right) 
 \eean
 There is a  map
 \bean
-\mathrm{pow}_{p^r}: U\left( 1\right)\to U\left( 1\right),\\
-u \mapsto u^{p^r},
+\mathrm{pow}_{p}: U\left( 1\right)\to U\left( 1\right),\\
+u \mapsto u^{p},
 \eean
-is such that if $\mathcal W\subset S^1$ is contained in the circular arc $\a$  of the size $\frac{2\pi}{p^r}$ then the restriction $\mathrm{pow}_{p^r}|_{\mathcal W}$ has left inverse, i.e.
+is such that if $\mathcal W\subset S^1$ is contained in the circular arc $\a$  of the size $\frac{2\pi}{p}$ then the restriction $\mathrm{pow}_{p}|_{\mathcal W}$ has left inverse, i.e.
 \be
-\left.\mathrm{pow}^{-1}_{p^r}\right|_{{\mathrm{pow}_{p^r}}\left(\mathcal W \right) }\circ \mathrm{pow}_{p^r}|_{\mathcal W} = \Id_{\mathcal W}
+\left.\mathrm{pow}^{-1}_{p}\right|_{{\mathrm{pow}_{p}}\left(\mathcal W \right) }\circ \mathrm{pow}_{p}|_{\mathcal W} = \Id_{\mathcal W}
 \ee
 
 
 
-We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p^r}}\right]$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-\textit{admissible}  if  $u_{\sX\left[\Z{p^r}\right]}\left( \widetilde \sU\right)$ is a subset of a circular arc $\a$ of size $\frac{2\pi}{p^r}$.  Consider a family $\widetilde{\mathfrak A}$ of all connected open sets such that any $\widetilde\sU \in\widetilde{\mathfrak A}$ satisfies to following conditions:
+We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p}}\right]$ is $u_{\sX\left[\Z{p}\right]}$-$p$-\textit{admissible}  if  $u_{\sX\left[\Z{p}\right]}\left( \widetilde \sU\right)$ is a subset of a circular arc $\a$ of size $\frac{2\pi}{p}$.  Consider a family $\widetilde{\mathfrak A}$ of all connected open sets such that any $\widetilde\sU \in\widetilde{\mathfrak A}$ satisfies to following conditions:
 \begin{itemize}
-	\item $\widetilde \sU$ is mapped homeomorphically onto $P_{\Z_{p^r}}\left(\widetilde \sU\right) \subset \sX$. 
-	\item $\widetilde{\sU}$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible}. 
+	\item $\widetilde \sU$ is mapped homeomorphically onto $P_{\Z_{p}}\left(\widetilde \sU\right) \subset \sX$. 
+	\item $\widetilde{\sU}$ is $u_{\sX\left[\Z{p}\right]}$-$p$-{admissible}. 
 \end{itemize}
-Let $\widetilde x_0$ be such that $P_{\Z_{p^r}}\left( \widetilde x_0\right)= x_0$ and let us construct $v_{\sX\left[\Z_{{p^r}}\right]} : \sX\left[\Z_{{p^r}}\right]\to U\left( 1\right)$ such that 
+Let $\widetilde x_0$ be such that $P_{\Z_{p}}\left( \widetilde x_0\right)= x_0$ and let us construct $v_{\sX\left[\Z_{{p}}\right]} : \sX\left[\Z_{{p}}\right]\to U\left( 1\right)$ such that 
 \be\label{h_vx_eqn}
 \begin{split}
-	v_{\sX\left[\Z_{{p^r}}\right]}\left( \widetilde x_0\right) = 1,\\
-	v^{p^r}_{\sX\left[\Z_{{p^r}}\right]}=  u_\sX \circ C\left(  P_{\Z_{{p^r}}}\right). 
+	v_{\sX\left[\Z_{{p}}\right]}\left( \widetilde x_0\right) = 1,\\
+	v^{p}_{\sX\left[\Z_{{p}}\right]}=  u_\sX \circ C\left(  P_{\Z_{{p}}}\right). 
 \end{split}
 \ee
-If $\widetilde x_1 \in  \sX\left[\Z_{{p^r}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible} then  a map 
+If $\widetilde x_1 \in  \sX\left[\Z_{{p}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p}\right]}$-$p$-{admissible} then  a map 
 $$
-v_{\widetilde \sU_1}\bydef \left.\mathrm{pow}^{-1}_{p^r}\right|_{{\mathrm{pow}_{p^r}}\left(P_{\Z_{{p^r}}}\left( \widetilde\sU_1\right)  \right)}: \widetilde \sU_1 \to U\left( 1\right)
+v_{\widetilde \sU_1}\bydef \left.\mathrm{pow}^{-1}_{p}\right|_{{\mathrm{pow}_{p}}\left(P_{\Z_{{p}}}\left( \widetilde\sU_1\right)  \right)}: \widetilde \sU_1 \to U\left( 1\right)
 $$	
 is  such that
 \bean
 v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
-\forall  \widetilde x \in \widetilde \sU_1 \quad v^{p^r}_{\widetilde \sU_1}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p^r}}}\left(\widetilde x \right).
+\forall  \widetilde x \in \widetilde \sU_1 \quad v^{p}_{\widetilde \sU_1}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p}}}\left(\widetilde x \right).
 \eean   
 Similarly one can construct $v_{\widetilde \sU_2}: \widetilde \sU_1 \to U\left( 1\right)$ such that
 \bean
 \left. v_{\widetilde \sU_1}\right|_{ \widetilde \sU_1\cap  \widetilde \sU_2} = \left. v_{\widetilde \sU_2}\right|_{ \widetilde \sU_1\cap  \widetilde \sU_2},
 \\
-\forall  \widetilde x \in \widetilde \sU_2 \quad v^{p^r}_{\widetilde \sU_2}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p^r}}}\left(\widetilde x \right)
+\forall  \widetilde x \in \widetilde \sU_2 \quad v^{p}_{\widetilde \sU_2}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p}}}\left(\widetilde x \right)
 \eean 
 Going on one construct $v_{\widetilde \sU_n}$ and we define 
 $$
-v_{\sX\left[\Z_{{p^r}}\right]}\left( \widetilde x_1\right)\bydef v_{\widetilde \sU_n}\left( \widetilde x_1\right).
+v_{\sX\left[\Z_{{p}}\right]}\left( \widetilde x_1\right)\bydef v_{\widetilde \sU_n}\left( \widetilde x_1\right).
 $$
 If this construction does not provide the unique result then there is a closed path $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ such that 
 \bean
 \widetilde x_0 \in \widetilde \sU_1,\\
 \widetilde x_1 \in \widetilde \sU_n,\\
 v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
-v_{\widetilde \sU_n}\left(\widetilde x_0 \right)= e^{2\pi i k / p^r}\neq 1.
+v_{\widetilde \sU_n}\left(\widetilde x_0 \right)= e^{2\pi i k / p}\neq 1.
 \eean
-Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold covering $\widetilde \sX \to \sX\left[\Z_{{p^r}}\right]$ such that
+Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold covering $\widetilde \sX \to \sX\left[\Z_{{p}}\right]$ such that
 $$
-G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p^r}}\right]\right)= \Z_{p^s} \quad s > 0. 
+G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p}}\right]\right)= \Z_{p^s} \quad s > 0. 
 $$
-This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.  So under above hypothesis a covering is quasi-admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_quasi_admissible_defn}). 
+This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p}}\right]}$ is uniquely defined.  So under above hypothesis a covering is quasi-admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_quasi_admissible_defn}). 
 
 
 
@@ -20619,6 +20684,29 @@ Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_def
 	and place the order topology on $I^2_o$. It is proven in  \cite{counter_topology,munkres:topology} $I^2_o$ is connected but it is not path connected.
 	The space $I^2_o$ is said to be the \textit{the ordered square} (cf. \cite{munkres:topology}).
 \end{empt}
+\paragraph{title}
+\begin{exercise}\label{top_k_cov_exer}\cite{karoubi:k}
+%6.6. 
+Let $p : \sX \to \sY$ be an $n$-fold covering of $\sY$. If $\E$ is a vector bundle over $\sX$, we 
+define a vector bundle $\F = p_*\left( \E\right) $ over $\sY$ by the formula $\F_y \oplus \E_x$. More precisely, if $\sU$ is an open subset in $\sU$ such that $\sV = p^{-1}\left(\sU \right) \cong \sU \times D$ where $D$ is 
+discrete, we give $\F_\sU$ the topology induced by the bijection $\F_\sU \cong \left(E_\sV \right)^D$.
+\begin{enumerate}
+	\item[(a)] Prove that with the topology defined above, $\F$ is a well-defined vector 
+	bundle over $\sY$. 
+\item[(b)] Prove that the correspondence $\E \mapsto \F$ induces a group homomorphism 
+$p_*:K\left(\sX \right) \to K\left(\sY \right)$. Moreover, prove the formula 
+$$
+p_*\left(p^*\left(y \right)\cdot x  \right) = y \cdot p_*\left(x \right) 
+$$
+
+for $y\in K\left( \sY\right)$ and $x \in K\left(\sX \right)$,
+\item[(c)]   We assume that $p : \sX \to \sY$ is a \textit{principal} covering with group $G$ (i.e. the finite 	group $G$ acts freely on $\sX$, and $\sY \cong X/G$. Now prove that $p_*\left(p^*\left(y \right)\sum_{g \in G}\rho\left( g\right)^*\left( x\right)$  
+	where $\rho\left( g\right)^*K\left(\sX \right)\to K\left(\sX \right)$ is the automorphism of $K\left(\sX \right)$  induced by the action of 	$g$. Prove also that $p_*\left(1 \right)  = \left[\E\right]$ where $\E \bydef \sX \times_G k^n$ $n = \left|G \right|$  and $G$ acts 
+	on $k^n$ by the regular representation. 
+	
+\end{enumerate} 
+\end{exercise}
+\paragraph{title}
 	\section{Vector bundles}\label{top_vb_sub_sub}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.

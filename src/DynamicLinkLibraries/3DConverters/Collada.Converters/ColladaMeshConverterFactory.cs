@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.MeshConverters;
+using ErrorHandler;
 
 namespace Collada.Converters
 {
@@ -19,19 +20,26 @@ namespace Collada.Converters
 
         IMeshConverter Get(string extension, string comment)
         {
-            var ext = Path.GetExtension(extension).ToLower();
-            if (ext != ".dae")
+            try
             {
-                return null;
+                var ext = Path.GetExtension(extension).ToLower();
+                if (ext != ".dae")
+                {
+                    return null;
+                }
+                switch (comment)
+                {
+                    case "1.5.0":
+                        return new ConverterolladaMeshConverter2008();
+                        break;
+                    case "1.4.1":
+                        return new ConverterolladaMeshConverter2005();
+                        break;
+                }
             }
-            switch (comment)
+            catch (Exception exception)
             {
-                case "1.5.0":
-                    return new ConverterolladaMeshConverter2008();
-                    break;
-                case "1.4.1":
-                    return new ConverterolladaMeshConverter2005();
-                    break;
+                exception.HandleExceptionDouble("ColladaMeshConverterFactory");
             }
             return null;
         }

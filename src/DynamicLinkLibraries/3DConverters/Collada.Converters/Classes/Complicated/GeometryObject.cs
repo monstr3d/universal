@@ -1,8 +1,9 @@
-﻿
-using System.Xml;
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;
+
 using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated

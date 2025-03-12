@@ -41,6 +41,10 @@ namespace Abstract3DConverters.Points
                 p.Polygon = this;
             }
             Effect = effect;
+            if (effect == null)
+            {
+                Effect = mesh.Effect;
+            }
         }
 
         public void Copy(IMesh mesh)
@@ -50,6 +54,10 @@ namespace Abstract3DConverters.Points
                 point.Copy(mesh);
             }
             Mesh = mesh;
+            if (Effect == null)
+            {
+                Effect = mesh.Effect;
+            }
         }
 
         /// <summary>
@@ -94,12 +102,17 @@ namespace Abstract3DConverters.Points
         }
 
         /// <summary>
+        /// Local effect
+        /// </summary>
+        private Effect local;
+
+        /// <summary>
         /// Effect
         /// </summary>
         public Effect Effect 
-        { 
-            get; 
-            protected set; 
+        {
+            get => (local == null) ? Mesh.Effect : local;
+            protected set => local = value; 
         }
 
  
@@ -156,6 +169,7 @@ namespace Abstract3DConverters.Points
             if (p.Length < 3)
             {
                 vertexNormal = [0, 0, 1];
+                return vertexNormal;
             }
             else
             {

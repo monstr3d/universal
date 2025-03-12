@@ -14,6 +14,7 @@ namespace Collada.Converters.Classes.Complicated
 
         static Surface()
         {
+
         }
 
 

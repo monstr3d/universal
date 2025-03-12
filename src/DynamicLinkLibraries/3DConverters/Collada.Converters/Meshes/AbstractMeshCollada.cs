@@ -33,6 +33,10 @@ namespace Collada.Converters.Meshes
                 {
                     return;
                 }
+                if (material == null)
+                {
+                    return;
+                }
                 meshCreator = creator;
                 Effect = material.Effect;
                 var g = geom.Geometry;
@@ -67,8 +71,7 @@ namespace Collada.Converters.Meshes
             }
             catch (Exception e)
             {
-                e.HandleException("AbstractMeshCollada constructor");
-                throw new IncludedException(e, "AbstractMeshCollada constructor");
+                e.HandleExceptionDouble("AbstractMeshCollada constructor");
             }
         }
     }

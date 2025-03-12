@@ -17,9 +17,8 @@ namespace Abstract3DConverters.Creators
             }
             catch (Exception ex)
             {
-                ex.HandleException("LinesMeshCreator constructor " + GetType().Name);
-                throw new IncludedException(ex, "LinesMeshCreator constructor " + GetType().Name);
-            }
+                ex.HandleExceptionDouble("LinesMeshCreator constructor " + GetType().Name);
+           }
         }
 
         public override void Load(byte[] bytes)

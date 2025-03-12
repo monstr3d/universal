@@ -140,13 +140,11 @@ namespace Collada.Converters.Classes.Complicated
                         else
                         {
                             point = s.CreatePointTexture(this, idx, idt);
-
                         }
                         if (point == null)
                         {
-                            throw new Exception("PolyList");
+                            throw new Exception("Poly List POINT NULL");
                         }
-
                         tn += count;
                         points.Add(point);
                     }
@@ -160,9 +158,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception exception)
             {
-                exception.HandleException("PolyList");
-                throw new IncludedException(exception, "PolyList");
-
+                exception.HandleExceptionDouble("PolyList");
             }
         }
 
