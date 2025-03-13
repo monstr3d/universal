@@ -678,7 +678,10 @@ namespace Collada.Converters.MeshConverters
                 tn.SetAttribute("sid", "COMMON");
                 var p = Create("phong");
                 tn.AppendChild(p);
-                CreateColor(p, "emission", emissiveMaterial.Color);
+                if (emissiveMaterial != null)
+                {
+                    CreateColor(p, "emission", emissiveMaterial.Color);
+                }
                 if (diffuseMaterial.AmbientColor != null)
                 {
                     CreateColor(p, "ambient", diffuseMaterial.AmbientColor);
@@ -708,8 +711,7 @@ namespace Collada.Converters.MeshConverters
             }
             catch (Exception ex)
             {
-                ex.HandleException();
-                throw new IncludedException(ex, "CreateEffect Collada");
+                ex.HandleExceptionDouble("CreateEffect Collada");
             }
         }
 

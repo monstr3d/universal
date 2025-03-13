@@ -75,7 +75,7 @@ namespace Abstract3DConverters.Converters
             }
             catch (Exception e)
             {
-                e.HandleException();
+                e.HandleExceptionDouble("Set effects of Obj3DConverter");
             }
         }
 
@@ -83,7 +83,7 @@ namespace Abstract3DConverters.Converters
         {
             var mat = effect.Material;
             yield return "newmtl " + effect.Name;
-            var materials = effect.Materials;
+            var materials = effect.NonzeroMaterials;
             var diff = materials.Item1;
             var emis = materials.Item2;
             var spec = materials.Item3;

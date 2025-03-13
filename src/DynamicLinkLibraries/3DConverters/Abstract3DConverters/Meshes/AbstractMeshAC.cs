@@ -189,6 +189,7 @@ namespace Abstract3DConverters.Meshes
                                     {
                                         ltex.Add(key);
                                     }
+                                    
                                     Textures.Add([s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);
                                     var pt = s.CreatePointTexture(this, key, Textures.Count - 1);

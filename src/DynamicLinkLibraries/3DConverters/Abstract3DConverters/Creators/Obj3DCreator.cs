@@ -130,7 +130,7 @@ namespace Abstract3DConverters.Creators
                     if (line.IndexOf("vt ") == 0)
                     {
                         var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                        Textures.Add(f);
+                        s.AddTexture(Textures, f);
                         continue;
                     }
                     if (line.IndexOf("vn ") == 0)

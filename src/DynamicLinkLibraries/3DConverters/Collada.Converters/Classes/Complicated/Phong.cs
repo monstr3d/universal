@@ -45,10 +45,9 @@ namespace Collada.Converters.Classes.Complicated
                 }
                 Effect = new Abstract3DConverters.Materials.Effect(meshCreator, Name, mat, Image);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                ex.HandleException("Phong error");
-                throw new IncludedException(ex, "Phong error");
+                exception.HandleExceptionDouble("Phong error");
             }
         }
     }

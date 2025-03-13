@@ -28,6 +28,13 @@
         #region Cror
 
         /// <summary>
+        /// Construrctor of zero coloe
+        /// </summary>
+        public Color() : this(new float[] { 0f, 0f, 0f })
+        {
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="value">The float value</param>

@@ -220,6 +220,48 @@ namespace Abstract3DConverters
         }
 
         /// <summary>
+        /// Cuts array
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="t">Array</param>
+        /// <param name="n">Length</param>
+        /// <returns>Cut result</returns>
+        public T[] Cut<T>(T[] t, int n) where T : struct
+        {
+            var tt = new T[n];
+            Array.Copy(t, tt, n);
+            return tt;
+        }
+
+
+        /// <summary>
+        /// Adds cut ti list
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="list">List</param>
+        /// <param name="t">Element</param>
+        /// <param name="n">Length</param>
+        public void AddCut<T>(List<T[]> list, T[] t, int n) where T : struct
+        {
+            var tt = t;
+            if (t.Length > n)
+            {
+                tt = Cut(t, n);
+            }
+            list.Add(tt);
+        }
+
+        /// <summary>
+        /// Adds texture
+        /// </summary>
+        /// <param name="l"></param>
+        /// <param name="texture"></param>
+        public void AddTexture(List<float[]> l, float[] texture)
+        {
+            AddCut(l, texture, 2);
+        }
+
+        /// <summary>
         /// Copy of image
         /// </summary>
         /// <param name="image">Image</param>

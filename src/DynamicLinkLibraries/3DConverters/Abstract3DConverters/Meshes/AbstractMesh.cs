@@ -152,7 +152,6 @@ namespace Abstract3DConverters.Meshes
 
         #endregion
 
-
         #region IMesh Implementation
 
         float[] IGeometry.TransformationMatrix => TransformationMatrix;
@@ -169,8 +168,6 @@ namespace Abstract3DConverters.Meshes
         List<int[][]> IMesh.Indexes => Indexes;
   
    
-    //    List<Point> IMesh.AbsolutePoints => AbsolutePoints;
-
         List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
 
      
@@ -194,7 +191,6 @@ namespace Abstract3DConverters.Meshes
         }
 
         #endregion
-
 
         #region Properties
 

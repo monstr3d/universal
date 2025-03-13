@@ -1,14 +1,34 @@
 ﻿namespace Abstract3DConverters.Materials
 {
+    /// <summary>
+    /// Specular material
+    /// </summary>
     public class SpecularMaterial : SimpleMaterial
     {
-        public float SpecularPower { get;  set; }
+        #region Ctor
 
+        /// <summary>
+        /// Default constructor of zero material
+        /// </summary>
+        public SpecularMaterial() : this(new Color(), 0)
+        {
 
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="color">Color</param>
+        /// <param name="power">Specular power</param>
         public SpecularMaterial(Color color, float power) : base(color)
         {
             SpecularPower = power;
         }
+
+        #endregion
+
+        public float SpecularPower { get; set; }
+
 
         protected override bool Equals(Material other)
         {

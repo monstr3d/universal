@@ -41,7 +41,7 @@ namespace Abstract3DConverters.Materials
         /// <param name="name">Name</param>
         /// <param name="material">Material</param>
         /// <param name="image">Image</param>
-        protected  Effect(string name, Material material, Image image = null)
+        protected Effect(string name, Material material, Image image = null)
         {
             Name = name;
             Material = material;
@@ -55,7 +55,7 @@ namespace Abstract3DConverters.Materials
         /// <param name="name">Name</param>
         /// <param name="material">Material</param>
         /// <param name="image">Image</param>
-        public Effect(IMeshCreator creator, string name, Material material, Image image = null) : 
+        public Effect(IMeshCreator creator, string name, Material material, Image image = null) :
             this(name, material, image)
         {
             if (creator == null)
@@ -89,7 +89,7 @@ namespace Abstract3DConverters.Materials
         }
 
         /// <summary>
-        /// Materias
+        /// Materials
         /// </summary>
         public Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial> Materials
         {
@@ -115,7 +115,31 @@ namespace Abstract3DConverters.Materials
                     }
                 }
                 return new Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial>(d, e, s);
+            }
+        }
 
+        public Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial> NonzeroMaterials
+        {
+            get
+            {
+                var materials = Materials;
+                var diff = materials.Item1;
+                var emis = materials.Item2;
+                var spec = materials.Item3;
+                if (diff == null)
+                {
+                    diff = new DiffuseMaterial();
+                }
+                if (emis == null)
+                {
+                    emis = new EmissiveMaterial();
+                }
+                if (spec == null)
+                {
+                    spec = new SpecularMaterial();
+                }
+
+                return new Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial>(diff, emis, spec);
             }
         }
     }

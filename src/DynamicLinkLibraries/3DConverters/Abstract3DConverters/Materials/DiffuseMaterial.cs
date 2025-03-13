@@ -2,6 +2,9 @@
 
 namespace Abstract3DConverters.Materials
 {
+    /// <summary>
+    /// Diffuse material
+    /// </summary>
     public class DiffuseMaterial : Material, IImageHolder
     {
 
@@ -17,6 +20,20 @@ namespace Abstract3DConverters.Materials
 
         #region  Ctor
 
+        /// <summary>
+        /// Default constructor of zero material
+        /// </summary>
+        public  DiffuseMaterial() : this(new Color(), null, 0)
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="color">Color</param>
+        /// <param name="ambient">Ambient color</param>
+        /// <param name="opacity">Opacity</param>
         public DiffuseMaterial(Color color, Color ambient,  float opacity)
         {
             Opacity = opacity;
@@ -31,7 +48,6 @@ namespace Abstract3DConverters.Materials
         #endregion
 
  
-
         public Color Color { get; private set; }
 
 
