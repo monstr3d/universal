@@ -21,10 +21,11 @@
         public bool TrianglesOnly { get; private set; }
 
         /// <summary>
-        /// Requires absolute calculaation
+        /// Requires absolute calculation
         /// </summary>
         public bool RequiresAbsolute { get; private set;}
 
+  
         /// <summary>
         /// Constructor
         /// </summary>

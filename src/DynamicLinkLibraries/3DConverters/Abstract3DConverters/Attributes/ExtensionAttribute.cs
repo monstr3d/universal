@@ -13,12 +13,19 @@
         public string[] Extensions { get; private set; }
 
         /// <summary>
+        /// Full image path
+        /// </summary>
+        public bool ImagePathFull { get; private set; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="ext">Extensions</param>
-        public ExtensionAttribute(string[] ext)
+        /// <param name="imagePathFull">FullImagePath</param>
+        public ExtensionAttribute(string[] ext, bool imagePathFull = false)
         {
             Extensions = ext;
+            ImagePathFull = imagePathFull;
         }
 
     }

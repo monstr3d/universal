@@ -5,14 +5,16 @@ using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
+using Abstract3DConverters.Attributes;
+
 
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
 
 
-
 namespace Collada.Converters.MeshCreators
 {
+    [Extension([".dae"], true)]
     public partial class ColladaMeshCreator : XmlMeshCreator, IFunction, ICollada
     {
 

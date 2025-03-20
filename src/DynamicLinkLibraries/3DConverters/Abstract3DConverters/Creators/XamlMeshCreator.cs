@@ -5,7 +5,7 @@ using System.Xml;
 namespace Abstract3DConverters.Creators
 {
 
-    [Attributes.Extension([".xaml"])]
+    [Attributes.Extension([".xaml"], true)]
     public class XamlMeshCreator : XmlMeshCreator
     {
         #region Fields

@@ -11,7 +11,7 @@ using Abstract3DConverters.Materials;
 namespace Abstract3DConverters.Converters
 {
     [Converter(".xaml", true)]
-    public class XamlMeshConverter : XmlMeshConverter
+    public class XamlMeshConverter : XmlMeshConverter, IImagePathFull
     {
 
    
@@ -26,6 +26,15 @@ namespace Abstract3DConverters.Converters
             nodes = doc.DocumentElement;
             xamlMaterial  = new XamlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
         }
+
+        protected bool ImagePathFull
+        {
+            get;
+            set;
+        }
+
+        bool IImagePathFull.ImagePathFull { get => ImagePathFull; set => ImagePathFull = value; }
+
 
         protected override void SetEffect(XmlElement mesh, XmlElement material)
         {

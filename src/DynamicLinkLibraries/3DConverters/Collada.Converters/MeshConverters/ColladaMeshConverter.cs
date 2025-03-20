@@ -11,7 +11,7 @@ using Abstract3DConverters.Materials;
 
 namespace Collada.Converters.MeshConverters
 {
-    public abstract class ColladaMeshConverter : XmlMeshConverter
+    public abstract class ColladaMeshConverter : XmlMeshConverter, IImagePathFull
     {
         #region Fields
 
@@ -600,6 +600,12 @@ namespace Collada.Converters.MeshConverters
             get;
         } = new();
 
+        protected bool ImagePathFull
+        {
+            get;
+            set;
+        }
+        bool IImagePathFull.ImagePathFull { get => ImagePathFull; set => ImagePathFull = value; }
 
         private void CreateEffect(XmlElement parent, XmlElement pm, Abstract3DConverters.Materials.Effect effect, int nm)
         {

@@ -194,42 +194,44 @@ namespace Conversion3D.WebApplication.Pages
 
 
 
-            using (var stream = new MemoryStream(formFileContent))
-            {
+            using var stream = new MemoryStream(formFileContent);
                 var b = stream.ToArray();
                 var p = new Performer();
                 var path = Path.Combine(Directory, inex);
-              //  var r = p.CreateString(path, b, ext.Item1[0], ext.Item2);
-                using (var outp = new MemoryStream())
-                {
-                    p.CreateAndSave(path, b, ext.Item1[0], ext.Item2, Directory, outp);
-                    outp.Flush();
-                  //  using (var outps = new StreamWriter(outp))
-                  //  {
-                    //    outps.Write(r);
-                         
-                        //   return File(bt, "application/xml", fn);
-                        var pg = Page();
+                //  var r = p.CreateString(path, b, ext.Item1[0], ext.Item2);
+                var byt = p.CreateAndSaveZip(path, "1.dae", b, ext.Item1[0], ext.Item2, Directory);
+                var bt = new Tuple<byte[], string>(byt, FileName);
+                var d = new Dictionary<Type, List<object>>()
+                        {
+                            {typeof(byte[]), new List<object>(){Bytes } }
+                        };
+                PageContext.Add(d, typeof(byte[]).Assembly);
+                HyperLink.Tuple = bt;
+                var rd = RedirectToPage("./HyperLink");
+                return rd;
+
+                //   using var outp = new MemoryStream();
+                //            {
+                //  p.CreateAndSave(path, b, ext.Item1[0], ext.Item2, Directory, outp);
+                //  outp.Flush();
+                //  using (var outps = new StreamWriter(outp))
+                //  {
+                //    outps.Write(r);
+
+                //   return File(bt, "application/xml", fn);
+    /*            var pg = Page();
                         //   return pg;
 
                      //   var routeValues = new { Tuple =  new Tuple<byte[], string>(Bytes, FileName) };
                         var routeValues = new { Text = "TTT" };
                         //   return RedirectToPage("./HyperLink"m);
                         var rd =  RedirectToPage("./HyperLink", routeValues);
-                    var st = Zip(outp, FileName);
+                        var st = Zip(outp, FileName);
                         var t = new Tuple<Stream, string>(st, FileName);
                         ViewData["Tuple"] = t;
                         Request.RouteValues["Tuple"] = t;
-                        var bt = new Tuple<byte[], string>(st.ToArray(), FileName);
-                        var d = new Dictionary<Type, List<object> >()
-                        {
-                            {typeof(byte[]), new List<object>(){Bytes } }
-                        };
-                        PageContext.Add(d, typeof(byte[]).Assembly);
-                    HyperLink.Tuple = bt;
-                        return rd;
                         
-                    }
+  //                  }
                 }
 
             /*

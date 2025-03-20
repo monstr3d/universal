@@ -220,17 +220,23 @@ namespace Abstract3DConverters
                                 }
                             }
                         }
-
                         if (tt.Contains(typeof(IMeshCreator)))
                         {
                             var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                             if (ca != null)
                             {
                                 ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(byte[])]);
-                                var keys = ca.Extensions;
-                                foreach (var key in keys)
+                                if (constructor != null)
                                 {
-                                    creators[key] = constructor;
+                                    var keys = ca.Extensions;
+                                    foreach (var key in keys)
+                                    {
+                                        creators[key] = constructor;
+                                    }
+                                }
+                                else
+                                {
+
                                 }
                             }
                             else
