@@ -1,8 +1,8 @@
 ﻿using System.Xml;
-using System;
-using Collada;
+using Abstract3DConverters;
+
 using Abstract3DConverters.Interfaces;
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -34,8 +34,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception ex)
             {
-                ex.HandleException("Bind material");
-                throw new IncludedException(ex, "Bind material");
+                ex.HandleExceptionDouble("Bind material");
             }
 
         }

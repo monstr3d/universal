@@ -1,9 +1,11 @@
 ﻿using System.Xml;
 
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
+
 using Collada.Converters.Classes.Abstract;
 using Collada.Converters.MeshCreators;
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -50,8 +52,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception e)
             {
-                e.HandleException("Collada Effect");
-                throw new IncludedException(e, "Collada Effect");
+                e.HandleExceptionDouble("Collada Effect");
             }
         }
 

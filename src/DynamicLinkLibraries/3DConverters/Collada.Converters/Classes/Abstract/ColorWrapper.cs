@@ -1,12 +1,16 @@
 ﻿using System.Xml;
+
 using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
+
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
-using ErrorHandler;
+
+
 
 namespace Collada.Converters.Classes.Abstract
 {
-    internal class ColorWrapper : XmlHolder
+    internal class ColorWrapper : XmlHolder, IColored
     {
         internal Color Color { get; private set; }
 
@@ -14,6 +18,7 @@ namespace Collada.Converters.Classes.Abstract
 
         internal Surface Surface { get; private set; }
 
+        Color IColored.Color => Color;
 
         protected ColorWrapper(XmlElement element) : base(element, null)
         {

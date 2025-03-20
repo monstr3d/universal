@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Abstract3DConverters.Interfaces;
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Points
 {
@@ -81,8 +81,7 @@ namespace Abstract3DConverters.Points
             }
             catch (Exception exception)
             {
-                exception.HandleException();
-                throw new IncludedException(exception, "Point texture constructor");
+                exception.HandleExceptionDouble("Point texture constructor");
             }
         }
 

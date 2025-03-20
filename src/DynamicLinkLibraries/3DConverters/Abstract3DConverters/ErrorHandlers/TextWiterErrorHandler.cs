@@ -1,8 +1,8 @@
-﻿using ErrorHandler;
+﻿
 
 namespace Abstract3DConverters.ErrorHandlers
 {
-    public class TextWiterErrorHandler :  IExceptionHandler, IDisposable
+    public class TextWiterErrorHandler :  ErrorHandler.IExceptionHandler, IDisposable
     {
         TextWriter writer;
 
@@ -15,7 +15,7 @@ namespace Abstract3DConverters.ErrorHandlers
             this.stop = stop;
         }
 
-        void IExceptionHandler.HandleException<T>(T exception, object? obj)
+        void ErrorHandler.IExceptionHandler.HandleException<T>(T exception, object? obj)
         {
             if (Check(obj))
             {
@@ -25,7 +25,7 @@ namespace Abstract3DConverters.ErrorHandlers
             }
         }
 
-        void IExceptionHandler.Log(string message, object? obj)
+        void ErrorHandler.IExceptionHandler.Log(string message, object? obj)
         {
             if (Check(obj))
             {

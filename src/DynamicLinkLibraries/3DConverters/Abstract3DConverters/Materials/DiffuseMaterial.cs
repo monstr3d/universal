@@ -23,7 +23,7 @@ namespace Abstract3DConverters.Materials
         /// <summary>
         /// Default constructor of zero material
         /// </summary>
-        public  DiffuseMaterial() : this(new Color(), null, 0)
+        public  DiffuseMaterial() : this(new Color(), new Color(), 0)
         {
 
         }

@@ -1,8 +1,13 @@
 ﻿namespace Abstract3DConverters
 {
+    /// <summary>
+    /// Image
+    /// </summary>
     public class Image : ICloneable, IEquatable<Image>
     {
-        static public string DefaultPath { get; set; } 
+        static public string DefaultPath { get; set; }
+
+        Service s = new();
 
         public string Name { get; private set; }
 
@@ -12,6 +17,8 @@
 
         public Image(string name, string directory)
         {
+            var ch = StaticExtensionAbstract3DConverters.CheckFile;
+            Find = (ch == CheckFile.Check) ? FindFile : FindEmpty;
             if (directory == null)
             {
                 Name = name;
@@ -32,13 +39,20 @@
                 Name = Name.Substring(1);
             }
             FullPath = Path.Combine(Directory, Name);
-            if (!File.Exists(FullPath))
+            if (!s.FileExists(FullPath))
             {
                 throw new Exception("Image exception");
             }
         }
 
-        private string Find(string name, string directory)
+        private Func<string, string, string> Find;
+
+        private string FindEmpty(string name, string directory)
+        {
+            return  Path.Combine(directory, name);
+        }
+
+        private string FindFile(string name, string directory)
         {
             var f = Path.Combine(directory, name);
             if (File.Exists(f))
@@ -78,5 +92,7 @@
             }
             return Name == other.Name;
         }
+
+
     }
 }

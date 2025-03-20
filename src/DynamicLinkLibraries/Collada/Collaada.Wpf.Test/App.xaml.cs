@@ -17,6 +17,7 @@ namespace Collaada.Wpf.Test
 
         public App()
         {
+            StaticExtensionAbstract3DConverters.CheckFile = CheckFile.Check;
             /*
             var l = new List<Material>();
             var gq = new MaterialGroup("");

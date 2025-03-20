@@ -1,6 +1,7 @@
 ﻿using System.Xml;
 using System.Reflection;
 
+using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
@@ -8,7 +9,7 @@ using Abstract3DConverters.Meshes;
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
 
-using ErrorHandler;
+
 
 namespace Collada.Converters.MeshCreators
 {
@@ -293,8 +294,7 @@ namespace Collada.Converters.MeshCreators
             }
             catch (Exception e)
             {
-                e.HandleException();
-                throw new IncludedException(e, "Collada Get");
+                e.HandleExceptionDouble("Collada Get");
                 
             }
             return null;

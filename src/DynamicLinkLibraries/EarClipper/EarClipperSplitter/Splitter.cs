@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters;
+﻿using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using EarClipperLib;
-using ErrorHandler;
 
 namespace EarClipperSplitter
 {

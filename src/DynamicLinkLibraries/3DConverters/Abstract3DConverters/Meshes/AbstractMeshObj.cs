@@ -4,7 +4,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Meshes
 {
@@ -38,6 +38,7 @@ namespace Abstract3DConverters.Meshes
         {
             try
             {
+
                 Effect = creator.EffectList[number];
                 Vertices = creator.Vertices;
                 Textures = creator.Textures;

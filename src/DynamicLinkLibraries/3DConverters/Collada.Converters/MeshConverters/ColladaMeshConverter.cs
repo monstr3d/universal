@@ -7,7 +7,7 @@ using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
-using ErrorHandler;
+
 
 namespace Collada.Converters.MeshConverters
 {
@@ -443,8 +443,7 @@ namespace Collada.Converters.MeshConverters
             }
             catch (Exception exception)
             {
-                exception.HandleException("ColladaMeshConverter CreateGeometry");
-                throw new IncludedException(exception, "ColladaMeshConverter CreateGeometry");
+                exception.HandleExceptionDouble("ColladaMeshConverter CreateGeometry");
             }
             return name;
         }

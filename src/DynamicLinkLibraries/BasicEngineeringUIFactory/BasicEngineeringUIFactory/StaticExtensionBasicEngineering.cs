@@ -422,9 +422,6 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
-
-
-
         public static void Save()
         {
             Properties.Settings.Default.Save();

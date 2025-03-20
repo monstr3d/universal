@@ -35,9 +35,16 @@ StaticExtensionAbstract3DConverters.FileTypes = new Dictionary<string, Tuple<str
 
 StaticExtensionAbstract3DConverters.UseDirectory = true;
 
+StaticExtensionAbstract3DConverters.CheckFile = CheckFile.Check;
+
+
 try
 {
-    dir.TestDirectory();
+   // dir = @"c:\";
+   // dir.TestACTetxures();
+  //  @"c:\0\1.txt".Finish();
+
+       dir.TestDirectory();
 }
 catch (Exception e)
 {

@@ -87,7 +87,6 @@ namespace Abstract3DConverters.Meshes
 
         #endregion
 
-
         #region ICreateTriangles Members
 
         void ICreateTriangles.CreateTriangles()
@@ -96,7 +95,6 @@ namespace Abstract3DConverters.Meshes
         }
 
         #endregion
-
 
         #region Members
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Creators
 {
@@ -12,9 +12,9 @@ namespace Abstract3DConverters.Creators
 
         protected StreamMeshCrearor(string filename,  byte[] bytes) : base(filename)
         {
-            if (StaticExtensionAbstract3DConverters.UseDirectory)
+            if (true | StaticExtensionAbstract3DConverters.UseDirectory)
             {
-                if (File.Exists(filename))
+                if (s.FileExists(filename))
                 {
                     directory = Path.GetDirectoryName(filename);
                 }

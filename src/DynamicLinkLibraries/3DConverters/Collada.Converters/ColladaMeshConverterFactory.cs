@@ -1,7 +1,9 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters;
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
+
 using Collada.Converters.MeshConverters;
-using ErrorHandler;
+
 
 namespace Collada.Converters
 {

@@ -8,7 +8,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 using Collada.Converters.Classes.Elementary;
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -204,8 +204,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception exception)
             {
-                exception.HandleException("Triangles");
-                throw new IncludedException(exception, "Triangles");
+                exception.HandleExceptionDouble("Triangles");
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.Classes.Complicated;
-using ErrorHandler;
+
 using System.Xml;
 using Effect = Abstract3DConverters.Materials.Effect;
 
@@ -99,28 +99,20 @@ namespace Collada.Converters.Classes.Abstract
                 var amb = xmlElement.Get<Ambient>();
                 if (amb != null)
                 {
-                    Ambient = amb.Color;
+                    Ambient = s.GetMinimal(amb.Color);
+                }
+                else
+                {
+                    Ambient = new Color();
                 }
                 var spec = xmlElement.Get<Specular>();
-                if (spec != null)
-                {
-                    Specular = spec.Color;
-                }
+                Specular = s.GetMinimal(spec);
                 var emi = xmlElement.Get<Emission>();
-                if (emi != null)
-                {
-                    Emission = emi.Color;
-                }
+                Emission = s.GetMinimal(emi);
                 var trans = xmlElement.Get<Transparent>();
-                if (trans != null)
-                {
-                    Transparent = trans.Color;
-                }
-                var diff = xmlElement.Get<Diffuse>();
-                if (diff != null)
-                {
-                    Diffuse = diff.Color;
-                }
+                Transparent = s.GetMinimal(trans);
+                 var diff = xmlElement.Get<Diffuse>();
+                Diffuse = s.GetMinimal(diff);
                 var texture = xmlElement.Get<Texture>();
                 Image im = null;
                 if (texture != null)

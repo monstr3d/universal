@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
@@ -13,6 +12,11 @@ namespace Abstract3DConverters.Converters
         #region Fields
 
        List<string> materials = new();
+
+        Dictionary<string, string> Images
+        {
+            get;
+        } = new();
 
         List<Material> MaterialPP
         {
@@ -88,7 +92,8 @@ namespace Abstract3DConverters.Converters
                 var image = effect.Image;
                 if (image != null)
                 {
-                    l.Add("texture " + image.Name);
+                    var nm = Images[image.Name];
+                    l.Add("texture " + nm);
                 }
             }
             l.Add("numvert " + mesh.AbsoluteVertices.Count);
@@ -149,6 +154,42 @@ namespace Abstract3DConverters.Converters
             return n;
         }
 
+        private void Set(Image image)
+        {
+            if (image == null)
+            {
+                return;
+            }
+            var name = image.Name;
+            if (name == null)
+            {
+                return;
+            }
+            if (Images.ContainsKey(name))
+            {
+                return;
+            }
+            var sep = Path.DirectorySeparatorChar;
+            var nm = name.Replace('/', sep);
+            nm = nm.Replace('\\', sep);
+            if (nm == name)
+            {
+                Images[name] = name;
+                return;
+            }
+            nm = nm.Replace("" + Path.DirectorySeparatorChar, "_DirectorySeparatorChar_");
+            var fd = image.FullPath;
+            if (s.FileExists(fd))
+            {
+                var fo = Path.Combine(Converter.Directory, fd);
+                if (!s.FileExists(fo))
+                {
+                    File.Copy(fd, fo);
+                }
+            }
+            
+        }
+
         protected override Dictionary<string, Effect> Effects
         {
             set
@@ -158,7 +199,9 @@ namespace Abstract3DConverters.Converters
                 var i = 0;
                 foreach (var item in value)
                 {
-                    EffectsSP[item.Value] = i;
+                    var effect = item.Value;
+                    Set(effect.Image);
+                    EffectsSP[effect] = i;
                     MaterialsSP[item.Key] = i;
                     ++i;
                     materials.Add(item.Key);
@@ -173,7 +216,6 @@ namespace Abstract3DConverters.Converters
                         var st = s.Shrink(GetMaterial(item.Key, item.Value.Material));
                         lines.Add(st);
                     }
- 
                 }
             }
         }

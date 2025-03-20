@@ -6,10 +6,18 @@ using Abstract3DConverters.Fartories.Converters;
 using Abstract3DConverters.Fartories.Creators;
 using Abstract3DConverters.Interfaces;
 
-using ErrorHandler;
 
 namespace Abstract3DConverters
 {
+
+    /// <summary>
+    /// Check file
+    /// </summary>
+    public enum CheckFile
+    {
+        None = 0,
+        Check = 1,
+    }
     public static class StaticExtensionAbstract3DConverters
     {
         #region Fields
@@ -30,7 +38,7 @@ namespace Abstract3DConverters
 
         static Dictionary<string, ConstructorInfo> creators = new();
 
-        static Dictionary<string, Dictionary<string, ConstructorInfo>>  conveters = new();
+        static Dictionary<string, Dictionary<string, ConstructorInfo>> conveters = new();
 
         static List<IMeshCreatorFactory> meshCreatorFactories = new();
 
@@ -38,12 +46,23 @@ namespace Abstract3DConverters
 
         static bool useDirectory = false;
 
+        static Service s = new();
+
+
+
+        static List<string> absc = new List<string>();
 
         #endregion
 
         #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionAbstract3DConverters()
         {
+            HandleExceptionDoubleFunc = DefaultHandeExceptionDouble;
+            HandleExceptionFunc = DefaultHandeException;
             meshCreators = new MeshCreatorFactoryCollection();
             meshCreatorFactory = meshCreators;
             meshConverters = new MeshConverterFactoryCollection();
@@ -80,82 +99,40 @@ namespace Abstract3DConverters
 
         }
 
-
-
         #endregion
 
-        public static void TestDirectory(this string directory)
-        {
-            var l = new List<string>();
-            var ldir = new List<string>();
-            foreach(var t in FileTypes.Values)
-            {
-                foreach (var s in t.Item1)
-                {
-                    if (!l.Contains(s))
-                    {
-                        l.Add(s);
-                    }
-                }
-            }
-            TestDirectoryPrivate(directory, l, ldir);
-        }
+        #region Public Members
 
-
-        static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld)
+        static public void Finish(this string fn)
         {
-            var drs = Directory.GetDirectories(directory);
-            foreach (var d in drs)
+            using var writer = new StreamWriter(fn);
+            foreach (var sc in absc)
             {
-                var dt = Path.GetFileName(d);
-                if (ext.Contains(dt))
-                {
-                    var di = new DirectoryInfo(d);
-                    di.Delete(true);
-                    continue;
-                }
-                TestDirectoryPrivate(d, ext, ld);
-            }
-            var directoryInfo = new DirectoryInfo(directory);
-            var files = directoryInfo.GetFiles();
-            foreach (var file in files)
-            {
-                var e = file.Extension;
-                if (!ext.Contains(e))
-                {
-                    continue;
-                }
-                var filename = file.FullName;
-                ("\nFile input: " + filename + "\n").Log();
-                foreach (var t in FileTypes)
-                {
-                    foreach (var s in t.Value.Item1)
-                    {
-                        if (s == e)
-                        {
-                            continue;
-                        }
-                        var d = Path.Combine(directory, s);
-                        var dirout = new DirectoryInfo(d);
-                        if (!dirout.Exists)
-                        {
-                            dirout.Create();
-                        }
-                        var p = new Performer();
-                        var ff = Path.GetFileNameWithoutExtension(filename) + s;
-                        var comment = t.Value.Item2;
-                        if (comment != null)
-                        {
-                            ff = Path.GetFileNameWithoutExtension(filename) + "." + comment +  s;
-                        }
-                        ("File output: " + Path.Combine(d, ff)).Log();
-                        p.CreateAndSaveByUniqueName(filename, t.Key, d);
-                    }
-                }
+                writer.WriteLine(sc);
             }
         }
 
-        static public  Dictionary<string, Tuple<string[], string>> FileTypes
+        static public void HandleExceptionDouble(this Exception exception, string massage = null)
+        {
+            HandleExceptionDoubleFunc(exception, massage);
+        }
+
+        static public void HandleException(this Exception exception, string massage = null)
+        {
+            HandleExceptionFunc(exception, massage);
+        }
+
+
+        /// <summary>
+        /// The Check file sign
+        /// </summary>
+        static public CheckFile CheckFile
+        {
+            get;
+            set;
+        }
+
+        static public Dictionary<string, Tuple<string[], string>> FileTypes
         {
             get;
             set;
@@ -166,7 +143,7 @@ namespace Abstract3DConverters
         {
             get => useDirectory;
             set => useDirectory = value;
-        } 
+        }
 
         /// <summary>
         /// Gets image file
@@ -177,14 +154,14 @@ namespace Abstract3DConverters
         {
             if (image == null)
             {
-                
+
             }
             if (UseDirectory)
             {
                 var fullPath = image.FullPath;
                 if (fullPath != null)
                 {
-                   return fullPath;
+                    return fullPath;
                 }
             }
             return image.Name;
@@ -202,7 +179,7 @@ namespace Abstract3DConverters
 
         }
 
-       public static IMeshCreator GetMeshCreator(string extension, byte[] bytes)
+        public static IMeshCreator GetMeshCreator(string extension, byte[] bytes)
         {
             return meshCreatorFactory[extension, bytes];
         }
@@ -388,5 +365,158 @@ namespace Abstract3DConverters
                 }
             }
         }
+
+        static public void TestACTetxures(this string directoty)
+        {
+            var files = Directory.GetFiles(directoty, "*.ac");
+            foreach (var file in files)
+            {
+                using var reader = new StreamReader(file);
+                do
+                {
+                    var line = reader.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
+                    if (!line.StartsWith("texture"))
+                    {
+                        continue;
+                    }
+                    var st = line.Substring("texture".Length);
+                    st = s.Trim(st);
+                    var fi = Path.Combine(directoty, st);
+                    if (!s.FileExists(fi))
+                    {
+                        absc.Add(fi);
+                    }
+                }
+                while (!reader.EndOfStream);
+            }
+            var dirs = Directory.GetDirectories(directoty);
+            foreach (var d in dirs)
+            {
+                try
+                {
+                    d.TestACTetxures();
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+
+        public static void TestDirectory(this string directory)
+        {
+            var l = new List<string>();
+            var ldir = new List<string>();
+            foreach (var t in FileTypes.Values)
+            {
+                foreach (var s in t.Item1)
+                {
+                    if (!l.Contains(s))
+                    {
+                        l.Add(s);
+                    }
+                }
+            }
+            TestDirectoryPrivate(directory, l, ldir);
+        }
+
+        public static Action<Exception, string> HandleExceptionDoubleFunc
+        {
+            get;
+            set;
+        }
+
+
+        public static Action<Exception, string> HandleExceptionFunc
+        {
+            get;
+            set;
+        }
+
+
+        static public void Log(this string message, object obj = null)
+        {
+            ErrorHandler.StaticExtensionErrorHandler.Log(message, obj);
+        }
+
+
+        #endregion
+
+        #region Private Members
+
+        private static void DefaultHandeExceptionDouble(Exception exception, string message)
+        {
+            ErrorHandler.StaticExtensionErrorHandler.HandleExceptionDouble(exception, message);
+        }
+
+        private static void DefaultHandeException(Exception exception, string message)
+        {
+            ErrorHandler.StaticExtensionErrorHandler.HandleException(exception, message);
+        }
+
+
+
+
+        static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld)
+        {
+            var drs = Directory.GetDirectories(directory);
+            foreach (var d in drs)
+            {
+                var dt = Path.GetFileName(d);
+                if (ext.Contains(dt))
+                {
+                    var di = new DirectoryInfo(d);
+                    di.Delete(true);
+                    continue;
+                }
+                TestDirectoryPrivate(d, ext, ld);
+            }
+            var directoryInfo = new DirectoryInfo(directory);
+            var files = directoryInfo.GetFiles();
+            foreach (var file in files)
+            {
+                var e = file.Extension;
+                if (!ext.Contains(e))
+                {
+                    continue;
+                }
+                var filename = file.FullName;
+                ("\nFile input: " + filename + "\n").Log();
+                foreach (var t in FileTypes)
+                {
+                    foreach (var s in t.Value.Item1)
+                    {
+                        if (s == e)
+                        {
+                            continue;
+                        }
+                        var d = Path.Combine(directory, s);
+                        var dirout = new DirectoryInfo(d);
+                        if (!dirout.Exists)
+                        {
+                            dirout.Create();
+                        }
+                        var p = new Performer();
+                        var ff = Path.GetFileNameWithoutExtension(filename) + s;
+                        var comment = t.Value.Item2;
+                        if (comment != null)
+                        {
+                            ff = Path.GetFileNameWithoutExtension(filename) + "." + comment + s;
+                        }
+                        ("File output: " + Path.Combine(d, ff)).Log();
+                        p.CreateAndSaveByUniqueName(filename, t.Key, d);
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
+
+
 }

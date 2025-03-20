@@ -2,7 +2,7 @@
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Creators
 {
@@ -11,6 +11,29 @@ namespace Abstract3DConverters.Creators
     public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
         #region Fields
+
+        int mn = -1;
+
+        bool MatExists
+        {
+            get;
+            set;
+        } = false;
+
+        string MeshName
+        {
+            get
+            {
+                ++mn;
+                return "Mesh_" + mn;
+            }
+        }
+
+        internal Effect Default
+        {
+            get;
+            set;
+        }
 
         List<AbstractMesh> models = new();
 
@@ -21,6 +44,8 @@ namespace Abstract3DConverters.Creators
         Dictionary<string, byte[]> add;
 
         internal int n = 0;
+
+        
 
         #endregion
 
@@ -36,13 +61,21 @@ namespace Abstract3DConverters.Creators
 
         #endregion
 
+        public List<string> UsedMaterials
+        {
+            get;
+        } = new();
+
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
 
-        internal List<List<int[][]>> Indexes { get; private set; } = new();
+        internal List<List<int[][]>> Indexes 
+        { 
+            get; 
+        } = new();
 
         internal List<string> Names 
         {   
@@ -80,45 +113,72 @@ namespace Abstract3DConverters.Creators
             return s.ToString(line, "g");
         }
 
-        string GetInititial(string line)
+        const string Fiction = "rrg5dvmg.bil";
+
+        string GetInitial(string line)
         {
-            if (line.Contains(objs) | line.StartsWith("g "))
+            if (line.StartsWith("usemtl "))
+            {
+   /*             var mat = line.Substring("usemtl ".Length);
+                var effect = Effects[mat];
+                EffectList.Add(effect);
+                if (!UsedMaterials.Contains(mat))
+                {
+                    UsedMaterials.Add(mat);
+                }*/
+                if (MatExists)
+                {
+                    return MeshName;
+                }
+          //      MatExists = true;
+                return Fiction;
+            /*        if (line.Contains(objs) | line.StartsWith("g "))
+                    {
+                        var name = s.ToString(line, "g");
+                        if (name == null)
+                        {
+                            name = s.ToString(line, objs);
+                        }
+                        MatExists = false;
+                        return name;
+                    }*/
+        }
+            if (line.StartsWith("g "))
             {
                 var name = s.ToString(line, "g");
-                if (name == null)
-                {
-                    name = line.Substring(objs.Length).Trim();
-                    GetName = GetObjectName;
-                }
-                else
-                {
-                    GetName = GetgName;
-                }
+                MatExists = false;
                 return name;
             }
+
             return null;
         }
 
-        Func<string, string> GetName;
+        //Func<string, string> GetName;
 
         string  objs = "# object ";
     
         void CreateGeometry()
         {
-            GetName = GetInititial;
+            // GetName = GetInititial;
             try
             {
                 List<int[][]> indexes = null;
 
                 foreach (var line in lines)
                 {
-                    var name = GetName(line);
+                    var name = GetInitial(line);
                     if (name != null)
                     {
-                        Names.Add(name);
-                        indexes = new();
-                        Indexes.Add(indexes);
-                        continue;
+                        if (name != Fiction)
+                        {
+                            Names.Add(name);
+                            indexes = new();
+                            Indexes.Add(indexes);
+                            continue;
+                        }
+                        else
+                        {
+                        }
                     }
 
                     if (line.IndexOf("v ") == 0)
@@ -141,9 +201,18 @@ namespace Abstract3DConverters.Creators
                     }
                     if (line.StartsWith("usemtl "))
                     {
+                        MatExists = true;
                         var mat = line.Substring("usemtl ".Length);
+                        if (mat == "_default_")
+                        {
+                            continue;
+                        }
                         var effect = Effects[mat];
                         EffectList.Add(effect);
+                        if (!UsedMaterials.Contains(mat))
+                        {
+                            UsedMaterials.Add(mat);
+                        }
                         continue;
                     }
                     if (line.IndexOf("f ") == 0)
@@ -223,8 +292,9 @@ namespace Abstract3DConverters.Creators
                 return d;
             }
 
-            public Dictionary<string, Effect> Create(string filename, string directory)
+            public Dictionary<string, Effect> Create(string filename, string directory, out Effect defaultEffect)
             {
+                defaultEffect = null;
                 using (var reader = new StreamReader(Path.Combine(directory, filename)))
                 {
 
@@ -284,7 +354,7 @@ namespace Abstract3DConverters.Creators
 
             public float Ns { get; private set; }
             public float Ni { get; private set; }
-            public float d { get; private set; }
+            public float d { get; private set; } = 1;
             public int illum { get; private set; }
 
 
@@ -460,10 +530,19 @@ namespace Abstract3DConverters.Creators
                     mtlfile = Path.Combine(directory, file);
                     mtlstr = file;
                     var mtl = new MtlWrapper();
-                    var mt = mtl.Create(file, directory);
+                    Effect def = null;
+                    var mt = mtl.Create(file, directory, out def);
+                    Default = def;
                     foreach (var mat in mt)
                     {
-                        Effects[mat.Key] = mat.Value;
+                        var n = mat.Key;
+                        var v = mat.Value;
+                        if (n == "_default_")
+                        {
+                            Default = v;
+                            continue;
+                        }
+                        Effects[n] = v;
                     }
                     break;
                 }
@@ -476,6 +555,10 @@ namespace Abstract3DConverters.Creators
                          CreateEffect(line)).ToArray();
                //          var l = lines.Select(str => s.ToString(str)); ;
             }
+            if (Effects.ContainsKey("_default_"))
+            {
+                Default = Effects["_default_"];
+            }
         }
 
 
@@ -485,28 +568,28 @@ namespace Abstract3DConverters.Creators
         {
             var d = creator.Directory;
             var filename = Path.Combine(d, file);
-            if (File.Exists(filename))
+            if (s.FileExists(filename))
             {
                 return filename;
             }
             foreach (var e in ext)
             {
                 var fn = filename + e;
-                if (File.Exists(fn))
+                if (s.FileExists(fn))
                 {
                     return fn;
                 }
             }
             var f = file.Replace("_", " ");
             f = Path.Combine(d, f);
-            if (File.Exists(f))
+            if (s.FileExists(f))
             {
                 return f;
             }
             foreach (var e in ext)
             {
                 var fn = f + e;
-                if (File.Exists(fn))
+                if (s.FileExists(fn))
                 {
                     return fn;
                 }
@@ -568,10 +651,19 @@ namespace Abstract3DConverters.Creators
                     mtlfile = Path.Combine(directory, file);
 
                     var mtl = new MtlWrapper();
-
-                    var mt = mtl.Create(file, directory);
+                    Effect def = null;
+                    var mt = mtl.Create(file, directory, out def);
+                    Default = def;
                     foreach (var mat in mt)
                     {
+                        if (mat.Key == "_default_")
+                        {
+                            if (Default == null)
+                            {
+                                Default = mat.Value;
+                            }
+                            continue;
+                        }
                         Effects[mat.Key] = mat.Value;
                     }
                 }

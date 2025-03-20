@@ -2,7 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Converters
 {
@@ -83,7 +83,7 @@ namespace Abstract3DConverters.Converters
         {
             var mat = effect.Material;
             yield return "newmtl " + effect.Name;
-            var materials = effect.NonzeroMaterials;
+            var materials = effect.NonzeroColorMaterials;
             var diff = materials.Item1;
             var emis = materials.Item2;
             var spec = materials.Item3;

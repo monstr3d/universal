@@ -2,7 +2,7 @@
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Meshes
 {
@@ -449,8 +449,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception exception)
             {
-                exception.HandleException("CalculateAbsolute Mesh");
-                throw new IncludedException(exception, "CalculateAbsolute Mesh");
+                exception.HandleExceptionDouble("CalculateAbsolute Mesh");
             }
         }
 

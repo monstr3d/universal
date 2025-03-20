@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters.Interfaces;
-using Collada;
+﻿using Abstract3DConverters.Interfaces;
 using Collada.Converters.Classes.Abstract;
 using System.Xml;
 

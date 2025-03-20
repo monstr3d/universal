@@ -1,6 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters
 {
@@ -189,7 +189,8 @@ namespace Abstract3DConverters
         /// <param name="converterDirectory">Converter directory</param>
         /// <param name="outs">Stream of output</param>
         /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, string converterDirectory, Stream outs, Action<object> act = null)
+        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, 
+            string converterDirectory, Stream outs, Action<object> act = null)
         {
             var creator = fileinput.ToMeshCreator(bytes);
             var res = Create<object>(creator, converter, converterDirectory, act);
@@ -307,7 +308,7 @@ namespace Abstract3DConverters
                 file = fn + '.' + comment + t.Item1[0];
             }
             var filename = Path.Combine(cd, file);
-            if (File.Exists(filename))
+            if (s.FileExists(filename))
             {
                 file = fn + Path.GetRandomFileName() + ext;
                 filename = Path.Combine(cd, file);

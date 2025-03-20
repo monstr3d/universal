@@ -1,0 +1,58 @@
+﻿@page
+@model Conversion3D.WebApplication.Pages.Upload3DModel
+@{
+    ViewData["Title"] = "Upload 3D file";
+
+}
+
+<h1></h1>
+
+<p>The following form's page handler saves the file to disk.</p>
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label asp-for="Directory"></label>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td>
+                                     <input asp-for="Directory" type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                     <dt>
+                                         <label asp-for="FormFile"></label>
+                                    </dt>
+
+                                        <input asp-for="FormFile" type="file" />
+                                        <span asp-validation-for="FormFile"></span>
+                                 </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        @foreach (var ext in Model.Extensions)
+                        {
+                            @Html.RadioButtonFor(model => model.Extension, ext) @ext
+
+                            <br />
+                        }
+                    </td>
+                </tr>
+            </table>
+        </dt>
+    </dl>
+    <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

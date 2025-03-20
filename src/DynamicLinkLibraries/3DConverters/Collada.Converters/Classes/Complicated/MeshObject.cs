@@ -6,7 +6,7 @@ using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
 
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -183,8 +183,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception exception)
             {
-                exception.HandleException("Mesh Object constructor");
-                throw new IncludedException(exception, "Mesh Object constructor");
+                exception.HandleExceptionDouble("Mesh Object constructor");
             }
 
         }

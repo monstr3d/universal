@@ -46,8 +46,6 @@ namespace Collada
 
         static Dictionary<Type, IClear> clears;
 
-    
-
 
         static StaticExtensionCollada()
         {

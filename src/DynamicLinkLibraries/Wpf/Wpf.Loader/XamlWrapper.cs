@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using System.Text;
 using System.Windows.Media.Media3D;
-using System.Windows.Shapes;
 using System.Xml;
 
 using ErrorHandler;
@@ -13,6 +12,8 @@ namespace Wpf.Loader
     {
 
         protected Paths.Service.Service service = new();
+
+        protected Abstract3DConverters.Service s = new();
 
         protected double[][] normals;
 
@@ -30,6 +31,8 @@ namespace Wpf.Loader
         protected string xaml;
 
 
+
+
         protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
 
  
@@ -39,6 +42,13 @@ namespace Wpf.Loader
         {
             get; protected set;
         }
+
+        protected Dictionary<string, string> Urls
+        {
+            get;
+        } = new();
+
+
 
 
         /// <summary>
@@ -264,7 +274,10 @@ namespace Wpf.Loader
         }
         protected BoundaryParameters bp;
 
-        protected Dictionary<string, string> paths = new Dictionary<string, string>();
+        protected Dictionary<string, string> Paths
+        {
+            get;
+        }  = new Dictionary<string, string>();
 
         protected System.Drawing.Bitmap texture;
 
@@ -274,7 +287,8 @@ namespace Wpf.Loader
         }
 
 
-        protected Dictionary<string, string> urls = new Dictionary<string, string>();
+              
+           
 
         protected bool scaled = false;
 
@@ -320,9 +334,9 @@ namespace Wpf.Loader
         /// <returns>Processed Xaml</returns>
         protected string ProcessXaml(string str)
         {
-            string s = str + "";
+            string st = str + "";
             XmlDocument doc = new XmlDocument();
-            doc.LoadXml(s);
+            doc.LoadXml(st);
             XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
             var del = new List<XmlElement>();
             foreach (XmlElement e in nl)
@@ -341,17 +355,18 @@ namespace Wpf.Loader
                         iso = isi;
                         if (textures.ContainsKey(iso))
                         {
-                            if (urls.ContainsKey(iso))
+                            if (Urls.ContainsKey(iso))
                             {
-                                e.SetAttribute("ImageSource", urls[iso]);
+                                throw new Exception("Urls");
+                                e.SetAttribute("ImageSource", Urls[iso]);
                                 continue;
                             }
                             int n = iso.LastIndexOf('.');
                             string ext = iso.Substring(n);
                             string path = null;
-                            if (paths.ContainsKey(iso))
+                            if (Paths.ContainsKey(iso))
                             {
-                                path = paths[iso];
+                                path = Paths[iso];
                                 if (!System.IO.File.Exists(path))
                                 {
                                     using (var stream = System.IO.File.OpenWrite(path))
@@ -370,14 +385,17 @@ namespace Wpf.Loader
                                     stream.Write(b, 0, b.Length);
                                 }
                             }
+                            var k = st.Length;
+                            path = s.TransformPathToPlatfom(path);
                             e.SetAttribute("ImageSource", path);
-                            paths[iso] = path;
+                            Paths[iso] = path;
                         }
                         else
                         {
                             string path = AppDomain.CurrentDomain.BaseDirectory + iso;
+                            path = s.TransformPathToPlatfom(path);
                             e.SetAttribute("ImageSource", path);
-                            paths[iso] = path;
+                            Paths[iso] = path;
                             if (System.IO.File.Exists(path))
                             {
                                 using (var stream = System.IO.File.OpenRead(path))
@@ -400,7 +418,7 @@ namespace Wpf.Loader
             var l = new List<string>(textures.Keys);
             foreach (string key in l)
             {
-                if (!paths.ContainsKey(key))
+                if (!Paths.ContainsKey(key))
                 {
                     textures.Remove(key);
                 }

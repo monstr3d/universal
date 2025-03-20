@@ -142,5 +142,29 @@ namespace Abstract3DConverters.Materials
                 return new Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial>(diff, emis, spec);
             }
         }
+        public Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial> NonzeroColorMaterials
+        {
+            get
+            {
+                var materials = Materials;
+                var diff = materials.Item1;
+                var emis = materials.Item2;
+                var spec = materials.Item3;
+                if (diff == null)
+                {
+                    diff = new DiffuseMaterial(new Color(), new Color(), 0);
+                }
+                if (emis == null)
+                {
+                    emis = new EmissiveMaterial(new Color(), null);
+                }
+                if (spec == null)
+                {
+                    spec = new SpecularMaterial(new Color(), 0);
+                }
+
+                return new Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial>(diff, emis, spec);
+            }
+        }
     }
 }

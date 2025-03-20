@@ -6,7 +6,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 
-using ErrorHandler;
+
 
 namespace Abstract3DConverters.Converters
 {
@@ -506,6 +506,7 @@ namespace Abstract3DConverters.Converters
                         var ibr = Create("ImageBrush");
                         br.AppendChild(ibr);
                         var st = StaticExtensionAbstract3DConverters.UseDirectory ? im.FullPath : im.Name;
+                        st = s.TransformPathToPlatfom(st);
                         ibr.SetAttribute("ImageSource", st);
                         ibr.SetAttribute("ViewportUnits", "Absolute");
                         ibr.SetAttribute("Opacity", diffuse.Opacity + "");

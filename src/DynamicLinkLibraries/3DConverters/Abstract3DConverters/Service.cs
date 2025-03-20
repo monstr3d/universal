@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Reflection;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
+using System.Collections;
+using System.Reflection;
 
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
@@ -14,20 +14,94 @@ namespace Abstract3DConverters
     /// </summary>
     public class Service
     {
+        #region Fields
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
 
- 
+        Func<string, bool> checkFile;
+
+        Action<Image, string, string> CopyImageFunc = null;
+
+        #endregion
+
+
+        #region Cror
+
         /// <summary>
         /// Constructor
         /// </summary>
         public Service() 
-        { 
-        
+        {
+            if (StaticExtensionAbstract3DConverters.CheckFile == CheckFile.Check)
+            {
+                checkFile = CheckFull;
+                CopyImageFunc = CopyImagePrivate;
+            }
+            else
+            {
+                checkFile = CheckEmpty;
+            }
         }
 
+        #endregion
 
-        #region Service
+
+        #region Public Members
+
+        /// <summary>
+        /// Checks the existence of file
+        /// </summary>
+        /// <param name="file">The file</param>
+        /// <returns>True if exists</returns>
+        public bool FileExists(string file)
+        { 
+            return checkFile(file); 
+        }
+
+        /// <summary>
+        /// Transformation of path to plafform
+        /// </summary>
+        /// <param name="path">The path</param>
+        /// <returns>The transformation result</returns>
+        public string TransformPathToPlatfom(string path)
+        {
+            if (path == null)
+            {
+                return null;
+            }
+            var p = path.Replace('\\', Path.DirectorySeparatorChar);
+            p = p.Replace('/', Path.DirectorySeparatorChar);
+            return p;
+        }
+
+        /// <summary>
+        /// Gets minimal color
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns>The minimal color</returns>
+        public Color GetMinimal(Color color)
+        {
+            if (color == null)
+            {
+                return new Color();
+            }
+            return color;
+        }
+
+        /// <summary>
+        /// Gets minimal color
+        /// </summary>
+        /// <param name="colored">Colored object</param>
+        /// <returns>The minimal color</returns>
+        public Color GetMinimal(IColored colored)
+        {
+            if (colored == null)
+            {
+                return new Color();
+            }
+            var c = colored.Color;
+            return (c == null) ? new Color() : c;
+        }
 
         /// <summary>
         /// Checks 
@@ -261,6 +335,7 @@ namespace Abstract3DConverters
             AddCut(l, texture, 2);
         }
 
+
         /// <summary>
         /// Copy of image
         /// </summary>
@@ -269,25 +344,7 @@ namespace Abstract3DConverters
         /// <param name="target">Target directory</param>
         public void CopyImage(Image image, string source, string target)
         {
-            var f = image.GetImageFile();
-            if (!File.Exists(f))
-            {
-                return;
-            }
-            var name = image.Name;
-            var file = Path.Combine(source, name);
-            var fout = Path.Combine(target, name);
-            var dout = new DirectoryInfo(Path.GetDirectoryName(fout));
-            if (!dout.Exists)
-            {
-                dout.Create();
-            }
-            FileInfo fi = new FileInfo(file);
-
-            if (fi.Exists)
-            {
-                fi.CopyTo(fout, true);
-            }
+            CopyImageFunc?.Invoke(image, source, target);
         }
 
         /// <summary>
@@ -353,23 +410,23 @@ namespace Abstract3DConverters
             element.SetAttribute(colorName, "#" + s);
         }
 
-   /// <summary>
-   /// Sets parents for the Dictionary
-   /// </summary>
-   /// <param name="mehses">The dictionary</param>
-        public  void SetParents(Dictionary<XmlElement, IParent> mehses)
+        /// <summary>
+        /// Sets parents for the Dictionary
+        /// </summary>
+        /// <param name="meshes">The dictionary</param>
+        public void SetParents(Dictionary<XmlElement, IParent> meshes)
         {
-            foreach (var mesh in mehses.Keys)
+            foreach (var mesh in meshes.Keys)
             {
-                var a = mehses[mesh];
+                var a = meshes[mesh];
                 var p = mesh.ParentNode;
                 while (p != null)
                 {
                     if (p is XmlElement e)
                     {
-                        if (mehses.ContainsKey(e))
+                        if (meshes.ContainsKey(e))
                         {
-                            var b = mehses[e];
+                            var b = meshes[e];
                             a.Parent = b;
                             break;
                         }
@@ -378,6 +435,7 @@ namespace Abstract3DConverters
                 }
             }
         }
+
 
         /// <summary>
         /// Transforms a list of arrays to a single array
@@ -952,6 +1010,16 @@ namespace Abstract3DConverters
 
         #region Private members
 
+        private bool CheckFull(string file)
+        {
+            return File.Exists(file);
+        }
+
+        private bool CheckEmpty(string file)
+        {
+            return true;
+        }
+
 
         private float ToFloat(string str)
         {
@@ -967,6 +1035,37 @@ namespace Abstract3DConverters
         {
             return int.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
         }
+
+   
+        /// <summary>
+        /// Copy of image
+        /// </summary>
+        /// <param name="image">Image</param>
+        /// <param name="source">Source directory</param>
+        /// <param name="target">Target directory</param>
+        private void CopyImagePrivate(Image image, string source, string target)
+        {
+            var f = image.GetImageFile();
+            if (!FileExists(f))
+            {
+                return;
+            }
+            var name = image.Name;
+            var file = Path.Combine(source, name);
+            var fout = Path.Combine(target, name);
+            var dout = new DirectoryInfo(Path.GetDirectoryName(fout));
+            if (!dout.Exists)
+            {
+                dout.Create();
+            }
+            FileInfo fi = new FileInfo(file);
+
+            if (fi.Exists)
+            {
+                fi.CopyTo(fout, true);
+            }
+        }
+
 
 
         #endregion

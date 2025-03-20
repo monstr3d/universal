@@ -1,6 +1,7 @@
 using System.IO;
 using System.Windows.Markup;
 using System.Windows.Media.Media3D;
+using Abstract3DConverters;
 using ErrorHandler;
 
 namespace Wpf.Loader
@@ -41,6 +42,7 @@ namespace Wpf.Loader
         static StaticExtensionWpfLoader()
         {
             FileLoad[".xaml"] = Load;
+            StaticExtensionAbstract3DConverters.CheckFile = CheckFile.Check;
         }
 
 

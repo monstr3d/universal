@@ -1,8 +1,11 @@
 ﻿using System.Xml;
+
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+
 using Collada.Converters.Classes.Abstract;
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -45,8 +48,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception ex)
             {
-                ex.HandleException("Blinn error");
-                throw new IncludedException(ex, "Blinn error");
+                ex.HandleExceptionDouble("Blinn error");
             }
         }
     }

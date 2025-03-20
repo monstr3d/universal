@@ -1,8 +1,10 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
+
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.MeshCreators;
-using ErrorHandler;
+
 
 namespace Collada.Converters.Meshes
 {

@@ -9,7 +9,7 @@ using Collada.Converters.Classes.Elementary;
 using Collada.Converters.MeshCreators;
 using Collada.Converters.Meshes;
 
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {

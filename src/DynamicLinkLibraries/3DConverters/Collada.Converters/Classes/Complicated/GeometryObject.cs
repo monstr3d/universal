@@ -1,10 +1,11 @@
 ﻿using System.Xml;
 
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;
 
-using ErrorHandler;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -37,8 +38,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception exception)
             {
-                exception.HandleException("Collada geometry");
-                throw new IncludedException(exception, "Collada geometry");
+                exception.HandleExceptionDouble("Collada geometry");
             }
             
         }
