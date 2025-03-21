@@ -21,7 +21,8 @@ namespace Conversion3D.WebApplication.Pages
             { "AC3D file format", new Tuple<string[], string>(new string[] {".ac", "ac3d"}, null) },
            { "Obj file format",  new  Tuple<string[], string>(new string[] { ".obj" }, null)},
            { "Collada 1.4 file format", new Tuple<string[], string>( new string[] { ".dae" }, "1.4.1")},
-             { "Collada 1.5 file format", new Tuple<string[], string>( new string[] { ".dae" }, "1.5.0")}
+             { "Collada 1.5 file format", new Tuple<string[], string>( new string[] { ".dae" }, "1.5.0")},
+           { "WPF XAML file format", new Tuple<string[], string>([ ".xaml" ], null)}
           };
 
         private readonly string _targetFilePath;
@@ -104,47 +105,7 @@ namespace Conversion3D.WebApplication.Pages
         {
 
         }
-
-        private MemoryStream Zip(MemoryStream stream, string filename)
-        {
-            var memoryStream = new MemoryStream();
-            using var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true);
-            var demoFile = archive.CreateEntry(filename);
-            using var entryStream = demoFile.Open();
-            entryStream.Write(stream.ToArray());
-            return memoryStream;
-      }
-
-        private MemoryStream Zip(MemoryStream stream)
-        {
-            stream.Position = 0;
-            var outStream = new MemoryStream();
-            using var archive = new System.IO.Compression.ZipArchive(stream, System.IO.Compression.ZipArchiveMode.Create, true);
-            var fileInArchive = archive.CreateEntry(FileName, System.IO.Compression.CompressionLevel.NoCompression);
-            using var entryStream = fileInArchive.Open();
-            stream.CopyTo(entryStream);
-            entryStream.Flush();
-            entryStream.Close();
-            return outStream;
-
-        }
-
-        private Stream Zip(byte[] b)
-        {
-            var outStream = new MemoryStream();
-            using (var archive = new System.IO.Compression.ZipArchive(outStream, System.IO.Compression.ZipArchiveMode.Create, true))
-            {
-                var fileInArchive = archive.CreateEntry(FileName, System.IO.Compression.CompressionLevel.Optimal);
-                using var entryStream = fileInArchive.Open();
-                using var fileToCompressStream = new MemoryStream(b);
-                fileToCompressStream.CopyTo(entryStream);
-                entryStream.Flush();
-                entryStream.Close();
-                return outStream;
-            }
-        }
-
-        public async Task<IActionResult> OnPostReferenceAsync()
+      public async Task<IActionResult> OnPostReferenceAsync()
         {
             
 
@@ -179,13 +140,24 @@ namespace Conversion3D.WebApplication.Pages
                     FormFile, ModelState, _permittedExtensions,
                     _fileSizeLimit);
 
+            var add = await FileHelpers.ProcessFormFile<Upload3D>(
+                    AdditionalFile, ModelState, _permittedExtensions,
+                    _fileSizeLimit);
+            
+
+            /*    var addContent =
+                       await FileHelpers.ProcessFormFile<Upload3D>(
+                           AddFile, ModelState, _permittedExtensions,
+                           _fileSizeLimit);*/
+
+            /*
             var ms = ModelState;
             if (!ModelState.IsValid)
             {
                 Result = "Please correct the form.";
 
                 return Page();
-            }
+            }*/
 
             var inex = FormFile.FileName;
 
@@ -198,9 +170,9 @@ namespace Conversion3D.WebApplication.Pages
                 var b = stream.ToArray();
                 var p = new Performer();
                 var path = Path.Combine(Directory, inex);
-                var filename = Path.GetFileName(inex) + ext.Item1[0];
+                var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
                 //  var r = p.CreateString(path, b, ext.Item1[0], ext.Item2);
-                var byt = p.CreateAndSaveZip(path, filename, b, null, ext.Item1[0], ext.Item2, Directory);
+                var byt = p.CreateAndSaveZip(path, filename, b, add, ext.Item1[0], ext.Item2, Directory);
                 var bt = new Tuple<byte[], string>(byt, FileName);
                 var d = new Dictionary<Type, List<object>>()
                         {
@@ -287,6 +259,16 @@ namespace Conversion3D.WebApplication.Pages
             get;
             set;
         }
+
+        [Display(Name = "Additional File")]
+        public IFormFile ? AdditionalFile
+        {
+            get;
+            set;
+        } = null;
+
+
+
 
         [BindProperty]
         [Required]

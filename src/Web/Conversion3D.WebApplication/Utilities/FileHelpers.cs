@@ -57,10 +57,15 @@ namespace Conversion3D.WebApplication.Utilities
         // systems. For more information, see the topic that accompanies this sample
         // app.
 
-        public static async Task<byte[]> ProcessFormFile<T>(IFormFile formFile, 
+        public static async Task<byte[]> ProcessFormFile<T>(IFormFile ff, 
             ModelStateDictionary modelState, string[] permittedExtensions, 
             long sizeLimit)
         {
+            if (ff == null)
+            {
+                return null;
+            }
+            IFormFile formFile = ff;
             var fieldDisplayName = string.Empty;
 
             // Use reflection to obtain the display name for the model

@@ -3,13 +3,24 @@ using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 
-
 namespace Abstract3DConverters.Creators
 {
     
     [Attributes.Extension([".obj"])]
     public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
+        #region Ctor
+
+        public Obj3DCreator(string filename, byte[] bytes, object additional) : base(filename, bytes, additional)
+        {
+
+
+
+        }
+
+        #endregion
+
+
         #region Fields
 
         int mn = -1;
@@ -45,27 +56,27 @@ namespace Abstract3DConverters.Creators
 
         internal int n = 0;
 
-        
+
 
         #endregion
 
-        #region Ctor
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-
-        public Obj3DCreator(string filename, byte[] bytes, object additional) : base(filename, bytes, additional)
+        private byte[] MaterialBytes
         {
-
+            get;
+            set;
         }
 
 
 
-
-        #endregion
-
+   
         protected override void CreateAdditional(object additional)
         {
-            
+            if (additional is byte[] bytes )
+            {
+                MaterialBytes = bytes;
+            }
+            CreateAll();
         }
 
         public List<string> UsedMaterials
@@ -259,18 +270,25 @@ namespace Abstract3DConverters.Creators
 
         Dictionary<string, byte[]> CreateAdd()
         {
-            if (mtlfile == null)
+            if (MaterialBytes != null)
             {
-                add = null;
-                return null;
+                add = new Dictionary<string, byte[]>() { { mtlstr, MaterialBytes } };
             }
-            if (add == null)
+            else
             {
-                using (Stream stream = File.OpenRead(mtlfile))
+                if (mtlfile == null)
                 {
-                    byte[] b = new byte[stream.Length];
-                    stream.Read(b);
-                    add = new Dictionary<string, byte[]>() { { mtlstr, b } };
+                    add = null;
+                    return null;
+                }
+                if (add == null)
+                {
+                    using (Stream stream = File.OpenRead(mtlfile))
+                    {
+                        byte[] b = new byte[stream.Length];
+                        stream.Read(b);
+                        add = new Dictionary<string, byte[]>() { { mtlstr, b } };
+                    }
                 }
             }
             return add;
@@ -278,13 +296,22 @@ namespace Abstract3DConverters.Creators
 
         public class MtlWrapper : IEffectDictionary
         {
-            Dictionary<string, Effect> dict;
 
-
-            public MtlWrapper()
+            public MtlWrapper(string directory)
             {
+                Directory = directory;
                 dict = new Dictionary<string, Effect>();
             }
+
+            Dictionary<string, Effect> dict;
+
+            private string Directory
+            {
+                get;
+                set;
+            }
+
+
 
             public Dictionary<string, object> Create(Dictionary<string, Material> keyValuePairs, 
                 IMaterialCreator creator)
@@ -297,6 +324,35 @@ namespace Abstract3DConverters.Creators
                     d[pair.Key] = v;
                 }
                 return d;
+            }
+
+            internal Dictionary<string, Effect> Create(List<string> lines, int start, out Effect defaulEffect)
+            {
+                try
+                {
+                    defaulEffect = null;
+                    var name = "";
+                    var i = start;
+                    for (; i < lines.Count; i++)
+                    {
+                        var line = lines[i];
+                        if (line.Contains("newmtl"))
+                        {
+                            var ss = line.Split(" ".ToCharArray());
+                            name = ss[ss.Length - 1];
+                            break;
+                        }
+
+                    }
+                    new MtlWrapper(name, i + 1, lines, dict, Directory);
+                    return dict;
+                }
+                catch (Exception e)
+                {
+                    e.HandleExceptionDouble("Create OBJ material");
+                }
+                defaulEffect = null;
+                return null;
             }
 
             public Dictionary<string, Effect> Create(string filename, string directory, out Effect defaultEffect)
@@ -409,10 +465,65 @@ namespace Abstract3DConverters.Creators
             }
 
 
+            private MtlWrapper(string str, int start, List<string> lines, 
+                Dictionary<string, Effect> effects, string directory) : this(directory)
+
+            {
+                try
+                {
+                    Name = str;
+                    string newName = "";
+                    var i = start;
+                    var list = new List<string>();
+                    for (; i < lines.Count; i++)
+                    {
+                        var line = lines[i];
+                        if (line == null)
+                        {
+                            break;
+                        }
+                        if (line.Length == 0)
+                        {
+                            continue;
+                        }
+                        list.Add(line);
+                        if (line.Contains("newmtl"))
+                        {
+                            var ss = line.Split(" ".ToCharArray());
+                            newName = ss[ss.Length - 1];
+                            break;
+                        }
+
+                    }
+                    if (list.Count == 0)
+                    {
+                        return;
+                    }
+
+                    Finalize(list, Directory);
+                    Create();
+                    var mat = Effect;
+                    if (mat != null)
+                    {
+                        effects[Name] = Effect;
+                    }
+
+                    if (i + 1 < lines.Count)
+                    {
+                        new MtlWrapper(newName, i + 1, lines, effects, directory);
+                    }
+                }
+                catch (Exception e)
+                {
+                    e.HandleException("MTL WRAPPER");
+                }
+            }
+
             private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Effect> effects)
             {
                 Name = str;
                 string newName = "";
+   
 
                 List<string> list = new List<string>();
                 do
@@ -529,43 +640,73 @@ namespace Abstract3DConverters.Creators
 
         void CreateMaterials()
         {
-            foreach (var line in lines)
+            try
             {
-                if (line.StartsWith("mtllib "))
+                foreach (var line in lines)
                 {
-                    var file = line.Substring("mtllib ".Length).Trim();
-                    mtlfile = Path.Combine(directory, file);
-                    mtlstr = file;
-                    var mtl = new MtlWrapper();
-                    Effect def = null;
-                    var mt = mtl.Create(file, directory, out def);
-                    Default = def;
-                    foreach (var mat in mt)
+                    if (line.StartsWith("mtllib "))
                     {
-                        var n = mat.Key;
-                        var v = mat.Value;
-                        if (n == "_default_")
+                        var file = line.Substring("mtllib ".Length).Trim();
+                        mtlstr = file;
+                        var mtl = new MtlWrapper(creator.Directory);
+                        mtlfile = Path.Combine(directory, file);
+                        Effect def = null;
+                        Dictionary<string, Effect> mt = null;
+                        if (MaterialBytes != null)
                         {
-                            Default = v;
-                            continue;
+                            using var stream = new MemoryStream(MaterialBytes);
+                            var lines = new List<string>();
+                            using var reader = new StreamReader(stream);
+                            do
+                            {
+                                var l = reader.ReadLine();
+                                if (l == null)
+                                {
+                                    break;
+                                }
+                                lines.Add(l);
+
+                            }
+                            while (!reader.EndOfStream);
+                            mt = mtl.Create(lines, 0, out def);
                         }
-                        Effects[n] = v;
+                        else
+                        {
+                            mt = mtl.Create(file, directory, out def);
+                        }
+                        Default = def;
+                        foreach (var mat in mt)
+                        {
+                            var n = mat.Key;
+                            var v = mat.Value;
+                            if (n == "_default_")
+                            {
+                                Default = v;
+                                continue;
+                            }
+                            Effects[n] = v;
+                        }
+                        break;
                     }
-                    break;
+                }
+                if (Effects.Count == 0)
+                {
+                    var l = (from line in lines
+                             where s.ToString(line, "usemtl") != null
+                             select
+                             CreateEffect(line)).ToArray();
+                    //          var l = lines.Select(str => s.ToString(str)); ;
+                }
+                if (Effects.ContainsKey("_default_"))
+                {
+                    Default = Effects["_default_"];
                 }
             }
-            if (Effects.Count == 0)
+            catch (Exception e)
             {
-                var l = (from line in lines
-                         where s.ToString(line, "usemtl") != null
-                         select
-                         CreateEffect(line)).ToArray();
-               //          var l = lines.Select(str => s.ToString(str)); ;
+                e.HandleException("Create materials OBJ");
             }
-            if (Effects.ContainsKey("_default_"))
-            {
-                Default = Effects["_default_"];
-            }
+            
         }
 
 
@@ -657,7 +798,7 @@ namespace Abstract3DConverters.Creators
                     mtlstr = file;
                     mtlfile = Path.Combine(directory, file);
 
-                    var mtl = new MtlWrapper();
+                    var mtl = new MtlWrapper(creator.Directory);
                     Effect def = null;
                     var mt = mtl.Create(file, directory, out def);
                     Default = def;
