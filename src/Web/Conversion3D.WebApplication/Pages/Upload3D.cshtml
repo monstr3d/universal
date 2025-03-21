@@ -10,7 +10,6 @@
 <p>The following form's page handler saves the file to disk.</p>
 
 <form asp-validation-summary="None" enctype="multipart/form-data" novalidate method="post">
-    <div asp-validation-summary="None">
     <dl>
         <dt>
             <table>
@@ -68,10 +67,12 @@
             </table>
         </dt>
     </dl>
-    </div>
     <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@if (Model.Tuple != null)
+{
+    <h1>@Model.Tuple.Item2</h1>
+    <form enctype="multipart/form-data" method="post">
+    <input asp-page-handler="Download" class="btn" type="submit" value=@Model.Tuple.Item2 />
+</form>
 }

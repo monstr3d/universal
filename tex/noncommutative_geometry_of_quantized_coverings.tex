@@ -12421,7 +12421,7 @@ Let $\sX$ be a locally  compact,  path connected, and locally path connected top
 \begin{enumerate}
 	\item[(a)] The groups $\pi^\mathrm{ab}_1\left(\sX, x_0 \right) $, $K_0\left( C\left(\sX \right) \right)\cong K^0\left(\sX \right) $ and $K_1\left( C\left(\sX \right) \right)\cong K^1\left(\sX \right) )$   are finitely generated Abelian groups,
 	\item[(b)] There is the universal covering $p: \widetilde \sX \to \sX$ with the natural isomorphism $\pi^\mathrm{ab}_1\left(\sX, x_0 \right) \cong G\left( \left. \widetilde\sX\right| \sX\right)$. 
-	\item[(c)] There is a net $\left\{\sX_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open subsets with compact closures which satisfies to the following conditions for every $\a \in \mathscr A$:
+	\item[(c)] There is a net $\left\{\sX_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open subsets with compact closures  which satisfies to the following conditions for every $\a \in \mathscr A$:
 	\begin{enumerate}
 		\item [(I)] Any principal covering $\widetilde \sX_\a \to \sX_\a$ comes from a principal covering $\widetilde \sX \to \sX$ (cf. Definition \ref{top_principal_defn}), i.e. there is a commutative diagram
 		\newline 
@@ -12432,6 +12432,10 @@ Let $\sX$ be a locally  compact,  path connected, and locally path connected top
 	\\
 		\item [(II)] The natural homomorphism $K^1\left( C_0\left( 	\sX\right) \right) \to K^1\left( C_0\left( \sX_\a\right) \right)$ is isomorphism.	
 	\end{enumerate}
+	and
+	\be\label{h_top_u_eqn}
+	\sX = \bigcup_{\a \in \mathscr A}\sX_\a.
+	\ee
 \end{enumerate}
 \end{empt}
 
@@ -12497,49 +12501,47 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 	\Z\left[ w \right] \to\Z
 	\eean 
 	corresponds to a generator of   $\left[ 	K^1_{S^1}\right]\in K^1\left( S^1\right)$ (cf. Section \ref{h_prel}). According our construction the homomorphism   $f^{\left[\om\right]}_{\left[u\right]}$ corresponds to  $h^{\text{sing}}\left( \left[ 	K^1_{S^1}\right]\right)$. The above operation can be performed for any element satisfying to the equation \eqref{h_top_free}. In result one concludes that the free part of the  Hurewicz homomorphism (cf. Definition \ref{hurewicz_free_defn}) !!!!
+	and
+
 	\subsubsection{Torsion part of Hurewicz homomorphism}
-	
+
 Let $\sX$ be a satisfying to the conditions \ref{h_top_cond_empt} space.
-	 Let $p \in \N$ be a prime number and $\sX$ is path connected and $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of an element $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ with  $p\left[\om \right]= 0$. For simplicity we suppose that the map $\om$ is injective.
-	 
-	 
+	 Let $p \in \N$ be a prime number such that $\pi^{\mathrm{ab}}\left(\sX, x_0 \right)= \Z_p \oplus \pi^{\mathrm{ab}}\left(\sX, x_0 \right)^\perp$. Let $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ be an injective continuous map such that $\pi^{\mathrm{ab}}\left(\sX, x_0 \right)= \Z\left[\om\right] \oplus \pi^{\mathrm{ab}}\left(\sX, x_0 \right)^\perp =  \Z_p\left[\om\right] \oplus \pi^{\mathrm{ab}}\left(\sX, x_0 \right)^\perp$. Clearly $p\left[\om\right]= 0 \in \pi^{\mathrm{ab}}\left(\sX, x_0 \right)$.
 	 Suppose that there is a $p$-listed  covering $\th_p: \widetilde \sX \to \sX$ such that the composition
 	 $$
 	 \Z\left[\om\right] \cong \Z_p \to \pi_1\left(\sX, x_0 \right) \to G\left(\left. \widetilde \sX \right| \sX \right)
 	 $$
 	 is isomorphism of Abelian groups. It turns out that  the composition $\om \circ \th_p$ represents a trivial element $\left[\om \circ \th_p\right]= p\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$. So there is a homotopy $\Phi : S^1 \times \left[0, 1\right]\to \sX$ with
 	\bean
-	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \\ \Phi\left( s, 1\right) = x_0, \\
-	\forall t\in  \left[0, 1\right]\quad   \Phi\left(x_0, t\right) = x_0.
+	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \\ \Phi\left( s, 1\right) = x_0, 
 	\eean 
-	From the Lemma \ref{top_red_cone_lem} the homotopy $\Phi$ yields e is a continuous map $F: CS^1\to \sX$ where $CS^1$ is the reduced cone over $S^1$ (cf. Definition \ref{top_red_cone_defn}). On the other hand the map $F$ is such that
+	From the Lemma \ref{top_red_cone_lem} the homotopy $\Phi$ yields  a continuous map $F: CS^1\to \sX$ where $CS^1$ is the cone over $S^1$ (cf. Definition \ref{top_cone_defn}). On the other hand the map $F$ is such that
 	$$
 \th_p\left( x'\right) = 	\th_p\left( x''\right)\quad \Leftrightarrow \quad F\left(\left[x', 1\right] \right) = F\left(\left[x'', 1\right] \right)
 	$$
 	and from the above equation turns out that there is a decomposition
 	\newline
 	\begin{tikzcd}
-	CS^1 \arrow[rd, "F"]\arrow[rr, "\varphi"] & & C_{\th_p}\arrow[ld]\\
+	CS^1 \arrow[rd, "F"]\arrow[rr, "\varphi"] & & C'_{\th_p}\arrow[ld]\\
 	& \sX &
 	\end{tikzcd}
 	\\
-where $C_{\th_p}$ is the mapping cone of the covering $\th_p$ (cf. Definition \ref{top_mapping_cone_defn}). One the other hand there is the natural injective continuous map  $\psi: S^1 \hookto C_{\th_p}$ such that the image of $\varphi\left( \left[x, 1\right]\right) = \psi \circ \th_p\left(x \right)$. In result there is the following diagram  
+where $C'_{\th_p}$ is given by \eqref{top_cp_eqn}. One the other hand there is the natural injective continuous map  $\psi: S^1 \hookto C_{\th_p}$ such that the image of $\varphi\left( \left[x, 1\right]\right) = \psi \circ \th_p\left(x \right)$. In result there is the following diagram  
 	\newline
 \begin{tikzcd}
-	S^1 \arrow[rd, "\om"]\arrow[rr, "\psi"] & & C_{\th_p}\arrow[ld]\\
+	S^1 \arrow[rd, "\om"]\arrow[rr, "\psi"] & & C'_{\th_p}\arrow[ld]\\
 	& \sX &
 \end{tikzcd}
 \\
-On the other hand there is a given by \eqref{top_cp_eqn} space $C'\th_p$ which is a factor space of $S^1 \times \left[0, 1\right]/\sim_{\th_p}$ where
-\bean
-\forall x', x'' \in S^1 \quad \left(x', 0 \right) \sim_{\th_p}  \left(x'', 0 \right) ,\\
-\forall x', x'' \in S^1 \quad \left(x', 1 \right) \sim_{\th_p}  \left(x'', 1 \right)\quad \Leftrightarrow \quad \th_p\left(x' \right) =  \th_p\left(x'' \right)
-\eean
-If $m_0\in $ is the image of $S^1 \times \{0\}$ then the map $\om: S^1 \to \sX$ can be represented by the following composition
+
+If $m_0\in C'_{\th_p}$ is the image of $S^1 \times \{0\}$ then the map $\om: S^1 \to \sX$ can be represented by the following composition
 
 	\be\label{h_fin_comp_eqn}
-	S^1 \xrightarrow{\psi} C'\om\setminus \{m_0\} \to C'\om\to C\om \to \sX.
+	S^1 \xrightarrow{\psi} C'\om\setminus \{m_0\} \to C'\om\to \sX.
 	\ee
+\be\label{h_top_u_eqn!} !!!
+\sX = \bigcup_{\a \in \mathscr A}\sX_\a.
+\ee	
 The subgroup $\Z\left[\om\right] = \Z_p\left[\om\right]\cong \Z_p \subset \pi_1^{\text{ab}}\left( \sX, x_0\right)$ yields the $\sX$-$\Z_p$-{covering} $P_{\Z_p}: \sX\left[\Z_p\right] \to \sX$ (cf. Definition \ref{top_xg_defn})
 The composition of closed paths 
 	$$

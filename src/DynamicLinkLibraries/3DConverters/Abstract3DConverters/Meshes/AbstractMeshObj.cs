@@ -71,7 +71,7 @@ namespace Abstract3DConverters.Meshes
 
 
 
-        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
+        internal AbstractMeshObj(string name, Obj3DCreatorNEW objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
         {
             nextName = "";
             end = 0;

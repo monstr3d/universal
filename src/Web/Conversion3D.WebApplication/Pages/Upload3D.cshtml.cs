@@ -34,6 +34,8 @@ namespace Conversion3D.WebApplication.Pages
         public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink)
         {
             HyperLink = hyperLink;
+            Tuple = hyperLink.Tuple;
+
             var l = new List<string>();
             var lt = new List<string>();
             foreach (var p in fileTypes)
@@ -59,18 +61,27 @@ namespace Conversion3D.WebApplication.Pages
             //_targetFilePath = Path.GetTempPath();
         }
 
-        [Required]
-        [Display(Name = "Extensions")]
 
-        public List<SelectListItem> Extensions1 { get; } = new List<SelectListItem>();
-        /*   {
-               new SelectListItem { Value = ".ac", Text = "obj files" },
-               new SelectListItem { Value = ".obj", Text = "ac files" },
-               new SelectListItem { Value = ".dae", Text = "Collada"  },
-           };*/
-        //      [Display(Name = "Extension")]
-        //      [StringLength(50, MinimumLength = 0)]
-        [BindProperty]
+        public async Task<IActionResult> OnPostDownloadAsync()
+        {
+            await Task.Delay(1);
+            // Data.Position = 0;
+            var data = new MemoryStream(Tuple.Item1);
+            data.Position = 0;
+            return File(data, "application/zip", Tuple.Item2 + ".zip");
+        }
+
+
+
+
+
+        public Tuple<byte[], string> ? Tuple
+        {
+            get;
+            set;
+        }
+
+       [BindProperty]
         public string Extension
         {
             get;
@@ -174,14 +185,14 @@ namespace Conversion3D.WebApplication.Pages
                 //  var r = p.CreateString(path, b, ext.Item1[0], ext.Item2);
                 var byt = p.CreateAndSaveZip(path, filename, b, add, ext.Item1[0], ext.Item2, Directory);
                 var bt = new Tuple<byte[], string>(byt, FileName);
-                var d = new Dictionary<Type, List<object>>()
+  /*              var d = new Dictionary<Type, List<object>>()
                         {
                             {typeof(byte[]), new List<object>(){Bytes } }
                         };
-                PageContext.Add(d, typeof(byte[]).Assembly);
+                PageContext.Add(d, typeof(byte[]).Assembly);*/
                 HyperLink.Tuple = bt;
                 var rd = RedirectToPage("./HyperLink");
-                return rd;
+            return Page();
 
                 //   using var outp = new MemoryStream();
                 //            {
