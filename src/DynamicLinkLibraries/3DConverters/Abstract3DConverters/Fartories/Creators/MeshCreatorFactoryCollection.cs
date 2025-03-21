@@ -7,13 +7,13 @@ namespace Abstract3DConverters.Fartories.Creators
         List<IMeshCreatorFactory> list = new();
 
     
-        protected override  IMeshCreator this[string extension, byte[] bytes]
+        protected override  IMeshCreator this[string extension, byte[] bytes, object additional]
         {
             get
             {
                 foreach (var item in list)
                 {
-                    var f = item[extension, bytes];
+                    var f = item[extension, bytes, additional];
                     if (f != null)
                     {
                         return f;

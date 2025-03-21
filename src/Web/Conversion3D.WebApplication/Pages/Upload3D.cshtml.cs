@@ -198,8 +198,9 @@ namespace Conversion3D.WebApplication.Pages
                 var b = stream.ToArray();
                 var p = new Performer();
                 var path = Path.Combine(Directory, inex);
+                var filename = Path.GetFileName(inex) + ext.Item1[0];
                 //  var r = p.CreateString(path, b, ext.Item1[0], ext.Item2);
-                var byt = p.CreateAndSaveZip(path, "1.dae", b, ext.Item1[0], ext.Item2, Directory);
+                var byt = p.CreateAndSaveZip(path, filename, b, null, ext.Item1[0], ext.Item2, Directory);
                 var bt = new Tuple<byte[], string>(byt, FileName);
                 var d = new Dictionary<Type, List<object>>()
                         {

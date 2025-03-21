@@ -19,8 +19,8 @@ namespace Abstract3DConverters.Fartories.Creators
             }
         }
 
-   
-        protected override IMeshCreator this[string filename, byte[] bytes]
+
+        protected override IMeshCreator this[string filename, byte[] bytes, object additional]
         {
             get
             {
@@ -30,9 +30,13 @@ namespace Abstract3DConverters.Fartories.Creators
                     return null;
                 }
                 var c = dictionary[ext];
-                return c.Invoke([filename, bytes]) as IMeshCreator;
+                var arg = c.GetParameters();
+                if (arg.Length == 2)
+                {
+                    return c.Invoke([filename, bytes]) as IMeshCreator;
+                }
+                return c.Invoke([filename, bytes, additional]) as IMeshCreator;
             }
         }
-
     }
 }

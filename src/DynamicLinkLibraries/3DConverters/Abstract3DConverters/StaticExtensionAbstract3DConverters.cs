@@ -179,9 +179,9 @@ namespace Abstract3DConverters
 
         }
 
-        public static IMeshCreator GetMeshCreator(string extension, byte[] bytes)
+        public static IMeshCreator GetMeshCreator(string extension, byte[] bytes, object additional)
         {
-            return meshCreatorFactory[extension, bytes];
+            return meshCreatorFactory[extension, bytes, additional];
         }
 
         public static void Add(this IMeshCreatorFactory factory)
@@ -226,6 +226,10 @@ namespace Abstract3DConverters
                             if (ca != null)
                             {
                                 ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(byte[])]);
+                                if (constructor == null)
+                                {
+                                    constructor = type.GetConstructor([typeof(string), typeof(byte[]), typeof(object)]);
+                                }
                                 if (constructor != null)
                                 {
                                     var keys = ca.Extensions;
@@ -233,10 +237,6 @@ namespace Abstract3DConverters
                                     {
                                         creators[key] = constructor;
                                     }
-                                }
-                                else
-                                {
-
                                 }
                             }
                             else
@@ -305,17 +305,17 @@ namespace Abstract3DConverters
             return meshConverterFactory[extension, comment];
         }
 
-        public static IMeshCreator ToMeshCreator(this string filename, byte[] bytes)
+        public static IMeshCreator ToMeshCreator(this string filename, byte[] bytes, object additional)
         {
-            return meshCreatorFactory[filename, bytes];
+            return meshCreatorFactory[filename, bytes, additional];
         }
 
-        public static IMeshCreator ToMeshCreator(this string filename)
+        public static IMeshCreator ToMeshCreator(this string filename, object additional)
         {
             using var stream = File.OpenRead(filename);
             byte[] b = new byte[stream.Length];
             stream.ReadExactly(b);
-            return ToMeshCreator(filename, b);
+            return ToMeshCreator(filename, b, additional);
         }
 
         /// <summary>

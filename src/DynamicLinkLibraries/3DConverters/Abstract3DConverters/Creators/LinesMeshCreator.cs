@@ -9,17 +9,25 @@ namespace Abstract3DConverters.Creators
 
         protected List<string> lines = new List<string>();
 
-        protected LinesMeshCreator(string filename, byte[] bytes) : base(filename, bytes)
+
+        protected LinesMeshCreator(string filename, byte[] bytes, object additional) : base(filename, bytes)
         {
             try
             {
-                CreateAll();
+                if (additional == null)
+                {
+                    CreateAll();
+                    return;
+                }
+                CreateAdditional(additional);
             }
             catch (Exception ex)
             {
                 ex.HandleExceptionDouble("LinesMeshCreator constructor " + GetType().Name);
            }
         }
+
+        abstract protected void CreateAdditional(object additional);
 
         public override void Load(byte[] bytes)
         {

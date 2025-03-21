@@ -34,7 +34,7 @@ namespace Abstract3DConverters.Creators
 
         #region Cror
 
-        public AcCreator(string filename, byte[] bytes) : base(filename, bytes)
+        public AcCreator(string filename, byte[] bytes) : base(filename, bytes, null)
         {
             try
             {
@@ -76,6 +76,12 @@ namespace Abstract3DConverters.Creators
             }
             return null;
         }
+
+        protected override void CreateAdditional(object additional)
+        {
+
+        }
+
 
         internal int GertMaterialNumber(Effect effect)
         {

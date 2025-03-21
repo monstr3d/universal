@@ -47,7 +47,7 @@ namespace ExportToWpf
 
         static Tuple <object, Dictionary<string, byte[]>> Export(string filename)
         {
-            var c = filename.ToMeshCreator();
+            var c = filename.ToMeshCreator(null);
             return Export(filename, c);
         }
 

@@ -17,7 +17,7 @@ namespace Collada.Converters
 
         }
 
-        protected override IMeshCreator this[string filename, byte[] bytes]
+        protected override IMeshCreator this[string filename, byte[] bytes, object additional]
         {
             get
             {

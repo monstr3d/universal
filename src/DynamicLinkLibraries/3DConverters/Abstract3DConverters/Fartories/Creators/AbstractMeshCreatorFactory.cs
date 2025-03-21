@@ -8,9 +8,9 @@ namespace Abstract3DConverters.Fartories.Creators
     {
         List<string> IMeshCreatorFactory.Extensions => Extensions;
 
-        IMeshCreator IMeshCreatorFactory.this[string extension, byte[] bytes] => this[extension, bytes];
+        IMeshCreator IMeshCreatorFactory.this[string extension, byte[] bytes, object additional] => this[extension, bytes, additional];
 
-        protected abstract IMeshCreator this[string extension, byte[] bytes] { get; }
+        protected abstract IMeshCreator this[string extension, byte[] bytes, object additional] { get; }
 
         protected virtual List<string> Extensions
         {

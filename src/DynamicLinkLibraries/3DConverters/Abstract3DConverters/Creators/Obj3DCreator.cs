@@ -52,14 +52,21 @@ namespace Abstract3DConverters.Creators
         #region Ctor
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-        public Obj3DCreator(string filename, byte[] bytes) : base(filename, bytes)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
+        public Obj3DCreator(string filename, byte[] bytes, object additional) : base(filename, bytes, additional)
         {
 
         }
 
 
+
+
         #endregion
+
+        protected override void CreateAdditional(object additional)
+        {
+            
+        }
 
         public List<string> UsedMaterials
         {

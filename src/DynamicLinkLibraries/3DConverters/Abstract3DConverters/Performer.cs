@@ -40,13 +40,14 @@ namespace Abstract3DConverters
         /// <typeparam name="T">The type of output</typeparam>
         /// <param name="fileinput">The name of input file</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="act">The action</param>
         /// <returns>Created object</returns>
-        public T CreateAll<T>(string fileinput, byte[] bytes, string outExt, string outComment, Action<T> act) where T : class
+        public T CreateAll<T>(string fileinput, byte[] bytes, object additional,  string outExt, string outComment, Action<T> act) where T : class
         {
-            var creator = fileinput.ToMeshCreator(bytes);
+            var creator = fileinput.ToMeshCreator(bytes, additional);
             var p = new Performer();
             var converter = outExt.ToMeshConvertor(outComment);
             var res = p.Create<T>(creator, converter, act);
@@ -58,13 +59,14 @@ namespace Abstract3DConverters
         /// </summary>
         /// <param name="fileinput">The name of input file</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="act">The action</param>
         /// <returns>Created object</returns>
-        public string CreateString(string fileinput, byte[] bytes, string outExt, string outComment, Action<object> act = null)
+        public string CreateString(string fileinput, byte[] bytes, object additional, string outExt, string outComment, Action<object> act = null)
         {
-            var creator = fileinput.ToMeshCreator(bytes);
+            var creator = fileinput.ToMeshCreator(bytes, additional);
             var p = new Performer();
             var converter = outExt.ToMeshConvertor(outComment);
             var res = p.Create<object>(creator, converter, act);
@@ -196,14 +198,15 @@ namespace Abstract3DConverters
         /// </summary>
         /// <param name="fileinput">The name of input file</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="converter">Converter</param>
         /// <param name="converterDirectory">Converter directory</param>
         /// <param name="outs">Stream of output</param>
         /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, 
+        public void CreateAndSave(string fileinput, byte[] bytes, object additional, IMeshConverter converter, 
             string converterDirectory, Stream outs, Action<object> act = null)
         {
-            var creator = fileinput.ToMeshCreator(bytes);
+            var creator = fileinput.ToMeshCreator(bytes, additional);
             var res = Create<object>(creator, converter, converterDirectory, act);
             if (converter is ISaveToStream save)
             {
@@ -221,23 +224,24 @@ namespace Abstract3DConverters
         /// </summary>
         /// <param name="fileinput">The name of input file</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="converterDirectory">Converter directory</param>
         /// <param name="outs">Stream of output</param>
         /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, byte[] bytes, string outExt, string outComment, 
+        public void CreateAndSave(string fileinput, byte[] bytes, object additional, string outExt, string outComment, 
              string converterDirectory, Stream outs, Dictionary<string, byte[]> add = null, Action<object> act = null)
         {
             var converter = outExt.ToMeshConvertor(outComment);
-            CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
+            CreateAndSave(fileinput, bytes, additional, converter, converterDirectory, outs, act);
             if (add == null)
             {
                 return;
             }
-            if (converter is IAdditionalInformation additional)
+            if (converter is IAdditionalInformation additionalObj)
             {
-                var t = additional.Information;
+                var t = additionalObj.Information;
                 foreach (var item in t)
                 {
                     add.Add(item.Key, item.Value);
@@ -251,17 +255,18 @@ namespace Abstract3DConverters
         /// <param name="fileinput">Input</param>
         /// <param name="filename">File name</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="converterDirectory">Converter directory</param>
         /// <param name="outs">Output stream</param>
         /// <param name="act">Action</param>
-        public void CreateAndSaveZip(string fileinput, string filename, byte[] bytes, string outExt, string outComment,
+        public void CreateAndSaveZip(string fileinput, string filename, byte[] bytes, object additional, string outExt, string outComment,
              string converterDirectory, Stream outs, Action<object> act = null)
         {
             using var stream = new MemoryStream();
             var d = new Dictionary<string, byte[]>();
-            CreateAndSave(fileinput, bytes, outExt, outComment, converterDirectory, stream, d, act);
+            CreateAndSave(fileinput, bytes, additional, outExt, outComment, converterDirectory, stream, d, act);
             using var archive = new ZipArchive(outs, ZipArchiveMode.Create, true);
             var demoFile = archive.CreateEntry(filename);
             using (var entryStream = demoFile.Open())
@@ -284,16 +289,17 @@ namespace Abstract3DConverters
         /// <param name="fileinput">Input</param>
         /// <param name="filename">File name</param>
         /// <param name="bytes">Input bytes</param>
+        /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="converterDirectory">Converter directory</param>
         /// <param name="act">Action</param>
         /// <returns>Output bytes</returns>
-        public byte[] CreateAndSaveZip(string fileinput, string filename, byte[] bytes, string outExt, string outComment,
+        public byte[] CreateAndSaveZip(string fileinput, string filename, byte[] bytes, object additional, string outExt, string outComment,
          string converterDirectory,  Action<object> act = null)
         {
             using var outs = new MemoryStream();
-            CreateAndSaveZip(fileinput, filename, bytes, outExt, outComment, converterDirectory, outs, act);
+            CreateAndSaveZip(fileinput, filename, bytes, additional, outExt, outComment, converterDirectory, outs, act);
             return outs.ToArray();
         }
 
@@ -316,7 +322,7 @@ namespace Abstract3DConverters
             using var stream = File.OpenRead(fileinput);
             byte[] bytes = new byte[stream.Length];
             stream.Read(bytes);
-            CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
+            CreateAndSave(fileinput, bytes, null, converter, converterDirectory, outs, act);
             if (converter is IAdditionalInformation add)
             {
                 if (add.Information != null)
