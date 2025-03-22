@@ -10,7 +10,7 @@ using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.Converters
 {
-    [Converter(".xaml", true)]
+    [Converter(".xaml", true, false, true)]
     public class XamlMeshConverter : XmlMeshConverter, IImagePathFull
     {
 

@@ -161,6 +161,17 @@ namespace Abstract3DConverters
                     full.ImagePathFull = exte.ImagePathFull;
                 }
             }
+            var ca = s.GetAttribute<ConverterAttribute>(converter);
+            if (ca != null)
+            {
+                if (ca.ShouldSeparateTextures)
+                {
+                    if (creator is ISeparateTextures separate)
+                    {
+                        separate.Separate();
+                    }
+                }
+            }
             if (cd == null)
             {
                 cd = creator.Directory;

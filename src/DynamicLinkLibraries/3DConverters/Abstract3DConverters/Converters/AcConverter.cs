@@ -47,8 +47,7 @@ namespace Abstract3DConverters.Converters
             var count = ms.Count;
             lines.Add("OBJECT world");
             lines.Add("kids " + count);
-            var lt =  base.Combine(ms) as List<string>;
-            lines.AddRange(lt);
+            base.Combine(ms);
             return lines;
         }
 

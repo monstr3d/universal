@@ -16,7 +16,7 @@
         /// Full image path
         /// </summary>
         public bool ImagePathFull { get; private set; }
-
+      
         /// <summary>
         /// Constructor
         /// </summary>

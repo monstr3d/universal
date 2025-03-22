@@ -25,6 +25,12 @@
         /// </summary>
         public bool RequiresAbsolute { get; private set;}
 
+        
+        /// <summary>
+        /// Should separate textures
+        /// </summary>
+        public bool ShouldSeparateTextures { get; private set; }
+
   
         /// <summary>
         /// Constructor
@@ -34,11 +40,12 @@
         /// <param name="requiresAbsolute">Requires absolute calculation</param>
         /// <param name="comment">Comment</param>
         public ConverterAttribute(string extension, bool trianglesOnly = false, bool requiresAbsolute = false, 
-            string comment = null)
+           bool shouldSeparateTextures  = false, string comment = null)
         {
             Extension = extension;
             TrianglesOnly = trianglesOnly;
             RequiresAbsolute = requiresAbsolute;
+            ShouldSeparateTextures = shouldSeparateTextures;
             Comment = comment;
         }
     }

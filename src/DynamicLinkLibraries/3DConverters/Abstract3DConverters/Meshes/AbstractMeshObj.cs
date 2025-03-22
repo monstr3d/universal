@@ -34,44 +34,99 @@ namespace Abstract3DConverters.Meshes
             private set;
         }
 
+        List<Tuple<Effect, List<int[][]>>> Indexes
+        {
+            get;
+            set;
+        }
+
+
+        internal List<float[]> IntVertices { get; private set; }
+        internal List<float[]> IntTextures { get; private set; }
+        internal List<float[]> IntNormals { get; private set; }
+  
+
+
+
+
+
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
             try
             {
-
-                Effect = creator.EffectList[number];
-                Vertices = creator.Vertices;
-                Textures = creator.Textures;
-                Normals = creator.Normals;
-                Polygons = new();
-                var indexes = creator.Indexes[number];
-                Name = creator.Names[number];
-                Polygons = new();
-                foreach (var ind in indexes)
+                if (creator.EffectList != null)
                 {
-                    var l = new List<PointTexture>();
-                    foreach (var i in ind)
+                    Effect = creator.EffectList[number];
+                }
+                IntVertices = creator.Vertices;
+                IntTextures = creator.Textures;
+                IntNormals = creator.Normals;
+                Polygons = new();
+                Indexes = creator.Indexes[number];
+                Name = "";
+                if (creator.Names.Count > number)
+                {
+                    Name = creator.Names[number];
+                }
+                Vertices = new();
+                Textures = new();
+                Normals = new();
+                foreach (var tuple in Indexes)
+                {
+                    var ind = tuple.Item2;
+                    foreach (var ii in ind)
                     {
-                        var point = s.CreatePointTexture(this, i[0], i[1], i[2]);
-                        if (point == null)
+                        foreach (var i in ii)
                         {
-                            throw new Exception("AbstractMeshObj");
+                            Vertices.Add(IntVertices[i[0]]);
+                            Textures.Add(IntTextures[i[1]]);
+                            if (i.Length > 2)
+                            {
+                                if (i[2] >= 0)
+                                {
+                                    Normals.Add(IntNormals[i[2]]);
+                                }
+                            }
                         }
-                        l.Add(point);
                     }
-                    var polygon = new Polygon(this, l.ToArray(), Effect);
-                    Polygons.Add(polygon);
+                }
+                if (s.IsEmpty(Normals))
+                {
+                    Normals = null;
+                }
+                int np = 0;
+                foreach (var tuple in Indexes)
+                {
+                    var effect = tuple.Item1;
+                    var idx = tuple.Item2;
+                    foreach (var ind in idx)
+                    {
+                        var l = new List<PointTexture>();
+                        for (int i = 0; i < ind.Length; i++)
+                        {
+                            var ik = (Normals == null) ? -1 : np;
+                            var point = s.CreatePointTexture(this, np, np, ik);
+                            ++np;
+                            if (point == null)
+                            {
+                                throw new Exception("AbstractMeshObj POINT ERROR");
+                            }
+                            l.Add(point);
+                        }
+                        var polygon = new Polygon(this, l, effect);
+                        Polygons.Add(polygon);
+                    }
                 }
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                exception.HandleExceptionDouble("AbstractMeshObj 1");
+                e.HandleExceptionDouble("ABSOBJ");
             }
         }
 
 
 
-        internal AbstractMeshObj(string name, Obj3DCreatorNEW objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
+        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
         {
             nextName = "";
             end = 0;

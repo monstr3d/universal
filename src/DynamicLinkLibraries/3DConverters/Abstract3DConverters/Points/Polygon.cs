@@ -30,12 +30,12 @@ namespace Abstract3DConverters.Points
         /// <param name="mesh">Mesh</param>
         /// <param name="points">Points</param>
         /// <param name="effect">Effect</param>
-        public Polygon(IMesh mesh, PointTexture[] points, Effect effect)
+        public Polygon(IMesh mesh, IEnumerable<PointTexture> points, Effect effect)
         {
             CalcualateNormal = CalculateNormalPre;
             CaclualateVertexNormal = CaclualateVertexNormalPre;
             Mesh = mesh;
-            Points = points;
+            Points = points.ToArray();
             foreach (var p in points)
             {
                 p.Polygon = this;

@@ -7,7 +7,7 @@ namespace Abstract3DConverters.Creators
 {
     
     [Attributes.Extension([".obj"])]
-    public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
+    public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation, ISeparateTextures
     {
         #region Ctor
 
@@ -22,6 +22,12 @@ namespace Abstract3DConverters.Creators
 
 
         #region Fields
+
+        internal bool Separate
+        {
+            get;
+            private set;
+        } = false;
 
         int mn = -1;
 
@@ -90,7 +96,7 @@ namespace Abstract3DConverters.Creators
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
 
-        internal List<List<int[][]>> Indexes 
+        internal List<List<Tuple<Effect,List<int[][]>>>> Indexes 
         { 
             get; 
         } = new();
@@ -108,6 +114,11 @@ namespace Abstract3DConverters.Creators
         {
             get
             {
+                if (EffectList == null)
+                {
+                    yield return new AbstractMeshObj(0, this);
+                    yield break;
+                }
                 for (var i = 0; i < EffectList.Count; i++)
                 {
                     yield return new AbstractMeshObj(i, this);
@@ -135,6 +146,8 @@ namespace Abstract3DConverters.Creators
 
         string GetInitial(string line)
         {
+            var n = s.ToString(line, objs);
+            return n;
             if (line.StartsWith("usemtl "))
             {
    /*             var mat = line.Substring("usemtl ".Length);
@@ -174,29 +187,51 @@ namespace Abstract3DConverters.Creators
         //Func<string, string> GetName;
 
         string  objs = "# object ";
-    
+
         void CreateGeometry()
+        { 
+            foreach (var line in lines)
+            {
+                if (s.ToString(line, objs) != null)
+                {
+                    goto m;
+                }
+            }
+            EffectList = null;
+            CreateUnNamedGeometry();
+            return;
+        m:
+            CreateNamedGeometry();
+        }
+
+
+        void CreateUnNamedGeometry()
         {
             // GetName = GetInititial;
             try
             {
-                List<int[][]> indexes = null;
+                List<Tuple<Effect, List<int[][]>>> indexes = new();
+                Indexes.Add(indexes);
+                Tuple<Effect, List<int[][]>> tuple = null;
 
                 foreach (var line in lines)
                 {
-                    var name = GetInitial(line);
-                    if (name != null)
+
+                    if (line.StartsWith("usemtl "))
                     {
-                        if (name != Fiction)
+                        var mat = line.Substring("usemtl ".Length);
+                        if (mat == "_default_")
                         {
-                            Names.Add(name);
-                            indexes = new();
-                            Indexes.Add(indexes);
                             continue;
                         }
-                        else
+                        var effect = Effects[mat];
+                        if (!UsedMaterials.Contains(mat))
                         {
+                            UsedMaterials.Add(mat);
                         }
+                        tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                        indexes.Add(tuple);
+                        continue;
                     }
 
                     if (line.IndexOf("v ") == 0)
@@ -215,22 +250,6 @@ namespace Abstract3DConverters.Creators
                     {
                         var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
                         Normals.Add(f);
-                        continue;
-                    }
-                    if (line.StartsWith("usemtl "))
-                    {
-                        MatExists = true;
-                        var mat = line.Substring("usemtl ".Length);
-                        if (mat == "_default_")
-                        {
-                            continue;
-                        }
-                        var effect = Effects[mat];
-                        EffectList.Add(effect);
-                        if (!UsedMaterials.Contains(mat))
-                        {
-                            UsedMaterials.Add(mat);
-                        }
                         continue;
                     }
                     if (line.IndexOf("f ") == 0)
@@ -256,7 +275,7 @@ namespace Abstract3DConverters.Creators
                                 }
                             }
                         }
-                        indexes.Add(ind);
+                        tuple.Item2.Add(ind);
                         continue;
                     }
 
@@ -264,7 +283,104 @@ namespace Abstract3DConverters.Creators
             }
             catch (Exception exception)
             {
-                exception.HandleExceptionDouble("Create geometry Obj creator");
+                exception.HandleExceptionDouble("Create unnamed geometry Obj creator");
+            }
+        }
+
+
+        void CreateNamedGeometry()
+        {
+            // GetName = GetInititial;
+            try
+            {
+                List<Tuple<Effect, List<int[][]>>> indexes = null;
+                Tuple<Effect, List<int[][]>> tuple = null;
+
+                for (int k = 0; k < lines.Count; k++)
+                {
+                    var line = lines[k];   
+                    var name = GetInitial(line);
+                    if (name != null)
+                    {
+                        if (name != Fiction)
+                        {
+                            Names.Add(name);
+                            indexes = new();
+                            Indexes.Add(indexes);
+                            continue;
+                        }
+                        else
+                        {
+                        }
+                    }
+                    if (line.StartsWith("usemtl "))
+                    {
+                        var mat = line.Substring("usemtl ".Length);
+                        if (mat == "_default_")
+                        {
+                            continue;
+                        }
+                        var effect = Effects[mat];
+                        EffectList.Add(effect);
+                        if (!UsedMaterials.Contains(mat))
+                        {
+                            UsedMaterials.Add(mat);
+                        }
+                        tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                        indexes.Add(tuple);
+                        continue;
+                    }
+
+                    if (line.IndexOf("v ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                        Vertices.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vt ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                        s.AddTexture(Textures, f);
+                        continue;
+                    }
+                    if (line.IndexOf("vn ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                        Normals.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("f ") == 0)
+                    {
+                        var s = line.Substring("f ".Length).Trim();
+                        var ss = s.Split(" ".ToCharArray());
+                        var ind = new int[ss.Length][];
+                        for (int j = 0; j < ss.Length; j++)
+                        {
+                            var sss = ss[j].Split("/".ToCharArray());
+                            var i = new int[3] { -1, -1, -1 };
+                            ind[j] = i;
+                            //var k =  new int[sss.Length];
+                            for (int m = 0; m < sss.Length; m++)
+                            {
+                                if (sss[m].Length == 0)
+                                {
+                                    i[m] = -1;
+                                }
+                                else
+                                {
+                                    i[m] = int.Parse(sss[m]) - 1;// Shifts[m];
+                                }
+                            }
+                        }
+                        tuple.Item2.Add(ind);
+                        continue;
+                    }
+
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Create named geometry Obj creator");
             }
         }
 
@@ -895,5 +1011,9 @@ namespace Abstract3DConverters.Creators
             CreateGeometry();
         }
 
+        void ISeparateTextures.Separate()
+        {
+            Separate = true;
+        }
     }
 }
