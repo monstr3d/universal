@@ -1,9 +1,6 @@
-﻿using System.Net.WebSockets;
-using Abstract3DConverters;
+﻿using Abstract3DConverters;
 using Abstract3DConverters.ConsoleTest;
 using Abstract3DConverters.ErrorHandlers;
-
-using ErrorHandler;
 
 Console.WriteLine("Hello, World!");
 var dir = @"c:\AUsers\1MySoft\CSharp\03D\GOOD";
@@ -20,9 +17,9 @@ var a = (Exception e, TextWriter t) =>
 
 using var eh = new TextWiterErrorHandler(writer);
 
-var hand = new ExceptionHandlerCollection([eh, new ConsoleExceptionHandler()]);
+var hand = new ErrorHandler.ExceptionHandlerCollection([eh, new ConsoleExceptionHandler()]);
+ErrorHandler.StaticExtensionErrorHandler.Set(hand);
 
-hand.Set();
 
 StaticExtensionAbstract3DConverters.FileTypes = new Dictionary<string, Tuple<string[], string>>()
             {

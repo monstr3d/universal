@@ -59,74 +59,84 @@ namespace Abstract3DConverters.Converters
 
         protected override List<string> CreateLines(IMesh mesh)
         {
-            var l = new List<string>();
-            var children = mesh.Children;
-            var kids = children.Count;
-            if (kids > 0)
+            try
             {
-                l.Add("OBJECT group");
+                var l = new List<string>();
+                var children = mesh.Children;
+                var kids = children.Count;
+                if (kids > 0)
+                {
+                    l.Add("OBJECT group");
+                    AddName(mesh, l);
+                    l.Add("kids " + kids);
+                    return l;
+                    foreach (var im in children)
+                    {
+                        var lt = Converter.Create(im) as List<string>;
+                        l.AddRange(lt);
+                    }
+                    return l;
+                }
+                if (mesh.Vertices.Count == 0)
+                {
+                    return l;
+                }
+                var effect = mesh.Effect;
+                if (effect == null)
+                {
+
+                }
+                l.Add("OBJECT poly");
                 AddName(mesh, l);
-                l.Add("kids " + kids);
+                if (effect != null)
+                {
+                    var image = effect.Image;
+                    if (image != null)
+                    {
+                        if (Images.ContainsKey(image.Name))
+                        {
+                            var nm = Images[image.Name];
+                            l.Add("texture " + nm);
+                        }
+                    }
+                }
+                l.Add("numvert " + mesh.AbsoluteVertices.Count);
+                foreach (var point in mesh.AbsoluteVertices)
+                {
+                    l.Add(s.StringValue(point));
+                }
+                l.Add("numsurf " + mesh.Polygons.Count);
+                foreach (var polygon in mesh.Polygons)
+                {
+                    //  var mate = polygon.Effect.Name;
+                    //   var i = materials.IndexOf(mate);
+                    //  i =  EffectsSP[polygon.Effect];
+                    var i = GetMatInd(polygon.Effect);
+                    if (i < 0)
+                    {
+
+                    }
+                    l.Add("SURF 0x10");
+                    if (i >= 0)
+                    {
+                        l.Add("mat " + i);
+                    }
+                    i = polygon.Points.Length;
+                    l.Add("refs " + i);
+                    foreach (var point in polygon.Points)
+                    {
+                        l.Add(point.VertexIndex + " " + s.StringValue(point.Texture));
+                    }
+
+                }
+                l.Add("kids 0");
                 return l;
-                foreach (var im in children)
-                {
-                    var lt = Converter.Create(im) as List<string>;
-                    l.AddRange(lt);
-                }
-                return l;
             }
-            if (mesh.Vertices.Count == 0)
+            catch (Exception ex)
             {
-                return l;
+                ex.HandleExceptionDouble("AConverter.CreateLines");
             }
-            var effect = mesh.Effect;
-            if (effect == null)
-            {
-
-            }
-            l.Add("OBJECT poly");
-            AddName(mesh, l);
-            if (effect != null)
-            {
-                var image = effect.Image;
-                if (image != null)
-                {
-                    var nm = Images[image.Name];
-                    l.Add("texture " + nm);
-                }
-            }
-            l.Add("numvert " + mesh.AbsoluteVertices.Count);
-            foreach (var point in mesh.AbsoluteVertices)
-            {
-                l.Add(s.StringValue(point));
-            }
-            l.Add("numsurf " + mesh.Polygons.Count);
-            foreach (var polygon in mesh.Polygons)
-            {
-              //  var mate = polygon.Effect.Name;
-             //   var i = materials.IndexOf(mate);
-              //  i =  EffectsSP[polygon.Effect];
-                var i = GetMatInd(polygon.Effect);
-                if (i < 0)
-                {
-
-                }
-                l.Add("SURF 0x10");
-                if (i >= 0)
-                {
-                    l.Add("mat " + i);
-                }
-                i = polygon.Points.Length;
-                l.Add("refs " + i);
-                foreach (var point in polygon.Points)
-                {
-                    l.Add(point.VertexIndex + " " + s.StringValue(point.Texture));
-                }
-
-            }
-            l.Add("kids 0");
-            return l;
-
+            return null;
         }
 
         internal Dictionary<string, int> MaterialsSP

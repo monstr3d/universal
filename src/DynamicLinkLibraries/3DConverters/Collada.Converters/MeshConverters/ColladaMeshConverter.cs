@@ -75,7 +75,7 @@ namespace Collada.Converters.MeshConverters
 
         protected Dictionary<string, Image> imagesdictionary;
 
-        protected XmlElement library_visual_scenes;
+        protected XmlElement visual_scene;
 
         private int geomName = 0;
 
@@ -116,9 +116,9 @@ namespace Collada.Converters.MeshConverters
                 eff = eff.Replace("\t", "");
                 effect.LoadXml(eff);
                 var r = doc.GetElementsByTagName("library_visual_scenes")[0];
-                library_visual_scenes = doc.GetElementsByTagName("library_visual_scenes")[0] as XmlElement;
+                visual_scene = doc.GetElementsByTagName("visual_scene")[0] as XmlElement;
                 emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
-                nodes = doc.GetElementsByTagName("instance_visual_scene")[0] as XmlElement;
+                nodes = visual_scene;// doc.GetElementsByTagName("instance_visual_scene")[0] as XmlElement;
 
             }
             catch (Exception e)
@@ -590,10 +590,10 @@ namespace Collada.Converters.MeshConverters
         {
             { "wrap_s", "WRAP" },
             {"wrap_t", "WRAP" },
-            {"wrap_p", "WRAP" },
+          //  {"wrap_p", "WRAP" },
       //      {"minfilter", "NONE" },
            {"mipfilter", "NONE" },
-           {"mapfilter", "NONE" },
+        //   {"mapfilter", "NONE" },
 
         };
 
@@ -738,7 +738,7 @@ namespace Collada.Converters.MeshConverters
             p.AppendChild(t);
             var c = Create("color");
             t.AppendChild(c);
-            c.InnerText = color.StringValue();
+            c.InnerText = color.StringARGBValue();
         }
 
 

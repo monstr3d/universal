@@ -1,7 +1,9 @@
 ﻿using System.Text;
 using System.Windows.Media.Media3D;
 using System.Xml;
+
 using Abstract3DConverters;
+
 using ErrorHandler;
 
 
@@ -12,7 +14,7 @@ namespace Wpf.Loader
 
         protected Paths.Service.Service service = new();
 
-        protected Abstract3DConverters.Service s = new();
+        protected Service s = new();
 
         protected double[][] normals;
 
@@ -226,7 +228,6 @@ namespace Wpf.Loader
             }
             set
             {
-                var s = new Service();
                 xaml = value;
                 facetCount = -1;
                 texture = null;

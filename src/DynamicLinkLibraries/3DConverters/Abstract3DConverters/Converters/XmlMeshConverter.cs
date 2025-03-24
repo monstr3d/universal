@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 
-using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 

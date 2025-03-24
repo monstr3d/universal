@@ -154,6 +154,16 @@
             return s.ToString(RGB, sep);
         }
 
+        public string StringARGBValue(string sep = " ")
+        {
+            var s = StringValue();
+            if (s.Length == 4)
+            {
+                return s;
+            }
+            return "1 " + s;
+        }
+
         /// <summary>
         /// RGB
         /// </summary>

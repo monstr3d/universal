@@ -68,14 +68,13 @@ namespace Abstract3DConverters.Converters
                     }
                 }
                 writer.Flush();
-                // stream.Flush();
                 var bt = stream.ToArray();
                 dictionary[mtlName] = bt;
                 lines.Add("mtllib " + mtlName);
             }
             catch (Exception e)
             {
-                e.HandleExceptionDouble("Set effects of Obj3DConverter");
+                e.HandleExceptionDouble("Obj3DConverter. Set effects");
             }
         }
 
@@ -93,16 +92,17 @@ namespace Abstract3DConverters.Converters
             yield return "Tr " + (1-diff.Opacity);
             yield return "Tf 0";
             yield return "illum 0";
-            yield return "Ka " + diff.AmbientColor.StringRGBValue();
-            yield return "Kd " + diff.Color.StringRGBValue();
-            yield return "Ks " + spec.Color.StringRGBValue();
-            yield return "Ke " + emis.Color.StringRGBValue();
+            yield return "Ka " + s.RGBValue(diff.AmbientColor);
+            yield return "Kd " + s.RGBValue(diff.Color);
+            yield return "Ks " + s.RGBValue(spec.Color);
+            yield return "Ke " + s.RGBValue(emis.Color);
             yield return "map_Ka 0";
             var image = effect.Image;
             var pth =  (image == null) ? "0" : image.GetImageFile();
             yield return "map_Kd " + pth;
         }
 
+  
         protected override List<string> CreateLines(IMesh mesh)
         {
             try

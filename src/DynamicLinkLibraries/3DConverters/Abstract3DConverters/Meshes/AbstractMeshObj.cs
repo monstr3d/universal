@@ -105,7 +105,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception e)
             {
-                e.HandleExceptionDouble("ABSOBJ SINGLE");
+                e.HandleExceptionDouble("ABSOBJ SINGLE 1");
             }
         }
 
@@ -191,7 +191,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception e)
             {
-                e.HandleExceptionDouble("ABSOBJ SINGLE");
+                e.HandleExceptionDouble("ABSOBJ SINGLE 2");
             }
         }
 

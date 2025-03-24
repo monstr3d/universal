@@ -6,7 +6,6 @@ using System.Reflection;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Abstract3DConverters
 {
@@ -48,6 +47,20 @@ namespace Abstract3DConverters
 
 
         #region Public Members
+
+        /// <summary>
+        /// RGB Value of color
+        /// </summary>
+        /// <param name="color">Color</param>
+        /// <returns>RGB Value</returns>
+        public string RGBValue(Color color)
+        {
+            if (color == null)
+            {
+                return "0 0 0";
+            }
+            return color.StringRGBValue();
+        }
 
         public bool IsZero(Array array)
         {
