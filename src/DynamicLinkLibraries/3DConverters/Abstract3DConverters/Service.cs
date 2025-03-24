@@ -6,6 +6,7 @@ using System.Reflection;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Abstract3DConverters
 {
@@ -47,6 +48,124 @@ namespace Abstract3DConverters
 
 
         #region Public Members
+
+        public bool IsZero(Array array)
+        {
+            foreach (var i in array)
+            {
+                if (i is Array a)
+                {
+                    if(!IsZero(a))
+                    {
+                        return false;
+                    }
+                }
+                if (i is double dd)
+                {
+                    if (dd != 0)
+                    {
+                        return false;
+                    }
+                } 
+                if (i is float ff)
+                {
+                    if (ff != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Gets size of x and y
+        /// </summary>
+        /// <param name="x">The x</param>
+        /// <param name="y">The y</param>
+        /// <returns>The size</returns>
+        public double[,] Get3DSize(double[,] x, double[,] y)
+        {
+            if (x == null)
+            {
+                if (y != null)
+                {
+                    return y;
+                }
+                return null;
+            }
+            else if (y == null)
+            {
+                return x;
+            }
+            var d = new double[2, x.GetLength(1)];
+            for (var i = 0; i < d.GetLength(1); i++)
+            {
+                d[0, i] = Math.Min(x[0, i], y[0, i]);
+                d[1, i] = Math.Max(x[1, i], y[1, i]);
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Coordinate of texture
+        /// </summary>
+        /// <param name="a">Input</param>
+        /// <returns>Output</returns>
+        public float TextureCoordinate(float a)
+        {
+            if (a >= 0f & a <= 1f)
+            {
+                return a;
+            }
+            return a - (float)Math.Floor(a);
+        }
+
+        /// <summary>
+        /// Gets 3D size
+        /// </summary>
+        /// <param name="s">string</param>
+        /// <returns>Size</returns>
+        public double[,] Get3DSize(string s)
+        {
+            var a = ToRealArray<double>(s, 3);
+            return Get3DSize(a);
+        }
+
+
+        /// <summary>
+        /// Gets 3D size
+        /// </summary>
+        /// <param name="list">List</param>
+        /// <returns>Size</returns>
+        public double[,] Get3DSize(List<double[]> list)
+        {
+            var d = new double[2, 3];
+            bool f = true;
+            var dd = new double[3];
+            foreach (var p in list)
+            {
+                dd[0] = p[0];
+                dd[1] = p[1];
+                dd[2] = p[2];
+                if (f)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        d[0, i] = dd[i];
+                        d[1, i] = dd[i];
+                    }
+                    f = false;
+                    continue;
+                }
+                for (var i = 0; i < 3; i++)
+                {
+                    d[0, i] = Math.Min(dd[i], d[0, i]);
+                    d[1, i] = Math.Max(dd[i], d[1, i]);
+                }
+            }
+            return d;
+        }
 
         /// <summary>
         /// Checks the existence of file
@@ -332,7 +451,8 @@ namespace Abstract3DConverters
         /// <param name="texture"></param>
         public void AddTexture(List<float[]> l, float[] texture)
         {
-            AddCut(l, texture, 2);
+            float[] t = [TextureCoordinate(texture[0]), TextureCoordinate(texture[1])];
+            AddCut(l, t, 2);
         }
 
 

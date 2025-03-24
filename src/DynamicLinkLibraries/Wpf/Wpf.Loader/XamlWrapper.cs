@@ -1,8 +1,7 @@
-﻿using System.Drawing;
-using System.Text;
+﻿using System.Text;
 using System.Windows.Media.Media3D;
 using System.Xml;
-
+using Abstract3DConverters;
 using ErrorHandler;
 
 
@@ -26,7 +25,7 @@ namespace Wpf.Loader
 
         protected double[,] size;
 
-        protected Color[] colors = null;
+        protected System.Drawing.Color[] colors = null;
 
         protected string xaml;
 
@@ -227,13 +226,29 @@ namespace Wpf.Loader
             }
             set
             {
+                var s = new Service();
                 xaml = value;
                 facetCount = -1;
                 texture = null;
                 CreateFacets();
+                var visual = Visual;
                 if (size == null)
                 {
-                    size = Visual.GetSize();
+                    size = visual.GetSize();
+                }
+                if (!s.IsZero(size))
+                {
+                    return;
+                }
+                size = null;
+                var doc = new XmlDocument();
+                doc.LoadXml(value);
+                var e = doc.GetElementsByTagName("MeshGeometry3D");
+                foreach (XmlElement item in e)
+                {
+                    var p = item.GetAttribute("Positions");
+                    var d = s.Get3DSize(p);
+                    size = s.Get3DSize(size, d);
                 }
             }
         }
@@ -446,8 +461,8 @@ namespace Wpf.Loader
 
         protected virtual void Fill()
         {
-            Bitmap bmp = Texture;
-            Graphics g = Graphics.FromImage(bmp);
+            System.Drawing.Bitmap bmp = Texture;
+            System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
             if (colors == null)
             {
                 return;
@@ -457,7 +472,7 @@ namespace Wpf.Loader
                 System.Drawing.Color c = colors[i];
                 if (c != null)
                 {
-                    System.Drawing.Brush br = new SolidBrush(c);
+                    System.Drawing.Brush br = new System.Drawing.SolidBrush(c);
                     g.FillRectangle(br, i * side, 0, side, side);
                 }
 
@@ -521,8 +536,7 @@ namespace Wpf.Loader
                 }
                 catch (Exception ex)
                 {
-                    ex.HandleException();
-                    throw new IncludedException(ex, "Xaml Wrapper Parse");
+                    ex.HandleExceptionDouble("Xaml Wrapper Parse");
                 }
                 ModelVisual3D model = null;
                 if (ob is Visual3D)

@@ -216,7 +216,6 @@ namespace Wpf.Loader
                     d[1, i] = Math.Max(dd[i], d[1, i]);
                 }
             }
-
             return d;
         }
    
@@ -266,13 +265,17 @@ namespace Wpf.Loader
                         }
                     }
                 }
+                else
+                {
+
+                }
                 return d;
             }
             catch (Exception exception)
             {
-                exception.HandleException("Get size WPF");
-                throw new IncludedException(exception, "Get size WPF");
+                exception.HandleExceptionDouble("Get size WPF");
             }
+            return null;
         }
 
         /// <summary>

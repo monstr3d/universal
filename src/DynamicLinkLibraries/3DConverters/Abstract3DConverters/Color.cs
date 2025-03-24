@@ -28,7 +28,7 @@
         #region Cror
 
         /// <summary>
-        /// Construrctor of zero coloe
+        /// Construrctor of zero color
         /// </summary>
         public Color() : this(new float[] { 0f, 0f, 0f })
         {

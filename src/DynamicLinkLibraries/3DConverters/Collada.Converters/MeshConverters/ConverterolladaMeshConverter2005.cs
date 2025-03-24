@@ -16,7 +16,7 @@ namespace Collada.Converters.MeshConverters
 
         #region Constructor
 
-        public ConverterolladaMeshConverter2005() : base("http://www.collada.org/2008/03/COLLADASchema")
+        public ConverterolladaMeshConverter2005() : base("http://www.collada.org/2005/11/COLLADASchema")
         {
         }
 

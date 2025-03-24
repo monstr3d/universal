@@ -458,7 +458,7 @@ namespace Collada.Converters.MeshConverters
             e.AppendChild(a);
             a.SetAttribute("source", "#" + name);
             a.SetAttribute("count", "" + f.Length);
-            a.SetAttribute("sride", "" + s.Length);
+            a.SetAttribute("stride", "" + s.Length);
             foreach (var ss in s)
             {
                 var p = Create("param");
@@ -519,6 +519,7 @@ namespace Collada.Converters.MeshConverters
                     d[imn] = attr;
                     ++i;
                     e.SetAttribute("id", attr);
+                    e.SetAttribute("name", attr);
                     var el = Create("init_from");
                     e.AppendChild(el);
                     var f = im.Name;
@@ -526,7 +527,7 @@ namespace Collada.Converters.MeshConverters
                     {
                         f = Path.Combine(Converter.Directory, f);
                     }
-                    el.InnerText = f;
+                    el.InnerText = ImageFile(f);
 
                 }
             }
@@ -554,6 +555,7 @@ namespace Collada.Converters.MeshConverters
                             var e = Create("image");
                             parentIm.AppendChild(e);
                             e.SetAttribute("id", attr);
+                            e.SetAttribute("name", attr);
                             var el = Create("init_from");
                             e.AppendChild(el);
                             var f = image.Name;
@@ -561,7 +563,7 @@ namespace Collada.Converters.MeshConverters
                             {
                                 f = Path.Combine(Converter.Directory, f);
                             }
-                            el.InnerText = f;
+                            el.InnerText = ImageFile(f);
                         }
                     }
                     ++nm;
@@ -589,7 +591,7 @@ namespace Collada.Converters.MeshConverters
             { "wrap_s", "WRAP" },
             {"wrap_t", "WRAP" },
             {"wrap_p", "WRAP" },
-            {"minfilter", "NONE" },
+      //      {"minfilter", "NONE" },
            {"mipfilter", "NONE" },
            {"mapfilter", "NONE" },
 
@@ -604,6 +606,12 @@ namespace Collada.Converters.MeshConverters
         {
             get;
             set;
+        }
+
+        private string ImageFile(string s)
+        {
+            var st = s.Replace('\\', '/');
+            return "file:///" + st;
         }
         bool IImagePathFull.ImagePathFull { get => ImagePathFull; set => ImagePathFull = value; }
 

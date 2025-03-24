@@ -37,7 +37,7 @@ namespace Abstract3DConverters.Creators
             set;
         } = false;
 
-        string MeshName
+        internal string MeshName
         {
             get
             {
@@ -526,6 +526,9 @@ namespace Abstract3DConverters.Creators
 
             public Color Ambient { get; private set; }
 
+            public Color Emissive { get; private set; }
+
+
             public Color Diffuse { get; private set; }
 
             public Color Specular { get; private set; }
@@ -563,13 +566,21 @@ namespace Abstract3DConverters.Creators
                 var children = mat.Children;
                 if (Diffuse != null)
                 {
+                    if (Ambient == null)
+                    {
+                        Ambient = new Color(new float[] { 1, 1, 1 });
+                    }
                     var diffuse = new DiffuseMaterial(Diffuse, Ambient, d);
                     //diffuse.Texture = Kd;
                     children.Add(diffuse);
                 }
-                if (Ambient != null)
+                if (Emissive == null)
                 {
-                    var emissive = new EmissiveMaterial(Ambient, Ka);
+                    Emissive = new Color(new float[] { 1, 1, 1 });
+                }
+                if (Emissive != null)
+                {
+                    var emissive = new EmissiveMaterial(Emissive, Ka);
                     children.Add(emissive);
                 }
                 if (Specular != null)
@@ -714,6 +725,11 @@ namespace Abstract3DConverters.Creators
                             //         The specular color is declared using Ks, and weighted using the specular exponent Ns.
                             Specular = new Color(value);
                             break;
+                        case "Ke":
+                            //         The specular color is declared using Ks, and weighted using the specular exponent Ns.
+                            Emissive = new Color(value);
+                            break;
+
                         // the ambient texture map
                         case "map_Ka":
                             Ka = new Image(value, directory);

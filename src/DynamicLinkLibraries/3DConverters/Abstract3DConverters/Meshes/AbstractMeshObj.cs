@@ -1,4 +1,6 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using System;
+using System.Drawing;
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
@@ -44,11 +46,68 @@ namespace Abstract3DConverters.Meshes
         internal List<float[]> IntVertices { get; private set; }
         internal List<float[]> IntTextures { get; private set; }
         internal List<float[]> IntNormals { get; private set; }
-  
 
 
 
-
+        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(null, creator)
+        {
+            try
+            {
+                Vertices = new();
+                Textures = new();
+                Normals = new();
+                Parent = parent;
+                Name = creator.MeshName;
+                IntVertices = creator.Vertices;
+                IntTextures = creator.Textures;
+                IntNormals = creator.Normals;
+                Polygons = new();
+                var indx = tuple.Item2;
+                foreach (var ii in indx)
+                {
+                    foreach (var i in ii)
+                    {
+                        Vertices.Add(IntVertices[i[0]]);
+                        Textures.Add(IntTextures[i[1]]);
+                        if (i.Length > 2)
+                        {
+                            if (i[2] >= 0)
+                            {
+                                Normals.Add(IntNormals[i[2]]);
+                            }
+                        }
+                    }
+                }
+                if (s.IsEmpty(Normals))
+                {
+                    Normals = null;
+                }
+                int np = 0;
+                Effect = tuple.Item1;
+                var idx = tuple.Item2;
+                foreach (var ind in idx)
+                {
+                    var l = new List<PointTexture>();
+                    for (int i = 0; i < ind.Length; i++)
+                    {
+                        var ik = (Normals == null) ? -1 : np;
+                        var point = s.CreatePointTexture(this, np, np, ik);
+                        ++np;
+                        if (point == null)
+                        {
+                            throw new Exception("AbstractMeshObj POINT ERROR SINLE");
+                        }
+                        l.Add(point);
+                    }
+                    var polygon = new Polygon(this, l, null);
+                    Polygons.Add(polygon);
+                }
+            }
+            catch (Exception e)
+            {
+                e.HandleExceptionDouble("ABSOBJ SINGLE");
+            }
+        }
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
@@ -63,14 +122,26 @@ namespace Abstract3DConverters.Meshes
                 IntNormals = creator.Normals;
                 Polygons = new();
                 Indexes = creator.Indexes[number];
-                Name = "";
                 if (creator.Names.Count > number)
                 {
                     Name = creator.Names[number];
                 }
+                else
+                {
+                    Name = creator.MeshName;
+                }
+                 if (Indexes.Count > 0)
+                {
+                    foreach (var tuple in Indexes)
+                    {
+                        new AbstractMeshObj(this, tuple, creator);
+                    }
+                    return;
+                }
                 Vertices = new();
                 Textures = new();
                 Normals = new();
+
                 foreach (var tuple in Indexes)
                 {
                     var ind = tuple.Item2;
@@ -120,7 +191,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception e)
             {
-                e.HandleExceptionDouble("ABSOBJ");
+                e.HandleExceptionDouble("ABSOBJ SINGLE");
             }
         }
 
