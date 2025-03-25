@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Diagram.UI.Interfaces;
 
 namespace Diagram.UI.Labels

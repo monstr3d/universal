@@ -449,9 +449,6 @@ namespace Diagram.UI.Labels
 			return element;
 		}
 
-
-
-
 		/// <summary>
 		/// The on paint event handler
 		/// </summary>
@@ -496,7 +493,7 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Name
         /// </summary>
-		public override string Name
+		protected override string Name
 		{
 			get
 			{

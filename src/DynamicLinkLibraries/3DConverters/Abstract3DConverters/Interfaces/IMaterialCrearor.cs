@@ -89,5 +89,5 @@ namespace Abstract3DConverters.Interfaces
         /// <param name="opacity">The opacity</param>
         void SetOpacity(object effect, float opacity);
 
-      }
+    }
 }

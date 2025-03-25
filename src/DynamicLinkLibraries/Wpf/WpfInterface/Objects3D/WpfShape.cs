@@ -584,7 +584,7 @@ namespace WpfInterface.Objects3D
         {
             get
             {
-                return textures.Keys;
+                return Textures.Keys;
             }
         }
 
@@ -601,7 +601,15 @@ namespace WpfInterface.Objects3D
         /// <param name="info">Serialization info</param>
         protected virtual void LoadTextures(SerializationInfo info)
         {
-            textures = info.Deserialize<Dictionary<string, byte[]>>("Textures");
+            Textures = info.Deserialize<Dictionary<string, byte[]>>("Textures");
+            try
+            {
+                TexturesMap = info.Deserialize<Dictionary<string, string>>("TexturesMap");
+            }
+            catch
+            {
+
+            }
         }
 
         /// <summary>
@@ -610,8 +618,9 @@ namespace WpfInterface.Objects3D
         /// <param name="info">Serialization info</param>
         protected virtual void SaveTextures(SerializationInfo info)
         {
-            info.Serialize<Dictionary<string, byte[]>>("Textures", textures);
-        }
+            info.Serialize<Dictionary<string, byte[]>>("Textures", Textures);
+            info.Serialize<Dictionary<string, string>>("TexturesMap", TexturesMap);
+     }
 
         /// <summary>
         /// Post operation

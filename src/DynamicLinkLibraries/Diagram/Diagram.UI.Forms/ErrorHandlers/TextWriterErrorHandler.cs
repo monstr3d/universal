@@ -49,7 +49,7 @@ namespace Diagram.UI.ErrorHandlers
 
         #region IErrorHandler  Members
 
-        void IExceptionHandler.HandleException<T>(T e, object o)
+        void IExceptionHandler.HandleException<T>(T e, params object[]? obj)
         {
            /* if (level == 0)
             {
@@ -68,7 +68,7 @@ namespace Diagram.UI.ErrorHandlers
             }*/
        }
 
-        void IExceptionHandler.Log(string message, object? o)
+        void IExceptionHandler.Log(string message, params object[]? o)
         {
             writer.WriteLine(message);
         }

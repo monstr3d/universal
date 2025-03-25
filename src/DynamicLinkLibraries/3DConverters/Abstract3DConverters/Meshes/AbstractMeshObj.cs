@@ -113,9 +113,14 @@ namespace Abstract3DConverters.Meshes
         {
             try
             {
-                if (creator.EffectList != null)
+                Effect = creator.Default;
+                var el = creator.EffectList;
+                if (el != null)
                 {
-                    Effect = creator.EffectList[number];
+                    if (number < el.Count)
+                    {
+                        Effect = el[number];
+                    }
                 }
                 IntVertices = creator.Vertices;
                 IntTextures = creator.Textures;

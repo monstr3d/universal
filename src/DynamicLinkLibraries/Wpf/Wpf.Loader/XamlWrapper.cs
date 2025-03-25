@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -32,13 +33,6 @@ namespace Wpf.Loader
         protected string xaml;
 
 
-
-
-        protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
-
- 
-
-
         public Dictionary<string, byte[]> Attachment
         {
             get; protected set;
@@ -49,27 +43,28 @@ namespace Wpf.Loader
             get;
         } = new();
 
-
-
-
         /// <summary>
         /// Textures
         /// </summary>
         public virtual Dictionary<string, byte[]> Textures
         {
-            get
-            {
-                return textures;
-            }
-        }
+            get;
+            set;
+        } = new Dictionary<string, byte[]>();
+
+        public Dictionary<string, string> TexturesMap
+        {
+            get;
+            set;
+        } = new Dictionary<string, string>();
 
         public void Save(string filename)
         {
-            using (var w = new System.IO.StreamWriter(filename))
+            using (var w = new StreamWriter(filename))
             {
                 w.Write(Xaml);
             }
-            var path = System.IO.Path.GetDirectoryName(filename);
+            var path = Path.GetDirectoryName(filename);
             SaveTextures(path);
         }
 
@@ -77,8 +72,8 @@ namespace Wpf.Loader
 
         public void  Load(string file)
         {
-            string dir = System.IO.Path.GetDirectoryName(file);
-            var ext = System.IO.Path.GetExtension(file).ToLower();
+            string dir = Path.GetDirectoryName(file);
+            var ext = Path.GetExtension(file).ToLower();
             if (!StaticExtensionWpfLoader.FileLoad.ContainsKey(ext))
             {
                 return;
@@ -99,7 +94,7 @@ namespace Wpf.Loader
             if (xaml is XmlDocument dc)
             {
                 doc = dc;
-                var stream = new System.IO.StringWriter();
+                var stream = new StringWriter();
                 using var w = XmlWriter.Create(stream, new XmlWriterSettings
                 {
                     //         NewLineChars = "\n",
@@ -112,34 +107,36 @@ namespace Wpf.Loader
                 var stt = stream.ToString();
                 this.xaml = stt;
                 var sb = new StringBuilder(stt);
-                System.IO.TextReader sr = new System.IO.StringReader(stt);
+                TextReader sr = new StringReader(stt);
                 using var reader = XmlReader.Create(sr);
                 var ddd = new XmlDocument();
                 ddd.Load(reader);
              }
             Attachment = attach;
-            textures.Clear();
+            Textures.Clear();
+            TexturesMap.Clear();
             string d = dir;
-            var ds = d.Replace(System.IO.Path.DirectorySeparatorChar, '/');
-            if (d[d.Length - 1] != System.IO.Path.DirectorySeparatorChar)
+            var ds = d.Replace(Path.DirectorySeparatorChar, '/');
+            if (d[d.Length - 1] != Path.DirectorySeparatorChar)
             {
-                d += System.IO.Path.DirectorySeparatorChar;
+                d += Path.DirectorySeparatorChar;
             }
             XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
                 string fn = ds + iso;
-                fn = fn.Replace('/', System.IO.Path.DirectorySeparatorChar);
-                if (!System.IO.File.Exists(fn))
+                fn = fn.Replace('/', Path.DirectorySeparatorChar);
+                if (!File.Exists(fn))
                 {
-                    fn = System.IO.Path.Combine(ds, iso);
-                    if (!System.IO.File.Exists(fn))
+                    fn =Path.Combine(ds, iso);
+                    if (!File.Exists(fn))
                     {
                         continue;
                     }
                 }
-                using (var stream = System.IO.File.OpenRead(fn))
+                ReadImage(fn, iso, dir);
+          /*      using (var stream = System.IO.File.OpenRead(fn))
                 {
                     byte[] b = new byte[stream.Length];
                     stream.Read(b);
@@ -151,7 +148,47 @@ namespace Wpf.Loader
                     {
                         textures[iso] = b;
                     }
+                }*/
+            }
+        }
+
+        void ReadImage(string filename, string iso, string dir)
+        {
+            var t = StaticExtensionAbstract3DConverters.ConvertImage(filename);
+            if (t != null)
+            {
+                var iss = Path.Combine(dir, Path.GetFileNameWithoutExtension(iso))
+                    + Path.GetExtension(t.Item1);
+                if (TexturesMap.ContainsKey(iso))
+                {
+                    if (TexturesMap[iso] == iss)
+                    {
+                        return;
+                    }
                 }
+                TexturesMap[iso] = iss;
+                var bt = t.Item2;
+                if (iss.Contains(dir))
+                {
+                    Textures[iss.Substring(dir.Length + 1)] = bt;
+                }
+                else
+                {
+                    Textures[iss] = bt;
+                }
+                return;
+            }
+            TexturesMap[iso] = iso;
+            using var stream = File.OpenRead(filename);
+            byte[] b = new byte[stream.Length];
+            stream.Read(b);
+            if (iso.Contains(dir))
+            {
+                Textures[iso.Substring(dir.Length + 1)] = b;
+            }
+            else
+            {
+                Textures[iso] = b;
             }
         }
 
@@ -261,30 +298,30 @@ namespace Wpf.Loader
         /// <param name="directory">The directory</param>
         public void SaveTextures(string directory)
         {
-            foreach (var key in textures.Keys)
+            foreach (var key in Textures.Keys)
             {
-                var b = textures[key];
-                var f = key.Replace('/', System.IO.Path.DirectorySeparatorChar);
-                if (f[0]  == System.IO.Path.DirectorySeparatorChar)
+                var b = Textures[key];
+                var f = key.Replace('/', Path.DirectorySeparatorChar);
+                if (f[0]  == Path.DirectorySeparatorChar)
                 {
                     f = f.Substring(1);
                 }
-                var file = System.IO.Path.Combine(directory, f);
+                var file = Path.Combine(directory, f);
                 if (!file.Contains(directory))
                 {
                     continue;
                 }
-                var ff = f.Replace('/', System.IO.Path.DirectorySeparatorChar);
-                ff = System.IO.Path.Combine(directory, ff);
-                var dd = System.IO.Path.GetDirectoryName(ff);
-                var di = new System.IO.DirectoryInfo(dd);
+                var ff = f.Replace('/', Path.DirectorySeparatorChar);
+                ff = Path.Combine(directory, ff);
+                var dd = Path.GetDirectoryName(ff);
+                var di = new DirectoryInfo(dd);
                 if (!di.Exists)
                 {
                     di.Create();
                 }
-                using (var stream = System.IO.File.OpenWrite(ff))
+                using (var stream = File.OpenWrite(ff))
                 {
-                    stream.Write(b, 0, b.Length);
+                    stream.Write(b);
                 }
             }
         }
@@ -301,10 +338,7 @@ namespace Wpf.Loader
         {
             size = Visual.GetSize();
         }
-
-
-              
-           
+        
 
         protected bool scaled = false;
 
@@ -362,32 +396,37 @@ namespace Wpf.Loader
                 {
                     if (iso.Length > 0)
                     {
-                        var isi = service.FindEnd(iso, textures.Keys);
-                        if (isi == null)
+                        if (TexturesMap.ContainsKey(iso))
                         {
-                            del.Add(e);
-                            continue;
+                            var isss = TexturesMap[iso];
+                            var isi = service.FindEnd(isss, Textures.Keys);
+                            if (isi == null)
+                            {
+                                del.Add(e);
+                                continue;
+                            }
+                            iso = isi;
                         }
-                        iso = isi;
-                        if (textures.ContainsKey(iso))
+                        if (TexturesMap.ContainsKey(iso))
                         {
+                            var iss = TexturesMap[iso];
                             if (Urls.ContainsKey(iso))
                             {
                                 throw new Exception("Urls");
                                 e.SetAttribute("ImageSource", Urls[iso]);
                                 continue;
                             }
-                            int n = iso.LastIndexOf('.');
+                            int n = iss.LastIndexOf('.');
                             string ext = iso.Substring(n);
                             string path = null;
-                            if (Paths.ContainsKey(iso))
+                            if (Paths.ContainsKey(iss))
                             {
-                                path = Paths[iso];
-                                if (!System.IO.File.Exists(path))
+                                path = Paths[iss];
+                                if (!File.Exists(path))
                                 {
                                     using (var stream = System.IO.File.OpenWrite(path))
                                     {
-                                        byte[] b = textures[iso];
+                                        byte[] b = Textures[iss];
                                         stream.Write(b, 0, b.Length);
                                     }
                                 }
@@ -395,9 +434,9 @@ namespace Wpf.Loader
                             else
                             {
                                 string fn = GenerateFileName(ext, out path);
-                                using (var stream = System.IO.File.OpenWrite(path))
+                                using (var stream = File.OpenWrite(path))
                                 {
-                                    byte[] b = textures[iso];
+                                    byte[] b = Textures[iso];
                                     stream.Write(b, 0, b.Length);
                                 }
                             }
@@ -412,14 +451,15 @@ namespace Wpf.Loader
                             path = s.TransformPathToPlatfom(path);
                             e.SetAttribute("ImageSource", path);
                             Paths[iso] = path;
-                            if (System.IO.File.Exists(path))
+                            if (File.Exists(path))
                             {
-                                using (var stream = System.IO.File.OpenRead(path))
+                                ReadImage(path, iso, Path.GetDirectoryName(path));
+                        /*        using (var stream = System.IO.File.OpenRead(path))
                                 {
                                     byte[] b = new byte[stream.Length];
                                     stream.Read(b, 0, b.Length);
-                                    textures[iso] = b;
-                                }
+                                    Textures[iso] = b;
+                                }*/
                             }
 
                         }
@@ -431,19 +471,19 @@ namespace Wpf.Loader
                 var p = e.ParentNode as XmlElement;
                 p.RemoveChild(e);
             }
-            var l = new List<string>(textures.Keys);
+            var l = new List<string>(Textures.Keys);
             foreach (string key in l)
             {
                 if (!Paths.ContainsKey(key))
                 {
-                    textures.Remove(key);
+                    Textures.Remove(key);
                 }
             }
             del.Clear();
             foreach (XmlElement n in doc.GetElementsByTagName("ImageBrush"))
             {
                 var so = n.GetAttribute("ImageSource");
-                if (!System.IO.File.Exists(so))
+                if (!File.Exists(so))
                 {
                     del.Add(n.ParentNode as XmlElement);
                 }

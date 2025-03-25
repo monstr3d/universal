@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Linq.Expressions;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -13,8 +14,6 @@ namespace Abstract3DConverters.Creators
 
         public Obj3DCreator(string filename, byte[] bytes, object additional) : base(filename, bytes, additional)
         {
-
-
 
         }
 
@@ -62,19 +61,13 @@ namespace Abstract3DConverters.Creators
 
         internal int n = 0;
 
-
-
         #endregion
-
 
         private byte[] MaterialBytes
         {
             get;
             set;
         }
-
-
-
    
         protected override void CreateAdditional(object additional)
         {
@@ -101,6 +94,12 @@ namespace Abstract3DConverters.Creators
             get; 
         } = new();
 
+
+        internal List<List<List<int[][]>>> PureIndexes
+        {
+            get;
+        } = new();
+
         internal List<string> Names 
         {   
             get; 
@@ -115,6 +114,11 @@ namespace Abstract3DConverters.Creators
             get
             {
                 if (EffectList == null)
+                {
+                    yield return new AbstractMeshObj(0, this);
+                    yield break;
+                }
+                if (EffectList.Count == 0)
                 {
                     yield return new AbstractMeshObj(0, this);
                     yield break;
@@ -190,6 +194,12 @@ namespace Abstract3DConverters.Creators
 
         void CreateGeometry()
         { 
+            if (EffectList.Count == 0 & Default != null)
+            {
+                CreateDefaultGeometry();
+                return;
+            }
+
             foreach (var line in lines)
             {
                 if (s.ToString(line, objs) != null)
@@ -204,10 +214,73 @@ namespace Abstract3DConverters.Creators
             CreateNamedGeometry();
         }
 
+        void CreateDefaultGeometry()
+        {
+            try
+            {
+                var effect = Default;
+                List<Tuple<Effect, List<int[][]>>> indexes = new();
+                Indexes.Add(indexes);
+                Tuple<Effect, List<int[][]>> tuple = tuple = new 
+                    Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                indexes.Add(tuple);
 
+                foreach (var line in lines)
+                {
+                    if (line.IndexOf("v ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                        Vertices.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vt ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                        s.AddTexture(Textures, f);
+                        continue;
+                    }
+                    if (line.IndexOf("vn ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                        Normals.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("f ") == 0)
+                    {
+                        var s = line.Substring("f ".Length).Trim();
+                        var ss = s.Split(" ".ToCharArray());
+                        var ind = new int[ss.Length][];
+                        for (int j = 0; j < ss.Length; j++)
+                        {
+                            var sss = ss[j].Split("/".ToCharArray());
+                            var i = new int[3] { -1, -1, -1 };
+                            ind[j] = i;
+                            //var k =  new int[sss.Length];
+                            for (int m = 0; m < sss.Length; m++)
+                            {
+                                if (sss[m].Length == 0)
+                                {
+                                    i[m] = -1;
+                                }
+                                else
+                                {
+                                    i[m] = int.Parse(sss[m]) - 1;// Shifts[m];
+                                }
+                            }
+                        }
+                        tuple.Item2.Add(ind);
+                        continue;
+                    }
+
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Create defualt geometry Obj creator");
+            }
+        }
         void CreateUnNamedGeometry()
         {
-            // GetName = GetInititial;
             try
             {
                 List<Tuple<Effect, List<int[][]>>> indexes = new();
@@ -833,12 +906,51 @@ namespace Abstract3DConverters.Creators
                 {
                     Default = Effects["_default_"];
                 }
+                if (Default == null & EffectList.Count == 0)
+                {
+                    string file = null;
+                    if (StaticExtensionAbstract3DConverters.CheckFile == CheckFile.Check)
+                    {
+                        var files = Directory.GetFiles(creator.Directory);
+                        if (files.Length == 2)
+                        {
+                            foreach (var f in files)
+                            {
+                                if (Path.GetFileName(f) != Path.GetFileName(creator.Filename))
+                                {
+                                    file = f;
+                                    break;
+                                }
+                            }
+
+                        }
+                        if (file != null)
+                        {
+                            if (StaticExtensionAbstract3DConverters.DetectImage(file))
+                            {
+                                Default = CreateEffect(file);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception e)
             {
                 e.HandleException("Create materials OBJ");
             }
             
+        }
+
+        Effect CreateFromFile(string filename)
+        {
+            var image = new Image(filename, creator.Directory);
+            var mat = new MaterialGroup("Default");
+            var color = new Color(new float[] { 1f, 1f, 1f, 1f });
+            var dm = new DiffuseMaterial(color, null, 1);
+            mat.Children.Add(dm);
+            var effect = new Effect(this, "Default", mat, image);
+            return effect;
+
         }
 
 
@@ -877,9 +989,8 @@ namespace Abstract3DConverters.Creators
             return null;
         }
 
-        Effect CreateEffect(string str)
+        Effect CreateEffect(string f)
         {
-            var f = s.ToString(str, "usemtl");
             var file = Exists(f);
             Image image = null;
             if (file != null)

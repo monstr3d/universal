@@ -903,33 +903,40 @@ namespace DataPerformer.UI.UserControls
         */
         void SaveSettings()
         {
-            var o = comboBoxArg.SelectedItem ?? "Time";
-            ArgumentString = o + "";
-            Dictionary<string, IMeasurement> t = TextDictionary;
-            Dictionary<IMeasurement, Color[]> mc = MeasureColorDictionary;
-            var si = comboBoxCond.SelectedItem ?? "";
-            data.Item4[0] = si + "";
-            DataConsumer consumer = this.consumer as DataConsumer;
-            if (toolStripComboBoxPoints.SelectedItem != null)
+            try
             {
-                data.Item4[5] = toolStripComboBoxPoints.SelectedItem + "";
-                array = (consumer as ICategoryObject).GetOneDimensionRealArray(data.Item4[5]);
-                if (array == null)
+                var o = comboBoxArg.SelectedItem ?? "Time";
+                ArgumentString = o + "";
+                Dictionary<string, IMeasurement> t = TextDictionary;
+                Dictionary<IMeasurement, Color[]> mc = MeasureColorDictionary;
+                var si = comboBoxCond.SelectedItem ?? "";
+                data.Item4[0] = si + "";
+                DataConsumer consumer = this.consumer as DataConsumer;
+                if (toolStripComboBoxPoints.SelectedItem != null)
+                {
+                    data.Item4[5] = toolStripComboBoxPoints.SelectedItem + "";
+                    array = (consumer as ICategoryObject).GetOneDimensionRealArray(data.Item4[5]);
+                    if (array == null)
+                    {
+                        data.Item4[5] = "";
+                    }
+                }
+                else
                 {
                     data.Item4[5] = "";
                 }
+                data.Item5[0] = (int)numericUpDownPause.Value;
+                consumer.StartTime = double.Parse(calculatorBoxStart.Text);
+                consumer.Step = double.Parse(calculatorBoxStep.Text);
+                string sc;
+                consumer.Steps = GetValue(comboBoxStepCount, numericUpDownStepCount, out sc);
+                data.Item4[4] = sc;
+                this.FindChild<UserControlRealtime>().SaveSettings();
             }
-            else
+            catch (Exception exception)
             {
-                data.Item4[5] = "";
+                exception.HandleException("User control graph settings");
             }
-            data.Item5[0] = (int)numericUpDownPause.Value;
-            consumer.StartTime = double.Parse(calculatorBoxStart.Text);
-            consumer.Step = double.Parse(calculatorBoxStep.Text);
-            string sc;
-            consumer.Steps = GetValue(comboBoxStepCount, numericUpDownStepCount, out sc);
-            data.Item4[4] = sc;
-            this.FindChild<UserControlRealtime>().SaveSettings();
         }
 
         bool StopRealTime()

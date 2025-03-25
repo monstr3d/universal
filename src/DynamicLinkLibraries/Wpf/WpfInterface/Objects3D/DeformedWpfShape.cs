@@ -156,7 +156,7 @@ namespace WpfInterface.Objects3D
             if (visible is IWpfVisible)
             {
                 IWpfVisible sh = visible as IWpfVisible;
-                textures = sh.Textures;
+                Textures = sh.Textures;
             }
             onAdd(visible);
         }

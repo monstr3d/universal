@@ -11,14 +11,14 @@ namespace ErrorHandler
         /// </summary>
         /// <typeparam name="T">Type of exception</typeparam>
         /// <param name="exception">The exception</param>
-        void HandleException<T>(T exception, object? obj = null) where T : Exception;
+        void HandleException<T>(T exception, params object[] ? obj) where T : Exception;
 
         /// <summary>
         /// Shows message
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        void Log(string message, object? obj = null);
+        void Log(string message, params object[] ? obj);
 
     }
 
@@ -28,7 +28,7 @@ namespace ErrorHandler
     /// <typeparam name="T">Type of exception</typeparam>
     public interface IExceptionHandler<T> where T : Exception
     {
-        void Handle(T exception, object? obj = null);
+        void Handle(T exception, params object[]? obj);
     }
 }
     /// <summary>

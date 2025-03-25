@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-using Diagram.UI.Interfaces;
 using ErrorHandler;
 
 
@@ -34,7 +32,7 @@ namespace Diagram.UI
 
         #region IErrorHandler Members
 
-        void IExceptionHandler.HandleException<T>(T exception, object ?obj=null)
+        void IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
         {
             object o;
             Control c = GetControl(obj, out o);
@@ -46,7 +44,7 @@ namespace Diagram.UI
             StaticExtensionErrorHandler.HandleException(exception, obj);
         }
 
-        void IExceptionHandler.Log(string message, object ?obj = null)
+        void IExceptionHandler.Log(string message, params object[]? obj)
         {
             object o;
             Control c = GetControl(obj, out o);

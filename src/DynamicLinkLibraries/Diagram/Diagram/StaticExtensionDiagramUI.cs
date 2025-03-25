@@ -1011,7 +1011,7 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="onError">On error event</param>
-        static public void Add(this IExceptionHandler errorHandler, Action<Exception, object> onError)
+        static public void Add(this IExceptionHandler errorHandler, Action<Exception, object[]> onError)
         {
             if (errorHandler == null)
             {
@@ -1030,7 +1030,7 @@ namespace Diagram.UI
         /// Removes Error hablder
         /// </summary>
         /// <param name="errorHandler">Error handler</param>
-        static public void Remove(this IExceptionHandler errorHandler, Action<Exception, object> onError)
+        static public void Remove(this IExceptionHandler errorHandler, Action<Exception, object[]> onError)
         {
             if (errorHandler == null)
             {

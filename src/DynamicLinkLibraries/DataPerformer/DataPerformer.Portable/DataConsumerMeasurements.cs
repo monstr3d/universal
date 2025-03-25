@@ -258,6 +258,10 @@ namespace DataPerformer.Portable
                 {
                     this.Throw(new Exception("Undefined measurements"));
                 }
+                if (measurements.Length <= n)
+                {
+                    this.Throw(new Exception("Shortage of measuremens"));
+                }
                 IMeasurement measurement = measurements[n];
                 if (measurement == null)
                 {

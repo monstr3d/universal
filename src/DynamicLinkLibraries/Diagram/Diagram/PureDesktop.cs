@@ -10,6 +10,7 @@ using MathGraph;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
+using System.Linq.Expressions;
 
 
 namespace Diagram.UI
@@ -705,26 +706,33 @@ namespace Diagram.UI
         /// <param name="obj">Object for post set arrow</param>
         public static void PostSetArrow(IAssociatedObject obj)
         {
-            if (obj == null)
+            try
             {
-                return;
-            }
-            if (obj is IPostSetArrow)
-            {
-                IPostSetArrow p = obj as IPostSetArrow;
-                p.PostSetArrow();
-            }
-            if (obj is IChildrenObject)
-            {
-                IChildrenObject cho = obj as IChildrenObject;
-                IAssociatedObject[] ch = cho.Children;
-                if (ch != null)
+                if (obj == null)
                 {
-                    foreach (IAssociatedObject ao in ch)
+                    return;
+                }
+                if (obj is IPostSetArrow)
+                {
+                    IPostSetArrow p = obj as IPostSetArrow;
+                    p.PostSetArrow();
+                }
+                if (obj is IChildrenObject)
+                {
+                    IChildrenObject cho = obj as IChildrenObject;
+                    IAssociatedObject[] ch = cho.Children;
+                    if (ch != null)
                     {
-                        PostSetArrow(ao);
+                        foreach (IAssociatedObject ao in ch)
+                        {
+                            PostSetArrow(ao);
+                        }
                     }
                 }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException("PostSetArrow(IAssociatedObject obj)");
             }
         }
 
@@ -910,7 +918,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.HandleException(10);
+                ex.HandleException(10, "PureDesktop.PostDeserialize");
                 if (exceptions != null)
                 {
                     exceptions.Add(ex);

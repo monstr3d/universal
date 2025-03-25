@@ -64,6 +64,10 @@ namespace Abstract3DConverters
 
         public bool IsZero(Array array)
         {
+            if (array == null)
+            {
+                return true;
+            }
             foreach (var i in array)
             {
                 if (i is Array a)

@@ -1,22 +1,15 @@
 using System;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.IO;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization.Formatters;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections;
-using System.Configuration.Assemblies;
-using System.Threading;
-using System.Xml.Serialization;
 using System.Xml;
 
 using CategoryTheory;
+
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
+
 using ErrorHandler;
 
 namespace Diagram.UI.Labels
@@ -170,7 +163,7 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Name
         /// </summary>
-		public override string Name
+		protected override string Name
 		{
 			get
 			{
@@ -178,7 +171,6 @@ namespace Diagram.UI.Labels
 			}
 		}
 
- 
         /// <summary>
         /// Type
         /// </summary>
@@ -248,10 +240,6 @@ namespace Diagram.UI.Labels
 				return Parent as PanelDesktop;
 			}
 		}
-
-
-
-
 		
 		/// <summary>
 		/// The associated object

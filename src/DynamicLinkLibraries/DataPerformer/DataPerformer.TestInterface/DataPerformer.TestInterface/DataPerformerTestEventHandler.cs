@@ -35,14 +35,15 @@ namespace DataPerformer.TestInterface
 
         #region IExceptionHandler Members
 
-        void IExceptionHandler.HandleException<T>(T exception, object ? obj = null)
+        void IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
         {
             int level = -1;
-            if (obj != null)
+            var o = obj[0];
+            if (o != null)
             {
-                if (obj.GetType().Equals(typeof(int)))
+                if (o.GetType().Equals(typeof(int)))
                 {
-                    level = (int)obj;
+                    level = (int)o;
                 }
             }
             if (level < 0)
@@ -58,7 +59,7 @@ namespace DataPerformer.TestInterface
             throw exception;
         }
 
-        void IExceptionHandler.Log(string message, object ? obj = null)
+        void IExceptionHandler.Log(string message, params object[]? obj)
         {
 
         }

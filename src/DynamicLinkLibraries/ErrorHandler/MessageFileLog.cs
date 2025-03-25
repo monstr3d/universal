@@ -39,7 +39,7 @@
         /// </summary>
         /// <typeparam name="T">Type of exception</typeparam>
         /// <param name="exception">The exception</param>
-        void IExceptionHandler.HandleException<T>(T exception, object? obj)
+        void IExceptionHandler.HandleException<T>(T exception, params object[] obj)
         {
         }
 
@@ -48,7 +48,7 @@
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        void IExceptionHandler.Log(string message, object? obj)
+        void IExceptionHandler.Log(string message, params object[]? obj)
         {
             if (obj != null)
             {
@@ -57,7 +57,6 @@
         }
 
         #endregion
-
 
     }
 }

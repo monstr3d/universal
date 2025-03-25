@@ -77,7 +77,7 @@ namespace Abstract3DConverters.Converters
                     }
                     return l;
                 }
-                if (mesh.Vertices.Count == 0)
+                if (s.IsEmpty(mesh.Vertices))
                 {
                     return l;
                 }

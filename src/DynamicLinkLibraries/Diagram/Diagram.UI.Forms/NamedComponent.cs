@@ -177,10 +177,12 @@ namespace Diagram.UI.Labels
 
 		#region INamedComponent Members
 
+		string INamedComponent.Name => Name;
+
         /// <summary>
         /// Name
         /// </summary>
-		new public virtual string Name
+		new protected virtual string Name
 		{
 			get
 			{

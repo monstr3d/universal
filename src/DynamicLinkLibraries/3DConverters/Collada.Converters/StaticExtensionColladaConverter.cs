@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Attributes;
+﻿
+using Abstract3DConverters.Attributes;
 
 namespace Collada.Converters
 {

@@ -15,7 +15,7 @@ namespace Abstract3DConverters.ErrorHandlers
             this.stop = stop;
         }
 
-        void ErrorHandler.IExceptionHandler.HandleException<T>(T exception, object? obj)
+        void ErrorHandler.IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
         {
             if (Check(obj))
             {
@@ -25,7 +25,7 @@ namespace Abstract3DConverters.ErrorHandlers
             }
         }
 
-        void ErrorHandler.IExceptionHandler.Log(string message, object? obj)
+        void ErrorHandler.IExceptionHandler.Log(string message, params object[]? obj)
         {
             if (Check(obj))
             {
