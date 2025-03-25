@@ -1,9 +1,10 @@
-using System.ComponentModel.DataAnnotations;
 using Abstract3DConverters;
 using Conversion3D.WebApplication.Interfacers;
 using Conversion3D.WebApplication.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
+using System.ComponentModel.DataAnnotations;
 
 namespace Conversion3D.WebApplication.Pages
 {
@@ -25,12 +26,21 @@ namespace Conversion3D.WebApplication.Pages
 
         private IBytesSingleton HyperLink { get;  set; }
 
+        private IHttpContextAccessor httpContextAccessor;
+
         
 
-        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink)
+        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink, IHttpContextAccessor httpContextAccessor)
         {
             HyperLink = hyperLink;
             Tuple = hyperLink.Tuple;
+            this.httpContextAccessor = httpContextAccessor;
+            var c = httpContextAccessor.HttpContext.Request.Cookies;
+            if (c.ContainsKey("dir"))
+            {
+                var dir = c["dir"];
+                Directory = dir;
+            }
 
             var l = new List<string>();
             var lt = new List<string>();
@@ -113,6 +123,14 @@ namespace Conversion3D.WebApplication.Pages
 
                 return Page();
             }
+            if (Directory != null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddDays(1);
+                httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
+            }
+
+
             var ext = fileTypes[Extension.Substring(2)];
 
             var formFileContent =
@@ -166,11 +184,11 @@ namespace Conversion3D.WebApplication.Pages
         [BindProperty]
         [Required]
         [Display(Name = "Directory")]
-        public string Directory
+        public string ? Directory
         {
             get;
             set;
-        } = @"c:\AUsers\1MySoft\CSharp\03D\AC\";
+        }
     }
 
 

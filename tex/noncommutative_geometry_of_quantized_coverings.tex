@@ -12207,11 +12207,13 @@ since any $q\in Q$ equals to the sum $q^G + q^\perp$ where
 q^G \bydef \frac{1}{\left| G\right| }\sum _{g\in G}g q \in Q^G,\\
 q^\perp \bydef q - q^G \in P^\perp.
 \eean
-Similarly if $r: G \to U\left( 1\right)$ is an irreducible representation then $Q^\perp = Q_r \oplus Q_r^\perp$ since any $p\in P^\perp$ equals to the sum $q_r + q_r^\perp$ where
-\bean
-q_r\bydef \frac{1}{\left| \ker r\right| }\sum _{g\in \ker r}g q\\
+Similarly if $r: G \to U\left( 1\right)$ is an irreducible representation then $Q^\perp = Q_r \oplus Q_r^\perp$ since any $q\in Q^\perp$ equals to the sum $q_r + q_r^\perp$ where
+\be\label{h_q_r_eqn}
+\begin{split}
+q_r\bydef \frac{1}{\left| \ker r\right| }\sum _{g\in \ker r}g q,\\
 q_r^\perp \bydef q - q_r
-\eean
+\end{split}
+\ee
 It follows that any projective finitely generated  $\widetilde A$-$G$-module $Q$ is represented by direct sum 
 $$
 Q = Q^G \bigoplus \left(\bigoplus_{r \in R} Q_r\right) 
@@ -12220,6 +12222,10 @@ where $R$ is a set of irreducible representations of $G$. It turns out that
 \bean
 K^{G}_0 \left(\widetilde A \right)= \left(K^{G}_0 \left(\widetilde A \right) \right) ^G \bigoplus \left(\bigoplus_{r \in R} K^{G}_0 \left(\widetilde A \right)_r\right)
 \eean
+If $Q_r$ is an irreducible $\widetilde{A}$-$G$ module and $\chi_r: G \to \C$ is the corresponding to $r$ character then any $q_r\in Q_r$ satisfies to the following equation
+\be\label{h_chi_eqn}
+q_r =  \frac{1}{\left| G\right| }\sum _{g\in G}\overline{\chi}_r\left( g\right)   q_r~.
+\ee
 For any $r\in R$ there is a prime number $p_r \in \N$ such that $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$. There is $g\in G$ with
 \bean
 r\left( g\right) =  e^{\frac{2\pi i}{p_r}},\\
@@ -21458,8 +21464,8 @@ $\pi_n\left(\sY \right)= 0$ is isomorphic to $\pi$.
 
 The key result allowing the calculation of $K\left( \sX\right)$  in nontrivial cases is a certain formula
 that computes $K\left(\sX \times S^2 \right)$  in terms of  $K\left(\sX \times S^2 \right)$. For example, when $\sX$ is a point this
-will yield a calculation of $K\left(S^2 \right)$.
-Let $H$ be the canonical line bundle over  $S^2 \cong \C P^1$, and $1$ is a trivial bundle then according to  in \cite{atiyah:kt}  one has
+will yield a calculation of $K\left(S^2 \right)$.  Any point of the projective space $\C P^1$ yields a one-dimensional $\C$-subspace  of $\C^2$. So there is a $\C$-bundle over $\C P^1$ which sets to any point of $\C P^1$ the corresponding subspace. Using a homeomorphism $S^2 \cong \C P^1$ we define 
+be the canonical line bundle $H$ over  $S^2 \cong \C P^1$, and let $1$ is a trivial bundle then according to  in \cite{atiyah:kt}  one has
 \bean
 \left(H \otimes H \right) \oplus 1 \cong H \oplus H,\\
 H^2 +1 = 2H.

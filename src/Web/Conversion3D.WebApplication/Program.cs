@@ -13,6 +13,8 @@ builder.Services.AddSingleton(typeof(IHyperLinkTransient), typeof(Data));
 
 builder.Services.AddSingleton(typeof(IBytesSingleton), typeof(BytesSingleton));
 
+builder.Services.AddSingleton(typeof(IHttpContextAccessor), typeof(HttpContextAccessor));
+
 
 //builder.Services.AddMvc();
 builder.Services.AddMvc(x => x.EnableEndpointRouting = false);

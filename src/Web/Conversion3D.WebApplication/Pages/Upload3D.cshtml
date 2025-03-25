@@ -5,6 +5,19 @@
 
 }
 
+@inject IHttpContextAccessor httpContextAccessor;
+
+@{
+ /*  var options = new CookieOptions();
+    options.Expires = DateTime.Now.AddDays(1);
+    options.IsEssential = true;
+    options.Path = "/";
+    httpContextAccessor.HttpContext.Response.Cookies.Append(
+        "Cookie", "##ertgUU", options);*/
+
+
+}
+
 <h1></h1>
 
 <p>The following form's page handler saves the file to disk.</p>
@@ -12,18 +25,18 @@
 <form asp-validation-summary="None" enctype="multipart/form-data" novalidate method="post">
     <dl>
         <dt>
-            <table>
+            <table  width="90%" border="1">
                 <tr>
-                    <td>
+                    <td width="90%">
                         <table>
                             <tr>
-                                <td>
+                                <td width="90%">
                                     <label asp-for="Directory"></label>
                                  </td>
                              </tr>
                              <tr>
                                  <td>
-                                     <input asp-for="Directory" type="text" />
+                                     <input asp-for="Directory" type="text" width="90%"/>
                                 </td>
                             </tr>
                                 <tr>

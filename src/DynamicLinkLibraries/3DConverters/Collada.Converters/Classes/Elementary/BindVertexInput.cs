@@ -1,7 +1,5 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 using Abstract3DConverters.Interfaces;
-using Collada;
 
 namespace Collada.Converters.Classes.Complicated
 {
