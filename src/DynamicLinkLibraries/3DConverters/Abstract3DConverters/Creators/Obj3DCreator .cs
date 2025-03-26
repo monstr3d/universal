@@ -249,6 +249,10 @@ namespace Abstract3DConverters.Creators
                     {
                         var s = line.Substring("f ".Length).Trim();
                         var ss = s.Split(" ".ToCharArray());
+                        if (ss.Length != 3)
+                        {
+
+                        }
                         var ind = new int[ss.Length][];
                         for (int j = 0; j < ss.Length; j++)
                         {

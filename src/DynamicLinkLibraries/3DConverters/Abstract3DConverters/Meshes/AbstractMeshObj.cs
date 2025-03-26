@@ -1,17 +1,12 @@
-﻿using System;
-using System.Drawing;
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
-using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
-
-
 
 namespace Abstract3DConverters.Meshes
 {
     [CommonVetrices]
-    class AbstractMeshObj : AbstractMesh
+    class AbstractMeshObj : AbstractMeshPolygon
     {
         Dictionary<int, int[]> Global
         {
@@ -42,22 +37,17 @@ namespace Abstract3DConverters.Meshes
             set;
         }
 
-
         internal List<float[]> IntVertices { get; private set; }
         internal List<float[]> IntTextures { get; private set; }
         internal List<float[]> IntNormals { get; private set; }
 
-
-
-        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(null, creator)
+        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(creator.MeshName, parent, null, creator)
         {
             try
             {
                 Vertices = new();
                 Textures = new();
                 Normals = new();
-                Parent = parent;
-                Name = creator.MeshName;
                 IntVertices = creator.Vertices;
                 IntTextures = creator.Textures;
                 IntNormals = creator.Normals;
@@ -99,6 +89,10 @@ namespace Abstract3DConverters.Meshes
                         }
                         l.Add(point);
                     }
+                    if (l.Count != 3)
+                    {
+
+                    }
                     var polygon = new Polygon(this, l, null);
                     Polygons.Add(polygon);
                 }
@@ -109,7 +103,8 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
+        internal AbstractMeshObj(int number, Obj3DCreator creator) : 
+            base("", null, null, creator)
         {
             try
             {
@@ -135,7 +130,7 @@ namespace Abstract3DConverters.Meshes
                 {
                     Name = creator.MeshName;
                 }
-                 if (Indexes.Count > 0)
+                if (Indexes.Count > 0)
                 {
                     foreach (var tuple in Indexes)
                     {
@@ -202,7 +197,7 @@ namespace Abstract3DConverters.Meshes
 
 
 
-        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
+        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, null, null, objCreator)
         {
             nextName = "";
             end = 0;

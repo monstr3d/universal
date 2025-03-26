@@ -604,7 +604,7 @@ namespace WpfInterface.Objects3D
             Textures = info.Deserialize<Dictionary<string, byte[]>>("Textures");
             try
             {
-                TexturesMap = info.Deserialize<Dictionary<string, string>>("TexturesMap");
+     //           TexturesMap = info.Deserialize<Dictionary<string, string>>("TexturesMap");
             }
             catch
             {
@@ -619,8 +619,7 @@ namespace WpfInterface.Objects3D
         protected virtual void SaveTextures(SerializationInfo info)
         {
             info.Serialize<Dictionary<string, byte[]>>("Textures", Textures);
-            info.Serialize<Dictionary<string, string>>("TexturesMap", TexturesMap);
-     }
+        }
 
         /// <summary>
         /// Post operation

@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -52,12 +53,7 @@ namespace Wpf.Loader
             set;
         } = new Dictionary<string, byte[]>();
 
-        public Dictionary<string, string> TexturesMap
-        {
-            get;
-            set;
-        } = new Dictionary<string, string>();
-
+  
         public void Save(string filename)
         {
             using (var w = new StreamWriter(filename))
@@ -114,7 +110,6 @@ namespace Wpf.Loader
              }
             Attachment = attach;
             Textures.Clear();
-            TexturesMap.Clear();
             string d = dir;
             var ds = d.Replace(Path.DirectorySeparatorChar, '/');
             if (d[d.Length - 1] != Path.DirectorySeparatorChar)
@@ -125,71 +120,65 @@ namespace Wpf.Loader
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
-                string fn = ds + iso;
+                string fn = iso;
                 fn = fn.Replace('/', Path.DirectorySeparatorChar);
-                if (!File.Exists(fn))
+                if (File.Exists(fn))
                 {
-                    fn =Path.Combine(ds, iso);
-                    if (!File.Exists(fn))
-                    {
-                        continue;
-                    }
+                    fn = Path.Combine(ds, iso);
+                    var iss = ReadImage(fn, dir, e);
+                   
+                    /*      using (var stream = System.IO.File.OpenRead(fn))
+                          {
+                              byte[] b = new byte[stream.Length];
+                              stream.Read(b);
+                              if (iso.Contains(dir))
+                              {
+                                  textures[iso.Substring(dir.Length + 1)] = b;
+                              }
+                              else
+                              {
+                                  textures[iso] = b;
+                              }
+                          }*/
                 }
-                ReadImage(fn, iso, dir);
-          /*      using (var stream = System.IO.File.OpenRead(fn))
-                {
-                    byte[] b = new byte[stream.Length];
-                    stream.Read(b);
-                    if (iso.Contains(dir))
-                    {
-                        textures[iso.Substring(dir.Length + 1)] = b;
-                    }
-                    else
-                    {
-                        textures[iso] = b;
-                    }
-                }*/
             }
+            this.xaml = doc.OuterXml;
         }
 
-        void ReadImage(string filename, string iso, string dir)
+        string ReadImage(string iso, string dir, XmlElement element)
         {
-            var t = StaticExtensionAbstract3DConverters.ConvertImage(filename);
+            var t = StaticExtensionAbstract3DConverters.ConvertImage(iso);
             if (t != null)
             {
-                var iss = Path.Combine(dir, Path.GetFileNameWithoutExtension(iso))
+                var isss = Path.Combine(dir, Path.GetFileNameWithoutExtension(iso))
                     + Path.GetExtension(t.Item1);
-                if (TexturesMap.ContainsKey(iso))
-                {
-                    if (TexturesMap[iso] == iss)
-                    {
-                        return;
-                    }
-                }
-                TexturesMap[iso] = iss;
                 var bt = t.Item2;
-                if (iss.Contains(dir))
+                if (isss.Contains(dir))
                 {
-                    Textures[iss.Substring(dir.Length + 1)] = bt;
+                    isss = isss.Substring(dir.Length + 1);
                 }
                 else
                 {
-                    Textures[iss] = bt;
-                }
-                return;
+              }
+                Textures[isss] = bt;
+                element.SetAttribute("ImageSource", isss);
+                return isss;
             }
-            TexturesMap[iso] = iso;
-            using var stream = File.OpenRead(filename);
+            using var stream = File.OpenRead(iso);
             byte[] b = new byte[stream.Length];
             stream.Read(b);
+            var iss = "";
             if (iso.Contains(dir))
             {
-                Textures[iso.Substring(dir.Length + 1)] = b;
+                iss = iso.Substring(dir.Length + 1);
             }
             else
             {
-                Textures[iso] = b;
+                iss = iso;
             }
+            Textures[iss] = b;
+            element.SetAttribute("ImageSource", iss);
+            return iss;
         }
 
         /// <summary>
@@ -396,37 +385,34 @@ namespace Wpf.Loader
                 {
                     if (iso.Length > 0)
                     {
-                        if (TexturesMap.ContainsKey(iso))
+                        if (!Textures.ContainsKey(iso))
                         {
-                            var isss = TexturesMap[iso];
-                            var isi = service.FindEnd(isss, Textures.Keys);
+                            var isi = service.FindEnd(iso, Textures.Keys);
                             if (isi == null)
                             {
                                 del.Add(e);
                                 continue;
                             }
-                            iso = isi;
                         }
-                        if (TexturesMap.ContainsKey(iso))
+                        if (Textures.ContainsKey(iso))
                         {
-                            var iss = TexturesMap[iso];
                             if (Urls.ContainsKey(iso))
                             {
                                 throw new Exception("Urls");
                                 e.SetAttribute("ImageSource", Urls[iso]);
                                 continue;
                             }
-                            int n = iss.LastIndexOf('.');
+                            int n = iso.LastIndexOf('.');
                             string ext = iso.Substring(n);
                             string path = null;
-                            if (Paths.ContainsKey(iss))
+                            if (Paths.ContainsKey(iso))
                             {
-                                path = Paths[iss];
+                                path = Paths[iso];
                                 if (!File.Exists(path))
                                 {
-                                    using (var stream = System.IO.File.OpenWrite(path))
+                                    using (var stream = File.OpenWrite(path))
                                     {
-                                        byte[] b = Textures[iss];
+                                        byte[] b = Textures[iso];
                                         stream.Write(b, 0, b.Length);
                                     }
                                 }
@@ -453,7 +439,7 @@ namespace Wpf.Loader
                             Paths[iso] = path;
                             if (File.Exists(path))
                             {
-                                ReadImage(path, iso, Path.GetDirectoryName(path));
+                                ReadImage(iso, Path.GetDirectoryName(path), e);
                         /*        using (var stream = System.IO.File.OpenRead(path))
                                 {
                                     byte[] b = new byte[stream.Length];
