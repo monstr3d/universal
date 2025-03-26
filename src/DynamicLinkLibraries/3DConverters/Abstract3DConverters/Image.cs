@@ -15,7 +15,7 @@
 
         public string FullPath { get; private set; }
 
-        public Image(string name, string directory)
+        public Image(string name, string directory, string delimiter = null)
         {
             var ch = StaticExtensionAbstract3DConverters.CheckFile;
             Find = (ch == CheckFile.Check) ? FindFile : FindEmpty;
@@ -27,7 +27,7 @@
             }
             var n = Path.GetFileName(name);
             Directory = directory;
-            Name = Find(n, Directory);
+            Name = Find(n, Directory, delimiter);
             if (Name == null)
             {
                 Name = name;
@@ -45,19 +45,30 @@
             }
         }
 
-        private Func<string, string, string> Find;
+        private Func<string, string, string, string> Find;
 
-        private string FindEmpty(string name, string directory)
+        private string FindEmpty(string name, string directory, string delimiter)
         {
             return  Path.Combine(directory, name);
         }
 
-        private string FindFile(string name, string directory)
+        private string FindFile(string name, string directory, string delimiter)
         {
             var f = Path.Combine(directory, name);
             if (File.Exists(f))
             {
                 return f.Substring(Directory.Length);
+            }
+            if (delimiter != null)
+            {
+                if (f.Contains(delimiter))
+                {
+                    f = f.Replace(delimiter, " ");
+                    if (File.Exists(f))
+                    {
+                        return f.Substring(Directory.Length);
+                    }
+                }
             }
             if (f.Contains("%"))
             {
@@ -70,7 +81,7 @@
             var dirs = System.IO.Directory.GetDirectories(directory);
             foreach (var d in dirs)
             {
-                var s = Find(name, d);
+                var s = Find(name, d, delimiter);
                 if (s != null)
                 {
                     return s;

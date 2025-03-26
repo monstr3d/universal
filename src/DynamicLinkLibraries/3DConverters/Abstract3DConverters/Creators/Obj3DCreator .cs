@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -293,22 +292,41 @@ namespace Abstract3DConverters.Creators
 
                 foreach (var line in lines)
                 {
-
-                    if (line.StartsWith("usemtl "))
+                    if (line.StartsWith("usemtl"))
                     {
                         var mat = line.Substring("usemtl ".Length);
-                        if (mat == "_default_")
+                        if (mat != null)
                         {
+                            if (mat == "_default_")
+                            {
+                                continue;
+                            }
+                            mat = mat.Replace("_", " ");
+                            Effect effect = null;
+                            if (Effects.ContainsKey(mat))
+                            {
+                                effect = Effects[mat];
+                            }
+                            else
+                            {
+                                foreach (var ee in Effects)
+                                {
+                                    var fn = Path.GetFileNameWithoutExtension(ee.Key);
+                                    if (fn  == mat)
+                                    {
+                                        effect = ee.Value;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!UsedMaterials.Contains(mat))
+                            {
+                                UsedMaterials.Add(mat);
+                            }
+                            tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                            indexes.Add(tuple);
                             continue;
                         }
-                        var effect = Effects[mat];
-                        if (!UsedMaterials.Contains(mat))
-                        {
-                            UsedMaterials.Add(mat);
-                        }
-                        tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
-                        indexes.Add(tuple);
-                        continue;
                     }
 
                     if (line.IndexOf("v ") == 0)
@@ -371,7 +389,7 @@ namespace Abstract3DConverters.Creators
             try
             {
                 List<Tuple<Effect, List<int[][]>>> indexes = null;
-                Tuple<Effect, List<int[][]>> tuple = null;
+                Tuple<Effect, List<int[][]>> tuple = new  Tuple<Effect, List<int[][]>>(Default, new  List<int[][]>());
 
                 for (int k = 0; k < lines.Count; k++)
                 {
@@ -637,7 +655,7 @@ namespace Abstract3DConverters.Creators
                 }
                 if (Diffuse == null)
                 {
-                    return;
+                    Diffuse = new Color(new float[] { 1, 1, 1 });
                 }
                 MaterialGroup mat = new PhongMaterial(Name, null);
                 var children = mat.Children;
@@ -809,11 +827,11 @@ namespace Abstract3DConverters.Creators
 
                         // the ambient texture map
                         case "map_Ka":
-                            Ka = new Image(value, directory);
+                            Ka = new Image(value, directory, "_");
                             break;
                         // the diffuse texture map 
                         case "map_Kd":
-                            Kd = new Image(value, directory);
+                            Kd = new Image(value, directory, "_");
                             break;
 
                         //# specular color texture map
@@ -847,92 +865,122 @@ namespace Abstract3DConverters.Creators
             }
         }
 
+        void CreateMaterials(string file, out Effect def)
+        {
+            
+            def = null;
+            mtlstr = file;
+            if (File.Exists(file))
+            {
+                mtlfile = file;
+            }
+            else
+            {
+                mtlfile = Path.Combine(directory, file);
+            }
+            using var stream = File.OpenRead(mtlfile);
+            var mt = FromStream(stream,  out def);
+            Default = def;
+            foreach (var mat in mt)
+            {
+                var n = mat.Key;
+                var v = mat.Value;
+                if (n == "_default_" | n == "Default")
+                {
+                    Default = v;
+                }
+                Effects[n] = v;
+            }
+
+        }
+
+        Dictionary<string, Effect> FromStream(Stream stream, out Effect eff)
+        {
+            var mtl = new MtlWrapper(creator.Directory);
+            var lines = new List<string>();
+            using var reader = new StreamReader(stream);
+            do
+            {
+                var l = reader.ReadLine();
+                if (l == null)
+                {
+                    break;
+                }
+                lines.Add(l);
+
+            }
+            while (!reader.EndOfStream);
+            var mt = mtl.Create(lines, 0, out eff);
+            return mt;
+        }
         void CreateMaterials()
         {
             try
             {
-                foreach (var line in lines)
+                Effect def = null;
+                Dictionary<string, Effect> mt = null;
+                if (MaterialBytes != null)
                 {
-                    if (line.StartsWith("mtllib "))
+                    using var stream = new MemoryStream(MaterialBytes);
+                    mt = FromStream(stream, out def);
+                }
+                else
+                {
+                    foreach (var line in lines)
                     {
-                        var file = line.Substring("mtllib ".Length).Trim();
-                        mtlstr = file;
-                        var mtl = new MtlWrapper(creator.Directory);
-                        mtlfile = Path.Combine(directory, file);
-                        Effect def = null;
-                        Dictionary<string, Effect> mt = null;
-                        if (MaterialBytes != null)
+                        if (line.StartsWith("mtllib "))
                         {
-                            using var stream = new MemoryStream(MaterialBytes);
-                            var lines = new List<string>();
-                            using var reader = new StreamReader(stream);
-                            do
-                            {
-                                var l = reader.ReadLine();
-                                if (l == null)
-                                {
-                                    break;
-                                }
-                                lines.Add(l);
-
-                            }
-                            while (!reader.EndOfStream);
-                            mt = mtl.Create(lines, 0, out def);
+                            Effect deff = null;
+                            var file = line.Substring("mtllib ".Length).Trim();
+                            CreateMaterials(file, out deff);
                         }
-                        else
-                        {
-                            mt = mtl.Create(file, directory, out def);
-                        }
-                        Default = def;
-                        foreach (var mat in mt)
-                        {
-                            var n = mat.Key;
-                            var v = mat.Value;
-                            if (n == "_default_")
-                            {
-                                Default = v;
-                                continue;
-                            }
-                            Effects[n] = v;
-                        }
-                        break;
                     }
-                }
-                if (Effects.Count == 0)
-                {
-                    var l = (from line in lines
-                             where s.ToString(line, "usemtl") != null
-                             select
-                             CreateEffect(line)).ToArray();
-                    //          var l = lines.Select(str => s.ToString(str)); ;
-                }
-                if (Effects.ContainsKey("_default_"))
-                {
-                    Default = Effects["_default_"];
-                }
-                if (Default == null & EffectList.Count == 0)
-                {
-                    string file = null;
-                    if (StaticExtensionAbstract3DConverters.CheckFile == CheckFile.Check)
+                    if (Effects.Count == 0 & Default == null)
                     {
-                        var files = Directory.GetFiles(creator.Directory);
-                        if (files.Length == 2)
+                        var l = (from line in lines
+                                 where s.ToString(line, "usemtl") != null
+                                 select
+                                 CreateEffect(line)).ToArray();
+                        //          var l = lines.Select(str => s.ToString(str)); ;
+                    }
+                    if (Effects.ContainsKey("_default_"))
+                    {
+                        Default = Effects["_default_"];
+                    }
+                    if (Default == null & EffectList.Count == 0)
+                    {
+                        string file = null;
+                        if (StaticExtensionAbstract3DConverters.CheckFile == CheckFile.Check)
                         {
+                            var files = Directory.GetFiles(creator.Directory);
                             foreach (var f in files)
                             {
-                                if (Path.GetFileName(f) != Path.GetFileName(creator.Filename))
+                                if (Path.GetExtension(f) == ".mtl")
                                 {
-                                    file = f;
+                                    CreateMaterials(f, out def);
                                     break;
                                 }
                             }
-
-                        }
-                        if (file != null)
-                        {
-                            if (StaticExtensionAbstract3DConverters.DetectImage(file))
+                            if (Effects.Count == 0 & Default == null)
                             {
-                                Default = CreateEffect(file);
+                                if (files.Length == 2)
+                                {
+                                    foreach (var f in files)
+                                    {
+                                        if (Path.GetFileName(f) != Path.GetFileName(creator.Filename))
+                                        {
+                                            file = f;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            if (file != null)
+                            {
+                                if (StaticExtensionAbstract3DConverters.DetectImage(file))
+                                {
+                                    Default = CreateEffectFromImage(file);
+                                }
                             }
                         }
                     }
@@ -942,7 +990,7 @@ namespace Abstract3DConverters.Creators
             {
                 e.HandleException("Create materials OBJ");
             }
-            
+
         }
 
         Effect CreateFromFile(string filename)
@@ -963,7 +1011,8 @@ namespace Abstract3DConverters.Creators
         string Exists(string file)
         {
             var d = creator.Directory;
-            var filename = Path.Combine(d, file);
+            var filename = file.Replace("_", " ");
+            filename = Path.Combine(d, filename);
             if (s.FileExists(filename))
             {
                 return filename;
@@ -993,20 +1042,34 @@ namespace Abstract3DConverters.Creators
             return null;
         }
 
+
+        Effect CreateEffectFromImage(string f)
+        {
+            var image = new Image(f, creator.Directory);
+            var ff = new float[] { 1f, 1f, 1f, 1f };
+            var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
+            var mat = new MaterialGroup(f);
+            mat.Children.Add(d);
+            return new Effect(this, f, mat, image);
+        }
+
+
         Effect CreateEffect(string f)
         {
-            var file = Exists(f);
+            var fd = s.ToString(f, "usemtl");
+            var file = Exists(fd);
             Image image = null;
+            var inm = "";
             if (file != null)
             {
-                var inm = Path.GetFileName(file);
+                inm = Path.GetFileName(file);
                 image = new Image(inm, creator.Directory);
             }
             var ff = new float[] { 1f, 1f, 1f, 1f };
             var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
             var mat = new MaterialGroup(f);
             mat.Children.Add(d);
-            return new Effect(this, f, mat, image);
+            return new Effect(this, inm, mat, image);
        }
 
    

@@ -11,7 +11,7 @@ namespace ImageDetector
         static StaticExtensionImageDetector()
         {
             new ImageDetector();
-            new ImageConverter();
+            var factory = ImageConverterFactory.Factory;
         }
 
 
@@ -48,11 +48,22 @@ namespace ImageDetector
         }
 
 
+        class ImageConverterFactory : IImageConverterFactory 
+        {
+            internal static IImageConverterFactory Factory = new ImageConverterFactory();
+
+            private ImageConverterFactory()
+            {
+                this.Set();
+            }
+
+            IImageConverter IImageConverterFactory.this[string extension] => new ImageConverter();
+        }
+
         class ImageConverter : IImageConverter
         {
             internal ImageConverter()
             {
-                this.Set();
             }
 
             Tuple<string, byte[]> IImageConverter.Convert(string filename)

@@ -22,7 +22,7 @@ namespace Abstract3DConverters
     {
         #region Fields
 
-        static IImageConverter imageConverter = null;
+        static IImageConverterFactory imageConverterFactory = null;
 
         static IImageDetector imageDetector = null;
 
@@ -35,8 +35,7 @@ namespace Abstract3DConverters
         static IMeshConverterFactory meshConverterFactory;
 
         static public IImageDetector ImageDetector { get => imageDetector; }
-        static public IImageConverter ImageConverter { get => imageConverter; }
-
+ 
         static public bool DetectImage(this string imagePath)
         {
             if (imageDetector == null)
@@ -46,19 +45,19 @@ namespace Abstract3DConverters
             return imageDetector.Detect(imagePath);
         }
 
-        static public Tuple<string, byte[]> ConvertImage(this string imagePath)
+        static public IImageConverter GetImageConverter(this string extension)
         {
-            if (imageConverter == null)
+            if (imageConverterFactory == null)
             {
                 return null;
             }
-            return imageConverter.Convert(imagePath);
+            return imageConverterFactory[extension];
         }
 
 
-        static public void Set(this IImageConverter converter)
+        static public void Set(this IImageConverterFactory factory)
         {
-            imageConverter = converter;
+            imageConverterFactory = factory;
         }
 
 

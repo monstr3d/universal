@@ -5,7 +5,7 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 
 using Abstract3DConverters;
-
+using Abstract3DConverters.Interfaces;
 using ErrorHandler;
 
 
@@ -19,6 +19,8 @@ namespace Wpf.Loader
         protected Service s = new();
 
         protected double[][] normals;
+
+        protected IImageConverter imageConverter = ".xaml".GetImageConverter();
 
 
         protected object[] types = null;
@@ -147,22 +149,25 @@ namespace Wpf.Loader
 
         string ReadImage(string iso, string dir, XmlElement element)
         {
-            var t = StaticExtensionAbstract3DConverters.ConvertImage(iso);
-            if (t != null)
+            if (imageConverter != null)
             {
-                var isss = Path.Combine(dir, Path.GetFileNameWithoutExtension(iso))
-                    + Path.GetExtension(t.Item1);
-                var bt = t.Item2;
-                if (isss.Contains(dir))
+                var t = imageConverter.Convert(iso);
+                if (t != null)
                 {
-                    isss = isss.Substring(dir.Length + 1);
+                    var isss = Path.Combine(dir, Path.GetFileNameWithoutExtension(iso))
+                        + Path.GetExtension(t.Item1);
+                    var bt = t.Item2;
+                    if (isss.Contains(dir))
+                    {
+                        isss = isss.Substring(dir.Length + 1);
+                    }
+                    else
+                    {
+                    }
+                    Textures[isss] = bt;
+                    element.SetAttribute("ImageSource", isss);
+                    return isss;
                 }
-                else
-                {
-              }
-                Textures[isss] = bt;
-                element.SetAttribute("ImageSource", isss);
-                return isss;
             }
             using var stream = File.OpenRead(iso);
             byte[] b = new byte[stream.Length];
