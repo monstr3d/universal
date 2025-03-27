@@ -142,17 +142,20 @@ namespace Conversion3D.WebApplication.Pages
                     AdditionalFile, ModelState, _permittedExtensions,
                     _fileSizeLimit);
 
-
+            var tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
             var inex = FormFile.FileName;
 
             var pth = Path.GetFileNameWithoutExtension(inex);
             FileName = pth + ext.Item1[0];
             using var stream = new MemoryStream(formFileContent);
             var b = stream.ToArray();
-            var p = new Performer();
             var path = Path.Combine(Directory, inex);
             var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
-            var byt = p.CreateAndSaveZip(path, filename, b, add, ext.Item1[0], ext.Item2, Directory);
+            var p = new Performer();
+            var byt = p.CreateAndSaveZip(path, filename, Directory, null, [b, tad], []);
+           // object[] objects,
+           // params object[] converters)
+         //   var byt = p.CreateAndSaveZip(path, filename, b, add, ext.Item1[0], ext.Item2, Directory);
             var bt = new Tuple<byte[], string>(byt, FileName);
             HyperLink.Tuple = bt;
             return Page();

@@ -12194,13 +12194,13 @@ Let $G$ be a finite Abelian group, and let
 \eean
 be an unital finite-fold covering. Consider a category of finitely generated projective  $\widetilde A$ - $G$-modules (cf. Appendix \ref{equiv_k_sec}). From the Corollary \ref{unital_cov_k_cor} and the Proposition \ref{galois_morita_prop} one can deduce  that there is the natural isomorphism
 \be\label{unital_cov_kk_eqn}
-K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) 
+K_0 \left(\widetilde A\rtimes G  \right)\cong K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) 
 \ee
 where $K^{G}_0 \left(\widetilde A \right)\cong K_0 \left(\widetilde A\rtimes G  \right)$ is the Grothendieck group of the category  of finitely generated projective  $\widetilde A$ - $G$-modules.
 The above equation comes from the given by the Lemma \ref{morita_galois_lem} and the Theorem \ref{progenerator_morita_thm} algebraic Morita equivalence 
-\bean
+\be\label{h_strong_t_eqn}
 \left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right).
-\eean
+\ee
 which is the strong Morita equivalence. There are mutually inverse functors
 \be\label{h_morita_eqn}
 _A\mathscr P \substack{\xrightarrow{_{\widetilde{A} \rtimes G}\widetilde A_A \otimes - }\\\xleftarrow[-\otimes_{\widetilde{A} \rtimes G}\widetilde{A}_A]{}}\mathscr P_{\widetilde{A} \rtimes G}
@@ -12216,6 +12216,7 @@ since any $q\in Q$ equals to the sum $q^G + q^\perp$ where
 q^G \bydef \frac{1}{\left| G\right| }\sum _{g\in G}g q \in Q^G,\\
 q^\perp \bydef q - q^G \in P^\perp.
 \eean
+
 Similarly if $r: G \to U\left( 1\right)$ is an irreducible representation then $Q^\perp = Q_r \oplus Q_r^\perp$ since any $q\in Q^\perp$ equals to the sum $q_r + q_r^\perp$ where
 \be\label{h_q_r_eqn}
 \begin{split}
@@ -12227,10 +12228,14 @@ It follows that any projective finitely generated  $\widetilde A$-$G$-module $Q$
 $$
 Q = Q^G \bigoplus \left(\bigoplus_{r \in R} Q_r\right) 
 $$
-where $R$ is a set of irreducible representations of $G$. It turns out that
+where $R$ is a set of irreducible representations of $G$. It turns out that 
 \bean
 K^{G}_0 \left(\widetilde A \right)= \left(K^{G}_0 \left(\widetilde A \right) \right) ^G \bigoplus \left(\bigoplus_{r \in R} K^{G}_0 \left(\widetilde A \right)_r\right)
 \eean
+and taking into account \eqref{unital_cov_kk_eqn} one has a decomposition
+\be\label{h_k_fin_eqn}
+K_0 \left( A \right)= K_0 \left( A \right)^G \bigoplus \left(\bigoplus_{r \in R} K_0 \left( A \right)_r\right)!!!!
+\ee
 If $Q_r$ is an irreducible $\widetilde{A}$-$G$ module and $\chi_r: G \to \C$ is the corresponding to $r$ character then any $q_r\in Q_r$ satisfies to the following equation
 \be\label{h_chi_eqn}
 q_r =  \frac{1}{\left| G\right| }\sum _{g\in G}\overline{\chi}_r\left( g\right)   q_r~.
@@ -12244,9 +12249,9 @@ If $x_1, x_2 \in K^{G}_0 \left(\widetilde A \right)_r$ are such that $\chi_{x_1}
 $$
 \forall g \in G \quad\chi_{x_1-x_2} \left(g \right)=\{1\}\quad x_1-x_2 \in  \left(K^{G}_0 \left(\widetilde A \right) \right) ^G
 $$ 
-it is possible if and only if $x_1 - x_2 = 0$. From our construction there is an isomorphism
+it is possible if and only if $x_1 - x_2 = 0$. From our construction there is a surjective homomorphism
 $$
-\phi_r : \Z_{p_r} \cong K^{G}_0 \left(\widetilde A \right)_r
+\phi_r : \Z_{p_r} \cong K^{G}_0 \left(\widetilde A \right)_r\cong K_0\left( A\right)_r 
 $$
 such that
 $$
@@ -12262,7 +12267,7 @@ Following Lemma is a consequence of the above construction and the isomorphism \
 	\be\label{h_tors_d_eqn}
 	K_0\left( A\right) = K_0\left(A \right)^\perp \bigoplus  \left(\bigoplus_{r \in R} K_0 \left( A \right)_r\right).
 	\ee 
-	If $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$ then  $K_0 \left( A \right)_r$ is trivial, or there is an isomorphism $K_0 \left( A \right)_r\cong \Z_{p^r}$.
+	If $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$ then  $K_0 \left( A \right)_r$ is trivial, or there is an isomorphism $K_0 \left( A \right)_r\cong \Z_{p_r}$.!!!
 \end{lemma}
 The decomposition \eqref{h_tors_d_eqn} yield a map from $G$ to the set of characters of  $K_0\left(A \right)$ 
 $$
@@ -12531,9 +12536,9 @@ Let $\sX$ be a satisfying to the conditions \ref{h_top_cond_empt} space.
 	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \\ \Phi\left( s, 1\right) = x_0, 
 	\eean 
 	From the Lemma \ref{top_red_cone_lem} the homotopy $\Phi$ yields  a continuous map $F: CS^1\to \sX$ where $CS^1$ is the cone over $S^1$ (cf. Definition \ref{top_cone_defn}). On the other hand the map $F$ is such that
-	$$
+\be\label{h_th_eqn}
 \th_p\left( x'\right) = 	\th_p\left( x''\right)\quad \Leftrightarrow \quad F\left(\left[x', 1\right] \right) = F\left(\left[x'', 1\right] \right)
-	$$
+\ee
 	and from the above equation turns out that there is a decomposition
 	\newline
 	\begin{tikzcd}
@@ -12541,7 +12546,21 @@ Let $\sX$ be a satisfying to the conditions \ref{h_top_cond_empt} space.
 	& \sX &
 	\end{tikzcd}
 	\\
-where $C'_{\th_p}$ is given by \eqref{top_cp_eqn}. One the other hand there is the natural injective continuous map  $\psi: S^1 \hookto C'_{\th_p}$ such that the image of $\varphi\left( \left[x, 1\right]\right) = \psi \circ \th_p\left(x \right)$. In result there is the following diagram  
+where $C'_{\th_p}$ is given by \eqref{top_cp_eqn}. The  equation \eqref{h_th_eqn} is equivalent to the following one 
+\be\label{h_zth_eqn}
+\th_p\left( x'\right) = 	\th_p\left( x''\right)\quad \Leftrightarrow \quad \left( z\left( x'\right) \right)^p = \left( z\left( x''\right) \right)^p.
+\ee
+where
+\be\label{h_z_s_eqn}
+z: S^1 \to U\left(1 \right)
+\ee
+is the natural homomorphism
+and $C'_{\th_p}$ is a factor space of the cone $CS^1$ by the equivalence relation 
+\be\label{h_relzth_eqn}
+\left[x', 1\right]\cong \left[x'', 1\right] \quad \Leftrightarrow\quad \th_p\left( x'\right) = 	\th_p\left( x''\right)\quad  \left( z\left( x'\right) \right)^p = \left( z\left( x''\right) \right)^p.
+\ee
+
+One the other hand there is the natural injective continuous map  $\psi: S^1 \hookto C'_{\th_p}$ such that the image of $\varphi\left( \left[x, 1\right]\right) = \psi \circ \th_p\left(x \right)$. In result there is the following diagram  
 	\newline
 \begin{tikzcd}
 	S^1 \arrow[rd, "\om"]\arrow[rr, "\psi"] & & C'_{\th_p}\arrow[ld]\\
@@ -12610,27 +12629,33 @@ where $\left[ 	K^1_{S^1}\right]$ is the generator of the free Abelian group $K^1
 \be\label{h_k00_eqn}
 \begin{split}
 K_{00}\left( SC\left(S^1 \right) \right) \to K_{0}\left( SC\left(S^1 \right) \right),\\
-n\left[H\right]\mapsto n \left(\left[H\right]- \left[1\right] \right) \quad \forall n \in \Z.
+n\left[H\right]\mapsto n \left(\left[H\right]- \left[1_{S^2}\right] \right) \quad \forall n \in \Z
 \end{split}
 \ee
+where $1_{S^2} \cong  S^2 \times \C$ is the trivial bundle over $S^2$. 
 The homomorphism $ SC\left(\th_p \right): SC\left(S^1 \right)\to S C\left(S^1 \right)$ corresponds to the continuous map $\th_p \times \Id_{\left( 0, 1\right) }: S^1\times \left( 0, 1\right) \to S^1\times \left( 0, 1\right)$. This map can be uniquely extended up to the map $\Th_p: S^2 \to S^2$ where the inclusion $S^1\times \left( 0, 1\right)\cong S^2 \setminus \{s_0\}\cup \{s_1\}\subset S^2$ is implied. The map $\Th_p$ yields a homomorphism
 \bean
 K_0\left( \Th_p\right) : K_0\left( S^2\right) \to K_0\left( S^2\right). 
 \eean 
 From $K_0\left( SC\left(\th_p \right)  \right)= \times p$ and \eqref{h_k00_eqn} it follows that 
 \bean
-K_0\left( \Th_p\right)\left( \left[1\right] \right) = \left[1\right],\\
+K_0\left( \Th_p\right)\left( \left[1_{S^2}\right] \right) = \left[1_{S^2}\right],\\
 K_0\left( \Th_p\right)\left( \left[H\right] \right) = p\left[H\right].
 \eean 
 The $*$-homomorphism $\iota$ from the equation \eqref{h_i_eqn} corresponds to a map $\varphi_\iota :  C'_{\th_p}\setminus \{m_0\} \to CS^1$ which can be uniquely extended up to the map $\Phi_\iota : C'_{\th_p} \to S^2$. From our construction it follows that
-\be
+\be\label{h_cp_eqn}
 \begin{split}
-K_0\left( C'_{\th_p} \right)= \Z  \left[1\right] \oplus  \Z_p  \left[H'\right],\\
+K_0\left( C'_{\th_p} \right)= \Z  \left[1_{C'_{\th_p}}\right] \oplus  \Z_p  \left[H'\right],\quad 
  \left[H'\right]\bydef K^0\left( \Phi_\iota\right) \left(\left[H\right] \right) 
 \end{split}
 \ee
-Indeed  $\left[H'\right]$ is represented by rank-one bundle $H'$ which is the inverse image of the rank-one bundle $H$ by $\Phi_\iota$  (cf. Definition \ref{vb_inv_img_funct_defn}). According to   the Serre-Swan Theorem \ref{serre_swan_thm} $H'$ can be regarded as a projective finitely generated   $C\left(C'_{\th_p} \right)$-module. On the other hand $K_{00}\left( C_{ C\left(\th_p \right)}\right) = \Z_p\left[H'\right]$ and from the Remark \ref{k0_rem} it follows that $K_{0}\left( C_{ C\left(\th_p \right)}\right) = \Z_p\left( \left[H'\right]- \left[1\right]\right)$. 
-
+Indeed  $\left[H'\right]$ is represented by rank-one bundle $H'$ which is the inverse image of the rank-one bundle $H$ by $\Phi_\iota$  (cf. Definition \ref{vb_inv_img_funct_defn}). According to   the Serre-Swan Theorem \ref{serre_swan_thm} $H'$ can be regarded as a projective finitely generated   $C\left(C'_{\th_p} \right)$-module. On the other hand $K_{00}\left( C_{ C\left(\th_p \right)}\right) = \Z_p\left[H'\right]$ and from the Remark \ref{k0_rem} it follows that $K_{0}\left( C_{ C\left(\th_p \right)}\right) = \Z_p\left( \left[H'\right]- \left[1_{C'_{\th_p}}\right]\right)$.  The space $C'_{\th_p}$ is a factor space of the cone $CS^1$ by the equivalence relation \eqref{h_relzth_eqn}. If $1_{CS^1}\cong CS^1\times \C$ id is a trivial bundle over $CS^1$ then both rank one bundles $1_{C'_{\th_p}}\cong C'_{\th_p} \times \C$ and $H'$ are factor spaces $1_{CS^1}$ with respect to equivalence relations $\sim_1$ and $\sim_{H'}$ such that for all $ x', x'' \in S^1$ and $\xi', \xi'; \in \C$ one has.
+\be
+\begin{split}
+\left( \left[x', 1\right], \xi'\right) \sim_1\left( \left[x'', 1\right], \xi''\right)  ~ \Leftrightarrow~  \left( z\left( x'\right) \right)^p = \left( z\left( x''\right) \right)^p \text{ AND } \xi' = \xi''\\
+\left( \left[x', 1\right], \xi'\right) \sim_{H'}\left( \left[x'', 1\right], \xi''\right)  ~ \Leftrightarrow~  \left( z\left( x'\right) \right)^p = \left( z\left( x''\right) \right)^p \text{ AND } \\\text{AND  }~z\left( x'\right) \xi' = z\left( x''\right)\xi''
+\end{split}
+\ee
 
 
 The subgroup $\Z\left[\om\right] = \Z_p\left[\om\right]\cong \Z_p \subset \pi_1^{\text{ab}}\left( \sX, x_0\right)$ yields the $\sX$-$\Z_p$-{covering} $P_{\Z_p}: \sX\left[\Z_p\right] \to \sX$ (cf. Definition \ref{top_xg_defn})
@@ -12684,12 +12709,12 @@ C\left( P_{\Z_p}\right) \left(u \right) = v^p,\\
 C\left(\sX\left[\Z_p\right] \right) = \bigoplus_{j = 0}^{p-1}C\left( \sX\right) v^j
 \eean 
 where $\bigoplus$ is the direct sum of left $C\left(\sX \right)$-modules.  There is an  $\left(u, v, n\right)$-{covering} $\left(C\left(\sX \right), C\left(\sX\left[\Z_p\right] \right), \Z_p, C\left( P_{\Z_p}\right)  \right)$ (cf. Definition \ref{hurewicz_u_n_defn}). Similarly there of an  $\left(u', v', n\right)$-{covering} $\left(C\left(C'_{\th_p} \right), C\left(C'_{\th_p} \left[\Z_p\right] \right), \Z_p, C\left( P'_{\Z_p}\right)  \right)$ (cf. Definition \ref{hurewicz_u_n_defn}).
-Consider two $C\left(C'_{\th_p} \right)\rtimes \Z_p$ modules. First one $\widetilde K$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with trivial action of $\Z_p$. Second one $\widetilde K$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with action of $\Z_p$ given by
+Consider two $C\left(C'_{\th_p} \right)\rtimes \Z_p$ modules. First one $\widetilde 1$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with trivial action of $\Z_p$. Second one $\widetilde H'$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with action of $\Z_p$ given by
 \bean
 \left(g, \widetilde{a} \right)\mapsto \chi\left(g \widetilde{a}\right)  
 \eean
+where $\chi: \Z_p \to \C$ is an irreducible representation of $\Z_p$. If we consider  a specialization of the given by \eqref{h_strong_t_eqn} Morita equivalence then $\widetilde 1$ and $\widetilde H'$ correspond to bundles $1_{C'_{\th_p}}$ and $H'$ over ${C'_{\th_p}}$ (cf. equation \ref{h_cp_eqn}). So the bundle $H'$ correspond to the irreducible representation of $\Z_p$. So according to the
 
-!!!!
 If $\sY\subset \sX$ is  a compact subset which satisfies to the equation \eqref{h_y_eqn} then one has following homomorphisms. 
 \be\label{h_k1y_eqn}
 \begin{split}

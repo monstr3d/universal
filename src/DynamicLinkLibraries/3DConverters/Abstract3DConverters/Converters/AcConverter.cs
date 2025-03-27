@@ -31,7 +31,7 @@ namespace Abstract3DConverters.Converters
 
         #region Ctor
 
-        public AcConverter() : base(new ExeptionalMaterialCreator())
+        public AcConverter(object[] obj) : base(new ExeptionalMaterialCreator())
         {
 
         }

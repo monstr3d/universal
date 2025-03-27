@@ -26,7 +26,7 @@ namespace Abstract3DConverters.Fartories.Converters
             }
             if (ci != null)
             {
-                return ci.Invoke(objects) as IMeshConverter;
+                return ci.Invoke([objects]) as IMeshConverter;
             }
             return null;
         }

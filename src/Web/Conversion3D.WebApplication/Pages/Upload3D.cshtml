@@ -4,7 +4,7 @@
     ViewData["Title"] = "Upload 3D file";
 
 }
-
+<link rel="stylesheet" href="~/css/StyleSheet.css">
 @inject IHttpContextAccessor httpContextAccessor;
 
 @{
@@ -18,8 +18,8 @@
 
 }
 
-<h1></h1>
 
+<h1></h1>
 <p>The following form's page handler saves the file to disk.</p>
 
 <form asp-validation-summary="None" enctype="multipart/form-data" novalidate method="post">
@@ -27,8 +27,8 @@
         <dt>
             <table  width="90%" border="1" >
                 <tr>
-                    <td width="90%">
-                        <table>
+                    <td width="70%">
+                        <table width="100%">
                             <tr>
                                 <td width="90%">
                                     <label asp-for="Directory"></label>
@@ -36,7 +36,7 @@
                              </tr>
                              <tr>
                                  <td>
-                                     <input asp-for="Directory" type="text" width="90%"/>
+                                     <input asp-for="Directory" type="text" class="input-filter"/>
                                 </td>
                             </tr>
                                 <tr>
@@ -66,6 +66,7 @@
       </span>
         </td>
         </tr>
+       
         </table>
                     </td>
                     <td>

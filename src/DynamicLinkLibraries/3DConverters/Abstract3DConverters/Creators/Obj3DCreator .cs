@@ -70,11 +70,28 @@ namespace Abstract3DConverters.Creators
    
         protected override void CreateAdditional(object additional)
         {
-            if (additional is byte[] bytes )
+            switch (additional)
             {
-                MaterialBytes = bytes;
+                case byte[] bytes:
+                    MaterialBytes = bytes;
+                    break;
+                case Tuple<string, byte[]> tuple:
+                    Process(tuple);
+                    break;
+
             }
-            CreateAll();
+              CreateAll();
+        }
+
+        void Process(Tuple<string, byte[]> tuple)
+        {
+            var ext = Path.GetExtension(tuple.Item1);
+            if (ext == ".mtl")
+            {
+                MaterialBytes = tuple.Item2;
+                return;
+            }
+            Default = CreateEffectFromImage(Path.Combine(creator.Directory, tuple.Item1));
         }
 
         public List<string> UsedMaterials

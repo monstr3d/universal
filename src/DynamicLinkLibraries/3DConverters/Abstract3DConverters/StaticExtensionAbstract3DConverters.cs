@@ -241,7 +241,7 @@ namespace Abstract3DConverters
 
         static public string GetDirectory(this string filename)
         {
-            return UseDirectory ? Path.GetDirectoryName(filename) : null;
+            return Path.GetDirectoryName(filename);
         }
 
 
@@ -358,8 +358,8 @@ namespace Abstract3DConverters
                         var ca = s.GetAttribute<ConverterAttribute>(type);
                         if (ca != null)
                         {
-                            ConstructorInfo constructor = type.GetConstructor([]);
-                            var f = constructor.Invoke(null) as IMeshCreatorFactory;
+                            ConstructorInfo constructor = type.GetConstructor([typeof(object[])]);
+                            //var f = constructor.Invoke([]) as IMeshConverter;
                             var key = ca.Extension;
                             converters[key] = constructor;
                         }

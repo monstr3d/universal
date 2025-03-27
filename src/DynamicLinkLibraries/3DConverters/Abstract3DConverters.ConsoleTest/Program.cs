@@ -1,6 +1,12 @@
 ﻿using Abstract3DConverters;
 using Abstract3DConverters.ConsoleTest;
+using Abstract3DConverters.Converters;
 using Abstract3DConverters.ErrorHandlers;
+using System.Linq.Expressions;
+
+TestConstrurctor();
+
+return;
 
 Console.WriteLine("Hello, World!");
 var dir = @"c:\AUsers\1MySoft\CSharp\03D\GOOD";
@@ -46,6 +52,19 @@ try
 catch (Exception e)
 {
     e.HandleException();
+}
+
+void TestConstrurctor()
+{
+    try
+    {
+        new AcConverter();
+    }
+    catch
+    {
+
+    }
+    var ac = new AcConverter();
 }
 
 //writer.Flush();
