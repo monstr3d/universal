@@ -32,7 +32,7 @@ namespace Abstract3DConverters.Creators
             this.doc = doc;
         }
 
-        protected XmlMeshCreator(string filename, byte[] bytes) : base(filename)
+        protected XmlMeshCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
             Load(bytes);
         }

@@ -9,8 +9,8 @@
         /// Gets a mesh converter
         /// </summary>
         /// <param name="extension">Thr file extension</param>
-        /// <param name="comment">The comment</param>
+        /// <param name="objects">The comment</param>
         /// <returns>The converter</returns>
-        IMeshConverter this[string extension, string comment] { get; }
+        IMeshConverter this[string extension, params object[] objects] { get; }
     }
 }

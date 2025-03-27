@@ -66,7 +66,11 @@ namespace Abstract3DConverters
             imageDetector = detector;
         }
 
-        public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
+        public static IPolygonSplitterFactory PolygonSplitterFactory 
+        { 
+            get; 
+            set; 
+        }
 
         public static IPolygonSplitter PolygonSplitter => PolygonSplitterFactory.CreatePolygonSplitter();
 
@@ -74,7 +78,7 @@ namespace Abstract3DConverters
 
         static Dictionary<string, ConstructorInfo> creators = new();
 
-        static Dictionary<string, Dictionary<string, ConstructorInfo>> conveters = new();
+        static Dictionary<string, ConstructorInfo> converters = new();
 
         static List<IMeshCreatorFactory> meshCreatorFactories = new();
 
@@ -97,42 +101,62 @@ namespace Abstract3DConverters
         /// </summary>
         static StaticExtensionAbstract3DConverters()
         {
-            HandleExceptionDoubleFunc = DefaultHandeExceptionDouble;
-            HandleExceptionFunc = DefaultHandeException;
-            meshCreators = new MeshCreatorFactoryCollection();
-            meshCreatorFactory = meshCreators;
-            meshConverters = new MeshConverterFactoryCollection();
-            meshConverterFactory = meshConverters;
-            var ass = AppDomain.CurrentDomain.GetAssemblies();
-            var inputTypes = new Type[] { typeof(InitAttribute) };
-            var l = new List<string>();
-            foreach (var assembly in ass)
+            try
             {
-                l.Add(assembly.Location);
-                assembly.Initialize();
-            }
-            string[] fn = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll");
-            foreach (var file in fn)
-            {
-                if (!l.Contains(file))
+                string dir = AppDomain.CurrentDomain.BaseDirectory;
+                HandleExceptionDoubleFunc = DefaultHandeExceptionDouble;
+                HandleExceptionFunc = DefaultHandeException;
+                meshCreators = new MeshCreatorFactoryCollection();
+                meshCreatorFactory = meshCreators;
+                meshConverters = new MeshConverterFactoryCollection();
+                meshConverterFactory = meshConverters;
+                var ass = AppDomain.CurrentDomain.GetAssemblies();
+                var inputTypes = new Type[] { typeof(InitAttribute) };
+                var l = new List<string>();
+                foreach (var assembly in ass)
+                {
+                    var loc = assembly.Location;
+                    l.Add(loc);
+                    if (loc.Contains(dir))
+                    {
+                        assembly.Initialize();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                string[] fn = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll");
+                var lt = new List<string>();
+                foreach (var file in fn)
+                {
+                    if (!l.Contains(file))
+                    {
+                        lt.Add(file);
+                     }
+                }
+                foreach (var file in lt)
                 {
                     var assembly = Assembly.LoadFrom(file);
                     assembly.Initialize();
                 }
+                var fd = new MeshCreatorConstructorFactory(creators);
+                fd.Add();
+                foreach (var f in meshCreatorFactories)
+                {
+                    f.Add();
+                }
+                var fc = new MeshConverterConstructorFactory(converters);
+                fc.Add();
+                foreach (var f in meshConverterFactories)
+                {
+                    f.Add();
+                }
             }
-            var fd = new MeshCreatorConstructorFactory(creators);
-            fd.Add();
-            foreach (var f in meshCreatorFactories)
+            catch (Exception exception)
             {
-                f.Add();
+                exception.HandleException("StaticExtensionAbstract3DConverters");
             }
-            var fc = new MeshConverterConstructorFactory(conveters);
-            fc.Add();
-            foreach (var f in meshConverterFactories)
-            {
-                f.Add();
-            }
-
         }
 
         #endregion
@@ -148,15 +172,26 @@ namespace Abstract3DConverters
             }
         }
 
-        static public void HandleExceptionDouble(this Exception exception, string massage = null)
+        static public void HandleExceptionDouble(this Exception exception, params object[] objects)
         {
-            HandleExceptionDoubleFunc(exception, massage);
+            HandleExceptionDoubleFunc(exception, objects);
+        }
+        static public void HandleExceptionDouble(this Exception exception, object obj)
+        {
+            HandleExceptionDoubleFunc(exception, [obj]);
         }
 
-        static public void HandleException(this Exception exception, string massage = null)
+        static public void HandleException(this Exception exception, params object[] objects)
         {
-            HandleExceptionFunc(exception, massage);
+            HandleExceptionFunc(exception, objects);
         }
+
+        static public void HandleException(this Exception exception, object obj)
+        {
+            HandleExceptionFunc(exception, [obj]);
+        }
+
+
 
 
         /// <summary>
@@ -233,93 +268,33 @@ namespace Abstract3DConverters
 
         static void Initialize(this Assembly assembly)
         {
+            var dir = AppDomain.CurrentDomain.BaseDirectory;
             try
             {
-                var types = assembly.GetTypes();
-
-
+                try
+                {
+                    var location = assembly.Location;
+                    if (!location.Contains(dir))
+                    {
+                        return;
+                    }
+                }
+                catch
+                {
+                    return;
+                }
+                Type[] types = null;
+                try
+                {
+                    types = assembly.GetTypes();
+                }
+                catch
+                {
+                    return;
+                }
                 foreach (var type in types)
                 {
-                    if (!type.IsAbstract)
-                    {
-                        var tt = new List<Type>(type.GetInterfaces());
-                        if (tt.Contains(typeof(IMeshConverterFactory)))
-                        {
-                            var cat = CustomAttributeExtensions.GetCustomAttribute<ConverterAttribute>(IntrospectionExtensions.GetTypeInfo(type));
-                            if (cat != null)
-                            {
-                                var ci = type.GetConstructor([]);
-                                if (ci != null)
-                                {
-                                    var f = ci.Invoke([]) as IMeshConverterFactory;
-                                    f.Add();
-                                }
-                            }
-                        }
-                        if (tt.Contains(typeof(IMeshCreator)))
-                        {
-                            var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
-                            if (ca != null)
-                            {
-                                ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(byte[])]);
-                                if (constructor == null)
-                                {
-                                    constructor = type.GetConstructor([typeof(string), typeof(byte[]), typeof(object)]);
-                                }
-                                if (constructor != null)
-                                {
-                                    var keys = ca.Extensions;
-                                    foreach (var key in keys)
-                                    {
-                                        creators[key] = constructor;
-                                    }
-                                }
-                            }
-                            else
-                            {
-
-                            }
-                        }
-                        if (tt.Contains(typeof(IMeshCreatorFactory)))
-                        {
-                            var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
-                            if (ca != null)
-                            {
-                                ConstructorInfo constructor = type.GetConstructor([]);
-                                var f = constructor.Invoke(null) as IMeshCreatorFactory;
-                                meshCreatorFactories.Add(f);
-                            }
-
-                        }
-                        if (tt.Contains(typeof(IMeshConverter)))
-                        {
-                            var ca = CustomAttributeExtensions.GetCustomAttribute<ConverterAttribute>(IntrospectionExtensions.GetTypeInfo(type));
-                            if (ca != null)
-                            {
-                                ConstructorInfo constructor = type.GetConstructor([]);
-                                var f = constructor.Invoke(null) as IMeshCreatorFactory;
-                                var key = ca.Extension;
-                                Dictionary<string, ConstructorInfo> d;
-                                if (conveters.ContainsKey(key))
-                                {
-                                    d = conveters[key];
-                                }
-                                else
-                                {
-                                    d = new Dictionary<string, ConstructorInfo>();
-                                    conveters[key] = d;
-                                }
-                                var comment = ca.Comment;
-                                if (comment == null)
-                                {
-                                    comment = "";
-                                }
-                                d[comment] = constructor;
-                            }
-
-                        }
-                    }
-                    if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
+                    if (s.GetAttribute<InitAttribute>(type) != null)
                     {
                         MethodInfo mi = type.GetMethod("Init", InputTypes);
                         if (mi == null)
@@ -328,31 +303,92 @@ namespace Abstract3DConverters
                         }
                         mi.Invoke(null, [null]);
                     }
+
+                    if (type.IsAbstract)
+                    {
+                        continue;
+                    }
+                    var tt = new List<Type>(type.GetInterfaces());
+                    if (tt.Contains(typeof(IMeshConverterFactory)))
+                    {
+                        var cat = s.GetAttribute<ConverterAttribute>(type);
+                        if (cat != null)
+                        {
+                            var ci = type.GetConstructor([]);
+                            if (ci != null)
+                            {
+                                var f = ci.Invoke([]) as IMeshConverterFactory;
+                                f.Add();
+                            }
+                        }
+                    }
+                    if (tt.Contains(typeof(IMeshCreator)))
+                    {
+                        var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                        if (ca != null)
+                        {
+                            ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(object[])]);
+                            if (constructor != null)
+                            {
+                                var keys = ca.Extensions;
+                                foreach (var key in keys)
+                                {
+                                    creators[key] = constructor;
+                                }
+                            }
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    if (tt.Contains(typeof(IMeshCreatorFactory)))
+                    {
+                        var ca = s.GetAttribute<ExtensionAttribute>(type);
+                        if (ca != null)
+                        {
+                            ConstructorInfo constructor = type.GetConstructor([]);
+                            var f = constructor.Invoke(null) as IMeshCreatorFactory;
+                            meshCreatorFactories.Add(f);
+                        }
+
+                    }
+                    if (tt.Contains(typeof(IMeshConverter)))
+                    {
+                        var ca = s.GetAttribute<ConverterAttribute>(type);
+                        if (ca != null)
+                        {
+                            ConstructorInfo constructor = type.GetConstructor([]);
+                            var f = constructor.Invoke(null) as IMeshCreatorFactory;
+                            var key = ca.Extension;
+                            converters[key] = constructor;
+                        }
+                    }
                 }
             }
             catch (Exception exception)
             {
-                exception.HandleException("Init assembly 3D convertes");
+                exception.HandleException("Init assembly 3D convertes " + assembly.FullName, -1);
             }
         }
 
-        public static IMeshConverter ToMeshConvertor(this string extension, string comment = null)
+        public static IMeshConverter ToMeshConvertor(this string extension, params object[] objects)
         {
-            return meshConverterFactory[extension, comment];
+            return meshConverterFactory[extension, objects];
         }
 
-        public static IMeshCreator ToMeshCreator(this string filename, byte[] bytes, object additional)
+        public static IMeshCreator ToMeshCreator(this string filename, params object[] objects)
         {
-            return meshCreatorFactory[filename, bytes, additional];
+            return meshCreatorFactory[filename, objects];
         }
-
+/*
         public static IMeshCreator ToMeshCreator(this string filename, object additional)
         {
             using var stream = File.OpenRead(filename);
             byte[] b = new byte[stream.Length];
             stream.ReadExactly(b);
             return ToMeshCreator(filename, b, additional);
-        }
+        }*/
 
         /// <summary>
         /// Adds object with all its properties
@@ -467,38 +503,37 @@ namespace Abstract3DConverters
             TestDirectoryPrivate(directory, l, ldir);
         }
 
-        public static Action<Exception, string> HandleExceptionDoubleFunc
+        public static Action<Exception, object[]> HandleExceptionDoubleFunc
         {
             get;
             set;
         }
 
 
-        public static Action<Exception, string> HandleExceptionFunc
+        public static Action<Exception, object[]> HandleExceptionFunc
         {
             get;
             set;
         }
 
 
-        static public void Log(this string message, object obj = null)
+        static public void Log(this string message, params object[] obj)
         {
             ErrorHandler.StaticExtensionErrorHandler.Log(message, obj);
         }
-
 
         #endregion
 
         #region Private Members
 
-        private static void DefaultHandeExceptionDouble(Exception exception, string message)
+        private static void DefaultHandeExceptionDouble(Exception exception, params object[] objects)
         {
-            ErrorHandler.StaticExtensionErrorHandler.HandleExceptionDouble(exception, message);
+            ErrorHandler.StaticExtensionErrorHandler.HandleExceptionDouble(exception, objects);
         }
 
-        private static void DefaultHandeException(Exception exception, string message)
+        private static void DefaultHandeException(Exception exception, params object[] objects)
         {
-            ErrorHandler.StaticExtensionErrorHandler.HandleException(exception, message);
+            ErrorHandler.StaticExtensionErrorHandler.HandleException(exception, objects);
         }
 
 

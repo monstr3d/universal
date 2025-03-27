@@ -180,7 +180,7 @@ namespace SerializationInterface
             using (Stream stream = File.OpenRead(fileName))
             {
                 byte[] b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
+                stream.ReadExactly(b);
                 return b;
             }
         }

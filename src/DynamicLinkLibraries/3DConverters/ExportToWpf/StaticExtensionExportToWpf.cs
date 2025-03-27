@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq.Expressions;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -13,6 +14,7 @@ namespace ExportToWpf
     [InitAssembly]
     public static class StaticExtensionExportToWpf
     {
+        static Service s = new ();
 
         static StaticExtensionExportToWpf()
         {
@@ -47,7 +49,8 @@ namespace ExportToWpf
 
         static Tuple <object, Dictionary<string, byte[]>> Export(string filename)
         {
-            var c = filename.ToMeshCreator(null);
+
+            var c = filename.ToMeshCreator(s.FileToBytes(filename));
             return Export(filename, c);
         }
 
@@ -57,7 +60,7 @@ namespace ExportToWpf
             using (var stream = File.OpenRead(filename))
             {
                 var b = new byte[stream.Length];
-                stream.Read(b);
+                stream.ReadExactly(b);
                 var str = Path.GetFileName(filename);
                 d[str] = b;
             }

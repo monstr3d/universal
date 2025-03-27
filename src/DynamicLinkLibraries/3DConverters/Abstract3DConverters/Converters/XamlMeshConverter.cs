@@ -98,7 +98,7 @@ namespace Abstract3DConverters.Converters
                 var points = polygon.Points;
                 if (points.Length != 3)
                 {
-                    ("Illegal Xaml Polygon dimension = " + points.Length).Log(-1);
+                    ("Illegal Xaml Polygon dimension = " + points.Length).Log([-1]);
                 }
                 foreach (var point in points)
                 {

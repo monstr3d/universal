@@ -9,10 +9,9 @@
         /// Creates a creator from the extension and bytes
         /// </summary>
         /// <param name="extension">The extension</param>
-        /// <param name="bytes">The bytes</param>
-        /// <param name="additional">Additional information</param>
-        /// <returns>The creator</returns>
-        IMeshCreator this[string extension, byte[] bytes, object additional] { get;  }
+        /// <param name="objects">The objects</param>
+         /// <returns>The creator</returns>
+        IMeshCreator this[string extension, params object[] objects] { get;  }
 
         /// <summary>
         /// Extensions

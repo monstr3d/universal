@@ -153,7 +153,7 @@ namespace Diagram.UI
         {
             Stream stream = File.OpenRead(filename);
             bytes = new byte[stream.Length];
-            stream.Read(bytes, 0, bytes.Length);
+            stream.ReadExactly(bytes);
             stream.Close();
         }
 

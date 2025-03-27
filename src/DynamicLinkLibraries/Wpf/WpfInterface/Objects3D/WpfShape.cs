@@ -231,7 +231,7 @@ namespace WpfInterface.Objects3D
         #region IVisible Members
 
 
-        double[,] IVisible.Size => size;
+        double[,] IVisible.Size => Size;
 
 
         #endregion

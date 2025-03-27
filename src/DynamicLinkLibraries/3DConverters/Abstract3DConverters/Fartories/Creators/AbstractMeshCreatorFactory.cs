@@ -1,16 +1,16 @@
-﻿using System.Reflection;
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 
 namespace Abstract3DConverters.Fartories.Creators
 {
     public abstract class AbstractMeshCreatorFactory : IMeshCreatorFactory
     {
+        protected Service s = new Service();
         List<string> IMeshCreatorFactory.Extensions => Extensions;
 
-        IMeshCreator IMeshCreatorFactory.this[string extension, byte[] bytes, object additional] => this[extension, bytes, additional];
+        IMeshCreator IMeshCreatorFactory.this[string extension, params object[] objects] => this[extension, objects];
 
-        protected abstract IMeshCreator this[string extension, byte[] bytes, object additional] { get; }
+        protected abstract IMeshCreator this[string extension, params object[] objects] { get; }
 
         protected virtual List<string> Extensions
         {
@@ -19,8 +19,7 @@ namespace Abstract3DConverters.Fartories.Creators
 
         protected AbstractMeshCreatorFactory()
         {
-            var type = GetType();
-            var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+            var ca =  s.GetAttribute<ExtensionAttribute>(this);
             if (ca != null)
             {
                 var keys = ca.Extensions;

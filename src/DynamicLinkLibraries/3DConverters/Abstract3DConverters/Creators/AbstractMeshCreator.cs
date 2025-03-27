@@ -1,34 +1,49 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
     public abstract class AbstractMeshCreator : IMeshCreator
     {
 
-        protected string directory;
+        protected virtual string Directory
+        {
+            get;
+            set;
+        }
 
-        protected string ext;
-
+     
         protected Service s = new Service();
    
         protected IMeshCreator creator;
+
+        protected object[] Objects
+        {
+            get;
+            private set;
+        }
+
+        protected string Extension
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="filename">File name</param>
-        protected AbstractMeshCreator(string filename)
+        protected AbstractMeshCreator(string filename, params object[] objects)
         {
+            Objects = objects;
             Filename = filename;
-            directory = filename.GetDirectory();
+            Directory = filename.GetDirectory();
             creator = this;
+            Extension = Path.GetExtension(Filename);
         }
 
-        //string IMeshCreator.Extension => ext;
 
-        string IMeshCreator.Directory => directory;
+        string IMeshCreator.Directory => Directory;
 
 
         public abstract void Load(byte[] bytes);

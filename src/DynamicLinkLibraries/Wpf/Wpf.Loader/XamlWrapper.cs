@@ -29,7 +29,11 @@ namespace Wpf.Loader
 
         protected double[][] centers;
 
-        protected double[,] size;
+        protected double[,] Size
+        {
+            get;
+            set;
+        }
 
         protected System.Drawing.Color[] colors = null;
 
@@ -171,7 +175,7 @@ namespace Wpf.Loader
             }
             using var stream = File.OpenRead(iso);
             byte[] b = new byte[stream.Length];
-            stream.Read(b);
+            stream.ReadExactly(b);
             var iss = "";
             if (iso.Contains(dir))
             {
@@ -264,24 +268,26 @@ namespace Wpf.Loader
                 texture = null;
                 CreateFacets();
                 var visual = Visual;
-                if (size == null)
+                double[,] p = null;
+                if (Size == null)
                 {
-                    size = visual.GetSize();
+                   p  = visual.GetSize();
                 }
-                if (!s.IsZero(size))
+                if (!s.IsZero(p))
                 {
+                    Size = p;
                     return;
                 }
-                size = null;
                 var doc = new XmlDocument();
                 doc.LoadXml(value);
                 var e = doc.GetElementsByTagName("MeshGeometry3D");
                 foreach (XmlElement item in e)
                 {
-                    var p = item.GetAttribute("Positions");
-                    var d = s.Get3DSize(p);
-                    size = s.Get3DSize(size, d);
+                    var ps = item.GetAttribute("Positions");
+                    var d = s.Get3DSize(ps);
+                    p = s.Get3DSize(p, d);
                 }
+                Size = p;
             }
         }
 
@@ -330,7 +336,7 @@ namespace Wpf.Loader
 
         protected void CreateSize()
         {
-            size = Visual.GetSize();
+            Size = Visual.GetSize();
         }
         
 

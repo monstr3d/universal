@@ -6,37 +6,27 @@ namespace Abstract3DConverters.Fartories.Converters
     public class MeshConverterConstructorFactory : IMeshConverterFactory
     {
 
-        Dictionary<string, Dictionary<string, ConstructorInfo>> dictionary = null;
+        Dictionary<string, ConstructorInfo> dictionary = null;
 
 
-        public MeshConverterConstructorFactory(Dictionary<string, Dictionary<string, ConstructorInfo>> dictionary)
+        public MeshConverterConstructorFactory(Dictionary<string, ConstructorInfo> dictionary)
         {
             this.dictionary = dictionary;
         }
 
-        IMeshConverter IMeshConverterFactory.this[string extension, string comment] => Get(extension, comment);
+        IMeshConverter IMeshConverterFactory.this[string extension, params object[] objects] => Get(extension, objects);
 
-        IMeshConverter Get(string extension, string comment)
+        IMeshConverter Get(string extension, params object[] objects)
         {
             var ext = Path.GetExtension(extension);
             ConstructorInfo ci = null;
-            var c = comment == null ? "" : comment;
             if (dictionary.ContainsKey(ext))
             {
-                var d = dictionary[ext];
-                var k = d.Keys;
-                if (k.Count == 1)
-                {
-                    ci = d.Values.ToArray()[0];
-                }
-                else
-                {
-                    ci = d[c];
-                }
+                ci = dictionary[ext];   
             }
             if (ci != null)
             {
-                return ci.Invoke(new object[0]) as IMeshConverter;
+                return ci.Invoke(objects) as IMeshConverter;
             }
             return null;
         }

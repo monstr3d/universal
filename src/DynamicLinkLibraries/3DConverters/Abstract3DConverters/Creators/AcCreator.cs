@@ -34,7 +34,7 @@ namespace Abstract3DConverters.Creators
 
         #region Cror
 
-        public AcCreator(string filename, byte[] bytes) : base(filename, bytes, null)
+        public AcCreator(string filename, params object[] objects) : base(filename, objects)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace Abstract3DConverters.Creators
                 {
                     if (!Images.ContainsKey(txt))
                     {
-                        var im = new Image(txt, directory);
+                        var im = new Image(txt, Directory);
                         if (im.Name != null)
                         {
                             Images[txt] = im;

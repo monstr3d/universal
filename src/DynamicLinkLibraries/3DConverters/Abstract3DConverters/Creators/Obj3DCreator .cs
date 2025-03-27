@@ -11,7 +11,7 @@ namespace Abstract3DConverters.Creators
     {
         #region Ctor
 
-        public Obj3DCreator(string filename, byte[] bytes, object additional) : base(filename, bytes, additional)
+        public Obj3DCreator(string filename, params object[] objects) : base(filename, objects)
         {
 
         }
@@ -122,9 +122,13 @@ namespace Abstract3DConverters.Creators
                     yield return new AbstractMeshObj(0, this);
                     yield break;
                 }
-                for (var i = 0; i < EffectList.Count; i++)
+                for (var i = 0; i < Indexes.Count; i++)
                 {
-                    yield return new AbstractMeshObj(i, this);
+                    var ind = Indexes[i];
+                    if (ind.Count > 0)
+                    {
+                        yield return new AbstractMeshObj(i, this);
+                    }
                 }
                 yield break;
 
@@ -150,40 +154,39 @@ namespace Abstract3DConverters.Creators
         string GetInitial(string line)
         {
             var n = s.ToString(line, objs);
-            return n;
             if (line.StartsWith("usemtl "))
             {
-   /*             var mat = line.Substring("usemtl ".Length);
+                var mat = line.Substring("usemtl ".Length);
                 var effect = Effects[mat];
                 EffectList.Add(effect);
                 if (!UsedMaterials.Contains(mat))
                 {
                     UsedMaterials.Add(mat);
-                }*/
-                if (MatExists)
-                {
-                    return MeshName;
                 }
-          //      MatExists = true;
-                return Fiction;
-            /*        if (line.Contains(objs) | line.StartsWith("g "))
-                    {
-                        var name = s.ToString(line, "g");
-                        if (name == null)
-                        {
-                            name = s.ToString(line, objs);
-                        }
-                        MatExists = false;
-                        return name;
-                    }*/
-        }
+                return MeshName;
+            }
+            /*             if (MatExists)
+                         {
+                             return MeshName;
+                         }
+                   //      MatExists = true;
+                         return Fiction;
+                     /*        if (line.Contains(objs) | line.StartsWith("g "))
+                             {
+                                 var name = s.ToString(line, "g");
+                                 if (name == null)
+                                 {
+                                     name = s.ToString(line, objs);
+                                 }
+                                 MatExists = false;
+                                 return name;
+                             }*/
             if (line.StartsWith("g "))
             {
                 var name = s.ToString(line, "g");
                 MatExists = false;
                 return name;
             }
-
             return null;
         }
 
@@ -192,25 +195,19 @@ namespace Abstract3DConverters.Creators
         string  objs = "# object ";
 
         void CreateGeometry()
-        { 
+        {
+            var l = (from line in lines where line.StartsWith("usemtl") select line).ToList().Count;
+            if (l > 0)
+            {
+                CreateNamedGeometry();
+                return;
+            }
             if (EffectList.Count == 0 & Default != null)
             {
                 CreateDefaultGeometry();
                 return;
             }
-
-            foreach (var line in lines)
-            {
-                if (s.ToString(line, objs) != null)
-                {
-                    goto m;
-                }
-            }
-            EffectList = null;
             CreateUnNamedGeometry();
-            return;
-        m:
-            CreateNamedGeometry();
         }
 
         void CreateDefaultGeometry()
@@ -220,9 +217,9 @@ namespace Abstract3DConverters.Creators
                 var effect = Default;
                 List<Tuple<Effect, List<int[][]>>> indexes = new();
                 Indexes.Add(indexes);
-                Tuple<Effect, List<int[][]>> tuple = tuple = new 
+                Tuple = new 
                     Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
-                indexes.Add(tuple);
+                indexes.Add(Tuple);
 
                 foreach (var line in lines)
                 {
@@ -271,7 +268,7 @@ namespace Abstract3DConverters.Creators
                                 }
                             }
                         }
-                        tuple.Item2.Add(ind);
+                        Tuple.Item2.Add(ind);
                         continue;
                     }
 
@@ -282,13 +279,18 @@ namespace Abstract3DConverters.Creators
                 exception.HandleExceptionDouble("Create defualt geometry Obj creator");
             }
         }
+
+        Tuple<Effect, List<int[][]>> Tuple
+        {
+            get;
+            set;
+        }
         void CreateUnNamedGeometry()
         {
             try
             {
                 List<Tuple<Effect, List<int[][]>>> indexes = new();
                 Indexes.Add(indexes);
-                Tuple<Effect, List<int[][]>> tuple = null;
 
                 foreach (var line in lines)
                 {
@@ -301,11 +303,15 @@ namespace Abstract3DConverters.Creators
                             {
                                 continue;
                             }
-                            mat = mat.Replace("_", " ");
+                            var mt = mat.Replace("_", " ");
                             Effect effect = null;
                             if (Effects.ContainsKey(mat))
                             {
                                 effect = Effects[mat];
+                            }
+                            else if (Effects.ContainsKey(mt))
+                            {
+                                effect = Effects[mt];
                             }
                             else
                             {
@@ -323,8 +329,8 @@ namespace Abstract3DConverters.Creators
                             {
                                 UsedMaterials.Add(mat);
                             }
-                            tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
-                            indexes.Add(tuple);
+                            Tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                            indexes.Add(Tuple);
                             continue;
                         }
                     }
@@ -370,7 +376,7 @@ namespace Abstract3DConverters.Creators
                                 }
                             }
                         }
-                        tuple.Item2.Add(ind);
+                        Tuple.Item2.Add(ind);
                         continue;
                     }
 
@@ -388,9 +394,7 @@ namespace Abstract3DConverters.Creators
             // GetName = GetInititial;
             try
             {
-                List<Tuple<Effect, List<int[][]>>> indexes = null;
-                Tuple<Effect, List<int[][]>> tuple = new  Tuple<Effect, List<int[][]>>(Default, new  List<int[][]>());
-
+                List<Tuple<Effect, List<int[][]>>> indexes = new List<Tuple<Effect, List<int[][]>>>();
                 for (int k = 0; k < lines.Count; k++)
                 {
                     var line = lines[k];   
@@ -402,6 +406,23 @@ namespace Abstract3DConverters.Creators
                             Names.Add(name);
                             indexes = new();
                             Indexes.Add(indexes);
+                            if (line.StartsWith("usemtl "))
+                            {
+                                var mat = line.Substring("usemtl ".Length);
+                                if (mat == "_default_")
+                                {
+                                    continue;
+                                }
+                                var effect = Effects[mat];
+                                EffectList.Add(effect);
+                                if (!UsedMaterials.Contains(mat))
+                                {
+                                    UsedMaterials.Add(mat);
+                                }
+                                Tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                                indexes.Add(Tuple);
+                                continue;
+                            }
                             continue;
                         }
                         else
@@ -421,8 +442,8 @@ namespace Abstract3DConverters.Creators
                         {
                             UsedMaterials.Add(mat);
                         }
-                        tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
-                        indexes.Add(tuple);
+                        Tuple = new Tuple<Effect, List<int[][]>>(effect, new List<int[][]>());
+                        indexes.Add(Tuple);
                         continue;
                     }
 
@@ -467,7 +488,7 @@ namespace Abstract3DConverters.Creators
                                 }
                             }
                         }
-                        tuple.Item2.Add(ind);
+                        Tuple.Item2.Add(ind);
                         continue;
                     }
 
@@ -497,7 +518,7 @@ namespace Abstract3DConverters.Creators
                     using (Stream stream = File.OpenRead(mtlfile))
                     {
                         byte[] b = new byte[stream.Length];
-                        stream.Read(b);
+                        stream.ReadExactly(b);
                         add = new Dictionary<string, byte[]>() { { mtlstr, b } };
                     }
                 }
@@ -876,7 +897,7 @@ namespace Abstract3DConverters.Creators
             }
             else
             {
-                mtlfile = Path.Combine(directory, file);
+                mtlfile = Path.Combine(Directory, file);
             }
             using var stream = File.OpenRead(mtlfile);
             var mt = FromStream(stream,  out def);
@@ -889,7 +910,10 @@ namespace Abstract3DConverters.Creators
                 {
                     Default = v;
                 }
-                Effects[n] = v;
+                else
+                {
+                    Effects[n] = v;
+                }
             }
 
         }
@@ -952,7 +976,7 @@ namespace Abstract3DConverters.Creators
                         string file = null;
                         if (StaticExtensionAbstract3DConverters.CheckFile == CheckFile.Check)
                         {
-                            var files = Directory.GetFiles(creator.Directory);
+                            var files =  System.IO.Directory.GetFiles(creator.Directory);
                             foreach (var f in files)
                             {
                                 if (Path.GetExtension(f) == ".mtl")
@@ -997,12 +1021,11 @@ namespace Abstract3DConverters.Creators
         {
             var image = new Image(filename, creator.Directory);
             var mat = new MaterialGroup("Default");
-            var color = new Color(new float[] { 1f, 1f, 1f, 1f });
+            var color = new Color(new float[] {  1f, 1f, 1f });
             var dm = new DiffuseMaterial(color, null, 1);
             mat.Children.Add(dm);
             var effect = new Effect(this, "Default", mat, image);
             return effect;
-
         }
 
 
@@ -1106,11 +1129,11 @@ namespace Abstract3DConverters.Creators
                 {
                     var file = line.Substring("mtllib ".Length).Trim();
                     mtlstr = file;
-                    mtlfile = Path.Combine(directory, file);
+                    mtlfile = Path.Combine(Directory, file);
 
                     var mtl = new MtlWrapper(creator.Directory);
                     Effect def = null;
-                    var mt = mtl.Create(file, directory, out def);
+                    var mt = mtl.Create(file, Directory, out def);
                     Default = def;
                     foreach (var mat in mt)
                     {

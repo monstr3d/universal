@@ -17,10 +17,10 @@ namespace Collada.Converters
 
         }
 
-        IMeshConverter IMeshConverterFactory.this[string extension, string comment] => Get(extension, comment);
+        IMeshConverter IMeshConverterFactory.this[string extension, params object[] objects] => Get(extension, objects);
 
 
-        IMeshConverter Get(string extension, string comment)
+        IMeshConverter Get(string extension, params object[] objects)
         {
             try
             {
@@ -29,6 +29,7 @@ namespace Collada.Converters
                 {
                     return null;
                 }
+                var comment = objects[0] + "";
                 switch (comment)
                 {
                     case "1.5.0":

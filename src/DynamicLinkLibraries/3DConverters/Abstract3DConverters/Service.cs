@@ -418,15 +418,28 @@ namespace Abstract3DConverters
         }
 
         /// <summary>
+        /// Converts file to bytes
+        /// </summary>
+        /// <param name="filename">File name</param>
+        /// <returns>Bytes</returns>
+        public byte[] FileToBytes(string filename)
+        {
+            using var stream = File.OpenRead(filename);
+            var b = new byte[stream.Length];
+            stream.ReadExactly(b);
+            return b;
+        }
+
+        /// <summary>
         /// Gets attribute
         /// </summary>
         /// <param name="obj">the object</param>
         /// <returns>The arribute</returns>
         public T GetAttribute<T>(object obj) where T : Attribute
         {
-            var t = obj.GetType();
-            return CustomAttributeExtensions
-                .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(t));
+            Type type = (obj is Type) ? obj as Type : obj.GetType();
+           return CustomAttributeExtensions
+                .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(type));
         }
 
         /// <summary>

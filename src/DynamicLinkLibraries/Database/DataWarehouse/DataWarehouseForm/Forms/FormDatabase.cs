@@ -337,7 +337,7 @@ namespace DataWarehouse.Forms
             {
                 Stream stream = File.OpenRead(labelFileName.Text);
                 b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
+                stream.ReadExactly(b);
                 stream.Close();
             }
             else
@@ -401,7 +401,7 @@ namespace DataWarehouse.Forms
                 {
                     Stream stream = File.OpenRead(labelFileName.Text);
                     b = new byte[stream.Length];
-                    stream.Read(b, 0, b.Length);
+                    stream.ReadExactly(b);
                     stream.Close();
                     int n = labelFileName.Text.LastIndexOf('.');
                     if (n > 0)

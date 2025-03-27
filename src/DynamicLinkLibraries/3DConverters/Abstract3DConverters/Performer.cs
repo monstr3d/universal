@@ -39,6 +39,26 @@ namespace Abstract3DConverters
         /// </summary>
         /// <typeparam name="T">The type of output</typeparam>
         /// <param name="fileinput">The name of input file</param>
+        /// <param name="outExt">Output extension</param>
+        /// <param name="outComment">Output comment</param>
+        /// <param name="act">The action</param>
+        /// <param name="objects">objects</param>
+        /// <returns>Created object</returns>
+        public virtual T CreateAll<T>(string fileinput, string outExt,  Action<T> act, 
+           object[] objects, params object[] converters) where T : class
+        {
+            var creator = fileinput.ToMeshCreator(objects);
+            var p = new Performer();
+            var converter = outExt.ToMeshConvertor(converters);
+            var res = p.Create<T>(creator, converter, act);
+            return res;
+        }
+
+        /// <summary>
+        /// Creates all operation
+        /// </summary>
+        /// <typeparam name="T">The type of output</typeparam>
+        /// <param name="fileinput">The name of input file</param>
         /// <param name="bytes">Input bytes</param>
         /// <param name="additional">Additional object</param>
         /// <param name="outExt">Output extension</param>
@@ -47,11 +67,7 @@ namespace Abstract3DConverters
         /// <returns>Created object</returns>
         public T CreateAll<T>(string fileinput, byte[] bytes, object additional,  string outExt, string outComment, Action<T> act) where T : class
         {
-            var creator = fileinput.ToMeshCreator(bytes, additional);
-            var p = new Performer();
-            var converter = outExt.ToMeshConvertor(outComment);
-            var res = p.Create<T>(creator, converter, act);
-            return res;
+            return CreateAll<T>(fileinput, outExt, act, [bytes], [outComment]);
         }
 
         /// <summary>
@@ -126,7 +142,8 @@ namespace Abstract3DConverters
         /// <returns>Peers of meshes</returns>
         public IEnumerable<T> Create<T>(IEnumerable<IMesh> meshes, IMeshConverter converter) where T : class
         {
-            return meshes.Where(e => e != null).Select(e => Create<T>(e, converter)).ToList();
+            var l = (from mesh in meshes where mesh != null select Create<T>(mesh, converter)).ToList();
+            return l;
         }
 
         /// <summary>
@@ -332,7 +349,7 @@ namespace Abstract3DConverters
             var converter = outExt.ToMeshConvertor(outComment);
             using var stream = File.OpenRead(fileinput);
             byte[] bytes = new byte[stream.Length];
-            stream.Read(bytes);
+            stream.ReadExactly(bytes);
             CreateAndSave(fileinput, bytes, null, converter, converterDirectory, outs, act);
             if (converter is IAdditionalInformation add)
             {

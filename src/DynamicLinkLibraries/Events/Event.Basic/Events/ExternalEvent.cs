@@ -64,7 +64,7 @@ namespace Event.Basic.Events
             using (System.IO.Stream stream = System.IO.File.OpenRead(t.Assembly.Location))
             {
                 byte[] b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
+                stream.ReadExactly(b);
                 bytes[0] = b;
             }
         }

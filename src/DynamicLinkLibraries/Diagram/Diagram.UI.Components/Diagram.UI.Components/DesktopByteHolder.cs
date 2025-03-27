@@ -107,7 +107,7 @@ namespace Diagram.UI.Components
             {
                 Stream stream = File.OpenRead(openFileDialog.FileName);
                 content = new byte[stream.Length];
-                stream.Read(content, 0, content.Length);
+                stream.ReadExactly(content);
             }
             return content;
         }

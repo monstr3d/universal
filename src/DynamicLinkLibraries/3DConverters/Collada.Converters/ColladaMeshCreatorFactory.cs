@@ -17,12 +17,13 @@ namespace Collada.Converters
 
         }
 
-        protected override IMeshCreator this[string filename, byte[] bytes, object additional]
+        protected override IMeshCreator this[string filename, params object[] objects]
         {
             get
             {
                 try
                 {
+                    var bytes = objects[0] as byte[];
                     var doc = new XmlDocument();
                     using var stream = new MemoryStream(bytes);
                     using var reader = new StreamReader(stream);
