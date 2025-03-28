@@ -10,16 +10,16 @@ namespace Abstract3DConverters.Creators
         protected List<string> lines = new List<string>();
 
 
-        protected LinesMeshCreator(string filename, params object[] objects) : base(filename, objects)
+        protected LinesMeshCreator(string filename, string directory, params object[] objects) : base(filename, directory, objects)
         {
             try
             {
-                if (objects.Length == 1)
+                if (Objects.Length == 1)
                 {
                     CreateAll();
                     return;
                 }
-                CreateAdditional(objects[1]);
+                CreateAdditional(Objects[1]);
             }
             catch (Exception ex)
             {

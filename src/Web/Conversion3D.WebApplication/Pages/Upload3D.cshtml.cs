@@ -3,7 +3,6 @@ using Conversion3D.WebApplication.Interfacers;
 using Conversion3D.WebApplication.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
 namespace Conversion3D.WebApplication.Pages
@@ -76,10 +75,6 @@ namespace Conversion3D.WebApplication.Pages
             return File(data, "application/zip", Tuple.Item2 + ".zip");
         }
 
-
-
-
-
         public Tuple<byte[], string> ? Tuple
         {
             get;
@@ -92,14 +87,12 @@ namespace Conversion3D.WebApplication.Pages
             get;
             set;
         }
+
         public string[] Extensions;// = new[] { "Male", "Female", "Unspecified" };
 
         public string FileName { get; private set; }
 
         public byte[] Bytes { get; private set; }
-
-
-
 
         public string Result { get; private set; }
 
@@ -113,8 +106,6 @@ namespace Conversion3D.WebApplication.Pages
 
         }
 
-
-
         public async Task<IActionResult> OnPostUploadAsync()
         {
             if (!ModelState.IsValid)
@@ -123,11 +114,19 @@ namespace Conversion3D.WebApplication.Pages
 
                 return Page();
             }
-            if (Directory != null)
+            if (Directory != null | InputDirectory != null)
             {
                 CookieOptions options = new CookieOptions();
                 options.Expires = DateTime.Now.AddDays(1);
-                httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
+                if (InputDirectory != null)
+                {
+                    httpContextAccessor.HttpContext.Response.Cookies.Append("inputdir", InputDirectory, options);
+
+                }
+                if (Directory != null)
+                {
+                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
+                }
             }
 
 
@@ -142,7 +141,11 @@ namespace Conversion3D.WebApplication.Pages
                     AdditionalFile, ModelState, _permittedExtensions,
                     _fileSizeLimit);
 
-            var tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
+            Tuple<string, byte[]> tad = null;
+            if (add != null)
+            {
+                tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
+            }
             var inex = FormFile.FileName;
 
             var pth = Path.GetFileNameWithoutExtension(inex);
@@ -152,17 +155,13 @@ namespace Conversion3D.WebApplication.Pages
             var path = Path.Combine(Directory, inex);
             var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
             var p = new Performer();
-            var byt = p.CreateAndSaveZip(path, filename, Directory, null, [b, tad], []);
-           // object[] objects,
-           // params object[] converters)
-         //   var byt = p.CreateAndSaveZip(path, filename, b, add, ext.Item1[0], ext.Item2, Directory);
+            object[] obj = (tad == null) ? [b] : [b, tad];
+            object[] par = ext.Item2 == null ? [] : [ext.Item2];
+            var byt = p.CreateAndSaveZip(path, null, filename, Directory, null, obj, par);
             var bt = new Tuple<byte[], string>(byt, FileName);
             HyperLink.Tuple = bt;
-            return Page();
-            var trustedFileNameForFileStorage = Path.GetRandomFileName();
-            var filePath = Path.Combine(
-                _targetFilePath, trustedFileNameForFileStorage);
-
+            var rd = RedirectToPage("./Upload3D");
+            return rd;
         }
 
         [BindProperty]
@@ -182,12 +181,19 @@ namespace Conversion3D.WebApplication.Pages
         } = null;
 
 
-
-
         [BindProperty]
         [Required]
         [Display(Name = "Directory")]
         public string ? Directory
+        {
+            get;
+            set;
+        }
+
+        [BindProperty]
+        [Required]
+        [Display(Name = "Input directory")]
+        public string? InputDirectory
         {
             get;
             set;

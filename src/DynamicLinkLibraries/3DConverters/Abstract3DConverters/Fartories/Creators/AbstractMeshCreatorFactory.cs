@@ -8,9 +8,9 @@ namespace Abstract3DConverters.Fartories.Creators
         protected Service s = new Service();
         List<string> IMeshCreatorFactory.Extensions => Extensions;
 
-        IMeshCreator IMeshCreatorFactory.this[string extension, params object[] objects] => this[extension, objects];
+        IMeshCreator IMeshCreatorFactory.this[string extension, string directory, params object[] objects] => this[extension, directory, objects];
 
-        protected abstract IMeshCreator this[string extension, params object[] objects] { get; }
+        protected abstract IMeshCreator this[string extension, string directory, params object[] objects] { get; }
 
         protected virtual List<string> Extensions
         {

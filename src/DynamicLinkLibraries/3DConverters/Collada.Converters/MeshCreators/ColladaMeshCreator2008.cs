@@ -4,7 +4,8 @@ namespace Collada.Converters.MeshCreators
 {
     class ColladaMeshCreator2008 : ColladaMeshCreator
     {
-        public ColladaMeshCreator2008(string filename, XmlDocument doc) : base(filename, doc)
+        public ColladaMeshCreator2008(string filename, string directory, XmlDocument doc) : 
+            base(filename, directory, doc)
         {
 
         }

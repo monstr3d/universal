@@ -20,7 +20,7 @@ namespace Abstract3DConverters.Creators
 
         #region Ctor
 
-        public XamlMeshCreator(string filename, byte[] bytes) : base(filename, bytes)
+        public XamlMeshCreator(string filename, string directory, byte[] bytes) : base(filename, directory, bytes)
         {
 
         }

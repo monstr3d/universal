@@ -250,9 +250,9 @@ namespace Abstract3DConverters
 
         }
 
-        public static IMeshCreator GetMeshCreator(string extension, byte[] bytes, object additional)
+        public static IMeshCreator GetMeshCreator(string extension, string directory, byte[] bytes, object additional)
         {
-            return meshCreatorFactory[extension, bytes, additional];
+            return meshCreatorFactory[extension, directory, bytes, additional];
         }
 
         public static void Add(this IMeshCreatorFactory factory)
@@ -327,7 +327,7 @@ namespace Abstract3DConverters
                         var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                         if (ca != null)
                         {
-                            ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(object[])]);
+                            ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(string), typeof(object[])]);
                             if (constructor != null)
                             {
                                 var keys = ca.Extensions;
@@ -377,9 +377,9 @@ namespace Abstract3DConverters
             return meshConverterFactory[extension, objects];
         }
 
-        public static IMeshCreator ToMeshCreator(this string filename, params object[] objects)
+        public static IMeshCreator ToMeshCreator(this string filename, string directory, params object[] objects)
         {
-            return meshCreatorFactory[filename, objects];
+            return meshCreatorFactory[filename, directory, objects];
         }
 /*
         public static IMeshCreator ToMeshCreator(this string filename, object additional)

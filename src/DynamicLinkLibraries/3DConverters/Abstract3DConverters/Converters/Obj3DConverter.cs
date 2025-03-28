@@ -23,7 +23,7 @@ namespace Abstract3DConverters.Converters
         #endregion
 
         #region Ctor
-        public Obj3DConverter() : base(null)
+        public Obj3DConverter(params object[] o) : base(null)
         {
             lines.Add("# 3ds Max  OBJ");
             lines.Add("# File Created: " + DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));

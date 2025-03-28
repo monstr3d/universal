@@ -33,11 +33,12 @@ namespace Abstract3DConverters.Creators
         /// Constructor
         /// </summary>
         /// <param name="filename">File name</param>
-        protected AbstractMeshCreator(string filename, params object[] objects)
+        /// <param name="directory">File name</param>
+        protected AbstractMeshCreator(string filename, string directory, params object[] objects)
         {
-            Objects = objects;
+            Objects = Cut(objects);
             Filename = filename;
-            Directory = filename.GetDirectory();
+            Directory = (directory == null) ?  filename.GetDirectory() : directory;
             creator = this;
             Extension = Path.GetExtension(Filename);
         }
@@ -92,6 +93,20 @@ namespace Abstract3DConverters.Creators
                 Perform(child, action);
             }
             action(mesh);
+        }
+
+        object[] Cut(object[] obj)
+        {
+            for (int j = obj.Length - 1; j >= 0; j--)
+            {
+                if (obj[j] != null)
+                {
+                    var o = new object[j + 1];
+                    Array.Copy(obj, o, o.Length);
+                    return o;
+                }
+            }
+            return [];
         }
 
     }

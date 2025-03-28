@@ -113,7 +113,7 @@ namespace Collada.Converters.MeshCreators
 
         }
 
-        protected ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
+        protected ColladaMeshCreator(string filename, string directory, XmlDocument doc) : base(filename, directory, doc)
         {
             try
             {

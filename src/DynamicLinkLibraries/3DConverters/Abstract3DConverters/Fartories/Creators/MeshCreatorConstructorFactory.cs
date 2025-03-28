@@ -20,7 +20,7 @@ namespace Abstract3DConverters.Fartories.Creators
         }
 
 
-        protected override IMeshCreator this[string filename, params object[] objects]
+        protected override IMeshCreator this[string filename,string directory, params object[] objects]
         {
             get
             {
@@ -30,7 +30,7 @@ namespace Abstract3DConverters.Fartories.Creators
                     return null;
                 }
                 var c = dictionary[ext];
-                return c.Invoke([filename, objects]) as IMeshCreator;
+                return c.Invoke([filename, directory, objects]) as IMeshCreator;
              }
         }
     }

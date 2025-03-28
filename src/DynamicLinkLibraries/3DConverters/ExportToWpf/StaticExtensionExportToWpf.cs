@@ -50,7 +50,7 @@ namespace ExportToWpf
         static Tuple <object, Dictionary<string, byte[]>> Export(string filename)
         {
 
-            var c = filename.ToMeshCreator(s.FileToBytes(filename));
+            var c = filename.ToMeshCreator(null, s.FileToBytes(filename));
             return Export(filename, c);
         }
 
@@ -66,7 +66,7 @@ namespace ExportToWpf
             }
             var p = new Performer();
             var converter = new Abstract3DConverters.Converters.XamlMeshConverter();
-            var res = p.Create<object>(creator, converter);
+            var res = p.CreateAll<object>(creator, converter);
 
             //    res.SetLight();
             if (creator is IAdditionalInformation add)

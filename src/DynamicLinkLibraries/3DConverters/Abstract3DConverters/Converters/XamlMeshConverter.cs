@@ -20,7 +20,7 @@ namespace Abstract3DConverters.Converters
         protected override IMaterialCreator MaterialCreator => xamlMaterial;
 
 
-        public XamlMeshConverter() : base("http://schemas.microsoft.com/winfx/2006/xaml/presentation", null)
+        public XamlMeshConverter(params object[] obj) : base("http://schemas.microsoft.com/winfx/2006/xaml/presentation", null)
         {
             doc.LoadXml(Properties.Resources.xaml);
             nodes = doc.DocumentElement;

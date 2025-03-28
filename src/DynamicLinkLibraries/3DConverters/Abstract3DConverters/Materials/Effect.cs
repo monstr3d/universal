@@ -1,5 +1,6 @@
-﻿using System.Reflection;
+﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
+using System.Reflection;
 
 namespace Abstract3DConverters.Materials
 {
@@ -46,6 +47,26 @@ namespace Abstract3DConverters.Materials
             Name = name;
             Material = material;
             Image = image;
+        }
+
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="effects">Effects</param>
+        /// <param name="name">Name</param>
+        /// <param name="material">Material</param>
+        /// <param name="image">Image</param>
+        public Effect(Dictionary<string, Effect> effects, string name, Material material, Image image = null) :
+            this(name, material, image)
+        {
+            if (effects != null)
+            {
+                if (!effects.ContainsKey(name))
+                {
+                    effects[name] = this;
+                }
+            }
         }
 
         /// <summary>

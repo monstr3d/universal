@@ -27,12 +27,12 @@ namespace Abstract3DConverters.Creators
             private set;
         }
 
-        protected XmlMeshCreator(string filename, XmlDocument doc) : base(filename)
+        protected XmlMeshCreator(string filename, string directory, XmlDocument doc) : base(filename, directory)
         {
             this.doc = doc;
         }
 
-        protected XmlMeshCreator(string filename, byte[] bytes) : base(filename, bytes)
+        protected XmlMeshCreator(string filename, string directory, byte[] bytes) : base(filename, directory, bytes)
         {
             Load(bytes);
         }

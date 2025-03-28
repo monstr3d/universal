@@ -12216,7 +12216,10 @@ since any $q\in Q$ equals to the sum $q^G + q^\perp$ where
 q^G \bydef \frac{1}{\left| G\right| }\sum _{g\in G}g q \in Q^G,\\
 q^\perp \bydef q - q^G \in P^\perp.
 \eean
-
+If $R$ is a set of irreducible representations then there is an equivalence relation $\sim_R$
+\be\label{h_equiv_eqn}
+\forall r_1, r_2 \in R \quad r_1 \sim_R r_2 ~~ \Leftrightarrow ~~ \exists n \in \N ~~ r_1 = r_2^n ~~ \Leftrightarrow ~~ \exists m \in \N \quad r^m_1 = r_2.
+\ee
 Similarly if $r: G \to U\left( 1\right)$ is an irreducible representation then $Q^\perp = Q_r \oplus Q_r^\perp$ since any $q\in Q^\perp$ equals to the sum $q_r + q_r^\perp$ where
 \be\label{h_q_r_eqn}
 \begin{split}
@@ -12224,58 +12227,56 @@ q_r\bydef \frac{1}{\left| \ker r\right| }\sum _{g\in \ker r}g q,\\
 q_r^\perp \bydef q - q_r
 \end{split}
 \ee
+One can proof that
+$$
+ r_1 \sim_R r_2 \quad \Rightarrow \quad Q_{r_1}= Q_{r_2}.
+$$
 It follows that any projective finitely generated  $\widetilde A$-$G$-module $Q$ is represented by direct sum 
 $$
-Q = Q^G \bigoplus \left(\bigoplus_{r \in R} Q_r\right) 
+Q = Q^G \bigoplus \left(\bigoplus_{r \in R/ \sim_R} Q_r\right) 
 $$
 where $R$ is a set of irreducible representations of $G$. It turns out that 
 \bean
-K^{G}_0 \left(\widetilde A \right)= \left(K^{G}_0 \left(\widetilde A \right) \right) ^G \bigoplus \left(\bigoplus_{r \in R} K^{G}_0 \left(\widetilde A \right)_r\right)
+K^{G}_0 \left(\widetilde A \right)= \left(K^{G}_0 \left(\widetilde A \right) \right) ^G \bigoplus \left(\bigoplus_{r \in  R /\sim_R} K^{G}_0 \left(\widetilde A \right)_r\right)
 \eean
-and taking into account \eqref{unital_cov_kk_eqn} one has a decomposition
+where $K^{G}_0 \left(\widetilde A \right)_r$ is generated  by elements $\left[Q_r\right]$ where $Q_r$ is an irreducible finitely generated $\widetilde{A}$-$G$ module such that any $q_r\in Q_r$ satisfies to the condition
+\be
+q_r\bydef \frac{1}{\left| \ker r\right| }\sum _{g\in \ker r}g q_r
+\ee 
+For any such module we define and any $g \in G$ we define a pairing
+\be\label{h_q_p_eqn}
+\left\langle g, Q_r \right\rangle \bydef \frac{g q_r}{q_r}\in U(1)\quad \forall q_r \in Q_r \setminus \{0\}.
+\ee
+If $K^{G}_0 \left(\widetilde A \right)_r \neq \{0\}$ then the pairing \eqref{h_q_p_eqn} yields a pairing
+\be\label{h_k_p_eqn}
+\left\langle -, -\right\rangle_r: G\times  K^{G}_0 \left(\widetilde A \right)_r  \to e^{\frac{2\pi \Z}{p_r}} \quad p_r= \left|r\left( G\right\rbrace  \right|  
+\ee
+Taking into account \eqref{unital_cov_kk_eqn} one has a decomposition
 \be\label{h_k_fin_eqn}
-K_0 \left( A \right)= K_0 \left( A \right)^G \bigoplus \left(\bigoplus_{r \in R} K_0 \left( A \right)_r\right)!!!!
+K_0 \left( A \right)= K_0 \left( A \right)^G \bigoplus \left(\bigoplus_{r \in R/\sim_R} K_0 \left( A \right)_r\right).
+\ee
+and a pairing
+\be\label{h_k_pp_eqn}
+\left\langle -, -\right\rangle_r: G\times  K_0 \left( A \right)_r  \to e^{\frac{2\pi \Z}{p_r}} \quad p_r= \left|r\left( G\right)   \right|  
 \ee
 If $Q_r$ is an irreducible $\widetilde{A}$-$G$ module and $\chi_r: G \to \C$ is the corresponding to $r$ character then any $q_r\in Q_r$ satisfies to the following equation
 \be\label{h_chi_eqn}
 q_r =  \frac{1}{\left| G\right| }\sum _{g\in G}\overline{\chi}_r\left( g\right)   q_r~.
 \ee
-For any $r\in R$ there is a prime number $p_r \in \N$ such that $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$. There is $g\in G$ with
-\bean
-r\left( g\right) =  e^{\frac{2\pi i}{p_r}},\\
-\forall r' \in R\setminus \{r\}\quad r'(g)= 1.
-\eean
-If $x_1, x_2 \in K^{G}_0 \left(\widetilde A \right)_r$ are such that $\chi_{x_1} \left(g \right) = \chi_{x_1} \left(g \right)= e^{\frac{2\pi i k}{p_r}}$  with $k\in \N$  then one has
-$$
-\forall g \in G \quad\chi_{x_1-x_2} \left(g \right)=\{1\}\quad x_1-x_2 \in  \left(K^{G}_0 \left(\widetilde A \right) \right) ^G
-$$ 
-it is possible if and only if $x_1 - x_2 = 0$. From our construction there is a surjective homomorphism
-$$
-\phi_r : \Z_{p_r} \cong K^{G}_0 \left(\widetilde A \right)_r\cong K_0\left( A\right)_r 
-$$
-such that
-$$
-\forall \overline k \in \Z_{p_r} \quad \chi_{\phi_r\left( \overline k\right) }\left( g\right) = e^{\frac{2\pi i k}{p_r}}
-$$
-where $k \in \Z$ is a representative of $\overline{k}$. Moreover any $g \in G$  yield a character
-\be\label{chi_r_eqn}
-\chi_r : K^{G}_0 \left(\widetilde A \right)_r \to U(1).
+\begin{definition}\label{h_sub_defn}
+In the above situation both $K^{G}_0 \left(\widetilde A \right)_r$ and  $K_0 \left( A \right)_r$ are $r$-\textit{subgroups} and the pairings \eqref{h_k_p_eqn}, \eqref{h_k_pp_eqn} are $r$-\textit{pairings}.
+\end{definition}
+If $x \in K^{G}_0 \left(\widetilde A \right)_r$ and a prime $p_r= \left|r\left( G\right)\right|$  then $p_r x$ corresponds to a trivial character of $G$ so $p_r x \in \left(K^{G}_0 \left(\widetilde A \right) \right) ^G$. It is possible if and only if $p_r x = 0$, so one has
+\be\label{h_fin_0_eqn}
+\left|r\left( G\right)\right| K^{G}_0 \left(\widetilde A \right)_r= \left|r\left( G\right)\right|K_0 \left( A \right)_r= \{0\}.
 \ee
-Following Lemma is a consequence of the above construction and the isomorphism \eqref{unital_cov_kk_eqn} we can deduce the following lemma.
-\begin{lemma}\label{h_tors_lem}
-	If $R$ is a set of irreducible representations of $G$ then there is a decomposition
-	\be\label{h_tors_d_eqn}
-	K_0\left( A\right) = K_0\left(A \right)^\perp \bigoplus  \left(\bigoplus_{r \in R} K_0 \left( A \right)_r\right).
-	\ee 
-	If $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$ then  $K_0 \left( A \right)_r$ is trivial, or there is an isomorphism $K_0 \left( A \right)_r\cong \Z_{p_r}$.!!!
-\end{lemma}
-The decomposition \eqref{h_tors_d_eqn} yield a map from $G$ to the set of characters of  $K_0\left(A \right)$ 
+Following Lemma is a consequence of the above construction and the isomorphism \eqref{unital_cov_kk_eqn} we can deduce the following lemma. Any $g \in G$ yields the character $\chi_g$ on $K_0 \left( A \right)= K_0 \left( A \right)^G \bigoplus \left(\bigoplus_{r \in R/\sim_R} K_0 \left( A \right)_r\right)$
 $$
-g \mapsto \left(x^\perp + \sum_{r \in \R} x_r \mapsto \prod_{r\in R}\chi_r\left(x_r \right)   \right) 
+\chi_g \left( x^G + \sum_{r \in R/\sim_R} x_r\right) \bydef \prod_{r \in R/\sim_R} \left\langle g, x_r\right\rangle_r:
 $$
 From 
 \be\label{hurewicz_char_hom_eqn}
-\forall g', g'' \in G\quad \chi_{r}\left(g' \right)\chi_{r}\left(g'' \right)= \chi_{P_j}\left(g 'g''\right).
+\forall g', g'' \in G\quad \chi_{g'}\chi_{g''}= \chi_{g'+g''}
 \ee
 it turns out the map is a homomorphism of groups. According to the Lemma \ref{ext_char_lem} there is a homomorphism 
 \be\label{h_tors_eqn}
@@ -12289,7 +12290,7 @@ $$
 
 \begin{definition}\label{hurewicz_torsion_defn}
 	The given by \eqref{h_tors_eqn}
-	map is the \textit{torsion  of noncommutative Hurewicz homomorphism}.  
+	map is the \textit{torsion part of noncommutative Hurewicz homomorphism}.  
 \end{definition}
 
 \begin{remark}\label{hurewicz_morita_defn_rem}
@@ -12710,10 +12711,25 @@ C\left(\sX\left[\Z_p\right] \right) = \bigoplus_{j = 0}^{p-1}C\left( \sX\right) 
 \eean 
 where $\bigoplus$ is the direct sum of left $C\left(\sX \right)$-modules.  There is an  $\left(u, v, n\right)$-{covering} $\left(C\left(\sX \right), C\left(\sX\left[\Z_p\right] \right), \Z_p, C\left( P_{\Z_p}\right)  \right)$ (cf. Definition \ref{hurewicz_u_n_defn}). Similarly there of an  $\left(u', v', n\right)$-{covering} $\left(C\left(C'_{\th_p} \right), C\left(C'_{\th_p} \left[\Z_p\right] \right), \Z_p, C\left( P'_{\Z_p}\right)  \right)$ (cf. Definition \ref{hurewicz_u_n_defn}).
 Consider two $C\left(C'_{\th_p} \right)\rtimes \Z_p$ modules. First one $\widetilde 1$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with trivial action of $\Z_p$. Second one $\widetilde H'$ equals to $C\left(C'_{\th_p} \left[\Z_p\right] \right)$ as $C\left(C'_{\th_p} \left[\Z_p\right] \right)$-module with action of $\Z_p$ given by
-\bean
-\left(g, \widetilde{a} \right)\mapsto \chi\left(g \widetilde{a}\right)  
+\be\label{h_gax_eqn}
+\forall g \in \Z_p \quad \forall \widetilde a \in C\left(C'_{\th_p} \left[\Z_p\right] \right) \quad g \widetilde{a} \bydef \chi\left(g\right)  \widetilde{a}
+\ee
+where $\chi: \Z_p \to \C$ is an irreducible representation of $\Z_p$ given by $\overline n \to e^{\frac{2\pi n}{p}}$
+and $n\in \Z$ is a representative of $\overline n$.
+$\chi: \Z_p \to \C$ is an irreducible representation of $\Z_p$. If we consider  a specialization of the given by \eqref{h_strong_t_eqn} Morita equivalence then $\widetilde 1$ and $\widetilde H'$ correspond to bundles $1_{C'_{\th_p}}$ and $H'$ over ${C'_{\th_p}}$ (cf. equation \ref{h_cp_eqn}). 
+Note that all irreducible representation of $\Z_p$ are equivalent with respect to the given by the equation \eqref{h_equiv_eqn} equivalence relation. So from \eqref{h_gax_eqn} it follows that $Z_p\left[H'\right] \subset K_0\left(C\left(C'_{\th_p} \right)  \right)$ is the $\chi$-{subgroup} (cf. Definition \ref{h_sub_defn}). Similarly to \eqref{h_gax_eqn} for any $m \in \Z$ there is a projective finitely generated $C\left(C'_{\th_p} \right)\rtimes \Z_p$-module $\widetilde H_m$ which coincides with $C\left(C'_{\th_p} \right)$ as $C\left(C'_{\th_p} \right)$-module with action of $\Z_p$ given by
+with action of $\Z_p$ given by
+\bean%\label{h_gax_eqn}
+\forall g \in \Z_p \quad \forall \widetilde a \in C\left(C'_{\th_p} \left[\Z_p\right] \right) \quad g \widetilde{a} \bydef \chi^m\left(g\right)  \widetilde{a}
 \eean
-where $\chi: \Z_p \to \C$ is an irreducible representation of $\Z_p$. If we consider  a specialization of the given by \eqref{h_strong_t_eqn} Morita equivalence then $\widetilde 1$ and $\widetilde H'$ correspond to bundles $1_{C'_{\th_p}}$ and $H'$ over ${C'_{\th_p}}$ (cf. equation \ref{h_cp_eqn}). So the bundle $H'$ correspond to the irreducible representation of $\Z_p$. So according to the
+If we consider  a specialization of the given by \eqref{h_strong_t_eqn} Morita equivalence and $\widetilde H'_m$ corresponds to a bundle $H'_m$ over $C'_{\th_p}$ then one can proof that $\left[H'_m\right]= m \left[H'\right]\in K_0\left(C\left( C'_{\th_p}\right)  \right)$. From the equations \eqref{h_k_p_eqn} and \eqref{h_gax_eqn}
+\be
+\forall \overline{n}, \overline{m} \in \Z_p \quad \left\langle \overline{n} \left[H'\right]  ,\overline{m} \right\rangle_\chi  = e^{\frac{2 \pi mn}{p}}.
+\ee
+where $m, n \in \Z$ are representatives of $\overline{n}, \overline{m}$ and $\left\langle -, -\right\rangle_\chi$ is the $\chi$-pairing (cf. Definition \ref{h_sub_defn}).
+
+
+So the bundle $H'$ correspond to the irreducible representation of $\Z_p$. So according to the
 
 If $\sY\subset \sX$ is  a compact subset which satisfies to the equation \eqref{h_y_eqn} then one has following homomorphisms. 
 \be\label{h_k1y_eqn}

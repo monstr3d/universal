@@ -17,7 +17,7 @@ namespace Collada.Converters
 
         }
 
-        protected override IMeshCreator this[string filename, params object[] objects]
+        protected override IMeshCreator this[string filename, string directory, params object[] objects]
         {
             get
             {
@@ -32,11 +32,11 @@ namespace Collada.Converters
                     var version = doc.DocumentElement.GetAttribute("version");
                     if (version.StartsWith("1.4"))
                     {
-                        return new ColladaMeshCreator2008(filename, doc);
+                        return new ColladaMeshCreator2008(filename, directory, doc);
                     }
                     if (version.StartsWith("1.5"))
                     {
-                        return new ColladaMeshCreator2008(filename, doc);
+                        return new ColladaMeshCreator2008(filename, directory, doc);
                     }
                 }
                 catch (Exception exception)

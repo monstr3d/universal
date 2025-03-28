@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace Abstract3DConverters.Creators
+﻿namespace Abstract3DConverters.Creators
 {
     public abstract class StreamMeshCrearor : AbstractMeshCreator
     {
 
-        protected StreamMeshCrearor(string filename,  params object[] objects) : base(filename, objects)
+        protected StreamMeshCrearor(string filename, string directory, params object[] objects) : base(filename, directory, objects)
         {
-            Load(objects[0] as byte[]);
+            Load(Objects[0] as byte[]);
         }
      }
 }

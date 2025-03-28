@@ -34,7 +34,7 @@ namespace Abstract3DConverters.Creators
 
         #region Cror
 
-        public AcCreator(string filename, params object[] objects) : base(filename, objects)
+        public AcCreator(string filename, string directory, params object[] objects) : base(filename, directory, objects)
         {
             try
             {
@@ -87,6 +87,7 @@ namespace Abstract3DConverters.Creators
         {
             return MaterialsPP.IndexOf(effect.Material);
         }
+
 
        
 

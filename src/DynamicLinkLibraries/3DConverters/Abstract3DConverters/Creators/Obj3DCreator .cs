@@ -1,4 +1,6 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System;
+using System.Linq.Expressions;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -11,7 +13,7 @@ namespace Abstract3DConverters.Creators
     {
         #region Ctor
 
-        public Obj3DCreator(string filename, params object[] objects) : base(filename, objects)
+        public Obj3DCreator(string filename, string directory, params object[] objects) : base(filename, directory, objects)
         {
 
         }
@@ -174,7 +176,7 @@ namespace Abstract3DConverters.Creators
             if (line.StartsWith("usemtl "))
             {
                 var mat = line.Substring("usemtl ".Length);
-                var effect = Effects[mat];
+                var effect = Detect(mat);
                 EffectList.Add(effect);
                 if (!UsedMaterials.Contains(mat))
                 {
@@ -302,6 +304,36 @@ namespace Abstract3DConverters.Creators
             get;
             set;
         }
+
+
+        private Dictionary<string, Effect> EffectsPrivate
+        {
+            get;
+        } = new Dictionary<string, Effect>();
+
+
+        Effect Detect(string st)
+        {
+            if (EffectsPrivate.ContainsKey(st))
+            {
+                return EffectsPrivate[st];
+            }
+            var s = st.Replace("_", " ");
+            if (EffectsPrivate.ContainsKey(s))
+            {
+                return EffectsPrivate[s];
+            }
+              foreach (var ee in EffectsPrivate)
+            {
+                var fn = Path.GetFileNameWithoutExtension(ee.Key);
+                if (fn == st)
+                {
+                    return  ee.Value;
+                }
+            }
+            return null;
+        }
+
         void CreateUnNamedGeometry()
         {
             try
@@ -320,28 +352,7 @@ namespace Abstract3DConverters.Creators
                             {
                                 continue;
                             }
-                            var mt = mat.Replace("_", " ");
-                            Effect effect = null;
-                            if (Effects.ContainsKey(mat))
-                            {
-                                effect = Effects[mat];
-                            }
-                            else if (Effects.ContainsKey(mt))
-                            {
-                                effect = Effects[mt];
-                            }
-                            else
-                            {
-                                foreach (var ee in Effects)
-                                {
-                                    var fn = Path.GetFileNameWithoutExtension(ee.Key);
-                                    if (fn  == mat)
-                                    {
-                                        effect = ee.Value;
-                                        break;
-                                    }
-                                }
-                            }
+                            var effect = Detect(mat);
                             if (!UsedMaterials.Contains(mat))
                             {
                                 UsedMaterials.Add(mat);
@@ -430,7 +441,7 @@ namespace Abstract3DConverters.Creators
                                 {
                                     continue;
                                 }
-                                var effect = Effects[mat];
+                                var effect = Detect(mat);
                                 EffectList.Add(effect);
                                 if (!UsedMaterials.Contains(mat))
                                 {
@@ -453,7 +464,7 @@ namespace Abstract3DConverters.Creators
                         {
                             continue;
                         }
-                        var effect = Effects[mat];
+                        var effect = EffectsPrivate[mat];
                         EffectList.Add(effect);
                         if (!UsedMaterials.Contains(mat))
                         {
@@ -545,6 +556,8 @@ namespace Abstract3DConverters.Creators
 
         public class MtlWrapper : IEffectDictionary
         {
+
+            
 
             public MtlWrapper(string directory)
             {
@@ -721,7 +734,8 @@ namespace Abstract3DConverters.Creators
                     var specular = new SpecularMaterial(Specular, Ns);
                     children.Add(specular);
                 }
-                effect = new Effect(null, Name, mat, Kd);
+                Dictionary<string, Effect> dn = null;
+                effect = new Effect(dn, Name, mat, Kd);
             }
 
 
@@ -929,10 +943,25 @@ namespace Abstract3DConverters.Creators
                 }
                 else
                 {
-                    Effects[n] = v;
+                    EffectsPrivate[n] = v;
                 }
             }
 
+        }
+
+        protected override Dictionary<string, Effect> Effects
+        {
+            get
+            {
+                var eff = EffectsPrivate;
+                if (Default == null)
+                {
+                    return eff;
+                }
+                Dictionary<string, Effect> e = new Dictionary<string, Effect>(eff);
+                e["Default"] = Default;
+                return e;
+            }
         }
 
         Dictionary<string, Effect> FromStream(Stream stream, out Effect eff)
@@ -952,6 +981,10 @@ namespace Abstract3DConverters.Creators
             }
             while (!reader.EndOfStream);
             var mt = mtl.Create(lines, 0, out eff);
+            if (mt.ContainsKey("Default"))
+            {
+                Default = mt["Default"];
+            }
             return mt;
         }
         void CreateMaterials()
@@ -976,7 +1009,7 @@ namespace Abstract3DConverters.Creators
                             CreateMaterials(file, out deff);
                         }
                     }
-                    if (Effects.Count == 0 & Default == null)
+                    if (EffectsPrivate.Count == 0 & Default == null)
                     {
                         var l = (from line in lines
                                  where s.ToString(line, "usemtl") != null
@@ -984,9 +1017,9 @@ namespace Abstract3DConverters.Creators
                                  CreateEffect(line)).ToArray();
                         //          var l = lines.Select(str => s.ToString(str)); ;
                     }
-                    if (Effects.ContainsKey("_default_"))
+                    if (EffectsPrivate.ContainsKey("_default_"))
                     {
-                        Default = Effects["_default_"];
+                        Default = EffectsPrivate["_default_"];
                     }
                     if (Default == null & EffectList.Count == 0)
                     {
@@ -1002,7 +1035,7 @@ namespace Abstract3DConverters.Creators
                                     break;
                                 }
                             }
-                            if (Effects.Count == 0 & Default == null)
+                            if (EffectsPrivate.Count == 0 & Default == null)
                             {
                                 if (files.Length == 2)
                                 {
@@ -1109,7 +1142,7 @@ namespace Abstract3DConverters.Creators
             var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
             var mat = new MaterialGroup(f);
             mat.Children.Add(d);
-            return new Effect(this, inm, mat, image);
+            return new Effect(EffectsPrivate, inm, mat, image);
        }
 
    
