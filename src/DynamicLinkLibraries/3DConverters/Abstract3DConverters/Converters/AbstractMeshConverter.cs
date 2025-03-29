@@ -10,6 +10,12 @@ namespace Abstract3DConverters.Converters
 
         Dictionary<string, Effect> effects;
 
+        protected CheckFile CheckFile
+        {
+            get;
+            private set;
+        }
+
         protected IMeshConverter Converter
         {
             get;
@@ -48,6 +54,7 @@ namespace Abstract3DConverters.Converters
 
         protected AbstractMeshConverter(IMaterialCreator materialCreator)
         {
+            CheckFile = StaticExtensionAbstract3DConverters.CheckFile;
             Converter = this;
             this.materialCreator = materialCreator;
             var ca = s.GetAttribute<ConverterAttribute>(this);
@@ -149,6 +156,11 @@ namespace Abstract3DConverters.Converters
         protected virtual void SetTransformation(object mesh, float[] transformation)
         {
 
+        }
+
+        protected virtual string GetFullPath(Image image)
+        {
+            return image.FullPath;
         }
   
 

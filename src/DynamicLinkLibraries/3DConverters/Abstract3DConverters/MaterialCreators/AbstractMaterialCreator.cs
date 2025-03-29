@@ -26,10 +26,11 @@ namespace Abstract3DConverters.MaterialCreators
 
         #region Ctor
 
-        protected AbstractMaterialCreator(Dictionary<string, object> images = null)
+        protected AbstractMaterialCreator(IMeshConverter meshConcerter, Dictionary<string, object> images = null)
         {
             Images = images;
             creator = this;
+            MeshConverter = meshConcerter;
         }
 
 
@@ -41,7 +42,9 @@ namespace Abstract3DConverters.MaterialCreators
 
         public abstract object Create(Color color);
 
-        
+        protected virtual IMeshConverter MeshConverter { get; set; }
+
+        IMeshConverter IMaterialCreator.MeshConverter => MeshConverter;
 
         public virtual object Create(Material material)
         {
@@ -128,6 +131,11 @@ namespace Abstract3DConverters.MaterialCreators
               return SetImage(material,  im);*/
             return null;
 
+        }
+
+        protected virtual string GetImagePath(Image image)
+        {
+            return image.FullPath;
         }
 
         object IMaterialCreator.SetImage(object material, object image)

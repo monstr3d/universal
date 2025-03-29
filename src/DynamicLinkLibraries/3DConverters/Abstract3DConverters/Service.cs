@@ -81,8 +81,9 @@ namespace Abstract3DConverters
             }
             var l = from effect in effects
                      select ChangeImagePath(path, effect);
+            var arr = l.ToArray();
             var dic = new Dictionary<T, Effect>();
-            foreach (var kvp in l)
+            foreach (var kvp in arr)
             {
                 dic[kvp.Key] = kvp.Value;
             }

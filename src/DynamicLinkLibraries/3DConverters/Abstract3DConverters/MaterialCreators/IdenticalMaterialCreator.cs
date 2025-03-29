@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.MaterialCreators
@@ -6,8 +6,8 @@ namespace Abstract3DConverters.MaterialCreators
     public abstract class IdenticalMaterialCreator : AbstractMaterialCreator
     {
 
-        protected IdenticalMaterialCreator(Dictionary<string, object> images = null) :
-            base(images)
+        protected IdenticalMaterialCreator(IMeshConverter meshConcerter, Dictionary<string, object> images = null) :
+            base(meshConcerter, images)
         {
         }
 

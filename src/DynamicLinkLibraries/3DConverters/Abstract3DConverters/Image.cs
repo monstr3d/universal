@@ -46,6 +46,13 @@ namespace Abstract3DConverters
             }
         }
 
+        private Image(string name, string directory, string delimiter, string fullPath)
+        {
+            Name = name;
+            FullPath = fullPath;
+        }
+
+
         public Image(string name,  string directory, string delimiter = null)
         {
             CheckFile = StaticExtensionAbstract3DConverters.CheckFile;
@@ -127,7 +134,7 @@ namespace Abstract3DConverters
 
         public object Clone()
         {
-            return new Image(Name, Directory);
+            return new Image(Name, Directory, null, FullPath);
         }
 
         bool IEquatable<Image>.Equals(Image? other)

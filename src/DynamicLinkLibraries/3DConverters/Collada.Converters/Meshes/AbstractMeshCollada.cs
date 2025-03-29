@@ -48,7 +48,15 @@ namespace Collada.Converters.Meshes
                 List<float[]> normal = null;
                 List<float[]> textures = null;
                 List<int[][]> t = null;
-                var poly = meshObject.PolyList as IMesh;
+                IMesh poly = null;
+                var pol = meshObject.PolyList;
+                if (pol != null)
+                {
+                    if (pol.Length != 0)
+                    {
+                        poly = pol[0];
+                    }    
+                }
                 if (poly == null)
                 {
                     if (!s.IsEmpty(meshObject.Triangles))

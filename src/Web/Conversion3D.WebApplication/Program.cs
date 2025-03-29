@@ -1,17 +1,16 @@
 using Abstract3DConverters;
 using Conversion3D.WebApplication.Classes;
 using Conversion3D.WebApplication.Interfacers;
-using Conversion3D.WebApplication.Pages;
-using Conversion3D.WebApplication.Pages.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton(typeof(IHyperLinkTransient), typeof(Data));
-
 builder.Services.AddSingleton(typeof(IBytesSingleton), typeof(BytesSingleton));
+
+builder.Services.AddSingleton(typeof(IExceptionSingleton), typeof(ExceptionSingleton));
+
 
 builder.Services.AddSingleton(typeof(IHttpContextAccessor), typeof(HttpContextAccessor));
 

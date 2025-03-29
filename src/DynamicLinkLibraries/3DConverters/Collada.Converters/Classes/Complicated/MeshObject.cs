@@ -21,7 +21,7 @@ namespace Collada.Converters.Classes.Complicated
             private set; 
         }
 
-        public PolyList PolyList 
+        public PolyList[] PolyList 
         { 
             get; 
             private set; 
@@ -37,7 +37,7 @@ namespace Collada.Converters.Classes.Complicated
         {
             this.meshCreator = meshCreator;
             Triangles = xmlElement.GetAllChildren<Triangles>().ToArray();
-            PolyList = xmlElement.Get<PolyList>();
+            PolyList = xmlElement.GetAllChildren<PolyList>().ToArray();
             if (PolyList != null)
             {
                 return;

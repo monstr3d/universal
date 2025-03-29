@@ -24,7 +24,7 @@ namespace Abstract3DConverters.Converters
         {
             doc.LoadXml(Properties.Resources.xaml);
             nodes = doc.DocumentElement;
-            xamlMaterial  = new XamlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
+            xamlMaterial  = new XamlMaterialCreator(doc, xmlns, this, new Dictionary<string, object>());
         }
 
         protected bool ImagePathFull
@@ -422,8 +422,8 @@ namespace Abstract3DConverters.Converters
         }
 
 
-        internal XamlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
-            base(doc, xmlns, images)
+        internal XamlMaterialCreator(XmlDocument doc, string xmlns, IMeshConverter meshConcerter, Dictionary<string, object> images) :
+            base(doc, xmlns, meshConcerter, images)
         {
           //  ProcessEffect = new ProcessEffect();
         }
@@ -514,7 +514,7 @@ namespace Abstract3DConverters.Converters
                         d.AppendChild(br);
                         var ibr = Create("ImageBrush");
                         br.AppendChild(ibr);
-                        var st = StaticExtensionAbstract3DConverters.UseDirectory ? im.FullPath : im.Name;
+                        var st = GetImagePath(im);
                         st = s.TransformPathToPlatfom(st);
                         ibr.SetAttribute("ImageSource", st);
                         ibr.SetAttribute("ViewportUnits", "Absolute");

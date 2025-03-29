@@ -5,6 +5,8 @@ namespace Abstract3DConverters.MaterialCreators
 {
     public  class ExeptionalMaterialCreator : IMaterialCreator
     {
+        IMeshConverter IMaterialCreator.MeshConverter => null;
+
         public virtual void Add(object group, object value)
         {
             throw new NotImplementedException();

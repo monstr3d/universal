@@ -117,7 +117,7 @@ namespace Collada.Converters.MeshConverters
                 effect.LoadXml(eff);
                 var r = doc.GetElementsByTagName("library_visual_scenes")[0];
                 visual_scene = doc.GetElementsByTagName("visual_scene")[0] as XmlElement;
-                emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
+                emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, this, new Dictionary<string, object>());
                 nodes = visual_scene;// doc.GetElementsByTagName("instance_visual_scene")[0] as XmlElement;
 
             }

@@ -1,6 +1,6 @@
-﻿using System.Xml;
-
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using System.Xml;
 
 namespace Abstract3DConverters.MaterialCreators
 {
@@ -14,8 +14,8 @@ namespace Abstract3DConverters.MaterialCreators
 
         protected Dictionary<object, MaterialGroup> materials = new();
 
-        protected XmlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
-            base(images)
+        protected XmlMaterialCreator(XmlDocument doc, string xmlns, IMeshConverter meshConcerter, Dictionary<string, object> images) :
+            base(meshConcerter, images)
         {
             this.doc = doc;
             this.xmlns = xmlns;

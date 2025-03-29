@@ -23,16 +23,19 @@ namespace Conversion3D.WebApplication.Pages
 
         private readonly string _targetFilePath;
 
-        private IBytesSingleton HyperLink { get;  set; }
+        private IBytesSingleton HyperLink { get; set; }
+
+        private IExceptionSingleton ExceptionSingleton { get; set; }
 
         private IHttpContextAccessor httpContextAccessor;
 
         
 
-        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink, IHttpContextAccessor httpContextAccessor)
+        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink, IExceptionSingleton exceptionSingleton, IHttpContextAccessor httpContextAccessor)
         {
             HyperLink = hyperLink;
             Tuple = hyperLink.Tuple;
+            ExceptionSingleton = exceptionSingleton;
             this.httpContextAccessor = httpContextAccessor;
             var c = httpContextAccessor.HttpContext.Request.Cookies;
             if (c.ContainsKey("dir"))
@@ -108,73 +111,82 @@ namespace Conversion3D.WebApplication.Pages
 
         public async Task<IActionResult> OnPostUploadAsync()
         {
-            /*
-            if (!ModelState.IsValid)
+            try
             {
-                Result = "Please correct the form.";
-
-                return Page();
-            }*/
-            if (Directory != null | InputDirectory != null)
-            {
-                CookieOptions options = new CookieOptions();
-                options.Expires = DateTime.Now.AddDays(1);
-                if (InputDirectory != null)
+                ExceptionSingleton.ModelState = ModelState;
+                /*
+                if (!ModelState.IsValid)
                 {
-                    httpContextAccessor.HttpContext.Response.Cookies.Append("inputdir", InputDirectory, options);
+                    Result = "Please correct the form.";
 
+                    return Page();
+                }*/
+                if (Directory != null | InputDirectory != null)
+                {
+                    CookieOptions options = new CookieOptions();
+                    options.Expires = DateTime.Now.AddDays(1);
+                    if (InputDirectory != null)
+                    {
+                        httpContextAccessor.HttpContext.Response.Cookies.Append("inputdir", InputDirectory, options);
+
+                    }
+                    if (Directory != null)
+                    {
+                        httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
+                    }
+                    /*               if (FormFile != null)
+                                   {
+                                       httpContextAccessor.HttpContext.Response.Cookies.Append("dir", FormFile.Name, options);
+                                   }
+                                   if (AdditionalFile != null)
+                                   {
+                                       httpContextAccessor.HttpContext.Response.Cookies.Append("dir", AdditionalFile.Name, options);
+                                   }*/
                 }
+
+
+                var ext = fileTypes[Extension.Substring(2)];
+
+                var formFileContent =
+                    await FileHelpers.ProcessFormFile<Upload3D>(
+                        FormFile, ModelState, _permittedExtensions,
+                        _fileSizeLimit);
+
+                var add = await FileHelpers.ProcessFormFile<Upload3D>(
+                        AdditionalFile, ModelState, _permittedExtensions,
+                        _fileSizeLimit);
+
+                Tuple<string, byte[]> tad = null;
+                if (add != null)
+                {
+                    tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
+                }
+                var inex = FormFile.FileName;
+
+                var pth = Path.GetFileNameWithoutExtension(inex);
+                FileName = pth + ext.Item1[0];
+                using var stream = new MemoryStream(formFileContent);
+                var b = stream.ToArray();
+                var path = inex;
                 if (Directory != null)
                 {
-                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
+                    path = Path.Combine(Directory, inex);
                 }
- /*               if (FormFile != null)
-                {
-                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", FormFile.Name, options);
-                }
-                if (AdditionalFile != null)
-                {
-                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", AdditionalFile.Name, options);
-                }*/
+                var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
+                var p = new Performer();
+                object[] obj = (tad == null) ? [b] : [b, tad];
+                object[] par = ext.Item2 == null ? [] : [ext.Item2];
+                var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
+                var bt = new Tuple<byte[], string>(byt, FileName);
+                HyperLink.Tuple = bt;
+                var rd = RedirectToPage("./Upload3D");
+                return rd;
             }
-
-
-            var ext = fileTypes[Extension.Substring(2)];
-
-            var formFileContent =
-                await FileHelpers.ProcessFormFile<Upload3D>(
-                    FormFile, ModelState, _permittedExtensions,
-                    _fileSizeLimit);
-
-            var add = await FileHelpers.ProcessFormFile<Upload3D>(
-                    AdditionalFile, ModelState, _permittedExtensions,
-                    _fileSizeLimit);
-
-            Tuple<string, byte[]> tad = null;
-            if (add != null)
+            catch (Exception e)
             {
-                tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
+                ExceptionSingleton.Exception = e;
             }
-            var inex = FormFile.FileName;
-
-            var pth = Path.GetFileNameWithoutExtension(inex);
-            FileName = pth + ext.Item1[0];
-            using var stream = new MemoryStream(formFileContent);
-            var b = stream.ToArray();
-            var path = inex;
-            if (Directory != null)
-            {
-                path = Path.Combine(Directory, inex);
-            }
-            var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
-            var p = new Performer();
-            object[] obj = (tad == null) ? [b] : [b, tad];
-            object[] par = ext.Item2 == null ? [] : [ext.Item2];
-            var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
-            var bt = new Tuple<byte[], string>(byt, FileName);
-            HyperLink.Tuple = bt;
-            var rd = RedirectToPage("./Upload3D");
-            return rd;
+            return Page();
         }
 
         [BindProperty]

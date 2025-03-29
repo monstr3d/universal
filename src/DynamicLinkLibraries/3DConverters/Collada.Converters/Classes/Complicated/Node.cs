@@ -73,7 +73,7 @@ namespace Collada.Converters.Classes.Complicated
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
         {
             return new AbstractMeshCollada(geom, material, name, mm, Creator);
-            Abstract3DConverters.Materials.Effect effect = material.Effect;
+            var effect = material.Effect;
 
             if (geom == null)
             {
@@ -164,16 +164,25 @@ namespace Collada.Converters.Classes.Complicated
 
             try
             {
-
-                var poly = meshObject.PolyList;
+                IMesh poly = null;
+                
+                var pol = meshObject.PolyList;
+                if (pol != null)
+                {
+                    if (pol.Length != 0)
+                    {
+                        poly = pol[0];
+                    }
+                }
                 if (poly == null)
                 {
                     return new AbstractMesh(name, Creator);
                 }
                 List<float[]> vv = null;
-                if (poly.Vertices != null)
+                var vrt = poly.Vertices;
+                if (vrt != null)
                 {
-                    vv = s.ToRealArray<float>(poly.Vertices, 3);
+                    vv = vrt;
                 }
                 if (vv == null)
                 {
