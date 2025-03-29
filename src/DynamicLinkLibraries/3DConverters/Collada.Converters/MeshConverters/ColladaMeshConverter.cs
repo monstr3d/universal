@@ -533,7 +533,7 @@ namespace Collada.Converters.MeshConverters
             }
         }
 
-        protected override Dictionary<string, Abstract3DConverters.Materials.Effect> Effects
+        protected override Dictionary<string, Effect> Effects
         {
             set
             {

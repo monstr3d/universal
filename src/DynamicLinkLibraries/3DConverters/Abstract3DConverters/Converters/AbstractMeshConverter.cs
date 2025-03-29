@@ -8,6 +8,8 @@ namespace Abstract3DConverters.Converters
     {
         #region Fields
 
+        Dictionary<string, Effect> effects;
+
         protected IMeshConverter Converter
         {
             get;
@@ -32,9 +34,14 @@ namespace Abstract3DConverters.Converters
             set;
         }
 
+        private     
 
 
-        string directory;
+        protected virtual string Directory
+        {
+            get;
+            set;
+        }
 
 
         #endregion
@@ -54,7 +61,7 @@ namespace Abstract3DConverters.Converters
         #region 
 
 
-        string IMeshConverter.Directory { get => directory; set => directory = value; }
+        string IMeshConverter.Directory { get => Directory; set => Directory = value; }
         Dictionary<string, Effect> IMeshConverter.Effects { set => Effects = value; }
 
         IMaterialCreator IMeshConverter.MaterialCreator => MaterialCreator;
@@ -110,9 +117,9 @@ namespace Abstract3DConverters.Converters
 
         protected virtual Dictionary<string, Effect> Effects
         {
-            get;
-            set;
-        } = new();
+            get => effects;
+            set => effects = s.ChangeImagePath<string>(Directory, value);
+        }
 
         protected abstract void Add(object parent, object child);
 

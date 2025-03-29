@@ -108,12 +108,13 @@ namespace Conversion3D.WebApplication.Pages
 
         public async Task<IActionResult> OnPostUploadAsync()
         {
+            /*
             if (!ModelState.IsValid)
             {
                 Result = "Please correct the form.";
 
                 return Page();
-            }
+            }*/
             if (Directory != null | InputDirectory != null)
             {
                 CookieOptions options = new CookieOptions();
@@ -127,6 +128,14 @@ namespace Conversion3D.WebApplication.Pages
                 {
                     httpContextAccessor.HttpContext.Response.Cookies.Append("dir", Directory, options);
                 }
+ /*               if (FormFile != null)
+                {
+                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", FormFile.Name, options);
+                }
+                if (AdditionalFile != null)
+                {
+                    httpContextAccessor.HttpContext.Response.Cookies.Append("dir", AdditionalFile.Name, options);
+                }*/
             }
 
 
@@ -152,12 +161,16 @@ namespace Conversion3D.WebApplication.Pages
             FileName = pth + ext.Item1[0];
             using var stream = new MemoryStream(formFileContent);
             var b = stream.ToArray();
-            var path = Path.Combine(Directory, inex);
+            var path = inex;
+            if (Directory != null)
+            {
+                path = Path.Combine(Directory, inex);
+            }
             var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
             var p = new Performer();
             object[] obj = (tad == null) ? [b] : [b, tad];
             object[] par = ext.Item2 == null ? [] : [ext.Item2];
-            var byt = p.CreateAndSaveZip(path, null, filename, Directory, null, obj, par);
+            var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
             var bt = new Tuple<byte[], string>(byt, FileName);
             HyperLink.Tuple = bt;
             var rd = RedirectToPage("./Upload3D");
@@ -173,6 +186,8 @@ namespace Conversion3D.WebApplication.Pages
             set;
         }
 
+        [BindProperty]
+        [Required]
         [Display(Name = "Additional File")]
         public IFormFile ? AdditionalFile
         {
@@ -217,6 +232,14 @@ namespace Conversion3D.WebApplication.Pages
             get;
             set;
         }
+        [Required]
+        [Display(Name = "Additional File")]
+        public IFormFile? AdditionalFile
+        {
+            get;
+            set;
+        } = null;
+
 
     }
 }

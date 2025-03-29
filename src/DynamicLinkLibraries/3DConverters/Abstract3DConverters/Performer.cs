@@ -229,7 +229,8 @@ namespace Abstract3DConverters
         /// <param name="act">The action</param>
         /// <param name="objects">Objects of creator</param>
         /// <param name="converters">Parameters of converter</param>
-        public virtual void CreateAndSave<T>(string fileinput, string directory, string outExt, string converterDirectory, 
+        public virtual void CreateAndSave<T>(string fileinput, string directory, string outExt, 
+            string converterDirectory, 
             Stream outs, Action<T> act,
             object[] objects,
             params object[] converters) where T : class
@@ -314,7 +315,7 @@ namespace Abstract3DConverters
             CreateAndSave(fileinput, directory, outExt, converterDirectory, stream, d, act, objects, converters);
             using var archive = new ZipArchive(outs, ZipArchiveMode.Create, true);
             var f = Path.GetFileName(fileinput);
-            var archiveFile = archive.CreateEntry(f);
+            var archiveFile = archive.CreateEntry(outExt);
             using (var entryStream = archiveFile.Open())
             {
                 entryStream.Write(stream.ToArray());
@@ -518,8 +519,8 @@ namespace Abstract3DConverters
         /// <param name="outExt">Output extension</param>
         /// <param name="outComment">Output comment</param>
         /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, string directory, string outExt, string outComment = null, 
-            string converterDirectory=null, Action<object> act = null)
+        public void CreateAndSave(string fileinput, string directory, string outExt, string outComment, 
+            string converterDirectory, Action<object> act = null)
         {
             using var stream = File.OpenWrite(outExt);
             CreateAndSave(fileinput, directory, outExt, outComment, converterDirectory, stream, act);
@@ -533,7 +534,7 @@ namespace Abstract3DConverters
         /// <param name="converterDirectory">CrateDirectory</param>
         /// <param name="act">Action</param>
         public string CreateAndSaveByUniqueName(string fileinput, string outExt, 
-            string converterDirectory = null, Action<object> act = null)
+            string converterDirectory, Action<object> act = null)
         {
             var t = StaticExtensionAbstract3DConverters.FileTypes[outExt];
             var cd = converterDirectory;
@@ -543,7 +544,7 @@ namespace Abstract3DConverters
             }
             var ext = t.Item1[0];
             var comment = t.Item2;
-            var dir = Path.GetDirectoryName(fileinput);
+      //      var dir = Path.GetDirectoryName(fileinput);
             var fn = Path.GetFileNameWithoutExtension(fileinput);
             var file = fn + t.Item1[0];
             if (comment != null)
@@ -556,7 +557,7 @@ namespace Abstract3DConverters
                 file = fn + Path.GetRandomFileName() + ext;
                 filename = Path.Combine(cd, file);
             }
-            CreateAndSave(fileinput, filename, comment, cd);
+            CreateAndSave(fileinput, null, filename, comment, cd);
             return filename;
         }
 

@@ -1,8 +1,9 @@
-﻿using System.Text;
-using System.Xml;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
-
+using System.Runtime.Intrinsics.Arm;
+using System.Security.Cryptography;
+using System.Text;
+using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
@@ -27,6 +28,66 @@ namespace Abstract3DConverters
 
         #region Cror
 
+        /// <summary>
+        /// Changes path of image
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="effect">Effect</param>
+        /// <returns>Image</returns>
+        public Effect ChangeImagePath(string path, Effect effect)
+        {
+            var image = effect.Image;
+            if (path != null)
+            {
+                if (image != null)
+                {
+                    image.OutputPath = path;
+                }
+            }
+            return effect;
+        }
+
+        public KeyValuePair<T, Effect> ChangeImagePath<T>(string path, KeyValuePair<T, Effect> effect)
+        {
+            var eff = ChangeImagePath(path, effect.Value);
+            return new KeyValuePair<T, Effect>(effect.Key, eff);
+        }
+
+        /// <summary>
+        /// Changes path of image
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="effects">Effects</param>
+        public IEnumerable<Effect> ChangeImagePath(string path, IEnumerable<Effect> effects)
+        {
+            if (path == null)
+            {
+                return effects;
+            }
+            return from effect in effects
+                     select ChangeImagePath(path, effect);
+        }
+
+        /// <summary>
+        /// Changes path of image
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="effects">Effects</param>
+        public Dictionary<T, Effect> ChangeImagePath<T>(string path,  Dictionary<T, Effect> effects)
+        {
+            if (path == null)
+            {
+                return effects;
+            }
+            var l = from effect in effects
+                     select ChangeImagePath(path, effect);
+            var dic = new Dictionary<T, Effect>();
+            foreach (var kvp in l)
+            {
+                dic[kvp.Key] = kvp.Value;
+            }
+            return dic;
+        }
         /// <summary>
         /// Constructor
         /// </summary>

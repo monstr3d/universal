@@ -21559,6 +21559,63 @@ where $u$ is compact
 \end{enumerate}
 Using the fact that $GL\left(\H \right) $ is contractible  prove that $\Om \mathscr F\left(\H \right)^0\cong GL_c\left(\H \right)$, and that $K\left( \sX\right) \cong \left[\sX, \mathscr F\left(\H \right)\right]$.		
 \end{exercise}
+\subsection{The group $K\left(\sX, \sY \right)$}
+\begin{definition}
+%2.1. Definition. 
+Let $\mathscr C$ be an additive category. A \textit{Banach structure} on $\mathscr C$ is given by 
+a Banach space structure on all the groups $\mathscr C\left(\E, \F \right) $, where $\E$ and $\F$ run through the objects of $\mathscr C$. Moreover, we assume that the map 
+$$
+\mathscr C\left(\E, \F \right)\times \mathscr C\left(\F, \G \right)\to \mathscr C\left(\E, \G \right)
+$$
+given by the composition of morphisms, is bilinear and continuous (all Banach 
+spaces are over the basic field $k=\R$  or $\C$). A \textit{Banach category} is an additive category provided with a Banach structure. 
+
+\end{definition}
+\begin{definition}
+%2.6. Definitions. 
+Let $\mathscr C$ and $\mathscr C'$ be additive categories, and $\varphi: \mathscr C\to\mathscr C'$ be an additive.
+functor. Then $\phi$ is called \textit{quasi-surjective} if every object of $\mathscr C'$ is a direct factor of an 
+object of the form $\varphi\left(\E \right) $, where $\E\in \mathrm{Ob}\left(\mathscr C \right)$ ; $\varphi$ is called \textit{full} if the map $\mathscr C\left(\E, \F \right)\to \mathscr C\left(\varphi\left( \E\right) , \varphi\left( \F\right)  \right)$ is surjective for $\E, \F\in \mathrm{Ob}\left(\mathscr C \right)$, Finally, if $\mathscr C$ and $\mathscr C'$ are Banach 
+		categories, the functor $\varphi$ is called a \textit{Banach functor} if the $\mathscr C\left(\E, \F \right)\to \mathscr C\left(\varphi\left( \E\right) , \varphi\left( \F\right)  \right)$ is linear and continuous. 
+\end{definition}
+\begin{empt}
+%2.13.
+ Let  $\varphi: \mathscr C\to\mathscr C'$ be a quasi-surjective Banach functor. We wish to define a "relative" group $K\left( \varphi\right)$  (which coincides with $K\left(\mathscr C \right)$ when $\mathscr C'=0$). Let $\Ga\left( \varphi\right)$ denote the set of triples $\left(\E, \F, \a \right)$, where $\E$ and $\F$ are objects of $\mathscr C$ and $\a : \varphi\left(\E \right)\to \varphi\left(\F \right)$  is an 
+isomorphism. Two triples  $\left(\E, \F, \a \right)$ and  $\left(\E', \F', \a' \right)$ are called \textit{isomorphic} if there 
+exist isomorphisms $f : \E \to \E'$ and $g : \F \to \F'$ such that the following diagram commutes. 
+\newline
+\begin{tikzcd}
+\varphi\left( \E\right)\arrow[r, "\a"] \arrow[d, "\varphi\left( f\right) "]& \varphi\left( \F\right) \arrow[d, "\varphi\left( g\right) "]\\
+\varphi\left( \E'\right)\arrow[r, "\a'"] & \varphi\left( \F'\right)
+\end{tikzcd}
+
+	A triple $\left(\E, \F, \a \right)$, is called \textit{elementary} if $\E=\F$ and if $\a$ is homotopic to $\Id_{\varphi\left(\E \right) }$ within 
+	the automorphisms of $\varphi\left(\E \right)$. Finally, we define the sum of two triples $\left(\E, \F, \a \right)$ and $\left(\E', \F', \a' \right)$ to be $\left(\E\oplus \E', \F \oplus \F', \a \oplus \a'\right)$.
+	Then $K\left( \varphi\right) $ is the quotient of $\Ga\left( \varphi\right) $ by the following equivalence relation: 
+	$\sigma\sim \sigma'\Leftrightarrow\exists$ elementary $\tau$ and $\tau'$ such that $\sigma + \tau$ is isomorphic to $\sigma' + \tau'$ . The sum of 
+	triples obviously provides the set $K\left(\varphi \right) $ with a monoid structure. We let $d\left(\E, \F, \a \right)$
+	denote the class of $\left(\E, \F, \a \right)$ in the monoid $K\left(\varphi \right)$. %As a direct consequence of the 	definition, we notice that d(E, F, a) = 0 if and only if there exist objects G and 	H of #, and isomorphisms w: F © GÑ>H and v: F¨ G-> H9 such that 	<p(i>) ¥ (a © Id^C)) ¥ <p(w_!) is homotopic to Id^(H) within the automorphisms of(p(H). 
+
+\end{empt}
+\begin{proposition}
+%2.16. Proposition.
+ Let $d\left(\E, \F, \a \right)$ and $d\left(\F, \G, \bt \right)$ be elements of $K\left(\varphi \right)$. Then we have 
+the relation
+$$
+d\left(\E, \F, \a \right) + d\left(\F, \G, \bt \right)= d\left(\E, \G, \bt\a \right)
+$$ 
+
+\end{proposition}
+\begin{proposition}
+%2.20. Proposition.
+ Let $j: K\left(\varphi \right)\to K\left(\mathscr C\right)$  (resp. $k: K\left( \mathscr C \right)\to K\left( \mathscr C' \right)$  be the homomorphism 
+	defined by $j\left( d\left(\E, \F, \a \right)\right) \bydef \left[\E\right]- \left[\F\right]$ (resp. $j\left( \left[\E\right]- \left[\F\right]\right) \bydef \left[\varphi\left( \E\right) \right]- \left[\varphi\left( \E\right)\right]$. Then we have an exact sequence 
+	$$
+K\left(\varphi\right)\xrightarrow{j} K\left(\mathscr C\right)\xrightarrow{k} K\left(\mathscr C\right).
+	$$ 
+%	Moreover, if there exists a functor ij/'.WÑtW such that (p\j/ Ç Id^,, f/zeÇ we have the 	split exact sequence 	0 > K((p) -U K(<#) -^-+ K(W) Ñ^ 0. 
+\end{proposition}
+
 \subsection{The Puppe sequence of $K$-theory}
 
 \begin{definition}\label{mapping_cylinder_defn}\cite{karoubi:k}

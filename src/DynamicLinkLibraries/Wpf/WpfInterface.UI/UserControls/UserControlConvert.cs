@@ -39,7 +39,7 @@ namespace WpfInterface.UI.UserControls
 
         void SetControls()
         {
-            var f = Abstract3DConverters.StaticExtensionAbstract3DConverters.FileTypes;
+            var f = StaticExtensionAbstract3DConverters.FileTypes;
             int left = 10;
             int top = 10;
             int step = 25;

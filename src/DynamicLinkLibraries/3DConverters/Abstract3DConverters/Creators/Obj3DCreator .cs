@@ -985,6 +985,18 @@ namespace Abstract3DConverters.Creators
             {
                 Default = mt["Default"];
             }
+            foreach (var item in mt)
+            {
+                var key = item.Key;
+                if (key == "Default")
+                {
+                    continue;
+                }
+                if (!EffectsPrivate.ContainsKey(key))
+                {
+                    EffectsPrivate[key] = item.Value;
+                }
+            }
             return mt;
         }
         void CreateMaterials()

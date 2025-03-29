@@ -1,4 +1,7 @@
-﻿namespace Abstract3DConverters
+﻿using System.IO;
+using Abstract3DConverters.Interfaces;
+
+namespace Abstract3DConverters
 {
     /// <summary>
     /// Image
@@ -7,18 +10,47 @@
     {
         static public string DefaultPath { get; set; }
 
+        public CheckFile CheckFile
+        {
+            get;
+            private set;
+        }
+       
+
         Service s = new();
 
         public string Name { get; private set; }
 
         public string Directory { get; private set; }
 
+        public string InputFile { get; private set; }
+  
         public string FullPath { get; private set; }
 
-        public Image(string name, string directory, string delimiter = null)
+        public string OutputPath 
         {
-            var ch = StaticExtensionAbstract3DConverters.CheckFile;
-            Find = (ch == CheckFile.Check) ? FindFile : FindEmpty;
+            set
+            {
+                if (CheckFile == CheckFile.Check)
+                {
+                    return;
+                }
+                if (value == null)
+                {
+                    return;
+                }
+                if (Directory != null)
+                {
+                    FullPath = InputFile.Replace(Directory, value);
+                }
+            }
+        }
+
+        public Image(string name,  string directory, string delimiter = null)
+        {
+            CheckFile = StaticExtensionAbstract3DConverters.CheckFile;
+            InputFile = name;
+            Find = (CheckFile == CheckFile.Check) ? FindFile : FindEmpty;
             if (directory == null)
             {
                 Name = name;
@@ -39,9 +71,12 @@
                 Name = Name.Substring(1);
             }
             FullPath = Path.Combine(Directory, Name);
-            if (!s.FileExists(FullPath))
+            if (CheckFile == CheckFile.Check)
             {
-                throw new Exception("Image exception");
+                if (!s.FileExists(FullPath))
+                {
+                    throw new Exception("Image exception");
+                }
             }
         }
 
