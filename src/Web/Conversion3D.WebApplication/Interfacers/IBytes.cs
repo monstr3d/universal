@@ -2,6 +2,6 @@
 {
     public interface IBytes
     {
-        Tuple<byte[], string> Tuple { get; set; }
+        Tuple<byte[], string, string> Tuple { get; set; }
     }
 }

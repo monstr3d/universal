@@ -9,6 +9,6 @@ namespace Conversion3D.WebApplication.Classes
 
         }
 
-        public Tuple<byte[], string> Tuple { get ; set; }
+        public Tuple<byte[], string, string> Tuple { get ; set; }
     }
 }

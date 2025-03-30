@@ -1,9 +1,11 @@
 using Abstract3DConverters;
+using Conversion3D.WebApplication.Classes;
 using Conversion3D.WebApplication.Interfacers;
 using Conversion3D.WebApplication.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 
 namespace Conversion3D.WebApplication.Pages
 {
@@ -43,6 +45,11 @@ namespace Conversion3D.WebApplication.Pages
                 var dir = c["dir"];
                 Directory = dir;
             }
+            if (c.ContainsKey("inputdir"))
+            {
+                var dir = c["inputdir"];
+                InputDirectory = dir;
+            }
 
             var l = new List<string>();
             var lt = new List<string>();
@@ -78,7 +85,7 @@ namespace Conversion3D.WebApplication.Pages
             return File(data, "application/zip", Tuple.Item2 + ".zip");
         }
 
-        public Tuple<byte[], string> ? Tuple
+        public Tuple<byte[], string, string> ? Tuple
         {
             get;
             set;
@@ -108,6 +115,8 @@ namespace Conversion3D.WebApplication.Pages
         {
 
         }
+
+        
 
         public async Task<IActionResult> OnPostUploadAsync()
         {
@@ -177,17 +186,21 @@ namespace Conversion3D.WebApplication.Pages
                 object[] obj = (tad == null) ? [b] : [b, tad];
                 object[] par = ext.Item2 == null ? [] : [ext.Item2];
                 var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
-                var bt = new Tuple<byte[], string>(byt, FileName);
+                var bt = new Tuple<byte[], string, string>(byt, FileName, FormFile.FileName);
                 HyperLink.Tuple = bt;
                 var rd = RedirectToPage("./Upload3D");
                 return rd;
             }
             catch (Exception e)
             {
-                ExceptionSingleton.Exception = e;
+                var exc = new ExtendedException(FormFile,
+                    AdditionalFile, Extension, Directory, InputDirectory, e);
+                ExceptionSingleton.Exception = exc;
             }
             return Page();
         }
+
+        public string ConvertedText => "The file \"" + Tuple.Item3 + "\" is converted";
 
         [BindProperty]
         [Required]
@@ -225,6 +238,8 @@ namespace Conversion3D.WebApplication.Pages
             get;
             set;
         }
+
+        public string Download => "Download " + Tuple.Item2;
     }
 
 

@@ -1,7 +1,7 @@
 ﻿@page
 @model Conversion3D.WebApplication.Pages.Upload3DModel
 @{
-    ViewData["Title"] = "Upload 3D file";
+    ViewData["Title"] = "Texture preserving conversion of 3D formats";
 
 }
 <link rel="stylesheet" href="~/css/StyleSheet.css">
@@ -19,13 +19,15 @@
 }
 
 <body class="body-filter">
-<h1></h1>
-<p>The following form's page handler saves the file to disk.</p>
+   <font color="white"> <p ><h1 >Texture preserving conversion of 3D formats</h1></font></p>
 
 <form asp-validation-summary="None" enctype="multipart/form-data" novalidate method="post">
-    <dl class="fon">
+    <dl>
         <dt>
-            <table  width="90%" border="1" >
+            <table class="fon" width="90%" border="1" >
+                <tr>
+                        <td>
+                <table width="100%">
                 <tr>
                     <td width="70%">
                         <table width="100%">
@@ -51,35 +53,22 @@
                             </tr>
                             <tr>
                                     <td>
-            <dt>
-                <label asp-for="FormFile"></label>
-            </dt>
-
-            <input asp-for="FormFile" type="file" />
+                 <label asp-for="FormFile"></label><br />
+  		<input asp-for="FormFile" type="file" />
             <span asp-validation-for="FormFile"></span>
             </td>
             </tr>
             <tr>
                 <td>
-            <dt>
-                <label asp-for="AdditionalFile"></label>
-            </dt>
-
-            <input asp-for="AdditionalFile" class="btn" type="file" />
+                <label asp-for="AdditionalFile"></label><br />
+              <input asp-for="AdditionalFile" class="btn" type="file" />
             <span asp-validation-for="AdditionalFile"></span>
-
-            </td>
+           </td>
             </tr>
-            <td>
-     <dt>
-            </dt>
-      </span>
-        </td>
-        </tr>
-       
-        </table>
+            </table>
                     </td>
                     <td>
+                                        <span align="center">Type of output files</span><br/>
                         @foreach (var ext in Model.Extensions)
                         {
                             @Html.RadioButtonFor(model => model.Extension, ext) @ext
@@ -88,20 +77,28 @@
                         }
                     </td>
                 </tr>
+
+</table> 
+</td>
+</tr>
+<tr>
+                <td align="center">
+                    <input asp-page-handler="Upload" class="btnsumbit-filter"
+                           type="submit" value="Covert Now" />
+                </td>
+                </tr>
             </table>
         </dt>
     </dl>
-        <input asp-page-handler="Upload" class="btnsumbit-filter" 
-        type="submit" value="Upload" />
 </form>
 @if (Model.Tuple != null)
 {
-    <h1>@Model.Tuple.Item2</h1>
+    <h1>@Model.ConvertedText</h1>
     <form enctype="multipart/form-data" method="post">
             <input asp-page-handler="Download"
                    class="btnsumbit-filter"
                    type="submit"
-                   value=@Model.Tuple.Item2 />
+                   value=@Model.Download />
 </form>
 }
 </body>
