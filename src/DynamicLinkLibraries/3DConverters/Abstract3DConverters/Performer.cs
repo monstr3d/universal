@@ -345,6 +345,12 @@ namespace Abstract3DConverters
               object[] objects,
             params object[] converters)
         {
+            var e1 = Path.GetExtension(fileinput);
+            var e2 = Path.GetExtension(outExt);
+            if (e1.ToLower() == e2.ToLower())
+            {
+                return new byte[0];
+            }
             using var stream = new MemoryStream();
             CreateAndSaveZip(fileinput, directory, outExt, converterDirectory, stream, act, objects, converters);
             return stream.ToArray();

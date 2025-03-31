@@ -12581,9 +12581,26 @@ Since the set $C'_{\th_p}\xrightarrow{\phi_\th}$ is compact there is $\a_0\in \m
 \be\label{h_y_eqn}
 	S^1 \xrightarrow{\psi_p} C'_{\th_p}\setminus \{m_0\} \xrightarrow{\phi_p} C'_{\th_p} \to \sX_{\a_0} \xrightarrow{\subset} \sY\xrightarrow{\subset} \sX.
 \ee
-On the other hand there is a $*$-isomorphism $C_0\left(C'\om\setminus \{m_0\} \right)\cong C_{C\left(\th_ p\right)  }$ where $C_{C\left( \th_p\right)  }$ is the mapping cone (cf. Definition \ref{mapping_cone_defn}) of the $*$-homomorphism  $C\left( \th_p\right)$ induced by a continuous map $\th_p$. There is the given by the equation \eqref{h_top_uu_eqn} exact sequence
+
+On the other hand there is a $*$-isomorphism $C_0\left(C'\om\setminus \{m_0\} \right)\cong C_{C\left(\th_ p\right)  }$ where $C_{C\left( \th_p\right)  }$ is the mapping cone (cf. Definition \ref{mapping_cone_defn}) of the $*$-homomorphism  $C\left( \th_p\right)$ induced by a continuous map $\th_p$. There is the given by the equation \eqref{cone_ip_eqn} exact sequence
 \be\label{h_i_eqn}
 0 \to SC\left(S^1 \right) \xrightarrow{\iota} C_{ C\left(\th_p \right)}\cong C_0\left(  C'_{\th_p}\setminus \{m_0\}\right)  \xrightarrow{q} C\left(S^1 \right) \to 0.
+\ee
+\begin{definition}\label{mapping_cone_defn!!}!!!\cite{blackadar:ko}
+	%Definition 19.4.1. 
+	\begin{enumerate}
+		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
+		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
+		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
+	\end{enumerate}
+	
+	The mapping cone construction is an important example of a pullback.
+	
+\end{definition}
+There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
+There is a standard short exact sequence 
+\be\label{cone_ip_eqn!}!!!
+0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
 \ee
 where  $\iota \bydef C_0\left(\phi_p \right)$,  $q \bydef C_0\left(\psi_p \right)$ and both $\phi_p$,  $\psi_p$ both are given by the equation  \eqref{h_fin_comp_eqn}.
 From the Theorem \ref{puppe_sequence_thm} it follows that there are the following Puppe sequences
@@ -12625,7 +12642,44 @@ If $\left[K^1\left( C_{ C\left(\th_p \right)}\right)\right]$ is a generator of t
 \left[K^1\left( C_{ C\left(\th_p \right)}\right)\right] = K^1\left(\iota \right)\left(\left[ 	K^1_{S^1}\right] \right)  
 \eean 
 where $\left[ 	K^1_{S^1}\right]$ is the generator of the free Abelian group $K^1\left(C\left(  S^1\right) \right)$.
- From the homeomorphism $\left( 0, 1\right)\cong \R$ it follows that   $SC\left(S^1 \right) \cong C\left(S^1 \right) \otimes C_0\left(\left( 0, 1\right) \right)\cong  C\left(S^1 \times \left( 0, 1\right)\right)$.  The natural inclusion $\left( 0, 1\right)\subset \left[0, 1\right]$ yields an inclusion  $S^1 \times \left( 0, 1\right)\subset S^1\times \left[0, 1\right]$. Using unreduced suspension (cf. Definition \ref{top_sus_defn}) one has an inclusion $ S^1\times \left( 0, 1\right)\subset S^2$. Indeed there are $s_0, s_1 \in S^2$  with $S^1\times \left( 0, 1\right)\cong S^2 \setminus \{s_0\}\cup \{s_1\}$. From the Appendix \ref{k_fund_prod_sec}  it turns out that $K^0\left(S^2 \right) \cong \Z \left[1_{S^2}\right]\oplus \Z \left[H_{S^2}\right]$ where $1_{_{S^2}}$ (resp. $H_{S^2}$) is a trivial (resp. corresponding to $S^2 \cong \C P^1$  rank - one bundle). There is an alternative description of $K^0\left(S^2 \right)$. According to the Example \ref{k_b_s_exm} one has 
+ From the homeomorphism $\left( 0, 1\right)\cong \R$ it follows that   $SC\left(S^1 \right) \cong C\left(S^1 \right) \otimes C_0\left(\left( 0, 1\right) \right)\cong  C\left(S^1 \times \left( 0, 1\right)\right)$.  The natural inclusion $\left( 0, 1\right)\subset \left[0, 1\right]$ yields an inclusion  $S^1 \times \left( 0, 1\right)\subset S^1\times \left[0, 1\right]$. Using unreduced suspension (cf. Definition \ref{top_sus_defn}) one has an inclusion $ S^1\times \left( 0, 1\right)\subset S^2$. Indeed there are $s_0, s_1 \in S^2$  with $S^1\times \left( 0, 1\right)\cong S^2 \setminus \{s_0\}\cup \{s_1\}$. So one has $K\left( S^1 \times \left( 0, 1\right)\right) = K\left( S^2 \setminus \{s_0\}\cup \{s_1\}\right)$.
+ From the Corollary \ref{k_exc_cor} it turns out that there is an isomorphism $K\left( S^2 \setminus \{s_0\}\cup \{s_1\}\right)\cong K\left( S^2 , \{s_0\}\cup \{s_1\}\right)$. Taking into account the Remark \ref{k_exact_rem} one has following exact sequences
+ \bean
+ K\left( S^2 , \{s_0\}\right)\xrightarrow{\psi'} K\left(S^2 \right) \xrightarrow{\phi'}K\left( \{s_0\}\right),\\
+ K\left( S^2 , \{s_0\}\cup \{s_1\}\right)\xrightarrow{\psi''} K\left(S^2 \right) \xrightarrow{\phi''}K\left( \{s_0\}\cup \{s_1\}\right).
+  \eean
+  It is known (cf. \cite{karoubi:k}) that any element of  $K\left(S^2 \right)$ equals to $\left[\E\right]- \left[\F\right]$ with trivial bundle $\left[\F\right]$.
+From
+\be\label{h_kere_eqn}
+\ker \phi' = \left\{\left[\E\right]- \left[\F\right] : \dim \E = \dim \F \right\}=\ker \phi''.
+\ee
+From the Appendix \ref{k_fund_prod_sec}  it turns out that $K^0\left(S^2 \right) \cong \Z \left[1_{S^2}\right]\oplus \Z \left[H_{S^2}\right]$ where $1_{_{S^2}}$ (resp. $H_{S^2}$) is a trivial (resp. corresponding to $S^2 \cong \C P^1$  rank - one bundle). From \eqref{h_kere_eqn} it turns out that
+\be\label{h_kim_eqn}
+\im~ \psi' = \im~ \psi'' = \ker \phi' = \ker \phi'' = \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right) 
+\ee
+On the other hand from the Corollary \ref{bott_kk_cor} it follows that
+$$
+ K_0\left( C_0\left( SC^1\right) \right) \cong  K_1\left(C\left(  S^1\right) \right)\cong \Z. 
+$$
+ so taking into account the natural isomorphism
+ $$
+ K_0\left( C_0\left( SC^1\right) \right)\cong K\left(CS^1 \right) \cong  K\left( S^2 \setminus \{s_0\}\cup \{s_1\}\right)\cong  K\left( S^2 , \{s_0\}\cup \{s_1\}\right)
+ $$
+ there is the natural homomorphism
+ $$
+ \psi: K\left(CS^1 \right)\to K\left(S^2 \right) 
+ $$
+ From the equation \eqref{h_kim_eqn} it follows that
+ $$
+ \phi\left( K\left(CS^1 \right)\right) = \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right)\cong \Z.
+ $$
+ Indeed from $K_0\left( C_0\left( SC^1\right) \right) \cong K_0\left(  SC^1\right)\cong \Z$ one has an isomorphism
+$$
+ K_0\left(  SC^1\right)\cong  \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right)
+$$
+Denote by $H_{ SC^1}$ the rank-one bundle over $SC^1$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$.
+ 
+  There is an alternative description of $K^0\left(S^2 \right)$. According to the Example \ref{k_b_s_exm} one has 
 \be
 \begin{split}
  K\left(B^2, S^1 \right)= \Z~ d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right),\\
@@ -21691,6 +21745,12 @@ K\left(\varphi\right)\xrightarrow{j} K\left(\mathscr C\right)\xrightarrow{k} K\l
 	$$ 
 %	Moreover, if there exists a functor ij/'.WÑtW such that (p\j/ Ç Id^,, f/zeÇ we have the 	split exact sequence 	0 > K((p) -U K(<#) -^-+ K(W) Ñ^ 0. 
 \end{proposition}
+\begin{remark}\label{k_exact_rem}\cite{karoubi:k}
+	If $\sY$ is a closed subspace of the compact space then from the Proposition \ref{k_exact_prop} it follows that there is the exact sequence
+	$$
+	K\left( \sX,\sY\right)\to K\left( \sX\right) \to K\left(\sY \right).
+	$$
+\end{remark}
 \begin{theorem}\label{k_exc_thm}(Excision)\cite{karoubi:k}
 %2.35. Theorem (Excision). 
 The projection $\pi: \sX \to \sX/\sY$ induces an isomorphism 
@@ -21706,7 +21766,7 @@ bundle to $\E$ and $\F$, we may assume without loss of generality, that $\F$ is 
 bundle, say $\mathcal{T}$. We want to find a triple $\left(\E', \F', \a \right)$ defining an element of 
 $K\left( \sX/\sY,\{y\}\right)$ such that the triples $\left( \pi^*\left(\E'\right) , \pi^*\left(\F'\right) , \pi^*_1\left(\a\right)  \right)$ and $\left(\E, \F, \a \right)$ are  
 isomorphic with $\pi_1: \sY \to \{y\}$. % According to 1.5.11, 
-There is a closed neighborhood $\sV$ 
+According to the Corollary \ref{k_ext_cor} there is a closed neighborhood $\sV$ 
 of $\sY$ and an isomorphism $\bt :\E_\sV\to  \F_\sV$ such that $\bt|_\sY = \a$. Let $\E'$ be the vector bundle 
 over $\sX/\sY$ obtained by clutching the bundle $\sE|_{\sX\setminus\sY}$ and the trivial bundle of rank $n$ 
 over $\sV \setminus\sY$, using $\bt|_{\sV \setminus\sY}$ (note that $\sX \setminus \sY \cong \sX/\sY \setminus \{y\}$ and $\sV \setminus \sY \cong \sV/\sY \setminus \{y\}$. Let $\sF'$ 

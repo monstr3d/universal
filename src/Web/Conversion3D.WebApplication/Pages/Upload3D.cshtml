@@ -91,9 +91,13 @@
         </dt>
     </dl>
 </form>
-@if (Model.Tuple != null)
+@if (Model.ErrorString != null)
+    {
+        <h1>@Model.ErrorString</h1>
+    }
+    @if (Model.Tuple != null)
 {
-    <h1>@Model.ConvertedText</h1>
+    <h1 color="red">@Model.ConvertedText</h1>
     <form enctype="multipart/form-data" method="post">
             <input asp-page-handler="Download"
                    class="btnsumbit-filter"

@@ -116,6 +116,67 @@ namespace Conversion3D.WebApplication.Pages
 
         }
 
+        bool IsInvalid(string key)
+        {
+            var ms = ExceptionSingleton.ModelState;
+            return ms[key].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid;
+        }
+
+         string GetErrorString()
+        {
+            if (ExceptionSingleton == null)
+            {
+                return null;
+            }
+            if (ExceptionSingleton.ModelState == null)
+            {
+                return null;
+            }
+
+            if (IsInvalid("FormFile"))
+            {
+                return "Select Input File";
+            }
+
+            if (IsInvalid("Extension"))
+            {
+                return "Select Extension";
+            }
+
+            var ex = ExceptionSingleton.Exception;
+            if (ex == null)
+            {
+                return null;
+            }
+            var fff = ex.FormFile;
+            if (fff == null)
+            {
+                return "Type of conversion output coincides with input one";
+            }
+            if (fff != null)
+            {
+                var ff = fff.FileName;
+                if (ff != null)
+                {
+                    if (Path.GetExtension(ff).ToLower() == ".obj")
+                    {
+                        if (IsInvalid("AdditionalFile"))
+                        {
+                            return "Select Additional File";
+                        }
+                    }
+                }
+            }
+            var exx = ex.Exception;
+            if (exx != null)
+            {
+                return ex.Exception.Message;
+            }
+            return null;
+        }
+
+        public string ErrorString => GetErrorString();
+
         
 
         public async Task<IActionResult> OnPostUploadAsync()
@@ -171,7 +232,7 @@ namespace Conversion3D.WebApplication.Pages
                     tad = new Tuple<string, byte[]>(AdditionalFile.FileName, add);
                 }
                 var inex = FormFile.FileName;
-
+                var ex = Path.GetExtension(inex).ToLower();
                 var pth = Path.GetFileNameWithoutExtension(inex);
                 FileName = pth + ext.Item1[0];
                 using var stream = new MemoryStream(formFileContent);
@@ -186,9 +247,17 @@ namespace Conversion3D.WebApplication.Pages
                 object[] obj = (tad == null) ? [b] : [b, tad];
                 object[] par = ext.Item2 == null ? [] : [ext.Item2];
                 var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
+                if (byt.Length == 0)
+                {
+                    ExceptionSingleton.Exception = new ExtendedException(null, null, null, null, null, null);
+                    return RedirectToPage("./Upload3D");
+                }
                 var bt = new Tuple<byte[], string, string>(byt, FileName, FormFile.FileName);
                 HyperLink.Tuple = bt;
                 var rd = RedirectToPage("./Upload3D");
+                var exc = new ExtendedException(FormFile,
+                   AdditionalFile, Extension, Directory, InputDirectory, null);
+                ExceptionSingleton.Exception = exc;
                 return rd;
             }
             catch (Exception e)
@@ -204,7 +273,7 @@ namespace Conversion3D.WebApplication.Pages
 
         [BindProperty]
         [Required]
-        [Display(Name = "File")]
+        [Display(Name = "Input File")]
         public IFormFile FormFile
         {
             get;

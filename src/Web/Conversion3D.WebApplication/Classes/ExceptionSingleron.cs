@@ -10,7 +10,7 @@ namespace Conversion3D.WebApplication.Classes
 
         }
 
-        Exception IException.Exception { get; set; }
+        ExtendedException IException.Exception { get; set; }
 
         ModelStateDictionary IException.ModelState { get ; set; }
     }

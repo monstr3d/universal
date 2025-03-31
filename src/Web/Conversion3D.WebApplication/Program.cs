@@ -51,4 +51,5 @@ app.UseMvcWithDefaultRoute();
 
 StaticExtensionAbstract3DConverters.CheckFile = CheckFile.None;
 
-app.Run();
+
+    app.Run();
