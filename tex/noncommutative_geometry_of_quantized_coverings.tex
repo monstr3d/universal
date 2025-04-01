@@ -12586,23 +12586,6 @@ On the other hand there is a $*$-isomorphism $C_0\left(C'\om\setminus \{m_0\} \r
 \be\label{h_i_eqn}
 0 \to SC\left(S^1 \right) \xrightarrow{\iota} C_{ C\left(\th_p \right)}\cong C_0\left(  C'_{\th_p}\setminus \{m_0\}\right)  \xrightarrow{q} C\left(S^1 \right) \to 0.
 \ee
-\begin{definition}\label{mapping_cone_defn!!}!!!\cite{blackadar:ko}
-	%Definition 19.4.1. 
-	\begin{enumerate}
-		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
-		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
-		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
-	\end{enumerate}
-	
-	The mapping cone construction is an important example of a pullback.
-	
-\end{definition}
-There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
-There is a standard short exact sequence 
-\be\label{cone_ip_eqn!}!!!
-0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
-\ee
-where  $\iota \bydef C_0\left(\phi_p \right)$,  $q \bydef C_0\left(\psi_p \right)$ and both $\phi_p$,  $\psi_p$ both are given by the equation  \eqref{h_fin_comp_eqn}.
 From the Theorem \ref{puppe_sequence_thm} it follows that there are the following Puppe sequences
 \bean
 %\begin{split}
@@ -12675,10 +12658,46 @@ $$
  $$
  Indeed from $K_0\left( C_0\left( SC^1\right) \right) \cong K_0\left(  SC^1\right)\cong \Z$ one has an isomorphism
 $$
- K_0\left(  SC^1\right)\cong  \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right)
+ K\left(  SC^1\right)\cong K\left(\psi'' \right) \left( K\left(  SC^1\right) \right)  \cong \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right),
 $$
-Denote by $H_{ SC^1}$ the rank-one bundle over $SC^1$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$.
- 
+Denote by $H_{ SC^1}$ the rank-one bundle over $SC^1$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$. From \eqref{h_kim_eqn} it follows that 
+$$
+ K\left( S^2 \setminus\{s_0\}\right)\cong K\left(\psi' \right) \left( K\left(   S^2 \setminus\{s_0\}\right) \right)  \cong \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right)
+$$
+Denote by $H_{  S^2 \setminus\{s_0\}}$ the rank-one bundle over $ S^2 \setminus\{s_0\}$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$.
+The natural inclusion $S^2 \setminus\{s_0\}\cup \{s_1\}\subset S^2 \setminus\{s_0\}$ yields the isomorphism
+\be
+\begin{split}
+ K\left( S^2 \setminus\{s_0\}\right)\cong K\left(S^2 \setminus\{s_0\}\cup \{s_1\} \right)=  K\left(SC^1\right)  
+\end{split}
+\ee
+The given by \eqref{h_i_eqn} injective  $*$-homomorphism 
+$SC\left(S^1 \right) \xrightarrow{\iota} C_{ C\left(\th_p \right)}\cong C_0\left(  C'_{\th_p}\setminus \{m_0\}\right)$ yields an injective  continuous map 
+$$
+CS^1 \cong S^2 \setminus\{s_0\}\cup \{s_1\}\xrightarrow{f}  C'_{\th_p}\setminus \{m_0\}
+$$
+This map can be uniquely extended up to continuous map
+\bean
+S^2 \setminus\{s_0\}\xrightarrow{\widetilde{f}}  C'_{\th_p},\\
+\widetilde f\left(s_1 \right) = m_0.
+\eean
+such that the following diagram 
+\newline
+\begin{tikzcd}
+CS^1\arrow[r, "f"]\arrow[d, "\cong"] & C'_{\th_p}\setminus \{m_0\}\arrow[d]\\
+S^2 \setminus\{s_0\}\arrow[r, "\widetilde f"]&  C'_{\th_p}
+\end{tikzcd}
+\\
+
+From the Remark \ref{k_exact_rem} one has following exact sequence
+\bean
+K\left(  C'_{\th_p\setminus \{m_0\}}\right)\to K\left(C'_{\th_p} \right) \to K\left( \{m_0\}\right)
+\eean
+it follows that
+$$
+K\left( C'_{\th_p}\right) = \Z_p \left[H_{C'_{\th_p}}\right]\oplus \Z\left[1_{{C'_{\th_p}}}\right]
+$$
+where the 
   There is an alternative description of $K^0\left(S^2 \right)$. According to the Example \ref{k_b_s_exm} one has 
 \be
 \begin{split}
