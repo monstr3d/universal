@@ -31,13 +31,13 @@ namespace WpfInterface.CameraInterface
     [Serializable()]
     [CalculationReasons(new string[] { "Animation", StaticExtensionEventInterfaces.Realtime })]
     public class WpfCamera : Motion6D.Camera, ISerializable,
-        IUpdatableObject, IObjectTransformer, IMeasurements, 
+        IUpdatableObject, IObjectTransformer, IMeasurements,
         IEventHandler, IAnimatedObject
     {
 
         #region Fields
 
-   
+
         /// <summary>
         /// Inputs
         /// </summary>
@@ -52,7 +52,7 @@ namespace WpfInterface.CameraInterface
 
         double[] outpos = new double[3];
 
-     
+
 
         const Double a = 0;
 
@@ -70,10 +70,10 @@ namespace WpfInterface.CameraInterface
 
         PerspectiveCamera pCamera = new PerspectiveCamera();
 
-     
+
         AnimatableWrapper[] animatableChildren = new AnimatableWrapper[1];
 
-     
+
         object parentControl;
 
         private Dictionary<IPosition, Visual3D> dict = new Dictionary<IPosition, Visual3D>();
@@ -81,8 +81,8 @@ namespace WpfInterface.CameraInterface
 
         #region Fields
 
-      
-       /// <summary>
+
+        /// <summary>
         /// BackGround
         /// </summary>
         private string backgound = "";
@@ -126,7 +126,7 @@ namespace WpfInterface.CameraInterface
         #endregion
 
         #region Ctor
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -198,7 +198,7 @@ namespace WpfInterface.CameraInterface
 
         #endregion
 
-       #region IUpdatableObject Members
+        #region IUpdatableObject Members
 
         Action IUpdatableObject.Update
         {
@@ -310,14 +310,14 @@ namespace WpfInterface.CameraInterface
 
         event Action<IEvent> IEventHandler.OnAdd
         {
-            add {  }
+            add { }
             remove { }
         }
 
         event Action<IEvent> IEventHandler.OnRemove
         {
             add { }
-            remove {  }
+            remove { }
         }
 
         #endregion
@@ -328,7 +328,7 @@ namespace WpfInterface.CameraInterface
         {
             if (animationType == AnimationType.Asynchronous)
             {
-                animatableChildren[0] = new AnimatableWrapper(pCamera, 
+                animatableChildren[0] = new AnimatableWrapper(pCamera,
                     PerspectiveCamera.TransformProperty, this, false, null);
                 animatableChildren[0].OnFinish += Stop;
                 update = null;
@@ -339,7 +339,7 @@ namespace WpfInterface.CameraInterface
                 update = UpdateImage;
                 SetTransform();
             }
-       }
+        }
 
         void IAnimatedObject.InitRealtime(AnimationType animationType, double[] changeFrameTime)
         {
@@ -352,7 +352,7 @@ namespace WpfInterface.CameraInterface
             else
             {
                 update = null;
-                animatableChildren[0] = new AnimatableWrapper(pCamera, 
+                animatableChildren[0] = new AnimatableWrapper(pCamera,
                     PerspectiveCamera.TransformProperty, this, true, changeFrameTime);
                 animatableChildren[0].OnFinish += Stop;
                 update = null;
@@ -462,7 +462,7 @@ namespace WpfInterface.CameraInterface
         #endregion
 
         #region Overriden
-  
+
         /// <summary>
         /// Sets a calculation reason
         /// </summary>
@@ -475,7 +475,7 @@ namespace WpfInterface.CameraInterface
         }
 
 
-  
+
         public override void UpdateImage()
         {
             if (!show)
@@ -663,7 +663,7 @@ namespace WpfInterface.CameraInterface
             }
         }
 
-        
+
         void SetTransform()
         {
             int count = Count;
@@ -701,7 +701,7 @@ namespace WpfInterface.CameraInterface
         }
 
         #endregion
-    
+
     }
 }
 

@@ -22,50 +22,71 @@ namespace GeneratedProject
 				objects.Add(new InternalDesktop.OblectLabel2("Timer", this));
 				objects.Add(new InternalDesktop.OblectLabel3("Plane frame", this));
 				objects.Add(new InternalDesktop.OblectLabel4("Consumer", this));
-				objects.Add(new InternalDesktop.OblectLabel5("Camera", this));
-				objects.Add(new InternalDesktop.OblectLabel6("Left frame", this));
-				objects.Add(new InternalDesktop.OblectLabel7("Plane", this));
+				objects.Add(new InternalDesktop.OblectLabel5("Camera 2", this));
+				objects.Add(new InternalDesktop.OblectLabel6("Camera 1", this));
+				objects.Add(new InternalDesktop.OblectLabel7("Left frame", this));
+				objects.Add(new InternalDesktop.OblectLabel8("Forward frame", this));
+				objects.Add(new InternalDesktop.OblectLabel9("Plane", this));
+				objects.Add(new InternalDesktop.OblectLabel10("", this));
+				objects.Add(new InternalDesktop.OblectLabel11("Transform", this));
+				objects.Add(new InternalDesktop.OblectLabel12("Transform Final", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
-				currALabel  = new InternalDesktop.ArrowLabel0("8", this);
+				currALabel  = new InternalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)1;
-				currALabel  = new InternalDesktop.ArrowLabel1("1", this);
+				currALabel  = new InternalDesktop.ArrowLabel1("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)2;
-				currALabel  = new InternalDesktop.ArrowLabel2("6", this);
+				currALabel  = new InternalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)1;
-				currALabel  = new InternalDesktop.ArrowLabel3("9", this);
+				currALabel  = new InternalDesktop.ArrowLabel3("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)3;
-				currALabel  = new InternalDesktop.ArrowLabel4("5", this);
+				currALabel  = new InternalDesktop.ArrowLabel4("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)5;
-				currALabel.TargetNumber = (int)6;
-				currALabel  = new InternalDesktop.ArrowLabel5("2", this);
+				currALabel.SourceNumber = (int)6;
+				currALabel.TargetNumber = (int)8;
+				currALabel  = new InternalDesktop.ArrowLabel5("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)5;
 				currALabel.TargetNumber = (int)7;
-				currALabel  = new InternalDesktop.ArrowLabel6("4", this);
+				currALabel  = new InternalDesktop.ArrowLabel6("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)7;
-				currALabel.TargetNumber = (int)3;
-				currALabel  = new InternalDesktop.ArrowLabel7("7", this);
+				currALabel.SourceNumber = (int)5;
+				currALabel.TargetNumber = (int)9;
+				currALabel  = new InternalDesktop.ArrowLabel7("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)1;
-				currALabel.TargetNumber = (int)0;
-				currALabel  = new InternalDesktop.ArrowLabel8("3", this);
+				currALabel.SourceNumber = (int)6;
+				currALabel.TargetNumber = (int)9;
+				currALabel  = new InternalDesktop.ArrowLabel8("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)5;
-				currALabel  = new InternalDesktop.ArrowLabel9("10", this);
+				currALabel  = new InternalDesktop.ArrowLabel9("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
-				currALabel.TargetNumber = (int)2;
+				currALabel.TargetNumber = (int)6;
+				currALabel  = new InternalDesktop.ArrowLabel10("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)1;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new InternalDesktop.ArrowLabel11("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)11;
+				currALabel.TargetNumber = (int)3;
+				currALabel  = new InternalDesktop.ArrowLabel12("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)12;
+				currALabel.TargetNumber = (int)11;
+				currALabel  = new InternalDesktop.ArrowLabel13("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)9;
+				currALabel.TargetNumber = (int)12;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -1435,10 +1456,10 @@ namespace GeneratedProject
 					{
 						near = 1;
 						far = 500;
-						fieldOfView = 40;
+						fieldOfView = 50;
 						width = 0;
 						height = 0;
-						Scale = 2;
+						Scale = 0.1;
 					}
 				}
 			}
@@ -1449,6 +1470,29 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					obj = new OblectLabel6.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.EmptyCamera
+				{
+					internal CategoryObject()
+					{
+						near = 1;
+						far = 500;
+						fieldOfView = 40;
+						width = 0;
+						height = 0;
+						Scale = 0.15;
+					}
+				}
+			}
+		
+			internal class OblectLabel7 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel7(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel7.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -1479,12 +1523,48 @@ namespace GeneratedProject
 				
 			}
 		
-			internal class OblectLabel7 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel8 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel7(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel8(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel7.CategoryObject();
+					obj = new OblectLabel8.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
+				{
+				
+					internal CategoryObject()
+					{
+						relativePosition = new double[]
+						{
+				150
+				, 140
+				, 0
+						};
+				
+						relativeQuaternion = new double[]
+						{
+				0.70710678118654757
+				, 0
+				, 0.70710678118654746
+				, 0
+						};
+				
+						Init();
+					}
+				
+				}
+				
+			}
+		
+			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel9.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -1495,12 +1575,120 @@ namespace GeneratedProject
 						double[,] size = null;
 						size = new double[,]
 						{
-							{-3.24192, -0.52584, -2.678968 },
-							{3.88008, 1.12512, 2.673832 }
+							{-69.87408, -116.2153, -19.41953 },
+							{69.87408, 123.5006, 19.41953 }
 						};
 						Parameters = new  Motion6D.Portable.EmptyCameraConsumer(this, size);
 					}
 				}
+			}
+		
+			internal class OblectLabel10 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel10.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
+				{
+				
+					internal CategoryObject()
+					{
+						relativePosition = new double[]
+						{
+				0
+				, 0
+				, 0
+						};
+				
+						relativeQuaternion = new double[]
+						{
+				1
+				, 0
+				, 0
+				, 0
+						};
+				
+						Init();
+					}
+				
+				}
+				
+			}
+		
+			internal class OblectLabel11 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel11(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel11.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
+				{
+				
+					internal CategoryObject()
+					{
+						relativePosition = new double[]
+						{
+				0
+				, 0
+				, 0
+						};
+				
+						relativeQuaternion = new double[]
+						{
+				0.70710678118654757
+				, -0
+				, 0
+				, -0.70710678118654746
+						};
+				
+						Init();
+					}
+				
+				}
+				
+			}
+		
+			internal class OblectLabel12 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel12(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel12.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
+				{
+				
+					internal CategoryObject()
+					{
+						relativePosition = new double[]
+						{
+				0
+				, 0
+				, 0
+						};
+				
+						relativeQuaternion = new double[]
+						{
+				0.70710678118654757
+				, -0
+				, -0.70710678118654746
+				, 0
+						};
+				
+						Init();
+					}
+				
+				}
+				
 			}
 		
 			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
@@ -1576,12 +1764,8 @@ namespace GeneratedProject
 					arrow = new ArrowLabel5.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
+				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
 				{
-					internal CategoryArrow()
-					{
-				
-					}
 				}
 			}
 		
@@ -1593,8 +1777,12 @@ namespace GeneratedProject
 					arrow = new ArrowLabel6.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
+				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
+					internal CategoryArrow()
+					{
+				
+					}
 				}
 			}
 		
@@ -1606,8 +1794,12 @@ namespace GeneratedProject
 					arrow = new ArrowLabel7.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
+					internal CategoryArrow()
+					{
+				
+					}
 				}
 			}
 		
@@ -1632,7 +1824,59 @@ namespace GeneratedProject
 					arrow = new ArrowLabel9.CategoryArrow();
 				}
 		
+				internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+				{
+				}
+			}
+		
+			internal class ArrowLabel10 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel10.CategoryArrow();
+				}
+		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel11 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel11(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel11.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
+				{
+				}
+			}
+		
+			internal class ArrowLabel12 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel12(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel12.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
+				{
+				}
+			}
+		
+			internal class ArrowLabel13 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel13(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel13.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
 				{
 				}
 			}

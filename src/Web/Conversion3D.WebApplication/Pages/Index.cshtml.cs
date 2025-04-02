@@ -14,7 +14,7 @@ namespace Conversion3D.WebApplication.Pages
 
         public void OnGet()
         {
-            Response.Redirect("./Upload3D");
+           // Response.Redirect("./Upload3D");
         }
     }
 }

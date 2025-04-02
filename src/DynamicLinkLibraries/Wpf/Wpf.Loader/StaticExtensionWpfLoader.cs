@@ -398,54 +398,36 @@ namespace Wpf.Loader
             mesh.Positions = coll;
         }
 
-        static public bool Multiply(this Visual3D v3d, double scale)
+        static public void Multiply(this Visual3D v3d, double scale)
         {
-            if (v3d is ModelVisual3D)
+
+            if (v3d is ModelVisual3D m3d)
             {
-                ModelVisual3D m3d = v3d as ModelVisual3D;
-                object ob = m3d.Content;
-                if (ob != null)
+                foreach (Visual3D vtd in m3d.Children)
                 {
-                    GeometryModel3D geom = null;
-                    if (ob is GeometryModel3D)
+                    vtd.Multiply(scale);
+                }
+                object ob = m3d.Content;
+                if (ob is GeometryModel3D geom)
+                {
+                    if (geom.Geometry is MeshGeometry3D mesh)
                     {
-                        geom = ob as GeometryModel3D;
-                    }
-                    else if (ob is Model3DGroup)
-                    {
-                        Model3DGroup gr = ob as Model3DGroup;
-                        Model3DCollection ch = gr.Children;
-                        foreach (object o in ch)
-                        {
-                            if (o is GeometryModel3D)
-                            {
-                                geom = o as GeometryModel3D;
-                                break;
-                            }
-                        }
-                    }
-                    if (geom != null)
-                    {
-                        Geometry3D g3d = geom.Geometry;
-                        if (g3d is MeshGeometry3D)
-                        {
-                            MeshGeometry3D mesh = g3d as MeshGeometry3D;
-                            mesh.Multiply(scale);
-                        }
+                        mesh.Multiply(scale);
                     }
                 }
-                else
+
+                else if (ob is Model3DGroup gr)
                 {
-                    foreach (Visual3D vtd in m3d.Children)
+                    Model3DCollection ch = gr.Children;
+                    foreach (var o in ch)
                     {
-                        if (vtd.Multiply(scale))
-                        {
-                            return true;
-                        }
+                        //  if (o is ModelVisual3D mv3d)
+                        //  {
+                        //     Multiply(mv3d, scale);
+                        // }
                     }
                 }
             }
-            return false;
         }
 
 
