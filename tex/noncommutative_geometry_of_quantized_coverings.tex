@@ -12576,7 +12576,7 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 	\be\label{k_k_g_eqn}
 	\begin{split}
 		K\left(B^2, S^1 \right)= \Z~ d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right),\\
-		\forall \left(x, \xi \right) \in S^1 \times \C \quad  \a\left(x, \xi\right) =\left(x, V\left(x \right) \xi\right),
+		\forall \left(x, z \right) \in S^1 \times \C \quad  \a_{\left(B^2, S^1 \right)}\left(x, z\right) =\left(x, V\left(x \right) z\right),
 	\end{split}
 	\ee
 where 
@@ -12589,9 +12589,9 @@ S^1 \cong \left\{z \in \C | \left|z\right\|=1\right\}.
 $$	
 From the Proposition \ref{k_comp_prop}) id follows that
 	\be
-	\forall n \in \Z \quad d\left( B^2 \times \C, B^2 \times \C, \a^n_{\left(B^2, S^1 \right)}\right)= n d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right)
+	\forall m \in \Z \quad d\left( B^2 \times \C, B^2 \times \C, \a^m_{\left(B^2, S^1 \right)}\right)= m d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right)
 	\ee
-	Taking into account the Theorem \ref{k_exc_thm} one has an isomorphism
+	Taking into account the Theorem \ref{k_excision_thm} one has an isomorphism
 	\be
 	K\left(S^2, \{s_0\} \right)\cong  K\left( B^2/S^1,\{{s_0}\}\right) \xrightarrow{\cong }K\left(B^2, S^1 \right)\cong \Z.
 	\ee
@@ -12603,7 +12603,7 @@ From the Proposition \ref{k_comp_prop}) id follows that
 	\be
 	\begin{split}
 		\left[H_{S^2}\right] = j\left(d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right) \right),\\
-		\forall n \in \Z \quad n\left[H_{S^2}\right] = j\left(d\left( B^2 \times \C, B^2 \times \C, \a^n_{\left(B^2, S^1 \right)}\right) \right)
+		\forall m \in \Z \quad n\left[H_{S^2}\right] = j\left(d\left( B^2 \times \C, B^2 \times \C, \a^m_{\left(B^2, S^1 \right)}\right) \right)
 	\end{split}
 	\ee
 	(cf. \ref{k_triple_empt} and the Example \ref{k_triple_exm}).
@@ -12672,8 +12672,64 @@ $$
 
  The $*$-homomorphism $SC\left(S^1 \right) \xrightarrow{\iota} C_{ C\left(\th_n \right)}$ comes from the natural inclusion
  $$
-  CS^1\subset C'_{\th_n}\setminus \{m_0\}
+ S S^1 \cong S^2 \setminus \{x_0\}\cup \{x_1\}\subset C'_{\th_n}\setminus \{m_0\}
  $$
+Can be uniquely extended up to the inclusion
+$$
+  S^2 \setminus \{x_0\}\subset C'_{\th_n}
+$$
+From  $S^2 \setminus \{x_0\}\cong B^2 \setminus S^1$ it follows that there is isomorphism
+$$
+ K\left(B^2, S^1 \right) \cong K\left(S^2, \{x_1\} \right)
+$$
+ There are surjective maps $\phi_{B^2}: S^1 \times \left[0, 1\right] \to B^2$ and $\phi_{S^2}: S^1 \times \left[0, 1\right] \to S^2$ and $\phi^{B^2}_{S^2}: B^2 \to S^2$ such that 
+ $$
+ \phi_{S^2}\left(x, t \right)= \phi^{B^2}_{S^2}\circ  \phi_{S^2}\left(x, t \right)
+ $$
+ $\sV_{B^2} \bydef \phi^{-1}_{B^2}\left( S^1 \times \left[\frac{1}{2}, 1\right]\right)$ is the closed neighborhood of $S^1 \subset B^2$ and $\sV_{S^2}\bydef \phi^{B^2}_{S^2}\left(\sV_{B^2} \right)$ is a closed neighborhood od  $x_1$. If  $x = d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right)\in K\left(B^2, S^1 \right)$ is given by the equation \eqref{k_k_g_eqn} then according to the proof of the  Theorem \ref{k_excision_thm} image of $x$ in $K\left(S^2, \{x_0\} \right)$ can be represented by $d\left(\E_{\a_{\left(B^2, S^1 \right)}}, \F, \a_{x_1} \right)$ where $\F$ is a rank-one trivial bundle, and  $\E_{\a_{\left(B^2, S^1 \right)}}$ is such that
+ \bean
+\E_{\a_{\left(B^2, S^1 \right)}}|_{\sV_{S^2}} \cong \E' \cong \sV_{S^2}\times \C, \\
+ \E_{\a_{\left(B^2, S^1 \right)}}|_{S^2 \setminus \{x_1\}} \cong \E'' \cong S^2 \setminus \{x_1\}\times \C,\\
+ \forall \left(x, t  \right) \in S^1 \times \left[\frac{1}{2}, 1\right)\quad \forall z \in \C\quad \phi'\left(x, z \right) =  \phi''\left(x, \a_{\left(B^2, S^1 \right)}\left(x \right) \left(z \right)  \right).
+ \eean
+ where $\phi' : \E' \cong V_{S^2}\times \C$ and $\phi'': \E'' \cong S^2 \setminus \{x_1\}\times \C$ are natural isomorphisms of bundles. From \eqref{top_cp_eqn} if follows that there is a surjective map $\phi_{C'_{\th_n}}: S^1 \times \left[0, 1\right] \to C'_{\th_n}$ and an inclusion
+ \bean
+ S^1 \cong \th_n\left( S^1\right) \to C'_{\th_n},\\
+\forall  {\th_n}\left( x\right)\in S^1\quad   {\th_n}\left( x\right) = \phi_{C'_{\th_n}}\left( x, 1\right). 
+ \eean
+ where the above equation does not depend on choice of $x\in \th_n^{-1}\left( x\right)$. 
+ The inclusion  $S^2 \setminus \{x_0\}\subset C'_{\th_n}$ yields a homeomorphism $S^2 \setminus \{x_0\}\cong  C'_{\th_n}\setminus S^1$. It follows that the map $\left(C'_{\th_n}, S^1 \right) \to \left(S^1\setminus\{x_1\} \right)$ yields an isomorphism
+  $$
+\varphi  : K\left(S^2, \{x_0\} \right) \cong K\left(C'_{\th_n}, S^1 \right)
+  $$
+According to the proof of the  Theorem \ref{k_excision_thm} $\varphi\left(d\left(\E_{\a_{\left(B^2, S^1 \right)}}, \F, \a_{x_1} \right) \right)\in K\left(C'_{\th_n}, S^1 \right)$ can be represented by a triple 
+$
+\left(\widetilde \E_{\a_{\left(B^2, S^1 \right)}}, \widetilde \F, \Id_{S_1\otimes \C} \right)
+$ where $\widetilde \F$ is the trivial rank one bundle over $C'_{\th_n}$ whee $\widetilde\E_{\a_{\left(B^2, S^1 \right)}}$ is such that
+\bean
+\widetilde\E_{\a_{\left(B^2, S^1 \right)}}|_{\sV_{C'_{\th_n}}} \cong \E' \cong \sV_{C'_{\th_n}}\times \C, \\
+\widetilde\E_{\a_{\left(B^2, S^1 \right)}}|_{S^2 \setminus \{x_1\}} \cong \widetilde\E'' \cong \left( C'_{\th_n} \setminus S^1\right) \times \C,\\
+\forall \left(x, t  \right) \in S^1 \times \left[\frac{1}{2}, 1\right)\quad \forall z \in \C\quad \widetilde \phi'\left(x, z \right) =  \widetilde \phi''\left(x, \a_{\left(B^2, S^1 \right)}\left(x \right) \left(z \right)  \right).
+\eean
+ where $\widetilde\phi' : \widetilde\E' \cong\sV_{C'_{\th_n}}\times \C$ and $\widetilde\phi'': \widetilde\E'' \cong C'_{\th_n} \setminus S^1$ are natural isomorphisms of bundles. There is a surjective continuous map $\phi^{CS^1}_{ C'_{\th_n}} : CS^1 \to C'_{\th_n}$ such that 
+ $$
+\forall \left( x, t\right)\in S^1 \times \left[0, 1\right] \quad  \phi_{C'_{\th_n}} \left(x, t\right) = \phi^{CS^1}_{ C'_{\th_n}}\circ \phi_{CS^1}\left(x,t \right) 
+ $$
+ where $\phi^{CS^1}: S^1 \times \left[0, 1\right] \to CS^1$ is the natural surjective map. Moreover
+\bean
+ C'_{\th_n} = CS^1 / \sim_{CS^1},\\
+ \phi_{CS^1}\left( x'', 1\right)   \sim_{CS^1} \phi_{CS^1}\left( x'', 1\right) ~~ \Leftrightarrow ~~  \th_n \left( x'\right) = \th_n\left( x''\right)~~ \Leftrightarrow ~~  V^n \left( x'\right) = V^n\left( x''\right) 
+\eean
+(cf. equations \eqref{h_th_n_eqn}, \eqref{h_zth_n_eqn}). 
+ The equation \eqref{k_k_g_eqn} yields an alternative description of the bundle $\widetilde\E_{\a_{\left(B^2, S^1 \right)}}$. One has
+ \bean
+ \widetilde\E_{\a_{\left(B^2, S^1 \right)}}= CS^1 \times \C / \sim_{CS^1 \times \C},\\
+ \left(\phi_{CS^1}\left( x', 1\right), z' \right) \sim_{CS^1 \times \C}  \left(\phi_{CS^1}\left( x'', 1\right), z'' \right)
+ \eean 
+ 
+
+ 
+ 
  Taking into account \eqref{h_k_iso_eqn} we would like to find  $K_0\left( \iota\right) \left( d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right)\right) \in 	K\left(C'_{\th_n}\setminus \{m_0\} \right)$ where
 	\bean
 \begin{split}
@@ -21121,74 +21177,6 @@ Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_def
 	The space $I^2_o$ is said to be the \textit{the ordered square} (cf. \cite{munkres:topology}).
 \end{empt}
 
-	\section{Vector bundles}\label{top_vb_sub_sub}
-\paragraph*{}
-Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
-\begin{definition}\label{top_vb_fiber_defn}\cite{karoubi:k}
-	A \textit{quasi-vector bundle with base} $\mathcal X$ is given by:
-	\begin{enumerate}
-		\item [(a)] A finite dimensional $k$-vector space $E_x$ for every point $x$ of $\mathcal X$.
-		\item[(b)] A topology on the disjoint union $E = \bigsqcup E_x$ which induces the natural topology on each $E_x$, such that the obvious projection $\pi: E \to  \mathcal X$ is continuous.
-	\end{enumerate}
-	The quasi-vector bundle with base will be denoted by $\xi = \left( E, \pi, \mathcal X\right)$. The space $E$ is the \textit{total space} of $\xi$ and $E_x$ is the \textit{fiber} of $\xi$ at the point $x$.
-\end{definition}
-\begin{empt}\label{trivial_vb_empt}\cite{karoubi:k}	Let $V$ be a finite dimensional vector space over $k$,  $E_x = V$ and the total space may be identified with $\sX \times V$ with the product topology then the quasi-vector bundle  $\left(\sX \times V, \pi, \mathcal X\right)$ is called a \textit{trivial vector bundle}.
-\end{empt}
-\begin{empt}\cite{karoubi:k}	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a quasi-vector bundle, and let let $\sX' \subset \sX$ be a subspace of $\sX$. The triple $\xi' = \left(\pi^{-1}\left( \sX'\right) , \pi|_{\pi^{-1}\left( \sX'\right)}, \mathcal X'\right)$ is called the \textit{restriction} of $\xi$ to $\sX'$. The fibers of $\xi'$ are just fibers of $\xi$ over the subspace $\xi$. One has
-	\be
-	\sX'' \subset \sX' \subset \sX \quad \Rightarrow\quad \left.\left(\xi|_{\sX'} \right) \right|_{\sX''}= \xi|_{\sX''}.
-	\ee
-\end{empt}
-\begin{definition}\label{top_vb_defn}\cite{karoubi:k}
-	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighborhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
-\end{definition}
-\begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
-%	5.1. Definition.
-	 Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous. The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left  and right $C_b\left(\mathcal{X} \right)$-module.
-\end{definition}
-\begin{notation}\label{top_sec_notn}
-	We denote by $\Ga\left( M, E\right)$ the $\C$-space of continuous sections. Both  $\Ga_0\left( M, E\right)$ and $\Ga_c\left( M, E\right)$ are subspaces of  sections tending to zero at infinity and having compact support.
-\end{notation}
-\begin{remark}
-	In \cite{karoubi:k} the vector bundles over fields $\R$ and $\C$ are considered. Here we consider complex vector bundles only.
-\end{remark}
-% 	We refer to \cite{karoubi:k} for a notion of {\it (locally trivial) vector bundle}. 	Any {\it (locally trivial) vector bundle} with base $\mathcal X$ is a special case of \textit{quasi-vector bundle} which is a triple $\left(E, \pi, \mathcal X \right)$. 
-\begin{definition}\label{vb_inv_img_funct_defn}\cite{karoubi:k}
-	Let $f: \mathcal X' \to \mathcal X$ be a continuous map. For every point $x'$ of $\mathcal X'$, let $E'_{x'}= E_{f\left(x' \right) }$. Then the set $E' = \bigsqcup_{x' \in \mathcal X'}E'_{x'}$ may be identified with the \textit{fiber product} $\mathcal X' \times_{\mathcal X} E$ formed by the pairs $\left(x',e \right)$ such that $f\left(x' \right) = \pi\left( e\right)$. If  $\pi': E' \to \mathcal X'$ is defined by $\pi'\left(x',e \right) = x'$, it is clear that the triple $\xi = \left( E', \pi', \mathcal X'\right)$ defines a quasi-vector bundle over $ \mathcal X'$, when we provide $E'$ with the topology induced by $ \mathcal X' \times E$. We write $\xi' = f^*\left(\xi \right)$ or $f^*\left(E \right)$: this is the \textit{inverse image} of $\xi$ by $f$.  
-\end{definition}
-\begin{theorem}\label{serre_swan_thm}\cite{karoubi:k}.
-	Theorem (Serre, Swan). Let $A = C_k(\sX)$ be the ring of continuous 
-	functions on a compact space $\sX$ with values in $k$. Then the section functor $\Ga$ (cf. Notation \ref{top_sec_notn}) induces an 
-	equivalence of categories of vector bundles over $\sX$ and finitely generated projecive $A$-modules.
-\end{theorem}
-
-\begin{definition}\label{top_herm_bundle_form_defn}\cite{karoubi:k}
-%8.1. Definition. 
-Let $E$ be a vector bundle over $\C$. A \textit{sesquilinear form} on $E$ is a 
-continuous map $\varphi: E \times_\sX E \to \C$ which has the following property. The map 
-$\varphi_x : E_x \times E_x$ induced on each fiber is "sesquilinear" with respect to the $\C$-vector space structure of $E_x$. In other words, ($\varphi_x$ is $\R$-bilinear and $\varphi_x\left(\la e, e' \right)  = \varphi_x\left( e, \overline \la e' \right) = \la \varphi_x\left( e, e' \right)$ f
-for $\la\in \C$, $e \in E_x$, and $e' \in E_x$. 
-\end{definition}
-
-
-
-
-
-%Following fact is an implication of definitions.
-%\begin{fact}\label{inv_image_fact}
-%	A map $\varphi^*$ is an inverse image of $\varphi$ if and only if the above diagram is commutative for any $\mathcal U$ such that $\pi |_{\mathcal U}: \mathcal U \to \pi ({\mathcal U})$ is a homeomorphism.
-%\end{fact}
-
-\begin{remark}\label{top_herm_bundle_rem}
-	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times_\sX E \to \C$ then there are the following pairings
-	\bea\label{top_gg_eqn}
-	\left\langle \cdot, \cdot \right\rangle:  \Ga_0\left( \sX, E\right)\times \Ga_0\left( \sX, E\right) \to C_0\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) ,\\
-	\label{top_ggc_eqn}
-	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( \sX, E\right)\times \Ga_c\left( \sX, E\right) \to C_c\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) 
-	\eea
-	(cf. Notation \ref{top_sec_notn}).
-\end{remark}
-
 \section{Algebraic topology}
 \subsection{Exact sequences of sets of homotopy classes}
 \paragraph{}
@@ -21686,13 +21674,82 @@ $\pi_n\left(\sY \right)= 0$ is isomorphic to $\pi$.
 %	\eean
 %	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
 %\end{remark}
-\section{Elements of $K$-theory}
-\paragraph{} We assume knowledge of elementary notions of $K$-theory explained in \cite{atiyah:kt,hatcher:kt,karoubi:k}.
+	\section{Vector bundles and elements of $K$-theory}\label{top_vb_sub_sub}
+	\subsection{Vector bundles}
+\paragraph*{}
+Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
+\begin{definition}\label{top_vb_fiber_defn}\cite{karoubi:k}
+	A \textit{quasi-vector bundle with base} $\mathcal X$ is given by:
+	\begin{enumerate}
+		\item [(a)] A finite dimensional $k$-vector space $E_x$ for every point $x$ of $\mathcal X$.
+		\item[(b)] A topology on the disjoint union $E = \bigsqcup E_x$ which induces the natural topology on each $E_x$, such that the obvious projection $\pi: E \to  \mathcal X$ is continuous.
+	\end{enumerate}
+	The quasi-vector bundle with base will be denoted by $\xi = \left( E, \pi, \mathcal X\right)$. The space $E$ is the \textit{total space} of $\xi$ and $E_x$ is the \textit{fiber} of $\xi$ at the point $x$.
+\end{definition}
+\begin{empt}\label{trivial_vb_empt}\cite{karoubi:k}	Let $V$ be a finite dimensional vector space over $k$,  $E_x = V$ and the total space may be identified with $\sX \times V$ with the product topology then the quasi-vector bundle  $\left(\sX \times V, \pi, \mathcal X\right)$ is called a \textit{trivial vector bundle}.
+\end{empt}
+\begin{empt}\cite{karoubi:k}	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a quasi-vector bundle, and let let $\sX' \subset \sX$ be a subspace of $\sX$. The triple $\xi' = \left(\pi^{-1}\left( \sX'\right) , \pi|_{\pi^{-1}\left( \sX'\right)}, \mathcal X'\right)$ is called the \textit{restriction} of $\xi$ to $\sX'$. The fibers of $\xi'$ are just fibers of $\xi$ over the subspace $\xi$. One has
+	\be
+	\sX'' \subset \sX' \subset \sX \quad \Rightarrow\quad \left.\left(\xi|_{\sX'} \right) \right|_{\sX''}= \xi|_{\sX''}.
+	\ee
+\end{empt}
+\begin{definition}\label{top_vb_defn}\cite{karoubi:k}
+	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighborhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
+\end{definition}
+\begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
+	%	5.1. Definition.
+	Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous. The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left  and right $C_b\left(\mathcal{X} \right)$-module.
+\end{definition}
+\begin{notation}\label{top_sec_notn}
+	We denote by $\Ga\left( M, E\right)$ the $\C$-space of continuous sections. Both  $\Ga_0\left( M, E\right)$ and $\Ga_c\left( M, E\right)$ are subspaces of  sections tending to zero at infinity and having compact support.
+\end{notation}
+\begin{remark}
+	In \cite{karoubi:k} the vector bundles over fields $\R$ and $\C$ are considered. Here we consider complex vector bundles only.
+\end{remark}
+% 	We refer to \cite{karoubi:k} for a notion of {\it (locally trivial) vector bundle}. 	Any {\it (locally trivial) vector bundle} with base $\mathcal X$ is a special case of \textit{quasi-vector bundle} which is a triple $\left(E, \pi, \mathcal X \right)$. 
+\begin{definition}\label{vb_inv_img_funct_defn}\cite{karoubi:k}
+	Let $f: \mathcal X' \to \mathcal X$ be a continuous map. For every point $x'$ of $\mathcal X'$, let $E'_{x'}= E_{f\left(x' \right) }$. Then the set $E' = \bigsqcup_{x' \in \mathcal X'}E'_{x'}$ may be identified with the \textit{fiber product} $\mathcal X' \times_{\mathcal X} E$ formed by the pairs $\left(x',e \right)$ such that $f\left(x' \right) = \pi\left( e\right)$. If  $\pi': E' \to \mathcal X'$ is defined by $\pi'\left(x',e \right) = x'$, it is clear that the triple $\xi = \left( E', \pi', \mathcal X'\right)$ defines a quasi-vector bundle over $ \mathcal X'$, when we provide $E'$ with the topology induced by $ \mathcal X' \times E$. We write $\xi' = f^*\left(\xi \right)$ or $f^*\left(E \right)$: this is the \textit{inverse image} of $\xi$ by $f$.  
+\end{definition}
+\begin{theorem}\label{serre_swan_thm}\cite{karoubi:k}.
+	Theorem (Serre, Swan). Let $A = C_k(\sX)$ be the ring of continuous 
+	functions on a compact space $\sX$ with values in $k$. Then the section functor $\Ga$ (cf. Notation \ref{top_sec_notn}) induces an 
+	equivalence of categories of vector bundles over $\sX$ and finitely generated projecive $A$-modules.
+\end{theorem}
+
+\begin{definition}\label{top_herm_bundle_form_defn}\cite{karoubi:k}
+	%8.1. Definition. 
+	Let $E$ be a vector bundle over $\C$. A \textit{sesquilinear form} on $E$ is a 
+	continuous map $\varphi: E \times_\sX E \to \C$ which has the following property. The map 
+	$\varphi_x : E_x \times E_x$ induced on each fiber is "sesquilinear" with respect to the $\C$-vector space structure of $E_x$. In other words, ($\varphi_x$ is $\R$-bilinear and $\varphi_x\left(\la e, e' \right)  = \varphi_x\left( e, \overline \la e' \right) = \la \varphi_x\left( e, e' \right)$ f
+	for $\la\in \C$, $e \in E_x$, and $e' \in E_x$. 
+\end{definition}
+
+
+
+
+
+%Following fact is an implication of definitions.
+%\begin{fact}\label{inv_image_fact}
+%	A map $\varphi^*$ is an inverse image of $\varphi$ if and only if the above diagram is commutative for any $\mathcal U$ such that $\pi |_{\mathcal U}: \mathcal U \to \pi ({\mathcal U})$ is a homeomorphism.
+%\end{fact}
+
+\begin{remark}\label{top_herm_bundle_rem}
+	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times_\sX E \to \C$ then there are the following pairings
+	\bea\label{top_gg_eqn}
+	\left\langle \cdot, \cdot \right\rangle:  \Ga_0\left( \sX, E\right)\times \Ga_0\left( \sX, E\right) \to C_0\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) ,\\
+	\label{top_ggc_eqn}
+	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( \sX, E\right)\times \Ga_c\left( \sX, E\right) \to C_c\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) 
+	\eea
+	(cf. Notation \ref{top_sec_notn}).
+\end{remark}
+
+
+
 
 \subsection{The Fundamental Product Theorem}\label{k_fund_prod_sec}
 
 \paragraph{}
-
+ We assume knowledge of elementary notions of $K$-theory explained in \cite{atiyah:kt,hatcher:kt,karoubi:k}.
 The key result allowing the calculation of $K\left( \sX\right)$  in nontrivial cases is a certain formula
 that computes $K\left(\sX \times S^2 \right)$  in terms of  $K\left(\sX \times S^2 \right)$. For example, when $\sX$ is a point this
 will yield a calculation of $K\left(S^2 \right)$.  Any point of the projective space $\C P^1$ yields a one-dimensional $\C$-subspace  of $\C^2$. So there is a $\C$-bundle over $\C P^1$ which sets to any point of $\C P^1$ the corresponding subspace. Using a homeomorphism $S^2 \cong \C P^1$ we define 
@@ -21826,7 +21883,7 @@ K\left(\varphi\right)\xrightarrow{j} K\left(\mathscr C\right)\xrightarrow{k} K\l
 	K\left( \sX,\sY\right)\to K\left( \sX\right) \to K\left(\sY \right).
 	$$
 \end{remark}
-\begin{theorem}\label{k_exc_thm}(Excision)\cite{karoubi:k}
+\begin{theorem}\label{k_excision_thm}(Excision)\cite{karoubi:k}
 %2.35. Theorem (Excision). 
 The projection $\pi: \sX \to \sX/\sY$ induces an isomorphism 
 $$

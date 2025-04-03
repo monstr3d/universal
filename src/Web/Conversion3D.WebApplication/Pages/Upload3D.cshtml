@@ -4,27 +4,18 @@
     ViewData["Title"] = "Texture preserving conversion of 3D formats";
 
 }
-<link rel="stylesheet" href="~/css/StyleSheet.css">
+<link rel="stylesheet" href="~/css/StyleSheetIndex.css">
+
 @inject IHttpContextAccessor httpContextAccessor;
 
-@{
- /*  var options = new CookieOptions();
-    options.Expires = DateTime.Now.AddDays(1);
-    options.IsEssential = true;
-    options.Path = "/";
-    httpContextAccessor.HttpContext.Response.Cookies.Append(
-        "Cookie", "##ertgUU", options);*/
 
-
-}
-
-<body class="body-filter">
-   <font color="white"> <p ><h1 >Texture preserving conversion of 3D formats</h1></font></p>
+<body class="body-main">
+   <font color="green"> <p ><h1 >Texture preserving conversion of 3D formats</h1></font></p>
 
 <form asp-validation-summary="None" enctype="multipart/form-data" novalidate method="post">
     <dl>
         <dt>
-            <table class="fon" width="90%" border="1" >
+            <table class="fon-index" width="90%" border="1" >
                 <tr>
                         <td>
                 <table width="100%">
@@ -38,7 +29,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input asp-for="Directory" type="text" class="input-filter" />
+                                    <input asp-for="Directory" type="text" class="input-filter-index" />
                                 </td>
                             </tr>
                             <tr>
@@ -48,7 +39,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input asp-for="InputDirectory" type="text" class="input-filter" />
+                                    <input asp-for="InputDirectory" type="text" class="input-filter-index" />
                                 </td>
                             </tr>
                                             <tr>
@@ -83,7 +74,7 @@
 </tr>
 <tr>
                 <td align="center">
-                    <input asp-page-handler="Upload" class="btnsumbit-filter"
+                    <input asp-page-handler="Upload" class="btnsumbit-filter-index"
                            type="submit" value="Covert Now" />
                 </td>
                 </tr>
@@ -100,7 +91,7 @@
     <h1 color="red">@Model.ConvertedText</h1>
     <form enctype="multipart/form-data" method="post">
             <input asp-page-handler="Download"
-                   class="btnsumbit-filter"
+                   class="btnsumbit-filter-index"
                    type="submit"
                    value=@Model.Download />
 </form>
