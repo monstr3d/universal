@@ -8,6 +8,7 @@ using DataPerformer.Interfaces;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -231,10 +232,9 @@ namespace DataPerformer.Portable
                     tc.Time = dictionary[tc];
                 }
             }
-            if (o is IChildrenObject)
+            if (o is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = o as IChildrenObject;
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 foreach (object ob in ch)
                 {
                     Reset(ob);
@@ -282,9 +282,9 @@ namespace DataPerformer.Portable
             // IDataRuntime dr = consumer.CreateRuntime();
         }
 
-        static void SetTimeProvider(IChildrenObject co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(IChildren<IAssociatedObject> co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            IAssociatedObject[] ao = co.Children;
+            IAssociatedObject[] ao = co.Children.ToArray();
             foreach (object o in ao)
             {
                 if (o is IDataConsumer)
@@ -297,9 +297,8 @@ namespace DataPerformer.Portable
                     IMeasurements mea = o as IMeasurements;
                     SetTimeProvider(mea, provider, dictionary);
                 }
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> cho)
                 {
-                    IChildrenObject cho = o as IChildrenObject;
                     SetTimeProvider(cho, provider, dictionary);
                 }
             }

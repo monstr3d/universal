@@ -9,6 +9,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using Motion6D.Portable.Aggregates;
+using NamedTree;
 
 namespace Motion6D.UI.Forms
 {
@@ -42,9 +43,8 @@ namespace Motion6D.UI.Forms
             }
             else
             {
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> co)
                 {
-                    IChildrenObject co = o as IChildrenObject;
                     rigidBody = co.GetChild<RigidBody>();
                     if (rigidBody == null)
                     {

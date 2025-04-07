@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Drawing;
-
 using CategoryTheory;
-using Diagram.UI.Labels;
+using DataPerformer.UI.UserControls;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-
-using DataPerformer.UI.UserControls;
+using Diagram.UI.Labels;
+using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.UI.Labels
 {
@@ -84,9 +84,10 @@ namespace DataPerformer.UI.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return this.GetRootLabel().Name; }
+            get => this.GetRootLabel().Name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

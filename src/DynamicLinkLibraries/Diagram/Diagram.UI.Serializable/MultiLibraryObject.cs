@@ -130,7 +130,7 @@ namespace Diagram.UI
             {
                 name = value;
                 theObject = Factory[name];
-                childern[0] = theObject;
+                children[0] = theObject;
                 if (Object != null)
                 {
                     theObject.SetAssociatedObject(Object);
@@ -208,7 +208,7 @@ namespace Diagram.UI
             }
             IObjectFactory factory = Factory;
             theObject = factory[name];
-            childern[0] = theObject;
+            children[0] = theObject;
             IPropertiesEditor pe = theObject.GetObject<IPropertiesEditor>();
             if ((properties != null) & (pe != null))
             {

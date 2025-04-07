@@ -18,7 +18,7 @@ namespace Diagram.UI.XmlObjectFactory
         #region Fields
 
         /// <summary>
-        /// Childern factories
+        /// children factories
         /// </summary>
         IXmlObjectFactory[] factories;
 
@@ -32,7 +32,7 @@ namespace Diagram.UI.XmlObjectFactory
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="factories">Childern factories</param>
+        /// <param name="factories">children factories</param>
         public XmlObjectFactoryAggregate(IXmlObjectFactory[] factories)
         {
             this.factories = factories;

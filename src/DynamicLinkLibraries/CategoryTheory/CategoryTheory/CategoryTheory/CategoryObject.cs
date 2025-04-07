@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ErrorHandler;
+using NamedTree;
 
 namespace CategoryTheory
 {
@@ -16,6 +18,8 @@ namespace CategoryTheory
         /// Associated object
         /// </summary>
         private object obj;
+
+        Performer performer = new Performer();
 
         #endregion
 
@@ -53,6 +57,8 @@ namespace CategoryTheory
                 obj = value;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
 
         #endregion
 

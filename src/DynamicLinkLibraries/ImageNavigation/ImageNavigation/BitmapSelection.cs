@@ -14,6 +14,7 @@ using BitmapConsumer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
+using NamedTree;
 
 namespace ImageNavigation
 {
@@ -27,6 +28,9 @@ namespace ImageNavigation
 
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         /// <summary>
         /// Add remove event
@@ -580,6 +584,7 @@ namespace ImageNavigation
             }
         }
 
+        string INamed.Name { get => Name; set => throw new NotImplementedException(); }
 
         private int GetX(int x)
         {

@@ -8,6 +8,7 @@ using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace Internet.Meteo.Wrapper
 {
@@ -16,6 +17,8 @@ namespace Internet.Meteo.Wrapper
 
     {
         #region Fields
+
+        CategoryTheory.Performer performer = new();
 
         bool isUpdated = false;
 
@@ -162,8 +165,10 @@ namespace Internet.Meteo.Wrapper
             }
         }
 
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+
         #endregion
-  
+
         #region Protected members
 
         /// <summary>

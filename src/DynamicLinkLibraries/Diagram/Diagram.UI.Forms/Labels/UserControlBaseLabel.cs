@@ -1,14 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Runtime.Serialization;
 using System.Reflection;
-
+using System.Runtime.Serialization;
+using System.Windows.Forms;
 using CategoryTheory;
-
-using Diagram.UI.Interfaces;
 using Diagram.UI.Forms.Interfaces;
+using Diagram.UI.Interfaces;
+using ErrorHandler;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {
@@ -222,9 +222,10 @@ namespace Diagram.UI.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return this.GetRootLabel().Name; }
+            get => this.GetRootLabel().Name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

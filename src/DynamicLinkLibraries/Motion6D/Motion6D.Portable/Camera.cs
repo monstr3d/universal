@@ -13,6 +13,7 @@ using Event.Interfaces;
 
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
@@ -24,6 +25,8 @@ namespace Motion6D.Portable
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
 
         object obj;
 
@@ -401,6 +404,8 @@ namespace Motion6D.Portable
                 return visible.Count;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// The position of n - th visible object

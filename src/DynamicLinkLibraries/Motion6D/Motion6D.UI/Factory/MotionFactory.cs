@@ -10,6 +10,7 @@ using Diagram.UI.Interfaces;
 
 using Motion6D.Aggregates;
 using Motion6D.UI.Forms;
+using NamedTree;
 
 namespace Motion6D.UI.Factory
 {
@@ -199,9 +200,8 @@ namespace Motion6D.UI.Factory
                         return new FormPointsCollection(lab);
                     default: break;
                 }
-                if (obj is IChildrenObject)
+                if (obj is IChildren<IAssociatedObject> co)
                 {
-                    IChildrenObject co = obj as IChildrenObject;
                     RigidBody rb = co.GetChild<RigidBody>();
                     if (rb != null)
                     {
@@ -266,9 +266,8 @@ namespace Motion6D.UI.Factory
             {
                 (new UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(null, true);
             }
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = obj as IChildrenObject;
                 RigidBody rb = co.GetChild<RigidBody>();
                 if (rb != null)
                 {

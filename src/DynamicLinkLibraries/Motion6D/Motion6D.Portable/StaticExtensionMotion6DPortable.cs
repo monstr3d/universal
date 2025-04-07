@@ -16,6 +16,8 @@ using Event.Portable;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable.Runtime;
+using NamedTree;
+using System.Linq;
 
 namespace Motion6D.Portable
 {
@@ -81,17 +83,17 @@ namespace Motion6D.Portable
             {
                 (visible as IVisible).Position = position;
             }
-            if (position is IChildrenObject)
+            if (position is IChildren<IAssociatedObject> tt)
             {
-                IAssociatedObject[] ch = (position as IChildrenObject).Children;
+                IAssociatedObject[] ch = tt.Children.ToArray();
                 foreach (object o in ch)
                 {
                     position.SetPosition(o);
                 }
             }
-            if (visible is IChildrenObject)
+            if (visible is IChildren<IAssociatedObject> ttt)
             {
-                IAssociatedObject[] ch = (visible as IChildrenObject).Children;
+                IAssociatedObject[] ch = ttt.Children.ToArray();
                 foreach (object o in ch)
                 {
                     position.SetPosition(o);

@@ -14,7 +14,7 @@ namespace CommonControls.Interfaces
         /// </summary>
         /// <param name="o">The object</param>
         /// <returns>The children</returns>
-        object[] GetChildern(object o);
+        object[] GetChildren(object o);
 
         /// <summary>
         /// Gets image index

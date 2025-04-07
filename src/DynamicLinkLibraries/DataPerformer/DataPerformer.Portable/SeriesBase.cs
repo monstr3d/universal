@@ -15,6 +15,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using BaseTypes.Interfaces;
 using System.Runtime.CompilerServices;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -28,6 +29,9 @@ namespace DataPerformer.Portable
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         /// <summary>
         /// Singleton
@@ -625,6 +629,8 @@ namespace DataPerformer.Portable
                 return points.Count;
             }
         }
+
+        string INamed.Name { get => Name; set => throw new NotImplementedException(); }
 
         #endregion
 

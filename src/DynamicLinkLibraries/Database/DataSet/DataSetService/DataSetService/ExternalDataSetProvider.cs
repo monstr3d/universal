@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using CategoryTheory;
-
+using NamedTree;
 using SerializationInterface;
 
 namespace DataSetService
@@ -17,7 +17,7 @@ namespace DataSetService
     /// External data set provider
     /// </summary>
     [Serializable()]
-    public class ExternalDataSetProvider : SavedDataProvider, IChildrenObject
+    public class ExternalDataSetProvider : SavedDataProvider, IChildren<IAssociatedObject>
     {
         #region Fields
 
@@ -84,11 +84,9 @@ namespace DataSetService
         #endregion
 
         #region IChildrenObject Members
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+
 
         #endregion
 

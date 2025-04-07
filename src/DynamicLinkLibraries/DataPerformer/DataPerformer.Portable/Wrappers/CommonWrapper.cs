@@ -8,6 +8,7 @@ using Diagram.UI;
 
 
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.Portable.Wrappers
 {
@@ -63,9 +64,9 @@ namespace DataPerformer.Portable.Wrappers
             {
                 return obj as IDifferentialEquationSolver;
             }
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> tt)
             {
-                return (obj as IChildrenObject).GetChild<IDifferentialEquationSolver>();
+                return tt.GetChild<IDifferentialEquationSolver>();
             }
             return null;
         }

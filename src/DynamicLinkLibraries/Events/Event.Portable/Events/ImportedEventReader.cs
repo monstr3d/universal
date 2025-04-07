@@ -9,6 +9,7 @@ using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace Event.Portable.Events
 {
@@ -16,7 +17,7 @@ namespace Event.Portable.Events
     /// Imported event with reading data
     /// </summary>
     public class ImportedEventReader : CategoryObject, IEvent, INativeEvent,
-       IMeasurements, IChildrenObject, IDisposable
+       IMeasurements, IChildren<IAssociatedObject>, IDisposable
     {
 
         #region Fields
@@ -179,11 +180,7 @@ namespace Event.Portable.Events
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
-
+    
         #endregion
 
         #region IDisposable Members
@@ -240,6 +237,8 @@ namespace Event.Portable.Events
                 return eventReader;
             }
         }
+
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
 

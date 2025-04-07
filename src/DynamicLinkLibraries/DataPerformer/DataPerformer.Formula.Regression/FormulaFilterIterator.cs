@@ -15,6 +15,7 @@ using Regression.Portable;
 using DataPerformer.Interfaces;
 using System;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Formula.Regression
 
@@ -26,6 +27,8 @@ namespace DataPerformer.Formula.Regression
         IVariableDetector, IAlias, ITreeCollection
     {
         #region Fields
+
+        CategoryTheory.Performer performer = new();
 
         Action update = null;
 
@@ -352,6 +355,8 @@ namespace DataPerformer.Formula.Regression
                 }
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
 
         #region Private Members
 

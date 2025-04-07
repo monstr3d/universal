@@ -290,7 +290,7 @@ namespace Diagram.UI
             }
             IObjectFactory factory = GetFactory(ass);
             theObject = factory[name];
-            childern[0] = theObject;
+            children[0] = theObject;
             if (Object != null)
             {
                 theObject.SetAssociatedObject(Object);

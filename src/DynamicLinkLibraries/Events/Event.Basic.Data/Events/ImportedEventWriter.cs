@@ -14,6 +14,7 @@ using Event.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace Event.Basic.Data.Events
 {
@@ -21,7 +22,7 @@ namespace Event.Basic.Data.Events
     /// Generate event + write
     /// </summary>
     [Serializable()]
-    public class ImportedEventWriter : CategoryObject, ISerializable, IChildrenObject,
+    public class ImportedEventWriter : CategoryObject, ISerializable, IChildren<IAssociatedObject>,
         IDataConsumer, IRealtimeUpdate, 
         IPostSetArrow, IDisposable
     {
@@ -98,10 +99,9 @@ namespace Event.Basic.Data.Events
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
+
+
 
         #endregion
 
@@ -238,7 +238,7 @@ namespace Event.Basic.Data.Events
         #endregion
 
         #region Private Members
-        
+
         void RealtimeUpdate()
         {
              if ((bool)conditionMeasure.Parameter())

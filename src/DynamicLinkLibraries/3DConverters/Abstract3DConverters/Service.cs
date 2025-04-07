@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Reflection;
-using System.Runtime.Intrinsics.Arm;
-using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
@@ -22,6 +20,8 @@ namespace Abstract3DConverters
         Func<string, bool> checkFile;
 
         Action<Image, string, string> CopyImageFunc = null;
+
+        NamedTree.Performer p = new ();
 
         #endregion
 
@@ -499,9 +499,8 @@ namespace Abstract3DConverters
         /// <returns>The arribute</returns>
         public T GetAttribute<T>(object obj) where T : Attribute
         {
-            Type type = (obj is Type) ? obj as Type : obj.GetType();
-           return CustomAttributeExtensions
-                .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(type));
+            
+           return  p.GetAttribute<T>(obj);
         }
 
         /// <summary>

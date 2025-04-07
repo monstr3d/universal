@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using CategoryTheory;
 
 using Diagram.UI.Factory;
 using Diagram.UI.Interfaces;
+using NamedTree;
 
 namespace Diagram.UI
 {
@@ -137,9 +138,9 @@ namespace Diagram.UI
             {
                 return f.GetAdditionalFeature<T>((T)obj);
             }
-            if (obj is IChildrenObject) // If object has children
+            if (obj is IChildren<IAssociatedObject> tt) // If object has children
             {
-                IAssociatedObject[] ao = (obj as IChildrenObject).Children;
+                IAssociatedObject[] ao = tt.Children.ToArray();
                 foreach (IAssociatedObject aa in ao) // Searches additional feature among children
                 {
                     object ob = GetAdditionalFeature<T>(f, aa);

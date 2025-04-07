@@ -18,6 +18,7 @@ using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using ErrorHandler;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {
@@ -177,12 +178,16 @@ namespace Diagram.UI.Labels
 
 		#region INamedComponent Members
 
-		string INamedComponent.Name => Name;
-
+		string INamed.Name
+		{
+			get => Name;
+            set => throw new IllegalSetPropetryException("LABEL");
+        }
+  
         /// <summary>
         /// Name
         /// </summary>
-		new protected virtual string Name
+        new protected virtual string Name
 		{
 			get
 			{

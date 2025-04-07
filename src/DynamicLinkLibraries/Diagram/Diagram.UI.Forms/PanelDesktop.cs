@@ -25,6 +25,7 @@ using Common.UI;
 
 using ToolBox;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace Diagram.UI
@@ -131,6 +132,8 @@ namespace Diagram.UI
 
         private List<string> files = new List<string>();
 
+        IComponentCollection component;
+
 
 
         #endregion
@@ -144,6 +147,7 @@ namespace Diagram.UI
         public PanelDesktop(ToolsDiagram tools)
         {
             this.tools = tools;
+            component = this;
             Paint += new PaintEventHandler(onPaint);
             brush = new SolidBrush(Color.White);
             MouseUp += new MouseEventHandler(onMouseUp);
@@ -1723,6 +1727,8 @@ namespace Diagram.UI
             }
         }
 
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => throw new NotImplementedException();
+
 
         /// <summary>
         /// Redraws itself
@@ -2366,10 +2372,9 @@ namespace Diagram.UI
                         arrows.Add(car);
                     }
                 }
-                if (ao is IChildrenObject)
+                if (ao is IChildren<IAssociatedObject> co)
                 {
-                    IChildrenObject co = ao as IChildrenObject;
-                    IAssociatedObject[] ass = co.Children;
+                    IAssociatedObject[] ass = co.Children.ToArray();
                     if (ass != null)
                     {
                         foreach (IAssociatedObject asso in ass)
@@ -2519,6 +2524,11 @@ namespace Diagram.UI
                     files.ToArray().Start();    
                 }
             }
+        }
+
+        IEnumerable<T> IComponentCollection.Get<T>()
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

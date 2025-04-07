@@ -95,7 +95,7 @@ namespace GeneralNode
         }
 
         /// <summary>
-        /// Childern
+        /// children
         /// </summary>
         ICollection<INode> Children
         {

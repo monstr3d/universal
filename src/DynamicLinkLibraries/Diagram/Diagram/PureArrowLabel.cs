@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
-
 using CategoryTheory;
-using Diagram.UI.Interfaces;
 using Diagram.UI;
+using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI.Labels
 {
@@ -208,6 +209,10 @@ namespace Diagram.UI.Labels
             get
             {
                 return name;
+            }
+            set
+            {
+                throw new IllegalSetPropetryException("NAME PROHIBITED");
             }
         }
 

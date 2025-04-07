@@ -5,6 +5,7 @@ using DataPerformer.Portable.Runtime;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
+using NamedTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataPerformer.Portable.Advanced.Accumulators
     /// Base class for all accumulatotrs
     /// </summary>
     public class AccumulatorBase : Abstract.AbstractDataTransformer,
-         ITimeMeasurementProvider, IPostSetArrow, IChildrenObject
+         ITimeMeasurementProvider, IPostSetArrow, IChildren<IAssociatedObject>
     {
         #region Fields
 
@@ -117,11 +118,9 @@ namespace DataPerformer.Portable.Advanced.Accumulators
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
+ 
         #endregion
 
         #region ITimeMeasurementProvider Members
@@ -304,10 +303,9 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                     steps.Add(s);
                 }
             }
-            if (o is IChildrenObject)
+            if (o is IChildren<IAssociatedObject> ch)
             {
-                IChildrenObject ch = o as IChildrenObject;
-                IAssociatedObject[] objs = ch.Children;
+                IAssociatedObject[] objs = ch.Children.ToArray();
                 foreach (object obj in objs)
                 {
                     Add(obj);
@@ -418,6 +416,7 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                 }
             }
         }
+
 
         private void SetTime(double time)
         {

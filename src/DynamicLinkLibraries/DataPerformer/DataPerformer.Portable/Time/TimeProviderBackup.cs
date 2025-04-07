@@ -7,6 +7,8 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
+using NamedTree;
+using System.Linq;
 
 namespace DataPerformer.Portable.Time
 {
@@ -177,10 +179,10 @@ namespace DataPerformer.Portable.Time
                     tc.Time = provider.TimeMeasurement;
                 }
             }
-            IChildrenObject co = o.GetLabelObject<IChildrenObject>();
+            IChildren<IAssociatedObject> co = o.GetLabelObject<IChildren<IAssociatedObject>>();
             if (co != null)
             {
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 if (ch != null)
                 {
                     foreach (object ob in ch)
@@ -212,10 +214,9 @@ namespace DataPerformer.Portable.Time
                     tc.Time = dictionary[tc];
                 }
             }
-            if (o is IChildrenObject)
+            if (o is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = o as IChildrenObject;
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 foreach (object ob in ch)
                 {
                     Reset(ob);
@@ -263,9 +264,9 @@ namespace DataPerformer.Portable.Time
             // IDataRuntime dr = consumer.CreateRuntime();
         }
 
-        static void SetTimeProvider(IChildrenObject co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(IChildren<IAssociatedObject> co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            IAssociatedObject[] ao = co.Children;
+            IAssociatedObject[] ao = co.Children.ToArray();
             foreach (object o in ao)
             {
                 if (o is IDataConsumer)
@@ -278,9 +279,8 @@ namespace DataPerformer.Portable.Time
                     IMeasurements mea = o as IMeasurements;
                     SetTimeProvider(mea, provider, dictionary);
                 }
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> cho)
                 {
-                    IChildrenObject cho = o as IChildrenObject;
                     SetTimeProvider(cho, provider, dictionary);
                 }
             }

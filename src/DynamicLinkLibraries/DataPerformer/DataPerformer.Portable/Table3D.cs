@@ -15,6 +15,7 @@ using DataPerformer.Interfaces;
 using Diagram.UI.Labels;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -27,6 +28,8 @@ namespace DataPerformer.Portable
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
 
         /// <summary>
         /// Change input event
@@ -278,6 +281,8 @@ namespace DataPerformer.Portable
                 return arguments;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Pre initialization

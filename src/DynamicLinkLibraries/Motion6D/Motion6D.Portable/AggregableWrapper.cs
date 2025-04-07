@@ -9,6 +9,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
+using NamedTree;
 using Vector3D;
 
 namespace Motion6D.Portable
@@ -18,7 +19,7 @@ namespace Motion6D.Portable
     /// </summary>
     public class AggregableWrapper : CategoryObject, 
         IReferenceFrame,  IStarted,
-        IChildrenObject, IMeasurements, IPostSetArrow
+        IChildren<IAssociatedObject>, IMeasurements, IPostSetArrow
     {
         #region Fields
 
@@ -220,10 +221,8 @@ namespace Motion6D.Portable
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+       IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
+
 
         #endregion
 
@@ -355,7 +354,7 @@ namespace Motion6D.Portable
             }
         }
 
-
+  
 
         #endregion
 

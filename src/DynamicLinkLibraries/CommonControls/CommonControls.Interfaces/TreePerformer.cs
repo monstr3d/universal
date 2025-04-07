@@ -76,7 +76,7 @@ namespace CommonControls
             {
                 return;
             }
-            object[] ch = creator.GetChildern(o);
+            object[] ch = creator.GetChildren(o);
             if (ch == null)
             {
                 return;

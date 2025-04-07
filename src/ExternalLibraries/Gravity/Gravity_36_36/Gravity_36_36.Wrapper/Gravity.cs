@@ -2,6 +2,7 @@
 
 using CategoryTheory;
 using DataPerformer.Interfaces;
+using NamedTree;
 using Web.Interfaces;
 
 namespace Gravity_36_36.Wrapper
@@ -13,6 +14,9 @@ namespace Gravity_36_36.Wrapper
        IUrlProvider, IUrlConsumer
     {
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         object obj;
 
@@ -158,6 +162,7 @@ namespace Gravity_36_36.Wrapper
             }
         }
 
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         event Action<string> IUrlProvider.Change
         {

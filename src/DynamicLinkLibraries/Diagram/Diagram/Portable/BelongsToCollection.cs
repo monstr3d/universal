@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using NamedTree;
 
 namespace Diagram.UI.Portable
 {
@@ -128,10 +129,9 @@ namespace Diagram.UI.Portable
                     return true;
                 }
             }
-            if (value is IChildrenObject)
+            if (value is IChildren<IAssociatedObject> ch)
             {
-                IChildrenObject ch = value as IChildrenObject;
-                IAssociatedObject[] ass = ch.Children;
+                IAssociatedObject[] ass = ch.Children.ToArray();
                 if (ass != null)
                 {
                     foreach (object o in ass)

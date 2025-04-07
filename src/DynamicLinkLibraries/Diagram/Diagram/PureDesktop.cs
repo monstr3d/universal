@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml;
+using System.Linq;
 
 using CategoryTheory;
 using MathGraph;
@@ -10,7 +9,8 @@ using MathGraph;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
-using System.Linq.Expressions;
+using NamedTree;
+
 
 
 namespace Diagram.UI
@@ -22,6 +22,11 @@ namespace Diagram.UI
     {
         #region Fields
 
+        Performer performer = new();
+
+        IComponentCollection component;
+
+     
         /// <summary>
         /// Parent container
         /// </summary>
@@ -76,17 +81,24 @@ namespace Diagram.UI
         /// </summary>
         public PureDesktop()
         {
+            component = this;
         }
 
         #endregion
 
         #region IDesktop Members
 
-        public string Name
+        string INamed.Name
         {
-            get;
-            protected set;
-        } = "";
+            get => Name;
+            set => Name = value;
+        }
+
+        IEnumerable<T> IComponentCollection.Get<T>() where T : class 
+        {
+            return performer.GetObjectsAndArrows<T>(this);
+        }
+
 
         /// <summary>
         /// Array of all components
@@ -144,6 +156,8 @@ namespace Diagram.UI
                 }
             }
         }
+
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => component.GetAll<INamedComponent>();
 
         /// <summary>
         /// Copies objects and arrows
@@ -717,10 +731,9 @@ namespace Diagram.UI
                     IPostSetArrow p = obj as IPostSetArrow;
                     p.PostSetArrow();
                 }
-                if (obj is IChildrenObject)
+                if (obj is IChildren<IAssociatedObject> cho)
                 {
-                    IChildrenObject cho = obj as IChildrenObject;
-                    IAssociatedObject[] ch = cho.Children;
+                    IAssociatedObject[] ch = cho.Children.ToArray();
                     if (ch != null)
                     {
                         foreach (IAssociatedObject ao in ch)
@@ -751,10 +764,9 @@ namespace Diagram.UI
                 IPostSetObject p = obj as IPostSetObject;
                 p.PostSetObject();
             }
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> cho)
             {
-                IChildrenObject cho = obj as IChildrenObject;
-                IAssociatedObject[] ch = cho.Children;
+                IAssociatedObject[] ch = cho.Children.ToArray();
                 if (ch != null)
                 {
                     foreach (IAssociatedObject ao in ch)
@@ -1011,10 +1023,9 @@ namespace Diagram.UI
                 {
                     arrows.Add(ao as ICategoryArrow);
                 }
-                if (ao is IChildrenObject)
+                if (ao is IChildren<IAssociatedObject> co)
                 {
-                    IChildrenObject co = ao as IChildrenObject;
-                    IAssociatedObject[] ass = co.Children;
+                    IAssociatedObject[] ass = co.Children.ToArray();
                     if (ass != null)
                     {
                         foreach (IAssociatedObject asso in ass)
@@ -1027,6 +1038,12 @@ namespace Diagram.UI
                     }
                 }
             }
+        }
+
+        protected virtual string Name
+        {
+            get;
+            set;
         }
 
         /// <summary>

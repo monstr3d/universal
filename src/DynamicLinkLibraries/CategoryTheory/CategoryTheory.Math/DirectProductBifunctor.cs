@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Text;
+using NamedTree;
 
 namespace CategoryTheory.Math
 {
@@ -130,6 +131,8 @@ namespace CategoryTheory.Math
         {
             get { throw new NotImplementedException(); }
         }
+
+        string INamed.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         #endregion
 

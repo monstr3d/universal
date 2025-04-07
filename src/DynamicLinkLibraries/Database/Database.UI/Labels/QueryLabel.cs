@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-
-
 using CategoryTheory;
+using Database.UI.Forms;
+using DataSetService;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-
-using DataSetService;
-
-
-using Database.UI.Forms;
+using ErrorHandler;
+using NamedTree;
 using Web.Interfaces;
 
 
@@ -97,9 +94,10 @@ namespace Database.UI.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return this.GetRootLabel().Name; }
+            get => this.GetRootLabel().Name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

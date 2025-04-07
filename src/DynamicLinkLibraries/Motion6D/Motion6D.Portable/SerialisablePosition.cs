@@ -1,6 +1,7 @@
 ﻿using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
@@ -12,6 +13,9 @@ namespace Motion6D.Portable
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         /// <summary>
         /// Associated object
@@ -126,6 +130,7 @@ namespace Motion6D.Portable
    
 
         public virtual object Properties { get => properties; set => properties = value; }
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new System.NotImplementedException(); }
 
         #endregion
 

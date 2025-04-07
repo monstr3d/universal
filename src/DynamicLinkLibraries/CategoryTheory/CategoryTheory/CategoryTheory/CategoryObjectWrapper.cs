@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ErrorHandler;
+using NamedTree;
 
 namespace CategoryTheory
 {
     /// <summary>
     /// Wrapper of category object
     /// </summary>
-    public class CategoryObjectWrapper : ICategoryObject, IChildrenObject
+    public class CategoryObjectWrapper : ICategoryObject, IChildren<IAssociatedObject>
     {
         #region Fields
+
+       Performer performer = new Performer();
+
 
         /// <summary>
         /// The internal object
@@ -19,7 +24,7 @@ namespace CategoryTheory
         /// <summary>
         /// Children
         /// </summary>
-        protected IAssociatedObject[] childern = new IAssociatedObject[1];
+        protected IAssociatedObject[] children = new IAssociatedObject[1];
 
         /// <summary>
         /// The associated object;
@@ -54,10 +59,9 @@ namespace CategoryTheory
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return childern; }
-        }
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
+
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
 

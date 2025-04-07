@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
 using CategoryTheory;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {
@@ -131,6 +134,10 @@ namespace Diagram.UI.Labels
             get
             {
                 return name;
+            }
+            set
+            {
+                throw new IllegalSetPropetryException("NAME PROHIBITED");
             }
         }
 
@@ -644,10 +651,9 @@ namespace Diagram.UI.Labels
 
                 }
             }
-            if (o is IChildrenObject)
+            if (o is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = o as IChildrenObject;
-                IAssociatedObject[] children = co.Children;
+                IAssociatedObject[] children = co.Children.ToArray();
                 foreach (object child in children)
                 {
                     GetAllAliases(nc, child, lab, list, type);
@@ -707,10 +713,9 @@ namespace Diagram.UI.Labels
 
                 }
             }
-            if (labObject is IChildrenObject)
+            if (labObject is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = labObject as IChildrenObject;
-                IAssociatedObject[] children = co.Children;
+                IAssociatedObject[] children = co.Children.ToArray();
                 foreach (object child in children)
                 {
                     GetAllAliases(nc, lab, child, list, type);

@@ -22,6 +22,7 @@ using Event.Basic.Data.Events;
 // !!!REMOVED using Event.Remote;
 
 using Web.Interfaces;
+using NamedTree;
 
 namespace Event.UI.UserControls
 {
@@ -139,11 +140,9 @@ namespace Event.UI.UserControls
                     }
                 }
             }
-            if (child is IChildrenObject)
+            if (child is IChildren<IAssociatedObject> chl)
             {
-               IChildrenObject chl =
-                    child as IChildrenObject;
-                IAssociatedObject[] ao = chl.Children;
+                IAssociatedObject[] ao = chl.Children.ToArray();
                 foreach (object aa in ao)
                 {
                     Control cc = Recursion(aa);

@@ -15,6 +15,8 @@ using DataPerformer;
 using Motion6D.Interfaces;
 using PhysicalField.Interfaces;
 using Motion6D.Portable;
+using NamedTree;
+using System.Linq;
 
 namespace Motion6D
 {
@@ -269,14 +271,14 @@ namespace Motion6D
             RelativeField f = info.Deserialize<RelativeField>("RelativeField");
             if (o != null)
             {
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> ch)
                 {
-                    IChildrenObject ch = o as IChildrenObject;
-                    if (ch.Children.Length != 0)
+                    var ccc = ch.Children.ToArray();
+                    if (ccc.Length != 0)
                     {
-                        if (ch.Children.Length > 0)
+                        if (ccc.Length > 0)
                         {
-                            ch.Children[0] = f;
+                            ccc[0] = f;
                         }
                     }
                 }

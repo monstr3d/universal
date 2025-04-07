@@ -1,24 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-
 using CategoryTheory;
-using Diagram.UI.Labels;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
 using Diagram.UI.Utils;
-
-using SerializationInterface;
-
-using Motion6D;
-using Motion6D.UI;
-using Motion6D.Drawing.Interfaces;
 using ErrorHandler;
+using Motion6D;
+using Motion6D.Drawing.Interfaces;
+using Motion6D.UI;
+using NamedTree;
+using SerializationInterface;
 
 namespace Motion6D.UI.Labels
 {
@@ -145,9 +143,10 @@ namespace Motion6D.UI.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return name; }
+            get => name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

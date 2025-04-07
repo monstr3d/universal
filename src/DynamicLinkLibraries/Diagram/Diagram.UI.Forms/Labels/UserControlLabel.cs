@@ -22,7 +22,7 @@ namespace Diagram.UI.Labels
     [SerializableLabel()]
     [Serializable()]
     public partial class UserControlLabel :
-        UserControl, IObjectLabelUI, ISerializable, IShowForm, 
+        UserControl, IObjectLabelUI, ISerializable, IShowForm,
         IProperties, IStartStopConsumer, IEnabled
     {
 
@@ -113,7 +113,7 @@ namespace Diagram.UI.Labels
             Disposed += UserControlLabel_Disposed;
         }
 
-  
+
         /// <summary>
         /// Deserialization constructor
         /// </summary>
@@ -213,7 +213,8 @@ namespace Diagram.UI.Labels
         /// </summary>
         new public virtual string Name
         {
-            get { return name; }
+            get => name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         /// <summary>

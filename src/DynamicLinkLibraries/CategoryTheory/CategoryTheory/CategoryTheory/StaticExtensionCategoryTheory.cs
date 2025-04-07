@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
+using NamedTree;
 
 namespace CategoryTheory
 {
@@ -12,6 +14,10 @@ namespace CategoryTheory
     {
 
         #region Fields
+
+        public static Performer p = new Performer();
+
+        public static NamedTree.Performer performer = new NamedTree.Performer();
 
         /// <summary>
         /// Exception message
@@ -419,10 +425,9 @@ namespace CategoryTheory
             {
                 return obj as T;
             }
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = obj as IChildrenObject;
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 if (ch != null)
                 {
                     foreach (IAssociatedObject ob in ch)
@@ -459,7 +464,7 @@ namespace CategoryTheory
         /// <returns></returns>
         public static T GetAttribute<T>(this object obj) where T : Attribute
         {
-            return CustomAttributeExtensions.GetCustomAttribute<T>(obj.ToTypeInfo());
+            return performer.GetAttribute<T>(obj);
         }
 
         /// <summary>
@@ -519,11 +524,10 @@ namespace CategoryTheory
             }
             // Search in children
             // If obj is IChildrenObject
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = obj as IChildrenObject;
                 // Gets children
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 if (ch != null)
                 {
                     // Recursive search among children
@@ -644,10 +648,9 @@ namespace CategoryTheory
         static public void SetAssociatedObject(this IAssociatedObject ao, object obj)
         {
             ao.Object = obj;
-            if (ao is IChildrenObject)
+            if (ao is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = ao as IChildrenObject;
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 if (ch != null)
                 {
                     foreach (IAssociatedObject o in ch)

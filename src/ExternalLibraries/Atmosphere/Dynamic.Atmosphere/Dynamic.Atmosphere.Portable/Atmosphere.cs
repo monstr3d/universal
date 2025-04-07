@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CategoryTheory;
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace Dynamic.Atmosphere.Portable
 {
@@ -22,6 +23,9 @@ namespace Dynamic.Atmosphere.Portable
         static private readonly string[] sins = new string[] { "t", "x", "y", "z" };
 
         static private readonly string[] sous = new string[] { "Density" };
+
+        CategoryTheory.Performer performer = new();
+
 
         #endregion
 
@@ -53,6 +57,8 @@ namespace Dynamic.Atmosphere.Portable
         {
             get { return sous; }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         object IObjectTransformer.GetInputType(int i)
         {

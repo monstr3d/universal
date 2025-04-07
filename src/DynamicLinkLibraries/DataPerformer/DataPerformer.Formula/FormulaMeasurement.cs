@@ -308,45 +308,53 @@ namespace DataPerformer.Formula
         public static FormulaMeasurement Create(ObjectFormulaTree tree, int n,
             string name, AssociatedAddition associated, object obj)
         {
-    /* !!!! DELETE       object ret = null;
+            /* !!!! DELETE       object ret = null;
+                    try
+                    {
+                        ret = tree.Result;
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.HandleException(-1);
+                    }-/*/
             try
             {
-                ret = tree.Result;
-            }
-            catch (Exception ex)
-            {
-                ex.HandleException(-1);
-            }-/*/
-            FormulaMeasurement fm;
-            if (n == 0)
-            {
-                IDistribution d = DeltaFunction.GetDistribution(tree);
-                if (d != null)
+                FormulaMeasurement fm;
+                if (n == 0)
                 {
-                    return new FormulaMeasurementDistribution(tree, name, associated, obj);
+                    IDistribution d = DeltaFunction.GetDistribution(tree);
+                    if (d != null)
+                    {
+                        return new FormulaMeasurementDistribution(tree, name, associated, obj);
+                    }
+                    fm = new FormulaMeasurement(tree, name, associated, obj);
+                    // !!! ILLEGAL !!!  fm.ReturnValue = ReturnValue;
+                    return fm;
                 }
-                fm = new FormulaMeasurement(tree, name, associated, obj);
-              // !!! ILLEGAL !!!  fm.ReturnValue = ReturnValue;
+                string dn = "D" + name;
+                ObjectFormulaTree t = tree.Derivation("d/dt");
+                if (t == null)
+                {
+                    throw new Exception("VariableMeasure.Derivation");
+                }
+                AssociatedAddition aa = FormulaMeasurementDerivation.Create(associated);
+                FormulaMeasurement der = Create(t, n - 1, dn, aa, obj);
+                fm = new FormulaMeasurementDerivation(tree, der, name, aa, obj);
+                try
+                {
+                    fm.ReturnValue = t.Result;
+                }
+                catch (Exception exc)
+                {
+                    exc.HandleException(10);
+                }
                 return fm;
             }
-            string dn = "D" + name;
-            ObjectFormulaTree t = tree.Derivation("d/dt");
-            if (t == null)
+            catch (Exception exception)
             {
-                throw new Exception("VariableMeasure.Derivation");
+                exception.HandleExceptionDouble("FormulaMeasurement.Tree");
             }
-            AssociatedAddition aa = FormulaMeasurementDerivation.Create(associated);
-            FormulaMeasurement der = Create(t, n - 1, dn, aa, obj);
-            fm = new FormulaMeasurementDerivation(tree, der, name, aa, obj);
-            try
-            {
-                fm.ReturnValue = t.Result;
-            }
-            catch (Exception exc)
-            {
-                exc.HandleException(10);
-            }
-            return fm;
+            return null;
         }
 
         /// <summary>

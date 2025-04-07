@@ -151,10 +151,9 @@ namespace Diagram.UI.Utils
              }*/
             string message = ex.Message;
             string url = null;
-            if (ex is INamedObject)
+            if (ex is NamedTree.INamed na)
             {
-                INamedObject n = ex as INamedObject;
-                url = n.Name;
+                url = na.Name;
             }
             if (url == null)
             {

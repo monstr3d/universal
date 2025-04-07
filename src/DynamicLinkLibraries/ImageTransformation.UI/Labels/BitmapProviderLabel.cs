@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-
-
+using BitmapConsumer;
 using CategoryTheory;
+using ColorUI;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-
-using BitmapConsumer;
-using ImageTransformations.Forms;
-using ImageTransformations;
-using ColorUI;
+using ErrorHandler;
 using ImageTransformation.UI;
+using ImageTransformations;
+using ImageTransformations.Forms;
+using NamedTree;
 
 namespace ImageTransformations.Labels
 {
@@ -100,9 +99,10 @@ namespace ImageTransformations.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return this.GetRootLabel().Name; }
+            get => this.GetRootLabel().Name;
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

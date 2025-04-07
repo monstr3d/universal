@@ -1,6 +1,7 @@
 ﻿using CategoryTheory;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
+using NamedTree;
 using System;
 
 namespace Motion6D.Portable
@@ -13,8 +14,10 @@ namespace Motion6D.Portable
 
         protected double[,] size;
 
+        CategoryTheory.Performer performer = new();
 
-   
+
+
         public EmptyCameraConsumer(IPosition position, double[,] size = null) 
         {
             this.position = position;
@@ -44,5 +47,7 @@ namespace Motion6D.Portable
         }
 
         double[,] IVisible.Size => size;
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
     }
 }

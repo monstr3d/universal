@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.Serialization;
-
-using Diagram.UI;
+using System.Text;
+using System.Windows.Forms;
 using CategoryTheory;
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using ErrorHandler;
 using ImageNavigationForm.Properties;
+using NamedTree;
 
 namespace ImageNavigation.Labels
 {
@@ -76,9 +77,10 @@ namespace ImageNavigation.Labels
 
         #region INamedComponent Members
 
-        string INamedComponent.Name
+        string INamed.Name
         {
-            get { return ""; }
+            get => "";
+            set => throw new IllegalSetPropetryException("LABEL");
         }
 
         string INamedComponent.Kind

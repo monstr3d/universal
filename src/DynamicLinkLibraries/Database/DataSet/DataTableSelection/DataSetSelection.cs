@@ -14,6 +14,7 @@ using DataSetService;
 
 using Regression.Portable;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace DataTableSelection
@@ -28,6 +29,9 @@ namespace DataTableSelection
         /// Data set
         /// </summary>
         protected DataSet dataSet;
+
+        CategoryTheory.Performer performer = new();
+
 
         /// <summary>
         /// On Add action
@@ -169,6 +173,8 @@ namespace DataTableSelection
                 factory = value;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
 
         event Action<DataSet> IDataSetConsumer.OnAdd
         {

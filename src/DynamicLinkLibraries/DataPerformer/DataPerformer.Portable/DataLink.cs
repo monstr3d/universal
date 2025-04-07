@@ -9,6 +9,7 @@ using Diagram.UI.Labels;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace DataPerformer.Portable
@@ -286,7 +287,7 @@ namespace DataPerformer.Portable
                         if (dt is IAssociatedObject)
                         {
                             IAssociatedObject aot = dt as IAssociatedObject;
-                            if (aot.Object == o & (!(aot is IChildrenObject)))
+                            if (aot.Object == o & (!(aot is IChildren<IAssociatedObject>)))
                             {
                                 ml = dl.Target as IMeasurements;
                             }

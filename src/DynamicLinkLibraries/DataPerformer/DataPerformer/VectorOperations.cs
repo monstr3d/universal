@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using CategoryTheory;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -49,12 +51,12 @@ namespace DataPerformer
         /// <returns>The transformer</returns>
         static public Action<double[]> CreateTransformer(Action<double[]> tr, IAssociatedObject obj)
         {
-            if (!(obj is IChildrenObject))
+            if (!(obj is IChildren<IAssociatedObject>))
             {
                 return tr;
             }
-            IChildrenObject ch = obj as IChildrenObject;
-            IAssociatedObject[] ao = ch.Children;
+            IChildren<IAssociatedObject> ch = obj as IChildren<IAssociatedObject>;
+            IAssociatedObject[] ao = ch.Children.ToArray();
             List<Action<double[]>> l = new List<Action<double[]>>();
             foreach (IAssociatedObject ob in ao)
             {

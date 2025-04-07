@@ -10,6 +10,7 @@ using BaseTypes;
 
 
 using Localization.Helper;
+using NamedTree;
 
 
 namespace Regression.Portable;
@@ -23,10 +24,13 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 
 	#region Fields
 
-        /// <summary>
-        /// Associated object
-        /// </summary>
-	protected object obj;
+	CategoryTheory.Performer performer = new();
+
+
+    /// <summary>
+    /// Associated object
+    /// </summary>
+    protected object obj;
 
         /// <summary>
         /// Related docuiment
@@ -157,9 +161,11 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 			load();
 		}
 	}
-			
-	
-	void load()
+
+    object IAssociatedObject.Object { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+
+    void load()
 	{
 		if (documentString == null | schemeString == null)
 		{

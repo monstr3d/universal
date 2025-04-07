@@ -14,6 +14,7 @@ using BaseTypes.Interfaces;
 
 using DataPerformer.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -27,6 +28,12 @@ namespace DataPerformer.Portable
     {
 
         #region Fields
+
+        /// <summary>
+        /// Performer 
+        /// </summary>
+        CategoryTheory.Performer performer = new();
+
 
         /// <summary>
         /// Change input event
@@ -272,6 +279,8 @@ namespace DataPerformer.Portable
                 return arguments;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new Exception("WRITE PROHIBITED"); }
 
         /// <summary>
         /// Pre initialization

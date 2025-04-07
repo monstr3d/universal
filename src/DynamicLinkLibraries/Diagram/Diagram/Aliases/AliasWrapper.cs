@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Diagram.UI.Interfaces;
 using CategoryTheory;
+using NamedTree;
 
 namespace Diagram.UI.Aliases
 {
@@ -106,12 +107,12 @@ namespace Diagram.UI.Aliases
                 res = obj as IAlias;
             }
             res = Create(alias, res);
-            if (!(obj is IChildrenObject))
+            if (!(obj is IChildren<IAssociatedObject>))
             {
                 return res;
             }
-            IChildrenObject co = obj as IChildrenObject;
-            IAssociatedObject[] children = co.Children;
+            var co = obj as IChildren<IAssociatedObject>;
+            IAssociatedObject[] children = co.Children.ToArray();
             foreach (IAssociatedObject ao in children)
             {
                 res = GetAlias(res, ao);

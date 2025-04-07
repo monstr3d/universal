@@ -6,6 +6,7 @@ using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
 using System.Collections.Generic;
+using NamedTree;
 
 namespace DinAtm.Portable
 {
@@ -18,6 +19,8 @@ namespace DinAtm.Portable
         const Double type = 0;
 
         const Int32 atype = 0;
+
+        CategoryTheory.Performer performer = new();
 
         protected object obj;
 
@@ -92,6 +95,8 @@ namespace DinAtm.Portable
         {
             get { return sous; }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         void IObjectTransformer.Calculate(object[] input, object[] output)
         {

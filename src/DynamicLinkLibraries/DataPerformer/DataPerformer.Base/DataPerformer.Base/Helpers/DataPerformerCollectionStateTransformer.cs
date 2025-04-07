@@ -10,6 +10,7 @@ using CategoryTheory;
 
 using Diagram.UI;
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.Helpers
 {
@@ -17,7 +18,8 @@ namespace DataPerformer.Helpers
     /// Collection and transformer
     /// </summary>
     [Serializable()]
-    public class DataPerformerCollectionStateTransformer : ObjectsCollection, IChildrenObject, IPostSetArrow, IDisposable
+    public class DataPerformerCollectionStateTransformer : ObjectsCollection, 
+        IChildren<IAssociatedObject>, IPostSetArrow, IDisposable
     {
         #region Fields
 
@@ -67,16 +69,13 @@ namespace DataPerformer.Helpers
             }
             SetChildren();
         }
-        
+
 
         #endregion
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
 
@@ -206,7 +205,7 @@ namespace DataPerformer.Helpers
             }
         }
 
-        /// <summary>
+         /// <summary>
         /// Sets child transformer
         /// </summary>
         void SetChildren()

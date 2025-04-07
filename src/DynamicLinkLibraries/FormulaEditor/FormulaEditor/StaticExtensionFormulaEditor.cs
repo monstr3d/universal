@@ -10,6 +10,7 @@ using BaseTypes.Interfaces;
 using FormulaEditor.Collections;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using NamedTree;
 
 
 namespace FormulaEditor
@@ -21,6 +22,10 @@ namespace FormulaEditor
     {
 
         #region Fields
+
+       static Performer p = new Performer();
+
+
 
         /// <summary>
         ///  checks value
@@ -775,7 +780,7 @@ namespace FormulaEditor
         /// <returns></returns>
         internal static T GetAttribute<T>(this object obj) where T : Attribute
         {
-            return CustomAttributeExtensions.GetCustomAttribute<T>(obj.ToTypeInfo());
+            return p.GetAttribute<T>(obj);
         }
 
         #endregion

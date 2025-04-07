@@ -143,7 +143,7 @@ namespace GeneralNode
                     }
                     else
                     {
-                        throw new Exception("Parent already exists");
+                      //  throw new Exception("Parent already exists");
                     }
                 }
                 parent = value;

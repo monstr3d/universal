@@ -4,13 +4,14 @@ using System.Text;
 
 using CategoryTheory;
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
     /// <summary>
     /// Standard position
     /// </summary>
-    public class Position : IPosition, IChildrenObject
+    public class Position : IPosition, IChildren<IAssociatedObject>
     {
 
         #region Fields
@@ -156,10 +157,7 @@ namespace Motion6D.Portable
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return ch; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
 
         #endregion
 

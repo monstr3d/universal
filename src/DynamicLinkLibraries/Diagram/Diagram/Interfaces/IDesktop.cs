@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using CategoryTheory;
 using Diagram.UI.Labels;
 
@@ -12,13 +9,6 @@ namespace Diagram.UI.Interfaces
     /// </summary>
     public interface IDesktop : IComponentCollection
     {
-        /// <summary>
-        /// The name of desktop
-        /// </summary>
-        string Name
-        {
-            get;
-        }
 
         /// <summary>
         /// Components

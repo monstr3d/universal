@@ -1,20 +1,14 @@
 using Diagram.UI.Interfaces;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {
     /// <summary>
     /// Named component
     /// </summary>
-    public interface INamedComponent
+    public interface INamedComponent: INamed
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        string Name
-        {
-            get;
-        }
-
+ 
         /// <summary>
         /// Kind
         /// </summary>

@@ -11,6 +11,7 @@ using DataPerformer.Portable;
 
 
 using Motion6D.Interfaces;
+using NamedTree;
 
 
 
@@ -24,6 +25,8 @@ namespace Motion6D.Portable
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
 
         /// <summary>
         /// Change input event
@@ -182,6 +185,8 @@ namespace Motion6D.Portable
                 return this.GetAllMeasurements(a);
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Sets positions

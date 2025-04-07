@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+using System.Dynamic;
 
 namespace Diagram.UI
 {
@@ -17,6 +18,8 @@ namespace Diagram.UI
     public class ObjectsCollection : CategoryObject, ISerializable, IObjectCollection, IAddRemove
     {
         #region Fields
+
+        Performer performer = new();
 
         /// <summary>
         /// Type of element
@@ -38,6 +41,8 @@ namespace Diagram.UI
         /// </summary>
         protected event Action<object> remove = (object o) => { };
 
+        IComponentCollection components = null;
+
 
 
         #endregion
@@ -50,6 +55,7 @@ namespace Diagram.UI
         /// <param name="type">Type of element</param>
         public ObjectsCollection(Type type)
         {
+            components = this;
             this.type = type;
         }
 
@@ -60,6 +66,7 @@ namespace Diagram.UI
         /// <param name="context">Streaming context</param>
         protected ObjectsCollection(SerializationInfo info, StreamingContext context)
         {
+            components = this;
             try
             {
                 type = info.GetValue("Type", typeof(Type)) as Type;
@@ -94,6 +101,11 @@ namespace Diagram.UI
         #endregion
 
         #region IObjectCollection Members
+
+        IEnumerable<T> IComponentCollection.Get<T>() where T : class
+        {
+            return performer.GetObjectsAndArrows<T>(this);
+        }
 
         string[] IObjectCollection.Names
         {
@@ -147,6 +159,7 @@ namespace Diagram.UI
 
         #region IComponentCollection Members
 
+   
         IEnumerable<object> IComponentCollection.AllComponents
         {
             get
@@ -225,6 +238,16 @@ namespace Diagram.UI
                 return list.Count;
             }
         }
+
+        IEnumerable<IObjectLabel> IComponentCollection.Objects => components.Get<IObjectLabel>();
+
+        IEnumerable<IArrowLabel> IComponentCollection.Arrows => components.Get<IArrowLabel>();
+
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => components.Get<INamedComponent>();
+
+        IEnumerable<ICategoryObject> IComponentCollection.CategoryObjects => components.Get<ICategoryObject>();
+
+        IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => components.Get<ICategoryArrow>();
 
         /// <summary>
         /// Access to element

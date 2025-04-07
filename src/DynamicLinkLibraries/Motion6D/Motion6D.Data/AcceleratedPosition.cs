@@ -16,6 +16,7 @@ using DataPerformer.Portable.Measurements;
 using Motion6D.Interfaces;
 using Vector3D;
 using ErrorHandler;
+using NamedTree;
 
 namespace Motion6D
 {
@@ -25,7 +26,7 @@ namespace Motion6D
     [Serializable()]
     public class AcceleratedPosition : CategoryObject, ISerializable, IAlias, IPosition,
         IAcceleration, IDifferentialEquationSolver, IVelocity,
-        IStarted, IChildrenObject, IDataConsumer, IPostSetArrow
+        IStarted, IChildren<IAssociatedObject>, IDataConsumer, IPostSetArrow
     {
         #region Fields
 
@@ -320,15 +321,12 @@ namespace Motion6D
             Array.Copy(initial, 3, relativeVel, 0, 3);
         }
 
-     
+
         #endregion
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
 
@@ -540,6 +538,7 @@ namespace Motion6D
                 throw new NotImplementedException();
             }
         }
+
 
         void IStateDoubleVariables.Set(double[] input, int offset, int length)
         {

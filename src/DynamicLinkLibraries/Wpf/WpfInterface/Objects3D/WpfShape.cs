@@ -8,7 +8,6 @@ using BaseTypes;
 
 using CategoryTheory;
 
-using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using SerializationInterface;
@@ -26,16 +25,20 @@ using Motion6D.Portable.Interfaces;
 using Wpf.Loader;
 using System.Windows.Markup;
 using ErrorHandler;
+using NamedTree;
 
 namespace WpfInterface.Objects3D
 {
     [Serializable()]
-    public class WpfShape : XamlWrapper, ICategoryObject, ISerializable, IChildrenObject, IWpfVisible, IFacet,
+    public class WpfShape : XamlWrapper, ICategoryObject, ISerializable, IChildren<IAssociatedObject>, IWpfVisible, IFacet,
         ICameraConsumer, IPositionObject, IEventHandler, 
         IAnimatedObject, IAllowCodeCreation, IPostDeserialize
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         object obj;
 
@@ -188,10 +191,7 @@ namespace WpfInterface.Objects3D
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return ch; }
-        }
+        
 
         #endregion
 
@@ -766,7 +766,11 @@ namespace WpfInterface.Objects3D
             }
         }
 
-    
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
+
+
 
         #endregion
 

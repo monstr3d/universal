@@ -12,6 +12,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D
 {
@@ -20,7 +21,7 @@ namespace Motion6D
     /// </summary>
     [Serializable()]
     public class InertialSensorData : CategoryObject, ISerializable, IMeasurements,
-        IPositionObject, IPostSetArrow, IChildrenObject
+        IPositionObject, IPostSetArrow, IChildren<IAssociatedObject>
     {
         #region Fields
 
@@ -200,10 +201,7 @@ namespace Motion6D
         #region IChildrenObject Members
 
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return children; }
-        }
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
 

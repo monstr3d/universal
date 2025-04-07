@@ -10,7 +10,7 @@ using CategoryTheory;
 using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
-
+using NamedTree;
 using WpfInterface.Interfaces;
 
 namespace WpfInterface.Objects3D
@@ -23,6 +23,9 @@ namespace WpfInterface.Objects3D
     {
 
         #region Fields
+
+        CategoryTheory.Performer performer = new();
+
 
         object obj;
 
@@ -93,6 +96,8 @@ namespace WpfInterface.Objects3D
                 obj = value;
             }
         }
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
         #endregion
 

@@ -7,6 +7,8 @@ using Diagram.UI.Labels;
 
 namespace Diagram.UI.Portable
 {
+
+
     /// <summary>
     /// Container of objects
     /// </summary>
@@ -34,6 +36,8 @@ namespace Diagram.UI.Portable
         /// Child desktop
         /// </summary>
         protected PureDesktop desktop = new PureDesktop();
+
+        Performer performer = new Performer();
 
         /// <summary>
         /// The "is loaded" sign
@@ -91,6 +95,11 @@ namespace Diagram.UI.Portable
         #endregion
 
         #region IComponentCollection Members
+
+        IEnumerable<T> IComponentCollection.Get<T>() where T : class
+        {
+            return performer.GetObjectsAndArrows<T>(this);
+        }
 
         IEnumerable<object> IComponentCollection.AllComponents
         {
@@ -201,6 +210,16 @@ namespace Diagram.UI.Portable
                 type = value;
             }
         }
+
+        IEnumerable<IObjectLabel> IComponentCollection.Objects => throw new System.NotImplementedException();
+
+        IEnumerable<IArrowLabel> IComponentCollection.Arrows => throw new System.NotImplementedException();
+
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => throw new System.NotImplementedException();
+
+        IEnumerable<ICategoryObject> IComponentCollection.CategoryObjects => throw new System.NotImplementedException();
+
+        IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => throw new System.NotImplementedException();
 
         /// <summary>
         /// Access to child by name

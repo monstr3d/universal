@@ -51,6 +51,8 @@ using ToolBox;
 
 using WindowsExtensions;
 using ErrorHandler;
+using NamedTree;
+using System.Linq;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -2245,9 +2247,9 @@ Func<bool> stop)
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);
-                if (ev is IChildrenObject)
+                if (ev is IChildren<IAssociatedObject> ch)
                 {
-                    sel.AddRange((ev as IChildrenObject).GetChildren<object>());
+                    sel.AddRange(ch.Children.ToArray());
                 }
             }
             double last = 0;
@@ -2538,9 +2540,9 @@ Func<bool> stop)
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);
-                if (ev is IChildrenObject)
+                if (ev is IChildren<IAssociatedObject> evt)
                 {
-                    sel.AddRange((ev as IChildrenObject).GetChildren<object>());
+                    sel.AddRange(evt.Children);
                 }
             }
             double last = 0;

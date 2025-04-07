@@ -15,6 +15,7 @@ using Diagram.Interfaces;
 
 using AssemblyService;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace Diagram.UI
@@ -29,6 +30,11 @@ namespace Diagram.UI
 
 
         private static ExtensionObject extension = new ExtensionObject();
+        
+
+        static Performer peformer = new Performer();
+
+
 
         /// <summary>
         /// Separator
@@ -254,16 +260,16 @@ namespace Diagram.UI
             }
         }
 
- 
+
         /// <summary>
         /// Post object creation event
         /// </summary>
         static public void PostCreateObject(this object obj)
         {
             postCreateObject(obj);
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> asso)
             {
-                IAssociatedObject[] ass = (obj as IChildrenObject).Children;
+                IAssociatedObject[] ass = asso.Children.ToArray();
                 foreach (object o in ass)
                 {
                     PostCreateObject(o);
@@ -735,22 +741,22 @@ namespace Diagram.UI
         /// <typeparam name="T">Type of retutn</typeparam>
         /// <param name="childrenObject">The children object</param>
         /// <returns>The children</returns>
-        static public T GetChild<T>(this IChildrenObject childrenObject) where T : class
+        static public T GetChild<T>(this IChildren<IAssociatedObject> childrenObject) where T : class
         {
             if (childrenObject is T)
             {
                 return childrenObject as T;
             }
-            IAssociatedObject[] children = childrenObject.Children;
+            var children = childrenObject.Children;
             foreach (object o in children)
             {
                 if (o is T)
                 {
                     return o as T;
                 }
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> tt)
                 {
-                 T t =   (o as IChildrenObject).GetChild<T>();
+                    T t = tt.GetChild<T>();
                     if (t != null)
                     {
                         return t;
@@ -1150,18 +1156,16 @@ namespace Diagram.UI
         /// <returns>Objects</returns>
         static public object[] GetObjects(this object obj)
         {
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = obj as IChildrenObject;
                 return GetObjects(co);
             }
             if (obj is IObjectLabel)
             {
                 ICategoryObject cato = (obj as IObjectLabel).Object;
-                if (cato is IChildrenObject)
+                if (cato is IChildren<IAssociatedObject> cot)
                 {
-                    IChildrenObject co = cato as IChildrenObject;
-                    return GetObjects(co);
+                    return GetObjects(cot);
                 }
                 else
                 {
@@ -1171,10 +1175,9 @@ namespace Diagram.UI
             if (obj is IArrowLabel)
             {
                 ICategoryArrow caro = (obj as IArrowLabel).Arrow;
-                if (caro is IChildrenObject)
+                if (caro is IChildren<IAssociatedObject> cot)
                 {
-                    IChildrenObject co = caro as IChildrenObject;
-                    return GetObjects(co);
+                    return GetObjects(cot);
                 }
                 else
                 {
@@ -1189,16 +1192,15 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="childrenObject"></param>
         /// <returns></returns>
-        static public object[] GetObjects(IChildrenObject childrenObject)
+        static public object[] GetObjects(IChildren<IAssociatedObject> childrenObject)
         {
             List<object> l = new List<object>();
             l.Add(childrenObject);
-            IAssociatedObject[] ch = childrenObject.Children;
+            IAssociatedObject[] ch = childrenObject.Children.ToArray();
             foreach (object o in ch)
             {
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> cc)
                 {
-                    IChildrenObject cc = o as IChildrenObject;
                     l.AddRange(GetObjects(cc));
                 }
                 else if (o != null)
@@ -1390,7 +1392,7 @@ namespace Diagram.UI
             {
                 disposable.Dispose();
             }
-            if (o is IChildrenObject ch)
+            if (o is IChildren<IAssociatedObject> ch)
             {
                 ch.DisposeChildren();
             }
@@ -1410,12 +1412,12 @@ namespace Diagram.UI
         /// Dispodes a children object
         /// </summary>
         /// <param name="ob">The object</param>
-        static public void DisposeChildren(this IChildrenObject ob)
+        static public void DisposeChildren(this IChildren<IAssociatedObject> ob)
         {
             var ch = ob.Children;
             foreach (var o in ch)
             {
-                if (o is IChildrenObject c)
+                if (o is IChildren<IAssociatedObject> c)
                 {
                     c.DisposeChildren();
                 }
@@ -1432,7 +1434,7 @@ namespace Diagram.UI
         /// <param name="arrow">The arrow label</param>
         static public void DisposeArrow(this IArrowLabel arrow)
         {
-            if (arrow is IChildrenObject ch)
+            if (arrow is IChildren<IAssociatedObject> ch)
             {
                 ch.DisposeChildren();
             }
@@ -1456,7 +1458,7 @@ namespace Diagram.UI
             {
                 return;
             }
-            if (ol.Object is IChildrenObject c)
+            if (ol.Object is IChildren<IAssociatedObject> c)
             {
                 c.DisposeChildren();
             }
@@ -2124,19 +2126,19 @@ namespace Diagram.UI
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="childrenObject"></param>
-        /// <returns>Childern</returns>
-        public static IEnumerable<T> GetChildren<T>(this IChildrenObject childrenObject) where T : class
+        /// <returns>children</returns>
+        public static IEnumerable<T> GetChildren<T>(this  IChildren<IAssociatedObject> childrenObject) where T : class
         {
-            IAssociatedObject[] children = childrenObject.Children;
+            IAssociatedObject[] children = childrenObject.Children.ToArray();
             foreach (object o in children)
             {
                 if (o is T)
                 {
                     yield return o as T;
                 }
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> tt)
                 {
-                    IEnumerable<T> en = (o as IChildrenObject).GetChildren<T>();
+                    IEnumerable<T> en = tt.GetChildren<T>();
                     foreach (T t in en)
                     {
                         yield return t;
@@ -2186,9 +2188,9 @@ namespace Diagram.UI
                 {
                     yield return t;
                 }
-                if (o is IChildrenObject)
+                if (o is IChildren<IAssociatedObject> ttt)
                 {
-                    IEnumerable<T> en = (o as IChildrenObject).GetChildren<T>();
+                    IEnumerable<T> en = ttt.GetChildren<T>();
                     foreach (T tt in en)
                     {
                         yield return tt;
@@ -3169,9 +3171,9 @@ namespace Diagram.UI
             {
                 return attr.Url;
             }
-             if (obj is IChildrenObject)
+             if (obj is IChildren<IAssociatedObject> ttt)
             {
-                IAssociatedObject[] ch = (obj as IChildrenObject).Children;
+                IAssociatedObject[] ch = ttt.Children.ToArray();
                 if (ch != null)
                 {
                     foreach (IAssociatedObject aa in ch)
@@ -3279,9 +3281,9 @@ namespace Diagram.UI
             }
         }
 
-        private static void AddChildren(IChildrenObject co, List<object> l)
+        private static void AddChildren(IChildren<IAssociatedObject> co, List<object> l)
         {
-            IAssociatedObject[] ao = co.Children;
+            IAssociatedObject[] ao = co.Children.ToArray() ;
             if (ao != null)
             {
                 foreach (IAssociatedObject aa in ao)
@@ -3293,9 +3295,9 @@ namespace Diagram.UI
                             l.Add(aa);
                         }
                     }
-                    if (aa is IChildrenObject)
+                    if (aa is IChildren<IAssociatedObject> rr)
                     {
-                        AddChildren(aa as IChildrenObject, l);
+                        AddChildren(rr, l);
                     }
                 }
             }
@@ -3327,9 +3329,9 @@ namespace Diagram.UI
                     l.Add(obj);
                 }
                 list.Add(l);
-                if (obj is IChildrenObject)
+                if (obj is IChildren<IAssociatedObject> t)
                 {
-                    AddChildren(obj as IChildrenObject, l);
+                    AddChildren(t, l);
                 }
             };
             IEnumerable<object> en = collection.AllComponents;
@@ -3459,7 +3461,7 @@ namespace Diagram.UI
                                 if (!dependent.Contains(s))
                                 {
                                     dependent.Add(s);
-                                    if (s is IChildrenObject cobj)
+                                    if (s is IChildren<IAssociatedObject> cobj)
                                     {
                                         IEnumerable<ICategoryObject> en = 
                                             cobj.GetChildren<ICategoryObject>();
@@ -3495,7 +3497,7 @@ namespace Diagram.UI
                     continue;
                 }
                 dependent.Add(t);
-                if (t is IChildrenObject cob)
+                if (t is IChildren<IAssociatedObject> cob)
                 {
                     IEnumerable<ICategoryObject> en = cob.GetChildren<ICategoryObject>();
                     foreach (ICategoryObject co in en)
@@ -3541,11 +3543,11 @@ namespace Diagram.UI
             obj.GetDependentObjects(arrows, objectCondition, arrowCondition, sourceCondition, dependent);
             foreach (ICategoryObject co in all)
             {
-                if (dependent.Contains(co) & !(co is IChildrenObject))
+                if (dependent.Contains(co) & !(co is IChildren<IAssociatedObject>))
                 {
                     continue;
                 }
-                if (co is IChildrenObject ch)
+                if (co is IChildren<IAssociatedObject> ch)
                 {
                     IEnumerable<IAssociatedObject> ao = ch.GetChildren<IAssociatedObject>();
                     if (ao != null)
@@ -3615,10 +3617,9 @@ namespace Diagram.UI
                     {
                         IObjectLabel olb = ob as IObjectLabel;
                         ICategoryObject co = olb.Object;
-                        if (co is IChildrenObject)
+                        if (co is IChildren<IAssociatedObject> cco)
                         {
-                            IChildrenObject cco = co as IChildrenObject;
-                            IAssociatedObject[] aao = cco.Children;
+                            IAssociatedObject[] aao = cco.Children.ToArray();
                             if (aao != null)
                             {
                                 foreach (object oob in aao)
@@ -3714,28 +3715,26 @@ namespace Diagram.UI
                 {
                     continue;
                 }
-                if (!(co is IChildrenObject))
+                if (co is IChildren<IAssociatedObject> ch)
                 {
-                    continue;
-                }
-                IChildrenObject ch = co as IChildrenObject;
-                IAssociatedObject[] ao = ch.Children;
-                if (ao != null)
-                {
-                    foreach (object c in ao)
+                IAssociatedObject[] ao = ch.Children.ToArray();
+                    if (ao != null)
                     {
-
-                        if (c is ICategoryObject)
+                        foreach (object c in ao)
                         {
-                            ICategoryObject ca = c as ICategoryObject;
-                            if (source.Contains(ca))
+
+                            if (c is ICategoryObject)
                             {
-                                if (objectCondition(co))
+                                ICategoryObject ca = c as ICategoryObject;
+                                if (source.Contains(ca))
                                 {
-                                    source.Add(co);
-                                    co.GetSourceObjects(arrows, objectCondition,
-                                        arrowCondition, sourceCondition, source, all);
-                                    goto m;
+                                    if (objectCondition(co))
+                                    {
+                                        source.Add(co);
+                                        co.GetSourceObjects(arrows, objectCondition,
+                                            arrowCondition, sourceCondition, source, all);
+                                        goto m;
+                                    }
                                 }
                             }
                         }

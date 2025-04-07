@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CategoryTheory;
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -123,10 +124,9 @@ namespace DataPerformer.Portable
                 res = obj as IDataConsumer;
             }
             res = Create(root, master, res);
-            if (obj is IChildrenObject)
+            if (obj is IChildren<IAssociatedObject> co)
             {
-                IChildrenObject co = obj as IChildrenObject;
-                IAssociatedObject[] ch = co.Children;
+                IAssociatedObject[] ch = co.Children.ToArray();
                 foreach (IAssociatedObject ao in ch)
                 {
                     res = Get(res, root, ao);

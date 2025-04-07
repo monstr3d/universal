@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 
 using CategoryTheory;
 using SerializationInterface;
+using NamedTree;
 
 namespace Diagram.UI
 {
@@ -12,11 +13,11 @@ namespace Diagram.UI
     /// Wrapper of children object
     /// </summary>
     [Serializable()]
-    public class ChildrenObjectWrapper : CategoryObject, ISerializable, IChildrenObject
+    public class ChildrenObjectWrapper : CategoryObject, ISerializable, IChildren<IAssociatedObject>
     {
         #region Fields
 
-        IChildrenObject wrappedObject;
+        IChildren<IAssociatedObject> wrappedObject;
 
         #endregion
 
@@ -27,7 +28,7 @@ namespace Diagram.UI
         /// Constructor
         /// </summary>
         /// <param name="wrappedObject">Wrapped object</param>
-        public ChildrenObjectWrapper(IChildrenObject wrappedObject)
+        public ChildrenObjectWrapper(IChildren<IAssociatedObject> wrappedObject)
         {
             this.wrappedObject = wrappedObject;
         }
@@ -40,7 +41,7 @@ namespace Diagram.UI
         /// <param name="context">Streaming context</param>
         protected ChildrenObjectWrapper(SerializationInfo info, StreamingContext context)
         {
-            wrappedObject = info.Deserialize<IChildrenObject>("Object");
+            wrappedObject = info.Deserialize<IChildren<IAssociatedObject>>("Object");
         }
 
         #endregion
@@ -49,17 +50,15 @@ namespace Diagram.UI
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.Serialize<IChildrenObject>("Object", wrappedObject);
+            info.Serialize<IChildren<IAssociatedObject>>("Object", wrappedObject);
         }
 
         #endregion
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return wrappedObject.Children; }
-        }
+    
+        public IEnumerable<IAssociatedObject> Children => wrappedObject.Children;
 
         #endregion
     }

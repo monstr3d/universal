@@ -89,8 +89,8 @@ namespace Abstract3DConverters.MaterialCreators
         public virtual object Create(MaterialGroup material)
         {
             var o = CreateGroup(material);
-            var childern = material.Children;
-            foreach (var child in childern)
+            var children = material.Children;
+            foreach (var child in children)
             {
                 var childMaterial = Create(child);
                 Add(o, childMaterial);

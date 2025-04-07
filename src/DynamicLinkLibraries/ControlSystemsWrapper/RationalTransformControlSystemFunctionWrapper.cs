@@ -22,6 +22,7 @@ using ExtendedFormulaEditor;
 
 using ControlSystems;
 using ErrorHandler;
+using NamedTree;
 
 namespace ControlSystemsWrapper
 {
@@ -35,6 +36,9 @@ namespace ControlSystemsWrapper
         #region Fields
 
         public static readonly string NAME = "Filter - transform function";
+
+        CategoryTheory.Performer performer = new();
+
 
         protected long time;
 
@@ -424,7 +428,9 @@ namespace ControlSystemsWrapper
                 return variables;
             }
         }
- 
+
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
+
         #endregion
 
     }

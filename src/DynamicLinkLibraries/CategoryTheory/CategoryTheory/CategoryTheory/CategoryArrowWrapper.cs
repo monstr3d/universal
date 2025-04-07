@@ -1,13 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
+using NamedTree;
 
 namespace CategoryTheory
 {
     /// <summary>
     /// Wrapper of category arrow
     /// </summary>
-    public class CategoryArrowWrapper : ICategoryArrow, IChildrenObject
+    public class CategoryArrowWrapper : ICategoryArrow, IChildren<IAssociatedObject>
     {
         #region
         /// <summary>
@@ -24,7 +23,7 @@ namespace CategoryTheory
         /// <summary>
         /// Children
         /// </summary>
-        protected IAssociatedObject[] childern = new IAssociatedObject[1];
+        protected IAssociatedObject[] children = new IAssociatedObject[1];
 
 
         #endregion
@@ -86,10 +85,6 @@ namespace CategoryTheory
 
         #region IChildrenObject Members
 
-        IAssociatedObject[] IChildrenObject.Children
-        {
-            get { return childern; }
-        }
 
         #endregion
 
@@ -106,13 +101,15 @@ namespace CategoryTheory
             set
             {
                 theArrow = value;
-                childern[0] = value;
+                children[0] = value;
                 if (theArrow is IParentArrow)
                 {
                     (theArrow as IParentArrow).Parent = this;
                 }
             }
         }
+
+        IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         #endregion
     }
