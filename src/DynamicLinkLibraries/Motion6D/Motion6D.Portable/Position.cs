@@ -11,6 +11,7 @@ namespace Motion6D.Portable
     /// <summary>
     /// Standard position
     /// </summary>
+    [Leaf<IPosition>]
     public class Position : IPosition, IChildren<IAssociatedObject>
     {
 
@@ -61,6 +62,54 @@ namespace Motion6D.Portable
             for (int i = 0; i < own.Length; i++)
             {
                 own[i] = position[i];
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -138,6 +187,23 @@ namespace Motion6D.Portable
             }
         }
 
+        void INode<IPosition>.Add(INode<IPosition> node)
+        {
+        }
+
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+        }
+
+        void INode<IPosition>.Remove(INode<IPosition> node)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Base frame
         /// </summary>
@@ -158,6 +224,11 @@ namespace Motion6D.Portable
         #region IChildrenObject Members
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
+
+        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => throw new NotImplementedException(); }
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => []; set { } }
+
+        IPosition INode<IPosition>.Value => this;
 
         #endregion
 

@@ -12,6 +12,8 @@ using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
 
+using NamedTree;
+
 namespace DataPerformer.Event.Portable.Objects
 {
     /// <summary>
@@ -91,7 +93,7 @@ namespace DataPerformer.Event.Portable.Objects
             }
         }
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             external.Add(measurements);
             if (!isLoaded)
@@ -102,7 +104,7 @@ namespace DataPerformer.Event.Portable.Objects
             onChangeInput?.Invoke();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             external.Remove(measurements);
             CreateMesurements();
@@ -200,6 +202,50 @@ namespace DataPerformer.Event.Portable.Objects
             }
         }
 
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         void IRealTimeStartStop.Start()
         {
             Reset();
@@ -230,6 +276,10 @@ namespace DataPerformer.Event.Portable.Objects
                 }
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => external;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         #endregion
 
@@ -308,6 +358,16 @@ namespace DataPerformer.Event.Portable.Objects
                     medians[i] = 0;
                 }
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

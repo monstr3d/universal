@@ -125,12 +125,12 @@ namespace DataPerformer.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -159,6 +159,54 @@ namespace DataPerformer.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -282,6 +330,10 @@ namespace DataPerformer.Portable
 
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new Exception("WRITE PROHIBITED"); }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+
         /// <summary>
         /// Pre initialization
         /// </summary>
@@ -332,6 +384,16 @@ namespace DataPerformer.Portable
                     break;
                 }
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
 

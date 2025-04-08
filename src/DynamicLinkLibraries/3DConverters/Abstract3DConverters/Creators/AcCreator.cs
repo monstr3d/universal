@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using NamedTree;
 
 
 
@@ -149,7 +150,7 @@ namespace Abstract3DConverters.Creators
                 EmissiveMaterial emi = null;
                 SpecularMaterial spe = null;
 
-
+                IChildren<SimpleMaterial> children = group;
                 Color diffcolor = null;
                 Color specolor = null;
                 Color ambcolor = null;
@@ -185,9 +186,9 @@ namespace Abstract3DConverters.Creators
                     }
 
                 }
-                group.Children.Add(diff);
-                group.Children.Add(emi);
-                group.Children.Add(spe);
+                children.AddChild(diff);
+                children.AddChild(emi);
+                children.AddChild(spe);
             }
             Material mt = null;
             string imstr = null;

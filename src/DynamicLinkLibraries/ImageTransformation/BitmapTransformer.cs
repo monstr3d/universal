@@ -1,19 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
 using System.Drawing;
-
+using System.Runtime.Serialization;
+using System.Text;
+using BitmapConsumer;
 using CategoryTheory;
-
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Interfaces;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
-using BitmapConsumer;
+using NamedTree;
 
 namespace ImageTransformations
 {
@@ -160,12 +157,12 @@ namespace ImageTransformations
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -255,6 +252,28 @@ namespace ImageTransformations
             remove { addRemove -= value; }
         }
 
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IPostSetArrow Members
@@ -337,6 +356,8 @@ namespace ImageTransformations
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
 
         /// <summary>
         /// Posts itself
@@ -344,8 +365,8 @@ namespace ImageTransformations
         private void Post()
         {
             IComponentCollection cc = this.GetDependentCollection();
-            cc.GetAll<IMeasurements>(childMeasurements);
-            cc.GetAll<IUpdatableObject>(updatable);
+            cc.GetAll(childMeasurements);
+            cc.GetAll(updatable);
             if (updatable.Count == 0)
             {
                 update = UpdateChildren;

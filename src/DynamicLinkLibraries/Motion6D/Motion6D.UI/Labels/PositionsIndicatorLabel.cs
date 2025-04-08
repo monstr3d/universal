@@ -1,21 +1,20 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Windows.Forms;
+
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
+
 using ErrorHandler;
-using Motion6D;
+
 using Motion6D.Drawing.Interfaces;
-using Motion6D.UI;
+
 using NamedTree;
+
 using SerializationInterface;
 
 namespace Motion6D.UI.Labels

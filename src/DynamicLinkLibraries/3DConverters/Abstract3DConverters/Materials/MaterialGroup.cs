@@ -1,18 +1,19 @@
 ﻿using Abstract3DConverters.Interfaces;
+using NamedTree;
 
 namespace Abstract3DConverters.Materials
 {
     /// <summary>
     /// Group of materials
     /// </summary>
-    public class MaterialGroup : Material, IImageHolder
+    public class MaterialGroup : Material, IChildren<SimpleMaterial>, IImageHolder
     {
        
 
         /// <summary>
         /// Children
         /// </summary>
-        public List<Material> Children { get; } = new();
+        protected virtual List<SimpleMaterial> Children { get; } = new();
 
         /// <summary>
         /// Attachement
@@ -34,7 +35,29 @@ namespace Abstract3DConverters.Materials
             Attachement = attachement;
         }
 
-        
+        event Action<SimpleMaterial> IChildren<SimpleMaterial>.OnAdd
+        {
+            add
+            {
+             }
+
+            remove
+            {
+            }
+        }
+
+        event Action<SimpleMaterial> IChildren<SimpleMaterial>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+
 
         /// <summary>
         /// Clones itself
@@ -42,7 +65,8 @@ namespace Abstract3DConverters.Materials
         /// <returns></returns>
         protected override object CloneIfself()
         {
-            var mat = new MaterialGroup(Name);
+            IChildren<SimpleMaterial> mat = new MaterialGroup(Name);
+       
             var c = mat.Children;
             foreach (var child in Children)
             {
@@ -50,7 +74,7 @@ namespace Abstract3DConverters.Materials
                 {
 
                 }
-                c.Add(child.Clone() as Material);
+                mat.AddChild(child.Clone() as SimpleMaterial);
             }
             return mat;
         }
@@ -84,6 +108,16 @@ namespace Abstract3DConverters.Materials
             }
         }
 
+        void IChildren<SimpleMaterial>.AddChild(SimpleMaterial child)
+        {
+            Children.Add(child);
+        }
+
+        void IChildren<SimpleMaterial>.RemoveChild(SimpleMaterial child)
+        {
+
+        }
+
         protected virtual Image[] Images
         {
             get
@@ -104,6 +138,8 @@ namespace Abstract3DConverters.Materials
         #region IImageHolder Members
 
         Image[] IImageHolder.Images => Images;
+
+        IEnumerable<SimpleMaterial> IChildren<SimpleMaterial>.Children => Children;
 
         #endregion
     }

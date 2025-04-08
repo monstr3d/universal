@@ -12,6 +12,7 @@ using BaseTypes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
+using NamedTree;
 
 namespace DataPerformer.Portable.Objects
 {
@@ -158,6 +159,8 @@ namespace DataPerformer.Portable.Objects
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
         /// <summary>
         /// The "change types" event
         /// </summary>
@@ -165,6 +168,28 @@ namespace DataPerformer.Portable.Objects
         {
             add { changeTypes += value; }
             remove { changeTypes -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -211,6 +236,14 @@ namespace DataPerformer.Portable.Objects
                 initial[i] = n;
             }
             changeTypes();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

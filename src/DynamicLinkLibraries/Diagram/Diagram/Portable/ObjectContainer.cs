@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+using NamedTree;
 
 namespace Diagram.UI.Portable
 {
@@ -18,6 +20,12 @@ namespace Diagram.UI.Portable
 
 
         #region Fields
+
+        IComponentCollection components;
+
+        protected NamedTree.Performer p = new NamedTree.Performer();
+
+        protected Diagram.UI.Performer perf = new Diagram.UI.Performer();
 
 
         /// <summary>
@@ -35,7 +43,13 @@ namespace Diagram.UI.Portable
         /// <summary>
         /// Child desktop
         /// </summary>
-        protected PureDesktop desktop = new PureDesktop();
+        protected IDesktop desktop = new PureDesktop();
+
+        protected virtual IDesktop Desktop
+        {
+            get => desktop;
+            set => desktop = value;
+        }
 
         Performer performer = new Performer();
 
@@ -59,9 +73,10 @@ namespace Diagram.UI.Portable
         /// Main constructor
         /// </summary>
         /// <param name="desktop">The parent desktop</param>
-        protected ObjectContainer(PureDesktop desktop)
+        protected ObjectContainer(IDesktop desktop)
         {
-            this.desktop = desktop;
+            components = this;
+            Desktop = desktop;
         }
 
 
@@ -122,11 +137,11 @@ namespace Diagram.UI.Portable
         /// <summary>
         /// The desktop
         /// </summary>
-        public IDesktop Desktop
+        IDesktop IComponentCollection.Desktop
         {
             get
             {
-                return desktop;
+                return Desktop;
             }
         }
 
@@ -153,7 +168,10 @@ namespace Diagram.UI.Portable
                 return false;
             }
             isLoaded = true;
-            desktop.HasParent = true;
+            if (desktop is PureDesktop pure)
+            {
+                pure.HasParent = true;
+            }
             LoadProtected();
             return true;
         }
@@ -172,7 +190,11 @@ namespace Diagram.UI.Portable
                 return true;
             }
             isPostLoaded = true;
-            return desktop.PostLoad();
+            if (desktop is PureDesktop pure)
+            {
+                return pure.PostLoad();
+            }
+            return false;
         }
 
         /// <summary>
@@ -211,15 +233,15 @@ namespace Diagram.UI.Portable
             }
         }
 
-        IEnumerable<IObjectLabel> IComponentCollection.Objects => throw new System.NotImplementedException();
+        IEnumerable<IObjectLabel> IComponentCollection.Objects => components.Get<IObjectLabel>();
 
-        IEnumerable<IArrowLabel> IComponentCollection.Arrows => throw new System.NotImplementedException();
+        IEnumerable<IArrowLabel> IComponentCollection.Arrows => components.Get<IArrowLabel>();
 
-        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => throw new System.NotImplementedException();
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => components.Get<INamedComponent>();
 
-        IEnumerable<ICategoryObject> IComponentCollection.CategoryObjects => throw new System.NotImplementedException();
+        IEnumerable<ICategoryObject> IComponentCollection.CategoryObjects => components.Get<ICategoryObject>();
 
-        IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => throw new System.NotImplementedException();
+        IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => components.Get<ICategoryArrow>();
 
         /// <summary>
         /// Access to child by name
@@ -279,6 +301,93 @@ namespace Diagram.UI.Portable
 
         #region Protected Members
 
+        IComponentCollection collection;
+
+        /// <summary>
+        /// All objects
+        /// </summary>
+        ICollection<object> allObjects;
+
+ 
+        protected INode<IComponentCollection> ParentNode
+        {
+            get; set;
+        }
+
+        protected virtual INode<IComponentCollection> Parent { get => ParentNode; set => ParentNode = value; }
+
+        protected List<IComponentCollection> ChildrenNodes { get; } = new List<IComponentCollection>();
+
+        protected virtual IEnumerable<IComponentCollection> Children => ChildrenNodes;
+
+        protected event Action<IComponentCollection> onAdd;
+
+        protected event Action<IComponentCollection> onRemove;
+
+        protected virtual event Action<IComponentCollection> OnAdd
+        {
+            add
+            {
+                onAdd += value;
+            }
+
+            remove
+            {
+                onAdd -= value;
+            }
+        }
+
+
+        protected virtual event Action<IComponentCollection> OnRemove
+        {
+            add
+            {
+                onRemove += value;
+            }
+
+            remove
+            {
+                onRemove -= value;
+            }
+        }
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        protected virtual void Add(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Add(collection.Value);
+            onAdd?.Invoke(collection.Value);
+        }
+
+        protected virtual void Remove(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Remove(collection.Value);
+            onRemove?.Invoke(collection.Value);
+        }
+
+
+
+
         /// <summary>
         /// Protected load
         /// </summary>
@@ -292,7 +401,49 @@ namespace Diagram.UI.Portable
                 }
                 nc.Desktop = desktop;
             }
-            desktop.setParent(this);
+            if (Desktop is PureDesktop pure)
+            {
+                pure.setParent(this);
+            }
+        }
+
+        #endregion
+
+        #region NEW
+
+        #region NEW
+
+
+        string INamed.Name { get => Name; set => Name = value; }
+
+        void INode<IComponentCollection>.Add(INode<IComponentCollection> node)
+        {
+            Add(node);
+        }
+
+        void INode<IComponentCollection>.Remove(INode<IComponentCollection> node)
+        {
+            Remove(node);
+        }
+
+        INode<IComponentCollection> INode<IComponentCollection>.Parent { get => Parent; set { Parent = value; } }
+        IEnumerable<INode<IComponentCollection>> INode<IComponentCollection>.Nodes { get => Children; set { } }
+
+        IComponentCollection INode<IComponentCollection>.Value => this;
+
+
+
+        #endregion
+
+
+        #endregion
+
+        #region Protected
+
+        protected virtual string Name
+        {
+            get;
+            set;
         }
 
         #endregion

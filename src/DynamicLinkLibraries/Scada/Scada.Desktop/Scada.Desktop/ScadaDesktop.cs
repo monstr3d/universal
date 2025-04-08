@@ -344,7 +344,7 @@ namespace Scada.Desktop
               );*/
             collection.ForAll((IEventHandler eventHandler) =>
             {
-                IEnumerable<Event.Interfaces.IEvent> evs = eventHandler.Events;
+                IEnumerable<Event.Interfaces.IEvent> evs = eventHandler.Children;
                 foreach (Event.Interfaces.IEvent ev in evs)
                 {
                     string s = (ev as IAssociatedObject).GetRootName();

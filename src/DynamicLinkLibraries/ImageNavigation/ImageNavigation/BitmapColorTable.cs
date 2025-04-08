@@ -12,6 +12,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using BitmapConsumer;
+using NamedTree;
 
 
 namespace ImageNavigation
@@ -20,7 +21,8 @@ namespace ImageNavigation
     /// Color table for bitmap
     /// </summary>
     [Serializable()]
-    public class BitmapColorTable : CategoryObject, ISerializable, IMeasurements, IBitmapConsumer, IDataConsumer, IPostSetArrow
+    public class BitmapColorTable : CategoryObject, ISerializable, IMeasurements, IBitmapConsumer, 
+        IDataConsumer, IPostSetArrow
     {
         #region Fields
 
@@ -108,12 +110,12 @@ namespace ImageNavigation
 
         #region IDataConsumer Members
 
-        public void Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        public void Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -198,6 +200,50 @@ namespace ImageNavigation
             remove { addRemove -= value; }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IMeasurements Members
@@ -263,6 +309,10 @@ namespace ImageNavigation
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => meas;
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
         public void Set(string x, string y)
         {
             this.x = x;
@@ -316,6 +366,16 @@ namespace ImageNavigation
         double GetValue(int i)
         {
             return GetValue(cX, cY, i);
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

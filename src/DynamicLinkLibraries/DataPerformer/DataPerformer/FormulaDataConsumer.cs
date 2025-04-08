@@ -17,6 +17,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -424,6 +425,8 @@ namespace DataPerformer
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measure];
+
         /// <summary>
         /// Access to alias object
         /// </summary>
@@ -458,6 +461,28 @@ namespace DataPerformer
         {
             add { onChange += value; }
             remove { onChange -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
 
@@ -502,5 +527,12 @@ namespace DataPerformer
                 new Measurement(getDerivation, "Der_result", this), "result", this);
         }
 
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
     }
 }

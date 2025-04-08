@@ -32,7 +32,7 @@ namespace Collada.Converters.Classes.Complicated
             try
             {
                 base.Create(xmlElement);
-                var l = new List<Abstract3DConverters.Materials.Material>();
+                var l = new List<Abstract3DConverters.Materials.SimpleMaterial>();
                 var diffuse = new DiffuseMaterial(DiffuseColor, Ambient, 1f - (float)Transparency);
                 l.Add(diffuse);
                 var emis = new EmissiveMaterial(Emission);
@@ -40,10 +40,7 @@ namespace Collada.Converters.Classes.Complicated
                 var specu = new SpecularMaterial(Specular, (float)Shinines);
                 l.Add(specu);
                 var mat = new PhongMaterial(Name, xmlElement);
-                foreach (var mt in l)
-                {
-                    mat.Children.Add(mt);
-                }
+                performer.AddChildren<SimpleMaterial>(mat, l);
                 Effect = new Abstract3DConverters.Materials.Effect(meshCreator, Name, mat, Image);
             }
             catch (Exception exception)

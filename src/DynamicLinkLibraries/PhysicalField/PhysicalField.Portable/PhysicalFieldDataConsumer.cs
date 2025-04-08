@@ -10,6 +10,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using PhysicalField.Interfaces;
+using NamedTree;
 
 
 namespace PhysicalField.Portable
@@ -125,13 +126,13 @@ namespace PhysicalField.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
            // isUpdated[measurements] = false;
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
            // isUpdated.Remove(measurements);
@@ -164,6 +165,28 @@ namespace PhysicalField.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -216,6 +239,8 @@ namespace PhysicalField.Portable
                 setMea();
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         public static int[] GetFields(IPhysicalField field, object type, 
             object transformationType)

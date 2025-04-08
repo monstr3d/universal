@@ -7,6 +7,7 @@ using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using NamedTree;
 
 
 namespace Collada.Converters.MeshConverters
@@ -627,7 +628,8 @@ namespace Collada.Converters.MeshConverters
                 EmissiveMaterial emissiveMaterial = null;
                 SpecularMaterial specularMaterial = null;
                 var group = effect.Material as MaterialGroup;
-                foreach (var m in group.Children)
+                IChildren<SimpleMaterial> children = group;
+                foreach (var m in children.Children)
                 {
                     switch (m)
                     {

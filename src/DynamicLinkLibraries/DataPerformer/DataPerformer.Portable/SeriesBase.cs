@@ -95,6 +95,9 @@ namespace DataPerformer.Portable
 
         private object obj;
 
+        public event Action<IMeasurement> OnAdd;
+        public event Action<IMeasurement> OnRemove;
+
         #endregion
 
         #region Constructors
@@ -632,6 +635,8 @@ namespace DataPerformer.Portable
 
         string INamed.Name { get => Name; set => throw new NotImplementedException(); }
 
+        public IEnumerable<IMeasurement> Children => throw new NotImplementedException();
+
         #endregion
 
         #region Protected Members
@@ -723,6 +728,16 @@ namespace DataPerformer.Portable
             {
                 measurements[i + 2] = m[i];
             }
+        }
+
+        public void AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

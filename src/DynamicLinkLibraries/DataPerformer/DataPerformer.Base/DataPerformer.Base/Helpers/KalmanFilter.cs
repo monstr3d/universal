@@ -14,6 +14,7 @@ using DataPerformer.Interfaces;
 
 using RealMatrixProcessor;
 using DataPerformer.Portable.Measurements;
+using NamedTree;
 
 namespace DataPerformer.Helpers
 {
@@ -106,6 +107,32 @@ namespace DataPerformer.Helpers
             diff = info.GetValue("Difference", typeof(double[])) as double[];
             meaDiff = info.GetValue("MeaDifference", typeof(double[])) as double[];
             isSerialized = true;
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
 
@@ -322,6 +349,8 @@ namespace DataPerformer.Helpers
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => output;
+
         /// <summary>
         /// Set parameters
         /// </summary>
@@ -512,6 +541,16 @@ namespace DataPerformer.Helpers
                 new Measurement(new ArrayReturnType(a, new int[]{n[0]}, false), GetState, "State", this),
                 new Measurement(new ArrayReturnType(a, new int[]{n[0], n[0]}, false), GetMatrix, "Covariation", this)
             };
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
 

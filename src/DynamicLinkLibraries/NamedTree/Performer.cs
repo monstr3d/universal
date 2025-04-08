@@ -45,19 +45,44 @@ namespace NamedTree
 
         public bool IsLeaf<T>(INode<T> node) where T : class
         {
-            return GetAttribute<LeafAttribute>(node) != null;
+            return GetAttribute<LeafAttribute<T>>(node) != null;
         }
 
-        public void AddChildren<T>(INode<T> parent, IEnumerable<INode<T>> children) where T : class
+
+
+        public void AddChildrenNodes<T>(INode<T> parent, IEnumerable<INode<T>> children) where T : class
+        {
+            var arr = children.ToArray();
+            foreach (var child in arr)
+            {
+                AddChildNode(parent, child);
+            }
+        }
+
+        public void AddChild<T>(IChildren<T> parent, T child) where T : class
+        {
+            parent.AddChild(child);
+        }
+
+        public IEnumerable<T> Get<T>(IChildren<T> children) where T : class
+        {
+            return children.Children;
+        }
+
+        public void AddChildren<T>(IChildren<T> parent, IEnumerable<T> children) where T : class
         {
             var arr = children.ToArray();
             foreach (var child in arr)
             {
                 AddChild(parent, child);
             }
+
         }
 
-        public void AddChild<T>(INode<T> parent, INode<T> child) where T : class
+
+
+
+        public void AddChildNode<T>(INode<T> parent, INode<T> child) where T : class
         {
             if (IsLeaf<T>(parent))
             {
@@ -77,13 +102,12 @@ namespace NamedTree
 
         public IEnumerable<INode<T>> GetRoots<T>(IEnumerable<INode<T>> nodes) where T : class
         {
-            foreach (var node in nodes)
-            {
-                if (node.Parent == null)
-                {
-                    yield return node;
-                }
-            }
+           return  from node in nodes where node.Parent == null select node;
+        }
+
+        public IEnumerable<T> GetRootsT<T>(IEnumerable<INode<T>> nodes) where T : class
+        {
+            return from node in nodes where node.Parent == null select node.Value;
         }
 
         public IEnumerable<T>GetChildren<T>(INode<T> node) where T : class
@@ -96,6 +120,60 @@ namespace NamedTree
                 }
             }
         }
+
+        /// <summary>
+        /// Gets path
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="node">Bode</param>
+        /// <returns>The path</returns>
+        public IEnumerable<INode<T>> GetPath<T>(INode<T> node) where T : class
+        {
+            if (node == null)
+            {
+                yield break;
+            }
+            yield return node;
+            var p = GetPath(node.Parent);
+            foreach (var item in p)
+            {
+                yield return item;
+            }
+        }
+
+        /// <summary>
+        /// Gets path
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="node">Bode</param>
+        /// <returns>The path</returns>
+        public IEnumerable<T> GetPath<T>(T node) where T : class, INode<T>
+        {
+            var enu = GetPath<T>(node);
+            return from t in enu select t.Value;
+        }
+
+        /// <summary>
+        /// Gets common root pf node1 and node2
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="node1">node1</param>
+        /// <param name="node2">node2</param>
+        /// <returns>The common root</returns>
+        public T GetRoot<T>(T node1, T node2) where T : class, INode<T>
+        {
+            var l = GetPath<T>(node1).ToArray();
+            var p2 = GetPath<T>(node2);
+            foreach (var item in p2)
+            {
+                if (!l.Contains(item))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// Gets attribute

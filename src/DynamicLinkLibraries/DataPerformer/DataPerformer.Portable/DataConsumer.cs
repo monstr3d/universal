@@ -10,6 +10,7 @@ using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -130,36 +131,27 @@ namespace DataPerformer.Portable
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             events.Add(ev);
             onAddEvent?.Invoke(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             events.Remove(ev);
             onRemoveEvent?.Invoke(ev);
         }
-
-        IEnumerable<IEvent> IEventHandler.Events
-        {
-            get
-            {
-                foreach (IEvent ev in events)
-                {
-                    yield return ev;
-                }
-            }
-        }
-
-        event Action<IEvent> IEventHandler.OnAdd
+        IEnumerable<IEvent> IChildren<IEvent>.Children => events;
+   
+    
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add { onAddEvent += value; }
             remove { onAddEvent -= value; }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add { onRemoveEvent += value; }
             remove { onRemoveEvent -= value; }
@@ -168,33 +160,13 @@ namespace DataPerformer.Portable
 
         #region IAddRemove Members
 
-        void IAddRemove.Add(object obj)
-        {
-
-        }
-
-        void IAddRemove.Remove(object obj)
-        {
-
-        }
-
+   
         Type IAddRemove.Type
         {
             get { return typeof(object); }
         }
 
-        event Action<object> IAddRemove.AddAction
-        {
-            add { }
-            remove { }
-        }
-
-        event Action<object> IAddRemove.RemoveAction
-        {
-            add { }
-            remove { }
-        }
-
+    
         #endregion
 
         #region ITimeMeasureConsumer Members
@@ -237,6 +209,54 @@ namespace DataPerformer.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<object> IChildren<object>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<object> IChildren<object>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
 
@@ -458,6 +478,10 @@ namespace DataPerformer.Portable
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurementsData;
+
+        IEnumerable<object> IChildren<object>.Children => throw new NotImplementedException();
+
         /// <summary>
         /// Tests desktop
         /// </summary>
@@ -473,6 +497,22 @@ namespace DataPerformer.Portable
                   //!!!!!!  c.test(desktop);
                 }
             }
+        }
+
+        void IChildren<IMeasurements>.AddChild(IMeasurements child)
+        {
+        }
+
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements child)
+        {
+        }
+
+        void IChildren<object>.AddChild(object child)
+        {
+        }
+
+        void IChildren<object>.RemoveChild(object child)
+        {
         }
 
         #endregion

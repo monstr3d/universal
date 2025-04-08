@@ -12,6 +12,7 @@ using DataPerformer.Interfaces;
 
 using BitmapConsumer;
 using System.Drawing;
+using NamedTree;
 
 
 namespace ImageTransformations
@@ -36,6 +37,28 @@ namespace ImageTransformations
         protected ArrayList comments = new ArrayList();
 
         protected IMeasurement[] bitmapmeas = new IMeasurement[0];
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
 
         #endregion
 
@@ -127,6 +150,8 @@ namespace ImageTransformations
             set;
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => bitmapmeas;
+
         /// <summary>
         /// Sets bitmap
         /// </summary>
@@ -155,6 +180,14 @@ namespace ImageTransformations
             {
                 CreateMeasurements(bitmap.Width, bitmap.Height);
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

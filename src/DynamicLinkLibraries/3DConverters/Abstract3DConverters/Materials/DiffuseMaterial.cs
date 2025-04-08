@@ -5,7 +5,7 @@ namespace Abstract3DConverters.Materials
     /// <summary>
     /// Diffuse material
     /// </summary>
-    public class DiffuseMaterial : Material, IImageHolder
+    public class DiffuseMaterial : SimpleMaterial, IImageHolder
     {
 
         #region Fields
@@ -34,7 +34,7 @@ namespace Abstract3DConverters.Materials
         /// <param name="color">Color</param>
         /// <param name="ambient">Ambient color</param>
         /// <param name="opacity">Opacity</param>
-        public DiffuseMaterial(Color color, Color ambient,  float opacity)
+        public DiffuseMaterial(Color color, Color ambient,  float opacity) : base(color)
         {
             Opacity = opacity;
             if (color == null)

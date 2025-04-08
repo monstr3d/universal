@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+
+using NamedTree;
 
 using RealMatrixProcessor;
 
@@ -13,6 +16,8 @@ namespace Motion6D.Interfaces
     {
 
         #region Fields
+
+        protected static Performer StaticPerformer = new Performer();
 
         protected RealMatrix realMatrix = new ();
 
@@ -77,6 +82,32 @@ namespace Motion6D.Interfaces
         /// <param name="b">Auxiliary</param>
         private ReferenceFrame(bool b)
         {
+        }
+
+        event Action<IPosition> INode<IPosition>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -148,7 +179,7 @@ namespace Motion6D.Interfaces
             {
                 return Motion6DFrame.Base;
             }
-            return position.Parent.Own;
+            return StaticPerformer.GetParentOwn(position);
         }
 
         /// <summary>
@@ -556,6 +587,16 @@ namespace Motion6D.Interfaces
             vp.QuaternionNormalize(quaternion);
         }
 
+        void INode<IPosition>.Add(INode<IPosition> node)
+        {
+            throw new NotImplementedException();
+        }
+
+        void INode<IPosition>.Remove(INode<IPosition> node)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Parent frame
         /// </summary>
@@ -570,6 +611,11 @@ namespace Motion6D.Interfaces
                 return parent.Own;
             }
         }
+
+        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => throw new NotImplementedException(); }
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        IPosition INode<IPosition>.Value => throw new NotImplementedException();
 
         #endregion
 

@@ -24,6 +24,7 @@ namespace Motion6D
     /// Accelerated position
     /// </summary>
     [Serializable()]
+    [Leaf<IPosition>]
     public class AcceleratedPosition : CategoryObject, ISerializable, IAlias, IPosition,
         IAcceleration, IDifferentialEquationSolver, IVelocity,
         IStarted, IChildren<IAssociatedObject>, IDataConsumer, IPostSetArrow
@@ -332,12 +333,12 @@ namespace Motion6D
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -366,6 +367,94 @@ namespace Motion6D
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -539,10 +628,55 @@ namespace Motion6D
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
+
+        INode<IPosition> INode<IPosition>.Parent 
+        
+        { 
+            get
+            {
+                return parent;
+            }
+
+            set
+            {
+                IPosition p = this;
+                p.Parent = value as IReferenceFrame;
+            }
+        }
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => []; set { } }
+
+        IPosition INode<IPosition>.Value => this;
 
         void IStateDoubleVariables.Set(double[] input, int offset, int length)
         {
             throw new NotImplementedException();
+        }
+
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
+
+        void INode<IPosition>.Add(INode<IPosition> node)
+        {
+        }
+
+        void INode<IPosition>.Remove(INode<IPosition> node)
+        {
         }
 
 

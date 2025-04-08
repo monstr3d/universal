@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-
+using System.Security.Cryptography;
 using System.Windows.Media.Media3D;
-
 using CategoryTheory;
-
-using Diagram.UI.Interfaces;
-
-using DataPerformer.Portable;
 using DataPerformer.Interfaces;
-
+using DataPerformer.Portable;
+using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
-
+using NamedTree;
 using WpfInterface.Interfaces;
 
 namespace WpfInterface.Objects3D
@@ -103,12 +99,12 @@ namespace WpfInterface.Objects3D
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -189,8 +185,30 @@ namespace WpfInterface.Objects3D
             add { onPost += value; }
             remove { onPost -= value; }
         }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
         #endregion
- 
+
         #region IPostSetArrow Members
 
         void IPostSetArrow.PostSetArrow()
@@ -240,7 +258,9 @@ namespace WpfInterface.Objects3D
                 return v3d;
             }
         }
-        
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
         #endregion
 
         #region Private Members

@@ -9,6 +9,8 @@ namespace Collada.Converters.Classes.Abstract
 {
     internal abstract class AbstractMaterial : Collada.XmlHolder
     {
+        protected NamedTree.Performer performer = new NamedTree.Performer();
+
         protected Service s = new();
 
         protected IMeshCreator meshCreator;

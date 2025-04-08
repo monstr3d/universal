@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using CategoryTheory;
+
 using Diagram.UI.Labels;
 
 namespace Diagram.UI.Interfaces

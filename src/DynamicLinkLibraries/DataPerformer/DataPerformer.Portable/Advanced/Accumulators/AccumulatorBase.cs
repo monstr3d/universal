@@ -105,6 +105,32 @@ namespace DataPerformer.Portable.Advanced.Accumulators
             children[0] = new EventBlock();
         }
 
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region IPostSetArrow Members
@@ -433,6 +459,16 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                     s.Start(time);
                 }
             }
+        }
+
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

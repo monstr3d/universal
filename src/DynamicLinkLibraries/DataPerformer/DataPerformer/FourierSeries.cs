@@ -11,6 +11,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -100,6 +101,28 @@ namespace DataPerformer
             Double a = 0;
             output[0] = new MeasurementDerivation(a, new Func<object>(getRe), new Measurement(getReDerivation, "", this), "Real", this);
             output[1] = new MeasurementDerivation(a, new Func<object>(getIm), new Measurement(getImDerivation, "", this), "Image", this);
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         /// <summary>
@@ -291,6 +314,8 @@ namespace DataPerformer
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => output;
+
         /// <summary>
         /// Accepts series
         /// </summary>
@@ -387,5 +412,12 @@ namespace DataPerformer
             return result[1, 1];
         }
 
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
     }
 }

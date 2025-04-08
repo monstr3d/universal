@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 using Collada.Converters.Classes.Abstract;
+using NamedTree;
 
 
 namespace Collada.Converters.Classes.Complicated
@@ -32,19 +33,21 @@ namespace Collada.Converters.Classes.Complicated
             try
             {
                 base.Create(xmlElement);
-                var l = new List<Abstract3DConverters.Materials.Material>();
+                var l = new List<Abstract3DConverters.Materials.SimpleMaterial>();
                 var diffuse = new DiffuseMaterial(DiffuseColor, Ambient, 1f - (float)Transparency);
                 l.Add(diffuse);
                 var emis = new EmissiveMaterial(Emission);
                 l.Add(emis);
                 var specu = new SpecularMaterial(Specular, (float)Shinines);
                 l.Add(specu);
-                var mat = new BlinnMaterial(Name, xmlElement);
+                var blinn = new BlinnMaterial(Name, xmlElement);
+                IChildren<SimpleMaterial> mat = blinn; 
                 foreach (var mt in l)
                 {
-                    mat.Children.Add(mt);
+                    mat.AddChild(mt);
                 }
-                Effect = new Abstract3DConverters.Materials.Effect(meshCreator, Name, mat, Image);
+                Effect = new Abstract3DConverters.Materials.Effect(meshCreator, 
+                    Name, blinn, Image);
             }
             catch (Exception ex)
             {

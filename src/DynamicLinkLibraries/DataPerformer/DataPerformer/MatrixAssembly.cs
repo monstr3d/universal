@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-using Diagram.UI;
+using System.Text;
 using BaseTypes;
-
-using DataPerformer.Portable;
+using CategoryTheory;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using Diagram.UI;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -17,7 +16,8 @@ namespace DataPerformer
     /// Object which assemblies variables to matrix
     /// </summary>
     [Serializable()]
-    public class MatrixAssembly : CategoryObject,  ISerializable, IDataConsumer, IMeasurement, IPostSetArrow, IMeasurements
+    public class MatrixAssembly : CategoryObject,  ISerializable, IDataConsumer, 
+        IMeasurement, IPostSetArrow, IMeasurements
     {
 
         #region Fields
@@ -122,14 +122,14 @@ namespace DataPerformer
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
-            this.measurements.Remove(measurements); ;
+            this.measurements.Remove(measurements);
         }
 
         void IDataConsumer.UpdateChildrenData()
@@ -159,6 +159,50 @@ namespace DataPerformer
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -244,6 +288,10 @@ namespace DataPerformer
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [this];
+
         /// <summary>
         /// Gets value
         /// </summary>
@@ -270,6 +318,14 @@ namespace DataPerformer
             }
             val = new double[measures.GetLength(0), measures.GetLength(1)];
             type = new ArrayReturnType(a, new int[] { measures.GetLength(0), measures.GetLength(1) }, false);
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
 

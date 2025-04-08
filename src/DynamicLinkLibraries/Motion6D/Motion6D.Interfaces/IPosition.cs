@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NamedTree;
 
 namespace Motion6D.Interfaces
 {
     /// <summary>
     /// 3D Position
     /// </summary>
-    public interface IPosition
+    public interface IPosition : INode<IPosition>
     {
 
         /// <summary>

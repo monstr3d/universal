@@ -105,6 +105,32 @@ namespace Internet.Meteo.Wrapper
             }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         /// <summary>
         /// Starts itself
         /// </summary>
@@ -167,6 +193,8 @@ namespace Internet.Meteo.Wrapper
 
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
         #endregion
 
         #region Protected members
@@ -203,6 +231,16 @@ namespace Internet.Meteo.Wrapper
                 measurements[i] = new ReplacedParameterMeasurement(Types[currentNames[i]], f,
                     currentNames[i], this);
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

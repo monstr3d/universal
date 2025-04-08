@@ -137,7 +137,7 @@ namespace DataPerformer.Portable
                             }
                         }
                     }
-                    source.Add(t);
+                    source.AddChild(t);
                     target = value as IMeasurements;
                 }
                 if (!check)
@@ -154,7 +154,7 @@ namespace DataPerformer.Portable
                 catch (Exception e)
                 {
                     e.HandleException(10);
-                    source.Remove(target);
+                    source.RemoveChild(target);
                     throw e;
                 }
             }
@@ -195,10 +195,10 @@ namespace DataPerformer.Portable
             }
             if (mv != null)
             {
-                source.Remove(mv);
+                source.RemoveChild(mv);
                 return;
             }
-            source.Remove(target);
+            source.RemoveChild(target);
         }
 
         #endregion

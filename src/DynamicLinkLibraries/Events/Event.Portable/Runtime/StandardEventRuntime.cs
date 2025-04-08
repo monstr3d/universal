@@ -94,7 +94,7 @@ namespace Event.Portable.Runtime
                 rt.timeBackup =
                        new DataPerformer.Portable.TimeProviderBackup(dataConsumer, realTime, null,
                        reason, 0);
-                IEvent[] events = (dataConsumer as IEventHandler).Events.EnumerableToArray();
+                IEvent[] events = (dataConsumer as IEventHandler).Children.EnumerableToArray();
                 if (log != null)
                 {
                     foreach (IEvent ev in events)

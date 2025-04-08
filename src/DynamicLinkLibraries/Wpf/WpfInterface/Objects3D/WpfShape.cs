@@ -356,17 +356,17 @@ namespace WpfInterface.Objects3D
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             allEvents.Add(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void  IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             allEvents.Remove(ev);
         }
 
-        IEnumerable<IEvent> IEventHandler.Events
+        IEnumerable<IEvent> IChildren<IEvent>.Children
         {
             get
             {
@@ -377,18 +377,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        event Action<IEvent> IEventHandler.OnAdd
-        {
-            add { }
-            remove { }
-        }
-
-        event Action<IEvent> IEventHandler.OnRemove
-        {
-            add { }
-            remove { }
-        }
-
+  
         #endregion
 
         #region IAnimatedObject Members
@@ -463,6 +452,52 @@ namespace WpfInterface.Objects3D
         {
             add { onStop += value; }
             remove { onStop -= value; }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IEvent> IChildren<IEvent>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IEvent> IChildren<IEvent>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         bool IAnimatedObject.SupportsAnimationEvents
@@ -770,7 +805,7 @@ namespace WpfInterface.Objects3D
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
 
-
+     
 
         #endregion
 
@@ -800,6 +835,17 @@ namespace WpfInterface.Objects3D
             }
         }
 
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+ 
         #endregion
 
 

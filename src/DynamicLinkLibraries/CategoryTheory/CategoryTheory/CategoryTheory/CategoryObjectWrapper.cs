@@ -63,6 +63,37 @@ namespace CategoryTheory
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+            children[0] = child;
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+        }
+
         #endregion
 
     }

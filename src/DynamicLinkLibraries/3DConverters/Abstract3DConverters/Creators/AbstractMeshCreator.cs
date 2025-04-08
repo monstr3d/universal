@@ -108,6 +108,5 @@ namespace Abstract3DConverters.Creators
             }
             return [];
         }
-
     }
 }

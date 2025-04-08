@@ -42,7 +42,7 @@ namespace Diagram.UI
                 //  l.Add("\t\tisPostoaded = true;;");
                 l.Add("\t}");
                 l.Add("");
-                List<string> lt = (oc.Desktop as PureDesktop).CreateDesktopCode(preffix + ".CategoryObject", "Desktop");
+                List<string> lt = ((oc as IObjectContainer).Desktop as PureDesktop).CreateDesktopCode(preffix + ".CategoryObject", "Desktop");
                 l.Add("\tnew internal class " + lt[0]);
                 for (int i = 1; i < lt.Count - 2; i++)
                 {

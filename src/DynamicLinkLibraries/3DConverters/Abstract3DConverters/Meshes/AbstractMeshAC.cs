@@ -65,7 +65,7 @@ namespace Abstract3DConverters.Meshes
                 var str = s.ToString(line, "name ");
                 if (parent != null)
                 {
-                    Parent = parent;
+                    ProtectedParent = parent;
                 }
 
                 if (str != null)
@@ -231,7 +231,7 @@ namespace Abstract3DConverters.Meshes
             try
             {
 
-                Parent = parent;
+                ProtectedParent = parent;
                 IMesh pmesh = parent;
                 Polygons = new();
                 Name = pmesh.Name + "_" + Path.GetRandomFileName();

@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using NamedTree;
 
 namespace Abstract3DConverters.MaterialCreators
 {
@@ -88,8 +89,9 @@ namespace Abstract3DConverters.MaterialCreators
 
         public virtual object Create(MaterialGroup material)
         {
+            IChildren<SimpleMaterial> ch = material;
             var o = CreateGroup(material);
-            var children = material.Children;
+            var children = ch.Children;
             foreach (var child in children)
             {
                 var childMaterial = Create(child);

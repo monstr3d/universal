@@ -119,6 +119,58 @@ namespace Event.Portable.Events
             }
         }
 
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         bool IEvent.IsEnabled
         {
             get
@@ -239,6 +291,8 @@ namespace Event.Portable.Events
         }
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
 
         #endregion
 
@@ -362,6 +416,26 @@ namespace Event.Portable.Events
                 measurements[i] = new DataMeasurementReplace(this, i);
                 data[i] = types[i].Item2;
             }
+        }
+
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

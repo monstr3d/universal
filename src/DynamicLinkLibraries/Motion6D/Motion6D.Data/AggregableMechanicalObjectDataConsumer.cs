@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-
+using System.Text;
 using CategoryTheory;
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D
 {
@@ -231,12 +228,12 @@ namespace Motion6D
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -265,6 +262,32 @@ namespace Motion6D
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -350,6 +373,8 @@ namespace Motion6D
                 setAliases();
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         /// <summary>
         /// Post opreation

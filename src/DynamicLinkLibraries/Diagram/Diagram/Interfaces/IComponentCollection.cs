@@ -1,17 +1,16 @@
-﻿using Diagram.Interfaces;
+﻿using System.Collections.Generic;
+
 using Diagram.UI.Labels;
+
 using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Collection of components
     /// </summary>
-    public interface IComponentCollection : INamed
+    public interface IComponentCollection : INamed, INode<IComponentCollection>
     {
         /// <summary>
         /// All components

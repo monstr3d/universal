@@ -44,6 +44,28 @@ namespace Diagram.UI
             wrappedObject = info.Deserialize<IChildren<IAssociatedObject>>("Object");
         }
 
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region ISerializable Members
@@ -53,11 +75,21 @@ namespace Diagram.UI
             info.Serialize<IChildren<IAssociatedObject>>("Object", wrappedObject);
         }
 
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+           
+        }
+
         #endregion
 
         #region IChildrenObject Members
 
-    
+
         public IEnumerable<IAssociatedObject> Children => wrappedObject.Children;
 
         #endregion

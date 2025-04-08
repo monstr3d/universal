@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 
 using Event.Interfaces;
+using NamedTree;
 
 
 namespace Event.Basic.Events
@@ -99,20 +100,20 @@ namespace Event.Basic.Events
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             events.Add(ev);
             onAdd(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             events.Remove(ev);
             onRemove(ev);
         }
 
 
-        IEnumerable<IEvent> IEventHandler.Events
+        IEnumerable<IEvent> IChildren<IEvent>.Children
         {
             get
             {
@@ -123,13 +124,13 @@ namespace Event.Basic.Events
             }
         }
 
-        event Action<IEvent> IEventHandler.OnAdd
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add { onAdd += value; }
             remove { onAdd -= value; }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add { onRemove += value; }
             remove { onRemove -= value; }

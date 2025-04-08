@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using NamedTree;
 
 
 namespace Abstract3DConverters.Creators
@@ -708,9 +709,8 @@ namespace Abstract3DConverters.Creators
                 {
                     Diffuse = new Color(new float[] { 1, 1, 1 });
                 }
-                MaterialGroup mat = new PhongMaterial(Name, null);
-                var children = mat.Children;
-                if (Diffuse != null)
+                IChildren<SimpleMaterial> mat = new PhongMaterial(Name, null);
+                 if (Diffuse != null)
                 {
                     if (Ambient == null)
                     {
@@ -718,7 +718,7 @@ namespace Abstract3DConverters.Creators
                     }
                     var diffuse = new DiffuseMaterial(Diffuse, Ambient, d);
                     //diffuse.Texture = Kd;
-                    children.Add(diffuse);
+                    mat.AddChild(diffuse);
                 }
                 if (Emissive == null)
                 {
@@ -727,15 +727,15 @@ namespace Abstract3DConverters.Creators
                 if (Emissive != null)
                 {
                     var emissive = new EmissiveMaterial(Emissive, Ka);
-                    children.Add(emissive);
+                    mat.AddChild(emissive);
                 }
                 if (Specular != null)
                 {
                     var specular = new SpecularMaterial(Specular, Ns);
-                    children.Add(specular);
+                    mat.AddChild(specular);
                 }
                 Dictionary<string, Effect> dn = null;
-                effect = new Effect(dn, Name, mat, Kd);
+                effect = new Effect(dn, Name, mat as Material, Kd);
             }
 
 
@@ -1085,7 +1085,8 @@ namespace Abstract3DConverters.Creators
             var mat = new MaterialGroup("Default");
             var color = new Color(new float[] {  1f, 1f, 1f });
             var dm = new DiffuseMaterial(color, null, 1);
-            mat.Children.Add(dm);
+            IChildren<SimpleMaterial> children = mat;
+            children.AddChild(dm);
             var effect = new Effect(this, "Default", mat, image);
             return effect;
         }
@@ -1133,9 +1134,9 @@ namespace Abstract3DConverters.Creators
             var image = new Image(f, creator.Directory);
             var ff = new float[] { 1f, 1f, 1f, 1f };
             var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
-            var mat = new MaterialGroup(f);
-            mat.Children.Add(d);
-            return new Effect(this, f, mat, image);
+            IChildren<SimpleMaterial> mat = new MaterialGroup(f);
+            mat.AddChild(d);
+            return new Effect(this, f, mat as Material, image);
         }
 
 
@@ -1152,9 +1153,9 @@ namespace Abstract3DConverters.Creators
             }
             var ff = new float[] { 1f, 1f, 1f, 1f };
             var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
-            var mat = new MaterialGroup(f);
-            mat.Children.Add(d);
-            return new Effect(EffectsPrivate, inm, mat, image);
+            IChildren<SimpleMaterial> mat = new MaterialGroup(f);
+            mat.AddChild(d);
+            return new Effect(EffectsPrivate, inm, mat as Material, image);
        }
 
    

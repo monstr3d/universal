@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
+using NamedTree;
 
 
 
@@ -51,8 +52,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
-        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+    
         private PolyList(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             try
@@ -163,6 +163,32 @@ namespace Collada.Converters.Classes.Complicated
             }
         }
 
+        event Action<IMesh> INode<IMesh>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMesh> INode<IMesh>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         object Get()
         {
             return this;
@@ -175,6 +201,11 @@ namespace Collada.Converters.Classes.Complicated
         }
 
         void IMesh.CalculateAbsolute()
+        {
+            throw new NotImplementedException();
+        }
+
+        void INode<IMesh>.Remove(INode<IMesh> node)
         {
             throw new NotImplementedException();
         }

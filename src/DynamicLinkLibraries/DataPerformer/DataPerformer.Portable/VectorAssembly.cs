@@ -9,13 +9,15 @@ using Diagram.UI;
 
 using DataPerformer.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
     /// <summary>
     /// Object which assemblies variables to vector
     /// </summary>
-    public class VectorAssembly : CategoryObject, IDataConsumer, IMeasurement, IPostSetArrow, IMeasurements
+    public class VectorAssembly : CategoryObject, IDataConsumer, IMeasurement, IPostSetArrow, 
+        IMeasurements
     {
 
         #region Fields
@@ -94,14 +96,14 @@ namespace DataPerformer.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
-            this.measurements.Remove(measurements); ;
+            this.measurements.Remove(measurements);
         }
 
         void IDataConsumer.UpdateChildrenData()
@@ -131,6 +133,54 @@ namespace DataPerformer.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -221,6 +271,10 @@ namespace DataPerformer.Portable
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
+
         /// <summary>
         /// Gets value
         /// </summary>
@@ -244,6 +298,14 @@ namespace DataPerformer.Portable
             }
             val = new double[measures.Length];
             type = new ArrayReturnType(a, new int[] { measures.Length }, false);
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

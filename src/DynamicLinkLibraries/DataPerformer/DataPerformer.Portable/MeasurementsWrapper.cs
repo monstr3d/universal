@@ -36,6 +36,28 @@ namespace DataPerformer.Portable
             this.associated = associated;
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IMeasurements Members
@@ -118,6 +140,8 @@ namespace DataPerformer.Portable
                 return mea.Length;
             }
         }
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
 
         /// <summary>
         /// Access to measurements
@@ -215,6 +239,20 @@ namespace DataPerformer.Portable
                 m.Add(measurements[i]);
             }
             this.measurements = m.ToArray();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            var l = new List<IMeasurement>(measurements);
+            l.Add(child);
+            measurements = l.ToArray();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            var l = new List<IMeasurement>(measurements);
+            l.Remove(child);
+            measurements = l.ToArray();
         }
 
         #endregion

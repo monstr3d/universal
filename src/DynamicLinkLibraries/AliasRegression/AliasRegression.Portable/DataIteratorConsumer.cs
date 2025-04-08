@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using NamedTree;
 
 namespace Regression.Portable
 {
@@ -45,13 +46,13 @@ namespace Regression.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
             SetIterators();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
             SetIterators();
@@ -70,6 +71,8 @@ namespace Regression.Portable
             get { return measurements.Count; }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
         IMeasurements IDataConsumer.this[int n]
         {
             get { return measurements[n]; }
@@ -84,6 +87,28 @@ namespace Regression.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
 

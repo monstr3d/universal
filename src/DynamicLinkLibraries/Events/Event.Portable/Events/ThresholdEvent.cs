@@ -7,6 +7,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Event.Interfaces;
+using NamedTree;
 
 
 namespace Event.Portable.Events
@@ -82,7 +83,7 @@ namespace Event.Portable.Events
         #region IEventHandler Members
 
 
-        event Action<IEvent> IEventHandler.OnAdd
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add
             {
@@ -95,7 +96,7 @@ namespace Event.Portable.Events
             }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add
             {
@@ -121,16 +122,38 @@ namespace Event.Portable.Events
             }
         }
 
-        IEnumerable<IEvent> IEventHandler.Events => events;
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
 
-        void IEventHandler.Add(IEvent ev)
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        IEnumerable<IEvent> IChildren<IEvent>.Children => events;
+
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             onAdd(ev);
             events.Add(ev);
             ev.Event += Perform;
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             onRemove(ev);
             events.Remove(ev);
@@ -146,12 +169,12 @@ namespace Event.Portable.Events
 
         IMeasurements IDataConsumer.this[int number] => measurements[number];
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -198,6 +221,8 @@ namespace Event.Portable.Events
         /// </summary>
         public bool Decrease
         { get; set; } = true;
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         /// <summary>
         /// Sets itself

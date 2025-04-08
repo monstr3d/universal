@@ -1,4 +1,5 @@
 ﻿using Diagram.UI.Interfaces;
+using NamedTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,13 @@ namespace Diagram.UI.Objects
 
         #region IAddRemove Members
 
-        void IAddRemove.Add(object obj)
+ 
+
+        void IChildren<object>.AddChild(object child)
         {
         }
 
-        void IAddRemove.Remove(object obj)
+        void IChildren<object>.RemoveChild(object child)
         {
         }
 
@@ -33,16 +36,30 @@ namespace Diagram.UI.Objects
             get { return typeof(object); }
         }
 
-        event Action<object> IAddRemove.AddAction
+        IEnumerable<object> IChildren<object>.Children => [];
+
+
+
+        event Action<object> IChildren<object>.OnAdd
         {
-            add {  }
-            remove { throw new NotImplementedException(); }
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
-        event Action<object> IAddRemove.RemoveAction
+        event Action<object> IChildren<object>.OnRemove
         {
-            add { }
-            remove { }
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion

@@ -17,6 +17,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using BitmapConsumer;
+using NamedTree;
 
 
 
@@ -177,6 +178,28 @@ namespace ImageNavigation
             remove { addRemove -= value; }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
 
 
         #endregion
@@ -187,6 +210,8 @@ namespace ImageNavigation
         {
             get { return (x == null) ? 0 : 2; }
         }
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [x,y];
 
         IStructuredSelection IStructuredSelectionCollection.this[int i]
         {
@@ -255,6 +280,14 @@ namespace ImageNavigation
             }
             x = new ArrayStructuredSelection(xx, "X", "X");
             y = new ArrayStructuredSelection(yy, "Y", "Y");
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

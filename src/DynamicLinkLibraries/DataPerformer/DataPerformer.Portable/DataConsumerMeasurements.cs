@@ -14,6 +14,7 @@ using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {
@@ -230,6 +231,28 @@ namespace DataPerformer.Portable
         {
             add { onChange += value; }
             remove { onChange -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -605,6 +628,8 @@ namespace DataPerformer.Portable
             get { return measurements.Length; }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
         protected virtual void SetFeedback()
         {
             feedAliases.Clear();
@@ -612,6 +637,16 @@ namespace DataPerformer.Portable
             {
                 feedAliases[i] = this.FindAliasName(feedback[i], false);
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
 

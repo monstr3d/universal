@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-
-using Diagram.UI;
-
+using System.Text;
 using BaseTypes;
-
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using Diagram.UI;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -64,12 +61,12 @@ namespace DataPerformer
  
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
@@ -97,6 +94,28 @@ namespace DataPerformer
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -240,6 +259,8 @@ namespace DataPerformer
                 return s.Y;
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         void INamedCoordinates.Set(string x, string y)
         {

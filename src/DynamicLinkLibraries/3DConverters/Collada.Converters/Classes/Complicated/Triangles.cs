@@ -8,6 +8,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 using Collada.Converters.Classes.Elementary;
+using NamedTree;
 
 
 namespace Collada.Converters.Classes.Complicated
@@ -62,8 +63,7 @@ namespace Collada.Converters.Classes.Complicated
 
         float[] IGeometry.TransformationMatrix => throw new NotImplementedException();
 
-        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+ 
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             Create(element);
@@ -90,6 +90,32 @@ namespace Collada.Converters.Classes.Complicated
             }
             List<float[]> vertices = null;
             
+        }
+
+        event Action<IMesh> INode<IMesh>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMesh> INode<IMesh>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         void Create(XmlElement element)
@@ -221,6 +247,11 @@ namespace Collada.Converters.Classes.Complicated
         }
 
         void IMesh.CalculateAbsolute()
+        {
+            throw new NotImplementedException();
+        }
+
+        void INode<IMesh>.Remove(INode<IMesh> node)
         {
             throw new NotImplementedException();
         }

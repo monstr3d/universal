@@ -11,6 +11,7 @@ using DataPerformer.Portable;
 
 using RealMatrixProcessor;
 using ErrorHandler;
+using NamedTree;
 
 namespace Regression.Portable
 {
@@ -206,12 +207,12 @@ namespace Regression.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements mea)
+        void IChildren<IMeasurements>.AddChild(IMeasurements mea)
         {
             measurements.Add(mea);
         }
 
-        void IDataConsumer.Remove(IMeasurements mea)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements mea)
         {
             measurements.Remove(mea);
         }
@@ -243,6 +244,28 @@ namespace Regression.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -805,6 +828,8 @@ namespace Regression.Portable
                 return la;
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         /// <summary>
         /// Prepares itself

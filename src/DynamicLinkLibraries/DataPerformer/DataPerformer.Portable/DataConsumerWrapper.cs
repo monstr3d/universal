@@ -26,6 +26,8 @@ namespace DataPerformer.Portable
 
         IAssociatedObject associated;
 
+        List<IMeasurements> measurements = new List<IMeasurements>();
+
         #endregion
 
         #region Ctor
@@ -54,20 +56,22 @@ namespace DataPerformer.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
-            foreach (IDataConsumer c in consumers)
+            foreach (IChildren<IMeasurements> c in consumers)
             {
-                c.Add(measurements);
+                c.AddChild(measurements);
             }
+            this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             foreach (IDataConsumer c in consumers)
             {
-                c.Remove(measurements);
+                c.RemoveChild(measurements);
             }
+            this.measurements.Remove(measurements);
         }
 
         void IDataConsumer.UpdateChildrenData()
@@ -79,6 +83,8 @@ namespace DataPerformer.Portable
         {
             get { return consumers[0].Count; }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         IMeasurements IDataConsumer.this[int number]
         {
@@ -94,6 +100,28 @@ namespace DataPerformer.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion

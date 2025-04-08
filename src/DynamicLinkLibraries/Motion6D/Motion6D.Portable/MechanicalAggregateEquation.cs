@@ -14,6 +14,7 @@ using Vector3D;
 using Motion6D.Interfaces;
 
 using RealMatrixProcessor;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
@@ -217,6 +218,28 @@ namespace Motion6D.Portable
             this.aggregate = wrapper.Aggregate;
             PreInit();
             Init();
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -1088,6 +1111,8 @@ namespace Motion6D.Portable
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
+
         void IStateDoubleVariables.Set(double[] input, int offset, int length)
         {
             int n = 0;
@@ -1106,6 +1131,14 @@ namespace Motion6D.Portable
                     }
                 }
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

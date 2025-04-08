@@ -7,6 +7,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
+using NamedTree;
 using RealMatrixProcessor;
 using Vector3D;
 
@@ -45,7 +46,7 @@ namespace Motion6D.Portable
         /// Parent frame
         /// </summary>
         protected IReferenceFrame parent;
-
+   
         /// <summary>
         /// Associated parameters
         /// </summary>
@@ -110,14 +111,7 @@ namespace Motion6D.Portable
             get { return own; }
         }
 
-        /// <summary>
-        /// Children objects
-        /// </summary>
-        List<IPosition> IReferenceFrame.Children
-        {
-            get { return children; }
-        }
-
+  
 
         #endregion
 
@@ -148,6 +142,32 @@ namespace Motion6D.Portable
             remove
             {
                 change -= value;
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IPosition> INode<IPosition>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -495,6 +515,16 @@ namespace Motion6D.Portable
             Update();
         }
 
+        void INode<IPosition>.Add(INode<IPosition> node)
+        {
+            throw new NotImplementedException();
+        }
+
+        void INode<IPosition>.Remove(INode<IPosition> node)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Own frame
         /// </summary>
@@ -557,6 +587,16 @@ namespace Motion6D.Portable
 
         internal ReferenceFrame RelativeFrame => relative;
 
+        INode<IPosition> INode<IPosition>.Parent { get => this.Parent; set => Parent = value as IReferenceFrame; }
+   
+        IPosition INode<IPosition>.Value => this;
+
+        /// <summary>
+        /// Children objects
+        /// </summary>
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => children; set { } }
+
+    
         #endregion
 
         #endregion

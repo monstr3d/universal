@@ -1,27 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using NamedTree;
 
 namespace DataPerformer.Interfaces
 {
     /// <summary>
     /// Consumer of data
     /// </summary>
-    public interface IDataConsumer
+    public interface IDataConsumer : IChildren<IMeasurements>
     {
  
-        /// <summary>
-        /// Adds data provider 
-        /// </summary>
-        /// <param name="measurements">Provider to add</param>
-        void Add(IMeasurements measurements);
-
-        /// <summary>
-        /// Removes data provider
-        /// </summary>
-        /// <param name="measurements">Provider to remove</param>
-        void Remove(IMeasurements measurements);
-
         /// <summary>
         /// Updates data of data providers
         /// </summary>

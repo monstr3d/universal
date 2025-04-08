@@ -17,10 +17,28 @@ namespace NamedTree
         IEnumerable<INode<T>> Nodes { get; protected set; }
 
         /// <summary>
-        /// Add child node
+        /// Adds child node
         /// </summary>
         /// <param name="node">The child node</param>
         void Add(INode<T> node);
+
+
+        /// <summary>
+        /// Removes child node
+        /// </summary>
+        /// <param name="node">The child node</param>
+        void Remove(INode<T> node);
+
+        /// <summary>
+        /// Add event
+        /// </summary>
+        event Action<T> OnAdd;
+
+        /// <summary>
+        /// Remove event
+        /// </summary>
+        event Action<T> OnRemove;
+
 
         /// <summary>
         /// Value

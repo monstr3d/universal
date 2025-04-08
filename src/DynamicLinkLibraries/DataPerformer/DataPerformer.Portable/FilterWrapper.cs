@@ -2,7 +2,9 @@
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Filters;
 using Diagram.Interfaces;
+using NamedTree;
 using System;
+using System.Collections.Generic;
 
 namespace DataPerformer.Portable
 {
@@ -154,6 +156,8 @@ namespace DataPerformer.Portable
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+
         event Action<IRunning, bool> IRunning.Running
         {
             add
@@ -167,12 +171,46 @@ namespace DataPerformer.Portable
             }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
 
 
         #endregion
 
         object func()
         { return outval; }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
 
         #region Measurement class
 

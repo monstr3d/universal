@@ -9,6 +9,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using Diagram.UI.Interfaces;
 using Event.Interfaces;
+using NamedTree;
 
 namespace Event.Portable.Events
 {
@@ -220,6 +221,8 @@ namespace Event.Portable.Events
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
         /// <summary>
         /// Force
         /// </summary>
@@ -235,6 +238,28 @@ namespace Event.Portable.Events
         {
             add { changeTypes += value; }
             remove { changeTypes -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -284,6 +309,14 @@ namespace Event.Portable.Events
                 initial[i] = n;
             }
             changeTypes();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

@@ -56,7 +56,7 @@ namespace Event.Portable.Arrows
             {   // Checks whether the target
                 // implements the legal interface
                 target = value.GetTarget<IEvent>();
-                source.Add(target);
+                source.AddChild(target);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Event.Portable.Arrows
             {
                 return;
             }
-            source.Remove(target);
+            source.RemoveChild(target);
             source = null;
             target = null;
             GC.Collect();

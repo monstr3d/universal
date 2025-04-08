@@ -429,6 +429,32 @@ namespace ImageNavigation
             remove { addRemove -= value; }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region IStructuredSelectionCollection Members
@@ -584,7 +610,9 @@ namespace ImageNavigation
             }
         }
 
-        string INamed.Name { get => Name; set => throw new NotImplementedException(); }
+        string INamed.Name { get => Name; set  { } }
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measurement];
 
         private int GetX(int x)
         {
@@ -709,6 +737,16 @@ namespace ImageNavigation
                 }
             }
             return false;
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

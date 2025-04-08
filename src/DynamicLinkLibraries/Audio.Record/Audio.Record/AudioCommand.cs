@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
+
+using NamedTree;
 
 using Audio.Record.Interfaces;
 
@@ -62,7 +61,7 @@ namespace Audio.Record
             }
         }
 
-        event Action<object> IAddRemove.AddAction
+        event Action<object> IChildren<object>.OnAdd
         {
             add
             {
@@ -75,7 +74,7 @@ namespace Audio.Record
             }
         }
 
-        event Action<object> IAddRemove.RemoveAction
+        event Action<object> IChildren<object>.OnRemove
         {
             add
             {
@@ -88,12 +87,12 @@ namespace Audio.Record
             }
         }
 
-        void IAddRemove.Add(object obj)
+        void IChildren<object>.AddChild(object obj)
         {
             children.Add(obj);
         }
 
-        void IAddRemove.Remove(object obj)
+        void IChildren<object>.RemoveChild(object obj)
         {
             children.Remove(obj);
         }
@@ -121,6 +120,8 @@ namespace Audio.Record
                 return command;
             }
         }
+
+        IEnumerable<object> IChildren<object>.Children => children;
 
         #endregion
 

@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using CategoryTheory;
-
-using Diagram.UI;
-
-using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
-
-using Event.Interfaces;
-
-using SoundService.Interfaces;
+using DataPerformer.Portable;
+using Diagram.UI;
 using ErrorHandler;
+using Event.Interfaces;
+using NamedTree;
+using SoundService.Interfaces;
 
 namespace SoundService
 {
@@ -67,8 +63,7 @@ namespace SoundService
             ex.HandleException(1);
         }
     };
-
-
+ 
         bool isUpdated = false;
 
         #endregion
@@ -89,13 +84,13 @@ namespace SoundService
    
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
             onChangeInput();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
             onChangeInput();
@@ -261,6 +256,11 @@ namespace SoundService
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [];
+
+
         /// <summary>
         /// Play sound event
         /// </summary>
@@ -268,6 +268,50 @@ namespace SoundService
         {
             add { playSound += value; }
             remove { playSound -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -285,9 +329,19 @@ namespace SoundService
             }
         }
 
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
+
+
+
 
         #endregion
 
         #endregion
-   }
+    }
 }

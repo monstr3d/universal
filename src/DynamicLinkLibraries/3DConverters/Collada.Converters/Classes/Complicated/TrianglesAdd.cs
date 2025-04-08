@@ -1,5 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
+using ErrorHandler;
+using NamedTree;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -7,6 +9,26 @@ namespace Collada.Converters.Classes.Complicated
     {
 
         #region 
+
+        INode<IMesh> INode<IMesh>.Parent { get => null; set { } }
+        IEnumerable<INode<IMesh>> INode<IMesh>.Nodes { get => null; set { } }
+
+        IMesh INode<IMesh>.Value => this;
+
+        void INode<IMesh>.Add(INode<IMesh> node)
+        {
+            throw new IllegalSetPropetryException("Triangle");
+        }
+
+
+
+        string INamed.Name
+        {
+            get => throw new IllegalSetPropetryException("Triangle");
+            set => throw new IllegalSetPropetryException("Triangle");
+        }
+
+
 
         List<float[]> IGeometry.Vertices => ProtectedVertices;
 
@@ -16,23 +38,22 @@ namespace Collada.Converters.Classes.Complicated
 
         Abstract3DConverters.Materials.Effect IMesh.Effect => Effect;
 
-        List<int[][]> IMesh.Indexes => throw new NotImplementedException();
+        List<int[][]> IMesh.Indexes => throw new IllegalSetPropetryException("Triangle");
 
  
-        List<float[]> IMesh.AbsoluteVertices => throw new NotImplementedException();
+        List<float[]> IMesh.AbsoluteVertices => throw new IllegalSetPropetryException("Triangle");
 
 
-        string IMesh.Name => throw new NotImplementedException();
-
+ 
         List<Polygon> IMesh.Polygons => Polygons;
 
-        List<IMesh> IMesh.Children => throw new NotImplementedException();
+        List<IMesh> IMesh.Children => throw new IllegalSetPropetryException("Triangle");
 
-        IMeshCreator IMesh.Creator => throw new NotImplementedException();
+        IMeshCreator IMesh.Creator => throw new IllegalSetPropetryException("Triangle");
  
         Abstract3DConverters.Materials.Effect IMesh.GetEffect(IMaterialCreator creator)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Triangle");
         }
 
         #endregion

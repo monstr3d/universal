@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
+using NamedTree;
 
 
 
@@ -31,8 +32,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<MeshObject>();
 
-        IParent IParent.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+ 
         private MeshObject(XmlElement xmlElement, IMeshCreator meshCreator) : base(xmlElement)
         {
             this.meshCreator = meshCreator;
@@ -188,9 +188,40 @@ namespace Collada.Converters.Classes.Complicated
 
         }
 
+        event Action<IMesh> INode<IMesh>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMesh> INode<IMesh>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         static public object Get(XmlElement xmlElement, IMeshCreator meshCreator)
         {
             return new MeshObject(xmlElement, meshCreator);
         }
-     }
+
+        void INode<IMesh>.Remove(INode<IMesh> node)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

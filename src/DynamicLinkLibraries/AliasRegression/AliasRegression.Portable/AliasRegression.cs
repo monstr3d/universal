@@ -1,18 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
 using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
-
-using DataPerformer.Portable;
 using DataPerformer.Interfaces;
-
-using GeneralLinearMethod;
+using DataPerformer.Portable;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
 using ErrorHandler;
+using GeneralLinearMethod;
+using NamedTree;
 
 namespace Regression.Portable
 {
@@ -156,13 +153,13 @@ namespace Regression.Portable
 
 		#region IDataConsumer Members
 
-		void IDataConsumer.Add(IMeasurements arrow)
+		void IChildren<IMeasurements>.AddChild(IMeasurements arrow)
 		{
 			measurements.Add(arrow);
             measurements.GetDependent(l, dependent);
 		}
 
-        void IDataConsumer.Remove(IMeasurements arrow)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements arrow)
 		{
 			measurements.Remove(arrow);
             measurements.GetDependent(l, dependent);
@@ -221,9 +218,31 @@ namespace Regression.Portable
             remove { onChangeInput -= value; }
         }
 
-		#endregion
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
 
-		#region IStructuredSelectionConsumer Members
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        #endregion
+
+        #region IStructuredSelectionConsumer Members
 
         /// <summary>
         /// Adds selection collection
@@ -795,10 +814,12 @@ namespace Regression.Portable
 			}
 		}
 
-		/// <summary>
-		/// Full iteration with all updates
-		/// </summary>
-		public double FullIterate()
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        /// <summary>
+        /// Full iteration with all updates
+        /// </summary>
+        public double FullIterate()
 		{
 			UpdateSelections();
 			var a = Iterate();

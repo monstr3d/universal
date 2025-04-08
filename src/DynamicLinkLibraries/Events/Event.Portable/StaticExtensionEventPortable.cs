@@ -119,7 +119,7 @@ namespace Event.Portable
                 return null;
             }
             IAssociatedObject ao = handler as IAssociatedObject;
-            foreach (IEvent ev in handler.Events)
+            foreach (IEvent ev in handler.Children)
             {
                 if (ev is IAssociatedObject)
                 {
@@ -170,7 +170,7 @@ namespace Event.Portable
             if (handler is IAssociatedObject)
             {
                 IAssociatedObject ao = handler as IAssociatedObject;
-                foreach (IEvent ev in handler.Events)
+                foreach (IEvent ev in handler.Children)
                 {
                     if (ev is IAssociatedObject)
                     {

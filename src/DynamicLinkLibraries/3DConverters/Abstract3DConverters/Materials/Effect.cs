@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
+using NamedTree;
 using System.Reflection;
 
 namespace Abstract3DConverters.Materials
@@ -119,7 +120,7 @@ namespace Abstract3DConverters.Materials
                 DiffuseMaterial d = null;
                 EmissiveMaterial e = null;
                 SpecularMaterial s = null;
-                var m = Material as MaterialGroup;
+                var m = Material as IChildren<SimpleMaterial>;
                 foreach (var material in m.Children)
                 {
                     switch (material)

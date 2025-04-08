@@ -2,6 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using NamedTree;
 
 namespace Abstract3DConverters.Converters
 {
@@ -250,7 +251,7 @@ namespace Abstract3DConverters.Converters
             string diff = " 0 0 0 ";
             string emis = " 0 0 0 ";
             string spec = " 0 0 0 ";
-            if (material is MaterialGroup group)
+            if (material is IChildren<SimpleMaterial> group)
             {
                 foreach (var mat in group.Children)
                 {

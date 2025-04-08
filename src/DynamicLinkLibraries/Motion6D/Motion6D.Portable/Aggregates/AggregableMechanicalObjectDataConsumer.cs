@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using CategoryTheory;
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
 using Motion6D.Interfaces;
-
+using NamedTree;
 using RealMatrixProcessor;
-
 using Vector3D;
 
 namespace Motion6D.Portable.Aggregates
@@ -236,15 +232,17 @@ namespace Motion6D.Portable.Aggregates
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
+
+
 
         void IDataConsumer.UpdateChildrenData()
         {
@@ -270,6 +268,28 @@ namespace Motion6D.Portable.Aggregates
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -356,6 +376,8 @@ namespace Motion6D.Portable.Aggregates
                 setAliases();
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         /// <summary>
         /// Post opreation

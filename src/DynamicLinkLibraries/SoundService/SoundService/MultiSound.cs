@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Xml.Linq;
 using CategoryTheory;
-
-using Diagram.UI;
-
-using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
-
-using Event.Interfaces;
-using System.Xml.Linq;
+using DataPerformer.Portable;
+using Diagram.UI;
 using ErrorHandler;
+using Event.Interfaces;
+using NamedTree;
 
 namespace SoundService
 {
@@ -63,18 +60,20 @@ namespace SoundService
         {
 
         }
-  
+
         #endregion
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+
+
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
             onChangeInput?.Invoke();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
             onChangeInput?.Invoke();
@@ -149,6 +148,28 @@ namespace SoundService
         {
             add { }
             remove { }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -257,6 +278,8 @@ namespace SoundService
                 return (double)timeMeasure.Parameter();
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
         void Post()
         {

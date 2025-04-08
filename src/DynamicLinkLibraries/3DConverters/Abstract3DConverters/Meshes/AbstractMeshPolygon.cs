@@ -36,7 +36,7 @@ namespace Abstract3DConverters.Meshes
             TransformationMatrix = matrix;
             if (parent != null)
             {
-                Parent = parent;
+                 ProtectedParent = parent;
             }
         }
 

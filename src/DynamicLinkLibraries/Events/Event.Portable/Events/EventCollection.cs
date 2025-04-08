@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CategoryTheory;
 using Event.Interfaces;
+using NamedTree;
 
 namespace Event.Portable.Events
 {
@@ -81,36 +82,27 @@ namespace Event.Portable.Events
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
-        {
+        void IChildren<IEvent>.AddChild(IEvent ev)
+        { 
             this.ev.Add(ev);
             onAdd(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             this.ev.Remove(ev);
         }
 
 
-        IEnumerable<IEvent> IEventHandler.Events
-        {
-            get
-            {
-                foreach (IEvent e in ev)
-                {
-                    yield return e;
-                }
-            }
-        }
+        IEnumerable<IEvent> IChildren<IEvent>.Children => ev;
 
-        event Action<IEvent> IEventHandler.OnAdd
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add { onAdd += value; }
             remove { onAdd -= value; }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add { onRemove += value; }
             remove { onRemove -= value; }

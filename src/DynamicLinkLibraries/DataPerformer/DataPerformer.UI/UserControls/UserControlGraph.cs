@@ -2243,7 +2243,7 @@ Func<bool> stop)
             userControlRealtimeAnalysis.Names = lm;
 
             List<object> sel = new List<object>();
-            IEnumerable<IEvent> events = (consumer as IEventHandler).Events;
+            IEnumerable<IEvent> events = (consumer as IEventHandler).Children;
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);
@@ -2536,7 +2536,7 @@ Func<bool> stop)
             lm.Sort();
             userControlRealtimeAnalysis.Names = lm;
             List<object> sel = new List<object>();
-            IEnumerable<IEvent> events = (consumer as IEventHandler).Events;
+            IEnumerable<IEvent> events = (consumer as IChildren<IEvent>).Children;
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);

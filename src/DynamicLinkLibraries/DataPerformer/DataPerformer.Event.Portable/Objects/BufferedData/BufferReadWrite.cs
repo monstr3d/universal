@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using CategoryTheory;
-
 using BaseTypes.Attributes;
-
+using CategoryTheory;
+using DataPerformer.Interfaces;
+using DataPerformer.Interfaces.BufferedData.Interfaces;
+using DataPerformer.Portable;
+using DataPerformer.Portable.Measurements;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Portable;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-using DataPerformer.Interfaces.BufferedData.Interfaces;
-using DataPerformer.Portable.Measurements;
-
+using ErrorHandler;
 using Event.Interfaces;
 using Event.Log.Database.Interfaces;
 using Event.Portable;
-using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Event.Portable.Objects.BufferedData
 {
@@ -150,13 +146,13 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             }
         }
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             external.Add(measurements);
             onChangeInput?.Invoke();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             external.Remove(measurements);
             onChangeInput?.Invoke();
@@ -176,32 +172,12 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
 
         #region IAddRemove Members
 
-        void IAddRemove.Add(object obj)
-        {
-
-        }
-
-        void IAddRemove.Remove(object obj)
-        {
-
-        }
 
         Type IAddRemove.Type
         {
             get { return typeof(object); }
         }
 
-        event Action<object> IAddRemove.AddAction
-        {
-            add { }
-            remove { }
-        }
-
-        event Action<object> IAddRemove.RemoveAction
-        {
-            add { }
-            remove { }
-        }
 
         #endregion
 
@@ -245,36 +221,28 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             events.Add(ev);
             onAddEvent?.Invoke(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             events.Remove(ev);
             onRemoveEvent?.Invoke(ev);
         }
 
-        IEnumerable<IEvent> IEventHandler.Events
-        {
-            get
-            {
-                foreach (IEvent ev in events)
-                {
-                    yield return ev;
-                }
-            }
-        }
+        IEnumerable<IEvent> IChildren<IEvent>.Children => events;
+     
 
-        event Action<IEvent> IEventHandler.OnAdd
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add { onAddEvent += value; }
             remove { onAddEvent -= value; }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add { onRemoveEvent += value; }
             remove { onRemoveEvent -= value; }
@@ -296,6 +264,73 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
                 changeItem -= value;
             }
         }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<object> IChildren<object>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<object> IChildren<object>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
 
         #endregion
 
@@ -909,6 +944,13 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
  
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => external;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
+        IEnumerable<object> IChildren<object>.Children => [];
+
+
         void PerformExternal(IBufferData data)
         {
             string reason = StaticExtensionDataPerformerInterfaces.Calculation;
@@ -963,6 +1005,26 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         void VerifyInput()
         {
 //            input = input.Where<string>(InputExists).ToList();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<object>.AddChild(object child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<object>.RemoveChild(object child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

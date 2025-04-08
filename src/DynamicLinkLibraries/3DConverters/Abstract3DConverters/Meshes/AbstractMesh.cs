@@ -1,55 +1,25 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using ErrorHandler;
+using NamedTree;
 
 
 
 namespace Abstract3DConverters.Meshes
 {
+
     /// <summary>
     /// Abstract mesh
     /// </summary>
     public class AbstractMesh :  IMesh
     {
-        #region Fields
-
-        /// <summary>
-        /// Parent
-        /// </summary>
-        protected AbstractMesh parent;
-
-        /// <summary>
-        /// Service
-        /// </summary>
-        protected Service s = new();
-
-   
-        /// <summary>
-        /// The "triangles created@ sign
-        /// </summary>
-        protected bool trianglesCreated = false;
-
-        protected float[,] relative;
-
-        protected float[,] absolute;
-
-  
-        Func<float[,]> GetRelativeMatrix;
-
-        Func<float[,]> GetAbsoluteMatrix;
-
-     //   protected List<Polygon> absolutePolygons;
-
-        Func<List<Polygon>> GetAbsolutePolygons;
-        
-
-        #endregion
-
-
+ 
         #region Ctor
 
         private AbstractMesh()
         {
+            mesh = this;
             //GetAbsolute = GetStart;
             GetRelativeMatrix = GetRelativeMatrixStart;
             GetAbsoluteMatrix = GetAbsoluteMatrixStart;
@@ -136,20 +106,99 @@ namespace Abstract3DConverters.Meshes
             TransformationMatrix = matrix;
         }
 
+        event Action<IMesh> INode<IMesh>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMesh> INode<IMesh>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
-
-        #region IParent implementation
+        #region Fields
 
         /// <summary>
         /// Parent
         /// </summary>
-        IParent IParent.Parent
+        protected AbstractMesh Parent
         {
-            get => parent;
-            set => Parent = value as AbstractMesh;
+            get;
+            set;
         }
 
+        protected virtual IMesh ParentMesh => Parent;
+
+        protected NamedTree.Performer performer = new NamedTree.Performer();
+        /// <summary>
+        /// Service
+        /// </summary>
+        protected Service s = new();
+
+
+        /// <summary>
+        /// The "triangles created@ sign
+        /// </summary>
+        protected bool trianglesCreated = false;
+
+        protected float[,] relative;
+
+        protected float[,] absolute;
+
+
+        Func<float[,]> GetRelativeMatrix;
+
+        Func<float[,]> GetAbsoluteMatrix;
+
+        //   protected List<Polygon> absolutePolygons;
+
+        Func<List<Polygon>> GetAbsolutePolygons;
+
+        protected IMesh mesh;
+
+
+        #endregion
+
+
+
+        #region IParent implementation
+
+
+        #region  INode<IMesh> Implementation
+        INode<IMesh> INode<IMesh>.Parent { get => Parent; set { } }
+        IEnumerable<INode<IMesh>> INode<IMesh>.Nodes { get => Children; set => throw new IllegalSetPropetryException("MESH SET CHILDREN PROHIBITED"); }
+
+        IMesh INode<IMesh>.Value => this;
+
+        void INode<IMesh>.Add(INode<IMesh> node)
+        {
+            Children.Add(node as IMesh);
+        }
+
+        string INamed.Name {  get => Name; set => Name = value; }
+
+        #endregion
+
+        /// <summary>
+  
         #endregion
 
         #region IMesh Implementation
@@ -171,8 +220,7 @@ namespace Abstract3DConverters.Meshes
         List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
 
      
-        string IMesh.Name => Name;
-
+      
         List<Polygon> IMesh.Polygons => Polygons;
 
         List<IMesh> IMesh.Children => Children;
@@ -193,6 +241,14 @@ namespace Abstract3DConverters.Meshes
         #endregion
 
         #region Properties
+
+        protected virtual IMesh ProtectedParent
+        {
+            set
+            {
+                performer.AddChildNode(value, this);
+            }
+        }
 
         /// <summary>
         /// The "has polygons" sign
@@ -221,7 +277,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Parent
         /// </summary>
-        public AbstractMesh Parent
+/*        public AbstractMesh Parent
         {
             get => parent;
             set
@@ -241,12 +297,12 @@ namespace Abstract3DConverters.Meshes
                     value.Children.Add(this);
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Children
         /// </summary>
-        public List<IMesh> Children { get; } = new();
+        protected virtual List<IMesh> Children { get; } = new();
 
         /// <summary>
         /// Vertices
@@ -289,7 +345,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Name
         /// </summary>
-        protected string Name { get;  set; }
+        protected virtual string Name { get;  set; }
 
         /// <summary>
         /// String representation of material
@@ -498,13 +554,13 @@ namespace Abstract3DConverters.Meshes
 
         float[,] GetAbsoluteMatrixStart()
         {
-            if (parent == null)
+            if (Parent == null)
             {
                 absolute = RelativeMatrix;
             }
             else
             {
-                absolute = s.MatrixProduct(parent.AbsoluteMatrix, RelativeMatrix);
+                absolute = s.MatrixProduct(Parent.AbsoluteMatrix, RelativeMatrix);
             }
             GetAbsoluteMatrix = GetAbsoluteMatrixFinish;
             return absolute;
@@ -523,6 +579,11 @@ namespace Abstract3DConverters.Meshes
         protected virtual Effect GetEffectEffect(IMaterialCreator creator)
         {
             return null;
+        }
+
+        void INode<IMesh>.Remove(INode<IMesh> node)
+        {
+            throw new NotImplementedException();
         }
 
         protected virtual IMeshCreator Creator { get; set; }

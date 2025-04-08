@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using CategoryTheory;
-using Diagram.UI;
-
+using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
-using DataPerformer.Interfaces;
-
-using Motion6D.Interfaces;
+using Diagram.UI;
 using ErrorHandler;
+using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
@@ -116,14 +114,15 @@ namespace Motion6D.Portable
         #endregion
 
         #region IDataConsumer Members
+  
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             measurementsData.Add(measurements);
             onChangeInput?.Invoke();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             measurementsData.Remove(measurements);
             onChangeInput?.Invoke();
@@ -164,6 +163,50 @@ namespace Motion6D.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -496,6 +539,10 @@ namespace Motion6D.Portable
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurementsData;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => outmeasurements;
+
 
         /// <summary>
         /// Starts itself
@@ -642,6 +689,14 @@ namespace Motion6D.Portable
         object GetOmegaZ()
         {
             return angularVelocity.Omega[2];
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

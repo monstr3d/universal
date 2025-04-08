@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
-
-
-using CategoryTheory;
-using Diagram.UI;
 using BaseTypes;
-
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using Diagram.UI;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -19,7 +15,8 @@ namespace DataPerformer
     /// Transforms array to scalars
     /// </summary>
     [Serializable()]
-    public class ArrayTransformer : CategoryObject, ISerializable, IMeasurements, IMeasurement, IDataConsumer, IPostSetArrow
+    public class ArrayTransformer : CategoryObject, ISerializable, IMeasurements, IMeasurement,
+        IDataConsumer, IPostSetArrow
     {
         #region Fields
 
@@ -122,7 +119,7 @@ namespace DataPerformer
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             if (this.measurements == null)
             {
@@ -132,7 +129,7 @@ namespace DataPerformer
             throw new Exception("Only one measurement is allowed");
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             if (measurements == this.measurements)
             {
@@ -164,6 +161,50 @@ namespace DataPerformer
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+             }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -255,6 +296,10 @@ namespace DataPerformer
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [this];
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => [measurements];
+
         /// <summary>
         /// Updates itself
         /// </summary>
@@ -324,8 +369,18 @@ namespace DataPerformer
 
         }
 
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
 
-     }
+    }
 }

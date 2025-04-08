@@ -1,24 +1,14 @@
 ﻿using System;
+using NamedTree;
 
 namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Adding and removing objects
     /// </summary>
-    public interface IAddRemove
+    public interface IAddRemove : IChildren<object>
     {
-        /// <summary>
-        /// Adds object
-        /// </summary>
-        /// <param name="obj">The object to add</param>
-        void Add(object obj);
-
-        /// <summary>
-        /// Removes object
-        /// </summary>
-        /// <param name="obj">The object to remove</param>
-        void Remove(object obj);
-
+ 
         /// <summary>
         /// Type of element
         /// </summary>
@@ -26,16 +16,5 @@ namespace Diagram.UI.Interfaces
         {
             get;
         }
-
-        /// <summary>
-        /// Add
-        /// </summary>
-        event Action<object> AddAction;
-
-        /// <summary>
-        /// Remove
-        /// </summary>
-        event Action<object> RemoveAction;
-
     }
 }

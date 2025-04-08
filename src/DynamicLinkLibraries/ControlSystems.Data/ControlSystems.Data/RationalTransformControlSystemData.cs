@@ -1,26 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-
-
-using CategoryTheory;
-
 using BaseTypes.Interfaces;
-
-using SerializationInterface;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-
-
+using CategoryTheory;
+using ControlSystemsWrapper;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Interfaces;
-
-using OrdinaryDifferentialEquations;
-
-using ControlSystemsWrapper;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 using ErrorHandler;
+using NamedTree;
+using OrdinaryDifferentialEquations;
+using SerializationInterface;
 
 
 namespace ControlSystems.Data
@@ -257,7 +249,7 @@ namespace ControlSystems.Data
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             if (this.measurements != null)
             {
@@ -266,9 +258,9 @@ namespace ControlSystems.Data
             this.measurements = measurements;
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
-            this.measurements = null;
+           measurements = null;
         }
 
         public void UpdateChildrenData()
@@ -308,7 +300,53 @@ namespace ControlSystems.Data
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
         }
-        
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IStarted Members
@@ -463,6 +501,10 @@ namespace ControlSystems.Data
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => [measurements];
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
+
         /// <summary>
         /// Creates system
         /// </summary>
@@ -500,6 +542,14 @@ namespace ControlSystems.Data
                 }
             }
             reset = () => { };
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

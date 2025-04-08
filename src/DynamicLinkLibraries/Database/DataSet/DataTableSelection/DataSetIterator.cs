@@ -13,6 +13,7 @@ using DataPerformer.Interfaces;
 
 using DataSetService;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataTableSelection
 {
@@ -24,7 +25,8 @@ namespace DataTableSelection
     /// Iterator obtained from data set
     /// </summary>
     [Serializable()]
-    public class DataSetIterator : CategoryObject, ISerializable, IIterator, IDataSetConsumer, IMeasurements
+    public class DataSetIterator : CategoryObject, ISerializable, IIterator, IDataSetConsumer, 
+        IMeasurements
     {
 
         #region Fields
@@ -176,6 +178,28 @@ namespace DataTableSelection
             remove { onRemove -= value; }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IMeasurements Members
@@ -204,6 +228,8 @@ namespace DataTableSelection
             {
             }
         }
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         #endregion
 
@@ -244,6 +270,14 @@ namespace DataTableSelection
                 IMeasurement m = new RowMeasurement(name, type, rowreference, ord);
                 measurements.Add(m);
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
 

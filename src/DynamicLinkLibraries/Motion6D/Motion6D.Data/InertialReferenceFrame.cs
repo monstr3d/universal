@@ -1,21 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-using Diagram.UI;
-using Diagram.UI.Aliases;
-
-
+using System.Text;
+using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
-using DataPerformer.Interfaces;
-
-using RealMatrixProcessor;
-
-using Vector3D;
-
+using Diagram.UI;
+using Diagram.UI.Aliases;
 using Motion6D.Interfaces;
+using NamedTree;
+using RealMatrixProcessor;
+using Vector3D;
 
 namespace Motion6D
 {
@@ -389,15 +384,16 @@ namespace Motion6D
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
-        {
-            this.measurements.Add(measurements);
-        }
-
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
+
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
+        {
+            this.measurements.Remove(measurements);
+        }
+
 
         void IDataConsumer.UpdateChildrenData()
         {
@@ -423,6 +419,50 @@ namespace Motion6D
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -802,6 +842,10 @@ namespace Motion6D
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
+
         void IStateDoubleVariables.Set(double[] input, int offset, int length)
         {
             Array.Copy(input, offset,  relativePosition, 0, 3);
@@ -810,6 +854,14 @@ namespace Motion6D
             Array.Copy(input, 10 + offset, omega, 0, 3);
             Copy6DPosition();
             Own.SetMatrix();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
 

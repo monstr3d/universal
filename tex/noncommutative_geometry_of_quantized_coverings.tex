@@ -12214,46 +12214,59 @@ _A\mathscr P \substack{\xrightarrow{_{\widetilde{A} \rtimes G}\widetilde A_A \ot
 between categories of left finitely generated projective  $A$-modules to the right  finitely generated projective $\widetilde{A} \rtimes G$-modules.
 The groups $K_0\left(A \right)$ and  $K^{G}_0 \left(\widetilde A \right)$ is an $R\left( G\right)$-module (cf. Proposition \ref{k_repr_prop}). It is known that  $R\left( G\right)$ is commutative for any commutative group. If $\mathrm{Spec}\left( R\left( G\right)\right) $ is a set of maximal ideals of then one has
 \bean
-R\left( G\right) = \bigoplus_{\kappa \in \mathrm{Spec}\left( R\left( G\right)\right)} R\left( G\right)_x \quad \text{where} \quad \kappa R\left( G\right)_{\kappa}  = \{0\}\quad \forall \kappa \in \mathrm{Spec}\left( R\left( G\right)\right)
+R\left( G\right) = \bigoplus_{\kappa \in \mathrm{Spec}\left( R\left( G\right)\right)} R\left( G\right)_\ka \quad \text{where} \quad \kappa R\left( G\right)_{\kappa}  = \{0\}\quad \forall \kappa \in \mathrm{Spec}\left( R\left( G\right)\right),\\
+\forall \kappa \in  \mathrm{Spec}\left( R\left( G\right)\right)\quad \forall r \in  R\left( G\right)\quad  r \in R\left( G\right)_\kappa \quad \Leftrightarrow\quad  r \kappa = \{0\}.
 \eean
-If we write
-$$
-\forall \kappa \in  \mathrm{Spec}\left( R\left( G\right)\right)\quad \forall r \in  R\left( G\right)\quad  r \in \kappa \quad \Leftrightarrow\quad  r \kappa = \{0\}.
-$$
 then the following condition holds
 \be\label{h_mult_sum}
-\forall \kappa \in  \mathrm{Spec}\left( R\left( G\right)\right)\quad \forall r', r''\in \kappa \quad  r' + r'' = r'r''.
+\forall \kappa \in  \mathrm{Spec}\left( R\left( G\right)\right)\quad \forall r', r''\in R\left( G\right)_\kappa \quad  r' + r'' = r'r''.
 \ee
-There is the similar decomposition for $K^{G}_0 \left(\widetilde A \right)$, i.e.
-\be\label{h_k_0_dec_eqn}
-K^{G}_0 \left(\widetilde A \right) = \bigoplus_{x \in \mathrm{Spec}\left( R\left( G\right)\right)} K^{G}_0 \left(\widetilde A \right)_x;~~  x K^{G}_0 \left(\widetilde A \right)_x  = \{0\}\quad \forall x \in \mathrm{Spec}\left( R\left( G\right)\right)
+ \begin{rem}\label{h_rred_rem}
+	For any irreducible $r \in R\left(G \right)$ there is an irreducible representation $\chi_r : G \to U(1)$ such that $\chi_r \left( G \right) = e^{\frac{2\pi i}{p_r}}$ where $p_r$ is a prime number. From this fact and \eqref{h_mult_sum} it follows that
+	\be\label{h_nilp_eqn}
+	r^{p_r} = p_r r = 0.
+	\ee
+	If $\ka \in  \mathrm{Spec}\left( R\left( G\right)\right)$ and $r \in R\left(G \right)_\ka$ and  is such that $r \in \ka$ then from the equations \eqref{h_mult_sum} \eqref{h_mult_sum} it follows that
+	\be
+R\left(G \right)_\ka = \left\{r^j : j = 0,..., p_r-1\right\}= \left\{jr : j = 0,..., p_r-1\right\}\cong \Z_{p_r}
+	\ee
+\end{rem}
+There is the natural homomorphism of $R\left(G \right)$-modules
+\be
+\begin{split}
+f^R_K:	R\left( G\right)\to K^{G}_0 \left(\widetilde A \right),\\
+	r \mapsto r  \left[\widetilde A\right]
+\end{split} 
 \ee
-Any irreducible representation $r \in R\left( G\right)$ corresponds to a character $\chi_r : G \to U(1)$ and 
-$$
- A_r \bydef \left\{\left.\sum_{	g \in {G}} \chi^{1}_r\left(g  \right) \widetilde a \right| \widetilde a \in \widetilde A\right\}
-$$
-is a finitely generated $A$ module. Moreover
-$$
-\widetilde A_r \bydef ~_{\widetilde{A} \rtimes G}\widetilde A \otimes_A A_r
-$$
-is a projective finitely generated $\widetilde{A} \rtimes G$-module such that
+Moreover one has
+\be\label{h_ra_eqn}
+\forall r \in R\left(G \right)\quad  \widetilde A_r \bydef \left\{\widetilde a \in \widetilde A\left|\sum_{	g \in {G}} \chi^{-1}_r\left(g  \right) \widetilde a = \left| G\right|\widetilde{a} \right. \right\}\Rightarrow r\left[\widetilde A\right]= \left[\widetilde A_r\right]
+\ee
+If $p \in \N$ is a prime number then any homomorphism from $\Z_p$ to another group is either injective or trivial. If 
 \bean
-\left[\widetilde A_r\right]= r\left[\widetilde A\right]\in K^{G}_0 \left(\widetilde A \right)
-\eean 
-There is an $R\left( G\right)$ homomorphism
-\bean
-f^R_K : R\left( G\right) \to K^{G}_0 \left(\widetilde A \right)\cong K_0\left( A\right) ,\\
-r \mapsto r \left[\widetilde A\right]
+\mathscr X \bydef \left\{ \left.\ka \in  \mathrm{Spec}\left( R\left( G\right)\right)\right|f^R_K \left( R\left( G\right)_\ka \right)\neq \{0\} \right\},\\
+ R\left( G\right)_{\mathscr X }\bydef \bigoplus_{\ka \in \mathscr X} R\left( G\right)_\ka
 \eean
- One can define a homeomorphism  from $G$ to the set $\chi\left(f^R_K  R\left( G\right) \right)$  of characters of $f^R_K \left(  R\left( G\right)\right) $
-\bean
-G \to \chi\left(f^R_K  R\left( G\right) \right),\\
-g \mapsto \left(\xi \mapsto   \prod_{r \in R'} \chi_r\left( g\right) \right) \quad \text{ where } \quad \xi = \sum_{r \in R'} f^R_K \left(  r\right) 
-\eean
- From the decomposition \ref{h_k_0_dec_eqn} it follows that the image of $f^R_K$ is a direct summand of $K_0\left(A \right)$, so the map $G \to \chi\left(f^R_K  R\left( G\right) \right)$ can be uniquely extended by zero  up to homomorphism
+then the restriction
 $$
-G \to \chi\left(K_0\left(A \right)  \right)
-$$ 
+f^R_K|_{ R\left( G\right)_{\mathscr X }}:  R\left( G\right)_{\mathscr X }\cong f^R_K\left( R\left( G\right)_{\mathscr X }\right)
+$$
+is isomorphism of groups. Moreover using \eqref{h_ra_eqn} one can deduce that there is a direct sum 
+$$
+K^{G}_0 \left(\widetilde A \right)=f^R_K\left(R\left( G\right) \right)  \oplus f^R_K\left(R\left( G\right) \right)^\perp.
+$$
+Using it one can define a homomorphism
+\be
+\begin{split}
+f^K_R : K\left(A \right)\cong  K^{G}_0 \left(\widetilde A \right)\cong f^R_K\left(R\left( G\right) \right)  \oplus f^R_K\left(R\left( G\right) \right)^\perp\to R\left(G \right) ,\\
+x + x^\perp \mapsto r \quad \text{where} \quad f^R_K\left(r \right) = x.
+\end{split}
+\ee
+Now one can define a homeomorphism  from $G$ to the set $\chi\left(K_0\left( A\right) \right)$  of characters on $K_0\left( A\right)$
+\bean
+G \to \chi\left(K_0\left( A\right) \right),\\
+g \mapsto \left(\xi + \xi^\perp \mapsto   \prod_{r \in R\left( G\right)_{\mathscr X }} \chi_r\left( g\right) \right) \quad \text{ where } \quad \xi = \sum_{r \in R\left( G\right)_{\mathscr X }} f^R_K \left(  r\right) 
+\eean
  According to the Lemma \ref{ext_char_lem} there is a homomorphism 
  \be\label{h_tors_eqn}
  h_{K^1}^{\mathrm{tors}} : G \to   \Ext^1_\Z\left( K_0\left( A\right), \Z \right)
@@ -12268,13 +12281,6 @@ $$
  	The given by \eqref{h_tors_eqn}
  	map is the \textit{torsion part of noncommutative Hurewicz homomorphism}.  
  \end{definition}
- \begin{rem}
-  For any irreducible $r \in R\left(G \right)$ there is an irreducible representation $\chi_r : G \to U(1)$ such that $\chi_r \left( G \right) = e^{\frac{2\pi i}{p_r}}$ where $p_r$ is a prime number. From this fact and \eqref{h_mult_sum} it follows that
- \be
- r^{p_r} = p_r r = p_r \left( r \left[A\right]\right)= 0.
- \ee
- and the generated by $ r \left[A\right]$ subgroup of $K_0\left(A \right)$ is isomorphic to $\Z_{p_r}$
-  \end{rem}
 \begin{remark}\label{hurewicz_morita_defn_rem}
 Using the Remark \ref{inverse_galois_rem} one can proof that the given by the equation \eqref{unital_cov_kk_eqn} isomorphism 
 $K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) $ follows from the equivalence between category $\mathscr P_A$ of projective $A$-modules and the category $\mathscr P^{G}_{\widetilde A}$ of the projective $\widetilde A$-$G$ modules. This equivalence comes from the following mutually inverse functors

@@ -1,11 +1,12 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
+using NamedTree;
 
 
 namespace Event.Portable.Events
@@ -101,6 +102,32 @@ namespace Event.Portable.Events
             }
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         bool IEvent.IsEnabled
         {
             get
@@ -190,9 +217,19 @@ namespace Event.Portable.Events
 
         bool IMeasurements.IsUpdated { get; set; } = false;
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measurement];
+
         void IMeasurements.UpdateMeasurements()
         {
 
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

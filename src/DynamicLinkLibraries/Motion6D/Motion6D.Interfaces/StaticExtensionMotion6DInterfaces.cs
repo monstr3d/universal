@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NamedTree;
 
 
 namespace Motion6D.Interfaces
@@ -13,6 +14,8 @@ namespace Motion6D.Interfaces
     {
 
         #region Public Fields
+
+        static Performer performer = new Performer();
 
         /// <summary>
         /// Default frame
@@ -59,7 +62,7 @@ namespace Motion6D.Interfaces
             {
                 return Motion6DFrame.Base;
             }
-            return position.Parent.Own;
+            return performer.GetParentOwn(position);
         }
 
         /// <summary>
@@ -84,7 +87,7 @@ namespace Motion6D.Interfaces
             while (p != null)
             {
                 path.Add(p);
-                p = p.Parent;
+                p = p.Parent.Value;
             }
             return path;
         }
@@ -100,22 +103,6 @@ namespace Motion6D.Interfaces
 
             double[] position = new double[] { 0, 0, 0 };
 
-
-            ReferenceFrame IReferenceFrame.Own
-            {
-                get { return Motion6DFrame.Base; }
-            }
-
-            List<IPosition> IReferenceFrame.Children
-            {
-                get { return children; }
-            }
-
-            double[] IPosition.Position
-            {
-                get { return position; }
-            }
-
             IReferenceFrame IPosition.Parent
             {
                 get
@@ -128,6 +115,26 @@ namespace Motion6D.Interfaces
                 }
             }
 
+
+
+
+            ReferenceFrame IReferenceFrame.Own
+            {
+                get { return Motion6DFrame.Base; }
+            }
+
+
+            double[] IPosition.Position
+            {
+                get { return position; }
+            }
+
+            INode<IPosition> INode<IPosition>.Parent 
+            { 
+                get => throw  new Exception("Prohibited operation"); 
+                set => throw new Exception("Prohibited operation"); 
+            }
+
             object IPosition.Parameters
             {
                 get
@@ -138,6 +145,45 @@ namespace Motion6D.Interfaces
                 {
                     throw new Exception("Prohibited operation");
                 }
+            }
+
+            IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => children; set => throw new Exception("Prohibited operation"); }
+
+            IPosition INode<IPosition>.Value => this;
+
+            event Action<IPosition> INode<IPosition>.OnAdd
+            {
+                add
+                {
+                    throw new NotImplementedException();
+                }
+
+                remove
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            event Action<IPosition> INode<IPosition>.OnRemove
+            {
+                add
+                {
+                    throw new NotImplementedException();
+                }
+
+                remove
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            void INode<IPosition>.Add(INode<IPosition> node)
+            {
+            }
+
+            void INode<IPosition>.Remove(INode<IPosition> node)
+            {
+                throw new NotImplementedException();
             }
 
             void IPosition.Update()

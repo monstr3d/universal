@@ -3,7 +3,7 @@
     /// <summary>
     /// Leaf
     /// </summary>
-    public class LeafAttribute : Attribute
+    public class LeafAttribute<T> : Attribute where T : class
     {
 
     }

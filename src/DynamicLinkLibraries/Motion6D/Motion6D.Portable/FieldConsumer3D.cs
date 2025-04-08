@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 using CategoryTheory;
-
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
 using Motion6D.Interfaces;
-
+using NamedTree;
 using PhysicalField.Interfaces;
 
 
@@ -198,17 +194,17 @@ namespace Motion6D.Portable
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
         }
 
-        void IDataConsumer.UpdateChildrenData()
+       void IDataConsumer.UpdateChildrenData()
         {
             foreach (IMeasurements m in measurements)
             {
@@ -235,6 +231,28 @@ namespace Motion6D.Portable
         {
             add { onChangeInput += value; }
             remove { onChangeInput -= value; }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -724,6 +742,8 @@ namespace Motion6D.Portable
                 return simpCalc;
             }
         }
+
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
 
         #endregion

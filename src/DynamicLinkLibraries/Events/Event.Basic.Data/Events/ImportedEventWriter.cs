@@ -107,13 +107,13 @@ namespace Event.Basic.Data.Events
 
         #region IDataConsumer Members
 
-        void IDataConsumer.Add(IMeasurements measurements)
+        void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
             change();
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
             change();
@@ -178,7 +178,59 @@ namespace Event.Basic.Data.Events
             remove { }
         }
 
-   
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
         #endregion
 
         #region IRemovableObject Members
@@ -235,6 +287,9 @@ namespace Event.Basic.Data.Events
             }
         }
 
+   
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
         #endregion
 
         #region Private Members
@@ -279,6 +334,15 @@ namespace Event.Basic.Data.Events
             }
         }
 
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+        }
+
+  
         #endregion
 
     }

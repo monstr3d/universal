@@ -1,9 +1,11 @@
 ﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
+using NamedTree;
+
 namespace Abstract3DConverters.Interfaces
 {
-    public interface IMesh : IGeometry, IParent
+    public interface IMesh : IGeometry, INode<IMesh>, INamed
     {
         /// <summary>
         /// Effect
@@ -31,11 +33,7 @@ namespace Abstract3DConverters.Interfaces
         /// <returns>The effect</returns>
         Effect GetEffect(IMaterialCreator creator);
 
-        /// <summary>
-        /// The name
-        /// </summary>
-        string Name { get; }
-
+ 
         /// <summary>
         /// Polygons
         /// </summary>

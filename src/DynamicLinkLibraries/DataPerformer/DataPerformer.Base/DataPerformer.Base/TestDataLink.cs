@@ -57,7 +57,7 @@ namespace DataPerformer
                 }
                 target = value as IMeasurements;
                 // Дополнительное действие
-                source.Add(target);
+                source.AddChild(target);
             }
         }
 

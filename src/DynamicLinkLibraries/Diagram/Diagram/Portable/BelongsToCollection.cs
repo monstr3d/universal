@@ -94,7 +94,7 @@ namespace Diagram.UI.Portable
         {
             if (source != null & target != null)
             {
-                source.Remove(target);
+                source.RemoveChild(target);
                 source = null;
                 target = null;
             }
@@ -107,7 +107,7 @@ namespace Diagram.UI.Portable
         private void Accept(ICategoryObject value)
         {
             target = value;
-            source.Add(target);
+            source.AddChild(target);
         }
 
         private bool Check(ICategoryObject value)

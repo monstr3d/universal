@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
+using NamedTree;
 using RealMatrixProcessor;
 
 namespace DataPerformer.Portable.Abstract
@@ -70,8 +71,7 @@ namespace DataPerformer.Portable.Abstract
         #endregion
 
         #region IDataConsumer Members
-
-        void IDataConsumer.Add(IMeasurements measurements)
+       void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
             // this.measurements.GetDependent(l, dependent);
@@ -81,7 +81,7 @@ namespace DataPerformer.Portable.Abstract
             }
         }
 
-        void IDataConsumer.Remove(IMeasurements measurements)
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
             //this.measurements.GetDependent(l, dependent);
@@ -122,6 +122,50 @@ namespace DataPerformer.Portable.Abstract
             remove { onChangeInput -= value; }
         }
 
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IMeasurements Members
@@ -156,6 +200,10 @@ namespace DataPerformer.Portable.Abstract
             }
         }
 
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => mea;
+
         #endregion
 
         #region Protected Members
@@ -170,6 +218,16 @@ namespace DataPerformer.Portable.Abstract
             // factory.CreateCollection(this, 0, StaticExtensionDataPerformerInterfaces.Calculation);
             // runtime = factory.Create(collection, 0, StaticExtensionDataPerformerInterfaces.Calculation);
             runtime = this.CreateRuntime(StaticExtensionDataPerformerInterfaces.Calculation);
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

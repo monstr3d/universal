@@ -8,6 +8,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
+using System.Linq;
 
 namespace Motion6D.Portable
 {
@@ -21,6 +22,8 @@ namespace Motion6D.Portable
         IPosition source;
 
         IReferenceFrame target;
+
+        static NamedTree.Performer performer = new NamedTree.Performer();
 
         #endregion
 
@@ -84,7 +87,7 @@ namespace Motion6D.Portable
                 }*/
                 target = rf;
                 source.Parent = target;
-                target.Children.Add(source);
+                target.Add(source);
             }
         }
 
@@ -108,7 +111,7 @@ namespace Motion6D.Portable
                 source.Parent = null;
                 if (target != null)
                 {
-                    target.Children.Remove(source);
+                    target.Remove(source);
                 }
             }
             source = null;
@@ -167,7 +170,7 @@ namespace Motion6D.Portable
 
         private static void prepare(IReferenceFrame frame, List<IPosition> frames)
         {
-            List<IPosition> children = frame.Children;
+            List<IPosition> children = performer.GetChildren<IPosition>(frame).ToList();
             frames.Add(frame);
             foreach (IPosition p in children)
             {

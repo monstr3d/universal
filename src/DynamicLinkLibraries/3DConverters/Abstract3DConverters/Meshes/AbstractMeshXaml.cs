@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
+using NamedTree;
 using System.Xml;
 
 namespace Abstract3DConverters.Meshes
@@ -59,7 +60,7 @@ namespace Abstract3DConverters.Meshes
 
         private AbstractMeshXaml(AbstractMeshXaml parent, XamlMeshCreator creator, XmlElement element) : this(creator, element)
         {
-            Parent = parent;
+            ProtectedParent = parent;
             meshCreator = creator;
         }
 
@@ -131,8 +132,8 @@ namespace Abstract3DConverters.Meshes
         {
             var ch = element.GetElementsByTagName("MaterialGroup.Children")[0];
             var name = meshCreator.MaterialName;
-            var mg = new MaterialGroup(name);
-            meshCreator.InternalMaterials[name] = mg;
+            IChildren<SimpleMaterial> mg = new MaterialGroup(name);
+            meshCreator.InternalMaterials[name] = mg as Material;
             var mat = ch.ChildNodes;
             foreach (var n in mat)
             {
@@ -140,7 +141,7 @@ namespace Abstract3DConverters.Meshes
                 {
                     if (e.ParentNode == ch)
                     {
-                        mg.Children.Add(GetMaterial(e));
+                        mg.AddChild(GetMaterial(e) as SimpleMaterial);
                     }
                 }
             }

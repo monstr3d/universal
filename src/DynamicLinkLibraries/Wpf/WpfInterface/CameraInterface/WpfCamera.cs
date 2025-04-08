@@ -19,6 +19,7 @@ using Motion6D.Interfaces;
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
 using Wpf.Loader;
+using NamedTree;
 
 
 
@@ -298,26 +299,14 @@ namespace WpfInterface.CameraInterface
 
         #region IEventHandler Members
 
-        void IEventHandler.Add(IEvent ev)
+        void  IChildren<IEvent>.AddChild(IEvent ev)
         {
             allEvents.Add(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
             allEvents.Remove(ev);
-        }
-
-        event Action<IEvent> IEventHandler.OnAdd
-        {
-            add { }
-            remove { }
-        }
-
-        event Action<IEvent> IEventHandler.OnRemove
-        {
-            add { }
-            remove { }
         }
 
         #endregion
@@ -388,6 +377,28 @@ namespace WpfInterface.CameraInterface
         {
             add { onStop += value; }
             remove { onStop -= value; }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         bool IAnimatedObject.SupportsAnimationEvents
@@ -619,6 +630,8 @@ namespace WpfInterface.CameraInterface
 
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+
         internal void Init()
         {
             int count = Count;
@@ -698,6 +711,14 @@ namespace WpfInterface.CameraInterface
             pCamera.FarPlaneDistance = far;
             pCamera.Transform = new MatrixTransform3D();
             Init();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

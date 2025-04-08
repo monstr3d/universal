@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Motion6D.Interfaces
+﻿namespace Motion6D.Interfaces
 {
     /// <summary>
     /// Reference frame holder
@@ -13,14 +9,6 @@ namespace Motion6D.Interfaces
         /// Own frame
         /// </summary>
         ReferenceFrame Own
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Children objects
-        /// </summary>
-        List<IPosition> Children
         {
             get;
         }

@@ -70,12 +70,36 @@ namespace DataPerformer.Helpers
             SetChildren();
         }
 
-
+  
         #endregion
 
         #region IChildrenObject Members
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+
 
         #endregion
 
@@ -230,7 +254,17 @@ namespace DataPerformer.Helpers
             children[0] = transformer;
         }
 
+        void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
-   }
+    }
 }

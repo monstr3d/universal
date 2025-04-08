@@ -4,6 +4,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 using Collada.Converters.Classes.Abstract;
+using NamedTree;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -27,7 +28,7 @@ namespace Collada.Converters.Classes.Complicated
         {
             base.Create(xmlElement);
             base.Create(xmlElement);
-            var l = new List<Abstract3DConverters.Materials.Material>();
+            var l = new List<Abstract3DConverters.Materials.SimpleMaterial>();
             var transparent = s.Maximal(DiffuseColor);
             var ambient = s.Maximal(Ambient);
             float tr = (float)Transparency;
@@ -48,9 +49,10 @@ namespace Collada.Converters.Classes.Complicated
                 l.Add(specu);
             }
             var mat = new LambertMaterial(Name, xmlElement);
+            IChildren<SimpleMaterial> c = mat;
             foreach (var mt in l)
             {
-                mat.Children.Add(mt);
+                c.AddChild(mt);
             }
             Effect = new Abstract3DConverters.Materials.Effect(meshCreator, Name, mat, Image);
 

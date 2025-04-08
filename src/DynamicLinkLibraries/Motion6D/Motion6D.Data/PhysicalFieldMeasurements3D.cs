@@ -19,6 +19,7 @@ using Motion6D.Portable;
 using PhysicalField.Interfaces;
 using RealMatrixProcessor;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace Motion6D
@@ -104,6 +105,32 @@ namespace Motion6D
         protected PhysicalFieldMeasurements3D(SerializationInfo info, StreamingContext context)
         {
             isSerialized = true;
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -222,6 +249,8 @@ namespace Motion6D
         {
             get { return fields.Count; }
         }
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measures;
 
         IPhysicalField IFieldConsumer.this[int n]
         {
@@ -397,6 +426,15 @@ namespace Motion6D
         {
             object[] o = result as object[];
             o[0] = inp;
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+   
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
 

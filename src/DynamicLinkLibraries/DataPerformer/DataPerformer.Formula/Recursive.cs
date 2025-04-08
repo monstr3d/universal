@@ -20,6 +20,7 @@ using DataPerformer.Portable;
 
 using DataPerformer.Formula.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Formula
 {
@@ -178,17 +179,17 @@ namespace DataPerformer.Formula
         /// Adds measurements provider 
         /// </summary>
         /// <param name="m">Provider to add</param>
-        public void Add(IMeasurements m)
+        void IChildren<IMeasurements>.AddChild(IMeasurements m)
 		{
 			measurements.Add(m);
 		}
 
 
-		/// <summary>
-		/// Removes measurements provider
-		/// </summary>
-		/// <param name="m">Provider to remove</param>
-		public void Remove(IMeasurements m)
+        /// <summary>
+        /// Removes measurements provider
+        /// </summary>
+        /// <param name="m">Provider to remove</param>
+        void IChildren<IMeasurements>.RemoveChild(IMeasurements m)
 		{
 			measurements.Remove(m);
 		}
@@ -417,14 +418,58 @@ namespace DataPerformer.Formula
 			remove { onChange -= value; }
 		}
 
-		#endregion
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
 
-		#region ICheckCorrectness Members
+            remove
+            {
+            }
+        }
 
-		/// <summary>
-		/// Checks its correctenss
-		/// </summary>
-		public void CheckCorrectness()
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurements> IChildren<IMeasurements>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        #endregion
+
+        #region ICheckCorrectness Members
+
+        /// <summary>
+        /// Checks its correctenss
+        /// </summary>
+        public void CheckCorrectness()
 		{
 			try
 			{
@@ -891,11 +936,15 @@ namespace DataPerformer.Formula
 
 		internal Dictionary<object, object> Pars => pars;
 
-		#endregion
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => output;
 
-		#region Private Members
+        IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
-		void Start(bool stated)
+        #endregion
+
+        #region Private Members
+
+        void Start(bool stated)
 		{
 			if (stated)
 			{
@@ -1013,14 +1062,24 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		#endregion
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
 
-		#region Variable
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
 
-		/// <summary>
-		/// Auxiliary class for measurement providinf
-		/// </summary>
-		class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
+        #endregion
+
+        #region Variable
+
+        /// <summary>
+        /// Auxiliary class for measurement providinf
+        /// </summary>
+        class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
 		{
 
 			#region Fields

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Reflection;
 using System.Text;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using NamedTree;
 
 namespace Abstract3DConverters
 {
@@ -14,6 +14,8 @@ namespace Abstract3DConverters
     public class Service
     {
         #region Fields
+
+        NamedTree.Performer performer = new NamedTree.Performer();
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
 
@@ -625,7 +627,7 @@ namespace Abstract3DConverters
         /// Sets parents for the Dictionary
         /// </summary>
         /// <param name="meshes">The dictionary</param>
-        public void SetParents(Dictionary<XmlElement, IParent> meshes)
+        public void SetParents(Dictionary<XmlElement,IMesh> meshes)
         {
             foreach (var mesh in meshes.Keys)
             {
@@ -803,11 +805,11 @@ namespace Abstract3DConverters
         ///  Sets parents for dictionary
         /// </summary>
         /// <param name="meshes">The dictionary</param>
-        public void SetParents(Dictionary<IParent, XmlElement> meshes)
+        public void SetParents(Dictionary<IMesh, XmlElement> meshes)
         {
             foreach (var mesh in meshes)
             {
-                var p = mesh.Key.Parent;
+                var p = mesh.Key.Parent.Value;
                 if (p != null)
                 {
                     var e = meshes[p];
@@ -821,9 +823,9 @@ namespace Abstract3DConverters
         /// </summary>
         /// <param name="meshes">The enumerable</param>
         /// <returns>The roots</returns>
-        public IEnumerable<IParent> GetRoots(IEnumerable<IParent> meshes)
+        public IEnumerable<IMesh> GetRoots(IEnumerable<IMesh> meshes)
         {
-            return meshes.Where(e => e.Parent == null);
+            return performer.GetRootsT(meshes);
         }
 
         /// <summary>

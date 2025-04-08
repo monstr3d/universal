@@ -6,8 +6,8 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
+using NamedTree;
 
 namespace DataPerformer
 {
@@ -49,6 +49,28 @@ namespace DataPerformer
             Init();
         }
 
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
 
@@ -88,6 +110,8 @@ namespace DataPerformer
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measure];
+
         #endregion
 
         #region Specifc Members
@@ -102,6 +126,14 @@ namespace DataPerformer
         private object getMeasure()
         {
             return random.NextDouble();
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
         }
 
         #endregion

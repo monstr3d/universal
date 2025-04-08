@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
+using ErrorHandler;
+using NamedTree;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -19,35 +16,51 @@ namespace Collada.Converters.Classes.Complicated
 
         List<float[]> IGeometry.Textures => ProtectedTextures;
 
-        float[] IGeometry.TransformationMatrix => throw new NotImplementedException();
+        float[] IGeometry.TransformationMatrix => throw new IllegalSetPropetryException("MeshObject");
 
 
         Abstract3DConverters.Materials.Effect IMesh.Effect => Effect;
 
-        List<int[][]> IMesh.Indexes => throw new NotImplementedException();
+        List<int[][]> IMesh.Indexes => throw new IllegalSetPropetryException("MeshObject");
 
 
 
-        List<float[]> IMesh.AbsoluteVertices => throw new NotImplementedException();
+        List<float[]> IMesh.AbsoluteVertices => throw new IllegalSetPropetryException("MeshObject");
 
 
-        string IMesh.Name => throw new NotImplementedException();
+        INode<IMesh> INode<IMesh>.Parent { get => null; set { } }
+        IEnumerable<INode<IMesh>> INode<IMesh>.Nodes { get => null; set { } }
+
+        IMesh INode<IMesh>.Value => this;
+
+        void INode<IMesh>.Add(INode<IMesh> node)
+        {
+            throw new IllegalSetPropetryException("MeshObject");
+        }
+
+
+
+        string INamed.Name
+        {
+            get => throw new IllegalSetPropetryException("MeshObject");
+            set => throw new IllegalSetPropetryException("MeshObject");
+        }
 
         List<Polygon> IMesh.Polygons => Polygons;
 
-        List<IMesh> IMesh.Children => throw new NotImplementedException();
+        List<IMesh> IMesh.Children => throw  new IllegalSetPropetryException("MeshObject");
 
-        IMeshCreator IMesh.Creator => throw new NotImplementedException();
+        IMeshCreator IMesh.Creator => throw new IllegalSetPropetryException("MeshObject");
 
 
         Abstract3DConverters.Materials.Effect IMesh.GetEffect(IMaterialCreator creator)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("MeshObject");
         }
 
         void IMesh.CalculateAbsolute()
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("MeshObject");
         }
 
 

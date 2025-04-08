@@ -2,6 +2,7 @@
 
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using NamedTree;
 
 namespace Abstract3DConverters.Creators
 {
@@ -15,7 +16,7 @@ namespace Abstract3DConverters.Creators
         internal Dictionary<string, Material> InternalMaterials => Materials;
    
 
-        public Dictionary<XmlElement, IParent> MeshesParent 
+        public Dictionary<XmlElement, IMesh> MeshesParent 
         { 
             get; 
             private set; 

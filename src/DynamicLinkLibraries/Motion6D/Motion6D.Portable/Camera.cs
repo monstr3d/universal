@@ -30,7 +30,13 @@ namespace Motion6D.Portable
 
         object obj;
 
-   
+        protected List<IEvent> events = new();
+
+        protected event Action<IEvent> onAddEvent;
+
+        protected event Action<IEvent> onRemoveEvent;
+
+
         /// <summary>
         /// Width
         /// </summary>
@@ -175,42 +181,28 @@ namespace Motion6D.Portable
 
         #region IEventHandler Members
 
-        protected List<IEvent> events = new();
 
-        protected event Action<IEvent> onAddEvent;
-        
-        protected event Action<IEvent> onRemoveEvent;
-
-        void IEventHandler.Add(IEvent ev)
+        void IChildren<IEvent>.AddChild(IEvent ev)
         {
             events.Add(ev);
             onAddEvent?.Invoke(ev);
         }
 
-        void IEventHandler.Remove(IEvent ev)
+        void IChildren<IEvent>.RemoveChild(IEvent ev)
         {
-            events.Remove(ev);
-            onRemoveEvent?.Invoke(ev);
+            events.Add(ev);
+            onAddEvent?.Invoke(ev);
         }
 
-        IEnumerable<IEvent> IEventHandler.Events
-        {
-            get
-            {
-                foreach (IEvent ev in events)
-                {
-                    yield return ev;
-                }
-            }
-        }
+        IEnumerable<IEvent> IChildren<IEvent>.Children => events;
 
-        event Action<IEvent> IEventHandler.OnAdd
+        event Action<IEvent> IChildren<IEvent>.OnAdd
         {
             add { onAddEvent += value; }
             remove { onAddEvent -= value; }
         }
 
-        event Action<IEvent> IEventHandler.OnRemove
+        event Action<IEvent> IChildren<IEvent>.OnRemove
         {
             add { onRemoveEvent += value; }
             remove { onRemoveEvent -= value; }

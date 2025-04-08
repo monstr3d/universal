@@ -5,6 +5,7 @@ using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using NamedTree;
 
 
 
@@ -473,6 +474,7 @@ namespace Abstract3DConverters.Converters
 
         public override object Create(MaterialGroup material)
         {
+            IChildren<SimpleMaterial> ch = material;
             var n = material.Name;
             var x = Create("MaterialGroup");
             if (n != null)
@@ -484,7 +486,7 @@ namespace Abstract3DConverters.Converters
             }
             var y = Create("MaterialGroup.Children");
             x.AppendChild(y);
-            foreach (var m in material.Children)
+            foreach (var m in ch.Children)
             {
                 var z = Create(m) as XmlElement;
                 y.AppendChild(z);
@@ -504,8 +506,8 @@ namespace Abstract3DConverters.Converters
                 var d = e.GetElementsByTagName("DiffuseMaterial")[0];
                 var mat = materials[material];
 
-
-                foreach (var item in mat.Children)
+                IChildren<SimpleMaterial> ch = mat;
+                foreach (var item in ch.Children)
                 {
                     if (item is DiffuseMaterial diffuse)
                     {

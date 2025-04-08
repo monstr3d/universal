@@ -1,9 +1,11 @@
+using NamedTree;
+
 namespace DataPerformer.Interfaces
 {
     /// <summary>
     /// Data provider
     /// </summary>
-    public interface IMeasurements
+    public interface IMeasurements : IChildren<IMeasurement>
     {
         /// <summary>
         /// The count of data units

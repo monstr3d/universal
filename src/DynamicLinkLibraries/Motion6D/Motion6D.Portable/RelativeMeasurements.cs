@@ -14,6 +14,7 @@ using Vector3D;
 
 using RealMatrixProcessor;
 using ErrorHandler;
+using NamedTree;
 
 namespace Motion6D.Portable
 {
@@ -113,6 +114,28 @@ namespace Motion6D.Portable
         {
             measurementFrame = new Measurement(typeof(ReferenceFrame), GetFrame, "Frame",  this);
             coordDel = new Func<object>[] { GetX, GetY, GetZ };
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
         }
 
         #endregion
@@ -631,6 +654,8 @@ namespace Motion6D.Portable
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+
         IMeasurement[] CreateCoordMeasurements(IMeasurement[] vel)
         {
             Func<object>[] pars = new Func<object>[] { GetX, GetY, GetZ };
@@ -738,7 +763,15 @@ namespace Motion6D.Portable
         {
             return new IMeasurement[0];
         }
-   
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+        }
+
         #endregion
 
         #endregion

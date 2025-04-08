@@ -1,6 +1,7 @@
 using System;
-
+using System.Collections.Generic;
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace Regression.Portable
 {
@@ -22,6 +23,32 @@ namespace Regression.Portable
         /// </summary>
         protected ArraySelectionCollection()
         {
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
@@ -98,6 +125,8 @@ namespace Regression.Portable
             }
         }
 
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => selections;
+
         #endregion
 
         #region Specific Members
@@ -118,6 +147,16 @@ namespace Regression.Portable
             {
                 selections[i] = new ArraySelection(names[i], data[i]);
             }
+        }
+
+        void IChildren<IMeasurement>.AddChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
