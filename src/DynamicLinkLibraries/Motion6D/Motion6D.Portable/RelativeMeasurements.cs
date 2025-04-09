@@ -209,7 +209,7 @@ namespace Motion6D.Portable
             {
                 if (source != null & value != null)
                 {
-                    throw new Exception("Souce already exists");
+                    throw new OwnException("Souce already exists");
                 }
                 source = value;
                 GetParameters(source, ref vSource, ref oSource, ref aSource);
@@ -230,7 +230,7 @@ namespace Motion6D.Portable
             {
                 if (target != null & value != null)
                 {
-                    throw new Exception("Target already exists");
+                    throw new OwnException("Target already exists");
                 }
                 target = value;
                 GetParameters(target, ref vTarget, ref oTarget, ref aTarget);
@@ -766,6 +766,8 @@ namespace Motion6D.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

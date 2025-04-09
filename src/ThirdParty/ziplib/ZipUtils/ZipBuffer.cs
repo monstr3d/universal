@@ -104,7 +104,7 @@ namespace ZipUtils
 
         void IDictionary<string, string>.Add(string key, string value)
         {
-            throw new NotImplementedException();
+            throw new Exception("ZIP LIB");
         }
 
         bool IDictionary<string, string>.ContainsKey(string key)
@@ -119,7 +119,7 @@ namespace ZipUtils
 
         bool IDictionary<string, string>.Remove(string key)
         {
-            throw new NotImplementedException();
+            throw new Exception("ZIP LIB");
         }
 
         bool IDictionary<string, string>.TryGetValue(string key, out string value)
@@ -140,7 +140,7 @@ namespace ZipUtils
             }
             set
             {
-                throw new NotImplementedException();
+                throw new Exception("ZIP LIB");
             }
         }
 
@@ -150,12 +150,12 @@ namespace ZipUtils
 
         void ICollection<KeyValuePair<string, string>>.Add(KeyValuePair<string, string> item)
         {
-            throw new NotImplementedException();
+            throw new Exception("ZIP LIB");
         }
 
         void ICollection<KeyValuePair<string, string>>.Clear()
         {
-            throw new NotImplementedException();
+            throw new Exception("ZIP LIB");
         }
 
         bool ICollection<KeyValuePair<string, string>>.Contains(KeyValuePair<string, string> item)
@@ -180,7 +180,7 @@ namespace ZipUtils
 
         bool ICollection<KeyValuePair<string, string>>.Remove(KeyValuePair<string, string> item)
         {
-            throw new NotImplementedException();
+            throw new Exception("ZIP LIB");
         }
 
         #endregion

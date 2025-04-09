@@ -91,12 +91,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -104,12 +102,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -189,6 +185,7 @@ namespace Motion6D.Portable
 
         void INode<IPosition>.Add(INode<IPosition> node)
         {
+            throw new ErrorHandler.IllegalSetPropetryException("Position");
         }
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
@@ -201,7 +198,7 @@ namespace Motion6D.Portable
 
         void INode<IPosition>.Remove(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         /// <summary>
@@ -225,7 +222,7 @@ namespace Motion6D.Portable
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
 
-        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => throw new NotImplementedException(); }
+        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => Parent = value as IReferenceFrame; }
         IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => []; set { } }
 
         IPosition INode<IPosition>.Value => this;

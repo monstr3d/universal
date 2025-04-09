@@ -20,6 +20,7 @@ using DataPerformer.Portable;
 
 using DataPerformer.Formula.Interfaces;
 using ErrorHandler;
+
 using NamedTree;
 
 namespace DataPerformer.Formula
@@ -623,14 +624,14 @@ namespace DataPerformer.Formula
 				{
 					if (!vars.ContainsKey(c))
 					{
-						throw new Exception("Shortage of variables");
+						throw new OwnException("Shortage of variables");
 					}
 				}
 				foreach (char c in varc)
 				{
 					if (!value.ContainsKey(c))
 					{
-						throw new Exception("Shortage of formulas");
+						throw new OwnException("Shortage of formulas");
 					}
 				}
 				foreach (char c in value.Keys)
@@ -761,7 +762,7 @@ namespace DataPerformer.Formula
 				{
 					if (!value.ContainsKey(c))
 					{
-						throw new Exception(DataConsumer.VariablesShortage + " : " + c);
+						throw new OwnException(DataConsumer.VariablesShortage + " : " + c);
 					}
 				}
 				pars = value;
@@ -919,7 +920,7 @@ namespace DataPerformer.Formula
                 ObjectFormulaTree tree = ObjectFormulaTree.CreateTree(form.FullTransform(proh), creator);
                 if (!t.Equals(tree.ReturnType))
                 {
-                    throw new Exception("Illegal return type");
+                    throw new OwnException("Illegal return type");
                 }
                 ol[1] = tree;
                 tt.Add(tree);
@@ -1064,12 +1065,14 @@ namespace DataPerformer.Formula
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+			output.Add(child);
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+			output.Remove(child);
         }
 
         #endregion

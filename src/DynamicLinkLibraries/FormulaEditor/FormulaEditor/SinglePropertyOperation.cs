@@ -34,7 +34,7 @@ namespace FormulaEditor
             propertyInfo = ti.GetDeclaredProperty(propertyName);
 			if (propertyInfo == null)
 			{
-				throw new Exception("SinglePropertyOperatio");
+				throw new ErrorHandler.OwnException("SinglePropertyOperatio");
 			}
 		}
 

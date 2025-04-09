@@ -253,7 +253,7 @@ namespace ControlSystems.Data
         {
             if (this.measurements != null)
             {
-                this.Throw(new Exception("Mesurements already exists"));
+                this.Throw(new OwnException("Mesurements already exists"));
             }
             this.measurements = measurements;
         }
@@ -316,12 +316,12 @@ namespace ControlSystems.Data
         {
             add
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -546,6 +546,8 @@ namespace ControlSystems.Data
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

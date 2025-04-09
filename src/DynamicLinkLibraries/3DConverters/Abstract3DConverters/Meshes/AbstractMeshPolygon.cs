@@ -26,12 +26,12 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="name">Name</param>
         /// <param name="parent">Parent</param>
+        /// <param name="name">Name</param>
         /// <param name="matrix">Transformation matrix</param>
         /// <param name="creator">The creator of mesh</param>
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix,  IMeshCreator creator) :
-            base(name, creator)
+        public AbstractMeshPolygon(IMesh parent, string name,  float[] matrix,  IMeshCreator creator) :
+            base(parent, name, creator)
         {
             TransformationMatrix = matrix;
             if (parent != null)
@@ -49,15 +49,15 @@ namespace Abstract3DConverters.Meshes
         /// <param name="matrix">Transformation matrix</param>
         /// <param name="effect">The effect</param>
         /// <param name="creator">The creator of mesh</param>
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string effect, IMeshCreator creator) :
-            this(name, parent, matrix, creator)
+        public AbstractMeshPolygon(IMesh parent, string name,  float[] matrix, string effect, IMeshCreator creator) :
+            this(parent, name, matrix, creator)
         {
             EffectString = effect;
         }
 
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Effect effect, List<Polygon> polygons, IMeshCreator creator) :
-               this(name, parent, null, creator)
+        public AbstractMeshPolygon(IMesh parent, string name,  float[] matrix, Effect effect, List<Polygon> polygons, IMeshCreator creator) :
+               this(parent, name, null, creator)
         {
             Effect = effect;
             foreach (var p in polygons)
@@ -77,9 +77,9 @@ namespace Abstract3DConverters.Meshes
         /// <param name="vertices">vertices</param>
         /// <param name="normals">Normals</param>
         /// <param name="creator">The creator of mesh</param>
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Effect effect, 
+        public AbstractMeshPolygon(IMesh parent, string name,  float[] matrix, Effect effect, 
             List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
-            this(name, parent, matrix, effect, polygons, creator)
+            this(parent, name, matrix, effect, polygons, creator)
         {
             Vertices = vertices;
             Normals = normals;

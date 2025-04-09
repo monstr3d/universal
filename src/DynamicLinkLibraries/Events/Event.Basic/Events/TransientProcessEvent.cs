@@ -153,7 +153,7 @@ namespace Event.Basic.Events
             {
                 if (value == null)
                 {
-                    throw new Exception("TransientProcessEvent");
+                    throw new ErrorHandler.OwnException("TransientProcessEvent");
                 }
                 spans = value;
             }

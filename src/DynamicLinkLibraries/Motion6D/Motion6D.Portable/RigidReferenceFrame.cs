@@ -149,12 +149,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -162,12 +160,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -257,7 +253,7 @@ namespace Motion6D.Portable
             {
                 if (value != null & parent != null)
                 {
-                    throw new Exception("Parent");
+                    throw new ErrorHandler.OwnException("Parent");
                 }
                 parent = value;
                 if (value == null)
@@ -517,12 +513,14 @@ namespace Motion6D.Portable
 
         void INode<IPosition>.Add(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+            var position = node as IPosition;
+            children.Add(position);
         }
 
         void INode<IPosition>.Remove(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+            var position = node as IPosition;
+            children.Remove(position);
         }
 
         /// <summary>

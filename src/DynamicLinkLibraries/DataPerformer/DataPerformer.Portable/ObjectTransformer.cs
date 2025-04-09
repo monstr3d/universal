@@ -269,7 +269,7 @@ namespace DataPerformer.Portable
         {
             if (this.transformer != null)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             this.transformer = transformer;
             InitTransformer();
@@ -324,7 +324,7 @@ namespace DataPerformer.Portable
             {
                 if (inO.Length != value.Count)
                 {
-                    this.Throw(new Exception("Undefined input"));
+                    this.Throw(new OwnException("Undefined input"));
                 }
                 SetLinks(value);
                 links = value;
@@ -389,7 +389,7 @@ namespace DataPerformer.Portable
                         art = m.Type as ArrayReturnType;
                         if (!art.ElementType.Equals(type))
                         {
-                            this.Throw(new Exception("Illegal type"));
+                            this.Throw(new OwnException("Illegal type"));
                         }
                     }
                 }
@@ -524,12 +524,10 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
 

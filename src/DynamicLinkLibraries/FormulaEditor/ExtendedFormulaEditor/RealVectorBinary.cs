@@ -4,7 +4,7 @@ using System.Text;
 
 using BaseTypes;
 using BaseTypes.Interfaces;
-
+using ErrorHandler;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 
@@ -49,7 +49,7 @@ namespace FormulaEditor
 
         public virtual object this[object[] x]
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         object IObjectOperation.ReturnType

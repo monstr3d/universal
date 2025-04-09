@@ -1146,7 +1146,7 @@ namespace DataPerformer.UI
 
         internal static void Load(UserControls.UserControlSeries userControlSeries, Series series)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
     }
 }

@@ -48,6 +48,6 @@ namespace Motion6D.Portable
 
         double[,] IVisible.Size => size;
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
     }
 }

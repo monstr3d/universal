@@ -1,3 +1,4 @@
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -81,7 +82,7 @@ namespace CommonMathOperations
             {
                 if (u < 0)
                 {
-                    throw new Exception("Bisection 1");
+                    throw new OwnException("Bisection 1");
                 }
             }
             else
@@ -91,7 +92,7 @@ namespace CommonMathOperations
                 l = x;
                 if (l > 0 & u < 0)
                 {
-                    throw new Exception("Bisection 2");
+                    throw new OwnException("Bisection 2");
                 }
             }
             while (true)

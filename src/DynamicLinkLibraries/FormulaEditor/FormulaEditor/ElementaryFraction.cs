@@ -7,6 +7,7 @@ using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using ErrorHandler;
 
 namespace FormulaEditor
 {
@@ -194,7 +195,7 @@ namespace FormulaEditor
         {
             if (types.Length < 2)
             {
-                throw new Exception("Incomplete fraction");
+                throw new ErrorHandler.OwnException("Incomplete fraction");
             }
             for (int i = 0; i < types.Length; i++)
             {

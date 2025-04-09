@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 
 
 using DataSetService;
+using ErrorHandler;
 
 
 
@@ -82,7 +83,7 @@ namespace ODBCTableProvider
         /// <returns>The metadata data set</returns>
         public DataSet GetData(System.Data.Common.DbConnection connection)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         /// <summary>
@@ -92,7 +93,7 @@ namespace ODBCTableProvider
         /// <returns>The metadata data set</returns>
         public DataSet GetData(string connectionString)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         /// <summary>

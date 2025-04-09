@@ -73,7 +73,7 @@ namespace FormulaEditor
             }
             if (!typeA.Equals(typeB))
             {
-                throw new Exception("Different types in equality");
+                throw new ErrorHandler.OwnException("Different types in equality");
             }
             return EqualityOperation.Object;
         }

@@ -120,7 +120,7 @@ namespace DataTableSelection
         {
             if (this.dataSet != null & dataSet != null)
             {
-                throw new Exception("Data set already exists");
+                throw new ErrorHandler.OwnException("Data set already exists");
             }
             this.dataSet = dataSet;
         }

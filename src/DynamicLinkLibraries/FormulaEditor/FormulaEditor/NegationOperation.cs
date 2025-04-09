@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BaseTypes.Interfaces;
-
+using ErrorHandler;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 
@@ -103,7 +103,7 @@ namespace FormulaEditor
         {
             if (!a.Equals(type))
             {
-                throw new Exception("Argument of negation operation should be boolean");
+                throw new ErrorHandler.OwnException("Argument of negation operation should be boolean");
             }
             return this;
         }

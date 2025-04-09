@@ -71,7 +71,7 @@ namespace Event.Portable.Performers
                     {
                         if (rst != null)
                         {
-                            throw new Exception("Start already exists");
+                            throw new ErrorHandler.OwnException("Start already exists");
                         }
                         rst = rs;
                     }

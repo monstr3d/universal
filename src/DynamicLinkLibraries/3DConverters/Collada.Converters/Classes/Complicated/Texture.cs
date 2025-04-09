@@ -4,6 +4,7 @@ using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -39,7 +40,7 @@ namespace Collada.Converters.Classes.Complicated
             if (!succees)
             {
 
-                throw new Exception("Collada Texture");
+                throw new OwnException("Collada Texture");
             }
         }
 

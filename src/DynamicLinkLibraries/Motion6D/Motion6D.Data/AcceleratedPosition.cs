@@ -212,11 +212,11 @@ namespace Motion6D
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new ErrorHandler.OwnException("The method or operation is not implemented.");
             }
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new ErrorHandler.OwnException("The method or operation is not implemented.");
             }
         }
 
@@ -613,18 +613,18 @@ namespace Motion6D
 
         List<string> IStateDoubleVariables.Variables
         {
-            get { throw new NotImplementedException(); }
+            get { throw new ErrorHandler.WriteProhibitedException(); }
         }
 
         double[] IStateDoubleVariables.Vector
         {
             get
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
             set
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -652,7 +652,7 @@ namespace Motion6D
 
         void IStateDoubleVariables.Set(double[] input, int offset, int length)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
@@ -665,6 +665,8 @@ namespace Motion6D
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
@@ -673,6 +675,7 @@ namespace Motion6D
 
         void INode<IPosition>.Add(INode<IPosition> node)
         {
+            throw new IllegalSetPropetryException("Position");
         }
 
         void INode<IPosition>.Remove(INode<IPosition> node)

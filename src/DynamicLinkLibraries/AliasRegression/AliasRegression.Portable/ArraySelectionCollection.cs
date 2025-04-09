@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DataPerformer.Interfaces;
+using ErrorHandler;
 using NamedTree;
 
 namespace Regression.Portable
@@ -29,12 +30,10 @@ namespace Regression.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -42,12 +41,10 @@ namespace Regression.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -140,7 +137,7 @@ namespace Regression.Portable
         {
             if (names.Length != data.Length)
             {
-                throw new Exception("Names length does not coincides with data length");
+                throw new OwnException("Names length does not coincides with data length");
             }
             selections = new ArraySelection[names.Length];
             for (int i = 0; i < selections.Length; i++)
@@ -151,12 +148,10 @@ namespace Regression.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

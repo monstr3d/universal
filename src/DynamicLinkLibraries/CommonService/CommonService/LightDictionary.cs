@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ErrorHandler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,7 @@ namespace CommonService
             {
                 if (l.Contains<TKey>(key))
                 {
-                    throw new Exception("Key already exists");
+                    throw new ErrorHandler.OwnException("Key already exists");
                 }
                 l.Add(key);
                 d[key] = value;
@@ -160,7 +161,7 @@ namespace CommonService
         {
             if (keys.Length != values.Length)
             {
-                throw new Exception("Lendth are not equal");
+                throw new OwnException("Lendth are not equal");
             }
             for (int i = 0; i < keys.Length; i++)
             {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Text;
+using ErrorHandler;
 
 namespace MathGraph
 {
@@ -24,11 +25,11 @@ namespace MathGraph
         {
             if (paths.Length != 2)
             {
-                throw new Exception("Illegal number of paths");
+                throw new OwnException("Illegal number of paths");
             }
             if ((paths[0].Source != paths[1].Source) | (paths[0].Target != paths[1].Target))
             {
-                throw new Exception("Illegal endpoints of loop");
+                throw new OwnException("Illegal endpoints of loop");
             }
             this.paths = paths;
         }

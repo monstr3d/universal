@@ -335,7 +335,7 @@ namespace DataPerformer.Formula
                 ObjectFormulaTree t = tree.Derivation("d/dt");
                 if (t == null)
                 {
-                    throw new Exception("VariableMeasure.Derivation");
+                    throw new OwnException("VariableMeasure.Derivation");
                 }
                 AssociatedAddition aa = FormulaMeasurementDerivation.Create(associated);
                 FormulaMeasurement der = Create(t, n - 1, dn, aa, obj);
@@ -370,7 +370,7 @@ namespace DataPerformer.Formula
             {
                 if (value == null)
                 {
-                    throw new Exception("CheckValue = null");
+                    throw new OwnException("CheckValue = null");
                 }
                 checkValue = value;
             }
@@ -395,19 +395,19 @@ namespace DataPerformer.Formula
                 double a = (double)o;
                 if (double.IsInfinity(a))
                 {
-                    throw new Exception("Infinity");
+                    throw new OwnException("Infinity");
                 }
                 if (double.IsNaN(a))
                 {
-                    throw new Exception("NaN");
+                    throw new OwnException("NaN");
                 }
                 if (double.IsNegativeInfinity(a))
                 {
-                    throw new Exception("NegativeInfinity");
+                    throw new OwnException("NegativeInfinity");
                 }
                 if (double.IsPositiveInfinity(a))
                 {
-                    throw new Exception("PositiveInfinity");
+                    throw new OwnException("PositiveInfinity");
                 }
             }
         }

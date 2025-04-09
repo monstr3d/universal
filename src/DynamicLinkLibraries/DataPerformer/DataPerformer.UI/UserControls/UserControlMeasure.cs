@@ -65,7 +65,7 @@ namespace DataPerformer.UI.UserControls
             {
                 if (data != null)
                 {
-                    throw new Exception();
+                    throw new ErrorHandler.OwnException();
                 }
                 data = value;
                 string s = parent + "." + measure.Name;

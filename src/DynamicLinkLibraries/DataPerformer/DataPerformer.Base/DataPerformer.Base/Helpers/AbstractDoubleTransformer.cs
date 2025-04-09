@@ -148,8 +148,8 @@ namespace DataPerformer.Helpers
             }
             act = (object o) => { Prepare(); };
             IAddRemove r = collection as IAddRemove;
-            r.AddAction += act;
-            r.RemoveAction += act;
+            r.OnAdd += act;
+            r.OnRemove += act;
         }
 
         /// <summary>
@@ -187,8 +187,8 @@ namespace DataPerformer.Helpers
                 return;
             }
             IAddRemove r = collection as IAddRemove;
-            r.AddAction -= act;
-            r.RemoveAction -= act;
+            r.OnAdd -= act;
+            r.OnRemove -= act;
             isDisposed = true;
         }
 

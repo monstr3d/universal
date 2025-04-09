@@ -53,7 +53,7 @@ namespace DataPerformer
             }
             catch (Exception ex)
             {
-                ex.HandleException(-1); ;
+                ex.HandleFictionException();
             }
             try
             {
@@ -62,7 +62,7 @@ namespace DataPerformer
             }
             catch (Exception exc)
             {
-                exc.HandleException(100); ;
+                exc.HandleFictionException();
             }
             Post();
         }

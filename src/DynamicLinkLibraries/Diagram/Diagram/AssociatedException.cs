@@ -1,6 +1,7 @@
 ﻿using System;
 
 using CategoryTheory;
+using ErrorHandler;
 
 namespace Diagram.UI
 {
@@ -85,7 +86,7 @@ namespace Diagram.UI
         /// <param name="message">Exception message</param>
         public static void Throw(AssociatedAddition addition, string message)
         {
-            Exception ex = new Exception(message);
+            OwnException ex = new OwnException(message);
             Throw(addition, ex);
         }
 

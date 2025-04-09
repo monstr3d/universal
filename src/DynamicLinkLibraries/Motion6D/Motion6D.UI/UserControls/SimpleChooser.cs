@@ -53,7 +53,7 @@ namespace Motion6D.UI.UserControls
                     string s = box.SelectedItem + "";
                     if (s.Length == 0)
                     {
-                        throw new Exception("Variales shortage");
+                        throw new ErrorHandler.OwnException("Variales shortage");
                     }
                     l.Add(s);
                 }

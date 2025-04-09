@@ -247,14 +247,14 @@ namespace Chart.Objects
             objs = new object[t.Length];
             if (t.Length != measurements.Count)
             {
-                throw new Exception("Illegal number of measurements");
+                throw new ErrorHandler.OwnException("Illegal number of measurements");
             }
             for (int i = 0; i < t.Length; i++)
             {
                 IMeasurement m = this.FindMeasurement(measurements[i], false);
                 if (!t[i].Equals(m.Type))
                 {
-                    throw new Exception("Illegal measure type");
+                    throw new ErrorHandler.OwnException("Illegal measure type");
                 }
 
             }

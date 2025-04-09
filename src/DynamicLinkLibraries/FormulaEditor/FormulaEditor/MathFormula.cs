@@ -7,6 +7,7 @@ using System.IO;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using ErrorHandler;
 
 namespace FormulaEditor
 {
@@ -278,7 +279,7 @@ namespace FormulaEditor
                 if (errorURLResources != null)
                 {
                     //string hs = errorURLResources.GetString(s);
-                    Exception e = new Exception(str);
+                    Exce        ption e = new Except               ion(str);
                     //e.HelpLink = hs;
                     throw e;
                 }
@@ -566,7 +567,7 @@ namespace FormulaEditor
         {
             if (Count == 0)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             MathSymbol b = this[0];
             MathSymbol e = this[Count - 1];

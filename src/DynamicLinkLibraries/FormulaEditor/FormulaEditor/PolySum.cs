@@ -26,12 +26,12 @@ namespace FormulaEditor
 
         object IObjectOperation.this[object[] x]
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new ErrorHandler.OwnException("The method or operation is not implemented."); }
         }
 
         object IObjectOperation.ReturnType
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new ErrorHandler.OwnException("The method or operation is not implemented."); }
         }
 
         #endregion

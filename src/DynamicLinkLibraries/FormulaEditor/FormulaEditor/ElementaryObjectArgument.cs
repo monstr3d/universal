@@ -96,7 +96,7 @@ namespace FormulaEditor
                 if (!table.ContainsKey(s))
                 {
                     return;
-                    //throw new Exception("Variable does not exist");
+                    //throw new ErrorHandler.OwnException("Variable does not exist");
                 }
                 List<object> l = table[s] as List<object>;
                 foreach (object x in l)

@@ -96,7 +96,11 @@ namespace DinAtm.Portable
             get { return sous; }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name 
+        { 
+            get => performer.GetAssociatedName(this); 
+            set => new  ErrorHandler.WriteProhibitedException(); 
+        }
 
         void IObjectTransformer.Calculate(object[] input, object[] output)
         {

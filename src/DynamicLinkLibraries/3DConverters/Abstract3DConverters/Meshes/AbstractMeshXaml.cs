@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 using NamedTree;
 using System.Xml;
 
@@ -17,7 +18,7 @@ namespace Abstract3DConverters.Meshes
         XamlMeshCreator meshCreator;
 
      
-        internal AbstractMeshXaml(XamlMeshCreator creator, XmlElement element) : base(creator.MeshName, creator)
+        internal AbstractMeshXaml(XamlMeshCreator creator, XmlElement element) : base(null, creator.MeshName, creator)
         {
             actions = new Dictionary<string, Action<XmlElement>>()
             {
@@ -122,7 +123,7 @@ namespace Abstract3DConverters.Meshes
             }
             if (mat == null)
             {
-                throw new Exception("MATERIAL " + element.Name);
+                throw new OwnException("MATERIAL " + element.Name);
             }
             return mat;
         }
@@ -242,7 +243,7 @@ namespace Abstract3DConverters.Meshes
             var name = element.Name;
             if (!dictionary.ContainsKey(name))
             {
-                throw new Exception("PARSE XAML " + name);
+                throw new OwnException("PARSE XAML " + name);
             }
             dictionary[name](element);
         }

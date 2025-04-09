@@ -93,7 +93,7 @@ namespace Event.Portable
         {
             if (runtime == null)
             {
-                throw new Exception("SetBase");
+                throw new OwnException("SetBase");
             }
             if (Runtime == null)
             {
@@ -261,7 +261,7 @@ namespace Event.Portable
         {
             if (runtime == null)
             {
-                throw new Exception("Set real time");
+                throw new OwnException("Set real time");
             }
             if (Runtime == null)
             {
@@ -323,8 +323,8 @@ namespace Event.Portable
                 }
                 if (currentRuntime != null)
                 {
-                    
-                    var exception = new Exception("currentRuntime");
+
+                    var exception = new OwnException("currentRuntime");
                     exception.HandleExceptionDouble("currentRuntime");
                 }
                 start(reason);
@@ -352,7 +352,7 @@ namespace Event.Portable
             if (currentRuntime == null)
             {
                 return;
-               /// !!!! OnError(new Exception(""))
+               /// !!!! OnError(new Excep                 tion(""))
             }
             currentRuntime.Stop();
             currentRuntime = null;
@@ -1078,7 +1078,7 @@ namespace Event.Portable
                     {
                         if (usedArrays.Contains(ob))
                         {
-                            throw new Exception();
+                            throw new OwnException();
                         }
                         usedArrays.Add(ob);
                     }

@@ -55,7 +55,7 @@ namespace Diagram.UI
                     string fn = dir + dll.GetAttribute("file");
                     if (!File.Exists(fn))
                     {
-                        throw new Exception("File + \"" + fn + "\" does not exist");
+                        throw new ErrorHandler.OwnException("File + \"" + fn + "\" does not exist");
                     }
                     byte[] b = fn.GetFileBytes();
                     AppDomain.CurrentDomain.Load(b);
@@ -110,7 +110,7 @@ namespace Diagram.UI
                             Type t = Type.GetType(tp);
                             if (t == null)
                             {
-                                throw new Exception("Type \"" + tp + "\" does not exist");
+                                throw new ErrorHandler.OwnException("Type \"" + tp + "\" does not exist");
                             }
                             button = new ButtonWrapper(t, el.GetAttribute("param"), hint, image, null, true, false);
                         }

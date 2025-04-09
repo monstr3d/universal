@@ -1,5 +1,6 @@
 
 using CategoryTheory;
+using ErrorHandler;
 
 
 namespace MathGraph
@@ -33,14 +34,14 @@ namespace MathGraph
                     object o = edges[i];
                     if (!(o is DigraphEdge))
                     {
-                        throw new Exception("Path should contains digraph edges only");
+                        throw new OwnException("Path should contains digraph edges only");
                     }
                     DigraphEdge e = o as DigraphEdge;
                     if (prev != null)
                     {
                         if (prev.Target != e.Source)
                         {
-                            throw new Exception("Path edges are not connected");
+                            throw new OwnException("Path edges are not connected");
                         }
                     }
                     prev = e;
@@ -54,14 +55,14 @@ namespace MathGraph
                     object o = edges[i];
                     if (!(o is DigraphEdge))
                     {
-                        throw new Exception("Path should contains digraph edges only");
+                        throw new OwnException("Path should contains digraph edges only");
                     }
                     DigraphEdge e = o as DigraphEdge;
                     if (prev != null)
                     {
                         if (prev.Target != e.Source)
                         {
-                            throw new Exception("Path edges are not connected");
+                            throw new OwnException("Path edges are not connected");
                         }
                     }
                     prev = e;
@@ -139,7 +140,7 @@ namespace MathGraph
         {
             if (!(o is DigraphPath))
             {
-                throw new Exception("You cannot compare digraph with another type object");
+                throw new OwnException("You cannot compare digraph with another type object");
             }
             DigraphPath p = o as DigraphPath;
             if (p.edges.Count != edges.Count)

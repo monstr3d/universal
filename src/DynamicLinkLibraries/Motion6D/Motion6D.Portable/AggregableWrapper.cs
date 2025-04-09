@@ -33,7 +33,11 @@ namespace Motion6D.Portable
         /// <summary>
         /// Childen
         /// </summary>
-        private IAssociatedObject[] children;
+        protected virtual IAssociatedObject[] Children
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Measurements
@@ -132,12 +136,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -145,12 +147,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -158,12 +158,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -171,12 +169,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -184,12 +180,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -197,12 +191,10 @@ namespace Motion6D.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -238,7 +230,7 @@ namespace Motion6D.Portable
                 {
                     if (!(value.Own is IAcceleration))
                     {
-                        throw new Exception("You should set accelerated frame");
+                        throw new ErrorHandler.OwnException("You should set accelerated frame");
                     }
                 }
                 parentFrame = value;
@@ -295,7 +287,7 @@ namespace Motion6D.Portable
 
         #region IChildrenObject Members
 
-       IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
+       IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => Children;
 
 
         #endregion
@@ -350,7 +342,7 @@ namespace Motion6D.Portable
         /// </summary>
         protected void Prepare()
         {
-            children = new IAssociatedObject[] { aggregate as IAssociatedObject };
+            Children = new IAssociatedObject[] { aggregate as IAssociatedObject };
             createMeasurements();
         }
 
@@ -407,32 +399,32 @@ namespace Motion6D.Portable
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void INode<IPosition>.Add(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+            Add(node.Value);
         }
 
         void INode<IPosition>.Remove(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+           Remove(node.Value);
         }
 
         internal Motion6DAcceleratedFrame OwnFrame
@@ -458,12 +450,29 @@ namespace Motion6D.Portable
             }
         }
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        protected virtual void Add(IPosition position)
+        {
+            childrenTemp.Add(position);
+        }
 
-        INode<IPosition> INode<IPosition>.Parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        protected virtual void Remove(IPosition position)
+        {
+            childrenTemp.Remove(position);
+        }
 
-        IPosition INode<IPosition>.Value => throw new NotImplementedException();
+
+        protected List<IPosition> childrenTemp = new List<IPosition>();
+
+        protected virtual IEnumerable<IPosition> Nodes => childrenTemp;
+
+       
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children =>  throw new ErrorHandler.WriteProhibitedException();
+
+        INode<IPosition> INode<IPosition>.Parent { get => parentFrame; set => parentFrame = value as IReferenceFrame; }
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => Nodes; set { } }
+
+        IPosition INode<IPosition>.Value => this;
 
 
 

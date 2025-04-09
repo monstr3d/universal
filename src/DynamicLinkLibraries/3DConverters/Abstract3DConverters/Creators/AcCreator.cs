@@ -322,7 +322,7 @@ namespace Abstract3DConverters.Creators
                                 //var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
                                 name = null;
                                 i = j + 1;
-                                var amm = new AbstractMesh(null, null);
+                                var amm = new AbstractMesh(null, null, null);
                                 yield return amm;
                                 if (Position >= lines.Count)
                                 {

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using BaseTypes.Interfaces;
 using BaseTypes;
+using ErrorHandler;
 
 namespace FormulaEditor
 {
@@ -36,7 +37,7 @@ namespace FormulaEditor
             this.fieldInfo = fieldInfo;
             if (fieldInfo == null)
             {
-                throw new Exception("FieldOperation");
+                throw new ErrorHandler.OwnException("FieldOperation");
             }
             retType = fieldInfo.FieldType.ToObjectType();
         }

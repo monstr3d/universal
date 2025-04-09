@@ -208,7 +208,7 @@ namespace Motion6D.Portable
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurementsData;
 

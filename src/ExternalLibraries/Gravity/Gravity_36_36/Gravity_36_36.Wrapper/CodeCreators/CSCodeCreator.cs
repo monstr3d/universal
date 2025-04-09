@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 
 namespace Gravity_36_36.Wrapper.CodeCreators
@@ -78,7 +79,7 @@ namespace Gravity_36_36.Wrapper.CodeCreators
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
             }
             l.Add("Saver = l;");

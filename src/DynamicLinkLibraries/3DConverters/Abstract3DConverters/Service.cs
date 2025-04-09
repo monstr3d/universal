@@ -4,6 +4,7 @@ using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using ErrorHandler;
 using NamedTree;
 
 namespace Abstract3DConverters
@@ -395,11 +396,11 @@ namespace Abstract3DConverters
             var target = to.Polygons;
             if (target == null)
             {
-                throw new Exception("CopyPolygons Service");
+                throw new OwnException("CopyPolygons Service");
             }
             if (target.Count > 0)
             {
-                throw new Exception("CopyPolygons Service");
+                throw new OwnException("CopyPolygons Service");
             }
             foreach (var polygon in source)
             {
@@ -623,31 +624,6 @@ namespace Abstract3DConverters
             element.SetAttribute(colorName, "#" + s);
         }
 
-        /// <summary>
-        /// Sets parents for the Dictionary
-        /// </summary>
-        /// <param name="meshes">The dictionary</param>
-        public void SetParents(Dictionary<XmlElement,IMesh> meshes)
-        {
-            foreach (var mesh in meshes.Keys)
-            {
-                var a = meshes[mesh];
-                var p = mesh.ParentNode;
-                while (p != null)
-                {
-                    if (p is XmlElement e)
-                    {
-                        if (meshes.ContainsKey(e))
-                        {
-                            var b = meshes[e];
-                            a.Parent = b;
-                            break;
-                        }
-                    }
-                    p = p.ParentNode;
-                }
-            }
-        }
 
 
         /// <summary>
@@ -1146,7 +1122,7 @@ namespace Abstract3DConverters
                     var a = i + j;
                     if (a >= x.Length)
                     {
-                        throw new Exception("Service ToRealArray");
+                        throw new OwnException("Service ToRealArray");
                     }
                     y[j] = x[a];
                 }

@@ -96,7 +96,7 @@ namespace Diagram.UI.Components
             {
                 if (value == null)
                 {
-                    throw new Exception("Empty content");
+                    throw new ErrorHandler.OwnException("Empty content");
                 }
                 content = value;
             }

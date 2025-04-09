@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -28,7 +29,7 @@ namespace Collada.Converters.Classes.Complicated
                 Sampler2D = xmlElement.Get<Sampler2D>();
                 if (Sampler2D == null)
                 {
-                    throw new Exception("NewParam Exception");
+                    throw new OwnException("NewParam Exception");
                 }
                 creator.Samples2D[sid] = this;
                 return;

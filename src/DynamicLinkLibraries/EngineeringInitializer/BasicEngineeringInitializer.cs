@@ -57,17 +57,17 @@ namespace EngineeringInitializer
                         double a = (double)o;
                         if (Double.IsInfinity(a))
                         {
-                            throw new Exception("Infinity");
+                            throw new OwnException("Infinity");
                         }
                         if (Double.IsNaN(a))
                         {
-                            throw new Exception("NaN");
+                            throw new OwnException("NaN");
                         }
                     }
                 }
                 else
                 {
-                    throw new Exception("null");
+                    throw new OwnException("null");
                 }
             }; //*/
         }

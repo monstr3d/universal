@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 
 using BaseTypes.Interfaces;
+using ErrorHandler;
 
 namespace FormulaEditor.Symbols
 {
@@ -101,7 +102,7 @@ namespace FormulaEditor.Symbols
                 ss.acceptor = null;
                 if (!table.ContainsKey(ind))
                 {
-                    throw new Exception("Operation with index " + ind + " does not exist");
+                    throw new ErrorHandler.OwnException("Operation with index " + ind + " does not exist");
                 }
                 IOperationAcceptor acc = table[ind];
                 ss.acceptor = acc;

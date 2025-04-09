@@ -491,12 +491,12 @@ namespace WpfInterface.Objects3D
         {
             add
             {
-                throw new NotImplementedException();
+                throw new WriteProhibitedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new WriteProhibitedException();
             }
         }
 
@@ -801,7 +801,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new WriteProhibitedException(); }
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
 
@@ -837,12 +837,10 @@ namespace WpfInterface.Objects3D
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
  

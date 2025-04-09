@@ -168,7 +168,7 @@ namespace Event.Log.Database
         {
             if (parent.GetDirectoryNames().Contains(name))
             {
-                throw new Exception(name + " already exists");
+                throw new OwnException(name + " already exists");
             }
             return new LogDirectoryWrapper(parent as LogDirectoryWrapper, 
                 data.Create(parent.Id, name, comment));
@@ -189,11 +189,11 @@ namespace Event.Log.Database
             IDatabaseInterface d = StaticExtensionEventLogDatabase.data;
             if (d.Filenames.Contains(fileName))
             {
-                throw new Exception("File " + fileName + " already exists");
+                throw new OwnException("File " + fileName + " already exists");
             }
             if (directory.GetDirectoryNames().Contains(name))
             {
-                throw new Exception(name + " already exists");
+                throw new OwnException(name + " already exists");
             }
             ILogData ld = d.Create(data, directory.Id, name, fileName, comment);
             d.Filenames.Add(fileName);
@@ -215,7 +215,7 @@ namespace Event.Log.Database
             IDatabaseInterface d = StaticExtensionEventLogDatabase.data;
             if (directory.GetDirectoryNames().Contains(name))
             {
-                throw new Exception(name + " already exists");
+                throw new OwnException(name + " already exists");
             }
             ILogInterval interval = d.CreateInterval(directory.Id, name, comment, data, begin, end);
             return new LogIntervalWrapper(directory as LogDirectoryWrapper, interval, data);

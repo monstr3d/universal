@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.Classes.Abstract;
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 
 namespace Collada.Converters.Classes.Complicated
@@ -45,7 +46,7 @@ namespace Collada.Converters.Classes.Complicated
                 }
                 if (mat == null)
                 {
-                    throw new Exception("NULL ABSTRACT MATERIAL");
+                    throw new OwnException("NULL ABSTRACT MATERIAL");
                 }
                 EffectP = mat.Effect;
                 creator.Eff[EffectP.Name] = this;

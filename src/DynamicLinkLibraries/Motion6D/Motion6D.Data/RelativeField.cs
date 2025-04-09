@@ -112,11 +112,11 @@ namespace Motion6D
         {
             if (this.field != null)
             {
-                throw new Exception("Field of this object already exist");
+                throw new ErrorHandler.OwnException("Field of this object already exist");
             }
             if (!(field is IPositionObject))
             {
-                throw new Exception("Field has no postion");
+                throw new ErrorHandler.OwnException("Field has no postion");
             }
             this.field = field;
             IPositionObject po = field as IPositionObject;
@@ -234,16 +234,16 @@ namespace Motion6D
                 }
                 if (field == null)
                 {
-                    throw new Exception("Field is abscent");
+                    throw new ErrorHandler.OwnException("Field is abscent");
                 }
                 object t = field.GetTransformationType(value);
                 if (!t.Equals(Field3D_Types.CovariantVector))
                 {
-                    throw new Exception("Illegal type of field");
+                    throw new ErrorHandler.OwnException("Illegal type of field");
                 }
                 if (!field.GetType(value).Equals(type))
                 {
-                    throw new Exception("Illegal type of field");
+                    throw new ErrorHandler.OwnException("Illegal type of field");
                 }
                 num = value;
                 CreateDelegate();

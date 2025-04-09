@@ -69,7 +69,7 @@ namespace Motion6D.Portable
                 {
                     if (measurements != null)
                     {
-                        throw new Exception("Measurements already exists");
+                        throw new ErrorHandler.OwnException("Measurements already exists");
                     }
                     target = value;
                     measurements.Source = source as IPosition;
@@ -78,7 +78,7 @@ namespace Motion6D.Portable
                 IPosition p = value.GetObject<IPosition>();
                 if (p == null)
                 {
-                    throw new Exception("Illegal type");
+                    throw new ErrorHandler.OwnException("Illegal type");
                 }
                 target = value;
                 measurements.Target = target.GetTarget<IPosition>();
@@ -117,7 +117,7 @@ namespace Motion6D.Portable
             {
                 return p as ICategoryObject;
             }
-            throw new Exception("Illegal type");
+            throw new ErrorHandler.OwnException("Illegal type");
         }
 
         RelativeMeasurements measurements

@@ -9,7 +9,9 @@ using Diagram.UI;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace DataPerformer.Portable
@@ -237,12 +239,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -250,12 +250,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -480,7 +478,7 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurementsData;
 
-        IEnumerable<object> IChildren<object>.Children => throw new NotImplementedException();
+        IEnumerable<object> IChildren<object>.Children => throw  new ErrorHandler.WriteProhibitedException(); 
 
         /// <summary>
         /// Tests desktop
@@ -501,10 +499,14 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurements>.AddChild(IMeasurements child)
         {
+            measurementsData.Add(child);
+            onChangeInput?.Invoke();
         }
 
         void IChildren<IMeasurements>.RemoveChild(IMeasurements child)
         {
+            measurementsData.Remove(child);
+            onChangeInput?.Invoke();
         }
 
         void IChildren<object>.AddChild(object child)

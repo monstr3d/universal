@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI
 {
@@ -48,7 +49,7 @@ namespace Diagram.UI
             {
                 if (throwsRepeatException)
                 {
-                    throw new Exception("Double initialization");
+                    throw new OwnException("Double initialization");
                 }
             }
             isInitialized = true;

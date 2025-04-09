@@ -86,7 +86,7 @@ namespace DataPerformer.UI
                     {
                         if (d.ContainsKey(key))
                         {
-                            throw new Exception("Measurement \"" + key + "\" already exists");
+                            throw new ErrorHandler.OwnException("Measurement \"" + key + "\" already exists");
                         }
                         d[key] = dic[key];
                     }

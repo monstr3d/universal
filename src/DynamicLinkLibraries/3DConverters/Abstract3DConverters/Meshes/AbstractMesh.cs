@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
 using NamedTree;
 
@@ -30,11 +31,15 @@ namespace Abstract3DConverters.Meshes
         /// Constructor
         /// </summary>
         /// <param name="name">Name</param>
-        public AbstractMesh(string name, IMeshCreator creator) : this()
+        public AbstractMesh(IMesh parent, string name, IMeshCreator creator) : this()
         {
+            if (parent != null)
+            {
+                Parent = parent;
+            }
             if (creator == null)
             {
-                throw new Exception("Abstract creator null");
+                throw new OwnException("Abstract creator null");
             }
             Creator = creator;
             Name = name;
@@ -50,8 +55,8 @@ namespace Abstract3DConverters.Meshes
         /// <param name="textures">Textures</param>
         /// <param name="normals">Normals</param>
         /// <param name="indexes">Indexes</param>
-        public AbstractMesh(string name, IMeshCreator creator, string effect, List<float[]> vertices, List<float[]> normals,
-           List<float[]> textures, List<int[][]> indexes) : this(name, creator)
+        public AbstractMesh(IMesh parent, string name, IMeshCreator creator, string effect, List<float[]> vertices, List<float[]> normals,
+           List<float[]> textures, List<int[][]> indexes) : this(parent, name, creator)
         {
             EffectString = effect;
             Vertices = vertices;
@@ -75,9 +80,9 @@ namespace Abstract3DConverters.Meshes
         /// <param name="textures">Textures</param>
         /// <param name="normals">Normals</param>
         /// <param name="indexes">Indexes</param>
-        public AbstractMesh(string name, IMeshCreator creator, Effect effect = null,
+        public AbstractMesh(IMesh parent, string name, IMeshCreator creator, Effect effect = null,
             List<float[]> vertices = null, List<float[]> textures = null, List<float[]> normals = null,
-       List<int[][]> indexes = null) : this(name, creator)
+       List<int[][]> indexes = null) : this(parent, name, creator)
         {
             Effect = effect;
             Vertices = vertices;
@@ -97,10 +102,10 @@ namespace Abstract3DConverters.Meshes
         /// <param name="normals">Normals</param>
         /// <param name="indexes">Indexes</param>
         /// <param name="matrix">The transformation matrix</param>
-        public AbstractMesh(string name, IMeshCreator creator, Effect effect = null,
+        public AbstractMesh(IMesh parent,string name, IMeshCreator creator, Effect effect = null,
          List<float[]> vertices = null, List<float[]> textures = null, List<float[]> normals = null,
      List<int[][]> indexes = null, float[] matrix = null) :
-            this(name, creator, effect, vertices, normals,
+            this(parent, name, creator, effect, vertices, normals,
         textures, indexes)
         {
             TransformationMatrix = matrix;
@@ -110,12 +115,10 @@ namespace Abstract3DConverters.Meshes
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -123,12 +126,10 @@ namespace Abstract3DConverters.Meshes
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -136,16 +137,39 @@ namespace Abstract3DConverters.Meshes
 
         #region Fields
 
+        IMesh parent;
+
+        IMesh temp;
+
         /// <summary>
         /// Parent
         /// </summary>
-        protected AbstractMesh Parent
+        protected virtual INode<IMesh> Parent
         {
-            get;
-            set;
+            get => parent;
+            set
+            {
+                if (parent != null)
+                {
+                    return;
+                }
+                if (value == null)
+                {
+                    return;
+                }
+                if (temp != null)
+                {
+                    parent = temp;
+                    return;
+                }
+                temp = value as IMesh;
+                performer.AddChildNode(value, this, false);
+            }
         }
 
-        protected virtual IMesh ParentMesh => Parent;
+        protected AbstractMesh ParentMesh => Parent as AbstractMesh;
+
+      //  protected virtual IMesh ParentMesh => Parent;
 
         protected NamedTree.Performer performer = new NamedTree.Performer();
         /// <summary>
@@ -178,13 +202,13 @@ namespace Abstract3DConverters.Meshes
         #endregion
 
 
-
-        #region IParent implementation
-
-
         #region  INode<IMesh> Implementation
-        INode<IMesh> INode<IMesh>.Parent { get => Parent; set { } }
-        IEnumerable<INode<IMesh>> INode<IMesh>.Nodes { get => Children; set => throw new IllegalSetPropetryException("MESH SET CHILDREN PROHIBITED"); }
+        INode<IMesh> INode<IMesh>.Parent { get => Parent; set => Parent = value; }
+        IEnumerable<INode<IMesh>> INode<IMesh>.Nodes 
+        { 
+            get => Children; 
+            set => throw new IllegalSetPropetryException("MESH SET CHILDREN PROHIBITED");
+        }
 
         IMesh INode<IMesh>.Value => this;
 
@@ -197,10 +221,7 @@ namespace Abstract3DConverters.Meshes
 
         #endregion
 
-        /// <summary>
-  
-        #endregion
-
+   
         #region IMesh Implementation
 
         float[] IGeometry.TransformationMatrix => TransformationMatrix;
@@ -554,13 +575,13 @@ namespace Abstract3DConverters.Meshes
 
         float[,] GetAbsoluteMatrixStart()
         {
-            if (Parent == null)
+            if (ParentMesh == null)
             {
                 absolute = RelativeMatrix;
             }
             else
             {
-                absolute = s.MatrixProduct(Parent.AbsoluteMatrix, RelativeMatrix);
+                absolute = s.MatrixProduct(ParentMesh.AbsoluteMatrix, RelativeMatrix);
             }
             GetAbsoluteMatrix = GetAbsoluteMatrixFinish;
             return absolute;
@@ -583,7 +604,7 @@ namespace Abstract3DConverters.Meshes
 
         void INode<IMesh>.Remove(INode<IMesh> node)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Remove of mesh is prohibited");
         }
 
         protected virtual IMeshCreator Creator { get; set; }

@@ -5,13 +5,14 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI;
-using Diagram.UI.Portable;
 
 using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Interfaces.Attributes;
+
+using NamedTree;
 
 namespace Event.Portable
 {
@@ -30,28 +31,50 @@ namespace Event.Portable
 
         protected bool isDirectoryOriented = false;
 
+        event Action<object> IChildren<object>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<object> IChildren<object>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
         #endregion
 
         #region IAddRemove Members
 
-        void IAddRemove.Add(object obj)
+        void IChildren<object>.AddChild(object obj)
         {
             if (consumer != null)
             {
-                throw new Exception("Object already exists");
+                throw new ErrorHandler.OwnException("Object already exists");
             }
             if (!(obj is IDataConsumer))
             {
-                throw new Exception("Target shuold be a Data consumer");
+                throw new ErrorHandler.OwnException("Target shuold be a Data consumer");
             }
             consumer = obj as IDataConsumer;
         }
 
-        void IAddRemove.Remove(object obj)
+        void IChildren<object>.RemoveChild(object obj)
         {
             if (obj != consumer)
             {
-                throw new Exception("Illegal");
+                throw new ErrorHandler.OwnException("Illegal");
             }
             consumer = null;
         }
@@ -61,18 +84,7 @@ namespace Event.Portable
             get { return typeof(object); }
         }
 
-        event Action<object> IAddRemove.AddAction
-        {
-            add { }
-            remove { }
-        }
-
-        event Action<object> IAddRemove.RemoveAction
-        {
-            add { }
-            remove { }
-        }
-
+ 
         #endregion
 
         #region ICalculationReason Members
@@ -122,6 +134,8 @@ namespace Event.Portable
                 isDirectoryOriented = value;
             }
         }
+
+        IEnumerable<object> IChildren<object>.Children => [consumer];
 
         #endregion
 

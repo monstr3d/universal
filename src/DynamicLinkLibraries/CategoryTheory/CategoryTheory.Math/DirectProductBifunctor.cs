@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Text;
 using NamedTree;
+using ErrorHandler;
 
 namespace CategoryTheory.Math
 {
@@ -37,7 +38,7 @@ namespace CategoryTheory.Math
         IAdvancedCategoryArrow IBifunctor.CalculateArrow(IAdvancedCategoryObject source, IAdvancedCategoryObject target,
             IAdvancedCategoryArrow arrow1, IAdvancedCategoryArrow arrow2)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         IAdvancedCategoryObject IBifunctor.CalculateObject(IAdvancedCategoryObject obj1, IAdvancedCategoryObject obj2)
@@ -62,11 +63,11 @@ namespace CategoryTheory.Math
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
         }
 
@@ -74,32 +75,32 @@ namespace CategoryTheory.Math
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
         }
 
         bool IAdvancedCategoryArrow.IsMonomorphism
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         bool IAdvancedCategoryArrow.IsEpimorphism
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         bool IAdvancedCategoryArrow.IsIsomorphism
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         IAdvancedCategoryArrow IAdvancedCategoryArrow.Compose(ICategory category, IAdvancedCategoryArrow next)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         #endregion
@@ -110,11 +111,11 @@ namespace CategoryTheory.Math
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new OwnException("The method or operation is not implemented.");
             }
         }
 
@@ -124,15 +125,15 @@ namespace CategoryTheory.Math
 
         ICategory IAdvancedCategoryObject.Category
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         IAdvancedCategoryArrow IAdvancedCategoryObject.Id
         {
-            get { throw new NotImplementedException(); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
-        string INamed.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string INamed.Name { get => throw new OwnException("The method or operation is not implemented."); set => throw new OwnException("The method or operation is not implemented."); }
 
         #endregion
 

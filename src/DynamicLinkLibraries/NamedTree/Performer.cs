@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using ErrorHandler;
+using System.Reflection;
+using System.Xml;
 
 namespace NamedTree
 {
@@ -39,7 +41,7 @@ namespace NamedTree
             {
                 return true;
             }
-            return IsParent(p, child);
+            return IsParent(parent, p);
   
         }
 
@@ -79,25 +81,95 @@ namespace NamedTree
 
         }
 
-
-
-
-        public void AddChildNode<T>(INode<T> parent, INode<T> child) where T : class
+        /// <summary>
+        /// Sets parents for the Dictionary
+        /// </summary>
+        /// <param name="nodes">The dictionary</param>
+        public void SetParents<T>(Dictionary<XmlElement, T> nodes) where T : class
         {
+            foreach (var node in nodes)
+            {
+                var a = node.Key;
+                var p = a.ParentNode;
+                while (p != null)
+                {
+                    if (p is XmlElement e)
+                    {
+                        if (nodes.ContainsKey(e))
+                        {
+                            var b = nodes[e];
+                            (node.Value as INode<T>).Parent = b as INode<T>;
+                            break;
+                        }
+                    }
+                    p = p.ParentNode;
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Sets parents for the Dictionary
+        /// </summary>
+        /// <param name="nodes">The dictionary</param>
+        public void SetParents<T>(Dictionary<XmlElement, INode<T>> nodes) where T : class
+        {
+            foreach (var node in nodes)
+            {
+                var a = node.Key;
+                var p = a.ParentNode;
+                while (p != null)
+                {
+                    if (p is XmlElement e)
+                    {
+                        if (nodes.ContainsKey(e))
+                        {
+                            var b = nodes[e];
+                            node.Value.Parent = b;
+                            break;
+                        }
+                    }
+                    p = p.ParentNode;
+                }
+            }
+        }
+
+
+
+        public void AddChildNode<T>(INode<T> parent, INode<T> child, bool change = true) where T : class
+        {
+            if (parent == null)
+            {
+                return;
+            }
+            if (child.Parent == parent)
+            {
+                return;
+            }
             if (IsLeaf<T>(parent))
             {
-                throw new Exception("NamedTree.Performer Parent leaf");
+                throw new OwnException("NamedTree.Performer Parent leaf");
             }
             if (child.Parent != null)
             {
-                throw new Exception("NamedTree.Performer Parent alredy exists");
+                if (!change)
+                {
+                    throw new OwnException("NamedTree.Performer Parent alredy exists");
+                }
+                child.Parent.Remove(child);
+                child.Parent = null;
+            }
+            if (child.Parent == parent)
+            {
+                return;
             }
             if (IsParent<T>(child, parent))
             {
-                throw new Exception("NamedTree.Performer Parent is child");
+                throw new OwnException("NamedTree.Performer Parent is child");
             }
-            child.Parent = parent;
             parent.Add(child);
+            child.Parent = parent;
         }
 
         public IEnumerable<INode<T>> GetRoots<T>(IEnumerable<INode<T>> nodes) where T : class
@@ -110,15 +182,9 @@ namespace NamedTree
             return from node in nodes where node.Parent == null select node.Value;
         }
 
-        public IEnumerable<T>GetChildren<T>(INode<T> node) where T : class
+        public IEnumerable<T> GetChildren<T>(INode<T> node) where T : class
         {
-            foreach (var child in node.Nodes)
-            {
-                if (child is T)
-                {
-                    yield return (T)child;
-                }
-            }
+            return from n in node.Nodes select n.Value;
         }
 
         /// <summary>
@@ -149,7 +215,7 @@ namespace NamedTree
         /// <returns>The path</returns>
         public IEnumerable<T> GetPath<T>(T node) where T : class, INode<T>
         {
-            var enu = GetPath<T>(node);
+            var enu = GetPath<T>(node as INode<T>);
             return from t in enu select t.Value;
         }
 
@@ -182,6 +248,10 @@ namespace NamedTree
         /// <returns>The arribute</returns>
         public T GetAttribute<T>(object obj) where T : Attribute
         {
+            if (obj == null)
+            {
+                return null;
+            }
             Type type = (obj is Type) ? obj as Type : obj.GetType();
 #pragma warning disable CS8603 // Possible null reference return.
 #pragma warning disable CS8604 // Possible null reference argument.
@@ -190,6 +260,8 @@ namespace NamedTree
 #pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning restore CS8603 // Possible null reference return.
         }
+
+        
 
     }
 }

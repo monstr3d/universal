@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable.Interfaces;
 using ErrorHandler;
 
 namespace DataPerformer.Portable.DifferentialEquationProcessors

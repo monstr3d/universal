@@ -303,7 +303,7 @@ namespace ImageTransformations
 			{
 				if (value.Length != 3)
 				{
-					throw new Exception("You should use three formulas");
+					throw new OwnException("You should use three formulas");
 				}
 				formulaStrings = value;
 				init();

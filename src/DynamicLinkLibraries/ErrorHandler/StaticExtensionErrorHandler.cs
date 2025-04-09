@@ -1,4 +1,6 @@
-﻿namespace ErrorHandler
+﻿using System.Reflection;
+
+namespace ErrorHandler
 {
     /// <summary>
     /// Static extension
@@ -7,10 +9,15 @@
     {
         #region Fields
 
+        static Guid Fiction = Guid.Parse("84943245-0934-4AF0-8F51-DDE2FB42D2DC");
+
+
         /// <summary>
         /// Error handler
         /// </summary>
         static IExceptionHandler? exceptionHandler = null;
+
+        
 
         #endregion
 
@@ -37,7 +44,54 @@
         /// <param name="obj">Attached object</param>
         static public void HandleException(this Exception exception, params object[] obj)
         {
+            if (!exception.IsFiction(obj))
+            {
+
+            }
             exceptionHandler?.HandleException(exception, obj);
+        }
+
+        /// <summary>
+        /// Shows exception (extension method)
+        /// </summary>
+        /// <param name="exception">Exception</param>
+        /// <param name="obj">Attached object</param>
+        static public void HandleFictionException(this Exception exception)
+        {
+            exceptionHandler?.HandleException(exception, Fiction);
+        }
+
+        private static T GetAttribute<T>(object obj) where T : Attribute
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+            Type type = (obj is Type) ? obj as Type : obj.GetType();
+#pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8604 // Possible null reference argument.
+            return CustomAttributeExtensions
+                 .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(type));
+#pragma warning restore CS8604 // Possible null reference argument.
+#pragma warning restore CS8603 // Possible null reference return.
+        }
+
+
+        public static bool IsFiction(this Exception exception, params object[] obj)
+        {
+            if (obj != null)
+            {
+                if (obj.Length == 1)
+                {
+
+                    if (obj[0].Equals(Fiction))
+                    {
+                        return true;
+                    }
+                }
+            }
+            var at = GetAttribute<FictionExceptionAttribute>(exception);
+            return exception is FictiveException;
         }
 
         /// <summary>

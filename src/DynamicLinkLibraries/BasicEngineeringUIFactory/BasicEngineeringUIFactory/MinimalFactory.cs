@@ -212,7 +212,7 @@ namespace BasicEngineering.UI.Factory
                 }
                 if (l.Source.Root.Ord < l.Target.Root.Ord)
                 {
-                    a.Throw(new Exception(DataLink.SetProviderBefore));
+                    a.Throw(new ErrorHandler.OwnException(DataLink.SetProviderBefore));
                 }
             }
         }

@@ -8,6 +8,7 @@ using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using ErrorHandler;
 
 
 namespace DataPerformer.Formula
@@ -138,7 +139,7 @@ namespace DataPerformer.Formula
             }
             if (!(Measurement is IDerivation))
             {
-                throw new Exception("VariableMeasure.Derivation");
+                throw new OwnException("VariableMeasure.Derivation");
             }
             IDerivation d = Measurement as IDerivation;
             VariableMeasurement mea = new VariableMeasurement("", d.Derivation, detector, obj);

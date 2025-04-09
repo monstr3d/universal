@@ -53,7 +53,6 @@ namespace DataPerformer.Advanced.Accumulators
 
         #endregion
 
-
         #region ISerializable Members
 
         /// <summary>

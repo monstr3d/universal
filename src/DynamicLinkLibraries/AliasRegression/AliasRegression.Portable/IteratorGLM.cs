@@ -430,12 +430,12 @@ namespace Regression.Portable
             {
                 if (value == null)
                 {
-                    throw new Exception("Iterator GLM CorrectionMatrix");
+                    throw new OwnException("Iterator GLM CorrectionMatrix");
                 }
                 int n = sAliases.Count;
                 if (value.GetLength(0) != n | value.GetLength(1) != n)
                 {
-                    throw new Exception("Iterator GLM CorrectionMatrix GetLength");
+                    throw new OwnException("Iterator GLM CorrectionMatrix GetLength");
                 }
                 d = value;
             }

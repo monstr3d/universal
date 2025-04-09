@@ -7,7 +7,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-
+using ErrorHandler;
 using Motion6D.Portable.Aggregates;
 using NamedTree;
 
@@ -48,7 +48,7 @@ namespace Motion6D.UI.Forms
                     rigidBody = co.GetChild<RigidBody>();
                     if (rigidBody == null)
                     {
-                        throw new Exception();
+                        throw new OwnException();
                     }
                 }
             }

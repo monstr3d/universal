@@ -360,7 +360,7 @@ namespace Diagram.UI.Labels
 			{
 				if (!value.Belongs(source, target))
 				{
-					throw new Exception("IArrowLabelUI.Pair");
+					throw new ErrorHandler.OwnException("IArrowLabelUI.Pair");
 
                 }
 				pair = value;

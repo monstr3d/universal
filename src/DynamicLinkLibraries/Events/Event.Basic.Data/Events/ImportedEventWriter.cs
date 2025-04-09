@@ -110,13 +110,13 @@ namespace Event.Basic.Data.Events
         void IChildren<IMeasurements>.AddChild(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
-            change();
+            change?.Invoke();
         }
 
         void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
-            change();
+            change?.Invoke();
         }
 
         void IDataConsumer.UpdateChildrenData()
@@ -182,12 +182,10 @@ namespace Event.Basic.Data.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -195,12 +193,10 @@ namespace Event.Basic.Data.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -208,12 +204,10 @@ namespace Event.Basic.Data.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -221,12 +215,10 @@ namespace Event.Basic.Data.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 

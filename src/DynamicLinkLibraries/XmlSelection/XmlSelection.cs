@@ -162,8 +162,8 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 		}
 	}
 
-    object IAssociatedObject.Object { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+    object IAssociatedObject.Object { get ; set; }
+    string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
     void load()
 	{
@@ -200,11 +200,11 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 				string name = e.Attributes[strName].Value;
 				if (ids.ContainsKey(id))
 				{
-					throw new Exception("Id " + id + " already exists");
+					throw new ErrorHandler.OwnException("Id " + id + " already exists");
 				}
 				if (cNames.Contains(name))
 				{
-					throw new Exception("Name " + name + " already exists");
+					throw new ErrorHandler.OwnException("Name " + name + " already exists");
 				}
 				ids[id] = i;
 				cNames.Add(name);

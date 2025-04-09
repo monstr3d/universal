@@ -7,6 +7,7 @@ using System.Text;
 using DataWarehouse;
 
 using DataWarehouse.Interfaces;
+using ErrorHandler;
 
 
 namespace DataWarehouse
@@ -54,7 +55,7 @@ namespace DataWarehouse
             path = path.Replace("\"", "QUOTES");
             if (File.Exists(path))
             {
-                throw new Exception("File \"" + path + " \"already exists");
+                throw new OwnException("File \"" + path + " \"already exists");
             }
             using (Stream s = File.OpenWrite(path))
             {

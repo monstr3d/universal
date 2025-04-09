@@ -116,11 +116,11 @@ namespace DataPerformer
             {
                 if (source == null)
                 {
-                    throw new Exception("Source object is missing");
+                    throw new ErrorHandler.OwnException("Source object is missing");
                 }
                 if (source == value)
                 {
-                    throw new Exception("Target of switch link should not concide with source");
+                    throw new ErrorHandler.OwnException("Target of switch link should not concide with source");
                 }
                 if (!(value is FormulaDataConsumer))
                 {

@@ -123,12 +123,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -136,12 +134,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -149,12 +145,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -162,12 +156,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -226,7 +218,7 @@ namespace Motion6D
                 ReferenceFrame f = value.GetFrame();
                 if (!(f is IAcceleration))
                 {
-                    throw new Exception("You should set this component on accelerated frame");
+                    throw new ErrorHandler.OwnException("You should set this component on accelerated frame");
                 }
                 pos = value;
                 frame = f;
@@ -270,7 +262,7 @@ namespace Motion6D
             }
         }
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         void post()
         {
@@ -349,22 +341,19 @@ namespace Motion6D
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.OwnException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
 

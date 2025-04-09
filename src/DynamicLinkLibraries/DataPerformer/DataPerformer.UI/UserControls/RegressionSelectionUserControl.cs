@@ -109,7 +109,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 if (table.ContainsKey(i))
                 {
-                    throw new Exception("More than one secection with equal number");
+                    throw new ErrorHandler.OwnException("More than one secection with equal number");
                 }
                 table[i] = controls[nup];
             }

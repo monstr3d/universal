@@ -267,7 +267,7 @@ namespace FormulaEditor
         /// </summary>
         private static void throwError()
         {
-            throw new Exception(error);
+            throw new ErrorHandler.OwnException(error);
         }
 
         #region IDistribution Members

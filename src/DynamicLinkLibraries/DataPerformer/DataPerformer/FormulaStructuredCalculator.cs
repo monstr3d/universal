@@ -46,7 +46,7 @@ namespace DataPerformer
             measurements = formula;
             if (vectorDimension != measurements.Count)
             {
-                throw new Exception("Illegal dimension");
+                throw new ErrorHandler.OwnException("Illegal dimension");
             }
             variables = selection.Variables;
             IList<string> l = formula.AliasNames;
@@ -59,7 +59,7 @@ namespace DataPerformer
             {
                 if (!parameters.Contains(str))
                 {
-                    throw new Exception("Illegal variable");
+                    throw new ErrorHandler.OwnException("Illegal variable");
                 }
                 parameters.Remove(str);
             }

@@ -24,7 +24,7 @@ namespace Diagram
 
         string IDesktopTaskProvider.GetTask(string name)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
     }
 }

@@ -14,7 +14,6 @@ using CategoryTheory;
 using MathGraph;
 
 using Diagram.UI.Labels;
-using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Forms.Interfaces;
@@ -37,6 +36,12 @@ namespace Diagram.UI
     {
 
         #region Fields
+
+        NamedTree.Performer performer = new NamedTree.Performer();
+
+        Diagram.UI.Performer p = new Diagram.UI.Performer();
+
+        IComponentCollection collection;
 
         /// <summary>
 		/// Then "is not equal" string
@@ -146,6 +151,7 @@ namespace Diagram.UI
         /// <param name="tools">The tools</param>
         public PanelDesktop(ToolsDiagram tools)
         {
+            collection = this;
             this.tools = tools;
             component = this;
             Paint += new PaintEventHandler(onPaint);
@@ -233,7 +239,7 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="arrows">Arrows</param>
         /// <param name="associated">Sign for setting associated objects</param>
-        public void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
+        protected virtual void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
         {
             List<IObjectLabel> objs = new List<IObjectLabel>();
             List<IObjectLabel> obb = objects.ToList<IObjectLabel>();
@@ -1006,7 +1012,8 @@ namespace Diagram.UI
 		public void Save(IList<IObjectLabel> objects, IList<IArrowLabel> arrows, Stream stream, bool comments)
         {
             PureDesktopPeer desktop = new PureDesktopPeer();
-            desktop.Copy(objects, arrows, false);
+            IDesktop d = desktop;
+            d.Copy(objects, arrows, false);
             if (comments)
             {
                 List<object> comm = ControlPanel.GetComments(this);
@@ -1249,7 +1256,7 @@ namespace Diagram.UI
                     os = hash[s] as object[];
                     if (os[1] != null)
                     {
-                        throw new Exception("Two sources");
+                        throw new ErrorHandler.OwnException("Two sources");
                     }
                 }
                 else
@@ -1266,7 +1273,7 @@ namespace Diagram.UI
                     ot = hash[t] as object[];
                     if (ot[2] != null)
                     {
-                        throw new Exception("Two targets");
+                        throw new ErrorHandler.OwnException("Two targets");
                     }
                 }
                 else
@@ -1288,7 +1295,7 @@ namespace Diagram.UI
             }
             if (b == null)
             {
-                throw new Exception("Source is not defined");
+                throw new ErrorHandler.OwnException("Source is not defined");
             }
             ArrayList path = new ArrayList();
             while (true)
@@ -1303,7 +1310,7 @@ namespace Diagram.UI
             }
             if (path.Count != arrows.Count)
             {
-                throw new Exception("Two paths");
+                throw new ErrorHandler.OwnException("Two paths");
             }
             return path;
         }
@@ -1727,7 +1734,7 @@ namespace Diagram.UI
             }
         }
 
-        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => throw new NotImplementedException();
+        IEnumerable<INamedComponent> IComponentCollection.NamedComponents => component.Get<INamedComponent>();
 
 
         /// <summary>
@@ -2439,7 +2446,8 @@ namespace Diagram.UI
 
         private void copy(PureDesktopPeer desktop)
         {
-            desktop.Copy(Objects, Arrows, false);
+            IDesktop d = desktop;
+            d.Copy(Objects, Arrows, false);
             desktop.PreSave();
             List<object> comm = ControlPanel.GetComments(this);
             List<object> c = desktop.Comments;
@@ -2528,11 +2536,154 @@ namespace Diagram.UI
 
         IEnumerable<T> IComponentCollection.Get<T>()
         {
-            throw new NotImplementedException();
+          return  p.GetObjectsAndArrows<T>(this);
         }
         #endregion
 
         #endregion
 
+        #region
+
+        #region IComponentCollection Members
+
+        IEnumerable<object> IComponentCollection.AllComponents
+        {
+            get { return AllComponents; }
+        }
+
+        IDesktop IComponentCollection.Desktop
+        {
+            get { return this; }
+        }
+
+        #region NEW
+
+        IEnumerable<IObjectLabel> IComponentCollection.Objects => collection.Get<IObjectLabel>();
+
+        IEnumerable<IArrowLabel> IComponentCollection.Arrows => collection.Get<IArrowLabel>();
+
+   
+        IEnumerable<ICategoryObject> IComponentCollection.CategoryObjects => collection.Get<ICategoryObject>();
+
+        IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => collection.Get<ICategoryArrow>();
+
+        string INamed.Name { get => Name; set => Name = value; }
+
+ 
+        void INode<IComponentCollection>.Add(INode<IComponentCollection> node)
+        {
+            Add(node);
+        }
+
+        void INode<IComponentCollection>.Remove(INode<IComponentCollection> node)
+        {
+            Remove(node);
+        }
+
+        INode<IComponentCollection> INode<IComponentCollection>.Parent { get => Parent; set { Parent = value; } }
+        IEnumerable<INode<IComponentCollection>> INode<IComponentCollection>.Nodes { get => Children; set { } }
+
+        IComponentCollection INode<IComponentCollection>.Value => this;
+
+        protected INode<IComponentCollection> ParentNode
+        {
+            get; set;
+        }
+
+        protected virtual INode<IComponentCollection> Parent { get => ParentNode; set => ParentNode = value; }
+
+
+        #endregion
+
+
+        #endregion
+
+
+        #endregion
+
+        protected event Action<IComponentCollection> onAdd;
+
+        protected event Action<IComponentCollection> onRemove;
+
+        protected virtual event Action<IComponentCollection> OnAdd
+        {
+            add
+            {
+                onAdd += value;
+            }
+
+            remove
+            {
+                onAdd -= value;
+            }
+        }
+
+
+        protected virtual event Action<IComponentCollection> OnRemove
+        {
+            add
+            {
+                onRemove += value;
+            }
+
+            remove
+            {
+                onRemove -= value;
+            }
+        }
+
+
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnAdd
+        {
+            add
+            {
+                OnAdd += value;
+            }
+
+            remove
+            {
+                OnAdd -= value;
+            }
+        }
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnRemove
+        {
+            add
+            {
+                OnRemove += value;
+
+            }
+
+            remove
+            {
+                OnRemove -= value;
+            }
+        }
+
+        protected List<IComponentCollection> ChildrenNodes { get; } = new List<IComponentCollection>();
+
+        protected virtual IEnumerable<IComponentCollection> Children => ChildrenNodes;
+
+  
+
+        protected virtual void Add(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Add(collection.Value);
+            onAdd?.Invoke(collection.Value);
+        }
+
+        protected virtual void Remove(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Remove(collection.Value);
+            onRemove?.Invoke(collection.Value);
+        }
+
+        void IDesktop.Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
+        {
+            var obj = objects.ToArray();
+            var arrs = arrows.ToArray();
+            Copy(obj, arrs, associated);
+        }
     }
 }

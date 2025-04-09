@@ -97,7 +97,7 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="arrows">Arrows</param>
         /// <param name="associated">Copy associated objects sign</param>
-        public override void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
+        protected override void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
         {
             foreach (IObjectLabel l in objects)
             {
@@ -929,19 +929,17 @@ namespace Diagram.UI
                             table[n] = nc;
                         }
                     }
-                    if (o is IObjectLabel)
+                    if (o is IObjectLabel l)
                     {
-                        IObjectLabel l = o as IObjectLabel;
-                        object os = l.Object;
+                       object os = l.Object;
                         if (os is IAssociatedObject)
                         {
                             IAssociatedObject ass = os as IAssociatedObject;
                             ass.Object = l;
                             PostSetObject(ass);
                         }
-                        if (os is IObjectContainer)
+                        if (os is IObjectContainer oc)
                         {
-                            IObjectContainer oc = os as IObjectContainer;
                             bool lb = oc.Load();
                             if (!lb)
                             {
@@ -958,9 +956,8 @@ namespace Diagram.UI
                         {
                             IArrowLabel l = o as IArrowLabel;
                             object os = l.Arrow;
-                            if (os is IAssociatedObject)
+                            if (os is IAssociatedObject ass)
                             {
-                                IAssociatedObject ass = os as IAssociatedObject;
                                 ass.Object = l;
                                 PostSetObject(ass);
                             }

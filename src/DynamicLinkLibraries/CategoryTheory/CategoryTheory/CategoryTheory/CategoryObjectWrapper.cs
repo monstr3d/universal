@@ -59,7 +59,9 @@ namespace CategoryTheory
 
         #region IChildrenObject Members
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
+        string INamed.Name { get => performer.GetAssociatedName(this); 
+            set =>new  ErrorHandler.WriteProhibitedException();
+        }
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 

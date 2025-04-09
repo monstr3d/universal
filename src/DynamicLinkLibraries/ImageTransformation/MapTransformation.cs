@@ -185,7 +185,7 @@ namespace ImageTransformations
         {
             if (provider != null & provider != null)
             {
-                throw new Exception("Provider already exists");
+                throw new ErrorHandler.OwnException("Provider already exists");
             }
             this.provider = provider;
             if (provider == null)

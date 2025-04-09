@@ -187,12 +187,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -200,12 +198,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -328,11 +324,12 @@ namespace DataPerformer.Portable
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new Exception("WRITE PROHIBITED"); }
+        string INamed.Name { get => performer.GetAssociatedName(this); 
+            set => throw new ErrorHandler.WriteProhibitedException(); }
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new ErrorHandler.WriteProhibitedException();
 
         /// <summary>
         /// Pre initialization
@@ -388,12 +385,12 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
 

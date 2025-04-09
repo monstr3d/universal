@@ -41,13 +41,13 @@ namespace BaseTypes
         {
             get
             {
-                throw new NotImplementedException();
+                return null;
             }
         }
 
         object[] IDisassemblyObject.Disassembly(object obj)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         #endregion

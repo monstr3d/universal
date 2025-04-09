@@ -304,7 +304,7 @@ namespace Diagram.UI.Labels
             }
             set
             {
-                throw new Exception(IllegalParent);
+                throw new OwnException(IllegalParent);
             }
         }
 

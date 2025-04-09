@@ -8,6 +8,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 using Event.Interfaces;
 using NamedTree;
 
@@ -277,7 +278,7 @@ namespace Event.Portable.Events
             {
                 if (ls.Contains(t.Item1))
                 {
-                    throw new Exception(t.Item1 + " already exists");
+                    throw new OwnException(t.Item1 + " already exists");
                 }
                 ls.Add(t.Item1);
                 int[] k = new int[] { i };
@@ -313,6 +314,8 @@ namespace Event.Portable.Events
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

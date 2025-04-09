@@ -37,7 +37,7 @@ namespace FormulaEditor.CodeCreators
             }
             catch (Exception)
             {
-                throw new Exception("Tree not found");
+                throw new ErrorHandler.FictiveException("Tree not found");
             }
         }
 

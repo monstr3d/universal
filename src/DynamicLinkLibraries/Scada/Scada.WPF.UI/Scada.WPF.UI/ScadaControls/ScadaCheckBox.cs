@@ -65,7 +65,7 @@ namespace Scada.WPF.UI.ScadaControls
 
             set
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -73,12 +73,12 @@ namespace Scada.WPF.UI.ScadaControls
         {
             get
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
 
             set
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
         }
 

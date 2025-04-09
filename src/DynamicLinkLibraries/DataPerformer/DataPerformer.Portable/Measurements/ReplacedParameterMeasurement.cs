@@ -1,6 +1,7 @@
 ﻿using System;
 
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable.Measurements
 {
@@ -39,7 +40,7 @@ namespace DataPerformer.Portable.Measurements
         {
             if (ownParameter != null)
             {
-                throw new Exception("Replaced own null");
+                throw new OwnException("Replaced own null");
             }
             ownParameter = base.parameter;
             base.parameter = parameter;
@@ -49,7 +50,7 @@ namespace DataPerformer.Portable.Measurements
         {
             if (ownParameter == null)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             parameter = ownParameter;
             ownParameter = null;

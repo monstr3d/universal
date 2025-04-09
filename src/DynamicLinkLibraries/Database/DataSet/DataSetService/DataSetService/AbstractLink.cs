@@ -1,3 +1,4 @@
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -189,7 +190,7 @@ namespace DataSetService
         {
             if (link.Source == target)
             {
-                throw new Exception("Cannot link to itself");
+                throw new OwnException("Cannot link to itself");
             }
             IDataSetDesktop d = link.Source.Table.Desktop;
             List<ILink> links = d.Links;
@@ -197,12 +198,12 @@ namespace DataSetService
             {
                 if (l.Source == link.Source && target == l.Target)
                 {
-                    throw new Exception("Link already exists");
+                    throw new OwnException("Link already exists");
                 }
             }
             if (!link.Source.Type.Equals(target.Type))
             {
-                throw new Exception("Different types of columns");
+                throw new OwnException("Different types of columns");
             }
         }
 

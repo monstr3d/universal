@@ -32,7 +32,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             else
             {
-            //    throw new Exception();
+            //    throw new Except ion();
             }
         }
 

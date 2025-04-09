@@ -126,7 +126,7 @@ namespace DataPerformer
         /// </summary>
         public override void UpdateDimension()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new ErrorHandler.OwnException("The method or operation is not implemented.");
         }
 
         /// <summary>

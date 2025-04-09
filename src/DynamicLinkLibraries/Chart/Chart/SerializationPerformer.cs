@@ -29,7 +29,7 @@ namespace Chart
 
             if (attr == null)
             {
-                throw new Exception("Object have no Serializable attribute");
+                throw new ErrorHandler.OwnException("Object have no Serializable attribute");
             }
             MemoryStream ms = new MemoryStream();
             BinaryFormatter bf = new BinaryFormatter();

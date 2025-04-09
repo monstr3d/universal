@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 using NamedTree;
 
 
@@ -156,7 +157,7 @@ namespace Collada.Converters.Classes.Complicated
                             }
                             if (point == null)
                             {
-                                throw new Exception("MeshObject");
+                                throw new OwnException("MeshObject");
                             }
 
                             tn += count;
@@ -192,12 +193,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -205,12 +204,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -221,7 +218,7 @@ namespace Collada.Converters.Classes.Complicated
 
         void INode<IMesh>.Remove(INode<IMesh> node)
         {
-            throw new NotImplementedException();
+            throw  new ErrorHandler.WriteProhibitedException();
         }
     }
 }

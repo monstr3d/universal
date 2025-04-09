@@ -8,6 +8,7 @@ using Abstract3DConverters.Meshes;
 using Collada.Converters.Classes.Elementary;
 using Collada.Converters.MeshCreators;
 using Collada.Converters.Meshes;
+using ErrorHandler;
 
 
 
@@ -52,7 +53,7 @@ namespace Collada.Converters.Classes.Complicated
             var mesh = Create(geom, mat, name, mm);
             if (mesh == null)
             {
-                throw new Exception("MESH_NULL");
+                throw new OwnException("MESH_NULL");
             }
             Creator.MeshesParent[element] = mesh;
         }
@@ -67,7 +68,7 @@ namespace Collada.Converters.Classes.Complicated
                 case Vertices v:
                     return v.Array;
             }
-            throw new Exception("Node GetValue");
+            throw new OwnException("Node GetValue");
         }
 
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
@@ -77,7 +78,7 @@ namespace Collada.Converters.Classes.Complicated
 
             if (geom == null)
             {
-                return new AbstractMesh(name, Creator);
+                return new AbstractMesh(null, name, Creator);
             }
             List<float[]> vertices = null;
             List<float[]> normal = null;
@@ -158,7 +159,7 @@ namespace Collada.Converters.Classes.Complicated
                     }
                 }
 
-                return new AbstractMesh(name, Creator, effect, vertices, normal, textures, t, mm);
+                return new AbstractMesh(null, name, Creator, effect, vertices, normal, textures, t, mm);
             }
 
 
@@ -176,7 +177,7 @@ namespace Collada.Converters.Classes.Complicated
                 }
                 if (poly == null)
                 {
-                    return new AbstractMesh(name, Creator);
+                    return new AbstractMesh(null, name, Creator);
                 }
                 List<float[]> vv = null;
                 var vrt = poly.Vertices;
@@ -186,7 +187,7 @@ namespace Collada.Converters.Classes.Complicated
                 }
                 if (vv == null)
                 {
-                    return new AbstractMesh(name, Creator);
+                    return new AbstractMesh(null, name, Creator);
                 }
                 return null;// new AbstractMeshPolygon(name, null, mm, mt, poly.Polygons, vv, null, Creator);
             }

@@ -7,6 +7,7 @@ using OrdinaryDifferentialEquations;
 using RealMatrixProcessor;
 
 using ClassicalAlgebra;
+using ErrorHandler;
 
 namespace ControlSystems
 {
@@ -444,7 +445,7 @@ namespace ControlSystems
         {
             if (nom.Length > denom.Length)
             {
-                throw new Exception("Illegal transformation");
+                throw new OwnException("Illegal transformation");
             }
             this.nom = new double[nom.Length];
             this.denom = new double[denom.Length];

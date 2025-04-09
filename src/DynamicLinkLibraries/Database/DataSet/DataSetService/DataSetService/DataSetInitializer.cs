@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace DataSetService
 {
@@ -52,7 +53,7 @@ namespace DataSetService
         {
             if (isInitialized)
             {
-                throw new Exception("Data factory is already initialized");
+                throw new OwnException("Data factory is already initialized");
             }
             isInitialized = true;
             return new DataSetInitializer(chooser);

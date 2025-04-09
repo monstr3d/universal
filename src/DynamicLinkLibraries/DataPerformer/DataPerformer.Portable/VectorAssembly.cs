@@ -161,12 +161,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -174,12 +172,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -302,6 +298,8 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

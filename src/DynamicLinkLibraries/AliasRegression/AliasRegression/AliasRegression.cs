@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Runtime.Serialization;
 
-using Diagram.UI;
 using ErrorHandler;
 
 
@@ -52,7 +51,7 @@ namespace Regression
             }
             catch (Exception ex)
             {
-                ex.HandleException(-1);
+                ex.HandleFictionException();
             }
             try
             {
@@ -60,7 +59,7 @@ namespace Regression
             }
             catch (Exception exc)
             {
-                exc.HandleException(-1);
+                exc.HandleFictionException();
             }
             try
             {
@@ -68,7 +67,7 @@ namespace Regression
             }
             catch (Exception exc)
             {
-                exc.HandleException(-1);
+                exc.HandleFictionException();
             }
         }
 

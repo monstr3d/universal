@@ -126,14 +126,14 @@ namespace DataPerformer.Portable
         /// </summary>
         /// <param name="measurement">The measurement</param>
         /// <returns>The string</returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="IllegalSetPropetryException"></exception>
         public static string ToStringStatic(this IMeasurement measurement)
         {
             if (measurement is IAssociatedObject alabel)
             {
                 return measurement.ToString(alabel.Object);
             }
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("ToStringStatic");
         }
 
         /// <summary>
@@ -1703,7 +1703,7 @@ namespace DataPerformer.Portable
             {
                 if (allowNulls)
                 {
-                    throw new Exception("Null alias is not accepted");
+                    throw new OwnException("Null alias is not accepted");
                 }
                 return null;
             }
@@ -1725,7 +1725,7 @@ namespace DataPerformer.Portable
             {
                 if (allowNulls)
                 {
-                    throw new Exception("Null alias is not accepted");
+                    throw new OwnException("Null alias is not accepted");
                 }
                 return null;
             }
@@ -1993,7 +1993,7 @@ namespace DataPerformer.Portable
         {
             if (replace == null)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             if (Factory == null)
             {
@@ -2145,7 +2145,7 @@ namespace DataPerformer.Portable
             {
                 if (!allowNull)
                 {
-                    throw new Exception("Undefined measure");
+                    throw new OwnException("Undefined measure");
                 }
                 return null;
             }
@@ -2154,7 +2154,7 @@ namespace DataPerformer.Portable
             {
                 if (!allowNull)
                 {
-                    throw new Exception("Undefined measure");
+                    throw new OwnException("Undefined measure");
                 }
                 return null;
             }
@@ -2435,7 +2435,7 @@ namespace DataPerformer.Portable
         /// </summary>
         public static void StopRun()
         {
-            throw new FictionException("");
+            throw new ErrorHandler.FictiveException("");
         }
 
         /// <summary>

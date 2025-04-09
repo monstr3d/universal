@@ -1,4 +1,5 @@
 using CategoryTheory;
+using ErrorHandler;
 
 namespace MathGraph
 {
@@ -54,13 +55,13 @@ namespace MathGraph
             {
                 if (source != null)
                 {
-                    throw new Exception("Source is already defined");
+                    throw new OwnException("Source is already defined");
                 }
                 if (target != null)
                 {
                     if (value.Parent != target.Parent)
                     {
-                        throw new Exception("Different parents of source and target");
+                        throw new OwnException("Different parents of source and target");
                     }
                 }
                 source = value;
@@ -81,13 +82,13 @@ namespace MathGraph
             {
                 if (target != null)
                 {
-                    throw new Exception("Target is already defined");
+                    throw new OwnException("Target is already defined");
                 }
                 if (source != null)
                 {
                     if (value.Parent != source.Parent)
                     {
-                        throw new Exception("Different parents of source and target");
+                        throw new OwnException("Different parents of source and target");
                     }
                 }
                 target = value;

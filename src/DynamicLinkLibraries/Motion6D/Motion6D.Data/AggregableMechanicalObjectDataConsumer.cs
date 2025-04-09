@@ -7,6 +7,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
+using ErrorHandler;
 using Motion6D.Interfaces;
 using NamedTree;
 
@@ -268,12 +269,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -281,12 +280,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -330,7 +327,7 @@ namespace Motion6D
             {
                 if (value.Length != Dimension)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 initialState = value;
             }

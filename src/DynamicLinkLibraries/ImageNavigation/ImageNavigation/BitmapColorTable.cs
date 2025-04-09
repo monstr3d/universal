@@ -370,12 +370,12 @@ namespace ImageNavigation
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         #endregion

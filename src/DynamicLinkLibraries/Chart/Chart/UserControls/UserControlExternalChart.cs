@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Chart.Classes;
 using Chart.Interfaces;
+using ErrorHandler;
 
 namespace Chart.UserControls
 {
@@ -47,7 +48,7 @@ namespace Chart.UserControls
         {
             if (performer != null)
             {
-                throw new Exception("Double initialization");
+                throw new   OwnException("Double initialization");
             }
             performer = new ChartPerformer(userControlControlInternalChart, insets, hasStandardHandlers);
             userControlControlInternalChart.Performer = performer;

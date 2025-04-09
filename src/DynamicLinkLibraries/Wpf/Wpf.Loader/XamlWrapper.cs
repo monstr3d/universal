@@ -409,7 +409,7 @@ namespace Wpf.Loader
                         {
                             if (Urls.ContainsKey(iso))
                             {
-                                throw new Exception("Urls");
+                                throw new OwnException("Urls");
                                 e.SetAttribute("ImageSource", Urls[iso]);
                                 continue;
                             }

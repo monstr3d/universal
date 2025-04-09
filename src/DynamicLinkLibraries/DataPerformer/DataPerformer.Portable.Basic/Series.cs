@@ -411,7 +411,7 @@ namespace DataPerformer.Portable.Basic
         {
             if (double.IsNaN(x) | double.IsNaN(y) | double.IsInfinity(x) | double.IsInfinity(y))
             {
-                throw new Exception("Infinity");
+                throw new ErrorHandler.OwnException("Infinity");
             }
             points.Add(new double[] { x, y });
         }
@@ -498,7 +498,7 @@ namespace DataPerformer.Portable.Basic
                 }
                 if (this[Count - 1, 0] < x)
                 {
-                    //!!! throw new Exception("Argument too large");
+                    //!!! throw new ErrorHandler.OwnException("Argument too large");
                     parameter[0] = this[Count - 1, 1];
                     parameter[1] = 0;
                     return parameter;

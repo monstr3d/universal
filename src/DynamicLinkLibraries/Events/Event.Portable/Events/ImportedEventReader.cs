@@ -123,12 +123,10 @@ namespace Event.Portable.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -136,12 +134,10 @@ namespace Event.Portable.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -149,12 +145,10 @@ namespace Event.Portable.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -162,12 +156,10 @@ namespace Event.Portable.Events
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -292,7 +284,7 @@ namespace Event.Portable.Events
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         #endregion
 
@@ -420,22 +412,18 @@ namespace Event.Portable.Events
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -513,7 +501,7 @@ namespace Event.Portable.Events
             {
                 if (ownParameter != null)
                 {
-                    throw new Exception("DataMeasurementReplace 1");
+                    throw new OwnException("DataMeasurementReplace 1");
                 }
                 ownParameter = par;
                 par = parameter;
@@ -523,7 +511,7 @@ namespace Event.Portable.Events
             {
                 if (ownParameter == null)
                 {
-                    throw new Exception("DataMeasurementReplace 2");
+                    throw new OwnException("DataMeasurementReplace 2");
                 }
                 par = ownParameter;
                 ownParameter = null;

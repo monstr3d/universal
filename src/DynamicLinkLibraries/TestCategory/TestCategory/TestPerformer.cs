@@ -325,7 +325,7 @@ namespace TestCategory
             PureDesktopPeer d = new PureDesktopPeer();
             if (!d.Load(msi))
             {
-                throw new Exception(key + "");
+                throw new OwnException(key + "");
             }
             BinaryFormatter bf = new BinaryFormatter();
             object ob = null;

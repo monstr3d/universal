@@ -272,7 +272,7 @@ namespace Motion6D.Portable
             {
                 if (value != null & parent != null)
                 {
-                    throw new Exception("Root");
+                    throw new OwnException("Root");
                 }
                 parent = value;
                 if (parent == null)
@@ -480,7 +480,7 @@ namespace Motion6D.Portable
             {
                 if (value.Count != ParametersCount)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 parameters = value;
                 SetParameters();
@@ -693,6 +693,7 @@ namespace Motion6D.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

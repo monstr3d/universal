@@ -256,12 +256,10 @@ namespace DataPerformer.Helpers
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

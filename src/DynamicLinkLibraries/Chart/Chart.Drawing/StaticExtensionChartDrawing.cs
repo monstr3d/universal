@@ -89,7 +89,7 @@ namespace Chart.Drawing
         {
             if (!(factory is IPointFactoryExtended))
             {
-                throw new Exception("Factory does not support series painter");
+                throw new ErrorHandler.OwnException("Factory does not support series painter");
             }
             return (factory as IPointFactoryExtended).GetPainter(performer);
         }

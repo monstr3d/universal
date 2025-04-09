@@ -60,7 +60,7 @@ namespace Event.Interfaces
                         if (l.Contains(o))
                         {
                             j++; j++;
-                            throw new Exception("JJJ");
+                            throw new OwnException("JJJ");
                         }
                         l.Add(o);
                     }

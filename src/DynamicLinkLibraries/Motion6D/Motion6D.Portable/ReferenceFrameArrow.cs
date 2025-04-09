@@ -82,12 +82,13 @@ namespace Motion6D.Portable
                 {
                     if (PureDesktopPeer.GetDifference(nt, ns) >= 0)
                     {
-                        throw new Exception("Illegal order");
+                        throw new OwnException("Illegal order");
                     }
                 }*/
                 target = rf;
-                source.Parent = target;
-                target.Add(source);
+                performer.AddChildNode(target, source);
+        //        source.Parent = target;
+        //        target.Add(source);
             }
         }
 

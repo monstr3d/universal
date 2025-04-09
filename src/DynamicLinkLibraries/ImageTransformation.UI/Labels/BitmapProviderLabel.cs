@@ -183,7 +183,7 @@ namespace ImageTransformations.Labels
             }
             set
             {
-                throw new Exception("You should not set parent to UI component");
+                throw new OwnException("You should not set parent to UI component");
             }
         }
 

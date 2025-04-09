@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using CategoryTheory;
 using CategoryTheory.Math;
 using Diagram.UI.Labels;
+using ErrorHandler;
 using MathGraph;
 
 namespace Diagram.UI.Math
@@ -42,7 +43,7 @@ namespace Diagram.UI.Math
             object o = label.Source.Object;
             if (!(o is IDiagramRestoredObject))
             {
-                throw new Exception("Arrow cannot be restored");
+                throw new OwnException("Arrow cannot be restored");
             }
             IDiagramRestoredObject source = o as IDiagramRestoredObject;
             IAdvancedCategoryObject sourceObject = source as IAdvancedCategoryObject;
@@ -65,7 +66,7 @@ namespace Diagram.UI.Math
                 string s = NonCommutativeLoop(category, loop);
                 if (s != null)
                 {
-                    throw new Exception(s);
+                    throw new OwnException(s);
                 }
             }
             IAdvancedCategoryArrow[,] arr = new IAdvancedCategoryArrow[restLoops.Count, 3];

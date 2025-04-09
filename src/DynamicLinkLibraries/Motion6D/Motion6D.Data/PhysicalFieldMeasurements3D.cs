@@ -111,12 +111,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -124,12 +122,10 @@ namespace Motion6D
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -262,7 +258,7 @@ namespace Motion6D
             object o = (field as IAssociatedObject).GetObject<IPositionObject>();
             if (o == null)
             {
-                throw new Exception("Field should have position");
+                throw new ErrorHandler.OwnException("Field should have position");
             }
             fields.Add(field);
             updatedFields[field] = false;
@@ -430,7 +426,7 @@ namespace Motion6D
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-   
+            throw new ErrorHandler.OwnException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

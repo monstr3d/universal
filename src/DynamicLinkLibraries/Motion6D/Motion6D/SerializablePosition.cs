@@ -96,7 +96,7 @@ namespace Motion6D
             {
                 if (!(value is ISerializable))
                 {
-                    throw new Exception("Object should be serialisable");
+                    throw new OwnException("Object should be serialisable");
                 }
                 base.Parameters = value;
             }

@@ -116,7 +116,7 @@ namespace DataPerformer.Portable.Basic
             {
                 if (arguments[i].Length != function.GetLength(i))
                 {
-                    throw new Exception("Illegal dimension of Table3D");
+                    throw new ErrorHandler.OwnException("Illegal dimension of Table3D");
                 }
             }
             args = arguments;
@@ -359,7 +359,7 @@ namespace DataPerformer.Portable.Basic
                 {
                     if (throwsOutOfRangeException)
                     {
-                        throw new Exception("Out of range");
+                        throw new ErrorHandler.OwnException("Out of range");
                     }
                 }
                 for (int j = 0; j < args[i].Length - 1; j++)

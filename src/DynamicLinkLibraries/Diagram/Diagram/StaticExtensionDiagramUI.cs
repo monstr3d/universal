@@ -1265,7 +1265,7 @@ namespace Diagram.UI
                     string n = name + "." + nam;
                     if (d.ContainsKey(n))
                     {
-                        throw new Exception("Double alias");
+                        throw new OwnException("Double alias");
                     }
                     d[n] = al[nam];
                 }
@@ -1298,7 +1298,7 @@ namespace Diagram.UI
                     string n = name + "." + nam;
                     if (d.ContainsKey(n))
                     {
-                        throw new Exception("Double alias");
+                        throw new OwnException("Double alias");
                     }
                     d[n] = al.GetType(nam);
                 }
@@ -1757,7 +1757,7 @@ namespace Diagram.UI
             object o = ao.Object;
             if (!(o is INamedComponent))
             {
-                throw new Exception("Get object Name");
+                throw new OwnException("Get object Name");
             }
             INamedComponent nc = o as INamedComponent;
             return nc.Name + "";
@@ -2006,7 +2006,7 @@ namespace Diagram.UI
         /// <param name="message">Exception message</param>
         public static void Throw(this object o, string message)
         {
-            o.Throw(new Exception(message));
+            o.Throw(new OwnException(message));
         }
 
         /// <summary>
@@ -3399,7 +3399,7 @@ namespace Diagram.UI
                 string n = nc.GetName(desktop);
                 if (l.Contains(n))
                 {
-                    throw new Exception("Name " + n + " alerady exists");
+                    throw new OwnException("Name " + n + " alerady exists");
                 }
                 l.Add(n);
             }
@@ -3486,7 +3486,7 @@ namespace Diagram.UI
                 }
                 if (t == null)
                 {
-                    throw new Exception("Dependend objects");
+                    throw new OwnException("Dependend objects");
                 }
                 if (!objectCondition(t))
                 {

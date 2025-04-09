@@ -63,7 +63,7 @@ namespace Diagram.UI.UserControls
         /// <param name="cont">The container to update</param>
         public void Update(ObjectContainerBase cont)
         {
-            IDesktop desk = cont.Desktop;
+            IDesktop desk = (cont as IObjectContainer).Desktop;
             foreach (INamedComponent nc in selected)
             {
                 if (!table.ContainsKey(nc))
@@ -99,7 +99,7 @@ namespace Diagram.UI.UserControls
             {
                 keys.Add(key);
             }
-            this.desktop = cont.Desktop;
+            this.desktop = (cont as IObjectContainer).Desktop;
             comp = new List<object>(desktop.GetAllObjects());
             foreach (INamedComponent nc in comp)
             {
@@ -117,7 +117,7 @@ namespace Diagram.UI.UserControls
                 pan.BackColor = Color.Red;
                 pan.Left = panelLabelPeer.Left + (int)o[0];
                 pan.Top = panelLabelPeer.Top + (int)o[1];
-                IDesktop d = cont.Desktop;
+                IDesktop d = (cont as IObjectContainer).Desktop;
                 ToolTip tt = new ToolTip();
                 tt.ShowAlways = true;
                 tt.SetToolTip(pan, s + " :: " + textBoxComment.Text);
@@ -149,7 +149,8 @@ namespace Diagram.UI.UserControls
             get
             {
                 PureDesktopPeer desk = new PureDesktopPeer();
-                desk.Copy(desktop.Objects, desktop.Arrows, false);
+                IDesktop d = desk;
+                d.Copy(desktop.Objects, desktop.Arrows, false);
                 ObjectContainer c = new ObjectContainer(desk);
                 Update(c);
                 return c;

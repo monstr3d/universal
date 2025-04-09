@@ -222,12 +222,13 @@ namespace DataPerformer.Portable.Abstract
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+
         }
 
         #endregion

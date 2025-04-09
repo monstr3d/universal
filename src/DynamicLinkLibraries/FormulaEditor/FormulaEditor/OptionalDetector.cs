@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BaseTypes.Interfaces;
-
+using ErrorHandler;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 
@@ -104,7 +104,7 @@ namespace FormulaEditor
                 }
                 else
                 {
-                    throw new Exception("Imcompatible types of optional operation");
+                    throw new ErrorHandler.OwnException("Imcompatible types of optional operation");
                 }
             }
             return null;

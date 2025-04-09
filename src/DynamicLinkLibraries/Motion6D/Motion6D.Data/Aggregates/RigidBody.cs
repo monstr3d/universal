@@ -64,7 +64,5 @@ namespace Motion6D.Aggregates
 
         #endregion
 
-
-
     }
 }

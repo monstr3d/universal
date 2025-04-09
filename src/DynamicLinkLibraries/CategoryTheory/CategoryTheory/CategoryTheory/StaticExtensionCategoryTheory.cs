@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
+using ErrorHandler;
 using NamedTree;
 
 namespace CategoryTheory
@@ -583,7 +584,7 @@ namespace CategoryTheory
             {
                 return a;
             }
-            throw new Exception(message);
+            throw new OwnException(message);
         }
 
         /// <summary>
@@ -637,7 +638,7 @@ namespace CategoryTheory
             {
                 return t;
             }
-            throw new Exception(message);
+            throw new OwnException(message);
         }
 
         /// <summary>

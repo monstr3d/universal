@@ -9,6 +9,7 @@ using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
+using ErrorHandler;
 using Event.Interfaces;
 
 namespace DataPerformer.Portable.Runtime
@@ -96,12 +97,12 @@ namespace DataPerformer.Portable.Runtime
         {
             add
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -124,11 +125,11 @@ namespace DataPerformer.Portable.Runtime
         {
             get
             {
-                throw new Exception("Step is not allowed");
+                throw new OwnException("Step is not allowed");
             }
             set
             {
-                throw new Exception("Step is not allowed");
+                throw new OwnException("Step is not allowed");
             }
         }
 

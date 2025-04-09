@@ -122,7 +122,7 @@ namespace DataPerformer.SeriesTypes
         {
             if (double.IsNaN(x) | double.IsNaN(y))
             {
-                throw new Exception("NAN");
+                throw new ErrorHandler.OwnException("NAN");
             }
             base.AddXY(x, y);
         }

@@ -72,7 +72,7 @@ namespace Event.Basic.Logs
          {
              get
              {
-                 throw new NotImplementedException();
+                new  ErrorHandler.WriteProhibitedException();
              }
          }
 

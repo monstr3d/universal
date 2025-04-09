@@ -162,7 +162,7 @@ namespace Gravity_36_36.Wrapper
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
         event Action<string> IUrlProvider.Change
         {

@@ -54,7 +54,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -82,7 +82,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -109,7 +109,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
     
@@ -142,7 +142,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -175,7 +175,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -211,7 +211,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -237,7 +237,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 
@@ -271,7 +271,7 @@ namespace CircularGauge
             object parameter,
             CultureInfo culture)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
     }
 }

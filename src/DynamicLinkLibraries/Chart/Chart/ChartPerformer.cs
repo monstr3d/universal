@@ -8,6 +8,7 @@ using Chart.Interfaces;
 
 
 using Chart.Drawing.Interfaces;
+using ErrorHandler;
 
 namespace Chart
 {
@@ -362,11 +363,11 @@ namespace Chart
         {
             if (performer == this)
             {
-                throw new Exception("Add Chart performer 1");
+                throw new OwnException("Add Chart performer 1");
             }
             if (performer.parent != null)
             {
-                throw new Exception("Add Chart performer 2");
+                throw new OwnException("Add Chart performer 2");
             }
             children.Add(performer);
             performer.parent = this;

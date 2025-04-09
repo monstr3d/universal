@@ -97,7 +97,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
         #endregion
 

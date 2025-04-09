@@ -20,10 +20,16 @@ namespace Motion6D.Portable.Runtime
     {
         #region Fields
 
+        protected Performer p = new Performer();
+
         /// <summary>
         /// Frames
         /// </summary>
-        private List<IPosition> frames = new ();
+        private List<IPosition> Frames
+        {
+            get;
+            set;
+        } = new List<IPosition>();
 
         /// <summary>
         /// Collection of additional solvers
@@ -127,8 +133,8 @@ namespace Motion6D.Portable.Runtime
         {
             base.Prepare();
             IDesktop d = collection.Desktop;
-            frames = ReferenceFrameArrow.Prepare(d);
-            if (frames.Count == 0)
+            Frames = ReferenceFrameArrow.Prepare(d);
+            if (Frames.Count == 0)
             {
                 updateInternal = base.UpdateAll;
             }
@@ -143,7 +149,7 @@ namespace Motion6D.Portable.Runtime
         /// </summary>
         protected override void ClearAll()
         {
-            frames.Clear();
+            Frames.Clear();
             if (coll != null)
             {
                 coll.Clear();
@@ -172,8 +178,8 @@ namespace Motion6D.Portable.Runtime
                     }
                 }
             }
-            frames.UpdateFrames();
-            if (frames.Count == 0)
+            p.UpdateFrames(Frames);
+            if (Frames.Count == 0)
             {
                 updateInternal = base.UpdateAll;
             }
@@ -267,7 +273,7 @@ namespace Motion6D.Portable.Runtime
         void UpdateWithFrames()
         {
             base.UpdateAll();
-            frames.UpdateFrames();
+            p.UpdateFrames(Frames);
            // base.UpdateAll();
         }
 

@@ -179,11 +179,11 @@ namespace Motion6D.Uniform6D
         {
             if (!(frame is IVelocity))
             {
-                throw new Exception("Frame does not support velocity");
+                throw new ErrorHandler.OwnException("Frame does not support velocity");
             }
             if (!(frame is IAngularVelocity))
             {
-                throw new Exception("Frame does not support angular velocity");
+                throw new ErrorHandler.OwnException("Frame does not support angular velocity");
             }
             velocity = frame as IVelocity;
             angularVelocity = frame as IAngularVelocity;

@@ -1,3 +1,4 @@
+using ErrorHandler;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace GeneralNode
            }
            if (list.Contains(this))
            {
-               throw new Exception();
+               throw new OwnException();
            }
            if (n < 0)
            {

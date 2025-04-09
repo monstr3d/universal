@@ -80,14 +80,14 @@ namespace Regression.Portable
                                   {
                                       if (nt.Ord >= ns.Ord)
                                       {
-                                          throw new Exception(DataLink.SetProviderBefore);
+                                          throw new Except ion(DataLink.SetProviderBefore);
                                       }
                                   }
                                   else
                                   {
                                       if (nt.Root.Ord >= ns.Root.Ord)
                                       {
-                                          throw new Exception(DataLink.SetProviderBefore);
+                                          throw new Excep tion(DataLink.SetProviderBefore);
                                       }
                                   }
                               }*/

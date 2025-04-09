@@ -156,7 +156,7 @@ namespace DataPerformer.Portable
             }
         }
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measurementOut];
 
         event Action<IRunning, bool> IRunning.Running
         {
@@ -175,12 +175,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -188,12 +186,10 @@ namespace DataPerformer.Portable
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 

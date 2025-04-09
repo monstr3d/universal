@@ -386,7 +386,7 @@ namespace DataPerformer.Formula
             {
                 if (str.IndexOf(c) < 0)
                 {
-                    throw new Exception("Illegal formula parameter");
+                    throw new OwnException("Illegal formula parameter");
                 }
             }
             foreach (char c in s)
@@ -505,7 +505,7 @@ namespace DataPerformer.Formula
                         var  t = ObjectFormulaTree.CreateTree(f, creator);
                         if (measurements[i] != null)
                         {
-                            throw new Exception();
+                            throw new OwnException();
                         }
                         measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                     }
@@ -516,7 +516,7 @@ namespace DataPerformer.Formula
                         {
                             throw ex;
                         }
-                        throw new Exception("Formula " + (i + 1) + " : " + ex.Message);
+                        throw new OwnException("Formula " + (i + 1) + " : " + ex.Message);
                     }
                 }
                 try

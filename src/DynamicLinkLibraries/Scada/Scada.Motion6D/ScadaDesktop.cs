@@ -158,7 +158,7 @@ namespace Scada.Motion6D
                         realtime = StartRealtime(timeMeasurementProviderFactory, true);
                         if (realtime == null)
                         {
-                            throw new Exception("No runtime");
+                            throw new ErrorHandler.OwnException("No runtime");
                         }
                         onStart?.Invoke();
                     }

@@ -187,7 +187,7 @@ namespace DataPerformer.Interfaces
         {
             if (parent.GetDirectoryNames().Contains(name))
             {
-                throw new Exception(name + " already exists");
+                throw new ErrorHandler.OwnException(name + " already exists");
             }
             IBufferDirectory result = new BufferDirectoryWrapper(parent as BufferDirectoryWrapper,
                 data.Create(parent.Id, name, comment));
@@ -210,11 +210,11 @@ namespace DataPerformer.Interfaces
             IDatabaseInterface d = StaticExtensionDataPerformerInterfaces.data;
             /*  !!!    if (d.Filenames.Contains(fileName))
                   {
-                      throw new Exception("File " + fileName + " already exists");
+                      throw new OwnException("File " + fileName + " already exists");
                   }*/
             if (directory.GetDirectoryNames().Contains(name))
             {
-                throw new Exception(name + " already exists");
+                throw new ErrorHandler.OwnException(name + " already exists");
             }
             IBufferData ld = d.Create(data, directory.Id, name, fileName, comment);
             return new BufferItemWrapper(directory as BufferDirectoryWrapper, ld);

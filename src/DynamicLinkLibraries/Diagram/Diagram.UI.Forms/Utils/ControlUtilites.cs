@@ -40,7 +40,7 @@ namespace Diagram.UI.Utils
             {
                 if (controlResources != null)
                 {
-                    throw new Exception("ControlUtilites");
+                    throw new ErrorHandler.OwnException("ControlUtilites");
                 }
                 controlResources = value;
             }
@@ -723,7 +723,7 @@ namespace Diagram.UI.Utils
                 {
                     if (!allowNulls)
                     {
-                        throw new Exception(i + "");
+                        throw new OwnException(i + "");
                     }
                     continue;
                 }

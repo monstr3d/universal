@@ -89,7 +89,7 @@ namespace DataPerformer.Portable
             {
                 if (source != null)
                 {
-                    throw new Exception("Data link source null");
+                    throw new OwnException("Data link source null");
                 }
                 IDataLinkFactory f = this;
                 source = f.GetConsumer(value);
@@ -113,7 +113,7 @@ namespace DataPerformer.Portable
             {
                 if (target != null)
                 {
-                    throw new Exception("Data link targret null");
+                    throw new OwnException("Data link targret null");
                 }
                 IDataLinkFactory f = this;
                 IMeasurements t = f.GetMeasurements(value);
@@ -133,7 +133,7 @@ namespace DataPerformer.Portable
                         {
                             if (nt.GetDifference(ns) >= 0)
                             {
-                                throw new Exception(SetProviderBefore);
+                                throw new OwnException(SetProviderBefore);
                             }
                         }
                     }
@@ -259,52 +259,60 @@ namespace DataPerformer.Portable
 
         IMeasurements IDataLinkFactory.GetMeasurements(ICategoryObject target)
         {
-            IAssociatedObject ao = target;
-            object o = ao.Object;
-            if (o is INamedComponent)
+            try
             {
-                IMeasurements ml = null;
-                INamedComponent comp = o as INamedComponent;
-                IDesktop d = null;
-                INamedComponent r = comp.Root;
-                if (r != null)
+                IAssociatedObject ao = target;
+                object o = ao.Object;
+                if (o is INamedComponent)
                 {
-                    d = r.Desktop;
-                }
-                else
-                {
-                    d = comp.Desktop;
-                }
-                if (d != null)
-                {
-                    d.ForEach((DataLink dl) =>
+                    IMeasurements ml = null;
+                    INamedComponent comp = o as INamedComponent;
+                    IDesktop d = null;
+                    INamedComponent r = comp.Root;
+                    if (r != null)
                     {
+                        d = r.Desktop;
+                    }
+                    else
+                    {
+                        d = comp.Desktop;
+                    }
+                    if (d != null)
+                    {
+                        d.ForEach((DataLink dl) =>
+                        {
+                            if (ml != null)
+                            {
+                                return;
+                            }
+                            object dt = dl.Target;
+                            if (dt is IAssociatedObject)
+                            {
+                                IAssociatedObject aot = dt as IAssociatedObject;
+                                if (aot.Object == o & (!(aot is IChildren<IAssociatedObject>)))
+                                {
+                                    ml = dl.Target as IMeasurements;
+                                }
+                            }
+                        });
                         if (ml != null)
                         {
-                            return;
+                            return ml;
                         }
-                        object dt = dl.Target;
-                        if (dt is IAssociatedObject)
-                        {
-                            IAssociatedObject aot = dt as IAssociatedObject;
-                            if (aot.Object == o & (!(aot is IChildren<IAssociatedObject>)))
-                            {
-                                ml = dl.Target as IMeasurements;
-                            }
-                        }
-                    });
-                    if (ml != null)
-                    {
-                        return ml;
                     }
                 }
+                IMeasurements m = MeasurementsWrapper.Create(target);
+                if (m == null)
+                {
+                    CategoryException.ThrowIllegalTargetException();
+                }
+                return m;
             }
-            IMeasurements m = MeasurementsWrapper.Create(target);
-            if (m == null)
+            catch (Exception exception)
             {
-                CategoryException.ThrowIllegalTargetException();
+                exception.HandleExceptionDouble("Data link. Get measurements");
             }
-            return m;
+            return null;
         }
 
         #endregion

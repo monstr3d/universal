@@ -67,7 +67,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 if (acc != null)
                 {
-                    throw new Exception("Accumulator exception");
+                    throw new ErrorHandler.OwnException("Accumulator exception");
                 }
                 acc = value;
                 Post();

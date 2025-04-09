@@ -17,6 +17,7 @@ using DataPerformer.Portable.Interfaces;
 using Event.Interfaces;
 
 using Scada.Interfaces;
+using ErrorHandler;
 
 namespace Scada.Desktop
 {
@@ -389,7 +390,7 @@ namespace Scada.Desktop
         {
             if (replace == null)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             if (ScadaFactory == null)
             {

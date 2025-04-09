@@ -24,10 +24,16 @@ namespace Motion6D.Portable.Runtime
     {
         #region Fields
 
+        protected Performer p = new Performer();
+
         /// <summary>
         /// Frames
         /// </summary>
-        private List<IPosition> frames = new List<IPosition>();
+        private List<IPosition> Frames
+        {
+            get;
+        }  
+            = new List<IPosition>();
 
         /// <summary>
         /// Started objects
@@ -108,7 +114,7 @@ namespace Motion6D.Portable.Runtime
                 }
                 if (o is IPosition pos)
                 {
-                    frames.Add(pos);
+                    Frames.Add(pos);
                 }
                 if (o is IMeasurements m)
                 {
@@ -149,13 +155,13 @@ namespace Motion6D.Portable.Runtime
                 }
             }
             measurements.SortMeasurements();
-            frames.SortPositions();
+            p.SortPositions(Frames);
             actions.Add(UpdateMeasurements);
-            if (frames != null)
+            if (Frames != null)
             {
-                if (frames.Count > 0)
+                if (Frames.Count > 0)
                 {
-                    actions.Add(() => frames.UpdateFrames());
+                    actions.Add(() =>  p.UpdateFrames(Frames));
                 }
             }
             started.SortOrder();
@@ -202,7 +208,7 @@ namespace Motion6D.Portable.Runtime
         protected override void ClearAll()
         {
             base.ClearAll();
-            frames.Clear();
+            Frames.Clear();
         }
 
         #endregion

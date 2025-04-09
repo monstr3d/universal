@@ -52,7 +52,7 @@ namespace Chart.UserControls
         {
             if (performer != null)
             {
-                throw new Exception("Double initialization");
+                throw new ErrorHandler.OwnException("Double initialization");
             }
             performer = new ChartPerformer(this, insets, hasStandardHandlers);
             Coordinator = new Drawing.Coordinators.SimpleCoordinator();

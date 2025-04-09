@@ -5,6 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 using NamedTree;
 
 
@@ -144,7 +145,7 @@ namespace Collada.Converters.Classes.Complicated
                         }
                         if (point == null)
                         {
-                            throw new Exception("Poly List POINT NULL");
+                            throw new OwnException("Poly List POINT NULL");
                         }
                         tn += count;
                         points.Add(point);
@@ -167,12 +168,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -180,12 +179,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -202,12 +199,10 @@ namespace Collada.Converters.Classes.Complicated
 
         void IMesh.CalculateAbsolute()
         {
-            throw new NotImplementedException();
         }
 
         void INode<IMesh>.Remove(INode<IMesh> node)
         {
-            throw new NotImplementedException();
         }
     }
 }

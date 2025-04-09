@@ -36,7 +36,7 @@ namespace DataPerformer
                 // Проверка типа
                 if (!(value is IDataConsumer))
                 {
-                    throw new Exception("Illegal source type");
+                    throw new ErrorHandler.OwnException("Illegal source type");
                 }
                 source = value as IDataConsumer;
             }
@@ -53,7 +53,7 @@ namespace DataPerformer
                 // Проверка типа
                 if (!(value is IMeasurements))
                 {
-                    throw new Exception("Illegal target type");
+                    throw new ErrorHandler.OwnException("Illegal target type");
                 }
                 target = value as IMeasurements;
                 // Дополнительное действие
@@ -67,14 +67,8 @@ namespace DataPerformer
 
         object IAssociatedObject.Object
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         #endregion

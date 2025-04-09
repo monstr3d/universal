@@ -279,16 +279,16 @@ namespace DataPerformer.Portable
             {
                 if (measurements == null)
                 {
-                    this.Throw(new Exception("Undefined measurements"));
+                    this.Throw(new OwnException("Undefined measurements"));
                 }
                 if (measurements.Length <= n)
                 {
-                    this.Throw(new Exception("Shortage of measuremens"));
+                    this.Throw(new OwnException("Shortage of measuremens"));
                 }
                 IMeasurement measurement = measurements[n];
                 if (measurement == null)
                 {
-                    this.Throw(new Exception("Undefined measure"));
+                    this.Throw(new OwnException("Undefined measure"));
                 }
                 return measurement;
             }
@@ -307,11 +307,11 @@ namespace DataPerformer.Portable
             {
                 if (par == null)
                 {
-                    throw new Exception(DynamicalParameter.UndefinedParameters);
+                    throw new OwnException(DynamicalParameter.UndefinedParameters);
                 }
                 if (measurements == null)
                 {
-                    throw new Exception("Formulas are not accepted");
+                    throw new OwnException("Formulas are not accepted");
                 }
                 update();
                 foreach (int i in feedAliases.Keys)
@@ -397,7 +397,7 @@ namespace DataPerformer.Portable
                             goto m;
                         }
                     }
-                    throw new Exception(VariablesShortage + " : " + c);
+                    throw new OwnException(VariablesShortage + " : " + c);
                 m:
                     continue;
                 }
@@ -641,12 +641,12 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
 

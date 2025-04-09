@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ErrorHandler;
+using System;
 using System.Collections.Generic;
 
 namespace RealMatrixProcessor
@@ -553,7 +554,7 @@ namespace RealMatrixProcessor
             if ((a.GetLength(1) != b.GetLength(0)) | (a.GetLength(0) != c.GetLength(0)) |
                 (b.GetLength(1) != c.GetLength(1)))
             {
-                throw new Exception("Illegal matrix product dimension");
+                throw new OwnException("Illegal matrix product dimension");
             }
             int i, j, k = 0;
             for (i = 0; i < c.GetLength(0); i++)
@@ -588,7 +589,7 @@ namespace RealMatrixProcessor
             if ((a.GetLength(1) != b.GetLength(0)) | (a.GetLength(0) != c.GetLength(0)) |
                 (b.GetLength(1) != c.GetLength(1)))
             {
-                throw new Exception("Illegal matrix product dimension");
+                throw new OwnException("Illegal matrix product dimension");
             }
             int i, j, k = 0;
             for (i = 0; i < c.GetLength(0); i++)
@@ -673,7 +674,7 @@ namespace RealMatrixProcessor
         {
             if ((matrix.GetLength(1) != vector.Length) | (matrix.GetLength(0) != product.Length))
             {
-                throw new Exception("Illegal dimension of vector or matrix product");
+                throw new OwnException("Illegal dimension of vector or matrix product");
             }
             int i, j = 0;
             for (i = 0; i < product.Length; i++)
@@ -699,7 +700,7 @@ namespace RealMatrixProcessor
         {
             if ((matrix.GetLength(0) != vector.Length) | (matrix.GetLength(1) != product.Length))
             {
-                throw new Exception("Illegal dimension of vector or matrix product");
+                throw new OwnException("Illegal dimension of vector or matrix product");
             }
             int i, j = 0;
             for (i = 0; i < product.Length; i++)
@@ -856,7 +857,7 @@ namespace RealMatrixProcessor
         {
             if ((matrix.GetLength(1) != vector.Length) | (matrix.GetLength(0) != product.Length))
             {
-                throw new Exception("Illegal dimension of vector or matrix product");
+                throw new OwnException("Illegal dimension of vector or matrix product");
             }
             int i, j = 0;
             for (i = 0; i < product.Length; i++)
@@ -882,7 +883,7 @@ namespace RealMatrixProcessor
         {
             if ((matrix.GetLength(0) != vector.Length) | (matrix.GetLength(1) != product.Length))
             {
-                throw new Exception("Illegal dimension of vector or matrix product");
+                throw new OwnException("Illegal dimension of vector or matrix product");
             }
             int i, j = 0;
             for (i = 0; i < product.Length; i++)

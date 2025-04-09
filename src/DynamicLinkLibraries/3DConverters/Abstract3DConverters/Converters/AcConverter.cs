@@ -2,6 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 using NamedTree;
 
 namespace Abstract3DConverters.Converters
@@ -159,7 +160,7 @@ namespace Abstract3DConverters.Converters
             var n = MaterialPP.IndexOf(effect.Material);
             if (n < 0)
             {
-                throw new Exception("GetMatInd");
+                throw new ErrorHandler.OwnException("GetMatInd");
             }
             return n;
         }
@@ -275,7 +276,7 @@ namespace Abstract3DConverters.Converters
             }
             else
             {
-                throw new Exception("MATERIAL AC");
+                throw new OwnException("MATERIAL AC");
             }
             return st;
         }

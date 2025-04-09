@@ -468,7 +468,7 @@ namespace Regression.Portable
 				{
 					if (!value.ContainsKey(i))
 					{
-						throw new Exception("Abscent alias");
+						throw new OwnException("Abscent alias");
 					}
 				}
 				aliasNames.Clear();
@@ -521,7 +521,7 @@ namespace Regression.Portable
 				{
 					if (!value.ContainsKey(i))
 					{
-						throw new Exception("Shortage of selections");
+						throw new OwnException("Shortage of selections");
 					}
 				}
 				selectionNames = value;
@@ -573,7 +573,7 @@ namespace Regression.Portable
 				{
 					if (!value.ContainsKey(i))
 					{
-						throw new Exception("Shortage of measurements");
+						throw new OwnException("Shortage of measurements");
 					}
 				}
 				measurementsNames = value;

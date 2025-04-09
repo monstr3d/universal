@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Labels;
+using ErrorHandler;
 
 namespace BitmapConsumer
 {
@@ -173,7 +174,7 @@ namespace BitmapConsumer
             {
                 if ((provider != null) & consumer.Providers != null)
                 {
-                   // throw new Exception("Bitmap provider already exists");
+                   // throw new Excep tion("Bitmap provider already exists");
                 }
             }
             ICategoryObject t = provider as ICategoryObject;
@@ -188,14 +189,14 @@ namespace BitmapConsumer
                     {
                         if (nt.Ord >= ns.Ord)
                         {
-                            throw new Exception(SetProviderBefore);
+                            throw new OwnException(SetProviderBefore);
                         }
                     }
                     else
                     {
                         if (nt.Root.Ord >= ns.Root.Ord)
                         {
-                            throw new Exception(SetProviderBefore);
+                            throw new OwnException(SetProviderBefore);
                         }
                     }
                 }

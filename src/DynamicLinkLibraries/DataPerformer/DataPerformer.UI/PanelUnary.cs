@@ -93,7 +93,7 @@ namespace DataPerformer.UI
 			int i = (int)cb.SelectedItem;
 			if (table.ContainsKey(i))
 			{
-				throw new Exception("Item already exists");
+				throw new ErrorHandler.OwnException("Item already exists");
 			}
 			table[i] = operation;
 		}
@@ -111,7 +111,7 @@ namespace DataPerformer.UI
 			int i = (int)cb.SelectedItem;
 			if (table.ContainsKey(i))
 			{
-				throw new Exception("Item already exists");
+				throw new ErrorHandler.OwnException("Item already exists");
 			}
 			ICategoryObject ob = operation as ICategoryObject;
 			IObjectLabel l = ob.Object as IObjectLabel;

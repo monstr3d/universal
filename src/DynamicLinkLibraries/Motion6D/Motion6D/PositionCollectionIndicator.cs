@@ -55,7 +55,7 @@ namespace Motion6D
             {
                 if (value != null & positions != null)
                 {
-                    throw new Exception("Positios already exists");
+                    throw new ErrorHandler.OwnException("Positios already exists");
                 }
                 positions = value;
             }

@@ -1009,22 +1009,20 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<object>.AddChild(object child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<object>.RemoveChild(object child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

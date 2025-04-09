@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Points
 {
@@ -157,7 +158,7 @@ namespace Abstract3DConverters.Points
 
         float[] CalculateNormalPre()
         {
-            throw new Exception("NORMAL");
+            throw new OwnException("NORMAL");
             CalcualateNormal = CalcNormalFull;
             return normal;
         }

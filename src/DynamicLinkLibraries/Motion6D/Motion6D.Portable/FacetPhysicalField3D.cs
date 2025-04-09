@@ -91,7 +91,7 @@ namespace Motion6D.Portable
             {
                 if ((facets != null) & (value != null))
                 {
-                    throw new Exception("Facets already exists");
+                    throw new ErrorHandler.OwnException("Facets already exists");
                 }
                 facets = value;
             }

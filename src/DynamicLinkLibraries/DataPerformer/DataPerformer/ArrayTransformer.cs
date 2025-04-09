@@ -126,7 +126,7 @@ namespace DataPerformer
                 this.measurements = measurements;
                 return;
             }
-            throw new Exception("Only one measurement is allowed");
+            throw new OwnException("Only one measurement is allowed");
         }
 
         void IChildren<IMeasurements>.RemoveChild(IMeasurements measurements)
@@ -371,12 +371,10 @@ namespace DataPerformer
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

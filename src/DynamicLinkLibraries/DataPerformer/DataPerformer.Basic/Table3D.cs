@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ErrorHandler;
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 
@@ -180,7 +181,7 @@ namespace DataPerformer.Basic
                 {
                     if (throwsOutOfRangeException)
                     {
-                        throw new Exception("Out of range");
+                        throw new OwnException("Out of range");
                     }
                 }
                 for (int j = 0; j < args[i].Length - 1; j++)

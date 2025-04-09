@@ -25,7 +25,7 @@
             {
                 if (!(f is IFunctorAcceptor))
                 {
-                    throw new Exception("Illegal functor combination");
+                    throw new OwnException("Illegal functor combination");
                 }
             }
             this.functors = functors;
@@ -185,7 +185,7 @@
                     return t;
                 }
             }
-            throw new Exception("Illegal function combination");
+            throw new OwnException("Illegal function combination");
         }
 
         #endregion

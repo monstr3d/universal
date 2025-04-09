@@ -25,7 +25,7 @@ namespace DataPerformer
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         #endregion
@@ -34,27 +34,27 @@ namespace DataPerformer
 
         string[] IObjectTransformer.Input
         {
-            get { throw new NotImplementedException(); }
+            get { throw new ErrorHandler.WriteProhibitedException();  }
         }
 
         string[] IObjectTransformer.Output
         {
-            get { throw new NotImplementedException(); }
+            get { throw new ErrorHandler.WriteProhibitedException(); }
         }
 
         object IObjectTransformer.GetInputType(int i)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         object IObjectTransformer.GetOutputType(int i)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         void IObjectTransformer.Calculate(object[] input, object[] output)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException(); 
         }
 
         #endregion

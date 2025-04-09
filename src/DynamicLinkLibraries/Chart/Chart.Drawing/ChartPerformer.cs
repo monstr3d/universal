@@ -9,6 +9,7 @@ using System.Reflection;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
 using System.Net.Http.Headers;
+using ErrorHandler;
 
 namespace Chart.Drawing
 {
@@ -305,11 +306,11 @@ namespace Chart.Drawing
         {
             if (performer == this)
             {
-                throw new Exception("Add Chart drawing performer 1");
+                throw new OwnException("Add Chart drawing performer 1");
             }
             if (performer.parent != null)
             {
-                throw new Exception("Add Chart drawing performer 2");
+                throw new OwnException("Add Chart drawing performer 2");
             }
             children.Add(performer);
             performer.parent = this;
@@ -1122,7 +1123,7 @@ namespace Chart.Drawing
                         CalculateSize();
                         if (exception)
                         {
-                            throw new Exception("NAN");
+                            throw new OwnException("NAN");
                         }
                         return true;
                     }

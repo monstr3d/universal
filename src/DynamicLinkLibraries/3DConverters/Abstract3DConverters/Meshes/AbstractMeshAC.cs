@@ -2,6 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using ErrorHandler;
 
 
 
@@ -88,8 +89,8 @@ namespace Abstract3DConverters.Meshes
                         if (n > 0)
                         {
                         }
-                        AbstractMesh m = this;
-                        if (Parent == null & (parent != null))
+                        IMesh m = this;
+                        if (m.Parent == null & (parent != null))
                         {
                             m = parent;
                         }
@@ -226,7 +227,7 @@ namespace Abstract3DConverters.Meshes
         }
 
  
-        private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
+        private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(parent, null, null, creator)
         {
             try
             {
@@ -248,7 +249,7 @@ namespace Abstract3DConverters.Meshes
 
         public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, 
             int count, List<string> l, List<Material> materials1, string directory) :
-            base(name, parent, null, creator)
+            base(parent, name, null, creator)
         {
             try
             {
@@ -351,7 +352,7 @@ namespace Abstract3DConverters.Meshes
                                 {
                                     ltex.Add(key);
                                 }
-                                throw new Exception("!!!!!!!!!!!!");
+                                throw new OwnException("!!!!!!!!!!!!");
                                 /*
                                 var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);

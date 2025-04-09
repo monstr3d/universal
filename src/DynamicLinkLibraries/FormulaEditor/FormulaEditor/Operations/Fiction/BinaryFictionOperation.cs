@@ -32,7 +32,7 @@ namespace FormulaEditor.Operations.Fiction
         {
             get
             {
-                throw new NotImplementedException();
+              throw new  ErrorHandler.WriteProhibitedException();
             }
         }
 

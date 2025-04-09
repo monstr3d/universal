@@ -326,7 +326,7 @@ namespace DataPerformer.Portable
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
@@ -388,6 +388,8 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

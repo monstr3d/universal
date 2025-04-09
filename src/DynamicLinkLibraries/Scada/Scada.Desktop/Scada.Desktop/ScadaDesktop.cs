@@ -186,7 +186,7 @@ namespace Scada.Desktop
             {
                 if (!s.Equals(names[i].Substring(0, names[1].LastIndexOf('.'))))
                 {
-                    throw new Exception("Different sources");
+                    throw new OwnException("Different sources");
                 }
             }
             ForcedEventData f = desktop.GetObject<ForcedEventData>(s);

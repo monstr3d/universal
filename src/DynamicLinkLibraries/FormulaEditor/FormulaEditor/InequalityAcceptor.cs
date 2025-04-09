@@ -35,7 +35,7 @@ namespace FormulaEditor
         {
             if (!typeA.Equals(typeB))
             {
-                throw new Exception("Different types in inequality");
+                throw new ErrorHandler.OwnException("Different types in inequality");
             }
             return InequalityOperation.Object;
         }

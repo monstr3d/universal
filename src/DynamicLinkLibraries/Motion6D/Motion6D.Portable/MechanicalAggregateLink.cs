@@ -4,6 +4,7 @@ using System.Text;
 
 using CategoryTheory;
 using Diagram.UI;
+using ErrorHandler;
 using Motion6D.Interfaces;
 
 namespace Motion6D.Portable
@@ -83,7 +84,7 @@ namespace Motion6D.Portable
                 }
                 if (s.Parent != null)
                 {
-                    throw new Exception("Parent");
+                    throw new ErrorHandler.OwnException("Parent");
                 }
                 source = s;
             }
@@ -213,7 +214,7 @@ namespace Motion6D.Portable
             {
                 if (value < 0 | value >= source.NumberOfConnections)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 target.Children[source][0] = value;
                 connection[0] = value;
@@ -233,7 +234,7 @@ namespace Motion6D.Portable
             {
                 if (value < 0 | value >= target.NumberOfConnections)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 target.Children[source][1] = value;
                 connection[1] = value;

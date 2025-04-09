@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 
 using CategoryTheory;
+
 using MathGraph;
 
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 
@@ -74,8 +77,6 @@ namespace Diagram.UI
             }
         }
 
-
-
         protected virtual void Add(INode<IComponentCollection> collection)
         {
             ChildrenNodes.Add(collection.Value);
@@ -93,7 +94,7 @@ namespace Diagram.UI
 
         Performer performer = new();
 
-        NamedTree.Performer p = new NamedTree.Performer();
+     //   NamedTree.Performer p = new ();
 
         IComponentCollection component;
 
@@ -108,11 +109,6 @@ namespace Diagram.UI
         /// List of exceptios
         /// </summary>
         protected static List<Exception> exceptions;
-
-        /// <summary>
-        /// The "has parent" sign
-        /// </summary>
-        private bool hasParent = false;
 
 
         /// <summary>
@@ -162,7 +158,7 @@ namespace Diagram.UI
 
         IEnumerable<object> IComponentCollection.AllComponents
         {
-            get { return allObjects; }
+            get { return AllComponents; }
         }
 
         IDesktop IComponentCollection.Desktop
@@ -285,7 +281,7 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="arrows">Arrows</param>
         /// <param name="associated">Sign for setting associated objects</param>
-        public virtual void Copy(IEnumerable<IObjectLabel> objects, 
+        protected virtual void Copy(IEnumerable<IObjectLabel> objects, 
             IEnumerable<IArrowLabel> arrows, bool associated)
         {
             List<IObjectLabel> objs = new List<IObjectLabel>();
@@ -472,11 +468,9 @@ namespace Diagram.UI
         /// </summary>
         public bool HasParent
         {
-            get { return hasParent; }
-            set { hasParent = value; }
-        }
-
-
+            get;
+            set;
+        } = false;
 
         /// <summary>
         /// Sets names of objects
@@ -513,9 +507,6 @@ namespace Diagram.UI
             }
             return l.ToArray();
         }
-
-
-
   
         /// <summary>
         /// Gets names of objects
@@ -585,36 +576,44 @@ namespace Diagram.UI
 
         public void PreSave()
         {
-            this.SetParents();
-            PureObjectLabel.SetType(objects);
-            PureArrowLabel.SetType(arrows);
-            foreach (IArrowLabel label in arrows)
+            try
             {
-                if (objects.Contains(label.Source))
+                this.SetParents();
+                PureObjectLabel.SetType(objects);
+                PureArrowLabel.SetType(arrows);
+                foreach (IArrowLabel label in arrows)
                 {
-                    label.SourceNumber = objects.IndexOf(label.Source);
-                }
-                else
-                {
-                    IObjectLabel ls = label.Source.GetRoot(this) as IObjectLabel;
-                    int sn = objects.IndexOf(ls);
-                    IObjectContainer scont = ls.Object as IObjectContainer;
-                    string ns = scont.GetName(label.Source);
-                    label.SourceNumber = new object[] { sn, ns };
-                }
-                if (objects.Contains(label.Target))
-                {
-                    label.TargetNumber = objects.IndexOf(label.Target);
-                }
-                else
-                {
-                    IObjectLabel lt = label.Target.GetRoot(this) as IObjectLabel;
-                    int tn = objects.IndexOf(lt);
-                    IObjectContainer tcont = lt.Object as IObjectContainer;
-                    string nt = tcont.GetName(label.Target);
-                    label.TargetNumber = new object[] { tn, nt };
+                    if (objects.Contains(label.Source))
+                    {
+                        label.SourceNumber = objects.IndexOf(label.Source);
+                    }
+                    else
+                    {
+                        IObjectLabel ls = label.Source.GetRoot(this) as IObjectLabel;
+                        int sn = objects.IndexOf(ls);
+                        IObjectContainer scont = ls.Object as IObjectContainer;
+                        string ns = scont.GetName(label.Source);
+                        label.SourceNumber = new object[] { sn, ns };
+                    }
+                    if (objects.Contains(label.Target))
+                    {
+                        label.TargetNumber = objects.IndexOf(label.Target);
+                    }
+                    else
+                    {
+                        IObjectLabel lt = label.Target.GetRoot(this) as IObjectLabel;
+                        int tn = objects.IndexOf(lt);
+                        IObjectContainer tcont = lt.Object as IObjectContainer;
+                        string nt = tcont.GetName(label.Target);
+                        label.TargetNumber = new object[] { tn, nt };
+                    }
                 }
             }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Pure desktop. Presave");
+            }
+            
         }
 
         /// <summary>
@@ -640,11 +639,11 @@ namespace Diagram.UI
                 {
                     if (!(o is string))
                     {
-                        throw new Exception("Resources exception 1");
+                        throw new OwnException("Resources exception 1");
                     }
                     if (!(value[o] is String))
                     {
-                        throw new Exception("Resources exception 2");
+                        throw new OwnException("Resources exception 2");
                     }
                 }
                 resources = value;
@@ -905,9 +904,8 @@ namespace Diagram.UI
             {
                 return;
             }
-            if (obj is IPostSetObject)
+            if (obj is IPostSetObject p)
             {
-                IPostSetObject p = obj as IPostSetObject;
                 p.PostSetObject();
             }
             if (obj is IChildren<IAssociatedObject> cho)
@@ -1068,7 +1066,7 @@ namespace Diagram.UI
                         post.PostSerialize();
                     }
                 }
-                if (!hasParent)
+                if (!HasParent)
                 {
                     PostLoad(this);
                 }
@@ -1238,6 +1236,11 @@ namespace Diagram.UI
                 }
             }
             return s;
+        }
+
+        void IDesktop.Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
+        {
+            Copy(objects, arrows, associated);
         }
 
         #endregion

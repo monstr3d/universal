@@ -141,7 +141,7 @@ namespace DataTableSelection
         {
             if (this.dataSet != null && dataSet != null)
             {
-                throw new Exception("Provider already exists");
+                throw new OwnException("Provider already exists");
             }
             this.dataSet = dataSet;
             if (dataSet != null)
@@ -174,7 +174,7 @@ namespace DataTableSelection
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>throw new  ErrorHandler.WriteProhibitedException(); }
 
         event Action<DataSet> IDataSetConsumer.OnAdd
         {

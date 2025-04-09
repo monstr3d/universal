@@ -109,12 +109,10 @@ namespace DataPerformer.Portable.Advanced.Accumulators
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -122,12 +120,10 @@ namespace DataPerformer.Portable.Advanced.Accumulators
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -463,12 +459,12 @@ namespace DataPerformer.Portable.Advanced.Accumulators
 
         void IChildren<IAssociatedObject>.AddChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IAssociatedObject>.RemoveChild(IAssociatedObject child)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         #endregion

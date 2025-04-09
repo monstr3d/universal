@@ -4,6 +4,7 @@ using Abstract3DConverters.Meshes;
 
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 
 namespace Collada.Converters.Meshes
@@ -23,11 +24,11 @@ namespace Collada.Converters.Meshes
                 case Vertices v:
                     return v.Array;
             }
-            throw new Exception("Collade GetValue");
+            throw new OwnException("Collade GetValue");
         }
 
 
-        internal AbstractMeshCollada(InstanceGeomery geom, BindMaterial material, string name, float[] mm, ColladaMeshCreator creator) : base(name, null, mm, creator)
+        internal AbstractMeshCollada(InstanceGeomery geom, BindMaterial material, string name, float[] mm, ColladaMeshCreator creator) : base(null, name, mm, creator)
         {
             try
             {
@@ -75,7 +76,7 @@ namespace Collada.Converters.Meshes
                 s.CopyPolygons(poly, this);
                 if (!s.CheckPolygons(this))
                 {
-                    throw new Exception("Abstract mesh collada polygons");
+                    throw new OwnException("Abstract mesh collada polygons");
                 }
                 return;
             }

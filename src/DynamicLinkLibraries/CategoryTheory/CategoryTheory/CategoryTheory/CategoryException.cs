@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CategoryTheory
 {
@@ -8,7 +5,7 @@ namespace CategoryTheory
     /// <summary>
     /// Exception of category theory
     /// </summary>
-    public class CategoryException : Exception
+    public class CategoryException : ErrorHandler.OwnException
     {
         /// <summary>
         /// Text of illegal source exception

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace Regression.Portable
 {
@@ -146,11 +147,11 @@ namespace Regression.Portable
                 {
                     if (!value.ContainsKey(i))
                     {
-                        throw new Exception("Illegal selection number");
+                        throw new OwnException("Illegal selection number");
                     }
                     if (!(value[i] is IStructuredSelection))
                     {
-                        throw new Exception("Component is not a selection");
+                        throw new OwnException("Component is not a selection");
                     }
                 }
                 selections = value;

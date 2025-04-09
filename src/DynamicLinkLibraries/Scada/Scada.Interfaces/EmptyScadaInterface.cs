@@ -67,7 +67,7 @@ namespace Scada.Interfaces
         /// <returns>Input names</returns>
         public override Action<object[]> GetInput(string[] names)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Scada.Interfaces
         /// <returns>Outputs</returns>
         public override Func<object[]> GetOutput(string[] names)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Scada.Interfaces
         /// <param name="constant">Constant value</param>
         public virtual void SetConstant(string name, object constant)
         {
-            throw new NotImplementedException();
+            throw new  ErrorHandler.WriteProhibitedException();
         }
 
 
@@ -98,11 +98,11 @@ namespace Scada.Interfaces
         {
             get
             {
-                throw new NotImplementedException();
+                throw new  ErrorHandler.WriteProhibitedException();
             }
             set
             {
-                throw new NotImplementedException();
+                throw new ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -161,7 +161,7 @@ namespace Scada.Interfaces
         /// <returns>The value of constant</returns>
         public override object GetConstantValue(string name)
         {
-            throw new NotImplementedException();
+          throw new  ErrorHandler.WriteProhibitedException();
         }
 
         public override IExceptionHandler ExceptionHandler  { get; set; }

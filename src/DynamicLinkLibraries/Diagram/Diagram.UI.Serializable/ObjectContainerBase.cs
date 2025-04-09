@@ -19,24 +19,22 @@ namespace Diagram.UI
         /// <summary>
         /// Desktop bytes
         /// </summary>
-        byte[] bytes;
-
+        byte[] Bytes
+        {
+            get;
+            set;
+        }
 	
         /// <summary>
         /// Auxiliary field
         /// </summary>
         private Hashtable interr = null;
-  
    
 		/// <summary>
 		/// Serialization binders
 		/// </summary>
 		static private SerializationBinder binder;
-
-	
-
-   
-
+ 
 		#endregion
 
 		#region Constructors
@@ -56,7 +54,7 @@ namespace Diagram.UI
 		/// <param name="context"></param>
 		public ObjectContainerBase(SerializationInfo info, StreamingContext context) : base(new PureDesktopPeer())
 		{
-			bytes = info.GetValue("Bytes", typeof(byte[])) as byte[];
+			Bytes = info.GetValue("Bytes", typeof(byte[])) as byte[];
             interr = info.GetValue("Interface", typeof(Hashtable)) as Hashtable;
             type = info.GetValue("Type", typeof(string)) as string;
   		}
@@ -74,8 +72,8 @@ namespace Diagram.UI
 		{
 			MemoryStream stream = new MemoryStream();
             SaveDesktop(stream);
-			bytes = stream.GetBuffer();
-			info.AddValue("Bytes", bytes);
+			Bytes = stream.GetBuffer();
+			info.AddValue("Bytes", Bytes);
             Hashtable interr = new Hashtable();
             foreach (string s in inter.Keys)
             {
@@ -101,7 +99,6 @@ namespace Diagram.UI
         /// <param name="bytes">Soure bytes</param>
         /// <returns>Thrue in success and false otherwise</returns>
         protected abstract bool LoadDesktop(byte[] bytes);
-
 
         #endregion
 
@@ -131,8 +128,11 @@ namespace Diagram.UI
                 return false;
             }
             isLoaded = true;
-            desktop.HasParent = true;
-            bool b = LoadDesktop(bytes);
+            if (desktop is PureDesktop pure)
+            {
+                pure.HasParent = true;
+            }
+            bool b = LoadDesktop(Bytes);
             LoadProtected();
             CreateInterface();
             return b;
@@ -152,9 +152,13 @@ namespace Diagram.UI
                 return true;
             }
             isPostLoaded = true;
-			bytes = null;
+			Bytes = null;
 			GC.Collect();
-            return desktop.PostLoad();
+            if (desktop is PureDesktop pure)
+            {
+                pure.PostLoad();
+            }
+            return true;
 		}
 
 
@@ -189,7 +193,7 @@ namespace Diagram.UI
         /// <returns>Desktop</returns>
         public override IDesktop LoadDesktop()
         {
-            (desktop as PureDesktopPeer).Load(bytes);
+            (desktop as PureDesktopPeer).Load(Bytes);
             return desktop;
         }
 
@@ -200,7 +204,8 @@ namespace Diagram.UI
         /// <returns>True in success</returns>
         protected bool DesktopPostLoad()
         {
-            return desktop.PostLoad();
+            desktop.PostLoad();
+            return true;
         }
 
 

@@ -247,15 +247,15 @@ namespace ImageTransformations
         {
             if (aliases.Count != 2)
             {
-                throw new Exception("Ill");
+                throw new OwnException("Ill");
             }
             if (measures.Count < 1)
             {
-                throw new Exception("Ill");
+                throw new OwnException("Ill");
             }
             if (colored & measures.Count < 3)
             {
-                throw new Exception("Ill");
+                throw new OwnException("Ill");
             }
             this.measures = measures;
             aliasNames = aliases;

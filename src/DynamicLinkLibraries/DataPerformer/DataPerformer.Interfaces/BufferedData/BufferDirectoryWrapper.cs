@@ -91,7 +91,7 @@ namespace DataPerformer.Interfaces.BufferedData
             {
                 if ((parent as IBufferDirectory).GetDirectoryNames().Contains(value))
                 {
-                    throw new Exception(value + " already exists");
+                    throw new ErrorHandler.OwnException(value + " already exists");
                 }
                 item.Name = value;
             }

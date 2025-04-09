@@ -201,7 +201,8 @@ namespace WpfInterface.Objects3D
             get { return positions.Count; }
         }
 
-        Dictionary<string, byte[]> IWpfVisible.Textures => throw new NotImplementedException();
+        Dictionary<string, byte[]> IWpfVisible.Textures => 
+            throw new ErrorHandler.WriteProhibitedException();
 
         double[,] IVisible.Size => null;
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {
@@ -58,7 +59,7 @@ namespace DataPerformer.Portable
         {
             if (labels.IndexOf(c) >= 0)
             {
-                throw new Exception("Double parameter '" + c + "'");
+                throw new OwnException("Double parameter '" + c + "'");
             }
             labels += c;
             parameters.Add(m);
@@ -96,7 +97,7 @@ namespace DataPerformer.Portable
                 int n = labels.IndexOf(c);
                 if (n < 0)
                 {
-                    throw new Exception(UndefinedParameter);
+                    throw new OwnException(UndefinedParameter);
                 }
                 return parameters[n] as IMeasurement;
             }

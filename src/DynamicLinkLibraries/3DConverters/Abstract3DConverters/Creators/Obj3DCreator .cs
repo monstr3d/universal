@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using ErrorHandler;
 using NamedTree;
 
 
@@ -697,7 +698,7 @@ namespace Abstract3DConverters.Creators
                 }
             }
 
-            Dictionary<string, Effect> IEffectDictionary.Effects => throw new NotImplementedException();
+            Dictionary<string, Effect> IEffectDictionary.Effects => throw new IllegalSetPropetryException("Dictionary of effects is not supported");
 
             void Create()
             {
@@ -1175,7 +1176,7 @@ namespace Abstract3DConverters.Creators
                 ++b;
                 if (line == null)
                 {
-                    var model = new AbstractMesh(name, this, material, vertices, normals, textures, triangles);
+                    var model = new AbstractMesh(null, name, this, material, vertices, normals, textures, triangles);
                     models.Add(model);
                     break;
                 }
@@ -1224,7 +1225,7 @@ namespace Abstract3DConverters.Creators
                         }
                         else
                         {
-                            var mod = new AbstractMesh(currName, this, material, vertices, normals, textures, triangles);
+                            var mod = new AbstractMesh(null, currName, this, material, vertices, normals, textures, triangles);
                             models.Add(mod);
                             Create(lt);
                             continue;
@@ -1232,7 +1233,7 @@ namespace Abstract3DConverters.Creators
                     }
                     else
                     {
-                        var model = new AbstractMesh(name, this, material, vertices, normals, textures, triangles);
+                        var model = new AbstractMesh(null, name, this, material, vertices, normals, textures, triangles);
                         models.Add(model);
                         //models[currName] = modelVisual3D;
                         Create(lt);

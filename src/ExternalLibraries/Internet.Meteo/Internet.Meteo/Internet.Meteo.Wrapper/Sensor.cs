@@ -109,12 +109,12 @@ namespace Internet.Meteo.Wrapper
         {
             add
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -122,12 +122,12 @@ namespace Internet.Meteo.Wrapper
         {
             add
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
+               new  ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -191,7 +191,7 @@ namespace Internet.Meteo.Wrapper
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
@@ -235,12 +235,12 @@ namespace Internet.Meteo.Wrapper
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
+           new  ErrorHandler.WriteProhibitedException();
         }
 
         #endregion

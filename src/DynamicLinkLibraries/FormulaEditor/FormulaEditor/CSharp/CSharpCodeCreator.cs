@@ -8,6 +8,7 @@ using BaseTypes.Interfaces;
 using BaseTypes.CSharp;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.Interfaces;
+using ErrorHandler;
 //using Diagram.UI;
 
 namespace FormulaEditor.CSharp
@@ -162,7 +163,7 @@ namespace FormulaEditor.CSharp
             }
             catch (Exception exception)
             {
-                //exception.HandleException(-1);
+                exception.HandleException();
             }
             if (ret.Length > 0)
             {
@@ -876,8 +877,6 @@ namespace FormulaEditor.CSharp
             }
             success = true;
         }
-
-
 
         /// <summary>
         /// Creates array code

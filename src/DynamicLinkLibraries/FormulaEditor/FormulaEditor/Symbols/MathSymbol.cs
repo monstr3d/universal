@@ -858,7 +858,7 @@ namespace FormulaEditor.Symbols
                 }
                 finally
                 {
-                    //throw new Exception(ERRORS[4] + ex.getMessage());
+                    //throw new Excepti        on(ERRORS[4] + ex.getMessage());
                 }
             }
         }

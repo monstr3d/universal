@@ -142,7 +142,7 @@ namespace ControlSystemsWrapper
 
         void IDictionary<string, object>.Add(string key, object value)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         bool IDictionary<string, object>.ContainsKey(string key)
@@ -156,22 +156,22 @@ namespace ControlSystemsWrapper
 
         ICollection<string> IDictionary<string, object>.Keys
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         bool IDictionary<string, object>.Remove(string key)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         bool IDictionary<string, object>.TryGetValue(string key, out object value)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         ICollection<object> IDictionary<string, object>.Values
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         object IDictionary<string, object>.this[string key]
@@ -200,37 +200,37 @@ namespace ControlSystemsWrapper
 
         void ICollection<KeyValuePair<string, object>>.Add(KeyValuePair<string, object> item)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         void ICollection<KeyValuePair<string, object>>.Clear()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         bool ICollection<KeyValuePair<string, object>>.Contains(KeyValuePair<string, object> item)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         void ICollection<KeyValuePair<string, object>>.CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         int ICollection<KeyValuePair<string, object>>.Count
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         bool ICollection<KeyValuePair<string, object>>.IsReadOnly
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new OwnException("The method or operation is not implemented."); }
         }
 
         bool ICollection<KeyValuePair<string, object>>.Remove(KeyValuePair<string, object> item)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         #endregion
@@ -239,7 +239,7 @@ namespace ControlSystemsWrapper
 
         IEnumerator<KeyValuePair<string, object>> IEnumerable<KeyValuePair<string, object>>.GetEnumerator()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         #endregion
@@ -248,7 +248,7 @@ namespace ControlSystemsWrapper
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new OwnException("The method or operation is not implemented.");
         }
 
         #endregion
@@ -294,7 +294,7 @@ namespace ControlSystemsWrapper
                 IObjectOperation op = tree.Operation;
                 if (!(op is ElementaryFraction))
                 {
-                    throw new Exception("Operation should be fraction");
+                    throw new OwnException("Operation should be fraction");
                 }
                 double[][] p = new double[2][];
                 for (int i = 0; i < 2; i++)
@@ -305,7 +305,7 @@ namespace ControlSystemsWrapper
                 Set(p[0], p[1]);
                 if (!IsStable & ShouldStable)
                 {
-                    throw new Exception("System is not stable");
+                    throw new OwnException("System is not stable");
                 }
                 this.formula = formula;
                 Solver = DifferentialEquationsPerformer.Default[solver];
@@ -367,7 +367,7 @@ namespace ControlSystemsWrapper
             }
             if (t != ElementaryRealConstant.RealZero)
             {
-                throw new Exception("This not a polynom");
+                throw new OwnException("This not a polynom");
             }
             return l.ToArray();
         }
@@ -429,7 +429,8 @@ namespace ControlSystemsWrapper
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new IllegalSetPropetryException("WRITE PROHIBITED"); }
+        string INamed.Name { get => performer.GetAssociatedName(this); 
+            set => throw new ErrorHandler.WriteProhibitedException(); }
 
         #endregion
 

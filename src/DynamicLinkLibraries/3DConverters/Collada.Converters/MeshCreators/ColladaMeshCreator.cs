@@ -1,15 +1,13 @@
-﻿using System.Xml;
-using System.Reflection;
-
+﻿using System.Reflection;
+using System.Xml;
 using Abstract3DConverters;
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
-using Abstract3DConverters.Attributes;
-
-
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 
 
 namespace Collada.Converters.MeshCreators
@@ -19,6 +17,8 @@ namespace Collada.Converters.MeshCreators
     {
 
         Dictionary<string, List<XmlElement>> elementList = new();
+
+        NamedTree.Performer p = new NamedTree.Performer();
 
               
 
@@ -90,7 +90,7 @@ namespace Collada.Converters.MeshCreators
             }
             catch (Exception ex)
             {
-                ex.HandleException();
+                StaticExtensionAbstract3DConverters.HandleException(ex);
             }
             Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Diffuse), typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Lambert), typeof(Blinn), typeof(Effect), typeof(Material),
@@ -100,13 +100,13 @@ namespace Collada.Converters.MeshCreators
             {
                 if (type.IsUknown())
                 {
-                    throw new Exception("Collada is unknown");
+                    throw new OwnException("Collada is unknown");
                 }
                 TagAttribute tag = type.GetTag();
                 var name = tag.Tag;
                 if (tag.IsElemenary)
                 {
-                    throw new Exception("Collada is elementary");
+                    throw new OwnException("Collada is elementary");
                 }
                 nonelementary.Add(name);
             }
@@ -120,11 +120,11 @@ namespace Collada.Converters.MeshCreators
                 StaticExtensionCollada.Collada = this;
                 StaticExtensionCollada.Function = this;
                 CreateAll();
-                s.SetParents(MeshesParent);
+                p.SetParents(MeshesParent);
             }
             catch (Exception ex)
             {
-                ex.HandleException();
+                StaticExtensionAbstract3DConverters.HandleException(ex);
             }
         }
         protected override void CreateAll()
@@ -146,7 +146,7 @@ namespace Collada.Converters.MeshCreators
                 }
                 else
                 {
-                    throw new Exception("Collada CreateParams");
+                    throw new OwnException("Collada CreateParams");
                 }
             }
         }
@@ -185,7 +185,7 @@ namespace Collada.Converters.MeshCreators
         {
             get
             {
-                s.SetParents(MeshesParent);
+                p.SetParents(MeshesParent);
                 return s.GetRoots(MeshesParent.Values).Select(a => a as AbstractMesh).ToList();
             }
         }
@@ -200,7 +200,7 @@ namespace Collada.Converters.MeshCreators
 
         object ICollada.Get(string s)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Collada get is not supported");
         }
 
         void ICollada.Init(XmlElement xmlElement)
@@ -264,7 +264,7 @@ namespace Collada.Converters.MeshCreators
                 {
                     if (urls.ContainsKey(url))
                     {
-                        throw new Exception();
+                        throw new OwnException();
                     }
                     urls[url] = xmlElement;
                     return url;

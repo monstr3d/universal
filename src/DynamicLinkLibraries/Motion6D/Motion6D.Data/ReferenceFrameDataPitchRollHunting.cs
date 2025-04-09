@@ -11,6 +11,7 @@ using DataPerformer;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D
 {
@@ -76,7 +77,7 @@ namespace Motion6D
             {
                 if (value.Count != 6)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 parameters = value;
                 SetParameters();

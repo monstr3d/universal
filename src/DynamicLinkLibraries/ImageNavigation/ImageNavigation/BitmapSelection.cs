@@ -433,12 +433,10 @@ namespace ImageNavigation
         {
             add
             {
-                throw new NotImplementedException();
-            }
+             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -446,12 +444,10 @@ namespace ImageNavigation
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -604,7 +600,7 @@ namespace ImageNavigation
                 }
                 if (bmpProvider != null)
                 {
-                    throw new Exception("Camera already exists");
+                    throw new OwnException("Camera already exists");
                 }
                 bmpProvider = value;
             }
@@ -741,12 +737,10 @@ namespace ImageNavigation
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
-        }
+         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

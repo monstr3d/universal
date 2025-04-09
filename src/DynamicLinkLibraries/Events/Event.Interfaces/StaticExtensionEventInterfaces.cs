@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using CategoryTheory;
+using ErrorHandler;
 
 
 namespace Event.Interfaces
@@ -68,7 +69,7 @@ namespace Event.Interfaces
         {
             if (creator == null)
             {
-                throw new Exception("SetBaseAction");
+                throw new OwnException("SetBaseAction");
             }
             if (ActionFactoryCreator == null)
             {

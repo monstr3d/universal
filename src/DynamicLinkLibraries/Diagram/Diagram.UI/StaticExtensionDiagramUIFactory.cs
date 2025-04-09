@@ -5,6 +5,7 @@ using CategoryTheory;
 
 using Diagram.UI.Factory;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 using NamedTree;
 
 namespace Diagram.UI
@@ -61,7 +62,7 @@ namespace Diagram.UI
                 {
                     if (uiFactory != null)
                     {
-                        throw new Exception("UI factory already exists"); 
+                        throw new OwnException("UI factory already exists"); 
                     }
                     uiFactory = value;
                     if (list.Count > 0)

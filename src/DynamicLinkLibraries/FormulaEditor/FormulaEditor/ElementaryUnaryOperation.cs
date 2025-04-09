@@ -8,6 +8,7 @@ using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using ErrorHandler;
 
 namespace FormulaEditor
 {
@@ -94,7 +95,7 @@ namespace FormulaEditor
         {
             if (deriv)
             {
-                throw new Exception("Could not calculate second derivation");
+                throw new ErrorHandler.OwnException("Could not calculate second derivation");
             }
             ElementaryUnaryOperation der = new ElementaryUnaryOperation(unary, index);
             der.deriv = true;

@@ -10,6 +10,7 @@ using Diagram.UI;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
+using ErrorHandler;
 
 
 
@@ -190,12 +191,12 @@ namespace DataPerformer.Portable.Advanced
             if (arg == null)
             {
                 x = "";
-                this.Throw(new Exception("Undefined argument"));
+                this.Throw(new OwnException("Undefined argument"));
             }
             if (!arg.Type.Equals(a))
             {
                 x = "";
-                this.Throw(new Exception("Argument shoud be real"));
+                this.Throw(new OwnException("Argument shoud be real"));
             }
             List<IMeasurement> l = new List<IMeasurement>();
             foreach (IMeasurements mea in measurements)

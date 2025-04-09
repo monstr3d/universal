@@ -16,6 +16,7 @@ using DataPerformer.Portable.Measurements;
 using BaseTypes.Interfaces;
 using System.Runtime.CompilerServices;
 using NamedTree;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {
@@ -429,7 +430,7 @@ namespace DataPerformer.Portable
         {
             if (!(selection is SeriesBase))
             {
-                throw new Exception("Incompatible selections");
+                throw new OwnException("Incompatible selections");
             }
             SeriesBase etalon = selection as SeriesBase;
             SeriesBase s = new SeriesBase();
@@ -633,9 +634,9 @@ namespace DataPerformer.Portable
             }
         }
 
-        string INamed.Name { get => Name; set => throw new NotImplementedException(); }
+        string INamed.Name { get => Name; set => throw new  ErrorHandler.WriteProhibitedException(); }
 
-        public IEnumerable<IMeasurement> Children => throw new NotImplementedException();
+        public IEnumerable<IMeasurement> Children => throw   new ErrorHandler.WriteProhibitedException(); 
 
         #endregion
 
@@ -732,12 +733,10 @@ namespace DataPerformer.Portable
 
         public void AddChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         public void RemoveChild(IMeasurement child)
         {
-            throw new NotImplementedException();
         }
 
         #endregion

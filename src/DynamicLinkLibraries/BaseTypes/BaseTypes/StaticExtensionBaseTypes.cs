@@ -6,6 +6,7 @@ using System.Reflection;
 using BaseTypes.Interfaces;
 using BaseTypes.Attributes;
 using System.Runtime.CompilerServices;
+using ErrorHandler;
 
 namespace BaseTypes
 {
@@ -405,7 +406,7 @@ namespace BaseTypes
                 {
                     return true;
                 }
-                throw new Exception("Can not convert double parameter value to boolean");
+                throw new OwnException("Can not convert double parameter value to boolean");
             }
             if (type.Equals(SByteType))
             {
@@ -439,7 +440,7 @@ namespace BaseTypes
             {
                 return (ulong)x;
             }
-            throw new Exception("Type cannot be converted from double");
+            throw new OwnException("Type cannot be converted from double");
         }
 
         /// <summary>

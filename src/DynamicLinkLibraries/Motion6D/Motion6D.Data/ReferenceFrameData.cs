@@ -70,7 +70,7 @@ namespace Motion6D
             {
                 if (value.Count != 7)
                 {
-                    throw new Exception();
+                    throw new OwnException();
                 }
                 parameters = value;
                 SetParameters();

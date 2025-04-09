@@ -18,6 +18,8 @@ namespace Motion6D.Portable.Comparation
     {
         #region Fields
 
+        NamedTree.Performer p = new NamedTree.Performer();
+
         /// <summary>
         /// Singleton
         /// </summary>
@@ -81,7 +83,7 @@ namespace Motion6D.Portable.Comparation
                         {
                             continue;
                         }
-                        List<IPosition> path = position.GetPath();
+                        List<IPosition> path = p.GetPath(position).ToList();
                         foreach (IPosition pos in path)
                         {
                             if (pos != dc)

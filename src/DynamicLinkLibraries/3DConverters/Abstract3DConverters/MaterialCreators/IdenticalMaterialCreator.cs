@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 
 namespace Abstract3DConverters.MaterialCreators
 {
@@ -59,7 +60,7 @@ namespace Abstract3DConverters.MaterialCreators
  
         public override void Set(object material, object color)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Identilal material cretator");
         }
 
         public override void Set(object material, Color color)
@@ -69,18 +70,18 @@ namespace Abstract3DConverters.MaterialCreators
 
         public override object SetImage(object material, object image)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Identilal material cretator");
         }
 
    
         public override void SetOpacity(object material, float opacity)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Identilal material cretator");
         }
 
         public override void SetPower(object material, float power)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Identilal material cretator");
         }
 
      }

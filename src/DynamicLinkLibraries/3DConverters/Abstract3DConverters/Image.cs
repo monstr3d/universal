@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Abstract3DConverters.Interfaces;
+using ErrorHandler;
 
 namespace Abstract3DConverters
 {
@@ -82,7 +83,7 @@ namespace Abstract3DConverters
             {
                 if (!s.FileExists(FullPath))
                 {
-                    throw new Exception("Image exception");
+                    throw new OwnException("Image exception");
                 }
             }
         }

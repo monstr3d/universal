@@ -333,7 +333,7 @@ namespace Motion6D.Portable.Aggregates
             {
                 if (value.Length != Dimension)
                 {
-                    throw new Exception();
+                    throw new ErrorHandler.OwnException();
                 }
                 initialState = value;
             }

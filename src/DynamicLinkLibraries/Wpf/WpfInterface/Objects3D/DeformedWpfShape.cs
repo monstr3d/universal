@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Security.Cryptography;
 using System.Windows.Media.Media3D;
+
 using CategoryTheory;
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+
 using Diagram.UI.Interfaces;
+
 using Motion6D.Interfaces;
+
 using NamedTree;
+
 using WpfInterface.Interfaces;
 
 namespace WpfInterface.Objects3D
@@ -146,7 +151,7 @@ namespace WpfInterface.Objects3D
         {
             if (source != null)
             {
-                throw new Exception("Source already exists");
+                throw new ErrorHandler.OwnException("Source already exists");
             }
             source = visible as WpfShape;
             if (visible is IWpfVisible)

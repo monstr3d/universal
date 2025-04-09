@@ -3,6 +3,7 @@
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -37,7 +38,7 @@ namespace Collada.Converters.Classes.Complicated
             var p = element.Get<P>();
             if (p != null)
             {
-                throw new Exception("Class input exception 1");
+                throw new OwnException("Class input exception 1");
             }
             var semantic = element.GetAttribute("semantic");
             if (!semantic.StartsWith("PO"))
@@ -47,7 +48,7 @@ namespace Collada.Converters.Classes.Complicated
             var source = element.GetAttribute("source").Substring(1);
             if ((semantic.Length == 0) | (source.Length == 0))
             {
-                throw new Exception("Class input exception 2");
+                throw new OwnException("Class input exception 2");
             }
             var o = GetSemantic(semantic, source);
             if (o is Source so)
@@ -66,7 +67,7 @@ namespace Collada.Converters.Classes.Complicated
             dictionary = new KeyValuePair<string, OffSet>(semantic, offs);
             if (o == null)
             {
-                //throw new Exception();
+                //throw new E xception();
             }
         }
 
@@ -128,7 +129,7 @@ namespace Collada.Converters.Classes.Complicated
             {
                 return null;
             }
-            throw new Exception("Class input exception 3");
+            throw new OwnException("Class input exception 3");
         }
     }
 }

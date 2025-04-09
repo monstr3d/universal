@@ -113,7 +113,7 @@ namespace Diagram.UI.UserControls
             {
                 if (value.Length != l.Count)
                 {
-                    throw new Exception("UserControlListItems");
+                    throw new ErrorHandler.OwnException("UserControlListItems");
                 }
                 for (int i = 0; i < value.Length; i++)
                 {

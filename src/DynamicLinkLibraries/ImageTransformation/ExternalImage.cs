@@ -130,7 +130,7 @@ namespace ImageTransformations
             {
                 if (fUrl != null)
                 {
-                    throw new Exception("Url should be calculated");
+                    throw new OwnException("Url should be calculated");
                 }
                 url = value;
                 try

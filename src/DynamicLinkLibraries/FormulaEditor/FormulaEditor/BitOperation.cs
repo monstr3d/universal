@@ -132,20 +132,20 @@ namespace FormulaEditor
         {
             if (!ElementaryBinaryOperation.IsInteger(typeA))
             {
-                throw new Exception("Illegal integer argument");
+                throw new ErrorHandler.OwnException("Illegal integer argument");
             }
             if ((symbol == '\u2266') | (symbol == '\u2267'))
             {
                 if (!ElementaryBinaryOperation.IsNumber(typeB))
                 {
-                    throw new Exception("Illegal integer argument");
+                    throw new ErrorHandler.OwnException("Illegal integer argument");
                 }
                 type = typeA;
                 return this;
             }
             if (!typeA.Equals(typeB))
             {
-                throw new Exception("Different types of integer");
+                throw new ErrorHandler.OwnException("Different types of integer");
             }
             type = typeA;
             return this;

@@ -194,7 +194,7 @@ namespace DataPerformer
             {
                 if (par == null)
                 {
-                    throw new Exception(DynamicalParameter.UndefinedParameters);
+                    throw new OwnException(DynamicalParameter.UndefinedParameters);
                 }
                 UpdateChildrenData();
                 (par as Formula.DynamicalParameter).Set(arg);
@@ -244,7 +244,7 @@ namespace DataPerformer
             {
                 if (str.IndexOf(c) < 0)
                 {
-                    throw new Exception("Illegal formula parameter");
+                    throw new OwnException("Illegal formula parameter");
                 }
             }
             foreach (char c in s)
@@ -366,7 +366,7 @@ namespace DataPerformer
                             goto m;
                         }
                     }
-                    throw new Exception(VariablesShortage);
+                    throw new OwnException(VariablesShortage);
                 m:
                     continue;
                 }
@@ -529,6 +529,8 @@ namespace DataPerformer
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

@@ -1,3 +1,4 @@
+using ErrorHandler;
 using System;
 
 namespace AnalyticPolynom
@@ -28,7 +29,7 @@ namespace AnalyticPolynom
 		{
 			if (n < 0)
 			{
-				throw new Exception("The size of coefficient massive should be non - negative");
+				throw new OwnException("The size of coefficient massive should be non - negative");
 			}
 			coeffs = new double[n];
 			for (int i =0; i < n; i++)
@@ -46,7 +47,7 @@ namespace AnalyticPolynom
 		{
 			if(arg.Length != val.Length)
 			{
-				throw new Exception("Number of arguments is not eqal to number of values");
+				throw new Exce ption("Number of arguments is not eqal to number of values");
 			}
 			RealPolynom r = new RealPolynom(arg.Length);
 			r[0] = 1;
@@ -263,7 +264,7 @@ namespace AnalyticPolynom
 		{
 			if (d == 0)
 			{
-				throw new Exception("Can not divide by zero");
+				throw new OwnException("Can not divide by zero");
 			}
 						RealPolynom r = p.Clone() as RealPolynom;
 			for (int i=0; i < r.coeffs.Length; i++)

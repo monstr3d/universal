@@ -362,7 +362,7 @@ namespace DataPerformer
             }
             if (p[0] != p[1])
             {
-                throw new Exception(illegal);
+                throw new OwnException(illegal);
             }
         }
 

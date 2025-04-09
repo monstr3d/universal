@@ -8,6 +8,7 @@ using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using System.Dynamic;
+using NamedTree;
 
 namespace Diagram.UI
 {
@@ -20,6 +21,8 @@ namespace Diagram.UI
         #region Fields
 
         Performer performer = new();
+
+        NamedTree.Performer p = new();
 
         /// <summary>
         /// Type of element
@@ -46,6 +49,72 @@ namespace Diagram.UI
 
 
         #endregion
+
+        #region NEW
+
+        protected INode<IComponentCollection> ParentNode
+        {
+            get; set;
+        }
+
+        protected virtual INode<IComponentCollection> Parent { get => ParentNode; set => ParentNode = value; }
+
+        protected List<IComponentCollection> ChildrenNodes { get; } = new List<IComponentCollection>();
+
+        protected virtual IEnumerable<IComponentCollection> Children => ChildrenNodes;
+
+        protected event Action<IComponentCollection> onAdd;
+
+        protected event Action<IComponentCollection> onRemove;
+
+        protected virtual event Action<IComponentCollection> OnAdd
+        {
+            add
+            {
+                onAdd += value;
+            }
+
+            remove
+            {
+                onAdd -= value;
+            }
+        }
+
+
+        protected virtual event Action<IComponentCollection> OnRemove
+        {
+            add
+            {
+                onRemove += value;
+            }
+
+            remove
+            {
+                onRemove -= value;
+            }
+        }
+
+
+
+        protected virtual void Add(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Add(collection.Value);
+            onAdd?.Invoke(collection.Value);
+        }
+
+        protected virtual void Remove(INode<IComponentCollection> collection)
+        {
+            ChildrenNodes.Remove(collection.Value);
+            onRemove?.Invoke(collection.Value);
+        }
+
+
+
+        #endregion
+
+
+
+
 
         #region Ctor
 
@@ -159,7 +228,8 @@ namespace Diagram.UI
 
         #region IComponentCollection Members
 
-   
+
+
         IEnumerable<object> IComponentCollection.AllComponents
         {
             get
@@ -249,6 +319,8 @@ namespace Diagram.UI
 
         IEnumerable<ICategoryArrow> IComponentCollection.CategoryArrows => components.Get<ICategoryArrow>();
 
+        IEnumerable<object> IChildren<object>.Children => list;
+
         /// <summary>
         /// Access to element
         /// </summary>
@@ -266,7 +338,7 @@ namespace Diagram.UI
         /// Adds object
         /// </summary>
         /// <param name="obj">The object to add</param>
-        public void Add(object obj)
+        void  IChildren<object>.AddChild(object obj)
         {
             list.Add(obj);
             add(obj);
@@ -276,7 +348,7 @@ namespace Diagram.UI
         /// Removes object
         /// </summary>
         /// <param name="obj">The object to remove</param>
-        public void Remove(object obj)
+        void IChildren<object>.RemoveChild(object obj)
         {
             list.Remove(obj);
             remove(obj);
@@ -287,19 +359,84 @@ namespace Diagram.UI
         #region IAddRemove Members
 
   
-        event Action<object> IAddRemove.AddAction
+
+        event Action<object> IChildren<object>.OnAdd
         {
-            add { add += value; }
-            remove { add -= value; }
+            add
+            {
+                add += value;
+            }
+
+            remove
+            {
+               add -= value;
+            }
         }
 
-        event Action<object> IAddRemove.RemoveAction
+        event Action<object> IChildren<object>.OnRemove
         {
-            add { remove += value; }
-            remove { remove -= value; }
+            add
+            {
+                remove += value;
+            }
+
+            remove
+            {
+                remove -= value;
+            }
         }
 
         #endregion
-  
+
+        #region
+
+        void INode<IComponentCollection>.Add(INode<IComponentCollection> node)
+        {
+            Add(node);
+        }
+
+        void INode<IComponentCollection>.Remove(INode<IComponentCollection> node)
+        {
+            Remove(node);
+        }
+
+        INode<IComponentCollection> INode<IComponentCollection>.Parent { get => Parent; set { Parent = value; } }
+        IEnumerable<INode<IComponentCollection>> INode<IComponentCollection>.Nodes { get => Children; set { } }
+
+        IComponentCollection INode<IComponentCollection>.Value => this;
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnAdd
+        {
+            add
+            {
+                OnAdd += value;
+            }
+
+            remove
+            {
+                OnAdd -= value;
+            }
+        }
+
+        event Action<IComponentCollection> INode<IComponentCollection>.OnRemove
+        {
+            add
+            {
+                OnRemove += value;
+
+            }
+
+            remove
+            {
+                OnRemove -= value;
+            }
+        }
+
+
+        #endregion
+
+
+
+
     }
 }

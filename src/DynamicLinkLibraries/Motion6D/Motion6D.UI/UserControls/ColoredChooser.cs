@@ -49,7 +49,7 @@ namespace Motion6D.UI.UserControls
                     string s = box.SelectedItem + "";
                     if (s.Length == 0)
                     {
-                        throw new Exception("Undefined measure");
+                        throw new ErrorHandler.OwnException("Undefined measure");
                     }
                     l.Add(s);
                 }

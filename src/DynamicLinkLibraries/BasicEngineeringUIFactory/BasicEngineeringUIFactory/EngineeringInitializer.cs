@@ -77,7 +77,7 @@ namespace BasicEngineering.UI.Factory
             {
                 if (throwsRepeatException)
                 {
-                    throw new Exception("Double initialization");
+                    throw new OwnException("Double initialization");
                 }
                 return;
             }

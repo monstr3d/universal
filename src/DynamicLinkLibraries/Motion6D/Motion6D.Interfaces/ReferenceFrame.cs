@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using ErrorHandler;
 using NamedTree;
 
 using RealMatrixProcessor;
@@ -88,25 +88,21 @@ namespace Motion6D.Interfaces
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
-            }
+             }
         }
 
         event Action<IPosition> INode<IPosition>.OnRemove
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -589,12 +585,11 @@ namespace Motion6D.Interfaces
 
         void INode<IPosition>.Add(INode<IPosition> node)
         {
-            throw new NotImplementedException();
+            throw new IllegalSetPropetryException("Position");
         }
 
         void INode<IPosition>.Remove(INode<IPosition> node)
         {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -611,11 +606,15 @@ namespace Motion6D.Interfaces
                 return parent.Own;
             }
         }
+        protected virtual IEnumerable<IPosition> Nodes
+        {
+            get;
+        } = new List<IPosition>();
+      
+        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => Parent = value as IReferenceFrame; }
+        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => Nodes; set { } }
 
-        INode<IPosition> INode<IPosition>.Parent { get => Parent; set => throw new NotImplementedException(); }
-        IEnumerable<INode<IPosition>> INode<IPosition>.Nodes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        IPosition INode<IPosition>.Value => throw new NotImplementedException();
+        IPosition INode<IPosition>.Value => this;
 
         #endregion
 

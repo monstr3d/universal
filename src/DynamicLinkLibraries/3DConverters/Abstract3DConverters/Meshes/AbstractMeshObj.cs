@@ -2,6 +2,7 @@
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
 {
@@ -41,7 +42,7 @@ namespace Abstract3DConverters.Meshes
         internal List<float[]> IntTextures { get; private set; }
         internal List<float[]> IntNormals { get; private set; }
 
-        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(creator.MeshName, parent, null, creator)
+        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(parent, creator.MeshName, null, creator)
         {
             try
             {
@@ -85,7 +86,7 @@ namespace Abstract3DConverters.Meshes
                         ++np;
                         if (point == null)
                         {
-                            throw new Exception("AbstractMeshObj POINT ERROR SINLE");
+                            throw new OwnException("AbstractMeshObj POINT ERROR SINLE");
                         }
                         l.Add(point);
                     }
@@ -104,7 +105,7 @@ namespace Abstract3DConverters.Meshes
         }
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : 
-            base("", null, null, creator)
+            base(null, "", null, null, creator)
         {
             try
             {
@@ -180,7 +181,7 @@ namespace Abstract3DConverters.Meshes
                             ++np;
                             if (point == null)
                             {
-                                throw new Exception("AbstractMeshObj POINT ERROR");
+                                throw new OwnException("AbstractMeshObj POINT ERROR");
                             }
                             l.Add(point);
                         }
@@ -197,7 +198,7 @@ namespace Abstract3DConverters.Meshes
 
 
 
-        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, null, null, objCreator)
+        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(null, name, null, null, objCreator)
         {
             nextName = "";
             end = 0;
@@ -302,7 +303,7 @@ namespace Abstract3DConverters.Meshes
                             vertexTexture[i[0]] = i[1];
                         }
                         indexes.Add(ind);
-                        throw new Exception();
+                        throw new OwnException();
                         continue;
                     }
                 }
@@ -378,7 +379,7 @@ namespace Abstract3DConverters.Meshes
                         var pt = s.CreatePointTexture(this, nv, k[0], k[1]);
                         if (pt == null)
                         {
-                            throw new Exception("AbstractMeshObj");
+                            throw new OwnException("AbstractMeshObj");
                         }
                        
                         li.Add(pt);

@@ -5,6 +5,7 @@ using System.Reflection;
 
 using BaseTypes.Interfaces;
 using BaseTypes;
+using ErrorHandler;
 
 namespace FormulaEditor
 {
@@ -33,7 +34,7 @@ namespace FormulaEditor
             this.propertyInfo = propertyInfo;
             if (propertyInfo == null)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             retType = propertyInfo.PropertyType.ToObjectType();
         }

@@ -50,7 +50,7 @@ namespace DataPerformer.Helpers
             dim = IsAccessible(transformer);
             if (dim == null)
             {
-                throw new Exception("Finite matrix is not accessible");
+                throw new ErrorHandler.OwnException("Finite matrix is not accessible");
             }
             matrix = new double[dim[1], dim[0]];
             difference = new double[dim[0]];

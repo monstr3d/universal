@@ -129,7 +129,7 @@ namespace DataPerformer.UI
                     }
                     if (vn.ContainsKey(s))
                     {
-                        throw new Exception("Measurement \"" + s + "\" already exists");
+                        throw new ErrorHandler.OwnException("Measurement \"" + s + "\" already exists");
                     }
                     vn[s] = key;
                 }

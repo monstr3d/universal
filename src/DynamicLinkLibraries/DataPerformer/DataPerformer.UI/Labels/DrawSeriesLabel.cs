@@ -173,7 +173,7 @@ namespace DataPerformer.UI.Labels
             }
             set
             {
-                throw new Exception("You should not set parent to UI component");
+                throw new ErrorHandler.OwnException("You should not set parent to UI component");
             }
         }
 

@@ -51,7 +51,7 @@ namespace DataPerformer.UI.UserControls
                 Type t = value.Type;
                 if (!t.Equals(typeof(Regression.AliasRegression)))
                 {
-                    throw new Exception("Illegal type");
+                    throw new ErrorHandler.OwnException("Illegal type");
                 }
                 collection = value;
                 collection.Object = this;

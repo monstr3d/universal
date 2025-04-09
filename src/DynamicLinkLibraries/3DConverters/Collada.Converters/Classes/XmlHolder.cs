@@ -3,6 +3,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes
 {
@@ -26,7 +27,7 @@ namespace Collada.Converters.Classes
             var nl = element.GetAllElementsByTagName("source").Where(e => e != element).ToArray();
             if (nl.Length > 0)
             {
-                throw new Exception("XmlHolder");
+                throw new OwnException("XmlHolder");
             }
             return;
         }

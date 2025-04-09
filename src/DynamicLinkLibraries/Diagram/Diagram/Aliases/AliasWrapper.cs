@@ -5,6 +5,7 @@ using System.Text;
 using Diagram.UI.Interfaces;
 using CategoryTheory;
 using NamedTree;
+using ErrorHandler;
 
 namespace Diagram.UI.Aliases
 {
@@ -89,7 +90,7 @@ namespace Diagram.UI.Aliases
             {
                 if (n.Contains(name))
                 {
-                    throw new Exception("Alias name already exists");
+                    throw new OwnException("Alias name already exists");
                 }
             }
             names.AddRange(n);

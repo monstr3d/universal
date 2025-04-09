@@ -428,7 +428,7 @@ namespace Diagram.UI.Labels
                 if (theObject is NamedTree.INamed no)
                 {
                     string name = no.Name;
-                    g.DrawString(name, font, nameBrush, 5, captionHeight + 2); 
+                  //  g.DrawString(name, font, nameBrush, 5, captionHeight + 2); 
                 }
             }
 

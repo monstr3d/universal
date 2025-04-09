@@ -171,7 +171,7 @@ namespace DataPerformer
                     {
                         if (value[i, j] >= value.GetLength(0))
                         {
-                            throw new Exception("State machine out of range");
+                            throw new OwnException("State machine out of range");
                         }
                     }
                 }
@@ -633,11 +633,11 @@ namespace DataPerformer
                 {
                     if (source == null)
                     {
-                        throw new Exception("Source object is missing");
+                        throw new OwnException("Source object is missing");
                     }
                     if (source == value)
                     {
-                        throw new Exception("Target of switch link should not concide with source");
+                        throw new OwnException("Target of switch link should not concide with source");
                     }
                     if (value is IArgumentSelection)
                     {
@@ -767,7 +767,7 @@ namespace DataPerformer
             string[] var = sel.Variables;
             if (var.Length != variables.Length)
             {
-                throw new Exception("Illegal number of variables");
+                throw new ErrorHandler.OwnException("Illegal number of variables");
             }
             foreach (string s in var)
             {
@@ -778,7 +778,7 @@ namespace DataPerformer
                         goto m1;
                     }
                 }
-                throw new Exception("Illegal variables");
+                throw new ErrorHandler.OwnException("Illegal variables");
             m1: continue;
             }
             dim += sel.VectorDimension;

@@ -141,7 +141,7 @@ namespace DataPerformer.Portable
             }
         }
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new NotImplementedException();
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         /// <summary>
         /// Access to measurements
@@ -246,6 +246,8 @@ namespace DataPerformer.Portable
             var l = new List<IMeasurement>(measurements);
             l.Add(child);
             measurements = l.ToArray();
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

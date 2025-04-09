@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CategoryTheory;
+using ErrorHandler;
 
 namespace MathGraph
 {
@@ -63,7 +64,7 @@ namespace MathGraph
         {
             if (vertices.Contains(vertex))
             {
-                throw new Exception("Vertex already exists");
+                throw new OwnException("Vertex already exists");
             }
             vertices.Add(vertex);
         }
@@ -155,20 +156,20 @@ namespace MathGraph
                 }
                 if (current == null)
                 {
-                    throw new Exception(NotPath);
+                    throw new OwnException(NotPath);
                 }
                 v.Add(current);
                 while (current.OutcomingEdges.Count > 0)
                 {
                     if (current.OutcomingEdges.Count > 1)
                     {
-                        throw new Exception(NotPath);
+                        throw new OwnException(NotPath);
                     }
                     DigraphEdge edge = current.OutcomingEdges[0] as DigraphEdge;
                     current = edge.Target;
                     if ((current.IncomingEdges.Count > 1) | v.Contains(current))
                     {
-                        throw new Exception(NotPath);
+                        throw new OwnException(NotPath);
                     }
                     v.Add(current);
                     e.Add(edge);
@@ -177,7 +178,7 @@ namespace MathGraph
                 {
                     if (!v.Contains(vertex))
                     {
-                        throw new Exception(NotPath);
+                        throw new OwnException(NotPath);
                     }
                 }
                 DigraphEdge[] path = new DigraphEdge[e.Count];

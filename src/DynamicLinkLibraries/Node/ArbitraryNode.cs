@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Text;
+using ErrorHandler;
 
 namespace GeneralNode
 {
@@ -143,7 +144,7 @@ namespace GeneralNode
                     }
                     else
                     {
-                      //  throw new Exception("Parent already exists");
+                      //  throw new OwnException("Parent already exists");
                     }
                 }
                 parent = value;
@@ -561,7 +562,7 @@ namespace GeneralNode
             ch.Add(parent);
             if (list.IndexOf(parent) != list.Count - 1)
             {
-                throw new Exception();
+                throw new OwnException();
             }
             list.Remove(parent);
             return false;

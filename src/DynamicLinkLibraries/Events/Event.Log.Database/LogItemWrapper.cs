@@ -96,7 +96,7 @@ namespace Event.Log.Database
             {
                 if ((parent as ILogDirectory).GetDirectoryNames().Contains(value))
                 {
-                    throw new Exception(value + " already exists");
+                    throw new ErrorHandler.OwnException(value + " already exists");
                 }
                 item.Name = value;
             }

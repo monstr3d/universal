@@ -211,7 +211,7 @@ namespace Diagram.UI.PropertyEditors
 
         public override Type ComponentType
         {
-            get { throw new NotImplementedException(); }
+            get {throw new  ErrorHandler.WriteProhibitedException(); }
         }
 
         public override object GetValue(object component)

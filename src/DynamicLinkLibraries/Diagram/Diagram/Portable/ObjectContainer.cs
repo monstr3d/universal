@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+
 using NamedTree;
 
 namespace Diagram.UI.Portable
@@ -25,7 +26,7 @@ namespace Diagram.UI.Portable
 
         protected NamedTree.Performer p = new NamedTree.Performer();
 
-        protected Diagram.UI.Performer perf = new Diagram.UI.Performer();
+        protected Performer perf = new Performer();
 
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace Diagram.UI.Portable
         /// <summary>
         /// Child desktop
         /// </summary>
-        protected IDesktop desktop = new PureDesktop();
+        protected IDesktop desktop = null;
 
         protected virtual IDesktop Desktop
         {
@@ -270,7 +271,7 @@ namespace Diagram.UI.Portable
         /// <param name="desktop">The desktop</param>
         public void SetParents(IDesktop desktop)
         {
-            IEnumerable<IObjectLabel> objs = desktop.Objects;
+            IEnumerable<IObjectLabel> objs = desktop.Objects.ToArray();
             INamedComponent comp = null;
             foreach (IObjectLabel ol in objs)
             {
@@ -280,7 +281,7 @@ namespace Diagram.UI.Portable
                     break;
                 }
             }
-            IEnumerable<object> objects = this.desktop.Components;
+            IEnumerable<object> objects = this.desktop.Components.ToArray();
             foreach (INamedComponent nc in objects)
             {
                 if (nc is IObjectLabel)

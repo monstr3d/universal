@@ -33,6 +33,8 @@ namespace Motion6D.Portable
 
         #region Public Members
 
+        static Performer p = new();
+
     
         /// <summary>
         /// Gets relative frame
@@ -120,7 +122,7 @@ namespace Motion6D.Portable
         public static void PostLoadPositions(this IComponentCollection collection)
         {
             List<IPosition> l = collection.GetAll<IPosition>();
-            l.SortPositions();
+            p.SortPositions(l);
             foreach (IPosition position in l)
             {
                 if (position is IPostLoadPosition)
@@ -130,17 +132,6 @@ namespace Motion6D.Portable
             }
         }
 
-        /// <summary>
-        /// Updates frames
-        /// </summary>
-        /// <param name="frames">Frames</param>
-        public static void UpdateFrames(this IEnumerable<IPosition> frames)
-        {
-            foreach (IPosition frame in frames)
-            {
-                frame.Update();
-            }
-        }
 
         /// <summary>
         /// Gets root frames

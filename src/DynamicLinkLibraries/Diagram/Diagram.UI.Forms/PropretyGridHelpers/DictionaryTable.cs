@@ -202,7 +202,7 @@ namespace Diagram.UI.PropretyGridHelpers
 
         public override Type ComponentType
         {
-            get { throw new Exception("The method or operation is not implemented."); }
+            get { throw new ErrorHandler.OwnException("The method or operation is not implemented."); }
         }
 
         public override object GetValue(object component)

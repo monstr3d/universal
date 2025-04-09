@@ -167,7 +167,7 @@ namespace DataPerformer
             {
                 if (seriesList.Count == 2)
                 {
-                    throw new Exception("Too many series");
+                    throw new OwnException("Too many series");
                 }
                 seriesList.Add(series);
             }
@@ -291,7 +291,7 @@ namespace DataPerformer
             {
                 if (value.Variables.Length != 1)
                 {
-                    throw new Exception("Fourier transform should have one parameter");
+                    throw new OwnException("Fourier transform should have one parameter");
                 }
                 input = value['x'];
                 argument = input.Name;

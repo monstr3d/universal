@@ -594,7 +594,7 @@ namespace DataPerformer.Portable.Wrappers
             {
                 if (!allowNull)
                 {
-                    throw new Exception("Undefined measure");
+                    throw new OwnException("Undefined measure");
                 }
                 return null;
             }
@@ -603,7 +603,7 @@ namespace DataPerformer.Portable.Wrappers
             {
                 if (!allowNull)
                 {
-                    throw new Exception("Undefined measure");
+                    throw new OwnException("Undefined measure");
                 }
                 return null;
             }

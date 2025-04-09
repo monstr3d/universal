@@ -207,7 +207,7 @@ namespace DataPerformer.Portable.Objects
             {
                 if (ls.Contains(t.Item1))
                 {
-                    throw new Exception(t.Item1 + " already exists");
+                    throw new ErrorHandler.OwnException(t.Item1 + " already exists");
                 }
                 ls.Add(t.Item1);
                 int[] k = new int[] { i };
@@ -240,6 +240,8 @@ namespace DataPerformer.Portable.Objects
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
+            throw new ErrorHandler.OwnException();
+
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)

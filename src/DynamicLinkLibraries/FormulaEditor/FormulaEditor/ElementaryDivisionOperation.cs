@@ -152,7 +152,7 @@ namespace FormulaEditor
 
         ObjectFormulaTree IDerivationOperation.Derivation(ObjectFormulaTree tree, string variableName)
         {
-            throw new NotImplementedException();
+            throw new  ErrorHandler.WriteProhibitedException();
         }
 
         #endregion

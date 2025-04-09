@@ -8,6 +8,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
 using NamedTree;
 
 
@@ -61,7 +62,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public Tuple<List<float[]>, List<float[]>, List<float[]>, List<int[]>> Tuple { get; private set; }
 
-        float[] IGeometry.TransformationMatrix => throw new NotImplementedException();
+        float[] IGeometry.TransformationMatrix => throw new  ErrorHandler.WriteProhibitedException(); 
 
  
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
@@ -96,12 +97,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -109,12 +108,10 @@ namespace Collada.Converters.Classes.Complicated
         {
             add
             {
-                throw new NotImplementedException();
             }
 
             remove
             {
-                throw new NotImplementedException();
             }
         }
 
@@ -209,7 +206,7 @@ namespace Collada.Converters.Classes.Complicated
                         }
                         if (point == null)
                         {
-                            throw new Exception("Triangles");
+                            throw new OwnException("Triangles");
                         }
 
                         tn += count;
@@ -248,12 +245,12 @@ namespace Collada.Converters.Classes.Complicated
 
         void IMesh.CalculateAbsolute()
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
 
         void INode<IMesh>.Remove(INode<IMesh> node)
         {
-            throw new NotImplementedException();
+            throw new ErrorHandler.WriteProhibitedException();
         }
     }
 }

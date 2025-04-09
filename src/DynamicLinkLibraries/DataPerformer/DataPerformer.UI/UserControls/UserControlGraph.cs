@@ -10,6 +10,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Linq;
 
 
 using CategoryTheory;
@@ -52,7 +53,6 @@ using ToolBox;
 using WindowsExtensions;
 using ErrorHandler;
 using NamedTree;
-using System.Linq;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -250,6 +250,7 @@ namespace DataPerformer.UI.UserControls
         public UserControlGraph(bool resizeLab)
         {
             InitializeComponent();
+            Disposed += UserControlGraph_Disposed;
             Action act = null;
             this.CreateEventActions(ref realtimeupdate, ref act, ref act);
             startStopPauseButtons = new ToolStripButton[][] { new ToolStripButton[]
@@ -266,6 +267,11 @@ namespace DataPerformer.UI.UserControls
             realtimeupdate += indicatorWrapper.UpdateIndicators;
              //tabControlMain.TabPages.Remove(tabPageAnimation);
             tabControlMain.TabPages.Remove(tabPageStartStopRealtime);
+        }
+
+        private void UserControlGraph_Disposed(object sender, EventArgs e)
+        {
+            StopRealTime();
         }
 
         #endregion
@@ -433,7 +439,7 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                throw new Exception("Get data from this control is prohibited");
+                throw new ErrorHandler.OwnException("Get data from this control is prohibited");
             }
             set
             {
@@ -443,7 +449,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 if (data != null)
                 {
-                    throw new Exception("Data fo this control is already exists");
+                    throw new ErrorHandler.OwnException("Data fo this control is already exists");
                 }
                 data = value;
                 FillPoints();
