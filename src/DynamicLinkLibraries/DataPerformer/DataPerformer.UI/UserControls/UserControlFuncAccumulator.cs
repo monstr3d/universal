@@ -21,7 +21,11 @@ namespace DataPerformer.UI.UserControls
     {
         #region Fields
 
-        private FunctionAccumulator acc;
+        private FunctionAccumulator Acc
+        {
+            get;
+            set;
+        }
 
         TextBox start;
         TextBox step;
@@ -57,7 +61,7 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                return acc;
+                return Acc;
             }
             set
             {
@@ -65,11 +69,11 @@ namespace DataPerformer.UI.UserControls
                 {
                     return;
                 }
-                if (acc != null)
+                if (Acc != null)
                 {
                     throw new ErrorHandler.OwnException("Accumulator exception");
                 }
-                acc = value;
+                Acc = value;
                 Post();
             }
         }
@@ -108,7 +112,7 @@ namespace DataPerformer.UI.UserControls
 
         internal void Post()
         {
-            double[] arg = acc.Arguments;
+            double[] arg = Acc.Arguments;
             if (arg == null)
             {
                 return;
@@ -119,7 +123,7 @@ namespace DataPerformer.UI.UserControls
                 step.Text = (arg[1] - arg[0]) + "";
             }
             stepCount.Value = arg.Length;
-            intDeg.Value = acc.Degree;
+            intDeg.Value = Acc.Degree;
         }
 
 
@@ -135,12 +139,11 @@ namespace DataPerformer.UI.UserControls
                 {
                     arg[i] = st + i * s;
                 }
-                acc.Arguments = arg;
+                Acc.Arguments = arg;
             }
             catch (Exception ex)
             {
-                ex.HandleException(10);
-                WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
+                ex.HandleException();
             }
         }
 

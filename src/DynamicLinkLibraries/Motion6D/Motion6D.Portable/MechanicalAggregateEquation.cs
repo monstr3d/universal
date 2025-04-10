@@ -21,7 +21,7 @@ namespace Motion6D.Portable
     /// <summary>
     /// Differential equation realated to aggregate
     /// </summary>
-    public class MechanicalAggregateEquation : IDifferentialEquationSolver, IStarted
+    public class MechanicalAggregateEquation : IExtendedDifferentialEquationSolver, IStarted
     {
 
         #region Fields

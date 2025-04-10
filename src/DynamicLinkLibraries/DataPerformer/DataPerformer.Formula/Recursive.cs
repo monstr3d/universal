@@ -49,7 +49,10 @@ namespace DataPerformer.Formula
 		/// <summary>
 		/// Internal variables
 		/// </summary>
-		protected Dictionary<object,object> variables = new Dictionary<object, object>();
+		protected Dictionary<object,object> VariablesL
+		{
+			get;
+		} = new Dictionary<object, object>();
 
 		/// <summary>
 		/// Aliases
@@ -147,7 +150,11 @@ namespace DataPerformer.Formula
 		/// <summary>
 		/// Update
 		/// </summary>
-		protected Action update;
+		protected Action Update
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
 		/// Dictionary of formulas
@@ -169,7 +176,7 @@ namespace DataPerformer.Formula
 		public Recursive()
 		{
 			proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
-            update = UpdateFormulas;
+            Update = UpdateFormulas;
 		}
 
         #endregion
@@ -264,14 +271,14 @@ namespace DataPerformer.Formula
 					object[] o = externalAliases[c] as object[];
 					IAlias al = o[0] as IAlias;
 					string key = o[1] as string;
-					object[] ob = variables[c] as object[];
+					object[] ob = VariablesL[c] as object[];
 					al[key] = ob[0];
 				}
 				UpdateChildrenData();
-				update();
+				Update();
 				foreach (char c in varc)
 				{
-					object[] o = variables[c] as object[];
+					object[] o = VariablesL[c] as object[];
 					o[0] = o[3];
 				}
 				isUpdated = true;
@@ -869,10 +876,10 @@ namespace DataPerformer.Formula
                 }
             }
             IFormulaObjectCreator creator = VariableDetector.GetCreator(this);
-            variables.Clear();
+            VariablesL.Clear();
             foreach (char c in varc)
             {
-                variables[c] = new object[4];
+                VariablesL[c] = new object[4];
             }
             IList<string> an = AliasNames;
             List<ObjectFormulaTree> tt = new List<ObjectFormulaTree>();
@@ -914,7 +921,7 @@ namespace DataPerformer.Formula
                 {
                     t = os[2];
                 }
-                object[] ol = variables[c] as object[];
+                object[] ol = VariablesL[c] as object[];
                 string f = os[1] as string;
                 MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, f);
                 ObjectFormulaTree tree = ObjectFormulaTree.CreateTree(form.FullTransform(proh), creator);
@@ -952,7 +959,7 @@ namespace DataPerformer.Formula
 				foreach (char c in varc)
 				{
 					object[] o0 = vars[c] as object[];
-					object[] o = variables[c] as object[];
+					object[] o = VariablesL[c] as object[];
 					o[0] = o0[2];
 				}
 				oldStep = step;
@@ -975,7 +982,7 @@ namespace DataPerformer.Formula
 		{
 			foreach (char c in varc)
 			{
-				object[] o = variables[c] as object[];
+				object[] o = VariablesL[c] as object[];
 				ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
 				o[3] = tree.Result;
 			}
@@ -986,7 +993,7 @@ namespace DataPerformer.Formula
 			try
 			{
 				List<IMeasurement> outNew = new List<IMeasurement>();
-				update = UpdateFormulas;
+				Update = UpdateFormulas;
 				proxy = null;
 				proxy = proxyFactory.CreateProxy(this, StaticExtensionFormulaEditor.CheckValue);
                 //int k = 0;
@@ -994,7 +1001,7 @@ namespace DataPerformer.Formula
 				AssociatedAddition aa = new AssociatedAddition(this, null);
 				foreach (char c in varc)
 				{
-					object[] o = variables[c] as object[];
+					object[] o = VariablesL[c] as object[];
 					ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
 					FormulaMeasurement fm = FormulaMeasurement.Create(tree, 0, c + "", aa, this);
 					dictF[c] = fm;
@@ -1006,7 +1013,7 @@ namespace DataPerformer.Formula
 					lm.Add(mm);
 				}
 				FormulaMeasurement.Set(lm, proxy);
-				update = UpdateProxy;
+				Update = UpdateProxy;
 			// !!! VERY BAD	output = outNew;
 			}
 			catch (Exception ex)
@@ -1020,7 +1027,7 @@ namespace DataPerformer.Formula
 			proxy.Update();
 			foreach (char c in varc)
 			{
-				object[] o = variables[c] as object[];
+				object[] o = VariablesL[c] as object[];
 				IMeasurement m = dictF[c];
 				o[3] = m.Parameter();
 			}
@@ -1095,7 +1102,11 @@ namespace DataPerformer.Formula
 			/// <summary>
 			/// Parent
 			/// </summary>
-			private Recursive r;
+			private Recursive Recursive
+			{
+				get;
+				set;
+			}
 
 			/// <summary>
 			/// Type
@@ -1119,7 +1130,7 @@ namespace DataPerformer.Formula
 			private Variable(char key, Recursive r)
 			{
 				this.key = key;
-				this.r = r;
+				this.Recursive = r;
 				name = key + "";
 				type = r.GetType(name);
 			}
@@ -1159,7 +1170,7 @@ namespace DataPerformer.Formula
 
 			object IObjectOperation.ReturnType
 			{
-				get { return r.GetType(key + ""); }
+				get { return Recursive.GetType(key + ""); }
 			}
 
 			bool IPowered.IsPowered
@@ -1184,7 +1195,7 @@ namespace DataPerformer.Formula
 
             public override string ToString()
             {
-                return r.ToString() + base.ToString();
+                return Recursive.ToString() + base.ToString();
             }
 
             /// <summary>
@@ -1206,7 +1217,7 @@ namespace DataPerformer.Formula
 			/// <returns></returns>
 			private object getValue()
 			{
-				object[] o = r.variables[key] as object[];
+				object[] o = Recursive.VariablesL[key] as object[];
 				return o[0];
 			}
 

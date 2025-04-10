@@ -34,7 +34,7 @@ namespace FormulaEditor.CSharp
          Environment.NewLine + "" +
          Environment.NewLine + "";
 
-        private static bool cycle = true;
+        private static bool cycle = false;
 
         private static readonly ITypeCreator typeCreator =
             new CSTypeCreator();
@@ -163,7 +163,7 @@ namespace FormulaEditor.CSharp
             }
             catch (Exception exception)
             {
-                exception.HandleException();
+                exception.HandleFictionException();
             }
             if (ret.Length > 0)
             {
@@ -614,11 +614,11 @@ namespace FormulaEditor.CSharp
             bool success;
             if (cycle)
             {
-                ProcessCycleArrayCode(0, tree, t, ret + "[", par, parameters, types, art, list, vari, init, out success);
+                ProcessCycleArrayCode(0, tree, t, ret, par, parameters, types, art, list, vari, init, out success);
             }
             else
             {
-                ProcessArrayCode(0, tree, t, ret + "[", par, types, art, list, vari, init, out success);
+                ProcessArrayCode(0, tree, t, ret, par, types, art, list, vari, init, out success);
             }
             if (!success)
             {
@@ -647,6 +647,7 @@ namespace FormulaEditor.CSharp
             string[] pureParameters, object[] types, ArrayReturnType retType, 
             List<string> list, List<string> variables, List<string> initializers, out bool success)
         {
+            var retp = ret + "[";
             if (retType.Dimension.Length == 1)
             {
                 //int n = retType.Dimension[level];
@@ -663,7 +664,7 @@ namespace FormulaEditor.CSharp
                 list.Add("{");
                 string si = "i";
                 string sf = si + "]";
-                string retLocal = ret + sf;
+                string retLocal = retp + sf;
                 for (int j = 0; j < parameters.Length; j++)
                 {
                     par[j] = parameters[j] + "";
@@ -679,7 +680,7 @@ namespace FormulaEditor.CSharp
                 }
                 IList<string> vari;
                 IList<string> init;
-                IList<string> l = CreateCode(childTree, retLocal, par, out vari, out init);
+                IList<string> l = CreateCode(childTree, ret, par, out vari, out init);
                 success = (l != null);
                 if (!success)
                 {
@@ -709,7 +710,7 @@ namespace FormulaEditor.CSharp
                 {
                     string si = i + "";
                     string sf = si + "]";
-                    string retLocal = ret + sf;
+                    string retLocal = retp + sf;
 
                     for (int j = 0; j < parameters.Length; j++)
                     {
@@ -751,7 +752,7 @@ namespace FormulaEditor.CSharp
             for (int i = 0; i < k; i++)
             {
                 string[] parlocal = new string[parameters.Length];
-                string retLocal = ret + i + ",";
+                string retLocal = retp + i + ",";
                 for (int j = 0; j < parameters.Length; i++)
                 {
                     int dim = GetLength(types[j]);
@@ -799,6 +800,7 @@ namespace FormulaEditor.CSharp
             string ret, string[] parameters, object[] types, ArrayReturnType retType, List<string> list,
            List<string> variables, List<string> initializers, out bool success)
         {
+            var retp = ret + "[";
             if (level == retType.Dimension.Length - 1)
             {
                 int n = retType.Dimension[level];
@@ -807,7 +809,7 @@ namespace FormulaEditor.CSharp
                 {
                     string si = i + "";
                     string sf = si + "]";
-                    string retLocal = ret + sf;
+                    string retLocal = retp + sf;
                     
                     for (int j = 0; j < parameters.Length; j++)
                     {
@@ -849,7 +851,7 @@ namespace FormulaEditor.CSharp
             for (int i = 0; i < k; i++)
             {
                 string[] parlocal = new string[parameters.Length];
-                string retLocal = ret + i + ",";
+                string retLocal = retp + i + ",";
                 for (int j = 0; j < parameters.Length; i++)
                 {
                     int dim = GetLength(types[j]);

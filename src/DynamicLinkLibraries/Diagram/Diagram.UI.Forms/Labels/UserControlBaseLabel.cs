@@ -54,7 +54,11 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Firswt load sign
         /// </summary>
-        bool firslLoad = true;
+        public bool FirstLoad
+        {
+            get;
+            set;
+        } = true;
 
         #endregion
 
@@ -338,11 +342,11 @@ namespace Diagram.UI.Labels
 
         void IPostLoadControl.PostLoad()
         {
-            if (!firslLoad)
+            if (!FirstLoad)
             {
                 return;
             }
-            firslLoad = false;
+            FirstLoad = false;
             Post();
         }
 

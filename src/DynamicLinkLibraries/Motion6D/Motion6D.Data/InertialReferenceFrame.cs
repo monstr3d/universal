@@ -19,7 +19,7 @@ namespace Motion6D
     /// The object have nonzero moment of inertia
     /// </summary>
     [Serializable()]
-    public class InertialReferenceFrame : RigidReferenceFrame, IDifferentialEquationSolver, 
+    public class InertialReferenceFrame : RigidReferenceFrame, IExtendedDifferentialEquationSolver, 
         IDataConsumer, IStarted, IVelocity, IOrientation, IAngularVelocity
     {
         #region Fields

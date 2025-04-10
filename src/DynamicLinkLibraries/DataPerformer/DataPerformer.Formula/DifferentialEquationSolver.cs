@@ -224,7 +224,7 @@ namespace DataPerformer.Formula
         /// </summary>
         /// <param name="offset">Offset</param>
         /// <param name="variables">Vector of all desktop differential equations variables</param>
-        public void CopyVariablesToSolver(int offset, double[] variables)
+        void IDifferentialEquationSolver.CopyVariablesToSolver(int offset, double[] variables)
         {
             int i = offset;
             foreach (Variable v in output)
@@ -237,7 +237,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Calculates derivations
         /// </summary>
-        public void CalculateDerivations()
+        void IDifferentialEquationSolver.CalculateDerivations()
         {
             try
             {
@@ -253,7 +253,7 @@ namespace DataPerformer.Formula
                     }
                     an.SetValue(value);
                 }
-                foreach (IMeasurements m in dependent)
+                foreach (IMeasurements m in Dependent)
                 {
                     m.IsUpdated = false;
                     m.UpdateMeasurements();
@@ -310,29 +310,7 @@ namespace DataPerformer.Formula
             }
         }
 
-        /// <summary>
-        /// Updates measurements data
-        /// </summary>
-        public void UpdateMeasurements()
-        {
-            if (IsUpdated)
-            {
-                return;
-            }
-            try
-            {
-                //!!! UpdateChildrenData();
-                CalculateDerivations();
-                isUpdated = true;
-            }
-            catch (Exception e)
-            {
-                e.HandleException(10);
-                this.Throw(e);
-            }
-        }
-
-
+ 
         /// <summary>
         /// The time
         /// </summary>
@@ -379,7 +357,7 @@ namespace DataPerformer.Formula
                             goto m;
                         }
                     }
-                    throw new OwnException(DataConsumer.VariablesShortage + " : " + c);
+                    throw new Exception(DataConsumer.VariablesShortage + " : " + c);
                 m:
                     b = !b;
                 }
@@ -1028,7 +1006,7 @@ namespace DataPerformer.Formula
                 {
                     if (pars[c] != null)
                     {
-                        /*!!!   this.Throw(new Exc             eption(PureDesktop.GetResourceString(VectorFormulaConsumer.ExternalParameter_) +
+                        /*!!!   this.Throw(new Exception(PureDesktop.GetResourceString(VectorFormulaConsumer.ExternalParameter_) +
                                c + PureDesktop.GetResourceString(VectorFormulaConsumer._IsNotDefined)));
                        */
                     }
@@ -1162,10 +1140,33 @@ namespace DataPerformer.Formula
 
         #region IMeasurements Members
 
+
+        protected override IEnumerable<IMeasurement> Children => output;
+
         /// <summary>
-        /// The count of measurements
+        /// Updates measurements data
         /// </summary>
-        int IMeasurements.Count
+        protected override void UpdateMeasurements()
+        {
+            if (IsUpdated)
+            {
+                return;
+            }
+            try
+            {
+                //!!! UpdateChildrenData();
+               // CalculateDerivations();
+                isUpdated = true;
+            }
+            catch (Exception e)
+            {
+                e.HandleException(10);
+                this.Throw(e);
+            }
+        }
+
+
+        protected override int MeasurementsCount
         {
             get
             {
@@ -1175,20 +1176,16 @@ namespace DataPerformer.Formula
                 }
                 return output.Length;
             }
+
         }
 
-
-        /// <summary>
-        /// Access to n - th measurement
-        /// </summary>
-        IMeasurement IMeasurements.this[int n]
+        protected override IMeasurement GetMeasurement(int n)
         {
-            get
-            {
-                return output[n];
-            }
+            return output[n];
         }
+  
 
+    
 
         #endregion
 
@@ -1586,7 +1583,7 @@ namespace DataPerformer.Formula
                         {
                             throw ex;
                         }
-                        throw new OwnException("Formula " + (i + 1) + " : " + ex.Message);
+                        throw new Exception("Formula " + (i + 1) + " : " + ex.Message);
                     }
                 }
                 try

@@ -22,7 +22,7 @@ namespace ControlSystems.Data
     /// </summary>
     [Serializable()]
     public class RationalTransformControlSystemData : RationalTransformControlSystemFunctionWrapper, IMeasurement,
-      DataPerformer.Interfaces.IDifferentialEquationSolver, IDataConsumer, 
+       IExtendedDifferentialEquationSolver, IDataConsumer, 
         IPostSetArrow, IStarted, IDynamical, IAlias, IReplaceMeasurements,
         ISetFeedback
     {

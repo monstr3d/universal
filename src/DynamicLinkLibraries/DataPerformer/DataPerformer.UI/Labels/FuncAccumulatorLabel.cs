@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
 
 using Diagram.UI;
-using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 
 using DataPerformer.UI.UserControls;
-using DataPerformer;
 
 
 namespace DataPerformer.UI.Labels
@@ -101,6 +93,11 @@ namespace DataPerformer.UI.Labels
         public override void Post()
         {
             uc.Function = acc;
+            var up = this.FindParent<UserControlBaseLabel>();
+            if (up != null)
+            {
+                up.FirstLoad = false;
+            }
         }
 
         /// <summary>

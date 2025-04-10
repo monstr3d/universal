@@ -59,7 +59,10 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Dependent measurements
         /// </summary>
-        protected List<IMeasurements> dependent = new ();
+        protected List<IMeasurements> Dependent
+        {
+            get;
+        } = new ();
 
         /// <summary>
         /// List of dependent objects
@@ -312,7 +315,7 @@ namespace DataPerformer.Portable
                 this.Throw("Measurements aldeady exists");
             }
             measurementsData.Add(measurements);
-            measurementsData.GetDependent(list, dependent);
+            measurementsData.GetDependent(list, Dependent);
             onChangeInput?.Invoke();
         }
 
@@ -323,14 +326,19 @@ namespace DataPerformer.Portable
         public void Remove(IMeasurements measurements)
         {
             measurementsData.Remove(measurements);
-            measurementsData.GetDependent(list, dependent);
+            measurementsData.GetDependent(list, Dependent);
             onChangeInput?.Invoke();
+        }
+
+        void IDataConsumer.UpdateChildrenData()
+        {
+            UpdateChildrenData();
         }
 
         /// <summary>
         /// Updates children measurements
         /// </summary>
-        public void UpdateChildrenData()
+        protected virtual void UpdateChildrenData()
         {
             if (isUpdated)
             {
@@ -499,13 +507,13 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurements>.AddChild(IMeasurements child)
         {
-            measurementsData.Add(child);
+            Add(child);
             onChangeInput?.Invoke();
         }
 
         void IChildren<IMeasurements>.RemoveChild(IMeasurements child)
         {
-            measurementsData.Remove(child);
+            Remove(child);
             onChangeInput?.Invoke();
         }
 

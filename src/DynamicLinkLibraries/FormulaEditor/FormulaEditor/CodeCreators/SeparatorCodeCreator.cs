@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 using FormulaEditor.Interfaces;
-using BaseTypes.Interfaces;
 
 namespace FormulaEditor.CodeCreators
 {

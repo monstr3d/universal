@@ -26,7 +26,7 @@ namespace Motion6D
     [Serializable()]
     [Leaf<IPosition>]
     public class AcceleratedPosition : CategoryObject, ISerializable, IAlias, IPosition,
-        IAcceleration, IDifferentialEquationSolver, IVelocity,
+        IAcceleration, IExtendedDifferentialEquationSolver, IVelocity,
         IStarted, IChildren<IAssociatedObject>, IDataConsumer, IPostSetArrow
     {
         #region Fields

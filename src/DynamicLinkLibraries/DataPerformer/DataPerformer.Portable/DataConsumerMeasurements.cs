@@ -270,34 +270,31 @@ namespace DataPerformer.Portable
             }
         }
 
-        /// <summary>
-        /// Access to n - th measurement
-        /// </summary>
-        IMeasurement IMeasurements.this[int n]
+        protected virtual IMeasurement GetMeasurement(int n)
         {
-            get
+            if (measurements == null)
             {
-                if (measurements == null)
-                {
-                    this.Throw(new OwnException("Undefined measurements"));
-                }
-                if (measurements.Length <= n)
-                {
-                    this.Throw(new OwnException("Shortage of measuremens"));
-                }
-                IMeasurement measurement = measurements[n];
-                if (measurement == null)
-                {
-                    this.Throw(new OwnException("Undefined measure"));
-                }
-                return measurement;
+                this.Throw(new OwnException("Undefined measurements"));
             }
+            if (measurements.Length <= n)
+            {
+                this.Throw(new OwnException("Shortage of measuremens"));
+            }
+            IMeasurement measurement = measurements[n];
+            if (measurement == null)
+            {
+                this.Throw(new OwnException("Undefined measure"));
+            }
+            return measurement;
+
         }
 
         /// <summary>
-        /// Updates measurements data
+        /// Access to n - th measurement
         /// </summary>
-        void IMeasurements.UpdateMeasurements()
+        IMeasurement IMeasurements.this[int n] => GetMeasurement(n);
+
+        protected virtual void UpdateMeasurements()
         {
             if (IsUpdated)
             {
@@ -329,6 +326,17 @@ namespace DataPerformer.Portable
             {
                 exception.HandleException(errorLevel);
             }
+
+        }
+
+
+
+        /// <summary>
+        /// Updates measurements data
+        /// </summary>
+        void IMeasurements.UpdateMeasurements()
+        {
+            UpdateMeasurements();
         }
 
         #endregion
@@ -628,7 +636,9 @@ namespace DataPerformer.Portable
             get { return measurements.Length; }
         }
 
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
+        protected virtual IEnumerable<IMeasurement> Children => measurements;
+
+        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => Children;
 
         protected virtual void SetFeedback()
         {

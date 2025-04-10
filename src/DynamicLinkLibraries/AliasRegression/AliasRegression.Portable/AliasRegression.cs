@@ -1,15 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using ErrorHandler;
+
 using GeneralLinearMethod;
+
 using NamedTree;
+using ErrorHandler;
+
 
 namespace Regression.Portable
 {

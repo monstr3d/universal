@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DataPerformer.Interfaces
 {
     /// <summary>
     /// Solver of differential equations system
     /// </summary>
-    public interface IDifferentialEquationSolver : IMeasurements, IStateDoubleVariables
+    public interface IDifferentialEquationSolver :  IStateDoubleVariables
     {
         /// <summary>
         /// Calculates derivations
