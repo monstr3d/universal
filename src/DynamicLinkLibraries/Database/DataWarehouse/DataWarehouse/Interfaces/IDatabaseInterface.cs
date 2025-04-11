@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Text;
 
 
 
@@ -31,7 +28,7 @@ namespace DataWarehouse.Interfaces
         IDirectory[] GetRoots(string login, string password,  object key, string[] extensions);
 
         /// <summary>
-        /// Refreshs itself
+        /// Refreshes itself
         /// </summary>
         /// <param name="login">Login</param>
         /// <param name="password">Password</param>

@@ -55,7 +55,9 @@ namespace SQLServerWarehouse
         { get; } = new Dictionary<Guid, DataSetWarehouse.SelectBinaryTableRow>();
 
         static internal List<IDirectory> Roots
-        { get; } = new List<IDirectory>();
+        { 
+            get; 
+        } = new List<IDirectory>();
 
 
         static internal void ConnectionAction(this Component component, Action action)

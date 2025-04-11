@@ -8,6 +8,6 @@
         /// <summary>
         /// Name
         /// </summary>
-        public string Name { get; protected set; }
+        public string Name { get;  set; }
     }
 }

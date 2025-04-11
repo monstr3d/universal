@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using NamedTree;
 
 namespace DataWarehouse.Interfaces
 {
     /// <summary>
     /// Node
     /// </summary>
-    public interface INode 
+    public interface INode : INamed, NamedTree.INode<INode>
     {
         /// <summary>
         /// Id
@@ -18,17 +15,9 @@ namespace DataWarehouse.Interfaces
             get;
         }
 
+ 
         /// <summary>
-        /// Name
-        /// </summary>
-        string Name
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Desctiption
+        /// Description
         /// </summary>
         string Description
         {

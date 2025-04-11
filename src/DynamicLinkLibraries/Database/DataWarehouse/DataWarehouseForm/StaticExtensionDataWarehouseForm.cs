@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using CommonControls.Interfaces;
 using DataWarehouse.Interfaces;
+using NamedTree;
 
 namespace DataWarehouse
 {
@@ -38,9 +40,9 @@ namespace DataWarehouse
         public static TreeNode GetNode(this IDirectory dir, Dictionary<INode, TreeNode> nodes)
         {
             List<TreeNode> ln = new List<TreeNode>();
-            IEnumerable<IDirectory> ed = dir;
+            IChildren<IDirectory> ed = dir;
             List<IDirectory> ld = new List<IDirectory>();
-            ld.AddRange(ed);
+            ld.AddRange(ed.Children);
             ld.Sort(NodeComparer.Singleton);
             foreach (IDirectory dird in ld)
             {
@@ -49,8 +51,8 @@ namespace DataWarehouse
                 ln.Add(tn);
             }
             List<ILeaf> ll = new List<ILeaf>();
-            IEnumerable<ILeaf> el = dir;
-            ll.AddRange(el);
+            IChildren<ILeaf> el = dir as IChildren<ILeaf>;
+            ll.AddRange(el.Children);
             ll.Sort(NodeComparer.Singleton as IComparer<ILeaf>);
             foreach (ILeaf leaf in ll)
             {

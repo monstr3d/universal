@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NamedTree;
 
 namespace DataWarehouse.Interfaces
 {
     /// <summary>
-    /// Direcotry
+    /// Directory
     /// </summary>
-    public interface IDirectory : INode, IEnumerable<IDirectory>, IEnumerable<ILeaf>
+    public interface IDirectory : INode, IChildren<IDirectory>, IChildren<ILeaf>
     {
         /// <summary>
         /// Adds directory

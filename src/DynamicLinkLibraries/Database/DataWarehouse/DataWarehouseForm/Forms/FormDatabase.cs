@@ -1,15 +1,16 @@
+using CommonControls.Interfaces;
+using DataWarehouse.Interfaces;
+using DataWarehouse.Utils;
+using ErrorHandler;
+using NamedTree;
+using ResourceService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-
-
-using ResourceService;
-using DataWarehouse.Utils;
-using DataWarehouse.Interfaces;
 
 
 namespace DataWarehouse.Forms
@@ -51,14 +52,13 @@ namespace DataWarehouse.Forms
         }
 
         /// <summary>
-        /// Constuctor
+        /// Constructor
         /// </summary>
         /// <param name="blob">Blob holder</param>
         /// <param name="data">Database interface</param>
         /// <param name="open">The "open" sign</param>
-        public FormDatabase(IBlob blob, DatabaseInterface data, bool open)
+        public FormDatabase(IBlob blob, DatabaseInterface data, bool open) : this()
         {
-            InitializeComponent();
             this.LoadControlResources();
             this.blob = blob;
             this.data = data;
@@ -111,9 +111,9 @@ namespace DataWarehouse.Forms
 
         private TreeNode GetNode(IDirectory dir)
         {
-            IEnumerable<IDirectory> d = dir;
+            IChildren<IDirectory> d = dir;
             List<IDirectory> l = new List<IDirectory>();
-            l.AddRange(d);
+            l.AddRange(d.Children);
             l.Sort(NodeComparer.Singleton);
             List<TreeNode> lt = new List<TreeNode>();
             foreach (IDirectory dd in l)
@@ -167,10 +167,11 @@ namespace DataWarehouse.Forms
             {
                 dataTableDoc.Clear();
             }*/
-            IEnumerable<ILeaf> coll = selectedNode;
-            foreach (ILeaf leaf in coll)
+            IDirectory d = selectedNode;
+            IChildren<ILeaf> coll = d;
+            foreach (var leaf in coll.Children)
             {
-                string[] s = new string[] { leaf.Name, leaf.Extension };
+                string[] s = new string[] { leaf.Value.Name, leaf.Value.Extension };
                 ListViewItem it = new ListViewItem(s);
                 it.Tag = leaf;
                 listViewDoc.Items.Add(it);
@@ -209,7 +210,7 @@ namespace DataWarehouse.Forms
             {
                 return;
             }
-            selectedNode.Name = e.Label;
+            (selectedNode as INamed).Name = e.Label;
         }
 
         private void listViewDoc_Click(object sender, EventArgs e)
@@ -540,7 +541,7 @@ namespace DataWarehouse.Forms
                /* string guid = selected.Attributes["BinaryId"].Value;
                 XmlElement el = selected.GetElementsByTagName("Description")[0] as XmlElement;
                 data.UpdateData(guid, e.Label, el.InnerText); */
-                selected.Name = e.Label;
+                (selected as ILeaf).Name = e.Label;
 
             }
             catch (Exception)

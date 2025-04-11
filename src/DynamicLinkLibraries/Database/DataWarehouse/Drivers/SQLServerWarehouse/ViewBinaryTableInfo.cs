@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DataWarehouse;
 using DataWarehouse.Interfaces;
+using ErrorHandler;
+using NamedTree;
 
 namespace SQLServerWarehouse.Models
 {
@@ -17,10 +19,35 @@ namespace SQLServerWarehouse.Models
 
         object INode.Id => Id;
 
-        string INode.Name { get => Name; set => UpdateName(value); }
-        string INode.Description { get => Description; set => UpdateDescription(value); }
+         string INode.Description { get => Description; set => UpdateDescription(value); }
 
         string INode.Extension => Ext;
+
+        event Action<INode> INode<INode>.OnAdd
+        {
+            add
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+        }
+
+        event Action<INode> INode<INode>.OnRemove
+        {
+            add
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+        }
 
         void INode.RemoveItself()
         {
@@ -63,14 +90,24 @@ namespace SQLServerWarehouse.Models
 
         internal BinaryTree Parent
         { get; set; }
+        INode<INode> INode<INode>.Parent { get => Parent; set => throw new OwnNotImplemented("DataWarehouse"); }
+        IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
 
+        INode INode<INode>.Value => throw new OwnNotImplemented("DataWarehouse");
 
         public override string ToString()
         {
             return Name + " " + GetType(); 
         }
 
+        void INode<INode>.Add(INode<INode> node)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
 
-
+        void INode<INode>.Remove(INode<INode> node)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
     }
 }

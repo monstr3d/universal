@@ -1,5 +1,6 @@
 ﻿using CategoryTheory;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 using Motion6D.Interfaces;
 using NamedTree;
 
@@ -130,7 +131,7 @@ namespace Motion6D.Portable
    
 
         public virtual object Properties { get => properties; set => properties = value; }
-        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new System.NotImplementedException(); }
+        string INamed.Name { get => performer.GetAssociatedName(this); set => throw new OwnNotImplemented("Position"); }
 
         #endregion
 

@@ -166,10 +166,41 @@ namespace NamedTree
             foreach (var p in dictionray) d[p.Value] = p.Key;
             return d;
         }
-  
+
+      public IEnumerable<T> GetRoots<T, S>(Dictionary<INode<T>, S> childParent, Dictionary<S, INode<T>> id) 
+            where T : class where S : class
+        {
+
+            var f = (INode<T> node) =>
+            {
+                if (!childParent.ContainsKey(node))
+                {
+                    return null;
+                }
+                var p = childParent[node];
+                return id.ContainsKey(p) ? id[p] : null;
+            };
+            return GetRootsT(id.Values, f);
+        }
+
+
         public IEnumerable<T> GetRoots<T>(Dictionary<XmlElement, INode<T>> dictionary) where T : class
         {
-            var d = Inverse(dictionary);
+            var dd = new Dictionary<INode<T>, XmlElement>();
+            foreach (var x in dictionary)
+            {
+                var p = x.Key.ParentNode;
+                if (p is XmlElement e)
+                {
+                    if (dictionary.ContainsKey(e))
+                    {
+                        var parent = dictionary[e];
+                        dd[x.Value] = e;
+                    }
+                }
+            }
+            return GetRoots(dd, dictionary);
+     /*       var d = Inverse(dictionary);
             var f = (INode<T> n) =>
             {
                 var x = d[n];
@@ -185,7 +216,7 @@ namespace NamedTree
                 return null;
 
             };
-            return GetRootsT(dictionary.Values, f);
+            return GetRootsT(dictionary.Values, f);*/
         }
 
 

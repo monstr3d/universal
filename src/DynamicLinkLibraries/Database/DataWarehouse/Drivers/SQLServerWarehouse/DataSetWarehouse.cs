@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 using ErrorHandler;
@@ -8,6 +7,7 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
+using NamedTree;
 
 
 namespace SQLServerWarehouse
@@ -34,10 +34,40 @@ namespace SQLServerWarehouse
 
             byte[] ILeaf.Data { get => Data; set => Data = value; }
 
+            string INamed.Name 
+            { 
+                get => this.Name; 
+                set => UpdateName(value); 
+            }
 
-            string INode.Name { get => this.Name; set => UpdateName(value); }
 
             string INode.Description { get => this.Description; set => UpdateDescription(value); }
+
+            event Action<INode> INode<INode>.OnAdd
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<INode> INode<INode>.OnRemove
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
 
             void INode.RemoveItself()
             {
@@ -83,6 +113,15 @@ namespace SQLServerWarehouse
                 this.Change();
             }
 
+            void INode<INode>.Add(INode<INode> node)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            void INode<INode>.Remove(INode<INode> node)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
 
             internal SelectBinaryTreeRow Parent { get; set; }
 
@@ -105,6 +144,11 @@ namespace SQLServerWarehouse
                 }
             }
 
+            INode<INode> INode<INode>.Parent { get => Parent; set => Parent = value as SelectBinaryTreeRow; }
+            IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
+
+            INode INode<INode>.Value => this;
+
             #endregion
         }
 
@@ -112,9 +156,9 @@ namespace SQLServerWarehouse
         {
             #region Fields
 
-            List<SelectBinaryTreeRow> directories = new List<SelectBinaryTreeRow>();
+   //         List<SelectBinaryTreeRow> directories = new List<SelectBinaryTreeRow>();
 
-            List<SelectBinaryTableRow> leaves = new List<SelectBinaryTableRow>();
+   //         List<SelectBinaryTableRow> leaves = new List<SelectBinaryTableRow>();
 
             internal List<string> names = new List<string>();
 
@@ -124,10 +168,94 @@ namespace SQLServerWarehouse
 
             object INode.Id => Id;
 
-            string INode.Name { get => Name; set => UpdateName(value); }
+            string INamed.Name
+            { 
+                get => this.Name; 
+                set => UpdateName(value); 
+            }
+
+
             string INode.Description { get => Description; set => UpdateDescription(value); }
 
             string INode.Extension => ext;
+
+            event Action<INode> INode<INode>.OnAdd
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<INode> INode<INode>.OnRemove
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<IDirectory> IChildren<IDirectory>.OnAdd
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<IDirectory> IChildren<IDirectory>.OnRemove
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<ILeaf> IChildren<ILeaf>.OnAdd
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<ILeaf> IChildren<ILeaf>.OnRemove
+            {
+                add
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+
+                remove
+                {
+                    throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
 
             IDirectory IDirectory.Add(string name, string description, string ext)
             {
@@ -172,21 +300,8 @@ namespace SQLServerWarehouse
                 return result;
             }
 
-            IEnumerator<IDirectory> IEnumerable<IDirectory>.GetEnumerator()
-            {
-                return directories.GetEnumerator();
-            }
 
-            IEnumerator<ILeaf> IEnumerable<ILeaf>.GetEnumerator()
-            {
-                return leaves.GetEnumerator();
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return null;
-            }
-
+ 
             void INode.RemoveItself()
             {
                 Action action = () => { TableAdapter.DeleteBinaryTree(Id); };
@@ -206,38 +321,34 @@ namespace SQLServerWarehouse
             SelectBinaryTreeRow Parent
             { get; set; }
 
-            internal void Add(SelectBinaryTreeRow dir)
+   
+
+   
+   
+            protected virtual List<IDirectory> Directories
             {
-                directories.Add(dir);
-                dir.Parent = this;
-                names.Add(dir.Name);
-            }
+                get;
+            } = new();
 
 
-            internal void Add(SelectBinaryTableRow leaf)
+            protected virtual List<ILeaf> Leaves
             {
-                leaves.Add(leaf);
-                leaf.Parent = this;
-                names.Add(leaf.Name);
-            }
-
-            internal void Remove(SelectBinaryTreeRow dir)
-            {
-                directories.Remove(dir);
-                names.Remove(dir.Name);
-            }
-
-
-            internal void Remove(SelectBinaryTableRow leaf)
-            {
-                leaves.Remove(leaf);
-                names.Remove(leaf.Name);
-            }
-
+                get;
+            } = new();
 
 
             QueriesTableAdapter TableAdapter
             { get => StaticExtension.TableAdapter; }
+
+  
+            INode<INode> INode<INode>.Parent { get => Parent; set => Parent = value as SelectBinaryTreeRow; }
+            IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
+
+            INode INode<INode>.Value => this;
+
+            IEnumerable<IDirectory> IChildren<IDirectory>.Children => Directories;
+
+            IEnumerable<ILeaf> IChildren<ILeaf>.Children => Leaves;
 
             void UpdateName(string name)
             {
@@ -273,6 +384,65 @@ namespace SQLServerWarehouse
                     return false;
                 }
                 return true;
+            }
+
+            void INode<INode>.Add(INode<INode> node)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            void INode<INode>.Remove(INode<INode> node)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            void IChildren<IDirectory>.AddChild(IDirectory child)
+            {
+                Add(child);
+            }
+
+            void IChildren<IDirectory>.RemoveChild(IDirectory child)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            internal void Add(ILeaf leaf)
+            {
+                Leaves.Add(leaf);
+                leaf.Parent = this;
+                names.Add(leaf.Name);
+            }
+
+            internal void Add(IDirectory directory)
+            {
+                Directories.Add(directory);
+                directory.Parent = this;
+                names.Add(directory.Name);
+            }
+
+            internal void Remove(ILeaf leaf)
+            {
+                Leaves.Remove(leaf);
+                names.Remove(leaf.Name);
+            }
+
+            internal void Remove(IDirectory directory)
+            {
+                Directories.Remove(directory);
+                names.Remove(directory.Name);
+            }
+
+
+
+
+            void IChildren<ILeaf>.AddChild(ILeaf child)
+            {
+                Add(child);
+            }
+
+            void IChildren<ILeaf>.RemoveChild(ILeaf child)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
             }
 
             #endregion

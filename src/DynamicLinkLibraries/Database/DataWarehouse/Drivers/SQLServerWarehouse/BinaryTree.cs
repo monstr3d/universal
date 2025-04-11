@@ -6,6 +6,7 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using ErrorHandler;
+using NamedTree;
 
 namespace SQLServerWarehouse.Models
 {
@@ -28,10 +29,92 @@ namespace SQLServerWarehouse.Models
 
         object INode.Id => Id;
 
-        string INode.Name { get => Name; set => UpdateName(value); }
         string INode.Description { get => Description; set => UpdateDescription(value); }
 
         string INode.Extension => Ext;
+
+        INode<INode> INode<INode>.Parent { get => Parent; set => throw new OwnNotImplemented("DataWarehouse"); }
+        IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
+
+        INode INode<INode>.Value => this;
+
+        IEnumerable<IDirectory> IChildren<IDirectory>.Children => throw new OwnNotImplemented("DataWarehouse");
+
+        IEnumerable<ILeaf> IChildren<ILeaf>.Children => throw new OwnNotImplemented("DataWarehouse");
+
+        string INamed.Name { get => Name; set => Name = value; }
+
+        event Action<INode> INode<INode>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<INode> INode<INode>.OnRemove
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IDirectory> IChildren<IDirectory>.OnAdd
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action<IDirectory> IChildren<IDirectory>.OnRemove
+        {
+            add
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+        }
+
+        event Action<ILeaf> IChildren<ILeaf>.OnAdd
+        {
+            add
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+        }
+
+        event Action<ILeaf> IChildren<ILeaf>.OnRemove
+        {
+            add
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+        }
 
         IDirectory IDirectory.Add(string name, string description, string ext)
         {
@@ -104,38 +187,8 @@ namespace SQLServerWarehouse.Models
                   return result;*/
         }
 
-        IEnumerator<IDirectory> IEnumerable<IDirectory>.GetEnumerator()
-        {
-            foreach (var item in directories)
-            {
-                yield return item;
-            }
-        }
 
-        IEnumerator<ILeaf> IEnumerable<ILeaf>.GetEnumerator()
-        {
-            foreach (var item in leaves)
-            {
-                yield return item;
-            }
-        }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            /*          foreach (var item in InverseParent)
-                      {
-                          yield return item;
-                      }
-                      foreach (var item in tables)
-                      {
-                          yield return item;
-                      }
-                      foreach (var item in BinaryTables)
-                      {
-                          yield return item;
-                      }*/
-            return null;
-        }
 
         void INode.RemoveItself()
         {
@@ -221,6 +274,36 @@ namespace SQLServerWarehouse.Models
                 return false;
             }
             return true;
+        }
+
+        void INode<INode>.Add(INode<INode> node)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
+
+        void INode<INode>.Remove(INode<INode> node)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
+
+        void IChildren<IDirectory>.AddChild(IDirectory child)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
+
+        void IChildren<IDirectory>.RemoveChild(IDirectory child)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
+
+        void IChildren<ILeaf>.AddChild(ILeaf child)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
+        }
+
+        void IChildren<ILeaf>.RemoveChild(ILeaf child)
+        {
+            throw new OwnNotImplemented("DataWarehouse");
         }
 
         #endregion
