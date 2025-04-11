@@ -126,9 +126,9 @@ namespace Abstract3DConverters
                 {
                     meshConverter.SetEffect(o, mt);
                 }
-                foreach (var child in mesh.Children)
+                foreach (var child in mesh.Nodes)
                 {
-                    var ch = Create<T>(child, meshConverter);
+                    var ch = Create<T>(child.Value, meshConverter);
                     meshConverter.Add(o, ch);
                 }
                 return o as T;

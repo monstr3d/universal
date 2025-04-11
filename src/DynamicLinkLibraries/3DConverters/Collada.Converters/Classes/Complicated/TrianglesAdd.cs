@@ -47,7 +47,6 @@ namespace Collada.Converters.Classes.Complicated
  
         List<Polygon> IMesh.Polygons => Polygons;
 
-        List<IMesh> IMesh.Children => throw new IllegalSetPropetryException("Triangle");
 
         IMeshCreator IMesh.Creator => throw new IllegalSetPropetryException("Triangle");
  

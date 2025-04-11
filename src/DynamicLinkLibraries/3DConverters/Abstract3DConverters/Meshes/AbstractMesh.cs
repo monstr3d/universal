@@ -137,7 +137,7 @@ namespace Abstract3DConverters.Meshes
 
         #region Fields
 
-        IMesh parent;
+        protected IMesh parent;
 
         IMesh temp;
 
@@ -206,7 +206,7 @@ namespace Abstract3DConverters.Meshes
         INode<IMesh> INode<IMesh>.Parent { get => Parent; set => Parent = value; }
         IEnumerable<INode<IMesh>> INode<IMesh>.Nodes 
         { 
-            get => Children; 
+            get => Nodes; 
             set => throw new IllegalSetPropetryException("MESH SET CHILDREN PROHIBITED");
         }
 
@@ -214,7 +214,7 @@ namespace Abstract3DConverters.Meshes
 
         void INode<IMesh>.Add(INode<IMesh> node)
         {
-            Children.Add(node as IMesh);
+            Nodes.Add(node as IMesh);
         }
 
         string INamed.Name {  get => Name; set => Name = value; }
@@ -244,7 +244,6 @@ namespace Abstract3DConverters.Meshes
       
         List<Polygon> IMesh.Polygons => Polygons;
 
-        List<IMesh> IMesh.Children => Children;
 
         Effect IMesh.GetEffect(IMaterialCreator creator)
         {
@@ -323,7 +322,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Children
         /// </summary>
-        protected virtual List<IMesh> Children { get; } = new();
+        protected virtual List<IMesh> Nodes { get; } = new();
 
         /// <summary>
         /// Vertices

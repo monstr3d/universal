@@ -5,6 +5,7 @@ using Abstract3DConverters.Meshes;
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.MeshCreators;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace Collada.Converters.Meshes
@@ -12,6 +13,8 @@ namespace Collada.Converters.Meshes
     
     class AbstractMeshCollada : AbstractMeshPolygon
     {
+
+        protected override INode<IMesh> Parent {  set => parent = value as IMesh; }
 
         private ColladaMeshCreator meshCreator;
 

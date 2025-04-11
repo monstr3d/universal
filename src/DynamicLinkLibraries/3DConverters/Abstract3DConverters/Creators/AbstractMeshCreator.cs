@@ -87,10 +87,10 @@ namespace Abstract3DConverters.Creators
   
         protected virtual void Perform(IMesh mesh, Action<IMesh> action)
         {
-            var children = mesh.Children;
+            var children = mesh.Nodes;
             foreach (var child in children)
             {
-                Perform(child, action);
+                Perform(child.Value, action);
             }
             action(mesh);
         }

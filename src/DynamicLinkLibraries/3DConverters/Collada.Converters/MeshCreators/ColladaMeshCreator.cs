@@ -120,7 +120,6 @@ namespace Collada.Converters.MeshCreators
                 StaticExtensionCollada.Collada = this;
                 StaticExtensionCollada.Function = this;
                 CreateAll();
-                p.SetParents(MeshesParent);
             }
             catch (Exception ex)
             {
@@ -181,12 +180,11 @@ namespace Collada.Converters.MeshCreators
             return d;
         }
 
-        protected override IEnumerable<AbstractMesh> Meshes
+        protected override IEnumerable<IMesh> Meshes
         {
             get
             {
-                p.SetParents(MeshesParent);
-                return s.GetRoots(MeshesParent.Values).Select(a => a as AbstractMesh).ToList();
+                return p.GetRoots(MeshesParent).ToArray();
             }
         }
 

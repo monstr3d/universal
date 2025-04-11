@@ -43,10 +43,6 @@ namespace Abstract3DConverters.Interfaces
 
         }
 
-        /// <summary>
-        /// Children
-        /// </summary>
-        List<IMesh> Children { get; }
 
         /// <summary>
         /// Creator of meshes

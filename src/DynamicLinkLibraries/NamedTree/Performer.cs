@@ -1,6 +1,8 @@
-﻿using ErrorHandler;
+﻿using System.Collections.Generic;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Xml;
+using ErrorHandler;
 
 namespace NamedTree
 {
@@ -14,6 +16,16 @@ namespace NamedTree
         public IEnumerable<T> GetAllT<T>(INode<T> node) where T : class
         {
             return from n in GetAll(node)  select n.Value;
+        }
+
+        public void Perform<T>(INode<T> node, Action<T> action) where T : class
+        {
+            var nodes = node.Nodes;
+            foreach (var child in nodes)
+            {
+                Perform(child, action);
+            }
+            action(node.Value);
         }
 
 
@@ -71,6 +83,12 @@ namespace NamedTree
             return children.Children;
         }
 
+        public IEnumerable<T> Get<T>(INode<T> node) where T : class
+        {
+            return from n in node.Nodes select n.Value;
+        }
+
+
         public void AddChildren<T>(IChildren<T> parent, IEnumerable<T> children) where T : class
         {
             var arr = children.ToArray();
@@ -85,7 +103,7 @@ namespace NamedTree
         /// Sets parents for the Dictionary
         /// </summary>
         /// <param name="nodes">The dictionary</param>
-        public void SetParents<T>(Dictionary<XmlElement, T> nodes) where T : class
+        public void SetParents1<T>(Dictionary<XmlElement, T> nodes) where T : class
         {
             foreach (var node in nodes)
             {
@@ -107,13 +125,75 @@ namespace NamedTree
             }
         }
 
+        
+
+        public INode<T> GetParent<T>(INode<T> node, Func<INode<T>, INode<T>> findParent) where T : class
+        {
+            if (node.Parent != null)
+            {
+                throw new InvalidOperationException("Patent exist");
+            }
+            var parent = findParent(node);
+            if (parent != null)
+            {
+                node.Parent = parent;
+                parent.Add(node);
+            }
+            else
+            {
+                return null;
+            }
+            return parent;
+        }
+
+
+        public IEnumerable<INode<T>> GetRoots<T>(IEnumerable<INode<T>> nodes, Func<INode<T>, INode<T>> findParent) where T : class
+        {
+            var parents = from node in nodes select GetParent(node, findParent);
+            parents.ToList();
+            return from node in nodes where node.Parent == null select node;
+        }
+
+        public IEnumerable<T> GetRootsT<T>(IEnumerable<INode<T>> nodes, Func<INode<T>, INode<T>> findParent) where T : class
+        {
+            return from node in GetRoots(nodes, findParent) select node.Value;
+        }
+
+
+        public Dictionary<T, S> Inverse<T, S>(Dictionary<S, T> dictionray) where T : class where S : class
+        {
+            var d = new Dictionary<T, S>();
+            foreach (var p in dictionray) d[p.Value] = p.Key;
+            return d;
+        }
+  
+        public IEnumerable<T> GetRoots<T>(Dictionary<XmlElement, INode<T>> dictionary) where T : class
+        {
+            var d = Inverse(dictionary);
+            var f = (INode<T> n) =>
+            {
+                var x = d[n];
+                x = x.ParentNode as XmlElement;
+                if (x == null)
+                {
+                    return null;
+                }
+                if (dictionary.ContainsKey(x))
+                {
+                    return dictionary[x];
+                }
+                return null;
+
+            };
+            return GetRootsT(dictionary.Values, f);
+        }
 
 
         /// <summary>
         /// Sets parents for the Dictionary
         /// </summary>
         /// <param name="nodes">The dictionary</param>
-        public void SetParents<T>(Dictionary<XmlElement, INode<T>> nodes) where T : class
+        public void SetParents1<T>(Dictionary<XmlElement, INode<T>> nodes) where T : class
         {
             foreach (var node in nodes)
             {
@@ -240,6 +320,8 @@ namespace NamedTree
             return null;
         }
 
+        
+
 
         /// <summary>
         /// Gets attribute
@@ -261,7 +343,18 @@ namespace NamedTree
 #pragma warning restore CS8603 // Possible null reference return.
         }
 
-        
+        class FindParent<T> where T : class
+        {
+            internal FindParent(INode<T> node, Func<INode<T>, INode<T>> findParent)
+            {
+                var parent = findParent(node);
+                if (parent != null)
+                {
+                    node.Parent = parent;
+                    parent.Add(node);
+                }
+            }
+        }
 
     }
 }

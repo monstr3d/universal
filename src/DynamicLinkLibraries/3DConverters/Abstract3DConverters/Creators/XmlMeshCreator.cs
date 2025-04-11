@@ -16,7 +16,7 @@ namespace Abstract3DConverters.Creators
         internal Dictionary<string, Material> InternalMaterials => Materials;
    
 
-        public Dictionary<XmlElement, IMesh> MeshesParent 
+        public Dictionary<XmlElement, INode<IMesh>> MeshesParent 
         { 
             get; 
             private set; 

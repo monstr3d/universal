@@ -1,29 +1,25 @@
 ﻿namespace ErrorHandler
 {
-
     /// <summary>
-    /// Own exception
+    /// Own not implemented excerption
     /// </summary>
-    public class OwnException : Exception
+    public class OwnNotImplemented : OwnException
     {
         /// <summary>
-        /// Constructor
+        /// Constructor 
         /// </summary>
         /// <param name="message">Message</param>
-        public OwnException(string message = "") : base(message)
+        public OwnNotImplemented(string message = null) : base(message)
         {
 
         }
-
-
         /// <summary>
-        /// Constructor
+        /// Constructor 
         /// </summary>
-        public OwnException()
+       public OwnNotImplemented()
         {
 
         }
-
 
     }
 }

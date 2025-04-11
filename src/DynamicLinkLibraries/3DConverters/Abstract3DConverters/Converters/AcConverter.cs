@@ -64,7 +64,7 @@ namespace Abstract3DConverters.Converters
             try
             {
                 var l = new List<string>();
-                var children = mesh.Children;
+                var children = mesh.Nodes.ToList();
                 var kids = children.Count;
                 if (kids > 0)
                 {
@@ -74,7 +74,7 @@ namespace Abstract3DConverters.Converters
                     return l;
                     foreach (var im in children)
                     {
-                        var lt = Converter.Create(im) as List<string>;
+                        var lt = Converter.Create(im.Value) as List<string>;
                         l.AddRange(lt);
                     }
                     return l;
