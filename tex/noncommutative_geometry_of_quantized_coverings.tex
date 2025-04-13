@@ -6919,7 +6919,7 @@ then one has:
 If $\xi= \left( E, \pi, \mathcal X\right)$ is a vector bundle then the functor $\Ga$ yields a \textit{presheaf of sections} of $E$. The associated sheaf $\mathbf{Sh} \left( E, \pi, \mathcal X\right)= \mathbf{Sh} \left( E\right)$ is the \textit{sheaf of sections} of $E$.
 \end{defn}
 \begin{remark}\label{top_b_inv_im_rem}
- If $f: \sX\to \sY$ is  a continuous surjective  map  and $\left( E, \pi, \mathcal Y\right)$ is a bundle over !!! with base  $\sY$ then from the Remark \ref{sheaf_inv_im_rem} it follow that there is an injective homomorphism of sheaves $ \mathbf{Sh} \left( E\right)\to   f_*f^{-1}\mathbf{Sh} \left( E\right)$. This map yields an injective map $\Ga\left(E \right) \to \Ga\left(f^*E \right)$, where  $f^*E$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn})
+ If $f: \sX\to \sY$ is  a continuous surjective  map  and $\left( E, \pi, \mathcal Y\right)$ is a bundle with base  $\sY$ then from the Remark \ref{sheaf_inv_im_rem} it follow that there is an injective homomorphism of sheaves $ \mathbf{Sh} \left( E\right)\to   f_*f^{-1}\mathbf{Sh} \left( E\right)$. This map yields an  injective homomorphism  $\Ga\left(E \right) \to \Ga\left(f^*E \right)$ of  $\C$-linear spaces, where  $f^*E$ is the inverse image by $f$ (cf. Definition \ref{vb_inv_img_funct_defn}).
 \end{remark}
 
 \section{Continuity structures lift and descent}\label{top_lift_desc_sec}
@@ -12235,13 +12235,19 @@ There is the natural homomorphism of $R\left(G \right)$-modules
 \be
 \begin{split}
 f^R_K:	R\left( G\right)\to K^{G}_0 \left(\widetilde A \right),\\
-	r \mapsto r  \left[\widetilde A\right]
+	r \mapsto r  \left[\widetilde A\right].
 \end{split} 
 \ee
-Moreover one has
+In the above equation $r  \left[\widetilde A\right]$ can be represented by $\widetilde A$-$G$ module $\widetilde A_r$ which coincides with $\widetilde A$ as $\widetilde A$-module  and the action of $G$ is given by
 \be\label{h_ra_eqn}
-\forall r \in R\left(G \right)\quad  \widetilde A_r \bydef \left\{\widetilde a \in \widetilde A\left|\sum_{	g \in {G}} \chi^{-1}_r\left(g  \right) \widetilde a = \left| G\right|\widetilde{a} \right. \right\}\Rightarrow r\left[\widetilde A\right]= \left[\widetilde A_r\right]
+\begin{split}
+\forall g \in G\quad \widetilde a \in \widetilde A_r \quad  g\widetilde a\bydef  \chi_r\left(g \right)\left(\varphi^{-1}\circ  g\circ \varphi \left( \widetilde a\right) \right) 
+\end{split}
 \ee
+where $\chi_r: G \to U\left( 1\right)$ is the corresponding to $r$ character, and $\varphi :  \widetilde A_r \cong \widetilde A$ is the natural isomorphism of  $\widetilde A$-modules. If $r'\in R\left(G \right)$ is such that $rr'= 0$ then
+\be\label{h_otr_eqn}
+\widetilde a \in \widetilde A_r \quad \sum_{g\in G}\chi_{r'}\left(g \right) \left(g\widetilde a  \right) = 0.
+\ee 
 If $p \in \N$ is a prime number then any homomorphism from $\Z_p$ to another group is either injective or trivial. If 
 \bean
 \mathscr X \bydef \left\{ \left.\ka \in  \mathrm{Spec}\left( R\left( G\right)\right)\right|f^R_K \left( R\left( G\right)_\ka \right)\neq \{0\} \right\},\\
@@ -12251,7 +12257,7 @@ then the restriction
 $$
 f^R_K|_{ R\left( G\right)_{\mathscr X }}:  R\left( G\right)_{\mathscr X }\cong f^R_K\left( R\left( G\right)_{\mathscr X }\right)
 $$
-is isomorphism of groups. Moreover using \eqref{h_ra_eqn} one can deduce that there is a direct sum 
+is isomorphism of groups. Moreover using \eqref{h_otr_eqn} one can deduce that there is a direct sum 
 $$
 K^{G}_0 \left(\widetilde A \right)=f^R_K\left(R\left( G\right) \right)  \oplus f^R_K\left(R\left( G\right) \right)^\perp.
 $$
@@ -12292,8 +12298,12 @@ P \mapsto P\otimes_{ A} \widetilde A;\\
 \widetilde P \mapsto \widetilde P^{G}\bydef \left\{\left.\widetilde p \in \widetilde P\right| \forall g \in G\quad g \widetilde p = \widetilde p \right\}.
 \end{split}
 \ee
+In particular if $\widetilde A_r\in  \mathscr  P^{G}_{\widetilde A}$ is given by \eqref{h_ra_eqn} and 
+\be\label{h_raa_eqn}
+A_r \bydef \widetilde A_r^G \in  \mathscr P_A
+\ee
+then $\left[A_r\right]\in K_0\left( A\right) $ corresponds to $\left[ \widetilde A_r\right]\in K^G_0\left( \widetilde A\right]$.
 \end{remark}
-
 
 \paragraph{Hurewicz homomorphism for finitely generated Abelian fundamental group} 
 \begin{definition}\label{hurewicz_admits_defn}
@@ -12549,7 +12559,7 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 	$$
 	K\left(  SC^1\right)\cong K\left(\psi'' \right) \left( K\left(  SC^1\right) \right)  \cong \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right),
 	$$
-	Denote by $H_{ SC^1}$ the rank-one bundle over !!! with base  $SC^1$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$. From \eqref{h_kim_eqn} it follows that 
+	Denote by $H_{ SC^1}$ the rank-one bundle  with base  $SC^1$ which corresponds to $\left[H_{S^2}\right]- \left[1_{S^2}\right]$. From \eqref{h_kim_eqn} it follows that 
 	$$
 	K\left( S^2 \setminus\{s_0\}\right)\cong K\left(\psi' \right) \left( K\left(   S^2 \setminus\{s_0\}\right) \right)  \cong \Z\left( \left[H_{S^2}\right]- \left[1_{S^2}\right]\right)
 	$$
@@ -12664,26 +12674,35 @@ $$
  $$
 Can be uniquely extended up to the inclusion
 $$
-  S^2 \setminus \{x_0\}\subset C'_{\th_n}
+\phi^{S^2 \setminus \{x_1\}} _{C'_{\th_n}} :S^2 \setminus \{x_1\}\hookto C'_{\th_n}
 $$
-From  $S^2 \setminus \{x_0\}\cong B^2 \setminus S^1$ it follows that there is isomorphism
-$$
- K\left(B^2, S^1 \right) \cong K\left(S^2, \{x_1\} \right)
-$$
+with $\phi^{S^2 \setminus \{x_1\}}\left(x_0 \right) = m_0$.
  There are surjective maps $\phi_{B^2}: S^1 \times \left[0, 1\right] \to B^2$ and $\phi_{S^2}: S^1 \times \left[0, 1\right] \to S^2$ and $\phi^{B^2}_{S^2}: B^2 \to S^2$ such that 
  $$
  \phi_{S^2}\left(x, t \right)= \phi^{B^2}_{S^2}\circ  \phi_{S^2}\left(x, t \right)
  $$
-A set $\sV_{B^2} \bydef \phi^{-1}_{B^2}\left( S^1 \times \left[\frac{1}{2}, 1\right]\right)$ is the closed neighborhood of $S^1 \subset B^2$ and $\sV_{S^2}\bydef \phi^{B^2}_{S^2}\left(\sV_{B^2} \right)$ is a closed neighborhood of  $x_1$. If  $x = d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right)\in K\left(B^2, S^1 \right)$ is given by the equation \eqref{k_k_g_eqn} then according to the proof of the  Theorem \ref{k_excision_thm} image of $x$ in $K\left(S^2, \{x_0\} \right)$ can be represented by $d\left(\E_{\a_{\left(B^2, S^1 \right)}}, \F, \a_{x_1} \right)$ where $\F$ is a rank-one trivial bundle, and  $\E_{\a_{\left(B^2, S^1 \right)}}$ is such that
- \bean
- \E_{\a_{\left(B^2, S^1 \right)}}|_{S^2 \setminus \{x_1\}} \cong \E'\cong \left(  S^2 \setminus \{x_1\}\right) \times \C,\\
+ There are closed neighborhoods $\sV_{B^2}$ and  $\sV_{S^2}$ of $S^1 \subset B^2$ and $x \in S^2$ respectively such that
+ \be\label{h_b_s_eqn}
+ \begin{split}
+ 	\sV_{S^2}\bydef \phi^{-1}_{S^2}\left(S^1 \times \left[\frac{1}{2}, 1\right] \right) ,\\
+ \sV_{B^2}\bydef \left\{ x \in B^2 \left| \phi^{B^2}_{S^2}\left( x\right) \in  \sV_{S^2}\right. \right\}
+ \end{split}
+ \ee
+ According to the described \cite{karoubi:k} proofs of the fundamental product theorem (cf. Appendix \ref{k_fund_prod_sec}) and  the  Theorem \ref{k_excision_thm} any element of $K\left(S^2, \{x_0\} \right)$ can be represented by $d\left(\E_{\a_{\left(B^2, S^1 \right)}}, \F, \a_{x_1} \right)$ where $\F$ is a rank-one trivial bundle, and  $\E_{\a_{\left(B^2, S^1 \right)}}$ is such that
+ \be\label{h_abs_eqn}
+ \begin{split}
+  \E_{\a_{\left(B^2, S^1 \right)}}|_{S^2 \setminus \{x_1\}} \cong \E'\cong \left(  S^2 \setminus \{x_1\}\right) \times \C,\\
  \E_{\a_{\left(B^2, S^1 \right)}}|_{\sV_{S^2}} \cong \E'' \cong \sV_{S^2}\times \C, \\
  \forall \left(x, t  \right) \in S^1 \times \left[\frac{1}{2}, 1\right)\quad \forall z \in \C\quad \phi''\left(x, z \right) =  \phi'\left(x, \a_{\left(B^2, S^1 \right)}\left(x \right) \left(z \right)  \right).
- \eean
+ \end{split}
+ \ee
  where $\phi' : \E' \cong \left(  S^2 \setminus \{x_1\}\right) \times \C$ and $\phi'': \E'' \cong  \sV_{S^2}\times \C$ are natural isomorphisms of bundles. 
- The inclusion  $S^2 \setminus \{x_0\}\subset C'_{\th_n}$ yields a homeomorphism $S^2 \setminus \{x_0\}\cong  C'_{\th_n}\setminus S^1$. It follows that the map $\left(C'_{\th_n}, S^1 \right) \to \left(S^1\setminus\{x_1\} \right)$ yields an isomorphism
+ 
+ 
+ 
+ The inclusion  $\phi^{S^2 \setminus \{x_1\}} _{C'_{\th_n}}: S^2 \setminus \{x_1\}\hookto C'_{\th_n}$ yields a homeomorphism $S^2 \setminus \{x_1\}\cong  C'_{\th_n}\setminus S^1$. It follows that the map $\phi^{C'_{\th_n}\setminus S^1}_{S^2\setminus \{x_1\}}:\left(C'_{\th_n}\setminus S^1 \right) \to \left(S^1\setminus\{x_1\} \right)$ yields an isomorphism
   $$
-\varphi  : K\left(S^2, \{x_0\} \right) \cong K\left(C'_{\th_n}, S^1 \right)
+K\left( \phi^{C'_{\th_n}\setminus S^1}_{S^2\setminus \{x_1\}}\right)   : K\left(S^2, \{x_1\} \right) \cong K\left(C'_{\th_n}, S^1 \right)
   $$
 According to the proof of the  Theorem \ref{k_excision_thm} $\varphi\left(d\left(\E_{\a_{\left(B^2, S^1 \right)}}, \F, \a_{x_1} \right) \right)\in K\left(C'_{\th_n}, S^1 \right)$ can be represented by a triple 
 $
@@ -12696,78 +12715,18 @@ $ where $\widetilde \F$ is the trivial rank one bundle with base  $C'_{\th_n}$ w
 \forall \left(x, t  \right) \in S^1 \times \left[\frac{1}{2}, 1\right)\quad \forall z \in \C\quad \widetilde \phi^{\widetilde\E''}\left(x, z \right) =  \widetilde \phi^{\widetilde\E'}\left(x, \a_{\left(B^2, S^1 \right)}\left(x \right) \left(z \right)  \right).
 \end{split}
 \ee
- There is a surjective continuous map $\phi^{CS^1}_{ C'_{\th_n}} : CS^1 \to C'_{\th_n}$ such that 
- $$
-\forall \left( x, t\right)\in S^1 \times \left[0, 1\right] \quad  \phi_{C'_{\th_n}} \left(x, t\right) = \phi^{CS^1}_{ C'_{\th_n}}\circ \phi_{CS^1}\left(x,t \right) 
- $$
- where $\phi^{CS^1}: S^1 \times \left[0, 1\right] \to CS^1$ is the natural surjective map. Moreover  there are inclusions
- \bean
-  \phi^{S^1}_{CS^1}:S^1 \hookto CS^1,\\
-  \phi^{S^1}_{CS^1}\left(x \right) =  \phi^{S^1}_{CS^1}\left(x,1 \right);\\ 
- \phi^{S^1}_{C'_{\th_n}}: S^1 \cong \th_n\left( S^1\right)\hookto C'_{\th_n},\\
- \forall  {\th_n}\left( x\right)\in S^1\quad  \phi^{S^1}_{C'_{\th_n}}\left(  {\th_n}\left( x\right)\right)  \bydef  \phi_{C'_{\th_n}}\left( x, 1\right). 
- \eean 
- where the above equation does not depend on choice of $x\in \th_n^{-1}\left( x\right)$. Since $CS^1$ is a compact contractible space any bundle  with base  $CS^1$ is trivial. So the  inverse image of  $\widetilde\E_{\a_{\left(B^2, S^1 \right)}}$ by $\phi^{CS^1}_{C'_{\th_n}}$  (cf. Definition \ref{vb_inv_img_funct_defn}) is a one dimensional trivial bundle $\phi^{\sT}_{ CS^1}:\sT_{ CS^1}\cong CS^1 \times \C$  with base $CS^1$.
-  From the Remark \ref{top_b_inv_im_rem}. If follows that there is an linear injective $\C$-homomorphism $\phi^{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}:\Ga \left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right) \hookto \Ga\left(  \sT_{ CS^1}\right) $.  The restriction $\left. \phi^{CS^1}_{C'_{\th_n}}\right|_{CS^1\setminus S^1 }: CS^1\setminus S^1\cong C'_{\th_n}\setminus S^1$  is homeomorphism, so the restriction 
-  \bean
- \left.\phi^{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}\right|_{CS^1\setminus S^1}:\left.\Ga\left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right) \right|_{C'_{\th_n}\setminus S^1}\cong \left.\Ga\left( \sT_{ CS^1\setminus S^1}\right) \right|_{CS^1\setminus S^1}\quad \text{ or equivalently}\\
- \phi^{\widetilde\E'}_{\sT_{ CS^1}}:\Ga\left( \widetilde\E'\right) \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{CS^1\setminus S^1}
-  \eean 
-  is $\C$-linear isomorphism. One can assume that
-  \bean
-\forall s \in \Ga\left( \widetilde\E' \right)\quad  \forall x  \in  CS^1\setminus S^1 \quad \phi^{\widetilde\E'}_{\sT_{ CS^1}}\left(s\right)\left(\phi^{CS^1}_{C'_{\th_n}}\left(x \right)  \right) = s\left(x \right)     
-  \eean 
-  Under  the above assumption and the equation \eqref{h_eeu_eqn} one has the following $\C$-isomorphism 
-  \be
-  \begin{split}
-\left. \phi^{\widetilde\E''}_{\sT_{ CS^1}}\right|_{\sV \setminus S^1}: \left.\Ga\left(\widetilde\E''\right)\right|_{\sV \setminus S^1} \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{\sV_\sT \setminus S^1},\\
-\forall \xi \in \Ga\left( \widetilde\E'' \right)\quad  \forall \left(s, t \right)\in S^1 \times \left[\frac{1}{2}, 1 \right)\quad  \phi^{\widetilde\E''}_{\sT_{ CS^1}}\left(\xi\right)\left(\phi^{CS^1}_{C'_{\th_n}}\circ  \phi_{CS^1} \left(s, t \right)\right)= \\  = \a_{\left(B^2, S^1 \right) }\left(s \right)\left(  \xi\left(\phi_{CS^1} \left(s, t \right) \right)\right) 
-\end{split} 
-  \ee
-  Since $\sV \setminus S^1$ is a dense subset of $\sV$ the above isomorphism can be uniquely extended up to $\C$-linear homomorphism
-    \be
-  \begin{split}
-  \phi^{\widetilde\E''}_{\sT_{ CS^1}}: \Ga\left(\widetilde\E''\right) \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{\sV_\sT },\\
-  	\forall \xi \in \Ga\left( \widetilde\E'' \right)\quad  \forall \left(s, t \right)\in S^1 \times \left[\frac{1}{2}, 1 \right]\quad  \phi^{\widetilde\E''}_{\sT_{ CS^1}}\left(\xi\right)\left(\phi^{CS^1}_{C'_{\th_n}}\circ  \phi_{CS^1} \left(x, t \right)\right)= \\  = \a_{\left(B^2, S^1 \right)}\left(  \xi\left(\phi_{CS^1} \left(x, t \right) \right)\right) 
-  \end{split} 
-  \ee
-  In result any   $\xi \in \phi^{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}\left( \Ga \left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right)\right)\subset \Ga\left(\sT_{ CS^1} \right) $ satisfies to following condition 
-    \be\label{h_top_cond_eqn}
-  \begin{split}
-\forall s', s'' \in S^1\quad \th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \\ \Rightarrow\a_{\left(B^2, S^1 \right) }\left(s'' \right)\xi\left(\phi_{CS^1}\left( s',1\right) \right)= \a_{\left(B^2, S^1 \right) }\left(s' \right)\xi\left(\phi_{CS^1}\left( s'',1\right)\right)
-  \end{split}
-  \ee 
-  In particular if $n \in \Z$ and $\a_{\left(B^2, S^1 \right) }\left( s\right) \xi = V^n\left( s\right)\xi$  then
-    \be\label{h_vtop_cond_eqn}
-      \begin{split}
- 	\forall s', s'' \in S^1\quad \th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \\ \Rightarrow V^n\left(s'' \right)\xi\left(\phi_{CS^1}\left( s',1\right) \right)= V^n\left(s' \right)  \xi\left(\phi_{CS^1}\left( s'',1\right)\right)
- \end{split}
- \ee 
-  
-   
-  \be
-  \begin{split}
-\phi^{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}\left( \Ga \left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right)\right) =\\
-= \left\{ \xi \in \Ga\left(  \sT_{ CS^1}\right)\left|\forall s', s'' \in S^1 ~\th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \a_{\left(B^2, S^1 \right) }\left(s \right)\xi\left(s',1\right)  \a_{\left(B^2, S^1 \right) }\left(s \right)\xi\left(s',1\right) \right.\right\}
-   \end{split}
-  \ee 
-  
-  
-  
-   
-  
-  . If $\sT \cong CS^1 \times \C$ is a trivial bundle  with base  $CS^1$ with $\phi_{\sT} :CS^1 \times \C\cong\sT$ then there is a homeomorphism so one has a natural injective $\C$-linear isomorphism.
- \bean
- \phi^{\sT}_{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}: \sT\to{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}
- \eean 
- such that
- \be
- \begin{split}
- \forall x', x'' \in S^1\quad \forall z \in \C \quad \th_n\left( x'\right) = \th_n\left( x''\right)\quad \Rightarrow \\\Rightarrow\quad  \phi^{\sT}_{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}\left( \phi_\sT \left(\phi_{CS^1}\left(x', t \right), V\left( x'\right) z   \right)\right) =\\= \phi^{\sT}_{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}\left( \phi_\sT \left(\phi_{CS^1}\left(x'', t \right), V\left( x''\right) z   \right)\right). 
- \end{split}
- \ee
- 
- 
+From the above equations there is an inclusion  $\phi_\Ga:\Ga\left(\widetilde\E_{\a_{\left(B^2, S^1 \right)}} \right)\hookto  \Ga\left( CS^1\times \C \right) $ of spaces of sections such that
+\be\label{h_top_cond_eqn}
+\begin{split}
+	\forall s', s'' \in S^1\quad \th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \\ \Rightarrow\a_{\left(B^2, S^1 \right) }\left(s'' \right)\xi\left(\phi_{CS^1}\left( s',1\right) \right)= \a_{\left(B^2, S^1 \right) }\left(s' \right)\xi\left(\phi_{CS^1}\left( s'',1\right)\right).
+\end{split}
+\ee 
+In particular if $m \in \Z$ and $\a_{\left(B^2, S^1 \right) }\left( s, z\right) \left( \zeta\right)  = V^m\left( s\right)z$ (cf. \eqref{k_k_g_eqn})  then
+\be\label{h_vtop_cond_eqn}
+\begin{split}
+	\forall s', s'' \in S^1\quad \th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \\ \Rightarrow V^m\left(s'' \right)\xi_{CS^1}\left(\phi_{CS^1}\left( s',1\right) \right)= V^m\left(s' \right)  \xi_{CS^1}\left(\phi_{CS^1}\left( s'',1\right)\right).
+\end{split}
+\ee 
 Similarly to \eqref{h_k_0_eqn} one has
 \bean\label{h_k_11_eqn}
 \begin{split}
@@ -12967,19 +12926,68 @@ C'_{\th_p}\left[\Z_p\right]\arrow[rr, "\phi^{C'_{\th_p}\left[\Z_p\right]}_{CS^1}
 &C'_{\th_p}\left[\Z_p\right]/\sim_1\cong C'_{\th_p} &
 \end{tikzcd}
 \\
- If $m \in \Z$ and
+i.e. one has
+\be\label{h_decomp_eqn}
+P'_{\Z_p} = \phi^{C'_{\th_p}\left[\Z_p\right]}_{CS^1} \circ \phi^{CS^1}_{C'_{\th_p}}.
+\ee
+ If $m \in \Z$ the there is an irreducible representation $r_m$ of $\Z_p$ which corresponds to a character
+ 
+  $\chi_{r_m}: \Z_p \to U\left( 1\right) $ is a character given by
+ $$
+ \chi_{r_m}\left(\overline g \right) = e^{\frac{2\pi i g m}{p}} \quad g \in \Z \quad \text{ is a representative of } \quad \overline g.
+ $$ 
+ Similarly to \eqref{h_ra_eqn} we define $C\left( C'_{\th_p}\left[\Z_p\right]\right)$-$\Z_p$ module $C\left( C'_{\th_p}\left[\Z_p\right]\right)_{r_m}$ which   coincides with $C\left( C'_{\th_p}\left[\Z_p\right]\right)$ as $C\left( C'_{\th_p}\left[\Z_p\right]\right)$-module  and the action of $\Z_p$ is given by
+ \bean
+ \begin{split}
+ \forall \widetilde x \in C'_{\th_p}\left[\Z_p\right]\quad  	\forall g \in \Z_p\quad \widetilde a \in \widetilde C\left( C'_{\th_p}\left[\Z_p\right]\right)_{r_m} \quad \left(  g\widetilde a\right) \left(\widetilde x \right) = \chi_{r_m}\left(g \right)\widetilde a\left( g \widetilde x\right) 
+ \end{split}
+ \eean
+ From $g v^m=  \chi_{r_m}v^m$ it follows that
 \bean
-C\left( C'_{\th_p}\left[\Z_p\right]\right)_m \bydef \left\{v^m C(P_{\Z_p})\left( a\right)  | a \in C\left( C'_{\th_p} \right)  \right\}\subset C\left( C'_{\th_p}\left[\Z_p\right]\right)
+C\left( C'_{\th_p}\left[\Z_p\right]\right)^{\Z_p}_{r_m} = \left\{v^m C(P_{\Z_p})\left( a\right)  \left| a \in C\left( C'_{\th_p} \right)  \right\}\subset C\left( C'_{\th_p}\left[\Z_p\right]\right.\right),
 \eean 
-then 
+There is a continuous  map $\widetilde V: {C'_{\th_n} \setminus S^1}\to U\left( 1\right)$ such that 
 $$
-\forall \widetilde g \in \Z_p \quad \forall \widetilde a \in C\left( C'_{\th_p}\left[\Z_p\right]\right)_m \quad g \widetilde a = \chi_m\left(\overline g \right) \widetilde a
-$$
-where $\chi_m: \Z_p \to U\left( 1\right) $ is a character given by
-$$
-\chi_m\left(\overline g \right) = e^{\frac{2\pi i g m}{p}} \quad g \in \Z \text{ is a representative of } \overline g.
-$$ 
-So 
+\forall \widetilde{x}\in P^{-1}_{\Z_p}\left(C'_{\th_n} \setminus S^1 \right)\quad v\left(\widetilde{x} \right) = \widetilde V\left(P_{\Z_p} \left(\widetilde{x}  \right) \right) 
+	$$
+The space $C\left( C'_{\th_p}\left[\Z_p\right]\right)^{\Z_p}_{r_m}$ is a projective finitely generated $C\left( C'_{\th_p}\right)$-module which corresponds to a rank-one bundle $\G$ with base $C'_{\th_p}$. Similarly to \eqref{h_eeu_eqn} there are isomorphisms 
+\be\label{h_eeuu_eqn}
+\begin{split}
+	\phi^{\G'}:\G|_{C'_{\th_n} \setminus S^1} \cong \G' \cong \left( C'_{\th_n} \setminus S^1\right) \times \C,\\
+	\phi^{\G''}:\G|_{\sV_{C'_{\th_n}}} \cong \G'' \cong \sV_{C'_{\th_n}}\times \C.
+\end{split}
+\ee
+Above isomorphisms are equivalent to the following ones
+\be\label{h_eeuuu_eqn}
+\begin{split}
+\Ga\left( 	\phi^{\G'}\right) :\Ga\left( \G|_{C'_{\th_n} \setminus S^1} \right)  \cong C\left( C'_{\th_n} \setminus S^1\right), \\
+\left.v^m C(P_{\Z_p})\left( a\right)\right|_{C'_{\th_n} \setminus S^1}\mapsto \left.\widetilde V^m a\right|_{C'_{\th_n} \setminus S^1};\\
+\Ga\left( \phi^{\G''}\right) :\Ga\left( \G|_{\sV_{C'_{\th_n}}}\right)   \cong C\left( \sV_{C'_{\th_n}}\right),\\
+\left.v^m C(P_{\Z_p})\left( a\right)\right|_{\sV_{C'_{\th_n}}}\mapsto a|_{\sV_{C'_{\th_n}}}.
+	\end{split}
+	\ee
+\end{empt}
+\begin{empt}
+	The space $ C'_{\th_p}\left[\Z_p\right]$ is compact and contractible. So if  $\E_{\a_{\left(B^2, S^1 \right)}}$ is a given by \eqref{h_abs_eqn} bundle over $C'_{\th_p}$ then then the inverse image of $\E_{\a_{\left(B^2, S^1 \right)}}$ by $P_{\Z_p}$ is a rank one-trivial bundle $\sT_{ C'_{\th_p}\left[\Z_p\right]}$ over $ C'_{\th_p}\left[\Z_p\right]$. 
+	from the Remark \ref{top_b_inv_im_rem} it follows then there is a $\C$-linear  injective homomorphism 
+	\be
+\phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{  C'_{\th_p}\left[\Z_p\right]}}:\Ga \left( \E_{\a_{\left(B^2, S^1 \right)}}\right) \hookto \Ga\left(  \sT_{ C'_{\th_p}\left[\Z_p\right]}\right)
+	\ee
+The decomposition \eqref{h_decomp_eqn} yields the following commutative diagram\\ \newline
+\begin{tikzcd}
+\Ga \left( \E_{\a_{\left(B^2, S^1 \right)}}\right) \arrow[rr, "\phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{  CS^1}}"] \arrow[rdd, "\phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{  C'_{\th_p}\left[\Z_p\right]}}"] & & \Ga\left(  \sT_{ CS^1}\right) \arrow[ldd, "\phi^{\sT_{CS^1}}_{\sT_{  C'_{\th_p}\left[\Z_p\right]}}"] \\ & & \\
+	&\Ga\left(  \sT_{ C'_{\th_p}\left[\Z_p\right]}\right)&
+\end{tikzcd}
+\\
+ In particular if $n \in \Z$ and $\a_{\left(B^2, S^1 \right) }\left( s, z\right) \left( \zeta\right)  = V^n\left( s\right)z$ (cf. \eqref{k_k_g_eqn})  and\\ $\xi_{CS^1}\bydef \phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{  CS^1}}\left( \Ga \left( \E_{\a_{\left(B^2, S^1 \right)}}\right)\right) $ then from  \eqref{h_vtop_cond_eqn} it follows that
+\bean
+\begin{split}
+	\forall s', s'' \in S^1\quad \th_n\left(s' \right)= \th_n\left(s'' \right)\Rightarrow \\ \Rightarrow V^n\left(s'' \right)\xi_{CS^1}\left(\phi_{CS^1}\left( s',1\right) \right)= V^n\left(s' \right)  \xi_{CS^1}\left(\phi_{CS^1}\left( s'',1\right)\right)
+\end{split}
+\eean
+If $\phi^{C'_{\th_p}\left[\Z_p\right]}_{CS^1}: C'_{\th_p}\left[\Z_p\right]\to CS^1$ is the natural surjective continuous map 
+
+
 
 \paragraph{title}
     \be\label{h_top_cond_eqn1}
@@ -30520,6 +30528,56 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
  of this work. I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work during the quarantine.
  
+  
+  \paragraph{!!BEGIN DELETE !!!!}
+  There is a surjective continuous map $\phi^{CS^1}_{ C'_{\th_n}} : CS^1 \to C'_{\th_n}$ such that 
+  $$
+  \forall \left( x, t\right)\in S^1 \times \left[0, 1\right] \quad  \phi_{C'_{\th_n}} \left(x, t\right) = \phi^{CS^1}_{ C'_{\th_n}}\circ \phi_{CS^1}\left(x,t \right) 
+  $$
+  where $\phi^{CS^1}: S^1 \times \left[0, 1\right] \to CS^1$ is the natural surjective map. Moreover  there are inclusions
+  \bean
+  \phi^{S^1}_{CS^1}:S^1 \hookto CS^1,\\
+  \phi^{S^1}_{CS^1}\left(x \right) =  \phi^{S^1}_{CS^1}\left(x,1 \right);\\ 
+  \phi^{S^1}_{C'_{\th_n}}: S^1 \cong \th_n\left( S^1\right)\hookto C'_{\th_n},\\
+  \forall  {\th_n}\left( x\right)\in S^1\quad  \phi^{S^1}_{C'_{\th_n}}\left(  {\th_n}\left( x\right)\right)  \bydef  \phi_{C'_{\th_n}}\left( x, 1\right). 
+  \eean 
+  where the above equation does not depend on choice of $x\in \th_n^{-1}\left( x\right)$. Since $CS^1$ is a compact contractible space any bundle  with base  $CS^1$ is trivial. So the  inverse image of  $\E_{\a_{\left(B^2, S^1 \right)}}$ by $\phi^{CS^1}_{C'_{\th_n}}$  (cf. Definition \ref{vb_inv_img_funct_defn}) is a one dimensional trivial bundle $\phi^{\sT}_{ CS^1}:\sT_{ CS^1}\cong CS^1 \times \C$  with base $CS^1$.
+  From the Remark \ref{top_b_inv_im_rem}. If follows that there is an linear injective $\C$-homomorphism $\phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}:\Ga \left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right) \hookto \Ga\left(  \sT_{ CS^1}\right) $.  The restriction $\left. \phi^{CS^1}_{C'_{\th_n}}\right|_{CS^1\setminus S^1 }: CS^1\setminus S^1\cong C'_{\th_n}\setminus S^1$  is homeomorphism, so the restriction 
+  \bean
+  \left.\phi^{\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}\right|_{CS^1\setminus S^1}:\left.\Ga\left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right) \right|_{C'_{\th_n}\setminus S^1}\cong \left.\Ga\left( \sT_{ CS^1\setminus S^1}\right) \right|_{CS^1\setminus S^1}\quad \text{ or equivalently}\\
+  \phi^{\widetilde\E'}_{\sT_{ CS^1}}:\Ga\left( \widetilde\E'\right) \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{CS^1\setminus S^1}
+  \eean 
+  is $\C$-linear isomorphism. One can assume that
+  \bean
+  \forall s \in \Ga\left( \widetilde\E' \right)\quad  \forall x  \in  CS^1\setminus S^1 \quad \phi^{\widetilde\E'}_{\sT_{ CS^1}}\left(s\right)\left(\phi^{CS^1}_{C'_{\th_n}}\left(x \right)  \right) = s\left(x \right)     
+  \eean 
+  Under  the above assumption and the equation \eqref{h_eeu_eqn} one has the following $\C$-isomorphism 
+  \be
+  \begin{split}
+  	\left. \phi^{\widetilde\E''}_{\sT_{ CS^1}}\right|_{\sV \setminus S^1}: \left.\Ga\left(\widetilde\E''\right)\right|_{\sV \setminus S^1} \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{\sV_\sT \setminus S^1},\\
+  	\forall \xi \in \Ga\left( \widetilde\E'' \right)\quad  \forall \left(s, t \right)\in S^1 \times \left[\frac{1}{2}, 1 \right)\quad  \phi^{\widetilde\E''}_{\sT_{ CS^1}}\left(\xi\right)\left(\phi^{CS^1}_{C'_{\th_n}}\circ  \phi_{CS^1} \left(s, t \right)\right)= \\  = \a_{\left(B^2, S^1 \right) }\left(s \right)\left(  \xi\left(\phi_{CS^1} \left(s, t \right) \right)\right) 
+  \end{split} 
+  \ee
+  Since $\sV \setminus S^1$ is a dense subset of $\sV$ the above isomorphism can be uniquely extended up to $\C$-linear homomorphism
+  \be
+  \begin{split}
+  	\widetilde \E \text{REPLACE EVERYWHERE !!!}\\  	
+  	\phi^{\widetilde\E''}_{\sT_{ CS^1}}: \Ga\left(\widetilde\E''\right) \cong \left.\Ga\left( \sT_{ CS^1}\right) \right|_{\sV_\sT },\\
+  	\forall \xi \in \Ga\left( \widetilde\E'' \right)\quad  \forall \left(s, t \right)\in S^1 \times \left[\frac{1}{2}, 1 \right]\quad  \phi^{\widetilde\E''}_{\sT_{ CS^1}}\left(\xi\right)\left(\phi^{CS^1}_{C'_{\th_n}}\circ  \phi_{CS^1} \left(x, t \right)\right)= \\  = \a_{\left(B^2, S^1 \right)}\left(  \xi\left(\phi_{CS^1} \left(x, t \right) \right)\right) 
+  \end{split} 
+  \ee
+  In result any   $\xi \in \phi^{\widetilde\E_{\a_{\left(B^2, S^1 \right)}}}_{\sT_{ CS^1}}\left( \Ga \left( \widetilde\E_{\a_{\left(B^2, S^1 \right)}}\right)\right)\subset \Ga\left(\sT_{ CS^1} \right) $ satisfies to following condition 
+  
+  \be\label{k_k_g_eqn!} !!! DELETE !!!
+  \begin{split}
+  	K\left(B^2, S^1 \right)= \Z~ d\left( B^2 \times \C, B^2 \times \C, \a_{\left(B^2, S^1 \right)}\right),\\
+  	\forall \left(x, z \right) \in S^1 \times \C \quad  \a_{\left(B^2, S^1 \right)}\left(x, z\right) =\left(x, V\left(x \right) z\right),
+  \end{split}
+  \ee
+  
+  In particular if $n \in \Z$ and $\a_{\left(B^2, S^1 \right) }\left( s, z\right) \left( \zeta\right)  = V^n\left( s\right)z$ (cf. \eqref{k_k_g_eqn})  then
+ 
+  \paragraph{!!! END DELETE !!!}
   
   
   
