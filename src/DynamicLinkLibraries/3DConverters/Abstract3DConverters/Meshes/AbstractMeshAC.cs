@@ -2,7 +2,9 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
+using System.ComponentModel.Design.Serialization;
 
 
 
@@ -18,6 +20,18 @@ namespace Abstract3DConverters.Meshes
         { 
             get => base.Effect; 
             set => base.Effect = value; 
+        }
+
+        float[] Location
+        {
+            get;
+            set;
+        }
+
+        float[][] RotationMatrix
+        {
+            get;
+            set;
         }
 
         List<Material> Materials
@@ -43,6 +57,36 @@ namespace Abstract3DConverters.Meshes
         {
             get;
             private set;
+        }
+
+        void CreateTransform()
+        {
+            if (Location != null)
+            {
+                if (RotationMatrix != null)
+                {
+                    TransformationMatrix = [ RotationMatrix[0][0], RotationMatrix[0][1], RotationMatrix[0][2], 0,
+                                          RotationMatrix[1][0], RotationMatrix[1][1], RotationMatrix[1][2], 0,
+                                            RotationMatrix[2][0], RotationMatrix[2][1], RotationMatrix[2][2], 0,
+                                            Location[0], Location[1], Location[2], 1 ];
+
+                }
+                else
+                {
+                    TransformationMatrix = [ 1, 0, 0, 0,
+                                             0, 1, 0, 0,
+                                             0, 0, 1, 0,
+                                            Location[0], Location[1], Location[2], 1 ];
+
+                }
+            }
+            else if (RotationMatrix != null)
+            {
+                TransformationMatrix = [ RotationMatrix[0][0], RotationMatrix[0][1], RotationMatrix[0][2], 0,
+                                          RotationMatrix[1][0], RotationMatrix[1][1], RotationMatrix[1][2], 0,
+                                            RotationMatrix[2][0], RotationMatrix[2][1], RotationMatrix[2][2], 0,
+                                            0, 0, 0, 1 ];
+            }
         }
 
         internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials1, List<string> l, AcCreator creator) : base(null, null, null, creator)
@@ -108,12 +152,17 @@ namespace Abstract3DConverters.Meshes
                     var loc = s.ToString(line, "loc ");
                     if (loc != null)
                     {
-                        var location = s.ToRealArray<float>(loc);
-                        TransformationMatrix = [ 1, 0, 0, 0,
-                                             0, 1, 0, 0,
-                                             0, 0, 1, 0,
-                                            location[0], location[1], location[2], 1 ];
+                        Location = s.ToRealArray<float>(loc);
+                        CreateTransform();
                     }
+                    var rot = s.ToString(line, "rot ");
+                    if (rot != null)
+                    {
+                        var r = s.ToRealArray<float>(rot);
+                        RotationMatrix = s.ToRealArray<float>(r, 3).ToArray();
+                        CreateTransform();
+                    }
+
                     var texture = s.ToString(line, "texture ");
                     if (texture != null)
                     {

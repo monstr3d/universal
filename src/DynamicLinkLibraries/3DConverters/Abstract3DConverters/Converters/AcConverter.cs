@@ -2,13 +2,16 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+
 using ErrorHandler;
+
 using NamedTree;
+using System.Text;
 
 namespace Abstract3DConverters.Converters
 {
    
-    [Converter(".ac", false, true)]
+    [Converter(".ac")]
     public class AcConverter : LinesMeshConverter
     {
         #region Fields
@@ -58,6 +61,32 @@ namespace Abstract3DConverters.Converters
             base.Add(parent, child);
         }
 
+        private void AddTransformation(List<string> l, IMesh mesh)
+        {
+            
+            var tr = mesh.TransformationMatrix;
+            if (tr == null)
+            {
+                return;
+            }
+            var sb = new StringBuilder("loc ");
+            for (var i = 12; i < 15; i++)
+            {
+                sb.Append(s.ToString(tr[i]) + " ");
+            }
+            l.Add(sb.ToString().Trim());
+            sb = new StringBuilder("rot ");
+            for (var i = 0; i < 3; i++)
+            {
+                var j = 4 * i;
+                for (var k = j; k < j + 3; k++)
+                {
+                    sb.Append(s.ToString(tr[k]) + " ");
+                }
+            }
+            l.Add(sb.ToString().Trim());
+        }
+
 
         protected override List<string> CreateLines(IMesh mesh)
         {
@@ -70,6 +99,7 @@ namespace Abstract3DConverters.Converters
                 {
                     l.Add("OBJECT group");
                     AddName(mesh, l);
+                    AddTransformation(l, mesh);
                     l.Add("kids " + kids);
                     return l;
                     foreach (var im in children)
@@ -102,8 +132,8 @@ namespace Abstract3DConverters.Converters
                         }
                     }
                 }
-                l.Add("numvert " + mesh.AbsoluteVertices.Count);
-                foreach (var point in mesh.AbsoluteVertices)
+                l.Add("numvert " + mesh.Vertices.Count);
+                foreach (var point in mesh.Vertices)
                 {
                     l.Add(s.StringValue(point));
                 }
@@ -131,6 +161,7 @@ namespace Abstract3DConverters.Converters
                     }
 
                 }
+                AddTransformation(l, mesh);
                 l.Add("kids 0");
                 return l;
             }

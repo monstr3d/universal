@@ -12065,15 +12065,14 @@ Let $A$ be a $C^*$-algebra with unitary element $u\in M\left( A\right) $, and le
 \be\label{hurewicz_u_n_eqn}
 \left(   A , \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
 \ee
-be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).  Suppose that there are  $u \in  M\left( A\right)$ and $v \in M\left( \widetilde A\right) $ such that
+be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).  Suppose that there are  $u \in  M\left( A\right)$ and $v \in  \widetilde A$ such that
 \be\label{h_fin_sum_eqn}
 \begin{split}
 v^n = u,\\
-\widetilde A\bydef \oplus_{j = 0}^{n-1} \lift \left(A\right)  v^j,\\
-\widetilde M\left( \widetilde A\right)\bydef \oplus_{j = 0}^{n-1}M\left(  \lift\right)  \left(M\left(  A\right)\right)  v^j
+\widetilde A\bydef \oplus_{j = 0}^{n-1} \lift \left(A\right)  v^j
 \end{split}
 \ee
-where $\oplus$ means a direct sum of left $ M\left(  A\right)$-modules and $M\left(  \lift\right)$  is given by the Lemma \ref{fin_multilier_lem}
+where $\oplus$ means a direct sum of left $ A$-modules.
 Assume that 
 \bea\label{h_gr_eqn}
 	G\left( \left.\widetilde A\right| A\right) \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in  \lift\left( A\right)  \quad ga = a\right\} \cong \Z_n,
@@ -12116,7 +12115,7 @@ and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift
 Suppose that $\pi^{\mathrm{ab}}_1\left( A\right)\cong \Z^m$.
 If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
 \begin{definition}\label{h_admissible_free_defn}
-	An nontrivial element $x \in K_1\left( A\right)_{\mathrm{free}}\setminus\{0\}$ is \textit{admissible} if it can be represented by an unitary element $u \in  M\left( A\right) $  such that there is a set $\left\{v_{n}\right\}_{n \in \N}\subset B\left(\H \right)\setminus M\left(  A\right) $ of unital elements with
+	An nontrivial element $x \in K_1\left( A\right)_{\mathrm{free}}\setminus\{0\}$ is \textit{admissible} if it can be represented by an unitary element $u \in  A $  such that there is a set $\left\{v_{n}\right\}_{n \in \N}\subset B\left(\H \right)\setminus M\left(  A\right) $ of unital elements with
 	\be\label{h_v_n_eqn}
 	\begin{split}
 		v_n^n=\pi\left(u\right),\\
@@ -12202,7 +12201,7 @@ be an unital finite-fold covering. Consider a category of finitely generated pro
 \be\label{unital_cov_kk_eqn}
 K_0 \left(\widetilde A\rtimes G  \right)\cong K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) 
 \ee
-where $K^{G}_0 \left(\widetilde A \right)\cong K_0 \left(\widetilde A\rtimes G  \right)$ is the Grothendieck group of the category  of finitely generated projective  $\widetilde A$ - $G$-modules.
+where $K^{G}_0 \left(\widetilde A \right)$ is the Grothendieck group of the category  of finitely generated projective  $\widetilde A$ - $G$-modules.
 The above equation comes from the given by the Lemma \ref{morita_galois_lem} and the Theorem \ref{progenerator_morita_thm} algebraic Morita equivalence 
 \be\label{h_strong_t_eqn}
 \left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right).
@@ -12271,9 +12270,9 @@ x + x^\perp \mapsto r \quad \text{where} \quad f^R_K\left(r \right) = x.
 Now one can define a homeomorphism  from $G$ to the set $\chi\left(K_0\left( A\right) \right)$  of characters on $K_0\left( A\right)$
 \bean
 G \to \chi\left(K_0\left( A\right) \right),\\
-g \mapsto \left(\xi + \xi^\perp \mapsto   \prod_{r \in R\left( G\right)_{\mathscr X }} \chi_r\left( g\right) \right) \quad \text{ where } \quad \xi = \sum_{r \in R\left( G\right)_{\mathscr X }} f^R_K \left(  r\right) 
+g \mapsto \left(\xi + \xi^\perp \mapsto   \prod_{r \in R\left( G\right)_{\xi}} \chi_r\left( g\right) \right)  \text{ where } \xi = \sum_{r \in R\left( G\right)_{\xi }\subset R\left( G\right)_{\mathscr X }} f^R_K \left(  r\right) \in K_0\left( A\right).
 \eean
- According to the Lemma \ref{ext_char_lem} there is a homomorphism 
+ According to the Lemma \ref{ext_char_lem} the map $G \to \chi\left(K_0\left( A\right) \right)$ yields  a homomorphism 
  \be\label{h_tors_eqn}
  h_{K^1}^{\mathrm{tors}} : G \to   \Ext^1_\Z\left( K_0\left( A\right), \Z \right)
  \ee 
@@ -12700,7 +12699,7 @@ with $\phi^{S^2 \setminus \{x_1\}}\left(x_0 \right) = m_0$.
  
  
  
- The inclusion  $\phi^{S^2 \setminus \{x_1\}} _{C'_{\th_n}}: S^2 \setminus \{x_1\}\hookto C'_{\th_n}$ yields a homeomorphism $S^2 \setminus \{x_1\}\cong  C'_{\th_n}\setminus S^1$. It follows that the map $\phi^{C'_{\th_n}\setminus S^1}_{S^2\setminus \{x_1\}}:\left(C'_{\th_n}\setminus S^1 \right) \to \left(S^1\setminus\{x_1\} \right)$ yields an isomorphism
+ The inclusion  $\phi^{S^2 \setminus \{x_1\}} _{C'_{\th_n}}: S^2 \setminus \{x_1\}\hookto C'_{\th_n}$ yields a homeomorphism $S^2 \setminus \{x_1\}\cong  C'_{\th_n}\setminus S^1$. It follows that the map $\phi^{C'_{\th_n}\setminus S^1}_{S^2\setminus \{x_1\}}:\left(C'_{\th_n}\setminus S^1 \right) \to \left(S^2\setminus\{x_1\} \right)$ yields an isomorphism
   $$
 K\left( \phi^{C'_{\th_n}\setminus S^1}_{S^2\setminus \{x_1\}}\right)   : K\left(S^2, \{x_1\} \right) \cong K\left(C'_{\th_n}, S^1 \right)
   $$

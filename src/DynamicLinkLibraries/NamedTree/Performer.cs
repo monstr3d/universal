@@ -200,23 +200,6 @@ namespace NamedTree
                 }
             }
             return GetRoots(dd, dictionary);
-     /*       var d = Inverse(dictionary);
-            var f = (INode<T> n) =>
-            {
-                var x = d[n];
-                x = x.ParentNode as XmlElement;
-                if (x == null)
-                {
-                    return null;
-                }
-                if (dictionary.ContainsKey(x))
-                {
-                    return dictionary[x];
-                }
-                return null;
-
-            };
-            return GetRootsT(dictionary.Values, f);*/
         }
 
 
