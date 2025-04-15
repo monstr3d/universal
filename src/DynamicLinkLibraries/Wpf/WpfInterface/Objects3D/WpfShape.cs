@@ -111,7 +111,7 @@ namespace WpfInterface.Objects3D
             }
             try
             {
-                xaml = info.GetString("Xaml");
+                XamlProtected = info.GetString("Xaml");
                 isColored = info.GetBoolean("IsColored");
                 consumer = info.Deserialize<FieldConsumer3D>("FieldConsumer");
                 ch = new IAssociatedObject[] { consumer };
@@ -171,7 +171,7 @@ namespace WpfInterface.Objects3D
 
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("Xaml", xaml);
+            info.AddValue("Xaml", XamlProtected);
             info.AddValue("IsColored", isColored);
             info.Serialize<FieldConsumer3D>("FieldConsumer", consumer);
             info.AddValue("Scaled", scaled);
@@ -230,7 +230,9 @@ namespace WpfInterface.Objects3D
 
         #region IVisible Members
 
-
+        /// <summary>
+        /// SSSSize
+        /// </summary>
         double[,] IVisible.Size => Size;
 
 
@@ -661,7 +663,7 @@ namespace WpfInterface.Objects3D
         /// </summary>
         protected virtual void Post()
         {
-            Xaml = xaml;
+            Xaml = XamlProtected;
         }
 
         /// <summary>

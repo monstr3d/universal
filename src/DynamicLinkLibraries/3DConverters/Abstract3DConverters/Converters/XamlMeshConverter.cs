@@ -1,10 +1,12 @@
-﻿using System.Text;
+﻿using System.Net.NetworkInformation;
+using System.Text;
 using System.Xml;
 
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 using NamedTree;
 
 
@@ -99,7 +101,9 @@ namespace Abstract3DConverters.Converters
                 var points = polygon.Points;
                 if (points.Length != 3)
                 {
-                    ("Illegal Xaml Polygon dimension = " + points.Length).Log([-1]);
+                    var ex = new FictionException("Illegal Xaml Polygon dimension = " + points.Length);
+                    ex.HandleException();
+                   // ("Illegal Xaml Polygon dimension = " + points.Length).Log([-1]);
                 }
                 foreach (var point in points)
                 {
@@ -406,6 +410,7 @@ namespace Abstract3DConverters.Converters
                 var str = sb.ToString();
                 str = str.Substring(0, str.Length - 1);
                 tr.SetAttribute("Matrix", str);
+                var stt = str.Split([',']);
             }
         }
 

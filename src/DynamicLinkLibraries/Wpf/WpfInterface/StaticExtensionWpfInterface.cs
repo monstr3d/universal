@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 
 
@@ -9,7 +8,6 @@ using Motion6D;
 
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
-using BaseTypes;
 
 namespace WpfInterface
 {

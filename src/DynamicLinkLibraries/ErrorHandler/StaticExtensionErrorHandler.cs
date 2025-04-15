@@ -70,8 +70,10 @@ namespace ErrorHandler
             Type type = (obj is Type) ? obj as Type : obj.GetType();
 #pragma warning disable CS8603 // Possible null reference return.
 #pragma warning disable CS8604 // Possible null reference argument.
-            return CustomAttributeExtensions
-                 .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(type));
+            var ti = IntrospectionExtensions.GetTypeInfo(type);
+            var at = CustomAttributeExtensions.GetCustomAttribute<T>(ti);
+            return at;
+           
 #pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning restore CS8603 // Possible null reference return.
         }
@@ -91,7 +93,7 @@ namespace ErrorHandler
                 }
             }
             var at = GetAttribute<FictionExceptionAttribute>(exception);
-            return exception is FictiveException;
+            return exception is IFictionException;
         }
 
         /// <summary>

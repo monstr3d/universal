@@ -6,6 +6,10 @@ namespace Abstract3DConverters.ConsoleTest
     {
         void IExceptionHandler.HandleException<T>(T exception, params object[] obj)
         {
+            if (exception.IsFiction())
+            {
+                return;
+            }
             Console.WriteLine("++++++ERROR+++++++++");
             Console.WriteLine(exception.Message);
             Console.WriteLine();

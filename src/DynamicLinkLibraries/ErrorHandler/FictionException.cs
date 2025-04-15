@@ -1,10 +1,10 @@
 ﻿
 namespace ErrorHandler
 {
-    public class FictiveException : Exception
+    public class FictionException : Exception, IFictionException
     {
-        [FictionException()]
-        public FictiveException(string message) : base(message)
+        [FictionExceptionAttribute()]
+        public FictionException(string message) : base(message)
         {
 
         }

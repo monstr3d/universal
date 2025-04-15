@@ -37,8 +37,12 @@ namespace Wpf.Loader
 
         protected System.Drawing.Color[] colors = null;
 
-        protected string xaml;
 
+        protected string XamlProtected
+        {
+            get;
+            set;
+        }
 
         public Dictionary<string, byte[]> Attachment
         {
@@ -90,7 +94,7 @@ namespace Wpf.Loader
             var doc = new XmlDocument();
             if (xaml is string s)
             {
-                this.xaml = s;
+                XamlProtected = s;
                 doc.LoadXml(s);
             }
             if (xaml is XmlDocument dc)
@@ -107,13 +111,13 @@ namespace Wpf.Loader
                 dc.WriteContentTo(w);
                 stream.Flush();
                 var stt = stream.ToString();
-                this.xaml = stt;
+                XamlProtected = stt;
                 var sb = new StringBuilder(stt);
                 TextReader sr = new StringReader(stt);
                 using var reader = XmlReader.Create(sr);
                 var ddd = new XmlDocument();
                 ddd.Load(reader);
-             }
+            }
             Attachment = attach;
             Textures.Clear();
             string d = dir;
@@ -148,7 +152,7 @@ namespace Wpf.Loader
                           }*/
                 }
             }
-            this.xaml = doc.OuterXml;
+            XamlProtected = doc.OuterXml;
         }
 
         string ReadImage(string iso, string dir, XmlElement element)
@@ -259,11 +263,11 @@ namespace Wpf.Loader
         {
             get
             {
-                return xaml;
+                return XamlProtected;
             }
             set
             {
-                xaml = value;
+                XamlProtected = value;
                 facetCount = -1;
                 texture = null;
                 CreateFacets();
@@ -564,7 +568,7 @@ namespace Wpf.Loader
             {
                 bp = null;
                 Visual3D v3d;
-                string s = ProcessXaml(xaml);
+                string s = ProcessXaml(XamlProtected);
                 var doc = new XmlDocument();
                 doc.LoadXml(s);
                 object ob = null;

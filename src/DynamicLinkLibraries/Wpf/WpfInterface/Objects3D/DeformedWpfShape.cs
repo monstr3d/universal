@@ -92,7 +92,7 @@ namespace WpfInterface.Objects3D
 
         public override Visual3D GetVisual(Motion6D.Portable.Camera camera)
         {
-            if (xaml == null)
+            if (XamlProtected == null)
             {
                 return null;
             }
@@ -249,7 +249,7 @@ namespace WpfInterface.Objects3D
         {
             get
             {
-                string s = ProcessXaml(xaml);
+                string s = ProcessXaml(XamlProtected);
                 Visual3D v3d = System.Windows.Markup.XamlReader.Parse(s) as Visual3D;
                 List<MeshGeometry3D> l = new List<MeshGeometry3D>();
                 Detect(v3d, l);
@@ -409,7 +409,7 @@ namespace WpfInterface.Objects3D
                 v3d = ob as Visual3D;
                 List<MeshGeometry3D> lm = new List<MeshGeometry3D>();
                 Detect(v3d, lm);
-                xaml = x;
+                XamlProtected = x;
                 if (source == null)
                 {
                     return;

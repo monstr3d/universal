@@ -1,5 +1,7 @@
 ﻿
 
+using ErrorHandler;
+
 namespace Abstract3DConverters.ErrorHandlers
 {
     public class TextWiterErrorHandler :  ErrorHandler.IExceptionHandler, IDisposable
@@ -17,11 +19,14 @@ namespace Abstract3DConverters.ErrorHandlers
 
         void ErrorHandler.IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
         {
+            if (exception.IsFiction())
+            {
+                return;
+            }
             if (Check(obj))
             {
                 l.Add(exception.Message);
                 stop?.Invoke(exception, writer);
-               
             }
         }
 
