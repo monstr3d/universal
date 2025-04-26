@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using DataWarehouse.Interfaces;
+using NamedTree;
 
 namespace DataWarehouse
 {
@@ -35,7 +36,9 @@ namespace DataWarehouse
 
         int IComparer<INode>.Compare(INode x, INode y)
         {
-            return x.Name.CompareTo(y.Name); 
+            var xx = x as INamed;
+            var yy = y as INamed;
+            return xx.Name.CompareTo(yy.Name); 
         }
 
         #endregion

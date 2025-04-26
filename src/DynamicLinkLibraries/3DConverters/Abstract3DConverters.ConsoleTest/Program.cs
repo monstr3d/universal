@@ -39,11 +39,13 @@ StaticExtensionAbstract3DConverters.CheckFile = CheckFile.Check;
 
 try
 {
-   // dir = @"c:\";
-   // dir.TestACTetxures();
-  //  @"c:\0\1.txt".Finish();
+    // dir = @"c:\";
+    // dir.TestACTetxures();
+    //  @"c:\0\1.txt".Finish();
 
-       dir.TestDirectory();
+    dir.TestDirectory(true);
+    dir.TestDirectory(false);
+
 }
 catch (Exception e)
 {

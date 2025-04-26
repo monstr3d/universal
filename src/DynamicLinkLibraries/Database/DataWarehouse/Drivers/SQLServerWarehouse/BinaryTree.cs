@@ -20,7 +20,12 @@ namespace SQLServerWarehouse.Models
 
         internal HashSet<IDirectory> directories = new HashSet<IDirectory>();
 
-        internal List<string> names = new List<string>();
+        internal List<string> Names
+        {
+            get;
+            set;
+        } 
+            = new List<string>();
 
 
         #endregion
@@ -38,11 +43,11 @@ namespace SQLServerWarehouse.Models
 
         INode INode<INode>.Value => this;
 
-        IEnumerable<IDirectory> IChildren<IDirectory>.Children => throw new OwnNotImplemented("DataWarehouse");
+        IEnumerable<IDirectory> IChildren<IDirectory>.Children => directories;
 
-        IEnumerable<ILeaf> IChildren<ILeaf>.Children => throw new OwnNotImplemented("DataWarehouse");
+        IEnumerable<ILeaf> IChildren<ILeaf>.Children => leaves;
 
-        string INamed.Name { get => Name; set => Name = value; }
+        string INamed.Name { get => Name; set => UpdateName(value); }
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -192,15 +197,22 @@ namespace SQLServerWarehouse.Models
 
         void INode.RemoveItself()
         {
-            var ctx = StaticExtension.Context;
-            if (Parent != null)
+            try
             {
-                Parent.InverseParent.Remove(this);
-                Parent.names.Remove(this.Name);
-                Parent.directories.Remove(this); 
+                var ctx = StaticExtension.Context;
+                if (Parent != null)
+                {
+                    Parent.InverseParent.Remove(this);
+                    Parent.Names.Remove(this.Name);
+                    Parent.directories.Remove(this);
+                }
+                ctx.BinaryTrees.Remove(this);
+                ctx.SaveChanges();
             }
-            ctx.BinaryTrees.Remove(this);
-            ctx.SaveChanges();
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Remove database tree node");
+            }
         }
 
         #endregion
@@ -222,7 +234,7 @@ namespace SQLServerWarehouse.Models
             {
                 directories.Remove(node as IDirectory);
             }
-            names.Remove(node.Name);
+            Names.Remove(node.Name);
         }
 
         internal void Add(INode node)
@@ -235,7 +247,7 @@ namespace SQLServerWarehouse.Models
             {
                 directories.Add(node as IDirectory);
             }
-            names.Add(node.Name);
+            Names.Add(node.Name);
         }
 
 
@@ -252,8 +264,8 @@ namespace SQLServerWarehouse.Models
             }
             Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTreeName(Id, name); };
             StaticExtension.TableAdapter.ConnectionAction(action);
-            Parent.names.Remove(Name);
-            Parent.names.Add(name);
+            Parent.Names.Remove(Name);
+            Parent.Names.Add(name);
             Name = name;
             this.Change();
         }
@@ -268,7 +280,7 @@ namespace SQLServerWarehouse.Models
 
         internal bool Check(string name)
         {
-            if (names.Contains(name))
+            if (Names.Contains(name))
             {
                 ("Name \"" + name + "\" already exists").Log();
                 return false;
@@ -288,22 +300,22 @@ namespace SQLServerWarehouse.Models
 
         void IChildren<IDirectory>.AddChild(IDirectory child)
         {
-            throw new OwnNotImplemented("DataWarehouse");
+            Add(child);
         }
 
         void IChildren<IDirectory>.RemoveChild(IDirectory child)
         {
-            throw new OwnNotImplemented("DataWarehouse");
+            Remove(child);
         }
 
         void IChildren<ILeaf>.AddChild(ILeaf child)
         {
-            throw new OwnNotImplemented("DataWarehouse");
+            Add(child);
         }
 
         void IChildren<ILeaf>.RemoveChild(ILeaf child)
         {
-            throw new OwnNotImplemented("DataWarehouse");
+            Remove(child);
         }
 
         #endregion

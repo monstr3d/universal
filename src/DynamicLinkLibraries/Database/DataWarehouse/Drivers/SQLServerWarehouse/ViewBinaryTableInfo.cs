@@ -74,8 +74,8 @@ namespace SQLServerWarehouse.Models
             }
             Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTreeName(Id, name); };
             StaticExtension.TableAdapter.ConnectionAction(action);
-            Parent.names.Remove(Name);
-            Parent.names.Add(name);
+            Parent.Names.Remove(Name);
+            Parent.Names.Add(name);
             Name = name;
             this.Change();
         }
@@ -93,7 +93,7 @@ namespace SQLServerWarehouse.Models
         INode<INode> INode<INode>.Parent { get => Parent; set => throw new OwnNotImplemented("DataWarehouse"); }
         IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
 
-        INode INode<INode>.Value => throw new OwnNotImplemented("DataWarehouse");
+        INode INode<INode>.Value => this;
 
         public override string ToString()
         {

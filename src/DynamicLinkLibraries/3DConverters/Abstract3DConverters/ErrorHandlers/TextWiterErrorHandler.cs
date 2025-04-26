@@ -17,7 +17,7 @@ namespace Abstract3DConverters.ErrorHandlers
             this.stop = stop;
         }
 
-        void ErrorHandler.IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
+        void IExceptionHandler.HandleException<T>(T exception, params object[]? obj)
         {
             if (exception.IsFiction())
             {

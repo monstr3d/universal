@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+
 using NamedTree;
+
 using SQLServerWarehouse.Models;
 
 #nullable disable
@@ -88,7 +88,7 @@ namespace SQLServerWarehouse
                     .HasColumnName("ext")
                     .IsFixedLength(true);
 
-                entity.Property(e => (e as INamed).Name)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
 

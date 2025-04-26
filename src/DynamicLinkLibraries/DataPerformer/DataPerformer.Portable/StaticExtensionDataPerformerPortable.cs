@@ -2435,7 +2435,7 @@ namespace DataPerformer.Portable
         /// </summary>
         public static void StopRun()
         {
-            throw new ErrorHandler.FictiveException("");
+            throw new ErrorHandler.FictionException("");
         }
 
         /// <summary>

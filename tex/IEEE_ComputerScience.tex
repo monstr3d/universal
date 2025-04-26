@@ -360,7 +360,7 @@
 	%\ifCLASSOPTIONcaptionsoff
 	%  \usepackage[nomarkers]{endfloat}
 	% \let\MYoriglatexcaption\caption
-	% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+	% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[\#2]{\#2}}
 	%\fi
 	% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
 	% Axel Sommerfeldt. This package may be useful when used in conjunction with 
@@ -381,7 +381,7 @@
 	% the subcaptions:
 	% For subfig.sty:
 	% \let\MYorigsubfloat\subfloat
-	% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+	% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{\#2}}
 	% However, the above trick will not work if both optional arguments of
 	% the \subfloat command are used. Furthermore, there needs to be a
 	% description of each subfigure *somewhere* and endfloat does not add
@@ -528,7 +528,7 @@
 		% not capitalized unless they are the first or last word of the title.
 		% Linebreaks \\ can be used within to get better formatting as desired.
 		% Do not put math or special symbols in the title.
-		\title{The Concept of the Universal Language and \\  Conversion of 6D Motion Simulators}
+		\title{Asynchronous Animation of Realistic Motion}
 		%
 		%
 		% author names and IEEE memberships
@@ -625,7 +625,7 @@
 	% in the abstract or keywords.
 	\IEEEtitleabstractindextext{%
 		\begin{abstract}
-		The theory of formal languages operates with the universal languages. Here we consider a concept of universal language which is informal analog of rigorous mathematical notion. The usefulness of this concept is illustrated by an example of conversion of  6D motion simulators.
+		Here we consider the animation of realistic motion of described objects described by complicated system of differential equations. Both synchronous and asynchronous methods are being used.
 		\end{abstract}
 		
 		% Note that keywords are not normally used for peerreview papers.
@@ -694,180 +694,1209 @@
 	% 
 	% Here we have the typical use of a "T" for an initial drop letter
 	% and "HIS" in caps to complete the first word.
-	\IEEEPARstart{T}HE theory of formal languages operates with partial order of languages.  Informally the language $A$ exceeds the  $B$ one (write $A \ge B$ ) if any $B$-statement can be expressed by  $A$.  The order is partial since it is possible that neither $A \ge B$ nor $B\ge A$. There are known math results about universal formal languages, i.e. any set of formal languages contains an universal one which exceeds all other languages. An universal language is not unique, but all universal languages have equal capabilities. For example  Turing machines are a formal languages and there is the universal Turing machine. Here we consider a concept of  universal language which is not a rigorous of mathematical notion. It is rather an intuitive analog of it. This concept enables us to improve productivity of the design and development of software. General concepts are not easy to understand without  good examples. Here we illustrate the idea by example of the conversion of the 3D motion simulations. The main idea of the concept is very simple but its concrete implementations requires a lot of work.
+	\IEEEPARstart {T}HE realistic motion is usually described by ordinary differential equations (ODE). Solution of ordinary differential equations mostly requires {numerical methods}. Some equations assume a lot of calculations. For example motion model of artificial Earth's contains model of {Earth's gravity} and {Earth's atmosphere }. Numerical methods calculate motion parameters at discrete values of time $t_1$, $t_2$,$t_3$, ... The difference $dt = t_{i+1}-t_i$ is called a step size. Reduction of step size supplies a more accurate solution of ODE. However there is the optimal value of $dt_0$ such that there is no substantial difference between solutions given by step sizes $dt_{\text{opt}}$ and $dt < dt_{\text{opt}}$. Value of $dt_{\text{opt}}$ depends on ODE. Moreover this value is not a constant. In case of robot pilot control value of $dt_{\text{opt}}$ is bigger then in case of manual control. A lot of tasks require animation. If $dt_{\text{opt}}$ is small then animation can be performed by following way. Computer solves ODE step by step and simultaneously updates 3D images. This method is in fact synchronous animation which is well known long time ago. However if $dt_{\text{opt}}$ is not small then synchronous animation occurs considerable jumps of 3D images. There are following ways to avoid this problem: 
+	\begin{itemize}
+		\item Reduction of step size; 
+		\item Application of asynchronous animation.
+	\end{itemize}
+First way sometimes is not good because it requires substantial enlargement of calculation. Asynchronous animation is explained by following picture. 
+\section{Types of animation}	
+\subsection{Asynchronous animation}
+
+Real trajectory of 3D object is replaced with {piece wise linear} trajectory, which is close to real. However synchronous animation corresponds to {piece wise constant function} which is presented below.
+
+\subsection{Synchronous animation}
+
+Synchronous animation occurs substantial jumps of cube, jumps of asynchronous animation are scarcely visible. Present day technologies support a lot of asynchronous animation methods with a powerful hardware support. In this article the WPF animation is being used as example. However it can be easy adapted for other types of animation.
+
+\section{Math Background}	
+Uniform motion from 3D point $p_1 = (x_1, y_1, z_1)$ to $p_2 = (x_2, y_2, z_2)$ can be represented by following elementary expression
+$$
+p(t) = (x_1(1 - t) + x_2t, y_1(1 - t) + y_2t, z_1(1 - t) + z_2t) 
+$$
+where $t$ is a current progress. Uniform rotational motion can be easy described by {Quaternion}. Uniform rotation from quaternion $Q^1 = Q_0^1 + Q_1^1i + Q_2^1j + Q_3^1k$ to  $Q^2 = Q_0^2 + Q_1^2i + Q_2^2j + Q_3^2k$
+quaternion 
+$$
+Q(t) = Q_1Q^{\text{uniform}}(t)
+$$
+where $Q^{\text{uniform}}$ corresponds to uniform rotation. Since uniform rotation is supported by WPF we do not need explicit calculation of $Q^{\text{uniform}}$. We need {axis of rotation and rotation angle} only. These parameters can be given from a following relative rotation quaternion
+$$
+Q^{\text{relative}}= Q^{1*}Q^2
+$$
+where $Q_0^{1*} - Q_1^1i - Q_2^1j - Q_3^1k$.
+Otherwise
+$$
+Q^{\text{relative}}= \text{cos} (a/2) + r_x\text{sin}(a/2)i + r_y\text{sin}(a/2)i + r_z\text{sin}(a/2)k.
+$$
+
+Where a is a full rotation angle, direction of vector r = (rx, ry, rz) coincides with rotation axis. If r= 0 (resp. r is close to 0) then rotation is abscent (resp. can be neglected). Above equations are implemented by Uniform6DMotion class which is contained is source code. This class is independent from WPF or any other animation implementation.
+
+3. WPF Implementation of the Uniform 6D Motion
+
+Uniform 6D motion is implemented by Uniform6DTransformation which is a {custom animation class}. Following code snippet explains its logics.
+/// <summary>
+/// Custom animation class for uniform 6D motion
+/// </summary>
+public class Uniform6DTransformation : AnimationTimeline
+{
+	
+}
+Above code means that a transformatin is decomoposed to
+* Uniform 3D translation; 
+* Constant 3D rotation; 
+* Uniform 3D rotation. 
+4. General Asynchronous Animation Algorithm
+
+Asynchronous animation architecture contains abstract level which corresponds to following interface.
+/// <summary>
+/// Driver of animation
+/// </summary>
+public interface IAnimationDriver
+{
+	/// <summary>
+	/// Starts animation
+	/// </summary>
+	/// <param name="collection">Collection of components</param>
+	/// <param name="reasons">Reasons</param>
+	/// <param name="animationType">Type of animation</param>
+	/// <param name="pause">Pause</param>
+	/// <param name="timeScale">Time scale</param>
+	/// <param name="realTime">The "real time" sign</param>
+	/// <param name="absoluteTime">The "absolute time" sign</param>
+	/// <returns>Animation asynchronous calculation</returns>
+	object StartAnimation(IComponentCollection collection, string[] reasons,
+	Enums.AnimationType animationType,
+	TimeSpan pause, double timeScale, bool realTime, bool absoluteTime);
+	
+	/// <summary>
+	/// Supports asynchronous
+	/// </summary>
+	bool SuppotrsAsynchronous
+	{
+		get;
+	}
+}
+
+/// <summary>
+/// Type of action
+/// </summary>
+public enum ActionType
+{
+	/// <summary>
+	/// Calculation
+	/// </summary>
+	Calculation,
+	/// <summary>
+	/// Animation
+	/// </summary>
+	Animation
+}
 
 
-%	\hfill mds
+/// <summary>
+/// Type of animation
+/// </summary>
+public enum AnimationType
+{
+	/// <summary>
+	/// Synchronous
+	/// </summary>
+	Synchronous,
 	
-%	\hfill August 26, 2015
+	/// <summary>
+	/// Asynchronous
+	/// </summary>
+	Asynchronous
+}
+The StartAnimation function returns object which implements following interface.
+/// <summary>
+/// Asynchronous calculation
+/// </summary>
+public interface IAsynchronousCalculation
+{
+	/// <summary>
+	/// Starts itself
+	/// </summary>
+	/// <param name="time"></param>
+	void Start(double time);
 	
-		\section{Main idea}
-	The idea of universal language yields the substantiation  increasing of productivity. 	If there are $N$ types of 6D simulators  then formally one needs $2N\left( N-1\right) $ converters (cf. Fig \ref{fig_sim}) where circles are different 6D simulators and two directorial arrows are pairs of converters.	
-		\begin{figure}[!t]
-		\centering
-		\includegraphics[width=2.5in]{chaotic_adapters}
-		% where an .eps filename suffix will be assumed under latex, 
-		% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-		% via \DeclareGraphicsExtensions.
-		\caption{Full set of converters}
-		\label{fig_sim}
-	\end{figure}
-	The Fig. \ref{fig_uni} represents the idea of the  application of the universal language concept. The marked by "0" red circle is the universal language, and green circles are 6D simulators. For any simulator there is a pair of converters from the simulator to the universal language and vice versa.  The universal language should not correspond any simulator since its aim is the conversion only. A converter $A \xrightarrow{f} B$ from the language $A$ to $B$ one is a composition $A\xrightarrow{g} U \xrightarrow{h} B$ from $A$ to the universal language $U$ and from $U$ to $B$. We write $f = h \circ g$. Here we use very general notion of the language. For example the XAML and Collada representations of 3D objects implies files of the XML format. However any file of xml format corresponds to the C\# object of class XmlDocument. So expression of the formal language can be either a file or an object of an object oriented programming language. The fbx file format is binary, however the  package ChamberLib.FbxSharp can convert a binary file into  a  C\# object and vice versa.
+	/// <summary>
+	/// Step
+	/// </summary>
+	Action<double> Step
+	{
+		get;
+	}
 	
-			\begin{figure}[!t]
-		\centering
-		\includegraphics[width=2.5in]{universal_adapters}
-		\caption{Application of the universal language concept.}
-		\label{fig_uni}
-	\end{figure}
+	/// <summary>
+	/// Stops itself
+	/// </summary>
+	void Interrupt();
 	
-	\section{Formats of 3D files and their differences}
-Important elements of 6D simulators are 3D figures. However different  file formats of 3D figures are not equivalent.  So  these formats has different capabilities. In general a conversion does not yield an accurate copy, but rather the imitation of it. Some formats support a tree hierarchy  of meshes. The obj does not support it. Similarly can say about support of 6D position for every mesh. There are formats which support triangles only, e.g. Xaml, in contrary there are formats which support polygons having more then 3 vertices. Otherwise there are different types of files of supported textures, e.g Xaml format does not support the TGA textures. Very specific obj format allows points which simultaneously belong to different meshes. Also there are different types materials. The Xaml format supports Phong materials only  !!!!! ADD HERE !! BlinnMaterial Lambert material
+	/// <summary>
+	/// Suspends itself
+	/// </summary>
+	void Suspend();
 	
-	\section{Category theory as formal language}
+	/// <summary>
+	/// The "is running" sign
+	/// </summary>
+	bool IsRunning
+	{
+		get;
+	}
 	
-	Once an engineer said to me, "I do not need abstract class since I am solving specific problems only" He uses FORTRAN for calculation. Advanced engineers understand usefulness of abstraction. Abstract nonsense in math is next generation of abstraction.
+	/// <summary>
+	/// Suspend event
+	/// </summary>
+	event Action OnSuspend;
 	
-	In mathematics, abstract nonsense, general abstract nonsense, and general nonsense are terms used facetiously by some mathematicians to describe certain kinds of arguments and methods related to category theory. (Very) roughly speaking, category theory is the study of the general form of mathematical theories, without regard to their content. As a result, a proof that relies on category theoretic ideas often seems slightly out of context to those who are not used to such abstraction, sometimes to the extent that it resembles a comical non sequitur. Such proofs are sometimes dubbed “abstract nonsense” as a light-hearted way of alerting people to their abstract nature. Category theory deals in an abstract way with mathematical structures and relationships between them: it abstracts from sets and functions to objects linked in diagrams by morphisms or arrows. High level of abstraction of Category Theory is explained in Goldblatt. Topoi: The Categorical Analysis of Logic. The Fig. \ref{obj_and_arrow} is copied from this book
+	/// <summary>
+	/// Finish event
+	/// </summary>
+	event Action Finish;
 	
-		\begin{figure}[!t]
-	\centering
-	\includegraphics[width=0.5in]{object_and_arrow}
-	\caption{Object and arrow.}
-	\label{obj_and_arrow}
-\end{figure}
+	/// <summary>
+	/// Interrupt
+	/// </summary>
+	event Action OnInterrupt;
 	
-	We did not actually say what $a$ and $f$ are. The point is that they can be anything you like. $a$ might be a set with $f$ its identity function. But $f$ might be a number, or a pair of numbers, or a banana, or the Eiffel tower, or even Richard Nixon. Likewise for $f$l Author was very impressed by math abstract nonsense and even developed Category theory software. Then this soft was extended. Now it have objects and arrows, Following picture presents objects and arrows:
-	\paragraph{title}
-	Objects and arrows
+}
+Above interface is not intended for animation only. Following table contains different implementations of this interface.
+N  Class name  Purpose 
+1  PauseAsynchronousCalculation  Synchronous animation 
+2  WpfAsynchronousAnimatedCalculation  Asynchronous animation for WPF 
+3  WpfAsynchronousRealtimeAnimatedCalculation  Asynchronous real-time animation for WPF 
+
+The real-time mode is described below.
+
+The PauseAsynchronousCalculation does not depend on WPF or other animation technology. This class just performs a pause. Following code explains this circumstance.
+/// <summary>
+/// Pause asynchronous calculation
+/// </summary>
+public class PauseAsynchronousCalculation : IAsynchronousCalculation
+{
+	\#region Fields
 	
-	Big squares are objects. Arrows suppplied with little squares are arrows. Abstract nonsense means that we have objects and arrows only.
+	private Action<double> pause;
 	
-	Di
-	It is well known that high level of abstraction supplies very effective development. Abstraction supplies following facilities:
+	// ...
 	
-	Common language for different domain
-	Solving problem of requirements and the need to deal with change
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="pauseSpan">Pause</param>
+	public PauseAsynchronousCalculation(TimeSpan pauseSpan)
+	{
+		// Pause action
+		pause = (double time) =>
+		{
+			Thread.Sleep(pauseSpan);
+		};
+	}
 	
-	\paragraph{title!!}
-	\section{Category theory and 6D kinematics}
+	// ...
 	
-	\subsection{Subsection Heading Here}
-	Subsection text here.
+	Action<double> IAsynchronousCalculation.Step
+	{
+		get { return pause; }
+	}
 	
-	% needed in second column of first page if using \IEEEpubid
-	%\IEEEpubidadjcol
+	// ...
+}    
+Every step of synchronous animation assumes following operations:
+* Calculation of motion parameters; 
+* Showing of 3D objects with new 6D positions; 
+* Time pause. 
+Asynchronous animation assumes one thread of calculation and many threads for animation. Every step of asynchronous animation calculation contains following operations:
+* Calculation of motion parameters; 
+* Enqueuing motion parameters and current time to every animation thread. 
+Every animation thread performs following operations:
+* 1. Dequeues motion parameters and current time; 
+* 2. Performs calculations described in {section 2}. 
+* 3. Calls {IAnimatable.BeginAnimation method}. 
+* 4. Callback of animation completed event ({Timeline.Completed event}) checks queue. If the queue is not empty then it goes to operation 1. 
+5. Calculation of motion parameters
+
+Calculation of motion parameters is already described in {my previous article}. However I overlap some text from my previous article for convenience.
+
+A {kinematics} domain contains following basic types:
+* 3D Position (IPosition interface);  
+* 3D Orientation (IOrientation interface; 
+* Standard 3D Position (Position class which implements IPosition interface);  
+* 3D Reference frame (ReferenceFrame class which implements both IPosition and IOrientation);  
+* Holder 3D Reference frame (IReferenceFrame interface) ; 
+* Reference frame binding (ReferenceFrameArrow class which implements ICategoryArrow interface). 
+Source (resp. target) of ReferenceFrameArrow is always IPosition (resp. IReferenceFrame). This arrow means that coordinates of IPosition are relative with respect to IReferenceFrame. Following code represents these types:
+/// <summary>
+/// 3D Position
+/// </summary>
+public interface IPosition
+{
+	
+	/// <summary>
+	/// Absolute position coordinates
+	/// </summary>
+	double[] Position
+	{
+		get;
+	}
+	
+	/// <summary>
+	/// Parent frame
+	/// </summary>
+	IReferenceFrame Parent
+	{
+		get;
+		set;
+	}
+	
+	/// <summary>
+	/// Position parameters
+	/// </summary>
+	object Parameters
+	{
+		get;
+		set;
+	}
+	
+	/// <summary>
+	/// Updates itself
+	/// </summary>
+	void Update();
+}
+/// <summary>
+/// Object with orientation
+/// </summary>
+public interface IOrientation
+{
+	/// <summary>
+	/// Orientation quaternion
+	/// </summary>
+	double[] Quaternion
+	{
+		get;
+	}
+	
+	/// <summary>
+	/// Orientation matrix
+	/// </summary>
+	double[,] Matrix
+	{
+		get;
+	}
+}
+/// <summary>
+/// Standard position
+/// </summary>
+public class Position : IPosition, IChildrenObject
+{
+	
+	\#region Fields
+	
+	/// <summary>
+	/// Parent frame
+	/// </summary>
+	protected IReferenceFrame parent;
+	
+	/// <summary>
+	/// Own position
+	/// </summary>
+	protected double[] own = new double[] { 0, 0, 0 };
+	
+	/// <summary>
+	/// Relatyive position
+	/// </summary>
+	protected double[] position = new double[3];
+	
+	/// <summary>
+	/// Parameters
+	/// </summary>
+	protected object parameters;
+	
+	/// <summary>
+	/// Children objects
+	/// </summary>
+	protected IAssociatedObject[] ch = new IAssociatedObject[1];
+	
+	\#endregion
+	
+	\#region Ctor
+	
+	/// <summary>
+	/// Default constructor
+	/// </summary>
+	protected Position()
+	{
+	}
+	
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="position">Position coordinates</param>
+	public Position(double[] position)
+	{
+		for (int i = 0; i < own.Length; i++)
+		{
+			own[i] = position[i];
+		}
+	}
+	
+	\#endregion
+	
+	\#region IPosition Members
+	
+	double[] IPosition.Position
+	{
+		get { return position; }
+	}
+	
+	/// <summary>
+	/// Parent frame
+	/// </summary>
+	public virtual IReferenceFrame Parent
+	{
+		get
+		{
+			return parent;
+		}
+		set
+		{
+			parent = value;
+		}
+	}
+	
+	/// <summary>
+	/// Position parameters
+	/// </summary>
+	public virtual object Parameters
+	{
+		get
+		{
+			return parameters;
+		}
+		set
+		{
+			parameters = value;
+			if (value is IAssociatedObject)
+			{
+				IAssociatedObject ao = value as IAssociatedObject;
+				ch[0] = ao;
+			}
+		}
+	}
+	
+	/// <summary>
+	/// Updates itself
+	/// </summary>
+	public virtual void Update()
+	{
+		Update(BaseFrame);
+	}
+	
+	\#endregion
+	
+	// ...
+}
+/// <summary>
+/// Reference frame
+/// </summary>
+public class ReferenceFrame : IPosition, IOrientation
+{
+	
+	\#region Fields
+	
+	/// <summary>
+	/// Orientation quaternion
+	/// </summary>
+	protected double[] quaternion = new double[] { 1, 0, 0, 0 };
+	
+	/// <summary>
+	/// Absolute position
+	/// </summary>
+	protected double[] position = new double[] { 0, 0, 0 };
+	
+	/// <summary>
+	/// Orientation matrix
+	/// </summary>
+	protected double[,] matrix = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+	
+	/// <summary>
+	/// Auxiliary array
+	/// </summary>
+	protected double[,] qq = new double[4, 4];
+	
+	/// <summary>
+	/// Auxiliary array
+	/// </summary>
+	protected double[] p = new double[3];
+	
+	/// <summary>
+	/// Parent frame
+	/// </summary>
+	protected IReferenceFrame parent;
+	
+	/// <summary>
+	/// Parameters
+	/// </summary>
+	protected object parameters;
+	
+	/// <summary>
+	/// Auxliary position
+	/// </summary>
+	private double[] auxPos = new double[3];
+	
+	\#endregion
+	
+	\#region Ctor
+	
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	public ReferenceFrame()
+	{
+	}
+	
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="b">Auxiliary</param>
+	private ReferenceFrame(bool b)
+	{
+	}
+	
+	/// <summary>
+	/// Absolute position
+	/// </summary>
+	public double[] Position
+	{
+		get { return position; }
+	}
+	
+	/// <summary>
+	/// Parent frame
+	/// </summary>
+	public virtual IReferenceFrame Parent
+	{
+		get
+		{
+			return parent;
+		}
+		set
+		{
+			parent = value;
+		}
+	}
+	
+	/// <summary>
+	/// Position parameters
+	/// </summary>
+	public virtual object Parameters
+	{
+		get
+		{
+			return parameters;
+		}
+		set
+		{
+			parameters = value;
+		}
+	}
+	
+	/// <summary>
+	/// Updates itself
+	/// </summary>
+	public virtual void Update()
+	{
+		ReferenceFrame p = ParentFrame;
+		position = p.Position;
+		quaternion = p.quaternion;
+		matrix = p.matrix;
+	}
+	
+	\#endregion
+	
+	\#region IOrientation Members
+	
+	/// <summary>
+	/// Orientation quaternion
+	/// </summary>
+	public double[] Quaternion
+	{
+		get { return quaternion; }
+	}
+	
+	/// <summary>
+	/// Orientation matrix
+	/// </summary>
+	public double[,] Matrix
+	{
+		get { return matrix; }
+	}
+	
+	\#endregion
+	
+	// ...
+	
+}
+/// <summary>
+/// Reference frame holder
+/// </summary>
+public interface IReferenceFrame : IPosition
+{
+	/// <summary>
+	/// Own frame
+	/// </summary>
+	ReferenceFrame Own
+	{
+		get;
+	}
+	
+	/// <summary>
+	/// Children objects
+	/// </summary>
+	List<IPosition> Children
+	{
+		get;
+	}
+	
+}
+/// <summary>
+/// Link of relative frame
+/// </summary>
+[Serializable()]
+public class ReferenceFrameArrow : CategoryArrow, ISerializable, IRemovableObject
+{
+	\#region Fields
+	
+	IPosition source;
+	
+	IReferenceFrame target;
 	
 	
-	\subsection{Subsection Heading Here}
-	Subsection text here.
-	
-	% needed in second column of first page if using \IEEEpubid
-	%\IEEEpubidadjcol
-	
-	\subsubsection{Subsubsection Heading Here}
-	Subsubsection text here.
-	
-	
-	% An example of a floating figure using the graphicx package.
-	% Note that \label must occur AFTER (or within) \caption.
-	% For figures, \caption should occur after the \includegraphics.
-	% Note that IEEEtran v1.7 and later has special internal code that
-	% is designed to preserve the operation of \label within \caption
-	% even when the captionsoff option is in effect. However, because
-	% of issues like this, it may be the safest practice to put all your
-	% \label just after \caption rather than within \caption{}.
-	%
-	% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-	% option should be used if it is desired that the figures are to be
-	% displayed while in draft mode.
-	%
-	%\begin{figure}[!t]
-	%\centering
-	%\includegraphics[width=2.5in]{myfigure}
-	% where an .eps filename suffix will be assumed under latex, 
-	% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-	% via \DeclareGraphicsExtensions.
-	%\caption{Simulation results for the network.}
-	%\label{fig_sim}
-	%\end{figure}
-	
-	% Note that the IEEE typically puts floats only at the top, even when this
-	% results in a large percentage of a column being occupied by floats.
-	% However, the Computer Society has been known to put floats at the bottom.
+	/// <summary>
+	/// Default constructor
+	/// </summary>
+	public ReferenceFrameArrow()
+	{
+		
+	}
 	
 	
-	% An example of a double column floating figure using two subfigures.
-	% (The subfig.sty package must be loaded for this to work.)
-	% The subfigure \label commands are set within each subfloat command,
-	% and the \label for the overall figure must come after \caption.
-	% \hfil is used as a separator to get equal spacing.
-	% Watch out that the combined width of all the subfigures on a 
-	% line do not exceed the text width or a line break will occur.
-	%
-	%\begin{figure*}[!t]
-	%\centering
-	%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-		%\label{fig_first_case}}
-	%\hfil
-	%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-		%\label{fig_second_case}}
-	%\caption{Simulation results for the network.}
-	%\label{fig_sim}
-	%\end{figure*}
-	%
-	% Note that often IEEE papers with subfigures do not employ subfigure
-	% captions (using the optional argument to \subfloat[]), but instead will
-	% reference/describe all of them (a), (b), etc., within the main caption.
-	% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-	% labels, the optional argument to \subfloat must be present. If a
-	% subcaption is not desired, just leave its contents blank,
-	% e.g., \subfloat[].
+	/// <summary>
+	/// Deserialization constructor
+	/// </summary>
+	/// <param name="info">Serialization info</param>
+	/// <param name="context">Streaming context</param>
+	protected ReferenceFrameArrow(SerializationInfo info, StreamingContext context)
+	{
+	}
+	void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+	{
+	}
+	
+	/// <summary>
+	/// The source of this arrow
+	/// </summary>
+	public override ICategoryObject Source
+	{
+		get
+		{
+			return source as ICategoryObject;
+		}
+		set
+		{
+			IPosition position = value.GetSource<IPosition>();
+			if (position.Parent != null)
+			{
+				throw new CategoryException("Root", this);
+			}
+			source = position;
+		}
+	}
+	
+	/// <summary>
+	/// The target of this arrow
+	/// </summary>
+	public override ICategoryObject Target
+	{
+		get
+		{
+			return target as ICategoryObject;
+		}
+		set
+		{
+			IReferenceFrame rf = value.GetTarget<IReferenceFrame>();
+			IAssociatedObject sa = source as IAssociatedObject;
+			IAssociatedObject ta = value as IAssociatedObject;
+			INamedComponent ns = sa.Object as INamedComponent;
+			INamedComponent nt = ta.Object as INamedComponent;
+			target = rf;
+			source.Parent = target;
+			target.Children.Add(source);
+		}
+	}
 	
 	
-	% An example of a floating table. Note that, for IEEE style tables, the
-	% \caption command should come BEFORE the table and, given that table
-	% captions serve much like titles, are usually capitalized except for words
-	% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-	% and up, which are usually not capitalized unless they are the first or
-	% last word of the caption. Table text will default to \footnotesize as
-	% the IEEE normally uses this smaller font for tables.
-	% The \label must come after \caption as always.
-	%
-	%\begin{table}[!t]
-	%% increase table row spacing, adjust to taste
-	%\renewcommand{\arraystretch}{1.3}
-	% if using array.sty, it might be a good idea to tweak the value of
-	% \extrarowheight as needed to properly center the text within the cells
-	%\caption{An Example of a Table}
-	%\label{table_example}
-	%\centering
-	%% Some packages, such as MDW tools, offer better commands for making tables
-	%% than the plain LaTeX2e tabular which is used here.
-	%\begin{tabular}{|c||c|}
-	%\hline
-	%One & Two\\
-	%\hline
-	%Three & Four\\
-	%\hline
-	%\end{tabular}
-	%\end{table}
-	
-	
-	% Note that the IEEE does not put floats in the very first column
-	% - or typically anywhere on the first page for that matter. Also,
-	% in-text middle ("here") positioning is typically not used, but it
-	% is allowed and encouraged for Computer Society conferences (but
-	% not Computer Society journals). Most IEEE journals/conferences use
-	% top floats exclusively. 
-	% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-	% footnotes above bottom floats. This can be corrected via the
-	% \fnbelowfloat command of the stfloats package.
+	\#endregion
 	
 	
 	
+	//...
 	
-	\section{Conclusion}
+}
+Some code is omitted, a reader can find it in source files. Let us consider a following picture:
+
+POINT AND FRAME
+
+Type of the Point is Position and the Frame implements IReferenceFrame interface. The Link arrow means that motion of Point is relative with respect to Frame. Absolute coordinates of Point are calculated by following way: 
+
+Xa = XF + A11Xr + A12Yr + A13Zr;
+
+Ya = YF + A21Xr + A22Yr + A23Zr;
+
+Za = ZF + A31Xr + A32Yr + A33Zr.
+
+where 
+* Xa, Ya, Za absolute coordinates of Point  
+* XF, YF, ZF absolute coordinates of Frame  
+* Xr, Yr, Zr relative coordinates of Point  
+* A11,..., A33 - elements of {3D rotation matrix}. 
+6. Animated objects
+
+There is a many to many relation of following objects:
+* 3D shapes ({Visual3D class}); 
+* Virtual videocameras ({PerspectiveCamera class}). 
+Following movies contains 7 shapes and 5 cameras with independent motion
+
+{[Helicopter]}
+
+Helicoper contains following shapes:
+* Fuselage; 
+* Tail rotor; 
+* 5 blades of main rotor. 
+Independent motion of blades is due to {main rotor assembly}
+
+[helicopter Rotor]
+
+WPF allows usage of single Visual3D in single camera only. So we need for copies of 3D shapes. Above picture contains 5 * 7 + 5 - 40 animatable ({IAnimatable interface}), they are 5 cameras and 5 copies for each 7 Visual3D objects. However simulation of motion is performed for 5 + 7 = 12 objects (5 cameras and 7 3D shapes). So we need 12 objects of the {ReferenceFrame} type. Following interface is responsible for interoperability between animated objects and objects of 6D motion simulation.
+/// <summary>
+/// Linear forecast
+/// </summary>
+public interface ILinear6DForecast
+{
+	
+	/// <summary>
+	/// Frame
+	/// </summary>
+	ReferenceFrame ReferenceFrame
+	{
+		get;
+	}
+	
+	
+	/// <summary>
+	/// Forecast time
+	/// </summary>
+	TimeSpan ForecastTime
+	{
+		get;
+		set;
+	}
+	
+	/// <summary>
+	/// Error of coordinate
+	/// </summary>
+	double CoordinateError
+	{
+		get;
+		set;
+	}
+	
+	/// <summary>
+	/// Error of angle
+	/// </summary>
+	double AngleError
+	{
+		get;
+		set;
+	}
+}
+Above interface does not depend on 3D graphics technology, following interface is a WPF version.
+/// <summary>
+/// Animated object
+/// </summary>
+interface IAnimatedObject : ILinear6DForecast
+{
+	/// <summary>
+	/// Initialze animation
+	/// </summary>
+	void InitAnimation(AnimationType animationType);
+	
+	/// <summary>
+	/// Initialze animation
+	/// </summary>
+	/// <param name="animationType">Type of animation</param>
+	/// <param name="changeFrameTime">Time of frame change</param>
+	void InitRealtime(AnimationType animationType, double[] changeFrameTime);
+	
+	/// <summary>
+	/// Children
+	/// </summary>
+	AnimatableWrapper[] Children
+	{
+		get;
+	}
+	
+	/// <summary>
+	/// Change event
+	/// </summary>
+	event Action Change;
+	
+	/// <summary>
+	/// Stops animation
+	/// </summary>
+	void StopAnimation();
+	
+	/// <summary>
+	/// On stop action
+	/// </summary>
+	event Action OnStop;
+	
+	/// <summary>
+	/// Supports animation events
+	/// </summary>
+	bool SupportsAnimationEvents
+	{
+		get;
+		set;
+	}
+	
+}
+The Children property contains wrappers of animatable ({IAnimatable interface}). In previous picture every 3D shape contains 5 children, every perspective camera has a single child. Following code contains wrapper of animatable object.
+/// <summary>
+/// Wrapper of animatable object
+/// </summary>
+public class AnimatableWrapper : IDisposable
+{
+	
+	private IAnimatable animatable;
+	
+	private DependencyProperty dependencyProperty;
+	
+	private object value;
+	
+	private Action change = () => { };
+	
+	private IAnimatedObject animatedObject;
+	
+	private Uniform6DTransformation transformation;
+	
+	private Action finish = () => { };
+	
+	double[] auxQuaternion = new double[4];
+	
+	bool isStopped = false;
+	
+	object loc = new object();
+	internal AnimatableWrapper(IAnimatable animatable, DependencyProperty dependencyProperty,
+	IAnimatedObject animatedObject, bool realtime, double[] changeFrameTime)
+	{
+		this.animatable = animatable;
+		this.dependencyProperty = dependencyProperty;
+		value = (animatable as DependencyObject).GetValue(dependencyProperty);
+		this.animatedObject = animatedObject;
+		transformation = new Uniform6DTransformation(this,animatedObject.ReferenceFrame,
+		realtime, changeFrameTime, animatedObject.ForecastTime);
+	}
+	
+	/// <summary>
+	/// Animatable
+	/// </summary>
+	public IAnimatable Animatable
+	{
+		get
+		{
+			return animatable;
+		}
+	}
+	
+	/// <summary>
+	/// Dependency property
+	/// </summary>
+	public DependencyProperty DependencyProperty
+	{
+		get
+		{
+			return dependencyProperty;
+		}
+	}
+	
+	
+	
+	internal IAnimatedObject Animated
+	{
+		get
+		{
+			return animatedObject;
+		}
+	}
+	
+	internal void Stop()
+	{
+		lock (loc)
+		{
+			transformation.Stop();
+			isStopped = true;
+			finish();
+		}
+	}
+	
+	internal void StartRealtime(double time, DateTime start)
+	{
+		transformation.StartRealtime(time, start);
+	}
+	
+	internal void Init(double[] coord, double[] quaternion)
+	{
+		transformation.Init(coord, quaternion);
+	}
+	
+	internal void StartAnimation(double[] coord, double[] quaternion, DateTime start)
+	{
+		transformation.StartAnimation(coord, quaternion, start);
+	}
+	
+	
+	internal void Enqueue(Tuple<TimeSpan, double[], double[]> parameters)
+	{
+		transformation.Enqueue(parameters);
+	}
+	
+	internal void Finish()
+	{
+		finish();
+	}
+	
+	internal event Action OnFinish
+	{
+		add { finish += value; }
+		remove { finish -= value; }
+	}
+	
+	internal  Action Event
+	{
+		get
+		{
+			return transformation.Event;
+		}
+	}
+	
+	void IDisposable.Dispose()
+	{
+		(animatable as DependencyObject).SetValue(dependencyProperty, value);
+		animatedObject.Change -= change;
+	}
+	
+}
+Above class contains a transformation field of the {Uniform6DTransformation : AnimationTimeline} type. This field is responsible for animation.
+
+7. Real-time
+
+Recently I wrote an {article devoted to real-time}. This section can be regarded as an animation extension of the real-time simulation. Above animation is explained by following picture.
+
+[Asynchronous animation]
+
+However above scheme is not sufficient for real-time because animation lag behind simulation. Sufficient scheme is presented below.
+
+[Real-time]
+
+This scheme implies usage of the {linear prediction}. Both {velocity vector} and {angular velocity} vectors supply necessary data for linear prediction. My software supports calculation of velocity and angular velocity for different engineering problems (See {here} and {here}). Now these calculations are used for the asynchronous animation. Following interfaces are responsible for calculation of velocity vectors.
+/// <summary>
+/// Object with linear velocity
+/// </summary>
+public interface IVelocity
+{
+	/// <summary>
+	/// Linear velocity
+	/// </summary>
+	double[] Velocity
+	{
+		get;
+	}
+	
+}
+
+/// <summary>
+/// Object that have angular velocity
+/// </summary>
+public interface IAngularVelocity
+{
+	/// <summary>
+	/// Angular velocity of object
+	/// </summary>
+	double[] Omega
+	{
+		get;
+	}
+}
+Following code explains application of these interfaces for linear prediction.
+/// <summary>
+/// Reference frame
+/// </summary>
+ReferenceFrame frame;
+
+/// <summary>
+/// Velocity object
+/// </summary>
+IVelocity velocity;
+
+/// <summary>
+/// Angular velocity object
+/// </summary>
+IAngularVelocity angularVelocity;
+
+// ...
+
+
+/// <summary>
+/// Initialization of prediction
+/// </summary>
+public void InitializePrediction(double forecastTime)
+{
+	if (!(frame is IVelocity))
+	{
+		throw new Exception("Frame does not support velocity");
+	}
+	if (!(frame is IAngularVelocity))
+	{
+		throw new Exception("Frame does not support angular velocity");
+	}
+	velocity = frame as IVelocity;
+	angularVelocity = frame as IAngularVelocity;
+}
+
+/// <summary>
+/// Initialization of prediction
+/// </summary>
+public void InitializePrediction(double forecastTime)
+{
+	if (!(frame is IVelocity))
+	{
+		throw new Exception("Frame does not support velocity");
+	}
+	if (!(frame is IAngularVelocity))
+	{
+		throw new Exception("Frame does not support angular velocity");
+	}
+	velocity = frame as IVelocity;
+	angularVelocity = frame as IAngularVelocity;
+}
+
+/// <summary>
+/// Linear prediction
+/// </summary>
+/// <param name="time">Current time</param>
+private void LinearPrediction(double time)
+{
+	lastTime = time;
+	double delta = time - changeFrameTime[0]; // Forecast time
+	double[] coord = frame.Position;          // Coordinates of frame
+	double[] v = velocity.Velocity;           // Velocity vector
+	for (int i = 0; i < 3; i++)
+	{
+		auxVectorFrame[i] = coord[i] + v[i] * delta; // Linear prediction of coordinates
+	}
+	double[] omega = angularVelocity.Omega; // Angular velocity vector
+	double mod = omega[0] * omega[0] + omega[1] * omega[1] + omega[2] * omega[2];
+	mod = Math.Sqrt(mod);
+	Array.Copy(omega, 0, auxQuarterInter, 1, 3); // Calculation of "shift" quaternion
+	double angle = 0.5 * mod * delta;
+	double s = Math.Sin(angle);
+	double c = Math.Cos(angle);
+	auxQuarterInter[0] = c;
+	double smod = s / mod;
+	for (int i = 1; i < 3; i++)
+	{
+		auxQuarterInter[i] *= smod;
+	}
+	QuaternionMultiply(frame.Quaternion, auxQuarterInter, auxQuaterFrame); // Calculation of quaternion
+}
+8. Examples
+
+8.1 Animation of a Cube
+
+This sample is rather demo than realistic. Motion of cube is described by following finite formulas.
+
+[Cube motion]
+
+Above formulas are used as coordinates and components of 3D orientation quaternion.
+
+[Cube motion parameters]
+
+Following movie represents animation of the cube.
+
+{[Modes of anination]}
+* {Download cube sample 630 KB} 
+8.2 Animation of a Helicopter
+
+Motion of helicopter is also rather demo and it also is defined by finite formulas. But it includes 7 3D shapes and 5 virtual cameras. Following movie represents motion of helicopter.
+
+{[Helicopter]}
+* {Download helicopter sample 50 KB} 
+* {Download additional files 247 KB} 
+8.3 Animation of Artificial Earth's Satellite.
+
+This sample is quite realistic because it uses following ingredients:
+* Ordinary differential equations; 
+* Model of {Earth's gravity}; 
+* Model of {Earth's atmosphere}. 
+Description of math model details is {here}. Following movie represents this animation.
+
+{[Orbital movie]}
+* {Download orbital motion sample 457 KB} 
+* {Download additional files 247 KB} 
+8.4 Manual Control of an Airplane
+
+This sample is close to realistic. It uses real-time manual control of an airplane. Motion model of airplane is quite realistic because it uses realistic model atmosphere and an {aerodynamics} model. However manual control is not realistic. Instead a pilot wheel the "{roll pitch} robot pilot" is used. The {ForcedEventData} class is used for manual control. Object of this class performs following operations:
+* Manual input of parameters ({roll and pitch}); 
+* Raising of input event. 
+User can update required values of {pith and roll}. Any update occurs a {transient state}. Following chart contains two transient states.
+
+[Transient state]
+. 
+
+Real-time simulation is based on {event driven} calculations. Following scheme of events is used for airplane simulation.
+
+[Events]
+
+Our calculation is driven by Event collection object which is simultaneously a generator of events and an event handler. It is an object of the {EventCollection} class. The Event collection is a "sum" of Timer, Transition and Pilot Control events. The Timer raises one event per 2000 ms = 2 s. The Pilot Control raises event of user manual control. The Transition raises one event per 0.2 s during transition state. The Transition is an object of the TransientProcessEvent class. This class is simultaneously a source of event and event handler. Following code explains how does this class works.
+/// <summary>
+/// Transient State Event
+/// </summary>
+[Serializable()]
+public class TransientProcessEvent : CategoryObject, IEvent, IEventHandler, ISerializable
+{
+	
+	TimeSpan[] spans;
+	
+	private Action ev = () => { };
+	
+	object loc = new object();
+	
+	bool isEnabled = false;
+	
+	DateTime previous = DateTime.Now;
+	
+	bool isRunning = false;
+	
+	// ...
+	
+	
+	/// <summary>
+	/// Default constructor
+	/// </summary>
+	public TransientProcessEvent()
+	{
+	}
+	
+	// ...
+	
+	
+	event Action IEvent.Event
+	{
+		add { ev += value; }
+		remove { ev -= value; }
+	}
+	
+	// ...
+	
+	
+	void IEventHandler.Add(IEvent ev)
+	{
+		events.Add(ev);
+		onAdd(ev);
+	}
+	
+	// ...
+	
+	/// <summary>
+	/// Enanble/Disable operation
+	/// </summary>
+	void Enable()
+	{
+		lock (loc)
+		{
+			isRunning = false;
+			if (isEnabled)
+			{
+				previous = DateTime.Now;
+				foreach (IEvent ev in events)
+				{
+					ev.Event += EventHandler; // Adds event handler
+				}
+				return;
+			}
+			foreach (IEvent ev in events)
+			{
+				ev.Event -= EventHandler;    // Removes event handler
+			}
+		}
+	}
+	
+	/// <summary>
+	/// Event handler
+	/// </summary>
+	void EventHandler()
+	{
+		if (isRunning)
+		{
+			previous = DateTime.Now;
+			return;
+		}
+		lock (loc)
+		{
+			if (isRunning)
+			{
+				return;
+			}
+			isRunning = true;
+			currentStep = 0;
+			Action act = AsyncEvent; // Asynchronous event
+			act.BeginInvoke(null, null);
+		}
+	}
+	
+	/// <summary>
+	/// Asynchronous event
+	/// </summary>
+	void AsyncEvent()
+	{
+		for (int i = 0; i < spans.Length; i++)
+		{
+			Thread.Sleep(spans[i]); // Sleep
+			ev();                   // Raise event
+		}
+	}
+	
+	
+}
+The AsyncEvent performs cyclic sleep operation and raising of event. Following movies explains how does it works. 
+
+{[transient]}
+
+After user action (mouse click/move) we have 10 updates distinguished by update per 0.2 s. In passive mode we have one update per 2 s. Following movie shows this sample.
+
+{[Avia movie]}
+* {Download sample of manually controlled airplane 9.6 MB} 
+Points of Interest
+
+I am a software developer since 1977. During development of this article I first time encoutered with deadlock.
+
+	
+	
+\section{Conversion of 6D Kinematics}
+section{Conclusion}
 	The conclusion goes here.
 	
 	
@@ -943,6 +1972,11 @@ Important elements of 6D simulators are 3D figures. However different  file form
 	% set second argument of \begin to the number of references
 	% (used to reserve space for the reference number labels box)
 	\begin{thebibliography}{1}
+		\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
+		
+			\bibitem{cockett:dg}
+	J.R.B. Cockett and G.S.H. Cruttwelly \emph{Differential structure, tangent structure, and SDG}, Applied Categorical Structures  April 2014, 2014
+	\bibitem{kobayashi_nomizu:diff_geom} S. Kobayashi, K. Nomizu. {\it Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
 		
 		\bibitem{IEEEhowto:kopka}
 		H.~Kopka and P.~W. Daly, \emph{A Guide to {\LaTeX}}, 3rd~ed.\hskip 1em plus

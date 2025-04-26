@@ -22,8 +22,8 @@ namespace SQLServerWarehouse.Models
         string INode.Extension => Ext;
 
         byte[] ILeaf.Data { get=> Data; set => SetData(value); }
-        string INode.Description { get => throw new OwnNotImplemented("Binary Table"); set => throw new OwnNotImplemented("Binary Table"); }
-        string INamed.Name { get => throw new OwnNotImplemented("Binary Table"); set => throw new OwnNotImplemented("Binary Table"); }
+        string INode.Description { get => Description; set => UpdateDescription(value); }
+        string INamed.Name { get => Name; set => UpdateName(value); }
         INode<INode> INode<INode>.Parent { get => Parent; set => throw new OwnNotImplemented("Binary Table"); }
         IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("Binary Table"); set => throw new OwnNotImplemented("Binary Table"); }
 
@@ -53,19 +53,26 @@ namespace SQLServerWarehouse.Models
 
         void INode<INode>.Add(INode<INode> node)
         {
-            throw new OwnNotImplemented("Binary Table");
         }
 
         void INode<INode>.Remove(INode<INode> node)
         {
-            throw new OwnNotImplemented("Binary Table");
         }
 
         void INode.RemoveItself()
         {
-            StaticExtension.Context.BinaryTables.Remove(this);
-            Parent.Remove(this);
-            StaticExtension.Context.SaveChanges();
+            try
+            {
+
+
+                StaticExtension.Context.BinaryTables.Remove(this);
+                Parent.Remove(this);
+                StaticExtension.Context.SaveChanges();
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Remove database binary item");
+            }
             
         }
 
@@ -77,5 +84,33 @@ namespace SQLServerWarehouse.Models
                 context.SaveChanges();
             }
         }
+
+        void UpdateName(string name)
+        {
+            if (name == Name)
+            {
+                return;
+            }
+            if (!Parent.Check(name))
+            {
+                return;
+            }
+            Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTableName(Id, name); };
+            StaticExtension.TableAdapter.ConnectionAction(action);
+            Parent.Names.Remove(Name);
+            Parent.Names.Add(name);
+            Name = name;
+       //     this.Change();
+        }
+
+        void UpdateDescription(string description)
+        {
+            Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTableDescription(Id, description); };
+            StaticExtension.TableAdapter.ConnectionAction(action);
+            Description = description;
+    //        this.Change();
+        }
+
+
     }
 }

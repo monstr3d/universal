@@ -487,7 +487,7 @@ namespace Abstract3DConverters
         }
 
 
-        public static void TestDirectory(this string directory)
+        public static void TestDirectory(this string directory, bool cleanOnly)
         {
             var l = new List<string>();
             var ldir = new List<string>();
@@ -501,7 +501,7 @@ namespace Abstract3DConverters
                     }
                 }
             }
-            TestDirectoryPrivate(directory, l, ldir);
+            TestDirectoryPrivate(directory, l, ldir, cleanOnly);
         }
 
         public static Action<Exception, object[]> HandleExceptionDoubleFunc
@@ -540,7 +540,7 @@ namespace Abstract3DConverters
 
 
 
-        static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld)
+        static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld, bool cleanOnly)
         {
             var drs = Directory.GetDirectories(directory);
             foreach (var d in drs)
@@ -552,7 +552,11 @@ namespace Abstract3DConverters
                     di.Delete(true);
                     continue;
                 }
-                TestDirectoryPrivate(d, ext, ld);
+                TestDirectoryPrivate(d, ext, ld, cleanOnly);
+            }
+            if (cleanOnly)
+            {
+                return;
             }
             var directoryInfo = new DirectoryInfo(directory);
             var files = directoryInfo.GetFiles();
