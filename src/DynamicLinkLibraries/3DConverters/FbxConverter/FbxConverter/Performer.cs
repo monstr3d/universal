@@ -18,12 +18,6 @@ namespace FbxConverter
         Ascii
     };
 
-    enum class FileFormat
-{
-    Unknown,
-    Binary,
-    Ascii
-};
 
 
     /// <summary>
