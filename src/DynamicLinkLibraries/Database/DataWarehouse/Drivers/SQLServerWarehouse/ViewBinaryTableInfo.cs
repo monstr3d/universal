@@ -15,11 +15,12 @@ namespace SQLServerWarehouse.Models
         
 
         #region Implementation of interfaces
-        byte[] ILeaf.Data { get => Id.GetData(); set => Id.SetData(value); }
+
+        byte[] IData.Data { get => Id.GetData(); set => Id.SetData(value); }
 
         object INode.Id => Id;
 
-         string INode.Description { get => Description; set => UpdateDescription(value); }
+         string IDescription.Description { get => Description; set => UpdateDescription(value); }
 
         string INode.Extension => Ext;
 

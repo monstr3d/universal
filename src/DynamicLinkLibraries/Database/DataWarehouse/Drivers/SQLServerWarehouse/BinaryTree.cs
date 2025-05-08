@@ -34,7 +34,7 @@ namespace SQLServerWarehouse.Models
 
         object INode.Id => Id;
 
-        string INode.Description { get => Description; set => UpdateDescription(value); }
+        string IDescription.Description { get => Description; set => UpdateDescription(value); }
 
         string INode.Extension => Ext;
 

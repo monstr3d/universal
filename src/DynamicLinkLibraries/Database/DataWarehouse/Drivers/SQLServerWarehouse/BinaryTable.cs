@@ -21,8 +21,8 @@ namespace SQLServerWarehouse.Models
 
         string INode.Extension => Ext;
 
-        byte[] ILeaf.Data { get=> Data; set => SetData(value); }
-        string INode.Description { get => Description; set => UpdateDescription(value); }
+        byte[] IData.Data { get=> Data; set => SetData(value); }
+        string IDescription.Description { get => Description; set => UpdateDescription(value); }
         string INamed.Name { get => Name; set => UpdateName(value); }
         INode<INode> INode<INode>.Parent { get => Parent; set => throw new OwnNotImplemented("Binary Table"); }
         IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("Binary Table"); set => throw new OwnNotImplemented("Binary Table"); }

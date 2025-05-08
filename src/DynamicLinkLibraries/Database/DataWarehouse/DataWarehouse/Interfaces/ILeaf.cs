@@ -1,17 +1,11 @@
-﻿namespace DataWarehouse.Interfaces
+﻿using NamedTree;
+
+namespace DataWarehouse.Interfaces
 {
     /// <summary>
     /// Leaf
     /// </summary>
-    public interface ILeaf : INode
+    public interface ILeaf : INode, IData
     {
-        /// <summary>
-        /// Data
-        /// </summary>
-        byte[] Data
-        {
-            get;
-            set;
-        }
     }
 }

@@ -32,7 +32,7 @@ namespace SQLServerWarehouse
 
             string INode.Extension => this.Ext;
 
-            byte[] ILeaf.Data { get => Data; set => Data = value; }
+            byte[] IData.Data { get => Data; set => Data = value; }
 
             string INamed.Name 
             { 
@@ -41,7 +41,7 @@ namespace SQLServerWarehouse
             }
 
 
-            string INode.Description { get => this.Description; set => UpdateDescription(value); }
+            string IDescription.Description { get => this.Description; set => UpdateDescription(value); }
 
             event Action<INode> INode<INode>.OnAdd
             {
@@ -175,7 +175,7 @@ namespace SQLServerWarehouse
             }
 
 
-            string INode.Description { get => Description; set => UpdateDescription(value); }
+            string IDescription.Description { get => Description; set => UpdateDescription(value); }
 
             string INode.Extension => ext;
 

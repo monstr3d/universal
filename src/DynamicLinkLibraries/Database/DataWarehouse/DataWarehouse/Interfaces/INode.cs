@@ -5,7 +5,7 @@ namespace DataWarehouse.Interfaces
     /// <summary>
     /// Node
     /// </summary>
-    public interface INode : INamed, NamedTree.INode<INode>
+    public interface INode : INamed, NamedTree.INode<INode>, IDescription
     {
         /// <summary>
         /// Id
@@ -15,15 +15,6 @@ namespace DataWarehouse.Interfaces
             get;
         }
 
- 
-        /// <summary>
-        /// Description
-        /// </summary>
-        string Description
-        {
-            get;
-            set;
-        }
 
         /// <summary>
         /// Extension
