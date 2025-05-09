@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OnlineGameConverter.Server.Pages
 {
-    public class IndexModel : PageModel
+    public class Index1Model : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<Index1Model> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public Index1Model(ILogger<Index1Model> logger)
         {
             _logger = logger;
         }

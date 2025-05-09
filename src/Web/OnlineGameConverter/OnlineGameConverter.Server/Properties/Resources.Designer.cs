@@ -39,7 +39,7 @@ namespace OnlineGameConverter.Server.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager(".Server.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineGameConverter.Server.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,16 @@ namespace OnlineGameConverter.Server.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OrbitalForecast {
+            get {
+                object obj = ResourceManager.GetObject("OrbitalForecast", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
