@@ -1,3 +1,4 @@
+using OnlineGameConverter.Server;
 using OnlineGameConverter.Server.Classes;
 using OnlineGameConverter.Server.Interfaces;
 
@@ -78,5 +79,5 @@ app.UseMvcWithDefaultRoute();
 //app.UseMvc();
 
 
-
+StaticExtension.Init();
 app.Run();

@@ -148,6 +148,7 @@ namespace Diagram.UI
         /// </summary>
         public PureDesktop()
         {
+            collection = this;
             component = this;
         }
 
@@ -158,7 +159,7 @@ namespace Diagram.UI
 
         IEnumerable<object> IComponentCollection.AllComponents
         {
-            get { return AllComponents; }
+            get { return AllComponents.ToArray(); }
         }
 
         IDesktop IComponentCollection.Desktop
@@ -241,7 +242,7 @@ namespace Diagram.UI
         {
             get
             {
-                return Components;
+                return Components.ToArray();
             }
         }
 

@@ -412,6 +412,18 @@ namespace Diagram.UI.Labels
             return GetRoot(component, desk);
         }
 
+        /// Gets relative name
+        /// </summary>
+        /// <param name="source">Source</param>
+        /// <param name="target">Target</param>
+        /// <returns>The relative name</returns>
+        static public string GetRelativeName(INamedComponent source, INamedComponent target)
+        {
+            return target.GetName(source.Desktop);
+        }
+
+
+
         /// <summary>
         /// Checks whether str has prefix of component name
         /// </summary>

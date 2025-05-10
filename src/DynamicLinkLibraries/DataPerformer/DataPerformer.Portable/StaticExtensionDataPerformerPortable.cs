@@ -718,7 +718,7 @@ namespace DataPerformer.Portable
             {
                 c = (measurements as IAssociatedObject).GetRootDesktop();
             }
-            IEnumerable<IDataConsumer> en = c.GetObjectsAndArrows<IDataConsumer>();
+            var  en = c.GetObjectsAndArrows<IDataConsumer>().ToArray();
             List<IDataConsumer> l = new List<IDataConsumer>();
             foreach (IDataConsumer consumer in en)
             {

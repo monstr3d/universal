@@ -54,11 +54,11 @@ namespace ImageTransformations.UserControls
                     return;
                 }
                 image = value;
-                if (!image.Context.IsEmpty())
+                if (!string.IsNullOrEmpty(image.Context))
                 {
                     textBoxContext.Text = image.Context;
                 }
-                if (!image.ContextURL.IsEmpty())
+                if (!string.IsNullOrEmpty(image.ContextURL))
                 {
                     textBoxFull.Text = image.ContextURL;
                 }
@@ -72,11 +72,11 @@ namespace ImageTransformations.UserControls
 
         void SetURL(string full, string img)
         {
-            if (!full.IsEmpty())
+            if (!string.IsNullOrEmpty(full))
             {
                 userControlUrlPage.Url = full;
             }
-            if (!img.IsEmpty())
+            if (!string.IsNullOrEmpty(img))
             {
                 userControlUrlCtx.Url = img;
             }
@@ -88,12 +88,12 @@ namespace ImageTransformations.UserControls
             string ctxURL = image.ContextURL;
             try
             {
-                if (textBoxFull.Text.IsEmpty())
+                if (string.IsNullOrEmpty(textBoxFull.Text))
                 {
                     return;
                 }
                 userControlUrlPage.Url = textBoxFull.Text;
-                if (textBoxContext.Text.IsEmpty())
+                if (string.IsNullOrEmpty(textBoxContext.Text))
                 {
                     return;
                 }

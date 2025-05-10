@@ -56,6 +56,19 @@ namespace Diagram.UI.XmlObjectFactory
         #region IXmlObjectFactory Members
 
         /// <summary>
+        /// Gets attribute
+        /// </summary>
+        /// <param name="element">Element</param>
+        /// <param name="name">Name</param>
+        /// <returns>Attribute</returns>
+        public string GetAttribute(System.Xml.Linq.XElement element, string name)
+        {
+            return element.Attribute(System.Xml.Linq.XName.Get(name)).Value;
+        }
+
+
+
+        /// <summary>
         /// Creates or edits object from Xml element
         /// </summary>
         /// <param name="element">The element</param>
@@ -66,13 +79,13 @@ namespace Diagram.UI.XmlObjectFactory
             {
                 return;
             }
-            string type = element.GetAttribute(attrType);
+            string type =  GetAttribute(element, attrType);
             categoryObject = Create(type, element);
             if (categoryObject == null)
             {
                 return;
             }
-            string name = element.GetAttribute(attrName);
+            string name = GetAttribute(element, attrName);
             if (!list.Contains(name))
             {
                 list.Add(name);

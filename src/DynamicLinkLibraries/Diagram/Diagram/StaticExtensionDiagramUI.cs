@@ -14,7 +14,9 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
+
 using ErrorHandler;
+
 using NamedTree;
 
 
@@ -32,7 +34,7 @@ namespace Diagram.UI
         private static ExtensionObject extension = new ExtensionObject();
         
 
-        static Performer peformer = new Performer();
+        static Performer performer = new Performer();
 
 
 
@@ -42,8 +44,6 @@ namespace Diagram.UI
         private static char[] sep = "\r\n\t".ToCharArray();
 
         private static List<ISpecificCodeCreator> specificCodeCreators = new();
-
-
 
         /// <summary>
         /// Post create
@@ -139,6 +139,7 @@ namespace Diagram.UI
             extension.Fill(dataTable, strings, dic);
         }
 
+
         /// <summary>
         /// Copy of an array to a string
         /// </summary>
@@ -148,18 +149,8 @@ namespace Diagram.UI
         /// <returns>The string</returns>
         public static string CopyTo(this double[] x, string sep, string end)
         {
-            var sb = new StringBuilder();
-            for (int i = 0; i < x.Length; i++)
-            {
-                sb.Append(x[i]);
-                if (i < x.Length - 1)
-                {
-                    sb.Append(sep);
-                }
-            }
-            sb.Append(end);
-            return sb.ToString();
-        }
+            return performer.CopyTo(x, sep, end);
+         }
 
         /// <summary>
         /// Loads array from string
@@ -168,20 +159,9 @@ namespace Diagram.UI
         /// <param name="x"></param>
         public static void LoadFromString(this string str, out double[] x)
         {
-            var ss = str.Split(sep);
-            var l = new List<double>();
-            foreach (var ps in ss)
-            {
-                double y = 0;
-                if (double.TryParse(ps, out y))
-                {
-                    l.Add(y);
-                }
-            }
-            x = l.ToArray();
+            performer.LoadFromString(str, out x, sep);
         }
 
-        /// <summary>
         /// Checks whether a code should be created
         /// </summary>
         /// <param name="component">Component</param>
@@ -200,11 +180,12 @@ namespace Diagram.UI
             {
                 if (arrow is IAllowCodeCreation cc)
                 {
-                      return cc.AllowCodeCreation | cc.Allow();
+                    return cc.AllowCodeCreation | cc.Allow();
                 }
             }
             return true;
         }
+
 
         /// <summary>
         /// Post load desktop
@@ -240,8 +221,7 @@ namespace Diagram.UI
         static public void SetComponentCollectionHolders(this
             IComponentCollection componentCollection)
         {
-            componentCollection.ForEach((IComponentCollectionHolder componentCollectionHolder) =>
-                { componentCollectionHolder.ComponentCollection = componentCollection; });
+            performer.SetComponentCollectionHolders(componentCollection);
         }
 
 
@@ -284,28 +264,10 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="reason">Reason</param>
         /// <returns>Display objects</returns>
-        static public IEnumerable<T> GetDisplayObjects<T>(this IEnumerable<T> objects, string reason) where T : class
+        static public IEnumerable<T> GetDisplayObjects<T>(
+            this IEnumerable<T> objects, string reason) where T : class
         {
-            foreach (object o in objects)
-            {
-                if (o is T)
-                {
-                    T t = o as T;
-                    DisplayReasonsAttribute attr = o.GetType().ToTypeInfo().GetCustomAttribute<DisplayReasonsAttribute>();
-                    if (attr != null)
-                    {
-                        string[] reasons = attr.Reasons;
-                        foreach (string r in reasons)
-                        {
-                            if (r.Equals(reason))
-                            {
-                                yield return t;
-
-                            }
-                        }
-                    }
-                }
-            }
+            return performer.GetDisplayObjects(objects, reason);
         }
 
         /// <summary>
@@ -315,14 +277,7 @@ namespace Diagram.UI
         /// <returns>The linked type</returns>
         public static Type GetLinkedType(this Type type)
         {
-            TypeInfo ti = IntrospectionExtensions.GetTypeInfo(type);
-            LinkedTypeAttribute attr =
-                CustomAttributeExtensions.GetCustomAttribute<LinkedTypeAttribute>(ti);
-            if (attr == null)
-            {
-                return null;
-            }
-            return attr.Type;
+          return performer.GetLinkedType(type);
         }
 
         /// <summary>
@@ -333,13 +288,8 @@ namespace Diagram.UI
         /// <returns>True in case of equality</returns>
         public static bool CompareLinkedType(this Type type, Type linked)
         {
-            Type t = type.GetLinkedType();
-            if (t == null)
-            {
-                return false;
-            }
-            return linked.Equals(t);
-        }
+            return performer.CompareLinkedType(type, linked);
+       }
 
 
    
@@ -350,18 +300,8 @@ namespace Diagram.UI
         /// <returns>String value</returns>
         public static string StringValue(this object o)
         {
-            Type t = o.GetType();
-            if (t.Equals(typeof(double)))
-            {
-                double a = (double)o;
-                return a.DoubleToString();
-            }
-            if (t.Equals(typeof(bool)))
-            {
-                return ((bool)o) ? "true" : "false";
-            }
-            return o + "";
-
+            return performer.StringValue(o);
+ 
         }
 
         /// <summary>
@@ -371,7 +311,7 @@ namespace Diagram.UI
         /// <returns>String</returns>
         public static string DoubleToString(this double a)
         {
-            return a.ToString("G17", System.Globalization.CultureInfo.InvariantCulture);
+            return performer.DoubleToString(a);
         }
 
         /// <summary>
@@ -391,27 +331,12 @@ namespace Diagram.UI
         /// <returns></returns>
         public static string AnyToString(this object obj)
         {
-            Type t = obj.GetType();
-            string s = obj.StringValue();
-            if (t.Equals(typeof(double)))
-            {
-                return "(double)" + s;
-            }
-            if (t.Equals(typeof(string)))
-            {
-                return "\"" + s + "\"";
-            }
-            return s;
+            return performer.AnyToString(obj);
         }
 
         public static List<ICategoryObject> ToList(this IEnumerable<IObjectLabel> labels)
         {
-            List<ICategoryObject> list = new List<ICategoryObject>();
-            foreach (IObjectLabel l in labels)
-            {
-                list.Add(l.Object);
-            }
-            return list;
+            return performer.ToList(labels);
         }
 
         public static List<string> GetDictionaryCSharpCode<S,T>(this IDictionary<S,T> dictionary)
@@ -708,15 +633,7 @@ namespace Diagram.UI
         /// <returns>Double value</returns>
         public static T CompareValue<T, S>(this Dictionary<S, T> dictionary, List<T> list)
         { 
-            foreach (var t in dictionary.Values)
-            {
-                if (list.Contains(t))
-                {
-                    return t;
-                }
-                list.Add(t);
-            }
-            return default(T);
+            return performer.CompareValue<T, S>(dictionary, list);
         }
 
         /// <summary>
@@ -743,27 +660,7 @@ namespace Diagram.UI
         /// <returns>The children</returns>
         static public T GetChild<T>(this IChildren<IAssociatedObject> childrenObject) where T : class
         {
-            if (childrenObject is T)
-            {
-                return childrenObject as T;
-            }
-            var children = childrenObject.Children;
-            foreach (object o in children)
-            {
-                if (o is T)
-                {
-                    return o as T;
-                }
-                if (o is IChildren<IAssociatedObject> tt)
-                {
-                    T t = tt.GetChild<T>();
-                    if (t != null)
-                    {
-                        return t;
-                    }
-                }
-            }
-            return null;
+            return performer.GetChild<T>(childrenObject);
         }
 
         /// <summary>
@@ -772,16 +669,8 @@ namespace Diagram.UI
         /// <param name="desktop">The desktop</param>
         public static void SetParents(this IDesktop desktop)
         {
-            IEnumerable<IObjectLabel> objects = desktop.Objects;
-            foreach (IObjectLabel ol in objects)
-            {
-                if (ol.Object is IObjectContainer)
-                {
-                    IObjectContainer oc = ol.Object as IObjectContainer;
-                    oc.SetParents(desktop);
-                }
-            }
-        }
+            performer.SetParents(desktop);
+       }
 
         /// <summary>
         /// Gets all objects of desktop
@@ -790,19 +679,7 @@ namespace Diagram.UI
         /// <returns>Collection of all objects including children</returns>
         public static ICollection<object> GetAllObjects(this IDesktop desktop)
         {
-            List<object> l = new List<object>();
-            IEnumerable<object> components = desktop.Components;
-            l.AddRange(components);
-            IEnumerable<IObjectLabel> objs = desktop.Objects;
-            foreach (IObjectLabel o in objs)
-            {
-                if (o.Object is IObjectContainer)
-                {
-                    IObjectContainer oc = o.Object as IObjectContainer;
-                    l.AddRange(oc.AllObjects);
-                }
-            }
-            return l;
+            return performer.GetAllObjects(desktop);
         }
 
         /// <summary>
@@ -1602,8 +1479,7 @@ namespace Diagram.UI
         /// <param name="find">The "find" sign</param>
         public static void ForEach<T>(this IComponentCollection collection, Action<T> action, bool find = false) where T : class
         {
-            IEnumerable<object> c = collection.AllComponents;
-            ForEach(c, action, find);
+            performer.ForEach<T>(collection, action, find);
         }
 
         /// <summary>
@@ -1615,26 +1491,7 @@ namespace Diagram.UI
         public static void ForAll<T>(this IComponentCollection collection, 
             Action<T> action, bool find = true) where T : class
         {
-            IEnumerable<object> en = collection.AllComponents;
-            foreach (var a in en)
-            {
-                if (a is T)
-                {
-                    (a as T).Execute(action, find);
-                }
-                if (a is IObjectLabel)
-                {
-                    var o = (a as IObjectLabel).Object;
-                    if (o is T)
-                    {
-                        (o as T).Execute(action, find);
-                    }
-                    if (o is IObjectContainer)
-                    {
-                        (o as IObjectContainer).Desktop.ForAll(action, find);
-                    }
-                }
-            }
+            performer.ForAll<T>(collection, action, find);
         }
 
         /// <summary>
@@ -1658,14 +1515,7 @@ namespace Diagram.UI
         /// <returns>Root desktop</returns>
         public static IDesktop GetRootDesktop(this ICategoryObject obj)
         {
-            object o = obj.Object;
-            if (o == null)
-            {
-                return null;
-            }
-            INamedComponent nc = o as INamedComponent;
-            nc = nc.Root;
-            return nc.Desktop;
+            return performer.GetRootDesktop(obj);
         }
 
         /// <summary>
@@ -1675,10 +1525,8 @@ namespace Diagram.UI
         /// <returns>Root desktop</returns>
         public static IDesktop GetRootDesktop(this ICategoryArrow arr)
         {
-            object o = arr.Object;
-            INamedComponent nc = o as INamedComponent;
-            nc = nc.Root;
-            return nc.Desktop;
+           
+            return performer.GetRootDesktop(arr);
         }
 
         /// <summary>
@@ -1688,16 +1536,7 @@ namespace Diagram.UI
         /// <returns>Named Component</returns>
         public static INamedComponent GetNamedComponent(this IAssociatedObject obj)
         {
-            if (obj is INamedComponent)
-            {
-                return obj as INamedComponent;
-            }
-            object o = obj.Object;
-            if (o is INamedComponent)
-            {
-                return o as INamedComponent;
-            }
-            return null;
+            return performer.GetNamedComponent(obj);
         }
 
         /// <summary>
@@ -1707,12 +1546,7 @@ namespace Diagram.UI
         /// <returns>The object</returns>
         public static ICategoryObject GetCategoryObject(this IAssociatedObject obj)
         {
-            object o = GetObject(obj);
-            if (o is ICategoryObject)
-            {
-                return o as ICategoryObject;
-            }
-            return null;
+            return performer.GetCategoryObject(obj);
         }
 
         /// <summary>
@@ -1722,12 +1556,7 @@ namespace Diagram.UI
         /// <returns>The arrow</returns>
         public static ICategoryArrow GetCategoryArrow(this IAssociatedObject obj)
         {
-            object o = GetObject(obj);
-            if (o is ICategoryArrow)
-            {
-                return o as ICategoryArrow;
-            }
-            return null;
+            return performer.GetCategoryArrow(obj);
         }
 
         /// <summary>
@@ -1739,12 +1568,7 @@ namespace Diagram.UI
         /// <param name="associated">The "assoicated" sign</param>
         public static void AddObjectLabel(this IDesktop desktop, IObjectLabel label, ICategoryObject categoryObject, bool associated)
         {
-            label.Object = categoryObject;
-            categoryObject.Object = label;
-            List<IObjectLabel> l = new List<IObjectLabel>();
-            l.Add(label);
-            List<IArrowLabel> la = new List<IArrowLabel>();
-            desktop.Copy(l, la, associated);
+           performer.AddObjectLabel(desktop, label, categoryObject, associated);
         }
 
         /// <summary>
@@ -1754,13 +1578,7 @@ namespace Diagram.UI
         /// <returns>The name</returns>
         public static string GetObjectName(this IAssociatedObject ao)
         {
-            object o = ao.Object;
-            if (!(o is INamedComponent))
-            {
-                throw new OwnException("Get object Name");
-            }
-            INamedComponent nc = o as INamedComponent;
-            return nc.Name + "";
+            return performer.GetObjectName(ao);
         }
 
         /// <summary>
@@ -1771,22 +1589,8 @@ namespace Diagram.UI
         /// <param name="val">The alias value</param>
         static public void SetAliasValue(this IDesktop desktop, string alias, object val)
         {
-            int n = alias.LastIndexOf('.');
-            string cName = alias.Substring(0, n);
-            INamedComponent c = desktop[cName];
-            string alName = alias.Substring(n + 1);
-            IAlias al = null;
-            if (c is IObjectLabel)
-            {
-                IObjectLabel ol = c as IObjectLabel;
-                al = ol.Object as IAlias;
-            }
-            if (c is IArrowLabel)
-            {
-                IArrowLabel ar = c as IArrowLabel;
-                al = ar.Arrow as IAlias;
-            }
-            al[alName] = val;
+            performer.SetAliasValue(desktop, alias, val);
+
         }
 
         /// <summary>
@@ -1797,22 +1601,7 @@ namespace Diagram.UI
         /// <returns>The alias value</returns>
         static public object GetAliasValue(this IDesktop desktop, string alias)
         {
-            int n = alias.IndexOf('.');
-            string cName = alias.Substring(0, n);
-            INamedComponent c = desktop[cName];
-            string alName = alias.Substring(n + 1);
-            IAlias al = null;
-            if (c is IObjectLabel)
-            {
-                IObjectLabel ol = c as IObjectLabel;
-                al = ol.Object as IAlias;
-            }
-            if (c is IArrowLabel)
-            {
-                IArrowLabel ar = c as IArrowLabel;
-                al = ar.Arrow as IAlias;
-            }
-            return al[alName];
+            return performer.GetAliasValue(desktop, alias);
         }
 
         /// <summary>
@@ -1823,22 +1612,7 @@ namespace Diagram.UI
         /// <returns>The alias value</returns>
         static public object GetAliasType(this IDesktop desktop, string alias)
         {
-            int n = alias.IndexOf('.');
-            string cName = alias.Substring(0, n);
-            INamedComponent c = desktop[cName];
-            string alName = alias.Substring(n + 1);
-            IAlias al = null;
-            if (c is IObjectLabel)
-            {
-                IObjectLabel ol = c as IObjectLabel;
-                al = ol.Object as IAlias;
-            }
-            if (c is IArrowLabel)
-            {
-                IArrowLabel ar = c as IArrowLabel;
-                al = ar.Arrow as IAlias;
-            }
-            return al.GetType(alName);
+            return performer.GetAliasType(desktop, alias);
         }
 
         /// <summary>
@@ -1849,17 +1623,8 @@ namespace Diagram.UI
         /// <returns>The arrow label</returns>
         static public IArrowLabel GetArrowLabel(this IDesktop desktop, string name)
         {
-            object o = desktop[name];
-            if (o == null)
-            {
-                return null;
-            }
-            if (!(o is IArrowLabel))
-            {
-                return null;
-            }
-            return o as IArrowLabel;
-        }
+            return performer.GetArrowLabel(desktop, name);   
+         }
 
         /// <summary>
         /// Gets associated object of desktop component
@@ -1869,18 +1634,7 @@ namespace Diagram.UI
         /// <returns>Associated object</returns>
         public static object GetAssociatedObject(this IDesktop desktop, string name)
         {
-            INamedComponent comp = desktop[name];
-            if (comp is IObjectLabel)
-            {
-                IObjectLabel lab = comp as IObjectLabel;
-                return lab.Object;
-            }
-            if (comp is IArrowLabel)
-            {
-                IArrowLabel lab = comp as IArrowLabel;
-                return lab.Arrow;
-            }
-            return null;
+            return performer.GetAssociatedObject(desktop, name);
         }
 
         /// <summary>
@@ -1891,13 +1645,7 @@ namespace Diagram.UI
         /// <returns>The object</returns>
         public static T GetAssociatedObject<T>(this IDesktop desktop, string name) where T : class
         {
-            object obj = GetAssociatedObject(desktop, name);
-            if (!(obj is IAssociatedObject))
-            {
-                return null;
-            }
-            IAssociatedObject ao = obj as IAssociatedObject;
-            return ao.GetObject<T>();
+            return performer.GetAssociatedObject<T>(desktop, name);
         }
 
         /// <summary>
@@ -1909,10 +1657,7 @@ namespace Diagram.UI
         /// <returns>Relative object</returns>
         public static T GetRelativeObject<T>(this ICategoryObject obj, string name) where T : class
         {
-            IAssociatedObject ao = obj as IAssociatedObject;
-            INamedComponent nc = ao.Object as INamedComponent;
-            IDesktop d = nc.Desktop;
-            return GetAssociatedObject<T>(d, name);
+            return performer.GetRelativeObject<T>(obj, name);
         }
 
         /// <summary>
@@ -1923,21 +1668,7 @@ namespace Diagram.UI
         /// <returns>The arrows</returns>
         public static T[] GetSourceArrows<T>(this ICategoryObject obj) where T : class
         {
-            List<T> l = new List<T>();
-            IDesktop d = obj.GetRootDesktop();
-            IEnumerable<ICategoryArrow> arr = d.CategoryArrows;
-            foreach (ICategoryArrow a in arr)
-            {
-                ICategoryObject o = a.Source;
-                if (o == obj)
-                {
-                    if (a is T)
-                    {
-                        l.Add(a as T);
-                    }
-                }
-            }
-            return l.ToArray();
+            return performer.GetSourceArrows<T>(obj);
         }
 
         /// <summary>
@@ -1948,21 +1679,7 @@ namespace Diagram.UI
         /// <returns>The arrows</returns>
         public static T[] GetTargetArrows<T>(this ICategoryObject obj) where T : class
         {
-            List<T> l = new List<T>();
-            IDesktop d = obj.GetRootDesktop();
-            IEnumerable<ICategoryArrow> arr = d.CategoryArrows;
-            foreach (ICategoryArrow a in arr)
-            {
-                ICategoryObject o = a.Target;
-                if (o == obj)
-                {
-                    if (a is T)
-                    {
-                        l.Add(a as T);
-                    }
-                }
-            }
-            return l.ToArray();
+            return performer.GetTargetArrows<T>(obj);
         }
 
         /// <summary>
@@ -2072,7 +1789,7 @@ namespace Diagram.UI
         /// <returns>Object if exist and false otherwise</returns>
         public static T GetObject<T>(this IComponentCollection collection, string name) where T : class
         {
-            return collection.GetObject(name).GetLabelObject<T>();
+            return performer.GetObject<T>(collection, name);
         }
 
         /// <summary>
@@ -2083,30 +1800,7 @@ namespace Diagram.UI
         /// <returns>The object</returns>
         public static T GetLabelObject<T>(this object o) where T : class
         {
-            if (o == null)
-            {
-                return null;
-            }
-            T t = null;
-            if (o is T)
-            {
-                t = o as T;
-            }
-            else if (o is IAssociatedObject)
-            {
-                t = (o as IAssociatedObject).GetObject<T>();
-            }
-            else if (o is IObjectLabel)
-            {
-                IObjectLabel ol = o as IObjectLabel;
-                t = ol.Object.GetLabelObject<T>();
-            }
-            else if (o is IArrowLabel)
-            {
-                IArrowLabel al = o as IArrowLabel;
-                t = al.Arrow.GetLabelObject<T>();
-            }
-            return t;
+            return performer.GetLabelObject<T>(o);
         }
 
         /// <summary>
@@ -2127,24 +1821,10 @@ namespace Diagram.UI
         /// <typeparam name="T">Type</typeparam>
         /// <param name="childrenObject"></param>
         /// <returns>children</returns>
-        public static IEnumerable<T> GetChildren<T>(this  IChildren<IAssociatedObject> childrenObject) where T : class
+        public static IEnumerable<T> GetChildren<T>(this  IChildren<IAssociatedObject> childrenObject) 
+            where T : class
         {
-            IAssociatedObject[] children = childrenObject.Children.ToArray();
-            foreach (object o in children)
-            {
-                if (o is T)
-                {
-                    yield return o as T;
-                }
-                if (o is IChildren<IAssociatedObject> tt)
-                {
-                    IEnumerable<T> en = tt.GetChildren<T>();
-                    foreach (T t in en)
-                    {
-                        yield return t;
-                    }
-                }
-            }
+            return performer.GetChildren<T>(childrenObject);
         }
 
         /// <summary>
@@ -2155,21 +1835,7 @@ namespace Diagram.UI
         /// <returns>List of names</returns>
         public static IEnumerable<string> GetAllNames<T>(this IComponentCollection collection) where T : class
         {
-            IEnumerable<object> c = collection.AllComponents;
-            string n = null;
-            foreach (object o in c)
-            {
-                n = GetName(o, collection);
-                if (n == null)
-                {
-                    continue;
-                }
-                T t = GetLabelObject<T>(o);
-                if (t != null)
-                {
-                    yield return n;
-                }
-            }
+            return performer.GetAllNames<T>(collection);
         }
 
         /// <summary>
@@ -2178,25 +1844,9 @@ namespace Diagram.UI
         /// <typeparam name="T">Type</typeparam>
         /// <param name="collection">The collection</param>
         /// <returns>Objects</returns>
-        public static IEnumerable<T> GetObjectsAndArrows<T>(this IComponentCollection collection) where T : class
+        public static List<T> GetObjectsAndArrows<T>(this IComponentCollection collection) where T : class
         {
-            IEnumerable<object> c = collection.AllComponents;
-            foreach (object o in c)
-            {
-                T t = GetLabelObject<T>(o);
-                if (t != null)
-                {
-                    yield return t;
-                }
-                if (o is IChildren<IAssociatedObject> ttt)
-                {
-                    IEnumerable<T> en = ttt.GetChildren<T>();
-                    foreach (T tt in en)
-                    {
-                        yield return tt;
-                    }
-                }
-            }
+            return performer.GetObjectsAndArrows<T>(collection).ToList();    
         }
 
 
@@ -2209,16 +1859,8 @@ namespace Diagram.UI
         public static void GetAll<T>(this IComponentCollection collection, IList<T> list)
             where T : class
         {
-            list.Clear();
-            IEnumerable<T> en = collection.GetObjectsAndArrows<T>();
-            foreach (T t in en)
-            {
-                if (!list.Contains(t))
-                {
-                    list.Add(t);
-                }
-            }
-        }
+            performer.GetAll<T>(collection, list);
+         }
 
         /// <summary>
         /// Gets all objects of collection
@@ -2229,9 +1871,7 @@ namespace Diagram.UI
         public static List<T> GetAll<T>(this IComponentCollection collection)
             where T : class
         {
-            List<T> list = new List<T>();
-            collection.GetAll<T>(list);
-            return list;
+            return performer.GetAll<T>(collection);
         }
 
         /// <summary>
@@ -2241,41 +1881,18 @@ namespace Diagram.UI
         /// <returns>Absolute name</returns>
         public static string GetAbsoluteName(this IAssociatedObject obj)
         {
-            return obj.GetName(obj.GetRootDesktop());
+            return performer.GetAbsoluteName(obj);
         }
 
         /// <summary>
-        /// Gets mame of object
+        /// Gets name of object
         /// </summary>
         /// <param name="o">The object</param>
         /// <param name="collection">The collection</param>
         /// <returns>The name</returns>
         public static string GetName(this object o, IComponentCollection collection)
         {
-            INamedComponent nc = null;
-            if (o is INamedComponent)
-            {
-                nc = o as INamedComponent;
-            }
-            else if (o is IAssociatedObject)
-            {
-                IAssociatedObject ao = o as IAssociatedObject;
-                object ob = ao.Object;
-                if (ob is INamedComponent)
-                {
-                    nc = ob as INamedComponent;
-                }
-            }
-            if (nc == null)
-            {
-                return null;
-            }
-            IDesktop d = collection.Desktop;
-            if (d == null)
-            {
-                return null;
-            }
-            return nc.GetName(d);
+            return performer.GetName(o, collection); 
         }
 
         /// <summary>
@@ -2285,20 +1902,7 @@ namespace Diagram.UI
         /// <returns>Rhe desktop</returns>
         public static INamedComponent GetComponent(this IAssociatedObject obj)
         {
-            INamedComponent nc = null;
-            if (obj is INamedComponent)
-            {
-                nc = obj as INamedComponent;
-            }
-            else
-            {
-                object o = obj.Object;
-                if (o is INamedComponent)
-                {
-                    nc = o as INamedComponent;
-                }
-            }
-            return nc;
+            return performer.GetComponent(obj);
         }
 
         /// <summary>
@@ -2308,12 +1912,7 @@ namespace Diagram.UI
         /// <returns>Rhe desktop</returns>
         public static IDesktop GetDesktop(this IAssociatedObject obj)
         {
-            INamedComponent nc = GetNamedComponent(obj);
-            if (nc == null)
-            {
-                return null;
-            }
-            return nc.Desktop;
+            return performer.GetDesktop(obj);
         }
 
         /// <summary>
@@ -2323,12 +1922,7 @@ namespace Diagram.UI
         /// <returns>Rhe desktop</returns>
         public static IDesktop GetRootDesktop(this IAssociatedObject obj)
         {
-            IDesktop d = GetDesktop(obj);
-            if (d == null)
-            {
-                return null;
-            }
-            return d.Root;
+            return performer.GetRootDesktop(obj);
         }
 
         /// <summary>
@@ -2338,20 +1932,7 @@ namespace Diagram.UI
         /// <returns>Order</returns>
         public static int GetOdrer(this object obj)
         {
-            if (obj is INamedComponent)
-            {
-                return (obj as INamedComponent).Ord;
-            }
-            if (obj is IAssociatedObject)
-            {
-                IAssociatedObject ao = obj as IAssociatedObject;
-                object o = ao.Object;
-                if (o is INamedComponent)
-                {
-                    return (o as INamedComponent).Ord;
-                }
-            }
-            return 0;
+            return performer.GetOdrer(obj);
         }
 
         /// <summary>
@@ -2366,7 +1947,7 @@ namespace Diagram.UI
         ///</returns>
         public static int Compare(object x, object y)
         {
-            return x.GetOdrer() - y.GetOdrer();
+            return performer.Compare(x, y);
         }
 
         /// <summary>
@@ -2376,7 +1957,7 @@ namespace Diagram.UI
         /// <param name="dst">Target</param>
         public static void Copy(this IDesktop src, IDesktop dst)
         {
-            dst.Copy(src.Objects, src.Arrows, true);
+            performer.Copy(src, dst);
         }
 
         /// <summary>
@@ -2387,19 +1968,7 @@ namespace Diagram.UI
         /// <returns>Comosition</returns>
         public static object GetConstructorComposition(this Type[] types, object ob = null)
         {
-            object o = ob;
-            foreach (Type type in types)
-            {
-                TypeInfo ti = IntrospectionExtensions.GetTypeInfo(type);
-                if (o == null)
-                {
-                    o = ti.GetConstructor(new Type[0]).Invoke(new object[0]);
-                    continue;
-                }
-                o = ti.GetConstructor(new Type[]
-                    { typeof(object)}).Invoke(new object[] { o });
-            }
-            return o;
+            return performer.GetConstructorComposition(types, ob);
         }
 
         /// <summary>
@@ -2409,19 +1978,7 @@ namespace Diagram.UI
         /// <returns>Comosition</returns>
         public static object GetConstructorComposition(this string[] types)
         {
-            List<Type> l = new List<Type>();
-            string str = null;
-            foreach (string s in types)
-            {
-                Type t = Type.GetType(s);
-                if (t == null)
-                {
-                    str = s;
-                    continue;
-                }
-                l.Add(Type.GetType(s));
-            }
-            return l.ToArray().GetConstructorComposition(str);
+            return performer.GetConstructorComposition(types);
         }
 
 
@@ -2434,17 +1991,7 @@ namespace Diagram.UI
         /// <returns>Order</returns>
         public static int GetOrder<T>(this IEnumerable<T> enumerable, T obj) where T : class
         {
-
-            int i = 0;
-            foreach (T t in enumerable)
-            {
-                if (t == obj)
-                {
-                    return i;
-                }
-                ++i;
-            }
-            return -1;
+            return performer.GetOrder(enumerable, obj);
         }
 
         /// <summary>
@@ -2454,47 +2001,17 @@ namespace Diagram.UI
         /// <returns>Enumerable of strings</returns>
         static public IEnumerable<string> ToEnumerable(this System.IO.TextReader reader)
         {
-            while (true)
-            {
-                string s = reader.ReadLine();
-                if (s == null)
-                {
-                    break;
-                }
-                yield return s;
-            }
+            return performer.ToEnumerable(reader);
         }
 
-        /// <summary>
-        /// Checks whether string is empty
-        /// </summary>
-        /// <param name="str">String</param>
-        /// <returns>False if string is empty</returns>
-        static public bool IsEmpty(this string str)
-        {
-            if (str != null)
-            {
-                return str.Length == 0;
-            }
-            return true;
-        }
-
+  
         /// <summary>
         /// Gets objects of aliases
         /// </summary>
         /// <param name="dictionary">Dictionary</param>
         public static void Get(this Dictionary<IAlias, Dictionary<string, object[]>> dictionary)
         {
-            foreach (IAlias alias in dictionary.Keys)
-            {
-                Dictionary<string, object[]> d = dictionary[alias];
-                foreach (string key in d.Keys)
-                {
-                    object[] o = d[key];
-                    o[1] = alias[key];
-                    alias[key] = o[0];
-                }
-            }
+            performer.Get(dictionary);
         }
 
         /// <summary>
@@ -2503,14 +2020,7 @@ namespace Diagram.UI
         /// <param name="dictionary">Dictionary</param>
         public static void Set(this Dictionary<IAlias, Dictionary<string, object[]>> dictionary)
         {
-            foreach (IAlias alias in dictionary.Keys)
-            {
-                Dictionary<string, object[]> d = dictionary[alias];
-                foreach (string key in d.Keys)
-                {
-                    alias[key] = d[key][1];
-                }
-            }
+            performer.Set(dictionary);
         }
 
         /// <summary>
@@ -2520,18 +2030,7 @@ namespace Diagram.UI
         /// <returns>The objects</returns>
         public static object[] GetAllRelatedObjects(this IDesktop desktop)
         {
-            List<object> l = new List<object>();
-            IEnumerable<ICategoryObject> co = desktop.CategoryObjects;
-            foreach (object o in co)
-            {
-                l.Add(o);
-            }
-            IEnumerable<ICategoryArrow> ca = desktop.CategoryArrows;
-            foreach (object a in ca)
-            {
-                l.Add(a);
-            }
-            return l.ToArray();
+            return performer.GetAllRelatedObjects(desktop);
         }
 
         /// <summary>
@@ -2542,153 +2041,9 @@ namespace Diagram.UI
         /// <returns>Array of objects</returns>
         public static T[] GetAll<T>(this IDesktop desktop) where T : class
         {
-            List<T> l = new List<T>();
-            foreach (ICategoryObject obj in desktop.CategoryObjects)
-            {
-                T t = obj.GetObject<T>();
-                if (t != null)
-                {
-                    l.Add(t);
-                }
-            }
-            foreach (ICategoryArrow arr in desktop.CategoryArrows)
-            {
-                T t = arr.GetObject<T>();
-                if (t != null)
-                {
-                    l.Add(t);
-                }
-            }
-            return l.ToArray();
+            return performer.GetAll<T>(desktop);
         }
 
-        /// <summary>
-        /// Adds double to code creator
-        /// </summary>
-        /// <param name="x">List of double</param>
-        /// <param name="lcode">List of code</param>
-        public static void ToCodeCreator(this double[][] x, List<string> lcode)
-        {
-            for (int i = 0; i < x.Length; i++)
-            {
-                lcode.Add("\t{");
-                double[] xx = x[i];
-                for (int j = 0; j < xx.Length; j++)
-                {
-                    string s = j == xx.Length - 1 ? "" :  ",";
-                    lcode.Add("\t\t" + xx[j].StringValue() + s);
-                }
-                string f = i == x.Length - 1 ? "}" : "},";
-                lcode.Add(f);
-            }
-        }
-
-        /// <summary>
-        /// Adss dictionary to code creator
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="d">Dictionary</param>
-        /// <param name="lcode">Code</param>
-        public static void ToCodeCreator<T>(this Dictionary<T, string> d, List<string> lcode)
-        {
-            int c = d.Count;
-            int i = 0;
-            foreach (T key in d.Keys)
-            {
-                string s = "{ " + key.StringValue() + ", \"" + d[key] + "\"}";
-                ++i;
-                if (i != c)
-                {
-                    s += ",";
-                }
-                lcode.Add(s);
-            }
-        }
-
-        /// <summary>
-        /// Adds double to code creator
-        /// </summary>
-        /// <param name="x">List of double</param>
-        /// <param name="lcode">List of code</param>
-        public static void ToCodeCreator(this double[,] x, List<string> lcode)
-        {
-            for (int i = 0; i < x.GetLength(0); i++)
-            {
-                lcode.Add("\t{");
-                for (int j = 0; j < x.GetLength(1); j++)
-                {
-                    string s = j == x.GetLength(1) - 1 ? "" : ",";
-                    lcode.Add("\t\t" + x[i, j].StringValue() + s);
-                }
-                string f = i == x.GetLength(0) - 1 ? "}" : "},";
-                lcode.Add(f);
-            }
-        }
-
-        /// <summary>
-        /// Adds strings to code creator
-        /// </summary>
-        /// <param name="list">List of strigs</param>
-        /// <param name="lcode">List of code</param>
-        public static void ToCodeCreator(this IEnumerable<string> list, List<string> lcode)
-        {
-            bool f = true;
-            foreach (string s in list)
-            {
-                string x = "\"" + s + "\"";
-                if (f)
-                {
-                    f = false;
-                }
-                else
-                {
-                    x = ", " + x;
-                }
-                lcode.Add(x);
-            }
-        }
-
-        /// <summary>
-        /// Adds double to code creator
-        /// </summary>
-        /// <param name="list">List of double</param>
-        /// <param name="lcode">List of code</param>
-        public static void ToCodeCreator(this IEnumerable<double> list, List<string> lcode)
-        {
-            bool first = true;
-            foreach (double a in list)
-            {
-                string s = a.StringValue();
-                if (first)
-                {
-                    first = false;
-                }
-                else
-                {
-                    s = ", " + s;
-                }
-                lcode.Add(s);
-            }
-        }
-
-        /// <summary>
-        /// Adds strings to code creator
-        /// </summary>
-        /// <param name="list">List of strigs</param>
-        /// <param name="lcode">List of code</param>
-        public static void ToCodeCreator(this List<string> list, List<string> lcode)
-        {
-            int n = list.Count;
-            for (int i = 0; i < n; i++)
-            {
-                string s = "\"" + list[i] + "\"";
-                if (i < n - 1)
-                {
-                    s += ",";
-                }
-                lcode.Add(s);
-            }
-        }
 
         #region Dependent
 
@@ -2704,9 +2059,7 @@ namespace Diagram.UI
             Func<ICategoryObject, bool> objectCondition, Func<ICategoryArrow, bool>
           arrowCondition, Func<ICategoryArrow, bool> sourceCondition)
         {
-            List<ICategoryObject> l = new List<ICategoryObject>();
-            obj.GetDependentObjects(objectCondition, arrowCondition, sourceCondition, l);
-            return l;
+            return performer.GetDependentObjects(obj, objectCondition, arrowCondition, sourceCondition);    
         }
 
         /// <summary>
@@ -2722,15 +2075,7 @@ namespace Diagram.UI
           arrowCondition, Func<ICategoryArrow, bool>
           sourceCondition, List<ICategoryObject> output)
         {
-            IDesktop root = obj.GetRootDesktop();
-            if (root == null)
-            {
-                return;
-            }
-            IEnumerable<ICategoryArrow> arrows = root.CategoryArrows;
-            IEnumerable<ICategoryObject> objects = root.CategoryObjects;
-            obj.GetDependentObjects(arrows, objectCondition, arrowCondition, sourceCondition, output,
-                objects.ToList());
+            performer.GetDependentObjects(obj, objectCondition, arrowCondition, sourceCondition, output);
         }
 
 
@@ -2750,9 +2095,7 @@ namespace Diagram.UI
           arrowCondition, Func<ICategoryArrow, bool>
           sourceCondition)
         {
-            List<ICategoryObject> l = new List<ICategoryObject>();
-            obj.GetDependentObjects(arrows, objectCondition, arrowCondition, sourceCondition, l);
-            return l;
+            return performer.GetDependentObjects(obj, arrows, objectCondition, arrowCondition, sourceCondition);
         }
 
         /// <summary>
@@ -2764,17 +2107,8 @@ namespace Diagram.UI
         /// <returns>Array of objects</returns>
         public static T[] GetAll<T, S>(this IDesktop desktop, Type attrType) where T : class where S : Attribute
         {
-            T[] objects = desktop.GetAll<T>();
-            List<T> l = new List<T>();
-            foreach (T x in objects)
-            {
-                if (x.HasAttribute<S>())
-                {
-                    l.Add(x);
-                }
-            }
-            return l.ToArray();
-        }
+            return performer.GetAll<T, S>(desktop, attrType);
+         }
 
         /// <summary>
         /// Gets intersection of desktop objects
@@ -2784,35 +2118,9 @@ namespace Diagram.UI
         /// <returns>The intersection</returns>
         public static object[] GetIntersectObjects(this IDesktop desktop, Type[] types)
         {
-            object[] objs = desktop.GetAllRelatedObjects();
-            List<object> l = new List<object>();
-            foreach (object o in objs)
-            {
-                foreach (Type t in types)
-                {
-                    TypeInfo ott = o.ToTypeInfo(); 
-                    if (ott.IsSubclassOf(t))
-                    {
-                        l.Add(o);
-                        goto fin;
-                    }
-                    IEnumerable<Type> inter = ott.ImplementedInterfaces;
-                    foreach (Type ti in inter)
-                    {
-                        if (ti.Equals(t))
-                        {
-                            l.Add(o);
-                            goto fin;
-                        }
-                    }
-                }
-            fin:
-                continue;
-            }
-            return l.ToArray();
+            return performer.GetIntersectObjects(desktop, types);
         }
 
-  
         /// <summary>
         /// Set aliases of desktop
         /// </summary>
@@ -2820,18 +2128,9 @@ namespace Diagram.UI
         /// <param name="document">Document</param>
         public static void SetAliases(this IDesktop desktop, XElement document)
         {
-            IEnumerable<XElement> nl = document.GetElementsByTagName("Aliases");
-       
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            foreach (XElement el in nl)
-            {
-                foreach (XElement e in el.GetChildNodes())
-                {
-                    d[e.Name.LocalName] = e.Value;
-                }
-                desktop.SetAliasValue(d["Name"], d["Value"].FromString(d["Type"]));
-            }
-        }
+            performer.SetAliases(desktop, document);
+         }
+
 
         /// <summary>
         /// Object from string
@@ -3128,6 +2427,139 @@ namespace Diagram.UI
 
         #endregion
 
+        #region Code generation
+
+        /// <summary>
+        /// Adds double to code creator
+        /// </summary>
+        /// <param name="x">List of double</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this double[][] x, List<string> lcode)
+        {
+            for (int i = 0; i < x.Length; i++)
+            {
+                lcode.Add("\t{");
+                double[] xx = x[i];
+                for (int j = 0; j < xx.Length; j++)
+                {
+                    string s = j == xx.Length - 1 ? "" : ",";
+                    lcode.Add("\t\t" + xx[j].StringValue() + s);
+                }
+                string f = i == x.Length - 1 ? "}" : "},";
+                lcode.Add(f);
+            }
+        }
+
+        /// <summary>
+        /// Adss dictionary to code creator
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="d">Dictionary</param>
+        /// <param name="lcode">Code</param>
+        public static void ToCodeCreator<T>(this Dictionary<T, string> d, List<string> lcode)
+        {
+            int c = d.Count;
+            int i = 0;
+            foreach (T key in d.Keys)
+            {
+                string s = "{ " + key.StringValue() + ", \"" + d[key] + "\"}";
+                ++i;
+                if (i != c)
+                {
+                    s += ",";
+                }
+                lcode.Add(s);
+            }
+        }
+
+        /// <summary>
+        /// Adds double to code creator
+        /// </summary>
+        /// <param name="x">List of double</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this double[,] x, List<string> lcode)
+        {
+            for (int i = 0; i < x.GetLength(0); i++)
+            {
+                lcode.Add("\t{");
+                for (int j = 0; j < x.GetLength(1); j++)
+                {
+                    string s = j == x.GetLength(1) - 1 ? "" : ",";
+                    lcode.Add("\t\t" + x[i, j].StringValue() + s);
+                }
+                string f = i == x.GetLength(0) - 1 ? "}" : "},";
+                lcode.Add(f);
+            }
+        }
+
+        /// <summary>
+        /// Adds strings to code creator
+        /// </summary>
+        /// <param name="list">List of strigs</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this IEnumerable<string> list, List<string> lcode)
+        {
+            bool f = true;
+            foreach (string s in list)
+            {
+                string x = "\"" + s + "\"";
+                if (f)
+                {
+                    f = false;
+                }
+                else
+                {
+                    x = ", " + x;
+                }
+                lcode.Add(x);
+            }
+        }
+
+        /// <summary>
+        /// Adds double to code creator
+        /// </summary>
+        /// <param name="list">List of double</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this IEnumerable<double> list, List<string> lcode)
+        {
+            bool first = true;
+            foreach (double a in list)
+            {
+                string s = a.StringValue();
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    s = ", " + s;
+                }
+                lcode.Add(s);
+            }
+        }
+
+        /// <summary>
+        /// Adds strings to code creator
+        /// </summary>
+        /// <param name="list">List of strigs</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this List<string> list, List<string> lcode)
+        {
+            int n = list.Count;
+            for (int i = 0; i < n; i++)
+            {
+                string s = "\"" + list[i] + "\"";
+                if (i < n - 1)
+                {
+                    s += ",";
+                }
+                lcode.Add(s);
+            }
+        }
+
+
+        #endregion
+
         #region Private and Internal members
 
         private static IObjectContainer ParentContainer(INamedComponent nc)
@@ -3166,7 +2598,7 @@ namespace Diagram.UI
                 return null;
             }
             l.Add(obj);
-            Diagram.UI.Attributes.UrlAttribute attr = obj.GetAttribute<Diagram.UI.Attributes.UrlAttribute>();
+            UrlAttribute attr = obj.GetAttribute<UrlAttribute>();
             if (attr != null)
             {
                 return attr.Url;
@@ -3216,6 +2648,7 @@ namespace Diagram.UI
         /// <param name="find">Find sign</param>
         static public void Prepare(this IAssociatedObject obj, bool find = false)
         {
+           
             if (obj is IPreparation)
             {
                 (obj as IPreparation).Prepare();
@@ -3855,6 +3288,7 @@ namespace Diagram.UI
         }
 
         #endregion
+
 
         #region Object Comparer Class
 

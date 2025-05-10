@@ -5,6 +5,7 @@ using OnlineGameConverter.Server.Utilites;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using FormulaEditor.CodeCreators;
 
 namespace OnlineGameConverter.Server.Pages
 {
@@ -242,7 +243,7 @@ namespace OnlineGameConverter.Server.Pages
                     path = Path.Combine(Directory, inex);
                 }
                 var filename = Path.GetFileNameWithoutExtension(inex) + ext.Item1[0];
-                var p = new Performer();
+                var p = new Abstract3DConverters.Performer();
                 object[] obj = (tad == null) ? [b] : [b, tad];
                 object[] par = ext.Item2 == null ? [] : [ext.Item2];
                 var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);

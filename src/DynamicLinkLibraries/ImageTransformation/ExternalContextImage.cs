@@ -142,7 +142,7 @@ namespace ImageTransformations
         {
             try
             {
-                if (context.IsEmpty() | contextURL.IsEmpty())
+                if (string.IsNullOrEmpty(context) | string.IsNullOrEmpty(ContextURL))
                 {
                     return null;
                 }

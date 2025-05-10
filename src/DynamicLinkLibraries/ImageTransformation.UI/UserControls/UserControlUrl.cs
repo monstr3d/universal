@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-using Diagram.UI;
 
 namespace ImageTransformations.UserControls
 {
@@ -22,7 +15,7 @@ namespace ImageTransformations.UserControls
         {
             set
             {
-                if (!value.IsEmpty())
+                if (!string.IsNullOrEmpty(value))
                 {
                    webBrowser.Url = new Uri(value);
                 }
