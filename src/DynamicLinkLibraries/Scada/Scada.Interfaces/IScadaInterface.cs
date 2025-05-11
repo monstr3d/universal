@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+
 using ErrorHandler;
+using NamedTree;
 
 namespace Scada.Interfaces
 {
     /// <summary>
     /// Scada interface
     /// </summary>
-    public interface IScadaInterface
+    public interface IScadaInterface: INamed
     {
         /// <summary>
         /// Inputs

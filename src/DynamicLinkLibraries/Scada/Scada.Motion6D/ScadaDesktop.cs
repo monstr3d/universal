@@ -178,7 +178,7 @@ namespace Scada.Motion6D
         /// <summary>
         /// Factory from base directory
         /// </summary>
-        public IScadaFactory BaseFactory
+        public Desktop.IScadaFactory BaseFactory
         {
             get
             {

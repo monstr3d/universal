@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
+
 using ErrorHandler;
+using NamedTree;
 
 namespace Scada.Interfaces
 {
@@ -217,8 +215,10 @@ namespace Scada.Interfaces
             set;
         }
 
-
         IExceptionHandler IScadaInterface.ExceptionHandler { get => ExceptionHandler; set => ExceptionHandler = value; }
+       
+        string INamed.Name { get => Name; set => Name = value; }
+
 
         /// <summary>
         /// Refresh
@@ -236,6 +236,8 @@ namespace Scada.Interfaces
         /// On refresh event
         /// </summary>
         public abstract event Action OnRefresh;
+
+        protected virtual string Name { get; set; }
 
         #endregion
 
