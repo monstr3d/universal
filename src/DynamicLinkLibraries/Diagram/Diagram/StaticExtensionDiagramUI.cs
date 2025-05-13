@@ -959,8 +959,8 @@ namespace Diagram.UI
         /// <param name="target">Target</param>
         /// <returns>The relative name</returns>
         static public string GetRelativeName(this INamedComponent source, INamedComponent target)
-        {
-            return target.GetName(source.Desktop);
+        { 
+            return performer.GetRelativeName(source, target);
         }
 
         /// <summary>

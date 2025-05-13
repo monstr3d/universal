@@ -16,6 +16,19 @@ namespace Diagram.UI
     public class Performer
     {
 
+
+        /// <summary>
+        /// Gets relative name
+        /// </summary>
+        /// <param name="source">Source</param>
+        /// <param name="target">Target</param>
+        /// <returns>The relative name</returns>
+        public string GetRelativeName(INamedComponent source, INamedComponent target)
+        {
+            return target.GetName(source.Desktop);
+        }
+
+
         public IEnumerable<T> Get<T>(IEnumerable<object> objects) where T : class
         {
             return from o in objects where o is T select o as T;
@@ -1654,6 +1667,35 @@ namespace Diagram.UI
         {
             IEnumerable<object> c = collection.AllComponents;
             ForEach(c, action, find);
+        }
+
+        /// <summary>
+        /// Gets relative name
+        /// </summary>
+        /// <param name="source">Source</param>
+        /// <param name="target">Target</param>
+        /// <returns>The relative name</returns>
+        public string GetRelativeName(IAssociatedObject source, IAssociatedObject target)
+        {
+            INamedComponent cs = null;
+            if (source is INamedComponent)
+            {
+                cs = source as INamedComponent;
+            }
+            else
+            {
+                cs = source.Object as INamedComponent;
+            }
+            INamedComponent ct = null;
+            if (target is INamedComponent ctt)
+            {
+                ct = ctt;
+            }
+            else
+            {
+                ct = target.Object as INamedComponent;
+            }
+            return GetRelativeName(cs, ct);
         }
 
 

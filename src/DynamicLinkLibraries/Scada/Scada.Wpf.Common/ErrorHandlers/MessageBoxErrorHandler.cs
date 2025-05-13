@@ -17,12 +17,12 @@ namespace Scada.Wpf.Common.ErrorHandlers
             this.window = window;
         }
 
-        void IExceptionHandler.HandleException<T>(T exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object[] obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, exception.Message); });
         }
 
-        void IExceptionHandler.Log(string message, object obj)
+        void IExceptionHandler.Log(string message, object[] obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, message); });
         }

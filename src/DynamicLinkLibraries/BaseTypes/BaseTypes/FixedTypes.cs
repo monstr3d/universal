@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BaseTypes
 {
@@ -105,11 +104,6 @@ namespace BaseTypes
 
         #region Public Members
 
-
-        /// <summary>
-        /// DateTime
-        /// </summary>
-       // public static DateTime DateTime 
 
 
 

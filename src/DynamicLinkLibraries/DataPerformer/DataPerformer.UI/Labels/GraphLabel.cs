@@ -91,7 +91,11 @@ namespace DataPerformer.UI.Labels
 
         TimeType timeType = TimeType.Second;
 
-        bool absoluteTime = true;
+        bool AbsoluteTime
+        {
+            get;
+            set;
+        } = true;
 
         Tuple<double[],
                     Dictionary<string,
@@ -156,7 +160,7 @@ namespace DataPerformer.UI.Labels
             info.AddValue("Points", s[5]);
             info.AddValue("Pause", data.Item5[0]);
             info.AddValue("TimeType", timeType, typeof(TimeType));
-            info.AddValue("AbsoluteTime", absoluteTime);
+            info.AddValue("AbsoluteTime", AbsoluteTime);
             info.AddValue("Realtime", dat.Item6[0],
                 typeof(Tuple<double[],
             Dictionary<string, Dictionary<string,
@@ -265,8 +269,11 @@ namespace DataPerformer.UI.Labels
         {
             (child as IGraphLabel).Data = (this as IGraphLabel).Data;
             child.TimeUnit = timeType;
-            child.IsAbsuluteTime = absoluteTime;
-            child.ChangeAbsoluteTime += (bool b) => { absoluteTime = b; };
+            child.IsAbsuluteTime = AbsoluteTime;
+            child.ChangeAbsoluteTime += (bool b) => 
+            { 
+                AbsoluteTime = b; 
+            };
             child.ChangeTimeUnit += (TimeType tt) => { timeType = tt; };
         }
 
@@ -497,7 +504,7 @@ namespace DataPerformer.UI.Labels
                 n[0] = pause;
                 n[1] = dist;
                 timeType = (TimeType)info.GetValue("TimeType", typeof(TimeType));
-                absoluteTime = info.GetBoolean("AbsoluteTime");
+                AbsoluteTime = info.GetBoolean("AbsoluteTime");
                 rtime = info.GetValue("Realtime", typeof(Tuple<double[],
                     Dictionary<string, Dictionary<string,
                     Tuple<Color, bool, double[]>>>>)) as Tuple<double[],

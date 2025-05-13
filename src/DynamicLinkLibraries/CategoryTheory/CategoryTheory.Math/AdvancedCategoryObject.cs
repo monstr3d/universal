@@ -1,4 +1,6 @@
-﻿namespace CategoryTheory.Math
+﻿using NamedTree;
+
+namespace CategoryTheory.Math
 {
     /// <summary>
     /// Advanced category object
@@ -44,6 +46,10 @@
                 obj = value;
             }
         }
+
+        protected virtual string Name { get; set; }
+
+        string INamed.Name { get => Name; set => Name = value; }
 
         #endregion
     }

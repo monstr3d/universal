@@ -40,12 +40,21 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Constructor
         /// </summary>
+        private TimeProviderBackup()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         /// <param name="collection">Collection</param>
         /// <param name="provider">Time provider</param>
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
         public TimeProviderBackup(IComponentCollection collection, ITimeMeasurementProvider provider,
-           int priority, string reason)
+           int priority, string reason) : this() 
+
         {
             this.collection = collection;
             CreateMeasurements(priority, reason);
@@ -63,7 +72,7 @@ namespace DataPerformer.Portable
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
         public TimeProviderBackup(IDataConsumer consumer, ITimeMeasurementProvider provider, 
-            IDifferentialEquationProcessor processor, string reason, int priority)
+            IDifferentialEquationProcessor processor, string reason, int priority) : this() 
         {
             this.consumer = consumer;
             collection = consumer.GetDependentCollection(priority);
@@ -82,7 +91,7 @@ namespace DataPerformer.Portable
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
         public TimeProviderBackup(IComponentCollection collection, ITimeMeasurementProvider provider,
-            IDifferentialEquationProcessor processor, int priority, string reason)
+            IDifferentialEquationProcessor processor, int priority, string reason) : this()
         {
             this.collection = collection;
             CreateMeasurements(priority, reason);
@@ -97,7 +106,7 @@ namespace DataPerformer.Portable
         /// <param name="collection">Collection</param>
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
-        public TimeProviderBackup(IComponentCollection collection, int priority, string reason)
+        public TimeProviderBackup(IComponentCollection collection, int priority, string reason) : this()
         {
             this.collection = collection;
             CreateMeasurements(priority, reason);

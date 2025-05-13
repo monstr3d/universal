@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using BaseTypes;
 using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-using ErrorHandler;
+
 using Event.Interfaces;
+
+using ErrorHandler;
+
 
 namespace DataPerformer.Portable.Runtime
 {
@@ -26,10 +25,15 @@ namespace DataPerformer.Portable.Runtime
 
         DateTime dt;
 
+        BaseTypes.Performer Performer
+        {
+            get;
+        } = new();
+
         protected IMeasurement timeMeasurement = null;
 
         protected double currentTime;
-        
+
         #endregion
 
         #region Ctor
@@ -37,39 +41,12 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="isAbsolute">True in case of relative time</param>
         /// <param name="timeUnit">Time unit</param>
+        /// <param name="isAbsolute">True in case of relative time</param>
         public RealtimeProvider(bool isAbsolute, TimeType timeUnit)
         {
-            if (timeUnit.Equals(TimeType.Day))
-            {
-                if (!isAbsolute)
-                {
-                    dt = DateTime;
-                    time = () =>
-                        (DateTime.Now - dt).TotalDays;
-                }
-                else
-                {
-                    time = () => 
-                        DateTime.Now.DateTimeToDay();
-                }
-            }
-            else
-            {
-                double coeff = TimeType.Day.Coefficient<TimeType>(timeUnit);
-                if (!isAbsolute)
-                {
-                    dt = DateTime.Now;
-                    time = () =>
-                       coeff * (DateTime.Now - dt).TotalDays;
-                }
-                else
-                {
-                    time = () => 
-                        coeff * DateTime.Now.DateTimeToDay();
-                }
-            }
+            var f = Performer.Convert(timeUnit, DateTime, isAbsolute);
+            time = () => f(DateTime.Now);
             currentTime = time();
             Func<object> mea = () => 
             {
@@ -97,12 +74,12 @@ namespace DataPerformer.Portable.Runtime
         {
             add
             {
-                throw new ErrorHandler.WriteProhibitedException();
+                throw new WriteProhibitedException();
             }
 
             remove
             {
-                throw new ErrorHandler.WriteProhibitedException();
+                throw new WriteProhibitedException();
             }
         }
 

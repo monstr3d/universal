@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Controls;
 
 using Scada.Interfaces;
@@ -65,7 +60,7 @@ namespace Scada.WPF.UI.ScadaControls
 
             set
             {
-               new  ErrorHandler.WriteProhibitedException();
+              throw  new  ErrorHandler.WriteProhibitedException();
             }
         }
 
@@ -73,12 +68,12 @@ namespace Scada.WPF.UI.ScadaControls
         {
             get
             {
-               new  ErrorHandler.WriteProhibitedException();
+              throw new  ErrorHandler.WriteProhibitedException();
             }
 
             set
             {
-               new  ErrorHandler.WriteProhibitedException();
+              throw new  ErrorHandler.WriteProhibitedException();
             }
         }
 

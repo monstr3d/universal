@@ -90,7 +90,10 @@ namespace DataPerformer.UI.UserControls
 
         OfficePickers.ColorPicker.ToolStripColorPicker pic = new OfficePickers.ColorPicker.ToolStripColorPicker();
 
-        private Dictionary<TextBox, IMeasurement> dicMea = new Dictionary<TextBox, IMeasurement>();
+        private Dictionary<TextBox, IMeasurement> DictionaryMeasurements
+        {
+            get;
+        } = new Dictionary<TextBox, IMeasurement>();
 
         IList<IParameterWriter> pw = new List<IParameterWriter>();
 
@@ -197,7 +200,10 @@ namespace DataPerformer.UI.UserControls
 
         private object type;
 
-        private event Action<bool> changeAbsolute = (bool b) => { };
+        private event Action<bool> changeAbsolute = 
+            (bool b) => 
+            { 
+            };
 
         private event Action realtimeupdate = () => { };
 
@@ -211,7 +217,7 @@ namespace DataPerformer.UI.UserControls
 
         string currentCommand = "";
 
-        volatile System.Threading.AutoResetEvent analysisPause;
+        volatile AutoResetEvent analysisPause;
 
         string calculationReason = "";
 
@@ -1250,7 +1256,7 @@ namespace DataPerformer.UI.UserControls
             if (consumer != null)
             {
                 IList<string> l = consumer.GetAllMeasurements(b);
-                dicMea.Clear();
+                DictionaryMeasurements.Clear();
                 panelText.Controls.Clear();
                 comboBoxCond.FillCombo(l);
                 comboBoxCond.SelectCombo(data.Item4[0]);
@@ -1260,7 +1266,7 @@ namespace DataPerformer.UI.UserControls
                 {
                     IMeasurements m = consumer[i];
                     string name = consumer.GetMeasurementsName(m);
-                    Panel pm = new PanelMeasureText(consumer, consumer[i], w, dicMea, name, data.Item3);
+                    Panel pm = new PanelMeasureText(consumer, consumer[i], w, DictionaryMeasurements, name, data.Item3);
                     pm.Top = y;
                     panelText.Controls.Add(pm);
                     y = pm.Bottom;
@@ -1471,14 +1477,14 @@ Func<bool> stop)
             {
                 data.Item3.Clear();
                 Dictionary<string, IMeasurement> d = new Dictionary<string, IMeasurement>();
-                foreach (TextBox tb in dicMea.Keys)
+                foreach (TextBox tb in DictionaryMeasurements.Keys)
                 {
                     string key = tb.Text;
                     if (key.Length > 0)
                     {
-                        d[key] = dicMea[tb];
+                        d[key] = DictionaryMeasurements[tb];
                         PanelMeasureText p = tb.Parent as PanelMeasureText;
-                        string n = p.MeasureName + "." + dicMea[tb].Name;
+                        string n = p.MeasureName + "." + DictionaryMeasurements[tb].Name;
                         data.Item3[n] = key;
                     }
                 }
@@ -1489,12 +1495,12 @@ Func<bool> stop)
 
         private void WriteText()
         {
-            foreach (TextBox tb in dicMea.Keys)
+            foreach (TextBox tb in DictionaryMeasurements.Keys)
             {
                 string key = tb.Text;
                 if (key.Length > 0)
                 {
-                    dicText[key] = dicMea[tb].Parameter() + "";
+                    dicText[key] = DictionaryMeasurements[tb].Parameter() + "";
                 }
             }
             foreach (IParameterWriter wr in pw)
@@ -1506,13 +1512,13 @@ Func<bool> stop)
         private void WritePar()
         {
             data.Item3.Clear();
-            foreach (TextBox tb in dicMea.Keys)
+            foreach (TextBox tb in DictionaryMeasurements.Keys)
             {
                 string key = tb.Text;
                 if (key.Length > 0)
                 {
                     PanelMeasureText p = tb.Parent as PanelMeasureText;
-                    string n = p.MeasureName + "." + dicMea[tb].Name;
+                    string n = p.MeasureName + "." + DictionaryMeasurements[tb].Name;
                     data.Item3[n] = key;
                 }
             }
@@ -1827,12 +1833,12 @@ Func<bool> stop)
         void WriteList()
         {
             var list = new List<object>();
-            foreach (TextBox tb in dicMea.Keys)
+            foreach (TextBox tb in DictionaryMeasurements.Keys)
             {
                 string key = tb.Text;
                 if (key.Length > 0)
                 {
-                    list.Add(dicMea[tb].Parameter());
+                    list.Add(DictionaryMeasurements[tb].Parameter());
                 }
             }
             lists.Add(list);
@@ -3038,13 +3044,13 @@ Func<bool> stop)
                     double step = consumer.Step;
                     int count = consumer.Steps;
                     ctx = new();
-                    
+                    var tt = new CancellationTokenSource();
                     consumer.PerformFixed(start, step, count,    
                         StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                        DifferentialEquationProcessor.Processor, 
                        StaticExtensionDataPerformerInterfaces.Calculation,
-                       0, WriteList, ss,
-                       stop, null, null);
+                       0, ctx.Token, WriteList, ss,
+                       null, null);
 
     
                 }

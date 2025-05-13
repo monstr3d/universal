@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using BaseTypes.Attributes;
 
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
-using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable.Interfaces
 {

@@ -1,6 +1,6 @@
 ﻿using System;
-using RealMatrixProcessor;
 
+using RealMatrixProcessor;
 
 namespace DinAtm.Pure
 {

@@ -16,9 +16,10 @@ using DataPerformer.Portable.Runtime;
 using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
-using Event.Portable.Arrows;
+
 using Event.Portable.Interfaces;
 using Event.Portable.Internal;
+
 using ErrorHandler;
 
 namespace Event.Portable
@@ -31,6 +32,8 @@ namespace Event.Portable
     {
 
         #region Fields
+
+        static EventWrapper eventWrapper = new();
 
         static IRealtime currentRuntime;
 
@@ -81,8 +84,8 @@ namespace Event.Portable
         /// </summary>
         public static IRealtime Runtime
         {
-            get;
-            set;
+            get => eventWrapper.Runtime;
+            set => eventWrapper.Runtime = value;
         }
 
         /// <summary>
@@ -91,19 +94,7 @@ namespace Event.Portable
         /// <param name="runtime">The runtime to set</param>
         public static void SetBase(this IRealtime runtime)
         {
-            if (runtime == null)
-            {
-                throw new OwnException("SetBase");
-            }
-            if (Runtime == null)
-            {
-                Runtime = runtime;
-                return;
-            }
-            if (Runtime.IsBase(runtime))
-            {
-                Runtime = runtime;
-            }
+            eventWrapper.SetBase(runtime);
         }
 
         /// <summary>

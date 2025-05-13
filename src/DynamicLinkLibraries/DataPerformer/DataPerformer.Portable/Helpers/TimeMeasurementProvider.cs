@@ -27,7 +27,7 @@ namespace DataPerformer.Portable.Helpers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public TimeMeasurementProvider(object obj)
+        public TimeMeasurementProvider(object obj = null)
         {
             timeMeasurement = new TimeMeasurement(GetTime);
             this.obj = obj;

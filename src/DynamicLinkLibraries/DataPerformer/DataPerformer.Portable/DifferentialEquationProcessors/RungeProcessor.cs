@@ -48,7 +48,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// <summary>
         /// Default constructor
         /// </summary>
-        protected RungeProcessor()
+        public RungeProcessor()
         {
 
         }

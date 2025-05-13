@@ -1,4 +1,7 @@
-﻿namespace CategoryTheory.Math
+﻿using ErrorHandler;
+using NamedTree;
+
+namespace CategoryTheory.Math
 {
     /// <summary>
     /// Combination of functrors
@@ -170,6 +173,7 @@
         {
             get;
         }
+        string INamed.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         #endregion
 

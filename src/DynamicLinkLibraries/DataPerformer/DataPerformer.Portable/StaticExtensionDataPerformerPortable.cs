@@ -25,6 +25,7 @@ using DataPerformer.Portable.Wrappers;
 using Event.Interfaces;
 using System.Drawing;
 using ErrorHandler;
+using System.Threading;
 
 namespace DataPerformer.Portable
 {
@@ -166,6 +167,40 @@ namespace DataPerformer.Portable
         {
 
         }
+
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="consumer">Data Consumer</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        /// <param name="errorHandler">Asynchronous calculation</param>
+        public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+                ITimeMeasurementProvider provider,
+                  IDifferentialEquationProcessor processor, string reason,
+                 int priority, CancellationToken token,
+                 Action action, string condition, IAsynchronousCalculation asynchronousCalculation = null,
+                 IExceptionHandler errorHandler = null)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            wrapper.PerformFixed(start, step, count,
+                provider, processor, reason, priority, token, action, condition, asynchronousCalculation,
+                errorHandler);
+        }
+
+
+
 
         /// <summary>
         /// Performs action with fixed step

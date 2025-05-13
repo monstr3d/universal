@@ -203,7 +203,7 @@ namespace Aviation.Light
 
 
 
-        static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+        static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, IExceptionHandler? logWriter, TestCategory.Interfaces.ITestInterface ? testInterface)
         {
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;
             List<ButtonWrapper> l = new List<ButtonWrapper>();

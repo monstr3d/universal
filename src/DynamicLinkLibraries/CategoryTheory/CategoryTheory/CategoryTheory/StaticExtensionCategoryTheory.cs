@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace CategoryTheory
@@ -204,7 +206,7 @@ namespace CategoryTheory
         /// <returns>True is base type and false otherwise</returns>
         static public bool IsBase(this object baseType, object type)
         {
-            return baseType.GetType().IsBase(type.GetType());
+            return p.IsBase(baseType, type);
         }
 
 

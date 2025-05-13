@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 
 using Diagram.UI;
 
@@ -14,7 +15,6 @@ using Event.Portable.Interfaces;
 
 
 using WindowsExtensions;
-using System.Windows.Forms.Integration;
 
 namespace DataPerformer.UI.UserControls
 {

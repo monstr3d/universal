@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.Reflection;
+using System.Threading;
+
 
 using CategoryTheory;
 
@@ -10,8 +13,8 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
-using System.Reflection;
 using DataPerformer.Interfaces.Attributes;
+
 using ErrorHandler;
 
 
@@ -177,6 +180,24 @@ namespace DataPerformer.Portable.Wrappers
 
         #region PerformFixed
 
+        void PerformFixed(double start, double step, int count,
+                 ITimeMeasurementProvider provider,
+                   IDifferentialEquationProcessor processor, string reason,
+                  int priority, CancellationToken token, Action action, IMeasurement condition = null,
+                 IAsynchronousCalculation asynchronousCalculation = null,
+                  IExceptionHandler errorHandler = null)
+        {
+
+            Func<bool> stop = () => token.IsCancellationRequested;
+            PerformFixed(start, step, count, provider, processor,
+                reason, priority, action,
+                           condition,
+                       stop = null,
+             asynchronousCalculation, errorHandler);
+
+        }
+
+
 
         /// <summary>
         /// Performs action with fixed step
@@ -190,12 +211,17 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
         /// <param name="stop">Stop function</param>
-        /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        /// <param name="errorHandler">Error handler</param>
         void PerformFixed(double start, double step, int count,
                 ITimeMeasurementProvider provider,
-                  IDifferentialEquationProcessor processor, string reason,
-                 int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+                  IDifferentialEquationProcessor processor,
+                  string reason,
+                 int priority,
+                 Action action,
+                 IMeasurement condition = null,
+                 Func<bool> stop = null,
+                 IAsynchronousCalculation asynchronousCalculation = null,
                  IExceptionHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
@@ -268,11 +294,12 @@ namespace DataPerformer.Portable.Wrappers
             processor.TimeProvider = old;
         }
 
+  
         public void PerformFixed(double start, double step, int count,
-            ITimeMeasurementProvider provider,
-            IDifferentialEquationProcessor processor, string reason,
-            int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-            IExceptionHandler errorHandler = null)
+    ITimeMeasurementProvider provider,
+    IDifferentialEquationProcessor processor, string reason,
+    int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+    IExceptionHandler errorHandler = null)
         {
             IMeasurement cm = null;
             if (condition != null)
@@ -287,6 +314,25 @@ namespace DataPerformer.Portable.Wrappers
         }
 
 
+        public void PerformFixed(double start, double step, int count,
+            ITimeMeasurementProvider provider,
+            IDifferentialEquationProcessor processor, string reason,
+            int priority, CancellationToken token,  Action action, string condition = null,  IAsynchronousCalculation asynchronousCalculation = null,
+            IExceptionHandler errorHandler = null)
+        {
+            IMeasurement cm = null;
+            if (condition != null)
+            {
+                cm = FindMeasurement(condition);
+            }
+            PerformFixed(start, step, count,
+                provider,
+                   processor, reason,
+                  priority, token, action, cm, asynchronousCalculation,
+                  errorHandler);
+        }
+
+
         /// <summary>
         /// Performs action with fixed step
         /// </summary>
@@ -297,8 +343,8 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="processor">Differential equation processor</param>
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
-        /// <param name="contidion">Condition</param>
         /// <param name="paramerets">Parameters</param>
+        /// <param name="condition">Condition</param>
         /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
@@ -349,71 +395,71 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
         /// <param name="errorHandler">Asynchronous calculation</param>
-     /*   public void PerformFixed(double start, double step, int count,
-        ITimeMeasurementProvider provider,
-          IDifferentialEquationProcessor processor, string reason,
-         int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-         IErrorHandler errorHandler = null)
-        {
-            ITimeMeasurementProvider old = processor.TimeProvider;
-            Func<bool> stp = stop;
-            if (stp == null)
-            {
-                stp = () => false;
-            }
-            try
-            {
-                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
-                {
-                    provider.Time = start;
-                    IDataRuntime runtime = backup.Runtime;
-                    runtime.StartAll(start);
-                    processor.TimeProvider = provider;
-                    IStep st = null;
-                    if (runtime is IStep)
-                    {
-                        st = runtime as IStep;
-                    }
-                    provider.Time = start;
-                    double t = start;
-                    double last = t;
-                    Action<double, double, long>
-                        act = runtime.Step(processor,
-                        (time) =>
-                        {
-                            provider.Time = time;
-                        }
-                        , reason, asynchronousCalculation);
-                    for (int i = 0; i < count; i++)
-                    {
-                        if (stp())
-                        {
-                            break;
-                        }
-                        t = start + i * step;
-                        act(last, t, i);
-                        last = t;
-                        if ((bool)condition.Parameter())
-                        {
-                            action();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (errorHandler != null)
-                {
-                    errorHandler.HandleException(ex, 10);
-                }
-                else
-                {
-                    ex.HandleException(10);
-                }
-            }
-            processor.TimeProvider = old;
-        }*/
- 
+        /*   public void PerformFixed(double start, double step, int count,
+           ITimeMeasurementProvider provider,
+             IDifferentialEquationProcessor processor, string reason,
+            int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+            IErrorHandler errorHandler = null)
+           {
+               ITimeMeasurementProvider old = processor.TimeProvider;
+               Func<bool> stp = stop;
+               if (stp == null)
+               {
+                   stp = () => false;
+               }
+               try
+               {
+                   using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                   {
+                       provider.Time = start;
+                       IDataRuntime runtime = backup.Runtime;
+                       runtime.StartAll(start);
+                       processor.TimeProvider = provider;
+                       IStep st = null;
+                       if (runtime is IStep)
+                       {
+                           st = runtime as IStep;
+                       }
+                       provider.Time = start;
+                       double t = start;
+                       double last = t;
+                       Action<double, double, long>
+                           act = runtime.Step(processor,
+                           (time) =>
+                           {
+                               provider.Time = time;
+                           }
+                           , reason, asynchronousCalculation);
+                       for (int i = 0; i < count; i++)
+                       {
+                           if (stp())
+                           {
+                               break;
+                           }
+                           t = start + i * step;
+                           act(last, t, i);
+                           last = t;
+                           if ((bool)condition.Parameter())
+                           {
+                               action();
+                           }
+                       }
+                   }
+               }
+               catch (Exception ex)
+               {
+                   if (errorHandler != null)
+                   {
+                       errorHandler.HandleException(ex, 10);
+                   }
+                   else
+                   {
+                       ex.HandleException(10);
+                   }
+               }
+               processor.TimeProvider = old;
+           }*/
+
 
         /// <summary>
         /// Performs action with fixed step
@@ -424,14 +470,14 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
-  /*      public void PerformFixed(double start, double step, int count, string reason,
-           int priority, Action action, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
-        {
-            PerformFixed(start, step, count,
-                   StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                   DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
-                reason, priority, action, stop, asynchronousCalculation, errorHandler);
-        }*/
+        /*      public void PerformFixed(double start, double step, int count, string reason,
+                 int priority, Action action, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+              {
+                  PerformFixed(start, step, count,
+                         StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                         DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
+                      reason, priority, action, stop, asynchronousCalculation, errorHandler);
+              }*/
 
 
         #endregion
@@ -446,84 +492,84 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="step">Step</param>
         /// <param name="count">Count</param>
         /// <returns>Result</returns>
-  /*      public XmlDocument CreateXmlDocument(
-            XmlDocument input, double start, double step,
-            int count)
-        {
-            List<string> p = new List<string>();
-            IMeasurement cond = null;
-            string arg = null;
-            Dictionary<string, Func<Func<object>>> d = new Dictionary<string, Func<Func<object>>>();
-            XmlElement r = input.DocumentElement;
-            foreach (XmlElement e in r.ChildNodes)
-            {
-                string name = e.Name;
-                if (name.Equals("Condition"))
-                {
-                    cond = FindMeasurement(e.InnerText, true);
-                    continue;
-                }
-                if (name.Equals("Argument"))
-                {
-                    arg = e.InnerText;
-                    continue;
-                }
-                if (name.Equals("Parameters"))
-                {
-                    XmlNodeList nl = e.ChildNodes;
-                    foreach (XmlElement xp in nl)
-                    {
-                        string pn = null;
-                        string pv = null;
-                        foreach (XmlElement xpp in xp.ChildNodes)
-                        {
-                            string npp = xpp.Name;
-                            if (npp.Equals("Name"))
-                            {
-                                pn = xpp.InnerText;
-                                continue;
-                            }
-                            pv = xpp.InnerText;
-                        }
-                        IMeasurement mcc = FindMeasurement(pn, false);
-                        d[pv] = mcc.ToValueHolder();
-                    }
-                }
-            }
-            XmlParameterWriter xpv = new XmlParameterWriter(null);
-            IParameterWriter pvv = xpv;
-            Action acts = () =>
-            {
-                Dictionary<string, string> dpp = new Dictionary<string, string>();
-                foreach (string k in d.Keys)
-                {
-                    object v = d[k]()();
-                    dpp[k] = v + "";
-                }
-                pvv.Write(dpp);
-            };
+        /*      public XmlDocument CreateXmlDocument(
+                  XmlDocument input, double start, double step,
+                  int count)
+              {
+                  List<string> p = new List<string>();
+                  IMeasurement cond = null;
+                  string arg = null;
+                  Dictionary<string, Func<Func<object>>> d = new Dictionary<string, Func<Func<object>>>();
+                  XmlElement r = input.DocumentElement;
+                  foreach (XmlElement e in r.ChildNodes)
+                  {
+                      string name = e.Name;
+                      if (name.Equals("Condition"))
+                      {
+                          cond = FindMeasurement(e.InnerText, true);
+                          continue;
+                      }
+                      if (name.Equals("Argument"))
+                      {
+                          arg = e.InnerText;
+                          continue;
+                      }
+                      if (name.Equals("Parameters"))
+                      {
+                          XmlNodeList nl = e.ChildNodes;
+                          foreach (XmlElement xp in nl)
+                          {
+                              string pn = null;
+                              string pv = null;
+                              foreach (XmlElement xpp in xp.ChildNodes)
+                              {
+                                  string npp = xpp.Name;
+                                  if (npp.Equals("Name"))
+                                  {
+                                      pn = xpp.InnerText;
+                                      continue;
+                                  }
+                                  pv = xpp.InnerText;
+                              }
+                              IMeasurement mcc = FindMeasurement(pn, false);
+                              d[pv] = mcc.ToValueHolder();
+                          }
+                      }
+                  }
+                  XmlParameterWriter xpv = new XmlParameterWriter(null);
+                  IParameterWriter pvv = xpv;
+                  Action acts = () =>
+                  {
+                      Dictionary<string, string> dpp = new Dictionary<string, string>();
+                      foreach (string k in d.Keys)
+                      {
+                          object v = d[k]()();
+                          dpp[k] = v + "";
+                      }
+                      pvv.Write(dpp);
+                  };
 
-            Action act = (cond == null) ? acts : () =>
-            {
-                foreach (string k in d.Keys)
-                {
-                    object v = d[k]()();
-                }
-                if ((bool)cond.Parameter())
-                {
-                    acts();
-                }
-            };
-            try
-            {
-                //PerformFixedT(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
-            }
-            catch (Exception e)
-            {
-                e.HandleException(10);
-            }
-            return xpv.Document;
-        }*/
+                  Action act = (cond == null) ? acts : () =>
+                  {
+                      foreach (string k in d.Keys)
+                      {
+                          object v = d[k]()();
+                      }
+                      if ((bool)cond.Parameter())
+                      {
+                          acts();
+                      }
+                  };
+                  try
+                  {
+                      //PerformFixedT(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
+                  }
+                  catch (Exception e)
+                  {
+                      e.HandleException(10);
+                  }
+                  return xpv.Document;
+              }*/
 
         ///<summary>
         /// Creates Xml document
@@ -538,8 +584,43 @@ namespace DataPerformer.Portable.Wrappers
         /// <returns>The Xml document</returns>
         public XmlDocument CreateXmlDocument(Dictionary<string, string> output,
              double start, double step, int count, string condition,
-         Func<bool> stop, ITimeMeasurementProvider provider,
+         CancellationToken token, ITimeMeasurementProvider provider,
         IDifferentialEquationProcessor processor, IExceptionHandler errorHandler = null)
+        {
+            var stop = () => token.IsCancellationRequested;
+            return CreateXmlDocument(output,
+                start,
+                step,
+                count,
+                condition,
+                stop,
+                provider,
+                processor, 
+                errorHandler);
+        }
+
+
+
+        ///<summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="output">Output parameters</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="start">Start time</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <returns>The Xml document</returns>
+        public XmlDocument CreateXmlDocument(Dictionary<string, string> output,
+             double start, 
+             double step, 
+             int count, 
+             string condition,
+         Func<bool> stop, 
+         ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, 
+        IExceptionHandler errorHandler = null)
         {
             IMeasurement cond = null;
             if (condition != null)

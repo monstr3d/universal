@@ -5,7 +5,7 @@ using System.Reflection;
 
 using BaseTypes.Interfaces;
 using BaseTypes.Attributes;
-using System.Runtime.CompilerServices;
+
 using ErrorHandler;
 
 namespace BaseTypes
@@ -16,6 +16,12 @@ namespace BaseTypes
     public static class StaticExtensionBaseTypes
     {
         #region Fields
+
+        static Performer Performer
+        {
+            get;
+        } = new Performer();
+
         /// <summary>
         /// Object of char type
         /// </summary>
@@ -261,16 +267,7 @@ namespace BaseTypes
         /// <returns>The single</returns>
         static public Action ToSingleAction(this IEnumerable<Action> actions)
         {
-            Action action = null;
-            foreach (var act in actions)
-            {
-                if (act == null)
-                {
-                    continue;
-                }
-                action = (action == null) ? act : action + act;
-            }
-            return action;
+            return Performer.ToSingleAction(actions);
         }
 
         /// <summary>
@@ -282,15 +279,7 @@ namespace BaseTypes
         /// <returns>The sum of actions</returns>
         public static Action<T> Add<T>(this Action<T> action, Action<T> addition)
         {
-            if (addition == null)
-            {
-                return action;
-            }
-            if (action == null)
-            {
-                return addition;
-            }
-            return action + addition;
+            return Performer.Add<T>(action, addition);
         }
 
 
@@ -306,25 +295,7 @@ namespace BaseTypes
         public static void Add<T, S>(this Dictionary<T, List<S>> dictionary, T key, S value, 
             bool unique = true)
         {
-            List<S> l;
-            if (dictionary.ContainsKey(key))
-            {
-                l = dictionary[key];
-            }
-            else
-            {
-                l = new List<S>();
-                dictionary[key] = l;
-            }
-            if (!unique)
-            {
-                l.Add(value);
-                return;
-            }
-            if (!l.Contains(value))
-            {
-                l.Add(value);
-            }
+            Performer.Add<T, S>(dictionary, key, value, unique);
         }
 
         /// <summary>
@@ -346,8 +317,8 @@ namespace BaseTypes
         /// </summary>
         public static DateTime DateTime
         {
-            get;
-            set;
+            get => Performer.DateTime;
+            set => Performer.DateTime = value;
         }
 
         /// <summary>
@@ -357,7 +328,7 @@ namespace BaseTypes
         /// <returns>Double value function</returns>
         public static Func<object, double> GetDoubleFunction(object type)
         {
-            return IntertnalDouble.CreateFunction(type);
+            return Performer.GetDoubleFunction(type);
         }
 
   
@@ -369,17 +340,9 @@ namespace BaseTypes
         /// <returns>Object</returns>
         public static object FromStringBT(this string str, object type)
         {
-            double a = 0;
-            if (type.Equals(a))
-            {
-                return ParseDouble(str); 
-            }
-            return str;
+            return Performer.FromStringBT(str, type);
         }
-
-    
-   
-
+ 
         /// <summary>
         /// Converts double variale
         /// </summary>
@@ -388,59 +351,7 @@ namespace BaseTypes
         /// <returns>Coversion result</returns>
         static public object Convert(this object type, double x)
         {
-            if (type.Equals(DoubleType))
-            {
-                return x;
-            }
-            if (type.Equals(SingleType))
-            {
-                return (float)x;
-            }
-            if (type.Equals(BooleanType))
-            {
-                if (x == 0)
-                {
-                    return false;
-                }
-                if (x == 1)
-                {
-                    return true;
-                }
-                throw new OwnException("Can not convert double parameter value to boolean");
-            }
-            if (type.Equals(SByteType))
-            {
-                return (sbyte)x;
-            }
-            if (type.Equals(Int16Type))
-            {
-                return (short)x;
-            }
-            if (type.Equals(Int32Type))
-            {
-                return (int)x;
-            }
-            if (type.Equals(Int64Type))
-            {
-                return (long)x;
-            }
-            if (type.Equals(ByteType))
-            {
-                return (byte)x;
-            }
-            if (type.Equals(UInt16Type))
-            {
-                return (ushort)x;
-            }
-            if (type.Equals(UInt32Type))
-            {
-                return (uint)x;
-            }
-            if (type.Equals(UInt64Type))
-            {
-                return (ulong)x;
-            }
-            throw new OwnException("Type cannot be converted from double");
+            return Performer.Convert(type, x);
         }
 
         /// <summary>
@@ -450,12 +361,7 @@ namespace BaseTypes
         /// <returns>True if operation is powered and false otherwise</returns>
         public static bool IsPowered(this IObjectOperation operation)
         {
-            if (operation is IPowered)
-            {
-                IPowered p = operation as IPowered;
-                return p.IsPowered;
-            }
-            return false;
+            return Performer.IsPowered(operation);
         }
 
         /// <summary>
@@ -465,14 +371,7 @@ namespace BaseTypes
         /// <returns>Type</returns>
         public static object GetStringType(this string str)
         {
-            for (int i = 0; i < TypeNames.Length; i++)
-            {
-                if (TypeNames[i].Equals(str))
-                {
-                    return SimpleTypes[i];
-                }
-            }
-            return 0;
+            return Performer.GetStringType(str);
         }
 
         /// <summary>
@@ -482,14 +381,7 @@ namespace BaseTypes
         /// <returns>String</returns>
         public static string GetTypeString(this object obj)
         {
-            for (int i = 0; i < SimpleTypes.Length; i++)
-            {
-                if (SimpleTypes[i].Equals(obj))
-                {
-                    return TypeNames[i];
-                }
-            }
-            return null;
+            return Performer.GetTypeString(obj);
         }
 
         /// <summary>
@@ -499,15 +391,7 @@ namespace BaseTypes
         /// <returns>Types</returns>
         public static List<Tuple<string, object>> StringToTypes(this string[] strings)
         {
-            List<Tuple<string, object>> types = new List<Tuple<string,object>>();
-            for (int i = 0; i < strings.Length; i++)
-            {
-                string s = strings[i];
-                ++i;
-                object o = strings[i].GetStringType();
-                types.Add(new Tuple<string, object>(s, o));
-            }
-            return types;
+            return Performer.StringToTypes(strings);
         }
 
         /// <summary>
@@ -517,13 +401,7 @@ namespace BaseTypes
         /// <returns>Strings</returns>
         public static string[] TypesToStrings(this List<Tuple<string, object>> types)
         {
-            List<string> l = new List<string>();
-            foreach (Tuple<string, object> t in types)
-            {
-                l.Add(t.Item1);
-                l.Add(t.Item2.GetTypeString());
-            }
-            return l.ToArray();
+            return Performer.TypesToStrings(types);
         }
 
         /// <summary>
@@ -547,27 +425,23 @@ namespace BaseTypes
         }
 
         /// <summary>
-        /// Coverts day to date time
+        /// Converts day to date time
         /// </summary>
         /// <param name="a">Day</param>
         /// <returns>Date time</returns>
         public static DateTime DayToDateTime(this double a)
         {
-            double x = a % 1;
-            double y = a - x;
-            DateTime dt = DateTime + new TimeSpan((long)(864000000000.0 * x)) + new TimeSpan((int)y, 0, 0, 0);
-            return DateTime.SpecifyKind(dt, DateTimeKind.Utc);
+            return Performer.DayToDateTime(a);
         }
 
         /// <summary>
-        /// Coverts day to date time
+        /// Converts day to date time
         /// </summary>
         /// <param name="dt">Date Time</param>
         /// <returns>Day</returns>
         public static double DateTimeToDay(this DateTime dt)
         {
-            TimeSpan ts = dt - DateTime;
-            return ts.TotalDays;
+            return Performer.DateTimeToDay(dt);
         }
 
         /// Gets default value of object
@@ -759,6 +633,19 @@ namespace BaseTypes
             return Coefficient<TimeType>(from, to);
         }
 
+
+        /// <summary>
+        /// Conversion
+        /// </summary>
+        /// <param name="timeType">Type of time</param>
+        /// <param name="begin">Bebin</param>
+        /// <param name="isAbsolute">Is absolute</param>
+        /// <returns>value</returns>
+        public static Func<DateTime, double> Convert(this TimeType timeType,
+            DateTime begin, bool isAbsolute = true)
+        {
+            return Performer.Convert(timeType, begin, isAbsolute);
+        }
 
 
         #endregion

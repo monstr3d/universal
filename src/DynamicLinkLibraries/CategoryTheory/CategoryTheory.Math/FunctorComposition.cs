@@ -1,3 +1,5 @@
+using NamedTree;
+
 namespace CategoryTheory.Math
 {
     /// <summary>
@@ -197,6 +199,10 @@ namespace CategoryTheory.Math
                 return !next.IsCovariant;
             }
         }
+
+        protected virtual string Name { get; set; }
+
+        string INamed.Name { get => Name; set => Name = value; }
     }
 
 }

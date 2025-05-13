@@ -23,7 +23,7 @@ namespace FormulaEditor
 
         #region Fields
 
-       static Performer p = new Performer();
+       static  NamedTree.Performer p = new ();
 
 
 

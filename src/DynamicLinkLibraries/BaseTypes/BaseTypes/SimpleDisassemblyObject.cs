@@ -53,8 +53,6 @@ namespace BaseTypes
 
         #endregion
 
-
-
         #region IDiasssemblyObject members
 
         IDisassemblyObject IDisassemblyObject.this[object type]

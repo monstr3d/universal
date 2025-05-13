@@ -1,7 +1,18 @@
 ﻿namespace OnlineGameConverter.Server.Classes
 {
-    public class OrbitaForecastItem
+    public record class OrbitaForecastItem
     {
+        public OrbitaForecastItem(DateTime datetime, double x,
+            double y, double z, double Vx, double vY, double vZ)
+        {
+            DateTime = datetime;
+            X = x;
+            Y = y;
+            Z = z;
+            this.Vx = Vx;
+            this.Vy = Vy;
+            this.Vz = Vz;
+        }
         public DateTime DateTime { get; set; }
 
         public double X { get; set; }

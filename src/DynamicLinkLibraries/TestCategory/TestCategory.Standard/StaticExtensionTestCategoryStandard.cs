@@ -147,7 +147,7 @@ namespace TestCategory.Standard
             this.Set();
         }
 
-        void IExceptionHandler.HandleException<T>(T exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, params object[] obj)
         {
             if (exception.Message == "Member \'Comments\' was not found.")
             {
@@ -158,7 +158,7 @@ namespace TestCategory.Standard
                 Type t = obj.GetType();
                 if (t.Equals(typeof(Int32)))
                 {
-                    int errorLevel = (int)obj;
+                    int errorLevel = (int)obj[0];
                     if (errorLevel < 0)
                     {
                         return;
@@ -176,12 +176,11 @@ namespace TestCategory.Standard
             }
         }
 
-        void IExceptionHandler.Log(string message, object obj)
+        void IExceptionHandler.Log(string message, params object[] obj)
         {
-
+            throw new NotImplementedException();
         }
     }
-
 
     internal class TestDataSetChooser : DataSetFactoryChooser
     {
