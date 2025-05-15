@@ -10,7 +10,7 @@ namespace OnlineGameConverter.Server
             // InitOrbital();
             AssemblyService.StaticExtensionAssemblyService.Init();
             var p = new Performer();
-            var cond = new ForecastCondition(DateTime.Now, DateTime.Now, -5448.34815324,
+            var cond = new ForecastCondition(DateTime.Now, DateTime.Now + TimeSpan.FromDays(1), -5448.34815324,
                  -4463.93698421, 0, -0.985394777432, 1.21681893834, 7.45047785592);
             p.Calculate(cond, new CancellationToken());
         }

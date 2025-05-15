@@ -378,7 +378,7 @@ namespace BaseTypes
         /// <returns>Double</returns>
         public double ParseDouble(string str)
         {
-            return Double.Parse(str, CultureInfo.InvariantCulture);
+            return double.Parse(str, CultureInfo.InvariantCulture);
         }
 
 
@@ -461,7 +461,6 @@ namespace BaseTypes
                     return (Dt) => DateTimeToDay(Dt);
                 }
             }
-
             double coeff = TimeType.Day.Coefficient<TimeType>(timeType);
             if (!isAbsolute)
             {
@@ -469,6 +468,37 @@ namespace BaseTypes
             }
             return (Dt) => coeff * DateTimeToDay(Dt);
         }
+
+        /// <summary>
+        /// Conversion
+        /// </summary>
+        /// <param name="timeType">Type of time</param>
+        /// <param name="begin">Bebin</param>
+        /// <param name="isAbsolute">Is absolute</param>
+        /// <returns>value</returns>
+        public Func<double, DateTime> ConvertInvert(TimeType timeType,
+            double begin, bool isAbsolute = true)
+        {
+            if (timeType.Equals(TimeType.Day))
+            {
+                if (!isAbsolute)
+                {
+                    return (Dt) => DayToDateTime((Dt - begin));
+                }
+                else
+                {
+                    return (Dt) => DayToDateTime(Dt);
+                }
+            }
+            double coeff = TimeType.Day.Coefficient<TimeType>(timeType);
+            var c = 1 / coeff;
+            if (!isAbsolute)
+            {
+                return (Dt) => DayToDateTime(c * (Dt - begin));
+            }
+            return (Dt)  => DayToDateTime(c * Dt);
+        }
+
 
         /// <summary>
         /// Trasforms a collection of actions to the single action

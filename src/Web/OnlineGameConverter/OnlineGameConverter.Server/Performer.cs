@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq.Expressions;
-using Abstract3DConverters;
+﻿using Abstract3DConverters;
+
+
+using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using DataPerformer.Portable.Helpers;
 using DataPerformer.Portable.Wrappers;
-using Diagram.UI.Interfaces;
 
 using OnlineGameConverter.Server.BusinessLogic.Orbital;
 using OnlineGameConverter.Server.Classes;
@@ -19,13 +19,17 @@ namespace OnlineGameConverter.Server
         {
             var p = new BaseTypes.Performer();
             dateToDouble = p.Convert(BaseTypes.Attributes.TimeType.Second, DateTime.Now);
+            doubleToDate = p.ConvertInvert(BaseTypes.Attributes.TimeType.Second, 0);
 
         }
 
         private Diagram.UI.Performer performer = new();
 
         Func<DateTime, double> dateToDouble;
-    
+
+        Func<double, DateTime> doubleToDate;
+
+   
         internal IEnumerable<OrbitaForecastItem> Calculate(ForecastCondition condition,
             CancellationToken token)
         {
@@ -35,7 +39,7 @@ namespace OnlineGameConverter.Server
                 {
                     return null;
                 }
-                if (condition.Begin <= condition.End)
+                if (condition.Begin >= condition.End)
                 {
                     return null;
                 }
@@ -69,11 +73,29 @@ namespace OnlineGameConverter.Server
 
                 var mea = wrapper.Measurements;
 
-                var l = new LinkedList<OrbitaForecastItem>();
+                Dictionary<string, Func<double>> parameters = new();
+
+
+                foreach (var m in mea)
+                {
+                    parameters[m.Key] = () => (double)m.Value.Parameter();
+                }
+                
+
+                var l = new List<OrbitaForecastItem>();
 
                 var act = () =>
                  {
                     var t = timeprovider.Time;
+                     var dt = doubleToDate(t);
+                     var it = new OrbitaForecastItem(dt, parameters["Motion equations.x"](),
+                      parameters["Motion equations.y"](),
+                      parameters["Motion equations.z"](),
+                      parameters["Motion equations.u"](),
+                      parameters["Motion equations.v"](),
+                      parameters["Motion equations.w"]()
+                        );
+                     l.Add(it);
                     // var dt = DateTime.F
 
                 };
@@ -89,7 +111,7 @@ namespace OnlineGameConverter.Server
 
 
 
-                return null;
+                return l;
             }
             catch (Exception e)
             {
