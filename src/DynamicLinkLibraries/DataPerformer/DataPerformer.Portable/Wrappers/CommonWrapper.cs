@@ -8,6 +8,7 @@ using Diagram.UI;
 
 
 using DataPerformer.Interfaces;
+
 using NamedTree;
 
 namespace DataPerformer.Portable.Wrappers

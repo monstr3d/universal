@@ -1,5 +1,7 @@
-﻿using OnlineGameConverter.Server.Classes;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+using OnlineGameConverter.Server.Classes;
+
 
 namespace OnlineGameConverter.Server.Interfaces
 {

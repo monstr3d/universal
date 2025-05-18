@@ -17,11 +17,15 @@ builder.Services.AddSingleton(typeof(IBytesSingleton), typeof(BytesSingleton));
 
 builder.Services.AddSingleton(typeof(IExceptionSingleton), typeof(ExceptionSingleton));
 
+builder.Services.AddSingleton(typeof(IForecastConditionSingleton), typeof(ForecastConditionSingleton));
+
 
 builder.Services.AddSingleton(typeof(IHttpContextAccessor), typeof(HttpContextAccessor));
 
 
 builder.Services.AddRazorPages();
+
+
 builder.Services.AddMvc(x => x.EnableEndpointRouting = false);
 
 

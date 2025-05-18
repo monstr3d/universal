@@ -22439,7 +22439,7 @@ The space $D\left(M, E \right)$ is an algebra over !!! with base  $\C$ with the 
 	P:  \Ga^\infty\left(M, E_1 \right)\to  \Ga^\infty\left(M, E_2 \right)
 	$$
 	be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
-	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest nonnegative
+	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest non-negative
 	integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
 	$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
 	The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
@@ -30681,30 +30681,38 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
 Consider following objects.
 \begin{itemize}
 	\item [(a)] A principal  bundle $P\left(\R^d, G, \pi \right)$ (cf. Definition \ref{dg_prinicipal_defn}) where $\R^d$ is the bases space.
-	\item[(b)] A set $	\left\{\left(E_1, M, F_1, G, P \right), ..., \left(E_n, M, F_n, G, P \right)\right\}$ of linear {bundles associated with $P$}.
+	\item[(b)] A set $	\left\{\left(E_1, M, F_1, G, P \right), ..., \left(E_n, M, F_n, G, P \right)\right\}$ of linear {bundles associated with $P$} where $F_j$ is a finite dimensional (possibly real) Hilbert space.
  (cf. \ref{dg_assoc_empt});
-	\item[(c)] The \textit{action functional} $S: \Ga^\infty\left( E_1\right)\times ... \times \Ga^\infty\left( E_n\right)  \to \R$ which is given by
-	$$
-\int_{\R^4} \mathscr L \left( x\right)  ~ dx	
-	$$
-	where $\mathscr L$ is the   \textit{Lagrangian} which for any $\xi \in \Ga^\infty\left( E\right)$ and $x \in \R^4$ the   $L \left( x\right)$ depends on values of $\xi_j \in E_J$  and partial derivations of $\xi$. For example the Lagrangian of Yang Mills theory looks like
-	\bean
-S\left( \xi_1, ..., \xi_n\right)  = \mathscr L	=- \frac{1}{4g^2} \left(\partial_\nu \partial A^a_\mu - \partial_\mu \partial A^a_\nu  + \eps^{abc} A^b_\mu A^c_\nu  \right)^2 + \\
-+ i \overline \psi \ga_\mu \left(\partial_\mu \psi + \frac{i}{2}  A^a_\mu \tau^a \phi \right) - m  \overline \psi  \psi
-	\eean
-	(cf. \cite{faddeev_slanov} for details).
-	
+	\item[(c)] The \textit{action functional} $S: \Ga^\infty\left( E_1\right)\times_{\R^d} ... \times_{\R^d} \Ga^\infty\left( E_n\right)  \to \R$ which is given by
+\be\label{kk_la_eqn}
+S\left( \xi_1, ..., \xi_n\right) = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	
+\ee
+	where $\mathscr L$ is the   \textit{Lagrangian} which for any $\xi \in \Ga^\infty\left( E\right)$ and $x \in \R^d$ the   $\mathscr L \left( x\right)$ depends on values of $\xi_j \in E_J$  and partial derivations of $\xi$ (cf. Example \ref{kk_ym_exm}. 	
 	\end{itemize}
-If $U$ is s set of smooth maps from $R^4$ to $G$ then for all $j = 1,...n$ there is the natural action $U \times \Ga^\infty\left(E_j \right)\to \Ga^\infty\left(E_j \right)$. If the action is invariant with respect to $U$ then one has a \textit{gauge theory}. The group $U$ is the {\it group of gauge transformations}. 
+If $U$ is s set of smooth maps from $R^d$ to $G$ then for all $j = 1,...n$ there is the natural action $U \times \Ga^\infty\left(E_j \right)\to \Ga^\infty\left(E_j \right)$. If the action is invariant with respect to $U$ then one has a \textit{gauge theory}. The group $U$ is the {\it group of gauge transformations}. 
 	
 \end{definition}
+\begin{example}\label{kk_ym_exm}.
+The Yang-Mills theory 	contains two linear bundles $\left(E_1, M, F_1, G, P \right)$ and $\left(E_2, M, F_2, G, P \right)$ and its specialization of the equation \eqref{kk_la_eqn} is given by
+\bean
+S\left( A, \psi \right)  = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	,\\	  \mathscr L \left( x\right) = \frac{1}{4g^2} \left(\partial_\nu \partial A^a_\mu - \partial_\mu \partial A^a_\nu  + \eps^{abc} A^b_\mu A^c_\nu  \right)^2 + \\
++ i \overline \psi \ga_\mu \left(\partial_\mu \psi + \frac{i}{2}  A^a_\mu \tau^a \psi \right) - m  \overline \psi  \psi
+\eean
+where the letters $A$  and $\psi$ are responsible for $\left(E_1, M, F_1, G, P \right)$ and $\left(E_2, M, F_2, G, P \right)$ respectively.
+(cf. \cite{faddeev_slanov} for details).
+\end{example}
 \begin{remark}
-If one replaces  $\R^4$ with an arbitrary manifold $M$  in the above definition  $\R^4$ the one obtains the {\it Kaluza-Klein theory (on $M$)} (cf. \cite{kaluza}). So the Kaluza-Klein theory can be regarded as a generalization of the gauge theory, We say that any Kaluza-Klein theory is a gauge theory.
+If one replaces  $\R^d$ with an arbitrary manifold $M$  in the above definition  $\R^d$ the one obtains the {\it (generalizes) Kaluza-Klein theory (on $M$)} (cf. \cite{kaluza, kerner_kk}). So the Kaluza-Klein theory can be regarded as a generalization of the gauge theory, We say that any Kaluza-Klein theory is a gauge theory. Originally  Kaluza-Klein theory was devoted for unification of gravitation and electromagnetism, then its generalizations had been appear. 
 \end{remark}
 \section{UtiyamaÕs theory}
-\begin{empt}
-	!!!!
-	Consider a data from gauge theory which corresponds to a principal bundle 
+\paragraph{}
+
+	Consider a gauge theory with the action functional
+		\bean
+	S: \Ga^\infty\left( E_1\right)\times_{\R^d} ... \times_{\R^d} \Ga^\infty\left( E_n\right)  \to \R,\\
+	S\left( \xi_1, ..., \xi_n\right) = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	
+	\eean
+	
 	Let $M$ be a manifold such that $M= \R^d / \pi_1\left(M, x_0 \right)$. Suppose that there is the inclusion $\varphi: \pi_1\left(M, x_0 \right) \to U$ to group of gauge transformations such than for any $g \in \pi_1\left(M, x_0 \right)$ the diagram 
 	\\
 	\begin{tikzcd}
@@ -30712,59 +30720,124 @@ If one replaces  $\R^4$ with an arbitrary manifold $M$  in the above definition 
 	M \arrow[r, "\phi\left( g \right)" ]& M
 	\end{tikzcd}
 	\\
-	One can obtain the sets $\Ga^\infty\left(E_1 \right)^{\pi_1\left(M, x_0 \right)}$, ... ,$\Ga^\infty\left(E_n \right)^{\pi_1\left(M, x_0 \right)}$ of $\pi_1\left(M, x_0 \right)$ invariant sections. It is proven in \cite{utiyama_kk} and \cite{kerner_kk} that this construction yields 
-\end{empt}
-\begin{remark}
-	It is explained that \ref{ker_f_eqn}
-UtiyamaÕs theory does not define the lagrangian; it only dictates its
-dependence on geometric quantities, i. e. on the curvature form of the
-bundle. However the explicit form of this dependence is not defined.
-In order to generalize the equivalence of the Utiyama and Kaluza-Klein
-approaches for non-abelian gauge groups, we shall assume that the lagrangian
-is equal to the scalar density made of the square root of the determinant
-of the Riemannian metric tensor multiplied by the scalar Riemannian
-curvature, $R$, of the bundle manifold.
-\end{remark}
+	One can obtain the sets $\Ga^\infty\left(E_1 \right)^{\pi_1\left(M, x_0 \right)}$, ... , $\Ga^\infty\left(E_n \right)^{\pi_1\left(M, x_0 \right)}$ of $\pi_1\left(M, x_0 \right)$ invariant sections.  Roughly speaking the above construction is {\it UtiyamaÕs theory}. There is the natural  construction (cf. \cite{kerner_kk}) of the generalized Kaluza-Klein theory with the action 
+		\bean
+S^{\pi_1\left(M, x_0 \right)}: \Ga^\infty\left( E_1\right)^{\pi_1\left(M, x_0 \right)}\times_{M} ... \times_{M} \Ga^\infty\left( E_n\right)^{\pi_1\left(M, x_0 \right)}  \to \R,\\
+S\left( \xi^{\pi_1\left(M, x_0 \right)}_1, ..., \xi^{\pi_1\left(M, x_0 \right)}_n\right) = \int_{M} \mathscr L^{\pi_1\left(M, x_0 \right)} \left( x\right)  ~ dx,	
+\eean
+
+
 
 
  
  \chapter{Matrix theory of superstring}
- \section{Preliminaries}
-\paragraph{} Here I follow to arXiv-hep-th9711162v2 The recent development of superstring theory has shown that these
+ \section{Fundamentals}
+ \paragraph{} The idea of matrix model comes from the Heisenberg matrix mechanics.
+One can construct a sequence of maps 
+ $$
+ \sigma_N : \Coo\left(M \right) \to \mathbb{M}_N\left(\C \right) 
+ $$
+ where $M$ is a two-dimensional
+ compact symplectic manifold in such a way that in the limit $N \to \infty$
+\bean
+\sigma_N\left\{f, g\right\}- N\left[\sigma_N\left(f\right), \sigma_N\left(g\right)\right]\to 0,\\
+\frac{1}{N}\int fdV = \Tr\sigma_N\left(f\right) \to 0
+\eean
+where $\left\{f, g\right\}$ is a Poisson bracket. In semiclassical approximation ($\hbar\to 0$) the commutator of quantum observables is related
+ to the Poisson bracket of classical observables:
+$$
+\sigma_{\hbar}\left\{f, g\right\}- \frac{1}{\hbar }\left[\sigma_{\hbar}\left(f\right), \sigma_{\hbar}\left(g\right)\right]
+$$
+ Here $\sigma_{\hbar}\left(f\right)$ stands for the operator corresponding to a function $f \in \Coo\left(M\right)$ where $M$ is a
+ symplectic manifold. Rigorous construction of the maps $\sigma_{\hbar}$ can be given in the case when
+ $M$ is a Kaehler manifold. If M is compact, then the number of quantum states is finite;
+ in semiclassical approximation it is equal to
+ $$
+N = \frac{\text{volume}}{\left( {2\pi \hbar}\right) ^{\dim M/2}}
+$$
+ 
+ \section{Discussion}
+\paragraph{} Here I follow to \cite{cds} The recent development of superstring theory has shown that these
 theories are the perturbative expansions of a more general theory where
 strings are on equal footing with their multidimensional
 analogs (branes).
-This theory is called M theory, where M
+This theory is called $M$ theory, where  $M$ 
 stands for ``mysterious'' or ``membrane.''
 
-It was conjectured in BRFSS that $M$ theory can be defined as a
+It was conjectured in BFSS (cf. \cite{bfss}) that $M$ theory can be defined as a
 matrix quantum mechanics,
 obtained from ten-dimensional supersymmetric
 Yang-Mills (SYM) theory by means of reduction to
 $0+1$ dimensional theory,
 where the size of the matrix tends to infinity.
 Another matrix model was
-suggested in IKKT??? it can be obtained by reduction of
+suggested in IKKT (cf. \cite{ikkt}) it can be obtained by reduction of
 10-dimensional SYM theory to a point.
 The two models, known as the BFSS Matrix model and the IKKT Matrix
 model, are closely related.
+We work with Weyl spinors (i.e.
+with quantities that transform according to one of the irreducible representations in the
+2
+decomposition of the spinor representation of $SO(10,\C)$ into left and right parts). Due to
+the absence of Majorana-Weyl spinors there is no $SO(10,\C)$-invariant real slice, but this
+is irrelevant for us.
+The symbol $\Pi$ is used to denote the parity reversion (e.g. $\Pi \R^{m|n}\bydef \R^{{n|m}}$).
+The action of IKKT model is given by
+\be\label{ikkt_act_eqn}
+S - R \sum_{j,k} \left\langle\left[X_j, X_k\right],\left[X_j, X_k\right] \right\rangle  +2R\sum_j \left\langle \Psi^\a, \Ga^j_{\a,\bt}\left[X_j, \right] \right\rangle 
+\ee
+where $X_J$, $j = 0, 1, . . . , 9$ are elements of a complex Lie algebra $\G$ equipped with an invariant
+bilinear inner product $\left\langle, \right\rangle$, $\Psi^\a$,	$\a=,1, . . . , 16$ are elements of $\Pi \G$ and $\Ga^j_{\a,\bt}$ 
+are
+ten-dimensional Dirac matrices. $R$ is a constant of normalization whose significance will
+be explained below. The functional \eqref{ikkt_act_eqn} is invariant with respect to the action of complex orthogonal
+group $SO(10,\C)$ if $X_0, . . . ,X_9$ transform as a vector and  $\Psi^1, \Psi^{16}$ as a Weyl spinor.
+The functional \eqref{ikkt_act_eqn} is also invariant with respect to infinitesimal gauge transformations
+$$
+X_j \mapsto \left[U, X_j\right], \quad \Psi^\a \mapsto \left[U, \Psi^\a\right]
+$$
+with $U \in \G$.
+It was conjectured in \cite{} that this functional integral in the limit $N, R \to \infty$ with $N/R$
+fixed can be used as a non-perturbative definition of the type $IIb$ superstring theory. This
+conjecture is prompted by the remark that the action functional \ref{ikkt_act_eqn}
 
-The goal of the present paper is to formulate the IKKT and BFSS
-Matrix models, to make more precise the relation
-between these models, and to study their toroidal
-compactifications.
-We will describe a new kind of toroidal
-compactification and show how the methods of noncommutative
-geometry can be used to analyze them.  The paper is
-self-contained and, we
-hope, accessible both to physicists and mathematicians. A
-mathematician can use it as a very short introduction to
-Matrix theory.
+
 
 +++++++++++
 A different example with higher derivative terms is the Born-Infeld generalization of
 SYM which appears as the world-volume Lagrangian of N parallel D-branes
 +++++++++++
+\section{Toroidal compactification}
+\cite{tori}
+Let us first discuss the compactification of IKKT model on a circle. We would like to
+restrict the action functional of this model to the subspace consisting of points $\left(X_j, \Psi^\a \right)$ 
+that remain in the same gauge class after a shift by a real number $2\pi R_0$ in the direction
+$X_0$. In other words, we should consider such points that there exists an invertible matrix
+$U$ obeying
+\be
+\begin{split}
+X_0 + 2\pi R_0 = U X_0 U^{-1}, \quad 
+\end{split}
+\ee
+X0 + 2¹R0 = UX0U?1 , Xi = UXiU?1 for i > 0 ,
+= U	U?1.
+(3.1)
+Taking the trace of both sides of the first equation we see that finite-dimensional matrices
+cannot satisfy these conditions. However, if Xi and 	 are operators in infinite-dimensional
+Hilbert space H one can easily find solutions of (3.1). Let H be a space of functions
+f(s) depending on the point s ? S1 = R/2¹Z and taking values in Hilbert space E (i.e.
+H = L2(S1) ? E). Then we can take
+X0 = 2¹iR0
+@
+@s + A0(s) , Xk = Ak(s) for k > 0 ,
+= ?(s) , (Uf)(s) = eisf(s) .
+(3.2)
+Here Ak(s) and ?(s) are functions on S1 taking values in the space of operators acting
+on E; they can be considered in natural way as operators acting on H.
+We will restrict ourselves to the case when the operators Xk are Hermitian and the
+operator U is unitary. Then the operators Ak(s) should be Hermitian for every s ? S1.
+One can prove that all other solutions to (3.1) are unitary equivalent (gauge equivalent)
+to the solution (3.2)
 
  \end{appendices}
  

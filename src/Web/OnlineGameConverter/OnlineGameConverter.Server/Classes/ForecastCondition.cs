@@ -1,4 +1,6 @@
-﻿namespace OnlineGameConverter.Server.Classes
+﻿using OnlineGameConverter.Server.Interfaces;
+
+namespace OnlineGameConverter.Server.Classes
 {
     /// <summary>
     /// Condition of forecast
@@ -39,4 +41,11 @@
 
 
     }
+
+    public class ForecastConditionSingleton : IForecastConditionSingleton
+    {
+        ForecastCondition IForecastCondition.ForecastCondition { get; set; }
+    }
+
+
 }

@@ -1,11 +1,10 @@
-using Abstract3DConverters;
-using OnlineGameConverter.Server.Classes;
-using OnlineGameConverter.Server.Interfaces;
-using OnlineGameConverter.Server.Utilites;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using FormulaEditor.CodeCreators;
+
+using OnlineGameConverter.Server.Classes;
+using OnlineGameConverter.Server.Interfaces;
+using OnlineGameConverter.Server.Utilites;
 
 namespace OnlineGameConverter.Server.Pages
 {
@@ -13,6 +12,8 @@ namespace OnlineGameConverter.Server.Pages
     {
         private readonly long _fileSizeLimit;
         private readonly string[] _permittedExtensions = { ".obj", ".ac", ".dae" };
+
+
 
         private readonly Dictionary<string, Tuple<string[], string>> fileTypes = new Dictionary<string, Tuple<string[], string>>()
             {
