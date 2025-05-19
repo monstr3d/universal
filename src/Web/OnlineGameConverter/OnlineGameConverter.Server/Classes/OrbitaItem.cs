@@ -1,9 +1,12 @@
-﻿namespace OnlineGameConverter.Server.Classes
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
+namespace OnlineGameConverter.Server.Classes
 {
     public record class OrbitaForecastItem
     {
         public OrbitaForecastItem(DateTime datetime, double x,
-            double y, double z, double Vx, double vY, double vZ)
+            double y, double z, double Vx, double Vy, double Vz)
         {
             DateTime = datetime;
             X = x;
@@ -13,16 +16,29 @@
             this.Vy = Vy;
             this.Vz = Vz;
         }
-        public DateTime DateTime { get; set; }
 
-        public double X { get; set; }
 
-        public double Y { get; set; }
-        public double Z { get; set; }
+        [Display(Name = "Forecast start")]
+        public DateTime DateTime { get; private set; }
 
-        public double Vx { get; set; }
-        public double Vy { get; set; }
-        public double Vz { get; set; }
+
+       [Display(Name = "X - coordinate, km")]
+        public double X { get; private set; }
+
+        [Display(Name = "Y - coordinate, km")]
+        public double Y { get; private set; }
+        
+        [Display(Name = "Z - coordinate, km")]
+        public double Z { get; private set; }
+
+        [Display(Name = "Vx - velocity, km/s")]
+        public double Vx { get; private set; }
+
+        [Display(Name = "Vy - velocity, km/s")]
+        public double Vy { get; private set; }
+
+        [Display(Name = "Vz - velocity, km/s")]
+        public double Vz { get; private set; }
 
 
 

@@ -29,8 +29,15 @@ namespace OnlineGameConverter.Server
 
         Func<double, DateTime> doubleToDate;
 
-   
-        internal IEnumerable<OrbitaForecastItem> Calculate(ForecastCondition condition,
+        public Task<List<OrbitaForecastItem>> CalculateAsync(ForecastCondition condition,
+            CancellationToken token)
+        {
+            return Task.FromResult(Calculate(condition, token));
+        }
+
+
+
+        internal List<OrbitaForecastItem> Calculate(ForecastCondition condition,
             CancellationToken token)
         {
             try
@@ -67,7 +74,7 @@ namespace OnlineGameConverter.Server
 
                 var finish = dateToDouble(condition.End);
 
-                var steps = (int)(start - finish) + 1;
+                var steps = (int)(finish - start) + 1;
 
                 var cond = "Recursive.y";
 

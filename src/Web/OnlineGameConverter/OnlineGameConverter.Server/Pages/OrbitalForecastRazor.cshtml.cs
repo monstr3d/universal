@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
+using System.ComponentModel.DataAnnotations;
 
 using OnlineGameConverter.Server.BusinessLogic.Orbital;
 using OnlineGameConverter.Server.Classes;
@@ -9,14 +9,16 @@ using OnlineGameConverter.Server.Interfaces;
 
 namespace OnlineGameConverter.Server.Pages
 {
-    public class   OrbitalForecastRazorModel :  PageModel
+    public class OrbitalForecastRazorModel : PageModel
     {
         #region Ctor
 
-     
-        public OrbitalForecastRazorModel(IConfiguration config, 
-            IForecastConditionSingleton forecastConditionSingleton)
+
+        public OrbitalForecastRazorModel(IConfiguration config,
+            IForecastConditionSingleton forecastConditionSingleton, 
+            IOrbitalCalculationResultSingleton orbitalCalculationResultSingleton)
         {
+            OrbitalCalculationResultSingleton = orbitalCalculationResultSingleton;
             ForecastCondition c = null;
             ForecastConditionSingleton = forecastConditionSingleton;
             if (forecastConditionSingleton != null)
@@ -36,8 +38,8 @@ namespace OnlineGameConverter.Server.Pages
                 }
             }
             Begin = DateTime.Now;
-            End = Begin + TimeSpan.FromDays(3);
-            Diagram.UI.Interfaces.IDesktop  orb = new OrbitalForecast();
+            End = Begin + TimeSpan.FromDays(1);
+            Diagram.UI.Interfaces.IDesktop orb = new OrbitalForecast();
             var ali = Performer.GetAllAliases(orb);
             X = (double)ali["Motion equations.x"];
             Y = (double)ali["Motion equations.y"];
@@ -53,7 +55,9 @@ namespace OnlineGameConverter.Server.Pages
 
         private IForecastConditionSingleton ForecastConditionSingleton { get; set; }
 
-    Diagram.UI.Performer Performer { get; set; } = new Diagram.UI.Performer();  
+        public IOrbitalCalculationResultSingleton OrbitalCalculationResultSingleton { get; private set; }
+
+        Diagram.UI.Performer Performer { get; set; } = new Diagram.UI.Performer();
 
 
         #endregion
@@ -64,20 +68,16 @@ namespace OnlineGameConverter.Server.Pages
         }
 
 
-
-
-        [BindProperty]
+        [BindProperty,
+              DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm:ss.fffZ}", ApplyFormatInEditMode = false)]
         [Required]
-        [Display(Name = "Begin")]
-        [DataType(DataType.Date)]
+        [Display(Name = "Forecast start")]
         public DateTime Begin { get; private set; }
 
-        public string BeginStr => Begin.ToString();
-
-        [BindProperty]
+        [BindProperty,
+              DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm:ss.fffZ}", ApplyFormatInEditMode = false)]
         [Required]
-        [Display(Name = "End")]
-        [DataType(DataType.Date)]
+        [Display(Name = "Forecast finish")]
         public DateTime End { get; private set; }
 
         [BindProperty]
@@ -110,6 +110,17 @@ namespace OnlineGameConverter.Server.Pages
         [Display(Name = "Vz - velocity, km/s")]
         public double Vz { get; private set; }
 
+        public List<OrbitaForecastItem> Items => OrbitalCalculationResultSingleton.Items;
 
+        public async Task<IActionResult> OnPostStartAsync()
+        {
+            var p = new Performer();
+            var fc = new ForecastCondition(Begin, End, X, Y, Z, Vx, Vy, Vz);
+            var t = CancellationToken.None;
+            var res =  await p.CalculateAsync(fc, t);
+            OrbitalCalculationResultSingleton.Items = res;
+            ForecastConditionSingleton.ForecastCondition = fc;
+            return Page();
+        }
     }
 }
