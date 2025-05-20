@@ -318,7 +318,8 @@ namespace Abstract3DConverters
             var archiveFile = archive.CreateEntry(outExt);
             using (var entryStream = archiveFile.Open())
             {
-                entryStream.Write(stream.ToArray());
+                var bytes = stream.ToArray();
+                entryStream.Write(bytes);
             }
             foreach (var item in d)
             {
@@ -353,7 +354,8 @@ namespace Abstract3DConverters
             }
             using var stream = new MemoryStream();
             CreateAndSaveZip(fileinput, directory, outExt, converterDirectory, stream, act, objects, converters);
-            return stream.ToArray();
+            var result = stream.ToArray();
+            return result;
         }
 
 

@@ -1,10 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-
 using OnlineGameConverter.Server.Classes;
 using OnlineGameConverter.Server.Interfaces;
 using OnlineGameConverter.Server.Utilites;
+using static System.Net.WebRequestMethods;
 
 namespace OnlineGameConverter.Server.Pages
 {
@@ -247,7 +248,9 @@ namespace OnlineGameConverter.Server.Pages
                 var p = new Abstract3DConverters.Performer();
                 object[] obj = (tad == null) ? [b] : [b, tad];
                 object[] par = ext.Item2 == null ? [] : [ext.Item2];
-                var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
+                var tbb = Task.FromResult(CalculateCreateAndSaveZip(path, InputDirectory, filename, Directory, obj, par));
+       //         var byt = p.CreateAndSaveZip(path, InputDirectory, filename, Directory, null, obj, par);
+                var byt = await tbb;
                 if (byt.Length == 0)
                 {
                     ExceptionSingleton.Exception = new ExtendedException(null, null, null, null, null, null);
@@ -270,6 +273,15 @@ namespace OnlineGameConverter.Server.Pages
             return Page();
         }
 
+
+        byte[] CalculateCreateAndSaveZip(string path, string directory, string outExt, string converterDirectory,
+              object[] objects,
+            params object[] converters)
+        {
+            var p = new Abstract3DConverters.Performer();
+            var byt = p.CreateAndSaveZip(path, directory, outExt, converterDirectory, null, objects, converters);
+            return byt;
+        }
         public string ConvertedText => "The file \"" + Tuple.Item3 + "\" is converted";
 
         [BindProperty]

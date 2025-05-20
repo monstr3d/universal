@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Text;
 using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
-using NamedTree;
 
 namespace Abstract3DConverters
 {
