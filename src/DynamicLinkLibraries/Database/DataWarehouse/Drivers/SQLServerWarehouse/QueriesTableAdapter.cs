@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using SQLServerWarehouse.DataSetWarehouseTableAdapters;
-using System.Data.Common;
-using DataWarehouse.Interfaces;
 using System.Data.SqlClient;
+
+using DataWarehouse.Interfaces;
 
 namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 {

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Text;
+
 using DataWarehouse.Interfaces;
 
 
@@ -65,7 +63,6 @@ namespace DataWarehouse
         {
             return data.GetData(user.Login, user.Password, user.Key, id, ref ext);
         }
-
 
 
         /// <summary>
