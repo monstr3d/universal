@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
+using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Utils;
 
@@ -249,9 +250,9 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
-            /*    if (textBoxDirName.Text.Length > textLength)
-                {
-                }*/
+                /*    if (textBoxDirName.Text.Length > textLength)
+                    {
+                    }*/
                 IDirectory node = selectedNode;
                 //string id = node.UID;
                 string descr = "";
@@ -260,13 +261,13 @@ namespace DataWarehouse.Forms
                     descr += s;
                     descr += " ";
                 }
-                IDirectory child =
-                    node.Add(textBoxDirName.Text, textBoxDirDescr.Text, blob.Extension);
+                IDirectory dir = new Classes.Directory(null, textBoxDirName.Text, textBoxDirDescr.Text, blob.Extension);
+                IDirectory child = node.Add(dir);
                 if (child == null)
                 {
                     return;
                 }
-                 TreeNode nn = new TreeNode(child.Name);
+                TreeNode nn = new TreeNode(child.Name);
                 nn.Tag = child;
                 selectedTreeNode.Nodes.Add(nn);
             }
@@ -413,7 +414,8 @@ namespace DataWarehouse.Forms
                     b = blob.Bytes;
                     ext = blob.Extension;
                 }
-                selectedNode.Add(textBoxName.Text, textBoxDescription.Text, b, ext);
+                var leaf = new Leaf(null, textBoxName.Text, textBoxDescription.Text, b, ext);
+                selectedNode.Add(leaf);
                 Close();
             }
             catch (Exception ex)

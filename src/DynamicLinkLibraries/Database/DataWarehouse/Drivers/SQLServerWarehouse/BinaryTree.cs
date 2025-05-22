@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using ErrorHandler;
+
 using NamedTree;
 
 namespace SQLServerWarehouse.Models
@@ -29,6 +29,86 @@ namespace SQLServerWarehouse.Models
 
 
         #endregion
+
+
+        #region IDirectory events
+
+        /// <summary>
+        /// Addchild event
+        /// </summary>
+        protected event Action<IDirectory> OnAddDirectory;
+
+        /// <summary>
+        /// Delete itself event
+        /// </summary>
+        protected event Action<IDirectory> OnDeleteItself;
+
+        /// <summary>
+        /// Chande itseld evenr
+        /// </summary>
+        protected event Action<IDirectory> OnChangeItself;
+
+        /// <summary>
+        /// Add leaf event
+        /// </summary>
+        protected event Action<ILeaf> OnAddLeaf;
+
+        event Action<IDirectory> IDirectory.OnDeleteItself
+        {
+            add
+            {
+                OnDeleteItself += value;
+            }
+
+            remove
+            {
+                OnDeleteItself -= value;
+            }
+        }
+
+        event Action<IDirectory> IDirectory.OnChangeItself
+        {
+            add
+            {
+                OnChangeItself += value;
+            }
+
+            remove
+            {
+                OnChangeItself -= value;
+            }
+        }
+
+        event Action<ILeaf> IDirectory.OnAddLeaf
+        {
+            add
+            {
+                OnAddLeaf += value;
+            }
+
+            remove
+            {
+                OnAddLeaf -= value;
+            }
+        }
+
+        event Action<IDirectory> IDirectory.OnAddDirectory
+        {
+            add
+            {
+                OnAddDirectory += value;
+            }
+
+            remove
+            {
+                OnAddDirectory -= value;
+            }
+        }
+
+
+        #endregion
+
+
 
         #region Interface implementation
 
@@ -121,12 +201,15 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        IDirectory IDirectory.Add(string name, string description, string ext)
+        IDirectory IDirectory.Add(IDirectory directory)
         {
-            if (!Check(name))
+            
+            if (!Check(directory.Name))
             {
                 return null;
             }
+
+            
 
          /*   var adapter = new DataSetWarehouseTableAdapters.InsertTreeTableAdapter();
             DataSetWarehouse.InsertTreeDataTable res = null;
@@ -137,9 +220,9 @@ namespace SQLServerWarehouse.Models
             adapter.ConnectionAction(act);
             var r = res[0];*/
             var tree = new BinaryTree();
-            tree.Name = name;
-            tree.Description = description;
-            tree.Ext = ext;
+            tree.Name = directory.Name;
+            tree.Description = directory.Description;
+            tree.Ext = directory.Extension;
             tree.Parent = this;
             tree.ParentId = Id;
             tree.Id = Guid.NewGuid();
@@ -147,26 +230,26 @@ namespace SQLServerWarehouse.Models
             tree.Parent = this;
             StaticExtension.Context.BinaryTrees.Add(tree);
             StaticExtension.Context.SaveChanges();
-            (this as IDirectory).AddNode(tree);
+            directory.Add(tree);
             return tree;
         }
 
 
 
-        ILeaf IDirectory.Add(string name, string description, byte[] data, string ext)
+        ILeaf IDirectory.Add(ILeaf leaf)
         {
-            if (!Check(name))
+            if (!Check(leaf.Name))
             {
                 return null;
             }
             BinaryTable table = new BinaryTable();
             table.Id = Guid.NewGuid();
             table.ParentId = Id;
-            table.Name = name;
-            table.Description = description;
-            table.Data = data;
-            table.Ext = ext;
-            table.Length = data.Length + "";
+            table.Name = leaf.Name;
+            table.Description = leaf.Description;
+            table.Data = leaf.Data;
+            table.Ext = leaf.Extension;
+            table.Length = leaf.Data.Length + "";
             Add(table);
             table.Parent = this;
             StaticExtension.Context.BinaryTables.Add(table);
@@ -239,13 +322,18 @@ namespace SQLServerWarehouse.Models
 
         internal void Add(INode node)
         {
-            if (node is ILeaf)
+            if (node is ILeaf leaf)
             {
-                leaves.Add(node as ILeaf);
+                leaves.Add(leaf);
             }
             else
             {
-                directories.Add(node as IDirectory);
+                IDirectory d = node as IDirectory;
+                if (directories.Contains(d))
+                {
+                    throw new OwnException("Add node");
+                }
+                directories.Add(d);
             }
             Names.Add(node.Name);
         }

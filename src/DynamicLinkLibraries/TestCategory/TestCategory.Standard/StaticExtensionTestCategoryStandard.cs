@@ -178,7 +178,7 @@ namespace TestCategory.Standard
 
         void IExceptionHandler.Log(string message, params object[] obj)
         {
-            throw new NotImplementedException();
+           throw new OwnNotImplemented();
         }
     }
 

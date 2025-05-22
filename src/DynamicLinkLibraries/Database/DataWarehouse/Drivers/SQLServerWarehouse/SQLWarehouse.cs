@@ -26,7 +26,6 @@ namespace SQLServerWarehouse
           */
         #endregion
 
-
         #region Ctor
 
         internal SQLWarehouse(string connectionString)
@@ -88,7 +87,7 @@ namespace SQLServerWarehouse
 
         }
 
-        static private IDatabaseInterface GetInterface(string connectionString)
+        protected virtual IDatabaseInterface GetInterface(string connectionString)
         {
             var tableAdapter = new QueriesTableAdapter();
             StaticExtension.ConnectionString = connectionString;

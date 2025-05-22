@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DataWarehouse;
 using DataWarehouse.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace SQLServerWarehouse.Models
@@ -63,6 +63,51 @@ namespace SQLServerWarehouse.Models
 
         #endregion
 
+
+        #region ILeaf events
+
+        /// <summary>
+        /// Delete itself event
+        /// </summary>
+        protected event Action<ILeaf> OnDeleteItself;
+
+        /// <summary>
+        /// Chande itseld evenr
+        /// </summary>
+        protected event Action<ILeaf> OnChangeItself;
+
+
+        event Action<ILeaf> ILeaf.OnDeleteItself
+        {
+            add
+            {
+                OnDeleteItself += value;
+            }
+
+            remove
+            {
+                OnDeleteItself -= value;
+            }
+        }
+
+        event Action<ILeaf> ILeaf.OnChangeItself
+        {
+            add
+            {
+                OnChangeItself += value;
+            }
+
+            remove
+            {
+                OnChangeItself -= value;
+            }
+        }
+
+
+
+        #endregion
+
+
         void UpdateName(string name)
         {
             if (name == Name)
@@ -95,6 +140,8 @@ namespace SQLServerWarehouse.Models
         IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("DataWarehouse"); set => throw new OwnNotImplemented("DataWarehouse"); }
 
         INode INode<INode>.Value => this;
+
+        string INamed.Name { get => Name; set => Name = value; }
 
         public override string ToString()
         {

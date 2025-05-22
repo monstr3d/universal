@@ -7,6 +7,7 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
+
 using NamedTree;
 
 
@@ -25,6 +26,52 @@ namespace SQLServerWarehouse
 
 
             #endregion
+
+
+            #region ILeaf events
+
+            /// <summary>
+            /// Delete itself event
+            /// </summary>
+            protected event Action<ILeaf> OnDeleteItself;
+
+            /// <summary>
+            /// Chande itseld evenr
+            /// </summary>
+            protected event Action<ILeaf> OnChangeItself;
+
+
+            event Action<ILeaf> ILeaf.OnDeleteItself
+            {
+                add
+                {
+                    OnDeleteItself += value;
+                }
+
+                remove
+                {
+                    OnDeleteItself -= value;
+                }
+            }
+
+            event Action<ILeaf> ILeaf.OnChangeItself
+            {
+                add
+                {
+                    OnChangeItself += value;
+                }
+
+                remove
+                {
+                    OnChangeItself -= value;
+                }
+            }
+
+
+
+            #endregion
+
+
 
             #region Interface Implementation
 
@@ -149,6 +196,7 @@ namespace SQLServerWarehouse
 
             INode INode<INode>.Value => this;
 
+
             #endregion
         }
 
@@ -163,6 +211,85 @@ namespace SQLServerWarehouse
             internal List<string> names = new List<string>();
 
             #endregion
+
+
+            #region IDirectory events
+
+            /// <summary>
+            /// Addchild event
+            /// </summary>
+            protected event Action<IDirectory> OnAddDirectory;
+
+            /// <summary>
+            /// Delete itself event
+            /// </summary>
+            protected event Action<IDirectory> OnDeleteItself;
+
+            /// <summary>
+            /// Chande itseld evenr
+            /// </summary>
+            protected event Action<IDirectory> OnChangeItself;
+
+            /// <summary>
+            /// Add leaf event
+            /// </summary>
+            protected event Action<ILeaf> OnAddLeaf;
+
+            event Action<IDirectory> IDirectory.OnDeleteItself
+            {
+                add
+                {
+                    OnDeleteItself += value;
+                }
+
+                remove
+                {
+                    OnDeleteItself -= value;
+                }
+            }
+
+            event Action<IDirectory> IDirectory.OnChangeItself
+            {
+                add
+                {
+                    OnChangeItself += value;
+                }
+
+                remove
+                {
+                    OnChangeItself -= value;
+                }
+            }
+
+            event Action<ILeaf> IDirectory.OnAddLeaf
+            {
+                add
+                {
+                    OnAddLeaf += value;
+                }
+
+                remove
+                {
+                    OnAddLeaf -= value;
+                }
+            }
+
+            event Action<IDirectory> IDirectory.OnAddDirectory
+            {
+                add
+                {
+                    OnAddDirectory += value;
+                }
+
+                remove
+                {
+                    OnAddDirectory -= value;
+                }
+            }
+
+            #endregion
+
+
 
             #region Implementation of intrfaces
 
@@ -257,49 +384,51 @@ namespace SQLServerWarehouse
                 }
             }
 
-            IDirectory IDirectory.Add(string name, string description, string ext)
+            IDirectory IDirectory.Add(IDirectory directory)
             {
-                if (!Check(name))
-                {
-                    return null;
-                }
-                var adapter = new InsertTreeTableAdapter();
-                DataSetWarehouse.InsertTreeDataTable res = null;
-                Action act = () =>
-                {
-                    res = adapter.GetData(Id, name, description, ext);
-                };
-                adapter.ConnectionAction(act);
-                var r = res[0];
-                var result = StaticExtension.TreeTable.AddSelectBinaryTreeRow(r.Id,
-                    Id, name, description, ext);
-                Add(result);
-                directory.AddNode(result);
-                return result;
-            }
+                return null;
+                /*          if (!Check(name))
+                          {
+                              return null;
+                          }
+                          var adapter = new InsertTreeTableAdapter();
+                          DataSetWarehouse.InsertTreeDataTable res = null;
+                          Action act = () =>
+                          {
+                              res = adapter.GetData(Id, name, description, ext);
+                          };
+                          adapter.ConnectionAction(act);
+                          var r = res[0];
+                          var result = StaticExtension.TreeTable.AddSelectBinaryTreeRow(r.Id,
+                              Id, name, description, ext);
+                          Add(result);
+                          directory.AddNode(result);
+                          return result;
+                      }
 
-            ILeaf IDirectory.Add(string name, string description, byte[] data, string ext)
-            {
-                if (!Check(name))
-                {
-                    return null;
-                }
-                var adapter = new InsertBinaryTableAdapter();
-                DataSetWarehouse.InsertBinaryDataTable res = null;
-                Action act = () =>
-                {
-                    res = adapter.GetData(Id, name, description,
-                        data, ext);
-                };
-                adapter.ConnectionAction(act);
-                var r = res[0];
-                var result = StaticExtension.DataTable.AddSelectBinaryTableRow(r.Id,
-                    Id, name, description, ext);
-                Add(result);
-                directory.AddNode(result);
-                return result;
+                      void IDirectory.Add(string name, string description, byte[] data, string ext)
+                      {
+                          if (!Check(name))
+                          {
+                              return null;
+                          }
+                          var adapter = new InsertBinaryTableAdapter();
+                          DataSetWarehouse.InsertBinaryDataTable res = null;
+                          Action act = () =>
+                          {
+                              res = adapter.GetData(Id, name, description,
+                                  data, ext);
+                          };
+                          adapter.ConnectionAction(act);
+                          var r = res[0];
+                          var result = StaticExtension.DataTable.AddSelectBinaryTableRow(r.Id,
+                              Id, name, description, ext);
+                          Add(result);
+                          directory.AddNode(result);
+                          return result;
+                      }
+                */
             }
-
 
  
             void INode.RemoveItself()
@@ -441,6 +570,11 @@ namespace SQLServerWarehouse
             }
 
             void IChildren<ILeaf>.RemoveChild(ILeaf child)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            ILeaf IDirectory.Add(ILeaf leaf)
             {
                 throw new OwnNotImplemented("DataWarehouse");
             }

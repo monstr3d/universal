@@ -86,7 +86,7 @@ namespace DataWarehouse.UserControls
             l.Images.Add(ResourceImage.OPENFOLD);
             l.Images.Add(image);
             treeViewMain.ImageList = l;
-            fill();
+            Fill();
             this.ext = ext;
          }
 
@@ -139,7 +139,7 @@ namespace DataWarehouse.UserControls
             try
             {
                 treeViewMain.Nodes[0].Remove();
-                fill();
+                Fill();
             }
             catch (Exception)
             {
@@ -220,7 +220,7 @@ namespace DataWarehouse.UserControls
         }
 
    
-        void fill()
+        void Fill()
         {
             IDirectory[] dir = data.GetRoots(new string[] { ext });
             foreach (IDirectory d in dir)

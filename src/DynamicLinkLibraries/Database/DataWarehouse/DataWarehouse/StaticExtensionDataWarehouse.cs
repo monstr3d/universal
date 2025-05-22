@@ -9,40 +9,6 @@ namespace DataWarehouse
     /// </summary>
     public static class StaticExtensionDataWarehouse
     {
-        #region Fields
-      
-        /// <summary>
-        /// Saves node
-        /// </summary>
-        static ISaveNode save;
-
-        /// <summary>
-        /// Remove node action
-        /// </summary>
-        static private event Action<INode> removeNode = (INode node) => { };
-        
-        /// <summary>
-        /// Add node action
-        /// </summary>
-        static private event Action<IDirectory, INode> addNode = (IDirectory directory, INode node) => { };
-
-        /// <summary>
-        /// Change node
-        /// </summary>
-        static private Action<INode> changeNode = (INode node) => { };
-
-        /// <summary>
-        /// Exception event
-        /// </summary>
-        static Action<Exception> onError = (Exception exception) => { };
-
-        /// <summary>
-        /// Message event
-        /// </summary>
-        static Action<string> onMessage = (string message) => { };
-
-
-        #endregion
 
         #region Ctor
 
@@ -51,15 +17,24 @@ namespace DataWarehouse
         /// </summary>
         static StaticExtensionDataWarehouse()
         {
-            save = 
+          Performer = new Performer();
+          Performer.Saver = 
                 AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<ISaveNode>();
         }
 
         #endregion
 
+
+        #region Fields
+
+        static public Performer Performer { get; private set; }
+
+        #endregion
+
+
         #region Public Members
 
- 
+
 
         /// <summary>
         /// Message event
@@ -68,17 +43,11 @@ namespace DataWarehouse
         {
             add
             {
-                if (value != null)
-                {
-                    onMessage += value;
-                }
+                Performer.OnMessage += value;   
             }
             remove
             {
-                if (value != null)
-                {
-                    onMessage -= value;
-                }
+                Performer.OnMessage -= value;
             }
         }
 
@@ -89,17 +58,11 @@ namespace DataWarehouse
         {
             add
             {
-                if (value != null)
-                {
-                    onError += value;
-                }
-            }
+                Performer.OnError += value;
+             }
             remove
             {
-                if (value != null)
-                {
-                    onError -= value;
-                }
+                Performer.OnError -= value;
             }
         }
 
@@ -110,7 +73,7 @@ namespace DataWarehouse
         /// <param name="node">The node</param>
         static public void AddNode(this IDirectory directory, INode node)
         { 
-            addNode(directory, node);
+            Performer.AddNode(directory, node);
         }
 
         /// <summary>
@@ -119,8 +82,7 @@ namespace DataWarehouse
         /// <param name="node">Node to remove</param>
         public static void Remove(this INode node)
         {
-            node.RemoveItself();
-            removeNode(node);
+          Performer.Remove(node);
         }
 
         /// <summary>
@@ -129,7 +91,7 @@ namespace DataWarehouse
         /// <param name="node">Node to change</param>
         public static void Change(this INode node)
         {
-            changeNode(node);
+           Performer.Change(node);
         }
 
         /// <summary>
@@ -137,8 +99,8 @@ namespace DataWarehouse
         /// </summary>
         static public event Action<IDirectory, INode> OnAddNode
         {
-            add { addNode += value; }
-            remove { addNode -= value; }
+            add { Performer.OnAddNode += value; }
+            remove { Performer.OnAddNode -= value; }
         }
 
         /// <summary>
@@ -146,8 +108,8 @@ namespace DataWarehouse
         /// </summary>
         static public event Action<INode> OnRemoveNode
         {
-            add { removeNode += value; }
-            remove { removeNode -= value; }
+            add { Performer.OnRemoveNode += value; }
+            remove { Performer.OnRemoveNode -= value; }
         }
 
         /// <summary>
@@ -155,15 +117,15 @@ namespace DataWarehouse
         /// </summary>
         static public event Action<INode> OnChangeNode
         {
-            add { changeNode += value; }
-            remove { changeNode -= value; }
+            add { Performer.OnChangeNode += value; }
+            remove { Performer.OnChangeNode -= value; }
         }
 
         /// <summary>
         /// Finder of database
         /// </summary>
         static public IDatabaseCoordinator Coordinator
-        { get; set; }
+        { get => Performer.Coordinator; set => Performer.Coordinator = value; }
 
         /// <summary>
         /// Saves node
@@ -171,7 +133,7 @@ namespace DataWarehouse
         /// <param name="node">Node to save</param>
         public static void Save(this INode node)
         {
-            save.Save(node);
+           Performer.Save(node);
         }
 
         /// <summary>
@@ -180,7 +142,7 @@ namespace DataWarehouse
         /// <param name="message">Message</param>
         public static void ShowError(this string message)
         {
-            onMessage(message);
+           Performer.ShowError(message);
         }
 
         /// <summary>
@@ -189,7 +151,7 @@ namespace DataWarehouse
         /// <param name="exception">Exception</param>
         public static void ShowError(this Exception exception)
         {
-            onError(exception);
+           Performer.ShowError(exception);
         }
 
         /// <summary>

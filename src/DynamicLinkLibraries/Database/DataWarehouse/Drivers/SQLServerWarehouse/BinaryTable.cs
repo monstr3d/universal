@@ -1,21 +1,73 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 using DataWarehouse.Interfaces;
+
 using NamedTree;
 
 using ErrorHandler;
-using System.Collections.Generic;
 
 namespace SQLServerWarehouse.Models
 {
     [Leaf<INode>]
     public partial class BinaryTable : ILeaf
     {
+
+        public BinaryTable() 
+        { 
+        
+        }
+
         #region Fields
 
- 
+
         #endregion
+
+
+        #region ILeaf events
+
+        /// <summary>
+        /// Delete itself event
+        /// </summary>
+        protected event Action<ILeaf> OnDeleteItself;
+
+        /// <summary>
+        /// Chande itseld evenr
+        /// </summary>
+        protected event Action<ILeaf> OnChangeItself;
+
+
+        event Action<ILeaf> ILeaf.OnDeleteItself
+        {
+            add
+            {
+                OnDeleteItself += value;
+            }
+
+            remove
+            {
+                OnDeleteItself -= value;
+            }
+        }
+
+        event Action<ILeaf> ILeaf.OnChangeItself
+        {
+            add
+            {
+                OnChangeItself += value;
+            }
+
+            remove
+            {
+                OnChangeItself -= value;
+            }
+        }
+
+
+
+        #endregion
+
 
         object INode.Id => Id;
 
@@ -28,6 +80,7 @@ namespace SQLServerWarehouse.Models
         IEnumerable<INode<INode>> INode<INode>.Nodes { get => throw new OwnNotImplemented("Binary Table"); set => throw new OwnNotImplemented("Binary Table"); }
 
         INode INode<INode>.Value => this;
+
 
         event Action<INode> INode<INode>.OnAdd
         {

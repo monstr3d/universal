@@ -6,7 +6,7 @@ namespace CategoryTheory.Math
     /// <summary>
     /// Combination of functrors
     /// </summary>
-    public abstract class FunctorCombination : IFunctor
+    public abstract class  FunctorCombination: IFunctor
     {
         #region Fields
 
@@ -173,7 +173,7 @@ namespace CategoryTheory.Math
         {
             get;
         }
-        string INamed.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string INamed.Name { get => throw new OwnNotImplemented("FunctorCombination"); set => throw new OwnNotImplemented("FunctorCombination"); }
 
         #endregion
 
