@@ -23,7 +23,7 @@ namespace DataWarehouse
 
  
         /// <summary>
-        /// Consructor
+        /// Constructor
         /// </summary>
         /// <param name="user">User</param>
         /// <param name="data">Data</param>
@@ -37,8 +37,8 @@ namespace DataWarehouse
         /// <summary>
         /// Get root nodes
         /// </summary>
-        /// <param name="ext">Extesions</param>
-        /// <returns>Root noders</returns>
+        /// <param name="ext">Extensions</param>
+        /// <returns>Root nodes</returns>
         public IDirectory[] GetRoots(string[] ext)
         {
             return data.GetRoots(user.Login, user.Password, user.Key, ext);
@@ -47,7 +47,7 @@ namespace DataWarehouse
         /// <summary>
         /// Refreshes itself
         /// </summary>
-        /// <param name="ext">Extansions</param>
+        /// <param name="ext">Extensions</param>
         public void Refresh(string[] ext)
         {
             data.Refresh(user.Login, user.Password, user.Key, ext);

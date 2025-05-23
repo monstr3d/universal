@@ -7,6 +7,16 @@ namespace ErrorHandler
     /// </summary>
     public static class StaticExtensionErrorHandler
     {
+
+
+        /// <summary>
+        /// Empty handles exception for debug
+        /// </summary>
+        static void HandleException()
+        {
+
+        }
+
         #region Fields
 
         static Guid Fiction = Guid.Parse("84943245-0934-4AF0-8F51-DDE2FB42D2DC");
@@ -36,6 +46,8 @@ namespace ErrorHandler
         /// Error handler
         /// </summary>
         public static IExceptionHandler? ErrorHandler => exceptionHandler;
+
+       
        
         /// <summary>
         /// Shows exception (extension method)
@@ -44,6 +56,7 @@ namespace ErrorHandler
         /// <param name="obj">Attached object</param>
         static public void HandleException(this Exception exception, params object[] obj)
         {
+            HandleException();
             if (!exception.IsFiction(obj))
             {
 
@@ -58,6 +71,7 @@ namespace ErrorHandler
         /// <param name="obj">Attached object</param>
         static public void HandleFictionException(this Exception exception)
         {
+            HandleException();
             exceptionHandler?.HandleException(exception, Fiction);
         }
 
@@ -103,6 +117,7 @@ namespace ErrorHandler
         /// <param name="obj">Attached object</param>
         static public void HandleExceptionDouble(this Exception exception, params object[] obj)
         {
+            HandleException();
             exceptionHandler?.HandleException(exception, obj);
             throw new IncludedException(exception, GetErrorString(obj));
         }
@@ -129,6 +144,7 @@ namespace ErrorHandler
         /// <param name="obj">Attached object</param>
         static public void Log(this string message, params object[] obj)
         {
+            HandleException();
             exceptionHandler?.Log(message, obj);
         }
 

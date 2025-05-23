@@ -1,5 +1,4 @@
 ﻿using System;
-
 using DataWarehouse.Interfaces;
 
 namespace DataWarehouse.Forms.Tree
@@ -10,28 +9,42 @@ namespace DataWarehouse.Forms.Tree
 
         ILeaf leaf;
 
-        private TreeNode()
+       void Set()
         {
-            var t = this.TreeView;
-            t.Disposed += T_Disposed;
-            
-        }
-
-
-        public TreeNode(IDirectory directory)
-        {
-            this.directory = directory;
+            if (directory == null)
+            {
+                leaf.OnDeleteItself += Leaf_OnDeleteItself;
+                return;
+            }
             directory.OnDeleteItself += Directory_OnDeleteItself;
             directory.OnAddDirectory += Directory_OnAddDirectory;
             directory.OnAddLeaf += Directory_OnAddLeaf;
-            Text = directory.Name;
+
         }
 
-        public TreeNode(ILeaf leaf)
+        public TreeNode(IDirectory directory) : base(directory.Name, 0, 1)
+        {
+            this.directory = directory;
+            Set();
+        }
+
+        public TreeNode(IDirectory directory, bool pure) : base(directory.Name)
+        {
+            this.directory = directory; 
+            Set();
+        }
+        public TreeNode(ILeaf leaf) : base(leaf.Name, 2, 2)
         {
             this.leaf = leaf;
             leaf.OnDeleteItself += Leaf_OnDeleteItself;
-            Text = leaf.Name;
+        }
+
+
+
+        public  void SetDisposed()
+        {
+            var t = this.TreeView;
+            t.Disposed += T_Disposed;
         }
 
         private void Leaf_OnDeleteItself(ILeaf obj)

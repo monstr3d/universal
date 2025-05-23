@@ -18,9 +18,10 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            /*  !!! ADD EVENTS
             StaticExtensionDataWarehouse.OnRemoveNode -= DeleteNodeTag;
             StaticExtensionDataWarehouse.OnAddNode -= OnAddNode;
-            StaticExtensionDataWarehouse.OnChangeNode -= OnChangeNode;
+            StaticExtensionDataWarehouse.OnChangeNode -= OnChangeNode;*/
 
         }
 

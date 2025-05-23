@@ -44,9 +44,11 @@ namespace DataWarehouse.UserControls
         public UserControlTree()
         {
             InitializeComponent();
+            /*  !!! ADD EVENTS
             StaticExtensionDataWarehouse.OnRemoveNode += DeleteNodeTag;
             StaticExtensionDataWarehouse.OnAddNode += OnAddNode;
             StaticExtensionDataWarehouse.OnChangeNode += OnChangeNode;
+            */
         }
   
         #endregion
@@ -219,15 +221,32 @@ namespace DataWarehouse.UserControls
             }
         }
 
+        void SetDisposed(System.Windows.Forms.TreeNode node)
+        {
+            var n = node as DataWarehouse.Forms.Tree.TreeNode;
+            n.SetDisposed();
+            foreach (TreeNode tn in node.Nodes)
+            {
+                SetDisposed(tn); ;
+            }
+        }
+
    
         void Fill()
         {
             IDirectory[] dir = data.GetRoots(new string[] { ext });
             foreach (IDirectory d in dir)
             {
-                treeViewMain.Nodes.Add(d.GetNode(nodes));
+                var nd = d.GetNode();
+                treeViewMain.Nodes.Add(nd);
+            }
+            foreach (System.Windows.Forms.TreeNode tn in treeViewMain.Nodes)
+            {
+                SetDisposed(tn);
             }
         }
+
+        
 
         #endregion
 
