@@ -118,22 +118,17 @@ namespace DataWarehouse.UserControls
 
         private void treeViewMain_MouseDown(object sender, MouseEventArgs e)
         {
-            TreeNode node = treeViewMain.GetNodeAt(e.Location);
+            var node = treeViewMain.GetNodeAt(e.Location);
             if (node == null)
             {
                 return;
             }
             object o = node.Tag;
-            if (o == null)
+            if (o is ILeaf leaf)
             {
-                return;
+                IStreamCreator sc = new DatabaseStreamCreator(leaf);
+                treeViewMain.DoDragDrop(sc, DragDropEffects.All);
             }
-            if (!(o is ILeaf))
-            {
-                return;
-            }
-            IStreamCreator sc = new DatabaseStreamCreator(o as ILeaf);
-            treeViewMain.DoDragDrop(sc, DragDropEffects.All);
         }
 
         private void refresh()

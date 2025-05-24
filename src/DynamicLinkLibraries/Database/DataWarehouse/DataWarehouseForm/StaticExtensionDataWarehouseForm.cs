@@ -75,6 +75,7 @@ namespace DataWarehouse
             foreach (var child in ldp)
             {
                 var n = Get(child);
+                n.Tag = child;
                 node.Nodes.Add(n);
             }
             return node;

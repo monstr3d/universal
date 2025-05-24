@@ -58,5 +58,16 @@ namespace DataWarehouse.Interfaces
         IDictionary<object, object> GetItems(string login, string password, 
             object key, string extension);
 
-     }
+        /// <summary>
+        /// Gets Leaves
+        /// </summary>
+        /// <param name="login">Login</param>
+        /// <param name="password">Password</param>
+        /// <param name="key">Key</param>
+        /// <param name="extension">Extension</param>
+        /// <returns>Items dictionary</returns>
+        IDictionary<object, object> GetLeaves(string login, string password,
+            object key, string extension);
+
+    }
 }

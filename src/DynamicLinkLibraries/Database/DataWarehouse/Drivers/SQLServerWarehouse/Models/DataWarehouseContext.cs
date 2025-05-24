@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using NamedTree;
-
 using SQLServerWarehouse.Models;
 
 #nullable disable

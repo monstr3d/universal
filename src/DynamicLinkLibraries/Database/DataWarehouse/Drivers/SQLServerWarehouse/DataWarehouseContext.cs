@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using DataWarehouse.Interfaces;
-
+using ErrorHandler;
 using SQLServerWarehouse.Models;
 
 namespace SQLServerWarehouse
@@ -21,10 +21,23 @@ namespace SQLServerWarehouse
 
         Dictionary<Guid, INode> dictionary = new Dictionary<Guid, INode>();
 
-    
+        Dictionary<object, object> Leaves
+        {
+            get;
+            set;
+        } = new Dictionary<object, object>();
+
+
         #endregion
 
         #region Interface implementation
+
+        IDictionary<object, object> IDatabaseInterface.GetLeaves(string login, string password, object key, string extension)
+        {
+            return Leaves;
+        }
+
+
 
 
 
@@ -91,6 +104,7 @@ namespace SQLServerWarehouse
                 var parent = dictionary[table.ParentId] as BinaryTree;
                 table.Parent = parent;
                 parent.Add(table);
+                Leaves[table.Id] = table;
             }
 
         }

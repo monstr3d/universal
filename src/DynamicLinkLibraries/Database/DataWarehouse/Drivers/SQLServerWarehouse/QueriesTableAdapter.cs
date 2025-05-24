@@ -1,8 +1,8 @@
+using DataWarehouse.Interfaces;
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-
-using DataWarehouse.Interfaces;
 
 namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 {
@@ -28,11 +28,19 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 
 
 
-   
-   
+
+
         #endregion
 
         #region IDatabaseInterface implementation
+
+
+        IDictionary<object, object> IDatabaseInterface.GetLeaves(string login, string password, object key, string extension)
+        {
+            throw new OwnNotImplemented("Leaves");
+        }
+
+
 
         byte[] IDatabaseInterface.GetData(string login, string password, object key, string id, ref string extension)
         {
