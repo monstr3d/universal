@@ -33,15 +33,15 @@ namespace SQLServerWarehouse
             /// <summary>
             /// Delete itself event
             /// </summary>
-            protected event Action<ILeaf> OnDeleteItself;
+            protected event Action OnDeleteItself;
 
             /// <summary>
-            /// Chande itseld evenr
+            /// Chang itself event
             /// </summary>
             protected event Action<ILeaf> OnChangeItself;
 
 
-            event Action<ILeaf> ILeaf.OnDeleteItself
+            event Action ILeaf.OnDeleteItself
             {
                 add
                 {
@@ -216,17 +216,17 @@ namespace SQLServerWarehouse
             #region IDirectory events
 
             /// <summary>
-            /// Addchild event
+            /// Add child event
             /// </summary>
             protected event Action<IDirectory> OnAddDirectory;
 
             /// <summary>
             /// Delete itself event
             /// </summary>
-            protected event Action<IDirectory> OnDeleteItself;
+            protected event Action OnDeleteItself;
 
             /// <summary>
-            /// Chande itseld evenr
+            /// Change itself event
             /// </summary>
             protected event Action<IDirectory> OnChangeItself;
 
@@ -235,7 +235,7 @@ namespace SQLServerWarehouse
             /// </summary>
             protected event Action<ILeaf> OnAddLeaf;
 
-            event Action<IDirectory> IDirectory.OnDeleteItself
+            event Action IDirectory.OnDeleteItself
             {
                 add
                 {

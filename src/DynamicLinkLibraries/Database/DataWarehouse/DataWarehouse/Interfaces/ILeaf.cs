@@ -11,10 +11,10 @@ namespace DataWarehouse.Interfaces
         /// <summary>
         /// Delete itself event
         /// </summary>
-        event Action<ILeaf> OnDeleteItself;
+        event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         event Action<ILeaf> OnChangeItself;
    }

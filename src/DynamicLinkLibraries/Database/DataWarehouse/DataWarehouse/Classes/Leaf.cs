@@ -66,15 +66,15 @@ namespace DataWarehouse.Classes
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action<ILeaf> OnDeleteItself;
+        protected event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         protected event Action<ILeaf> OnChangeItself;
 
 
-        event Action<ILeaf> ILeaf.OnDeleteItself
+        event Action ILeaf.OnDeleteItself
         {
             add
             {

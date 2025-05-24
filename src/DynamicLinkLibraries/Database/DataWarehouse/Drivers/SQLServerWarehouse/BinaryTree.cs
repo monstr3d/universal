@@ -11,9 +11,15 @@ using NamedTree;
 namespace SQLServerWarehouse.Models
 {
     public partial class BinaryTree : IDirectory
-    {
+    { 
+        public BinaryTree(bool b) : this()
+        {
+            Directory = this;
+        }
 
 		#region Fields
+
+        IDirectory Directory { get; set; }
 
         internal HashSet<ILeaf> leaves = 
             new HashSet<ILeaf>();
@@ -34,17 +40,17 @@ namespace SQLServerWarehouse.Models
         #region IDirectory events
 
         /// <summary>
-        /// Addchild event
+        /// Add child event
         /// </summary>
         protected event Action<IDirectory> OnAddDirectory;
 
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action<IDirectory> OnDeleteItself;
+        protected event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         protected event Action<IDirectory> OnChangeItself;
 
@@ -53,7 +59,7 @@ namespace SQLServerWarehouse.Models
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
-        event Action<IDirectory> IDirectory.OnDeleteItself
+        event Action IDirectory.OnDeleteItself
         {
             add
             {
@@ -127,7 +133,11 @@ namespace SQLServerWarehouse.Models
 
         IEnumerable<ILeaf> IChildren<ILeaf>.Children => leaves;
 
-        string INamed.Name { get => Name; set => UpdateName(value); }
+        string INamed.Name 
+        {
+            get => Name; 
+            set => UpdateName(value); 
+        }
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -219,7 +229,7 @@ namespace SQLServerWarehouse.Models
             };
             adapter.ConnectionAction(act);
             var r = res[0];*/
-            var tree = new BinaryTree();
+            var tree = new BinaryTree(false);
             tree.Name = directory.Name;
             tree.Description = directory.Description;
             tree.Ext = directory.Extension;
@@ -230,7 +240,7 @@ namespace SQLServerWarehouse.Models
             tree.Parent = this;
             StaticExtension.Context.BinaryTrees.Add(tree);
             StaticExtension.Context.SaveChanges();
-            directory.Add(tree);
+            this.OnAddDirectory?.Invoke(tree);
             return tree;
         }
 
@@ -291,6 +301,7 @@ namespace SQLServerWarehouse.Models
                 }
                 ctx.BinaryTrees.Remove(this);
                 ctx.SaveChanges();
+                OnDeleteItself?.Invoke();
             }
             catch (Exception exception)
             {
@@ -340,7 +351,7 @@ namespace SQLServerWarehouse.Models
 
 
 
-        void UpdateName(string name)
+        protected void UpdateName(string name)
         {
             if (name == Name)
             {
@@ -356,6 +367,7 @@ namespace SQLServerWarehouse.Models
             Parent.Names.Add(name);
             Name = name;
             this.Change();
+            OnChangeItself?.Invoke(this);
         }
 
         void UpdateDescription(string description)

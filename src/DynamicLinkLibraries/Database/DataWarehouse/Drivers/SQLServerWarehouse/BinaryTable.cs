@@ -30,15 +30,15 @@ namespace SQLServerWarehouse.Models
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action<ILeaf> OnDeleteItself;
+        protected event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         protected event Action<ILeaf> OnChangeItself;
 
 
-        event Action<ILeaf> ILeaf.OnDeleteItself
+        event Action ILeaf.OnDeleteItself
         {
             add
             {
@@ -121,6 +121,7 @@ namespace SQLServerWarehouse.Models
                 StaticExtension.Context.BinaryTables.Remove(this);
                 Parent.Remove(this);
                 StaticExtension.Context.SaveChanges();
+                OnDeleteItself?.Invoke();
             }
             catch (Exception exception)
             {
@@ -138,7 +139,7 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        void UpdateName(string name)
+        protected virtual void  UpdateName(string name)
         {
             if (name == Name)
             {
@@ -153,6 +154,7 @@ namespace SQLServerWarehouse.Models
             Parent.Names.Remove(Name);
             Parent.Names.Add(name);
             Name = name;
+            OnChangeItself?.Invoke(this);
        //     this.Change();
         }
 
@@ -161,7 +163,7 @@ namespace SQLServerWarehouse.Models
             Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTableDescription(Id, description); };
             StaticExtension.TableAdapter.ConnectionAction(action);
             Description = description;
-    //        this.Change();
+            OnChangeItself?.Invoke(this);
         }
 
 

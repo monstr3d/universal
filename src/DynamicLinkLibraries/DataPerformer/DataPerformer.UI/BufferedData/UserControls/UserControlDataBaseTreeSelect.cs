@@ -65,7 +65,7 @@ namespace DataPerformer.UI.BufferedData.UserControls
          public void Fill()
         {
             treeViewMain.Nodes.Clear();
-            IBufferDirectory dir = DataPerformer.Interfaces.StaticExtensionDataPerformerInterfaces.Root;
+            IBufferDirectory dir = StaticExtensionDataPerformerInterfaces.Root;
             if (dir == null)
             {
                 return;

@@ -30,17 +30,17 @@ namespace DataWarehouse.Interfaces
         ILeaf Add(ILeaf leaf);
 
         /// <summary>
-        /// Addchild event
+        /// Adds child event
         /// </summary>
         event Action<IDirectory> OnAddDirectory;
 
         /// <summary>
         /// Delete itself event
         /// </summary>
-        event Action<IDirectory> OnDeleteItself;
+        event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         event Action<IDirectory> OnChangeItself;
 

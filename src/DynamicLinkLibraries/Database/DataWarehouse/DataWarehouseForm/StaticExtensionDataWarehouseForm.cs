@@ -37,24 +37,38 @@ namespace DataWarehouse
             return new Forms.Tree.TreeNode(leaf);
         }
 
-        static TreeNode Get(IDirectory  directory)
+        public static void Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool leaves = true)
         {
-            return new Forms.Tree.TreeNode(directory);
+            IDirectory[] dir = data.GetRoots(new string[] { ext });
+            foreach (IDirectory d in dir)
+            {
+                var nd = d.GetNode(leaves);
+                treeView.Nodes.Add(nd);
+            }
+            foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
+            {
+                SetDisposed(tn);
+            }
         }
 
-        public static System.Windows.Forms.TreeNode GetNode(this IDirectory dir)
+
+        static System.Windows.Forms.TreeNode GetNode(this IDirectory dir, bool leaves = true)
         {
-            var node = new Forms.Tree.TreeNode(dir);
+            System.Windows.Forms.TreeNode node = leaves ?  new Forms.Tree.TreeNode(dir) : new Forms.Tree.TreeNode(dir, leaves);
             IChildren<IDirectory> ed = dir;
             List<IDirectory> ld = new List<IDirectory>();
             ld.AddRange(ed.Children);
             ld.Sort(NodeComparer.Singleton);
             foreach (var child in ld)
             {
-                var n = GetNode(child);
+                var n = GetNode(child, leaves);
                 node.Nodes.Add(n);
             }
             IChildren<ILeaf> lde = dir;
+            if (!leaves)
+            {
+                return node;
+            }
             var ldp = new List<ILeaf>();
             ldp.AddRange(lde.Children);
             ldp.Sort(NodeComparer.Singleton);

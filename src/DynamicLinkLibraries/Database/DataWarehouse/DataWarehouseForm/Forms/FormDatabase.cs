@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -36,10 +35,26 @@ namespace DataWarehouse.Forms
         bool open;
         string[] ext;
         private TreeNode root = null;
-        private IDirectory selectedNode;
-        private ILeaf selected;
-        private TreeNode selectedTreeNode;
-        private ListViewItem selectedItem;
+        private IDirectory SelectedNode
+        {
+            get;
+            set;
+        }
+        private ILeaf Selected
+        {
+            get;
+            set;
+        }
+        private TreeNode SelectedTreeNode
+        {
+            get;
+            set;
+        }
+        private ListViewItem SelectedItem
+        {
+            get;
+            set;
+        }
 
         #endregion
 
@@ -92,12 +107,13 @@ namespace DataWarehouse.Forms
 
         private void refreshTree()
         {
+            treeViewDir.Fill(data, ext[0], false);
    
-            IDirectory[] dir = data.GetRoots(ext);
+       /* !!! DELETE      IDirectory[] dir = data.GetRoots(ext);
             foreach (IDirectory d in dir)
             {
                 treeViewDir.Nodes.Add(GetNode(d));
-            }
+            }*/
             if (listViewDoc.Items.Count > 0)
             {
                 listViewDoc.Items.Clear();
@@ -108,9 +124,11 @@ namespace DataWarehouse.Forms
             this.buttonDirDelete.Enabled = false;
         }
 
+        /*
         private TreeNode GetNode(IDirectory dir)
         {
-            IChildren<IDirectory> d = dir;
+            return dir.GetNode(false);
+   /*         IChildren<IDirectory> d = dir;
             List<IDirectory> l = new List<IDirectory>();
             l.AddRange(d.Children);
             l.Sort(NodeComparer.Singleton);
@@ -121,19 +139,19 @@ namespace DataWarehouse.Forms
             }
             TreeNode node = new TreeNode(dir.Name, lt.ToArray());
             node.Tag = dir;
-            return node;
-        }
+            return node;//
+        }*/
 
         private void treeViewDir_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode node = treeViewDir.SelectedNode;
-            if (node == selectedNode | node == null)
+            if (node == SelectedNode | node == null)
             {
                 return;
             }
-            selectedTreeNode = node;
-            selectedNode = node.Tag as IDirectory;
-            if (selectedNode == root)
+            SelectedTreeNode = node;
+            SelectedNode = node.Tag as IDirectory;
+            if (SelectedNode == root)
             {
                 buttonDirDelete.Enabled = false;
                 buttonSaveDoc.Enabled = false;
@@ -145,7 +163,7 @@ namespace DataWarehouse.Forms
                 buttonSaveDoc.Enabled = true;
                 buttonChangeNodeDescr.Enabled = true;
             }
-            string description = selectedNode.Description;
+            string description = SelectedNode.Description;
             labelDirectoryDescr.Text = description;
             if (listViewDoc.Items.Count > 0)
             {
@@ -156,7 +174,7 @@ namespace DataWarehouse.Forms
 
         private void refreshTable()
         {
-            if (selectedNode == null)
+            if (SelectedNode == null)
             {
                 return;
             }
@@ -166,7 +184,7 @@ namespace DataWarehouse.Forms
             {
                 dataTableDoc.Clear();
             }*/
-            IDirectory d = selectedNode;
+            IDirectory d = SelectedNode;
             IChildren<ILeaf> coll = d;
             foreach (var leaf in coll.Children)
             {
@@ -209,12 +227,13 @@ namespace DataWarehouse.Forms
             {
                 return;
             }
-            (selectedNode as INamed).Name = e.Label;
+   
+            SelectedNode.Name = e.Label;
         }
 
         private void listViewDoc_Click(object sender, EventArgs e)
         {
-            if (selectedNode == null)
+            if (SelectedNode == null)
             {
                 return;
             }
@@ -224,15 +243,15 @@ namespace DataWarehouse.Forms
             }
             ListViewItem it = listViewDoc.SelectedItems[0];
             ILeaf s = it.Tag as ILeaf;
-            if (selected == s)
+            if (Selected == s)
             {
                 return;
             }
-            selected = s;
-            if (selected != null)
+            Selected = s;
+            if (Selected != null)
             {
-                selectedItem = it;
-                string desc = selected.Description;
+                SelectedItem = it;
+                string desc = Selected.Description;
                 labelDescr.Text = desc;
                 textBoxDescription.Text = desc;
                 buttonDelete.Enabled = true;
@@ -246,14 +265,14 @@ namespace DataWarehouse.Forms
         {
             try
             {
-                if (selectedNode == null)
+                if (SelectedNode == null)
                 {
                     return;
                 }
                 /*    if (textBoxDirName.Text.Length > textLength)
                     {
                     }*/
-                IDirectory node = selectedNode;
+                IDirectory node = SelectedNode;
                 //string id = node.UID;
                 string descr = "";
                 foreach (string s in textBoxDirDescr.Lines)
@@ -265,11 +284,12 @@ namespace DataWarehouse.Forms
                 IDirectory child = node.Add(dir);
                 if (child == null)
                 {
+                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal directory name");
                     return;
                 }
-                TreeNode nn = new TreeNode(child.Name);
+         /*       TreeNode nn = new TreeNode(child.Name);
                 nn.Tag = child;
-                selectedTreeNode.Nodes.Add(nn);
+                SelectedTreeNode.Nodes.Add(nn);*/
             }
             catch (Exception ex)
             {
@@ -282,28 +302,27 @@ namespace DataWarehouse.Forms
         {
             try
             {
-                IDirectory selected = selectedNode;
-                if (selected == null | selected == root)
+                if (SelectedNode == null | SelectedNode == root)
                 {
                     return;
                 }
                 DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(
                     Resources.GetControlResource(DoYowWantDelete, ControlUtilites.Resources) +
-                    "\"" + selected.Name + "\"" + "?", "",
+                    "\"" + SelectedNode.Name + "\"" + "?", "",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.None, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly);
                 if (res != DialogResult.OK)
                 {
                     return;
                 }
-                selectedNode.Remove();
-                selectedNode = null;
-                TreeNode p = selectedTreeNode.Parent;
+                SelectedNode.RemoveItself();
+             /*   SelectedNode = null;
+                TreeNode p = SelectedTreeNode.Parent;
                 if (p.Nodes.Count == 1)
                 {
                     treeViewDir.SelectedNode = p;
                 }
-                selectedTreeNode.Remove();
+                SelectedTreeNode.Remove();*/
             }
             catch (Exception ex)
             {
@@ -318,12 +337,12 @@ namespace DataWarehouse.Forms
 
         private void buttonReplace_Click(object sender, EventArgs e)
         {
-            if (selected == null)
+            if (Selected == null)
             {
                 return;
             }
             string s = Resources.GetControlResource(DoYowWantReplace, ControlUtilites.Resources) +
-                "\"" + selected.Name + "\"" + "?";
+                "\"" + Selected.Name + "\"" + "?";
             string q = Resources.GetControlResource("Question", ControlUtilites.Resources);
             DialogResult res = 
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(this, s, q,
@@ -346,7 +365,7 @@ namespace DataWarehouse.Forms
             }
             try
             {
-                selected.Data = b;
+                Selected.Data = b;
             }
             catch (Exception ex)
             {
@@ -367,11 +386,11 @@ namespace DataWarehouse.Forms
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            if (selected == null)
+            if (Selected == null)
             {
                 return;
             }
-            byte[] b = selected.Data;
+            byte[] b = Selected.Data;
             Close();
             blob.Extension = ext[0];
             blob.Bytes = b;
@@ -379,11 +398,11 @@ namespace DataWarehouse.Forms
 
         byte[] getData(ref string ext)
         {
-            if (selected == null)
+            if (Selected == null)
             {
                 return null;
             }
-            return selected.Data;
+            return Selected.Data;
         }
 
 
@@ -391,7 +410,7 @@ namespace DataWarehouse.Forms
         {
             try
             {
-                if (selectedNode == null)
+                if (SelectedNode == null)
                 {
                     return;
                 }
@@ -415,7 +434,7 @@ namespace DataWarehouse.Forms
                     ext = blob.Extension;
                 }
                 var leaf = new Leaf(null, textBoxName.Text, textBoxDescription.Text, b, ext);
-                selectedNode.Add(leaf);
+                SelectedNode.Add(leaf);
                 Close();
             }
             catch (Exception ex)
@@ -428,11 +447,11 @@ namespace DataWarehouse.Forms
         {
             try
             {
-                if (selected == null)
+                if (Selected == null)
                 {
                     return;
                 }
-                string name = selected.Name;
+                string name = Selected.Name;
                 //!!!            DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(
                 // Resources.ContainsControlResource(DoYowWantDelete, ControlUtilites.Resources) +
                 DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(DoYowWantDelete + "\"" + name + "\"" + "?", "",
@@ -442,7 +461,7 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
-                selected.Remove();
+                Selected.Remove();
                 //selectedNode.Remove(selected);
                 refreshTable();
             }
@@ -476,11 +495,11 @@ namespace DataWarehouse.Forms
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (selected == null)
+            if (Selected == null)
             {
                 return;
             }
-            byte[] b = selected.Data;
+            byte[] b = Selected.Data;
             saveFileDialogData.Filter = "|*.cfa"; // !!! + ext;
             /*!!!         try
                      {
@@ -541,7 +560,7 @@ namespace DataWarehouse.Forms
                /* string guid = selected.Attributes["BinaryId"].Value;
                 XmlElement el = selected.GetElementsByTagName("Description")[0] as XmlElement;
                 data.UpdateData(guid, e.Label, el.InnerText); */
-                (selected as ILeaf).Name = e.Label;
+                (Selected as ILeaf).Name = e.Label;
 
             }
             catch (Exception)
@@ -555,17 +574,17 @@ namespace DataWarehouse.Forms
 
         private void buttonChangeDescription_Click(object sender, EventArgs e)
         {
-            if (selected != null)
+            if (Selected != null)
             {
-                selected.Description = textBoxDescription.Text;
+               Selected.Description = textBoxDescription.Text;
             }
         }
 
         private void buttonChangeNodeDescr_Click(object sender, EventArgs e)
         {
-            if (selectedNode != null)
+            if (SelectedNode != null)
             {
-                selectedNode.Description = textBoxDirDescr.Text;
+                SelectedNode.Description = textBoxDirDescr.Text;
             }
         }
 

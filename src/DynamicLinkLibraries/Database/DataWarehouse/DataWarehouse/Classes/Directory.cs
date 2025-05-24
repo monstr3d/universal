@@ -33,10 +33,10 @@ namespace DataWarehouse.Classes
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action<IDirectory> OnDeleteItself;
+        protected event Action OnDeleteItself;
 
         /// <summary>
-        /// Chande itseld evenr
+        /// Change itself event
         /// </summary>
         protected event Action<IDirectory> OnChangeItself;
 
@@ -45,7 +45,7 @@ namespace DataWarehouse.Classes
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
-        event Action<IDirectory> IDirectory.OnDeleteItself
+        event Action IDirectory.OnDeleteItself
         {
             add
             {
