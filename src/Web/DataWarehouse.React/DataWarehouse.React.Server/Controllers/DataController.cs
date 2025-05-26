@@ -8,86 +8,43 @@ namespace DataWarehouse.React.Server.Controllers
     [ApiController]
     public class DataController : Controller
     {
-        
 
+        [HttpPost]
+        public IDirectory CreateDirectory(object id, IDirectory dir)
+        {
+            return null;
+        }
+
+        [HttpPatch]
+        public void UpdateDirectory(IDirectory dir)
+        {
+
+        }
+
+        [HttpGet("@{id}")]
         public IDirectory Create(object id, IDirectory dir)
         {
             return null;
         }
-        
 
-        public ActionResult Index()
+
+        [HttpGet("@{id}")]
+        public IEnumerable<IDirectory> GetDirectories(object id)
         {
-            return View();
+            return null;
         }
 
-        // GET: DataController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public IEnumerable<IDirectory> GetRoots()
         {
-            return View();
+            return null;
         }
 
-        // GET: DataController/Create
-        public ActionResult Create()
+        [HttpDelete("@{id}")]
+        public IDirectory Delete(object id)
         {
-            return View();
+            return null;
         }
 
-        // POST: DataController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DataController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: DataController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DataController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DataController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

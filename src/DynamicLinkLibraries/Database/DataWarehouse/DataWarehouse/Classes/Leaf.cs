@@ -12,7 +12,7 @@ namespace DataWarehouse.Classes
     /// <summary>
     /// Leaf 
     /// </summary>
-    public class Leaf : ILeaf
+    public class Leaf : ILeaf, IData
     {
         public Leaf(object Id, string Name, string Description, byte[] Data, string Extension = null)
         {

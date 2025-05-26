@@ -6,7 +6,7 @@ namespace DataWarehouse.Interfaces
     /// <summary>
     /// Leaf
     /// </summary>
-    public interface ILeaf : INode, IData
+    public interface ILeaf : INode
     {
         /// <summary>
         /// Delete itself event

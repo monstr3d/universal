@@ -4,6 +4,7 @@ using System.Linq;
 
 using DataWarehouse.Interfaces;
 using ErrorHandler;
+using NamedTree;
 using SQLServerWarehouse.Models;
 
 namespace SQLServerWarehouse
@@ -47,7 +48,7 @@ namespace SQLServerWarehouse
             ILeaf leaf = data[guid];
             if (leaf is BinaryTree)
             {
-                return leaf.Data;
+                return (leaf as IData).Data;
             }
             return (new Guid(id)).GetData();
         }

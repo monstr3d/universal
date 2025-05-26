@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-
-using DataWarehouse;
 
 using DataWarehouse.Interfaces;
+
 using ErrorHandler;
+using NamedTree;
 
 
 namespace DataWarehouse
@@ -59,7 +56,7 @@ namespace DataWarehouse
             }
             using (Stream s = File.OpenWrite(path))
             {
-                byte[] data = (node as ILeaf).Data;
+                byte[] data = (node as IData).Data;
                 s.Write(data, 0, data.Length);
                 node.Remove();
             }

@@ -257,9 +257,10 @@ namespace SQLServerWarehouse.Models
             table.ParentId = Id;
             table.Name = leaf.Name;
             table.Description = leaf.Description;
-            table.Data = leaf.Data;
+            var data = leaf as IData;
+            table.Data = data.Data;
             table.Ext = leaf.Extension;
-            table.Length = leaf.Data.Length + "";
+            table.Length = data.Data.Length + "";
             Add(table);
             table.Parent = this;
             StaticExtension.Context.BinaryTables.Add(table);

@@ -4,6 +4,7 @@ using System.Text;
 using Common.UI;
 using System.IO;
 using DataWarehouse.Interfaces;
+using NamedTree;
 
 namespace DataWarehouse
 {
@@ -38,7 +39,7 @@ namespace DataWarehouse
         {
             get 
             {
-                return new MemoryStream(leaf.Data);
+                return new MemoryStream((leaf as IData).Data);
             }
         }
 

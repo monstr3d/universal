@@ -105,11 +105,19 @@
 
 %\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
 \newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\norm}[1]{\left\| #1\right\|}    %\nor{x}=||x||
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
 		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 \newcommand{\Ga}{\Gamma}  
 \newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
 \newcommand{\Coo}{C^\infty}                  %% smooth functions
+\newcommand{\Cont}{C} 
+\newcommand{\Contc}{C_c} 
+\newcommand{\Contb}{C_b} 
+\newcommand{\Repi}{\mathrm{Rep}_{int}} 
+\newcommand{\Rep}{\mathrm{Rep}} 
+
+
 % % % % % % % % % % % % % % % % % % % %
 
 
@@ -138,6 +146,8 @@
 \newcommand{\rep}{\mathfrak{rep}}
 \newcommand{\lift}{\mathfrak{lift}}
 \newcommand{\desc}{\mathfrak{desc}}
+\newcommand{\Cstar}{C^*}
+\newcommand{\Star}{*}
 %%% Roman letters:
 \newcommand{\id}{\mathrm{id}}                %% identity map
 \newcommand{\Id}{\mathrm{Id}}                %% identity map
@@ -342,7 +352,6 @@
 	\DeclareMathOperator{\sgn}{sgn}   %%
 	\DeclareMathOperator{\chr}{char}   %%
 	\DeclareMathOperator{\ev}{ev}       %% evaluation
-	
 	
 	\newcommand{\Op}{\mathbf{Op}}
 	\newcommand{\As}{\mathbf{As}}
@@ -2551,6 +2560,31 @@ If both $\K\left({ {\E}}_D \right)$ and $\K\left({ \widetilde{\E}}_D \right)$ ar
 	is a noncommutative finite-fold covering then 
  $\left(A, \widetilde{A}, G, \lift_A \right)$ is an \textit{ noncommutative finite-fold covering of $*$-algebras, associated with representation of $A$ on $\E$}.
 \end{definition}
+!!! SPECIALIZATION !!!
+\paragraph*{}
+The Definition \ref{fino*_defn} assumes  that both $*$-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
+\begin{empt}\label{fin_chull_empt}
+	Let $\left(A, \widetilde{A}, G, \lift_A \right)$ be a {noncommutative finite-fold  pre-covering of $*$-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \lift_B \right)$ be a  {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}). 
+	Suppose that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] there are a dense right ideal $\mathfrak{B}$ of $B$ and  a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}), where $B$ is regarded as a Hilbert module over !!! with base  $B$, i.e. one has an inclusion  $\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)$  of $*$-algebras,
+		\item[(b)] there is  a dense right ideal $\widetilde{\mathfrak{B}}\subset \widetilde B$ , such that $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$ and
+		\be\label{fin_chull_e_eqn}
+		{\mathfrak{B}}= \widetilde{\mathfrak{B}}^G \bydef \left\{\left. \widetilde{b}\in \widetilde{\mathfrak{B}}\right| \forall g \in G\quad g \widetilde b = \widetilde b\right\},
+		\ee
+		\item[(c)] there is   a representation  $\left( \widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde A$ on $\widetilde B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}),  where $\widetilde B$ is regarded as a Hilbert module over !!! with base  $\widetilde B$, i.e. one has an inclusion  $\widetilde\mu : \widetilde A \hookto \End^*_{ \widetilde B}\left( \widetilde{\mathfrak B}\right)$  of $*$-algebras.
+	\end{enumerate}
+\end{empt}
+\begin{definition}\label{fin_chull_defn}
+	Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
+	\begin{enumerate}
+		\item [(a)]  $\lift_A: A \hookto \widetilde{A}$ agrees with the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$,
+		\item[(b)] the action $G\times  \widetilde A \to \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $.
+	\end{enumerate}
+	then  we say that $\left(A, \widetilde{A}, G, \lift_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \lift_B \right)$ noncommutative finite-fold covering of $*$-algebras}.
+\end{definition}
+
+
 
 \subsection{Coverings of quasi $*$-algebras}
 
@@ -5447,6 +5481,50 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 %	is said to be the \textit{core of} $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right) $.
 %\end{definition}
 
+\paragraph*{}
+This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
+\begin{empt}\label{comp_chull_empt}
+	Let $A$ be a $*$-algebra and let $B$ be a $C^*$-algebra which is a Hilbert $B$-module. Let $\mathfrak B\subset B$ be a dense right ideal, and let $A \hookto \End^*_{ { B}}\left( {\mathfrak B}\right)$ be a {representation} of $A $ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}). Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
+	{infinite noncommutative covering} of 
+	\be\label{hm_cs_cat_eqn}	
+	\mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \lift^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+	\ee	
+	(cf. Definition \ref{infinite_noncommutative_covering_defn}).
+	Let 	
+	\be\label{comp_pt_rep_a_eqn}
+	\begin{split}
+		\mathfrak{S}_A \bydef \left(\left\{\lift_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\lift^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+	\end{split}
+	\ee
+	be a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $$\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \lift_\la \right)$$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \lift^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of $*$-algebras (cf. Definition \ref{fin_chull_defn}.  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \lift_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\widetilde{\mathfrak B}'\times \mathfrak B_\la \to \widetilde{\mathfrak B}'$ which comes from the product $\widetilde{ B}\times B_\la\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is a  right action $ \widetilde{\mathfrak B}'\times A_\la \to \widetilde{\mathfrak B}'$ such that
+	\be\label{hilb_act_eqn}
+	\forall a \in A_\la \quad \forall b \in \mathfrak B_\la \quad \forall \widetilde b \in \widetilde {\mathfrak B}' \quad  \widetilde b\left(ba \right) =\left(  \widetilde bb\right) a. 
+	\ee
+	A $G\left(\left.\widetilde B\right| B\right)$-equivariant $*$-subalgebra $\widetilde A' \subset \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ is said to be \textit{admissible} if for all $\widetilde a'\in\widetilde A'$ following conditions hold:
+	%\label{hilb_adm_l0_eqn}
+	%\widetilde a'\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
+	%\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\widetilde a'\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
+	\bea		\label{hilb_adm_eqn}
+	\forall \widetilde a'\in\widetilde A'\quad  \forall \widetilde b \in K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}'\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde b \widetilde a' =   \widetilde ba^\cup.
+	\eea
+\end{empt}
+
+
+\begin{definition}\label{main_ch_defn}
+	Consider the described in \ref{comp_chull_empt} situation,
+	suppose that there exists an admissible $*$-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any admissible $*$-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with $\mathfrak{S}_B$}. 
+\end{definition}
+
+\begin{definition}\label{b_core_defn}
+	The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
+	\be
+	\forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef\left\langle {\xi, {\lift(1_{\widetilde A^\sim}+\widetilde a^*\widetilde a)\xi}}\right\rangle ^{\nicefrac12}_{{\widetilde B}} 
+	\ee
+	is said to be the \textit{core of} $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right) $.
+\end{definition}
+
+
+
 
 
 
@@ -5990,12 +6068,12 @@ If $\lift^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqre
 
 \begin{lemma}\label{top_a_u_lem}
 	If $\mathcal X$  is a locally compact, 
-	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$ with compact closure   there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
+	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighbourhood $\mathcal U\subset\mathcal X$ of $x_0$ with compact closure   there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
 	\begin{itemize}
 		\item $a\left(\sX\right) = \left[0,1\right]$,
 		\item 	$a\left( x_0\right) = 1$,
 		\item $\supp a \subset \mathcal U$,
-		\item	there is an open neighborhood $\mathcal V\subset\mathcal U$ of $x_0$ which satisfies to the following condition
+		\item	there is an open neighbourhood $\mathcal V\subset\mathcal U$ of $x_0$ which satisfies to the following condition
 		\be\label{com_a_u_eqn}
 		a\left(\mathcal V \right)= \{1\}.
 		\ee 
@@ -6036,14 +6114,14 @@ If ${f}_{{x}_0}$ is an $x_0$-{stump} then $\supp f_{x_0}$ is compact, i.e. ${f}_
 \end{remark}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
-	Hausdorff space. For any $x_0 \in  \mathcal X$, and any open neighborhood $\mathcal U$ of $x_0$ there is an open neighborhood  $\mathcal V$ of $x_0$ such that the closure of $\mathcal V$ is a subset of $\mathcal U$.
+	Hausdorff space. For any $x_0 \in  \mathcal X$, and any open neighbourhood $\mathcal U$ of $x_0$ there is an open neighbourhood  $\mathcal V$ of $x_0$ such that the closure of $\mathcal V$ is a subset of $\mathcal U$.
 \end{corollary}
 \begin{proof}
 	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then a set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
 \end{proof}
 
 \begin{definition}\label{top_stump_cov_defn}
-	Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
+	Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighbourhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
 	\be\label{top_tfx_eqn}
 	\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f},
 	\ee
@@ -6053,7 +6131,7 @@ If ${f}_{{x}_0}$ is an $x_0$-{stump} then $\supp f_{x_0}$ is compact, i.e. ${f}_
 	Let $\sX$ be a locally compact, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. For any $x \in \sY$ we select an $x$-stump $f_x\in C_c\left(\sX\right)$ (cf. Definition \ref{top_stump_defn}) such that
 	\begin{itemize}
 		\item a set $\supp f_x$ is compact for all $x \in \sY$,
-		\item there is an open neighborhood $\sV_x$ of $x$ such that $f_x\left(\sV_x\right)=\{1\}$.
+		\item there is an open neighbourhood $\sV_x$ of $x$ such that $f_x\left(\sV_x\right)=\{1\}$.
 	\end{itemize}
 	A family 
 	\be\label{top_vx_eqn}
@@ -6179,7 +6257,7 @@ $\left(\widetilde \sU, \widetilde \sV, \widetilde {\mathcal W},\widetilde s, \wi
 	and a set $\sY \subset \sX$ is compact then the preimage $p^{-1}\left(\sY \right)$ is also compact.
 \end{lemma}
 \begin{proof}
-	For any $x \in \sY$ we select an open neighborhood $\sU_x$ with compact closure which is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). From the Corollary \ref{com_a_u_cor}	it follows that there are $\mathcal W_x \subset \sV_x \subset \sU_x$ such that $\mathcal W_x$ is an open neighborhood of $x$ and the set $\subset \sV_x$ is closed. The set $\sV_x$ is compact because it is a subset of the compact closure of $\sU_x$. There is $\left\{x_1, ..., x_n\right\}$ such that $\sY \subset \mathcal W_{x_1}\cup ...\cup \mathcal W_{x_n}\subset \mathcal V_{x_1}\cup ...\cup \mathcal V_{x_n}$. For any $j = 1,..., n$ the set $p^{-1}\left(\sV_j \right)$ is a finite disjoint union of homeomorphic  $\sV_{x_j}$ sets. So $p^{-1}\left(\sV_j \right)$ is compact since $\sV_{x_j}$ is compact. The finite union $\bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ of compact sets is compact. From $p^{-1}\left( \sY \right) \subset \bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ and taking into account that $p^{-1}\left( \sY \right)$ is closed we conclude that  $p^{-1}\left( \sY \right)$ is compact.
+	For any $x \in \sY$ we select an open neighbourhood $\sU_x$ with compact closure which is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). From the Corollary \ref{com_a_u_cor}	it follows that there are $\mathcal W_x \subset \sV_x \subset \sU_x$ such that $\mathcal W_x$ is an open neighbourhood of $x$ and the set $\subset \sV_x$ is closed. The set $\sV_x$ is compact because it is a subset of the compact closure of $\sU_x$. There is $\left\{x_1, ..., x_n\right\}$ such that $\sY \subset \mathcal W_{x_1}\cup ...\cup \mathcal W_{x_n}\subset \mathcal V_{x_1}\cup ...\cup \mathcal V_{x_n}$. For any $j = 1,..., n$ the set $p^{-1}\left(\sV_j \right)$ is a finite disjoint union of homeomorphic  $\sV_{x_j}$ sets. So $p^{-1}\left(\sV_j \right)$ is compact since $\sV_{x_j}$ is compact. The finite union $\bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ of compact sets is compact. From $p^{-1}\left( \sY \right) \subset \bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ and taking into account that $p^{-1}\left( \sY \right)$ is closed we conclude that  $p^{-1}\left( \sY \right)$ is compact.
 	
 \end{proof}
 \begin{corollary}\label{top_compact_cc_c0_lem}
@@ -6210,7 +6288,7 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 
 \begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
 	An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
-	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
+	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighbourhood.
 \end{defn} 
 \begin{remark}
 	Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
@@ -6397,14 +6475,14 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 \end{lemma}
 \begin{proof}
 	One needs prove conditions (a) and (b) of the Definition \ref{top_base_defn}.\\
-	(a) From the Lemma \ref{top_gen_path_lem} it follows that the set $\mathfrak{Paths} \left( x_0, x\right)$ (cf. \eqref{top_paths_eqn}) is not empty. For any $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\in \widetilde \sX$ the given by \eqref{top_u_path_eqn} set $ \widetilde \sU_{\mathfrak p}$ is a neighborhood of $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$,
+	(a) From the Lemma \ref{top_gen_path_lem} it follows that the set $\mathfrak{Paths} \left( x_0, x\right)$ (cf. \eqref{top_paths_eqn}) is not empty. For any $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\in \widetilde \sX$ the given by \eqref{top_u_path_eqn} set $ \widetilde \sU_{\mathfrak p}$ is a neighbourhood of $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$,
 	\\
 	 (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
 	\eqref{top_u_path_eqn} it turns out that
 	\be\label{top_up_path_eqn}
 	\left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}
 	\ee
-	From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighborhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then from \eqref{top_up_path_eqn} one has
+	From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighbourhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then from \eqref{top_up_path_eqn} one has
 	\be\label{top_upp_path_eqn}
 	\left[\mathfrak p\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}=\left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}.
 	\ee
@@ -6414,7 +6492,7 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 	If we consider the given by the Lemma \ref{top_uni_top_lem} topology on $\widetilde \sX$ then the map $p: \widetilde \sX \to \sX$ is a covering.
 \end{lemma}
 \begin{proof}
-	For any  $x \in \sX$  there is an open weakly 1-connected neighborhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighborhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
+	For any  $x \in \sX$  there is an open weakly 1-connected neighbourhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighbourhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
 \end{proof}
 Let $p': \widetilde \sX'\to \sX$ is a covering then we define a map $\widetilde p': \widetilde \sX \to \widetilde \sX'$ by a following way. For any $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ we define a unique $p'$-lift  $\left( \widetilde\sU'_1, ..., \widetilde\sU'_{n}\right)$ of $\mathfrak p = \left( \sU_1, ..., \sU_{n}\right)$. There is a unique $\widetilde x' \in \widetilde \sX'$ such that $\left\{\widetilde x'\right\}= p^{-1}\left( x\right) \cap \widetilde\sU'_{n}$. So one can define a map 
 \be\label{top_from_uni_defn}
@@ -6587,7 +6665,7 @@ Any principal  $p: \widetilde{\mathcal X}\to {\mathcal X}$ covering corresponds 
 	$$
 \end{lemma}
 \begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighborhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighborhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighbourhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighbourhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
 	$$
 	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x \neq \widetilde x\right\}
 	$$
@@ -6595,7 +6673,7 @@ Any principal  $p: \widetilde{\mathcal X}\to {\mathcal X}$ covering corresponds 
 	$$
 	\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
 	$$
-	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ such that $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
+	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighbourhood $\widetilde \sU$ of $\widetilde x$ such that $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighbourhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
 	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so $\widetilde{ \mathcal W}$ is open.  From $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$ it turns out that $\widetilde{ \mathcal W}\neq \widetilde\sX$. On the other hand $\widetilde{ \mathcal W}$ is an open and closed subset of a connected set $\widetilde{    \sX }$, so one has $\widetilde{ \mathcal W}= \emptyset$. It means that
 	$$
 	\forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x \neq \widetilde x.
@@ -6636,7 +6714,7 @@ Any principal  $p: \widetilde{\mathcal X}\to {\mathcal X}$ covering corresponds 
 	$$
 \end{lemma}
 \begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x^0_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x^0_1\right) \neq p\left( \widetilde x^0_1\right) $. There are open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x^0_1\right) $ and $p\left( \widetilde gx^0_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighborhood $\widetilde\sV_1$ of $\widetilde x^0_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x_1 \right) \neq p\left( \widetilde x_1\right)$ for all $\widetilde x_1 \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x^0_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x^0_1\right) \neq p\left( \widetilde x^0_1\right) $. There are open neighbourhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x^0_1\right) $ and $p\left( \widetilde gx^0_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighbourhood $\widetilde\sV_1$ of $\widetilde x^0_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x_1 \right) \neq p\left( \widetilde x_1\right)$ for all $\widetilde x_1 \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
 	$$
 	\left\{\left.\widetilde x_1 \in \widetilde \sX_1~\right| p\left(  g\widetilde x_1\right) \neq p\left( \widetilde x_1\right)\right\}
 	$$
@@ -6644,7 +6722,7 @@ Any principal  $p: \widetilde{\mathcal X}\to {\mathcal X}$ covering corresponds 
 	$$
 	\widetilde{ \mathcal W}_1	=	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) = p\left( \widetilde x\right)\right\}
 	$$
-	is closed.  Suppose that $\widetilde x^0_1 \in \widetilde \sX_1$ is such that $\widetilde x^0_1 = g \widetilde x^0_1$. There is an  open neighborhood $\widetilde \sU'_1$ of $\widetilde x^0_1$ such that the restriction $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighborhood $\widetilde \sU'_2$ of $p\left( \widetilde x^0_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde x^0_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
+	is closed.  Suppose that $\widetilde x^0_1 \in \widetilde \sX_1$ is such that $\widetilde x^0_1 = g \widetilde x^0_1$. There is an  open neighbourhood $\widetilde \sU'_1$ of $\widetilde x^0_1$ such that the restriction $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighbourhood $\widetilde \sU'_2$ of $p\left( \widetilde x^0_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected there is a connected open neighbourhood $\sU$ of $p_1\left(\widetilde x^0_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
 	\cap p_1^{-1}\left(\sU\right)$ and  $\widetilde\sU_2 = \widetilde\sU'_2
 	\cap p_2^{-1}\left(\sU\right)$ then both $\left.p_1\right|_{\widetilde\sU_1}$ and $\left.p_2\right|_{\widetilde\sU_2}$ are injective and can be regarded as homeomorphisms from both $\widetilde\sU_1$ and $\widetilde\sU_2$ onto $\sU$. For any $\widetilde x_1 \in \widetilde\sU_1$ one has
 	$$
@@ -6994,10 +7072,10 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	\begin{enumerate}
 		\item [(a)] Follows from the Lemma \ref{op_cont_con_lem}.
 		\item[(b)] Follows from the inclusion $\sF \subset C\left(\sX, \left\{A_x\right\}, \sF \right)$.
-		\item[(c)] If $A_x$ is a $C^*$-algebra for all $x \in \sX$ then from (c) of the Definition \ref{operator_fields_continuity_defn} it turns out that $\sF$ is closed under multiplication and involution. Select $x_0 \in \sX$ and $\eps > 0$. For all $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is an open neighborhood $\sU$ of $x_0$ and a family $\left\{a'_x\right\}\in \sF$ such that $\left\| a_x- a'_x\right\| < \eps$ for all $x \in \sU$. It follows that $\left\| a^*_x- a'^*_x\right\| < \eps$ for all $x \in \sU$, and taking into account $ a'^*_x \in \sF$ we conclude that $a^* \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. If    $a, b \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. There is $\dl > 0$ such that $\delta^2+\delta\left( \left\| a\right\|+ \left\| b\right\|\right) < \eps$  there are open neighborhoods $\sU', \sU''$ of $x_0$ and families $ \left\{a'_x\right\}\in \sF$  such that $\left\| a_x- a'_x\right\| < \delta$ for all $x \in \sU'$ and $\left\| b_x- b'_x\right\| < \delta$ for all $x \in \sU''$. It turns out that $\left\|a_x b_x- a'_xb'_x\right\| < \eps$ for all $x \in \sU' \cap \sU''$. It follows that the family $\left\{a_xb_x\right\}$ lies in 	$C\left(\sX, \left\{A_x\right\}, \sF \right)$.
+		\item[(c)] If $A_x$ is a $C^*$-algebra for all $x \in \sX$ then from (c) of the Definition \ref{operator_fields_continuity_defn} it turns out that $\sF$ is closed under multiplication and involution. Select $x_0 \in \sX$ and $\eps > 0$. For all $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is an open neighbourhood $\sU$ of $x_0$ and a family $\left\{a'_x\right\}\in \sF$ such that $\left\| a_x- a'_x\right\| < \eps$ for all $x \in \sU$. It follows that $\left\| a^*_x- a'^*_x\right\| < \eps$ for all $x \in \sU$, and taking into account $ a'^*_x \in \sF$ we conclude that $a^* \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. If    $a, b \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. There is $\dl > 0$ such that $\delta^2+\delta\left( \left\| a\right\|+ \left\| b\right\|\right) < \eps$  there are open neighbourhoods $\sU', \sU''$ of $x_0$ and families $ \left\{a'_x\right\}\in \sF$  such that $\left\| a_x- a'_x\right\| < \delta$ for all $x \in \sU'$ and $\left\| b_x- b'_x\right\| < \delta$ for all $x \in \sU''$. It turns out that $\left\|a_x b_x- a'_xb'_x\right\| < \eps$ for all $x \in \sU' \cap \sU''$. It follows that the family $\left\{a_xb_x\right\}$ lies in 	$C\left(\sX, \left\{A_x\right\}, \sF \right)$.
 	\end{enumerate}
 	(ii) From $\sF \subset C\left(\sX, \left\{A_x\right\}, \sF \right)$ it follows that $$C\left(\sX, \left\{A_x\right\}, \sF \right)\subset C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right).$$
-	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighborhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
+	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighbourhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighbourhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
 	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
 \end{proof} 
 \begin{remark}
@@ -7126,7 +7204,7 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 	One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.
 	\begin{enumerate}
 		\item [(a)]	
-		Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
+		Let $x_0 \in \sX$ be any point, and select an open neighbourhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
 		\bean
 		s|_\sU : \sU \to \sU\times E_{x_0},\\
 		x \mapsto\left(x, u\left(x \right) \right)
@@ -7137,7 +7215,7 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 		x \mapsto \left\| u\left(x \right)\right\| 
 		\eean 
 		is also continuous. Since a point $x_0$ is arbitrary and $$\forall x \in \sU \quad \left\| s\left(x \right)\right\|=\left\| u\left(x \right)\right\|$$ the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
-	\item[(b)] If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that there is an open neighborhood $\sU$ of $x_0$ with $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
+	\item[(b)] If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that there is an open neighbourhood $\sU$ of $x_0$ with $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
 		\bean
 		s|_\sU : \sU \to \sU\times E_{x_0},\\
 		x \mapsto\left(x, e_{x_0} \right),
@@ -7197,7 +7275,7 @@ Following conditions hold.
 		C\left(\sX, \left\{A_x\right\}, C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right)\subset 	C\left(\sX, \left\{A_x\right\}, \sF \right).
 	\end{split}
 	\ee 
-	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \eps$ for all $x \in \sU'$. Otherwise if $f_{x_0}\in C_c\left(\sX\right)$ is an $x_0$-stump  (cf. Definition \ref{top_stump_defn}) then there is an open neighborhood $\sU''$ of $x_0$ such that $f_{x_0} \left( \sU''\right)= \{1\}$. If  and $a''\bydef f_{x_0}a' \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then  $\left\|a_x - a''_x\right\| < \eps$ for all $x \in \sU' \cap\sU''$. It follows that $a \in 	C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)$, so one has
+	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighbourhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \eps$ for all $x \in \sU'$. Otherwise if $f_{x_0}\in C_c\left(\sX\right)$ is an $x_0$-stump  (cf. Definition \ref{top_stump_defn}) then there is an open neighbourhood $\sU''$ of $x_0$ such that $f_{x_0} \left( \sU''\right)= \{1\}$. If  and $a''\bydef f_{x_0}a' \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then  $\left\|a_x - a''_x\right\| < \eps$ for all $x \in \sU' \cap\sU''$. It follows that $a \in 	C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)$, so one has
 	$$
 	C\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right),
 	$$
@@ -7215,7 +7293,7 @@ Following conditions hold.
 then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
 \end{lemma}
 \begin{proof}
-	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x   \right\| \le \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
+	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighbourhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x   \right\| \le \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
 	$
 	\sum_{j=1}^n f_{x_j}
 	$
@@ -7302,7 +7380,7 @@ From the above equations it follows that
 \bean
 \forall b_{x_0}\in A_{x_0}\quad \left\|b_{x_0}-s_{x_0} \right\|< \frac{\eps}{3} \quad\Rightarrow\quad \left\|b_{x_0}-s'_{x_0} \right\|<\eps'-\frac{\eps}{3},\quad \left\|b_{x_0}-s''_{x_0} \right\|<\eps''-\frac{\eps}{3},
 \eean 
-it turns out that there are open neighborhoods 	$\sV', \quad \sV''$ of $x_0$ which satisfy to following conditions
+it turns out that there are open neighbourhoods 	$\sV', \quad \sV''$ of $x_0$ which satisfy to following conditions
 \be\label{top_o_eqn}
 \begin{split}
 x \in \sV' \quad\Rightarrow\quad\left(\left\|b_{x}-s_{x} \right\|< \frac{\eps}{3}\quad\Rightarrow\quad \left\|b_{x}-s'_{x} \right\|<\eps'\right),\\
@@ -7340,9 +7418,9 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{lemma}
 
 \begin{proof}
-	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
+	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighbourhood of $x_0$ then 
 	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
-	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighbourhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
 \end{proof}
 \begin{definition}\label{ctr_restr_defn}
 	For any subset $\sV\subset \sX$ 
@@ -7391,10 +7469,10 @@ Our proof has two parts:
 	\ee
 	\item[(ii)] Looking for $b$ which satisfies to \eqref{top_ak_eqn}.
 \end{enumerate}
-	(i) For any $x \in \sY$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< {\eps}/{2}$. There is an open neighborhood $\sU'_x\subset\sX$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
+	(i) For any $x \in \sY$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< {\eps}/{2}$. There is an open neighbourhood $\sU'_x\subset\sX$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
 \left\|s^x_{x'} \right\| < \eps+ \left\|a \right\|\quad \forall x' \in \sU'_x.
 \ee
-On the other hand there is an open  neighborhood $\sU''_x\subset\sX$ of $x$ such that
+On the other hand there is an open  neighbourhood $\sU''_x\subset\sX$ of $x$ such that
 \be\label{ctr_b_eqn}
 \left\|s^x_y- a_y \right\| < \eps\quad \forall y \in \sY\cap\sU''_x.
 \ee
@@ -7611,7 +7689,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	\bean
 	B' = C_0\left(\sX, \left\{B'_x\right\}, B' \right).
 	\eean
-	Select $b'' \in B''$ and $x_0 \in \sX$. For any $\eps > 0$ there is $b' = \left\{b'_x\right\} \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)$ such that $\left\|b'_{x_0} - b''_{x_0} \right\| < \frac{\eps}{2}$. The map $x \mapsto \left\|b'_{x} - b''_{x} \right\|$ is continuous (cf. Lemma \ref{op_cont_con_lem}), it turns out that there is an open neighborhood $\sU$ of $x_0$ such that $\left\|b'_{x} - b''_{x} \right\| < \eps$ for every $x \in \sU$. If follows that $b''$ is continuous with respect to $B'$ (cf. Definition \ref{op_cont_fields_defn}). Taking into account  that  $\text{norm}_{b''} \in C_0\left(\sX\right)$ it turns out that $b'' \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)= B'$, hence $B'' \subset B'$ (cf. Corollary \ref{top_cl_cc_iso_cor}).
+	Select $b'' \in B''$ and $x_0 \in \sX$. For any $\eps > 0$ there is $b' = \left\{b'_x\right\} \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)$ such that $\left\|b'_{x_0} - b''_{x_0} \right\| < \frac{\eps}{2}$. The map $x \mapsto \left\|b'_{x} - b''_{x} \right\|$ is continuous (cf. Lemma \ref{op_cont_con_lem}), it turns out that there is an open neighbourhood $\sU$ of $x_0$ such that $\left\|b'_{x} - b''_{x} \right\| < \eps$ for every $x \in \sU$. If follows that $b''$ is continuous with respect to $B'$ (cf. Definition \ref{op_cont_fields_defn}). Taking into account  that  $\text{norm}_{b''} \in C_0\left(\sX\right)$ it turns out that $b'' \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)= B'$, hence $B'' \subset B'$ (cf. Corollary \ref{top_cl_cc_iso_cor}).
 \end{proof}
 \begin{corollary}\label{top_sub_eq_cor}
 	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ be  norm closed subspaces. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
@@ -7731,7 +7809,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 \end{theorem}
 
 \begin{proof}
-	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ i.e. ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Let  $J$ be a maximal subset of  $\left\{ 1,..., n\right\}^2$ such that for all $\left(j,k\right) \in J$ one has
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighbourhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ i.e. ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Let  $J$ be a maximal subset of  $\left\{ 1,..., n\right\}^2$ such that for all $\left(j,k\right) \in J$ one has
 	\be\label{top_compact_eqn}
 	\begin{split}
 		j > k,\\
@@ -7884,7 +7962,7 @@ s'\left(x\right)& x \in \sU\\
 0 & x\notin \sU
 \end{cases}.
 \eean
-If $\widetilde \sV$ is an open neighborhood of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde \sV\right)= \{1\}$ then
+If $\widetilde \sV$ is an open neighbourhood of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde \sV\right)= \{1\}$ then
 $$
 \forall \widetilde x \in \widetilde{\sV}\quad \lift_p\left( s\right) \left(\widetilde x \right) = \widetilde s\left( \widetilde x\right). 
 $$
@@ -8119,8 +8197,8 @@ Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is comp
 	(i)
 	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left( \rep_x\left( A\right)\right)  \right\}_{x \in \sX}$ (cf. Definition \ref{ctr_crooss_alg_defn}). The section defines a section 
 	$$\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\rep_{\widetilde x}\left( \widetilde A\right) \right) = M\left(\rep_{p\left(\widetilde x\right) }\left(A \right)\right) \right\}_{\widetilde x \in \widetilde\sX}$$ . Let $\widetilde{x}_0 \in \widetilde \sX$
-	be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
-	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{\rep_x\left( A\right) \right\}, A\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and an element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. If $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}) then
+	be any point consider an open neighbourhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
+	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighbourhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{\rep_x\left( A\right) \right\}, A\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighbourhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and an element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. If $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}) then
 	\bean
 	\forall \widetilde x \in p^{-1}\left(  \mathcal V'\right)  \cap \widetilde{\sU}\quad	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps,
 	\eean
@@ -8276,7 +8354,7 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	G_0=\left\{\left. g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| \widetilde \sV \cap g \widetilde\sU \neq \emptyset \right\}
 	$$
 	is finite.
-	If $G_0$ is not finite then there is an infinite closed set $\widetilde\sX' = \left\{\widetilde x_g \right\}_{g \in G_0}$ such that $\widetilde x_g \in \widetilde \sV \cap g\widetilde \sU$. If $g'\neq g''$ then both $g' \widetilde\sU$ and $g'' \widetilde\sU$ are open neighborhoods of both $\widetilde x_{g'}$ and $\widetilde x_{g''}$ such that $g' \widetilde\sU\cap g'' \widetilde\sU = \emptyset$. It means that the set $\widetilde\sX'$ is discrete. From $\widetilde\sX' \subset \widetilde\sV$ it follows that $\widetilde\sX'$ is compact, however any infinite discrete set is not compact. From this contradiction we conclude that the set  $G_0$ is finite. For any $G' \subset  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $G_0\subset G'$ a following condition holds
+	If $G_0$ is not finite then there is an infinite closed set $\widetilde\sX' = \left\{\widetilde x_g \right\}_{g \in G_0}$ such that $\widetilde x_g \in \widetilde \sV \cap g\widetilde \sU$. If $g'\neq g''$ then both $g' \widetilde\sU$ and $g'' \widetilde\sU$ are open neighbourhoods of both $\widetilde x_{g'}$ and $\widetilde x_{g''}$ such that $g' \widetilde\sU\cap g'' \widetilde\sU = \emptyset$. It means that the set $\widetilde\sX'$ is discrete. From $\widetilde\sX' \subset \widetilde\sV$ it follows that $\widetilde\sX'$ is compact, however any infinite discrete set is not compact. From this contradiction we conclude that the set  $G_0$ is finite. For any $G' \subset  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $G_0\subset G'$ a following condition holds
 	$$
 	\left\|\widetilde{b}\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)  \right\| +
 	\left\|\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)\widetilde{b}  \right\| < \eps.
@@ -8512,8 +8590,8 @@ One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{she
 	is soft.
 \end{lemma}
 \begin{proof}
-	The space $\widetilde \sX$ is paracompact since $\sX$ is paracompact and $p$ is a covering. Let $\widetilde x \in \widetilde\sX$ be a point and let $\widetilde \sU$ be a closed neighborhood of $\widetilde x$ which is mapped homeomorphically onto $\sU \bydef p\left( \widetilde\sU\right)$. Let $\widetilde \sY \subset \widetilde \sU$ be a closed subset.
-	If $\widetilde r \in p^{-1}\mathscr S^{R^\sim}\left(\widetilde \sY\right)$ is a section  then from the Definition \ref{sheaf_inv_im_defn} there is the corresponding  section $r \in \mathscr S^{R^\sim}\left(\sY \bydef p\left( \widetilde \sY\right)  \right)$. Otherwise the sheaf   $\mathscr S^{R^\sim}$ is soft, so from the Lemma it turns out that there is a section $s \in \mathscr S^{R^\sim}\left(\sU \right)$ with $s|_{\sY}= r$. Since the restriction $p|_{\widetilde\sU} \to \sU$ is a homeomorphism the section $s$ naturally yields  a section $\widetilde s \in  p^{-1}\mathscr S^{R^\sim}$ such that $\widetilde s|_{\widetilde \sU}= \widetilde r$. From the Lemma \ref{sheaf_soft_neighborhood_lem} it follows that the sheaf $p^{-1}\mathscr S^{R^\sim}$ is soft. We leave to the reader a proof of that the set $\widetilde R \bydef p^{-1}\mathscr S^{R^\sim}\cap C_0\left( \widetilde\sX\right)$ is dense in  $C_0\left( \widetilde\sX\right)$.
+	The space $\widetilde \sX$ is paracompact since $\sX$ is paracompact and $p$ is a covering. Let $\widetilde x \in \widetilde\sX$ be a point and let $\widetilde \sU$ be a closed neighbourhood of $\widetilde x$ which is mapped homeomorphically onto $\sU \bydef p\left( \widetilde\sU\right)$. Let $\widetilde \sY \subset \widetilde \sU$ be a closed subset.
+	If $\widetilde r \in p^{-1}\mathscr S^{R^\sim}\left(\widetilde \sY\right)$ is a section  then from the Definition \ref{sheaf_inv_im_defn} there is the corresponding  section $r \in \mathscr S^{R^\sim}\left(\sY \bydef p\left( \widetilde \sY\right)  \right)$. Otherwise the sheaf   $\mathscr S^{R^\sim}$ is soft, so from the Lemma it turns out that there is a section $s \in \mathscr S^{R^\sim}\left(\sU \right)$ with $s|_{\sY}= r$. Since the restriction $p|_{\widetilde\sU} \to \sU$ is a homeomorphism the section $s$ naturally yields  a section $\widetilde s \in  p^{-1}\mathscr S^{R^\sim}$ such that $\widetilde s|_{\widetilde \sU}= \widetilde r$. From the Lemma \ref{sheaf_soft_neighbourhood_lem} it follows that the sheaf $p^{-1}\mathscr S^{R^\sim}$ is soft. We leave to the reader a proof of that the set $\widetilde R \bydef p^{-1}\mathscr S^{R^\sim}\cap C_0\left( \widetilde\sX\right)$ is dense in  $C_0\left( \widetilde\sX\right)$.
 \end{proof}
 
 \begin{lemma}\label{top_soft_r_lem}
@@ -8548,17 +8626,17 @@ From (b) of the Definition \ref{top_soft_r_defn} it follows that there is $b \in
 
 
 \begin{exercise}\label{top_soft_exer}
-	Let $R$ be a soft $*$-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
+	Let $R$ be a soft $*$-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighbourhood $\sU$ of $x$
 	there is a map $f \in R\cap C_c\left(\sX\right)$ such that
 	\begin{enumerate}
 		\item $\supp f \subset \sU$.
 		\item $f\left(\sX\right)= \left[0,1\right]$.
-		\item There is an open neighborhood $\sV$ such that $f\left(\sV\right)= \left[1\right]$.
+		\item There is an open neighbourhood $\sV$ such that $f\left(\sV\right)= \left[1\right]$.
 	\end{enumerate}
 	
 \end{exercise}
 \begin{definition}\label{top_stump_soft_defn}
-	In the situation of the Exercise \ref{top_soft_exer}  we say that $f$ is an $\left(R, x\right)$-\textit{stump}. Moreover  if $\sV$ is a neighborhood of $x$ with $f\left(\sV \right)=\{1\}$ then $f$ is an $\left(R, \sV\right)$-\textit{stump}.
+	In the situation of the Exercise \ref{top_soft_exer}  we say that $f$ is an $\left(R, x\right)$-\textit{stump}. Moreover  if $\sV$ is a neighbourhood of $x$ with $f\left(\sV \right)=\{1\}$ then $f$ is an $\left(R, \sV\right)$-\textit{stump}.
 \end{definition}
 
 
@@ -8571,7 +8649,7 @@ Follows from the Theorem \ref{sheaf_soft_m_thm}.
 
 \begin{remark}\label{top_soft_c_rem}
 Let $R \subset C_0\left(\sX\right)$ be a soft $*$-subalgebra.
-If $p: \widetilde \sX \to \sX$ is a covering then from the Definition \ref{top_covering_defn} and the Lemma \ref{sheaf_soft_neighborhood_lem}  it follows that the intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft $*$-subalgebra of $C_0\left(\widetilde \sX\right)$.
+If $p: \widetilde \sX \to \sX$ is a covering then from the Definition \ref{top_covering_defn} and the Lemma \ref{sheaf_soft_neighbourhood_lem}  it follows that the intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft $*$-subalgebra of $C_0\left(\widetilde \sX\right)$.
 \end{remark}
 
 \begin{remark}\label{top_soft_p_rem} 
@@ -8579,7 +8657,7 @@ If $p: \widetilde \sX \to \sX$ is a covering then from the Definition \ref{top_c
 \begin{enumerate}
 	\item[(a)] there is an open subset $\widetilde \sU\subset\widetilde\sX$ such that $\supp \widetilde f\subset \widetilde\sU$ and $\widetilde\sU$ is mapped homeomorphically onto $p\left(\widetilde\sU\right)$,
 	\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$,
-	\item[(c)] there is an open neighborhood $\widetilde \sV$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sV \right) = \{1\}$.
+	\item[(c)] there is an open neighbourhood $\widetilde \sV$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sV \right) = \{1\}$.
 \end{enumerate}
 \end{remark}
 
@@ -8627,7 +8705,7 @@ where the notation of the Definition \ref{top_x_sheaf_defn} is used.
 \end{lemma}
 \begin{proof}
 	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is the associated to the presheaf  $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over  all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(\widetilde \sU \right) $.
-	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( p\left(\widetilde \sV_x\right)\right)$. Otherwise $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
+	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighbourhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighbourhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( p\left(\widetilde \sV_x\right)\right)$. Otherwise $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
 	family $\left\{\widetilde a_{\widetilde y} = c^{-1}\left(a_{p\left( \widetilde y\right) } \right)  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$. Let $ \widetilde x',  \widetilde x'' \in  \widetilde\sU$. If both  $\left\{\widetilde a'_{\widetilde y'}  \right\}_{\widetilde y'\in \widetilde\sV_{\widetilde x'} }$  and  $\left\{\widetilde a''_{\widetilde y''}  \right\}_{\widetilde y''\in \widetilde\sV_{\widetilde x''} }$ are families corresponding to both $\left.\widetilde s\right|_{\widetilde \sV_{x'}}$ and $\left.\widetilde s\right|_{\widetilde \sV_{x''}}$ 
 	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
 	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr S^{C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}\left(\widetilde\sU \right) $.
@@ -9494,7 +9572,7 @@ The following lemma supplies the quantization of coverings with compactification
 	f\left(x_0  \right) = 1,\\
 	\forall f'\in \bigcup_{\la\in \La}C_0\left( \sU_\la\right) \quad \left\|f'-f \right\| \ge 1,
 	\eean 
-	i.e. the union $\bigcup_{\la\in \La}C_0\left( \sU_\la\right)$ is not dense in $C_0\left( \sX\right)$. This fact contradicts with the Definition \ref{fin_defn}, so there is $\la_0\in \La$ such that $x_0\in \sU_{\la_0}$. However the restriction  $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a principal  \ref{top_principal_defn}  finite-fold covering, so there is an open neighborhood $\sV \subset \sU_{\la_0}$ of $x_0$ evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_covering_defn}). However  $\sV$ is an open subset of $\sX$ evenly covered by $p$, so $p$ is a covering (cf. Definition \ref{top_covering_defn}). From $\sX = \widetilde \sX/G$ it follows that the covering is principal  \ref{top_principal_defn} .\\
+	i.e. the union $\bigcup_{\la\in \La}C_0\left( \sU_\la\right)$ is not dense in $C_0\left( \sX\right)$. This fact contradicts with the Definition \ref{fin_defn}, so there is $\la_0\in \La$ such that $x_0\in \sU_{\la_0}$. However the restriction  $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a principal  \ref{top_principal_defn}  finite-fold covering, so there is an open neighbourhood $\sV \subset \sU_{\la_0}$ of $x_0$ evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_covering_defn}). However  $\sV$ is an open subset of $\sX$ evenly covered by $p$, so $p$ is a covering (cf. Definition \ref{top_covering_defn}). From $\sX = \widetilde \sX/G$ it follows that the covering is principal  \ref{top_principal_defn} .\\
 	(iii) We already know that $\widetilde A \cong C_0\left( \widetilde \sX\right)$ and $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$. From the Lemma  \ref{comm_fin_lem} it follows that the noncommutative finite-fold covering with unitization
 	$\left(C_0\left(\mathcal  U_\la \right), \widetilde{A}_\la, G,    \pi|_{C_0\left(\mathcal  U_\la \right)}\right)$ is equivalent to 
 	$$
@@ -10585,9 +10663,9 @@ Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \
 a_\la \bydef s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to  G\left( \left.\sX_\la~\right|\sX\right)\right) }g \widetilde a \in  C_c\left(\sX_\la\right)
 \ee 
 where the point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
-Denote by $\widetilde b^1 \bydef \widetilde a$. Let $\widetilde x_0\in \widetilde \sX$ be such that $\frac{2}{3}\left\|\widetilde a\right\|<  \widetilde a \left( \widetilde x_0\right) \le \left\| \widetilde a\right\|$. From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left( \widetilde x_0\right)  \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$ where $b^1_{\la_0}=s\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde b^1\in   C_c\left(\sX_{\la_0}\right)$ and the point-wise convergence of the series is implied. There is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that $\frac{2}{3}\left\|  \widetilde b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \widetilde b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\widetilde{a}^1 \bydef f_\eps \left(\widetilde{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \widetilde b^1\right\|$. If $a^1_{\la_0}= \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde a^1\in K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \widetilde b^1\right\| >\widetilde a^1 \left( \widetilde x_0\right)$ it follows that
+Denote by $\widetilde b^1 \bydef \widetilde a$. Let $\widetilde x_0\in \widetilde \sX$ be such that $\frac{2}{3}\left\|\widetilde a\right\|<  \widetilde a \left( \widetilde x_0\right) \le \left\| \widetilde a\right\|$. From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left( \widetilde x_0\right)  \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$ where $b^1_{\la_0}=s\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde b^1\in   C_c\left(\sX_{\la_0}\right)$ and the point-wise convergence of the series is implied. There is an open connected neighbourhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that $\frac{2}{3}\left\|  \widetilde b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \widetilde b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\widetilde{a}^1 \bydef f_\eps \left(\widetilde{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \widetilde b^1\right\|$. If $a^1_{\la_0}= \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde a^1\in K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \widetilde b^1\right\| >\widetilde a^1 \left( \widetilde x_0\right)$ it follows that
 $0<  \widetilde a^1 \left( \widetilde x_0\right)< \frac{1}{3}\left\|  \widetilde b^1\right\|$ and 
-$0< a^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right)  \right)< b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right) \right) - \frac{2}{3}\left\| \widetilde b^1\right\|< \frac{2}{3}\left\| \widetilde b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \widetilde b^1\right\|$ 
+$0< a^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right)  \right)< b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right) \right) - \frac{2}{3}\left\| \widetilde b^1\right\|< \frac{2}{3}\left\| \widetilde b^1\right\|$. So   there is an open  neighbourhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \widetilde b^1\right\|$ 
 for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ is such that $\mu > \la_0$ and  $a^1_{\mu}=\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \widetilde a^1$ then one has
 $$
 a^1_{\la_0} = \sum_{	g \in G\left( \left. \sX_\mu\right| \sX_{\la_0}\right) } a^1_{\mu}
@@ -10649,7 +10727,7 @@ Then one has $\widetilde{a}\in C_c\left( \widetilde{\sX}\right)$.
 	$$
 	a \bydef \sum_{g\in \widehat G} g \widetilde a'\in C_c\left( \sX\right) 
 	$$
-	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. Similarly to the construction  \ref{top_long_p_empt} for any $\widetilde x \in \supp \widetilde a^1$ we select an open neighborhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
+	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. Similarly to the construction  \ref{top_long_p_empt} for any $\widetilde x \in \supp \widetilde a^1$ we select an open neighbourhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
 	\begin{itemize}
 		\item $\widetilde \sU_{\widetilde x}$ is mapped homeomorphically onto $ \sU_{\widetilde x}\bydef \widetilde p\left(\widetilde \sU_{\widetilde x} \right)$,
 		\item there is $\la_{\widetilde x} \in \La$ such that  
@@ -12722,7 +12800,7 @@ with $\phi^{S^2 \setminus \{x_1\}} _{C'_{\th_n}}\left(x_0 \right) = m_0$.
  $$
  \phi_{S^2}\left(x, t \right)= \phi^{B^2}_{S^2}\circ  \phi_{S^2}\left(x, t \right)
  $$
- There are closed neighborhoods $\sV_{B^2}$ and  $\sV_{S^2}$ of $S^1 \subset B^2$ and $x \in S^2$ respectively such that
+ There are closed neighbourhoods $\sV_{B^2}$ and  $\sV_{S^2}$ of $S^1 \subset B^2$ and $x \in S^2$ respectively such that
  \be\label{h_b_s_eqn}
  \begin{split}
  	\sV_{S^2}\bydef \phi^{-1}_{S^2}\left(S^1 \times \left[\frac{1}{2}, 1\right] \right) ,\\
@@ -13504,7 +13582,7 @@ $x=	\left[u'_1p_1u'^*\right] - \left[p_1\right]\in K_0\left( C\left( \sX\right) 
 		\varphi & 0\\
 		0& \varphi^*
 	\end{pmatrix}$. 
-	From the theory of Lie groups it follows that there is an open connected neighborhood $\sU\subset \SU\left(2 \right)$ of $\begin{pmatrix}
+	From the theory of Lie groups it follows that there is an open connected neighbourhood $\sU\subset \SU\left(2 \right)$ of $\begin{pmatrix}
 		1 & 0\\
 		0& 1
 	\end{pmatrix}$ such that the map  \bean
@@ -16347,7 +16425,7 @@ Our following constructions require an analog of the Dini's theorem.
 	The given by \eqref{ctr_open_id_eqn} map $	\sU \leftrightarrow 	A|_{\mathcal U}$ yields the one-to-one correspondence between  ideals and open  subsets of $\sX$ (cf. Remark \ref{ctr_open_res_rem}). 
 	
 	Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
-	$a \in A$ be such that $a\neq 0$. There is $x'\in \sX$ such that $\left\|\rep_{x'}\left(a \right)  \right\|> 0$. From the Theorem \ref{lower_norm_thm}  it follows that there is an open neighborhood  $\sV \subset \sX$ of $x'$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x''\in \sU\cap \sV$  such that  $\rep_{x''}\left( a\right) \neq 0$. There is $a' \in A|_{\mathcal U}$ such that $\rep_{x''}\left( a'\right)= \rep_{x''}\left( a\right)^*$. It follows that $\left\|\rep_{x''}\left(a a'\right)  \right\|=\left\|\rep_{x'}\left(a \right)  \right\|^2 > 0\quad \Rightarrow\quad a a' \neq 0\quad \Rightarrow\quad a A|_{\mathcal U}\neq \{0\}$, i.e the ideal $A|_{\mathcal U}$ is essential (cf. Lemma \ref{essential_lem}).
+	$a \in A$ be such that $a\neq 0$. There is $x'\in \sX$ such that $\left\|\rep_{x'}\left(a \right)  \right\|> 0$. From the Theorem \ref{lower_norm_thm}  it follows that there is an open neighbourhood  $\sV \subset \sX$ of $x'$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x''\in \sU\cap \sV$  such that  $\rep_{x''}\left( a\right) \neq 0$. There is $a' \in A|_{\mathcal U}$ such that $\rep_{x''}\left( a'\right)= \rep_{x''}\left( a\right)^*$. It follows that $\left\|\rep_{x''}\left(a a'\right)  \right\|=\left\|\rep_{x'}\left(a \right)  \right\|^2 > 0\quad \Rightarrow\quad a a' \neq 0\quad \Rightarrow\quad a A|_{\mathcal U}\neq \{0\}$, i.e the ideal $A|_{\mathcal U}$ is essential (cf. Lemma \ref{essential_lem}).
 	
 	Suppose that $A|_\sU$ is an essential ideal. If $\sU$ is not dense in $\sX$ then there is an open set  $\sV \subset \sX$  with $\sU \cap \sV = \emptyset$. If $a \in A|_\sV\setminus\{0\}$ then from $\sU \cap \sV = \emptyset$ it follows that $a A|_{\mathcal U}= \{0\}$, i.e. $A|_{\mathcal U}$ is not essential. One has a contradiction it turns out  that $\sU$ is  dense in $\sX$.
 \end{proof}
@@ -16405,7 +16483,7 @@ and from \eqref{a_pppp_eqn} it follows that
 \be\label{ctr_hilb_eqn} 
 \left\langle A^\parallel, \widetilde A^\perp\right\rangle_A= \left\langle A^\perp, \widetilde A^\parallel\right\rangle_A = \{0\}
 \ee
-	Suppose  $\widetilde x_0 \in \widetilde\sU$ is such that $\rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. Then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sU$ and  $X \bydef X_{C\left( \widetilde \sV\right) }\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
+	Suppose  $\widetilde x_0 \in \widetilde\sU$ is such that $\rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. Then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighbourhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sU$ and  $X \bydef X_{C\left( \widetilde \sV\right) }\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
 	is an $\left.\widetilde A\right|^{\widetilde\sV}-\left. \widetilde e\right|^{\widetilde\sV}\left.A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}\cong C\left({\widetilde\sV}\right)$-imprimitivity bimodule (cf. Definition \ref{strong_morita_defn}) where $\left.\widetilde A\right|^{\widetilde\sV}$ is given by the equation \eqref{closed_ideal_eqn}. From the Definition \ref{strong_morita_defn} if follows that there is the natural $*$-isomorphism
 	\be\label{ctr_ka_eqn}
 	\left.\widetilde A\right|^{\widetilde\sV} \cong \K\left(X_{C\left( \widetilde \sV\right) } \right) 
@@ -16431,7 +16509,7 @@ Taking into account the equations \eqref{ctr_ka_eqn}, \eqref{ctr_ka_eqn} and \eq
 S \bydef\left\lbrace\widetilde \xi^\parallel \left\rangle \right\langle\eta^\parallel \right\rbrace_{\xi^\parallel, \eta^\parallel\in X^\parallel}\bigcup  \left\lbrace\widetilde \xi^\perp \left\rangle \right\langle\eta^\perp \right\rbrace_{\xi^\perp, \eta^\perp\in X^\perp} 
 \ee
 	We can suppose that $\widetilde\sV$ is compact, so from the 
-	Theorems \ref{comp_normal_thm} 	and \ref{urysohn_lem} it follows that there is   an open neighborhood of $\widetilde x_0$ such that
+	Theorems \ref{comp_normal_thm} 	and \ref{urysohn_lem} it follows that there is   an open neighbourhood of $\widetilde x_0$ such that
 	\begin{itemize}
 		\item $\widetilde{\mathcal W}\subset \widetilde{\sV}$,
 		\item there is a continuous map  $\widetilde f:  \to \left[0, 1\right]$ with $\widetilde f\left(\widetilde{ \mathcal W}\right) = \{1\}$ and $\widetilde f\left(\widetilde \sX\setminus \widetilde\sV\right) = \{0\}$,
@@ -16486,7 +16564,7 @@ S \bydef\left\lbrace\widetilde \xi^\parallel \left\rangle \right\langle\eta^\par
 	$$
 	\forall \widetilde x \in \widetilde \sU \quad \Rightarrow \quad \rep_{\widetilde x}\left(\widetilde A \right)= \rep_{\widetilde x}\left(\pi\left(A \right)  \right).
 	$$
-	If $H$ is not trivial then there is $g \in H$ and $\widetilde a \in \widetilde A$ such that $\widetilde a - g\widetilde a \neq 0$. Hence is $\widetilde x \in \widetilde \sX$ such that $\left\|\rep_{  \widetilde{x }_0}\left( \widetilde a - g\widetilde a\right)  \right\|> 0$. From the Theorem \ref{lower_norm_thm}   it turns out that there is an open neighborhood $\widetilde \sU'$ of $\widetilde x$ such that
+	If $H$ is not trivial then there is $g \in H$ and $\widetilde a \in \widetilde A$ such that $\widetilde a - g\widetilde a \neq 0$. Hence is $\widetilde x \in \widetilde \sX$ such that $\left\|\rep_{  \widetilde{x }_0}\left( \widetilde a - g\widetilde a\right)  \right\|> 0$. From the Theorem \ref{lower_norm_thm}   it turns out that there is an open neighbourhood $\widetilde \sU'$ of $\widetilde x$ such that
 	$$
 \forall \widetilde x \in \widetilde \sU'\quad \Rightarrow \quad \left\|\rep_{  \widetilde{x }}\left( \widetilde a - g\widetilde a\right)  \right\|> 0.
 	$$
@@ -19930,7 +20008,7 @@ For any $y_0 \in M/\T^2$ there is a point $x_0 \in M$ mapped onto $y_0$ and a co
 	\item $\dim \mathcal U= \dim M-2$,
 	\item $\mathcal U$ is transversal to orbits of $\T^2$-action,
 	\item The  fibration $\T^2 \to \mathcal U \times \T^2 \to \mathcal U \times \T^2 / \T^2$ is the restriction of the fibration $\T^2 \to M \to M/\T^2$,
-	\item The image  $\mathcal V_{y_0} \in M/\T^2$ of $\mathcal U \times \T^2$ in $M/\T^2$ is an open neighborhood of $y_0$,
+	\item The image  $\mathcal V_{y_0} \in M/\T^2$ of $\mathcal U \times \T^2$ in $M/\T^2$ is an open neighbourhood of $y_0$,
 	\item $\mathcal V_{y_0}$ is evenly covered by  $\widetilde{M}/ \widetilde{\T}^2 \to M / \T^2$.
 \end{itemize}
 It is clear that
@@ -20953,7 +21031,7 @@ Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of t
 	\end{definition}
 \begin{definition}\label{top_hausdorff_defn}\cite{munkres:topology}
 	A topological space $\sX$ is called a Hausdorff space if for each pair $x_1, x_2$
-	of distinct points of $\sX$, there exist neighborhoods $\sU_1$, and $\sU_2$ of $x_1$ and , respectively,
+	of distinct points of $\sX$, there exist neighbourhoods $\sU_1$, and $\sU_2$ of $x_1$ and , respectively,
 	that are disjoint.
 \end{definition}	
 \begin{definition}\label{top_connected_defn}\cite{munkres:topology}
@@ -20991,7 +21069,7 @@ points of $\sX$ can be joined by a path in $\sX$.
 	them.
 \end{theorem}
 	\begin{definition}\label{top_locally_connected_defn}\cite{munkres:topology}.
-	A space $\mathcal X$ is said to be \textit{locally connected at} $x$ if for every neighborhood $\mathcal U$ of $x$ there is a connected neighborhood $\mathcal V$ of $x$  contained in $\mathcal U$. If $\mathcal X$ is locally connected at each of its points, it is said simply to be \textit{locally connected}.
+	A space $\mathcal X$ is said to be \textit{locally connected at} $x$ if for every neighbourhood $\mathcal U$ of $x$ there is a connected neighbourhood $\mathcal V$ of $x$  contained in $\mathcal U$. If $\mathcal X$ is locally connected at each of its points, it is said simply to be \textit{locally connected}.
 \end{definition}
 \begin{theorem}\label{top_loc_conn_thm}\cite{munkres:topology}
 	A space $\mathcal X$ is locally connected if and only if for every open set $\mathcal U$, each component of $\mathcal U$ is open in $\mathcal X$.
@@ -21047,7 +21125,7 @@ a finite subcollection that also covers $\sX$.
 
 \begin{definition}\label{top_locally_compact_defn}
 	A space $\sX$ is said to be \textit{locally compact} at $x$ if there is some compact
-	subspace $\sV$  of $\sX$ that contains a neighborhood of $x$. If $\sX$ is locally compact at each of
+	subspace $\sV$  of $\sX$ that contains a neighbourhood of $x$. If $\sX$ is locally compact at each of
 	its points, $\sX$ is said simply to be \textit{locally compact}.
 \end{definition}
 \begin{empt}\cite{engelking:general_topology}
@@ -21067,13 +21145,13 @@ a finite subcollection that also covers $\sX$.
 		A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$ (cf. Definition \ref{directed_set_defn}) to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
 	\end{definition}
 	\begin{definition}\label{top_net_lim_defn}\cite{engelking:general_topology}
-		A point $ x \in \mathcal{ X}$ is called a \textit{limit of a net} $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$ if for every neighborhood $\mathcal U$ of $x$  there exists $\la_0 \in \La$ such that $x_\la \in \mathcal U$ for every $\la \ge \la_0$; we say that $\left\{x_\la \right\}$ \textit{converges} to $x$. The limit will be denoted by $x = \lim S$, or $x = \lim_{\la \in \La} x_\la$, or $\lim x_\la$.
+		A point $ x \in \mathcal{ X}$ is called a \textit{limit of a net} $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$ if for every neighbourhood $\mathcal U$ of $x$  there exists $\la_0 \in \La$ such that $x_\la \in \mathcal U$ for every $\la \ge \la_0$; we say that $\left\{x_\la \right\}$ \textit{converges} to $x$. The limit will be denoted by $x = \lim S$, or $x = \lim_{\la \in \La} x_\la$, or $\lim x_\la$.
 	\end{definition}
 	\begin{remark}
 		A net can converge to many points, however if $\mathcal{ X}$ is Hausdorff then the net can have the unique limit.
 	\end{remark}
 	\begin{definition}\label{haudorff_defn}\cite{munkres:topology}
-		A topological space $\sX$ is called a \textit{Hausdorff space} if for each pair $x_1$, $x_2$ of distinct points of $\sX$, there exist neighborhoods $\sU_1$, and $\sU_2$ of $x_1$  and $x_2$, respectively, that are disjoint.
+		A topological space $\sX$ is called a \textit{Hausdorff space} if for each pair $x_1$, $x_2$ of distinct points of $\sX$, there exist neighbourhoods $\sU_1$, and $\sU_2$ of $x_1$  and $x_2$, respectively, that are disjoint.
 	\end{definition}
 	% \begin{definition}\cite{munkres:topology}
 	%If a space $\sX$ has a countable basis for its topology, then $\sX$ is said to satisfy the \textit{second countability axiom}, or to be \textit{second-countable ???}.
@@ -21153,7 +21231,7 @@ A continuous map 	 	$f$ is called \textit{bicontinuous} if it is onto and if
 	 A space having a countable  dense subset is said to be \textit{separable}.
 	 \end{definition}	
 	\begin{defn}\label{top_support_defn}\cite{munkres:topology}
-		If $\phi: \mathcal X \to \mathbb{C}$  is continuous then the \textit{support} of $\phi$ is defined to be the closure of the set $\phi^{-1}\left(\mathbb{\C}\setminus \{0\}\right)$ Thus if $x$ lies outside the support, there is some neighborhood of $x$ on which $\phi$ vanishes. Denote by $\supp \phi$ the support of $\phi$.
+		If $\phi: \mathcal X \to \mathbb{C}$  is continuous then the \textit{support} of $\phi$ is defined to be the closure of the set $\phi^{-1}\left(\mathbb{\C}\setminus \{0\}\right)$ Thus if $x$ lies outside the support, there is some neighbourhood of $x$ on which $\phi$ vanishes. Denote by $\supp \phi$ the support of $\phi$.
 	\end{defn}
 %	 	\begin{thm}\label{comm_sep_thm}\cite{chun-yen:separability}
 %	 		For a locally compact Hausdorff space $\mathcal X$, the following are 		equivalent:
@@ -21193,7 +21271,7 @@ A continuous map 	 	$f$ is called \textit{bicontinuous} if it is onto and if
 	Let $\sX$ be a locally compact Hausdorff space, and let $C_c\left(\sX\right)$ denote the	space of continuous, compactly supported functions on $\sX$. The natural	topology on $C_c\left(\sX\right)$ is the \textit{inductive limit topology}, defined as follows. A net	$\left\{f_\a\right\}$ in $C_c\left(\sX\right)$ converges to $f$ if there is a compact set $K\subset\sX$ containing	the supports of all $f_\a$ and $f$, and such that $f_\a$ converges uniformly to $f$ on$K$.
 	\end{definition}
 	\begin{defn}\label{top_loc_fin_defn}\cite{munkres:topology}
-		An indexed family of sets $\left\{A_\al\right\}$ of topological space $\sX$ is said to be \textit{locally finite} if each point $x$ in $\sX$  has a neighborhood that intersects for only finite many values of $\a$.
+		An indexed family of sets $\left\{A_\al\right\}$ of topological space $\sX$ is said to be \textit{locally finite} if each point $x$ in $\sX$  has a neighbourhood that intersects for only finite many values of $\a$.
 	\end{defn}
 	\begin{defn}\label{top_part_of_unity_defn}\cite{munkres:topology}
 		Let $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ be an indexed open covering of $\mathcal{X}$. An indexed family of functions 
@@ -21273,7 +21351,7 @@ continuous map $\bt f: \bt \sX\to\sY$.
 		A topological space $\sX$ is said to be 
 		\textit{contractible} if the identity map of $\sX$ is homotopic to some constant map of $\sX$ 
 		to itself. $\sX$ is \textit{locally contractible} if
-		every neighborhood $\sU$ of a point $x$ contains a neighborhood $\sV$ of $x$ deformable to $x$ in $\sV$). 
+		every neighbourhood $\sU$ of a point $x$ contains a neighbourhood $\sV$ of $x$ deformable to $x$ in $\sV$). 
 		
 	\end{definition} 
 \begin{definition}\label{top_simply_conn_defn}\cite{spanier:at}
@@ -21295,7 +21373,7 @@ with the natural inclusion $S^k\subset E^{k+1}$. A space $\sX$ is said to be $n$
 %Let $\sX$ is a set.
 %If $\mathcal C$ is a class consisting of pairs $(S,s)$, where $S$ is a net in $\sX$ and $s$ a point, when is there a topology $\mathcal T$ for X such that (6  e C iff S  converges to s relative to the topology 3
 \begin{definition}\label{top_lower_semi_defn}\cite{bourbaki_sp:gt}
-A real-valued function $f$, defined on a topological space $\sX$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} at point $a \in \sX$ if for each $h < f\left(a\right)$ (resp. each $k > f\left(a\right))$ there is an open neighborhood $\sV$ of $a$ such that $h < f\left(x\right)$ (resp. each $k > f\left(x\right))$ for each $x\in\sV$.\\
+A real-valued function $f$, defined on a topological space $\sX$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} at point $a \in \sX$ if for each $h < f\left(a\right)$ (resp. each $k > f\left(a\right))$ there is an open neighbourhood $\sV$ of $a$ such that $h < f\left(x\right)$ (resp. each $k > f\left(x\right))$ for each $x\in\sV$.\\
 A real-valued function $f$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} on $\sX$ if it is  {lower semi-continuous} (resp. {upper semi-continuous} at every point of $\sX$.
 \end{definition}
 \begin{theorem}\label{top_lower_semi_thm}\cite{bourbaki_sp:gt}
@@ -21312,18 +21390,18 @@ If $\left( \sX, \rho\right) $ is a metric space then wa say that $\left\{x_j\rig
 \begin{remark}\label{top_cauchy_rem}
 Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_defn}) the word \textit{Cauchy net} is also used in this book.
 \end{remark}
-%\begin{defn}\label{top_dfn:regular_neighborhood_defn}\cite{pavlov_troisky:cov}
+%\begin{defn}\label{top_dfn:regular_neighbourhood_defn}\cite{pavlov_troisky:cov}
 	%2.1
-%	Let $\sX, \sY$ be Hausdorff spaces, and let $p: \sY \to \sX$ be a continuous map.If 		$x\in \sX$, which has a finite number of pre-images $y_1,		\dots,y_m$. Then a neighborhood $\sU$ of $x$ is said to be		\emph{regular} if
+%	Let $\sX, \sY$ be Hausdorff spaces, and let $p: \sY \to \sX$ be a continuous map.If 		$x\in \sX$, which has a finite number of pre-images $y_1,		\dots,y_m$. Then a neighbourhood $\sU$ of $x$ is said to be		\emph{regular} if
 %		\begin{gather}\label{eq:neiborhoods}
 %			p^{-1}(\sU)= \sV_1\sqcup\dots\sqcup \sV_m,
 %		\end{gather}
-%		where $\sV_i$ are some neighborhoods of $y_j$, $j=1,\dots, m$.
+%		where $\sV_i$ are some neighbourhoods of $y_j$, $j=1,\dots, m$.
 %\end{defn}
 
 %\begin{lem}\label{top_lem:neiborhoods_lem}\cite{pavlov_troisky:cov}
 %	2.2.
-%	Let $p : \sY\rightarrow \sX$ be a continuous closed map of Hausdorff	spaces. Then any point $x$ of $\sX$ with a finite number of	pre-images has a regular neighborhood.
+%	Let $p : \sY\rightarrow \sX$ be a continuous closed map of Hausdorff	spaces. Then any point $x$ of $\sX$ with a finite number of	pre-images has a regular neighbourhood.
 %\end{lem}
 
 \begin{definition}\label{metric_space_defn}\cite{rudin:pa}
@@ -21522,7 +21600,7 @@ The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes
 \end{remark}
 
 	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
-	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
+	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighbourhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
 \end{defn} 
 
 \begin{remark}\cite{switzer:at}
@@ -21540,7 +21618,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
 	
 	\begin{defn}\label{top_covering_defn}\cite{spanier:at}
-		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighborhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
+		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighbourhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
 			\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
 	\end{defn}
 	%\begin{defn}\label{one_one_cov_defn}
@@ -21637,7 +21715,7 @@ Let $G$ be a properly discontinuous group of homeomorphisms of a space $\mathcal
 	\end{theorem}
 \begin{definition}\label{local_homeomorphism_defn}\cite{spanier:at}
 A continuous map $f: \sX \to \sY$ is called a \textit{local homeomorphism} if each 
-point $y \in \sY$ has an open neighborhood mapped homeomorphically by $f$ onto 
+point $y \in \sY$ has an open neighbourhood mapped homeomorphically by $f$ onto 
 an open subset of $\sX$
 \end{definition}
 \begin{lemma}\label{top_cov_lem}\cite{spanier:at}
@@ -21674,7 +21752,7 @@ an open subset of $\sX$
 	\end{thm}
 		\begin{definition}\label{top_properly_disc_group_defn}\cite{spanier:at} 
 		A group $G$ of homeomorphisms of a topological space $\sY$  is said to be  
-		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
+		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly discontinuous} if for $y \in \sY$ there is an open neighbourhood $\sU$ of $y$ in $\sY$ such 
 		that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts without fixed points} if the only element of $g\in G$ having fixed points is the identity element.	
 	\end{definition}
 	\begin{remark}\label{top_properly_disc_rem}\cite{spanier:at}
@@ -21888,7 +21966,7 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	\ee
 \end{empt}
 \begin{definition}\label{top_vb_defn}\cite{karoubi:k}
-	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighborhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
+	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighbourhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
 \end{definition}
 \begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
 	%	5.1. Definition.
@@ -21996,7 +22074,7 @@ Let $\E$ and $\F$ be vector bundles with base  a paracompact space $\sX$, let $\
 \begin{corollary}\label{k_ext_cor}\cite{karoubi:k}
 %5.11. Corollary. 
 With the notation of Theorem \ref{k_ext_cor}, let us suppose that a is an 
-isomorphism. Then there exists a neighborhood $\sV$ of $\sY$ and an isomorphism 
+isomorphism. Then there exists a neighbourhood $\sV$ of $\sY$ and an isomorphism 
 $\a': \E_\sV \to \F_\sV$ such that $\a'_\sY = \a$. 
 \end{corollary}
 \begin{definition}\cite{karoubi:k}
@@ -22092,7 +22170,7 @@ bundle to $\E$ and $\F$, we may assume without loss of generality, that $\F$ is 
 bundle, say $\mathcal{T}$. We want to find a triple $\left(\E', \F', \a \right)$ defining an element of 
 $K\left( \sX/\sY,\{y\}\right)$ such that the triples $\left( \pi^*\left(\E'\right) , \pi^*\left(\F'\right) , \pi^*_1\left(\a\right)  \right)$ and $\left(\E, \F, \a \right)$ are  
 isomorphic with $\pi_1: \sY \to \{y\}$. % According to 1.5.11, 
-According to the Corollary \ref{k_ext_cor} there is a closed neighborhood $\sV$ 
+According to the Corollary \ref{k_ext_cor} there is a closed neighbourhood $\sV$ 
 of $\sY$ and an isomorphism $\bt :\E_\sV\to  \F_\sV$ such that $\bt|_\sY = \a$. Let $\E'$ be the vector bundle 
  with base  $\sX/\sY$ obtained by clutching the bundle $\sE|_{\sX\setminus\sY}$ and the trivial bundle of rank $n$ 
  with base  $\sV \setminus\sY$, using $\bt|_{\sV \setminus\sY}$ (note that $\sX \setminus \sY \cong \sX/\sY \setminus \{y\}$ and $\sV \setminus \sY \cong \sV/\sY \setminus \{y\}$. Let $\sF'$ 
@@ -22172,7 +22250,7 @@ The set
 \be\label{top_vcf_eqn}
 \sV_{C'_f} \bydef \phi_{C'_f }\left( \sY\times \left[\frac{1}{2}, 1\right]\right)\subset C'_f 
 \ee
-is a closed neighborhood of $\phi^\sX_{C'_f }\left(\sX \right)$ 
+is a closed neighbourhood of $\phi^\sX_{C'_f }\left(\sX \right)$ 
 Under the hypothesis of the Definition \ref{mapping_cylinder_defn} if $C'_f$ is given by \eqref{top_cp_eqn} then there is the natural surjective continuous map
 \be\label{top_ccf_eqn}
 \begin{split}
@@ -22325,7 +22403,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\ee
 	is a differentiable function on $\sU$. 	It is clear this definition does not depend on the choice of 
 	coordinate system. 
-	%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and , which 	are differentiable in a neighborhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U  Rn   M. 
+	%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and , which 	are differentiable in a neighbourhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U  Rn   M. 
 	A differentiable manifold with a given Riemannian metric will be called a \textit{Riemannian manifold}. 
 	
 \end{definition}
@@ -22356,7 +22434,7 @@ with a smooth surjective map $\pi: E\to M$ satisfying:
 \begin{enumerate}
 	\item [(i)] for each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$  with base 
 $M$) is endowed with the structure of a real vector space,
-\item[(ii)] for each $p\in M$ there exists a neighborhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times \R^k$  such that the following diagram
+\item[(ii)] for each $p\in M$ there exists a neighbourhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times \R^k$  such that the following diagram
 		\newline
 \begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -22394,7 +22472,7 @@ Let $M$ be a manifold and $G$ is a Lie group. A (\textit{differential}) \textit{
 \left(u, a \right) \in P \times G\quad  ua = R_a u \in P;	
 	$$
 	\item[(b)] $M$ is the quotient space of $P$ by the equivalence relation induced by $G$, $M = P/G$, and the canonical projection $\pi: P \to M$  is differentiable;
-	\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has neighborhood $\sU$ such that there is a diffeomorphism  $\psi: \pi^{-1}\left(\sU
+	\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has neighbourhood $\sU$ such that there is a diffeomorphism  $\psi: \pi^{-1}\left(\sU
 	 \right) \cong \sU \times G$ such that $\psi\left(u\right)= \left( \pi\left(u\right), \varphi\left(u\right)\right)$  where $\varphi$ is a mapping of $\pi^{-1}\left(\sU
 	 \right)$ into $G$ satisfying $\varphi\left(ua\right)= \left( \varphi\left(u\right)\right) a$ for all $u \in \pi^{-1}\left(\sU
 	 \right)$ and $a \in G$.
@@ -22443,7 +22521,7 @@ The space $D\left(M, E \right)$ is an algebra over $\C$ with the given by the co
 	be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
 	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest non-negative
 	integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
-	$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
+	$f$ defined in an open neighbourhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
 	The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
 \end{definition}
 
@@ -22504,7 +22582,7 @@ Here I follow to \cite{kobayashi_nomizu:diff_geom}. Let $M$ be a manifold and $G
 \begin{enumerate}
 	\item [(a)] $G$ acts freely on $P$ on the right: $\left(u, a \right) \in P \times G \mapsto ua = R_au \in P$;
 	\item[(b)] $M$ is the quotient space of $P$ by the equivalence relation induced by $G$, i.e. $M = P/G$, and the canonical projection $\pi: P \to M$ is differentiable;
-	\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has an open neighborhood $U$ such that $\pi^{-1}\left( U\right)$ is isomophic to  $U\times G$ in the sense that there is a diffeomorphism $\psi:  \pi^{-1}\left( U\right) \to U \times G$ such that $\psi\left( u\right) = \left( \pi\left( u\right), \varphi\left(u \right) \right) $ where $\varphi$ is a mapping of $\pi^{-1}\left(U \right)$ into $G$ satisfying  $\psi\left(ua \right)= \left( \psi\left( u\right)\right) a$  for all $u \in \pi^{-1}\left(U \right)$ and $a \in G$. 
+	\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has an open neighbourhood $U$ such that $\pi^{-1}\left( U\right)$ is isomophic to  $U\times G$ in the sense that there is a diffeomorphism $\psi:  \pi^{-1}\left( U\right) \to U \times G$ such that $\psi\left( u\right) = \left( \pi\left( u\right), \varphi\left(u \right) \right) $ where $\varphi$ is a mapping of $\pi^{-1}\left(U \right)$ into $G$ satisfying  $\psi\left(ua \right)= \left( \psi\left( u\right)\right) a$  for all $u \in \pi^{-1}\left(U \right)$ and $a \in G$. 
 \end{enumerate}
 A principal fibre bundle will be denoted by $P\left( M, G, \pi\right), ~ P\left(M, G \right)$ or simply $P$.
 \paragraph*{} Let $P\left(M, G \right)$ be a principal fibre bundle over a manifold with group $G$. For each $u \in P$ let $T_u\left(P \right)$ be a tangent space of $P$ at $u$ and $G_u$ the subspace of $T_u\left( P\right)$ consisting of vectors tangent to the fibre through $u$. A \textit{connection} $\Ga$   in $P$ is an assignment of a subspace $Q_u$ of $T_u\left(P \right)$ to each $u \in P$ such that
@@ -22513,7 +22591,7 @@ A principal fibre bundle will be denoted by $P\left( M, G, \pi\right), ~ P\left(
 	\item[(b)] $Q_{ua}= \left(R_a \right)_*Q_u$ for every $u \in P$ and $a \in G$, where $R_a$ is a transformation of $P$ induced by $a \in G, ~ R_au=ua$.
 \end{enumerate}
 \paragraph*{}
-Let $P = M \times G$ be a trivial principal bundle. For each $a \in G$, the set $M \times \{a\}$ is a submanifold of $P$. The \text{canonical flat connection} in $P$ is defined by taking the tangent space to $M \times \{a\}$ at $u = \left(x, a \right)$ as the horizontal tangent subspace at $u$. A connection in any principal bundle is called \textit{flat} if every point has a neighborhood such that the induced connection in $P|_U = \pi^{-1}\left(U \right)$ is isomorphic with the canonical flat connection.
+Let $P = M \times G$ be a trivial principal bundle. For each $a \in G$, the set $M \times \{a\}$ is a submanifold of $P$. The \text{canonical flat connection} in $P$ is defined by taking the tangent space to $M \times \{a\}$ at $u = \left(x, a \right)$ as the horizontal tangent subspace at $u$. A connection in any principal bundle is called \textit{flat} if every point has a neighbourhood such that the induced connection in $P|_U = \pi^{-1}\left(U \right)$ is isomorphic with the canonical flat connection.
 
 \begin{cor}\label{dg_flat_cor}(Corollary II 9.2 \cite{kobayashi_nomizu:diff_geom})
 	Let $\Ga$ be a connection in $P\left(M, G \right)$ such that the curvature vanishes identically. If $M$ is paracompact and simply connected, then $P$ is isomorphic to the trivial bundle and $\Ga$ is isomorphic to the canonical flat connection in $M \times G$.
@@ -23208,7 +23286,7 @@ In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by 
 %	 	$$
 %	 	\mathfrak{ess~supp}\left( f\right) = \mathcal X \setminus \bigcup \left\{\om \in \mathcal X~|~ \om \text{ is open and } f=0~\mu-\text{almost everywhere in }\om\right\}.
 %	 	$$
-%		If $x \notin \mathfrak{ess~supp}\left( f\right)$ then there is an open neighborhood $\mathcal U$ of $x$ and representative $\varphi$ of $f$ such that $\varphi\left({\mathcal U}\right) = \{0\}$. 
+%		If $x \notin \mathfrak{ess~supp}\left( f\right)$ then there is an open neighbourhood $\mathcal U$ of $x$ and representative $\varphi$ of $f$ such that $\varphi\left({\mathcal U}\right) = \{0\}$. 
 %	\end{defn}
 	
 	
@@ -24068,13 +24146,13 @@ If $\sX$ is a spectrum of a {homogeneous of order} $n$ algebra $A$ then $A$ corr
 		$P \mapsto P/A_\sU$ of $\hat A \setminus \sU$ onto  the set of primitive ideals of  $A/A_\sU$. %(Proposition A.27). 
 		When $\hat A$
 		is a (locally compact) Hausdorff space $T$, we can localize at a point $t$   that is,
-		examine behavior in a neighborhood of $t$   either by looking at the ideal $A_\sU$
-		corresponding to an open neighborhood $\sU$ of $t$, or by passing to the quotient
+		examine behavior in a neighbourhood of $t$   either by looking at the ideal $A_\sU$
+		corresponding to an open neighbourhood $\sU$ of $t$, or by passing to the quotient
 		\be\label{closed_ideal_eqn}
 		\left.A\right|^F \stackrel{\text{def}}{=} A/\left( 
 		\left.A\right|_{\hat A \setminus F} \right) 
 		\ee
-		corresponding to a compact neighborhood $F$ of $t$. 
+		corresponding to a compact neighbourhood $F$ of $t$. 
 		%Since	life seems to be technically less complicated this way, we have chosen the $A \mapsto A^F$	option.
 		%We shall need two lemmas about localization. The first is a corollary of the Dauns-Hofmann Theorem,and the second says that localizing A-B imprimitivity bimodules gives AF-F BF imprimitivity bimodules.
 	\end{empt}
@@ -24588,7 +24666,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 \begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
 	%Definition 5.13. 
 	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
-	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighborhood $\sU$ of $t$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
+	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $t$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
 \end{definition}
 \begin{defn}\label{abelian_element_defn}\cite{pedersen:ca_aut}
 	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
@@ -24692,7 +24770,7 @@ surjection of $K\left(A \right)$ onto  $K\left(\hat A \right)$.
 \begin{proposition}\label{ctr_morita_prop}\cite{rae:ctr_morita} %Proposition 5.15. 
 	A $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ has continuous
 	trace if and only if $A$ is locally Morita equivalent to $C_0\left(\sX \right)$, in the sense that each
-	$x \in \sX$ has a compact neighborhood $\sV$ such that $\left.A\right|^\sV$ (cf. equation \eqref{closed_ideal_eqn}) is Morita equivalent to $C\left( \sV\right)$ 
+	$x \in \sX$ has a compact neighbourhood $\sV$ such that $\left.A\right|^\sV$ (cf. equation \eqref{closed_ideal_eqn}) is Morita equivalent to $C\left( \sV\right)$ 
 	over $\sV$.
 \end{proposition}
 \begin{empt}\label{ctr_imprim_empt}
@@ -24837,7 +24915,7 @@ Here, either each $A_x$ will be a Hilbert space or each $A_x$ will be a $C^*$-al
 \end{definition} 
 \begin{definition}\label{op_cont_fields_defn}\cite{fell:operator_fields}
 	A vector field $a$ is \textit{continuous (with respect to $\sF$)} at $x_0$, if for each $\eps>0$
-	there is an element $b$ of $\sF$ and a neighborhood $\sU$ of $x_0$ such that $\left\|a_x- b_x\right\|< \eps$ for all
+	there is an element $b$ of $\sF$ and a neighbourhood $\sU$ of $x_0$ such that $\left\|a_x- b_x\right\|< \eps$ for all
 	$x$ in $\sU$. We say that $a$ is \textit{continuous} on $\sX$ if it is continuous at all points of $\sX$.
 \end{definition} 
 \begin{lemma}\label{op_cont_uni_lem}\cite{fell:operator_fields}
@@ -24943,7 +25021,7 @@ Here I follow to \cite{apt_mult}. The following definition is a specialization o
 
 For any $C^*$-algebra $A$ denote by $M\left( A\right)_\bt$  the algebra $M\left( A\right)$ of multipliers with the strict topology (cf. Definition \ref{strict_topology_defn}).
 \begin{definition}\label{ctr_crooss_alg_defn}\cite{apt_mult}
-	A bounded  section $a$ of the fibered space $\left\{\mathcal X, M\left( A_x \right) \right\}$ is said to be \textit{strictly continuous (with respect to)} $\mathscr F$ if for each $\eps > 0$ and for each $c \in \mathscr F$ there is an element $b \in \mathscr{F}$ and an neighborhood $\mathcal U$ of $x_0$ such that $\left\|c _x \left( a _x - b_x\right)   \right\|+\left\|\left( a _x - b_x\right)c _x    \right\|< \eps$ for every $x$ in $\mathcal U$.
+	A bounded  section $a$ of the fibered space $\left\{\mathcal X, M\left( A_x \right) \right\}$ is said to be \textit{strictly continuous (with respect to)} $\mathscr F$ if for each $\eps > 0$ and for each $c \in \mathscr F$ there is an element $b \in \mathscr{F}$ and an neighbourhood $\mathcal U$ of $x_0$ such that $\left\|c _x \left( a _x - b_x\right)   \right\|+\left\|\left( a _x - b_x\right)c _x    \right\|< \eps$ for every $x$ in $\mathcal U$.
 \end{definition}
 
 We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ the set of all bounded strictly continuous cross sections in $\left\{\mathcal X, M\left( A_x \right) \right\}$.
@@ -26202,7 +26280,7 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 	\section{Local operator spaces}
 %	\begin{definition}\label{local_ca_defn}\cite{blackadar:ko}
 %3.1.1. 
-%A local Banach algebra is a normed algebra $A$ which is closed under holomorphic functional calculus (i.e. if $x\in A$ and $f$ is an analytic function on a neighborhood of the spectrum of $x$ \textit{in the completion of $A$}, with $f(0) = 0$ if $A$ is nonunital, then $f(x) \in A$.) For technical reasons we will also require that all matrix algebras over $A$ have the same property. If $A$is a $*$-algebra, it will be called a \textit{local Banach $*$-algebra}; if the norm is a pre-$C^*$-norm, $A$ will be called a \textit{local $C^*$-algebra}. 
+%A local Banach algebra is a normed algebra $A$ which is closed under holomorphic functional calculus (i.e. if $x\in A$ and $f$ is an analytic function on a neighbourhood of the spectrum of $x$ \textit{in the completion of $A$}, with $f(0) = 0$ if $A$ is nonunital, then $f(x) \in A$.) For technical reasons we will also require that all matrix algebras over $A$ have the same property. If $A$is a $*$-algebra, it will be called a \textit{local Banach $*$-algebra}; if the norm is a pre-$C^*$-norm, $A$ will be called a \textit{local $C^*$-algebra}. 
 %	\end{definition}
 	\begin{definition}\label{loc_op_sp_defn}\cite{dosi:multi,effros:loc_conv}
 		Let $X$ be a linear space and let
@@ -26818,6 +26896,562 @@ may as well assume that $I $ is the inclusion of a direct summand.
 		= \pi_1 \oplus \pi_2 $.
 	\end{enumerate}
 \end{proposition}
+
+\subsection{Commutative $*$-algebras}
+\section{Commutative $C^*$-hulls}
+\label{sec:commutative_hulls}
+
+Let~\(A\) be a commutative \Star{}-algebra.  We are going to describe
+all \emph{commutative} weak $C^*$-hulls for~\(A\).  Actually, we
+describe all locally bounded weak $C^*$-hulls, and these turn out
+to be the same as the commutative ones.  We
+study when a $C^*$-hull satisfies the (Strong) Local--Global
+Principle and when the class of
+\emph{all} locally bounded representations has a $C^*$-hull.  We compare
+the class of locally bounded representations with the class of
+representations defined by requiring all \(a\in A_h\) to act by a
+regular, self-adjoint operator.
+
+\begin{proposition}
+	\label{pro:commutative_representation}
+	Let~\(A\) be a \Star{}=algebra and let \(B=\Cont_0(X)\)
+	be a commutative $C^*$-algebra.  Any representation of~\(A\)
+	on~\(B\) has \(\Contc(X)\) as a core and is locally bounded.
+	There is a natural bijection between representations of~\(A\)
+	on~\(B\), \Star{}homomorphisms \(A\to\Cont(X)\), and continuous
+	maps \(\hat{A}\to X\).
+\end{proposition}
+
+\begin{proof}
+	Let~\((\mathfrak B,\mu)\) be a representation.  Since~\(\mathfrak B\)
+	is dense in~\(B\), for any \(x\in X\) there is \(f\in \mathfrak B\)
+	with \(f(x)\neq0\).  Then there is an open neighbourhood of~\(x\)
+	on which~\(f\) is non-zero.  A compact subset~\(K\) of~\(X\) may
+	be covered by finitely many such open neighbourhoods.  This gives
+	finitely many functions \(f_1,\dotsc,f_n\in\mathfrak B\) so that
+	\(\sum f_i\cdot \overline {f_i}(x)>0\) for all \(x\in K\).  This sum
+	again belongs to the right ideal~\(\mathfrak B\), and
+	hence~\(\mathfrak B\) contains~\(\Contc(X)\).  There is an
+	approximate unit~\((u_i)_{i\in I}\) for~\(\Cont_0(X)\) that
+	belongs to~\(\Contc(X)\).  If \(b\in\mathfrak B\), then \(\lim
+	\mu(a)b u_i = \mu(a) b\) for all \(a\in A\).  That is, \(\lim b
+	u_i = b\) in the graph topology.  Since \(b u_i\in \Contc(X)\),
+	\(\Contc(X)\) is a core for~\((\mathfrak B,\mu)\).
+	
+	Given \(a\in A\), we define a function \(f_a\colon X\to\C\) by
+	\(f_a(x) \defeq (\mu(a)b)(x)\cdot b(x)^{-1}\) for any
+	\(b\in\Contc(X)\) with \(b(x)\neq0\).  This does not depend on the
+	choice of~\(b\), and~\(f_a\) is continuous in the open subset
+	where \(b\neq0\).  Thus \(f_a\in\Cont(X)\).  The map
+	\(A\to\Cont(X)\), \(a\mapsto f_a\), is a \Star{}homomorphism.
+	Conversely, any \Star{}homomorphism \(A\to\Cont(X)\) gives a
+	representation of~\(A\) on~\(\Cont_0(X)\) with core~\(\Contc(X)\)
+	by \(\mu(a)b = f_a\cdot b\) for all \(a\in A\), \(b\in\Contc(X)\).
+	The maps that go back and forth between representations
+	on~\(\Cont_0(X)\) and \Star{}homomorphisms \(A\to\Cont(X)\) are
+	inverse to each other.
+	
+	A \Star{}homomorphism \(f\colon A\to\Cont(X)\) gives a continuous
+	map \(X\to\hat{A}\) by mapping \(x\in X\) to the character
+	\(a\mapsto f(a)(x)\).  Conversely, a continuous map \(g\colon
+	X\to\hat{A}\) induces a \Star{}homomorphism \(g^*\colon
+	A\to\Cont(X)\), \(g^*(a)(x) \defeq g(x)(a)\), and these two
+	constructions are inverse to each other.
+	
+	Let \(f\colon X\to\hat{A}\) be a continuous map.  Then~\(f\) maps
+	compact subsets in~\(X\) to compact subsets of~\(\hat{A}\).  If
+	\(K\subseteq X\) is compact, then
+	any element in \(\Cont_0(K\setminus\partial K)\subseteq \Cont_0(X)\)
+	is \(\norm{\blank}_{f(K)}\)-bounded for the $C^*$-seminorm
+	on~\(A\) associated to the compact subset \(f(K)\subseteq
+	\hat{A}\).  Thus all elements in~\(\Contc(X)\) are bounded.
+	Since~\(\Contc(X)\) is a core for the representation of~\(A\)
+	associated to~\(f\), this representation is locally bounded.
+\end{proof}
+
+\begin{theorem}
+	\label{the:commutative_hull}
+	Let~\(A\) be a commutative \Star{}algebra, let \(B=\Cont_0(X)\) be
+	a commutative $C^*$-algebra, let \(f\colon X\to \hat{A}\) be a
+	continuous map, and let~\((\mathfrak B,\mu)\) be the corresponding
+	representation of~\(A\) on~\(B\).  Call a representation of~\(A\)!!!
+%	on a Hilbert module~\(\Hilm\) \emph{\(X\)-integrable} if it is	isomorphic to \((\mathfrak B,\mu)\otimes_\varrho\Hilm\) for a	representation~\(\varrho\) of~\(B\) on~\(\Hilm\).  The following
+	are equivalent:
+!!! %	\begin{enumerate}
+	%	\item \(f\colon X\to \hat{A}\) is injective;
+	%	\item \(B\) is a weak $C^*$-hull for the \(X\)-integrable
+	%	representations;
+	%	\item \(B\) is a $C^*$-hull for the \(X\)-integrable
+	%	representations.
+%	\end{enumerate}
+	Furthermore, any locally bounded weak $C^*$-hull of~\(A\) is
+	commutative.
+\end{theorem}
+
+\begin{proof}
+	If~\(f\) is not injective, then there are \(x\neq y\) in~\(X\)
+	with \(f(x) = f(y)\).  The evaluation maps at \(x\) and~\(y\) are
+!!! %	different \(1\)\nb-dimensional representations of~\(B\) that
+	induce the same representation of~\(A\).
+	Hence the condition~\ref{enum:Cstar-gen1} in
+	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers} is
+	violated and so~\(B\) is not a weak $C^*$-hull.  Conversely,
+	assume that~\(f\) is injective.
+	
+	The representation of~\(A\) on~\(B\) associated to~\(f\) is locally
+	bounded by Proposition~\ref{pro:commutative_representation} and
+	hence induces a representation of the unital $C^*$-algebra
+	\(\Contb(\hat{A},\tau_c)\) of bounded elements in \(\mathcal{A}
+	\cong \Cont(\hat{A},\tau_c)\), see
+	Proposition~\ref{pro:commutative_pro-completion}.  Explicitly, this
+	representation composes functions with~\(f\).  Since~\(f\) is
+	injective, \(D\defeq f^*(\Contb(\hat{A},\tau_c)) \subseteq
+	\Contb(X)\) separates the points of~\(X\).  We show that~\(D\) is
+	strictly dense in \(\Contb(X) \cong \Mult(B)\).
+	
+	If \(K\subseteq X\) is compact, then the image of
+	\(f^*(\Contb(\hat{A},\tau_c))|_K\) in the quotient~\(\Cont(K)\)
+	of~\(\Cont_0(X)\) separates the points of~\(K\).  Since this image
+	is again a $C^*$-algebra, it is equal to~\(\Cont(K)\) by the
+	Stone--Weierstra§ Theorem.  Let \(f\in \Contb(X)\).  For any compact
+	subset \(K\subseteq X\), there is \(d_K\in D\) with \(d_K|_K = f\).
+	By functional calculus, we may arrange that \(\norm{d_K}_\infty \le
+	\norm{f}\).  The net~\((d_K)\) indexed by the directed set of
+	compact subsets \(K\subseteq X\) is uniformly bounded and converges
+	towards~\(f\) in the topology of uniform convergence on compact
+	subsets.  Hence it converges towards~\(f\) in the strict topology
+	(compare \cite{Grundling-Neeb:Full_regularity}*{Lemma A.1}).  This
+	finishes the proof that \(f^*(\mathcal{A}_\mathrm{b})\) is strictly
+	dense in~\(\Mult(\Cont_0(X))\).
+	Proposition~\ref{pro:criterion_Cstar-hull_locally_bounded} shows
+!!!%	that~\(B\) is a weak $C^*$-hull for the \(B\)-integrable
+	representations of~\(A\).
+	
+	Any \(X\)-integrable representation of~\(A\) is locally
+	bounded.  The class $\Rep_{\mathrm{b}}(A)$ of locally bounded
+	representations of~\(A\) is admissible by
+	Corollary~\ref{cor:locally_bounded_admissible}.  Hence the smaller
+	class of \(X\)-integrable representations inherits the
+	equivalent conditions
+	\ref{enum:Cstar-gen2}--\ref{enum:Cstar-gen2''} in
+	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers}.
+	Thus~\(\Cont_0(X)\) is even a $C^*$-hull.
+	
+	Let~\(B\) with the universal representation \((\mathfrak B,\mu)\) be
+	a locally bounded weak $C^*$-hull.  Then the image of
+	\(\Contb(\hat{A},\tau_0)\) in the multiplier algebra of~\(B\) is
+	strictly dense by
+	Proposition~\ref{pro:criterion_Cstar-hull_locally_bounded}.
+	Thus~\(\Mult(B)\) is commutative, and then so is~\(B\).  Thus a
+	locally bounded weak $C^*$-hull is commutative.
+\end{proof}
+
+\begin{theorem}
+	\label{the:commutative_local-global}
+	Let~\(A\) be a commutative \Star{}algebra, let \(B=\Cont_0(X)\) be
+	a commutative $C^*$-algebra, and let \(f\colon X\to \hat{A}\)
+	be an injective continuous map.  Let $\Repi(A,X)$ be the class
+	of \(X\)-integrable representations.  The following statements
+	are equivalent if~\(\hat{A}\) is metrisable:
+	\begin{enumerate}
+		\item \label{enum:commutative_local-global1} \(f\colon X\to
+		\hat{A}\) is a homeomorphism onto its image;
+		\item \label{enum:commutative_local-global2} $\Repi(A,X)$ is
+		defined by submodule conditions;
+		\item \label{enum:commutative_local-global3} $\Repi(A,X)$
+		satisfies the Strong Local--Global Principle;
+		\item \label{enum:commutative_local-global4} $\Repi(A,X)$
+		satisfies the Local--Global Principle;
+		\item \label{enum:commutative_local-global5} if \(\lim f(x_n) =
+		f(x)\) for a sequence~\((x_n)_{n\in\N}\) in~\(X\) and \(x\in
+		X\), then already \(\lim x_n = x\).
+	\end{enumerate}
+	The implications
+	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}\(\Rightarrow\)\ref{enum:commutative_local-global3}\(\Rightarrow\)\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}
+	hold without assumptions on~\(\hat{A}\).
+\end{theorem}
+
+I do not know whether
+\ref{enum:commutative_local-global1}--\ref{enum:commutative_local-global4}
+are equivalent in general.  The
+condition~\ref{enum:commutative_local-global5} is there to allow to
+go back from~\ref{enum:commutative_local-global4}
+to~\ref{enum:commutative_local-global1} at least for
+metrisable~\(\hat{A}\).
+
+\begin{proof}
+	First we check
+	\ref{enum:commutative_local-global5}\(\Rightarrow\)\ref{enum:commutative_local-global1}
+	if~\(\hat{A}\) is metrisable.  If~\(f\) is not a homeomorphism
+	onto its image, then there is a subset \(U\subseteq X\) that is
+	open, such that \(f(U)\) is not open in the subspace topology on
+	\(f(X)\subseteq\hat{A}\).  Since~\(\hat{A}\) is metrisable, there
+	is \(x\in U\) and a sequence in \(f(X)\setminus f(U)\) that
+	converges towards~\(f(x)\).  This lifts to a sequence
+	\((x_n)_{n\in\N}\) in \(X\setminus U\) such that \(\lim f(x_n) =
+	f(x)\).  We cannot have \(\lim x_n = x\) because~\(x_n\) never
+	enters the open neighbourhood~\(U\) of~\(x\).
+	
+	The implication
+	\ref{enum:commutative_local-global2}\(\Rightarrow\)\ref{enum:commutative_local-global3}
+	is Theorem~\ref{the:operator_conditions}, and
+	\ref{enum:commutative_local-global3}\(\Rightarrow\)\ref{enum:commutative_local-global4}
+	is trivial.  We are going to verify
+	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}
+	and
+	\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}.
+	This will finish the proof of the theorem.
+	
+	Assume~\ref{enum:commutative_local-global1}.  Let~\(\pi\) be a
+	representation in~\(\Repi(A,X)\).  Then~\(\pi\) is locally
+	bounded, and the
+!!! %	operators~\(\cl{\pi(a)}\) for \(a\in A_h\) are regular and
+	self-adjoint by Proposition~\ref{pro:locally_bounded_regular}.
+	Furthermore, their Cayley transforms belong to the image of
+	\(\mathcal{A}_\mathrm{b} \cong \Contb(\hat{A},\tau_c)\), which is commutative.
+!!! %	Hence the operators~\(\cl{\pi(a)}\) for \(a\in A_h\) strongly
+	commute with each other.  The class \(\Repi(A)\) of representations
+!!! %	of~\(A\) with the property that all~\(\cl{\pi(a)}\), \(a\in A_h\), are regular and
+	self-adjoint and strongly commute with each other is defined by
+	submodule conditions by Examples \ref{exa:regularity_condition} and
+	Example~\ref{exa:strong_commutation}.
+	
+	Let \(Y \defeq \prod_{a\in A_h} S^1\).  Given a representation
+	in~\(\Repi(A)\), there is a unique representation \(\varrho\colon
+!!! %	\Cont(Y)\to \Bound(\Hilm)\) that maps the \(a\)th coordinate
+	projection to the Cayley transform of~\(\cl{\pi(a)}\).  We map
+	\(\hat{A}\) to~\(Y\) by sending \(\chi\in\hat{A}\) to the point
+	\((c_{\chi(a)})_{a\in A_h} \in Y\).  Here~\(c_{\chi(a)}\) is the
+	Cayley transform of the number \(\chi(a)\in \R\) or, equivalently,
+	the value of the Cayley transform of the unbounded function
+	\(\hat{a}\in\Cont(\hat{A})\) at~\(\chi\).  This is a homeomorphism
+	onto its image because for a net of characters~\((\chi_i)\) and a
+	character~\(\chi\) on~\(A\), we have \(\lim \chi_i(a) = \chi(a)\) if
+	and only if \(\lim c_{\chi_i(a)} = c_{\chi(a)}\).  Thus the
+	composite map \(X\to \hat{A}\to Y\) is a homeomorphism onto its
+	image as well.  This forces the image to be locally closed
+	because~\(Y\) is compact and~\(X\) locally compact, and a subspace
+	of a locally compact space is locally compact if and only if its
+	underlying subset is locally closed (see
+	\cite{Bourbaki:Topologie_generale}*{I.9.7, Propositions 12 and 13}).
+	
+!!! %	Let \(\cl{X}\subseteq Y\) be the closure of the image of~\(X\)	in~\(Y\).  Then~\(X\) is open in~\(\cl{X}\).  All representations
+	in~\(\Repi(A)\) carry a unital \Star{}homomorphism
+!!! %	\(\Cont(Y)\to\Bound(\Hilm)\).  Asking for this to factor through the
+	quotient~\(\Cont(\cl{X})\) of~\(\Cont(Y)\) is a submodule condition
+	as in Example~\ref{exa:spectral_condition}.  Asking for the induced
+!!! %	\Star{}homomorphism \(\Cont(\cl{X})\to\Bound(\Hilm)\) to remain
+	nondegenerate on~\(\Cont_0(X)\) is another submodule condition as in
+	Example~\ref{exa:spectral_condition}.
+	
+	The class \(\Rep'(A)\) defined by these two more submodule
+	conditions is weakly admissible by
+	Lemma~\ref{lem:operator_conditions}.  The universal
+!!! %	\(X\)-integrable representation belongs to \(\Rep'(A)\); by
+	weak admissibility, this is inherited by all \(X\)-integrable
+	representations.  Conversely, we claim that any representation in
+!!! %	\(\Rep'(A)\) is \(X\)-integrable.
+	
+	If \(\pi\in\Rep'(A)\), then the unital
+!!! %	\Star{}homomorphism \(\Cont(Y)\to\Bound(\Hilm)\) descends to a
+	nondegenerate \Star{}homomorphism \(\varrho\colon
+	\Cont_0(X)\to\Bound(\Hilm)\).  By construction, the extension
+	of~\(\varrho\) to multipliers maps the Cayley transform of
+	\(f^*(a)\in\Cont(X)\) for \(a\in A_h\) to the Cayley transform
+!!! %	of~\(\cl{\pi(a)}\).  Let~\(\pi'\) be the \(X\)-integrable
+	representation of~\(A\) associated to~\(\varrho\).  The
+	regular, self-adjoint operators \(\cl{\pi'(a)}\)
+!!! %	and~\(\cl{\pi(a)}\) have the same Cayley transform for all \(a\in	A_h\).  Hence \(\cl{\pi'(a)} = \cl{\pi(a)}\) for all \(a\in A_h\).
+	The subset~\(A_h\) is a strong generating set for~\(A\)
+	by Example~\ref{exa:strong_generating}.  Hence
+	Proposition~\ref{pro:equality_if_closure_equal} gives \(\pi'=\pi\).
+	Thus \(\Repi(A,X)\) is the class of representations defined by the
+	submodule conditions above.  This finishes the proof that
+	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}.
+	
+	Now we prove
+	\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}
+	by contradiction.  Let \((x_n)_{n\in\N}\) and~\(x\) be as
+	in~\ref{enum:commutative_local-global5}.  Let \(\bar{\N} =
+	\N\cup\{\infty\}\) be the one-point compactification of~\(\N\) and
+	view the sequence~\((x_n)\) and~\(x\) as a map \(\xi\colon
+	\bar{\N}\to X\).  This map is not continuous, but composition
+	with~\(f\) gives a continuous map \(\bar{\N}\to\hat{A}\).  Hence
+	Proposition~\ref{pro:commutative_representation} gives a
+!!! %	representation~\((\Hilms[D],\mu)\) of~\(A\)	on~\(\Cont(\bar{\N})\).  This is not \(X\)-integrable because	the map \(\bar{\N}\to X\) is not continuous.  We claim, however,	that the representation \((\Hilms[D],\mu) \otimes_\varrho	\Hilm[H]\) is \(X\)-integrable for any	GNS-representation~\(\varrho\) on a Hilbert space~\(\Hilm[H]\).
+	A state on~\(\Cont(\bar{\N})\) is the same as a Radon measure
+	on~\(\bar{\N}\).  Since~\(\bar{\N}\) is countable, any Radon
+	measure is atomic.  Thus the resulting GNS-representation is a
+	direct sum of irreducible representations associated to
+	characters.  Each character on~\(\Cont(\bar{\N})\) gives an
+	\(X\)-integrable representation because \(\xi(\bar{\N})
+	\subseteq f(X)\).
+!!! %	Hence~\((\Hilms[D],\mu)\) is a counterexample to the
+	Local--Global Principle.  So~\ref{enum:commutative_local-global4}
+	cannot hold if~\ref{enum:commutative_local-global5} fails.
+\end{proof}
+
+\begin{example}
+	\label{exa:pure-point}
+	Let \(A=\C[x]\), so that \(\hat{A}=\R\).  Let~\(X\) be~\(\R\) with
+	the discrete topology, and let \(f\colon X\to\R\) be the identity
+	map.  This is a continuous bijection, but not open.  Hence the
+	class of \(X\)-integrable representations violates the
+	Local--Global Principle by
+	Theorem~\ref{the:commutative_local-global}.  Nevertheless,
+	\(\Cont_0(X)\) is a $C^*$-hull for the class of
+	\(X\)-integrable representations of~\(A\) by
+	Theorem~\ref{the:commutative_hull}.  An \(X\)-integrable
+	representation of~\(A\) is integrable as in
+	Theorem~\ref{the:regular_self-adjoint_Cstar-hull}, and so it comes
+	from a single regular, self-adjoint operator \(T\defeq
+!!! %	\cl{\pi(x)}\).  The representation of~\(\C[x]\) associated	to~\(T\) is \(X\)-integrable if and only if \(\Hilm =	\bigoplus_{\lambda\in\R} \Hilm_\lambda\), where \(\Hilm_\lambda	\defeq \{\xi\in\Hilm \mid T\xi= \lambda\xi\}\) for \(\lambda\in\R\)
+	is the \(\lambda\)-eigenspace of~\(T\).
+\end{example}
+
+Another example of a $C^*$-hull for~\(\C[x]\) where \(X\to\R\)
+is bijective but not a homeomorphism onto its image is discussed in
+Example~\ref{exa:smaller_integrable_than_regular_self-adjoint}.
+
+\begin{theorem}
+	\label{the:no_Cstar-hull_commutative_not_locally_compact}
+	There is a $C^*$-hull for
+	\(\Rep_\mathrm{b}(A)\) if and only if the compactly generated
+	topology~\(\tau_c\) on~\(\hat{A}\) is locally compact, and then
+	the $C^*$-hull is \(\Cont_0(\hat{A},\tau_c)\).
+\end{theorem}
+
+\begin{proof}
+	Assume first that~\((\hat{A},\tau_c)\) is locally compact.  The
+	pro-$C^*$-algebra completion~\(\mathcal{A}\) that acts on
+	locally bounded representations of~\(A\) is
+	\(\Cont(\hat{A},\tau_c)\) by
+	Proposition~\ref{pro:commutative_pro-completion}.  The primitive
+	ideal space of \(\Cont(K)\) for a compact subspace \(K\subseteq
+	\hat{A}\) is simply~\(K\), and \(\norm{a}_\mathfrak{p} =
+!!! %	\abs{a(\mathfrak{p})}\) for \(a\in\Cont(\hat{A},\tau_c)\) and	\(\mathfrak{p}\in \Prim \Cont(K) \cong K\).  Therefore, a function
+	\(f\in \Cont(\hat{A},\tau_c)\) vanishes at~\(\infty\) in the sense
+	of Definition~\ref{def:compact_in_pro-Cstar} if and only if it
+	vanishes at~\(\infty\) in the usual sense.  The subalgebra
+	\(\Cont_0(\mathcal{A}) = \Cont_0(\hat{A},\tau_c)\) is dense
+	in~\(\mathcal{A}\)
+	because~\(\tau_c\) is locally compact.  Now
+	Theorem~\ref{the:Prim_A_locally_compact_gives_hull} shows that
+	\(\Cont_0(\mathcal{A}) = \Cont_0(\hat{A},\tau_c)\) is a
+	$C^*$-hull for the class of locally bounded representations
+	of~\(A\).
+	
+	Conversely, let~\(B\) be a (weak) $C^*$-hull for the locally
+	bounded representations of~\(A\).  Then~\(B\) is commutative by
+	Theorem~\ref{the:commutative_hull}.  Let~\(Y\) be the spectrum
+	of~\(B\).  The representation of~\(A\) on \(B\cong \Cont_0(Y)\)
+	corresponds to a continuous map \(f\colon Y\to\hat{A}\) by
+	Proposition~\ref{pro:commutative_representation}.  Let
+	\(D=\Cont_0(X)\) be a commutative $C^*$-algebra.  Any
+	representation of~\(A\) on~\(D\) is locally bounded.  So the
+	bijection \(\Rep_\mathrm{b}(A,D)\cong \Rep(B,D)\) is a bijection
+	between the spaces of continuous maps \(X\to\hat{A}\) and \(X\to
+	Y\).  More precisely, this bijection is composition with~\(f\).
+	
+	For the one-point space~\(X\), this bijection says that \(f\colon
+	Y\to\hat{A}\) is bijective.  The bijection for all compact~\(X\)
+	means that~\(f\) becomes a homeomorphism if we replace the
+	topologies on \(Y\) and~\(\hat{A}\) by the associated compactly
+	generated ones.  The topology on~\(Y\) is already compactly
+	generated because~\(Y\) is locally compact.  Hence~\(f\) is a
+	homeomorphism from~\(Y\) to \((\hat{A},\tau_c)\).  So~\(\tau_c\)
+	is locally compact.
+\end{proof}
+
+Let \(\Repi(A)\) be the class of all representations with the
+property that~\(\cl{\pi(a)}\) is regular and self-adjoint for all
+\(a\in A_h\).  We are going to compare \(\Repi(A)\) and
+\(\Rep_\mathrm{b}(A)\).
+Proposition~\ref{pro:locally_bounded_regular} gives
+\(\Rep_\mathrm{b}(A)\subseteq\Repi(A)\).
+
+\begin{theorem}
+	\label{the:commutative_regular_admissible}
+	The class \(\Repi(A)\) is admissible and defined by submodule
+	conditions.  Hence it satisfies the Strong Local--Global Principle.
+	The operators~\(\cl{\pi(a)}\) for \(a\in A_h\) strongly commute for
+	all \(\pi\in\Repi(A)\).
+	
+	Let \(S\subseteq A_h\) be a strong generating set for~\(A\).
+	If\/~\(\cl{\pi(a)}\) is regular and self-adjoint for all \(a\in S\),
+	then already \(\pi\in\Repi(A)\).
+\end{theorem}
+
+\begin{proof}
+	The class \(\Rep^S(A)\) of representations defined by
+	requiring~\(\cl{\pi(a)}\) to be regular and self-adjoint for all
+	\(a\in S\) for a strong generating set~\(S\) is admissible and
+	defined by submodule conditions by
+	Theorem~\ref{the:regular_admissible_local-global}.  The class
+	\(\Repi(A)\) is defined by submodule conditions as well by
+	Example~\ref{exa:regularity_condition}.  So is the subclass
+	\(\Rep'(A)\) of all representations in~\(\Repi(A)\) for which the
+	operators~\(\cl{\pi(a)}\) for all \(a\in A_h\) strongly commute
+	(Example~\ref{exa:strong_commutation}).  Hence our three classes of
+	representations satisfy the Strong Local--Global Principle by
+	Theorem~\ref{the:operator_conditions}.
+	
+	The classes \(\Repi(A)\) and~\(\Rep'(A)\) have the same Hilbert
+	space representations by \cite{Schmudgen:Unbounded_book}*{Theorem
+		9.1.2}.  Since~\(S\) is a strong generating set, the domain of any
+	representation~\(\pi\) in \(\Rep^S(A)\) is \(\bigcap_{a\in S}
+	\dom(\cl{\pi(a)})\) by~\eqref{eq:domain_strong_generating_set}.
+	This contains \(\bigcap_{a\in S, n\in\N} \dom(\cl{\pi(a)}{}^n)\).
+	Now \cite{Schmudgen:Unbounded_book}*{Theorem 9.1.3} shows that
+	\(\Rep^S(A)\) and \(\Repi(A)\) contain the same Hilbert space
+	representations.  Since our three classes of representations satisfy
+	the (Strong) Local--Global Principle and have the same Hilbert space
+	representations, they are equal.
+\end{proof}
+
+\begin{theorem}
+	\label{the:locally_bounded_versus_regular}
+	If~\(A\) is commutative and countably generated, then
+	\[
+	\Repi(A)=\Rep_\mathrm{b}(A).
+	\]
+\end{theorem}
+
+\begin{proof}
+	Proposition~\ref{pro:locally_bounded_regular} gives
+	\(\Rep_\mathrm{b}(A)\subseteq \Repi(A)\).  Conversely,
+	let~\((\Hilms,\pi)\) be a representation on a Hilbert
+	module~\(\Hilm\) in~\(\Repi(A)\); that is, \(\cl{\pi(a)}\) is
+	regular and self-adjoint for each \(a\in A\).  Let
+	\((a_i)_{i\in\N}\) be a countable generating set for~\(A\).  We
+	may assume without loss of generality that \(a_i = a_i^*\) for all
+	\(i\in\N\) and that~\((a_i)\) is a basis for~\(A\) and hence a
+	strong generating set.  Let \(\xi\in\Hilms\).  We are going to
+	approximate~\(\xi\) by bounded vectors for~\(\pi\).  This will
+	show that~\(\pi\) is locally bounded.
+	
+	For each \(i\in\N\), there is a canonical homomorphism
+	\(\alpha_i\colon \C[x]\to A\) mapping \(x\mapsto a_i\).  The
+	closure of \(\pi\circ\alpha_i\) is an integrable representation
+	of~\(\C[x]\) as in
+	condition~\ref{enum:regular_self-adjoint_Cstar-hull2} in
+	Theorem~\ref{the:regular_self-adjoint_Cstar-hull}.  Hence it
+	corresponds to a representation \(\varrho_i\colon
+	\Cont_0(\R)\to\Bound(\Hilm)\), the functional calculus
+	of~\(\cl{\pi(a_i)}\).  The operators~\(\cl{\pi(a)}\) for \(a\in
+	A_h\) strongly commute by
+	Theorem~\ref{the:commutative_regular_admissible}.  Thus the Cayley
+	transform of~\(a_i\) commutes with~\(\cl{\pi(a)}\) and, in
+	particular, maps the domain of~\(\cl{\pi(a)}\) to itself.  The
+	same remains true for \(\varrho_i(f)\) for all \(f\in\Cont_0(\R)\)
+	because we get them by the (bounded) functional calculus for the
+	Cayley transform of~\(\cl{\pi(a_i)}\).  So
+	\(\varrho_i(f)(\Hilms)\subseteq \Hilms\)
+	by~\eqref{eq:domain_closure} and \(\varrho_i(f) \pi(a) = \pi(a)
+	\varrho_i(f)\) for all \(f\in\Cont_0(\R)\), \(a\in A\) as
+	operators on~\(\Hilms\).  Now we show that~\(\pi\circ\alpha_i\) is
+	locally bounded.  If \(f\in\Contc(\R)\) is supported in a compact
+	subset \(K\subseteq \R\), then
+	\[
+	\norm{\pi(h(a_i))\varrho_i(f)\xi}
+	= \norm{\varrho_i(h\cdot f)\xi}
+	\le C \sup \{\abs{h(x)}\mid x\in K\}
+	\]
+	for all \(h\in\C[x]\); thus~\(\varrho_i(f)\xi\) is bounded for the
+	representation~\(\pi\circ\alpha_i\).  There is an approximate
+	unit~\((f_n)\) for~\(\Cont_0(\R)\) that lies in~\(\Contc(\R)\).
+	Then \(\lim \varrho_i(f_n)\xi=\xi\) for all \(\xi\in\Hilms\), even
+	in the graph topology for~\(\pi\) because \(\pi(a)\varrho_i(f_n)\xi =
+	\varrho_i(f_n)\pi(a)\xi\) for all \(a\in A\),
+	\(f_n\in\Cont_0(\R)\), \(\xi\in\Hilms\).  Therefore, the bounded
+	vectors of the form~\(\varrho(f)\xi\) with \(f\in\Contc(\R)\),
+	\(\xi\in\Hilms\) form a core for \(\pi\circ\alpha_i\).  So
+	\(\pi\circ\alpha_i\) is locally bounded.
+	
+	We now refine this construction to approximate~\(\xi\) by bounded
+	vectors for the whole representation~\(\pi\).  We
+	construct~\(\varrho_i\) as above.  Fix \(i,k\in\N\) and let \(\xi'
+	\defeq \bigl(1+\pi(a_0^2) + \dotsb + \pi(a_k^2)\bigr)\xi
+	\in\Hilms\).  The argument above gives \(f_{i,k}\in\Contc(\R)\)
+	with \(0\le f_{i,k}\le 1\) and \(\norm{\varrho_i(f_{i,
+			k})\xi'-\xi'} < 2^{-k}\).  Thus \(\norm{\varrho_i(f_{i,k})\xi
+		- \xi}_{a_j}<2^{-k}\) in the graph norm for~\(a_j\) for \(0\le
+	j\le k\).  For \(k,l\in\N\), let
+	\[
+	\xi_{k,l} \defeq \varrho_0(f_{0,k}) \varrho_1(f_{1,k+1}) \dotsm
+	\varrho_l(f_{l,k+l})\xi.
+	\]
+	The operators~\(\varrho_i(f_{i,j})\) are norm-contracting,
+	map~\(\Hilms\) into itself, and commute with each other and with
+	the unbounded operators~\(\pi(a)\) for all \(a\in A\).  Hence
+	\begin{multline*}
+		\norm{\xi_{k,l} - \xi_{k,l+d}}_{a_j}
+		\le \sum_{i=1}^d {}\norm{\xi_{k,l+i-1} - \xi_{k,l+i}}_{a_j}
+		\\\le \sum_{i=1}^d {}\norm{\varrho_{l+i}(f_{l+i,k+l+i})\xi - \xi}_{a_j}
+		\le \sum_{i=1}^d 2^{-k-l-i} = 2^{-k-l}
+	\end{multline*}
+	for all \(k,l,d\in\N\), \(0\le j\le k+l+1\).  Since we
+	assumed~\((a_j)\) to be a strong generating set, the graph norms
+	for~\(a_j\) generate the graph topology.  So the estimate above
+	shows that~\((\xi_{k,l})_{l\in\N}\) with fixed~\(k\) is a Cauchy
+	sequence in~\(\Hilms\) in the graph topology.  Thus it converges
+	to some \(\xi_k\in\Hilms\).  Letting \(\xi_{k,-1}\defeq\xi\), the
+	above estimate remains true for \(l=-1\) and gives
+	\(\norm{\xi_{k,l} - \xi}_{a_j} \le 2^{-k+1}\) for all \(j\le k\),
+	uniformly in~\(l\in\N\).  This implies \(\norm{\xi_k-\xi}_{a_j}\le
+	2^{-k+1}\) for \(j\le k\), so that \(\lim \xi_k=\xi\) in the graph
+	topology.  It
+	remains to show that each~\(\xi_k\) is a bounded vector.
+	
+	Fix \(k,i\in\N\) and let \(b\in A\).  Choose \(R_i>0\) so
+	that~\(f_{i,k+i}\) is supported in \([-R_i,R_i]\).  If \(l\ge i\),
+	then \(\pi(b)\xi_{k,l}\in \varrho_i(\Cont_0(-R_i,R_i))\Hilm\)
+	because \(\varrho_i(f_{i,k+i})\) occurs in the definition
+	of~\(\xi_{k,l}\).  As above, this implies
+	\(\norm{\pi(a_i)\pi(b)\xi_k} \le R_i \norm{\pi(b)\xi_k}\) for all
+	\(b\in A\).  Thus
+	\[
+	q(a) \defeq \sup_{b\in A}
+	\frac{\norm{\pi(a)\pi(b)\xi_k}}{\norm{\pi(b)\xi_k}}
+	\]
+	is finite for \(a=a_i\).  Since~\(a_i\) is a basis for~\(A\)
+	and~\(q\) is subadditive, we get \(q(a)<\infty\) for all \(a\in
+	A\).  Since \(q(a)\) is the operator norm of
+	\(\pi(a)|_{\pi(A)\xi_k}\), it is a $C^*$-seminorm on~\(A\).
+	By construction, \(\norm{\pi(a)\xi_k} \le q(a)\) for all \(a\in
+	A\), that is, \(\xi_k\) is bounded.
+\end{proof}
+
+\begin{proposition}
+	\label{pro:commutative_regular_versus_locally_bounded_necessary}
+	If\/~\(\Repi(A)\) has a weak $C^*$-hull, then \(\Repi(A) =
+	\Rep_\mathrm{b}(A)\).
+\end{proposition}
+
+\begin{proof}
+	Let~\(B\) with the universal representation~\((\mathfrak B,\mu)\) be a
+	weak $C^*$-hull for \(\Repi(A)\).  First we claim that~\(B\) is
+	commutative.  Let \(\omega\colon B\injto\Bound(\Hilm[H])\) be a
+	faithful representation.  This corresponds to an integrable
+	representation~\(\pi\) of~\(A\).  Since the equivalence
+	\(\Repi(A,\Hilm[H])\cong\Rep(B,\Hilm[H])\) is compatible with
+	unitary \Star{}intertwiners, the commutant of~\(\omega(B)\) is the
+	$C^*$-algebra of \Star{}intertwiners of~\(\pi\) by
+	Proposition~\ref{pro:adjointable_intertwiner}.  The commutant of
+	this is a commutative von Neumann algebra by
+	\cite{Schmudgen:Unbounded_book}*{Theorem 9.1.7}.  So the bicommutant
+	of~\(\omega(B)\) is commutative.  This forces~\(B\) to be
+	commutative.
+	
+	Any representation of~\(A\) on a commutative $C^*$-algebra is
+	locally bounded by Theorem~\ref{the:commutative_hull}.  If the
+	universal representation for~\(\Repi(A)\) is locally bounded, then
+	all representations in~\(\Repi(A)\) are locally bounded, so that
+	\(\Repi(A) = \Rep_\mathrm{b}(A)\).  Thus \(\Repi(A)\) only has a
+	weak $C^*$-hull if \(\Repi(A) = \Rep_\mathrm{b}(A)\).
+\end{proof}
+
+
 
 \section{Discrete crossed product of $C^*$-algebras}\label{discr_cr_prod_sec}	
 Here I follow to \cite{discrete_crossed}.
@@ -27953,7 +28587,7 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
 	\begin{itemize}
 		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
-		\item[(2)] for each $x \in \sU$, there is a neighborhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
+		\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
 	\end{itemize}
 \end{empt}
 
@@ -28016,7 +28650,7 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 \begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
 	A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
 	$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
-	% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ x,p ls a lcal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> x(f~ { V), for every open set V in Y. As V ranges over  all open neighbor- 	hoods of /(P), f~l(V) ranges over   a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
+	% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ x,p ls a lcal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> x(f~ { V), for every open set V in Y. As V ranges over  all open neighbor- 	hoods of /(P), f~l(V) ranges over   a subset of the neighbourhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
 			
 		\end{definition}
 		\begin{example} \label{sheaf_ringed_space_exm}
@@ -28065,7 +28699,7 @@ Recall that for $s \in \mathscr{F}\left(\sX \right)$,
 	$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
 	\begin{enumerate}
 		\item  each element of $\Phi$ is paracompact;
-		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
+		\item each element of $\Phi$ has a (closed) neighbourhood which is in $\Phi$.
 	\end{enumerate}
 \end{definition}\label{sheaf_soft_defn}
 The family of all compact subsets of $\sX$ is denoted by $c$.
@@ -28104,8 +28738,8 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 
 
 %For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
-\begin{lemma}\label{sheaf_soft_neighborhood_lem}\cite{godement:sheaf,torsten:sheaves}
-	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+\begin{lemma}\label{sheaf_soft_neighbourhood_lem}\cite{godement:sheaf,torsten:sheaves}
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighbourhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
 \end{lemma}
 
 %\begin{theorem}\cite{bredon:sheaf}
@@ -28118,7 +28752,7 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 %\end{theorem}
 %\begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
 	%	3.3.1\\
-%	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allow !!! ADMIT !!!s a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+%	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allow !!! ADMIT !!!s a fundamental system of paracompact neighbourhoods then $s$ can be extended to a neighbourhood of $\mathcal S$ in $\sX$. 
 %\end{theorem}
 %\begin{theorem}
 %Thorme 3.4.1-   
@@ -28126,7 +28760,7 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 %\end{theorem}
 %Following text is an English translation of the above theorem
 %\begin{theorem}
-%	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+%	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighbourhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
 %\end{theorem}
 %\begin{thm}\cite{godement:sheaf}
 %Thorme 3-7-2.   
@@ -28134,7 +28768,7 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 %\end{thm}
 %Following text is an English translation of the above theorem.
 %\begin{theorem}\label{sheaf_a_soft_thm}
-%Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
+%Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighbourhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
 %\bean
 %S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
 %\eean
@@ -28366,7 +29000,7 @@ The theory of covering groupoids is explained in \cite{zhi:cov_group}. Given $u 
 f \in S \text{ and the composite } fh \text{ is defined implies} fh \in S.
 \eean
 Since $x \in \G$ is invertible, then every nonempty sieve on $\G$ coincides with $\G^u$.
-%We call the maximal sieve t(G) as a neighborhood of G in the groupoid G.
+%We call the maximal sieve t(G) as a neighbourhood of G in the groupoid G.
 \begin{definition}\label{groupoid_covering_defn}\cite{zhi:cov_group}
 Let $p : \widetilde{\G}\to G$ be a morphism of groupoids. An ordered pair
 $\left( \widetilde{\G}, p\right)$ is a \text{covering groupoid} if for each object $\widetilde u \in \widetilde{\G}^0$ the restriction of $p$
@@ -28645,7 +29279,7 @@ open subset.
 		submanifolds $L$ of $M$ with $T_x (L) = \mathcal{F}_x $, $\forall \, x \in L$,
 		and the partition of $M$ in leaves $$M = \cup
 		L_{\alpha}\,,\quad\alpha \in X$$ is characterized geometrically by
-		its ``local triviality'': every point $x \in M$ has a neighborhood
+		its ``local triviality'': every point $x \in M$ has a neighbourhood
 		$\mathcal U$ and a system of local coordinates
 		$(x^j)_{j = 1 , \ldots , \dim V}$ called
 		{\it foliation charts}, so
@@ -28675,11 +29309,11 @@ open subset.
 	\end{definition}
 	The symbol $\mathbb{F}^p$ denotes either the full Euclidean space $\R^p$ or Euclidean half space $\mathbb{H}^p = \left\{\left.\left(x_1,..., x_n \right) \in \mathbb{R}^p\right| x_1 \le 0 \right\}$.
 	\begin{definition}\label{foli_rect_defn}\cite{candel:foliI}
-		A rectangular neighborhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allow !!! ADMIT !!!ing the possibility of manifolds with boundary and (convex) COI'Ile1'S.
+		A rectangular neighbourhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allow !!! ADMIT !!!ing the possibility of manifolds with boundary and (convex) COI'Ile1'S.
 	\end{definition}
 	\begin{definition}\label{foli_chart_defn}\cite{candel:foliI}
 		% 	Definition 1.1.17 \\
-		Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighborhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighborhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
+		Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighbourhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighbourhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
 	\end{definition}
 	
 	\begin{definition}\label{foliated_manifold_defn}\cite{candel:foliI}
@@ -28741,16 +29375,16 @@ There is a space $Z$
 	$$
 	t \in I \mapsto  F\left(\a_{x,u} \#\a\#  \a_{x,u}\left( t\right), z  \right) 	\in M
 	$$
-	for some $u \in B_\eps\left(p_0 \right)$, $v \in B_\eps\left(p_1 \right)$ and $z \in Z$, is a neighborhood $U\left( \ga\right)$  of $\ga$ in
+	for some $u \in B_\eps\left(p_0 \right)$, $v \in B_\eps\left(p_1 \right)$ and $z \in Z$, is a neighbourhood $U\left( \ga\right)$  of $\ga$ in
 	$\G$. ($\a\#\b$denotes the path $\a$ followed by the path $\b$.) Note that
 	this makes sense because an element of G can be represented by at most one
-	such path. This neighborhood $\sU$ is diffeomorphic to $B_\eps\left(p_0 \right)\times B_\eps\left(p_1 \right)\times Z$
+	such path. This neighbourhood $\sU$ is diffeomorphic to $B_\eps\left(p_0 \right)\times B_\eps\left(p_1 \right)\times Z$
 	(as a foliated space with leaves $B_\eps\left(p_0 \right)\times B_\eps\left(p_1 \right)\times {z}$).
 	\end{empt}
 
 
 	\begin{example}\label{foli_fibration_exm}\cite{candel:foliI}
-Let $M$ be an $n$-manifold, $B$ a manifold of dimension $n-k$, $\partial M = \emptyset = \partial B$, and let  $\pi: M \to B$ be a smooth \textit{fiber bundle}. That is there is a $k$-manifold $F$ and, for each $x \in  B$, an open neighborhood $\sU$ of $x$ in $B$ and a commutative diagram
+Let $M$ be an $n$-manifold, $B$ a manifold of dimension $n-k$, $\partial M = \emptyset = \partial B$, and let  $\pi: M \to B$ be a smooth \textit{fiber bundle}. That is there is a $k$-manifold $F$ and, for each $x \in  B$, an open neighbourhood $\sU$ of $x$ in $B$ and a commutative diagram
 \\
 \begin{tikzcd}
 \pi^{-1}\left(\sU \right) \arrow[r, "\varphi"] \arrow[d, "\pi"] & \sU\times F  \arrow[d, "p"]\\
@@ -28890,7 +29524,7 @@ Under the hypotheses of the Example \ref{foli_fibration_exm} we say that the fol
 			\item	 If $h \in \Ga$, then $h^{-1} \in \Ga$. 
 			\item $\Id_N \in \Ga$. 
 			\item If $h \in \Ga$ and $W \subset  D(h)$ is an open subset, then $\left.h\right|_W \in \Ga$. 
-			\item If $h:D(h) \xrightarrow{\approx} R(h)$ is a $C^r$ diffeomorphism between open subsets of $N$ and if, for each $w \in  D(h)$, there is a neighborhood $W$ of $w\in  D(h)$ such that $\left.h\right|_W \in \Ga$, then $h \in \Ga$. 
+			\item If $h:D(h) \xrightarrow{\approx} R(h)$ is a $C^r$ diffeomorphism between open subsets of $N$ and if, for each $w \in  D(h)$, there is a neighbourhood $W$ of $w\in  D(h)$ such that $\left.h\right|_W \in \Ga$, then $h \in \Ga$. 
 		\end{enumerate}
 		If $\Ga' \subset \Ga$ is also a pseudogroup, it is called a subpseudogroup of $\Ga$.
 	\end{definition}
@@ -29107,7 +29741,7 @@ the tensor product $\K\left( L^2\left( \mathcal N\right) \right) \otimes C_0\lef
 	
 	%\begin{definition}\label{foli_pseudo_a_defn}\cite{candel:foliII}
 	%Definition 1.3.6.\\ 
-	%The my pseudogroup of a foliated space is \textit{pseudo analytic} if the following holds. If $h: Z\to Z'$ is a my transformation between two transversals $Z$ and $Z'$, with $Z\subset Z'$, and $W \subset Z$ is an open subset such that $\left.h\right|_W = \Id$, and if $x \in \overline{W}$ is such that $h(x) = x$, then $h = \Id$ on a neighborhood of x. 
+	%The my pseudogroup of a foliated space is \textit{pseudo analytic} if the following holds. If $h: Z\to Z'$ is a my transformation between two transversals $Z$ and $Z'$, with $Z\subset Z'$, and $W \subset Z$ is an open subset such that $\left.h\right|_W = \Id$, and if $x \in \overline{W}$ is such that $h(x) = x$, then $h = \Id$ on a neighbourhood of x. 
 	%\end{definition}
 	
 	%\begin{proposition}\label{foli_pseudo_a_prop}\cite{candel:foliII}
@@ -29178,7 +29812,7 @@ the tensor product $\K\left( L^2\left( \mathcal N\right) \right) \otimes C_0\lef
 		\E^M_N\cong\ell^2\left(C^*_r\left(\G^N_N\right) \right)\cong C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right).  
 		\ee
 		The combination of equations \eqref{foli_k1_eqn}, \eqref{foli_k2_eqn} yields the Lemma  \ref{foli_stab_lem}.
-		Below we briefly remind  the idea described in \cite{hilsum_scandalis:stab} proof of the equation  \ref{foli_k2_eqn}. There is a tubular neighborhood $V_N$ of $N$ which is homeomorphic to $N \times [0,1]^q$. This neighborhood yields the isomorphism
+		Below we briefly remind  the idea described in \cite{hilsum_scandalis:stab} proof of the equation  \ref{foli_k2_eqn}. There is a tubular neighbourhood $V_N$ of $N$ which is homeomorphic to $N \times [0,1]^q$. This neighbourhood yields the isomorphism
 		\be\label{foli_e_sum_eqn}
 		\E^M_N\cong C^*_r\left(\G^N_N\right)\otimes L^2\left( [0,1]^q\right) \oplus  \E^W_N
 		\ee
@@ -31070,7 +31704,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 
 
 
-%
+
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 
 \bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012. This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.

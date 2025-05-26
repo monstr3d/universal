@@ -18,7 +18,7 @@ namespace SQLServerWarehouse
         /// <summary>
         /// Binary table row
         /// </summary>
-        public partial class SelectBinaryTableRow : ILeaf
+        public partial class SelectBinaryTableRow : ILeaf, IData
         {
 
 

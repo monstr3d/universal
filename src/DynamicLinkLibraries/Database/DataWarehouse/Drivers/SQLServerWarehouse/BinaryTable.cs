@@ -11,7 +11,7 @@ using ErrorHandler;
 namespace SQLServerWarehouse.Models
 {
     [Leaf<INode>]
-    public partial class BinaryTable : ILeaf
+    public partial class BinaryTable : ILeaf, IData
     {
 
         public BinaryTable() 

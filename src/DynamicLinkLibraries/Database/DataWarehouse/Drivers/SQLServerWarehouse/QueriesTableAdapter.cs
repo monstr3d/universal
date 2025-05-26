@@ -1,8 +1,13 @@
-using DataWarehouse.Interfaces;
-using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+
+using DataWarehouse.Interfaces;
+
+using ErrorHandler;
+
+using NamedTree;
+
 
 namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 {
@@ -45,7 +50,7 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
         byte[] IDatabaseInterface.GetData(string login, string password, object key, string id, ref string extension)
         {
        
-            return id.ToLeaf().Data;
+            return (id.ToLeaf() as IData).Data;
         }
 
         IDictionary<object, object> IDatabaseInterface.GetItems(string login, string password, object key, string extension)

@@ -365,7 +365,7 @@ namespace DataWarehouse.Forms
             }
             try
             {
-                Selected.Data = b;
+                (Selected as IData).Data = b;
             }
             catch (Exception ex)
             {
@@ -390,7 +390,7 @@ namespace DataWarehouse.Forms
             {
                 return;
             }
-            byte[] b = Selected.Data;
+            byte[] b = (Selected as IData).Data;
             Close();
             blob.Extension = ext[0];
             blob.Bytes = b;
@@ -402,7 +402,7 @@ namespace DataWarehouse.Forms
             {
                 return null;
             }
-            return Selected.Data;
+            return (Selected as IData).Data;
         }
 
 
@@ -499,7 +499,7 @@ namespace DataWarehouse.Forms
             {
                 return;
             }
-            byte[] b = Selected.Data;
+            byte[] b = (Selected as IData).Data;
             saveFileDialogData.Filter = "|*.cfa"; // !!! + ext;
             /*!!!         try
                      {
