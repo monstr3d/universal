@@ -268,11 +268,6 @@ namespace Scripts.Specific
             }
         }
 
-        void IActivation.PostActivate(MonoBehaviour[] monoBehaviours)
-        {
-           
-        }
-
         #endregion
 
     }

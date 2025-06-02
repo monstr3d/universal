@@ -56,7 +56,7 @@ namespace Scripts.Level
 
         private void YawEvent()
         {
-            vp.Set(angles, frame.Quaternion);
+            angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
             {
                 ev.Event -= YawEvent;

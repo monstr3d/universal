@@ -71,7 +71,7 @@ namespace Scripts.Specific
 
         Action<double>[] dInp = new Action<double>[6];
 
-        Func<double?>[] dOut = new Func<double?>[6];
+        Func<double>[] dOut = new Func<double>[6];
 
         public static GameObject camera;
 
@@ -81,8 +81,8 @@ namespace Scripts.Specific
 
         Dictionary<KeyCode, KeyCode[]> kkdic = new Dictionary<KeyCode, KeyCode[]>();
 
-        Dictionary<KeyCode, Tuple<Action<double>, Func<double?>, Text, double, double[]>>
-            actions = new ();
+        Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>
+            actions = new Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>();
 
         Dictionary<int, Tuple<int, KeyCode[]>> dictionary;/* = new
             Dictionary<int, Tuple<int, KeyCode[]>>
@@ -265,12 +265,7 @@ namespace Scripts.Specific
             }
             t.Item1(value);
             int m = Math.Sign(value);
-            var y = t.Item2();
-            if (y == null)
-            {
-                return;
-            }
-            var x = y.Value;
+            double x = t.Item2();
             if (Math.Abs(x - value) > double.Epsilon)
             {
                 throw new Exception();
@@ -420,7 +415,7 @@ namespace Scripts.Specific
             {
                 var tst = ttt[i];
                 Action<double> a = dInp[i];
-                Func<double?> f = dOut[i];
+                Func<double> f = dOut[i];
                 var tt = dictionary[i];
                 var j = tt.Item1;
                 double k = constants[j];
@@ -442,7 +437,7 @@ namespace Scripts.Specific
                     }
                     l.Add(kc);
                     double coeff = (m == 0) ? k : -k;
-                    var v = new Tuple<Action<double>, Func<double?>, Text, double, double[]>
+                    var v = new Tuple<Action<double>, Func<double>, Text, double, double[]>
                         (a, f, null, coeff, val);
                     var ts = StaticExtensionUnity.Level + "";
                     if (StaticExtensionUnity.Activation.level > 0 | ts.Contains("Fuel"))

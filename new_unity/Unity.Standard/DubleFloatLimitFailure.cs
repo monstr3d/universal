@@ -11,7 +11,7 @@ namespace Unity.Standard
     {
         #region Fields
 
-        Func<double?> f;
+        Func<double> f;
 
         float[] limits;
 
@@ -21,7 +21,7 @@ namespace Unity.Standard
 
         #endregion
 
-        public DubleFloatLimitFailure(Func<double?> f, float[] limits, float scale, string name)
+        public DubleFloatLimitFailure(Func<double> f, float[] limits, float scale, string name)
         {
             this.f = f;
             this.limits = limits;

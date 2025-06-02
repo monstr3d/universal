@@ -99,10 +99,10 @@ namespace Scripts.Level
         private void YawEvent()
         {
             double[] p = frame.Position;
-            vp.Set(angles, frame.Quaternion);
+            angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
-            //& 
-            //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
+                                              //& 
+                                              //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
                 Debug.Log("YawEvent");
                 ev.Event -= YawEvent;
@@ -122,11 +122,8 @@ namespace Scripts.Level
 
         private void ZZEvent()
         {
-            var o = new object[] {fx(), fy(), fz()};
-            var x = rm.Convert<double>(o);
-            if (x == null) return;
-            if ((Math.Abs(x[0]) < double.Epsilon) & (Math.Abs(x[1]) < double.Epsilon)
-                & (Math.Abs(x[2]) < double.Epsilon))
+            if ((Math.Abs(fx()) < double.Epsilon) & (Math.Abs(fy()) < double.Epsilon)
+                & (Math.Abs(fz()) < double.Epsilon))
             //& 
             //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
@@ -178,7 +175,7 @@ namespace Scripts.Level
         {
           //  Debug.Log("Update");
             double[] p = frame.Position;
-            vp.Set(angles,frame.Quaternion);
+            angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < 10 * al)// & Math.Abs(aVelocity.Omega[2]) < ol)
                                               //& 
                                               //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)

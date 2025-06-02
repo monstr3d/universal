@@ -5,8 +5,12 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
+using Scripts;
+
+using Unity.Standard;
 using Unity.Standard.Abstract;
 using Unity.Standard.Interfaces;
+using Scripts.Specific;
 
 namespace Unity.Standard
 {
@@ -27,7 +31,7 @@ namespace Unity.Standard
         const string key = "RigidBodyStation.Relative to station.z";
 
 
-        new private IIndicator indicator;
+        private IIndicator indicator;
 
         static  internal  double bound = 20;
 
@@ -139,9 +143,8 @@ namespace Unity.Standard
 
         void UpdateLimits()
         {
-         /*!!!   limits.StartBlink(blinkDelay, Start, st,
+            limits.StartBlink(blinkDelay, Start, st,
                 ForcesMomentumsUpdate.forcesMomentumsUpdate.AlarmAudio);
-         */
         }
 
         #endregion

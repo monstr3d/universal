@@ -1,6 +1,11 @@
-﻿namespace DataWarehouse.React.Server.Service
+﻿using DataWarehouse.React.Server.Interfaces;
+
+namespace DataWarehouse.React.Server.Service
 {
-    public class DetaController
+    public class DataController : IDataController
     {
+        public DataController()
+        {
+        }
     }
 }

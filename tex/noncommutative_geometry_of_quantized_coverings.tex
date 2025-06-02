@@ -104,6 +104,9 @@
 
 
 %\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\rar}[1]{\stackrel{#1}{\longrightarrow}}
+\newcommand{\lar}[1]{\stackrel{#1}{\longleftarrow}}
+
 \newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
 \newcommand{\norm}[1]{\left\| #1\right\|}    %\nor{x}=||x||
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
@@ -116,6 +119,7 @@
 \newcommand{\Contb}{C_b} 
 \newcommand{\Repi}{\mathrm{Rep}_{int}} 
 \newcommand{\Rep}{\mathrm{Rep}} 
+\newcommand{\hor}[0]{\mathrm{hor}}
 
 
 % % % % % % % % % % % % % % % % % % % %
@@ -789,7 +793,7 @@ This research is based on the noncommutative generalizations of both topological
 	then $p$ is a finite-fold  covering.
 \end{theorem}
 \begin{remark}
-There is a counterexample  to the Theorem \ref{pavlov_troisky_thm}, e. g. described in	\cite{counter_ex}. However the Theorem is true for a lot of spaces, e. g. metric ones. Maybe quantized coverings are more interesting then topological ones.
+There is a counterexample  to the Theorem \ref{pavlov_troisky_thm}, described in	\cite{counter_ex}. However the Theorem is true for a lot of spaces, e. g. metric ones. Maybe quantized coverings are more interesting then topological ones.
 \end{remark}
 Following table contains  special symbols.
 \\
@@ -873,14 +877,7 @@ Following table contains  special symbols.
 	$f|_{A'}$& Restriction of a map $f: A\to B$ to $A'\subset A$, i.e. $f|_{A'}: A' \to B$\\ 
 	\hline
 \end{tabular}
-The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
-If we consider the  {standard character}
-\bean
-\chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
-x \mapsto e^{2\pi i x}
-\eean
-then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
-$f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$.\section{Ext-functor and characters}\label{ext_char_sec}
+\section{Ext-functor and characters}\label{ext_char_sec}
 \paragraph*{} 
 Let $A \bydef \Z^n /\Gamma$ be a  finite  Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup such that $\Ga$ generates $\Q$-vector space $\Q^n$. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
 $$
@@ -890,9 +887,9 @@ and
 $$
 \Ext^1_\Z\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right).
 $$
-Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^m, \Q\right)$. One has a character 
+Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^n, \Q\right)$. One has a character 
 \bean
-\varphi : \Q^m \to  e^{2\pi i \Q},\\
+\varphi : \Q^n \to  e^{2\pi i \Q},\\
 x \mapsto e^{2\pi i x}.
 \eean
 The restriction $\varphi|_{\Z^n}: \Z^n \to e^{2\pi i \Q}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{2\pi i \Q}$, i.e. $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{2\pi i \Q}$.
@@ -1849,7 +1846,7 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
    	If  $\left(A, \widetilde{A}, G, \lift \right)$ is an unital  noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}) then both $A$ and $\widetilde{A}$ are unital, so both identical inclusions   $A \hookto A$  and $\widetilde{A} \hookto \widetilde{A}$ are unitizations (cf. Definition \ref{unitization_defn}). Using this fact one can prove that $\left(A, \widetilde{A}, G, \lift \right)$ is a  noncommutative finite-fold covering with unitization. 
    	So any unital noncommutative finite-fold covering is a finite-fold covering with unitization with unitization (cf. Definition \ref{fin_unitization_defn}) 
    	   \end{remark}
-
+!!! FINISH !!
 \begin{lemma}\label{fin_composition_unitization_lem}
 		Let $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). If  $H \subset G$ is a subgroup then the given by \eqref{proper_subgroup_finh_eqn} quadruple
 	\be 
@@ -22335,7 +22332,10 @@ sets $\sU_\a$ of $\R^n$ into $M$ such that:
 				1) and 2).
 		
 \end{enumerate}
-\end{definition}	
+\end{definition}
+\begin{remark}\label{diff_mani_rem}
+If all given by Definition \ref{diff_mani_defn} mappings $\mathbf{x}^{-1}_\bt \circ \mathbf{x}_\a$ a $r$-times differentiable manifold then $M$ is a \textit{differentiable manifold of class} $C^r$. If $M$ is a $C^r$-manifold of class $C^r$ for any $r \in \N$ then  $M$ is a \textit{differentiable manifold of class} $C^\infty$.
+\end{remark}	
 \begin{definition}\label{diff_mani_tan_defn}\cite{do_carmo:rg}
 %2.6 Definition. 
 Let $M$ be a differentiable manifold. A differentiable function $\a: \left(-\eps, \eps\right)\to M$ is called a (differentiable) \textit{curve} in 
@@ -22387,6 +22387,69 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\begin{prop}\label{top_cov_mani_prop}\cite{kobayashi_nomizu:diff_geom,lee:smooth_manifolds})
 	If $M$ is a manifold, and $p:\widetilde M\to M$ is a covering then $\widetilde M$ has a (unique) structure of manifold such that $p$ is differentiable.
 \end{prop}
+
+\section{Smooth vector bundles}
+
+\begin{definition}\label{top_sm_bundle_defn}\cite{lee:smooth_manifolds}
+	Let $M$ be a smooth manifold.
+	A \textit{smooth vector bundle of rank $k$  with base  $M$} is a smooth manifold $E$ together
+	with a smooth surjective map $\pi: E\to M$ satisfying:
+	\begin{enumerate}
+		\item [(i)] for each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$  with base 
+		$M$) is endowed with the structure of a real vector space,
+		\item[(ii)] for each $p\in M$ there exists a neighbourhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times \R^k$  such that the following diagram
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				\pi^{-1}\left(\sU \right)  & & \sU \times \R^k \\ 
+				& \sU & \\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\Phi$} (m-1-3)
+			(m-1-1) edge node [left]  {$\pi~~$} (m-2-2)
+			(m-1-3) edge node [right] {$~~\pi_1$} (m-2-2);
+		\end{tikzpicture}
+		\\ 	
+		and the restriction of $\Phi$ to $E_p$ is a linear isomorphism from $E_p$ to $\{p\}\times \R^k \xrightarrow{\approx } \R^k$. (Here $\pi_1$ is the projection on the first factor).
+	\end{enumerate}
+	The manifold $E$ is called the \textit{total space} of the bundle, $M$ is called its \textit{base}, and $\pi$ is its \textit{projection}. Each map $\Phi$ in the above definition is called
+	a \textit{local trivialization} of $E$  with base  $\sU$. 
+	
+\end{definition}
+
+\begin{definition}\label{top_sm_sec_defn}\cite{lee:smooth_manifolds}
+	Let $E$ be a smooth vector bundle  with base  a smooth manifold $M$, with projection $\pi: E\to M$. A section of $E$ is a \textit{section} of the map $\pi$, i.e., a continuous map $\sigma: M \hookto E$ such that $\pi\circ\sigma = \Id_M$. If $\sU \subset M$ is an open subset, a
+	section of the restricted bundle $E|_{\sU}$ is called a \textit{local section} of $E$. A \textit{smooth
+		section} is a (local or global) section that is smooth as a map between manifolds.
+\end{definition}
+\begin{remark}
+	The definitions \ref{top_sm_bundle_defn} and \ref{top_sm_sec_defn} are specializations of \ref{top_vb_defn} and \ref{top_vb_cs_defn} ones.
+\end{remark}
+
+
+\begin{definition}\label{dg_prinicipal_defn}\cite{kobayashi_nomizu:diff_geom}
+	Let $M$ be a manifold and $G$ is a Lie group. A (\textit{differential}) \textit{principal bundle over $M$ with group} $G$ consists of a manifold $P$ and an action of $G$ on $P$ satisfying the following conditions:
+	\begin{enumerate}
+		\item[(a)]  $G$ acts freely on $P$ on the right: 
+		$$
+		\left(u, a \right) \in P \times G\quad  ua = R_a u \in P;	
+		$$
+		\item[(b)] $M$ is the quotient space of $P$ by the equivalence relation induced by $G$, $M = P/G$, and the canonical projection $\pi: P \to M$  is differentiable;
+		\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has neighbourhood $\sU$ such that there is a diffeomorphism  $\psi: \pi^{-1}\left(\sU
+		\right) \cong \sU \times G$ such that $\psi\left(u\right)= \left( \pi\left(u\right), \varphi\left(u\right)\right)$  where $\varphi$ is a mapping of $\pi^{-1}\left(\sU
+		\right)$ into $G$ satisfying $\varphi\left(ua\right)= \left( \varphi\left(u\right)\right) a$ for all $u \in \pi^{-1}\left(\sU
+		\right)$ and $a \in G$.
+	\end{enumerate}
+	A principal fibre bundle will be denoted by $P\left(M, G, \pi \right)$,  $P\left(M, G \right)$ or simply $P$. We call $P$ the \textit{total space} or the \textit{bundle space}, $M$ the \textit{base space}, $G$ is the \textit{structure group} and $\pi$ the \textit{projection}. For each $x \in M$ $\pi^{-1}\left(x \right)$ is a closed manifold of $P$, called the \textit{fibre} over $x$. 
+\end{definition}
+
+\begin{empt}\label{dg_assoc_empt}\cite{kobayashi_nomizu:diff_geom}
+	Let $P\left(M, G \right)$ be a principal fibre bundle  and $F$ is a manifold on which $G$ acts of the left: $\left(a, \xi \right) \in G \times F \mapsto a\xi \in F$.  On the product manifold $P\times F$, we let $G$ on right as follows: an element $a \in G$ maps $\left( u, \xi \right) \in P\times F$ into $\left( u a, a^{-1}\xi\right) \in P \times F$. The quotient space of $P \times F$ by group action is denoted by $E \bydef P\times_G F$ which has a natural differential structure. $E$ is a is a locally trivial bundle and  the  
+	tuple $\left(E, M, F, G, P \right)$ is the \textit{bundle associated with $P$  with standard fibre $F$}.
+\end{empt}
+
+
+\
 \section{Riemannian manifolds}
 \begin{definition}\label{riemann_mani_defn}\cite{do_carmo:rg}
 	%2.1 Definition.
@@ -22422,67 +22485,6 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 
 \begin{empt}\label{covering_metric_empt}
 	If $\widetilde{M}$ is a covering space of a Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
-\end{empt}
-
-
-\section{Smooth vector bundles}
-
-\begin{definition}\label{top_sm_bundle_defn}\cite{lee:smooth_manifolds}
-	Let $M$ be a smooth manifold.
-A \textit{smooth vector bundle of rank $k$  with base  $M$} is a smooth manifold $E$ together
-with a smooth surjective map $\pi: E\to M$ satisfying:
-\begin{enumerate}
-	\item [(i)] for each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$  with base 
-$M$) is endowed with the structure of a real vector space,
-\item[(ii)] for each $p\in M$ there exists a neighbourhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times \R^k$  such that the following diagram
-		\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-		\pi^{-1}\left(\sU \right)  & & \sU \times \R^k \\ 
-		& \sU & \\};
-	\path[-stealth]
-	(m-1-1) edge node [above] {$\Phi$} (m-1-3)
-	(m-1-1) edge node [left]  {$\pi~~$} (m-2-2)
-	(m-1-3) edge node [right] {$~~\pi_1$} (m-2-2);
-\end{tikzpicture}
-\\ 	
-and the restriction of $\Phi$ to $E_p$ is a linear isomorphism from $E_p$ to $\{p\}\times \R^k \xrightarrow{\approx } \R^k$. (Here $\pi_1$ is the projection on the first factor).
-\end{enumerate}
-The manifold $E$ is called the \textit{total space} of the bundle, $M$ is called its \textit{base}, and $\pi$ is its \textit{projection}. Each map $\Phi$ in the above definition is called
-a \textit{local trivialization} of $E$  with base  $\sU$. 
-
-\end{definition}
-
-\begin{definition}\label{top_sm_sec_defn}\cite{lee:smooth_manifolds}
-Let $E$ be a smooth vector bundle  with base  a smooth manifold $M$, with projection $\pi: E\to M$. A section of $E$ is a \textit{section} of the map $\pi$, i.e., a continuous map $\sigma: M \hookto E$ such that $\pi\circ\sigma = \Id_M$. If $\sU \subset M$ is an open subset, a
-section of the restricted bundle $E|_{\sU}$ is called a \textit{local section} of $E$. A \textit{smooth
-section} is a (local or global) section that is smooth as a map between manifolds.
-\end{definition}
-\begin{remark}
-The definitions \ref{top_sm_bundle_defn} and \ref{top_sm_sec_defn} are specializations of \ref{top_vb_defn} and \ref{top_vb_cs_defn} ones.
-\end{remark}
-
-
-\begin{definition}\label{dg_prinicipal_defn}\cite{kobayashi_nomizu:diff_geom}
-Let $M$ be a manifold and $G$ is a Lie group. A (\textit{differential}) \textit{principal bundle over $M$ with group} $G$ consists of a manifold $P$ and an action of $G$ on $P$ satisfying the following conditions:
-\begin{enumerate}
-	\item[(a)]  $G$ acts freely on $P$ on the right: 
-	$$
-\left(u, a \right) \in P \times G\quad  ua = R_a u \in P;	
-	$$
-	\item[(b)] $M$ is the quotient space of $P$ by the equivalence relation induced by $G$, $M = P/G$, and the canonical projection $\pi: P \to M$  is differentiable;
-	\item[(c)] $P$ is locally trivial, that is, every point $x$ of $M$ has neighbourhood $\sU$ such that there is a diffeomorphism  $\psi: \pi^{-1}\left(\sU
-	 \right) \cong \sU \times G$ such that $\psi\left(u\right)= \left( \pi\left(u\right), \varphi\left(u\right)\right)$  where $\varphi$ is a mapping of $\pi^{-1}\left(\sU
-	 \right)$ into $G$ satisfying $\varphi\left(ua\right)= \left( \varphi\left(u\right)\right) a$ for all $u \in \pi^{-1}\left(\sU
-	 \right)$ and $a \in G$.
-\end{enumerate}
-A principal fibre bundle will be denoted by $P\left(M, G, \pi \right)$,  $P\left(M, G \right)$ or simply $P$. We call $P$ the \textit{total space} or the \textit{bundle space}, $M$ the \textit{base space}, $G$ is the \textit{structure group} and $\pi$ the \textit{projection}. For each $x \in M$ $\pi^{-1}\left(x \right)$ is a closed manifold of $P$, called the \textit{fibre} over $x$. 
-\end{definition}
-
-\begin{empt}\label{dg_assoc_empt}\cite{kobayashi_nomizu:diff_geom}
-	Let $P\left(M, G \right)$ be a principal fibre bundle  and $F$ is a manifold on which $G$ acts of the left: $\left(a, \xi \right) \in G \times F \mapsto a\xi \in F$.  On the product manifold $P\times F$, we let $G$ on right as follows: an element $a \in G$ maps $\left( u, \xi \right) \in P\times F$ into $\left( u a, a^{-1}\xi\right) \in P \times F$. The quotient space of $P \times F$ by group action is denoted by $E \bydef P\times_G F$ which has a natural differential structure. $E$ is a is a locally trivial bundle and  the  
-	tuple $\left(E, M, F, G, P \right)$ is the \textit{bundle associated with $P$  with standard fibre $F$}.
 \end{empt}
 
 
@@ -26897,562 +26899,6 @@ may as well assume that $I $ is the inclusion of a direct summand.
 	\end{enumerate}
 \end{proposition}
 
-\subsection{Commutative $*$-algebras}
-\section{Commutative $C^*$-hulls}
-\label{sec:commutative_hulls}
-
-Let~\(A\) be a commutative \Star{}-algebra.  We are going to describe
-all \emph{commutative} weak $C^*$-hulls for~\(A\).  Actually, we
-describe all locally bounded weak $C^*$-hulls, and these turn out
-to be the same as the commutative ones.  We
-study when a $C^*$-hull satisfies the (Strong) Local--Global
-Principle and when the class of
-\emph{all} locally bounded representations has a $C^*$-hull.  We compare
-the class of locally bounded representations with the class of
-representations defined by requiring all \(a\in A_h\) to act by a
-regular, self-adjoint operator.
-
-\begin{proposition}
-	\label{pro:commutative_representation}
-	Let~\(A\) be a \Star{}=algebra and let \(B=\Cont_0(X)\)
-	be a commutative $C^*$-algebra.  Any representation of~\(A\)
-	on~\(B\) has \(\Contc(X)\) as a core and is locally bounded.
-	There is a natural bijection between representations of~\(A\)
-	on~\(B\), \Star{}homomorphisms \(A\to\Cont(X)\), and continuous
-	maps \(\hat{A}\to X\).
-\end{proposition}
-
-\begin{proof}
-	Let~\((\mathfrak B,\mu)\) be a representation.  Since~\(\mathfrak B\)
-	is dense in~\(B\), for any \(x\in X\) there is \(f\in \mathfrak B\)
-	with \(f(x)\neq0\).  Then there is an open neighbourhood of~\(x\)
-	on which~\(f\) is non-zero.  A compact subset~\(K\) of~\(X\) may
-	be covered by finitely many such open neighbourhoods.  This gives
-	finitely many functions \(f_1,\dotsc,f_n\in\mathfrak B\) so that
-	\(\sum f_i\cdot \overline {f_i}(x)>0\) for all \(x\in K\).  This sum
-	again belongs to the right ideal~\(\mathfrak B\), and
-	hence~\(\mathfrak B\) contains~\(\Contc(X)\).  There is an
-	approximate unit~\((u_i)_{i\in I}\) for~\(\Cont_0(X)\) that
-	belongs to~\(\Contc(X)\).  If \(b\in\mathfrak B\), then \(\lim
-	\mu(a)b u_i = \mu(a) b\) for all \(a\in A\).  That is, \(\lim b
-	u_i = b\) in the graph topology.  Since \(b u_i\in \Contc(X)\),
-	\(\Contc(X)\) is a core for~\((\mathfrak B,\mu)\).
-	
-	Given \(a\in A\), we define a function \(f_a\colon X\to\C\) by
-	\(f_a(x) \defeq (\mu(a)b)(x)\cdot b(x)^{-1}\) for any
-	\(b\in\Contc(X)\) with \(b(x)\neq0\).  This does not depend on the
-	choice of~\(b\), and~\(f_a\) is continuous in the open subset
-	where \(b\neq0\).  Thus \(f_a\in\Cont(X)\).  The map
-	\(A\to\Cont(X)\), \(a\mapsto f_a\), is a \Star{}homomorphism.
-	Conversely, any \Star{}homomorphism \(A\to\Cont(X)\) gives a
-	representation of~\(A\) on~\(\Cont_0(X)\) with core~\(\Contc(X)\)
-	by \(\mu(a)b = f_a\cdot b\) for all \(a\in A\), \(b\in\Contc(X)\).
-	The maps that go back and forth between representations
-	on~\(\Cont_0(X)\) and \Star{}homomorphisms \(A\to\Cont(X)\) are
-	inverse to each other.
-	
-	A \Star{}homomorphism \(f\colon A\to\Cont(X)\) gives a continuous
-	map \(X\to\hat{A}\) by mapping \(x\in X\) to the character
-	\(a\mapsto f(a)(x)\).  Conversely, a continuous map \(g\colon
-	X\to\hat{A}\) induces a \Star{}homomorphism \(g^*\colon
-	A\to\Cont(X)\), \(g^*(a)(x) \defeq g(x)(a)\), and these two
-	constructions are inverse to each other.
-	
-	Let \(f\colon X\to\hat{A}\) be a continuous map.  Then~\(f\) maps
-	compact subsets in~\(X\) to compact subsets of~\(\hat{A}\).  If
-	\(K\subseteq X\) is compact, then
-	any element in \(\Cont_0(K\setminus\partial K)\subseteq \Cont_0(X)\)
-	is \(\norm{\blank}_{f(K)}\)-bounded for the $C^*$-seminorm
-	on~\(A\) associated to the compact subset \(f(K)\subseteq
-	\hat{A}\).  Thus all elements in~\(\Contc(X)\) are bounded.
-	Since~\(\Contc(X)\) is a core for the representation of~\(A\)
-	associated to~\(f\), this representation is locally bounded.
-\end{proof}
-
-\begin{theorem}
-	\label{the:commutative_hull}
-	Let~\(A\) be a commutative \Star{}algebra, let \(B=\Cont_0(X)\) be
-	a commutative $C^*$-algebra, let \(f\colon X\to \hat{A}\) be a
-	continuous map, and let~\((\mathfrak B,\mu)\) be the corresponding
-	representation of~\(A\) on~\(B\).  Call a representation of~\(A\)!!!
-%	on a Hilbert module~\(\Hilm\) \emph{\(X\)-integrable} if it is	isomorphic to \((\mathfrak B,\mu)\otimes_\varrho\Hilm\) for a	representation~\(\varrho\) of~\(B\) on~\(\Hilm\).  The following
-	are equivalent:
-!!! %	\begin{enumerate}
-	%	\item \(f\colon X\to \hat{A}\) is injective;
-	%	\item \(B\) is a weak $C^*$-hull for the \(X\)-integrable
-	%	representations;
-	%	\item \(B\) is a $C^*$-hull for the \(X\)-integrable
-	%	representations.
-%	\end{enumerate}
-	Furthermore, any locally bounded weak $C^*$-hull of~\(A\) is
-	commutative.
-\end{theorem}
-
-\begin{proof}
-	If~\(f\) is not injective, then there are \(x\neq y\) in~\(X\)
-	with \(f(x) = f(y)\).  The evaluation maps at \(x\) and~\(y\) are
-!!! %	different \(1\)\nb-dimensional representations of~\(B\) that
-	induce the same representation of~\(A\).
-	Hence the condition~\ref{enum:Cstar-gen1} in
-	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers} is
-	violated and so~\(B\) is not a weak $C^*$-hull.  Conversely,
-	assume that~\(f\) is injective.
-	
-	The representation of~\(A\) on~\(B\) associated to~\(f\) is locally
-	bounded by Proposition~\ref{pro:commutative_representation} and
-	hence induces a representation of the unital $C^*$-algebra
-	\(\Contb(\hat{A},\tau_c)\) of bounded elements in \(\mathcal{A}
-	\cong \Cont(\hat{A},\tau_c)\), see
-	Proposition~\ref{pro:commutative_pro-completion}.  Explicitly, this
-	representation composes functions with~\(f\).  Since~\(f\) is
-	injective, \(D\defeq f^*(\Contb(\hat{A},\tau_c)) \subseteq
-	\Contb(X)\) separates the points of~\(X\).  We show that~\(D\) is
-	strictly dense in \(\Contb(X) \cong \Mult(B)\).
-	
-	If \(K\subseteq X\) is compact, then the image of
-	\(f^*(\Contb(\hat{A},\tau_c))|_K\) in the quotient~\(\Cont(K)\)
-	of~\(\Cont_0(X)\) separates the points of~\(K\).  Since this image
-	is again a $C^*$-algebra, it is equal to~\(\Cont(K)\) by the
-	Stone--Weierstra§ Theorem.  Let \(f\in \Contb(X)\).  For any compact
-	subset \(K\subseteq X\), there is \(d_K\in D\) with \(d_K|_K = f\).
-	By functional calculus, we may arrange that \(\norm{d_K}_\infty \le
-	\norm{f}\).  The net~\((d_K)\) indexed by the directed set of
-	compact subsets \(K\subseteq X\) is uniformly bounded and converges
-	towards~\(f\) in the topology of uniform convergence on compact
-	subsets.  Hence it converges towards~\(f\) in the strict topology
-	(compare \cite{Grundling-Neeb:Full_regularity}*{Lemma A.1}).  This
-	finishes the proof that \(f^*(\mathcal{A}_\mathrm{b})\) is strictly
-	dense in~\(\Mult(\Cont_0(X))\).
-	Proposition~\ref{pro:criterion_Cstar-hull_locally_bounded} shows
-!!!%	that~\(B\) is a weak $C^*$-hull for the \(B\)-integrable
-	representations of~\(A\).
-	
-	Any \(X\)-integrable representation of~\(A\) is locally
-	bounded.  The class $\Rep_{\mathrm{b}}(A)$ of locally bounded
-	representations of~\(A\) is admissible by
-	Corollary~\ref{cor:locally_bounded_admissible}.  Hence the smaller
-	class of \(X\)-integrable representations inherits the
-	equivalent conditions
-	\ref{enum:Cstar-gen2}--\ref{enum:Cstar-gen2''} in
-	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers}.
-	Thus~\(\Cont_0(X)\) is even a $C^*$-hull.
-	
-	Let~\(B\) with the universal representation \((\mathfrak B,\mu)\) be
-	a locally bounded weak $C^*$-hull.  Then the image of
-	\(\Contb(\hat{A},\tau_0)\) in the multiplier algebra of~\(B\) is
-	strictly dense by
-	Proposition~\ref{pro:criterion_Cstar-hull_locally_bounded}.
-	Thus~\(\Mult(B)\) is commutative, and then so is~\(B\).  Thus a
-	locally bounded weak $C^*$-hull is commutative.
-\end{proof}
-
-\begin{theorem}
-	\label{the:commutative_local-global}
-	Let~\(A\) be a commutative \Star{}algebra, let \(B=\Cont_0(X)\) be
-	a commutative $C^*$-algebra, and let \(f\colon X\to \hat{A}\)
-	be an injective continuous map.  Let $\Repi(A,X)$ be the class
-	of \(X\)-integrable representations.  The following statements
-	are equivalent if~\(\hat{A}\) is metrisable:
-	\begin{enumerate}
-		\item \label{enum:commutative_local-global1} \(f\colon X\to
-		\hat{A}\) is a homeomorphism onto its image;
-		\item \label{enum:commutative_local-global2} $\Repi(A,X)$ is
-		defined by submodule conditions;
-		\item \label{enum:commutative_local-global3} $\Repi(A,X)$
-		satisfies the Strong Local--Global Principle;
-		\item \label{enum:commutative_local-global4} $\Repi(A,X)$
-		satisfies the Local--Global Principle;
-		\item \label{enum:commutative_local-global5} if \(\lim f(x_n) =
-		f(x)\) for a sequence~\((x_n)_{n\in\N}\) in~\(X\) and \(x\in
-		X\), then already \(\lim x_n = x\).
-	\end{enumerate}
-	The implications
-	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}\(\Rightarrow\)\ref{enum:commutative_local-global3}\(\Rightarrow\)\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}
-	hold without assumptions on~\(\hat{A}\).
-\end{theorem}
-
-I do not know whether
-\ref{enum:commutative_local-global1}--\ref{enum:commutative_local-global4}
-are equivalent in general.  The
-condition~\ref{enum:commutative_local-global5} is there to allow to
-go back from~\ref{enum:commutative_local-global4}
-to~\ref{enum:commutative_local-global1} at least for
-metrisable~\(\hat{A}\).
-
-\begin{proof}
-	First we check
-	\ref{enum:commutative_local-global5}\(\Rightarrow\)\ref{enum:commutative_local-global1}
-	if~\(\hat{A}\) is metrisable.  If~\(f\) is not a homeomorphism
-	onto its image, then there is a subset \(U\subseteq X\) that is
-	open, such that \(f(U)\) is not open in the subspace topology on
-	\(f(X)\subseteq\hat{A}\).  Since~\(\hat{A}\) is metrisable, there
-	is \(x\in U\) and a sequence in \(f(X)\setminus f(U)\) that
-	converges towards~\(f(x)\).  This lifts to a sequence
-	\((x_n)_{n\in\N}\) in \(X\setminus U\) such that \(\lim f(x_n) =
-	f(x)\).  We cannot have \(\lim x_n = x\) because~\(x_n\) never
-	enters the open neighbourhood~\(U\) of~\(x\).
-	
-	The implication
-	\ref{enum:commutative_local-global2}\(\Rightarrow\)\ref{enum:commutative_local-global3}
-	is Theorem~\ref{the:operator_conditions}, and
-	\ref{enum:commutative_local-global3}\(\Rightarrow\)\ref{enum:commutative_local-global4}
-	is trivial.  We are going to verify
-	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}
-	and
-	\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}.
-	This will finish the proof of the theorem.
-	
-	Assume~\ref{enum:commutative_local-global1}.  Let~\(\pi\) be a
-	representation in~\(\Repi(A,X)\).  Then~\(\pi\) is locally
-	bounded, and the
-!!! %	operators~\(\cl{\pi(a)}\) for \(a\in A_h\) are regular and
-	self-adjoint by Proposition~\ref{pro:locally_bounded_regular}.
-	Furthermore, their Cayley transforms belong to the image of
-	\(\mathcal{A}_\mathrm{b} \cong \Contb(\hat{A},\tau_c)\), which is commutative.
-!!! %	Hence the operators~\(\cl{\pi(a)}\) for \(a\in A_h\) strongly
-	commute with each other.  The class \(\Repi(A)\) of representations
-!!! %	of~\(A\) with the property that all~\(\cl{\pi(a)}\), \(a\in A_h\), are regular and
-	self-adjoint and strongly commute with each other is defined by
-	submodule conditions by Examples \ref{exa:regularity_condition} and
-	Example~\ref{exa:strong_commutation}.
-	
-	Let \(Y \defeq \prod_{a\in A_h} S^1\).  Given a representation
-	in~\(\Repi(A)\), there is a unique representation \(\varrho\colon
-!!! %	\Cont(Y)\to \Bound(\Hilm)\) that maps the \(a\)th coordinate
-	projection to the Cayley transform of~\(\cl{\pi(a)}\).  We map
-	\(\hat{A}\) to~\(Y\) by sending \(\chi\in\hat{A}\) to the point
-	\((c_{\chi(a)})_{a\in A_h} \in Y\).  Here~\(c_{\chi(a)}\) is the
-	Cayley transform of the number \(\chi(a)\in \R\) or, equivalently,
-	the value of the Cayley transform of the unbounded function
-	\(\hat{a}\in\Cont(\hat{A})\) at~\(\chi\).  This is a homeomorphism
-	onto its image because for a net of characters~\((\chi_i)\) and a
-	character~\(\chi\) on~\(A\), we have \(\lim \chi_i(a) = \chi(a)\) if
-	and only if \(\lim c_{\chi_i(a)} = c_{\chi(a)}\).  Thus the
-	composite map \(X\to \hat{A}\to Y\) is a homeomorphism onto its
-	image as well.  This forces the image to be locally closed
-	because~\(Y\) is compact and~\(X\) locally compact, and a subspace
-	of a locally compact space is locally compact if and only if its
-	underlying subset is locally closed (see
-	\cite{Bourbaki:Topologie_generale}*{I.9.7, Propositions 12 and 13}).
-	
-!!! %	Let \(\cl{X}\subseteq Y\) be the closure of the image of~\(X\)	in~\(Y\).  Then~\(X\) is open in~\(\cl{X}\).  All representations
-	in~\(\Repi(A)\) carry a unital \Star{}homomorphism
-!!! %	\(\Cont(Y)\to\Bound(\Hilm)\).  Asking for this to factor through the
-	quotient~\(\Cont(\cl{X})\) of~\(\Cont(Y)\) is a submodule condition
-	as in Example~\ref{exa:spectral_condition}.  Asking for the induced
-!!! %	\Star{}homomorphism \(\Cont(\cl{X})\to\Bound(\Hilm)\) to remain
-	nondegenerate on~\(\Cont_0(X)\) is another submodule condition as in
-	Example~\ref{exa:spectral_condition}.
-	
-	The class \(\Rep'(A)\) defined by these two more submodule
-	conditions is weakly admissible by
-	Lemma~\ref{lem:operator_conditions}.  The universal
-!!! %	\(X\)-integrable representation belongs to \(\Rep'(A)\); by
-	weak admissibility, this is inherited by all \(X\)-integrable
-	representations.  Conversely, we claim that any representation in
-!!! %	\(\Rep'(A)\) is \(X\)-integrable.
-	
-	If \(\pi\in\Rep'(A)\), then the unital
-!!! %	\Star{}homomorphism \(\Cont(Y)\to\Bound(\Hilm)\) descends to a
-	nondegenerate \Star{}homomorphism \(\varrho\colon
-	\Cont_0(X)\to\Bound(\Hilm)\).  By construction, the extension
-	of~\(\varrho\) to multipliers maps the Cayley transform of
-	\(f^*(a)\in\Cont(X)\) for \(a\in A_h\) to the Cayley transform
-!!! %	of~\(\cl{\pi(a)}\).  Let~\(\pi'\) be the \(X\)-integrable
-	representation of~\(A\) associated to~\(\varrho\).  The
-	regular, self-adjoint operators \(\cl{\pi'(a)}\)
-!!! %	and~\(\cl{\pi(a)}\) have the same Cayley transform for all \(a\in	A_h\).  Hence \(\cl{\pi'(a)} = \cl{\pi(a)}\) for all \(a\in A_h\).
-	The subset~\(A_h\) is a strong generating set for~\(A\)
-	by Example~\ref{exa:strong_generating}.  Hence
-	Proposition~\ref{pro:equality_if_closure_equal} gives \(\pi'=\pi\).
-	Thus \(\Repi(A,X)\) is the class of representations defined by the
-	submodule conditions above.  This finishes the proof that
-	\ref{enum:commutative_local-global1}\(\Rightarrow\)\ref{enum:commutative_local-global2}.
-	
-	Now we prove
-	\ref{enum:commutative_local-global4}\(\Rightarrow\)\ref{enum:commutative_local-global5}
-	by contradiction.  Let \((x_n)_{n\in\N}\) and~\(x\) be as
-	in~\ref{enum:commutative_local-global5}.  Let \(\bar{\N} =
-	\N\cup\{\infty\}\) be the one-point compactification of~\(\N\) and
-	view the sequence~\((x_n)\) and~\(x\) as a map \(\xi\colon
-	\bar{\N}\to X\).  This map is not continuous, but composition
-	with~\(f\) gives a continuous map \(\bar{\N}\to\hat{A}\).  Hence
-	Proposition~\ref{pro:commutative_representation} gives a
-!!! %	representation~\((\Hilms[D],\mu)\) of~\(A\)	on~\(\Cont(\bar{\N})\).  This is not \(X\)-integrable because	the map \(\bar{\N}\to X\) is not continuous.  We claim, however,	that the representation \((\Hilms[D],\mu) \otimes_\varrho	\Hilm[H]\) is \(X\)-integrable for any	GNS-representation~\(\varrho\) on a Hilbert space~\(\Hilm[H]\).
-	A state on~\(\Cont(\bar{\N})\) is the same as a Radon measure
-	on~\(\bar{\N}\).  Since~\(\bar{\N}\) is countable, any Radon
-	measure is atomic.  Thus the resulting GNS-representation is a
-	direct sum of irreducible representations associated to
-	characters.  Each character on~\(\Cont(\bar{\N})\) gives an
-	\(X\)-integrable representation because \(\xi(\bar{\N})
-	\subseteq f(X)\).
-!!! %	Hence~\((\Hilms[D],\mu)\) is a counterexample to the
-	Local--Global Principle.  So~\ref{enum:commutative_local-global4}
-	cannot hold if~\ref{enum:commutative_local-global5} fails.
-\end{proof}
-
-\begin{example}
-	\label{exa:pure-point}
-	Let \(A=\C[x]\), so that \(\hat{A}=\R\).  Let~\(X\) be~\(\R\) with
-	the discrete topology, and let \(f\colon X\to\R\) be the identity
-	map.  This is a continuous bijection, but not open.  Hence the
-	class of \(X\)-integrable representations violates the
-	Local--Global Principle by
-	Theorem~\ref{the:commutative_local-global}.  Nevertheless,
-	\(\Cont_0(X)\) is a $C^*$-hull for the class of
-	\(X\)-integrable representations of~\(A\) by
-	Theorem~\ref{the:commutative_hull}.  An \(X\)-integrable
-	representation of~\(A\) is integrable as in
-	Theorem~\ref{the:regular_self-adjoint_Cstar-hull}, and so it comes
-	from a single regular, self-adjoint operator \(T\defeq
-!!! %	\cl{\pi(x)}\).  The representation of~\(\C[x]\) associated	to~\(T\) is \(X\)-integrable if and only if \(\Hilm =	\bigoplus_{\lambda\in\R} \Hilm_\lambda\), where \(\Hilm_\lambda	\defeq \{\xi\in\Hilm \mid T\xi= \lambda\xi\}\) for \(\lambda\in\R\)
-	is the \(\lambda\)-eigenspace of~\(T\).
-\end{example}
-
-Another example of a $C^*$-hull for~\(\C[x]\) where \(X\to\R\)
-is bijective but not a homeomorphism onto its image is discussed in
-Example~\ref{exa:smaller_integrable_than_regular_self-adjoint}.
-
-\begin{theorem}
-	\label{the:no_Cstar-hull_commutative_not_locally_compact}
-	There is a $C^*$-hull for
-	\(\Rep_\mathrm{b}(A)\) if and only if the compactly generated
-	topology~\(\tau_c\) on~\(\hat{A}\) is locally compact, and then
-	the $C^*$-hull is \(\Cont_0(\hat{A},\tau_c)\).
-\end{theorem}
-
-\begin{proof}
-	Assume first that~\((\hat{A},\tau_c)\) is locally compact.  The
-	pro-$C^*$-algebra completion~\(\mathcal{A}\) that acts on
-	locally bounded representations of~\(A\) is
-	\(\Cont(\hat{A},\tau_c)\) by
-	Proposition~\ref{pro:commutative_pro-completion}.  The primitive
-	ideal space of \(\Cont(K)\) for a compact subspace \(K\subseteq
-	\hat{A}\) is simply~\(K\), and \(\norm{a}_\mathfrak{p} =
-!!! %	\abs{a(\mathfrak{p})}\) for \(a\in\Cont(\hat{A},\tau_c)\) and	\(\mathfrak{p}\in \Prim \Cont(K) \cong K\).  Therefore, a function
-	\(f\in \Cont(\hat{A},\tau_c)\) vanishes at~\(\infty\) in the sense
-	of Definition~\ref{def:compact_in_pro-Cstar} if and only if it
-	vanishes at~\(\infty\) in the usual sense.  The subalgebra
-	\(\Cont_0(\mathcal{A}) = \Cont_0(\hat{A},\tau_c)\) is dense
-	in~\(\mathcal{A}\)
-	because~\(\tau_c\) is locally compact.  Now
-	Theorem~\ref{the:Prim_A_locally_compact_gives_hull} shows that
-	\(\Cont_0(\mathcal{A}) = \Cont_0(\hat{A},\tau_c)\) is a
-	$C^*$-hull for the class of locally bounded representations
-	of~\(A\).
-	
-	Conversely, let~\(B\) be a (weak) $C^*$-hull for the locally
-	bounded representations of~\(A\).  Then~\(B\) is commutative by
-	Theorem~\ref{the:commutative_hull}.  Let~\(Y\) be the spectrum
-	of~\(B\).  The representation of~\(A\) on \(B\cong \Cont_0(Y)\)
-	corresponds to a continuous map \(f\colon Y\to\hat{A}\) by
-	Proposition~\ref{pro:commutative_representation}.  Let
-	\(D=\Cont_0(X)\) be a commutative $C^*$-algebra.  Any
-	representation of~\(A\) on~\(D\) is locally bounded.  So the
-	bijection \(\Rep_\mathrm{b}(A,D)\cong \Rep(B,D)\) is a bijection
-	between the spaces of continuous maps \(X\to\hat{A}\) and \(X\to
-	Y\).  More precisely, this bijection is composition with~\(f\).
-	
-	For the one-point space~\(X\), this bijection says that \(f\colon
-	Y\to\hat{A}\) is bijective.  The bijection for all compact~\(X\)
-	means that~\(f\) becomes a homeomorphism if we replace the
-	topologies on \(Y\) and~\(\hat{A}\) by the associated compactly
-	generated ones.  The topology on~\(Y\) is already compactly
-	generated because~\(Y\) is locally compact.  Hence~\(f\) is a
-	homeomorphism from~\(Y\) to \((\hat{A},\tau_c)\).  So~\(\tau_c\)
-	is locally compact.
-\end{proof}
-
-Let \(\Repi(A)\) be the class of all representations with the
-property that~\(\cl{\pi(a)}\) is regular and self-adjoint for all
-\(a\in A_h\).  We are going to compare \(\Repi(A)\) and
-\(\Rep_\mathrm{b}(A)\).
-Proposition~\ref{pro:locally_bounded_regular} gives
-\(\Rep_\mathrm{b}(A)\subseteq\Repi(A)\).
-
-\begin{theorem}
-	\label{the:commutative_regular_admissible}
-	The class \(\Repi(A)\) is admissible and defined by submodule
-	conditions.  Hence it satisfies the Strong Local--Global Principle.
-	The operators~\(\cl{\pi(a)}\) for \(a\in A_h\) strongly commute for
-	all \(\pi\in\Repi(A)\).
-	
-	Let \(S\subseteq A_h\) be a strong generating set for~\(A\).
-	If\/~\(\cl{\pi(a)}\) is regular and self-adjoint for all \(a\in S\),
-	then already \(\pi\in\Repi(A)\).
-\end{theorem}
-
-\begin{proof}
-	The class \(\Rep^S(A)\) of representations defined by
-	requiring~\(\cl{\pi(a)}\) to be regular and self-adjoint for all
-	\(a\in S\) for a strong generating set~\(S\) is admissible and
-	defined by submodule conditions by
-	Theorem~\ref{the:regular_admissible_local-global}.  The class
-	\(\Repi(A)\) is defined by submodule conditions as well by
-	Example~\ref{exa:regularity_condition}.  So is the subclass
-	\(\Rep'(A)\) of all representations in~\(\Repi(A)\) for which the
-	operators~\(\cl{\pi(a)}\) for all \(a\in A_h\) strongly commute
-	(Example~\ref{exa:strong_commutation}).  Hence our three classes of
-	representations satisfy the Strong Local--Global Principle by
-	Theorem~\ref{the:operator_conditions}.
-	
-	The classes \(\Repi(A)\) and~\(\Rep'(A)\) have the same Hilbert
-	space representations by \cite{Schmudgen:Unbounded_book}*{Theorem
-		9.1.2}.  Since~\(S\) is a strong generating set, the domain of any
-	representation~\(\pi\) in \(\Rep^S(A)\) is \(\bigcap_{a\in S}
-	\dom(\cl{\pi(a)})\) by~\eqref{eq:domain_strong_generating_set}.
-	This contains \(\bigcap_{a\in S, n\in\N} \dom(\cl{\pi(a)}{}^n)\).
-	Now \cite{Schmudgen:Unbounded_book}*{Theorem 9.1.3} shows that
-	\(\Rep^S(A)\) and \(\Repi(A)\) contain the same Hilbert space
-	representations.  Since our three classes of representations satisfy
-	the (Strong) Local--Global Principle and have the same Hilbert space
-	representations, they are equal.
-\end{proof}
-
-\begin{theorem}
-	\label{the:locally_bounded_versus_regular}
-	If~\(A\) is commutative and countably generated, then
-	\[
-	\Repi(A)=\Rep_\mathrm{b}(A).
-	\]
-\end{theorem}
-
-\begin{proof}
-	Proposition~\ref{pro:locally_bounded_regular} gives
-	\(\Rep_\mathrm{b}(A)\subseteq \Repi(A)\).  Conversely,
-	let~\((\Hilms,\pi)\) be a representation on a Hilbert
-	module~\(\Hilm\) in~\(\Repi(A)\); that is, \(\cl{\pi(a)}\) is
-	regular and self-adjoint for each \(a\in A\).  Let
-	\((a_i)_{i\in\N}\) be a countable generating set for~\(A\).  We
-	may assume without loss of generality that \(a_i = a_i^*\) for all
-	\(i\in\N\) and that~\((a_i)\) is a basis for~\(A\) and hence a
-	strong generating set.  Let \(\xi\in\Hilms\).  We are going to
-	approximate~\(\xi\) by bounded vectors for~\(\pi\).  This will
-	show that~\(\pi\) is locally bounded.
-	
-	For each \(i\in\N\), there is a canonical homomorphism
-	\(\alpha_i\colon \C[x]\to A\) mapping \(x\mapsto a_i\).  The
-	closure of \(\pi\circ\alpha_i\) is an integrable representation
-	of~\(\C[x]\) as in
-	condition~\ref{enum:regular_self-adjoint_Cstar-hull2} in
-	Theorem~\ref{the:regular_self-adjoint_Cstar-hull}.  Hence it
-	corresponds to a representation \(\varrho_i\colon
-	\Cont_0(\R)\to\Bound(\Hilm)\), the functional calculus
-	of~\(\cl{\pi(a_i)}\).  The operators~\(\cl{\pi(a)}\) for \(a\in
-	A_h\) strongly commute by
-	Theorem~\ref{the:commutative_regular_admissible}.  Thus the Cayley
-	transform of~\(a_i\) commutes with~\(\cl{\pi(a)}\) and, in
-	particular, maps the domain of~\(\cl{\pi(a)}\) to itself.  The
-	same remains true for \(\varrho_i(f)\) for all \(f\in\Cont_0(\R)\)
-	because we get them by the (bounded) functional calculus for the
-	Cayley transform of~\(\cl{\pi(a_i)}\).  So
-	\(\varrho_i(f)(\Hilms)\subseteq \Hilms\)
-	by~\eqref{eq:domain_closure} and \(\varrho_i(f) \pi(a) = \pi(a)
-	\varrho_i(f)\) for all \(f\in\Cont_0(\R)\), \(a\in A\) as
-	operators on~\(\Hilms\).  Now we show that~\(\pi\circ\alpha_i\) is
-	locally bounded.  If \(f\in\Contc(\R)\) is supported in a compact
-	subset \(K\subseteq \R\), then
-	\[
-	\norm{\pi(h(a_i))\varrho_i(f)\xi}
-	= \norm{\varrho_i(h\cdot f)\xi}
-	\le C \sup \{\abs{h(x)}\mid x\in K\}
-	\]
-	for all \(h\in\C[x]\); thus~\(\varrho_i(f)\xi\) is bounded for the
-	representation~\(\pi\circ\alpha_i\).  There is an approximate
-	unit~\((f_n)\) for~\(\Cont_0(\R)\) that lies in~\(\Contc(\R)\).
-	Then \(\lim \varrho_i(f_n)\xi=\xi\) for all \(\xi\in\Hilms\), even
-	in the graph topology for~\(\pi\) because \(\pi(a)\varrho_i(f_n)\xi =
-	\varrho_i(f_n)\pi(a)\xi\) for all \(a\in A\),
-	\(f_n\in\Cont_0(\R)\), \(\xi\in\Hilms\).  Therefore, the bounded
-	vectors of the form~\(\varrho(f)\xi\) with \(f\in\Contc(\R)\),
-	\(\xi\in\Hilms\) form a core for \(\pi\circ\alpha_i\).  So
-	\(\pi\circ\alpha_i\) is locally bounded.
-	
-	We now refine this construction to approximate~\(\xi\) by bounded
-	vectors for the whole representation~\(\pi\).  We
-	construct~\(\varrho_i\) as above.  Fix \(i,k\in\N\) and let \(\xi'
-	\defeq \bigl(1+\pi(a_0^2) + \dotsb + \pi(a_k^2)\bigr)\xi
-	\in\Hilms\).  The argument above gives \(f_{i,k}\in\Contc(\R)\)
-	with \(0\le f_{i,k}\le 1\) and \(\norm{\varrho_i(f_{i,
-			k})\xi'-\xi'} < 2^{-k}\).  Thus \(\norm{\varrho_i(f_{i,k})\xi
-		- \xi}_{a_j}<2^{-k}\) in the graph norm for~\(a_j\) for \(0\le
-	j\le k\).  For \(k,l\in\N\), let
-	\[
-	\xi_{k,l} \defeq \varrho_0(f_{0,k}) \varrho_1(f_{1,k+1}) \dotsm
-	\varrho_l(f_{l,k+l})\xi.
-	\]
-	The operators~\(\varrho_i(f_{i,j})\) are norm-contracting,
-	map~\(\Hilms\) into itself, and commute with each other and with
-	the unbounded operators~\(\pi(a)\) for all \(a\in A\).  Hence
-	\begin{multline*}
-		\norm{\xi_{k,l} - \xi_{k,l+d}}_{a_j}
-		\le \sum_{i=1}^d {}\norm{\xi_{k,l+i-1} - \xi_{k,l+i}}_{a_j}
-		\\\le \sum_{i=1}^d {}\norm{\varrho_{l+i}(f_{l+i,k+l+i})\xi - \xi}_{a_j}
-		\le \sum_{i=1}^d 2^{-k-l-i} = 2^{-k-l}
-	\end{multline*}
-	for all \(k,l,d\in\N\), \(0\le j\le k+l+1\).  Since we
-	assumed~\((a_j)\) to be a strong generating set, the graph norms
-	for~\(a_j\) generate the graph topology.  So the estimate above
-	shows that~\((\xi_{k,l})_{l\in\N}\) with fixed~\(k\) is a Cauchy
-	sequence in~\(\Hilms\) in the graph topology.  Thus it converges
-	to some \(\xi_k\in\Hilms\).  Letting \(\xi_{k,-1}\defeq\xi\), the
-	above estimate remains true for \(l=-1\) and gives
-	\(\norm{\xi_{k,l} - \xi}_{a_j} \le 2^{-k+1}\) for all \(j\le k\),
-	uniformly in~\(l\in\N\).  This implies \(\norm{\xi_k-\xi}_{a_j}\le
-	2^{-k+1}\) for \(j\le k\), so that \(\lim \xi_k=\xi\) in the graph
-	topology.  It
-	remains to show that each~\(\xi_k\) is a bounded vector.
-	
-	Fix \(k,i\in\N\) and let \(b\in A\).  Choose \(R_i>0\) so
-	that~\(f_{i,k+i}\) is supported in \([-R_i,R_i]\).  If \(l\ge i\),
-	then \(\pi(b)\xi_{k,l}\in \varrho_i(\Cont_0(-R_i,R_i))\Hilm\)
-	because \(\varrho_i(f_{i,k+i})\) occurs in the definition
-	of~\(\xi_{k,l}\).  As above, this implies
-	\(\norm{\pi(a_i)\pi(b)\xi_k} \le R_i \norm{\pi(b)\xi_k}\) for all
-	\(b\in A\).  Thus
-	\[
-	q(a) \defeq \sup_{b\in A}
-	\frac{\norm{\pi(a)\pi(b)\xi_k}}{\norm{\pi(b)\xi_k}}
-	\]
-	is finite for \(a=a_i\).  Since~\(a_i\) is a basis for~\(A\)
-	and~\(q\) is subadditive, we get \(q(a)<\infty\) for all \(a\in
-	A\).  Since \(q(a)\) is the operator norm of
-	\(\pi(a)|_{\pi(A)\xi_k}\), it is a $C^*$-seminorm on~\(A\).
-	By construction, \(\norm{\pi(a)\xi_k} \le q(a)\) for all \(a\in
-	A\), that is, \(\xi_k\) is bounded.
-\end{proof}
-
-\begin{proposition}
-	\label{pro:commutative_regular_versus_locally_bounded_necessary}
-	If\/~\(\Repi(A)\) has a weak $C^*$-hull, then \(\Repi(A) =
-	\Rep_\mathrm{b}(A)\).
-\end{proposition}
-
-\begin{proof}
-	Let~\(B\) with the universal representation~\((\mathfrak B,\mu)\) be a
-	weak $C^*$-hull for \(\Repi(A)\).  First we claim that~\(B\) is
-	commutative.  Let \(\omega\colon B\injto\Bound(\Hilm[H])\) be a
-	faithful representation.  This corresponds to an integrable
-	representation~\(\pi\) of~\(A\).  Since the equivalence
-	\(\Repi(A,\Hilm[H])\cong\Rep(B,\Hilm[H])\) is compatible with
-	unitary \Star{}intertwiners, the commutant of~\(\omega(B)\) is the
-	$C^*$-algebra of \Star{}intertwiners of~\(\pi\) by
-	Proposition~\ref{pro:adjointable_intertwiner}.  The commutant of
-	this is a commutative von Neumann algebra by
-	\cite{Schmudgen:Unbounded_book}*{Theorem 9.1.7}.  So the bicommutant
-	of~\(\omega(B)\) is commutative.  This forces~\(B\) to be
-	commutative.
-	
-	Any representation of~\(A\) on a commutative $C^*$-algebra is
-	locally bounded by Theorem~\ref{the:commutative_hull}.  If the
-	universal representation for~\(\Repi(A)\) is locally bounded, then
-	all representations in~\(\Repi(A)\) are locally bounded, so that
-	\(\Repi(A) = \Rep_\mathrm{b}(A)\).  Thus \(\Repi(A)\) only has a
-	weak $C^*$-hull if \(\Repi(A) = \Rep_\mathrm{b}(A)\).
-\end{proof}
-
-
-
 \section{Discrete crossed product of $C^*$-algebras}\label{discr_cr_prod_sec}	
 Here I follow to \cite{discrete_crossed}.
 Let $G$ be a discrete group and $A$ a $C^*$-algebra. An action of $G$ on $A$ is a group homomorphism from $G$ into $\Aut(A)$   the group of $*$-automorphisms on $A$. The action is denoted by a dot in the following way
@@ -28754,14 +28200,14 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 	%	3.3.1\\
 %	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allow !!! ADMIT !!!s a fundamental system of paracompact neighbourhoods then $s$ can be extended to a neighbourhood of $\mathcal S$ in $\sX$. 
 %\end{theorem}
-%\begin{theorem}
+\begin{theorem}
 %Thorme 3.4.1-   
-%Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que tout point de $\sX$ poss de un  voisinage $\sU$ v rifiant la condition suivante : toute section de $\mathscr F$au-dessus d'un sous-ensemble ferm  de $\sX$ contenu dans $\sU$, se prolonge   $\sU$. Alors $\mathscr F$ est mou.
-%\end{theorem}
-%Following text is an English translation of the above theorem
-%\begin{theorem}
-%	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighbourhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
-%\end{theorem}
+Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que tout point de $\sX$ poss de un  voisinage $\sU$ v rifiant la condition suivante : toute section de $\mathscr F$au-dessus d'un sous-ensemble ferm  de $\sX$ contenu dans $\sU$, se prolonge   $\sU$. Alors $\mathscr F$ est mou.
+\end{theorem}
+Following text is an English translation of the above theorem
+\begin{theorem}
+	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighbourhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+\end{theorem}
 %\begin{thm}\cite{godement:sheaf}
 %Thorme 3-7-2.   
 %Soit $\mathscr{ A}$ un faisceau d'anneaux avec unit  sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ poss de un  voisinage $\sU$ tel que, 	 tant donn s des ferm  disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$,  gale   1 sur $S$ et   0 sur $T$.
@@ -31337,6 +30783,7 @@ and is denoted by $\mathrm{Sp} A$.
  		approach, we naturally define a symmetry to be a pair of bijections $\a: \mathscr S \cong \mathscr S$ and $\overline \a: \mathscr A \cong \mathscr A$
  		 such that $\mu \left(\om, A \right)=  \mu \left(\a\left( \om\right) , \overline \a \left( \right) A \right)$ for all
  	$\om \in \mathscr S$ and 	$A \in \mathscr A$. 
+																			
  \chapter{Kaluza-Klein theory}
  \section{Basic definitions}
  \paragraph{}
@@ -31581,6 +31028,179 @@ $U_a^{(n)}~, ~a=1,2$ obeying the relation
 U_1^{(n)}U_2^{(n)}=e^{2\pi ip_n/q_n}\,U_2^{(n)}U_1^{(n)} 
 \ee
 Having the sequence of $C^*$-algebras $A_n$ and $A_{\th_n}$ one obtains $C\left(\T^2_n \right)$. The complete description of this procedure is presented in \cite{landi:nm_nt,new_matrix}. 
+ 	\chapter{The Mathematical Foundations of Gauge Theories}
+
+\section{Gauge Fields}	
+\subsection{Gauge transformations}
+\paragraph{}
+Here I follow to \cite{marmat}.
+In physical applications one is usually interested in a fixed Lie 
+group $G$ called the {\it gauge group} which represents an internal or local 
+symmetry of the field. The base manifold $M$ of the principal bundle 
+$P(M, G)$ is usually the space-time manifold or its Euclidean version, i.e. 
+a pseudo-Riemannian manifold of dimension 4. But in some physical applications, such as superspace, Kaluza-Klein and string theories, the base 
+manifold can be an essentially arbitrary manifold. In this chapter we 
+formulate the theory of gauge fields on an arbitrary pseudo-Riemannian 
+base manifold. 
+
+
+Let $(M,g)$ be an m-dimensional pseudo-Riemannian manifold and 
+$G$ a Lie group which we take as the gauge group of our theory. Let 
+$P\left(M, G \right)$  be a principal bundle with the gauge group $G$ as its structure 
+group. A connection in $P$ is called a {\it gauge connection}. The connection 1-form $\om$ is called the {\it gauge connection form} or simply the 
+{\it gauge connection}. A {\it global gauge} or simply a {\it gauge} is a section 
+$s \in \Ga\left(P \right)$. The gauge potential $A$ on $M$ in gauge $s$ is obtained by 
+pull-back of the gauge connection $\om$ on $P$ to M by $s$, i.e. $A = s^*(\om)$. 
+A {\it global gauge} and hence the gauge potential on $M$ exists if and only 
+if the bundle $P$ is trivial. A {\it local gauge} is defined as a section of the 
+bundle $P(M, G)$ restricted to some open subset $U \subset M$. Local gauges defined for the local representations $\left(\sU_\iota, \psi_\iota \right)_{\iota \in I}$  of $P$, always exist. Let $t \in \Ga\left( \right)$  be a local gauge; then the 1-form $t^*\om\in \La^1\left( \sU, \mathfrak g\right)$  is called the {\it gauge potential} in the {\it local gauge} $t$ and is denoted by $A_t$. If the local gauge $t$ is given we often denote $A_t$ by $A$ and call it a {\it local gauge potential}. In electromagnetism, the gauge group $G = U\left( 1\right)$ is the circle group. An element $e^{i\th}\in U(1)$ is determined  by the phase $\th$. Thus, in this case, a local gauge over an open set $\sV \subset M$ can be regarded as a choice of a phase in the bundle $P|_\sV = \sV \times G$, at each point of $\sV$. For this reason, the total space of the bundle $P$ is sometimes called the {\it space of phase factors} in the physics literature. 
+
+
+Let $\Om \bydef d^\om \om$ be the curvature 2-form of $\om$ with values in the Lie 
+algebra $\mathfrak g$. We call $\Om$ the {\it gauge field} on $P$. There exists a unique 2-form $F_\om$ on $M$ with values in the Lie 
+algebra bundle $ad P$ associated to the curvature 2-form $\Om$ such that 
+\be
+F_\om = s_\Om
+\ee
+
+The 2-form $F_\om \in \La^2\left( M, ad P\right)$  is called the {\it gauge field} on $M$ corresponding to the gauge connection $\om$. The gauge field Fu is globally defined on $M$, even though, in general, there is no corresponding globally 
+defined gauge potential on $M$. If we are given a local gauge potential $A_t \in \La\left(\sU_\iota, \mathfrak g \right)$, then on $\sU_\iota$,  we have the relations 
+\be
+t^*\om = A_t \quad \text{and} \quad F_\om = d^\om A_t
+\ee
+The group $Diff(P)$ of the diffeomorphisms of $P$ is too large to 
+serve as a group of gauge transformations, since it mixes up the fibers 
+of $P$. The requirement that fibers map to fibers may be expressed by 
+the condition that the following diagram commutes. 
+\\
+\begin{tikzcd}
+P \arrow[r, "f"]\arrow[d, "\pi"] & P \arrow[d, "\pi"]\\
+M \arrow[r, "f_M"] & M
+\end{tikzcd}
+\\
+i.e.
+\be\label{gauge_p_eqn}
+\pi \circ f = f_M \circ \pi
+\ee
+We note that condition \eqref{gauge_p_eqn} does not depend on the principal bundle 
+structure of $P$ and hence can be imposed on any fiber bundle. The pair $\left(f, f_M\right)$ 
+ satisfying condition  \eqref{gauge_p_eqn} is a fiber bundle automorphism. In 
+this case we call $f$ a {\it projectable diffeomorphism} or {\it transformation}  of $P$. The projectable diffeomorphisms form a group $ Diff_M(P)$, 
+defined by 
+\bean
+Diff_M(P) \bydef \left\{f \in Diff\left( P\right)| f \quad \text{is projectable} \right\}
+\eean
+
+\subsection{Action Principles on Principal Bundles}
+\paragraph{}
+
+According to \cite{new_matrix} there is there is a set of fields, which we denote collectively by $\Phi$, with {\it Lagrangian
+density} $\L =\L\left[\Phi, \partial \Phi\right]$. In 
+\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated !!! LINEAR BUNDLE !!!
+The situation is often as follows. One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}\index{action}. 
+
+Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$ (or $C^\infty(N,M)$!) and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. Under certain conditions\footnote{Namely, that $\mathscr{L}$ factors over the bundle of germs of maps from $M$ to $N$. For more details, see section \ref{actionlocal}.} that are satisfied in many situations\footnote{This has to do with the principle of locality in physics.}, the (global) demand that $S$ be stationary at $q$ with respect to all compactly supported variations then translates into a (local) differential equation for $q$, in the sense that $0 = \frac{d}{dt}|_{t=0}S(q+t\tau)=\int_M\frac{d}{dt}|_{t=0}\mathscr{L}(q+t\tau)$ for all compactly supported $\tau\in T_q Q$ if and only if $\frac{d}{dt}|_{t=0}\mathscr{L}(q+t\tau)=0$. This is called the \emph{Euler-Lagrange equation}\index{Euler-Lagrange equation}. We see that the global demand on $q$ that it be a stationary point of the action reduces to a demand that $q$ satisfies a certain differential equation locally (which we can hope to solve).
+
+The idea is that it is easier to argue what the action (that we demand to be stationary) should be than to derive the Euler-Lagrange equation immediately. Take for example soap films. It is a well-known fact (and it can indeed be easily argued from a simple physical model) that soap films are stationary points of the action function that takes a soap film and computes it area. However, this is not a very workable criterion for determining which shape a soap film will take given some boundary conditions. We can solve this problem by writing out the corresponding Euler-Lagrange equation, which, in this case, states that in each point of the film the mean curvature\footnote{This is an extrinsic measure of curvature of an embedded submanifold of a Riemannian manifold. (In this case, the soap film is embedded in the $\R^3$.) To be more specific, it is a constant multiple of the trace of the second fundamental form.} should be zero. Although it is much harder to guess that this equation should hold for soap films, it is just a partial differential equation, which we can hope to solve. Another example is proved by Fermat's principle, which states that lights propagates through an inhomogeneous medium between two points along the path that minimises (actually we only have that the path is a stationary point of the action) the transit time (which is the action, in this case). From this we can derive some Euler-Lagrange equations for the path that we can indeed solve, but are much less insightful
+
+Let us now proceed to the particular case at hand: action principles on principal bundles in the context of gauge theories of the Yang-Mills kind. In my treatment of these action principles I follow \cite{blegau}.
+
+\subsection{Mathematical Intermezzo: Jet Bundles}To give a mathematically rigorous treatment of such an action principle, we need the concept of a \emph{jet bundle}\index{jet bundle}. Recall that given a (pre)sheaf, we can construct its \emph{bundle of germs}, which is an topological \'etal\'e bundle (a fibre bundle whose projection is a local homeomorphism). In the case we started with a sheaf, we can interpret the original sheaf as the sheaf of sections of this bundle. (The sheaf of sections of this bundle is isomorphic to the original sheaf.) \cite{macshe} Let us start with a pair of smooth manifolds $M$ and $N$ and consider the sheaf $C^\infty (M,N)$ of smooth functions from $M$ to $N$. We obtain a topological fibre bundle $\mathrm{germ}(M,N)\rar{}M; \;\mathrm{germ}_mf\mapsto m$ of germs of smooth functions.
+
+Now, we define the bundle of $k$-jets of maps from $M$ to $N$ as a quotient of $\mathrm{germ}(M,N)$: we identify $\mathrm{germ}_m f\sim \mathrm{germ}_m g$ if $T^j_m f=T^j_m g$, for all $0\leq j\leq k$. (Here, I write $T^j_m f$ for the $j$-times repeated derivative of $f$ at the point $m$.) Note that this equivalence relation respects the fibres of the bundle of germs. In this way we obtain a topological fibre bundle $J^k(M,N)\rar{}M$, called the jet bundle of order $k$. One can think of $J^k(M,N)$ as having $$\{\; (m,f(m),T_m f, T^2_mf,\ldots, T^k_m f)\; | \; m\in M,\; f\in C^\infty(M,N)\, \}$$ as an underlying set. Note that if we replace $N$ with a vector space $W$, $J^k(M,W)$ has the structure of a vector bundle. Finally, it is easily checked that we can define a smooth structure on $J^k(M,N)$ using that on $M$ and $N$, making it into a smooth fibre bundle. Indeed, we construct a chart for $J^k(M,N)$ from each pair of charts for $M$ and $N$ in the obvious way.
+
+Note that we can also start out with a fibre bundle $F\rar{\pi}M$ and consider the bundle of germs of sections of this bundle. We can take a quotient of this to obtain a jet bundle $J^k\pi$ of sections of $\pi$.
+
+\subsection{Action Densities and Lagrangians}
+\label{actionlocal}
+!!!%Suppose we want to deal with a particle whose wave functions are sections of a metrised vector bundle $V\rar{\pi}M$, with standard fibre an inner product space $W$. Write $P\rar{\pis}M$ for its orthonormal frame bundle and write $G$ for its structure group. Then we can equivalently take $C^\infty(P,W)^G \subset C^\infty(P,W)$ as the set of wave functions. What we want to work towards is a function $C^\infty(P,W)\rar{\mathscr{L}}C^\infty(M)$, called the action density, from which we will be able to derive the equations of evolution of the system. There is a very important principle in physics, known as the \emph{principle of locality}\index{principle of locality}, which states that an event in spacetime can only be influenced by certain events that are sufficiently near to it. Put differently, we should be able to formulate the laws of physics locally and make predictions on the basis of only local information. Of course, this is a very practical demand. This demand is represented in the mathematics of the theory be demanding that the action density factors over the bundle of germs of maps from $P$ to $W$. 
+
+There is another, less fundamental\footnote{Indeed, a similar theory can be setup for the case that the action density factors over the $n$-th jet bundle.}, and even more practical demand that we put on the action density. Ever since Newton, we have been used to formulating our theories of physics in such a form that the equations of motion for the particles become differential equations (ordinary or partial) of order two. This means that if we know the initial configuration and its first derivative (or momentum) of a particle, we can predict its trajectory. Equivalently, in the Lagrangian formalism (which we shall use) of field theory, we demand that the action density depends only on value of the fields and their first derivatives. Put differently, it does not only factorise over the bundle of germs, but even over the jet bundle $J^1(P,W)$.
+
+An \emph{interaction Lagrangian}\index{interaction Lagrangian} will be an $G$-invariant\footnote{We define the Lagrangian to be an invariant function on the (jet bundle of) the principal bundle. Such a function corresponds precisely with function on the (jet bundle of) equivariant maps from $P$ to $W$ (or by claim \ref{seccoo}, on the (jet bundle of) sections of the associated vector bundle, which is be what physicists would call a Lagrangian instead). Note that the action on $J^1(P,W)$ for which we demand invariance is a natural one induced by the principal right action on $P$. Indeed, if $\psi$ is an equivariant map, then $(p\cdot g,\psi(p\cdot g),d\psi(p\cdot g)=(p\cdot g,g^{-1}\cdot \psi(p),g^{-1}\cdot d\psi(p)\circ T\rho_{g^{-1}})$.} smooth function $J^1(P,W)\rar{L_i}\R$, in the sense that (remember that $G$ acts on $W$ on the left) $L_i(p,w,\xi)=L_i(p\cdot g,g^{-1}\cdot w, g^{-1}\cdot \xi\circ T\rho_{g^{-1}})$, where I write $\rho$ for the principal right action and make the canonical identification of $T_w W\cong W$. 
+
+!!! %This condition of compatibility with the $G$-actions is chosen precisely such that an interaction Lagrangian defines a function $C^\infty(P,W)^G\rar{\mathscr{L}_n}C^\infty(M)$, called the \emph{naive interaction action density}\index{naive interaction action density}, by $\mathscr{L}_n(\psi)(m):=L_i(p,\psi(p),d\psi(p))$, where $p$ is an arbitrary point in $\pis^{-1}(m)$. (Here I write $d\psi$ for the derivative $T\psi$.)
+\begin{claim}
+	In this way, $\mathscr{L}_n$ is well-defined.
+\end{claim}
+\begin{proof}
+	This will follow from the fact that the principal right action is transitive on the fibre. Indeed,
+	$g^{-1}\cdot\psi(p)=\psi(p\cdot g)$ and $g^{-1}\cdot d\psi(p)=d\psi(p\cdot g)\circ T\rho_g$. Therefore $L_i(p\cdot g,\psi(p\cdot g),d\psi(p\cdot g))=L_i(p\cdot g,g^{-1}\cdot \psi(p),g^{-1}\cdot d\psi(p)\circ T\rho_{g^{-1}})=L_i(p,\psi(p),d\psi(p))$, where the last equality holds by definition of the Lagrangian.\end{proof}
+As the terminology `naive action density' suggest, there is a problem with this definition. It has to do with a failure of gauge invariance. Almost all interaction Lagrangians that arise in practice are \emph{$G$-invariant}\index{interaction Lagrangian, $G$-invariant} in the sense that $L_i(p,w,\xi)=L_i(p,g\cdot w, g\cdot \xi)$. If we want this principal bundle setup of physics to do what I have sketched in the introduction to this chapter, formalise the idea that physics cannot be separated from observers and that all observers are equivalent, then the action density (which will give us our equations of motions of the particles) should be gauge invariant. In particular, we would very much hope that $G$-invariant Lagrangians give rise to gauge invariant action densities. This turns out not to be the case for our naive definition of an action density.
+\begin{claim}
+	$\mathscr{L}_n$ is not necessarily gauge invariant, if $L_i$ is a $G$-equivariant Lagrangian. 
+\end{claim}
+\begin{proof}This proof and the next will make use of the interpretation of gauge transformations given in claim \ref{isomgauge}. Indeed, let $f\in\mathrm{Gau}\, P$. Then this claim gives us a unique $\tau\in C^\infty(P,G)$ such that $f(p)=p\cdot \tau(p)$. Then $f^* \psi=\tau^{-1}\cdot \psi$. Let $]-\epsilon,\epsilon[\rar{c}P$ such that $c(0)=p$ and $c'(0)=X$. Then
+	\begin{align*}d(\tau^{-1}\cdot \psi)(X)&=\frac d {dt}|_{t=0} \tau^{-1} (c(t))\cdot \psi(c(t))\\
+		&=\frac d {dt}|_{t=0} \tau^{-1}(p)\cdot \psi(c(t))+\frac{d}{dt}|_{t=0} \tau^{-1} (c(t))\cdot \psi(p)\\
+		&=\tau^{-1}(p)\cdot d\psi(X)+\frac d {dt}|_{t=0}\tau^{-1}(c(t))\tau(p)\tau(p)^{-1}\cdot \psi(p)\\
+		&=\tau^{-1}(p)\cdot d\psi(X)+ T\rho_{\tau(p)}(T_p\tau^{-1})(X)\cdot \tau(p)^{-1}\cdot \psi(p).
+	\end{align*}
+	
+	Therefore
+!!! %	\begin{align*}
+	%	\mathscr{L}_n(f^*\psi)(m)&=L_i(p,(f^*\psi)(p),d(f^*\psi)(p))\\
+%		&=L_i(p,\tau^{-1}(p)\cdot \psi(p),\tau^{-1}(p)\cdot d\psi(p)+T\rho_{\tau(p)}(T_p\tau^{-1})\cdot \psi(p))\\
+%		&\exeq L_i(p,\psi(p),d\psi(p))\\
+%		&= L_i(p,\tau^{-1}(p)\cdot \psi(p),\tau^{-1}(p)\cdot d\psi(p)), \txt{(by $G$-invariance)}
+%	\end{align*}
+	where the !!! % $\exeq$ is the condition for gauge invariance. In general, however, the term $T\rho_{\tau(p)}(T_p\tau^{-1})\cdot \psi(p)$ does not vanish and therefore gauge invariance is not satisfied. 
+\end{proof}
+Until this point I have tried to argue why principal bundles arise in physics. However, no real answer has been given to the question why physicists would be interested in principal connections. The connection in the Kaluza-Klein theory of electromagnetism arose as a technical curiosity rather than as a inevitable consequence of some fundamental demand on our physical theories. However, principal connections arise in a very natural way in gauge theory. In fact, we are forced to introduce them when we want our theory to be gauge invariant!
+
+!!! %Remember that we write $\mathscr{C}(P)\subset \Omega^1(P,\g)$ for the space of principal connections. Note that the right action of $\mathrm{Gau}\, P$ on $\Omega^1(P,\g)$ by pullback restricts to $\mathscr{C}(P)$. 
+\begin{claim}
+	Let $f\in\mathrm{Gau}\, P$ and $\omega\in\mathscr{C}(P)$ then $f^*\omega\in\mathscr{C}(P)$.
+\end{claim}
+\begin{proof}
+!!!	%Let $Z\in\g$ and $f\in\mathrm{Gau}\, P$. Then $(f^*\omega)(Z_P(p))=\omega(Tf Z_P(p))=\\ \omega(\frac d {dt}|_{t=0} f(p \exp tZ))=\omega(\frac d {dt}|_{t=0} f(p)\exp tZ)=\omega(Z_P(f(p)))=Z$, so $f^*\omega$ reproduces vertical vectors.
+	
+	Moreover, since $f$ is a map of principal bundles, $\rho_g^*f^*\omega=f^*\rho_g^*\omega=f^*\mathrm{Ad}_{g^{-1}}\omega=\mathrm{Ad}_{g^{-1}} f^*\omega$, i.e. $f^*\omega$ is equivariant in the sense of claim \ref{claim:equiv}.
+\end{proof}
+Moreover $\mathrm{Gau}\, P$ acts on $C^\infty(M,W)^G$ on the right by $f^*\psi(p):=\psi\circ f(p)$.
+\begin{theorem}
+!!! %	Let $L_i$ be a $G$-invariant Lagrangian. If we define the \emph{interaction action density}\index{interaction action density} $C^\infty(P,W)^G\times \mathscr{C}(P)\rar{\mathscr{L}_i}C^\infty(M)$ by $\mathscr{L}_i(\psi,\omega)(m):=L_i(p,\psi(p),d^\omega\psi(p))$, for $p\in\pis^{-1}(m)$, then $\mathscr{L}_i$ is gauge invariant in the sense that $\mathscr{L}_i(\psi,\omega)=\mathscr{L}_i(f^*\psi,f^*\omega)$, for all $f\in\mathrm{Gau}\, P$.
+\end{theorem}
+\begin{proof}We begin by checking that $\mathscr{L}_i$ is well-defined in this way. Note that by equivariance of $d^\omega \psi\in \Omega_\hor^1(P,W)^G$, we have $d^\omega\psi(p\cdot g)=g^{-1}\cdot d^\omega\psi(p)\circ T\rho_{g^{-1}}$. Therefore
+	\begin{align*}L_i(p\cdot g,\psi(p\cdot g),d^\omega\psi(p\cdot g))&=L_i(p\cdot g, g^{-1}\cdot \psi(p),g^{-1}\cdot d^\omega\psi(p)\circ T\rho_{g^{-1}})\\
+		&=L_i(p, \psi(p),d^\omega\psi(p)),
+	\end{align*}
+	where the last identity holds by definition of the interaction Lagrangian.
+	
+	Now, we verify gauge invariance.
+	\begin{align*}\mathscr{L}_i(f^*\psi,f^*\omega)(m)&=L_i(p,(f^*\psi)(p),d^{f^*\omega}f^*\psi(p))\\
+		&=L_i(p,(f^*\psi)(p),f^*(d^\omega \psi(p)))\\
+		&=L_i(p,\tau(p)^{-1}\cdot \psi(p),\tau(p)^{-1}\cdot d^\omega\psi(p))\\
+		&=L_i(p,\psi(p),D^\omega\psi(p))\txt{(by $G$-invariance)}\\
+		&=\mathscr{L}_i(\psi,\omega)(m).
+	\end{align*}
+\end{proof}
+We see that the use of principal connections was forced on the physicists if they wanted their theory to be gauge invariant. Now, it turns out that these principal connections have a physical interpretation: that of gauge potentials of the interactions between the particles. They are generalisations of the electromagnetic potential.
+
+Now, we know from the theory of electromagnetism that the fields can exhibit non-trivial behavior, even in the absence of matter. This means that we have to add a term to the action density that depends only on the gauge potential, if we want to formulate an action principal from which this behavior can be derived. Let's write this term, called the \emph{self action density}\index{self action density} of the fields, as $\mathscr{L}_s$. This term will be a map $\mathscr{C}(P)\rar{\mathscr{L}_s}C^\infty(M)$, but we will interpret it as a map $ C^\infty(P,W)^G\times \mathscr{C}(P)\rar{\mathscr{L}_s}C^\infty(M)$. And we will write $\mathscr{L}:=\mathscr{L}_i+\mathscr{L}_s$ for the total action density.
+
+Again, $\mathscr{L}_s$ will only depend on the potential and its covariant derivative (i.e. the curvature) at a point. This can be made explicit by demanding that it comes from a \emph{self Lagrangian for the fields} $J^1\mathscr{C}(P)\rar{L_s}\R$, in a similar way as $\mathscr{L}_i$ did. (Here, $J^1\mathscr{C}(P)$ is bundle of $1$-jets of sections of the bundle of germs of connections $\mathscr{C}(P)\rar{}M$.) 
+
+We have a natural action of $\mathrm{Gau}\, P$ on $J^1\mathscr{C}(P)$. Indeed, we take $f\in\mathrm{Gau}\, P$ and $\tau=(p,\omega(p),d\omega(p))\in J^1\mathscr{C}(P)$ and set $f\cdot\tau:=(f^{-1}(p),(f^*\omega)(f^{-1}(p)),d(f^*\omega)(f^{-1}(p)))$. Moreover, $G$ acts on $J^1\mathscr{C}(P)$ by $(p,\omega(p),d\omega(p))\cdot g:=(p,\omega(p\cdot g),d\omega(p\cdot g))$.
+
+!!! %A \emph{self Lagrangian for the fields}\index{self Lagrangian for the fields} is then defined to be a map $J^1\mathscr{C}(P)\rar{L_s}\R$ such that $L_s(\tau\cdot g)=L_s(\tau)$, for all $\tau\in J^1\mathscr{C}(P)$ and $g\in G$. We now define $\mathscr{L}_s$ by $\mathscr{L}_s(\pis(p)):=L_s(\tau_p)$, where $\tau_p=(p,\omega(p),d\omega(p))\in (J^1\mathscr{C}(P))_{p}$. This is well-defined since the principal right action is transitive on the fibre and $L_s(\tau_p)=L_s(\tau_p\cdot g)=L_s(\tau_{p\cdot g})$. Moreover, we have the following.
+\begin{claim}
+	$\mathscr{L}_s$ is gauge invariant if and only if $L_s$ is.
+\end{claim}
+\begin{proof}The statement follows from comparison of the following two equalities.\\
+%	$\mathscr{L}_s(\omega)(\pis(p))=S(p,\omega(p),d\omega(p))$ and \begin{align*}\mathscr{L}_s(f^*\omega)(\pis(p))&=\mathscr{L}_s(f^*\omega)(\pis(f^{-1}(p)))\\
+%		&=L_s(f^{-1}(p),(f^*\omega)(f^{-1}(p)),d(f^*\omega)(f^{-1}(p)))\\
+%		&=L_s(f\cdot (p,\omega(p),d\omega(p))),
+%	\end{align*}
+	for $f\in\mathrm{Gau}\, P$.
+\end{proof}
+!!!%Note that the curvature $\mathscr{C}(P)\rar{\Omega}\Omega_\hor^2(P,\g)^G$ not only depends locally on the connection in the sense that it is derived from a function $\mathrm{germ}\,\mathscr{C}(P)\rar{\tilde \Omega}\mathrm{germ}\,\Omega^2(P,\g)$. This map even factors over a map $J^1\mathscr{C}(P)\rar{\hat\Omega}J^0(\Omega_\hor^2(P,\g)^G)$. (Here, $J^0\Omega_\hor^2(P,\g)^G$ denotes the zeroth jet bundle of the bundle of germs of sections of $\Omega_\hor^2(P,\g)^G$.) Indeed, $\hat\Omega(\tau)=d\omega(p)+\frac 1 2 [\omega(p),\omega(p)]=\Omega^\omega(p)$, for $\omega\in\mathscr{C}(P)$ and $\tau=(p,\omega(p),d\omega(p))$. 
+
+This observation is important to understand the following theorem, which is due to Utiyama and gives a characterisation of the gauge invariant self Lagrangians.
+\begin{theorem}[Utiyama's theorem\index{Utiyama's theorem}]
+	!!! % A self Lagrangian $L_s$, or equivalently its self action density $\mathscr{L}_s$, gauge invariant if and only if it is of the form $L_s=K\circ\hat\Omega$ for some $\mathrm{Ad}$-invariant $J^0(\Omega_\hor^2(P,\g)^G)\rar{K}\R$.
+	\end{theorem}
+A simple proof can be found in \cite{blegau}. What does this theorem tell us? It says that a Lagrangian self action is gauge invariant precisely if its value at a point only depends on the value of the curvature at that point and moreover depends on it in a $\mathrm{Ad}$-invariant way. Obviously this result shows that the possibilities for gauge invariant Lagrangian self actions are very limited.
 
 
  \end{appendices}
@@ -32312,6 +31932,18 @@ Golm, Germany, arXiv:hep-th/0201182, 2022.
 
 \bibitem{isumaru}	Isumaru, A. {\it Wave propagation and scattering in random	media} A. Isumaru. Ð New York: John Wiley \& Sons, 1999.
 
+\bibitem{marmat} K.B. Marathe and G. Martucci. \textit{The Mathematical Foundations of Gauge Theories.} North-Holland, 1992.
+
+\bibitem{gauge_princilpal}Matthijs V\'{a}k\'{a}r.
+{\it Principal Bundles and Gauge
+Theories}
+BachelorÕs Thesis. Student number 3367428
+Universiteit Utrecht
+Utrecht, June 21, 2011 
+arXiv:2110.06334, 2011.
+
+\bibitem{sheaf_gauge} Grigorios Giotopoulos.{\it Sheaf Topos Theory:
+A powerful setting for Lagrangian Field Theory} arXiv:2504.08095v1, 2025.
 
 
 \end{thebibliography}

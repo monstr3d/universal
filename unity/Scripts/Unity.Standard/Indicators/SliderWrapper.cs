@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Unity.Standard.Abstract;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,7 +80,7 @@ namespace Unity.Standard.Indicators
         /// <param name="exceed">Exceed color</param>
         /// <param name="format">Format</param>
         public SliderWrapper(string parameter, Component component,
-          float scale, float limit, Func<double?> output, Color normal, Color exceed, string format, bool enableDebug) :
+          float scale, float limit, Func<double> output, Color normal, Color exceed, string format, bool enableDebug) :
             this(parameter, component, scale, limit, output, enableDebug)
         {
             this.normal = normal;
@@ -101,7 +99,7 @@ namespace Unity.Standard.Indicators
         }
 
         public SliderWrapper(string parameter, Component component,
-            float scale, float limit, Func<double?> output = null, bool enableDebug = false)
+            float scale, float limit, Func<double> output = null, bool enableDebug = false)
         {
             this.parameter = parameter;
             Find();
@@ -233,12 +231,8 @@ namespace Unity.Standard.Indicators
 
 
   
-        float GetValue(double? val)
+        float GetValue(double val)
         {
-            if (val == null)
-            {
-                return 0;
-            }
             currentValue = scale * (float)val;
             return currentValue;
         }

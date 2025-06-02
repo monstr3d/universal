@@ -22,8 +22,6 @@ public class Activation : MonoBehaviour
 
     public string activation = "";
 
-    public bool mirror = false;
-
     public float delay = 0.1f;
 
     public int level;
@@ -55,24 +53,15 @@ public class Activation : MonoBehaviour
 
     static Type type;
 
-
-    #endregion
-
-    #region Ctor
-
-  
+ 
     #endregion
 
     #region Standard Members
 
     private void Awake()
     {
-        if (StaticExtensionUnity.Activation != null)
-        {
-            throw new Exception();
-        }
-        StaticExtensionUnity.Activation = this;
         StaticExtensionUnity.GlobalScale = globalScale;
+        StaticExtensionUnity.Activation = this;
         if (activation != null)
         {
             if (activation.Length > 0)
@@ -81,10 +70,7 @@ public class Activation : MonoBehaviour
                 activationObject = ci.Invoke(new object[0]) as IActivation;
              }
         }
-        if (activationObject != null)
-        {
-            LevelType = activationObject.GetActivationType(level);
-        }
+        LevelType = activationObject.GetActivationType(level);
         if (StaticExtensionUnity.StaticLevel != 0)
         {
             level = StaticExtensionUnity.StaticLevel;
@@ -100,10 +86,7 @@ public class Activation : MonoBehaviour
         }
         StaticExtensionUnity.Activation = this;
         exists = true;
-        if (activationObject != null)
-        {
-            type = activationObject.GetActivationType(level);
-        }
+        type = activationObject.GetActivationType(level);
         if (type != null)
         {
             MethodInfo stop = type.GetMethod("Collision",
@@ -116,6 +99,7 @@ public class Activation : MonoBehaviour
                 };
             }
         }
+
         MethodInfo mi = null;
         if (type != null)
         {
@@ -149,23 +133,16 @@ public class Activation : MonoBehaviour
                 {
                     monoBehaviour.enabled = true;
                 }
-                if (monoBehaviour is ReferenceFrameBehavior rf)
-                {
-                   // rf.Scale = globalScale;
-                }
             }
         }
     }
 
     private void Start()
     {
-        if (type != null)
+        MethodInfo mi = type.GetMethod("Post", new Type[0]);
+        if (mi != null)
         {
-            MethodInfo mi = type.GetMethod("Post", new Type[0]);
-            if (mi != null)
-            {
-                mi.Invoke(null, new object[0]);
-            }
+            mi.Invoke(null, new object[0]);
         }
         StaticExtensionUnity.SetLevel();
         StartCoroutine(enumerator);
@@ -194,10 +171,7 @@ public class Activation : MonoBehaviour
   
     void UpdateFist()
     {
-        if (activationObject != null)
-        {
-            activationObject.PostActivate(components);
-        }
+        
         foreach (string s in disabledComponents)
         {
             s.EnableDisable(false);

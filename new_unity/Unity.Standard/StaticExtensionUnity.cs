@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Globalization;
 
 using BaseTypes;
 
@@ -34,9 +33,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
-using RealMatrixProcessor;
-using UnityEngine.VFX;
-using UnityEngine.UIElements;
+using System.Globalization;
 
 namespace Unity.Standard
 {
@@ -49,8 +46,6 @@ namespace Unity.Standard
     {
 
         #region Fields
-
-        static Vector3DProcessor vp = new();
 
         /// <summary>
         /// Failure messages
@@ -249,87 +244,6 @@ namespace Unity.Standard
 
         #endregion
 
-
-        #region Constructor
-
-        static StaticExtensionUnity()
-        {
-
-            TextUpdate = new DefaultTextAction();
-
-            Assembly ass = typeof(StaticExtensionUnity).Assembly;
-
-            StaticExtensionDiagramUI.PostLoadDesktop += dAct;
-
-            PureDesktop.DesktopPostLoad += dAct;
-
-
-            ass.SetScadaAssembly((Type type) =>
-            {
-                try
-                {
-                    ConstructorInfo ci = type.GetConstructor(new Type[0]);
-                    if (ci == null)
-                    {
-                        return;
-                    }
-                    var types = type.GetInterfaces();
-                    string name = type.Name;
-                    if (types.Contains(typeof(IUpdate)))
-                    {
-                        updates[name] = ci;
-                    }
-                    if (types.Contains(typeof(IUpdateGameObject)))
-                    {
-                        updatesGameObject[name] = ci;
-                    }
-                    if (types.Contains(typeof(ITriggerAction)))
-                    {
-                        updatesTriggerAction[name] = ci;
-                    }
-                    if (types.Contains(typeof(ICollisionAction)))
-                    {
-                        updatesCollisionAction[name] = ci;
-                    }
-                    if (types.Contains(typeof(IActivation)))
-                    {
-                        activations[name] = ci;
-                    }
-                    if (types.Contains(typeof(IIndicatorFactory)))
-                    {
-                        indicatorFactories.Add(ci.Invoke(new object[] { })
-                            as IIndicatorFactory);
-                    }
-                    if (types.Contains(typeof(IStringUpdate)))
-                    {
-                        stringUpates[name] = type;
-                    }
-                }
-                catch (Exception e)
-                {
-
-                }
-            }
-            
-            );
-
-            var initializer =
-       new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
-        RungeProcessor.Processor,
-           DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
-          {
-
-          },
-          true);
-            initializer.InitializeApplication();
-
-
-        }
-
-        #endregion
-
-
-
         #region Public Members
 
         /// <summary>
@@ -464,10 +378,7 @@ namespace Unity.Standard
         /// </summary>
         public static void SetLevel()
         {
-            if (Level != null)
-            {
-                LevelAction();
-            }
+            LevelAction();
         }
 
         public static string ToZero(this string str)
@@ -930,19 +841,19 @@ namespace Unity.Standard
                 ITimerFactory timerEvent, IScadaUpdate update)
         {
             bool exists = desktop.ScadaExists();
-            var scada = desktop.ToScada("Consumer", timerEventFactory,
+            IScadaInterface scada = desktop.ToScada("Consumer", timerEventFactory,
                  timerEvent,
                 factory, TimeType.Second, false, null, true);
-            scada.ErrorHandler = ErrorHandler;
+            scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
             if (exists)
             {
                 var t = scadaUpdates[desktop];
-                var l = t.Item2;
+                List<IScadaUpdate> l = t.Item2;
                 l.Add(update);
             }
             else
             {
-                var l = new List<IScadaUpdate>() { update };
+                List<IScadaUpdate> l = new List<IScadaUpdate>() { update };
                 scadaUpdates[desktop] = new
                     Tuple<object, List<IScadaUpdate>>
                 (new object(), l);   
@@ -994,9 +905,10 @@ namespace Unity.Standard
 
         #region Private
 
+
         static private Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
-           vp.Set(euler,t);
+            euler.Set(t);
             return
                Quaternion.Euler(Mathf.Rad2Deg * (float)euler.pitch,
                 Mathf.Rad2Deg * (float)euler.roll, Mathf.Rad2Deg * (float)euler.yaw);
@@ -1253,15 +1165,6 @@ namespace Unity.Standard
             return new Quaternion((float)ori[1], (float)ori[2],
                 (float)ori[3], (float)ori[0]);
         }
-/*
-        static public Quaternion ToRotatedQuaternion(this
-            ReferenceFrame frame, double[] y, double[] z)
-        {
-            double[] ori = frame.Quaternion;
-            ori.QuaternionMultiply(y, z);
-            return new Quaternion(-(float)z[1], (float)z[2],
-                (float)z[3], (float)z[0]);
-        }*/
 
         /// <summary>
         /// 
@@ -1270,7 +1173,7 @@ namespace Unity.Standard
         /// <returns></returns>
         static public Vector3 ToPosition(this double[] t)
         {
-            return new Vector3((float)t[0], (float)t[1], -(float)t[2]);
+            return new Vector3((float)t[0], (float)t[1], (float)t[2]);
         }
 
         /// <summary>
@@ -1287,47 +1190,6 @@ namespace Unity.Standard
             go.GetComponents(out comp);
             return comp.GetComponents<T>();
         }
-
-        static public void Transform(this MeshFilter mesh, Func<Vector3, Vector3> transform)
-        {
-            var v = mesh.mesh.vertices;
-            var vv = new Vector3[v.Length];
-            for (int i = 0; i < v.Length; i++)
-            {
-                var w = v[i];
-                vv[i] = transform(w);
-            }
-            mesh.mesh.vertices = vv;
-        }
-
-        static RealMatrix realMatrix = new();
-
-        static private Vector3 Transform(this double[,] mat, Vector3 v)
-        {
-            var x = new double[] { (double)v.x, (double)v.y, (double)v.z };
-            var y = new double[3];
-            realMatrix.Multiply(mat, x, y);
-            return new Vector3((float)y[0], (float)y[1], (float)y[2]);
-        }
-
-        static public void Transform(this MeshFilter mesh, double[,] m)
-        {
-            Func<Vector3, Vector3> t = (v) => m.Transform(v);
-            Transform(mesh, t);
-        }
-
-        static public void Scale(this MeshFilter mesh, float scale)
-        {
-            Func<Vector3, Vector3> t = (v) =>  v * scale;
-            Transform(mesh, t);
-        }
-
-        static public void InverseZ(this MeshFilter mesh)
-        {
-            Func<Vector3, Vector3> t = (v) =>  new Vector3(v.x, v.y, -v.z); 
-            Transform(mesh, t);
-        }
-
 
         static public Dictionary<string, List<T>> GetComponents<T>(this 
             Dictionary<string, List<Component>> comp)
@@ -1430,21 +1292,29 @@ namespace Unity.Standard
             var exe = scadaUpdates[desktop];
             var o = exe.Item1;
             var l = exe.Item2;
-            List<Action> list = new();
+            Action a = null;
             foreach (var up in exe.Item2)
             {
-                list.Add(up.Update);
+                var act = up.Update;
+                if (act != null)
+                {
+                    if (a == null)
+                    {
+                        a = act;
+                        continue;
+                    }
+                    a += act;
+                }
             }
-            var a = list.ToSingleAction();
             if (a == null)
             {
-                return null;
+                return () => { };
             }
             return () =>
                 {
                     lock (o)
                     {
-                        a?.Invoke();
+                        a();
                     }
                 };
         }
@@ -1456,12 +1326,12 @@ namespace Unity.Standard
             string[] inputs,
             string[] outputs)
         {
-            var insp = monoBehaviour.inps;
-            var outp = monoBehaviour.outs;
-            var wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
-            var scada = wr.Scada;
-            var li = new List<Action<double>>();
-            var inp = (scada as IScadaInterface).Inputs;
+            Dictionary<string, Action<double>> insp = monoBehaviour.inps;
+            Dictionary<string, Func<double>> outp = monoBehaviour.outs;
+            MonoBehaviourWrapper wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
+            IScadaInterface scada = wr.Scada;
+            List<Action<double>> li = new List<Action<double>>();
+            var inp = scada.Inputs;
             foreach (var key in inputs)
             {
                 if (!inp.ContainsKey(key))
@@ -1480,15 +1350,15 @@ namespace Unity.Standard
                     Debug.LogError(ex.StackTrace);
                 }
             }
-            var lo = new List<Func<double?>>();
-            var outs = (scada as IScadaInterface).Outputs;
+            List<Func<double>> lo = new List<Func<double>>();
+            var outs = scada.Outputs;
             foreach (var key in outputs)
             {
                 if (!outs.ContainsKey(key))
                 {
                     Debug.LogError(key + "does not exist");
                 }
-                Func<double?> fd = scada.GetDoubleOutput(key);
+                Func<double> fd = scada.GetDoubleOutput(key);
                 outp[key] = fd;
                 lo.Add(fd);
             }
@@ -1522,6 +1392,75 @@ namespace Unity.Standard
         public static IReplaceActionFactory ReplaceActionFactory
         { get; set; } = new FrameReplaceActionFactory();
 
+
+        #endregion
+
+        #region Constructor
+
+        static StaticExtensionUnity()
+        {
+ 
+            TextUpdate = new DefaultTextAction();
+
+            Assembly ass = typeof(StaticExtensionUnity).Assembly;
+
+            StaticExtensionDiagramUI.PostLoadDesktop += dAct;
+
+            PureDesktop.DesktopPostLoad += dAct;
+
+            ass.SetScadaAssembly((Type type) =>
+            {
+                ConstructorInfo ci = type.GetConstructor(new Type[0]);
+                if (ci == null)
+                {
+                    return;
+                }
+                var types = type.GetInterfaces();
+                string name = type.Name;
+                if (types.Contains(typeof(IUpdate)))
+                {
+                    updates[name] = ci;
+                }
+                if (types.Contains(typeof(IUpdateGameObject)))
+                {
+                    updatesGameObject[name] = ci;
+                }
+                if (types.Contains(typeof(ITriggerAction)))
+                {
+                    updatesTriggerAction[name] = ci;
+                }
+                if (types.Contains(typeof(ICollisionAction)))
+                {
+                    updatesCollisionAction[name] = ci;
+                }
+                if (types.Contains(typeof(IActivation)))
+                {
+                    activations[name] = ci;
+                }
+                if (types.Contains(typeof(IIndicatorFactory)))
+                {
+                    indicatorFactories.Add(ci.Invoke(new object[] { })
+                        as IIndicatorFactory);
+                }
+                if (types.Contains(typeof(IStringUpdate)))
+                {
+                    stringUpates[name] = type; 
+                }
+            }
+            );
+
+            ExtendedApplicationInitializer initializer =
+       new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
+        RungeProcessor.Processor,
+           DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
+          {
+
+          },
+          true);
+            initializer.InitializeApplication();
+
+            
+        }
 
         #endregion
 
@@ -1599,7 +1538,7 @@ namespace Unity.Standard
                 object t = scada.Outputs[parameter];
                 if (t.GetType() == typeof(double))
                 {
-                    Func<double?> fd = scada.GetDoubleOutput(parameter);
+                    Func<double> fd = scada.GetDoubleOutput(parameter);
                     if (form != null)
                     {
                         if (form.Length > 0)
@@ -1608,11 +1547,7 @@ namespace Unity.Standard
                             {
                                 return () =>
                                 {
-                                    double? x = fd();
-                                    if (!x.HasValue)
-                                    {
-                                        return;
-                                    }
+                                    double x = fd();
                                     if (x > 0)
                                     {
                                         text.text = s + "+";
@@ -1630,11 +1565,7 @@ namespace Unity.Standard
                             {
                                 return () =>
                                 {
-                                    double? x = fd();
-                                    if (!x.HasValue)
-                                    {
-                                        return;
-                                    }
+                                    double x = fd();
                                     if (x > 0)
                                     {
                                         text.text = s + "-";
@@ -1658,12 +1589,7 @@ namespace Unity.Standard
                     }
                     return () =>
                     {
-                        var s = fd();
-                        if (!s.HasValue)
-                        {
-                            return;
-                        }
-                        double x = sc[0] * s.Value;
+                        double x = sc[0] * fd();
                         text.text = s + x.ToString();
                     };
 
@@ -1692,7 +1618,7 @@ namespace Unity.Standard
             double ITimeMeasurementProvider.Time { get => StaticExtensionUnity.Time; set { } }
             double ITimeMeasurementProvider.Step { get; set; }
 
-            IMeasurement m = new Measurement(() => StaticExtensionUnity.Time, "Time", "Time");
+            IMeasurement m = new Measurement(() => StaticExtensionUnity.Time, "Time");
         }
 
         class ErrorHanller : Scada.Interfaces.IErrorHandler

@@ -51,7 +51,7 @@ namespace Unity.Standard
         static MonoBehaviorTimerFactory()
         {
             StaticExtensionUnity.Init();
-            timeMeasurement = new Measurement(GetTime, "Time", "Time");
+            timeMeasurement = new Measurement(GetTime, "Time");
         }
 
         protected MonoBehaviorTimerFactory(string desktopName)

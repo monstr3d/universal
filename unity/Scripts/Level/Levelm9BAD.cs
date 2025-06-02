@@ -57,12 +57,9 @@ namespace Scripts.Level
 
         void OmEvent()
         {
-            var ob = new object[] { fx(), fy(), fz() };
-            var x = rm.Convert<double>(ob);
-
-            if (Math.Abs(x[0]) > double.Epsilon |
-     Math.Abs(x[1]) > double.Epsilon |
-     Math.Abs(x[2]) > double.Epsilon)
+            if (Math.Abs(fx()) > double.Epsilon |
+     Math.Abs(fy()) > double.Epsilon |
+     Math.Abs(fz()) > double.Epsilon)
             {
                 int i = 0;
             }
@@ -128,7 +125,7 @@ namespace Scripts.Level
 
         private void YawEvent()
         {
-            vp.Set(angles, frame.Quaternion);
+            angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
             {
                 ev.Event -= YawEvent;

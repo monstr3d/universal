@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Scada.Desktop;
+﻿using Scada.Desktop;
 using Scada.Interfaces;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Unity.Standard.Interfaces;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,19 +16,6 @@ namespace Unity.Standard.Indicators
     /// </summary>
     public class TextIndicatorFactory : IIndicatorFactory
     {
-
-        #region Ctor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public TextIndicatorFactory()
-        {
-
-        }
-
-        #endregion
-
         IIndicator IIndicatorFactory.Get(GameObject gameObject)
         {
             var txt = gameObject.GetGameObjectComponents<Text>();
@@ -46,9 +33,10 @@ namespace Unity.Standard.Indicators
                 }
                 d[key] = txt[key][0].text;
             }
-            var desktop = d["Desktop"];
-            var scada = desktop.ToExistedScada();
-            Func<double?> f = null;
+            
+            string desktop = d["Desktop"];
+            IScadaInterface scada = desktop.ToExistedScada();
+            Func<double> f = null;
             string par = desktop + ".";
             bool debug = false;
             if (txt.ContainsKey("Debug"))

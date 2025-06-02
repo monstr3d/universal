@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Unity.Standard;
 using Unity.Standard.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.Specific
 {
@@ -288,11 +293,7 @@ namespace Scripts.Specific
 
         Type IActivation.GetActivationType(int level)
         {
-            return null;
-        }
-
-        void IActivation.PostActivate(MonoBehaviour[] monoBehaviours)
-        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,6 +15,9 @@ namespace Aviation.Light
 
     class Program
     {
+
+        // Unblock-File or Get-ChildItem -Path . -Recurse | Unblock-File
+        // Get-ChildItem -Path c:\0\ -Recurse | Unblock-File
         static bool check(object o)
         {
             if (o == null) 

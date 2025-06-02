@@ -20,8 +20,6 @@ namespace Scripts.Specific
     {
         #region Fields
 
-        Vector3DProcessor vp = new();
-
         public const float MaxRoll = 10;
 
         bool isActive = true;
@@ -189,7 +187,7 @@ namespace Scripts.Specific
 
         void UpdateInternal()
         {
-           vp.Set(angles,frame.Quaternion);
+            angles.Set(frame.Quaternion);
             heading = angles.pitch.ToDegree();
             roll = angles.yaw.ToDegree();
             pitch = angles.roll.ToDegree(); ;

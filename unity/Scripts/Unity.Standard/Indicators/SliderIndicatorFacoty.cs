@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Scada.Desktop;
+﻿using Scada.Desktop;
 using Scada.Interfaces;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Unity.Standard.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +37,7 @@ namespace Unity.Standard.Indicators
             }
             string desktop = d["Desktop"];
             IScadaInterface scada = desktop.ToExistedScada();
-            Func<double?> f = null;
+            Func<double> f = null;
             string par = desktop + ".";
             if (scada != null)
             {
