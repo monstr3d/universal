@@ -31087,120 +31087,40 @@ structure of $P$ and hence can be imposed on any fiber bundle. The pair $\left(f
  satisfying condition  \eqref{gauge_p_eqn} is a fiber bundle automorphism. In 
 this case we call $f$ a {\it projectable diffeomorphism} or {\it transformation}  of $P$. The projectable diffeomorphisms form a group $ Diff_M(P)$, 
 defined by 
-\bean
+\be\label{gauge_g_eqn}
 Diff_M(P) \bydef \left\{f \in Diff\left( P\right)| f \quad \text{is projectable} \right\}
-\eean
+\ee
 
-\subsection{Action Principles on Principal Bundles}
+\subsection{Action Principles on Principal Bundles and Local Lagrangian}
 \paragraph{}
 
 According to \cite{new_matrix} there is there is a set of fields, which we denote collectively by $\Phi$, with {\it Lagrangian
 density} $\L =\L\left[\Phi, \partial \Phi\right]$. In 
-\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated !!! LINEAR BUNDLE !!!
-The situation is often as follows. One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}\index{action}. 
+\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated  with $P$ vector bundle (cf.   the Definition \ref{top_vb_defn} and \ref{top_vb_defn}). 
+The situation is often as follows. One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}. 
+Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$  and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. We say that $\mathscr{L}$ is the {\it Lagrangian}. 
+\begin{definition}
+Let $\mathscr E$ be a soft subsheaf of the sheaf of continuous sections of $\Phi$ and $\mathscr F$ is a sheaf of continuous real - valued maps from $M$ to $\R$. A 
+Under the above hypothesis the {\it local Lagrangian
+		density} is a map $\phi:\Ga\left(\E \right) \to \Ga\left( \F \right)$ such that:
+		\begin{enumerate}
+			\item [(a)]  The diagram
+			\\
+			\begin{tikzcd}
+			\Ga\left(\mathscr E \right)\arrow[rr, "\phi"] \arrow[rd] &&  \Ga\left( \mathscr F \right)\arrow[ld]\\
+			& M &
+			\end{tikzcd}
+			\\
+			is commutative.
+			\item[(b)] The map $\phi$ is  invariant with respect to a  given  by \eqref{gauge_g_eqn} group $Diff_M(P)$.
+			\item[(c)] The map yields a continuous map $\mathrm{Sp\acute{e}}\left(\mathscr E \right)\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ where  $\mathrm{Sp\acute{e}}$ denotes the {
+				\'espace etal\'e} (cf. Exercise \ref{sheaf_etale_exer}).
+		\end{enumerate}
+\end{definition}
+\begin{remark}
+The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
+\end{remark}
 
-Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$ (or $C^\infty(N,M)$!) and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. Under certain conditions\footnote{Namely, that $\mathscr{L}$ factors over the bundle of germs of maps from $M$ to $N$. For more details, see section \ref{actionlocal}.} that are satisfied in many situations\footnote{This has to do with the principle of locality in physics.}, the (global) demand that $S$ be stationary at $q$ with respect to all compactly supported variations then translates into a (local) differential equation for $q$, in the sense that $0 = \frac{d}{dt}|_{t=0}S(q+t\tau)=\int_M\frac{d}{dt}|_{t=0}\mathscr{L}(q+t\tau)$ for all compactly supported $\tau\in T_q Q$ if and only if $\frac{d}{dt}|_{t=0}\mathscr{L}(q+t\tau)=0$. This is called the \emph{Euler-Lagrange equation}\index{Euler-Lagrange equation}. We see that the global demand on $q$ that it be a stationary point of the action reduces to a demand that $q$ satisfies a certain differential equation locally (which we can hope to solve).
-
-The idea is that it is easier to argue what the action (that we demand to be stationary) should be than to derive the Euler-Lagrange equation immediately. Take for example soap films. It is a well-known fact (and it can indeed be easily argued from a simple physical model) that soap films are stationary points of the action function that takes a soap film and computes it area. However, this is not a very workable criterion for determining which shape a soap film will take given some boundary conditions. We can solve this problem by writing out the corresponding Euler-Lagrange equation, which, in this case, states that in each point of the film the mean curvature\footnote{This is an extrinsic measure of curvature of an embedded submanifold of a Riemannian manifold. (In this case, the soap film is embedded in the $\R^3$.) To be more specific, it is a constant multiple of the trace of the second fundamental form.} should be zero. Although it is much harder to guess that this equation should hold for soap films, it is just a partial differential equation, which we can hope to solve. Another example is proved by Fermat's principle, which states that lights propagates through an inhomogeneous medium between two points along the path that minimises (actually we only have that the path is a stationary point of the action) the transit time (which is the action, in this case). From this we can derive some Euler-Lagrange equations for the path that we can indeed solve, but are much less insightful
-
-Let us now proceed to the particular case at hand: action principles on principal bundles in the context of gauge theories of the Yang-Mills kind. In my treatment of these action principles I follow \cite{blegau}.
-
-\subsection{Mathematical Intermezzo: Jet Bundles}To give a mathematically rigorous treatment of such an action principle, we need the concept of a \emph{jet bundle}\index{jet bundle}. Recall that given a (pre)sheaf, we can construct its \emph{bundle of germs}, which is an topological \'etal\'e bundle (a fibre bundle whose projection is a local homeomorphism). In the case we started with a sheaf, we can interpret the original sheaf as the sheaf of sections of this bundle. (The sheaf of sections of this bundle is isomorphic to the original sheaf.) \cite{macshe} Let us start with a pair of smooth manifolds $M$ and $N$ and consider the sheaf $C^\infty (M,N)$ of smooth functions from $M$ to $N$. We obtain a topological fibre bundle $\mathrm{germ}(M,N)\rar{}M; \;\mathrm{germ}_mf\mapsto m$ of germs of smooth functions.
-
-Now, we define the bundle of $k$-jets of maps from $M$ to $N$ as a quotient of $\mathrm{germ}(M,N)$: we identify $\mathrm{germ}_m f\sim \mathrm{germ}_m g$ if $T^j_m f=T^j_m g$, for all $0\leq j\leq k$. (Here, I write $T^j_m f$ for the $j$-times repeated derivative of $f$ at the point $m$.) Note that this equivalence relation respects the fibres of the bundle of germs. In this way we obtain a topological fibre bundle $J^k(M,N)\rar{}M$, called the jet bundle of order $k$. One can think of $J^k(M,N)$ as having $$\{\; (m,f(m),T_m f, T^2_mf,\ldots, T^k_m f)\; | \; m\in M,\; f\in C^\infty(M,N)\, \}$$ as an underlying set. Note that if we replace $N$ with a vector space $W$, $J^k(M,W)$ has the structure of a vector bundle. Finally, it is easily checked that we can define a smooth structure on $J^k(M,N)$ using that on $M$ and $N$, making it into a smooth fibre bundle. Indeed, we construct a chart for $J^k(M,N)$ from each pair of charts for $M$ and $N$ in the obvious way.
-
-Note that we can also start out with a fibre bundle $F\rar{\pi}M$ and consider the bundle of germs of sections of this bundle. We can take a quotient of this to obtain a jet bundle $J^k\pi$ of sections of $\pi$.
-
-\subsection{Action Densities and Lagrangians}
-\label{actionlocal}
-!!!%Suppose we want to deal with a particle whose wave functions are sections of a metrised vector bundle $V\rar{\pi}M$, with standard fibre an inner product space $W$. Write $P\rar{\pis}M$ for its orthonormal frame bundle and write $G$ for its structure group. Then we can equivalently take $C^\infty(P,W)^G \subset C^\infty(P,W)$ as the set of wave functions. What we want to work towards is a function $C^\infty(P,W)\rar{\mathscr{L}}C^\infty(M)$, called the action density, from which we will be able to derive the equations of evolution of the system. There is a very important principle in physics, known as the \emph{principle of locality}\index{principle of locality}, which states that an event in spacetime can only be influenced by certain events that are sufficiently near to it. Put differently, we should be able to formulate the laws of physics locally and make predictions on the basis of only local information. Of course, this is a very practical demand. This demand is represented in the mathematics of the theory be demanding that the action density factors over the bundle of germs of maps from $P$ to $W$. 
-
-There is another, less fundamental\footnote{Indeed, a similar theory can be setup for the case that the action density factors over the $n$-th jet bundle.}, and even more practical demand that we put on the action density. Ever since Newton, we have been used to formulating our theories of physics in such a form that the equations of motion for the particles become differential equations (ordinary or partial) of order two. This means that if we know the initial configuration and its first derivative (or momentum) of a particle, we can predict its trajectory. Equivalently, in the Lagrangian formalism (which we shall use) of field theory, we demand that the action density depends only on value of the fields and their first derivatives. Put differently, it does not only factorise over the bundle of germs, but even over the jet bundle $J^1(P,W)$.
-
-An \emph{interaction Lagrangian}\index{interaction Lagrangian} will be an $G$-invariant\footnote{We define the Lagrangian to be an invariant function on the (jet bundle of) the principal bundle. Such a function corresponds precisely with function on the (jet bundle of) equivariant maps from $P$ to $W$ (or by claim \ref{seccoo}, on the (jet bundle of) sections of the associated vector bundle, which is be what physicists would call a Lagrangian instead). Note that the action on $J^1(P,W)$ for which we demand invariance is a natural one induced by the principal right action on $P$. Indeed, if $\psi$ is an equivariant map, then $(p\cdot g,\psi(p\cdot g),d\psi(p\cdot g)=(p\cdot g,g^{-1}\cdot \psi(p),g^{-1}\cdot d\psi(p)\circ T\rho_{g^{-1}})$.} smooth function $J^1(P,W)\rar{L_i}\R$, in the sense that (remember that $G$ acts on $W$ on the left) $L_i(p,w,\xi)=L_i(p\cdot g,g^{-1}\cdot w, g^{-1}\cdot \xi\circ T\rho_{g^{-1}})$, where I write $\rho$ for the principal right action and make the canonical identification of $T_w W\cong W$. 
-
-!!! %This condition of compatibility with the $G$-actions is chosen precisely such that an interaction Lagrangian defines a function $C^\infty(P,W)^G\rar{\mathscr{L}_n}C^\infty(M)$, called the \emph{naive interaction action density}\index{naive interaction action density}, by $\mathscr{L}_n(\psi)(m):=L_i(p,\psi(p),d\psi(p))$, where $p$ is an arbitrary point in $\pis^{-1}(m)$. (Here I write $d\psi$ for the derivative $T\psi$.)
-\begin{claim}
-	In this way, $\mathscr{L}_n$ is well-defined.
-\end{claim}
-\begin{proof}
-	This will follow from the fact that the principal right action is transitive on the fibre. Indeed,
-	$g^{-1}\cdot\psi(p)=\psi(p\cdot g)$ and $g^{-1}\cdot d\psi(p)=d\psi(p\cdot g)\circ T\rho_g$. Therefore $L_i(p\cdot g,\psi(p\cdot g),d\psi(p\cdot g))=L_i(p\cdot g,g^{-1}\cdot \psi(p),g^{-1}\cdot d\psi(p)\circ T\rho_{g^{-1}})=L_i(p,\psi(p),d\psi(p))$, where the last equality holds by definition of the Lagrangian.\end{proof}
-As the terminology `naive action density' suggest, there is a problem with this definition. It has to do with a failure of gauge invariance. Almost all interaction Lagrangians that arise in practice are \emph{$G$-invariant}\index{interaction Lagrangian, $G$-invariant} in the sense that $L_i(p,w,\xi)=L_i(p,g\cdot w, g\cdot \xi)$. If we want this principal bundle setup of physics to do what I have sketched in the introduction to this chapter, formalise the idea that physics cannot be separated from observers and that all observers are equivalent, then the action density (which will give us our equations of motions of the particles) should be gauge invariant. In particular, we would very much hope that $G$-invariant Lagrangians give rise to gauge invariant action densities. This turns out not to be the case for our naive definition of an action density.
-\begin{claim}
-	$\mathscr{L}_n$ is not necessarily gauge invariant, if $L_i$ is a $G$-equivariant Lagrangian. 
-\end{claim}
-\begin{proof}This proof and the next will make use of the interpretation of gauge transformations given in claim \ref{isomgauge}. Indeed, let $f\in\mathrm{Gau}\, P$. Then this claim gives us a unique $\tau\in C^\infty(P,G)$ such that $f(p)=p\cdot \tau(p)$. Then $f^* \psi=\tau^{-1}\cdot \psi$. Let $]-\epsilon,\epsilon[\rar{c}P$ such that $c(0)=p$ and $c'(0)=X$. Then
-	\begin{align*}d(\tau^{-1}\cdot \psi)(X)&=\frac d {dt}|_{t=0} \tau^{-1} (c(t))\cdot \psi(c(t))\\
-		&=\frac d {dt}|_{t=0} \tau^{-1}(p)\cdot \psi(c(t))+\frac{d}{dt}|_{t=0} \tau^{-1} (c(t))\cdot \psi(p)\\
-		&=\tau^{-1}(p)\cdot d\psi(X)+\frac d {dt}|_{t=0}\tau^{-1}(c(t))\tau(p)\tau(p)^{-1}\cdot \psi(p)\\
-		&=\tau^{-1}(p)\cdot d\psi(X)+ T\rho_{\tau(p)}(T_p\tau^{-1})(X)\cdot \tau(p)^{-1}\cdot \psi(p).
-	\end{align*}
-	
-	Therefore
-!!! %	\begin{align*}
-	%	\mathscr{L}_n(f^*\psi)(m)&=L_i(p,(f^*\psi)(p),d(f^*\psi)(p))\\
-%		&=L_i(p,\tau^{-1}(p)\cdot \psi(p),\tau^{-1}(p)\cdot d\psi(p)+T\rho_{\tau(p)}(T_p\tau^{-1})\cdot \psi(p))\\
-%		&\exeq L_i(p,\psi(p),d\psi(p))\\
-%		&= L_i(p,\tau^{-1}(p)\cdot \psi(p),\tau^{-1}(p)\cdot d\psi(p)), \txt{(by $G$-invariance)}
-%	\end{align*}
-	where the !!! % $\exeq$ is the condition for gauge invariance. In general, however, the term $T\rho_{\tau(p)}(T_p\tau^{-1})\cdot \psi(p)$ does not vanish and therefore gauge invariance is not satisfied. 
-\end{proof}
-Until this point I have tried to argue why principal bundles arise in physics. However, no real answer has been given to the question why physicists would be interested in principal connections. The connection in the Kaluza-Klein theory of electromagnetism arose as a technical curiosity rather than as a inevitable consequence of some fundamental demand on our physical theories. However, principal connections arise in a very natural way in gauge theory. In fact, we are forced to introduce them when we want our theory to be gauge invariant!
-
-!!! %Remember that we write $\mathscr{C}(P)\subset \Omega^1(P,\g)$ for the space of principal connections. Note that the right action of $\mathrm{Gau}\, P$ on $\Omega^1(P,\g)$ by pullback restricts to $\mathscr{C}(P)$. 
-\begin{claim}
-	Let $f\in\mathrm{Gau}\, P$ and $\omega\in\mathscr{C}(P)$ then $f^*\omega\in\mathscr{C}(P)$.
-\end{claim}
-\begin{proof}
-!!!	%Let $Z\in\g$ and $f\in\mathrm{Gau}\, P$. Then $(f^*\omega)(Z_P(p))=\omega(Tf Z_P(p))=\\ \omega(\frac d {dt}|_{t=0} f(p \exp tZ))=\omega(\frac d {dt}|_{t=0} f(p)\exp tZ)=\omega(Z_P(f(p)))=Z$, so $f^*\omega$ reproduces vertical vectors.
-	
-	Moreover, since $f$ is a map of principal bundles, $\rho_g^*f^*\omega=f^*\rho_g^*\omega=f^*\mathrm{Ad}_{g^{-1}}\omega=\mathrm{Ad}_{g^{-1}} f^*\omega$, i.e. $f^*\omega$ is equivariant in the sense of claim \ref{claim:equiv}.
-\end{proof}
-Moreover $\mathrm{Gau}\, P$ acts on $C^\infty(M,W)^G$ on the right by $f^*\psi(p):=\psi\circ f(p)$.
-\begin{theorem}
-!!! %	Let $L_i$ be a $G$-invariant Lagrangian. If we define the \emph{interaction action density}\index{interaction action density} $C^\infty(P,W)^G\times \mathscr{C}(P)\rar{\mathscr{L}_i}C^\infty(M)$ by $\mathscr{L}_i(\psi,\omega)(m):=L_i(p,\psi(p),d^\omega\psi(p))$, for $p\in\pis^{-1}(m)$, then $\mathscr{L}_i$ is gauge invariant in the sense that $\mathscr{L}_i(\psi,\omega)=\mathscr{L}_i(f^*\psi,f^*\omega)$, for all $f\in\mathrm{Gau}\, P$.
-\end{theorem}
-\begin{proof}We begin by checking that $\mathscr{L}_i$ is well-defined in this way. Note that by equivariance of $d^\omega \psi\in \Omega_\hor^1(P,W)^G$, we have $d^\omega\psi(p\cdot g)=g^{-1}\cdot d^\omega\psi(p)\circ T\rho_{g^{-1}}$. Therefore
-	\begin{align*}L_i(p\cdot g,\psi(p\cdot g),d^\omega\psi(p\cdot g))&=L_i(p\cdot g, g^{-1}\cdot \psi(p),g^{-1}\cdot d^\omega\psi(p)\circ T\rho_{g^{-1}})\\
-		&=L_i(p, \psi(p),d^\omega\psi(p)),
-	\end{align*}
-	where the last identity holds by definition of the interaction Lagrangian.
-	
-	Now, we verify gauge invariance.
-	\begin{align*}\mathscr{L}_i(f^*\psi,f^*\omega)(m)&=L_i(p,(f^*\psi)(p),d^{f^*\omega}f^*\psi(p))\\
-		&=L_i(p,(f^*\psi)(p),f^*(d^\omega \psi(p)))\\
-		&=L_i(p,\tau(p)^{-1}\cdot \psi(p),\tau(p)^{-1}\cdot d^\omega\psi(p))\\
-		&=L_i(p,\psi(p),D^\omega\psi(p))\txt{(by $G$-invariance)}\\
-		&=\mathscr{L}_i(\psi,\omega)(m).
-	\end{align*}
-\end{proof}
-We see that the use of principal connections was forced on the physicists if they wanted their theory to be gauge invariant. Now, it turns out that these principal connections have a physical interpretation: that of gauge potentials of the interactions between the particles. They are generalisations of the electromagnetic potential.
-
-Now, we know from the theory of electromagnetism that the fields can exhibit non-trivial behavior, even in the absence of matter. This means that we have to add a term to the action density that depends only on the gauge potential, if we want to formulate an action principal from which this behavior can be derived. Let's write this term, called the \emph{self action density}\index{self action density} of the fields, as $\mathscr{L}_s$. This term will be a map $\mathscr{C}(P)\rar{\mathscr{L}_s}C^\infty(M)$, but we will interpret it as a map $ C^\infty(P,W)^G\times \mathscr{C}(P)\rar{\mathscr{L}_s}C^\infty(M)$. And we will write $\mathscr{L}:=\mathscr{L}_i+\mathscr{L}_s$ for the total action density.
-
-Again, $\mathscr{L}_s$ will only depend on the potential and its covariant derivative (i.e. the curvature) at a point. This can be made explicit by demanding that it comes from a \emph{self Lagrangian for the fields} $J^1\mathscr{C}(P)\rar{L_s}\R$, in a similar way as $\mathscr{L}_i$ did. (Here, $J^1\mathscr{C}(P)$ is bundle of $1$-jets of sections of the bundle of germs of connections $\mathscr{C}(P)\rar{}M$.) 
-
-We have a natural action of $\mathrm{Gau}\, P$ on $J^1\mathscr{C}(P)$. Indeed, we take $f\in\mathrm{Gau}\, P$ and $\tau=(p,\omega(p),d\omega(p))\in J^1\mathscr{C}(P)$ and set $f\cdot\tau:=(f^{-1}(p),(f^*\omega)(f^{-1}(p)),d(f^*\omega)(f^{-1}(p)))$. Moreover, $G$ acts on $J^1\mathscr{C}(P)$ by $(p,\omega(p),d\omega(p))\cdot g:=(p,\omega(p\cdot g),d\omega(p\cdot g))$.
-
-!!! %A \emph{self Lagrangian for the fields}\index{self Lagrangian for the fields} is then defined to be a map $J^1\mathscr{C}(P)\rar{L_s}\R$ such that $L_s(\tau\cdot g)=L_s(\tau)$, for all $\tau\in J^1\mathscr{C}(P)$ and $g\in G$. We now define $\mathscr{L}_s$ by $\mathscr{L}_s(\pis(p)):=L_s(\tau_p)$, where $\tau_p=(p,\omega(p),d\omega(p))\in (J^1\mathscr{C}(P))_{p}$. This is well-defined since the principal right action is transitive on the fibre and $L_s(\tau_p)=L_s(\tau_p\cdot g)=L_s(\tau_{p\cdot g})$. Moreover, we have the following.
-\begin{claim}
-	$\mathscr{L}_s$ is gauge invariant if and only if $L_s$ is.
-\end{claim}
-\begin{proof}The statement follows from comparison of the following two equalities.\\
-%	$\mathscr{L}_s(\omega)(\pis(p))=S(p,\omega(p),d\omega(p))$ and \begin{align*}\mathscr{L}_s(f^*\omega)(\pis(p))&=\mathscr{L}_s(f^*\omega)(\pis(f^{-1}(p)))\\
-%		&=L_s(f^{-1}(p),(f^*\omega)(f^{-1}(p)),d(f^*\omega)(f^{-1}(p)))\\
-%		&=L_s(f\cdot (p,\omega(p),d\omega(p))),
-%	\end{align*}
-	for $f\in\mathrm{Gau}\, P$.
-\end{proof}
-!!!%Note that the curvature $\mathscr{C}(P)\rar{\Omega}\Omega_\hor^2(P,\g)^G$ not only depends locally on the connection in the sense that it is derived from a function $\mathrm{germ}\,\mathscr{C}(P)\rar{\tilde \Omega}\mathrm{germ}\,\Omega^2(P,\g)$. This map even factors over a map $J^1\mathscr{C}(P)\rar{\hat\Omega}J^0(\Omega_\hor^2(P,\g)^G)$. (Here, $J^0\Omega_\hor^2(P,\g)^G$ denotes the zeroth jet bundle of the bundle of germs of sections of $\Omega_\hor^2(P,\g)^G$.) Indeed, $\hat\Omega(\tau)=d\omega(p)+\frac 1 2 [\omega(p),\omega(p)]=\Omega^\omega(p)$, for $\omega\in\mathscr{C}(P)$ and $\tau=(p,\omega(p),d\omega(p))$. 
-
-This observation is important to understand the following theorem, which is due to Utiyama and gives a characterisation of the gauge invariant self Lagrangians.
-\begin{theorem}[Utiyama's theorem\index{Utiyama's theorem}]
-	!!! % A self Lagrangian $L_s$, or equivalently its self action density $\mathscr{L}_s$, gauge invariant if and only if it is of the form $L_s=K\circ\hat\Omega$ for some $\mathrm{Ad}$-invariant $J^0(\Omega_\hor^2(P,\g)^G)\rar{K}\R$.
-	\end{theorem}
-A simple proof can be found in \cite{blegau}. What does this theorem tell us? It says that a Lagrangian self action is gauge invariant precisely if its value at a point only depends on the value of the curvature at that point and moreover depends on it in a $\mathrm{Ad}$-invariant way. Obviously this result shows that the possibilities for gauge invariant Lagrangian self actions are very limited.
 
 
  \end{appendices}
@@ -31931,6 +31851,7 @@ Golm, Germany, arXiv:hep-th/0201182, 2022.
 \bibitem{basic_algebraic_quantum} J. E. Roberts and G. Roepstorff {\it Some Basic Concepts of Algebraic Quantum Theory}, Commun. math. Phys. 11, 321Ñ338 (1969), 1969.
 
 \bibitem{isumaru}	Isumaru, A. {\it Wave propagation and scattering in random	media} A. Isumaru. Ð New York: John Wiley \& Sons, 1999.
+
 
 \bibitem{marmat} K.B. Marathe and G. Martucci. \textit{The Mathematical Foundations of Gauge Theories.} North-Holland, 1992.
 
