@@ -29,8 +29,9 @@ type FormData = {
 };
 
 export const QuestionPage = () => {
-  const [successfullySubmitted, setSuccessfullySubmitted] =
-    React.useState(false);
+  const [successfullySubmitted, setSuccessfullySubmitted] = React.useState(
+    false,
+  );
 
   const [question, setQuestion] = React.useState<QuestionData | null>(null);
 
