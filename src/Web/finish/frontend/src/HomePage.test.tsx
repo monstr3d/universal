@@ -47,4 +47,3 @@ test('When HomePage data returned, it should render questions', async () => {
   expect(await findByText('Title1 test')).toBeInTheDocument();
   expect(await findByText('Title2 test')).toBeInTheDocument();
 });
-

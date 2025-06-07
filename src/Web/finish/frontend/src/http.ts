@@ -24,7 +24,11 @@ export const http = async <RESB, REQB = undefined>(
   if (config.accessToken) {
     request.headers.set('authorization', `bearer ${config.accessToken}`);
   }
+  console.log('Request', request);
+
   const response = await fetch(request);
+  console.log('Response', response);
+
   if (response.ok) {
     const body = await response.json();
     return { ok: response.ok, body };

@@ -30,9 +30,15 @@ namespace QandA.Controllers
             _auth0UserInfo = $"{configuration["Auth0:Authority"]}userinfo";
         }
 
+        void Start()
+        {
+
+        }
+
         [HttpGet]
         public async Task<IEnumerable<QuestionGetManyResponse>> GetQuestions(string search, bool includeAnswers, int page = 1, int pageSize = 20)
         {
+            Start();
             if (string.IsNullOrEmpty(search))
             {
                 if (includeAnswers)
@@ -53,12 +59,14 @@ namespace QandA.Controllers
         [HttpGet("unanswered")]
         public async Task<IEnumerable<QuestionGetManyResponse>> GetUnansweredQuestions()
         {
+            Start();
             return await _dataRepository.GetUnansweredQuestions();
         }
 
         [HttpGet("{questionId}")]
         public async Task<ActionResult<QuestionGetSingleResponse>> GetQuestion(int questionId)
         {
+            Start();
             var question = _cache.Get(questionId);
             if (question == null)
             {
@@ -76,6 +84,7 @@ namespace QandA.Controllers
         [HttpPost]
         public async Task<ActionResult<QuestionGetSingleResponse>> PostQuestion(QuestionPostRequest questionPostRequest)
         {
+            Start();
             var savedQuestion = await _dataRepository.PostQuestion(new QuestionPostFullRequest
             {
                 Title = questionPostRequest.Title,
@@ -94,6 +103,7 @@ namespace QandA.Controllers
         [HttpPut("{questionId}")]
         public async Task<ActionResult<QuestionGetSingleResponse>> PutQuestion(int questionId, QuestionPutRequest questionPutRequest)
         {
+            Start();
             var question = await _dataRepository.GetQuestion(questionId);
             if (question == null)
             {
@@ -110,6 +120,7 @@ namespace QandA.Controllers
         [HttpDelete("{questionId}")]
         public async Task<ActionResult> DeleteQuestion(int questionId)
         {
+            Start();
             var question = await _dataRepository.GetQuestion(questionId);
             if (question == null)
             {
@@ -124,6 +135,7 @@ namespace QandA.Controllers
         [HttpPost("answer")]
         public async Task<ActionResult<AnswerGetResponse>> PostAnswer(AnswerPostRequest answerPostRequest)
         {
+            Start();
             var questionExists = await _dataRepository.QuestionExists(answerPostRequest.QuestionId.Value);
             if (!questionExists)
             {
@@ -145,6 +157,7 @@ namespace QandA.Controllers
 
         private async Task<string> GetUserName()
         {
+            Start();
             var request = new HttpRequestMessage(HttpMethod.Get, _auth0UserInfo);
             request.Headers.Add("Authorization", Request.Headers["Authorization"].First());
 

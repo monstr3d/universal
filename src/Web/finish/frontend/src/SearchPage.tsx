@@ -21,6 +21,7 @@ export const SearchPage = () => {
         setQuestions(foundResults);
       }
     };
+
     doSearch(search);
     return () => {
       cancelled = true;
