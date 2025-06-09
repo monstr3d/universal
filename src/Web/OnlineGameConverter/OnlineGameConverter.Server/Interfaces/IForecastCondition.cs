@@ -4,7 +4,7 @@ namespace OnlineGameConverter.Server.Interfaces
 {
     public interface IForecastCondition
     {
-        ForecastCondition ForecastCondition { get; set; }
+        OrbitalForecastCondition ForecastCondition { get; set; }
     }
 
     public interface IForecastConditionSingleton : IForecastCondition

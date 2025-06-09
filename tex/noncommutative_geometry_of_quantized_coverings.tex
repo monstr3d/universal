@@ -19737,9 +19737,245 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 \end{proof}
 
 \section{Coverings of $C^*$-Hilbert modules over commutative $C^*$-algebras}\label{vf_chap}
+
+\subsection{Families of operator algebras}
+\paragraph*{}
+If $\sX$ is a locally compact Hausdorff space, and 
+$X_{C_0\left(\sX\right)}$ is a full $C^*$-Hilbert $C_0\left(\sX\right)$-module, then one can define a normed vector space
+
+\be\label{top_cx_eqn}
+\begin{split}
+C_x = X_{C_0\left(\sX\right)}/X_{C_0\left(\sX\right)} I_x, \quad I_x \bydef \left\{f \in C_0\left(\sX \right) | f\left(x \right) = 0\right\},\\
+\forall c \in C_x\quad \left\|c \right\|_{C_x} \bydef \inf_{\xi \in c +  X_{C_0\left(\sX \right) }I_x} \left\|\xi \right\|
+\end{split}
+\ee 
+The norm completion of $C_x$ is a Banach space $\H_x$. The product $X_{C_0\left(\sX\right)} \times X_{C_0\left(\sX\right)} \to C_0\left(\sX\right)$ yields a product $\H_x \times \H_x \to \C$, i. e. $\H_x$ is a Hilbert space. Clearly    
+  $X_{C_0\left(\sX\right)}$ is a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}).  Let us define the product on $\H_x$ given by \eqref{polarization_hilb_equality_eqn}, thus $\H_x$ becomes a Hilbert space for each $x \in \sX$. 
+\begin{lemma}\label{top_cb_hilb_lem}
+	In the above situation one has
+	\begin{enumerate}
+		\item [(i)] If $X_{C_0\left(\sX\right)}$ a Hilbert $C_0\left(\sX\right)$-module, then 	 $X_{C_b\left(\sX\right)}\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$ is a Hilbert $C_b\left(\sX \right)$-module, such that the Hilbert module product on $X_{C_0\left(\sX\right)}$ the restriction of the product on  $C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$.
+		\item[(ii)] $X_{C_0\left(\sX\right)}= C_0\left( C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)\right)$.  
+	\end{enumerate}	
+	
+\end{lemma}
+\begin{proof}
+	(i)	For any $\xi, \eta \in C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$   we define
+	\be\label{top_xb_prod_eqn}
+	\begin{split}
+		\left\langle \xi, \eta \right\rangle_{C_b\left(\sX \right)}  \in C_b\left( \sX\right) ,\\
+		x \mapsto \frac{1}{4}
+		\sum_{k = 0}^3i^k\left\|\xi_x + i^k\eta_x\right\|^2.
+	\end{split}
+	\ee
+	From \eqref{polarization_equality_eqn} it turns out that  \eqref{top_xb_prod_eqn} supplies a Hilbert module product  on $X_{C_b\left(\sX\right)}$ which is the restriction of the product on  $C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$.
+	Since \\ $C_b\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right)$  is norm closed $C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$ is a Hilbert $C_b\left( \sX\right)$-module.\\
+	(ii) Follows from the Corollary  \ref{top_cl_cc_iso_cor}.
+\end{proof}
+!!!! 
+\begin{lemma}\label{top_c0_hilb_lem}
+	If  $X_{C_b\left(\sX\right)}$ is a Hilbert  $C_b\left(\sX \right)$-module then one has
+	\begin{enumerate}
+		\item [(i)]	 $X_{C_0\left(\sX\right)}=C_0\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right)$ is a Hilbert $C_0\left(\sX \right)$-module, such that the  product on $X_{C_0\left(\sX\right)}$ the restriction of the product on  $ X_{C_b\left(\sX\right)}$.
+		\item[(ii)] $X_{C_b\left(\sX\right)}= C_b\left(  X_{C_0\left(\sX\right)}  \right)$.  
+	\end{enumerate}	
+\end{lemma}
+\begin{proof}
+	(i) From the Lemma \ref{top_norm_c0cc_lem} it turns out that $\text{norm}_\xi \in C_0\left( \sX\right)$ for any $$\xi \in C_0\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right).$$ From \eqref{top_xb_prod_eqn} it follows that $\left\langle \xi, \eta \right\rangle_{C_b\left(\sX\right)}\in C_0\left(\sX\right)$ so $C_0\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right)$ is a Hilbert $C_0\left(\sX \right)$-premodule, with respect to restriction of the Hilbert product on $C_b\left( C_0\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)\right)$. However from the Definition \ref{top_cc_c0_defn} it follows that  $C_0\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right)$ is closed with respect to norm, hence $C_0\left(\sX, \left\{\H_x \right\}, X_{C_b\left(\sX\right)}  \right)$ is a Hilbert $C_0\left(\sX \right)$-module.\\
+	(ii) Follows from \eqref{top_c0_cont_str_cor_eqn}.
+\end{proof} 
+
+\begin{lemma}\label{top_comp_fam_lem}
+	Consider the situation of the Lemma \ref{top_c0_hilb_lem}.
+	If $\left\{\K\left( \H_{ x} \right) \right\}_{ x \in \sX}$ is a family of compact operators then  $\K\left( X_{C_0\left(\sX\right)}\right) $  is a   {continuity structure for} $\sX$ and the $\left\{\K\left( \H_{ x} \right) \right\}_{x \in \sX}$, such that $$\K\left( X_{C_0\left(\sX\right)}\right)  \cong C_0\left(\sX, \left\{\K\left( \H_{ x} \right) \right\} , \K\left( X_{C_0\left(\sX\right)}\right)  \right).$$ 
+\end{lemma}
+\begin{proof}
+	Similarly to \eqref{top_vp_map} for any $ x \in  \sX$ there is the $\C$-linear  map
+	$$
+	\phi_{  x}: X_{C_0\left(\sX\right)} \to \H_{ x}.
+	$$
+	such that $\phi_{  x}\left( X_{C_0\left(\sX\right)} \right)$ is dense in $\H_{ x}$.
+	Let us check (a) and (b) of the definition \ref{op_fields_defn}.\\
+	\begin{enumerate}
+		\item [(a)]  If $\xi, \eta \in  X_{C_0\left(\sX\right)}$ and $\xi\left\rangle \right\langle \eta$  is an elementary operator then one has
+		$$
+		\text{norm}_{\xi\left\rangle \right\langle \eta}= \left\langle \xi, \eta \right\rangle_{C_0\left(\sX \right) }  \in C_0\left(\sX \right).
+		$$ Since $\K\left( X_{C_0\left(\sX\right)}\right)$  is norm closure of the algebraic $\C$-linear span of elementary operators $\text{norm}_{a} \in C_0\left(\sX \right)$ for any $a \in \K\left( X_{C_0\left(\sX\right)}\right)$.
+		\item[(b)]  If $a \in \K\left(\H_x \right)$ then for any $\eps > 0$ there is the finite-rank operator 
+		$$
+		a' = \sum_{j=1}^n \a_j\left\rangle \right\langle \bt_j \quad \a_j, \bt_j \in \H_{ x} 
+		$$
+		such that
+		$$
+		\left\|a -a'\right\| < \frac{\eps}{2}
+		$$
+		Otherwise $\phi_{  x}\left( C_b\left(\sX,  \left\{ \H_{ x} \right\},  X_{C_0\left(\sX\right)}\right)\right) $ is dense in $\H_{ x}$ so for any $j = 1,..., n$ there are $\xi_j, \eta_j \in X_{C_0\left(\sX\right)}$ such that
+		$$
+		\left\|\a_j\left\rangle \right\langle \bt_j -\phi_{  x}\left( \xi_j\right) \left\rangle \right\langle \phi_{  x}\left( \eta_j\right)\right\| < \frac{\eps}{2n}
+		$$
+		it turns out
+		$$
+		\left\|a -\phi_{  x}\left( \xi_j\right) \left\rangle \right\langle \phi_{  x}\left( \eta_j\right)\right\|< \eps.
+		$$
+	\end{enumerate}
+	From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the following isomorphism
+	$$
+	\K\left( X_{C_0\left(\sX\right)}\right)  \cong C_0\left(\sX, \left\{\K\left( \H_{ x} \right) \right\} , \K\left( X_{C_0\left(\sX\right)}\right)  \right).
+	$$
+\end{proof}
+\begin{lemma}\label{top_comp_inc_lem}
+	Let  $X_{C_b\left(\sX\right)}\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$ be a Hilbert $C_b\left(\sX\right)$-module given by the Lemma \ref{top_cb_hilb_lem}. The is the natural inclusion
+	\be
+	\K\left( X_{C_b\left(\sX\right)}\right) \subset C_b\left( \sX,\left\{\K\left( \H_{ x} \right) \right\}, \K\left( X_{C_0\left(\sX\right)}\right) \right). 
+	\ee
+\end{lemma}
+\begin{proof}
+	Let $a \in \K\left( X_{C_b\left(\sX\right)}\right)$, $x_0 \in \sX$ and $\eps >  0$. There is
+	$$
+	a' =  	\sum_{j=1}^n \xi_j\left\rangle \right\langle \eta_j \in \K\left( X_{C_b\left(\sX\right)}\right)\quad \xi_j, \eta_j \in X_{C_b\left(\sX\right)}
+	$$
+	such that  $\left\|a - a'\right\| < \eps$. There is $f_{x_0} \in C_c\left(\sX \right)$ such that $f_{x_0}\left( \sX\right) = \left[0,1\right]$ and there is an open neighborhood $\sU$ of $x_0$ which satisfy to the condition $f_{x_0}\left(\sX\right)= 1$. From $f_{x_0}\xi_j, f_{x_0}\eta_j \in X_{C_0\left(\sX\right)}$ it follows that
+	$$
+	a'' =	\sum_{j= 1}^n f_{x_0}\xi_j\left\rangle \right\langle f_{x_0}\eta_j \in  \K\left( X_{C_0\left(\sX\right)}\right)
+	$$
+	From $\left\|a - a'\right\| < \eps$ it turns out $\left\|a\left(x \right)  - a''\left( x\right) \right\| < \eps$ for each $x \in \sU$, i.e. $a$ is {continuous with respect to $\K\left( X_{C_0\left(\sX\right)}\right)$} at $x_0$ (cf. Definition \ref{op_cont_fields_defn}). Since $x_0 \in \sX$ is an arbitrary point $a$ is continuous and taking into account that $a$ is bounded one has $a \in C_b\left( \sX,\left\{\K\left( \H_{ x} \right) \right\}, \K\left( X_{C_0\left(\sX\right)}\right) \right)$.
+\end{proof}
+Let $\bt\sX$ be the Stone-\v{C}ech compactification of $\sX$ and let $\left\{\bt\H_{\bt x} \right\}_{\bt x \in \bt\sX}$ be the Stone-\v{C}ech extension of  $\left\{ \H_x \right\}$ (cf. Definition \ref{top_beta_ext_defn}). The $C_b\left(\sX \right)$-module  $C_b\left(\sX,  \left\{ \H_x \right\}, X_{C_0\left(\sX\right)}\right)$ induces the continuity structure $\bt X_{C_0\left(\sX\right)}$ for $\bt\sX$ and  $\left\{\bt \H_{\bt x} \right\}$ such that there is the natural $C_b\left(\sX \right)$-isomorphism
+\be\label{top_x_cb_eqn}
+C_b\left(\sX,  \left\{ \H_x \right\},  X_{C_0\left(\sX\right)}\right) \cong C_b\left(\bt\sX,  \left\{\bt \H_{\bt x} \right\}, \bt X_{C_0\left(\sX\right)}\right)\cong \bt X_{C_0\left(\sX\right)}.
+\ee
+By the definition one has $X_{C_b\left(\sX\right)}\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$, so from \eqref{top_x_cb_eqn} one can regard 
+$$
+X_{C_b\left(\sX\right)} = X_{C\left(\bt\sX\right)}= C_b\left(\bt\sX,  \left\{\bt \H_{\bt x} \right\}, \bt X_{C_0\left(\sX\right)}\right).
+$$
+There is the  family $\left\{\K\left(\H_{\bt x} \right) \right\}_{\bt x \in \bt X}$. Otherwise from 
+$$
+\K\left(  X_{C_b\left(\sX\right)}\right) \cong  \K\left(  X_{C\left(\bt\sX\right)}\right)
+$$
+and taking into account the lemma \ref{top_comp_fam_lem} one can proof that $\K\left(  X_{C\left(\bt\sX\right)}\right)$ is a continuity structure for $\bt\sX$ and $\left\{\K\left(\H_{\bt x} \right) \right\}$. Otherwise $\K\left(  X_{C\left(\bt\sX\right)}\right)$ is norm closed $C\left(\bt\sX \right)$-module, so from the Corollaries \ref{top_c0_cont_str_cor} and \ref{top_cl_cc_iso_cor} it follows that
+$$
+\K\left(  X_{C_b\left(\sX\right)}\right) = C_b\left(\bt\sX, \left\{\K\left(\H_{\bt x} \right) \right\}, \K\left(  X_{C_b\left(\sX\right)}\right)\right).  
+$$
+If $\bt\K\left(  X_{C_0\left(\sX\right)}\right)$ be  the {Stone-\v{C}ech extension} of $\K\left(  X_{C_0\left(\sX\right)}\right)$ (cf. Definition \ref{top_stone_c_defn}) then from \eqref{top_sf_bt_iso_eqn} it turns out that
+\be\label{top_bt_eqn}
+\bt\K\left(  X_{C_0\left(\sX\right)}\right) \cong C_b\left(\sX, \left\{\K\left(\H_{ x} \right) \right\}, \K\left(  X_{C_0\left(\sX\right)}\right)\right) 
+\ee
+and taking into account $\K\left(  X_{C_b\left(\sX\right)}\right) \subset C_b\left(\sX, \left\{\K\left(\H_{ x} \right) \right\}, \K\left(  X_{C_0\left(\sX\right)}\right)\right)$ we conclude that
+$$
+\K\left(  X_{C_b\left(\sX\right)}\right) \subset C_b\left(\bt\sX, \left\{\K\left(\H_{\bt x} \right) \right\}, \bt\K\left(  X_{C_0\left(\sX\right)}\right)\right). 
+$$
+From the Corollaries \ref{top_c0_cont_str_cor} and \ref{top_cl_cc_iso_cor}  one has
+\bean
+\K\left(  X_{C_b\left(\sX\right)}\right) = C_b\left(\bt\sX, \left\{\K\left(\H_{\bt x} \right) \right\}, \bt\K\left(  X_{C_0\left(\sX\right)}\right)\right),\\	
+\bt\K\left(  X_{C_0\left(\sX\right)}\right) = C_b\left(\bt\sX, \left\{\K\left(\H_{\bt x} \right) \right\}, \bt\K\left(  X_{C_0\left(\sX\right)}\right)\right)
+\eean
+so from \eqref{top_bt_eqn} it follows that
+$$
+\K\left(  X_{C_b\left(\sX\right)}\right) = C_b\left(\sX, \left\{\K\left(\H_{ x} \right) \right\}, \K\left(  X_{C_0\left(\sX\right)}\right)\right).
+$$
+So we proved the following lemma.
+\begin{lemma}\label{top_cb_comp_lem}
+	If $X_{C_0\left(\sX\right)}$ is a Hilbert $C_0\left(\sX\right)$-module, and  $X_{C_b\left(\sX\right)}\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_x \right\}, X_{C_0\left(\sX\right)}  \right)$ is a Hilbert $C_b\left(\sX \right)$-module given by the Lemma \ref{top_cb_hilb_lem} then there is the natural $C_b\left(\sX \right)$-isomorphism
+	\be\label{top_cb_comp_eqn}
+	\K\left( X_{C_b\left(\sX\right)}\right) \cong C_b\left(\K\left( X_{C_0\left(\sX\right)}\right)  \right). 
+	\ee 
+\end{lemma}
+%\begin{lemma}\label{top_cb_compl_lem}
+%	There is the natural inclusion 
+%	$$
+%	\K\left(X_{C_b \left( \sX\right)} \right) \hookto \L\left( X_{C_0 \left( \sX\right)}\right) 
+%	$$
+%such that 	$\K\left(X_{C_b \left( \sX\right)} \right)$ is an ideal of $\L\left( X_{C_0 \left( \sX\right)}\right)$ 
+%\end{lemma}
+%\begin{proof}
+%Any $a \in \K\left(X_{C_b \left( \sX\right)} \right)$ is a multil
+%\end{proof}
+
+
+
+
+
+\begin{empt}
+	If $\left\{L^2\left(\N\right)_x\right\}_{x \in \sX}$  is a family of isomorphic to $L^2\left(\N\right)$ Hilbert spaces then the standard Hilbert module $ \ell^2\left( C_0\left( {\sX}\right)\right)$ (cf. Definition \ref{standard_h_m_defn}) is  a continuity structure  for $\sX$ {and the} $\left\{L^2\left(\N\right)_x\right\}$ (cf. Definition \ref{op_fields_defn}). From the Corollary \ref{top_cl_cc_iso_cor} it turns out that
+	\be\label{top_l2_c0_eqn}
+	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right) 
+	\ee
+	If $\left\{\mathfrak{e}_j\right\}_{j \in \N}$ is an orthogonal basis then any $\xi \in  \ell^2\left( C_0\left( {\sX}\right)\right)$ is represented by 
+	\be\label{comm_ell2_eqn}
+	\begin{split}
+		\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j; \quad     \quad  \forall j \in \N ~~f_j \in C_0\left( \sX\right);\quad
+		\left(x \mapsto  \sum_{j = 1}^\infty \left| f_j\left(x \right) \right|^2\right) \in C_0\left( \sX\right).
+	\end{split}
+	\ee
+	If $D^*\left( \sX\right)$ is the $C^*$-algebra of complex-valued bounded (discontinuous) maps $\sX \to \C$ then there is the natural inclusion
+	\be
+	\ell^2\left( C_0\left( {\sX}\right)\right) \subset \ell^2\left( D^*\left( {\sX}\right)\right). 
+	\ee
+	
+\end{empt}
+
+
+\begin{lemma}\label{comm_exact_lem}
+	The natural inclusion $\ell^2\left( C_0\left(\sX \right)\right)  \subset \ell^2\left( D^*\left(\sX \right)\right)$ is exact (cf. Definition \ref{exact_da_defn}).
+\end{lemma}
+\begin{proof}
+	If $\eta = \sum_{j = 1}^\infty g_j \mathfrak{e}_j \in \ell^2\left( D^*\left( {\sX}\right)\right)\setminus \ell^2\left( C_0\left( {\sX}\right)\right)$ is such that $g_j \in D^*\left( {\sX}\right)$ for all $j = 1,...,\infty$ then there are $x_0 \in \sX$ and $k \in \N$ such that $g_k$ is not continuous at $x_0$. 
+	If $f \in C_0\left(\sX  \right)$ is such that $f\left( x_0\right) \neq 0$ and $\xi = f \mathfrak{e}_k \in X_{C_0\left( \sX \right)}$ then 
+	\be\label{ctr_exact_da_c_l_eqn}
+	\left\langle \xi, \eta\right\rangle_{D^*\left( \sX \right)} \notin C_0\left( \sX \right).
+	\ee
+	The equation \eqref{ctr_exact_da_c_l_eqn} is a specialization of the condition \ref{exact_da_2_eqn}.
+\end{proof}
+
+\begin{lemma}\label{top_l_equ_lem}
+	Let $X_{C_0\left(\sX \right) }$ be a Hilbert $C_0\left(\sX\right)$-module. Consider the natural isomorphism  $X_{C_0\left(\sX \right) } \cong C_0\left(\sX, \left\{\H_{ x}\right\}_{x \in \sX}, X_{C_0\left(\sX \right) }\right)$. If $X_{C_b\left(\sX\right)   }\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ then there is the natural *-isomorphism of $C^*$-algebras 
+	\bean
+	\L\left(X_{C_0\left(\sX \right) } \right) \cong \L\left(X_{C_b\left(\sX \right) } \right).
+	\eean
+\end{lemma}
+\begin{proof}
+	Any $a \in \L\left(X_{C_b\left(\sX \right) } \right)$  corresponds to a family $\left\{a_x \in B\left(\H_x \right) \right\}_{x\in\sX}$ such that
+	$a\xi \in  C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ 	for any $\xi =\left\{\xi_x\in \H_x \right\}\in C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$. For any $\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ one has $\text{norm}_\eta \in C_0\left( \sX\right)$, and taking into account $\text{norm}_a \in C_b\left( \sX\right)$ we conclude  that $\text{norm}_{a\eta} \le \text{norm}_{a}\text{norm}_{\eta}\in C_0\left( \sX\right)$ i.e. $a\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\cong X_{C_0\left(\sX \right)}$. So $a$ can be regarded as an element of $\L\left(X_{C_0\left(\sX \right) } \right)$ and there is the natural inclusion $\L\left(X_{C_b\left(\sX \right) } \right)\subset \L\left(X_{C_0\left(\sX \right) } \right)$. Conversely it is clear that any $a \in \L\left(X_{C_0\left(\sX \right) } \right)$ yields a $C_b\left(\sX\right)$-linear map
+	$$
+	C\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\to  C\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)
+	$$
+	and since $\left\|a \right\| < \infty$ the operator $a$ gives a linear map
+	$$
+	C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\to  C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\cong X_{C_b\left(\sX \right) }.
+	$$
+	So $a$ can be regarded as an element of $\L\left(X_{C_b\left(\sX \right) } \right)$ and there is the natural inclusion $\L\left(X_{C_0\left(\sX \right) } \right)\subset \L\left(X_{C_b\left(\sX \right) } \right)$.
+\end{proof}
+
+
+
+
+\begin{lemma}\label{top_compact_lem}
+	Let $X_{C_b\left(\sX\right)}$ be a countable  $C_b\left(\sX\right)$-Hilbert module such that
+	\be
+	X_{C_b\left(\sX\right)} \cong C_b\left(\sX, \left\{\H_x\right\}_{x \in \sX}, X_{C_b\left(\sX\right)}\right) 
+	\ee
+	If $a \in \L\left( X_{C_b\left(\sX\right)}\right)$ is represented by a family 
+	$\left\{a_x \in B\left( \H_x\right) \right\}_{x \in \sX}$ such that $a_x \in \K\left( \H_x\right)$ for any $x \in \sX$ then $a \in \K\left( X_{C_b\left(\sX\right)}\right)$.
+\end{lemma}
+\begin{proof}
+	From the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C^*$-Hilbert modules.
+	\bean
+	X_{C_b\left(\sX \right)} \oplus \ell^2\left( C_b\left(\sX \right) \right)  \cong \ell^2\left( C_b\left(\sX \right) \right).
+	\eean
+	The Lemma \ref{hered_c_lem} yields the inclusion
+	\be\nonumber
+	\begin{split}
+		\iota_{\L}: 	\L\left(X_{C_b\left(\sX \right)} \right) \hookto\L\left( \ell^2\left( C_b\left( {\sX}\right)\right)\right) \\
+	\end{split}
+	\ee
+	and $\iota_{\L}\left(a \right)$ corresponds to a family $\left\{a_x \in \K\left( L^2\left(\N \right)_{x \in \sX} \right) \right\}_{x \in \sX}$.  From the Theorem \ref{ctr_di_do_thm} it turns out that $\iota_{\L}\left(a \right)\in \K\left(\ell^2\left( C_b\left(\sX \right) \right) \right)$. From \eqref{cap_comp_inc_eqn} it turns out $a \in \K\left( X_{C_b\left(\sX\right)}\right)$.
+	
+\end{proof}
+
+\
 \subsection{Basic constructions}
 
-\paragraph{} The notion of continuous vector field is discussed in \ref{f_op_sec}, here we consider the space of continuous vector fields as an operator space. Let $\sX$ be a locally compact Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}). If 
+\paragraph{} The notion of continuous vector field is discussed in \ref{f_op_sec}, here we consider the space of continuous vector fields as an operator space. Let $\sX$ be a locally compact Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}). If 
 \be\label{vf_x_eqn}
 X_{C_0\left(\sX\right)}  \bydef C_0\left(\sX, \left\{\H_x\right\}, \sF\right)
 \ee (
@@ -27378,7 +27614,7 @@ Here, either each $A_x$ will be a Hilbert space or each $A_x$ will be a $C^*$-al
 	\begin{enumerate}
 		\item[(a)] If $a \in \sF$, the real-valued function $x \mapsto \left\| a_x\right\|$  is continuous on $\sX$.
 		\item[(b)] For each $x$ in $\sX$,  $\left\{\left. a_x~\right|~ a \in \sF\right\}$ is dense in $A_x$.
-		\item[(c)] If each $A_x$ is a $C$$*$-algebra, we require also that
+		\item[(c)] If each $A_x$ is a $C^*$-algebra, we require also that
 		$\sF$ is closed under pointwise multiplication and involution.
 	\end{enumerate}
 	
@@ -30474,7 +30710,7 @@ A^{\infty}$.
 \end{definition}
 
 
-\begin{definition}\cite{hartshorne:ag}
+\begin{definition}\label{sheaf_mor_defn}\cite{hartshorne:ag}
 If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
 of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
 	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
@@ -32978,44 +33214,118 @@ From the above equation if follows that $\C_{\left( \mu\right) }\subset C_c\left
 
 \paragraph{}
 Let $(M,g)$ be an $m$-dimensional pseudo-Riemannian manifold and 
-$G$ a Lie group which we take as the gauge group of our theory. (cf. Appendix \ref{gaurge_sec}). Denote by $P(M, G)$ corresponding principal bundle (cf. \ref{dg_prinicipal_defn}). Similarly to the Appendix \ref{set_of_fields_sec} there is a set of fields, which we denote collectively by $\Phi$, and $\mathscr E$ subsheaf of the sheaf of continuous sections of $\Phi$. Usually a the sheaf $\mathscr E$ is sheaf of smooth sections \ref{top_sm_sec_defn}. If $M$ is paracompact then from the Theorem \ref{soft_french_thm} it follows that the sheaf is soft (cf. Definition \ref{soft_sheaf_defn} and the English translation \ref{soft_e_thm} the Theorem \ref{soft_french_thm}). Other there is a bilinear pairing 
+$G$ a Lie group which we take as the gauge group of our theory. (cf. Appendix \ref{gaurge_sec}). Denote by $P(M, G)$ corresponding principal bundle (cf. \ref{dg_prinicipal_defn}). Similarly to the Appendix \ref{set_of_fields_sec} there is a set of fields, which we denote collectively by $\Phi$, and $\mathscr E$ subsheaf of the sheaf of continuous sections of $\Phi$. Usually a the sheaf $\mathscr E$ is sheaf of smooth sections \ref{top_sm_sec_defn}. If $M$ is paracompact then from the Theorem \ref{soft_french_thm} it follows that the sheaf is soft (cf. Definition \ref{soft_sheaf_defn} and the English translation \ref{soft_e_thm} the Theorem \ref{soft_french_thm}).
+If $\mathscr E$ satisfies to the condition of the Remark \ref{gauge_scalar_product_rem} then there is an inclusion 
+$$
+\Ga\left(\mathscr E \right) \hookto X_{C_0\left(M \right) }
+$$
+into $C^*$-Hilbert $C_0\left(M \right) $-module (cf. Definition \ref{hilbert_module_defn}).
 
 
 
-\subsection{Action Principles on Principal Bundles and Local Lagrangian}\label{set_of_fields_sec!!!}!!!!
+\subsection{Gauge transformations}!!!!
+\paragraph{}
+Here I follow to \cite{marmat}.
+In physical applications one is usually interested in a fixed Lie 
+group $G$ called the {\it gauge group} which represents an internal or local 
+symmetry of the field. The base manifold $M$ of the principal bundle 
+$P(M, G)$ is usually the space-time manifold or its Euclidean version, i.e. 
+a pseudo-Riemannian manifold of dimension 4. But in some physical applications, such as superspace, Kaluza-Klein and string theories, the base 
+manifold can be an essentially arbitrary manifold. In this chapter we 
+formulate the theory of gauge fields on an arbitrary pseudo-Riemannian 
+base manifold. 
+
+
+Let $(M,g)$ be an $m$-dimensional pseudo-Riemannian manifold and 
+$G$ a Lie group which we take as the gauge group of our theory. Let 
+$P\left(M, G \right)$  be a principal bundle with the gauge group $G$ as its structure 
+group. A connection in $P$ is called a {\it gauge connection}. The connection 1-form $\om$ is called the {\it gauge connection form} or simply the 
+{\it gauge connection}. A {\it global gauge} or simply a {\it gauge} is a section 
+$s \in \Ga\left(P \right)$. The gauge potential $A$ on $M$ in gauge $s$ is obtained by 
+pull-back of the gauge connection $\om$ on $P$ to M by $s$, i.e. $A = s^*(\om)$. 
+A {\it global gauge} and hence the gauge potential on $M$ exists if and only 
+if the bundle $P$ is trivial. A {\it local gauge} is defined as a section of the 
+bundle $P(M, G)$ restricted to some open subset $U \subset M$. Local gauges defined for the local representations $\left(\sU_\iota, \psi_\iota \right)_{\iota \in I}$  of $P$, always exist. Let $t \in \Ga\left( \right)$  be a local gauge; then the 1-form $t^*\om\in \La^1\left( \sU, \mathfrak g\right)$  is called the {\it gauge potential} in the {\it local gauge} $t$ and is denoted by $A_t$. If the local gauge $t$ is given we often denote $A_t$ by $A$ and call it a {\it local gauge potential}. In electromagnetism, the gauge group $G = U\left( 1\right)$ is the circle group. An element $e^{i\th}\in U(1)$ is determined  by the phase $\th$. Thus, in this case, a local gauge over an open set $\sV \subset M$ can be regarded as a choice of a phase in the bundle $P|_\sV = \sV \times G$, at each point of $\sV$. For this reason, the total space of the bundle $P$ is sometimes called the {\it space of phase factors} in the physics literature. 
+
+
+Let $\Om \bydef d^\om \om$ be the curvature 2-form of $\om$ with values in the Lie 
+algebra $\mathfrak g$. We call $\Om$ the {\it gauge field} on $P$. There exists a unique 2-form $F_\om$ on $M$ with values in the Lie 
+algebra bundle $ad P$ associated to the curvature 2-form $\Om$ such that 
+\be
+F_\om = s_\Om
+\ee
+
+The 2-form $F_\om \in \La^2\left( M, ad P\right)$  is called the {\it gauge field} on $M$ corresponding to the gauge connection $\om$. The gauge field Fu is globally defined on $M$, even though, in general, there is no corresponding globally 
+defined gauge potential on $M$. If we are given a local gauge potential $A_t \in \La\left(\sU_\iota, \mathfrak g \right)$, then on $\sU_\iota$,  we have the relations 
+\be
+t^*\om = A_t \quad \text{and} \quad F_\om = d^\om A_t
+\ee
+The group $Diff(P)$ of the diffeomorphisms of $P$ is too large to 
+serve as a group of gauge transformations, since it mixes up the fibers 
+of $P$. The requirement that fibers map to fibers may be expressed by 
+the condition that the following diagram commutes. 
+\\
+\begin{tikzcd}
+	P \arrow[r, "f"]\arrow[d, "\pi"] & P \arrow[d, "\pi"]\\
+	M \arrow[r, "f_M"] & M
+\end{tikzcd}
+\\
+i.e.
+\be\label{gauge_p_eqn}
+\pi \circ f = f_M \circ \pi
+\ee
+We note that condition \eqref{gauge_p_eqn} does not depend on the principal bundle 
+structure of $P$ and hence can be imposed on any fiber bundle.
+\begin{definition}\label{gauge_projectable_dedn}
+	The pair $\left(f, f_M\right)$ 
+	satisfying condition  \eqref{gauge_p_eqn} is a fiber bundle automorphism. In 
+	this case we call $f$ a {\it projectable diffeomorphism} or {\it transformation}  of $P$. The projectable diffeomorphisms form a group $ Diff_M(P)$, 
+	defined by 
+	\be\label{gauge_g_eqn}
+	Diff_M(P) \bydef \left\{f \in Diff\left( P\right)| f \quad \text{is projectable} \right\}
+	\ee
+\end{definition} 
+
+\subsection{Action Principles on Principal Bundles and Local Lagrangian}\label{set_of_fields_sec!}!!!
 \paragraph{}
 
 According to \cite{new_matrix} there is there is a set of fields, which we denote collectively by $\Phi$, with {\it Lagrangian
 	density} $\L =\L\left[\Phi, \partial \Phi\right]$. In 
-\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated  with $P$ vector bundle (cf.   the Definition \ref{top_vb_defn} and \ref{top_vb_defn}). 
-The situation is often as follows. One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}. 
+\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated  with $P$ vector bundle (cf.   the Definition \ref{top_vb_defn} and \ref{top_vb_defn}). One can suppose that the $\Phi$ is an associated with $P\left(M, G \right)$ vector bundle \ref{dg_assoc_empt}. 
+One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}. 
 Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$  and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. We say that $\mathscr{L}$ is the {\it Lagrangian}. 
 \begin{definition}
-	Let $\mathscr E$ be a soft subsheaf of the sheaf of continuous sections of $\Phi$ and $\mathscr F$ is a sheaf of continuous real - valued maps from $M$ to $\R$. A 
+	Let $\mathscr E$ be a soft subsheaf of the sheaf of continuous sections of $\Phi$ and $\mathscr R$ is a sheaf of continuous real - valued maps from $M$ to $\R$. A 
 	Under the above hypothesis the {\it local Lagrangian
-		density} is a map $\phi:\Ga\left(\E \right) \to \Ga\left( \F \right)$ such that:
+		density} is a map $\phi:\Ga\left(\mathscr E \right) \to \Ga\left( \mathscr R \right)$ such that:
 	\begin{enumerate}
 		\item [(a)]  The diagram
 		\\
 		\begin{tikzcd}
-			\Ga\left(\mathscr E \right)\arrow[rr, "\phi"] \arrow[rd] &&  \Ga\left( \mathscr F \right)\arrow[ld]\\
+			\Ga\left(\mathscr E \right)\arrow[rr, "\phi"] \arrow[rd] &&  \Ga\left( \mathscr R \right)\arrow[ld]\\
 			& M &
 		\end{tikzcd}
 		\\
 		is commutative.
 		\item[(b)] The map $\phi$ is  invariant with respect to a  given  by \eqref{gauge_g_eqn} group $Diff_M(P)$.
-		\item[(c)] The map yields a continuous map $\mathrm{Sp\acute{e}}\left(\mathscr E \right)\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ where  $\mathrm{Sp\acute{e}}$ denotes the {
+		\item[(c)] The map yields a continuous map $\mathrm{Sp\acute{e}}\left(\mathscr E \right)\to \mathrm{Sp\acute{e}}\left(\mathscr R \right)$ where  $\mathrm{Sp\acute{e}}$ denotes the {
 			\'espace etal\'e} (cf. Exercise \ref{sheaf_etale_exer}).
 	\end{enumerate}
 \end{definition}
 \begin{remark}
+	Usually there is $r \in \N$ such that  subsheaf  $\mathscr E$  is a sheaf or $r$-times differentiable sections of $\Phi$.
+\end{remark}
+\begin{remark}
 	The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
 \end{remark}
+\begin{rem}\label{gauge_scalar_product_rem!}!!!
+	In the lot of  situations there is a bilinear map $\mathscr E\times \mathscr E \to \mathscr C$  or equivalently  a linear homomorphism of sheaves   $\mathscr E\to \mathscr Hom \left(\mathscr E, \mathscr C\right)$ (cf. Definitions \ref{sheaf_mor_defn} and \ref{sheaf_hom_defn}) and $\mathscr C$ is a sheaf of complex-valued continuous mappings.
+\end{rem}
 
 
-\begin{remark}\label{fin_cov_oa_sub_os_rem}
-	There is a generalization of the Definition \ref{fin_oa_defn} related to an intersection $\widetilde Y \bydef \widetilde A \cap \widetilde Y$ where $\widetilde Y \subset \widetilde B$ is a  sub-unital (maybe real) operator space (cf. Definition \ref{sub_unital_operator_space_defn}). In this case there is a {\it finite-fold covering of bounded operator spaces}.
-\end{remark}
+
+
+
 
 
 
@@ -33641,10 +33951,13 @@ Under the above hypothesis the {\it local Lagrangian
 		\end{enumerate}
 \end{definition}
 \begin{remark}
-The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
+Usually there is $r \in \N$ such that  subsheaf  $\mathscr E$  is a sheaf or $r$-times differentiable sections of $\Phi$.
 \end{remark}
-\begin{rem}
-In the lot of  situations there is a bilinear map $\mathscr E\times \mathscr E \to \mathscr C$ where 
+\begin{remark}
+	The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
+\end{remark}
+\begin{rem}\label{gauge_scalar_product_rem}
+In the lot of  situations there is a bilinear map $\mathscr E\times \mathscr E \to \mathscr C$  or equivalently  a linear homomorphism of sheaves   $\mathscr E\to \mathscr Hom \left(\mathscr E, \mathscr C\right)$ (cf. Definitions \ref{sheaf_mor_defn} and \ref{sheaf_hom_defn}) and $\mathscr C$ is a sheaf of complex-valued continuous mappings.
 \end{rem}
 
 

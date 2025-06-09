@@ -29,7 +29,7 @@ namespace OnlineGameConverter.Server
 
         Func<double, DateTime> doubleToDate;
 
-        public Task<List<OrbitaForecastItem>> CalculateAsync(ForecastCondition condition,
+        public Task<List<OrbitalForecastItem>> CalculateAsync(OrbitalForecastCondition condition,
             CancellationToken token)
         {
             return Task.FromResult(Calculate(condition, token));
@@ -37,7 +37,7 @@ namespace OnlineGameConverter.Server
 
 
 
-        internal List<OrbitaForecastItem> Calculate(ForecastCondition condition,
+        internal List<OrbitalForecastItem> Calculate(OrbitalForecastCondition condition,
             CancellationToken token)
         {
             try
@@ -89,13 +89,13 @@ namespace OnlineGameConverter.Server
                 }
                 
 
-                var l = new List<OrbitaForecastItem>();
+                var l = new List<OrbitalForecastItem>();
 
                 var act = () =>
                  {
                     var t = timeprovider.Time;
                      var dt = doubleToDate(t);
-                     var it = new OrbitaForecastItem(dt, parameters["Motion equations.x"](),
+                     var it = new OrbitalForecastItem(dt, parameters["Motion equations.x"](),
                       parameters["Motion equations.y"](),
                       parameters["Motion equations.z"](),
                       parameters["Motion equations.u"](),

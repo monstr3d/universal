@@ -19,7 +19,7 @@ namespace OnlineGameConverter.Server.Pages
             IOrbitalCalculationResultSingleton orbitalCalculationResultSingleton)
         {
             OrbitalCalculationResultSingleton = orbitalCalculationResultSingleton;
-            ForecastCondition c = null;
+            OrbitalForecastCondition c = null;
             ForecastConditionSingleton = forecastConditionSingleton;
             if (forecastConditionSingleton != null)
             {
@@ -110,12 +110,12 @@ namespace OnlineGameConverter.Server.Pages
         [Display(Name = "Vz - velocity, km/s")]
         public double Vz { get; private set; }
 
-        public List<OrbitaForecastItem> Items => OrbitalCalculationResultSingleton.Items;
+        public List<OrbitalForecastItem> Items => OrbitalCalculationResultSingleton.Items;
 
         public async Task<IActionResult> OnPostStartAsync()
         {
             var p = new Performer();
-            var fc = new ForecastCondition(Begin, End, X, Y, Z, Vx, Vy, Vz);
+            var fc = new OrbitalForecastCondition(Begin, End, X, Y, Z, Vx, Vy, Vz);
             var t = CancellationToken.None;
             var res =  await p.CalculateAsync(fc, t);
             OrbitalCalculationResultSingleton.Items = res;

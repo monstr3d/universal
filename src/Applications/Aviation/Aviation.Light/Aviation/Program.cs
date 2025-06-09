@@ -18,6 +18,7 @@ namespace Aviation.Light
 
         // Unblock-File or Get-ChildItem -Path . -Recurse | Unblock-File
         // Get-ChildItem -Path c:\0\ -Recurse | Unblock-File
+        // Get-ChildItem -Path c:\AUsers\1MySoft\CSharp\src\ -Recurse | Unblock-File
         static bool check(object o)
         {
             if (o == null) 
