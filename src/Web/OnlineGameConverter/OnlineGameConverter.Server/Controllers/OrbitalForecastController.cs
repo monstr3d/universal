@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineGameConverter.Server.BusinessLogic.Orbital;
 using OnlineGameConverter.Server.Classes;
 
 namespace OnlineGameConverter.Server.Controllers
@@ -8,6 +7,7 @@ namespace OnlineGameConverter.Server.Controllers
     [ApiController]
     public class OrbitalForecastController : Controller
     {
+        Performer performer = new();
 
         [HttpGet]
         public async Task<IEnumerable<OrbitalForecastItem>> GetOrbitalForecast(OrbitalForecastCondition condition)
@@ -16,14 +16,13 @@ namespace OnlineGameConverter.Server.Controllers
             {
                 return Enumerable.Empty<OrbitalForecastItem>();
             }
-            var performer = new Performer();
             var result = await performer.CalculateAsync(condition, HttpContext.RequestAborted);
             if (result == null || !result.Any())
             {
                 return Enumerable.Empty<OrbitalForecastItem>();
             }
             return result;
-            /* !!! GENERATED return result.Select(item => new OrbitaForecastItem(
+            /* !!! GENERATED return result.Select(item => new OrbitalForecastItem(
                 item.DateTime,
                 item.X,
                 item.Y,
