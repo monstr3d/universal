@@ -10,7 +10,7 @@ namespace OnlineGameConverter.Server.Controllers
         Performer performer = new();
 
         [HttpGet]
-        public async Task<IEnumerable<OrbitalForecastItem>> GetOrbitalForecast(OrbitalForecastCondition condition)
+        public async Task<IEnumerable<OrbitalForecastItem>> GetOrbitalForecast([FromBody] OrbitalForecastCondition condition)
         {
             if (condition == null || condition.Begin >= condition.End)
             {

@@ -27,7 +27,24 @@ builder.Services.AddSingleton(typeof(IOrbitalCalculationResultSingleton),
 
 builder.Services.AddSingleton(typeof(IHttpContextAccessor), 
     typeof(HttpContextAccessor));
+// In your ASP.NET Core Program.cs
 
+
+// Add services to the container.
+builder.Services.AddControllers();
+// ... other services
+
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000") // Replace with your React app's origin
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 
 builder.Services.AddRazorPages();
 
@@ -35,11 +52,21 @@ builder.Services.AddRazorPages();
 builder.Services.AddMvc(x => x.EnableEndpointRouting = false);
 
 
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+// ... other middleware
+
+app.UseCors("AllowReactApp"); // Enable CORS for your app
+
+app.MapControllers();
+
+
+
 
 //==========================================
 
 
-var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
