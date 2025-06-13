@@ -35,7 +35,7 @@ namespace QandA.Controllers
 
         }
 
-        [HttpGet]
+       [HttpGet]
         public async Task<IEnumerable<QuestionGetManyResponse>> GetQuestions(string search, bool includeAnswers, int page = 1, int pageSize = 20)
         {
             Start();

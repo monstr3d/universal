@@ -21,18 +21,21 @@ export const http = async <RESB, REQB = undefined>(
     },
     body: config.body ? JSON.stringify(config.body) : undefined,
   });
- /* if (config.accessToken) {
+  if (config.accessToken) {
     request.headers.set('authorization', `bearer ${config.accessToken}`);
-  }*/
+  }
+  // console.log('Config', config);
   console.log('Request', request);
-
+    // console.log('Request BODY', request.body);
   const response = await fetch(request);
   console.log('Response', response);
+  console.log('Response BODY', response.body);
 
   if (response.ok) {
     const body = await response.json();
     return { ok: response.ok, body };
   } else {
+    console.log('Response BAD', response);
     logError(request, response);
     return { ok: response.ok };
   }
@@ -40,8 +43,7 @@ export const http = async <RESB, REQB = undefined>(
 
 const logError = async (request: Request, response: Response) => {
   const contentType = response.headers.get('content-type');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let body: any;
+  let body: unknown;
   if (contentType && contentType.indexOf('application/json') !== -1) {
     body = await response.json();
   } else {

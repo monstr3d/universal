@@ -12,7 +12,7 @@ namespace OnlineGameConverter.Server.Classes
      */
     public record class OrbitalForecastCondition
     {
-        public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
+  /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
             double y, double z, double Vx, double Vy, double Vz )
         {
             Begin = begin;
@@ -26,26 +26,75 @@ namespace OnlineGameConverter.Server.Classes
         }
         public DateTime Begin { get; private set; }
 
-        public DateTime End { get; private set; }
+        public DateTime End { get; private set; }*/
 
-        public double X { get; private set; }
+        public double X { get;  set; }
 
-        public double Y { get; private set; }
-        public double Z { get; private set; }
+        public double Y { get;  set; }
+        public double Z { get;  set; }
 
-        public double Vx { get; private set; }
+        public double Vx { get;  set; }
 
-        public double Vy { get; private set; }
+        public double Vy { get;  set; }
 
-        public double Vz { get; private set; }
+        public double Vz { get;  set; }
 
 
     }
+
+    public record class OrbitalForecastConditionDateTime : OrbitalForecastCondition
+    {
+        /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
+                  double y, double z, double Vx, double Vy, double Vz )
+              {
+                  Begin = begin;
+                  End = end;
+                  X = x;
+                  Y = y;     
+                  Z = z;  
+                  this.Vx = Vx;
+                  this.Vy = Vy;
+                  this.Vz = Vz;
+              }*/
+              public DateTime Begin { get;  set; }
+
+              public DateTime End { get;  set; }
+
+    }
+
+
+    public record class OrbitalForecastConditionNumber : OrbitalForecastCondition
+    {
+        /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
+                  double y, double z, double Vx, double Vy, double Vz )
+              {
+                  Begin = begin;
+                  End = end;
+                  X = x;
+                  Y = y;     
+                  Z = z;  
+                  this.Vx = Vx;
+                  this.Vy = Vy;
+                  this.Vz = Vz;
+              }*/
+        public double Begin { get; set; }
+
+        public double End { get; set; }
+
+    }
+
+
+
+
+
 
     public class ForecastConditionSingleton : IForecastConditionSingleton
     {
-        OrbitalForecastCondition IForecastCondition.ForecastCondition { get; set; }
+        OrbitalForecastConditionDateTime condition = null;
+        public ForecastConditionSingleton()
+        {
+        }
+
+        OrbitalForecastConditionDateTime IForecastCondition.ForecastCondition { get; set; }
     }
-
-
 }

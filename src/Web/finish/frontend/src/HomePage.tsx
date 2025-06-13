@@ -20,6 +20,7 @@ export const HomePage = () => {
   React.useEffect(() => {
     let cancelled = false;
     const doGetUnansweredQuestions = async () => {
+      console.log('Unanswered');
       const unansweredQuestions = await getUnansweredQuestions();
       if (!cancelled) {
         setQuestions(unansweredQuestions);

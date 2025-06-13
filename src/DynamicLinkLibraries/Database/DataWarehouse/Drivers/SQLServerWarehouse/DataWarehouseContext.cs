@@ -33,44 +33,9 @@ namespace SQLServerWarehouse
 
         #region Interface implementation
 
-        IDictionary<object, object> IDatabaseInterface.GetLeaves(string login, string password, object key, string extension)
-        {
-            return Leaves;
-        }
-
-
-
-
-
-        byte[] IDatabaseInterface.GetData(string login, string password, object key, string id, ref string extension)
-        {
-            var guid = new Guid(id);
-            ILeaf leaf = data[guid];
-            if (leaf is BinaryTree)
-            {
-                return (leaf as IData).Data;
-            }
-            return (new Guid(id)).GetData();
-        }
-
-        IDictionary<object, object> IDatabaseInterface.GetItems(string login, string password, object key, string extension)
-        {
-            return StaticExtension.Get(extension);
-        }
-
-        IDirectory[] IDatabaseInterface.GetRoots(string login, string password, object key, string[] extensions)
+        IDirectory[] IDatabaseInterface.GetRoots(params string[] extensions)
         {
             return roots.ToArray();
-        }
-
-        void IDatabaseInterface.Login(string login, string password, object key)
-        {
- 
-        }
-
-        void IDatabaseInterface.Refresh(string login, string password, object key, string[] extension)
-        {
-
         }
 
 

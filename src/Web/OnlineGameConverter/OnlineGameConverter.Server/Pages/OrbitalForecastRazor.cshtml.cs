@@ -19,7 +19,7 @@ namespace OnlineGameConverter.Server.Pages
             IOrbitalCalculationResultSingleton orbitalCalculationResultSingleton)
         {
             OrbitalCalculationResultSingleton = orbitalCalculationResultSingleton;
-            OrbitalForecastCondition c = null;
+            OrbitalForecastConditionDateTime c = null;
             ForecastConditionSingleton = forecastConditionSingleton;
             if (forecastConditionSingleton != null)
             {
@@ -39,7 +39,7 @@ namespace OnlineGameConverter.Server.Pages
             }
             Begin = DateTime.Now;
             End = Begin + TimeSpan.FromDays(1);
-            Diagram.UI.Interfaces.IDesktop orb = new OrbitalForecast();
+            Diagram.UI.Interfaces.IDesktop orb = new OrbitalForecastCalculator();
             var ali = Performer.GetAllAliases(orb);
             X = (double)ali["Motion equations.x"];
             Y = (double)ali["Motion equations.y"];
@@ -115,7 +115,17 @@ namespace OnlineGameConverter.Server.Pages
         public async Task<IActionResult> OnPostStartAsync()
         {
             var p = new Performer();
-            var fc = new OrbitalForecastCondition(Begin, End, X, Y, Z, Vx, Vy, Vz);
+            var fc = new OrbitalForecastConditionDateTime
+            {
+                Begin = Begin,
+                End = End,
+                X = X,
+                Y = Y,
+                Z = Z,
+                Vx = Vx,
+                Vy = Vy,
+                Vz = Vz
+            };
             var t = CancellationToken.None;
             var res =  await p.CalculateAsync(fc, t);
             OrbitalCalculationResultSingleton.Items = res;

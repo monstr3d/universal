@@ -1,38 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using OnlineGameConverter.Server.BusinessLogic.Orbital;
 using OnlineGameConverter.Server.Classes;
 
 namespace OnlineGameConverter.Server.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class OrbitalForecastController : Controller
+    [Route("[controller]")]
+    public class OrbitalForecastController : ControllerBase
     {
-        Performer performer = new();
-
-        [HttpGet]
-        public async Task<IEnumerable<OrbitalForecastItem>> GetOrbitalForecast([FromBody] OrbitalForecastCondition condition)
+        private static readonly string[] Summaries = new[]
         {
-            if (condition == null || condition.Begin >= condition.End)
-            {
-                return Enumerable.Empty<OrbitalForecastItem>();
-            }
-            var result = await performer.CalculateAsync(condition, HttpContext.RequestAborted);
-            if (result == null || !result.Any())
-            {
-                return Enumerable.Empty<OrbitalForecastItem>();
-            }
-            return result;
-            /* !!! GENERATED return result.Select(item => new OrbitalForecastItem(
-                item.DateTime,
-                item.X,
-                item.Y,
-                item.Z,
-                item.Vx,
-                item.Vy,
-                item.Vz
-            ));*/
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
+        private readonly ILogger<OrbitalForecastController> _logger;
 
+        public OrbitalForecastController(ILogger<OrbitalForecastController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet(Name = "GetOrbitalForecast")]
+        public IEnumerable<OrbitalForecast> Get()
+        {
+            return Enumerable.Range(1, 5).Select(index => new OrbitalForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
         }
     }
 }

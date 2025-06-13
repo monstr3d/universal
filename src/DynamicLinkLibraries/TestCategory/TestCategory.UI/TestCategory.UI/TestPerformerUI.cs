@@ -38,7 +38,8 @@ namespace TestCategory.UI
         public void TestData(DatabaseInterface data, SerializationBinder binder, PanelDesktop pan, string ext, 
             string extd, TextWriter logWriter)
         {
-            IDictionary<object, object> t = data.GetItems(ext);
+            /// !!! SHOULD BE REFACTORED
+ /*           IDictionary<object, object> t = data.GetItems(ext);
             foreach (object o in t.Keys)
             {
                 string e = ext + "";
@@ -68,7 +69,7 @@ namespace TestCategory.UI
                 }
                 buffer = null;
                 GC.Collect();
-            }
+            }*/
         }
 
         /// <summary>

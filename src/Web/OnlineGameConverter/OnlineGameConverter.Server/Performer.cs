@@ -25,6 +25,8 @@ namespace OnlineGameConverter.Server
 
         private Diagram.UI.Performer performer = new();
 
+        
+
         Func<DateTime, double> dateToDouble;
 
         Func<double, DateTime> doubleToDate;
@@ -46,7 +48,27 @@ namespace OnlineGameConverter.Server
                 {
                     return null;
                 }
-                if (condition.Begin >= condition.End)
+                OrbitalForecastConditionNumber cond;
+                if (condition is OrbitalForecastConditionNumber c)
+                {
+                    cond = c;
+                }
+                else
+                {
+                    var cc = condition as OrbitalForecastConditionDateTime;
+                    cond = new OrbitalForecastConditionNumber
+                    {
+                        Begin = dateToDouble(cc.Begin),
+                        End = dateToDouble(cc.End),
+                        X = cc.X,
+                        Y = cc.Y,
+                        Z = cc.Z,
+                        Vx = cc.Vx,
+                        Vy = cc.Vy,
+                        Vz = cc.Vz,
+                    };
+                }
+                if (cond.Begin >= cond.End)
                 {
                     return null;
                 }
@@ -59,7 +81,7 @@ namespace OnlineGameConverter.Server
                     {"Motion equations.v", condition.Vy },
                            {"Motion equations.w", condition.Vz },
          };
-                var orb = new OrbitalForecast();
+                var orb = new OrbitalForecastCalculator();
                 //var ali = performer.GetAllAliases(orb);
                 performer.SetAliases(orb, d);
                 var chart = performer.GetObject<IDataConsumer>(orb, "Chart");
@@ -70,13 +92,13 @@ namespace OnlineGameConverter.Server
 
                 var processor = new RungeProcessor();
 
-                var start = dateToDouble(condition.Begin);
+                var start = cond.Begin;
 
-                var finish = dateToDouble(condition.End);
+                var finish = cond.End;
 
                 var steps = (int)(finish - start) + 1;
 
-                var cond = "Recursive.y";
+                var orbCondition = "Recursive.y";
 
                 var mea = wrapper.Measurements;
 
@@ -109,7 +131,7 @@ namespace OnlineGameConverter.Server
 
                 wrapper.PerformFixed(start, 1, steps,
                  timeprovider, processor, StaticExtensionDataPerformerInterfaces.Calculation,
-                 0, token, act, cond, null, null);
+                 0, token, act, orbCondition, null, null);
               //  StaticExtensionDataPerformerInterfaces.Calculation
 
                 //wrapper.PerformFixed(start, finish, steps, timeprovider, processor,

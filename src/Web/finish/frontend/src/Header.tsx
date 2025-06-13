@@ -3,13 +3,21 @@ import { css } from '@emotion/react';
 import React from 'react';
 import { UserIcon } from './Icons';
 
-import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
+import {
+  fontFamily,
+  fontSize,
+  gray1,
+  gray2,
+  gray5,
+  PrimaryButton,
+} from './Styles';
 
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from './Auth';
+import { getExtendedNote } from './NodaData';
 
 const buttonStyle = css`
   font-family: ${fontFamily};
@@ -101,6 +109,9 @@ export const Header = () => {
             }
           `}
         />
+        <div>
+          <PrimaryButton onClick={nodeClick}>Set note</PrimaryButton>
+        </div>
       </form>
       <div>
         {!loading &&
@@ -122,4 +133,10 @@ export const Header = () => {
       </div>
     </div>
   );
+};
+
+export const nodeClick = (): void => {
+  let mnote = { Name: 'N', Description: 'd' };
+  getExtendedNote(mnote);
+  console.log('Node Click');
 };

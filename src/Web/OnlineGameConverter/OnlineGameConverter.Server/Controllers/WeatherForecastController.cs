@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using OnlineGameConverter.Server.Classes;
 
 namespace OnlineGameConverter.Server.Controllers
 {
@@ -19,8 +18,8 @@ namespace OnlineGameConverter.Server.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet(Name = "GetWeatherForecastt")]
+        public IEnumerable<WeatherForecast> GetF()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

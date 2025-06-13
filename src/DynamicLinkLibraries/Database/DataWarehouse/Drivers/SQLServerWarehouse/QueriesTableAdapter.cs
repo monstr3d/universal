@@ -39,38 +39,9 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 
         #region IDatabaseInterface implementation
 
-
-        IDictionary<object, object> IDatabaseInterface.GetLeaves(string login, string password, object key, string extension)
-        {
-            throw new OwnNotImplemented("Leaves");
-        }
-
-
-
-        byte[] IDatabaseInterface.GetData(string login, string password, object key, string id, ref string extension)
-        {
-       
-            return (id.ToLeaf() as IData).Data;
-        }
-
-        IDictionary<object, object> IDatabaseInterface.GetItems(string login, string password, object key, string extension)
-        {
-            return StaticExtension.Get(extension);        
-        }
-
-        IDirectory[] IDatabaseInterface.GetRoots(string login, string password, object key, string[] extensions)
+        IDirectory[] IDatabaseInterface.GetRoots(params string[] extensions)
         {
             return StaticExtension.Roots.ToArray();
-        }
-
-        void IDatabaseInterface.Login(string login, string password, object key)
-        {
-            
-        }
-
-        void IDatabaseInterface.Refresh(string login, string password, object key, string[] extension)
-        {
-            SQLWarehouse.Refresh();
         }
 
         #endregion

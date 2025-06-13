@@ -208,11 +208,13 @@ namespace TestCategory
         /// </summary>
         /// <param name="data">Database</param>
         /// <param name="id">Buffer Id</param>
-       public void TestDataBuffer(DatabaseInterface data, string id)
+        public void TestDataBuffer(DatabaseInterface data, string id)
         {
-            string s = null;
+            /// !!! SHOULD BE REFACTORED
+         /*   string s = null;
             byte[] buffer = data.GetData(id, ref s);
             TestBuffer(buffer);
+         */
         }
 
 
@@ -223,6 +225,8 @@ namespace TestCategory
         /// <param name="ext">Extension</param>
         public void TestData(DatabaseInterface data, string ext)
         {
+            /// !!! SHOULD BE REFACTORED
+            /*
             IDictionary<object, object> dic = data.GetItems(ext);
             foreach (object o in dic.Keys)
             {
@@ -237,6 +241,7 @@ namespace TestCategory
                 writeHeader(ob);
                 TestDataItem(data, s, id, ext);
             }
+            */
         }
 
         /// <summary>
@@ -248,6 +253,8 @@ namespace TestCategory
         /// <param name="ext">Extension</param>
         public void TestDataItem(DatabaseInterface data, string name, object id, string ext)
         {
+            /// !!! SHOULD BE REFACTORED
+            /*
             byte[] buffer = data.GetData(id + "", ref ext);
             bool b = TestBuffer(buffer);
             if (!b)
@@ -263,6 +270,7 @@ namespace TestCategory
             }
             buffer = null;
             GC.Collect();
+            */
         }
 
         /// <summary>
@@ -274,8 +282,9 @@ namespace TestCategory
         /// <returns>List of changes</returns>
         public List<object> TestChange(DatabaseInterface data, string ext, bool refresh)
         {
+            /// !!! SHOULD BE REFACTORED
             List<object> l = new List<object>();
-            IDictionary<object, object> dic = data.GetItems(ext);
+  /*          IDictionary<object, object> dic = data.GetItems(ext);
             foreach (object o in dic.Keys)
             {
                 string e = ext + "";
@@ -292,59 +301,11 @@ namespace TestCategory
                 }
                 buffer = null;
                 GC.Collect();
-            }
+            }*/
             return l;
         }
 
-        /// <summary>
-        /// Refreshes database
-        /// </summary>
-        /// <param name="data">Database</param>
-        /// <param name="ext">Extension</param>
-        public static void Refresh(DatabaseInterface data, string ext)
-        {
-            IDictionary<object, object> dic = data.GetItems(ext);
-            foreach (object key in dic.Keys)
-            {
-                Refresh(data, key, ext);
-            }
-        }
 
-
-        /// <summary>
-        /// Refreshes database object
-        /// </summary>
-        /// <param name="data">Database</param>
-        /// <param name="key">Object key</param>
-        /// <param name="ext">Extension</param>
-        public static void Refresh(DatabaseInterface data, object key, string ext)
-        {
-            string e = ext + "";
-            byte[] buffer = data.GetData(key + "", ref e);
-            MemoryStream msi = new MemoryStream(buffer);
-            PureDesktopPeer d = new PureDesktopPeer();
-            if (!d.Load(msi))
-            {
-                throw new OwnException(key + "");
-            }
-            BinaryFormatter bf = new BinaryFormatter();
-            object ob = null;
-            try
-            {
-                ob = bf.Deserialize(msi);
-            }
-            catch (Exception ex)
-            {
-                ex.HandleException(10);
-            }
-            MemoryStream mso = new MemoryStream();
-            d.Save(mso);
-            if (ob != null)
-            {
-                bf.Serialize(mso, ob);
-            }
-            // data.UpdateData(key + "", mso.GetBuffer());
-        }
 
         private void emptyStart()
         {
