@@ -3,10 +3,14 @@ using OnlineGameConverter.Server.Classes;
 using OnlineGameConverter.Server.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+
+//var fe = configuration["Frontend"];
+
+var services = builder.Services;
 
 // Add services to the container.
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,32 +39,51 @@ builder.Services.AddControllers();
 // ... other services
 
 // Configure CORS
+/*
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         builder =>
         {
-            builder.WithOrigins("http://localhost:3000", "http://localhost:7169") // Replace with your React app's origin
+            builder.WithOrigins("http://localhost:3000", "http://localhost:57169") // Replace with your React app's origin
                    .AllowAnyMethod()
                    .AllowAnyHeader();
         });
 });
+*/
+services.AddHttpClient();
 
-builder.Services.AddRazorPages();
 
 
-builder.Services.AddMvc(x => x.EnableEndpointRouting = false);
+services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+          builder
+           .AllowAnyMethod()
+           .AllowAnyHeader()
+           .WithOrigins([configuration["Frontend"]])));
+
+services.AddControllers();
+
+services.AddRazorPages();
+
+
+services.AddMvc(x => x.EnableEndpointRouting = false);
 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 // ... other middleware
+app.UseRouting();
 
-app.UseCors("AllowReactApp"); // Enable CORS for your app
+app.UseCors("CorsPolicy"); // Enable CORS for your app
 
-app.MapControllers();
 
+app.UseAuthorization();
+
+app.UseEndpoints(static endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 
 
@@ -83,7 +106,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
 app.MapControllers();
 
@@ -102,9 +124,6 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
-app.UseRouting();
-
-app.UseAuthorization();
 
 app.MapRazorPages();
 

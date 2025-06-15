@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { getOrbitalForecastFromNumber, getOrbitalForecastFromSting } from './OrbitalData';
-function OrbitalTest() {
+import { getOrbitalForecastFromNumber } from './OrbitalData';
+export const OrbitalTest = () => {
     const [begin, setBegin] = useState('0');
-    const [end, setEnd] = useState('8000');
+    const [end, setEnd] = useState('8000000');
     const [x, setX] = useState('-5448.34815324');
     const [y, setY] = useState('-4463.93698421');
     const [z, setZ] = useState('0');
@@ -10,6 +10,7 @@ function OrbitalTest() {
     const [Vy, setVy] = useState('1.21681893834');
     const [Vz, setVz] = useState('7.45047785592');
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
@@ -33,34 +34,10 @@ function OrbitalTest() {
         }
     };
 
-    const handleSubmitString = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
 
-        const condition = {
-            Begin: begin,
-            End: end,
-            X: x,
-            Y: y,
-            Z: z,
-            Vx: Vx,
-            Vy: Vy,
-            Vz: Vz,
-        };
-
-        try {
-            const response = getOrbitalForecastFromSting(condition);
-            console.error('Forecast:', response);
-        } catch (error) {
-            console.error('Network error:', error);
-            alert('Network error occurred.');
-        }
-    };
-
-
-
-
+   
     return (
-        <form onSubmit={handleSubmitString}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="begin">Begin:</label>
                 <input
@@ -137,5 +114,3 @@ function OrbitalTest() {
         </form>
     );
 }
-
-export default OrbitalTest;

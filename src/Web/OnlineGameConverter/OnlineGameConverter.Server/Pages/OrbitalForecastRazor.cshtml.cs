@@ -127,7 +127,7 @@ namespace OnlineGameConverter.Server.Pages
                 Vz = Vz
             };
             var t = CancellationToken.None;
-            var res =  await p.CalculateAsync(fc, t);
+            var res =  await p.CalculateOrbitalForecastFromDatetimeAsync(fc, t);
             OrbitalCalculationResultSingleton.Items = res;
             ForecastConditionSingleton.ForecastCondition = fc;
             return Page();

@@ -8,6 +8,10 @@ namespace OnlineGameConverter.Server.Controllers
     [ApiController]
     public class NotesController : Controller
     {
+        public NotesController()
+        {
+
+        }
         ExtendedNote GetE(Note note)
         {
             return new ExtendedNote { DateTime = DateTime.Now.ToString(), Name = note.Name, Description = note.Description };
@@ -20,6 +24,12 @@ namespace OnlineGameConverter.Server.Controllers
 
         [HttpPost]
         public Task<ExtendedNote> GetExtendedNote([FromBody] Note note)
+        {
+            return GetEAsync(note);
+        }
+        
+        [HttpPost("fiction")]
+        public Task<ExtendedNote> GetFictionNote([FromBody] Note note)
         {
             return GetEAsync(note);
         }

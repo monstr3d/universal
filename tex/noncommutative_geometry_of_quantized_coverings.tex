@@ -114,7 +114,9 @@
 \newcommand{\Ga}{\Gamma}  
 \newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
 \newcommand{\Coo}{C^\infty}                  %% smooth functions
+\newcommand{\dom}{\mathrm{dom}}                  %% smooth functions
 \newcommand{\Cont}{C} 
+\newcommand{\cl}{\overline} 
 \newcommand{\Contc}{C_c} 
 \newcommand{\Contb}{C_b} 
 \newcommand{\Repi}{\mathrm{Rep}_{int}} 
@@ -151,6 +153,7 @@
 \newcommand{\lift}{\mathfrak{lift}}
 \newcommand{\desc}{\mathfrak{desc}}
 \newcommand{\Cstar}{C^*}
+\newcommand{\Cst}{C^*}
 \newcommand{\Star}{*}
 %%% Roman letters:
 \newcommand{\id}{\mathrm{id}}                %% identity map
@@ -511,6 +514,7 @@
 	
 	
 	\newcommand{\End}{\mathrm{End}}       %%
+	\newcommand{\Endo}{\mathrm{End}}       %%
 	\newcommand{\Ext}{\mathrm{Ext}}       %%
 	\newcommand{\Hom}{\mathrm{Hom}}       %%
 	\newcommand{\Mrt}{\mathrm{Mrt}}       %%
@@ -29426,6 +29430,118 @@ may as well assume that $I $ is the inclusion of a direct summand.
 	\end{enumerate}
 \end{proposition}
 
+\begin{definition}\cite{meyer:unb_repr}
+		\label{def:Cstar-hull}
+		A {\it $C^*$-hull} for the integrable representations
+		of~\(A\) is a $\Cstar$-algebra~\(B\) with a family of bijections
+		\(\Phi=\Phi^{\E}\) from the set of representations of~\(B\)
+		on~\(\E\) to the set of integrable representations of~\(A\)
+		on~\(\E\) for all Hilbert modules~\(\E\) over all
+		$C^*$-algebras~\(D\) with the following properties:
+		\begin{itemize}
+			\item \emph{compatibility with isometric intertwiners}: an isometry
+			$\E_1 \hookto \E_2$ (not necessarily adjointable) is an
+			intertwiner between two representations \(\varrho_1\)
+			and~\(\varrho_2\) of~\(B\) \emph{if and only if} it is an
+			intertwiner between \(\Phi(\varrho_1)\) and~\(\Phi(\varrho_2)\);
+			
+			\item \emph{compatibility with interior tensor products}: if
+			$\F$ is a correspondence from~\(D_1\) to~\(D_2\),
+			\(\E\) is a Hilbert \(D_1\)-module, and~\(\varrho\) is a
+			representation of~\(B\) on~$\F$, then
+			$\Phi(\varrho\otimes_{D_1} 1_{\F}) =
+			\Phi(\varrho)\otimes_{D_1} 1_{\F}$ as representations
+			of~\(A\) on \(\E\otimes_{D_1} \F\).
+		\end{itemize}
+	
+	
+\end{definition}
+
+\begin{definition}
+	\label{def:weak_Cstar-hull}
+	A {\it weak $C^*$-hull} for the integrable representations
+	of~\(A\) is a $C^*$-algebra~\(B\) with a family of
+	bijections~\(\Phi\) between representations of~\(B\) and integrable
+	representations of~\(A\) on Hilbert modules that is compatible with
+	unitary $*$-intertwiners and interior tensor products.
+\end{definition}
+
+\begin{proposition}
+	\label{pro:unique_hull}
+	A class of integrable representations has at most one weak
+	$C^*$-hull.
+\end{proposition}
+
+\subsection{Universal enveloping algebras of Lie algebras}
+\label{sec:Ug}
+
+We illustrate our theory by an example.  Let~\(\mathfrak{g}\) be a
+finite-dimensional Lie algebra over~\(\R\) and let \(A=U(\mathfrak{g})\) be
+its universal enveloping algebra with the usual involution, where
+elements of~\(\mathfrak{g}\) are skew-symmetric.  A representation of~\(A\)
+on~\(\E\), possibly not closed, is equivalent to a dense
+submodule \(\mathfrak{C}\subseteq\E\) with a Lie algebra representation
+\(\pi\colon \mathfrak{g}\to\Endo_D(\mathfrak{C})\) satisfying
+\(\braket{\xi}{\pi(X)(\eta)} = -\braket{\pi(X)(\xi)}{\eta}\) for all
+\(X\in\mathfrak{g}\), \(\xi,\eta\in\mathfrak{C}\).
+
+Let~\(G\) be a simply connected Lie group with Lie algebra~\(\mathfrak{g}\)
+and let \(B\defeq \Cst(G)\).  A representation of~\(\Cst(G)\) on a
+Hilbert module~\(\E\) is equivalent to a strongly continuous,
+unitary representation of~\(G\) on~\(\E\).  Given such a
+representation, let~\(\E^\infty\subseteq \E\) be its subspace
+of smooth vectors.  This is the domain of a closed representation
+of~\(U(\mathfrak{g})\).  We call a representation of~\(U(\mathfrak{g})\) integrable if
+it comes from a unitary representation of~\(G\) in this way.
+
+In particular, \(G\) acts continuously on~\(\Cst(G)\) by left
+multiplication with unitary multipliers.  Let
+\(\mathfrak{B}=\Cst(G)^\infty\) be the right ideal of smooth elements
+for this \(G\)-action, equipped with the canonical
+\(U(\mathfrak{g})\)-module structure~\(\mu\).  By the universal property
+of~\(\Cst(G)\), the pair \((\mathfrak{B},\mu)\) is the universal
+integrable representation.  That is, a representation of~\(U(\mathfrak{g})\)
+is integrable if and only if it is of the form \((\mathfrak{B},\mu)
+\otimes_\varrho \E\) for a representation~\(\varrho\)
+of~\(\Cst(G)\).
+
+Let \(X_1,\dotsc,X_d\) form a basis of~\(\mathfrak{g}\).  The
+\emph{Laplacian} is \(L\defeq -\sum_{i=1}^d X_i^2 \in U(\mathfrak{g})\).
+
+\begin{theorem}[\cite{Pierrot:Reguliers}*{Théorème 2.12}]
+	\label{the:integrable_Ug}
+	A representation \((\pi,\mathfrak{C})\) of~\(U(\mathfrak{g})\) is integrable if
+	and only if~\(\cl{\pi(L^n)}\) is regular and self-adjoint for all
+	\(n\in\N\).
+\end{theorem}
+
+\begin{theorem}
+	\label{the:Cstar_hull_Lie_algebra}
+	The class of integrable representations of~\(U(\mathfrak{g})\)
+	has~\(\Cst(G)\) as a $C^*$-hull and is defined by submodule
+	conditions.  So it satisfies the Strong Local--Global Principle.
+\end{theorem}
+
+
+The results of Vassout~\cite{Vassout:Unbounded_groupoids} get close
+to proving an analogue of Theorem~\ref{the:Cstar_hull_Lie_algebra}
+for an \(s\)-simply connected Lie groupoid~\(G\) with compact base.
+This analogue would
+replace~\(\mathfrak{g}\) by the space of smooth sections of the Lie
+algebroid~\(A(G)\), and \(U(\mathfrak{g})\) by the \Star{}-algebra of
+\(G\)-equivariant differential operators on~\(G\), a subalgebra
+of the \Star{}-algebra of \(G\)-pseudodifferential operators.  Any
+symmetric, elliptic element of~\(U(\mathfrak{g})\) should be a possible
+replacement for the Laplacian in
+Theorem~\ref{the:Cstar_hull_Lie_algebra}.
+\subsection{Lie algebroids}
+\begin{lem}\cite{Vassout:Unbounded_groupoids}
+Lemma 37. Let P be a pseudodifferential operator of order m with real part m0. Then P is in
+L(Hm0,E) and L(E,H
+?m0 ).
+\end{lem}
+
+
 \section{Discrete crossed product of $C^*$-algebras}\label{discr_cr_prod_sec}	
 Here I follow to \cite{discrete_crossed}.
 Let $G$ be a discrete group and $A$ a $C^*$-algebra. An action of $G$ on $A$ is a group homomorphism from $G$ into $\Aut(A)$   the group of $*$-automorphisms on $A$. The action is denoted by a dot in the following way
@@ -32012,61 +32128,8 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 	\begin{remark}\label{foli_trans_rem}
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ principal  \ref{top_principal_defn} ly acts on leaves having no holonomy.
 	\end{remark}
-	\subsection{Lie algebroids}
-\paragraph{}	
-Here I follow to \cite{nistor:lie_alg}
 
-\begin{definition}
- A {\it Lie algebroid over a manifold M} is a vector bundle $A$ over $M$
-together with a Lie algebra structure on the space $\Ga\left(A\right)$ of smooth sections of $A$, and a bundle map $q : A \to  TM$, extended to a map between sections of these bundles, such
-that:
-\begin{enumerate}
-	\item [(i)] $q\left[X, Y\right] = \left[q\left( X\right) , q\left(  Y\right) \right]$, and
-\item[(ii)] $\left[X, Y\right]= \left[X, Y\right]+ \left(q\left( X\right) f  \right) Y$
-	for all smooth sections $X$ and $Y$ of $A$ and all smooth function $f$ on $M$.
-\end{enumerate}
-
-The morphism $q$ is called the{\it  anchor map}. % Note that we allow the base $M$ in thedefinition above to be a manifold with corners. This is necessary in the most interestingexamples related to singular spaces. We did not include in the de®nition the conditionthat q?G?A?? consist of vector ®elds tangent to each face of M, but it will be satis®ed inall the cases we consider.
-\end{definition}
-\begin{empt}
-To a differential groupoid $\G$ there is naturally associated a Lie algebroid $A\left(\G \right)$  as
-follows. Consider first the vertical tangent bundle of $G$ along the fibers of
-the domain map $d$:
-$$
-T_d \G \bydef \ker d_x \bydef \bigcup_{x \in \G^{(0)}} T\G_X \in T\G^{(1)}
-$$
-By definition, $A\left(\G \right)$  is the restriction $\left.T_d\G\right|_{\G^{(0)}}?$ of $T_d\G$ to the set of units of $\G$. The space
-of $d$-vertical vector fields invariant with respect to right translations is closed with respect
-to the Lie bracket and identifies canonically with $\Ga\left(A \right) $. Thus we obtain a Lie algebra
-structure on $\Ga\left(A\right)$. The action on functions on the base is obtained by lifting a function
-on $\G^{(0)}$ to a function on $\G^{(1)}$ via $r$. Consequently, the anchor map $q : A\left(\G \right)\to TG^{(0)}$ is
-obtained by restricting the differential of $r$ to  $A\left(\G \right)$.
-
-
-If $A$ is a Lie algebroid and $\G$ is a smooth groupoid such that $A\left( \G\right)\cong A$  then we
-say that $\G$ {\it integrates} A. Not every Lie algebroid is integrable.
-Nevertheless, it is important to provide examples of general methods to integrate Lie
-algebroids.
-
-
-If $\G$ is a differentiable groupoid, then there exists a $d$-simply
-connected groupoid $\mathscr P\G$, uniquely determined up to isomorphism, with the same Lie
-algebroid as $\G$; it is called the {\it path groupoid} associated to $\G$. As a set, $\mathscr P\G$ consists of
-fixed end-point homotopy classes of paths $\ga \left[0,1\right]\to \G$ such that $d\left(\left(\ga\left(t\right) \right) \right)$ is constant and $\ga\left(0 \right)$ is a unit.
-\end{empt}
-\subsection{Convolution algebras}
-!!!
-K-Theory 8: 341-365, 1994. 341
-© 1994 Kluwer Academic Publishers. Printed in the Netherlands.
-Cyclic Cohomology of Etale Groupoids
-J.-L. BRYLINSKI ~r
-Department of Mathematics, 305 McAllister, The Pennsylvania State University,
-University Park, PA 16802, U.S.A.
-and
-VICTOR NISTORt
-Harvard University, Department of Mathematics, One Oxford Street, Cambridge, MA 02138, U.S.A.
-(Received: October 1993)
-
+ 
 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
@@ -34583,7 +34646,17 @@ A powerful setting for Lagrangian Field Theory} arXiv:2504.08095v1, 2025.
 
 \bibitem{nistor:lie_alg}Victor Nistor {\it Groupoids and the integration of Lie algebroids}.	J. Math. Soc. Japan	Vol. 52, No. 4, 2000.
 
+\bibitem{nistor:convolution}J, -L Brylinsky, Victor Nistor {\it Cyclic Cohomology of Etale Groupoids}K-Theory 8: 341-365, 1994. 341
+© 1994 Kluwer Academic Publishers. Printed in the Netherlands. 1994.
 
+
+\bibitem{Vassout:Unbounded_groupoids}
+Stéphane Vassout. {\it Unbounded pseudodifferential calculus
+	on Lie groupoids}. Journal of Functional Analysis 236 (2006) 161–200, 2006.
+	
+\bibitem{nistor:diff_gr}{Victor Nistor}, {Alan Weinstein}, {Ping Xu}	{\it Pseudodifferential operators on differential groupoids}
+	
+	
 \end{thebibliography}
 
  \end{document}
