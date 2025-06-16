@@ -7,20 +7,20 @@ namespace OnlineGameConverter.Server.Controllers
     [Route("api/[controller]")]
     public class OrbitalController : ControllerBase
     {
+        Performer performer = new();
+
         public OrbitalController()
         {
 
         }
 
-        Performer performer = new();
-/*        private readonly ILogger<FController> _logger;
-
-        public FController(ILogger<FController> logger)
+        [HttpGet("initial")]
+        public async Task<OrbitalForecastConditionNumber> GetInitial()
         {
-            _logger = logger;
-            var ff = this.ControllerContext;
+            var result = await performer.GetInitialAsync();
+            return result;
         }
-*/
+
 
         [HttpPost(Name = "forecastfromnumber")]
         public async Task<OrbitalForecastItemNumber[]> GetOrbitalForecastFromNumber([FromBody] OrbitalForecastConditionNumber condition)
@@ -39,40 +39,6 @@ namespace OnlineGameConverter.Server.Controllers
     
         }
 
-        ExtendedNote GetE(Note note)
-        {
-            return new ExtendedNote { DateTime = DateTime.Now.ToString(), Name = note.Name, Description = note.Description };
-        }
-
-        Task<ExtendedNote> GetEAsync(Note note)
-        {
-            return Task.FromResult(GetE(note));
-        }
-
-
-
-        [HttpPost("GetExtendedNote")]
-        public Task<ExtendedNote> GetExtendedNote([FromBody] Note note)
-        {
-            return GetEAsync(note);
-        }
-
-
-        /*
-
-        public async Task<OrbitalForecastItemString[]> GetOrbitalForecast([FromBody] OrbitalForecastConditionString condition)
-        {
-
-          
-            var result = await performer.CalculateOrbitalForecastFromStringAsync(condition, HttpContext.RequestAborted);
-            if (result == null || !result.Any())
-            {
-                return Enumerable.Empty<OrbitalForecastItemString>().ToArray();
-            }
-            return result.ToArray();
-
-        }
-        */
     }
 
 }

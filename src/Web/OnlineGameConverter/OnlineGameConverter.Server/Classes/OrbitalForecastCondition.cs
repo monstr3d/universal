@@ -12,59 +12,36 @@ namespace OnlineGameConverter.Server.Classes
      */
     public record class OrbitalForecastCondition
     {
-  /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
-            double y, double z, double Vx, double Vy, double Vz )
-        {
-            Begin = begin;
-            End = end;
-            X = x;
-            Y = y;     
-            Z = z;  
-            this.Vx = Vx;
-            this.Vy = Vy;
-            this.Vz = Vz;
-        }
-        public DateTime Begin { get; private set; }
+ 
+        public double X { get;  init; }
 
-        public DateTime End { get; private set; }*/
+        public double Y { get; init; }
+        public double Z { get; init; }
 
-        public double X { get;  set; }
+        public double Vx { get; init; }
 
-        public double Y { get;  set; }
-        public double Z { get;  set; }
+        public double Vy { get; init; }
 
-        public double Vx { get;  set; }
-
-        public double Vy { get;  set; }
-
-        public double Vz { get;  set; }
+        public double Vz { get; init; }
 
 
     }
 
     public record class OrbitalForecastConditionDateTime : OrbitalForecastCondition
     {
-        /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
-                  double y, double z, double Vx, double Vy, double Vz )
-              {
-                  Begin = begin;
-                  End = end;
-                  X = x;
-                  Y = y;     
-                  Z = z;  
-                  this.Vx = Vx;
-                  this.Vy = Vy;
-                  this.Vz = Vz;
-              }*/
-              public DateTime Begin { get;  set; }
+              public DateTime Begin { get; init; }
 
-              public DateTime End { get;  set; }
+              public DateTime End { get; init; }
 
     }
 
 
-    public  class OrbitalForecastConditionNumber 
+    public  record class OrbitalForecastConditionNumber :  OrbitalForecastCondition
     {
+        public double Begin { get; init; }
+
+        public double End { get; init; }
+
         /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
                   double y, double z, double Vx, double Vy, double Vz )
               {
@@ -77,62 +54,9 @@ namespace OnlineGameConverter.Server.Classes
                   this.Vy = Vy;
                   this.Vz = Vz;
               }*/
-        public double Begin { get; set; }
-
-        public double End { get; set; }
-
-        public double X { get; set; }
-
-        public double Y { get; set; }
-        public double Z { get; set; }
-
-        public double Vx { get; set; }
-
-        public double Vy { get; set; }
-
-        public double Vz { get; set; }
-
 
 
     }
-
-
-    public class OrbitalForecastConditionString
-    {
-        /*      public OrbitalForecastCondition(DateTime begin, DateTime end, double x, 
-                  double y, double z, double Vx, double Vy, double Vz )
-              {
-                  Begin = begin;
-                  End = end;
-                  X = x;
-                  Y = y;     
-                  Z = z;  
-                  this.Vx = Vx;
-                  this.Vy = Vy;
-                  this.Vz = Vz;
-              }*/
-        public string Begin { get; set; }
-
-        public string End { get; set; }
-
-        public string X { get; set; }
-
-        public string Y { get; set; }
-        public string Z { get; set; }
-
-        public string Vx { get; set; }
-
-        public string Vy { get; set; }
-
-        public string Vz { get; set; }
-
-
-
-    }
-
-
-
-
 
 
 

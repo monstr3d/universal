@@ -61,22 +61,25 @@ export const getOrbitalForecastFromNumber = async (
     }
 };
 
-export const getOrbitalForecastFromSting = async (
-    condition: OrbitalForecastConditionString,
-): Promise<OrbitalForecastItemString[] | null> => {
-    console.log('ForecastFromNumber');
-    const result = await http<OrbitalForecastItemString[], OrbitalForecastConditionString>({
-        path: `/orbital`,
-        method: "post",
-        body: condition,
-    });
-    console.log("ok", result.ok);
-    console.log("body", result.body);
-    if (result.ok && result.body) {
-        return result.body;
-    } else {
-        return null;
-    }
-};
+export const obritalInitial = async (
+): Promise<OrbitalForecastConditionNumber | null> => {
+    try {
+        console.log("obritalInitial");
 
+        const response = await fetch('api/orbital/initial');
+        if (response.ok) {
+            console.log("obritalInitial RESPONSE", response);
+            if (response.body) {
+                console.log("BI+ODY RESPONSE", response.body);
+                const data = await response.body.json();
+                return data;
+            }
+        }
+    }
+    catch (ex) {
+        console.log(ex);
+    }
+    console.log("obritalInitial null");
+    return null;
+}
 

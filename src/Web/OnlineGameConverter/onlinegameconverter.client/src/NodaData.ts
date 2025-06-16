@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { http } from './http';
+import { obritalInitial } from './OrbitalData';
 
 export interface Note {
   Name: string;
@@ -74,6 +76,25 @@ export const nodeOrbClick = (): void => {
     console.log('Node ORB Click');
 };
 
+export const nodeOrbIClick = (): void => {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                console.log('nodeORBClick');
+                const o = obritalInitial();
+                console.log('Node ORB Click', o);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchData();
+    }, []);   
+};
+
+
 
 export const nodeClick = (): void => {
     console.log('nodeClick');
@@ -81,6 +102,17 @@ export const nodeClick = (): void => {
     getFictiondNote(note);
     console.log('Node Click');
 };
+/*
+const [begin, setBegin] = useState('');
+const [end, setEnd] = useState('');
+const [x, setX] = useState('');
+const [y, setY] = useState('');
+const [z, setZ] = useState('');
+const [Vx, setVx] = useState('');
+const [Vy, setVy] = useState('');
+const [Vz, setVz] = useState('');
+
+*/
 
 
 

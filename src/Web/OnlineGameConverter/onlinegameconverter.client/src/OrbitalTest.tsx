@@ -1,15 +1,25 @@
+/* eslint-disable no-empty */
 import React, { useState } from 'react';
-import { getOrbitalForecastFromNumber, getOrbitalForecastFromSting } from './OrbitalData';
-function OrbitalTest() {
-    const [begin, setBegin] = useState('0');
-    const [end, setEnd] = useState('8000');
-    const [x, setX] = useState('-5448.34815324');
-    const [y, setY] = useState('-4463.93698421');
-    const [z, setZ] = useState('0');
-    const [Vx, setVx] = useState('0.985394777432');
-    const [Vy, setVy] = useState('1.21681893834');
-    const [Vz, setVz] = useState('7.45047785592');
-
+import { getOrbitalForecastFromNumber, obritalInitial } from './OrbitalData';
+/*
+  const [begin, setBegin] = useState('0');
+   const [end, setEnd] = useState('20000');
+   const [x, setX] = useState('-5448.34815324');
+   const [y, setY] = useState('-4463.93698421');
+   const [z, setZ] = useState('0');
+   const [Vx, setVx] = useState('0.985394777432');
+   const [Vy, setVy] = useState('1.21681893834');
+   const [Vz, setVz] = useState('7.45047785592');
+*/
+const OrbitalTest = async () => {
+    const [begin, setBegin] = useState('');
+    const [end, setEnd] = useState('');
+    const [x, setX] = useState('');
+    const [y, setY] = useState('');
+    const [z, setZ] = useState('');
+    const [Vx, setVx] = useState('');
+    const [Vy, setVy] = useState('');
+    const [Vz, setVz] = useState('');
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
@@ -32,35 +42,35 @@ function OrbitalTest() {
             alert('Network error occurred.');
         }
     };
-
-    const handleSubmitString = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
-
-        const condition = {
-            Begin: begin,
-            End: end,
-            X: x,
-            Y: y,
-            Z: z,
-            Vx: Vx,
-            Vy: Vy,
-            Vz: Vz,
-        };
-
-        try {
-            const response = getOrbitalForecastFromSting(condition);
-            console.error('Forecast:', response);
-        } catch (error) {
-            console.error('Network error:', error);
-            alert('Network error occurred.');
+    const initCond = async () => {
+ 
+        const result = await obritalInitial();
+        if (result != null) {
+            console.log(result);
+        /*    const b = result.Begin + '';
+            setBegin(b);
+            const e = result.End + '';
+            setEnd(e);
+            const x = result.X + '';
+            setX(x);
+            const y = result.Y + '';
+            setY(y)
+            const z = result.Z + '';
+            setZ(z)
+            const Vx = result.Vx + '';
+            setVx(Vx)
+            const Vy = result.Vx + '';
+            setVy(Vy)
+            const Vz = result.Vx + '';
+            setVz(Vz);*/
         }
+
     };
 
-
-
+    await initCond();
 
     return (
-        <form onSubmit={handleSubmitString}>
+        <form onSubmit={handleSubmit} >
             <div>
                 <label htmlFor="begin">Begin:</label>
                 <input
@@ -135,7 +145,12 @@ function OrbitalTest() {
             </div>
             <button type="submit">Create User</button>
         </form>
-    );
-}
 
+    );
+
+
+};
 export default OrbitalTest;
+
+
+

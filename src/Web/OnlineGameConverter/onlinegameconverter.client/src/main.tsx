@@ -8,6 +8,6 @@ import { NodePage } from './NodePage.tsx'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <OrbitalTest />
+        <NodePage />
   </StrictMode>,
 )

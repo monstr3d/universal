@@ -1,4 +1,4 @@
-import {  nodeClick, nodeOrbClick } from "./NodaData";
+import {  nodeClick, nodeOrbClick, nodeOrbIClick } from "./NodaData";
 
 
 
@@ -6,6 +6,6 @@ import {  nodeClick, nodeOrbClick } from "./NodaData";
 export const NodePage = () => {
     return (
         <><form>
-        </form><button onClick={nodeOrbClick}>Click</button></>);
+        </form><button onClick={nodeOrbIClick}>Click</button></>);
 };
 

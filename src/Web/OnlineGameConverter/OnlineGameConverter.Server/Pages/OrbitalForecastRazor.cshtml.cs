@@ -110,7 +110,7 @@ namespace OnlineGameConverter.Server.Pages
         [Display(Name = "Vz - velocity, km/s")]
         public double Vz { get; private set; }
 
-        public List<OrbitalForecastItem> Items => OrbitalCalculationResultSingleton.Items;
+        public List<OrbitalForecastItemDateTime> Items => OrbitalCalculationResultSingleton.Items;
 
         public async Task<IActionResult> OnPostStartAsync()
         {
