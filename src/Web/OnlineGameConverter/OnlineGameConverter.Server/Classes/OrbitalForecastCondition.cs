@@ -27,7 +27,7 @@ namespace OnlineGameConverter.Server.Classes
 
     }
 
-    public record class OrbitalForecastConditionDateTime : OrbitalForecastCondition
+    public record  class OrbitalForecastConditionDateTime : OrbitalForecastCondition
     {
               public DateTime Begin { get; init; }
 
@@ -36,7 +36,7 @@ namespace OnlineGameConverter.Server.Classes
     }
 
 
-    public  record class OrbitalForecastConditionNumber :  OrbitalForecastCondition
+    public record  class OrbitalForecastConditionNumber :  OrbitalForecastCondition
     {
         public double Begin { get; init; }
 

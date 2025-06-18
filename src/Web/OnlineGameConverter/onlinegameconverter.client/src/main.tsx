@@ -5,6 +5,7 @@ import './index.css'
 import OrbitalTest from './OrbitalTest.tsx'
 //import App from './App.tsx'
 import { NodePage } from './NodePage.tsx'
+import MyComponent from './MyComponent.tsx'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

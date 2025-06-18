@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { http } from './http';
-import { obritalInitial } from './OrbitalData';
+import { getOrbitalForecastFromNumber, obritalInitial, getOrbitalInitial } from './OrbitalData';
 
 export interface Note {
   Name: string;
@@ -12,6 +12,8 @@ export interface ExtededNote {
   Description: string;
   DateTime: string;
 }
+
+
 
 export const getExtendedNote = async (
   note: Note,
@@ -78,21 +80,105 @@ export const nodeOrbClick = (): void => {
 
 export const nodeOrbIClick = (): void => {
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                console.log('nodeORBClick');
-                const o = obritalInitial();
-                console.log('Node ORB Click', o);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-
-        fetchData();
-    }, []);   
+    try {
+        console.log('nodeORBClick');
+        const o = obritalInitial();
+        console.log('Node ORB Click', o);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 };
+
+export async function nodeWeatheerClick1 (): Promise<void> {
+
+    try {
+        const response = await fetch('api/weatherforecast');
+        if (response.ok) {
+            console.log("R", response)
+            const data = await response.json();
+            console.log("D", data)
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
+
+export async function nodeOrbitalIClick(): Promise<void> {
+
+    try {
+
+  //      const cond = {
+  //          Begin: 0, End: 20000, X: -5448.34815324, Y: -4463.93698421, Z: 0, Vx: 0.98539477743, Vy: 1.21681893834, Vz: 7.45047785592
+        //       };
+        console.log("ORBITAL");
+
+        const response = await getOrbitalInitial();
+        if (response.ok) {
+            console.log("ORBITAL", response);
+            console.log("X", response.X);
+         }
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
+
+
+export async function nodeOrbitalClick(): Promise<void> {
+
+    try {
+
+        const cond = {
+            Begin: 0, End: 20000, X: -5448.34815324, Y: -4463.93698421, Z: 0, Vx: 0.98539477743, Vy: 1.21681893834, Vz: 7.45047785592
+        };
+        const response = await getOrbitalForecastFromNumber(cond);
+        if (response.ok) {
+            console.log("R", response)
+            const data = await response.json();
+            console.log("D", data)
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
+
+export async function nodeWheatherForecastClick(): Promise<void> {
+
+    try {
+        const response = await fetch('weatherforecast/ttts');
+        if (response.ok) {
+            console.log("R", response)
+            const data = await response.json();
+            console.log("D", data)
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
+
+
+
+
+export async function orbIClick(): Promise<void> {
+
+    try {
+        const response = await fetch('api/orbital/initial');
+        if (response.ok) {
+            console.log("R", response)
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
 
 
 

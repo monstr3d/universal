@@ -42,32 +42,8 @@ const OrbitalTest = async () => {
             alert('Network error occurred.');
         }
     };
-    const initCond = async () => {
  
-        const result = await obritalInitial();
-        if (result != null) {
-            console.log(result);
-        /*    const b = result.Begin + '';
-            setBegin(b);
-            const e = result.End + '';
-            setEnd(e);
-            const x = result.X + '';
-            setX(x);
-            const y = result.Y + '';
-            setY(y)
-            const z = result.Z + '';
-            setZ(z)
-            const Vx = result.Vx + '';
-            setVx(Vx)
-            const Vy = result.Vx + '';
-            setVy(Vy)
-            const Vz = result.Vx + '';
-            setVz(Vz);*/
-        }
-
-    };
-
-    await initCond();
+  // await initCond();
 
     return (
         <form onSubmit={handleSubmit} >

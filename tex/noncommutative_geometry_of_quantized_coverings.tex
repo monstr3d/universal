@@ -4564,7 +4564,37 @@ Under the hypotheses \ref{disconnected_infinite_noncommutative_covering_empt} a 
  \begin{remark}
  	The motivation of the Definition \ref{infinite_noncommutative_covering_defn} is the Theorem \ref{top_main_thm}.
  \end{remark}
- 
+\subsection{Infinitesimal  functionals}
+\paragraph{}
+Let 	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ be an infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn}), and let $\phi : M\left(\widetilde{A} \right)\to \C$ be a positive $\C$-linear continuous functional with
+\be\label{inv_cong_eqn}
+\forall  \widetilde{b} \in  M\left(\widetilde{A} \right) \quad \forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left( g \widetilde b\right) = \phi\left(  \widetilde b\right)
+\ee
+If $\phi\left(\widetilde{A} \right) \neq \{0\}$ then there is $\widetilde a \in K\left(\widetilde{A} \right)$ with $\phi\left(\widetilde a \right) >\eps > 0$. According to the equation \eqref{basic_cov_cl_eqn} there is 
+\be\label{inv_congp_eqn}
+\widetilde	b \bydef \bt\text{-} \sum_{	g \in G\left(\left.\widetilde{A}~\right| A\right) }g \widetilde a \in  M\left(\widetilde{A} \right)
+\ee
+such that
+$$
+\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad g \widetilde b = \widetilde b
+$$
+From \eqref{inv_congp_eqn} it follows that $\phi\left( \widetilde{b}\right) = \left|G\left(\left.\widetilde{A}~\right| A\right)\right|\eps = \infty$ since the group $G\left(\left.\widetilde{A}~\right| A\right)$ is not finite. However one can define $\phi \left( \widetilde{a}\right)$ as infinitesimal value. According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. Let us enumerate $G\left(\left.\widetilde{A}~\right| A\right)$ i.e. set $G\left(\left.\widetilde{A}~\right| A\right)= \bigsqcup_{\iota \in \N} \{g_\iota\}$. We suppose that $\phi\left(g_\iota \widetilde b\right)$ is represented by $\left(x^\iota_1, ...,  \right)$ with
+$$
+x^\iota_n \bydef \begin{cases}
+	0 & \iota < n\\
+	\frac{\phi\left( \widetilde	b\right) }{n} & \iota \ge n
+\end{cases}
+$$
+From the Definition \ref{uf_eqn_defn} it follows that 
+$$
+\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left(g \widetilde a \right) = \phi\left( \widetilde a \right)
+$$
+Otherwise 
+$$
+\sum_{	g \in  G\left(\left.\widetilde A\right| A\right)}\phi\left(g \widetilde a\right) 
+$$
+is represented by the sequence $\left(\phi\left(\widetilde b \right), ..., \phi\left(\widetilde b \right), ...\right)\in \C^\N$ (cf. Definition \ref{ultra_power_defn}), it is agree with  the equation \eqref{inv_congp_eqn}.
+
  \subsection{Equivariant representations}
 
 \subsubsection{Faithful representations}
@@ -5423,7 +5453,7 @@ We say that the triple
 \end{definition}
 
 \subsection{Coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
-\paragraph*{}
+\paragraph*{} !!!! CHECK 
 This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 \begin{empt}\label{chull_inf_empt}
 	Let $A$ be a $*$-algebra. Let $\mathcal{E}$ be a $C^*$- Hilbert $D$-module and there is a  representations of $A$   on $\mathcal{E}$ in the sense of the Definition \eqref{def:rep_Hilbert_module_uni}. Form the Definitions \ref{def:rep_Hilbert_module_uni} and \ref{def:rep_Hilbert_module} on $\mathcal{E} $ there  is a
@@ -32128,7 +32158,7 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 	\begin{remark}\label{foli_trans_rem}
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ principal  \ref{top_principal_defn} ly acts on leaves having no holonomy.
 	\end{remark}
-
+\section{Lie groupoids and Lie algebroids}
  
 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
@@ -33107,20 +33137,20 @@ From the above equation if follows that $\C_{\left( \mu\right) }\subset C_c\left
 \paragraph{}
 Here I follow to \cite{keisler:inf_calc}
 
-\begin{definition}
+\begin{definition}\label{hyperreal_defn}
 The following axioms describe a hyperreal number system as a triple $\left(*, \R, \R^*\right)$,
-where $\R$ is called the field of {\it real numbers}, $\R^*$ the field of {\it hyperreal numbers}, and $*$ the {\it natural extension mapping}.
+where $\R$ is called the field of {\it real numbers}, $\R^*$ the field of {\it hyperreal numbers}, and $*$ the {\it natural extension mapping} if it satisfies to the following axioms.
 \begin{enumerate}
-	\item[Axiom A] $\R$ is a complete ordered field.
-	\item[Axiom B]$\R^*$ is an ordered field extension of $\R$.
-	\item[Axiom C] $\R^*$ has a positive infinitesimal, $x\neq 0$, i.e $\forall \eps > 0$ one has $\eps > 0 \quad \Rightarrow \quad x < \eps$
-	\item[Axiom D] (Function Axiom)
+	\item[(A)] $\R$ is a complete ordered field.
+	\item[(B)]$\R^*$ is an ordered field extension of $\R$.
+	\item[(C)] $\R^*$ has a positive infinitesimal, $x\neq 0$, i.e $\forall \eps > 0$ one has $\eps > 0 \quad \Rightarrow \quad x < \eps$
+	\item[(D)] (Function Axiom)
 	
 	For each real function $f$ of n variables there is a corresponding hyperreal
 	function $f^*$ of $n$ variables, called the natural extension of $F$. The field operations of $\R^*$ are the natural extensions of the field operations of $\R$.
 	
-	\item[Axiom E] Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
-	of $T$. !!!
+	\item[(E)] Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
+	of $T$.
 	
 	\end{enumerate}
 
@@ -33129,50 +33159,86 @@ $x_1; ... x_n$ we mean an $n$-tuple $\left(c_1; ... c_n)\right)$ of hyperreal nu
 all the formulas in $S$ are true when each function is replaced by its natural
 extension and each $x_j$ is replaced by $c_j$.
 
-Axiom E (Transfer Axiom) 
 
-Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
-of $T$. !!!
 \end{definition}
 \begin{definition}
-Definition 1.2. Given a hyperreal number $x \in \R^*$, the {\it monad} of x is the
+%Definition 1.1.
+\begin{itemize}
+	\item An element $x\in \R^*$ is {\it infinitesimal} if $\left|x\right|< r$ for all positive real $r$;
+\item  {\it finite} if $\left|x\right|< r$ for some real $r$;
+\item {\it 	infinite} if $\left|x\right|> r$ for all real $r$.
+	Two elements $x, y \in \R^*$ are said to be {\it infinitely} close, $x \approx y$, if $x - y$ is
+	infinitesimal. (Thus $x$ is infinitesimal if and only if $x \approx 0$).
+	
+\end{itemize} 
+\end{definition}
+\begin{definition}
+%Definition 1.2. 
+Given a hyperreal number $x \in \R^*$, the {\it monad} of x is the
 set
-%monad(x) = fy 2 R : x  yg:
+$$
+\text{monad}(x) \bydef \left\{\left. x \in \R^*\right| x \approx y\right\}
+$$
 %The galaxy of x is the set
 %galaxy(x) = fy 2 R : x ? y is niteg:
 \end{definition}
 \begin{theorem}
-Theorem 1.9. (Standard Part Principle) Every finite $x \in \R^*$ is infinitely close to a unique real number $r \in \R$. That is, every finite monad contains a
+%Theorem 1.9. 
+(Standard Part Principle) Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
 unique real number.
 \end{theorem}
 \begin{definition}
-%Definition 1.41. 
-A {\it filter} U over I is a set of subsets of I such that:
-(i) U is closed under supersets; if !!! % X 2 U and X  Y  I then Y 2 U.
-(ii) U is closed under finite intersections; if X 2 U and Y 2 U then $X \cap Y \in U$,
-(iii) I 2 U but ; =2 U.
-An {\it ultrafilter} over I is a lter U over I with the additional property that for each $X \subsetneqq I$, exactly one of the sets X; I n X belongs to U.
-A free ultrafilter is an ultralter U such that no nite set belongs to U.
+%Definition 1.41.
+Let $I$ be an infinite set. 
+A {\it filter} $U$ over $I$ is a set of subsets of $I$ such that:
+\begin{enumerate}
+	\item [(i)] $U$ is closed under supersets; if $X \in U$ and $X \subseteqq Y \subseteqq I$ then $Y \in U$.
+	(ii) $U$ is closed under finite intersections; if $X \in U$ and { $X \in U$} then $X \cap Y \in U$,
+	(iii) $I \in U$ but $\emptyset \notin U$.
+\end{enumerate}
+
+An {\it ultrafilter} over I is a filter U over I with the additional property that for each $X \subsetneqq I$, exactly one of the sets $X$; $I \setminus  X$ belongs to $U$.
+A {\it free ultrafilter} is an ultrafilter $U$ such that no finite set belongs to $U$.
 \end{definition}
 \begin{theorem}
 %Theorem 1.42.
- For every infinite set I, there exists a free ultrafilter over
-I\end{theorem}
-\begin{definition}
-Definition 1.45. Let a be an I-sequence. If a is U-equivalent to a constant
-I-sequence hr; r; : : : i where r 2 R, we dene aU = r. Otherwise, we dene aU
-to be the U-equivalence class of a,
-aU = fb : a =U bg:
-The ultrapower of the set R modulo U is the set
-Y
-U
-R =
+ For every infinite set $I$, there exists a free ultrafilter over
+$I$
+\end{theorem}
+\begin{definition}\label{uf_eqn_defn}
+%Definition 1.43. 
+Two $I$-sequences $a, b$ in $\R^I$ are said to be $U$-{\it equivalent},
+in symbols $a =_U b$, if
+$$
+\left\{\iota: a_\iota = b_\iota \right\}\in U
+$$
+\end{definition}
+\begin{lemma}
+%Lemma 1.44. 
+The relation $=_U$ is an equivalence relation on the set $\R^I$.
+\end{lemma}
+\begin{definition}\label{ultra_power_defn}
+%Definition 1.45. 
+Let $a$ be an $I$-sequence. If $a$ is $U$-equivalent to a constant
+$I$-sequence $\left(r, r, ...\right)$ where $r \in \R$, we define $a_U \bydef r$. Otherwise, we define aU
+to be the $U$-equivalence class of $a$,
+$$
+a_U \bydef \left\{b | a =_U b\right\}.
+$$
+The {\it ultrapower} of the set $R$ modulo $U$ is the set
+$$
+\prod_{U}\R \bydef \left\{a_U : a \in \R^I\right\}.
+$$
 \end{definition}
 
-\begin{theorem}
-Theorem 1.55. For each free ultrafilter U on a countable index set I, the
-hyperreal number system $\left(*, \R, \R^*\right)$ built from U satisfies Axioms A-E.
+\begin{theorem}\label{inf_ultra_thm}
+%Theorem 1.55. 
+For each free ultrafilter $U$ on a countable index set $I$, the
+hyperreal number system $\left(*, \R, \R^*\right)$ built from $I$ satisfies to the Definition \ref{ultra_power_defn}.
 \end{theorem}
+\begin{rem}\label{inf_ultra_rem}
+	The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers.
+\end{rem}
 
 \section{Miscellany}
 	
