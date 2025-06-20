@@ -33,6 +33,12 @@ namespace SoundService.UI.UserControls
 
         #region Internal
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
+        #endregion
+
+        #region Internal
+
         internal MultiSound Sound
         {
             get

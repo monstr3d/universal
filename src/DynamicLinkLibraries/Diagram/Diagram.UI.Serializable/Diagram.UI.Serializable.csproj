@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+    <TargetFramework>net9.0</TargetFramework>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AssemblyService\AssemblyService.csproj" />
@@ -12,4 +12,7 @@
     <ProjectReference Include="..\Diagram.Extended\Diagram.Extended.csproj" />
     <ProjectReference Include="..\Diagram\Diagram.csproj" />
   </ItemGroup>
+<ItemGroup>
+<PackageReference Include="System.Runtime.Serialization.Formatters" Version="9.0.0" />
+</ItemGroup>
 </Project>

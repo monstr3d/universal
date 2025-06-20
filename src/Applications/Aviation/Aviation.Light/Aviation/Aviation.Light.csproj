@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
 
     <!--    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>-->
     <ApplicationIcon>Aviation.ico</ApplicationIcon>
@@ -299,4 +299,7 @@
       <LastGenOutput>ResourceImage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+<ItemGroup>
+<PackageReference Include="System.Runtime.Serialization.Formatters" Version="9.0.0" />
+</ItemGroup>
 </Project>

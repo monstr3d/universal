@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Abp.Authorization.Users;
+using Abp.Domain.Uow;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualStudio.Services.UserAccountMapping;
 using Microsoft.VisualStudio.Services.Users;
@@ -9,6 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserRole = Abp.Authorization.Users.UserRole;
 
 namespace ConsoleSQLServerWarehouse
 {

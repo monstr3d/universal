@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
-    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="UserControls\UserControlChart.resx" />
@@ -20,4 +20,7 @@
     <ProjectReference Include="..\Chart.Drawing\Chart.Drawing.csproj">
     </ProjectReference>
   </ItemGroup>
+<ItemGroup>
+<PackageReference Include="System.Runtime.Serialization.Formatters" Version="9.0.0" />
+</ItemGroup>
 </Project>

@@ -182,7 +182,7 @@ namespace Aviation.Light
             ++i;
             if (soundFactory != null)
             {
-                var sounds = SoundService.UI.StaticExtensionSoundServiceUI.ObjectButtons;
+               var sounds = SoundService.UI.StaticExtensionSoundServiceUI.ObjectButtons;
                 but[i] = sounds;
                 ++i;
             }

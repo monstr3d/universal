@@ -5481,7 +5481,7 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 	\eean 
 	Let 
 	$$
-	\mathfrak{S}'_A \bydef 	\left\{\lift_\la: A \hookto A_\la \right\}_{\la \in \La}
+	\mathfrak{S}_A \bydef 	\left\{\lift_\la: A \hookto A_\la \right\}_{\la \in \La}
 	$$
 be a set of { noncommutative finite-fold coverings of $*$-algebras, associated with representation of $A$ on $\E$} (cf. Definition \ref{fin_chull_defn}). For any $\la\in \La$ similarly to \ref{fin_chull_empt} we construct a $C^*$-Hilbert $D$-module $\E_\la$ with a representation of $A_\la$ is $\E_\la$ in the sense of the Definition \ref{fin_chull_defn}
 		Let 	
@@ -5494,27 +5494,43 @@ be a set of { noncommutative finite-fold coverings of $*$-algebras, associated w
 	$$
 \left(A_\mu, A_\nu, G\left(\left.A_\mu \right| A_\nu \right), \lift^\mu_\nu \right) 	
 	$$
-is a 	{ noncommutative finite-fold covering of $*$-algebras, associated with representation of $A_\mu$ on $\E_\mu$}. 
-Suppose that  $\left(\K\left( \E_D\right) , B, G\left(\left.\widetilde{B}~\right| \K\left( \E_D\right)\right)\right)$ is 
+is a 	{ noncommutative finite-fold covering of $*$-algebras, associated with representation of $A_\mu$ on $\E_\mu$}.
+Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
 {infinite noncommutative covering} of 
-
-E !!! REPLACE  B
-\be\label{hm_cs_cat_eqn!}	
-\mathfrak{S}_{\K\left( \E_D\right)}=\left\{\left\{\K\left( \E_\la\right) \right\}_{\la\in \La}, \left\{\widetilde \lift^\mu_\nu : \K\left( \E_\mu\right) \hookto \K\left( \E_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\be\label{hm_cse_cat_eqn}	
+\mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \lift^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee	
+(cf. Definition \ref{infinite_noncommutative_covering_defn}). 
+Suppose that  $\left(\K\left( \E_D\right) , B, G\left(\left.\widetilde{B}~\right| \K\left( \E_D\right)\right)\right)$ is 
+{infinite noncommutative covering} of \eqref{hm_cse_cat_eqn}
+
 (cf. Definition \ref{infinite_noncommutative_covering_defn}).
 If $\widetilde{\mathfrak E}\bydef K\left(\widetilde B \right)\otimes_{\K\left( \E_D\right)} \mathfrak E$ is an algebraic tensor product where $ K\left(\widetilde B \right)$ is the Pedersen's ideal then there is a $D$ valued pairing
 \bean
 \braket{\cdot }{\cdot}^\sim_D: \widetilde{ \mathfrak{E}}\times \widetilde{ \mathfrak{E}}\to D,\\
 \left(\widetilde a \otimes \xi, \widetilde b \otimes \eta, \right) \mapsto \left\langle  \xi, \bt \text{-}\sum_{	g \in {G}}g\left(  \widetilde a^* \widetilde b\right) \eta\right\rangle_D,
 \eean
-where $\bt \text{-}\sum$ is means the convergence of the series with respect to the strict topology of $M\left(\widetilde B \right)$ (cf. Definition \ref{strict_topology_defn}). 	i.e. $\widetilde{ \mathfrak{E}}$ is a pre-Hilbert $D$-module (cf. Definition \ref{hilbert_module_defn}). So the completion $\widetilde{ {\E}}$ of $\widetilde{ \mathfrak{E}}$ is a $C^*$-Hilbert $D$-module. The action $G\times \widetilde B \to \widetilde B$ induces actions  $G\times \widetilde{ \mathfrak{E}}\to \widetilde{ \mathfrak{E}}$ and $G\times \widetilde \E \to \widetilde \E$. For any $\la\in \La$ the action $A_\la \times \mathfrak E_\la\to \mathfrak E_\la$ induces an $A_\la \times \widetilde{\mathfrak E}\to \widetilde{\mathfrak E}$. On the other hand one has an action $K\left(\widetilde B\right) \times \widetilde{\mathfrak E}\to \widetilde{\mathfrak E}$  $*$-subalgebra $\widetilde A' \subset \End_{D}\left(\widetilde {\mathfrak E}\right)$ is said to be \textit{admissible} if for all $\widetilde a'\in\widetilde A'$ following conditions hold:
-%\label{hilb_adm_l0_eqn}
-%\widetilde a'\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
-%\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\widetilde a'\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
-\bea		\label{hilb_adm_eqn!}
-\forall \widetilde a'\in\widetilde A'\quad  \forall \widetilde b \in K\left(\widetilde B \right)\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde b \widetilde a' =   \widetilde ba^\cup.
-\eea
+where $\bt \text{-}\sum$ is means the convergence of the series with respect to the strict topology of $M\left(\widetilde B \right)$ (cf. Definition \ref{strict_topology_defn}). 	i.e. $\widetilde{ \mathfrak{E}}$ is a pre-Hilbert $D$-module (cf. Definition \ref{hilbert_module_defn}). So the completion $\widetilde{ {\E}}$ of $\widetilde{ \mathfrak{E}}$ is a $C^*$-Hilbert $D$-module. The action $G\times \widetilde B \to \widetilde B$ induces actions  $G\times \widetilde{ \mathfrak{E}}\to \widetilde{ \mathfrak{E}}$ and $G\times \widetilde \E \to \widetilde \E$. For any $\la\in \La$ the action $A_\la \times \mathfrak E_\la\to \mathfrak E_\la$ induces an $A_\la \times \widetilde{\mathfrak E}\to \widetilde{\mathfrak E}$. 
+
+Suppose that for all $\la\in \La$ there is an action $A_\la \times \widetilde{\mathfrak B}\to \widetilde{\mathfrak B}$ such that
+\begin{itemize}
+	\item $\widetilde{\E}$ is an  $A_\la$-$ \widetilde{ B}$-bimodule.
+	\item 	$\widetilde{\mathfrak E}$ is closed with respect to the family of norms
+	\bean
+	\left\| {\xi}\right\| _{a_\la} \bydef \left\langle \xi, \xi\right\rangle^{\nicefrac12}  + \left\langle a_\la\xi,a_\la\xi\right\rangle^{\nicefrac12}
+	\eean
+	where $a_\la \in A_\la$.
+	(cf. \eqref{graph_norm_eqn})
+\end{itemize}
+For any $\xi \in \widetilde{E}$ and $\widetilde a\in \widetilde A$ we define a seminorm
+\be\label{umm_semi_eqn}
+\left\| \widetilde a\right\|_{\xi }\bydef \left\|\widetilde a {\xi}\right\|
+\ee	
+Let $\widetilde A\subset \End^*_B\left(\widetilde{\E} \right) $ be a $G\left(\left. \widetilde B\right| B\right)$ $*$-subalgebra. Let $\widetilde S\subset \widetilde A$ be a subset such that for all $\la \in\La$ and $\widetilde s\in  \widetilde S$ the series
+\be
+\sum_{g \in \ker\left(G\left(\left. \widetilde B\right| B\right) \to G\left(\left.  B_\la\right| B\right) \right) } g \widetilde s
+\ee 
+is convergent with respect to a family of seminorms \eqref{um_semi_eqn}.
 
 \end{empt}
 
@@ -5522,6 +5538,17 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 	Under the hypothesis \ref{chull_inf_empt} situation,
 	suppose that there exists an admissible $*$-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any admissible $*$-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with a representation of $A$ is $\E$ (cf.  Definition \ref{fin_chull_defn})}. 
 \end{definition}
+
+
+On the other hand one has an action $K\left(\widetilde B\right) \times \widetilde{\mathfrak E}\to \widetilde{\mathfrak E}$  $*$-subalgebra $\widetilde A' \subset \End_{D}\left(\widetilde {\mathfrak E}\right)$ is said to be \textit{admissible} if for all $\widetilde a'\in\widetilde A'$ following conditions hold:
+%\label{hilb_adm_l0_eqn}
+%\widetilde a'\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
+%\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\widetilde a'\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
+\bea		\label{hilb_adm_eqn!}
+\forall \widetilde a'\in\widetilde A'\quad  \forall \widetilde b \in K\left(\widetilde B \right)\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde b \widetilde a' =   \widetilde ba^\cup.
+\eea
+
+
 
 %\begin{definition}\label{b_core_defn}
 %	The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms

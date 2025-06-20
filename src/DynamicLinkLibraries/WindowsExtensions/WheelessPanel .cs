@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace WindowsExtensions
 {
@@ -98,9 +93,17 @@ namespace WindowsExtensions
         /// <summary>
         /// Step
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Step
+        /// </summary>
         public float Step
         { get; set; } = 0.1f;
 
+        /// <summary>
+        /// Type of resize
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         /// <summary>
         /// Type of resize
         /// </summary>

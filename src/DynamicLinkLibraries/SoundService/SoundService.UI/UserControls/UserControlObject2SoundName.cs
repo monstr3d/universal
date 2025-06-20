@@ -34,6 +34,12 @@ namespace SoundService.UI.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
+        #endregion
+
+        #region Members
+
         internal Object2SoundName Converter
         {
             set

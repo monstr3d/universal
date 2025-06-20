@@ -1,14 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Internet.Meteo.Wrapper\Internet.Meteo.Wrapper.csproj" />
   </ItemGroup>
 
+<ItemGroup>
+<PackageReference Include="System.Runtime.Serialization.Formatters" Version="9.0.0" />
+</ItemGroup>
 </Project>

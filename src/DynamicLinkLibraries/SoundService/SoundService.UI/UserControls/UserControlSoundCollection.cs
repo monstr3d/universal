@@ -43,6 +43,7 @@ namespace SoundService.UI.UserControls
             remove { accept -= value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal SoundCollection SoundCollection
         {
             set

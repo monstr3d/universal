@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+    <TargetFramework>net9.0</TargetFramework>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AssemblyService\AssemblyService.csproj" />
@@ -18,5 +18,8 @@
        </ProjectReference>
     <ProjectReference Include="..\Dynamic.Atmosphere\Dynamic.Atmosphere.csproj" />
   </ItemGroup>
+<ItemGroup>
+<PackageReference Include="System.Runtime.Serialization.Formatters" Version="9.0.0" />
+</ItemGroup>
 </Project>
  
