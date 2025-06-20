@@ -18,7 +18,7 @@ namespace OnlineGameConverter.Server.Controllers
         }
 
         [HttpGet("initial")]
-        public async Task<OrbitalForecastConditionNumber> GetInitialConditions()
+        public async Task<OrbitalForecastItemNumberPure> GetInitialConditions()
         {
             var result = await performer.GetInitialAsync();
             return result;

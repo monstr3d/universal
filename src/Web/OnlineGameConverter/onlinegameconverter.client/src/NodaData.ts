@@ -115,6 +115,8 @@ export async function nodeOrbitalIClick(): Promise<void> {
         console.log("ORBITAL");
 
         const response = await getOrbitalInitial();
+        console.log("ORBITALLLL", response);
+        console.log("X", response.x);
         if (response.ok) {
             console.log("ORBITAL", response);
             console.log("X", response.X);

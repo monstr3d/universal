@@ -35,6 +35,21 @@ namespace OnlineGameConverter.Server.Classes
 
     }
 
+    public record class OrbitalForecastItemNumberPure : OrbitalForecastCondition
+    {
+        public double Begin { get; init; }
+
+        public double End { get; init; }
+
+        public double Time { get; init; }
+        public double X { get; init; }
+        public double Y { get; init; }
+        public double Z { get; init; }
+        public double Vx { get; init; }
+        public double Vy { get; init; }
+        public double Vz { get; init; }
+    }
+
 
     public record  class OrbitalForecastConditionNumber :  OrbitalForecastCondition
     {

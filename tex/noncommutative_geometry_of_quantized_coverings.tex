@@ -102,6 +102,9 @@
 \DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
 \newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
 
+\newcommand\ci{${\mathcal C}^{\infty}$}
+\newcommand\CI{{\mathcal C}^{\infty}}
+\newcommand\CIc{{\mathcal C}^{\infty}_{\text{c}}}
 
 %\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
 \newcommand{\rar}[1]{\stackrel{#1}{\longrightarrow}}
@@ -122,6 +125,9 @@
 \newcommand{\Repi}{\mathrm{Rep}_{int}} 
 \newcommand{\Rep}{\mathrm{Rep}} 
 \newcommand{\hor}[0]{\mathrm{hor}}
+\newcommand{\comp}{\operatorname{comp}}
+\newcommand{\adb}{\operatorname{adb}}
+\newcommand{\dist}{\operatorname{dist}}
 
 
 % % % % % % % % % % % % % % % % % % % %
@@ -149,12 +155,19 @@
 \newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
 \newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
 \newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+\newcommand\CC{\mathbb C}
+\newcommand\NN{\mathbb N}
+\newcommand\RR{\mathbb R}
+\newcommand\ZZ{\mathbb Z}
+\newcommand{\LGR}{\matcal L}
 \newcommand{\rep}{\mathfrak{rep}}
 \newcommand{\lift}{\mathfrak{lift}}
 \newcommand{\desc}{\mathfrak{desc}}
 \newcommand{\Cstar}{C^*}
 \newcommand{\Cst}{C^*}
 \newcommand{\Star}{*}
+\newcommand{\PS}[1]{\Psi^{#1}(\GR;E)}
+
 %%% Roman letters:
 \newcommand{\id}{\mathrm{id}}                %% identity map
 \newcommand{\Id}{\mathrm{Id}}                %% identity map
@@ -188,11 +201,11 @@
 \newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
 %\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
 \newcommand{\C}{\mathbb{C}}                  %% complex numbers
-\newcommand{\CC}{\mathcal{C}}                %% space of distributions
 \newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
 \DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
 \newcommand{\F}{\mathcal{F}}                 %% space of test functions
 \newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\GR}{\mathcal{G}}                 %% 
 \newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
 \renewcommand{\H}{\mathcal{H}}               %% Hilbert space
 \newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
@@ -215,7 +228,6 @@
 			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
 			%            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
 	\newcommand{\N}{\mathbb{N}}                  %%  integers
-	\newcommand{\NN}{\mathcal{N}}                %% a Moyal algebra
 	\newcommand{\nb}{\nabla}                     %% gradient
 	\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
 	\newcommand{\om}{\omega}                     %% short for \omega
@@ -305,6 +317,7 @@
 	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
 	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
 	
+	\newcommand\VD{{\mathcal D}}
 	\newcommand{\bA}{\mathbb{A}}       %%
 	\newcommand{\bB}{\mathbb{B}}       %%
 	\newcommand{\bC}{\mathbb{C}}       %%
@@ -2523,10 +2536,10 @@ $\left(B, \widetilde{B}, G, \lift_B \right)$
 	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \lift \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\lift: A \hookto \widetilde A$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
 \end{definition}
 \subsubsection{Coverings and unbounded operators on Hilbert modules}\label{fin_chull_sec}
-\paragraph*{}
+\paragraph*{}  !!! COMPACT DELETE !!!!
 The Definition \ref{fino*_defn} assumes  that both $*$-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
 \begin{empt}\label{fin_chull_empt}
-Let $\left(A, \widetilde{A}, G, \lift_A \right)$ be a {noncommutative finite-fold  pre-covering of $*$-algebras} (cf. Definition \ref{fin_pre*_defn}). Let $\mathcal{E}$ be a $C^*$- Hilbert $D$-module and there is a  representations of $A$   on $\mathcal{E}$ in the sense of the Definition \eqref{def:rep_Hilbert_module_uni}. Form the Definitions \ref{def:rep_Hilbert_module_uni} and \ref{def:rep_Hilbert_module} on $\mathcal{E} $ there  is a
+Let $\left(A, \widetilde{A}, G, \lift_A \right)$ be a {noncommutative finite-fold  pre-covering of $*$-algebras} (cf. Definition \ref{fin_pre*_defn}). Let $\mathcal{E}$ be a $C^*$- Hilbert $D$-module and there is a  representations of $\widetilde A$   on $\widetilde{E}$ in the sense of the Definition \eqref{def:rep_Hilbert_module_uni}. Form the Definitions \ref{def:rep_Hilbert_module_uni} and \ref{def:rep_Hilbert_module} on $\mathcal{E} $ there  is a
 pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
 $D $-submodule and  $\pi\colon A^\sim\to\End_D(\mathfrak{E}) $ is a unital 
 algebra homomorphism to the algebra of  $D$-module endomorphisms
@@ -5453,7 +5466,7 @@ We say that the triple
 \end{definition}
 
 \subsection{Coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
-\paragraph*{} !!!! CHECK 
+\paragraph*{MAY BE DELETE !!! BEGIN} !!!! CHECK 
 This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 \begin{empt}\label{chull_inf_empt}
 	Let $A$ be a $*$-algebra. Let $\mathcal{E}$ be a $C^*$- Hilbert $D$-module and there is a  representations of $A$   on $\mathcal{E}$ in the sense of the Definition \eqref{def:rep_Hilbert_module_uni}. Form the Definitions \ref{def:rep_Hilbert_module_uni} and \ref{def:rep_Hilbert_module} on $\mathcal{E} $ there  is a
@@ -5472,7 +5485,7 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 	$$
 be a set of { noncommutative finite-fold coverings of $*$-algebras, associated with representation of $A$ on $\E$} (cf. Definition \ref{fin_chull_defn}). For any $\la\in \La$ similarly to \ref{fin_chull_empt} we construct a $C^*$-Hilbert $D$-module $\E_\la$ with a representation of $A_\la$ is $\E_\la$ in the sense of the Definition \ref{fin_chull_defn}
 		Let 	
-	\be\label{comp_pt_rep_a_eqn}
+	\be\label{comp_pt_rep_a_eqn!}
 	\begin{split}
 		\mathfrak{S}_A \bydef \left(\left\{\lift_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\lift^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 	\end{split}
@@ -5484,7 +5497,7 @@ be a set of { noncommutative finite-fold coverings of $*$-algebras, associated w
 is a 	{ noncommutative finite-fold covering of $*$-algebras, associated with representation of $A_\mu$ on $\E_\mu$}. 
 Suppose that  $\left(\K\left( \E_D\right) , \widetilde{B}, G\left(\left.\widetilde{B}~\right| \K\left( \E_D\right)\right)\right)$ is 
 {infinite noncommutative covering} of 
-\be\label{hm_cs_cat_eqn}	
+\be\label{hm_cs_cat_eqn!}	
 \mathfrak{S}_{\K\left( \E_D\right)}=\left\{\left\{\K\left( \E_\la\right) \right\}_{\la\in \La}, \left\{\widetilde \lift^\mu_\nu : \K\left( \E_\mu\right) \hookto \K\left( \E_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee	
 (cf. Definition \ref{infinite_noncommutative_covering_defn}).
@@ -5497,13 +5510,13 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 %\label{hilb_adm_l0_eqn}
 %\widetilde a'\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
 %\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\widetilde a'\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
-\bea		\label{hilb_adm_eqn}
+\bea		\label{hilb_adm_eqn!}
 \forall \widetilde a'\in\widetilde A'\quad  \forall \widetilde b \in K\left(\widetilde B \right)\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde b \widetilde a' =   \widetilde ba^\cup.
 \eea
 
 \end{empt}
 
-\begin{definition}\label{main_ch_defn} 
+\begin{definition}\label{main_ch_defn!} 
 	Under the hypothesis \ref{chull_inf_empt} situation,
 	suppose that there exists an admissible $*$-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any admissible $*$-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with a representation of $A$ is $\E$ (cf.  Definition \ref{fin_chull_defn})}. 
 \end{definition}
@@ -5516,7 +5529,7 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 %	is said to be the \textit{core of} $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right) $.
 %\end{definition}
 
-!!!CHECK BELOW !!!
+\paragraph*{MAY BE DELETE !!! END}
 \begin{empt}\label{comp_chull_empt}
 	Let $A$ be a $*$-algebra and let $B$ be a $C^*$-algebra which is a Hilbert $B$-module. Let $\mathfrak B\subset B$ be a dense right ideal, and let $A \hookto \End^*_{ { B}}\left( {\mathfrak B}\right)$ be a {representation} of $A $ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}). Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
 	{infinite noncommutative covering} of 
@@ -5529,8 +5542,48 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 	\begin{split}
 		\mathfrak{S}_A \bydef \left(\left\{\lift_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\lift^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 	\end{split}
-	\ee
-	be a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $$\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \lift_\la \right)$$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \lift^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of $*$-algebras (cf. Definition \ref{fin_chull_defn}.  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \lift_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\widetilde{\mathfrak B}'\times \mathfrak B_\la \to \widetilde{\mathfrak B}'$ which comes from the product $\widetilde{ B}\times B_\la\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is a  right action $ \widetilde{\mathfrak B}'\times A_\la \to \widetilde{\mathfrak B}'$ such that
+	\ee 
+	be a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $$\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \lift_\la \right)$$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \lift^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of $*$-algebras (cf. Definition \ref{fin_chull_defn}.  Suppose that there is a  $G\left(\left. \widetilde B\right| B\right)$-equivariant right  $B$-module  $\widetilde{\mathfrak B}\subset \mathscr L^2\left( \widetilde B\right)$ 	
+	(cf. Definition \ref{infinite_hilb_mod_defn}). which is dense in $\mathscr L^2\left( \widetilde B\right)$ where the natural topology of  the $C^*$-Hilbert module  $\mathscr L^2\left( \widetilde B\right)$  is implied. Suppose that for all $\la\in \La$ there is an action $A_\la \times \widetilde{\mathfrak B}\to \widetilde{\mathfrak B}$ such that
+	\begin{itemize}
+		\item $\widetilde{\mathfrak B}$ is an  $A_\la$-$ \widetilde{ B}$-bimodule.
+		\item 	$\widetilde{\mathfrak B}$ is closed with respect to the family of norms
+		\bean
+		\left\| {\xi}\right\| _{a_\la} \bydef \left\langle \xi, \xi\right\rangle^{\nicefrac12}  + \left\langle a_\la\xi,a_\la\xi\right\rangle^{\nicefrac12}
+		\eean
+		where $a_\la \in A_\la$.
+		(cf. \eqref{graph_norm_eqn})
+	\end{itemize}
+For any $\xi \in \widetilde{\mathfrak B}$ and $\widetilde a\in \widetilde A$ we define a seminorm
+\be\label{um_semi_eqn}
+\left\| \widetilde a\right\|_{\xi }\bydef \left\|\widetilde a {\xi}\right\|
+\ee	
+Let $\widetilde A\subset \End^*_B\left(\widetilde{\mathfrak B} \right) $ be a $G\left(\left. \widetilde B\right| B\right)$ $*$-subalgebra. Let $\widetilde S\subset \widetilde A$ be a subset such that for all $\la \in\La$ and $\widetilde s\in  \widetilde S$ the series
+\be
+\sum_{g \in \ker\left(G\left(\left. \widetilde B\right| B\right) \to G\left(\left.  B_\la\right| B\right) \right) } g \widetilde s
+\ee 
+is convergent with respect to a family of seminorms \eqref{um_semi_eqn}.
+\end{empt}
+
+\begin{definition}\label{main_ch_defn}
+	Consider the described in \ref{comp_chull_empt} situation We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with $\mathfrak{S}_B$} if one has
+	\begin{enumerate}
+		\item [(a)]  $\widetilde{A}$ is a closure with respect to seminorms \eqref{um_semi_eqn} of generated by $\widetilde S$ *-subalgebra of $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$,
+			\item [(b)] One has
+		$$	\forall \widetilde s \in 	 \widetilde S \sum_{g \in \ker\left(G\left(\left. \widetilde B\right| B\right) \to G\left(\left.  B_\la\right| B\right) \right) } g \widetilde s \in A_\la$$
+		where the convergence with respect to seminorms \eqref{}
+		\item[(c)] $\widetilde A$ is the closure of generated by $\widetilde S$ algebra with respect to seminorms \ref{um_semi_eqn}.
+	\end{enumerate}
+	suppose that there exists an admissible $*$-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any  $*$-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with $\mathfrak{S}_B$}. $\End^*_B\left(\widetilde{\mathfrak B} \right)$.
+	\item [(b)] One has
+\be
+\forall \widetilde s \in 	 \widetilde S \sum_{g \in \ker\left(G\left(\left. \widetilde B\right| B\right) \to G\left(\left.  B_\la\right| B\right) \right) } g \widetilde s \in A_\la
+\ee
+\end{definition}
+
+
+	
+	 If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \lift_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\widetilde{\mathfrak B}'\times \mathfrak B_\la \to \widetilde{\mathfrak B}'$ which comes from the product $\widetilde{ B}\times B_\la\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is a  right action $ \widetilde{\mathfrak B}'\times A_\la \to \widetilde{\mathfrak B}'$ such that
 	\be\label{hilb_act_eqn}
 	\forall a \in A_\la \quad \forall b \in \mathfrak B_\la \quad \forall \widetilde b \in \widetilde {\mathfrak B}' \quad  \widetilde b\left(ba \right) =\left(  \widetilde bb\right) a. 
 	\ee
@@ -5541,13 +5594,9 @@ where $\bt \text{-}\sum$ is means the convergence of the series with respect to 
 	\bea		\label{hilb_adm_eqn}
 	\forall \widetilde a'\in\widetilde A'\quad  \forall \widetilde b \in K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}'\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde b \widetilde a' =   \widetilde ba^\cup.
 	\eea
-\end{empt}
 
 
-\begin{definition}\label{main_ch_defn}
-	Consider the described in \ref{comp_chull_empt} situation,
-	suppose that there exists an admissible $*$-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any admissible $*$-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}_A$ associated with $\mathfrak{S}_B$}. 
-\end{definition}
+
 
 \begin{definition}\label{b_core_defn}
 	The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
@@ -29133,7 +29182,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
 	generated by the \emph{graph norms}
 	\be	\label{graph_norm_eqn}
-	\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
+	\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle^{\nicefrac12}  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
 	\ee
 	for  $a\in A $.  The representation is \emph{closed} if $\mathfrak{E} $
 	is complete in this topology.  A \emph{core} for $(\mathfrak{E},\pi) $ is
@@ -32159,7 +32208,631 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ principal  \ref{top_principal_defn} ly acts on leaves having no holonomy.
 	\end{remark}
 \section{Lie groupoids and Lie algebroids}
+\begin{definition} A submersion between two manifolds with corners $M$ 
+	and $N$ is a differentiable map $f:M \to N$ such that 
+	$df_x:T_{x}M \to T_{f(x)}N$
+	is onto for any $x \in M$, and if $df_x(v)$ is an inward
+	pointing tangent vector to $N$, then $v$ is an inward pointing tangent 
+	vector to $M$. 
+\end{definition}
+
+\begin{empt}
+	!!!  EXPLICIT GROUPOID 
+	This is the shortest but least explicit definition.
+	We are going to make this definition more explicit in cases of interest.
+	%
+	The set of objects, or units, of $\GR$ will be denoted by 
+	$$
+	M=\GR^{(0)}=\operatorname{Ob}(\GR).
+	$$ 
+	The set of morphisms, or arrows, of $\GR$
+	will be denoted by 
+	$$
+	\GR^{(1)}=\operatorname{Mor}(\GR).
+	$$
+	We shall sometimes  
+	write $\GR$ instead of $\GR^{(1)}$ by abuse of notation.  For example,
+	when we consider a space of functions on $\GR$, we actually
+	mean a space of functions on $\GR^{(1)}$. 
+	We will denote by $d(g)$ [respectively
+	$r(g)$] the {\em domain} [respectively, the {\em range}] of the morphism 
+	$g:d(g) \to r(g).$
+	We thus obtain functions 
+	\begin{equation}
+		d,r:  \GR^{(1)} \longrightarrow  \GR^{(0)}
+	\end{equation}
+	that will play an important role bellow.
+	The  multiplication operator $\mu: (g, h) \mapsto\mu(g,h)=g h$
+	is defined on the set of composable pairs of
+	arrows $\GR^{(2)}$:
+	%
+	\begin{equation}\label{Mu.everywhere}
+		\mu:\GR^{(2)}=\GR^{(1)}\times_M \GR^{(1)}:=\{(g,h):d(g)=r(h)\} \longrightarrow
+		\Gr1.
+	\end{equation}
+	The inversion operation is a bijection 
+	$\iota:g\mapsto g^{-1}$ of $\Gr1$.
+	Denoting by $u(x)$ the identity morphism of the object  $x \in M= \Gr0$,
+	we obtain an inclusion of $\Gr0$ into $\Gr1$.  
+	We see that a  groupoid $\GR$ is completely determined by 
+	the spaces $\Gr0$ and $\Gr1$ and the structural morphisms $d,r,\mu,u,\iota$.
+	We sometimes write $\GR=(\Gr0,\Gr1,d,r,\mu,u,\iota)$. The structural
+	maps satisfy the following properties:
+	\\
+	(i)  $r(gh)=r(g)$, $d(gh)=d(h)$ for any pair $(g,h)\in \GR^{(2)}$,
+	and the partially defined multiplication $\mu$ is associative.\\
+	(ii) $d(u(x))=r(u(x))=x$, $\forall x\in \GR^{(0)}$, $u(r(g))g=g$ and 
+	$gu(d(g))=g$,  $\forall g\in \GR^{(1)}$ and $u:\Gr0 \to \Gr1$
+	is one-to-one.\\
+	(iii) $r(g^{-1})=d(g)$, $d(g^{-1})=r(g)$, $gg^{-1}=u(r(g))$ and 
+	$g^{-1}g=u(d(g))$.
+	
+	
+\end{empt}
+
+\begin{definition}\label{Lie.Algebroid} A  Lie algebroid $A$  
+	over a manifold $M$ is a vector bundle $A$ over $M$ together with  a Lie
+	algebra structure on the space $\Gamma(A)$ of smooth sections of $A$,
+	and  a bundle map $\rho: A \rightarrow TP$, extended to a map between 
+	sections of these bundles,  such that
+	
+	(i) $\rho([X,Y])=[\rho(X),\rho(Y)]$; and
+	
+	(ii) $[X, fY] = f[X,Y] + (\rho(X) f)Y$
+	
+	\noindent for any smooth sections $X$ and $Y$ of $A$ and any smooth function
+	$f$ on $M$.
+\end{definition}
+\begin{empt}
+Note that we allow the base $M$ in the definition above to be a 
+manifold with corners. 
+
+If $\GR$ is an almost differentiable groupoid then $A(\GR)$ will
+naturally have the structure of a Lie algebroid \cite{Mackenzie1}. Let
+us recall how 
+this structure is defined (the original definition easily
+extends to include manifolds with corners). Clearly $A(\GR)$
+is a vector bundle. The right translation by an arrow $g \in \GR$
+defines a diffeomorphism $R_g:\GR_{r(g)}\ni g' \to g'g \in \GR_{d(g)}$. This
+allows us to talk about right invariant differential geometric 
+quantities as long as they are completely determined by their restriction
+to all submanifolds $\GR_x$. This is true of functions and $d$--vertical
+vector fields, and this is all that is needed in order to define the 
+Lie algebroid structure on $A(\GR)$.
+The sections of $A(\GR)$ are in
+one-to-one correspondence with vector fields $X$ on $\GR$ that
+are $d$--vertical, in the sense that $d_*(X(g))=0$, and right 
+invariant. The condition $d_*(X(g))=0$ means that $X$ is tangent to
+the submanifolds $\GR_x$, the fibers of $d$. The Lie bracket $[X,Y]$ of 
+two $d$--vertical right--invariant vector fields $X$ and $Y$ will
+also be $d$--vertical and right--invariant, and hence the Lie bracket 
+induces a Lie algebra structure on the sections of $A(\GR)$. To define
+the action of the sections of $A(\GR)$ on functions on $\Gr0$, observe that the
+right invariance property makes sense also for functions  on $\GR$ and that
+$\CI(\Gr0)$ may be identified with the subspace of right--invariant functions on
+$\GR$. If $X$ is a right--invariant vector field  on $\GR$ and
+$f$ is a right--invariant function on $\GR$ then $X(f)$ will still  be a 
+right invariant function. This identifies the action of $\Gamma(A(\GR))$
+on functions on $\Gr0$.
+
+Not every Lie algebroid is the
+Lie algebroid of a Lie groupoid (see \cite{al-mo:suites} for an
+example).  However, every 
+Lie
+algebroid {\em is} associated to a {\em local} Lie groupoid 
+\cite{Pradines1}. The definition
+of a local Lie (or more generally, almost differentiable) groupoid 
+\cite{VanEst1} is 
+obtained by relaxing the condition that the multiplication $\mu$
+be everywhere defined on $\Gr2$ (see Equation \eqref{Mu.everywhere}), 
+and replacing it by the condition that 
+$\mu$ be defined in a neighborhood $\mathcal U$ of the set of units.
+\end{empt}
+
+\begin{definition}[van Est] 
+	An almost differentiable local groupoid $\mathcal L
+	=(\mathcal L^{(0)},\mathcal L^{(1)})$ is a pair of manifolds
+	with corners together with structural
+	morphisms $d,r: \mathcal L^{(1)} \to \mathcal L^{(0)}$, 
+	$\iota:\mathcal L^{(1)} \to
+	\mathcal L^{(1)}$, $u:\mathcal L^{(0)} \to \mathcal L^{(1)}$ and $\mu:
+	\mathcal U \to \mathcal L^{(1)}$, where $\mathcal U$ is a neighborhood of 
+	$(u \times u)(\mathcal L^{(0)})=\{(u(x),u(x))\}$
+	in $\mathcal L^{(2)}=\{(g,h), d(g)=r(h)\} 
+	\subset \mathcal L^{(1)} \times \mathcal L^{(1)}$.
+	The structural morphisms are required to be differentiable maps such that 
+	$d$ is a submersion, $u$ is an
+	embedding, and to satisfy the following properties:
+	
+	(i) The products $u(d(g))g$, $gu(r(g))$, $g g^{-1}$ and
+	$g^{-1}g$ are defined and coincide with, respectively, $g$, $g$, 
+	$u(r(g))$ and $u(d(g))$; where we denoted $g^{-1}=\iota(g)$ as usual.
+	
+	(ii) If $gh$ is defined, then $h^{-1}g^{-1}$ is defined and equal
+	to $(gh)^{-1}$.
+	
+	(iii) (Local associativity) If $gg'$, $g'g''$ and $(gg')g''$ are defined
+	then $g(g'g'')$ is also defined and equal to $(gg')g''$.
+\end{definition}
+\begin{empt}
+The set $\mathcal U$ is the set 
+of arrows for which the product $gh=\mu(g,h)$ is defined.
+
+We see that the only difference between a groupoid and a local groupoid
+${\mathcal L}$ is the fact that the condition $d(g)=r(h)$ is  necessary for
+the product $gh=\mu(g,h)$ to be defined, but not sufficient in general. 
+The product is defined as soon as the arrows $g$ and $h$ 
+are ``small enough''.
+A consequence of this definition is that the right multiplication by
+an arrow $g \in \mathcal L^{(1)}$ defines only a diffeomorphism 
+\begin{equation}\label{local.isomorphism.for.sets}
+	\mathcal U_{g^{-1}} \ni g' \to g'g \in \mathcal U_{g}
+\end{equation}
+of an open (and possibly empty) subset $\mathcal U_{g^{-1}}$ of 
+${\mathcal L}_y$, $y=r(g)$ to an  open subset 
+$\mathcal U_{g} \subset {\mathcal L}_x$, $x=d(g)$. This will not
+affect the considerations above, however, so  we can associate a
+Lie algebroid $A(\mathcal L)$ to any almost differentiable local
+groupoid $\mathcal L$. 
+
+In the following, when considering groupoids, we shall sometimes 
+refer to them as {\em global} groupoids, in order to stress the difference 
+between groupoids and  local groupoids.
+\end{empt}
+\begin{empt}
+Consider a complex vector bundle $E$ on the space of units $\Gr0$
+of an almost differentiable groupoid $\GR$.
+Denote by $r^*(E)$ its pull-back to $\Gr1$. Right translations on $\GR$
+define linear isomorphisms 
+\begin{gather}\label{isomorphism}
+	U_g:\CI(\GR_{d(g)},r^*(E)) \to \CI(\GR_{r(g)},r^*(E))  \\ \nonumber
+	(U_gf)(g')=f(g'g) \in (r^*E)_{g'}
+\end{gather}
+which  makes sense because $(r^*E)_{g'}=(r^*E)_{g'g}=E_{r(g')}$. 
+
+If $\GR$ is merely a {\em local} groupoid then \eqref{isomorphism}
+is replaced by the isomorphisms
+\begin{equation}\label{Local.isomorphism}
+	U_g:\CI({\mathcal U}_{g},r^*(E)) \to \CI({\mathcal U}_{g^{-1}},r^*(E)) 
+\end{equation}
+defined for the  open subsets ${\mathcal U}_{g} \subset \GR_{d(g)}$
+and ${\mathcal U}_{g^{-1}} \subset \GR_{r(g)}$ defined in 
+\eqref{local.isomorphism.for.sets}.
+
+Let $B\subset \RR^n$ be an open subset.
+Define the space ${\mathcal S}^m(B \times \RR^n)$ of 
+symbols on the bundle $B \times \RR^n \to B$  as in \cite{Hormander3} 
+to be the set of smooth functions $a:B \times \RR^n \to \CC$ 
+such that
+\begin{equation}
+	\label{eq.symbol.estimates}
+	|\partial_y^\alpha \partial_\xi^\beta a(y,\xi)| \leq C_{K,\alpha,\beta}
+	(1+|\xi|)^{m-|\beta|}
+\end{equation}
+for any compact set $K\subset B$ and any multiindices $\alpha$ and $\beta$.
+An element of one of our spaces $S^m$ should properly be said to have
+``order less than or equal to $m$''; however, by abuse of language we
+will say that it has ``order $m$''.
+
+
+A symbol $a \in {\mathcal S}^m(B \times \RR^n)$ is called {\em classical} if
+it has an asymptotic expansion as an infinite sum of homogeneous symbols
+$a \sim \sum_{k=0}^\infty a_{m-k}$, $a_l$ homogeneous 
+of degree $l$: $a_l(y,t\xi)=t^la_l(y,\xi)$ if $\|\xi\|\geq 1$
+and $t \geq 1$. (``Asymptotic 
+expansion''  is used here in the sense 
+that $a -\sum_{k=0}^{N-1} a_{m-k}$ belongs to 
+${\mathcal S}^{m-N}(B \times \RR^n)$.) The space of classical symbols
+will be denoted by ${\mathcal S}^m_{\mathfrak{cl}}(B \times \RR^n)$. We shall be
+working exclusively with classical symbols in this paper.
+
+This definition immediately extends to give spaces ${\mathcal
+	S}_{\mathfrak{cl}}^m(E;F)$ of symbols on $E$ with values in $F$, where $\pi:E
+\to B$ and $F \to B$ are smooth euclidian vector bundles.  These
+spaces, which are independent of the metrics used in their definition,
+are sometimes denoted ${\mathcal S}_{\mathfrak{cl}}^m(E;\pi^*(F))$.  Taking $E=B
+\times \RR^n$ and $F=\CC$ one recovers ${\mathcal S}_{\mathfrak{cl}}^m(B \times
+\RR^n)={\mathcal S}_{\mathfrak{cl}}^m(B \times \RR^n;\CC)$.
+
+A pseudodifferential operator 
+$P$ on $B$ is a linear map $P:\CIc(B) \to \CI(B)$ 
+that is locally of the form $P=a(y,D_y)$ plus a regularizing operator,
+where for any complex valued symbol $a$ on $T^*W=W \times \RR^n$, 
+$W$ an open subset of $\RR^n$, one defines $a(y,D_y):\CIc(W) \to \CI(W)$ by
+\begin{equation}
+	a(y,D_y)u(y)=(2\pi)^{-n}\int_{\RR^n}e^{i y\cdot \xi}
+	a(y,\xi)\hat{u}(\xi)d\xi\,.
+\end{equation} 
+Recall that an operator $T:\CIc(U) \to \CI(V)$ is called
+{\em regularizing} if and only if it
+has a smooth distribution (or Schwartz) kernel. This happens if and only if
+$T$ is pseudodifferential of order $-\infty$.
+
+The class of $a$ in 
+${\mathcal S}_{\mathfrak{cl}}^m(T^*W)/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*W)$
+does not depend on any choices; the collection of all these classes,
+for all coordinate neighborhoods $W$, patches together to 
+define a class $\sigma_m(P)\in {\mathcal S}_{\mathfrak{cl}}^m(T^*W)
+/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*W)$ which is called {\em the principal
+	symbol} of $P$. If the operator $P$ acts on sections of
+a vector bundle $E$, then the principal symbol 
+$\sigma_m(P)$ will belong to 
+${\mathcal S}_{\mathfrak{cl}}^m(T^*B;\End(E))/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*B;\End(E))$.
+See \cite{Hormander3} for more details on all these constructions.
+
+We shall sometimes refer to pseudodifferential operators acting 
+on a smooth manifold as {\em ordinary} pseudodifferential operators,
+in order to distinguish them from pseudodifferential operators
+on groupoids, a class of operators  which we now
+define (and which are really {\em families} of ordinary pseudodifferential 
+operators).
+
+Throughout this paper,  we shall denote  by $(P_x,x \in \Gr0)$ a family 
+of order $m$ pseudodifferential operators $P_x$,
+acting on the spaces $\CIc(\GR_x,r^*(E))$ for some vector bundle $E$
+over $\Gr0$. Operators between sections of two {\em different} vector
+bundles $E_1$ and $E_2$ are obtained by considering $E=E_1 \oplus E_2$.
+\end{empt}
+\begin{definition}\label{Def.Differentiable}
+	A family $(P_x,x \in \Gr0)$ as above is called differentiable
+	if for any open set $V\subset \GR$, diffeomorphic through a 
+	fiber preserving diffeomorphism to $d(V) \times W$, 
+	for some open subset $W \subset \RR^n$, and any $\phi \in \CIc(V)$, 
+	we can find $a \in {\mathcal S}_{\mathfrak{cl}}^m(d(V) \times T^*V;\End(E))$
+	such that $\phi P_x \phi$ corresponds to $a(x,y,D_y)$ 
+	under the diffeomorphism  $\GR_x\cap V \simeq W$, for each $x \in d(V)$.
+\end{definition}
+A fiber preserving diffeomorphism is a diffeomorphism 
+$\psi:d(V) \times W \to V$ satisfying $d(\psi(x,w))=x$.
+Thus we require that the operators $P_x$ be
+given  in local coordinates by symbols $a_x$ that depend smoothly on
+all variables, in particular 
+on $x\in \Gr0$.
+
+\begin{definition}\label{Main.definition}
+	An order $m$ invariant pseudodifferential operator $P$ 
+	on  an almost differentiable groupoid 
+	$\GR$, acting on sections of the vector bundle $E$,
+	is a differentiable family $(P_x,x \in \Gr0)$
+	of order $m$ classical pseudodifferential operators $P_x$
+	acting on $\CIc(\GR_x,r^*(E))$ and satisfying 
+	\begin{equation}
+		P_{r(g)}U_g = U_g P_{d(g)}\;(invariance)%\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\
+	\end{equation}
+	for any $g \in \Gr1$, where $U_g$ is as in \eqref{isomorphism}. 
+\end{definition}
+
+Replacing the coefficient bundle $E$ by $E \otimes \VD^\lambda$  and using the
+isomorphism $\Omega_d^{\lambda}\simeq r^*(\VD^{\lambda})$, we obtain
+operators acting on  
+sections of density bundles.  Note that $P$ can generally {\em
+	not} be considered as a single pseudodifferential operator on $\Gr1$.
+This is because a family of pseudodifferential operators on a smooth manifold
+$M$, parameterized by a smooth manifold $B$, is not a pseudodifferential 
+operator on the product $M \times B$, although it acts naturally on 
+$\CIc(M \times B)$. (See \cite{Atiyah-Singer4} or \cite{Hormander3}, page 94.) 
+
+Recall \cite{Hormander1} that distributions on a manifold $Y$ with
+coefficients in the bundle $E_0$ are continuous linear
+maps $\CIc(Y,E_0'\otimes \Omega) \to \CC$, where $E_0'$ is the dual
+bundle to $E_0$ and  $\Omega=\Omega(Y)$
+is the space of $1$-densities on $Y$. The collection of all
+distributions on $Y$ with coefficients in the (finite dimensional
+complex vector) bundle $E_0$ is denoted
+${\mathcal C}^{-\infty}(Y;E_0)$.
+
+If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is a family of pseudodifferential operators
+acting on $\GR_x$ denote by $k_{x}$ the distribution kernel of $P_x$
+\begin{equation}
+	\label{kernel}
+	k_{x} \in {\mathcal C}^{-\infty}(\GR_x \times \GR_x;
+	r_1^*(E) \otimes r_2^*(E)' \otimes \Omega_2).
+\end{equation}
+Here $\Omega_2$ is the pull-back of the bundle of vertical densities $\Omega_d$ 
+on $\GR_x$ to $\GR_x \times \GR_x$ via the second projection. These
+distribution kernels are obtained using Schwartz' kernel theorem.
+We define the support of the operator $P$ to be
+\begin{equation}
+	\label{support}\supp (P) = \overline{\cup_x \supp(k_{x})}.
+\end{equation}
+The support of $P$ is contained in the closed subset
+$\{(g,g'), d(g)=d(g')\}$ of the product $\Gr1 \times \Gr1$. In particular
+$(id \times \iota) ( \supp (P) ) \subset \Gr2$. If all operators
+$P_x$ are of order $-\infty$, then each kernel $k_x$ is a smooth
+section. Actually we have more
+
+\begin{lemma}\label{Lemma.Smoothness}
+	The collection of all distribution kernels $k_x$ of a differentiable 
+	family $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of order $-\infty$ operators 
+	defines a smooth section $k$ of $r_1^*(E) \otimes r_2^*(E)' \otimes \Omega_2$
+	on $\{(g,g'), d(g)=d(g')\}$. 
+\end{lemma}
+
+
+\begin{definition}
+	The family $P=(P_x,x \in \Gr 0)$ is properly supported
+	if $p_i^{-1}(K) \cap \supp(P)$ is
+	a compact set for any compact subset $K \subset \GR$, where
+	$p_1,p_2 :\GR \times \GR \to \GR$ are the two projections.
+	The family  $P$ is called compactly supported if its support
+	$\supp(P)$ is compact; and, finally, $P$ is called uniformly supported if
+	its reduced support $\supp_\mu(P)=\mu_1(\supp(P))$ is 
+	a compact subset of $\Gr 1$, where $\mu_1(g',g)=g'g^{-1}$. 
+\end{definition}
+
+It  immediately follows from the definition that a uniformly supported 
+operator is also properly supported, and that a 
+compactly supported operator is uniformly supported. If the family
+$P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is properly supported then each $P_x$ is properly supported, but
+the converse is not true.
+
+Recall that the composition of two ordinary 
+pseudodifferential operators is defined
+if one of them is properly supported. 
+It follows that we can define the composition $PQ$ 
+of two properly supported families of operators 
+$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$ on $\Gr 1$
+by pointwise composition $PQ=(P_xQ_x,x \in \Gr0)$. The action on sections
+of $r^*(E)$ is also defined pointwise as follows.
+For any smooth section $f\in  \CI(\GR,r^*(E))$ denote by $f_x$ the
+restriction $f\vert_{\GR_x}$. 
+If each $f_x$ has compact support and $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is a family of
+ordinary pseudodifferential operators, then we define $Pf$ by 
+$(Pf)_x=P_{x}(f_x).$ 
+
+\begin{lemma}\label{Lemma.Differentiable}
+	(i) If $f \in \CIc(\GR,r^*(E))$ and $P=(P_x,x \in \Gr0)$ 
+	is a differentiable family of ordinary pseudodifferential operators 
+	then $Pf \in \CI(\GR,r^*(E))$. If $P$ is also properly supported then
+	$Pf \in \CIc(\GR,r^*(E))$.
+	
+	(ii) The composition $PQ=(P_xQ_x,x \in \Gr0)$
+	of two properly supported differentiable families of operators 
+	$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$
+	is a properly supported differentiable family. 
+\end{lemma}
+The smaller class of uniformly supported operators is also closed under
+composition.
+
+\begin{lemma}\label{Lemma.Support}
+	The composition $PQ=(P_xQ_x,x \in \Gr0)$
+	of two uniformly supported families of operators 
+	$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$
+	is uniformly supported. 
+\end{lemma}
+Let $\GR$ be an almost differentiable groupoid.
+The space of order $m$, invariant, {\em uniformly} supported pseudodifferential
+operators on $\GR$, acting on  sections of the vector bundle $E$
+will  be  denoted by $\PS m$. We denote 
+$\PS{\infty}=\cup_{m \in \ZZ}\PS{m}$
+and $\PS{-\infty}=\cap_{m \in \ZZ}\PS{m}$. Thus an operator
+$P \in \PS{m}$ is actually a differentiable family $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of ordinary
+pseudodifferential operators.
+
+\begin{theorem}\label{Theorem.Algebra} 
+	The set $\PS{\infty}$ of uniformly supported
+	invariant pseudodifferential operators on an almost differentiable groupoid
+	$\GR$ is a filtered  algebra, i.e. $$\PS{m}\PS{m'}\subset \PS{m+m'}.$$
+	In particular $\PS{-\infty}$ is a two-sided ideal.
+\end{theorem}
+\begin{empt}
+Properly supported invariant differentiable families
+of pseudodifferential operators also form
+a filtered algebra, denoted $\Psi_{\operatorname{prop}}^{\infty}(\GR;E)$.  
+While it is clear that in order for our class of pseudodifferential 
+operators to form an algebra we need some condition on the support 
+of their distribution kernels,  exactly what support condition to 
+impose is a matter of choice.
+We prefer the uniform support condition because it
+leads to a better control at infinity of the family of operators 
+$P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ and allows us to identify the regularizing ideal (i.e.
+the ideal of order $-\infty$ operators) with the groupoid convolution 
+algebra of $\GR$. The choice of uniform support
+will also ensure that $\PS{m}$ behaves functorially with respect to open
+embeddings. The compact support condition enjoys the same properties
+but is usually too restrictive.
+The issue of support will be discussed again in examples.
+
+The definition of the principal symbol extends easily to  $\PS{m}$.
+Denote by  $\pi:A^*(\GR)\rightarrow M, \ (M=\Gr0 ) $ the projection. 
+If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\} \in \PS{m}$ is an order $m$ 
+pseudodifferential differential operator on $\GR$, then the principal
+symbol $\sigma_m(P)$ of $P$ will be represented by sections of the bundle
+$\End(\pi^*E)$ and will be defined to satisfy 
+\begin{equation}
+	\label{princ.symb}
+	\sigma_m(P)(\xi)=\sigma_m(P_x)(\xi) \in \End(E_x) 
+	\; \text{ if } \xi \in A^*_x(\GR)=T^*_x\GR_x
+\end{equation}
+(the equation above is $\mod {\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*_x(\GR);\End(E))$). 
+This equation will obviously uniquely determine a linear map 
+\begin{equation*}
+	\sigma_m:\Psi^m \to {\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR);\End(E))/
+	{\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR);\End(E)).
+\end{equation*}
+provided we can show that for any $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$  there exists 
+a symbol $a \in {\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR);\End(E))$ whose restriction to 
+$A^*_x(\GR)$ is a representative of the principal symbol of $P_x$
+in that fiber for each $x$. 
+We thus need to choose for each $P_x$ a representative $a_x \in 
+{\mathcal S}_{\mathfrak{cl}}^{m}(A^*_x(\GR);\End(E))$ of $\sigma_m(P_x)$
+such that the family $a_x$ is
+smooth and invariant. Assume first that  $E$ 
+is the trivial line bundle and  proceed as in
+\cite{Hormander3} Section 18.1, especially Equation (18.1.27) and
+below.
+
+Choose a connection $\nabla$  on the vector bundle
+$A(\GR) \to \Gr0$ and consider the pull-back vector bundle $r^{*}(A)\to \GR$
+of $A(\GR) \to \Gr0$ endowed with the pull-back connection 
+$\widetilde{\nabla}=r^*\nabla$.  Its  restriction
+on any fiber $\GR_{x}$ defines a  linear connection  in the usual sense, 
+which is denoted by $\nabla_{x}$. These connections are right invariant 
+in the sense that
+\begin{equation}
+	\label{eq.invariant.connection}
+	R_{g}^*\nabla_{x}=\nabla_{y}, \  \ \ \forall g\in \GR
+	\mbox{ such that } \al (g)=x \mbox{ and }\bt (g)=y.
+\end{equation}
+
+Using such an invariant connection, we may define the 
+exponential map of a Lie algebroid, which generalizes
+the usual exponential map of  a manifold with a connection
+and the exponential map of a Lie algebra as follows.
+For any $x\in \Gr0$, define a   map $\exp_{x} : A_{x} \to \GR$ 
+as the composition of the maps:
+$$A_{x} \stackrel{i}{\longrightarrow}T_x\GR_{x}
+\stackrel{\tilde{\exp}_{x}}{-\!\!\!-\!\!\!-\!\!\!\longrightarrow}\GR$$
+where $i$ is the natural inclusion and
+$\tilde{\exp}_{x}=\exp_{\nabla_x}$ 
+is the usual exponential map  at $x\in \GR_{x}$
+on the manifold  $\GR_{x}$. By varying the point $x$, we obtain
+a map $\exp_{\nabla}$ defined in a neighborhood of the
+zero section,  called the {\em exponential map} of the
+Lie algebroid\footnote{See \cite{Landsman} for
+	an alternative definition of the exponential map.  One
+	should not confuse  this map   with the exponential
+	map from $\gm (A) $ to the bisections of the groupoid
+	as defined in \cite{KumperaS}.}.
+Clearly, $\exp_\nabla$ is a local diffeomorphism 
+\begin{equation}\label{eq.exp.diffeomorphism}
+	A(\GR) \supset V_0 \ni v \longrightarrow \exp_\nabla(v)=y \in V \subset \GR
+\end{equation} 
+mapping an open neighborhood $V_0$ of the zero section in $A(\GR)$ 
+diffeomorphically to a neighborhood $V$ of $\Gr0$ in $\GR$, and sending 
+the zero section onto the set of units.
+Choose a cut-off function $\phi \in \CI(\GR)$
+with support in $V$ and equal to $1$ in a smaller
+neighborhood of $\Gr0$ in $\GR$.
+If $y \in V$, $x=d(y)$ and $\xi \in A^*_x(\GR)$ 
+let $v \in V_0$ be the unique vector $v \in A_x(\GR)$
+such that $y=\exp_\nabla(v)$ and denote $e_\xi(y)=\phi(y)e^{iv\cdot \xi}$ which
+extends then to all $y \in \GR$  due to the cut-off
+function $\phi$. Define the $(\nabla,\phi)$--complete symbol 
+$\sigma_{\nabla,\phi}(P) $ by 
+\begin{equation}
+	\label{eq:symbol}
+	\sigma_{\nabla,\phi}(P)(\xi)=
+	(P_x e_\xi)(x), \ \ \ \ \forall \xi \in  T^*_{x}\GR_x =A^*_x(\GR).
+\end{equation}
+
+
+\end{empt}
+
+ \begin{lemma}\label{lemma.symb} If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is an operator in $\Psi^m$ then the
+ 	function $\sigma_{\nabla,\phi}(P)$ defined above is differentiable
+ 	and defines a symbol in ${\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR))$. Moreover
+ 	if $(\nabla_1,\phi_1)$ is another pair consisting of an invariant
+ 	connection $\nabla_1$ and a cut-off function $\phi_1$ then
+ 	$\sigma_{\nabla,\phi}(P)-\sigma_{\nabla,\phi_1}(P)$ is
+ 	in ${\mathcal S}_{\mathfrak{cl}}^{-\infty}(A^*(\GR))$ and 
+ 	$\sigma_{\nabla,\phi}(P)-\sigma_{\nabla_1,\phi_1}(P)$ is
+ 	in ${\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))$.
+ \end{lemma}
  
+ The lemma above justifies the following definition of the principal
+ symbol as the class of $\sigma_{\nabla,\phi}(P)$ modulo terms of lower order
+ (for the trivial line bundle $E=\CC$).
+ This definition will be, in view of the same lemma, 
+ independent on the choice of $\nabla$ or $\phi$
+ and will satisfy Equation \eqref{princ.symb}. If $E$ is not 
+ trivial one can still define a complete symbol 
+ $\sigma_{\nabla,\nabla',\phi}(P)$, depending also on a second 
+ connection  $\nabla'$
+ on the bundle $E$, which is used to trivialize $r^*(E)$
+ on $V\subset \GR$ (assuming also that $V_0$ is convex). 
+ Alternatively, we can use Proposition \ref{prop.order.zero.red} below.
+ 
+ \begin{proposition} Let $\nabla$ and $\phi$ be as above.
+ 	The choice of a connection $\nabla'$
+ 	on $E$ defines a complete symbol map
+ 	$\sigma_{\nabla,\nabla',\phi}:\PS{m}\to {\mathcal S}_{\mathfrak{cl}}^{m}(A^*(\GR)).$
+ 	The principal symbol $\sigma_m:\PS{m} \to 
+ 	{\mathcal S}_{\mathfrak{cl}}^{m}(A^*(\GR))/{\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))$, defined by
+ 	\begin{equation}\label{Eq.Def.PS}
+ 		\sigma_m(P) = \sigma_{\nabla,\nabla' , \phi}(P) + {\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))
+ 	\end{equation}
+ 	does not depend on the choice of the connections $\nabla$, 
+ 	$\nabla'$ or the cut-off function $\phi$.
+ \end{proposition}
+ \begin{proposition}
+ 	(i) The principal symbol map 
+ 	$$\sigma_m:\PS{m} \to {\mathcal S}_{\mathfrak{cl}}^m(\GR;\End(E))/
+ 	{\mathcal S}_{\mathfrak{cl}}^{m-1}(\GR;\End(E))
+ 	$$ 
+ 	has kernel $\PS{m-1}$ and satisfies Equation \eqref{princ.symb}.
+ 	
+ 	(ii) The composition $PQ$ of two operators
+ 	$P,Q \in\PS{\infty}$, of orders $m$ and, respectively, $m'$,
+ 	satisfies $\sigma_{m+m'}(PQ)=\sigma_m(P)\sigma_{m'}(Q)$.
+ \end{proposition}
+ 
+ 
+ Although for the most of this paper we shall be concerned with groupoids, the 
+ definition of $\PS{m}$ easily extends to {\em local} groupoids. Indeed it
+ suffices to modify the invariance condition  in Definition
+ \ref{Main.definition}, using the notation in Equation \eqref{Local.isomorphism},
+ as follows. We assume that for any $g \in \Gr 1$ and any smooth
+ compactly supported function $\phi$ on ${\mathcal U}_{g}$ there
+ exists a regularizing operator $R_{g,\phi}$ such that 
+ \begin{equation}\label{Local.invariance}
+ 	U_g(\phi)P_{r(g)}U_g f - U_g (\phi P_{d(g)}f) =R_{g,\phi}f
+ \end{equation}
+ for any function $f \in \CIc({\mathcal U}_{g})$.
+ We thus replace the strict invariance of the original definition
+ by `invariance up to regularizing operators'. 
+ 
+ We denote by $\Psi_{\operatorname{loc}}^m(\GR;E)$
+ the set of differentiable properly supported 
+ families $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of order $m$ pseudodifferential operators
+ satisfying the condition \eqref{Local.invariance} above. Note that if we regard an 
+ almost differentiable groupoid $\GR$ as a local groupoid then
+ $\PS{\infty} \subset \Psi_{\operatorname{loc}}^m(\GR;E)$. The inclusion is generally a
+ strict one, though, because Equation
+ \eqref{Local.invariance} gives no condition for order $-\infty$
+ operators, and so $\Psi_{\operatorname{loc}}^{-\infty}(\GR;E)$ consists of arbitrary smooth
+ families $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of regularizing operators. This ideal is too
+ big to reflect the structure of $\GR$. The 
+ ``symbolic'' part remains  however the same:
+ $$\Psi_{\operatorname{prop}}^{m}(\GR;E)/\Psi_{\operatorname{prop}}^{-\infty}(\GR;E) \simeq 
+ \Psi_{\operatorname{loc}}^m(\GR;E)/\Psi_{\operatorname{loc}}^{-\infty}(\GR;E).$$
+ 
+ If the sets ${\mathcal U}_g$ are all connected (in which case
+ the local groupoid $\GR$ is said to be $d$--connected) an easier
+ condition to use than \eqref{Local.invariance} is
+ \begin{equation}\label{Infinitesimal.invariance}
+ 	[X, P] \in \Psi_{\operatorname{loc}}^{-\infty}(\GR;E)
+ \end{equation}
+ for all $r$--vertical left--invariant vector fields $X$ on $\Gr 1$. With this, 
+ the following analog of Theorem \ref{Theorem.Algebra}, 
+ becomes straightforward.
+ 
+ \begin{theorem}\label{local.algebra} 
+ 	Assume that $\GR$ is a $d$--connected almost differentiable groupoid.
+ 	Then the space  $\Psi_{\operatorname{loc}}^{\infty}(\GR)$ is a filtered  algebra, 
+ 	with $\PS{-\infty}$ as residual ideal.
+ \end{theorem}
+ 
+ \subsection{Sobolev modules}
+ \begin{definition}
+ 	%Definition 32. 
+ 	Let $s$ be a positive real number and let $P$ be a $C^k$ -elliptic operators of order $m$,
+ 	with $\mathrm{Re}m = s$. The {\it Sobolev module} of rank $s$ associated with $P$ is the Hilbert $C^*\left( G\right)$ -module
+ 	$H^s(P ) \bydef \dom P$ endowed with the scalar product
+ 	$$
+ 	\left\langle x,y \right\rangle_s \bydef \left\langle P x,y \right\rangle + \left\langle x,y \right\rangle
+ 	$$
+ 	
+ \end{definition}
+ We will from now on denote:
+ \be
+ H^\infty \bydef \bigcap_{s \in \R} H^s \quad H^{-\infty} \bydef \bigcup_{s \in \R} H^s
+ \ee
+\begin{proposition}
+%Proposition 39. 
+Let $P$ be a compactly supported pseudodifferential G-operator of order $m$ of
+real part $m_0$. Then  $P$ defines for any real $s$ a morphism from $H^s$ into $H^{s-m_0}$.
+\end{proposition}
 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
@@ -32684,7 +33357,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 	%	 $$
 	% 	f, g \in \bigcup \left\{\G_{st}~|~ s > 2m, t > 2m, s + t > 4m + 2\right\}
 	% 	$$
-	% 	analogously to what happens in the usual Sobolev spaces, the distributions in $\G_{st}$ grow more
+	% 	analogously to what happens in the usual \operatorname{loc}olev spaces, the distributions in $\G_{st}$ grow more
 	% 	regular as $s, t$ become larger in a suitable way.
 	%	\end{rem}
 	\begin{rem}\label{mp_ss_rem}

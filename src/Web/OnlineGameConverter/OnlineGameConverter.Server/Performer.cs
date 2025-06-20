@@ -36,15 +36,15 @@ namespace OnlineGameConverter.Server
 
         }
 
-        public Task<OrbitalForecastConditionNumber> GetInitialAsync()
+        public Task<OrbitalForecastItemNumberPure> GetInitialAsync()
         {
             return Task.FromResult(GetInitial());
         }
 
-        OrbitalForecastConditionNumber GetInitial()
+        OrbitalForecastItemNumberPure GetInitial()
         {
             var dt = DateTime.Now;
-            return new OrbitalForecastConditionNumber
+            return new OrbitalForecastItemNumberPure
             {
                 Begin = dateToDouble(dt),
                 End = dateToDouble(dt) + 20000,
