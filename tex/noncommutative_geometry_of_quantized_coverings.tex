@@ -2562,7 +2562,7 @@ If both $\K\left({ {\E}}_D \right)$ and $\K\left({ \widetilde{\E}}_D \right)$ ar
 \be
 \lift_{\K\left({ {\E}}_D\right) }\left( \K\left({ {\E}}_D \right)\right)  = \K\left(\widetilde{ {\E}}_D \right)^G  \bydef \left\{\left.{a}\in \K\left(\widetilde{ {\E}}_D \right)\right| \forall g \in G \quad ga = a \right\} 
 \ee
-
+!!! BIMODULE EQUIVARIANT CLOSE !!!
 \end{empt}
 
 \begin{definition}\label{fin_chull_defn}
@@ -5221,6 +5221,24 @@ where the product $\widetilde{a}^* \widetilde{b}$ comes from the product in $\wi
 % \begin{empt}
 	% ANALOG OF THE PROPOSITION \ref{covering_atomic_lem}\ref{spectrum_covering_finite_prop}
 	% \end{empt}
+	
+ \begin{definition}\label{attached_module_defn}
+	If a  triple
+$
+	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
+	$
+ the  {infinite noncommutative covering} of  $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}.$$ (cf Definition \ref{infinite_noncommutative_covering_defn}) then a $G\left(\left.\widetilde{A}~\right| A\right)$-equivariant $C^*$-Hilbert $\widetilde A$-module $X_{\widetilde A}$ is {\it attached to } $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ if for all $\xi, \eta \in X_{\widetilde A}$ and $\la\in \La$ one has:
+ \begin{itemize}
+ 	\item the series $$\sum_{g \in \ker \left( G\left(\left.\widetilde{A}~\right| A\right)\to G\left(\left.A_\la~\right| A\right)\right) } g \left\langle \xi, \eta\right\rangle$$ is convergent with respect to the strict topology of $M\left( \widetilde A{}\right)$ (cf. Definition \ref{strict_topology_defn}),
+ 	\item the sum of the above series lies in $A_\la$.  
+ \end{itemize}
+
+\end{definition}
+\begin{remark}
+One can prove that $C^*$-Hilbert module   associated with the  infinite noncommutative covering $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ (cf. Definition \ref{infinite_hilb_mod_defn}) is  {attached to } $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$.
+\end{remark}	
+
+
 
 \section{Coverings of $*$-algebras}
 
@@ -5500,6 +5518,9 @@ Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\righ
 \be\label{hm_cse_cat_eqn}	
 \mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \lift^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee	
+
+!!! BEGIN !!! Let $\widetilde \E$ be an { attached to } $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ $C^*$-Hilbert $\widetilde A$-module (cf. Definition \ref{attached_module_defn})
+
 (cf. Definition \ref{infinite_noncommutative_covering_defn}). 
 Suppose that  $\left(\K\left( \E_D\right) , B, G\left(\left.\widetilde{B}~\right| \K\left( \E_D\right)\right)\right)$ is 
 {infinite noncommutative covering} of \eqref{hm_cse_cat_eqn}
@@ -5526,7 +5547,7 @@ For any $\xi \in \widetilde{E}$ and $\widetilde a\in \widetilde A$ we define a s
 \be\label{umm_semi_eqn}
 \left\| \widetilde a\right\|_{\xi }\bydef \left\|\widetilde a {\xi}\right\|
 \ee	
-Let $\widetilde A\subset \End^*_B\left(\widetilde{\E} \right) $ be a $G\left(\left. \widetilde B\right| B\right)$ $*$-subalgebra. Let $\widetilde S\subset \widetilde A$ be a subset such that for all $\la \in\La$ and $\widetilde s\in  \widetilde S$ the series
+Let $\widetilde A\subset \End^*_B\left(\widetilde{\E} \right) $ be a $G\left(\left. \widetilde B\right| B\right)$ $*$-subalgebra. Let $\widetilde S\subset \widetilde A_+$ be a subset of positive elements such that for all $\la \in\La$ and $\widetilde s\in  \widetilde S$ the series
 \be
 \sum_{g \in \ker\left(G\left(\left. \widetilde B\right| B\right) \to G\left(\left.  B_\la\right| B\right) \right) } g \widetilde s
 \ee 
@@ -27062,6 +27083,85 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 	%\begin{definition}\label{hm_reflexive_defn}\cite{matro:hcm}
 	%A Hilbert $C^*$-module $X$ is called  \textit{reflexive} if $X''\cong X$.
 	%\end{definition}
+	\section{Regular operators}
+	\paragraph{}
+	Here I follow to \cite{Vassout:Unbounded_groupoids}.
+	Unlike the case of Hilbert spaces (when $A = \C$), a closed submodule $F$ of a Hilbert module $F$ 
+	does not have an orthogonal complement $F^\perp$ such that $F \oplus F^\perp = E$. If this is nevertheless the
+	case, we say that $F$ is {\it orthocomplemented} in $F$.
+	$A$ {\it morphism} between two Hilbert modules $E, E'$
+	on $A$ is an $A$-linear operator admitting an
+	adjoint (for the involved $A$-valued scalar products). Morphisms from $E$ to $E'$
+	 are bounded and we
+	denote the space of morphisms by $\L\left(E, E' \right)$ . A bounded $A$-linear map $T: E \to E'$
+	 is a morphism
+	if and only if the graph of $T$ is orthocomplemented in $E\oplus E'$
+% We will use the following easy fact from
+\begin{proposition} Let $T \in \L\left(E, E' \right)$. 
+\begin{enumerate}
+	\item [(i)]
+	\begin{enumerate}
+		\item [(a)]  If $T$ is surjective then $TT^*$ is invertible in $\L\left( E'\right)$
+	 and $E = \ker T \oplus \im T^*er T ?Im T$;
+	\item [(b)] 
+		If $T$ is bijective, then so is $T^*$. We have $T^{-1}\in \L\left(E', E \right)$  and $\left( T^{-1}\right)^* = \left( T^*\right)^{-1}$,
+		
+	\end{enumerate}
+		\item [(ii)] The following conditions are equivalent:
+	\begin{enumerate}
+	\item[(a)]	$\in T$ is closed in $E'$;
+	\item[(b)]	$\in T^*$ is closed in $E$;
+\item[(c)] $0$ is isolated in the spectrum of $T^*T$,
+
+	If these conditions are satisfied, then $\im T$ and $\im T^*$
+ are orthocomplemented submodules
+	of $E'$ and $E$
+	with $\im T \oplus \ker T^* = E$ and  $\im T^* \oplus \ker T = E$.
+	\end{enumerate}
+	
+\end{enumerate}
+\end{proposition}
+\begin{definition}
+An unbounded operator $T : E \to E'$
+ is defined by its graph $G\left(T \right) \bydef \left\{\left(x, Tx \right) .| x \in \dom T\right\}$ 
+which is a sub-$A$-module of $E \oplus E$
+ If $\left(\dom T \right)^\perp= 0$, then there is a natural definition for $T^*$
+by its graph. A densely defined operator $T$ , with densely defined adjoint is said to be {\it regular} if
+its graph $G\left( T\right)$ is orthocomplemented. This is the case if and only if $1 + T^*T$ is surjective and
+then $\left( 1 + T^*T\right)^{-1}$  is a morphism. Taking the square root we have that $\left( 1 + T^*T\right)^{-\nicefrac{1}{2}}$ is of image
+$\dom T$ and such that $Q\left( T\right)\bydef \left( 1 + T^*T\right)^{-2}$  is a morphism.
+\end{definition}
+The map $T \mapsto Q(T)$ is a 1–1 correspondence between regular operators and morphisms $Q$
+with norm less than one and such that $\im \left(1 - Q^*Q \right)$  is dense in $E$, called the Woronowicz
+transform. A regular operator $T$ is {\it self-adjoint} if $T^*=T$ , respectively {\it normal} if $T^*T = TT^{*}$
+
+This is the case if and only if $Q(T )$ is self-adjoint, respectively normal.
+
+
+The {\it resolvent} $R_\la(T ) = (T ? \la)^{-1}$,
+of a regular operator $T$ is an analytic map from $\C-Sp T$
+to $\L\left( E\right)$  and a regular operator $T$ (with spectrum = C) is normal if and only if $R_\la\left( T\right)$  is. The
+natural correspondence between regular operators and morphisms allows to define a continuous
+functional calculus for normal regular operators.
+\begin{theorem}
+Let $T$ be a regular normal operator on a Hilbert module $E$ and $X$ be a closed set
+in $\C$ with $Sp T \subset X$. Then any map f ? C(X) defines a normal regular operator f (T ), with
+(f (T ))
+? = f (T
+?
+), such that:	
+		\begin{enumerate}
+		\item [(a)]  If $T$ is surjective then $TT^*$ is invertible in $\L\left( E'\right)$
+		and $E = \ker T \oplus \im T^*er T ?Im T$;
+		\item [(b)] 
+		If $T$ is bijective, then so is $T^*$. We have $T^{-1}\in \L\left(E', E \right)$  and $\left( T^{-1}\right)^* = \left( T^*\right)^{-1}$,
+		
+	\end{enumerate}
+
+		
+\end{theorem}
+
+77
 	
 	\section{Hermitian  modules and functors}
 	\paragraph*{}
@@ -35494,22 +35594,10 @@ Stéphane Vassout. {\it Unbounded pseudodifferential calculus
 	
 \bibitem{nistor:diff_gr}{Victor Nistor}, {Alan Weinstein}, {Ping Xu}	{\it Pseudodifferential operators on differential groupoids}
 	
-\bibitem{keisler:inf_calc}Jerome Keisler {\it Foundations of  Infinitesimal Calculus}.	
-	
-!!!	
-	FOUNDATIONS OF
-	INFINITESIMAL
-	CALCULUS
-	H. JEROME KEISLER
-	Department of Mathematics
-	University of Wisconsin, Madison, Wisconsin, USA
-	keisler@math.wisc.edu
-	June 19, 2022
-	ii
-	This work is licensed under the Creative Commons Attribution-Noncommercial-
-	Share Alike 3.0 Unported License. To view a copy of this license, visit
+\bibitem{keisler:inf_calc}Jerome Keisler {\it Foundations of  Infinitesimal Calculus}.	This work is licensed under the Creative Commons Attribution-Noncommercial-
+	Share Alike 3.0 Unsupported License. To view a copy of this license, visit
 	http://creativecommons.org/licenses/by-nc-sa/3.0/
-	Copyright c 2007 by H. Jerome Keisler
+	Copyright © 2007 by H. Jerome Keisler, 2007.
 	
 \end{thebibliography}
 
