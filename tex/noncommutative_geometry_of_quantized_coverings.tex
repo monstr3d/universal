@@ -32519,10 +32519,7 @@ groupoid $\mathcal L$.
 
 In the following, when considering groupoids, we shall sometimes 
 refer to them as {\em global} groupoids, in order to stress the difference 
-between groupoids and  local groupoids.
-\end{empt}
-\begin{empt}
-Consider a complex vector bundle $E$ on the space of units $\Gr0$
+between groupoids and  local groupoids. Consider a complex vector bundle $E$ on the space of units $\Gr0$
 of an almost differentiable groupoid $\GR$.
 Denote by $r^*(E)$ its pull-back to $\Gr1$. Right translations on $\GR$
 define linear isomorphisms 
@@ -32541,17 +32538,208 @@ defined for the  open subsets ${\mathcal U}_{g} \subset \GR_{d(g)}$
 and ${\mathcal U}_{g^{-1}} \subset \GR_{r(g)}$ defined in 
 \eqref{local.isomorphism.for.sets}.
 
-Let $B\subset \RR^n$ be an open subset.
-Define the space ${\mathcal S}^m(B \times \RR^n)$ of 
-symbols on the bundle $B \times \RR^n \to B$  as in \cite{Hormander3} 
-to be the set of smooth functions $a:B \times \RR^n \to \CC$ 
-such that
+\end{empt}
+
+\subsection{Classical symbols of complex orders}
+
+\paragraph{} For $\sU$ an open set in $\R^n$ and $m_0 \in \R$,
+denote by $\sS^{m_0}\left(\sU, \R^p \right)$  (the space of {\it symbols}) the set of smooth complex-valued functions on
+$\sU \times \R^p$ such that
 \begin{equation}
 	\label{eq.symbol.estimates}
 	|\partial_y^\alpha \partial_\xi^\beta a(y,\xi)| \leq C_{K,\alpha,\beta}
 	(1+|\xi|)^{m-|\beta|}
 \end{equation}
+for any compact set $K\subset \sU$ and any multiindices $\alpha$ and $\beta$, $\left(y, \xi \right)\in K\times \R^p$. Taking the smallest possible
+constant $C_{K,\alpha,\beta}$ in the above inequality (for fixed $K, \a$ and $\bt$), we get a family of semi-norms, that defines a natural Fr残het topology on $\sS^{m_0}\left(\sU, \R^p \right)$; the space$\sS^{m_0}\left(\sU, \R^p \right)$ will be simply
+denoted by $\sS^{m_0}\left(\sU \right)$. We will in fact use a particular class of symbols: the polyhomogeneous ones.
+A function $f \in \Coo\left\{\R^p \setminus \{0\}\right\}$ is {\it positively homogeneous} of degree $l \in \C$ whenever $f (t\xi) =
+t^l f (\xi)$ for all $\xi \neq 0$ and all $t > 0$. Let $m$ be a complex number of real part $m_0$. We say that a symbol $a \in \sS^{m_0}\left(\sU, \R^p \right)$  admits a  polyhomogeneous expansion if there exists, for every $j \in \N$ a function $a_{m-j} \in \Coo\left( \sU\times \left(  \R^p \setminus \{0\}\right) \right)$ that is positively homogeneous of degree $m ? j$ in its second variable such that if a $\Coo$ cut-off function $\chi$ on $\R^p$ , with $\chi\left(\xi\right)$   if $|\xi | < 1/2$ and
+$\chi\left(\xi \right) = 1$ if $\left| \xi \right|  \ge 1$ then for all $N\in \N$
+$$
+a\left(y, \xi \right) - \chi\left(\xi \right) \sum_{k=0}^{N-1} a_{m-k}\left(y, \xi \right) \in \sS^{m_0-N}\left(\sU \right). 
+$$
+  We call $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$ the set of such polyhomogeneous symbols of order $m$. Note that this
+  property does not depend on the cut-off function $\chi$. Note also that for each $j$, we have  $\chi\left( \xi\right) a_{m-j}\sS^{m_0-j}\left( \sU\right) $, and that the functions $a_{m-j}$ are uniquely determined on the sphere bundle $\sU \times S^{p-1}$ 
+  The natural topology on $\Coo\left(\sU \times S^{p-1} \right)$  is the topology of uniform convergence on compact
+  subsets of the function and all its derivatives. This allows us to define the correct topology on  the spaces $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$. Indeed, these sets $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$ are not closed in $ \sS^{m}\left(\sU \right)$ for the
+  Fr残het topology of semi-norms defined previously. Let $\chi$ be a cut-off function as above. The
+  topology on $\sS^{m}\left(\sU \right)$ is the weakest topology making the following maps continuous:
+  \begin{itemize}
+  	\item $a \mapsto a_{m-j} \in \Coo\left( \sU \times S^{p-1}\right)$  for all $j \in \N$ (with its natural topology);
+  	\item $a \mapsto a - \chi \in \sS^{m_0-N-1}$ for all $j \in \N$ ( (for the above Fr残het topology (for the above Fr残het topology), for all $N \in \N$.
+  \end{itemize}
+	\subsection{Families of classical operators}
+	\paragraph{} We now come to the notion of families of ordinary pseudodifferential operators. To begin we
+	recall the definition of a map of class $C^{\infty, k}$ By convention
+	if $k \in \N \cup \left\{\infty\right\}$ a $C^k$-{\it space } is a manifold of class $C^k$ except in the case when $k = 0$, where we
+	allow $M$ to be any Hausdorff locally compact space.
+\begin{definition}
+%Definition 5. 
+Let $M$  be a $C^k$-space (for any $k \ge 0$), and $\sU$ an open set in $\R^p$. A map $\psi$ from $\sU \times  M$ to $\R^n$ is said to be of {\it class} $C^{\infty, 0}$ if the map $v \mapsto \psi \left(\cdot, v \right)$  is continuous from $M$ to $\Coo\left( \sU, \R^n\right)$, endowed with the topology of uniform convergence on compact subsets of the function
+and of its derivatives. If $M$ is a $C^k$-space, a map $\psi$ from $\sU\times M$ to $\R^n$ is said to be of class $C^{\infty, k}$ , with $k \in \N \cup \{\infty \}$ if the map $v \mapsto \psi\left(\cdot, v \right)$   is of class $C^k$  from $M$ to $\Coo\left(\sU, \R^n \right)$. 
+
+\end{definition}
+\begin{definition}
+%Definition 6. 
+Let $M$ be a $C^k$-space and m be a map of class $C^k$ from $M$ to $\C$. A $C^k$-family of polyhomogeneous symbols of order $m$ is a map 
+\bean
+M \to S^0_{\text{hom}}\left(\sU \right),\\
+x \mapsto \chi\left( \xi \right) \left\| \xi\right\|^{-m\left(x \right) }  a\left(u, \xi, x \right) 
+\eean 
+is of class $C^k$ , where the space $\sS^0_{\text{hom}}\left(\sU \right)$ is endowed with its natural topology described above.
+\end{definition}	
+\begin{definition}
+Let $\sU$ be an open set in $\R^p$, $M$ a locally compact Hausdorff space, and $m$ a map of class $C^k$ from $M$ to $\C$. A $C^k$-{\it family} of classical pseudodifferential operators of order $m$ with
+compact support in $\sU \times M$ is a family $P_x\in \mathcal P^{m\left( v\right) }_c\left( \sU\right)$ 
+ such that for all $f \in \Coo_c\left( \sU\right)$ , the operator
+$P_xf$ is given, for $x \in M$, by
+\bean
+\left(P_x f \right) = \frac{1}{\left(2 \pi  \right)^p }\int_{\sU}\int_{\R^p} a\left(u', \xi, x \right) f\left(u' \right) e^{i\left( u'-u, \xi \right)  } d\xi d u'
+\eean
+with the condition that the map $M \to \SS^{m\left( \cdot \right) }_{\text{hom}}\left(\sU \right)$ $x \mapsto a\left(u', x \xi \right)$  is of class $C^k$ .
+\end{definition}
+\begin{proposition}
+%Proposition 8. 
+We have the following analogues of classical properties: !!!
+\begin{enumerate}
+	\item [(1)]
+	The adjoint of a $C^k$-family of classical pseudodifferential operators of order $m(\cdot)$ with compact
+	support in $\sU\times M$ is still a $C^k$-family of classical pseudodifferential operators of
+	order $m(\cdot)$  with compact support in $\sU \times M$.
+\item [(2)] Let $m$ and $n$ be maps of class $C^k$ from $M$ to $\C$ then, if $A\in   \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$  and $B\in   \SS^{n\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$ then $AB\in   \SS^{m\left( \cdot \right) +n\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$
+
+\item [(3)]   Let $\kappa$ be a $\Coo$-diffeomorphism from $\sU$ onto itself. Take $a_\kappa \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$, and denote by $A$  the
+	corresponding family of pseudodifferential operator and by a? the map defined by
+$$
+a_\kappa \left( \kappa (x), \eta\right)  = e^{-\left(\kappa (x), \eta  \right)  } A\left(x \right) e^{\left(\kappa (x), \eta  \right)}
+$$
+	Then we have $a_\kappa \in  \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$
+\end{enumerate}
+\end{proposition}
+\subsection{Pseudodifferential $\G$-operators}	
+	The definition of a $C^{\infty,k}$-function can be extended to the situation of a groupoid in a natural  way. Let $p X \to M$ be a submersion between smooth manifolds. We say that a function $f$ on $X$
+	is  $C^{\infty,k}$ with respect to the submersion when for any trivializing open set for the submersion
+	of the form $\Om \cong \sU \times \sY$ with $\sV$ an open set of $M$, the restriction of $f$  to $\sU \times \sV$ is $C^{\infty,k}$. If
+$\G$ is a Lie groupoid, we say that a function on $\G$ is $C^{\infty,k}$, when it is $C^{\infty,k}$ with respect to the
+	submersion $s : \G \to \G^{(0)}$.
+
+In the special case of Lie groupoids, we have a notion of invariant families of operators (unnecessarily pseudodifferential). An element $\ga \in \G$  acts by right translation in the following way:
+$$
+U_\ga : \Coo\left( \G_{r(\ga)}\right) \to \Coo\left( \G_{s(\ga)}\right); \quad \left(U_\ga f \right) \left( \ga' \right) \bydef f \left(\ga' \ga \right) 
+$$	
+\begin{definition}
+A $\G$-{\it operator} of class $C^k$ is then an operator $P$  acting on $C^{\infty, k}$, the space of compactly supported $C^{\infty, k}$-functions on G such that there exists a family $\left\{P_x\right\}_{x \in M}$ of operators acting
+respectively on $C^{\infty}\left( \G_x\right)$, with
+\bea
+\left(P f \right) \left(\ga  \right) = \left(P_{s\left(\ga \right) } f_{S\left( \ga\right) } \right) \left(\ga  \right),\\
+%P_{s\left( \ga \right) }= U_\ga P_{r\left\ga \right) }
+\eea
+with $\ga \in \G, ~ f \in C^{\infty, k}\left(\G \right)$, and $f_x$ the restriction of $f$ to $\G_x$.
+
+Such a $\G$-operator of class $C^K$ is characterized by a distributional kernel $k_P$ on $\G$, which is a $C^k$ -family of distributions $k_x$ on $\G_x$:
+\bean
+\left(Pf \right) \left(\ga \right)= \int_{\G_{s(\ga)}}k_P\left( \ga\ga'^{-1}\right) f\left(\ga' \right) d\la_{s(\ga)}  \left(\ga' \right) = \int_{\G^{r(\ga)}}k_P\left( \ga'\right) f\left(\ga'^{-1}\ga \right) d\la^{r(\ga)} \left(\ga' \right). 
+\eean 
+It is said to be {\it compactly (or uniformly) supported} when $k_P$ is compactly supported in $\G$, and {\it smoothing with compact support} when $k_P \in C^{\infty, k}_c\left(\G \right)$. 
+
+\end{definition}
+	Let $p: X \to M$ be a submersion between smooth manifolds. To any such submersion is naturally
+	associated a Lie groupoid $\G\left( X, p, M\right)$  which is the closed subspace of the groupoid of couples
+	$X \times X$ made out of couples $(y, y')$ such that $p(y) = p(y')$ 
+ The source map is $s((y, y')) = y'$
+	and the range map is $r((y, y') = y'$
+The composition is the one of couples $(y, z) \circ (z, t) = (y, t)$.
+\begin{definition}
+%Definition 9. 
+Let $p: X \to M$ be a submersion and $m$ be a $C^{\infty, k}$ map.
+A (properly supported) $C^k$-{\it family} of classical pseudodifferential operators of order $m$ is a
+compactly supported $\G(X,p,M)$-operator such that the family $P_x \in \mathcal P^m\left(p^{-1}\left(x \right)  \right)$  satisfies:
+\begin{itemize}
+	\item 	for each trivializing open set $\Om \cong \sU \times \sV$ and all $\phi, \psi \in C^{\infty, k}\left(X \right)$  with support in $\Om$, the	operator $\phi P_x \psi$ viewed as an operator on $C^k$ is a compactly supported $C^k$ -family of
+	classical pseudodifferential operators of order m in the sense defined above;
+	\item for all maps $\phi, \psi \in C^{\infty, k}\left(X \right)$  with disjoint supports, the operator  $\phi P_x \psi$  is a compactly
+	supported smoothing $\G$-operator.
+\end{itemize}
+We denote by $\mathcal P^m_k(X,p,M)$ the set of these operators.
+\end{definition}
+\begin{proposition}
+%Proposition 10. 
+If $P \in \mathcal P^m_k\left( X, p, M\right)$ and   $Q \in \mathcal P^n_k\left( X, p, M\right)$ are pseudodifferential operators
+then $PQ \in P^{m + n}_k\left( X, p, M\right)$.
+\end{proposition}
+\begin{definition}
+%Definition 11. 
+We will say that a compactly supported $\G$-operator $P$ is a {\it pseudodifferential operator of class} $C^k$ if the family $\left\{P_x\right\}_{x \in M}$ is a $C^k$-family of pseudodifferential operators of order $m$ for the submersion $s : \G \to \G^{(0)}$. We denote by $\Psi^m_{c, k}$ this space of operators.
+\end{definition}
+This definition also implies that the pseudodifferential operators $P_x$ on $\G_x$ vary in a $C^k$-manner:
+for any open chart $\Om \subset \G$ diffeomorphic to $\sU \times s\left( \Om\right)$, and for any $\phi \in C^{\infty, k}_c\left( \Om\right)$, there
+exists a $C^k$ -family $\left\{a_x\right\}_{x \in s\left( \Om\right) }$ of polyhomogeneous symbols of order $m$ on $\sU$ such that the compactly
+supported operator $\phi P_x \phi$ corresponds to $Op(a_x )$ under the diffeomorphism $\Om \cap \G_x \cong \sU$.
+\subsection{Principal and total symbol of a pseudodifferential $\G$-operator}
+\paragraph{}
+Note that in general a $C^k$ -family of symbols $\left\{a_x\right\}_{x \in s\left(\Om \right) }$ of polyhomogeneous symbols of
+order $m$ on $\sU$ in any chart $\Om$ is not enough to define a $\G$-operator, since this family has to
+satisfy an invariance property .We can associate to any G-operator a total symbol, which is given as a family of symbols $a_x \in \SS^m_{\text{hom}}\left(T^*_x\G_x \right)$, but not in a unique way. However, we can associate canonically a principal symbol to any pseudodifferential operator.
+
+
+The principal symbol  of a compactly supported pseudodifferential operator is defined
+by $\sigma_m\left( P\right)\left(\xi \right)= \sigma_m\left(P_x \right)\left( \xi\right)$ Note that using homogeneity, it can be defined
+as an element
+$$
+\sigma_m\left(P\right)\in C^{\infty,k}\left(S^*\left(\G \right)  \right), 
+$$
+with $S^*\left(\G \right)$ the "co-sphere bundle" of $\G$, i.e. the quotient of $A^*\G \setminus\{0\}$ by the action of $\R^*_+$.
+\begin{theorem}
+	
+\begin{enumerate}
+	\item[(1)] $\Psi^{m\left(\cdot \right) }_{c, k}\left(\G \right)\circ \Psi^{m'\left(\cdot \right) }_{c, k}\left(\G \right)\Psi^{m\left(\cdot \right)+ m'\left(\cdot \right)  }_{c, k}\left(\G \right)$.
+	\item[(2)] $\sigma_{m + m'} \left(P Q \right)  = \sigma_{m'} \left(P \right) \circ \sigma_{m'} \left( Q \right)$.
+	\item[(3)] $\sigma_m$ rise to the following short exact sequence:
+	$$
+	\{0\}\to \Psi^{m\left(\cdot \right)-1 }_{c, k}\left(\G \right) \to \Psi^{m\left(\cdot \right) }_{c, k}\left(\G \right) \xrightarrow{\sigma_m}C^{\infty, k} C^{\infty, k}\left(S^*\left( \G\right)  \right) \to \{0\}.
+	$$
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+%Definition 13. 
+Let $m$ be a $C^k$ map on $\G^{(0)}$ such that $ m(x) = m(y)$ whenever $\G^y_x$ is nonempty. We denote by $\SS^{m(\cdot)}_{\text{hom},k}\left(A^*\left( \G\right)  \right)$  the subspace of $C^{\infty,k}\left(A^*\left(\G \right)  \right)$ such that $\forall x \in M$, $a_x \in \SS^{m(x)}_{\text{hom}}\left(\{x\}, T^*_x \G_x \right)$ and such that for any trivializing open set $\Om \in A^*\left( \G^*\right)$, with $\Om  \cong \sU \times s\left( \Om\right)$, $x \mapsto a_x$  is a $C^k$ map, in the sense defined previously. 
+\end{definition}
+Now given such a symbol, we can define a compactly supported $\G$-pseudodifferential operator
+associated to it. Unlike the case of manifolds, there is not a unique way to do so, since in general
+there is no canonical Fourier transform on $\G$. We can determine a formula as follows. Suppose
+we are given a diffeomorphism $\phi$ from a neighborhood $W$ of $\G^{(0)}$ in $\G$ to a neighborhood of the 0 section in $A(\G)$, with $d \phi = \Id$, and a cut-off map $\chi$, with support in $W$. Then set, for
+$\xi \in A^*_x\left(\G \right)$  and $\ga \in \G_x, ~ e_\xi \left(\ga \right) = \chi\left(\ga \right) e^{i\left(\phi\left(y \right), \xi  \right) }$. We then have the following.
+\begin{proposition}
+%	Proposition 14. 
+	Let $a \in \SS^{m(\cdot)}_{\mathrm{hom}, k}\left(A^*\left(\G \right)  \right)$. Denote by $Op(a)$ the $\G$-operator defined by its kernel
+	$$
+k\left(\ga \right) = \frac{1}{\left(2 \pi \right)^n }\int_{A^*_{r\left( \ga\right)\left( \G\right)  }}e_{-\xi}\left( \ga^{-1}\right)a\left( r\left(\ga \right), \xi \right)  d \xi.
+$$
+Then $Op(a)$ is in $\Psi^{m\left(\cdot \right) }_{c,k}\left( \G\right)$.
+
+Moreover, if we denote by am the homogeneous principal symbol, then we have
+$$
+\sigma_m\left(Op\left( a\right) \right)= a_m.
+$$
+\end{proposition}
+\begin{empt}  !!! MAY BE DELETE
+
+Let $\sU\subset \RR^n$ be an open subset.
+Define the space ${\mathcal S}^m(B \times \RR^n)$ of 
+symbols on the bundle $\sU \times \RR^n \to \sU$  as in \cite{Hormander3} 
+to be the set of smooth functions $a:\sU \times \RR^n \to \CC$ 
+such that
+\begin{equation}
+	\label{eq.symbol.estimates!}!!!
+	|\partial_y^\alpha \partial_\xi^\beta a(y,\xi)| \leq C_{K,\alpha,\beta}
+	(1+|\xi|)^{m-|\beta|}
+\end{equation}
+
 for any compact set $K\subset B$ and any multiindices $\alpha$ and $\beta$.
+
+
+
 An element of one of our spaces $S^m$ should properly be said to have
 ``order less than or equal to $m$''; however, by abuse of language we
 will say that it has ``order $m$''.
@@ -32905,13 +33093,13 @@ $\sigma_{\nabla,\phi}(P) $ by
  	has kernel $\PS{m-1}$ and satisfies Equation \eqref{princ.symb}.
  	
  	(ii) The composition $PQ$ of two operators
- 	$P,Q \in\PS{\infty}$, of orders $m$ and, respectively, $m'$,
+ 	$P,Q \in\mathcal PS{\infty}$, of orders $m$ and, respectively, $m'$,
  	satisfies $\sigma_{m+m'}(PQ)=\sigma_m(P)\sigma_{m'}(Q)$.
  \end{proposition}
  
  
  Although for the most of this paper we shall be concerned with groupoids, the 
- definition of $\PS{m}$ easily extends to {\em local} groupoids. Indeed it
+ definition of $\mathcal PS{m}$ easily extends to {\em local} groupoids. Indeed it
  suffices to modify the invariance condition  in Definition
  \ref{Main.definition}, using the notation in Equation \eqref{Local.isomorphism},
  as follows. We assume that for any $g \in \Gr 1$ and any smooth
