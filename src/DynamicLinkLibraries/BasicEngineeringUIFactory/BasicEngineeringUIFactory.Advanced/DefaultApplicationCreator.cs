@@ -21,6 +21,7 @@ using CommonService;
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Advanced.Forms;
 using ErrorHandler;
+using System.CodeDom;
 
 
 
@@ -51,7 +52,11 @@ namespace BasicEngineering.UI.Factory.Advanced
 
         Dictionary<string, object>[] resources;
 
-        IDatabaseCoordinator coordinator;
+        IDatabaseCoordinator Coordinator
+        {
+            get;
+            set;
+        }
 
         IExceptionHandler log = null;
 
@@ -69,7 +74,7 @@ namespace BasicEngineering.UI.Factory.Advanced
             IApplicationInitializer initializer, IExceptionHandler log,
             TestCategory.Interfaces.ITestInterface testInterface)
         {
-            this.coordinator = coordinator;
+            this.Coordinator = coordinator;
             this.buttons = buttons;
             this.icon = icon;
             this.factory = factory;
@@ -167,7 +172,7 @@ namespace BasicEngineering.UI.Factory.Advanced
         {
             get
             {
-                return coordinator;
+                return Coordinator;
             }
         }
 
@@ -217,11 +222,13 @@ namespace BasicEngineering.UI.Factory.Advanced
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             StaticExtensionDiagramUIFactory.UIFactory = factory;
-            IDatabaseCoordinator c = coordinator;
+            var c = new DataWarehouse.Classes.DatabaseCoordinatorCollection(false);
+            c.LoadDirectory();
+     /*   !!! DELETE    c.
             if (c == null)
             {
                 c = AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<IDatabaseCoordinator>();
-            }
+            }*/
             EngineeringInitializer initializer = new EngineeringInitializer(c, ordSolver, diffProcessor,
               initializers, throwsRepeatException, resources, logWriter);
             DefaultApplicationCreator creator = new DefaultApplicationCreator(c, buttons, icon, factory, holder, 

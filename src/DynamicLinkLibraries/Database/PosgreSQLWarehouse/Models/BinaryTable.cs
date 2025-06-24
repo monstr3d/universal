@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PosgreSQLWarehouse;
+namespace PosgreSQLWarehouse.Models;
 
 public partial class BinaryTable
 {

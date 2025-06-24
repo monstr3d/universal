@@ -537,8 +537,6 @@ namespace Abstract3DConverters
         }
 
 
-
-
         static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld, bool cleanOnly)
         {
             var drs = Directory.GetDirectories(directory);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace PosgreSQLWarehouse
+namespace PosgreSQLWarehouse.Models
 {
     public partial class BinaryTree : IDirectory
     {
@@ -240,7 +240,7 @@ namespace PosgreSQLWarehouse
             tree.Parent = this;
             StaticExtensionPosgeeSQL.Context.BinaryTrees.Add(tree);
             StaticExtensionPosgeeSQL.Context.SaveChanges();
-            this.OnAddDirectory?.Invoke(tree);
+            OnAddDirectory?.Invoke(tree);
             return tree;
         }
 
@@ -297,7 +297,7 @@ namespace PosgreSQLWarehouse
                 if (Parent != null)
                 {
                     Parent.InverseParent.Remove(this);
-                    Parent.Names.Remove(this.Name);
+                    Parent.Names.Remove(Name);
                     Parent.directories.Remove(this);
                 }
                 ctx.BinaryTrees.Remove(this);

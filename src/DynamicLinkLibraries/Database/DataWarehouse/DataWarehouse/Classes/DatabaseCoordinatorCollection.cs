@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-using AssemblyService;
 using DataWarehouse.Interfaces;
 using ErrorHandler;
+
 
 
 namespace DataWarehouse.Classes
@@ -14,6 +14,12 @@ namespace DataWarehouse.Classes
     /// </summary>
     public class DatabaseCoordinatorCollection : IDatabaseCoordinator
     {
+        public DatabaseCoordinatorCollection(bool fiction)
+        {
+
+        }
+
+
         List<IDatabaseCoordinator> coordinators = new List<IDatabaseCoordinator>();
 
         static Dictionary<string, Assembly> assemblyDictionary = new();
@@ -45,7 +51,43 @@ namespace DataWarehouse.Classes
             coordinators.Add(coordinator);
         }
 
-        void  Add(Assembly assembly, DatabaseCoordinatorCollection coordinatorCollection)
+        public void LoadDirectory()
+        {
+            var ass = AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in ass)
+            {
+                if (assembly != GetType().Assembly)
+                {
+                    Add(assembly);
+                }
+                else
+                {
+
+                }
+            }
+            string[] fn =  System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll");
+            var lt = new List<string>();
+            foreach (var file in fn)
+            {
+                if (assemblyDictionary.ContainsKey(file))
+                {
+                    continue;
+                }
+                try
+                {
+                    var assembly = Assembly.LoadFrom(file);
+                    Add(assembly);
+                }
+                catch
+                {
+                    continue;
+                }
+                
+            }
+
+        }
+
+        void  Add(Assembly assembly)
         {
             var loc = assembly.Location;
             if (assemblyDictionary.ContainsKey(loc))
@@ -53,39 +95,30 @@ namespace DataWarehouse.Classes
                 return;
             }
             assemblyDictionary[loc] = assembly;
-            var types = assembly.GetTypes();
-            foreach (var type in types)
+            try
             {
-
-            }
-
-        }
-
-        static public  IDatabaseCoordinator FromAssembly
-        {
-            get
-            {
-                var dir = AppDomain.CurrentDomain.BaseDirectory;
-                var inter = dir.GetInterfaces<IDatabaseCoordinator>();
-                var coordinator = new DatabaseCoordinatorCollection();
-                var assemblies =  AppDomain.CurrentDomain.GetAssemblies();
-                foreach (var assembly in assemblies)
+                var types = assembly.GetTypes();
+                foreach (var type in types)
                 {
-                    try
+                    var tt = new List<Type>(type.GetInterfaces());
+                    if (!tt.Contains(typeof(IDatabaseCoordinator)))
                     {
-                        assemblyDictionary[assembly.Location] = assembly;
-                        var types = assembly.GetTypes();
+                        continue;
                     }
-                    catch (Exception ex)
+                    var constr = type.GetConstructor([]);
+                    if (constr != null)
                     {
-
+                        var intt = constr.Invoke([]) as IDatabaseCoordinator;
+                        Add(intt);
                     }
                 }
-
-                return coordinator;
             }
+            catch
+            {
 
+            }
         }
+
 
 
     }

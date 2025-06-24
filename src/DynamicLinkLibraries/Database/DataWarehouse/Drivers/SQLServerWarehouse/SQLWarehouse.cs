@@ -39,7 +39,7 @@ namespace SQLServerWarehouse
         }
 
 
-        private SQLWarehouse()
+        public SQLWarehouse()
         {
             //dotnet ef dbcontext scaffold "Server=IVANKOV\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models 
         }

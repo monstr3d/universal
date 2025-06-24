@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace PosgreSQLWarehouse;
+namespace PosgreSQLWarehouse.Models;
 
 public partial class PostgreSqlWarehouseContext : DbContext
 {
@@ -18,8 +18,6 @@ public partial class PostgreSqlWarehouseContext : DbContext
     public virtual DbSet<BinaryTable> BinaryTables { get; set; }
 
     public virtual DbSet<BinaryTree> BinaryTrees { get; set; }
-
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -65,20 +63,6 @@ public partial class PostgreSqlWarehouseContext : DbContext
                 .HasForeignKey(d => d.ParentId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_BinaryTree_BinaryTree");
-        });
-
-        modelBuilder.Entity<Efmigrationshistory>(entity =>
-        {
-            entity.HasKey(e => e.Migrationid).HasName("__efmigrationshistory_pkey");
-
-            entity.ToTable("__efmigrationshistory");
-
-            entity.Property(e => e.Migrationid)
-                .HasMaxLength(150)
-                .HasColumnName("migrationid");
-            entity.Property(e => e.Productversion)
-                .HasMaxLength(32)
-                .HasColumnName("productversion");
         });
 
         OnModelCreatingPartial(modelBuilder);

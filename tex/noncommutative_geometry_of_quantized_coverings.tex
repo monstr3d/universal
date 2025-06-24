@@ -101,6 +101,11 @@
 \newtheorem*{claim}{Claim}
 \DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
 \newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
+\newcommand{\trG}{{\rm tr}_G\;}
+\newcommand{\trF}{{\rm tr}_{\cal F}\;}
+\newcommand{\TR}{{\rm TR}\;}
+\newcommand{\res}{{\rm res}\;}
+
 
 \newcommand\ci{${\mathcal C}^{\infty}$}
 \newcommand\CI{{\mathcal C}^{\infty}}
@@ -17670,6 +17675,1660 @@ where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
 	Let both  $D\left( M, E \right)$ and $D\left(\widetilde M, \widetilde E \right)$ be $*$-algebras of differential operators 
 	$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde E \right)  \to \Ga^\infty \left(\overline M, \overline E \right)$. Prove that the triple $\left(D\left( M,  E \right),D\left(\widetilde M, \widetilde  E\right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi_E$-inverse noncommutative limit of $\mathfrak{S}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
 \end{exercise}
+\section{Transversal pseudodifferential calculus}
+\subsection{Preliminaries}
+Throughout in the paper, we consider a closed, connected, oriented
+foliated manifold
+$(M,{\cal F})$, $\dim M = n$, $\dim {\cal F} = p$, $p + q = n$, and 
+a complex vector bundle
+$E$ on $M$ of rank $r$. We fix  a
+Riemannian metric on $M$ with the corresponding distance $\rho $ 
+and an Hermitian structure on $E$.
+
+We will denote by $G=G_{\cal F}$ the holonomy groupoid of $(M,{\cal F})$.
+$G$ is equipped with the source and the target
+maps $s,r:G\rightarrow M$. We will make use of standard notation:
+$G^{(0)}=M$ is the set of objects, $G^x=\{\gamma\in G:r(\gamma)=x\}$,
+$G^x_x=\{\gamma\in G : s(\gamma)=r(\gamma)=x\}$, $x\in M$.
+For any $x\in M$, $s$ defines a covering map from $G^x$ to the leaf through
+the point $x$ associated with the holonomy group $G^x_x$ of the leaf.
+We will identify a point $x\in  M$ with the identity element in $G^{x}_{x}$.
+Let $dx$ be the Riemannian volume form on $M$,
+$\lambda _{L}$ the Riemannian volume form on a leaf $L$ of ${\cal F}$
+and, for any $x\in M$, $\lambda ^{x}$ its lift to a density
+on the holonomy covering $G^x$.
+We will make use of notation $(x,y)\in I^p\times I^q$
+($I=(-1,1)$) for the local coordinates given by a foliated chart
+$\kappa: I^p\times I^q\rightarrow M$
+and $(\xi,\eta) \in {\Bbb R}^p\times {\Bbb R}^q$ for the dual
+coordinates (in $T^*M$).
+
+The holonomy groupoid $G$ has a structure of a smooth manifold
+of dimension $2p+q$. Recall briefly the construction
+of an atlas on $G$ \cite{Co79}.
+Let $\kappa: I^p\times I^q\rightarrow M, \kappa': I^p\times I^q\rightarrow M$,
+be two foliated charts,
+$\pi: \{0\}\times I^q\rightarrow \pi(\{0\}\times I^q)
+=D^q\subset M$, $\pi': \{0\}\times I^q\rightarrow \pi'(\{0\}\times I^q)=D'^q
+\subset M$
+be the corresponding transversals to the foliation.
+The foliation charts $\kappa$, $\kappa'$ are called
+{\bf compartible}, if, for any points $m\in U=\kappa
+(I^p\times I^q)$ and $m'\in U'=\kappa'(I^p\times I^q)$
+such that $m=\kappa(x,y)$, $m'=\kappa'(x',y)$, there is
+a leafwise path $\gamma$ from $m$ to $m'$ such that the corresponding
+holonomy map $h_{\gamma}$ maps the germ $\pi_m$
+of the transversal $\pi$ at the point $m$ to the germ $\pi'_{m'}$
+of the transversal $\pi'$ at the point $m'$:
+$h_{\gamma}\pi_m=\pi'_{m'}$.
+
+For any pair of compartible foliation charts, $\kappa$ and $\kappa'$,
+let $W(\kappa,\kappa')$ be a subset in $G_{\cal F}$:
+$$
+W(\kappa,\kappa')=\{\gamma\in G: s(\gamma)=m\in U,
+r(\gamma)=m'\in U', h_{\gamma}\pi_m=\pi'_{m'}\},
+$$
+equipped with a coordinate map
+\begin{equation}
+	\label{wchart}
+	\Gamma:I^p\times I^p\times I^q\rightarrow W(\kappa,\kappa'),
+\end{equation}
+which associates to any $(x,x',y)\in I^p\times I^p\times I^q$
+the element $\gamma\in W(\kappa,\kappa')$ such that $s(\gamma)=m=\kappa(x,y)$,
+$r(\gamma)=m'=\kappa'(x',y)$ and $h_{\gamma}\pi_m=\pi'_{m'}$.
+
+As shown in \cite{Co79}, the coordinate patches
+$W(\kappa,\kappa')$ form an atlas of a $2p+q$-dimensional
+manifold on $G$.
+\medskip
+\par
+Denote by $C^{\infty}_c(G,{\cal L}(E))$ the space
+of smooth, compactly supported sections of the vector bundle
+$(s^*E)^*\otimes r^*E$ on $G$.
+Otherwise speaking, the value of $k\in C^{\infty}_c(G,{\cal L}(E))$ 
+at any point
+$\gamma \in G$ is a linear map
+$k(\gamma):E_{s(\gamma)}\rightarrow E_{r(\gamma)}$.
+Any element $k\in C^{\infty}_c(G,{\cal L}(E))$ defines an operator
+$R_E(k): C^{\infty}(M,E)\rightarrow C^{\infty}(M,E)$ by the formula
+\begin{equation}
+	\label{tang}
+	R_E(k)u(x)=\int_{G^x}k(\gamma)u(s(\gamma))d\lambda^x(\gamma),
+	u\in C^{\infty}(M,E), x\in M.
+\end{equation}
+which is said to be a tangential operator on $(M,{\cal F})$ 
+defined by the tangential kernel $k$.
+
+\subsection{Classes $\Psi^{m,-\infty}(M,{\cal F}, E)$}
+In this section, we introduce the algebra  $\Psi^{*,-\infty}(M,{\cal F}, E)$
+of transversal pseudodifferential operators on the foliated manifold
+$(M,{\cal F})$, which can be considered as an analogue of the algebra of
+pseudodifferential operators on a closed manifold.
+This algebra can be realized as a Guillemin-Sternberg
+algebra ${\cal R}_{\Sigma}$ \cite{GS79}, corresponding to 
+a coisotropic conic submanifold $\Sigma$ in the punctured 
+cotangent bundle $\tilde{T}^*M$ (see below), therefore, many its properties
+can be deduced, just referring to the corresponding results for
+these general algebras.
+Here we prefer to give direct proofs (when it is possible), since
+this is simpler and allows us to extend these results
+to more general cases \cite{noncom2}.
+
+Recall that a function $k\in C^{\infty}(I^{p} \times I^{p} \times I^{q} 
+\times {\Bbb R}^{q},{\cal L}({\Bbb C}^r))$ belongs  to  the  class
+$S^{m}(I^{p}\times I^{p}\times I^{q} \times {\Bbb R}^{q},
+{\cal L}({\Bbb C}^r))$, if, for any multiindices $\alpha $ and $\beta $, 
+there exists a
+constant $C_{\alpha, \beta} > 0$ such that
+$$
+\| \partial^{\alpha}_{\eta} \partial^{\beta}_{(x,x',y)}k(x,x',y,\eta )\|
+\leq C_{\alpha \beta }(1 +\vert \eta \vert )^{ m-\vert \alpha \vert },
+(x,x',y)\in I^{p}\times I^p\times I^q, \eta \in {\Bbb R}^{q}.
+$$
+In what follows, we will consider only classical symbols.
+Recall that a function $k\in C^{\infty}(I^{p}\times I^{p}\times I^{q}
+\times {\Bbb R}^{q}, {\cal L}({\Bbb C}^r))$
+is {\bf a classical symbol} of order $z\in {\Bbb C}$
+($k\in S^{z,-\infty}(I^{p}\times I^{p}\times I^{q} \times {\Bbb R}^{n},
+{\Bbb R}^{p}, {\cal L}({\Bbb C}^r))$), if
+$k$ is represented as an asymptotic sum
+$$
+k(x,x',y,\eta)\sim \sum_{j=0}^{\infty} \theta(\eta)
+k_{z-j}(x,x',y,\eta),
+$$
+where $k_{z-j}\in C^{\infty}(I^{p}\times I^{p}\times I^{q} \times
+({\Bbb R}^{q}\backslash \{0\}), {\cal L}({\Bbb C}^r))$
+is homogeneous in $\eta$ of degree $z-j$, that is,
+$$
+k_{z-j}(x,x',y,t\eta)=t^{z-j}k_{z-j}(x,x',y,\eta), t>0,
+$$
+and $\theta$ is a smooth function on ${\Bbb R}^{q}$ such that
+$\theta(\eta)=0$ for $|\eta|\leq 1$,  $\theta(\eta)=1$ for $|\eta|\geq 2$.
+
+A symbol $k \in S ^{m} (I ^{p} \times I^p\times I^q\times {\Bbb R}^{q}, 
+{\cal L}({\Bbb C}^r))$ defines an operator $A: C^{\infty}_c(I^n, {\Bbb C}^r)
+\rightarrow C^{\infty}(I^n, {\Bbb C}^r)$ by the formula
+\begin{equation}
+	\label{loc}
+	Au(x,y)=(2\pi)^{-q} \int	e^{i(y-y')\eta}k(x,x',y,\eta) u(x',y')
+	\,dx'\,dy'\,d\eta,
+\end{equation}
+\noindent where \(u \in C^{\infty}_{c}(I^{n}, {\Bbb C}^r), x \in I^{p},
+y \in I^{q}\). Denote by $\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$
+the class of operators of the form (\ref{loc}) with $k \in
+S ^{m} (I ^{p} \times I^p\times I^q\times {\Bbb R}^{q}, 
+{\cal L}({\Bbb C}^r))$ such that its Schwartz kernel is compactly supported 
+in $I^n\times I^n$.
+
+It is very useful to note that the algebra 
+$\Psi^{*,-\infty}(I^n,I^p,{\Bbb C}^r)$
+has structure of a
+crossed product of an algebra of pseudodifferential operators on transversals
+to the foliation (in $y$ variables) by the leafwise equivalence relation.
+More precisely, it can be formulated as follows.
+If we represent the space $L^2(I^n,{\Bbb C}^r)$ as the $L^2$ space of
+$L^2(I^q, {\Bbb C}^r))$-valued functions on $I^p$,
+$L^2(I^n,{\Bbb C}^r)= L^2(I^p, L^2(I^q, {\Bbb C}^r))$, then
+an operator $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ can be written
+in the following form:
+\begin{equation}
+	\label{loc1}
+	A\bar{u}(x)=\int  A(x,x')\bar{u}(x')\,dx', x\in I^p,
+\end{equation}
+where $\bar{u}\in C_c^{\infty}(I^p, L^2(I^q, {\Bbb C}^r))$ such that
+$\bar{u}(x)\in C_c^{\infty}(I^q, {\Bbb C}^r)$ for any $x\in I^p$, and,
+for any $x\in I^p$, $x'\in I^p$, the operator $A(x,x')$ is a pseudodifferential
+operator of order $m$ on $I^q$:
+\begin{equation}
+	\label{loc2}
+	A(x,x')v(y)=(2\pi)^{-q} \int  e^{i(y-y')\eta}k(x,x',y,\eta) v(y')\,dy'\,d\eta,
+	v\in C^{\infty}_c(I^p,{\Bbb C}^r).
+\end{equation}
+
+The principal symbol of $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ is
+defined to be a matrix-valued function $\sigma_A$ on 
+$I^p\times I^p\times I^q\times ({\Bbb R}^q
+\backslash \{0\})$ given by the formula
+\begin{equation}
+	\label{loc:def}
+	\sigma_A(x,x',y,\eta)=k_m(x,x',y,\eta),
+\end{equation}
+where $k_m$ is the homogeneous (of degree $m$) component of the complete
+symbol $k$ of the operator $A$.
+We have the following properties of the principal symbols of
+operators from $\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$.
+\begin{lemma}
+	\label{symbol}
+	(1) Given $A\in\Psi^{m_1,-\infty}(I^n,I^p,{\Bbb C}^r)$ and    
+	$B\in\Psi^{m_2,-\infty}(I^n,I^p,{\Bbb C}^r)$, the composition $C=AB$
+	belongs to the class $\Psi^{m_1+m_2,-\infty}(I^n,I^p,{\Bbb C}^r)$, and
+	its principal symbol $\sigma_C$ is given by the formula
+	$$
+	\sigma_C(x,x',y,\eta)=\int \sigma_A(x,x'',y,\eta)\sigma_B(x'',x',y,\eta)dx''.
+	$$
+	\medskip
+	\par
+	\noindent (2) The principal symbol $\sigma_A$ of an operator
+	$A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ is transformed under a foliated
+	coordinate change $x_1=\phi(x,y), y_1=\psi(y)$, via the following
+	formula
+	$$
+	\sigma_{A_1}(\phi(x,y),\phi(x',y),\psi(y),(d\psi(y)^*)^{-1}(\eta))
+	=\sigma_A(x,x',y,\eta),
+	$$
+	where the operator $A$ is assumed to be written in the coordinates $(x,y)$
+	and $A_1$ denotes the operator $A$, written in the coordinates $(x_1,y_1)$.
+\end{lemma}
+
+\begin{proof}
+	If $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ is written in the form
+	(\ref{loc1}), the principal symbol $\sigma_A$ of $A$ can be expressed in
+	terms of the principal symbols $\sigma_{A(x,x')}$ of the operators
+	$A(x,x')$ as follows:
+	$$
+	\sigma_A(x,x',y,\eta)=\sigma_{A(x,x')}(y,\eta).
+	$$
+	If operators $A\in\Psi^{m_1,-\infty}(I^n,I^p,{\Bbb C}^r)$ and
+	$B\in\Psi^{m_2,-\infty}(I^n,I^p,{\Bbb C}^r)$ are written in the form
+	(\ref{loc1}) with the corresponding families
+	$A(x,x')\in\Psi^{m_1}(I^q,{\Bbb C}^r)$ and
+	$B(x,x')\in\Psi^{m_2}(I^q,{\Bbb C}^r)$ accordingly, then it is easy to
+	see that the composition
+	$C=AB$ is written in the form (\ref{loc1}) with
+	$$
+	C(x,x')=\int A(x,x'')B(x'',x')dx''.
+	$$
+	Using these facts and standard pseudodifferential calculus,
+	the lemma can be easily proved.
+\end{proof}
+
+
+If $\kappa: I^p\times I^q\rightarrow U=\kappa(I^p\times I^q)
+\subset M,
+\kappa': I^p\times I^q\rightarrow U'=\kappa'(I^p\times I^q)
+\subset M$, are two compartible foliated charts
+on $M$ equipped with trivializations of the vector bundle $E$ over them,
+we can transfer an operator $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$
+to an operator $A': C^{\infty}_c(U,E)\rightarrow C^{\infty}_c(U',E)$, 
+which extends in a trivial way to an operator in $C^{\infty}(M,E)$,
+denoted also by $A'$.
+The resulting operator $A'$ is said to be
+{\bf an elementary operator} of class $\Psi ^{m,-\infty}(M,{\cal F},E)$.
+
+\begin{definition} The  class $\Psi ^{m,-\infty}(M,{\cal F},E)$
+	consists of operators $A$, acting from $C^{\infty}(M,E)$ to $C^{\infty}(M,E)$,
+	such that $A$ can be represented in the form $A=\sum_{i=1}^k A_i + K$,
+	where $A_i$ are elementary operators
+	of class $\Psi ^{m,-\infty}(M,{\cal F},E)$, corresponding
+	to some pairs $\kappa_i,\kappa'_i$ of compartible foliated charts,
+	$K\in \Psi ^{-\infty}(M,E)$.
+\end{definition}
+
+To give an invariant definition of the principal symbol for operators of
+$\Psi ^{m,-\infty}(M,{\cal F},E)$, let us show how these
+operators can be represented as Fourier integral operators, associated with
+some canonical relation on the punctured cotangent space
+$\tilde{T}^*M=T^{*}M\backslash \{0\}$.
+
+It is well-known that the foliation ${\cal F}$ can be lifted to a
+foliation ${\cal F}_N$ in the punctured conormal bundle
+$\tilde{N}^*{\cal F}$, which is transversally parallelizable and, therefore,
+has trivial holonomy (see \cite{Molino}). In local coordinates
+$(x,y,\eta)$ on $\tilde{N}^*{\cal F}$ given by a foliated chart on $M$,
+plaques of the foliation ${\cal F}_N$
+are defined by $y=\mbox{const},\eta=\mbox{const}$.
+It is easy to see that the leaf $\tilde{L}_{\eta}$ of the
+foliation ${\cal F}_N$  through a point
+$\eta\in \tilde{N}^*{\cal F}$ is diffeomorphic to the holonomy
+covering $G_{\cal F}^x$ of the leaf $L_x, x=\pi(\eta)$,
+of the foliation ${\cal F}$ through the point $x$, therefore, we
+can give the following description of the holonomy groupoid
+of ${\cal F}_N$.
+
+Recall that, for any smooth leafwise path $\gamma $ from $x\in
+M$ to $y\in M$, there is defined the map 
+$dh_{\gamma}^{\ast}: N^{\ast}_{y}{\cal F} 
+\rightarrow N^{\ast}_{x}{\cal F}$,  being  the
+codifferential of the holonomy map $h_{\gamma }$,
+corresponding to $\gamma$ (cf., for instance, \cite{Co}).
+The holonomy groupoid $G_{{\cal F}_N}$ of the lifted
+foliation ${\cal F}_N$ consists of all
+$(\gamma,\eta)\in G_{\cal F}\times \tilde{N}^*{\cal F}$ such
+that $r(\gamma)=\pi(\eta)$ with the source map $s:G_{{\cal F}_N}\rightarrow
+\tilde{N}^{*}{\cal F}, s(\gamma,\eta)=dh_{\gamma}^{*}(\eta)$
+and the target map
+$r:G_{{\cal F}_N}\rightarrow \tilde{N}^{*}{\cal F}, r(\gamma,\eta)=\eta$.
+The bundle map
+$\pi:\tilde{N}^{*}{\cal F}\rightarrow M$ induces a map
+$\pi_G:G_{{\cal F}_N}\rightarrow G_{\cal F}$ by
+$$
+\pi_G(\gamma,\eta)=\gamma, (\gamma,\eta)\in
+G_{{\cal F}_N}.
+$$
+
+There is also a symplectic description of the lifted foliation.
+Consider $T^{*}M$ as a symplectic manifold, equipped with the canonical
+symplectic structure. Then $\tilde{N}^*{\cal F}$ is a coisotropic submanifold
+in $\tilde{T}^*M$, and
+the foliation ${\cal F}_N$ is the corresponding null-foliation.
+It is well-known that the mapping
+\begin{equation}
+	\label{can}
+	(r,s):G_{{\cal F}_N}\rightarrow \tilde{T}^*M\times \tilde{T}^*M
+\end{equation}
+defines an immersed canonical relation in $\tilde{T}^*M$, which
+is often called by the flowout of the coisotropic submanifold
+$\tilde{N}^*{\cal F}$.
+
+It can be easily checked that the algebra
+of Fourier integral operators, associated with this canonical relation, is
+the algebra $\Psi^{*,-\infty}(M,{\cal F},E)$ introduced above. We only need
+to be more precise about the immersed canonical relation~(\ref{can}). 
+Namely, let us define  the space $I^m(M\times M, G'_{{\cal F}_N})$
+of compactly supported Lagrangian distributions, taking finite sums of
+elementary Lagrangian distributions as we did above in the definition of
+classes $\Psi^{*,-\infty}(M,{\cal F},E)$. A precise statement is that
+the class $\Psi^{m,-\infty}(M,{\cal F},E)$ consists of all operators
+in $C^{\infty}(M,E)$ with Schwartz kernels from the
+space $I^{m-p/2}(M\times M, G'_{{\cal F}_N})$.
+
+Now let us show how the notion of the principal symbol of operators of class
+$\Psi^{m,-\infty}(M,{\cal F},E)$ as Fourier integral operators agrees
+with the local definition given by (\ref{loc:def}).
+According to \cite[Section 25.1]{Ho},
+the principal symbol of an operator of class $\Psi^{m,-\infty}(M,{\cal F},E)$
+as a Fourier integral operator is
+a half-density on $G_{{\cal F}_N}$ homogeneous of degree $m+q/2$ defined
+as follows.
+Let $\kappa: I^p\times I^q\rightarrow U=\kappa(I^p\times I^q)
+\subset M,
+\kappa': I^p\times I^q\rightarrow U'=\kappa'(I^p\times I^q)
+\subset M$, be two compartible foliated charts
+on $M$ equipped with trivializations of the vector bundle $E$ over them.
+Define a foliated coordinate map
+$\Gamma_N:I^p\times I^p\times I^q\times {\Bbb R}^q\rightarrow G_{{\cal F}_N}$
+by $\Gamma_N(x,x',y,\eta)=(\Gamma(x,x',y),(d\kappa'^*)^{-1}(x',y,\eta))$,
+where $(x,x',y,\eta)\in I^p\times I^p\times I^q\times {\Bbb R}^q$,
+$\Gamma$ is the coordinate map given by (\ref{wchart})
+and $(d\kappa'^*)^{-1}:I^p\times I^q\times {\Bbb R}^q\rightarrow
+\tilde{N}^*{\cal F}$ is the inverse to the codifferential of $\kappa'$.
+In this coordinate chart, the half-density principal symbol
+$\sigma_A$ of an elementary operator
+$A\in\Psi^{m,-\infty}(M,{\cal F},E)$ (given by (\ref{loc}) in
+$W(\kappa,\kappa')$) is defined to be equal to
+\begin{equation}
+	\label{princ}
+	k_m(x,x',y,\eta)(dx\ dx'\ dy\ d\eta)^{1/2},
+\end{equation}
+where $k_m$ is the homogeneous component of the complete symbol $k$ of
+degree $m$.
+The half-density (\ref{princ}) can be identified with a leafwise half-density,
+using the canonical transversal symplectic form $dy\ d\eta$,
+and, moreover, with a smooth section from
+$C^{\infty}(G_{{\cal F}_N},{\cal L}(\pi^*E))$,
+using the fixed leafwise density $\lambda=\{\lambda_L : L\in M/{\cal F}\}$.
+
+Let $S^m(G_{{\cal F}_N}, \pi^*E)$ be the space of all sections
+$s\in C^{\infty}(G_{{\cal F}_N},{\cal L}(\pi^*E)), s=s(\gamma,\eta)$
+homogeneous in $\eta$ of degree $m$
+such that $\pi_G({\rm supp}\,s)$ is compact in $G_{\cal F}$.
+Then the principal symbol $\sigma_A$ of an operator $A\in \Psi^{m,-\infty}
+(M,{\cal F},E)$ is globally defined as an element
+of $S^m(G_{{\cal F}_N}, \pi^*E)$.
+We can also consider the principal symbol of the operator $A$ as
+the corresponding tangential operator $R_{\pi^*E}(\sigma_A)$
+on $\tilde{N}^*{\cal F}$ with respect to ${\cal F}_N$.
+
+The space
+$$
+S^{*}(G_{{\cal F}_N}, \pi^*E)=\bigcup_mS^m(G_{{\cal F}_N}, \pi^*E)
+$$
+carries a structure of an involutive algebra, defined by
+its embedding into the foliation algebra
+$C^{\infty}_c(G_{{\cal F}_N}, \pi^*E)$.
+By Lemma~\ref{symbol}, we obtain symbolic properties of
+$\Psi^{m,-\infty}(M,{\cal F},E)$ (see also \cite[Section 2]{GS79} for the
+corresponding general result for Fourier integral operators).
+
+\begin{proposition}
+	\label{prop}
+	(1) The principal symbol mapping
+	$$
+	\sigma : \Psi ^{*,-\infty}(M,{\cal F},E)\rightarrow
+	S^{*}(G_{{\cal F}_N}, \pi^*E)
+	$$
+	is an algebra homomorphism. Otherwise speaking,
+	if $A\in  \Psi ^{m_{1},-\infty}(M,{\cal F},E)$
+	and $B\in  \Psi ^{m_{2},-\infty}(M,{\cal F},E)$,
+	then \(C = AB\) belongs to
+	\(\Psi ^{m_{1}+m_{2},-\infty}(M,{\cal F},E)\) and
+	$\sigma_{AB}=\sigma_A\sigma_B$.
+	\medskip
+	\par
+	\noindent (2) If the density $dx$ on $M$ is holonomy invariant, then
+	$\sigma$ is a $*$-homomorphism of involutive algebras, i.e.,
+	if $A\in  \Psi ^{m,-\infty}(M,{\cal F},E)$,
+	then \(A^{*} \in  \Psi ^{m,-\infty}(M,{\cal F},E)\) and $\sigma_{A^*}=
+	(\sigma_A)^*$.
+\end{proposition}
+
+The next problem is to state $L^2$-continuity of operators
+from $\Psi^{0,-\infty}(M,{\cal F},E)$. We refer the reader to
+\cite[Theorem 25.3.8]{H4}
+for the corresponding general result on $L^2$-continuity
+of Fourier integral operators, but, indeed, our case is a model
+case for this general theorem.
+\begin{proposition}
+	Any operator $A\in \Psi^{0,-\infty}(M,{\cal F},E)$ defines a bounded operator
+	in the Hilbert space $L^2(M,E)$.
+\end{proposition}
+\begin{proof} 
+	The proposition follows immediately, if we make use
+	of a representation of the operator $A$ in the form (\ref{loc1}) and
+	apply the theorem on $L^2$ boundedness of zero-order
+	pseudodifferential operators.
+\end{proof}
+
+\subsection{Anisotropic Sobolev spaces and classes
+	$\Psi ^{m,\mu}(M,{\cal F},E)$}
+
+Our norm estimates will be given in terms of the scale of
+anisotropic Sobolev spaces $H^{s,k}(M,{\cal F},E)$, $s\in
+{\Bbb R}, k\in {\Bbb R}$ (\cite{tang,asymp}).
+Let us briefly recall its definition.
+
+\begin{definition} The space $H^{s,k}({\Bbb R}^{n},{\Bbb R}^{p},
+	{\Bbb C}^r)$ consists of all $u
+	\in  S'({\Bbb R}^{n}, {\Bbb C}^r)$ such that its 
+	Fourier transform $\tilde{u} \in L^{2}_{\rm loc}({\Bbb R}^{n}, 
+	{\Bbb C}^r)$   and
+	\begin{equation}
+		\label{(1.9)}
+		\| u\|^{2}_{s,k}
+		= \int \int  |\tilde{u}(\xi ,\eta )|^{2}(1 +|\xi |^{2} + |\eta |^{2})^{s}
+		(1 +|\xi |^{2})^{k}d\xi  d\eta  < \infty.
+	\end{equation}
+\end{definition}
+The identity (\ref{(1.9)}) serves as a definition of a Hilbert
+norm in $H^{s,k}({\Bbb R}^{n},{\Bbb R}^{p}, {\Bbb C}^r)$.
+
+\begin{definition} 
+	The space $H^{s,k}(M,{\cal F},E)$ consists of all $u\in  {\cal D}'(M,E)$ such
+	that,  for any foliated coordinate chart $\kappa	: I^{p} \times I^{q}
+	\rightarrow  U = \kappa (I^{p} \times I^{q}) \subset M$, for any
+	trivialization of the bundle $E$ over it  and
+	for any $\phi  \in C^{\infty }_{c}(U)$,  the	function $\kappa^{\ast}(\phi u)$
+	belongs  to  the  space
+	$H^{s,k}({\Bbb R}^{n},{\Bbb R}^{p}, {\Bbb C}^r)$.
+\end{definition}
+
+Fix a finite covering $\{ U_{i} : i = 1,\ldots ,d \}$ of $M$  by
+foliated coordinate patches with foliated coordinate charts $\kappa _{i} :
+I^{p} \times I^{q} \rightarrow U_{i} = \kappa _{i}(I^{p} \times I^{q})$,
+and a partition of unity $\{ \phi _{i} \in C^{\infty }(M):  i
+= 1,\ldots,d \}$ subordinate to  this  covering.  A  scalar
+product  in $H^{s,k}(M,{\cal F},E)$ can be equivalently defined by the formula
+\begin{equation}
+	(u,v)_{s,k} =\sum ^{d}_{i=1} (\kappa^{\ast}(\phi _{i}u),
+	\kappa ^{\ast}(\phi _{i}v))_{s,k}, u,v\in H^{s,k}(M,{\cal F},E).
+	\label{(1.10)}
+\end{equation}
+
+Using the anisotropic Sobolev spaces $H^{s,k}(M,{\cal F},E),
+s\in{\Bbb R}, k\in {\Bbb R}$, we can give a sufficient condition for
+a bounded operator $T$ in $L^2(M,E)$ to be an operator of trace class,
+adapted to the foliated structure of $M$ \cite{asymp}.
+\begin{proposition}
+	\label{trace}
+	Let $T$ be a bounded operator in $L^2(M,E)$ such that
+	$T$ defines a bounded operator from $L^2(M,E)$
+	to $H^{s,k}(M,{\cal F},E)$ with some $s>q$ and
+	$k>p$. Then $T$ is an operator
+	of trace class with
+	the following estimate of its trace norm:
+	$$
+	\|T\|_{1}\leq C\|T:L^2(M,E)\rightarrow
+	H^{s,k}(M,{\cal F},E)\|.
+	$$
+\end{proposition}
+
+Now we introduce operator classes $\Psi ^{m,\mu}(M,{\cal F},E)$ associated
+with the scale  $H^{s,k}(M,{\cal F},E)$. A local description of
+these classes (denoted by $\Psi ^{m,\mu}(M,{\cal F},\delta)$ there) was 
+given in \cite{asymp,tang} by means of 
+H\"ormander classes of pseudodifferential operators with tempered metrics.
+Here we define classes $\Psi ^{m,\mu}(M,{\cal F},E)$ globally, using
+the definition of Fourier integral operators, corresponding to a pair
+$(\Lambda_0,\Lambda_1)$ of
+intersected Lagrangian submanifolds \cite{Gu-U,Gr-U}:
+$\Lambda_0$ is the diagonal in $\tilde{T}^*M\times \tilde{T}^*M$,
+$\Lambda_1$ is the holonomy groupoid $G_{{\cal F}_N}$. One of essential
+advantages of our approach is possibility to make use of
+the symbolic calculus for Fourier integral operators.
+
+\begin{definition}
+	We say that a function $a\in C^{\infty}(I^{p}\times I^p\times I^q
+	\times {\Bbb R}^{n}\times {\Bbb R}^p,{\cal L}({\Bbb C}^r)),
+	a=a(s,x,y,\xi,\eta,\sigma)$ belongs  to  the  class
+	$S^{m,\mu}(I^{n} \times {\Bbb R}^{n}, {\Bbb R}^{p},
+	{\cal L}({\Bbb C}^r))$, if, for any multiindices $\alpha, \beta$ and
+	$\gamma$, there exists a
+	constant $C_{\alpha, \beta, \gamma} > 0$ such that
+	\begin{eqnarray*}
+		\| \partial^{\alpha}_{(\xi,\eta)} \partial^{\beta}_{\sigma}
+		\partial^{\gamma}_{(s,x,y)} a(s,x,y,\xi,\eta,\sigma )\|
+		\leq C_{\alpha \beta \gamma}(1 +\vert \xi \vert +
+		\vert \eta \vert )^{ m-\vert \alpha\vert }
+		(1 + \vert \sigma \vert )^{\mu-\vert \gamma\vert },\nonumber\\
+		(s,x,y)\in I^p\times I^{n}, (\xi , \eta, \sigma )\in {\Bbb R}^{n}\times
+		{\Bbb R}^p.
+	\end{eqnarray*}
+\end{definition}
+
+\noindent A symbol $a\in S^{m,\mu}(I^{n} \times {\Bbb R}^{n}, {\Bbb R}^{p},
+{\cal L}({\Bbb C}^r))$ defines an operator
+$A$ from $C^{\infty}_c(I^n, {\Bbb C}^r)$ to
+$C^{\infty}(I^n, {\Bbb C}^r)$ by the formula
+\begin{eqnarray}
+	\label{loc200}
+	Au(x,y) & = & (2\pi)^{-2p-q} \int  e^{i[(x-x'-s)\xi+(y-y')\eta+s\sigma]}
+	a(s,x,y,\xi,\eta,\sigma)\nonumber\\ 
+	& & u(x',y')\,ds\,dx'\,dy'\,d\xi\,d\eta\,d\sigma,
+\end{eqnarray}
+\noindent where \(u \in C^{\infty}_{c}(I^{n}, {\Bbb C}^r), x \in I^{p},
+y \in I^{q}\).
+
+If $\kappa: I^p\times I^q\rightarrow U=
+\kappa(I^p\times I^q)\subset M,
+\kappa': I^p\times I^q\rightarrow U'=\kappa'(I^p\times I^q)
+\subset M$, are two compartible foliated charts
+on $M$, then we can transfer an operator $A$ of
+the form (\ref{loc200}) to an operator
+$A': C^{\infty}_c(U,E)\rightarrow C^{\infty}(U',E)$.
+If, in addition, the kernel of the operator $A'$ is compactly
+supported in $U\times U'$, then the operator $A'$ maps
+$C^{\infty}_c(U,E)$ to $C^{\infty}_c(U',E)$, and we can
+prolong it in a trivial way to an operator
+$A':C^{\infty}(M,E)\rightarrow C^{\infty}(M,E)$.
+We say that the operator $A'$ obtained in such a way is
+{\bf an elementary operator} of class $\Psi ^{m,\mu}(M,{\cal F},E)$.
+
+\begin {definition} The  class $\Psi ^{m,\mu}(M,{\cal F},E)$ 
+consists of operators $A$, acting from $C^{\infty}(M,E)$ to 
+$C^{\infty}(M,E)$, such that
+$A$ can be represented in the form $A=\sum_{i=1}^k A_i + K$,
+where $A_i$ are elementary operators
+of class $\Psi ^{m,\mu}(M,{\cal F},E)$, corresponding
+to some pairs $\kappa_i,\kappa'_i$ of compartible
+foliated charts, $K\in \Psi ^{-\infty}(M,E)$.
+\end{definition}
+
+\begin{remark} In notation of \cite{Gu-U,Gr-U}, the Schwartz
+kernel $K_A$ of an operator $A\in\Psi ^{m,\mu}(M,{\cal F},E)$ belongs
+to the class $I^{m-p/2,\mu+p/2}(M\times M, \Delta, G_{{\cal F}_N})$.
+\end{remark}
+
+\begin{example}  
+Any tangential pseudodifferential operator
+$B\in \Psi^{\mu}({\cal F},E)$ \cite{tang} belongs to the class
+$\Psi^{0,\mu}(M,{\cal F},
+E)$. Moreover, if $B$ is given by the complete symbol $b(x,y,\xi)$ in some
+foliated coordinate chart $\kappa$, then, in the
+foliated chart $W(\kappa,\kappa)$,
+the Schwarz kernel of $B$ is represented in the form (\ref{loc200})
+with
+$$
+a(s,x,y,\xi,\eta,\sigma)=b(x,y,\sigma) 
+$$
+(for a global description, see also Example~\ref{next}).
+\end{example}
+\begin{example}
+\label{next}
+Any operator
+$C\in \Psi^{m}(M,E)$ belongs to $\Psi^{m,0}(M,{\cal F},E)$.
+Moreover, if $C$ is given by the complete symbol $c(x,y,\xi,\eta)$ in some
+foliated coordinate chart $\kappa$, then, in the foliated
+chart $W(\kappa,\kappa)$, the Schwarz kernel of $C$ is represented in the form
+(\ref{loc200}) with
+$$
+a(s,x,y,\xi,\eta,\sigma)=c(x,y,\xi,\eta).
+$$
+\end{example}
+\begin{example} 
+It can be easily seen that two definitions of 
+classes $\Psi^{m,-\infty}(M,{\cal F},E)$ are equivalent,
+that is,
+$$
+\Psi^{m,-\infty}(M,{\cal F},E)=\bigcap_{\mu}\Psi^{m,\mu}(M,{\cal F},E).
+$$
+\end{example}
+
+The operators of class $\Psi^{m,\mu}(M,{\cal F},E)$ can be considered as a
+usual pseudifferential operators of order $m+\mu$
+with the complete symbol, singular on
+the punctured conormal bundle $\tilde{N}^*{\cal F}$. Let us briefly
+mention about the corresponding symbolic calculus referring
+to \cite{Gu-U,Gr-U} for details.
+
+Let $A$ be an elementary operator of class $\Psi ^{m,\mu}(M,{\cal F},E)$,
+given by the formula (\ref{loc200}). Then the principal symbol of $A$ is
+a function $\sigma_0(A)$ on $T^*M\backslash N^*{\cal F}$, given locally
+by the formula
+$$
+\sigma_0(A)(x,y,\xi,\eta)= a_{m,\mu}(0,x,y,\xi,\eta,\xi), \xi\not=0,
+$$
+where $a_{m,\mu}$ is the bihomogeneous component of the complete
+symbol $a$ of degree $m$ in $(\xi,\eta)$ and of degree $\mu$ in $\sigma$.
+
+We say that an operator  $A\in\Psi ^{m,\mu}(M,{\cal F},E)$ is elliptic,
+if $\sigma_0(A)$ is invertible on $T^*M\backslash N^*{\cal F}$. By
+\cite[Proposition 6.4]{Gu-U}, any elliptic operator 
+$A\in\Psi ^{m,\mu}(M,{\cal F},E)$ has a parametrix, i.e. an operator
+$P\in\Psi ^{-m,-\mu}(M,{\cal F},E)$ such that
+\begin{equation}
+\label{parametr}
+AP=I-R_1, PA=I-R_2,
+\end{equation}
+where $R_j\in \Psi ^{-1,0}(M,{\cal F},E)+\Psi ^{0,-\infty}(M,{\cal F},E)$,
+$j=1,2$.
+
+\begin{proposition}
+\label{13}
+(1)\ If $A\in  \Psi ^{m_{1},\mu_1}(M,{\cal F},E)$
+and $B\in  \Psi ^{m_{2},\mu_2}(M,{\cal F},E)$,
+then \(C = AB \in  \Psi ^{m_{1}+m_{2},\mu_1+\mu_2}(M,{\cal F},E)\) and
+$\sigma_0(C)=\sigma_0(A)\sigma_0(B)$.
+
+(2)\ Any operator $A\in  \Psi ^{m,\mu}(M,{\cal F},E)$
+defines a continuous mapping
+$$
+A: H^{s,k}(M,{\cal F},E)\rightarrow H^{s-m,k-\mu}
+(M,{\cal F}, E)
+$$
+for any $s$ and $k$.
+\end{proposition}
+
+\begin{proof} 
+1) A proof is given in \cite{A-U} (see
+also \cite[Proposition 1.39]{Gr-U}).
+
+2) As usual, it suffices to consider the case when $A$ is an elementary
+operator. Using the standard description of
+the Sobolev space  $H^{s,k}(M,{\cal F},E)$ by means of elliptic operators
+of class	$\Psi^{s,k}(M,{\cal F},E)$ (we may use the local description,
+using the operator $(1+D^2_x+D^2_y)^{s/2}(1+D^2_x)^{k/2}$)
+and a parametrix for elliptic operators (\ref{parametr}), 
+we can reduce the problem to the
+case $s=k=0$ and $\max(m,m+\mu)\leq 0$.
+$L^2$ boundedness of operators from  $\Psi ^{m,\mu}(M,{\cal F},E)$ with
+$\max(m,m+\mu)\leq 0$ can be stated by imitating of the H\"ormander's
+proof of $L^2$ boundedness of zero-order pseudodifferential operators.
+For details see \cite[Theorem 3.3]{Gr-U}.
+\end{proof}
+
+\subsection{Symbolic properties of $\Psi ^{m,-\infty}(M,{\cal F},E)$}
+Here we turn to more elaborate symbolic properties of classes
+$\Psi ^{m,-\infty}(M,{\cal F},E)$. While the algebraic symbolic 
+properties of the section follow directly from
+the corresponding properties of the algebras ${\cal R}_{\Sigma}$ of
+\cite{GS79} (see \cite[Section 3]{GS79}), the presence
+of the Sobolev space scale in our geometric case provides norm
+estimates in addition to the algebraic symbolic results of \cite{GS79}.
+
+Recall that the principal symbol $p_m$ of 
+an operator $P\in \Psi^m(M,E)$ is a smooth section of the vector bundle
+${\cal L}(\pi^*E)$ on $\tilde{T}^*M$, where
+$\pi: T^*M\rightarrow M$ is the natural projection.
+
+\begin{definition} {\bf The  transversal  principal  symbol}
+$\sigma _{P}$  of  an operator $P\in  \Psi ^{m}(M,E)$ is the restriction
+of its principal symbol $p_m$ on $\tilde{N}^{\ast}{\cal F}$.
+\end{definition}
+
+\begin{proposition}
+\label{module}
+If $A\in  \Psi ^{m_{1}}(M,E)$
+and $B\in  \Psi ^{m_{2},-\infty}(M,{\cal F},E)$,
+then $AB$ and $BA$ in  $\Psi ^{m_{1}+m_{2},-\infty}(M,{\cal F},E)\) and
+\begin{eqnarray*}
+	\sigma_{AB}(\gamma,\eta)&=&\sigma_A(\eta)\sigma_B(\gamma,\eta),
+	(\gamma,\eta)\in G_{{\cal F}_N},\\[6pt]
+	\sigma_{BA}(\gamma,\eta)&=&
+	\sigma_B(\gamma,\eta)\sigma_A(dh_{\gamma}^*(\eta)),
+	(\gamma,\eta)\in G_{{\cal F}_N}.
+\end{eqnarray*}
+\end{proposition}
+\begin{proof} This Proposition follows from the composition
+theorem of Fourier integral operators (see, for instance, \cite{H4}).
+\end{proof}
+From now on, we will assume that $E$ is {\bf holonomy equivariant}, that is,
+there is an isometrical action
+$$
+T(\gamma):E_x\rightarrow E_y, \gamma \in G, \gamma:x\rightarrow y
+$$
+of the holonomy groupoid $G$ in fibres of $E$.
+We have an inclusion $C^{\infty}_c(G)\subset
+C^{\infty}_c(G,{\cal L}(E))$, given by $k(\gamma)\mapsto k(\gamma)T(\gamma)$,
+and, by (\ref{tang}),
+a representation $R_E$ of the algebra $C^{\infty}_c(G)$ in $L^2(M,E)$,
+which is a $*$-representation, if the density $dx$ is holonomy invariant.
+For any $k\in C^{\infty}_c(G)$, the operator $R_E(k)$
+is given by the formula
+\begin{equation}
+\label{K}
+R_E(k)u(x) =\int_{ G^{x}}  k(\gamma ) T(\gamma)u(s(\gamma )) d\lambda ^{x}
+(\gamma ), x\in  M, u\in C^{\infty}(M,E).
+\end{equation}
+Our norm estimates will be given in terms of the following seminorms on
+$C^{\infty}_c(G)$:
+\begin{equation}
+\label{semi}
+\|k\|_{s,t,t-l}= \| R_E(k):H^{s,t}(M,{\cal F},E)
+\rightarrow H^{s,t-l}(M,{\cal F},E)\|, 
+\end{equation}
+where $k\in C^{\infty}_c(G)$ and
+$s\in {\Bbb R}, t\in {\Bbb R}, l\in {\Bbb R}$. There are defined
+the corresponding functional classes:
+
+\begin{definition} The class ${\rm OP}^l(G)$ consists
+of all distributions $k\in {\cal D}'(G)$ such that
+the operator $R_E(k)$ defines a continuous mapping
+$$
+R_E(k):H^{s,t}(M,{\cal F},E)\rightarrow H^{s,t-l}(M,{\cal F},E)
+$$
+for any real $s$ and $t$.
+\end{definition}
+
+Recall that an open subset $U$ in $T^*M$ is {\bf a conic neighborhood}
+of $N^*{\cal F}$, if
+$U$ is a neighborhood of $N^*{\cal F}$, which is invariant under 
+the action of ${\Bbb R}_+$ by multiplication.
+It is clear that a basis of conic neighborhoods of $N^*{\cal F}$ is formed
+by sets $\kappa(U_{\varepsilon}),\varepsilon>0$,
+where $U_{\varepsilon}$ is given by
+$$
+U_{\varepsilon}=\{ (x,y,\xi,\eta)\in I^n\times {\Bbb R}^n:
+|\xi|<\varepsilon |\eta|\},
+$$
+and $\kappa: I^p\times I^q\rightarrow M$ is a foliated coordinate chart.
+
+\begin{definition} 
+We say that an operator
+$P\in \Psi^l(M,E)$ has {\bf transversal order} 
+$m\leq l$ ($P\in \Psi^m(N^*{\cal F},E)$),
+if $P$ has order $m$ in some conic neighborhood of $N^*{\cal F}$,
+that is, its complete symbol $p$ in any
+foliated coordinate system satisfies the following condition:
+there is a $\varepsilon>0$
+such that, for any multiindices $\alpha$, $\beta$,
+there is a constant $C_{\alpha,\beta }>0$ such that
+\begin{equation}
+	\label{tra}
+	\vert \partial^{\alpha}_{(\xi,\eta)} \partial^{\beta}_{(x,y)}
+	p(x,y,\xi,\eta )\vert
+	\leq C_{\alpha \beta}(1 +\vert \xi \vert + \vert \eta \vert )^
+	{ m-\vert \alpha \vert }, 
+	(x,y,\xi,\eta)\in U_{\varepsilon}.
+\end{equation}
+\end{definition}
+
+The main fact, which relates the notion of transversal order with
+the classes $\Psi^{m,\mu}(M,{\cal F},E)$, consists in the following
+inclusion:
+\begin{equation}
+\label{incl}
+\Psi^l(M,E)\bigcap \Psi^m(N^*{\cal F},E)\subset
+\Psi^{m,l-m}(M,{\cal F},E).
+\end{equation}
+Indeed, it can be easily checked by a straightforward calculation, that,
+if $p\in S^l(I^n\times {\Bbb R}^n)$ satisfies (\ref{tra}), then
+$p(x,y,\xi,\eta)(1+|\xi|^2)^{m-l}$ belongs to
+$S^m(I^n\times {\Bbb R}^n)$, from where (\ref{incl}) follows immediately
+(see also \cite[Theorem 18.1.35]{H3}).
+
+By Proposition~\ref{13} and  (\ref{incl}), 
+any operator $P\in\Psi^m(N^*{\cal F},E)\bigcap \Psi^l(M,E)$
+defines a continuous mapping
+\begin{equation}
+\label{cont}
+P:H^{s,k}(M,{\cal F},E)\rightarrow H^{s-m,k-l+m}(M,{\cal F},E),
+\end{equation}
+that, in its turn, gives immediately the following proposition.
+
+\begin{proposition}
+\label{tr}
+Suppose that an operator $P\in \Psi^l(M,E)$ has transversal order $m\leq l$.
+Then, for any $k\in
+C^{\infty}_c(G,{\cal L}(E))$, the operators $R_E(k)P$ and $PR_E(k)$ belong
+to $\Psi ^{m,-\infty}(M,{\cal F},E)$ with the following norm
+estimates
+\begin{eqnarray*}
+	\|R_E(k)P:H^{s,t}(M,{\cal F},E)\rightarrow H^{s-m,r}(M,{\cal F},E)\|
+	&\leq &C\|k\|_{s-m,t-l+m,r},\\
+	\|PR_E(k):H^{s,t}(M,{\cal F},E)\rightarrow H^{s-m,r}(M,{\cal F},E)\|
+	&\leq &C\|k\|_{s,t,r+l-m}.
+\end{eqnarray*}
+\end{proposition}
+
+We will denote by $\hbox{ad}\, T(\gamma)$  the action of $G$
+in fibres of the bundle ${\cal L}(\pi^*E)$, induced by $T(\gamma)$.
+
+\begin{definition}
+We say that the transversal principal symbol  of
+an operator $P\in\Psi^m(M,E)$ is {\bf holonomy invariant}, if,
+for any  smooth  leafwise path $\gamma $ from $x$ to $y$,
+the following equality holds:
+$$
+{\rm ad}\,T(\gamma)[\sigma _{P}(dh_{\gamma}^{\ast}(\xi ))] =
+\sigma _{P}(\xi ), \xi  \in N^{ \ast}_{y}{\cal F}.
+$$
+\end{definition}
+
+\begin{remark} 
+The assumption of existence of positive order
+pseudodifferential operators with the
+holonomy invariant transversal principal symbol implies rather strong
+restrictions on the foliated manifold under consideration. There are
+examples of such operators on every Riemannian foliation given
+by the transverse signature operator, and, in fact, this assumption is
+equivalent to a slightly more general assumption on the foliation to be
+transversally Finsler (as introduced in \cite{tang}). For general foliations,
+one can use a generalized notion of holonomy invariance, based on
+more sophisticated transversal pseudodifferential calculus. As an example, we
+point out the treatment of triangular
+Riemannian manifolds, based on hypoelliptic operators and Beals-Greiner
+pseudodifferential calculus \cite{Co-M}.
+We will discuss this subject in more details in \cite{noncom2}.
+\end{remark}
+
+By Proposition~\ref{module}, if $P$ is a pseudodifferential operator from
+$\Psi ^{m}(M,E)$ with the holonomy invariant transversal principal symbol, and
+$k\in C^{\infty}_c(G)$, the operator  $[P,R_E(k)]$ belongs to the class
+$\Psi^{m-1,-\infty}(M,{\cal F},E)$.
+Moreover, we have the following norm estimate:
+\begin{proposition}
+\label{com}
+Let $P$ be a pseudodifferential operator from $\Psi ^{m}(M,E)$ with the
+holonomy invariant transversal principal symbol. Then, for any
+$k\in {\rm OP}^l(G)$,
+the operator $[P,R_E(k)]$ defines a continuous map
+$$
+[P,R_E(k)]:H^{s,t}(M,{\cal F},E)\rightarrow H^{s-m+1,t-l-1}(M,{\cal F},E)
+$$
+with the following norm estimate
+\begin{eqnarray*}
+	\|[P,R_E(k)] & : & H^{s,t}(M,{\cal F},E)\rightarrow H^{s-m+1,t-l-1}
+	(M,{\cal F},E)\|\nonumber\\
+	& & \leq C\max (\|k\|_{s,t,t-l}, \|k\|_{s-m+1,t-1,t-l-1}).
+\end{eqnarray*}
+\end{proposition}
+\begin{proof} Let $p\in S^m(I^n,{\cal L}({\Bbb C}^r))$ be
+the complete symbol of the operator $P$ in some foliated
+chart with a complete asymptotic expansion
+$p\sim \sum_{j=0}^{\infty} p_{m-j}$, 
+$p_{m-j}(x,y,\xi,\eta)$ is homogeneous in $(\xi,\eta)$
+of degree $m-j$. By the holonomy invariance assumption, we can choose a
+trivialization of the bundle $E$ so that the transversal
+principal symbol in this coordinate system will be
+a matrix-valued function, independent of $x$:
+$$
+p_m(x,y,0,\eta)=p_m(y,\eta).
+$$
+Using the Taylor formula, we represent $p_m$ in the form
+$$
+p_m(x,y,\xi,\eta)=p_m(y,\eta)+\sum_{i=1}^p p_{m,i}(x,y,\xi,\eta)\xi_i,
+$$
+where $p_{m,i}$ are homogeneous in $(\xi,\eta)$
+of degree $m-1$.
+
+Let $P_1$ be an operator with the complete symbol
+$p_m(y,\eta)$, $R_1$ be an operator with the complete symbol
+$\sum_{i=1}^p p_{m,i}(x,y,\xi,\eta)\xi_i$. Gluing together
+these local operators into global ones in a standard way,
+we get a representation
+$P=P_1+R_1$,
+where $P_1\in \Psi ^{m}(M,E)$, $[P_1,R_E(k)]\in
+\Psi ^{-\infty}(M,E)$, $R_1\in \Psi ^{m-1,1}(M,{\cal F},E)$.
+So we have $[P,R_E(k)]=[R_1,R_E(k)]\hbox{\rm mod}\ \Psi ^{-\infty}(M,E)$,
+from where Proposition~\theproposition\ is immediate.
+\end{proof}
+
+\subsection{Residue trace}
+Now we turn to a trace extension	and a Wodzicki type residue
+for operators
+of class $\Psi ^{m,-\infty}(M,{\cal F},E)$. These results are particular
+cases of results \cite{Gu_1,Gu_2} on Fourier integral operators,
+but we make use of the local structure of operators in 
+question given by (\ref{loc1}) to derive 
+directly all necessary facts
+
+For any $\sigma\in C^{\infty}({\Bbb R}^q\backslash \{0\})$, 
+homogeneous of order
+$q$, i.e.
+$\sigma(\lambda\eta)=\lambda^d\sigma(\eta)$
+for any $\eta\not= 0$ and $\lambda \in {\Bbb R}^*_+$,
+let
+$$
+S({\sigma})=\int_{|\eta|=1} \Tr \sigma(\eta)d\eta.
+$$
+
+For any function $\phi$ on ${\Bbb R}^q\backslash \{0\}$, let
+$$
+\phi_{\lambda}(\eta)=\lambda^q\phi(\lambda\eta),
+\lambda>0, \eta\in {\Bbb R}^q\backslash \{0\}.
+$$
+
+Recall the following fact on continuation of a homogeneous smooth
+function on ${\Bbb R}^q\backslash \{0\}$ to a homogeneous distribution
+in ${\Bbb R}^q$, see \cite{Ho}, Theorems 3.2.3 and 3.2.4.
+\begin{lemma}
+\label{hom}
+Let $\sigma\in C^{\infty}({\Bbb R}^q\backslash \{0\})$ be 
+homogeneous of order $d$ in $\eta \in {\Bbb R}^q$.
+\medskip
+\par
+\noindent (1)\ If $d\not \in \{-q-k:k\in {\Bbb N}\}$,
+$\sigma$ extends to a homogeneous distribution $\tau$
+on ${\Bbb R}^q$.
+\medskip
+\par
+\noindent (2)\ If $d=-q-k$, there is an extension $\tau$
+of $\sigma$, satisfying the condition
+$$
+(\tau,\phi)=\lambda^{-q-k}(\tau,\phi_{\lambda})+
+\log \lambda \sum_{|\alpha|=k} S(\eta^{\alpha}\sigma)
+\partial_{\eta}^{\alpha}\phi(0)/\alpha!, \alpha>0.
+$$
+In particular, the obstruction to an extension of $\sigma\in
+{\cal D}'({\Bbb R}^q)$, homogeneous in $\eta$, is given by
+$S(\eta^{\alpha}\sigma)$, $|\alpha|=k$.
+\end{lemma}
+
+Let a functional $L$ be given by the formula
+$$
+L(\sigma)=(2\pi)^{-q}\int \Tr \sigma(\eta)d\eta,
+$$
+which is well-defined on symbols $\sigma\in S^m_{cl}({\Bbb
+R}^q)$
+of order $m<-q$.
+\begin{lemma}[\cite{KV1,Co-M}]
+The functional $L$ has an unique holomorphic extension
+$\tilde{L}$ to the space of classical symbols
+$S^z_{cl}({\Bbb R}^q)$ of non-integral order $z$.
+The value of $\tilde{L}$ on a symbol
+$\sigma\sim \sum \sigma_{z-j}$ is given by
+$$
+\tilde{L}(\sigma)=
+(2\pi)^{-q}\int  \Tr (\sigma -\sum_0^N \tau_{z-j}) d\eta,
+$$
+where $\tau_{z-j}$ is the unique homogeneous extension
+of $\sigma_{z-j}$, given by Lemma~\ref{hom}, $N\geq {\rm Re}\,z
++q$.
+\end{lemma}
+
+The trace of a pseudodifferential operator
+$A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ given by (\ref{loc})
+with $m<-q$ is given by the formula
+$$
+\tr(A)=(2\pi)^{-q}\int  \Tr k(x,x,y,\eta) dx dy d\eta.
+$$
+The following formula provides an extension of the trace
+to a pseudodifferential operator $A\in
+\Psi^{z,-\infty}(I^n,I^p,{\Bbb C}^r)$ of arbitrary non-integral order
+$z\in {\Bbb C}\backslash {\Bbb Z}$:
+$$
+\TR(A)=(2\pi)^{-q}\int  \Tr \tilde{L}(k(x, x ,y,\eta))dx dy d\eta.
+$$
+This definition can be extended to elementary operators, and, by 
+linearity, to all operators
+$P\in \Psi^{z,-\infty}(M,{\cal F},E), z\in {\Bbb C}\backslash {\Bbb Z}$.
+
+If an operator $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$ is written
+in the form (\ref{loc1}), then $\TR(A)$ is given by
+\begin{equation}
+\label{loc100}
+\TR(A)=\int  \TR(A(x,x))\,dx,
+\end{equation}
+where $\TR(A(x,x))$ denotes the extension of the usual trace of the
+pseudodifferential operator $A(x,x)$ on $I^q$, defined in \cite{KV1,KV2}.
+Using (\ref{loc100}) and \cite{KV1,KV2}, we immediately obtain
+the following proposition.
+
+\begin{proposition}
+The linear functional $\TR$ on the class $\Psi^{\alpha,-\infty}(M,{\cal F},E)$
+of classical pseudodifferential operators of
+orders $\alpha\in m+{\Bbb Z},m\in {\Bbb C}\backslash {\Bbb Z}$,
+has the following properties:
+\medskip
+\par
+\noindent (1) It coincides with the usual trace $\tr$
+for ${\rm Re}\, \alpha<-q$.
+\medskip
+\par
+\noindent (2) It is a trace functional, i.e.
+$\TR([A,B])=0$ for any $A\in \Psi^{\alpha_1,-\infty}_{cl}
+(M,{\cal F},E)$ and $B\in \Psi^{\alpha_2,-\infty}_{cl}
+(M,{\cal F},E)$, $\alpha_1+\alpha_2\in m+{\Bbb Z}$.
+\end{proposition}
+
+Now let us turn to the residue trace of operators from
+$\Psi^{m,-\infty}(M,{\cal F},E)$. As above, it suffices to define
+the residue trace for an elementary operator.
+Given an operator $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$,
+we define its residue form $\rho_A$ as
+$$
+\rho_A = \Tr k_{-q}(x,x,y,\eta) dx dy d\eta,
+$$
+and the residue trace $\tau(A)$ as
+$$
+\tau(A)=\int_{|\eta|=1}\Tr k_{-q}(x,x,y,\eta) dx dy d\eta.
+$$
+If an operator $A\in\Psi^{m,-\infty}(I^n,I^p,{\Bbb C}^r)$
+is written in the form (\ref{loc1}),
+then its residue trace $\tau(A)$ is given by
+\begin{equation}
+\label{residue}
+\tau(A)=\int  \tau(A(x,x))\,dx,
+\end{equation}
+where $\tau(A(x,x))$ denotes the residue trace of the
+pseudodifferential operator $A(x,x)$ on $I^q$ due to \cite{Gu85,Wo}.
+
+Using (\ref{residue}), it can be easily checked that, for any
+$A\in \Psi^{m,-\infty}(M,{\cal F},E)$,
+its residue form $\rho_A$ is an invariantly defined form on
+$\tilde{N}^*{\cal F}$, and the residue
+trace $\tau(A)$ is given by integration of the residue form $\rho_A$
+over the spherical conormal bundle $SN^*{\cal F}=\{\nu \in N^*{\cal F}
+: |\nu|=1\}$:
+$$
+\tau(A)=\int_{SN^*{\cal F}}\rho_A.
+$$
+
+\begin{remark}
+Let $A\in \Psi^{m,-\infty}(M,{\cal F},E)$, and $K_A\in I^{m-p/2}
+(M\times M, G'_{{\cal F}_N})$ be its Schwarz kernel. In terms
+of \cite{Gu_1}, the residue trace
+$\tau(A)$ of $A$ is defined as the residue pairing of $K_A$ with the
+delta function $\delta_{\Delta}$ of the diagonal $\Delta$ in
+$T^*M$. The holonomy groupoid $G_{{\cal F}_N}$ and
+$\Delta$ are intersected cleanly in the $p+2q$-submanifold
+$G^{(0)}_{{\cal F}_N}=N^*{\cal F}$, and, therefore, this residue
+pairing is defined by \cite[Theorem 4.1]{Gu_1}.
+The main properties, concerning to the trace extension and the residue form
+for general Fourier integral operators, are due to \cite[Theorem 2.1]{Gu_1}.
+\end{remark}
+
+Now we relate the trace extension and the residue trace for operators
+of $\Psi^{m,-\infty}(M,{\cal F},E)$.
+At first, let us give a definition of a holomorphic family of
+pseudodifferential operators of class $\Psi^{*,-\infty}(M,{\cal F},E).$
+As usual, it is sufficient to do this for elementary operators.
+
+\begin{definition} We say that a family $A(z)\in 
+\Psi^{f(z),-\infty}_{cl}(I^{n}, I^{p}, {\Bbb C}^r)$ is holomorphic
+(in a domain $D\subset {\Bbb C}$), if:
+\medskip
+\par
+\noindent (1) the order $f(z)$ is a holomorphic function;
+\medskip
+\par
+\noindent (2) $A(z)$ is given by a classical symbol $k(z)\in S^{f(z),-\infty}
+(I^{p}\times I^{p}\times I^{q} \times {\Bbb R}^{q},
+{\cal L}({\Bbb C}^r))$, represented as an asymptotic sum
+$$
+k(z,x,x',y,\eta)\sim \sum_{j=0}^{\infty} \theta(\eta)
+k_{f(z)-j}(z,x,x',y,\eta),
+$$
+which is uniform in $z$, and the homogeneous components
+$k_{z-j}(z,x,x',y,\eta)$ are holomorphic in $z$.
+\end{definition}
+
+\begin{proposition}
+\label{extension}
+For any holomorphic family
+$A(z)\in \Psi^{m + {\rm Re}\,z,-\infty}_{cl}(M,{\cal F},E), z\in D\subset
+$%{\Bbb C}$, the function $z\mapsto \TR(A(z))$ is meromorphic with no
+more than simple poles at $z_k=-m-q+k\in D\bigcap {\Bbb Z},k\geq 0$ and
+with
+$$
+a%\res_{z=z_k} \TR(A(z))=\tau(A(z_k)).
+$$
+\end{proposition}
+\begin{proof} The proposition is an immediate consequence of
+(\ref{residue}) and of the similar fact for usual pseudodifferential
+operators \cite{KV1,KV2}.
+\end{proof}
+
+\section{Transversally elliptic operators}
+\subsection{Definition and basic properties}
+As above, we assume that $M$ is a closed foliated manifold, and $E$ is
+a holonomy equivariant Hermitian vector bundle $E$ on $M$.
+
+\begin{definition} 
+We say that an operator
+$P\in \Psi^m(M,E)$ is {\bf transversally elliptic},
+if the transversal principal symbol of $P$
+is invertible for any $\xi\in \tilde{N}^*{\cal F}$.
+\end{definition}
+
+\begin{remark}
+\label{transell}
+The condition of transversal
+ellipticity implies that the transversal principal symbol of $P$
+is invertible for any $\xi$
+in some conic neighborhood of $N^*{\cal F}$.
+It also implies that, in any foliated coordinate system,
+there are $\varepsilon>0$ and $c>0$ such that
+$$
+|(p_m(x,y,\xi,\eta )v,v)|\geq
+c(1 +\vert \xi \vert + \vert \eta \vert )^{m}\|v\|,
+(x,y,\xi,\eta)\in U_{\varepsilon}, v\in {\Bbb C}^r,
+$$
+where $p_m$ is the homogeneous component of degree $m$ in $(\xi,\eta)$
+of the complete symbol of $P$.
+\end{remark}
+
+Performing the standard parametrix construction in the conic neighborhood
+$U_{\varepsilon}$ of $N^*{\cal F}$ given by Remark~\ref{transell}, it is easy
+to get the following proposition (see also \cite{trans}).
+\begin{proposition}
+For a transversally elliptic  operator $P\in
+\Psi ^{m}(M,E)$, there  exists  a
+parametrix, that is, an operator $Q\in  \Psi ^{-m}(M,E)$
+such that
+\begin{equation}
+	\label{param}
+	PQ = I - R_{1}, QP = I - R_{2},
+\end{equation}
+\noindent where $R_{j} \in
+\Psi ^{0}(M,E)\bigcap \Psi^{-\infty}(N^*{\cal F},E), j = 1,2$.
+\end{proposition}
+
+Existence of a parametrix implies a transverse elliptic regularity theorem
+in a usual manner:
+\begin{proposition}
+\label{reg}
+Given a transversally elliptic operator $P\in  \Psi ^{m}(M,E)$, and a section
+$u$ such that
+$u \in H^{s+m-N,k+N}(M,{\cal F},E)$ for some $N>0$
+and $Pu \in H^{s,k}(M,{\cal F},E)$, we have $u\in H^{s+m,k}(M,{\cal F},E)$
+and
+$$
+\| u\| _{s+m,k} \leq C(\|Pu\| _{s,k} + \| u\| _{s+m-N,k+N}).
+$$
+\end{proposition}
+
+\subsection{Complex powers}
+\label{complex}
+Throughout in this section, we assume that an operator $A\in\Psi^{m}(M,E)$
+satisfies the following conditions:
+\medskip
+\par
+(T1) $A$ is a transversally elliptic pseudodifferential operator with
+the positive transversal principal symbol;
+\medskip
+\par
+(T2) $A$ is essentially self-adjoint on the initial domain $C^{\infty}(M,E)$,
+and its closure is invertible and positive definite as an unbounded operator
+in the Hilbert space $L^2(M,E)$.
+
+\begin{remark} The assumption (T2) may be
+considered as an equivariance type condition, which is, usually, assumed
+for transversally elliptic operators.
+\end{remark}
+
+\begin{proposition}
+\label{inverse}
+Let $A \in \Psi^{m}(M,E)$ be as above. Then, for any
+$\lambda\not\in {\Bbb R}_+$, the resolvent operator
+$(A-\lambda )^{-1}$ is  represented as
+\begin{equation}
+	\label{rez}
+	(A-\lambda )^{-1}= P(\lambda) + R_1(\lambda )(A-\lambda )^{-1},
+	(A-\lambda )^{-1}= P(\lambda) + (A-\lambda )^{-1}R_2(\lambda ),
+\end{equation}
+where:
+
+(1)\ $P(\lambda ) \in \Psi^{-m}(M,E)$ is an operator,
+which complete symbol in any foliated coordinate
+system is supported in some conical neighborhood $U_{\varepsilon}$
+of $N^*{\cal F}$ and satisfies the estimates
+\begin{eqnarray*}
+	\vert D^{\beta}_{(x,y)}D^{\alpha}_{(\xi,\eta)}p(x,y,\xi ,\eta ,\lambda )\vert
+	&\leq &C_{\alpha \beta }(1+\vert \xi \vert +\vert\eta\vert+\vert 
+	\lambda \vert ^{1/m})^{-m}\\[6pt]
+	& &(1+\vert \xi \vert +\vert \eta \vert )^{- \vert \alpha\vert},
+	(x,y,\xi,\eta)\in U_{\varepsilon}, \lambda  \in  \Lambda_{\delta}
+\end{eqnarray*}
+for any $\delta  > 0$ and for any multi-indices $\alpha$ and $\beta$;
+
+(2)\ $R_j(\lambda ) \in \Psi^{0}(M,E)\bigcap \Psi^{-\infty}(N^*{\cal F},E),
+j=1,2,$
+with the complete symbol $r_j(\lambda)$, satisfying the following estimates:
+\begin{eqnarray}
+	\label{rn}
+	\vert D^{\beta}_{(x,y)}D^{\alpha}_{(\xi,\eta)}r_j(x,y,\xi ,\eta ,\lambda )\vert
+	& \leq & C_{\alpha \beta }(1+\vert \xi \vert +|\eta|+
+	\vert \lambda \vert ^{1/m})^{-m}\nonumber\\[6pt]
+	& &(1+\vert \xi \vert +\vert \eta \vert )^{- \vert \alpha\vert},
+	(x,y,\xi,\eta)\in U_{\varepsilon_1}, \lambda  \in  \Lambda_{\delta};
+	\nonumber\\[6pt]
+	\vert D^{\beta}_{(x,y)}D^{\alpha}_{(\xi,\eta)}r_j(x,y,\xi ,\eta ,\lambda )\vert
+	& \leq & C_{\alpha \beta N}(1+\vert \xi \vert +\vert \eta \vert )^
+	{- \vert \alpha\vert-N+m},\nonumber \\[6pt]
+	& & (x,y,\xi,\eta)\in I^p\times I^q\times {\Bbb R}^p\times {\Bbb R}^q,
+	\lambda  \in  \Lambda_{\delta}
+\end{eqnarray}
+for any $\delta  > 0$, for any natural $N$ and for any multi-indices
+$\alpha$ and $\beta$.
+
+Moreover, the principal symbol $p_{-m}(\lambda)$ of $P(\lambda )$ 
+is equal to $(a_m-\lambda)^{-1}$ in some conic
+neighborhood of $N^*{\cal F}$ with $a_m$, being the principal symbol of $A$.
+\end{proposition}
+
+\begin{proof} We will prove the proposition,
+performing the standard construction due to Seeley of a
+parametrix $P(\lambda)$ for the operator $A-\lambda $ as an operator with
+a parameter in some conic neighborhood of $N^*{\cal F}$.
+
+Denote by $\Lambda _{\delta}$ the angle in the complex plane:
+$$
+\Lambda _{\delta} = \{\lambda  \in  {\Bbb C} : \vert \arg
+\lambda \vert  > \delta \}.
+$$
+
+Fix some foliated coordinate system.
+Let $a \sim \sum^{\infty}_{j=0} a_{j}$ be an asymptotic expansion of the
+complete symbol of the operator $A$ in this system. By (T1),
+there is a $\varepsilon>0$ such that
+$$
+a_m(x,y,\xi,\eta)\geq C(1+|\xi|+|\eta|)^m,
+(x,y,\xi,\eta)\in U_{\varepsilon}.
+$$
+For any $\delta > 0$, define
+functions $p_{-m-l}(\lambda), \lambda \in \Lambda _{\delta},l=0,1,\ldots,$ in
+$U_{\varepsilon}$ by the following system
+\begin{eqnarray*}
+	& (a_{m}-\lambda)p_{-m}=1,& \\
+	& (a_{m}-\lambda)p_{-m-l}+ \sum_{j < l, j+k+\vert\alpha\vert=l}
+	{\partial}_{\xi}^{\alpha}
+	b_{-m-j}D^{\alpha}_{x}a_{m-k}/\alpha! =0,& l>0.
+\end{eqnarray*}
+
+\noindent It can be easily
+checked that the functions $p_{-m-l}(\lambda)$ satisfy the following estimates
+\begin{eqnarray*}
+	\vert D^{\beta}_{(x,y)}D^{\alpha}_{(\xi,\eta)}
+	p_{-m-l}(x,y,\xi ,\eta ,\lambda )\vert & \leq &
+	C_{\alpha \beta }(1+\vert \xi \vert +\vert\eta 
+	\vert+\vert \lambda \vert ^{1/m})^{-m}\\[6pt]
+	& &(1+\vert \xi \vert +\vert \eta \vert )^{- \vert \alpha\vert}, 
+	(x,y,\xi,\eta)\in U_{\varepsilon}, \lambda  \in  \Lambda_{\delta},
+\end{eqnarray*}
+\noindent where $\alpha$ and $\beta$ are any multi-indices.
+Take $p$ as an asymptotic sum of symbols with a parameter:
+\(p \sim \sum_{j=0}^{+\infty} p_{-m-j}\).
+Then $p$ satisfies the estimates
+\begin{eqnarray}
+	\label{pn}
+	\vert D^{\beta}_{(x,y)}D^{\alpha}_{(\xi,\eta)}p(x,y,\xi ,\eta ,\lambda )\vert &
+	\leq &C(1+\vert \xi \vert +\vert\eta\vert+\vert \lambda \vert ^{1/m})^{-m}
+	(1+\vert \xi \vert +\vert \eta \vert )^{- \vert \alpha\vert}, \nonumber \\[6pt]
+	& &(x,y,\xi,\eta)\in U_{\varepsilon}, \lambda  \in  \Lambda_{\delta}.
+\end{eqnarray}
+
+Let $\theta_0\in C^{\infty}_c({\Bbb R})$
+such that ${\rm supp}\, \theta_0\subset 
+(-\varepsilon, \varepsilon)$, $\theta_0(\tau)=1$ for any $\tau\in
+(-\varepsilon_1, \varepsilon_1)$ with some
+$\varepsilon_1<\varepsilon$, and $\theta\in C^{\infty}
+({\Bbb R}^p\times{\Bbb R}^q)$ be given by
+$\theta(\xi,\eta)=\theta_0(\eta/\xi)$, if $|\eta|<\varepsilon|\xi|$,
+and $\theta(\xi,\eta)=0$ in the opposite case.
+Let us take a covering of $M$ by foliation charts, construct in any foliation
+patch of this covering an operator with the 
+complete symbol $\theta p(\lambda)$,
+and glue these local operators in a global operator $P(\lambda ) \in
+\Psi^{-m}(M,E), \lambda  \in  \Lambda_{\delta}$ by means of a partition
+of unity. It can be easily seen that
+\begin{equation}
+	\label{pd}
+	P(\lambda )(A-\lambda ) = I - R_1(\lambda ),
+	(A-\lambda )P(\lambda) = I - R_2(\lambda ), \lambda  \in  \Lambda_{\delta},
+\end{equation}
+\noindent where $R_j(\lambda ) \in \Psi^{0}(M,E)\bigcap
+\Psi^{-\infty}(N^*{\cal F},E), j=1,2,$ has the complete
+symbol $r_j(\lambda)$, satisfying the estimates (\ref{rn}).
+By (T2), the operator  $A-\lambda $  is
+invertible as  an  unbounded  operator in $L^2(M,E)$
+for all $\lambda \not\in {\Bbb R}_+$ with
+the following estimate for the norm of its inverse:
+$$
+\|(A-\lambda)^{-1}\|\leq C/|\lambda|.
+$$
+Using (\ref{pd}), we get the representation~(\ref{rez})
+for the resolvent, that completes the proof.
+\end{proof}
+
+\begin{proposition}
+\label{norm}
+Let $A \in \Psi^{m}(M,E)$ be as above. Then, for any
+$\lambda\not\in {\Bbb R}_+$, the resolvent operator
+$(A-\lambda )^{-1}$ can be  represented as
+\begin{equation}
+	\label{rez1}
+	(A-\lambda )^{-1}= P(\lambda) + T(\lambda),
+\end{equation}
+\noindent where:
+
+(1) $P(\lambda ) \in \Psi^{-m}(M,E)$
+satisfies the following norm estimates:
+$$
+\|P(\lambda ) : H^{s,k}(M,{\cal F},E) \rightarrow  H^{s,k}(M,{\cal F},E)\|
+\leq	C_{s,k,\delta}(1+\vert \lambda \vert )^{-1}, \lambda	\in
+\Lambda _{\delta},
+$$
+$$
+\|P(\lambda ) : H^{s,k}(M,{\cal F},E) \rightarrow  H^{s+m,k}(M,{\cal F},E)\|
+\leq  C_{s,k,\delta}, \lambda  \in  \Lambda _{\delta},
+$$
+for any $s \in {\Bbb R}$, $k \in {\Bbb R}$ and $\delta>0$;
+
+(2) $T(\lambda)$  satisfies the following norm estimates:
+$$
+\|T(\lambda ) : H^{t,-t}(M,{\cal F},E) \rightarrow
+H^{s,-s}(M,{\cal F},E)\|	\leq	C_{s,t,\delta }(1+\vert \lambda \vert )^{-1},
+\lambda  \in  \Lambda _{\delta},
+$$
+for any $s,t$ and $\delta>0$.
+\end{proposition}
+
+\begin{proof} By (\ref{rez}),
+$(A-\lambda )^{-1}= P(\lambda) + R_1(\lambda )P(\lambda)+
+R_1(\lambda )(A-\lambda )^{-1}R_2(\lambda )$,
+so we get (\ref{rez1}) with
+\begin{equation}
+	\label{Tlambda}
+	T(\lambda)=R_1(\lambda )P(\lambda)+R_1(\lambda )(A-\lambda )^{-1}R_2(\lambda ).
+\end{equation}
+Since $R_j(\lambda ) \in \Psi^{0}(M,E)\bigcap \Psi^{-\infty}(N^*{\cal F},E),
+j=1,2$, by (\ref{cont}), $R_j$ defines a continuous map
+from $H^{t,-t}(M,{\cal F},E)$ to $H^{s,-s}(M,{\cal F},E)$ for any $s$ and
+$t$, that implies the same is true for $T(\lambda)$.
+The desired norm estimates for operators $P(\lambda)$ and
+$T(\lambda)$ follow immediately from the symbol estimates (\ref{pn})
+and (\ref{rn}).
+\end{proof}
+
+Now we turn to a construction of complex powers $A^{z}$ for a transversally
+elliptic operator $A \in \Psi^{m}(M,E)$, satisfying to the conditions (T1)
+and (T2).
+
+Let $\Gamma$  be a  contour  in the complex plane of the form \(\Gamma =
+\Gamma_{1} \bigcup \Gamma_{2} \bigcup \Gamma_{3}\), where
+\(\lambda = re^{i\alpha }, +\infty > r > \rho,\) on $\Gamma_{1}$,
+\(\lambda = \rho e^{i\phi }, \pi > \phi > -\pi,\) on $\Gamma_{2}$,
+\(\lambda = re^{-i\alpha }, \rho < r < +\infty,\) on $\Gamma_{3}$,
+\noindent where $\alpha \in (0,\pi)$ is arbitrary,
+and the constant $\rho > 0$ is chosen in such a way
+that the disk of
+the radius $\rho$, centered at the origin, isn't contained in $\sigma(D)$.
+
+A bounded operator $A^{z}$, $\mbox{Re}\, z< 0$, in	$L^{2}(M,E)$	is
+defined by the formula
+
+$$
+A^{z} = \frac{i}{2\pi} \int_{\Gamma} \lambda ^{z}(A-\lambda )^{-1}d\lambda ,
+$$
+
+\noindent where a branch of the analytic function $\lambda ^{z}$ is chosen
+so that \(\lambda ^{z} = e^{z\,\ln \lambda}\) for $\lambda > 0$.
+This definition is extended to all $z$ by
+\begin{equation}
+\label{degree}
+A^{z} =  A^{z-k}A^{k}
+\end{equation}
+for any $z$, $\hbox{Re}\,z < k$,
+where $k$ is natural and $A^{k}$ is the usual power of the operator $A$.
+The following proposition provides a descripiton of the complex powers $A^z$.
+
+\begin{proposition}
+\label{powers}
+Under the current hypotheses on the operator $A$, the
+operator $A^z$ has the form
+\begin{equation}
+	\label{decom}
+	A^z= P(z)+T(z),
+\end{equation}
+where $P(z)$ is a holomorphic family of pseudodifferential operators
+of class $\Psi^{mz}(M,E)$ with the principal symbol $p_{m{\rm Re}\,z}(z)$, 
+being equal to $(a_m)^z$ in some conic neighborhood of $N^*{\cal F}$
+($a_m$ is the principal symbol of $A$),
+and, for any $s,l$ and $z, {\rm Re}\ z\leq k$,
+$T(z)$ defines a continuous mapping
+\begin{eqnarray*}
+	T(z):H^{s,-s}(M,{\cal F},E)&\rightarrow &H^{l,-l-k}(M,{\cal F},E), k>0,\\
+	T(z):H^{s,-s}(M,{\cal F},E)&\rightarrow &H^{l,-l}(M,{\cal F},E), k\leq 0.
+\end{eqnarray*}
+\end{proposition}
+
+\begin{proof} A proof of the proposition can be obtained by a
+straighforward repetition of the proof of \cite[Proposition 7.3]{trans}.
+Namely, let us write $A^z$ for $\mbox{Re}\ z<0$ as $A^z=P(z)+T(z)$, where
+$$
+P(z) = \frac{i}{2\pi} \int_{\Gamma} \lambda ^{z}P(\lambda )d\lambda ,
+T(z) = \frac{i}{2\pi} \int_{\Gamma} \lambda ^{z}T(\lambda )d\lambda ,
+$$
+$P(\lambda)$ and $T(\lambda)$ are given by Proposition~\ref{norm}. All the
+statements about $P(z)$ and $T(z)$ can be easily checked in a standard
+way (see \cite{trans} for more details).
+\end{proof}
+
+\begin{remark}
+\label{adding}
+We can get $P(z)$ to be an elliptic operator of class 
+$\Psi^{m{\rm Re}\,z}(M,E)$ with the positive principal symbol, adding 
+to $P(z)$ an appropriate operator of
+class $\Psi^{m{\rm Re}\, z}(M,E)
+\bigcap \Psi^{-\infty}(N^*{\cal F},E)$,. 
+\end{remark}
+
+\subsection{$G$-trace}
+Before going to the distributional zeta-function of transversally
+elliptic operators, we introduce a general scheme of defining
+distributional spectral invariants for transversally elliptic operators
+based on the notion of the $G$-trace and prove some existence results
+for such invariants, that may have its own interest.
+
+\begin{definition}
+We say that a bounded operator
+$T$ in $L^2(M,E)$ is {\bf an operator of $G$-trace class},
+if, for any $k\in C^{\infty}_c(G)$, the operator $R_E(k)T$
+is a trace class operator, and a functional
+%${\trG}(T)$ on $C^{\infty}_c(G)$, defined
+by the formula
+$$
+%({\trG}(T),k)=\tr R_E(k)T, k\in C^{\infty}_c(G),
+$$
+is a distribution on $G$.
+%In this case, the distribution ${\trG}(T)\in {\cal D}'(G)$
+is called  {\bf the $G$-trace} of the operator $T$.
+\end{definition}
+
+For any integral operator $T$ on $C^{\infty}(M,E)$
+%with the smooth kernel $K_T$, its $G$-trace ${\trG}(T)$ is
+a smooth function on the holonomy groupoid $G$, given
+by the formula
+$$
+%{\trG}(T)(\gamma)=K_T(r(\gamma),s(\gamma)),\gamma\in G.
+$$
+%Otherwise speaking, the $G$-trace ${\trG}(T)$ is obtained
+by pulling back of the integral kernel $K_T$ via the map
+$(r,s):G\rightarrow M\times M$.
+
+By Propositions~\ref{trace} and \ref{13}, we immediately obtain that
+any $P\in \Psi^{m,\mu}(M,{\cal F},E)$ with $m<-q$ is an operator
+of $G$-trace class.
+Indeed, the following, more general proposition is valid.
+\begin{proposition}
+\label{G-trace}
+Let $T$ be a bounded operator in $C^{\infty}(M,E)$, which extends to
+a bounded operator from $L^2(M,E)$
+to $H^{-m,-\mu}(M,{\cal F},E)$ with some $m<-q$ and
+$\mu$. Then $T$ is an operator
+of $G$-trace class with
+the following estimate of its $G$-trace:
+$$
+%|({\trG}(T),k)|\leq C_{\varepsilon}\|k\|_{q+\varepsilon,-m-\mu-q-\varepsilon,
+%	p+\varepsilon_1},
+$$
+where $\varepsilon>0$ and $\varepsilon_1>0$ are arbitrary
+constants such that $s>q+\varepsilon$.
+\end{proposition}
+\begin{proof} Let us fix some $\varepsilon>0$
+and $\varepsilon_1>0$ such that $m<-q-\varepsilon$. By Proposition~\ref{trace},
+we have
+$$
+|\tr R_E(k)P|\leq C\|R_E(k)P: L^2(M,E)\rightarrow
+H^{q+\varepsilon, p+\varepsilon_1}(M,{\cal F},E)\|.
+$$
+Using the embedding
+$H^{-m,-\mu}(M,{\cal F},E)\subset
+H^{q+\varepsilon, -m-\mu-q- \varepsilon}(M,{\cal F},E)$,
+we get
+\begin{eqnarray*}
+	\|R_E(k)P& : &L^2(M,E)\rightarrow
+	H^{q+\varepsilon,p+\varepsilon_1}(M,{\cal F},E)\|\\
+	&\leq &\|R_E(k): H^{q+\varepsilon, -m-\mu-q- \varepsilon}(M,{\cal F},E) 
+	\rightarrow H^{q+\varepsilon,p+\varepsilon_1}
+	(M,{\cal F},E)\|\\
+	& & \|P: L^2(M,E)\rightarrow H^{-m,-\mu}(M,{\cal F},E)\|,
+\end{eqnarray*}
+that completes the proof.
+\end{proof}
+
+Let $A\in \Psi^m(M,E)$ be a transversally elliptic operator. We
+assume that $A$ considered as an unbounded operator in $L^2(M,E)$ with
+the domain $C^{\infty}(M,E)$ is essentially self-adjoint.
+For any measurable, bounded function $f$ on ${\Bbb R}$,
+the bounded operator $f(A)$ in $L^2(M,E)$ is defined via the spectral theorem.
+\begin{proposition}
+\label{ftrace}
+For any measurable, bounded function $f$ on ${\Bbb R}$
+such that
+$$
+|f(\lambda)|\leq C(1+|\lambda|)^{-l}, \lambda\in {\Bbb R},
+$$
+with some $C>0$ and $l>q/m$, the operator
+$f(A)$ is an operator of $G$-trace class with the following
+estimate for its $G$-trace functional:
+$$
+%|({\trG}(f(A)),k)|\leq C_{\varepsilon}
+\|k\|_{ml,-ml,n+\varepsilon-ml}, k\in C^{\infty}_c(G).
+$$
+for any $\varepsilon>0$.
+\end{proposition}
+
+\begin{proof} 
+By (\ref{decom}) and Remark~\ref{adding}, we have
+\begin{equation}
+	\label{decom1}
+	A^{l}= P(l)+T(l),
+\end{equation}
+where $P(l)$ is an elliptic operator
+of class $\Psi^{ml}(M,E)$ with the positive principal symbol,
+and, for any real $s$, $T(l)$ defines a continuous mapping
+$$
+T(l):L^2(M,E)\rightarrow H^{s,-s-ml}(M,{\cal F},E).
+$$
+Let $Q\in\Psi^{-ml}(M,E)$ be a parametrix for $P$, that is, 
+\begin{equation}
+	\label{par}
+	QP(l)=I-K, K\in \Psi^{-\infty}(M,E).
+\end{equation}
+Let $B\in \Psi^{0,-\infty}(M,{\cal F},E)$ and $u\in C^{\infty}(M,E)$. 
+By (\ref{par}), we have the estimate
+$$
+\|Bf(A)u\|_{ml,t} \leq \|BQP(l)f(A)u\|_{ml,t} + \|BKf(A)u\|_{ml,t}
+$$
+The second term in the right-hand side of the last estimate can be estimated
+as follows:
+$$
+\|BKf(A)u\|_{ml,t}\leq C\|B\|_{ml,t,t}\sup |f(\lambda)|\,\|u\|.
+$$
+Let us turn to the first term. By (\ref{decom1}), we have
+$$
+\|BQP(l)f(A)u\|_{ml,t}\leq \|BQA^{l}f(A)u\|_{ml,t}+
+\|BQT(l)f(A)u\|_{ml,t}.
+$$
+Finally, the terms in the right-hand side of the last estimate can  
+be estimated as follows:
+\begin{eqnarray*}
+	\|BQA^{l}f(A)u\|_{ml,t}&\leq &C\|B\|_{ml,0,t}\sup |(1+|\lambda |)^{l}
+	f(\lambda)|\,\|u\|,\\
+	\|BQT(l)f(A)u\|_{ml,t}&\leq &C\|B\|_{ml,-ml,t}\sup |f(\lambda)|\,\|u\|.
+\end{eqnarray*} 
+Taking $t=n+\varepsilon-ml$ and applying Proposition~\ref{trace}, 
+we complete the proof.
+\end{proof}
+
+\begin{remark}
+Using Proposition~\ref{ftrace}, we can define distributional 
+spectral invariants of transversally elliptic operators like as
+a spectrum distribution function, a zeta function etc. We refer
+the reader to \cite{trans} for analogous results for transversally
+elliptic operators on manifolds equipped with a smooth action 
+of a (noncompact) Lie group. 
+\end{remark} 
+
+
+\subsection{Zeta-function}
+\label{zetaS}
+As in Section \ref{complex}, we assume that $A\in\Psi^{m}(M,E)$
+is a transversally elliptic classical
+pseudodifferential operator with the positive
+transversal principal symbol, which is essentially self-adjoint,
+invertible and positive definite in the Hilbert space $L^2(M,E)$
+(see (T1) and (T2) above). By Proposition~\ref{ftrace}, for any
+$\hbox{Re}\ z>q/m$, the operator $A^{-z}$ is an
+operator of $G$-trace, and {\bf the distributional zeta-function}
+of the operator $A$ is defined as follows:
+\begin{equation}
+\label{zeta}
+%\zeta_{A}(z)={\trG}(A^{-z}),\ \hbox{Re}\ z> q/m.
+\end{equation}
+Moreover, Proposition~\ref{ftrace} provides the following
+estimate for the distributional zeta-function with any $\varepsilon>0$:
+\begin{equation}
+\label{zest0}
+|(\zeta_{A}(z),k)|\leq C_{\varepsilon}
+\|k\|_{q,-q,p+\varepsilon}, k\in C^{\infty}_c(G),
+\hbox{Re}\ z> q/m.
+\end{equation}
+
+Now we turn to the problem of meromorphic continuation of
+$\zeta_A(z)$. Actually, we consider a little bit more general situation.
+\begin{theorem}
+\label{zeta1}
+Let $A$ as above and
+$Q\in \Psi^{l,-\infty}(M,{\cal F},E)$, $l\in {\Bbb Z}$. Then the function
+$z\mapsto \Tr(QA^{-z})$ is holomorphic for
+${\rm Re}\, z> l+q/m$ and admits a (unique) meromorphic continuation
+to ${\Bbb C}$ with at most simple
+poles at points $z_k=k/m$ with integer $k\leq l+q$. Its residue at
+$z=z_k$ is given by
+$$
+%\res_{z=z_k}\ \tr (QA^{-z})=q \tau(QA^{-k/m}).
+$$
+\end{theorem}
+
+\begin{proof} 
+Using (\ref{decom}),
+we construct a meromorphic continuation of
+$\tr(QA^{-z})$ as follows:
+$$
+%\tr(QA^{-z})= \TR(QP(z))+\tr(QT(z)).
+$$
+Here $QP(z)$ is a homomorphic family of operators of class
+$\Psi^{mz+l,-\infty}(M,{\cal F},E)$ and the meromorphic extension
+%of its trace is given by $\TR(QP(z))$ due to Proposition~\ref{extension}.
+Further, $QT(z)$ defines a continuous mapping
+$QT(z):L^2(M,E)\rightarrow H^{s}(M,E)$
+for any $s$. Therefore, by Proposition~\ref{trace}, the operator $QT(z)$
+is of trace class for any $z\in {\Bbb C}$ with $\tr(QT(z))$, being an
+entire function of $z$.
+\end{proof}
+As a corollary, we have the following result on a meromorphic continuation
+of the zeta-function, considered as a distribution on $G$.
+\begin{theorem}
+\label{zeta0}
+For any $k\in C^{\infty}_c(G)$, the zeta function
+$(\zeta_A(z),k)$ of the operator $A$ extends to a
+meromorphic function on the complex plane with simple poles at points
+$z=q/m,(q-1)/m,\ldots.$
+\end{theorem}
+For future references,
+we state the following theorem, which can be proved in the same manner
+(see \cite[Proposition 4.2]{KV2}).
+\begin{theorem}
+\label{zeta2}
+Let $A$ as above and
+$Q_j\in \Psi^{l_j,-\infty}(M,{\cal F},E)$, $l_j\in {\Bbb Z}$, $j=1,\ldots,
+N$. Then the function
+$$
+\zeta(z_1,\ldots,z_N)=\tr(Q_1A^{-z_1}\ldots Q_NA^{-z_N}), (z_1,\ldots,z_N)
+\in {\Bbb C}^N
+$$
+admits a (unique) meromorphic continuation
+to ${\Bbb C}^N$ with at most simple
+poles on the hyperplanes $\sum_{j=1}^N l_j-m\sum_{j=1}^N z_j=k\in {\Bbb Z},
+k\geq -q$.
+Its residue at this hyperplane is given by
+$$
+a%\res \zeta(z_1,\ldots,z_N) =q \tau(Q_1A^{-z_1}\ldots Q_NA^{-z_N}).
+$$
+\end{theorem}
 
 \subsection{Coverings of spectral triples}
 We leave to the reader construction of an infinite covering of spectral triples which correspond to the following mapping
@@ -32349,821 +34008,9 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 	\begin{remark}\label{foli_trans_rem}
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ principal  \ref{top_principal_defn} ly acts on leaves having no holonomy.
 	\end{remark}
-\section{Lie groupoids and Lie algebroids}
-\begin{definition} A submersion between two manifolds with corners $M$ 
-	and $N$ is a differentiable map $f:M \to N$ such that 
-	$df_x:T_{x}M \to T_{f(x)}N$
-	is onto for any $x \in M$, and if $df_x(v)$ is an inward
-	pointing tangent vector to $N$, then $v$ is an inward pointing tangent 
-	vector to $M$. 
-\end{definition}
-
-\begin{empt}
-	!!!  EXPLICIT GROUPOID 
-	This is the shortest but least explicit definition.
-	We are going to make this definition more explicit in cases of interest.
-	%
-	The set of objects, or units, of $\GR$ will be denoted by 
-	$$
-	M=\GR^{(0)}=\operatorname{Ob}(\GR).
-	$$ 
-	The set of morphisms, or arrows, of $\GR$
-	will be denoted by 
-	$$
-	\GR^{(1)}=\operatorname{Mor}(\GR).
-	$$
-	We shall sometimes  
-	write $\GR$ instead of $\GR^{(1)}$ by abuse of notation.  For example,
-	when we consider a space of functions on $\GR$, we actually
-	mean a space of functions on $\GR^{(1)}$. 
-	We will denote by $d(g)$ [respectively
-	$r(g)$] the {\em domain} [respectively, the {\em range}] of the morphism 
-	$g:d(g) \to r(g).$
-	We thus obtain functions 
-	\begin{equation}
-		d,r:  \GR^{(1)} \longrightarrow  \GR^{(0)}
-	\end{equation}
-	that will play an important role bellow.
-	The  multiplication operator $\mu: (g, h) \mapsto\mu(g,h)=g h$
-	is defined on the set of composable pairs of
-	arrows $\GR^{(2)}$:
-	%
-	\begin{equation}\label{Mu.everywhere}
-		\mu:\GR^{(2)}=\GR^{(1)}\times_M \GR^{(1)}:=\{(g,h):d(g)=r(h)\} \longrightarrow
-		\Gr1.
-	\end{equation}
-	The inversion operation is a bijection 
-	$\iota:g\mapsto g^{-1}$ of $\Gr1$.
-	Denoting by $u(x)$ the identity morphism of the object  $x \in M= \Gr0$,
-	we obtain an inclusion of $\Gr0$ into $\Gr1$.  
-	We see that a  groupoid $\GR$ is completely determined by 
-	the spaces $\Gr0$ and $\Gr1$ and the structural morphisms $d,r,\mu,u,\iota$.
-	We sometimes write $\GR=(\Gr0,\Gr1,d,r,\mu,u,\iota)$. The structural
-	maps satisfy the following properties:
-	\\
-	(i)  $r(gh)=r(g)$, $d(gh)=d(h)$ for any pair $(g,h)\in \GR^{(2)}$,
-	and the partially defined multiplication $\mu$ is associative.\\
-	(ii) $d(u(x))=r(u(x))=x$, $\forall x\in \GR^{(0)}$, $u(r(g))g=g$ and 
-	$gu(d(g))=g$,  $\forall g\in \GR^{(1)}$ and $u:\Gr0 \to \Gr1$
-	is one-to-one.\\
-	(iii) $r(g^{-1})=d(g)$, $d(g^{-1})=r(g)$, $gg^{-1}=u(r(g))$ and 
-	$g^{-1}g=u(d(g))$.
 	
 	
-\end{empt}
-
-\begin{definition}\label{Lie.Algebroid} A  Lie algebroid $A$  
-	over a manifold $M$ is a vector bundle $A$ over $M$ together with  a Lie
-	algebra structure on the space $\Gamma(A)$ of smooth sections of $A$,
-	and  a bundle map $\rho: A \rightarrow TP$, extended to a map between 
-	sections of these bundles,  such that
-	
-	(i) $\rho([X,Y])=[\rho(X),\rho(Y)]$; and
-	
-	(ii) $[X, fY] = f[X,Y] + (\rho(X) f)Y$
-	
-	\noindent for any smooth sections $X$ and $Y$ of $A$ and any smooth function
-	$f$ on $M$.
-\end{definition}
-\begin{empt}
-Note that we allow the base $M$ in the definition above to be a 
-manifold with corners. 
-
-If $\GR$ is an almost differentiable groupoid then $A(\GR)$ will
-naturally have the structure of a Lie algebroid \cite{Mackenzie1}. Let
-us recall how 
-this structure is defined (the original definition easily
-extends to include manifolds with corners). Clearly $A(\GR)$
-is a vector bundle. The right translation by an arrow $g \in \GR$
-defines a diffeomorphism $R_g:\GR_{r(g)}\ni g' \to g'g \in \GR_{d(g)}$. This
-allows us to talk about right invariant differential geometric 
-quantities as long as they are completely determined by their restriction
-to all submanifolds $\GR_x$. This is true of functions and $d$--vertical
-vector fields, and this is all that is needed in order to define the 
-Lie algebroid structure on $A(\GR)$.
-The sections of $A(\GR)$ are in
-one-to-one correspondence with vector fields $X$ on $\GR$ that
-are $d$--vertical, in the sense that $d_*(X(g))=0$, and right 
-invariant. The condition $d_*(X(g))=0$ means that $X$ is tangent to
-the submanifolds $\GR_x$, the fibers of $d$. The Lie bracket $[X,Y]$ of 
-two $d$--vertical right--invariant vector fields $X$ and $Y$ will
-also be $d$--vertical and right--invariant, and hence the Lie bracket 
-induces a Lie algebra structure on the sections of $A(\GR)$. To define
-the action of the sections of $A(\GR)$ on functions on $\Gr0$, observe that the
-right invariance property makes sense also for functions  on $\GR$ and that
-$\CI(\Gr0)$ may be identified with the subspace of right--invariant functions on
-$\GR$. If $X$ is a right--invariant vector field  on $\GR$ and
-$f$ is a right--invariant function on $\GR$ then $X(f)$ will still  be a 
-right invariant function. This identifies the action of $\Gamma(A(\GR))$
-on functions on $\Gr0$.
-
-Not every Lie algebroid is the
-Lie algebroid of a Lie groupoid (see \cite{al-mo:suites} for an
-example).  However, every 
-Lie
-algebroid {\em is} associated to a {\em local} Lie groupoid 
-\cite{Pradines1}. The definition
-of a local Lie (or more generally, almost differentiable) groupoid 
-\cite{VanEst1} is 
-obtained by relaxing the condition that the multiplication $\mu$
-be everywhere defined on $\Gr2$ (see Equation \eqref{Mu.everywhere}), 
-and replacing it by the condition that 
-$\mu$ be defined in a neighborhood $\mathcal U$ of the set of units.
-\end{empt}
-
-\begin{definition}[van Est] 
-	An almost differentiable local groupoid $\mathcal L
-	=(\mathcal L^{(0)},\mathcal L^{(1)})$ is a pair of manifolds
-	with corners together with structural
-	morphisms $d,r: \mathcal L^{(1)} \to \mathcal L^{(0)}$, 
-	$\iota:\mathcal L^{(1)} \to
-	\mathcal L^{(1)}$, $u:\mathcal L^{(0)} \to \mathcal L^{(1)}$ and $\mu:
-	\mathcal U \to \mathcal L^{(1)}$, where $\mathcal U$ is a neighborhood of 
-	$(u \times u)(\mathcal L^{(0)})=\{(u(x),u(x))\}$
-	in $\mathcal L^{(2)}=\{(g,h), d(g)=r(h)\} 
-	\subset \mathcal L^{(1)} \times \mathcal L^{(1)}$.
-	The structural morphisms are required to be differentiable maps such that 
-	$d$ is a submersion, $u$ is an
-	embedding, and to satisfy the following properties:
-	
-	(i) The products $u(d(g))g$, $gu(r(g))$, $g g^{-1}$ and
-	$g^{-1}g$ are defined and coincide with, respectively, $g$, $g$, 
-	$u(r(g))$ and $u(d(g))$; where we denoted $g^{-1}=\iota(g)$ as usual.
-	
-	(ii) If $gh$ is defined, then $h^{-1}g^{-1}$ is defined and equal
-	to $(gh)^{-1}$.
-	
-	(iii) (Local associativity) If $gg'$, $g'g''$ and $(gg')g''$ are defined
-	then $g(g'g'')$ is also defined and equal to $(gg')g''$.
-\end{definition}
-\begin{empt}
-The set $\mathcal U$ is the set 
-of arrows for which the product $gh=\mu(g,h)$ is defined.
-
-We see that the only difference between a groupoid and a local groupoid
-${\mathcal L}$ is the fact that the condition $d(g)=r(h)$ is  necessary for
-the product $gh=\mu(g,h)$ to be defined, but not sufficient in general. 
-The product is defined as soon as the arrows $g$ and $h$ 
-are ``small enough''.
-A consequence of this definition is that the right multiplication by
-an arrow $g \in \mathcal L^{(1)}$ defines only a diffeomorphism 
-\begin{equation}\label{local.isomorphism.for.sets}
-	\mathcal U_{g^{-1}} \ni g' \to g'g \in \mathcal U_{g}
-\end{equation}
-of an open (and possibly empty) subset $\mathcal U_{g^{-1}}$ of 
-${\mathcal L}_y$, $y=r(g)$ to an  open subset 
-$\mathcal U_{g} \subset {\mathcal L}_x$, $x=d(g)$. This will not
-affect the considerations above, however, so  we can associate a
-Lie algebroid $A(\mathcal L)$ to any almost differentiable local
-groupoid $\mathcal L$. 
-
-In the following, when considering groupoids, we shall sometimes 
-refer to them as {\em global} groupoids, in order to stress the difference 
-between groupoids and  local groupoids. Consider a complex vector bundle $E$ on the space of units $\Gr0$
-of an almost differentiable groupoid $\GR$.
-Denote by $r^*(E)$ its pull-back to $\Gr1$. Right translations on $\GR$
-define linear isomorphisms 
-\begin{gather}\label{isomorphism}
-	U_g:\CI(\GR_{d(g)},r^*(E)) \to \CI(\GR_{r(g)},r^*(E))  \\ \nonumber
-	(U_gf)(g')=f(g'g) \in (r^*E)_{g'}
-\end{gather}
-which  makes sense because $(r^*E)_{g'}=(r^*E)_{g'g}=E_{r(g')}$. 
-
-If $\GR$ is merely a {\em local} groupoid then \eqref{isomorphism}
-is replaced by the isomorphisms
-\begin{equation}\label{Local.isomorphism}
-	U_g:\CI({\mathcal U}_{g},r^*(E)) \to \CI({\mathcal U}_{g^{-1}},r^*(E)) 
-\end{equation}
-defined for the  open subsets ${\mathcal U}_{g} \subset \GR_{d(g)}$
-and ${\mathcal U}_{g^{-1}} \subset \GR_{r(g)}$ defined in 
-\eqref{local.isomorphism.for.sets}.
-
-\end{empt}
-
-\subsection{Classical symbols of complex orders}
-
-\paragraph{} For $\sU$ an open set in $\R^n$ and $m_0 \in \R$,
-denote by $\sS^{m_0}\left(\sU, \R^p \right)$  (the space of {\it symbols}) the set of smooth complex-valued functions on
-$\sU \times \R^p$ such that
-\begin{equation}
-	\label{eq.symbol.estimates}
-	|\partial_y^\alpha \partial_\xi^\beta a(y,\xi)| \leq C_{K,\alpha,\beta}
-	(1+|\xi|)^{m-|\beta|}
-\end{equation}
-for any compact set $K\subset \sU$ and any multiindices $\alpha$ and $\beta$, $\left(y, \xi \right)\in K\times \R^p$. Taking the smallest possible
-constant $C_{K,\alpha,\beta}$ in the above inequality (for fixed $K, \a$ and $\bt$), we get a family of semi-norms, that defines a natural Fr残het topology on $\sS^{m_0}\left(\sU, \R^p \right)$; the space$\sS^{m_0}\left(\sU, \R^p \right)$ will be simply
-denoted by $\sS^{m_0}\left(\sU \right)$. We will in fact use a particular class of symbols: the polyhomogeneous ones.
-A function $f \in \Coo\left\{\R^p \setminus \{0\}\right\}$ is {\it positively homogeneous} of degree $l \in \C$ whenever $f (t\xi) =
-t^l f (\xi)$ for all $\xi \neq 0$ and all $t > 0$. Let $m$ be a complex number of real part $m_0$. We say that a symbol $a \in \sS^{m_0}\left(\sU, \R^p \right)$  admits a  polyhomogeneous expansion if there exists, for every $j \in \N$ a function $a_{m-j} \in \Coo\left( \sU\times \left(  \R^p \setminus \{0\}\right) \right)$ that is positively homogeneous of degree $m ? j$ in its second variable such that if a $\Coo$ cut-off function $\chi$ on $\R^p$ , with $\chi\left(\xi\right)$   if $|\xi | < 1/2$ and
-$\chi\left(\xi \right) = 1$ if $\left| \xi \right|  \ge 1$ then for all $N\in \N$
-$$
-a\left(y, \xi \right) - \chi\left(\xi \right) \sum_{k=0}^{N-1} a_{m-k}\left(y, \xi \right) \in \sS^{m_0-N}\left(\sU \right). 
-$$
-  We call $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$ the set of such polyhomogeneous symbols of order $m$. Note that this
-  property does not depend on the cut-off function $\chi$. Note also that for each $j$, we have  $\chi\left( \xi\right) a_{m-j}\sS^{m_0-j}\left( \sU\right) $, and that the functions $a_{m-j}$ are uniquely determined on the sphere bundle $\sU \times S^{p-1}$ 
-  The natural topology on $\Coo\left(\sU \times S^{p-1} \right)$  is the topology of uniform convergence on compact
-  subsets of the function and all its derivatives. This allows us to define the correct topology on  the spaces $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$. Indeed, these sets $ \sS^{m}_{\mathrm{hom}}\left(\sU \right)$ are not closed in $ \sS^{m}\left(\sU \right)$ for the
-  Fr残het topology of semi-norms defined previously. Let $\chi$ be a cut-off function as above. The
-  topology on $\sS^{m}\left(\sU \right)$ is the weakest topology making the following maps continuous:
-  \begin{itemize}
-  	\item $a \mapsto a_{m-j} \in \Coo\left( \sU \times S^{p-1}\right)$  for all $j \in \N$ (with its natural topology);
-  	\item $a \mapsto a - \chi \in \sS^{m_0-N-1}$ for all $j \in \N$ ( (for the above Fr残het topology (for the above Fr残het topology), for all $N \in \N$.
-  \end{itemize}
-	\subsection{Families of classical operators}
-	\paragraph{} We now come to the notion of families of ordinary pseudodifferential operators. To begin we
-	recall the definition of a map of class $C^{\infty, k}$ By convention
-	if $k \in \N \cup \left\{\infty\right\}$ a $C^k$-{\it space } is a manifold of class $C^k$ except in the case when $k = 0$, where we
-	allow $M$ to be any Hausdorff locally compact space.
-\begin{definition}
-%Definition 5. 
-Let $M$  be a $C^k$-space (for any $k \ge 0$), and $\sU$ an open set in $\R^p$. A map $\psi$ from $\sU \times  M$ to $\R^n$ is said to be of {\it class} $C^{\infty, 0}$ if the map $v \mapsto \psi \left(\cdot, v \right)$  is continuous from $M$ to $\Coo\left( \sU, \R^n\right)$, endowed with the topology of uniform convergence on compact subsets of the function
-and of its derivatives. If $M$ is a $C^k$-space, a map $\psi$ from $\sU\times M$ to $\R^n$ is said to be of class $C^{\infty, k}$ , with $k \in \N \cup \{\infty \}$ if the map $v \mapsto \psi\left(\cdot, v \right)$   is of class $C^k$  from $M$ to $\Coo\left(\sU, \R^n \right)$. 
-
-\end{definition}
-\begin{definition}
-%Definition 6. 
-Let $M$ be a $C^k$-space and m be a map of class $C^k$ from $M$ to $\C$. A $C^k$-family of polyhomogeneous symbols of order $m$ is a map 
-\bean
-M \to S^0_{\text{hom}}\left(\sU \right),\\
-x \mapsto \chi\left( \xi \right) \left\| \xi\right\|^{-m\left(x \right) }  a\left(u, \xi, x \right) 
-\eean 
-is of class $C^k$ , where the space $\sS^0_{\text{hom}}\left(\sU \right)$ is endowed with its natural topology described above.
-\end{definition}	
-\begin{definition}
-Let $\sU$ be an open set in $\R^p$, $M$ a locally compact Hausdorff space, and $m$ a map of class $C^k$ from $M$ to $\C$. A $C^k$-{\it family} of classical pseudodifferential operators of order $m$ with
-compact support in $\sU \times M$ is a family $P_x\in \mathcal P^{m\left( v\right) }_c\left( \sU\right)$ 
- such that for all $f \in \Coo_c\left( \sU\right)$ , the operator
-$P_xf$ is given, for $x \in M$, by
-\bean
-\left(P_x f \right) = \frac{1}{\left(2 \pi  \right)^p }\int_{\sU}\int_{\R^p} a\left(u', \xi, x \right) f\left(u' \right) e^{i\left( u'-u, \xi \right)  } d\xi d u'
-\eean
-with the condition that the map $M \to \SS^{m\left( \cdot \right) }_{\text{hom}}\left(\sU \right)$ $x \mapsto a\left(u', x \xi \right)$  is of class $C^k$ .
-\end{definition}
-\begin{proposition}
-%Proposition 8. 
-We have the following analogues of classical properties: !!!
-\begin{enumerate}
-	\item [(1)]
-	The adjoint of a $C^k$-family of classical pseudodifferential operators of order $m(\cdot)$ with compact
-	support in $\sU\times M$ is still a $C^k$-family of classical pseudodifferential operators of
-	order $m(\cdot)$  with compact support in $\sU \times M$.
-\item [(2)] Let $m$ and $n$ be maps of class $C^k$ from $M$ to $\C$ then, if $A\in   \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$  and $B\in   \SS^{n\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$ then $AB\in   \SS^{m\left( \cdot \right) +n\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$
-
-\item [(3)]   Let $\kappa$ be a $\Coo$-diffeomorphism from $\sU$ onto itself. Take $a_\kappa \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$, and denote by $A$  the
-	corresponding family of pseudodifferential operator and by a? the map defined by
-$$
-a_\kappa \left( \kappa (x), \eta\right)  = e^{-\left(\kappa (x), \eta  \right)  } A\left(x \right) e^{\left(\kappa (x), \eta  \right)}
-$$
-	Then we have $a_\kappa \in  \SS^{m\left( \cdot \right) }_{\mathrm{hom}}\left(\sU \times M\right)$
-\end{enumerate}
-\end{proposition}
-\subsection{Pseudodifferential $\G$-operators}	
-	The definition of a $C^{\infty,k}$-function can be extended to the situation of a groupoid in a natural  way. Let $p X \to M$ be a submersion between smooth manifolds. We say that a function $f$ on $X$
-	is  $C^{\infty,k}$ with respect to the submersion when for any trivializing open set for the submersion
-	of the form $\Om \cong \sU \times \sY$ with $\sV$ an open set of $M$, the restriction of $f$  to $\sU \times \sV$ is $C^{\infty,k}$. If
-$\G$ is a Lie groupoid, we say that a function on $\G$ is $C^{\infty,k}$, when it is $C^{\infty,k}$ with respect to the
-	submersion $s : \G \to \G^{(0)}$.
-
-In the special case of Lie groupoids, we have a notion of invariant families of operators (unnecessarily pseudodifferential). An element $\ga \in \G$  acts by right translation in the following way:
-$$
-U_\ga : \Coo\left( \G_{r(\ga)}\right) \to \Coo\left( \G_{s(\ga)}\right); \quad \left(U_\ga f \right) \left( \ga' \right) \bydef f \left(\ga' \ga \right) 
-$$	
-\begin{definition}
-A $\G$-{\it operator} of class $C^k$ is then an operator $P$  acting on $C^{\infty, k}$, the space of compactly supported $C^{\infty, k}$-functions on G such that there exists a family $\left\{P_x\right\}_{x \in M}$ of operators acting
-respectively on $C^{\infty}\left( \G_x\right)$, with
-\bea
-\left(P f \right) \left(\ga  \right) = \left(P_{s\left(\ga \right) } f_{S\left( \ga\right) } \right) \left(\ga  \right),\\
-%P_{s\left( \ga \right) }= U_\ga P_{r\left\ga \right) }
-\eea
-with $\ga \in \G, ~ f \in C^{\infty, k}\left(\G \right)$, and $f_x$ the restriction of $f$ to $\G_x$.
-
-Such a $\G$-operator of class $C^K$ is characterized by a distributional kernel $k_P$ on $\G$, which is a $C^k$ -family of distributions $k_x$ on $\G_x$:
-\bean
-\left(Pf \right) \left(\ga \right)= \int_{\G_{s(\ga)}}k_P\left( \ga\ga'^{-1}\right) f\left(\ga' \right) d\la_{s(\ga)}  \left(\ga' \right) = \int_{\G^{r(\ga)}}k_P\left( \ga'\right) f\left(\ga'^{-1}\ga \right) d\la^{r(\ga)} \left(\ga' \right). 
-\eean 
-It is said to be {\it compactly (or uniformly) supported} when $k_P$ is compactly supported in $\G$, and {\it smoothing with compact support} when $k_P \in C^{\infty, k}_c\left(\G \right)$. 
-
-\end{definition}
-	Let $p: X \to M$ be a submersion between smooth manifolds. To any such submersion is naturally
-	associated a Lie groupoid $\G\left( X, p, M\right)$  which is the closed subspace of the groupoid of couples
-	$X \times X$ made out of couples $(y, y')$ such that $p(y) = p(y')$ 
- The source map is $s((y, y')) = y'$
-	and the range map is $r((y, y') = y'$
-The composition is the one of couples $(y, z) \circ (z, t) = (y, t)$.
-\begin{definition}
-%Definition 9. 
-Let $p: X \to M$ be a submersion and $m$ be a $C^{\infty, k}$ map.
-A (properly supported) $C^k$-{\it family} of classical pseudodifferential operators of order $m$ is a
-compactly supported $\G(X,p,M)$-operator such that the family $P_x \in \mathcal P^m\left(p^{-1}\left(x \right)  \right)$  satisfies:
-\begin{itemize}
-	\item 	for each trivializing open set $\Om \cong \sU \times \sV$ and all $\phi, \psi \in C^{\infty, k}\left(X \right)$  with support in $\Om$, the	operator $\phi P_x \psi$ viewed as an operator on $C^k$ is a compactly supported $C^k$ -family of
-	classical pseudodifferential operators of order m in the sense defined above;
-	\item for all maps $\phi, \psi \in C^{\infty, k}\left(X \right)$  with disjoint supports, the operator  $\phi P_x \psi$  is a compactly
-	supported smoothing $\G$-operator.
-\end{itemize}
-We denote by $\mathcal P^m_k(X,p,M)$ the set of these operators.
-\end{definition}
-\begin{proposition}
-%Proposition 10. 
-If $P \in \mathcal P^m_k\left( X, p, M\right)$ and   $Q \in \mathcal P^n_k\left( X, p, M\right)$ are pseudodifferential operators
-then $PQ \in P^{m + n}_k\left( X, p, M\right)$.
-\end{proposition}
-\begin{definition}
-%Definition 11. 
-We will say that a compactly supported $\G$-operator $P$ is a {\it pseudodifferential operator of class} $C^k$ if the family $\left\{P_x\right\}_{x \in M}$ is a $C^k$-family of pseudodifferential operators of order $m$ for the submersion $s : \G \to \G^{(0)}$. We denote by $\Psi^m_{c, k}$ this space of operators.
-\end{definition}
-This definition also implies that the pseudodifferential operators $P_x$ on $\G_x$ vary in a $C^k$-manner:
-for any open chart $\Om \subset \G$ diffeomorphic to $\sU \times s\left( \Om\right)$, and for any $\phi \in C^{\infty, k}_c\left( \Om\right)$, there
-exists a $C^k$ -family $\left\{a_x\right\}_{x \in s\left( \Om\right) }$ of polyhomogeneous symbols of order $m$ on $\sU$ such that the compactly
-supported operator $\phi P_x \phi$ corresponds to $Op(a_x )$ under the diffeomorphism $\Om \cap \G_x \cong \sU$.
-\subsection{Principal and total symbol of a pseudodifferential $\G$-operator}
-\paragraph{}
-Note that in general a $C^k$ -family of symbols $\left\{a_x\right\}_{x \in s\left(\Om \right) }$ of polyhomogeneous symbols of
-order $m$ on $\sU$ in any chart $\Om$ is not enough to define a $\G$-operator, since this family has to
-satisfy an invariance property .We can associate to any G-operator a total symbol, which is given as a family of symbols $a_x \in \SS^m_{\text{hom}}\left(T^*_x\G_x \right)$, but not in a unique way. However, we can associate canonically a principal symbol to any pseudodifferential operator.
-
-
-The principal symbol  of a compactly supported pseudodifferential operator is defined
-by $\sigma_m\left( P\right)\left(\xi \right)= \sigma_m\left(P_x \right)\left( \xi\right)$ Note that using homogeneity, it can be defined
-as an element
-$$
-\sigma_m\left(P\right)\in C^{\infty,k}\left(S^*\left(\G \right)  \right), 
-$$
-with $S^*\left(\G \right)$ the "co-sphere bundle" of $\G$, i.e. the quotient of $A^*\G \setminus\{0\}$ by the action of $\R^*_+$.
-\begin{theorem}
-	
-\begin{enumerate}
-	\item[(1)] $\Psi^{m\left(\cdot \right) }_{c, k}\left(\G \right)\circ \Psi^{m'\left(\cdot \right) }_{c, k}\left(\G \right)\Psi^{m\left(\cdot \right)+ m'\left(\cdot \right)  }_{c, k}\left(\G \right)$.
-	\item[(2)] $\sigma_{m + m'} \left(P Q \right)  = \sigma_{m'} \left(P \right) \circ \sigma_{m'} \left( Q \right)$.
-	\item[(3)] $\sigma_m$ rise to the following short exact sequence:
-	$$
-	\{0\}\to \Psi^{m\left(\cdot \right)-1 }_{c, k}\left(\G \right) \to \Psi^{m\left(\cdot \right) }_{c, k}\left(\G \right) \xrightarrow{\sigma_m}C^{\infty, k} C^{\infty, k}\left(S^*\left( \G\right)  \right) \to \{0\}.
-	$$
-\end{enumerate}
-\end{theorem}
-\begin{definition}
-%Definition 13. 
-Let $m$ be a $C^k$ map on $\G^{(0)}$ such that $ m(x) = m(y)$ whenever $\G^y_x$ is nonempty. We denote by $\SS^{m(\cdot)}_{\text{hom},k}\left(A^*\left( \G\right)  \right)$  the subspace of $C^{\infty,k}\left(A^*\left(\G \right)  \right)$ such that $\forall x \in M$, $a_x \in \SS^{m(x)}_{\text{hom}}\left(\{x\}, T^*_x \G_x \right)$ and such that for any trivializing open set $\Om \in A^*\left( \G^*\right)$, with $\Om  \cong \sU \times s\left( \Om\right)$, $x \mapsto a_x$  is a $C^k$ map, in the sense defined previously. 
-\end{definition}
-Now given such a symbol, we can define a compactly supported $\G$-pseudodifferential operator
-associated to it. Unlike the case of manifolds, there is not a unique way to do so, since in general
-there is no canonical Fourier transform on $\G$. We can determine a formula as follows. Suppose
-we are given a diffeomorphism $\phi$ from a neighborhood $W$ of $\G^{(0)}$ in $\G$ to a neighborhood of the 0 section in $A(\G)$, with $d \phi = \Id$, and a cut-off map $\chi$, with support in $W$. Then set, for
-$\xi \in A^*_x\left(\G \right)$  and $\ga \in \G_x, ~ e_\xi \left(\ga \right) = \chi\left(\ga \right) e^{i\left(\phi\left(y \right), \xi  \right) }$. We then have the following.
-\begin{proposition}
-%	Proposition 14. 
-	Let $a \in \SS^{m(\cdot)}_{\mathrm{hom}, k}\left(A^*\left(\G \right)  \right)$. Denote by $Op(a)$ the $\G$-operator defined by its kernel
-	$$
-k\left(\ga \right) = \frac{1}{\left(2 \pi \right)^n }\int_{A^*_{r\left( \ga\right)\left( \G\right)  }}e_{-\xi}\left( \ga^{-1}\right)a\left( r\left(\ga \right), \xi \right)  d \xi.
-$$
-Then $Op(a)$ is in $\Psi^{m\left(\cdot \right) }_{c,k}\left( \G\right)$.
-
-Moreover, if we denote by am the homogeneous principal symbol, then we have
-$$
-\sigma_m\left(Op\left( a\right) \right)= a_m.
-$$
-\end{proposition}
-\begin{empt}  !!! MAY BE DELETE
-
-Let $\sU\subset \RR^n$ be an open subset.
-Define the space ${\mathcal S}^m(B \times \RR^n)$ of 
-symbols on the bundle $\sU \times \RR^n \to \sU$  as in \cite{Hormander3} 
-to be the set of smooth functions $a:\sU \times \RR^n \to \CC$ 
-such that
-\begin{equation}
-	\label{eq.symbol.estimates!}!!!
-	|\partial_y^\alpha \partial_\xi^\beta a(y,\xi)| \leq C_{K,\alpha,\beta}
-	(1+|\xi|)^{m-|\beta|}
-\end{equation}
-
-for any compact set $K\subset B$ and any multiindices $\alpha$ and $\beta$.
-
-
-
-An element of one of our spaces $S^m$ should properly be said to have
-``order less than or equal to $m$''; however, by abuse of language we
-will say that it has ``order $m$''.
-
-
-A symbol $a \in {\mathcal S}^m(B \times \RR^n)$ is called {\em classical} if
-it has an asymptotic expansion as an infinite sum of homogeneous symbols
-$a \sim \sum_{k=0}^\infty a_{m-k}$, $a_l$ homogeneous 
-of degree $l$: $a_l(y,t\xi)=t^la_l(y,\xi)$ if $\|\xi\|\geq 1$
-and $t \geq 1$. (``Asymptotic 
-expansion''  is used here in the sense 
-that $a -\sum_{k=0}^{N-1} a_{m-k}$ belongs to 
-${\mathcal S}^{m-N}(B \times \RR^n)$.) The space of classical symbols
-will be denoted by ${\mathcal S}^m_{\mathfrak{cl}}(B \times \RR^n)$. We shall be
-working exclusively with classical symbols in this paper.
-
-This definition immediately extends to give spaces ${\mathcal
-	S}_{\mathfrak{cl}}^m(E;F)$ of symbols on $E$ with values in $F$, where $\pi:E
-\to B$ and $F \to B$ are smooth euclidian vector bundles.  These
-spaces, which are independent of the metrics used in their definition,
-are sometimes denoted ${\mathcal S}_{\mathfrak{cl}}^m(E;\pi^*(F))$.  Taking $E=B
-\times \RR^n$ and $F=\CC$ one recovers ${\mathcal S}_{\mathfrak{cl}}^m(B \times
-\RR^n)={\mathcal S}_{\mathfrak{cl}}^m(B \times \RR^n;\CC)$.
-
-A pseudodifferential operator 
-$P$ on $B$ is a linear map $P:\CIc(B) \to \CI(B)$ 
-that is locally of the form $P=a(y,D_y)$ plus a regularizing operator,
-where for any complex valued symbol $a$ on $T^*W=W \times \RR^n$, 
-$W$ an open subset of $\RR^n$, one defines $a(y,D_y):\CIc(W) \to \CI(W)$ by
-\begin{equation}
-	a(y,D_y)u(y)=(2\pi)^{-n}\int_{\RR^n}e^{i y\cdot \xi}
-	a(y,\xi)\hat{u}(\xi)d\xi\,.
-\end{equation} 
-Recall that an operator $T:\CIc(U) \to \CI(V)$ is called
-{\em regularizing} if and only if it
-has a smooth distribution (or Schwartz) kernel. This happens if and only if
-$T$ is pseudodifferential of order $-\infty$.
-
-The class of $a$ in 
-${\mathcal S}_{\mathfrak{cl}}^m(T^*W)/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*W)$
-does not depend on any choices; the collection of all these classes,
-for all coordinate neighborhoods $W$, patches together to 
-define a class $\sigma_m(P)\in {\mathcal S}_{\mathfrak{cl}}^m(T^*W)
-/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*W)$ which is called {\em the principal
-	symbol} of $P$. If the operator $P$ acts on sections of
-a vector bundle $E$, then the principal symbol 
-$\sigma_m(P)$ will belong to 
-${\mathcal S}_{\mathfrak{cl}}^m(T^*B;\End(E))/{\mathcal S}_{\mathfrak{cl}}^{m-1}(T^*B;\End(E))$.
-See \cite{Hormander3} for more details on all these constructions.
-
-We shall sometimes refer to pseudodifferential operators acting 
-on a smooth manifold as {\em ordinary} pseudodifferential operators,
-in order to distinguish them from pseudodifferential operators
-on groupoids, a class of operators  which we now
-define (and which are really {\em families} of ordinary pseudodifferential 
-operators).
-
-Throughout this paper,  we shall denote  by $(P_x,x \in \Gr0)$ a family 
-of order $m$ pseudodifferential operators $P_x$,
-acting on the spaces $\CIc(\GR_x,r^*(E))$ for some vector bundle $E$
-over $\Gr0$. Operators between sections of two {\em different} vector
-bundles $E_1$ and $E_2$ are obtained by considering $E=E_1 \oplus E_2$.
-\end{empt}
-\begin{definition}\label{Def.Differentiable}
-	A family $(P_x,x \in \Gr0)$ as above is called differentiable
-	if for any open set $V\subset \GR$, diffeomorphic through a 
-	fiber preserving diffeomorphism to $d(V) \times W$, 
-	for some open subset $W \subset \RR^n$, and any $\phi \in \CIc(V)$, 
-	we can find $a \in {\mathcal S}_{\mathfrak{cl}}^m(d(V) \times T^*V;\End(E))$
-	such that $\phi P_x \phi$ corresponds to $a(x,y,D_y)$ 
-	under the diffeomorphism  $\GR_x\cap V \simeq W$, for each $x \in d(V)$.
-\end{definition}
-A fiber preserving diffeomorphism is a diffeomorphism 
-$\psi:d(V) \times W \to V$ satisfying $d(\psi(x,w))=x$.
-Thus we require that the operators $P_x$ be
-given  in local coordinates by symbols $a_x$ that depend smoothly on
-all variables, in particular 
-on $x\in \Gr0$.
-
-\begin{definition}\label{Main.definition}
-	An order $m$ invariant pseudodifferential operator $P$ 
-	on  an almost differentiable groupoid 
-	$\GR$, acting on sections of the vector bundle $E$,
-	is a differentiable family $(P_x,x \in \Gr0)$
-	of order $m$ classical pseudodifferential operators $P_x$
-	acting on $\CIc(\GR_x,r^*(E))$ and satisfying 
-	\begin{equation}
-		P_{r(g)}U_g = U_g P_{d(g)}\;(invariance)%\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\
-	\end{equation}
-	for any $g \in \Gr1$, where $U_g$ is as in \eqref{isomorphism}. 
-\end{definition}
-
-Replacing the coefficient bundle $E$ by $E \otimes \VD^\lambda$  and using the
-isomorphism $\Omega_d^{\lambda}\simeq r^*(\VD^{\lambda})$, we obtain
-operators acting on  
-sections of density bundles.  Note that $P$ can generally {\em
-	not} be considered as a single pseudodifferential operator on $\Gr1$.
-This is because a family of pseudodifferential operators on a smooth manifold
-$M$, parameterized by a smooth manifold $B$, is not a pseudodifferential 
-operator on the product $M \times B$, although it acts naturally on 
-$\CIc(M \times B)$. (See \cite{Atiyah-Singer4} or \cite{Hormander3}, page 94.) 
-
-Recall \cite{Hormander1} that distributions on a manifold $Y$ with
-coefficients in the bundle $E_0$ are continuous linear
-maps $\CIc(Y,E_0'\otimes \Omega) \to \CC$, where $E_0'$ is the dual
-bundle to $E_0$ and  $\Omega=\Omega(Y)$
-is the space of $1$-densities on $Y$. The collection of all
-distributions on $Y$ with coefficients in the (finite dimensional
-complex vector) bundle $E_0$ is denoted
-${\mathcal C}^{-\infty}(Y;E_0)$.
-
-If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is a family of pseudodifferential operators
-acting on $\GR_x$ denote by $k_{x}$ the distribution kernel of $P_x$
-\begin{equation}
-	\label{kernel}
-	k_{x} \in {\mathcal C}^{-\infty}(\GR_x \times \GR_x;
-	r_1^*(E) \otimes r_2^*(E)' \otimes \Omega_2).
-\end{equation}
-Here $\Omega_2$ is the pull-back of the bundle of vertical densities $\Omega_d$ 
-on $\GR_x$ to $\GR_x \times \GR_x$ via the second projection. These
-distribution kernels are obtained using Schwartz' kernel theorem.
-We define the support of the operator $P$ to be
-\begin{equation}
-	\label{support}\supp (P) = \overline{\cup_x \supp(k_{x})}.
-\end{equation}
-The support of $P$ is contained in the closed subset
-$\{(g,g'), d(g)=d(g')\}$ of the product $\Gr1 \times \Gr1$. In particular
-$(id \times \iota) ( \supp (P) ) \subset \Gr2$. If all operators
-$P_x$ are of order $-\infty$, then each kernel $k_x$ is a smooth
-section. Actually we have more
-
-\begin{lemma}\label{Lemma.Smoothness}
-	The collection of all distribution kernels $k_x$ of a differentiable 
-	family $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of order $-\infty$ operators 
-	defines a smooth section $k$ of $r_1^*(E) \otimes r_2^*(E)' \otimes \Omega_2$
-	on $\{(g,g'), d(g)=d(g')\}$. 
-\end{lemma}
-
-
-\begin{definition}
-	The family $P=(P_x,x \in \Gr 0)$ is properly supported
-	if $p_i^{-1}(K) \cap \supp(P)$ is
-	a compact set for any compact subset $K \subset \GR$, where
-	$p_1,p_2 :\GR \times \GR \to \GR$ are the two projections.
-	The family  $P$ is called compactly supported if its support
-	$\supp(P)$ is compact; and, finally, $P$ is called uniformly supported if
-	its reduced support $\supp_\mu(P)=\mu_1(\supp(P))$ is 
-	a compact subset of $\Gr 1$, where $\mu_1(g',g)=g'g^{-1}$. 
-\end{definition}
-
-It  immediately follows from the definition that a uniformly supported 
-operator is also properly supported, and that a 
-compactly supported operator is uniformly supported. If the family
-$P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is properly supported then each $P_x$ is properly supported, but
-the converse is not true.
-
-Recall that the composition of two ordinary 
-pseudodifferential operators is defined
-if one of them is properly supported. 
-It follows that we can define the composition $PQ$ 
-of two properly supported families of operators 
-$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$ on $\Gr 1$
-by pointwise composition $PQ=(P_xQ_x,x \in \Gr0)$. The action on sections
-of $r^*(E)$ is also defined pointwise as follows.
-For any smooth section $f\in  \CI(\GR,r^*(E))$ denote by $f_x$ the
-restriction $f\vert_{\GR_x}$. 
-If each $f_x$ has compact support and $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is a family of
-ordinary pseudodifferential operators, then we define $Pf$ by 
-$(Pf)_x=P_{x}(f_x).$ 
-
-\begin{lemma}\label{Lemma.Differentiable}
-	(i) If $f \in \CIc(\GR,r^*(E))$ and $P=(P_x,x \in \Gr0)$ 
-	is a differentiable family of ordinary pseudodifferential operators 
-	then $Pf \in \CI(\GR,r^*(E))$. If $P$ is also properly supported then
-	$Pf \in \CIc(\GR,r^*(E))$.
-	
-	(ii) The composition $PQ=(P_xQ_x,x \in \Gr0)$
-	of two properly supported differentiable families of operators 
-	$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$
-	is a properly supported differentiable family. 
-\end{lemma}
-The smaller class of uniformly supported operators is also closed under
-composition.
-
-\begin{lemma}\label{Lemma.Support}
-	The composition $PQ=(P_xQ_x,x \in \Gr0)$
-	of two uniformly supported families of operators 
-	$P=(P_x,x \in \Gr0)$ and $Q=(Q_x,x \in \Gr0)$
-	is uniformly supported. 
-\end{lemma}
-Let $\GR$ be an almost differentiable groupoid.
-The space of order $m$, invariant, {\em uniformly} supported pseudodifferential
-operators on $\GR$, acting on  sections of the vector bundle $E$
-will  be  denoted by $\PS m$. We denote 
-$\PS{\infty}=\cup_{m \in \ZZ}\PS{m}$
-and $\PS{-\infty}=\cap_{m \in \ZZ}\PS{m}$. Thus an operator
-$P \in \PS{m}$ is actually a differentiable family $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of ordinary
-pseudodifferential operators.
-
-\begin{theorem}\label{Theorem.Algebra} 
-	The set $\PS{\infty}$ of uniformly supported
-	invariant pseudodifferential operators on an almost differentiable groupoid
-	$\GR$ is a filtered  algebra, i.e. $$\PS{m}\PS{m'}\subset \PS{m+m'}.$$
-	In particular $\PS{-\infty}$ is a two-sided ideal.
-\end{theorem}
-\begin{empt}
-Properly supported invariant differentiable families
-of pseudodifferential operators also form
-a filtered algebra, denoted $\Psi_{\operatorname{prop}}^{\infty}(\GR;E)$.  
-While it is clear that in order for our class of pseudodifferential 
-operators to form an algebra we need some condition on the support 
-of their distribution kernels,  exactly what support condition to 
-impose is a matter of choice.
-We prefer the uniform support condition because it
-leads to a better control at infinity of the family of operators 
-$P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ and allows us to identify the regularizing ideal (i.e.
-the ideal of order $-\infty$ operators) with the groupoid convolution 
-algebra of $\GR$. The choice of uniform support
-will also ensure that $\PS{m}$ behaves functorially with respect to open
-embeddings. The compact support condition enjoys the same properties
-but is usually too restrictive.
-The issue of support will be discussed again in examples.
-
-The definition of the principal symbol extends easily to  $\PS{m}$.
-Denote by  $\pi:A^*(\GR)\rightarrow M, \ (M=\Gr0 ) $ the projection. 
-If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\} \in \PS{m}$ is an order $m$ 
-pseudodifferential differential operator on $\GR$, then the principal
-symbol $\sigma_m(P)$ of $P$ will be represented by sections of the bundle
-$\End(\pi^*E)$ and will be defined to satisfy 
-\begin{equation}
-	\label{princ.symb}
-	\sigma_m(P)(\xi)=\sigma_m(P_x)(\xi) \in \End(E_x) 
-	\; \text{ if } \xi \in A^*_x(\GR)=T^*_x\GR_x
-\end{equation}
-(the equation above is $\mod {\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*_x(\GR);\End(E))$). 
-This equation will obviously uniquely determine a linear map 
-\begin{equation*}
-	\sigma_m:\Psi^m \to {\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR);\End(E))/
-	{\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR);\End(E)).
-\end{equation*}
-provided we can show that for any $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$  there exists 
-a symbol $a \in {\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR);\End(E))$ whose restriction to 
-$A^*_x(\GR)$ is a representative of the principal symbol of $P_x$
-in that fiber for each $x$. 
-We thus need to choose for each $P_x$ a representative $a_x \in 
-{\mathcal S}_{\mathfrak{cl}}^{m}(A^*_x(\GR);\End(E))$ of $\sigma_m(P_x)$
-such that the family $a_x$ is
-smooth and invariant. Assume first that  $E$ 
-is the trivial line bundle and  proceed as in
-\cite{Hormander3} Section 18.1, especially Equation (18.1.27) and
-below.
-
-Choose a connection $\nabla$  on the vector bundle
-$A(\GR) \to \Gr0$ and consider the pull-back vector bundle $r^{*}(A)\to \GR$
-of $A(\GR) \to \Gr0$ endowed with the pull-back connection 
-$\widetilde{\nabla}=r^*\nabla$.  Its  restriction
-on any fiber $\GR_{x}$ defines a  linear connection  in the usual sense, 
-which is denoted by $\nabla_{x}$. These connections are right invariant 
-in the sense that
-\begin{equation}
-	\label{eq.invariant.connection}
-	R_{g}^*\nabla_{x}=\nabla_{y}, \  \ \ \forall g\in \GR
-	\mbox{ such that } \al (g)=x \mbox{ and }\bt (g)=y.
-\end{equation}
-
-Using such an invariant connection, we may define the 
-exponential map of a Lie algebroid, which generalizes
-the usual exponential map of  a manifold with a connection
-and the exponential map of a Lie algebra as follows.
-For any $x\in \Gr0$, define a   map $\exp_{x} : A_{x} \to \GR$ 
-as the composition of the maps:
-$$A_{x} \stackrel{i}{\longrightarrow}T_x\GR_{x}
-\stackrel{\tilde{\exp}_{x}}{-\!\!\!-\!\!\!-\!\!\!\longrightarrow}\GR$$
-where $i$ is the natural inclusion and
-$\tilde{\exp}_{x}=\exp_{\nabla_x}$ 
-is the usual exponential map  at $x\in \GR_{x}$
-on the manifold  $\GR_{x}$. By varying the point $x$, we obtain
-a map $\exp_{\nabla}$ defined in a neighborhood of the
-zero section,  called the {\em exponential map} of the
-Lie algebroid\footnote{See \cite{Landsman} for
-	an alternative definition of the exponential map.  One
-	should not confuse  this map   with the exponential
-	map from $\gm (A) $ to the bisections of the groupoid
-	as defined in \cite{KumperaS}.}.
-Clearly, $\exp_\nabla$ is a local diffeomorphism 
-\begin{equation}\label{eq.exp.diffeomorphism}
-	A(\GR) \supset V_0 \ni v \longrightarrow \exp_\nabla(v)=y \in V \subset \GR
-\end{equation} 
-mapping an open neighborhood $V_0$ of the zero section in $A(\GR)$ 
-diffeomorphically to a neighborhood $V$ of $\Gr0$ in $\GR$, and sending 
-the zero section onto the set of units.
-Choose a cut-off function $\phi \in \CI(\GR)$
-with support in $V$ and equal to $1$ in a smaller
-neighborhood of $\Gr0$ in $\GR$.
-If $y \in V$, $x=d(y)$ and $\xi \in A^*_x(\GR)$ 
-let $v \in V_0$ be the unique vector $v \in A_x(\GR)$
-such that $y=\exp_\nabla(v)$ and denote $e_\xi(y)=\phi(y)e^{iv\cdot \xi}$ which
-extends then to all $y \in \GR$  due to the cut-off
-function $\phi$. Define the $(\nabla,\phi)$--complete symbol 
-$\sigma_{\nabla,\phi}(P) $ by 
-\begin{equation}
-	\label{eq:symbol}
-	\sigma_{\nabla,\phi}(P)(\xi)=
-	(P_x e_\xi)(x), \ \ \ \ \forall \xi \in  T^*_{x}\GR_x =A^*_x(\GR).
-\end{equation}
-
-
-\end{empt}
-
- \begin{lemma}\label{lemma.symb} If $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ is an operator in $\Psi^m$ then the
- 	function $\sigma_{\nabla,\phi}(P)$ defined above is differentiable
- 	and defines a symbol in ${\mathcal S}_{\mathfrak{cl}}^m(A^*(\GR))$. Moreover
- 	if $(\nabla_1,\phi_1)$ is another pair consisting of an invariant
- 	connection $\nabla_1$ and a cut-off function $\phi_1$ then
- 	$\sigma_{\nabla,\phi}(P)-\sigma_{\nabla,\phi_1}(P)$ is
- 	in ${\mathcal S}_{\mathfrak{cl}}^{-\infty}(A^*(\GR))$ and 
- 	$\sigma_{\nabla,\phi}(P)-\sigma_{\nabla_1,\phi_1}(P)$ is
- 	in ${\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))$.
- \end{lemma}
- 
- The lemma above justifies the following definition of the principal
- symbol as the class of $\sigma_{\nabla,\phi}(P)$ modulo terms of lower order
- (for the trivial line bundle $E=\CC$).
- This definition will be, in view of the same lemma, 
- independent on the choice of $\nabla$ or $\phi$
- and will satisfy Equation \eqref{princ.symb}. If $E$ is not 
- trivial one can still define a complete symbol 
- $\sigma_{\nabla,\nabla',\phi}(P)$, depending also on a second 
- connection  $\nabla'$
- on the bundle $E$, which is used to trivialize $r^*(E)$
- on $V\subset \GR$ (assuming also that $V_0$ is convex). 
- Alternatively, we can use Proposition \ref{prop.order.zero.red} below.
- 
- \begin{proposition} Let $\nabla$ and $\phi$ be as above.
- 	The choice of a connection $\nabla'$
- 	on $E$ defines a complete symbol map
- 	$\sigma_{\nabla,\nabla',\phi}:\PS{m}\to {\mathcal S}_{\mathfrak{cl}}^{m}(A^*(\GR)).$
- 	The principal symbol $\sigma_m:\PS{m} \to 
- 	{\mathcal S}_{\mathfrak{cl}}^{m}(A^*(\GR))/{\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))$, defined by
- 	\begin{equation}\label{Eq.Def.PS}
- 		\sigma_m(P) = \sigma_{\nabla,\nabla' , \phi}(P) + {\mathcal S}_{\mathfrak{cl}}^{m-1}(A^*(\GR))
- 	\end{equation}
- 	does not depend on the choice of the connections $\nabla$, 
- 	$\nabla'$ or the cut-off function $\phi$.
- \end{proposition}
- \begin{proposition}
- 	(i) The principal symbol map 
- 	$$\sigma_m:\PS{m} \to {\mathcal S}_{\mathfrak{cl}}^m(\GR;\End(E))/
- 	{\mathcal S}_{\mathfrak{cl}}^{m-1}(\GR;\End(E))
- 	$$ 
- 	has kernel $\PS{m-1}$ and satisfies Equation \eqref{princ.symb}.
- 	
- 	(ii) The composition $PQ$ of two operators
- 	$P,Q \in\mathcal PS{\infty}$, of orders $m$ and, respectively, $m'$,
- 	satisfies $\sigma_{m+m'}(PQ)=\sigma_m(P)\sigma_{m'}(Q)$.
- \end{proposition}
- 
- 
- Although for the most of this paper we shall be concerned with groupoids, the 
- definition of $\mathcal PS{m}$ easily extends to {\em local} groupoids. Indeed it
- suffices to modify the invariance condition  in Definition
- \ref{Main.definition}, using the notation in Equation \eqref{Local.isomorphism},
- as follows. We assume that for any $g \in \Gr 1$ and any smooth
- compactly supported function $\phi$ on ${\mathcal U}_{g}$ there
- exists a regularizing operator $R_{g,\phi}$ such that 
- \begin{equation}\label{Local.invariance}
- 	U_g(\phi)P_{r(g)}U_g f - U_g (\phi P_{d(g)}f) =R_{g,\phi}f
- \end{equation}
- for any function $f \in \CIc({\mathcal U}_{g})$.
- We thus replace the strict invariance of the original definition
- by `invariance up to regularizing operators'. 
- 
- We denote by $\Psi_{\operatorname{loc}}^m(\GR;E)$
- the set of differentiable properly supported 
- families $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of order $m$ pseudodifferential operators
- satisfying the condition \eqref{Local.invariance} above. Note that if we regard an 
- almost differentiable groupoid $\GR$ as a local groupoid then
- $\PS{\infty} \subset \Psi_{\operatorname{loc}}^m(\GR;E)$. The inclusion is generally a
- strict one, though, because Equation
- \eqref{Local.invariance} gives no condition for order $-\infty$
- operators, and so $\Psi_{\operatorname{loc}}^{-\infty}(\GR;E)$ consists of arbitrary smooth
- families $P = \left\{P_x \left| x \in \mathcal G^{(0)}\right.\right\}$ of regularizing operators. This ideal is too
- big to reflect the structure of $\GR$. The 
- ``symbolic'' part remains  however the same:
- $$\Psi_{\operatorname{prop}}^{m}(\GR;E)/\Psi_{\operatorname{prop}}^{-\infty}(\GR;E) \simeq 
- \Psi_{\operatorname{loc}}^m(\GR;E)/\Psi_{\operatorname{loc}}^{-\infty}(\GR;E).$$
- 
- If the sets ${\mathcal U}_g$ are all connected (in which case
- the local groupoid $\GR$ is said to be $d$--connected) an easier
- condition to use than \eqref{Local.invariance} is
- \begin{equation}\label{Infinitesimal.invariance}
- 	[X, P] \in \Psi_{\operatorname{loc}}^{-\infty}(\GR;E)
- \end{equation}
- for all $r$--vertical left--invariant vector fields $X$ on $\Gr 1$. With this, 
- the following analog of Theorem \ref{Theorem.Algebra}, 
- becomes straightforward.
- 
- \begin{theorem}\label{local.algebra} 
- 	Assume that $\GR$ is a $d$--connected almost differentiable groupoid.
- 	Then the space  $\Psi_{\operatorname{loc}}^{\infty}(\GR)$ is a filtered  algebra, 
- 	with $\PS{-\infty}$ as residual ideal.
- \end{theorem}
- 
- \subsection{Sobolev modules}
- \begin{definition}
- 	%Definition 32. 
- 	Let $s$ be a positive real number and let $P$ be a $C^k$ -elliptic operators of order $m$,
- 	with $\mathrm{Re}m = s$. The {\it Sobolev module} of rank $s$ associated with $P$ is the Hilbert $C^*\left( G\right)$ -module
- 	$H^s(P ) \bydef \dom P$ endowed with the scalar product
- 	$$
- 	\left\langle x,y \right\rangle_s \bydef \left\langle P x,y \right\rangle + \left\langle x,y \right\rangle
- 	$$
- 	
- \end{definition}
- We will from now on denote:
- \be
- H^\infty \bydef \bigcap_{s \in \R} H^s \quad H^{-\infty} \bydef \bigcup_{s \in \R} H^s
- \ee
-\begin{proposition}
-%Proposition 39. 
-Let $P$ be a compactly supported pseudodifferential G-operator of order $m$ of
-real part $m_0$. Then  $P$ defines for any real $s$ a morphism from $H^s$ into $H^{s-m_0}$.
-\end{proposition}
-	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
+\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
 	\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
