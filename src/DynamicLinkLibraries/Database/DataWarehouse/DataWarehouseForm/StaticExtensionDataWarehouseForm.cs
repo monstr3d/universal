@@ -106,7 +106,7 @@ namespace DataWarehouse
                 {
                     return;
                 }
-                if (!cs.Any())
+                if (cs == null || !cs.Any())
                 {
                     return;
                 }

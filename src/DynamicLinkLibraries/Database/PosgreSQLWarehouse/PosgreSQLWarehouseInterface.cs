@@ -1,16 +1,9 @@
-﻿using DataWarehouse.Interfaces;
-using ErrorHandler;
-using NamedTree;
+﻿using System.Data;
+
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
+
+using DataWarehouse.Interfaces;
+using ErrorHandler;
 
 namespace PosgreSQLWarehouse
 {
@@ -26,6 +19,8 @@ namespace PosgreSQLWarehouse
             this.Connection = connection;
         }
 
+        #region Interface Implementstion
+
         IDirectory[] IDatabaseInterface.GetRoots(params string[] extensions)
         {
             if (roots == null)
@@ -35,6 +30,10 @@ namespace PosgreSQLWarehouse
             return roots;
         }
 
+
+        #endregion
+
+        #region Templates
 
         public T Execute<T>(Func<NpgsqlCommand, T> func) where T : class
         {
@@ -90,11 +89,20 @@ namespace PosgreSQLWarehouse
             return null;
         }
 
-        public IDirectory[] GetCommandRoots(NpgsqlCommand command)
+        #endregion
+
+        /*
+         INSERT INTO public."BinaryTree"(
+       "Id", "ParentId", "Name", "Description", ext)
+       VALUES (?, ?, ?, ?, ?);
+        */
+
+
+        IDirectory[] GetCommandRoots(NpgsqlCommand command)
         {
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = "SelectRoots";
-            command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\"";
+            command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\" \r \n FROM public.\"BinaryTree\"";
             //     command.CommandText = "SELECT \"Id\"  FROM \"BinaryTree\"";
             //            var reader = command.ExecuteReader();
             command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\" WHERE \"Id\"=\"ParentId\"";
@@ -110,28 +118,58 @@ namespace PosgreSQLWarehouse
             return l.ToArray();
         }
 
-  
-        public IDirectory[] GetRoots(NpgsqlConnection connection)
+        void Add(NpgsqlCommand command, object value)
         {
-            using (NpgsqlCommand command = new NpgsqlCommand())
-            {
-                command.Connection = connection;
-                command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "SelectRoots";
-                command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\"";
-                //     command.CommandText = "SELECT \"Id\"  FROM \"BinaryTree\"";
-                //            var reader = command.ExecuteReader();
-                command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\" WHERE \"Id\"=\"ParentId\"";
-       //         command.CommandText = "public.\"SelectRoots\"";
-       //         command.CommandText = "public.\"SelectBinaryTree\"";
-       //         command.CommandType = System.Data.CommandType.StoredProcedure;
-                var reader = command.ExecuteReader();
-                foreach (IDataRecord x in reader)
-                {
-                    
-                }
-                return null;
-            }
+            var p = command.CreateParameter();
+            p.Value = value;
+            command.Parameters.Add(p);
         }
+
+        internal IDirectory Insert(NpgsqlCommand command, IDirectory directory)
+         {
+            command.CommandType = CommandType.Text;
+            var comm = "INSERT INTO public.\"BinaryTree\"(\"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\")" +
+                " VALUES(?, ?, ?, ?, ?);";
+            command.CommandText = comm;
+            var guid = Guid.NewGuid();
+            Add(command, guid);
+            Add(command, directory.Id);
+            Add(command, directory.Name);
+            Add(command, directory.Description);
+            Add(command, directory.Extension);;
+            var t = command.ExecuteNonQuery();
+            return new Directory(directory, guid, this);
+        }
+
+        internal IDirectory Insert(IDirectory directory)
+        {
+           return Execute(Insert, directory);
+        }
+
+    
+
+        /*
+              public IDirectory[] GetRoots(NpgsqlConnection connection)
+              {
+                  using (NpgsqlCommand command = new NpgsqlCommand())
+                  {
+                      command.Connection = connection;
+                      command.CommandType = System.Data.CommandType.Text;
+                      command.CommandText = "SelectRoots";
+                      command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\"";
+                      //     command.CommandText = "SELECT \"Id\"  FROM \"BinaryTree\"";
+                      //            var reader = command.ExecuteReader();
+                      command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\"  FROM public.\"BinaryTree\" WHERE \"Id\"=\"ParentId\"";
+             //         command.CommandText = "public.\"SelectRoots\"";
+             //         command.CommandText = "public.\"SelectBinaryTree\"";
+             //         command.CommandType = System.Data.CommandType.StoredProcedure;
+                      var reader = command.ExecuteReader();
+                      foreach (IDataRecord x in reader)
+                      {
+
+                      }
+                      return null;
+                  }*/
     }
 }
+

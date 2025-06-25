@@ -25,6 +25,14 @@ namespace PosgreSQLWarehouse
 
         public IDatabaseInterface Get(string name)
         {
+            try
+            {
+                new NpgsqlConnection(name);
+            }
+            catch
+            {
+                return null;
+            }
             using (var conn = new NpgsqlConnection(name))
             {
                 try

@@ -1,18 +1,20 @@
-﻿using DataWarehouse.Interfaces;
-using SQLServerWarehouse.DataSetWarehouseTableAdapters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using DataWarehouse.Interfaces;
+using SQLServerWarehouse.DataSetWarehouseTableAdapters;
 
 
 namespace SQLServerWarehouse
 {
+
+    
     internal static class StaticExtension
     {
+        // Data Source=IVANKOV\SQLEXPRESS;Initial Catalog=AstronomyExpress;Integrated Security=True;Encrypt=False
+        // Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Integrated Security=True
         static internal byte[] GetData(this Guid id)
         {
             DataSetWarehouse.SelectBinaryDataTable selects = null;

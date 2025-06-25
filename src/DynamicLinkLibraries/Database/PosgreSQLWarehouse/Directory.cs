@@ -28,12 +28,26 @@ namespace PosgreSQLWarehouse
             GetChildern = GetChildernInit;
         }
 
+        internal Directory(IDirectory directory, Guid guid, PosgreSQLWarehouseInterface posgreSQLWarehouse)
+        {
+            this.posgreSQLWarehouse = posgreSQLWarehouse;
+            Parent = directory;
+            Id = guid;
+            Name = directory.Name;
+            Description = directory.Description;
+            Extension = directory.Extension;
+            base.Children = null;
+            base.Leaves = null;
+            GetChildern = GetChildernInit;
+        }
+
         protected override IEnumerable<IDirectory> Children { get => GetChildern(); set => base.Children = value; }
 
         IEnumerable<IDirectory>  GetChildernInit()
         {
+            Children = new List<IDirectory>();
             GetChildern = () => base.Children;
-            return new List<IDirectory>();
+            return Children;
 
         }
 
@@ -52,13 +66,12 @@ namespace PosgreSQLWarehouse
             {
                 Children = new List<IDirectory>();
             }
-            throw new OwnNotImplemented();
+            return  posgreSQLWarehouse.Insert(directory);
         }
 
-        IDirectory GetDirectory(NpgsqlCommand cmd, IDirectory dir)
-        {
-            return null;
-        }
+
+  
+
 
 
         protected override ILeaf Add(ILeaf leaf)

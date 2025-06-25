@@ -91,12 +91,12 @@ namespace SQLServerWarehouse
         {
             using (var conn = new System.Data.SqlClient.SqlConnection())
             {
-                conn.ConnectionString = connectionString;
                 try
                 {
+                    conn.ConnectionString = connectionString;
                     conn.Open();
                 }
-                catch
+                catch (Exception ex)
                 {
                     return null;
                 }

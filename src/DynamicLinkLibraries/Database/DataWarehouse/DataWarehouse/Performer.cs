@@ -1,6 +1,7 @@
 ﻿using System;
-
+using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
+using NamedTree;
 
 namespace DataWarehouse
 {
@@ -11,6 +12,11 @@ namespace DataWarehouse
     {
 
         #region Ctor
+
+        public Performer()
+        {
+
+        }
 
         #endregion
 
@@ -57,12 +63,56 @@ namespace DataWarehouse
 
         #region Public Members
 
+        #region Copy
+
+        /// <summary>
+        /// Copy
+        /// </summary>
+        /// <param name="from">From</param>
+        /// <param name="to">To</param>
+        public void Copy(IDatabaseInterface from, IDatabaseInterface to)
+        {
+            var f = from.GetRoots();
+            var t = to.GetRoots();
+            if (f.Length != t.Length)
+            {
+                return;
+            }
+            for ( var i = 0; i < f.Length; i++)
+            {
+                Copy(f[i], t[i]);
+            }
+        }
+
+        /// <summary>
+        /// Copy
+        /// </summary>
+        /// <param name="from">from</param>
+        /// <param name="to">to</param>
+        public void Copy(IDirectory from, IDirectory to)
+        {
+            IChildren<IDirectory> children = from;
+            foreach (var child in children.Children)
+            {
+                var d = to.Add(child);
+                Copy(child, d);
+            }
+            IChildren<ILeaf> leaves = from;
+            foreach (var leave in leaves.Children)
+            {
+                to.AddChild(leave);
+            }
+
+        }
+
+        #endregion
+
 
 
         /// <summary>
         /// Message event
         /// </summary>
-        public  event Action<string> OnMessage
+        public event Action<string> OnMessage
         {
             add
             {
