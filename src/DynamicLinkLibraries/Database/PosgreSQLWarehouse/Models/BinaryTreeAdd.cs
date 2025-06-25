@@ -12,7 +12,7 @@ namespace PosgreSQLWarehouse.Models
 {
     public partial class BinaryTree : IDirectory
     {
-        public BinaryTree(bool b) : this()
+        public BinaryTree()
         {
             Directory = this;
         }
@@ -229,7 +229,7 @@ namespace PosgreSQLWarehouse.Models
                };
                adapter.ConnectionAction(act);
                var r = res[0];*/
-            var tree = new BinaryTree(false);
+            var tree = new BinaryTree();
             tree.Name = directory.Name;
             tree.Description = directory.Description;
             tree.Ext = directory.Extension;
@@ -238,9 +238,9 @@ namespace PosgreSQLWarehouse.Models
             tree.Id = Guid.NewGuid();
             Add(tree);
             tree.Parent = this;
-            StaticExtensionPosgeeSQL.Context.BinaryTrees.Add(tree);
-            StaticExtensionPosgeeSQL.Context.SaveChanges();
-            OnAddDirectory?.Invoke(tree);
+            StaticExtension.Context.BinaryTrees.Add(tree);
+            StaticExtension.Context.SaveChanges();
+            this.OnAddDirectory?.Invoke(tree);
             return tree;
         }
 
@@ -263,9 +263,9 @@ namespace PosgreSQLWarehouse.Models
             table.Length = data.Data.Length + "";
             Add(table);
             table.Parent = this;
-            StaticExtensionPosgeeSQL.Context.BinaryTables.Add(table);
-            StaticExtensionPosgeeSQL.Context.SaveChanges();
-            (this as IDirectory).AddNode(table);
+            StaticExtension.Context.BinaryTables.Add(table);
+            StaticExtension.Context.SaveChanges();
+            (this as IDirectory).Add(table);
             return table;
 
             /* !!! DELETE AFTER      var adapter = new DataSetWarehouseTableAdapters.InsertBinaryTableAdapter();
@@ -293,11 +293,11 @@ namespace PosgreSQLWarehouse.Models
         {
             try
             {
-                var ctx = StaticExtensionPosgeeSQL.Context;
+                var ctx = StaticExtension.Context;
                 if (Parent != null)
                 {
                     Parent.InverseParent.Remove(this);
-                    Parent.Names.Remove(Name);
+                    Parent.Names.Remove(this.Name);
                     Parent.directories.Remove(this);
                 }
                 ctx.BinaryTrees.Remove(this);
@@ -362,8 +362,8 @@ namespace PosgreSQLWarehouse.Models
             {
                 return;
             }
-            Action action = () => { StaticExtensionPosgeeSQL.TableAdapter.UpdateBinaryTreeName(Id, name); };
-            StaticExtension.TableAdapter.ConnectionAction(action);
+       /*     Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTreeName(Id, name); };
+            StaticExtension.TableAdapter.ConnectionAction(action);*/
             Parent.Names.Remove(Name);
             Parent.Names.Add(name);
             Name = name;
@@ -373,8 +373,8 @@ namespace PosgreSQLWarehouse.Models
 
         void UpdateDescription(string description)
         {
-            Action action = () => { StaticExtensionPosgeeSQL.TableAdapter.UpdateBinaryTreeDescription(Id, description); };
-            StaticExtension.TableAdapter.ConnectionAction(action);
+   /*!!!         Action action = () => { StaticExtension.TableAdapter.UpdateBinaryTreeDescription(Id, description); };
+            StaticExtension.TableAdapter.ConnectionAction(action);*/
             Description = description;
             this.Change();
         }
@@ -420,6 +420,16 @@ namespace PosgreSQLWarehouse.Models
         }
 
         #endregion
+
+        #region Private
+
+        void Change()
+        {
+
+        }
+
+   
+        #endregion
     }
 }
-}
+
