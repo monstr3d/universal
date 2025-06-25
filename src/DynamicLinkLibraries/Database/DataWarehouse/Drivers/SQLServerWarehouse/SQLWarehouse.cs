@@ -89,6 +89,18 @@ namespace SQLServerWarehouse
 
         protected virtual IDatabaseInterface GetInterface(string connectionString)
         {
+            using (var conn = new System.Data.SqlClient.SqlConnection())
+            {
+                conn.ConnectionString = connectionString;
+                try
+                {
+                    conn.Open();
+                }
+                catch
+                {
+                    return null;
+                }
+            }
             var tableAdapter = new QueriesTableAdapter();
             StaticExtension.ConnectionString = connectionString;
             StaticExtension.TableAdapter = tableAdapter;

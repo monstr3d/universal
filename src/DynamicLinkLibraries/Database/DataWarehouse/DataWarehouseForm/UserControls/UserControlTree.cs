@@ -90,7 +90,24 @@ namespace DataWarehouse.UserControls
             treeViewMain.ImageList = l;
             Fill();
             this.ext = ext;
+            treeViewMain.BeforeExpand += TreeViewMain_BeforeExpand;
          }
+
+        private void TreeViewMain_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            var node = e.Node;
+            if (node == null)
+            {
+                return;
+            }
+            foreach (var n in node.Nodes)
+            {
+                if (n is Forms.Tree.TreeNode nd)
+                {
+                    nd.Expand(true);
+                }
+            }
+        }
 
         /// <summary>
         /// Tree
@@ -218,7 +235,7 @@ namespace DataWarehouse.UserControls
 
         void SetDisposed(System.Windows.Forms.TreeNode node)
         {
-            var n = node as DataWarehouse.Forms.Tree.TreeNode;
+            var n = node as Forms.Tree.TreeNode;
             n.SetDisposed();
             foreach (TreeNode tn in node.Nodes)
             {

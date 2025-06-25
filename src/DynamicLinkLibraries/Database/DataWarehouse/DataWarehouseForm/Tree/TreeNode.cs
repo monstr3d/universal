@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DataWarehouse.Interfaces;
+
 using NamedTree;
 
 namespace DataWarehouse.Forms.Tree
@@ -24,6 +26,14 @@ namespace DataWarehouse.Forms.Tree
             directory.OnAddLeaf += Directory_OnAddLeaf;
             directory.OnChangeItself += Directory_OnChangeItself;
             Tag = directory;
+        }
+
+        public async Task Expand(bool leaves)
+        {
+            if (directory != null)
+            {
+              directory.FillNode(this, false, leaves);
+            }
         }
 
         bool Leaves { get; set; } = true;
@@ -97,6 +107,8 @@ namespace DataWarehouse.Forms.Tree
             Remove();
         }
 
+   
+
         void Change(INamed named)
         {
             var name = named.Name;
@@ -116,7 +128,6 @@ namespace DataWarehouse.Forms.Tree
         {
             Change(obj);
         }
-
 
     }
 }

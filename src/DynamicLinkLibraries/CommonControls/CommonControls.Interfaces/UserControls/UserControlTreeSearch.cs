@@ -68,6 +68,7 @@ namespace CommonControls.Interfaces.UserControls
         /// <summary>
         /// Tree
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TreeView Tree
         {
             get
@@ -86,6 +87,7 @@ namespace CommonControls.Interfaces.UserControls
         /// <summary>
         /// Search text
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SearchText
         {
             set

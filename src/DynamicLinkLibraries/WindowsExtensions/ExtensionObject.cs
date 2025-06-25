@@ -193,14 +193,13 @@ namespace WindowsExtensions
         /// <param name="doit">Action</param>
         public void InvokeIfNeeded(Control control, Action doit)
         {
-            if (control.IsDisposed)
+            if (control != null)
             {
-                return;
-            }
-            if (control.InvokeRequired)
-            {
-                control.Invoke(doit);
-                return;
+                if (!control.IsDisposed & control.InvokeRequired)
+                {
+                    control.Invoke(doit);
+                    return;
+                }
             }
             doit();
         }
@@ -214,14 +213,17 @@ namespace WindowsExtensions
         /// <param name="arg">Argument</param>
         public void InvokeIfNeeded<T>(Control control, Action<T> doit, T arg)
         {
-            if (control.IsDisposed)
+            if (control != null)
             {
-                return;
-            }
-            if (control.InvokeRequired)
-            {
-                control.Invoke(doit, new object[] { arg });
-                return;
+                if (control.IsDisposed)
+                {
+                    return;
+                }
+                if (control.InvokeRequired)
+                {
+                    control.Invoke(doit, new object[] { arg });
+                    return;
+                }
             }
             doit(arg);
         }
@@ -238,6 +240,11 @@ namespace WindowsExtensions
         /// <param name="arg2">Second argument</param>
         public void InvokeIfNeeded<T1, T2>(Control control, Action<T1, T2> doit, T1 arg1, T2 arg2)
         {
+            if (control == null)
+            {
+                doit(arg1, arg2);
+                return;
+            }
             if (control.IsDisposed)
             {
                 return;
@@ -264,6 +271,11 @@ namespace WindowsExtensions
         /// <param name="arg3">Third argument</param>
         public void InvokeIfNeeded<T1, T2, T3>(Control control, Action<T1, T2, T3> doit, T1 arg1, T2 arg2, T3 arg3)
         {
+            if (control == null)
+            {
+                doit(arg1, arg2, arg3);
+                return;
+            }
             if (control.IsDisposed)
             {
                 return;

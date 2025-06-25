@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DataWarehouse.Classes;
@@ -99,7 +100,30 @@ namespace DataWarehouse.Forms
             buttonDelete.Enabled = false;
             buttonDirDelete.Enabled = false;
             buttonLoad.Enabled = false;
+            treeViewDir.BeforeExpand += TreeViewDir_BeforeExpand;
             refreshTree();
+        }
+
+        private async void TreeViewDir_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            var act = () =>
+            {
+                var node = e.Node;
+                if (node == null)
+                {
+                    return;
+                }
+                foreach (var n in node.Nodes)
+                {
+                    if (n is Forms.Tree.TreeNode nd)
+                    {
+                        nd.Expand(false);
+                    }
+                }
+            };
+            var task = new Task(act);
+            task.Start();
+            await task;
         }
 
         #endregion

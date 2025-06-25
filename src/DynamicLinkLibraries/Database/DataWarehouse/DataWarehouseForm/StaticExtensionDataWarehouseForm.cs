@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using DataWarehouse.Interfaces;
 using NamedTree;
 
+using WindowsExtensions;
+
 namespace DataWarehouse
 {
     /// <summary>
@@ -37,12 +39,12 @@ namespace DataWarehouse
             return new Forms.Tree.TreeNode(leaf);
         }
 
-        public static void Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool leaves = true)
+        public static void Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice = false, bool leaves = true)
         {
             IDirectory[] dir = data.GetRoots(new string[] { ext });
             foreach (IDirectory d in dir)
             {
-                var nd = d.GetNode(leaves);
+                var nd = d.GetNode(recursice, leaves);
                 treeView.Nodes.Add(nd);
             }
             foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
@@ -51,33 +53,89 @@ namespace DataWarehouse
             }
         }
 
+        static public async void FillNode(this IDirectory dir, System.Windows.Forms.TreeNode node,  bool recursive = false, bool leaves = true)
+        {
+            if (node.Nodes.Count > 0)
+            {
+                return;
+            }
+            IEnumerable<IDirectory> dirs = null;
+            IEnumerable<ILeaf> cs = null; ;
+            var act = () =>
+            {
+                IChildren<IDirectory> ed = dir;
+                dirs = ed.Children;
+                if (leaves)
+                {
+                    IChildren<ILeaf> lde = dir;
+                    cs = lde.Children;
 
-        static System.Windows.Forms.TreeNode GetNode(this IDirectory dir, bool leaves = true)
+                }
+            };
+    //        var task = Task.FromResult(act);
+            var complete = () =>
+            {
+                if (dirs.Any())
+                {
+                    List<IDirectory> ld = new List<IDirectory>();
+                    ld.AddRange(dirs);
+                    ld.Sort(NodeComparer.Singleton);
+                    if (recursive)
+                    {
+                        foreach (var child in ld)
+                        {
+                            var n = GetNode(child, recursive, leaves);
+                            node.Nodes.Add(n);
+                        }
+                    }
+                    else
+                    {
+                        var act = () =>
+                        {
+                            foreach (var child in ld)
+                            {
+                                var n = leaves ? new Forms.Tree.TreeNode(child) : new Forms.Tree.TreeNode(child, leaves);
+                                node.Nodes.Add(n);
+                            }
+                        };
+                        
+                        node.TreeView.InvokeIfNeeded(act);
+                    }
+                }
+                if (!leaves)
+                {
+                    return;
+                }
+                if (!cs.Any())
+                {
+                    return;
+                }
+
+                var ldp = new List<ILeaf>();
+                ldp.AddRange(cs);
+                ldp.Sort(NodeComparer.Singleton);
+                foreach (var child in ldp)
+                {
+                    var n = Get(child);
+                    n.Tag = child;
+                    node.Nodes.Add(n);
+                }
+            };
+            /*
+            task.GetAwaiter().OnCompleted(complete);
+            if (!task.IsCompleted)
+            {
+                task.Start();
+            }
+            await task;*/
+            act();
+            complete();
+        }
+
+        static  System.Windows.Forms.TreeNode GetNode(this IDirectory dir, bool recursive = false, bool leaves = true)
         {
             System.Windows.Forms.TreeNode node = leaves ?  new Forms.Tree.TreeNode(dir) : new Forms.Tree.TreeNode(dir, leaves);
-            IChildren<IDirectory> ed = dir;
-            List<IDirectory> ld = new List<IDirectory>();
-            ld.AddRange(ed.Children);
-            ld.Sort(NodeComparer.Singleton);
-            foreach (var child in ld)
-            {
-                var n = GetNode(child, leaves);
-                node.Nodes.Add(n);
-            }
-            IChildren<ILeaf> lde = dir;
-            if (!leaves)
-            {
-                return node;
-            }
-            var ldp = new List<ILeaf>();
-            ldp.AddRange(lde.Children);
-            ldp.Sort(NodeComparer.Singleton);
-            foreach (var child in ldp)
-            {
-                var n = Get(child);
-                n.Tag = child;
-                node.Nodes.Add(n);
-            }
+            dir.FillNode(node, recursive, leaves);
             return node;
         }
 
