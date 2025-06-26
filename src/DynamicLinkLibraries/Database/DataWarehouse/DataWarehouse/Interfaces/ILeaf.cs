@@ -1,5 +1,4 @@
-﻿using NamedTree;
-using System;
+﻿using System;
 
 namespace DataWarehouse.Interfaces
 {

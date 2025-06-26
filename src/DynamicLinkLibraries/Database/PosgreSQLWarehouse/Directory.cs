@@ -1,13 +1,8 @@
-﻿using DataWarehouse.Interfaces;
+﻿using System.Data;
+
+using DataWarehouse.Interfaces;
 using ErrorHandler;
 using NamedTree;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PosgreSQLWarehouse
 {
@@ -25,27 +20,58 @@ namespace PosgreSQLWarehouse
             Extension = record.GetString(4);
             base.Children = null;
             base.Leaves = null;
-            GetChildern = GetChildernInit;
+            Init();
         }
 
         internal Directory(IDirectory directory, Guid guid, PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
-            this.posgreSQLWarehouse = posgreSQLWarehouse;
+            Init();
+            var t = new Tuple<Guid, Guid, string, string, string>(guid, guid, directory.Name, directory.Description,
+                directory.Extension);
             Parent = directory;
-            Id = guid;
-            Name = directory.Name;
-            Description = directory.Description;
-            Extension = directory.Extension;
+            var l = Children as List<IDirectory>;
+            l.Add(this);
+            Create(t, posgreSQLWarehouse);
+        }
+
+
+        internal Directory(Tuple<Guid, Guid, string, string, string> t, 
+            PosgreSQLWarehouseInterface posgreSQLWarehouse)
+        {
+            Init();
+            Create(t, posgreSQLWarehouse);
+        }
+
+
+        void Create(Tuple<Guid, Guid, string, string, string> t,
+            PosgreSQLWarehouseInterface posgreSQLWarehouse)
+        {
+            this.posgreSQLWarehouse = posgreSQLWarehouse;
+            Id = t.Item1;
+            Name = t.Item3;
+            Description = t.Item4;
+            Extension = t.Item5;
+
+        }
+
+
+        private void Init()
+        {
             base.Children = null;
             base.Leaves = null;
             GetChildern = GetChildernInit;
+
         }
+
 
         protected override IEnumerable<IDirectory> Children { get => GetChildern(); set => base.Children = value; }
 
         IEnumerable<IDirectory>  GetChildernInit()
         {
-            Children = new List<IDirectory>();
+            if (base.Children == null)
+            {
+                base.Children =  new List<IDirectory>();
+            }
             GetChildern = () => base.Children;
             return Children;
 
@@ -62,11 +88,11 @@ namespace PosgreSQLWarehouse
 
         protected override IDirectory Add(IDirectory directory)
         {
-            if (Children == null)
-            {
-                Children = new List<IDirectory>();
-            }
-            return  posgreSQLWarehouse.Insert(directory);
+            var c = Children;
+            var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
+            var t = posgreSQLWarehouse.Insert(tt);
+            return (directory == null) ? new Directory(t, posgreSQLWarehouse) : 
+                new Directory(this, t.Item1, posgreSQLWarehouse);
         }
 
 
@@ -76,7 +102,8 @@ namespace PosgreSQLWarehouse
 
         protected override ILeaf Add(ILeaf leaf)
         {
-            throw new OwnNotImplemented();
+            var data = leaf as ILeafData;
+            return posgreSQLWarehouse.Get(this, data);
         }
 
         protected override void Remove(INode<INode> node)

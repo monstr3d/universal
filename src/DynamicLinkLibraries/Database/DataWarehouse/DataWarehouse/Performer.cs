@@ -78,7 +78,7 @@ namespace DataWarehouse
             {
                 return;
             }
-            for ( var i = 0; i < f.Length; i++)
+            for (var i = 0; i < f.Length; i++)
             {
                 Copy(f[i], t[i]);
             }

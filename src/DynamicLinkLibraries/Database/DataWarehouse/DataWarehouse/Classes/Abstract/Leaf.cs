@@ -11,15 +11,31 @@ namespace DataWarehouse.Classes.Abstract
     /// <summary>
     /// Leaf 
     /// </summary>
-    public abstract class Leaf : ILeaf, IData
+    public abstract class Leaf : ILeafData
     {
-        public Leaf(object Id, string Name, string Description, byte[] Data, string Extension = null)
+        protected Leaf() 
+        { 
+        }
+
+
+        protected Leaf(object id, string name, string extension, string description, INode<INode> parent, IEnumerable<INode<INode>> nodes, byte[] data)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Description = Description;
-            this.Data = Data;
-            this.Extension = Extension;
+            Id = id;
+            Name = name;
+            Extension = extension;
+            Description = description;
+            Parent = parent;
+            Nodes = nodes;
+            Data = data;
+        }
+
+        protected Leaf(ILeafData leaf, IDirectory directory)
+        {
+            Name = leaf.Name;
+            Extension = leaf.Extension;
+            Description = leaf.Description;
+            Data = leaf.Data;
+            Parent = directory;
         }
 
         #region Virtual
