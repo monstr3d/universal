@@ -1,36 +1,75 @@
 ﻿using System.Data;
 
 using DataWarehouse.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace PosgreSQLWarehouse
 {
+  
     public class Directory : DataWarehouse.Classes.Abstract.Directory
     {
+        #region NEW
+
+
+        protected override bool SetDatabaseName(string name)
+        {
+            return posgreSQLWarehouse.SetName(this, name) != null;
+        }
+
+
+        protected override bool RemoveFromDatase()
+        {
+            var o = posgreSQLWarehouse.Remove(this);
+            return o != null;
+        }
+
+
+        protected override bool SetDatabaseDescription(string description)
+        {
+            return posgreSQLWarehouse.SetDescription(this, description) != null;
+        }
+
+        protected override List<ILeaf> GetLeavesFormDatabase()
+        {
+           return  posgreSQLWarehouse.GetLeaves(this);
+        }
+
+        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        {
+            return posgreSQLWarehouse.GetChildren(this);
+        }
+
+
+
+        #endregion
+
         PosgreSQLWarehouseInterface posgreSQLWarehouse;
+
 
         public Directory(IDataRecord record, PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
             this.posgreSQLWarehouse = posgreSQLWarehouse;
             Id = record[0];
             var p = record[1];
-            Name = record.GetString(2);
-            Description = record.GetString(3);
+            name = record.GetString(2);
+            description = record.GetString(3);
             Extension = record.GetString(4);
-            base.Children = null;
-            base.Leaves = null;
-            Init();
         }
+
+        public Directory(IDataRecord record, IDirectory parent, PosgreSQLWarehouseInterface posgreSQLWarehouse) :
+            this(record, posgreSQLWarehouse)
+        {
+            Parent = parent;
+        }
+
 
         internal Directory(IDirectory directory, Guid guid, PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
-            Init();
             var t = new Tuple<Guid, Guid, string, string, string>(guid, guid, directory.Name, directory.Description,
                 directory.Extension);
-            Parent = directory;
-            var l = Children as List<IDirectory>;
-            l.Add(this);
             Create(t, posgreSQLWarehouse);
         }
 
@@ -38,7 +77,6 @@ namespace PosgreSQLWarehouse
         internal Directory(Tuple<Guid, Guid, string, string, string> t, 
             PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
-            Init();
             Create(t, posgreSQLWarehouse);
         }
 
@@ -48,67 +86,39 @@ namespace PosgreSQLWarehouse
         {
             this.posgreSQLWarehouse = posgreSQLWarehouse;
             Id = t.Item1;
-            Name = t.Item3;
-            Description = t.Item4;
+            name = t.Item3;
+            description = t.Item4;
             Extension = t.Item5;
 
         }
-
-
-        private void Init()
-        {
-            base.Children = null;
-            base.Leaves = null;
-            GetChildern = GetChildernInit;
-
-        }
-
-
-        protected override IEnumerable<IDirectory> Children { get => GetChildern(); set => base.Children = value; }
-
-        IEnumerable<IDirectory>  GetChildernInit()
-        {
-            if (base.Children == null)
-            {
-                base.Children =  new List<IDirectory>();
-            }
-            GetChildern = () => base.Children;
-            return Children;
-
-        }
-
-
-
-        Func<IEnumerable<IDirectory>> GetChildern;
 
         protected override void Add(INode<INode> node)
         {
             throw new OwnNotImplemented();
         }
-
-        protected override IDirectory Add(IDirectory directory)
+        protected override IDirectory AddToDatabase(IDirectory directory)
         {
-            var c = Children;
+
             var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
             var t = posgreSQLWarehouse.Insert(tt);
-            return (directory == null) ? new Directory(t, posgreSQLWarehouse) : 
-                new Directory(this, t.Item1, posgreSQLWarehouse);
+            return (directory == null) ? new Directory(t, posgreSQLWarehouse) :
+                new Directory(directory, t.Item1, posgreSQLWarehouse);
         }
 
-
-  
-
-
-
-        protected override ILeaf Add(ILeaf leaf)
+        protected override ILeaf AddToDatabase(ILeaf leaf)
         {
             var data = leaf as ILeafData;
             return posgreSQLWarehouse.Get(this, data);
         }
 
+ 
         protected override void Remove(INode<INode> node)
         {
-            throw new OwnNotImplemented();
+            if (node is ILeaf leaf)
+            {
+                leaves.Remove(leaf);
+                Names.Remove(leaf.Name);
+            }
         }
 
         protected override void Remove(IDirectory directory, string ext)
@@ -121,7 +131,16 @@ namespace PosgreSQLWarehouse
             throw new OwnNotImplemented();
         }
 
-        protected override void RemoveItself()
+        
+
+     
+
+        void SetName(string name)
+        {
+            throw new OwnNotImplemented();
+        }
+
+        void SetDescription(string description)
         {
             throw new OwnNotImplemented();
         }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 
 using DataWarehouse.Interfaces;
-
-
+using ErrorHandler;
 using NamedTree;
 
 namespace DataWarehouse.Classes.Abstract
@@ -13,40 +12,76 @@ namespace DataWarehouse.Classes.Abstract
     /// </summary>
     public abstract class Leaf : ILeafData
     {
-        protected Leaf() 
-        { 
+
+        #region Fields
+
+        protected string name;
+
+        protected byte[] data;
+
+        protected string description;
+
+        protected Func<byte[]> GetData;
+
+        protected byte[] GetDataInitial()
+        {
+            if (data == null)
+            {
+                data = GetDatabaseData();
+            }
+            GetData = () => data;
+            return data;
         }
 
 
-        protected Leaf(object id, string name, string extension, string description, INode<INode> parent, IEnumerable<INode<INode>> nodes, byte[] data)
+        #endregion
+        protected Leaf() 
+        {
+            GetData = GetDataInitial;
+        }
+
+
+        protected Leaf(object id, string name,  string description, string extension,
+         byte[] data) : this()
         {
             Id = id;
-            Name = name;
+            this.name = name;
             Extension = extension;
-            Description = description;
-            Parent = parent;
-            Nodes = nodes;
-            Data = data;
+            this.description = description;
+            this.data = data;
         }
 
-        protected Leaf(ILeafData leaf, IDirectory directory)
+
+        protected Leaf(object id, string name, string extension, string description, 
+            INode<INode> parent, IEnumerable<INode<INode>> nodes, byte[] data) : 
+            this(id, name, extension, description, data)
+
         {
-            Name = leaf.Name;
+            Parent = parent;
+            Nodes = nodes;
+        }
+
+        protected Leaf(ILeafData leaf, IDirectory directory) : this() 
+        {
+            this.name = leaf.Name;
             Extension = leaf.Extension;
-            Description = leaf.Description;
-            Data = leaf.Data;
+            this.description = leaf.Description;
+            this.data = leaf.Data;
             Parent = directory;
         }
 
         #region Virtual
 
+
         protected virtual object Id { get; set; }
 
-        protected virtual string Name { get; set; }
+        protected virtual string Name { get => name; set => UpdateName(value); }
 
         protected virtual string Extension { get; set; }
 
-        protected virtual string Description { get; set; }
+        protected virtual string Description { get => description; set => UpdateDescription(value); }
+
+        protected virtual byte[] Data { get => GetData(); set => UpdateData(value); }
 
 
         protected virtual INode Value => this;
@@ -55,8 +90,7 @@ namespace DataWarehouse.Classes.Abstract
 
         protected virtual IEnumerable<INode<INode>> Nodes { get; set; } = new List<INode<INode>>();
 
-        protected virtual byte[] Data { get; set; }
-
+   
         protected event Action<INode> OnAdd;
 
         protected event Action<INode> OnRemove;
@@ -65,7 +99,28 @@ namespace DataWarehouse.Classes.Abstract
 
         protected abstract void Remove(INode<INode> node);
 
-        protected abstract void RemoveItself();
+        protected abstract bool RemoveFromDatabase();
+
+
+        protected virtual void RemoveItself()
+        {
+            try
+            {
+                var b = RemoveFromDatabase();
+                if (!b)
+                {
+                    return;
+                }
+                Parent.Remove(this);
+                OnDeleteItself?.Invoke();
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Remove database binary item");
+            }
+        }
+
+
 
         #region ILeaf events
 
@@ -168,5 +223,97 @@ namespace DataWarehouse.Classes.Abstract
         {
             RemoveItself();
         }
+
+        protected virtual bool UpdateName(string name)
+        {
+
+            try
+            {
+                if (name == this.name)
+                {
+                    return false;
+                }
+                var d = Parent as Directory;
+                if (d != null && !d.Check(name))
+                {
+                    return false;
+                }
+                var b = SetDatabaseName(name);
+                if (b)
+                {
+                    d.Change(this.name, name);
+                    this.name = name;
+                    OnChangeItself?.Invoke(this);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+            return false;
+        }
+
+        protected virtual byte[] UpdateData(byte[] data)
+        {
+            try
+            {
+                if (SetDatabaseData(data))
+                {
+                    this.data = data;
+                    OnChangeItself?.Invoke(this);
+                    return data;
+                }
+                else
+                {
+                    var s = "Fails update data \"" + name + "\"";
+                    s.Log();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+            return this.data;
+        }
+
+        protected virtual bool UpdateDescription(string description)
+        {
+            try
+            {
+
+                if (description == this.description)
+                {
+                    return false;
+                }
+                if (SetDatabaseDescription(description))
+                {
+                    this.description = description;
+                    OnChangeItself?.Invoke(this);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+            var s = "Error update leaf description \"" + name + "\"";
+            s.Log();
+            return false;
+        }
+
+        #region Abstract
+
+        protected abstract bool SetDatabaseName(string name);
+
+        protected abstract bool SetDatabaseDescription(string description);
+
+        protected abstract bool SetDatabaseData(byte[] data);
+
+        protected abstract byte[] GetDatabaseData();
+
+
+        #endregion
+
     }
 }

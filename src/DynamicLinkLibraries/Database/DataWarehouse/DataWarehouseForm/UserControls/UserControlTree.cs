@@ -247,19 +247,7 @@ namespace DataWarehouse.UserControls
         void Fill()
         {
             treeViewMain.Fill(data, ext);
-      /* !!! DELETE      IDirectory[] dir = data.GetRoots(new string[] { ext });
-            foreach (IDirectory d in dir)
-            {
-                var nd = d.GetNode();
-                treeViewMain.Nodes.Add(nd);
-            }
-            foreach (System.Windows.Forms.TreeNode tn in treeViewMain.Nodes)
-            {
-                SetDisposed(tn);
-            }*/
         }
-
-        
 
         #endregion
 

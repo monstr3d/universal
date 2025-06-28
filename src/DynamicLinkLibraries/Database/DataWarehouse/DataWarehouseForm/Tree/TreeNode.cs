@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using DataWarehouse.Interfaces;
 
 using NamedTree;
@@ -56,6 +57,8 @@ namespace DataWarehouse.Forms.Tree
         {
             this.leaf = leaf;
             leaf.OnDeleteItself += Leaf_OnDeleteItself;
+            leaf.OnChangeItself += Leaf_OnChangeItself;
+            Tag = leaf;
         }
 
         #endregion

@@ -12,7 +12,7 @@
         /// <param name="message">Message</param>
         public OwnException(string message = "") : base(message)
         {
-
+            Init();
         }
 
 
@@ -20,6 +20,11 @@
         /// Constructor
         /// </summary>
         public OwnException()
+        {
+            Init();
+        }
+
+        void Init()
         {
 
         }

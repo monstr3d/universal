@@ -12,7 +12,7 @@ CREATE OR REPLACE PROCEDURE public."CreateTable"(
 LANGUAGE 'sql'
 AS $BODY$
 INSERT INTO public."BinaryTable"(
-	"Id", "ParentId", "Name", "Description", "Data", "Ext")
+	"Id", "ParentId", "Name", "Description", "Data", "ext")
 	VALUES (id, parent, name, description, data, extension);
 $BODY$;
 ALTER PROCEDURE public."CreateTable"(uuid, uuid, text, text, bytea, text)

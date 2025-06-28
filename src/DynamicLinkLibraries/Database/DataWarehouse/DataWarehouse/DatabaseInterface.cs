@@ -26,7 +26,6 @@ namespace DataWarehouse
             this.data = data;
         }
 
- 
         /// <summary>
         /// Get root nodes
         /// </summary>
@@ -36,7 +35,6 @@ namespace DataWarehouse
         {
             return data.GetRoots( ext);
         }
-
 
     }
 }

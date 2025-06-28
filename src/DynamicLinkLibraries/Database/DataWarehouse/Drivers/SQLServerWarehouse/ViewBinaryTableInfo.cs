@@ -10,7 +10,7 @@ using NamedTree;
 
 namespace SQLServerWarehouse.Models
 {
-    public partial class ViewBinaryTableInfo : ILeaf, IData
+    public partial class ViewBinaryTableInfo : ILeafData
     {
         
 

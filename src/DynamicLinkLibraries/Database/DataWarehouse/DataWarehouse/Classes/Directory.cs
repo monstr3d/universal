@@ -11,7 +11,7 @@ namespace DataWarehouse.Classes
 {
     public class Directory : Abstract.Directory
     {
-        #region Ctor
+         #region Ctor
 
         public Directory(object Id, string Name, string Description, string Extension = null) : 
             base(Id, Name, Description, Extension)
@@ -28,7 +28,13 @@ namespace DataWarehouse.Classes
             throw new OwnNotImplemented("Directory Add");
         }
 
- 
+
+        protected override bool RemoveFromDatase()
+        {
+            throw new OwnNotImplemented("Directory Remove");
+
+        }
+
         protected override void Remove(INode<INode> node)
         {
             throw new OwnNotImplemented("Directory Remove");
@@ -41,14 +47,18 @@ namespace DataWarehouse.Classes
 
         protected override IDirectory Add(IDirectory directory)
         {
-            AddDirectory(directory);
+            //AddDirectory(directory);
             throw new OwnNotImplemented("Directory Remove itself");
         }
 
+        protected override IDirectory AddToDatabase(IDirectory directory)
+        {
+            throw new OwnNotImplemented("Directory Add to database");
+        }
 
         protected override ILeaf Add(ILeaf leaf)
         {
-            AddLeaf(leaf);
+            //AddLeaf(leaf);
             throw new OwnNotImplemented("Directory Remove itself");
         }
 
@@ -64,7 +74,36 @@ namespace DataWarehouse.Classes
         }
 
 
+        #region Abstract
 
+        protected override bool SetDatabaseName(string name)
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override bool SetDatabaseDescription(string description)
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override List<ILeaf> GetLeavesFormDatabase()
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override ILeaf AddToDatabase(ILeaf leaf)
+        {
+            throw new OwnNotImplemented("Directory Add");
+        }
+
+
+
+        #endregion
 
 
         #endregion

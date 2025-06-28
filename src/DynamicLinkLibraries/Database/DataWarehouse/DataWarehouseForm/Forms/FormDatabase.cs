@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Utils;
-
+using ErrorHandler;
 using NamedTree;
 
 using ResourceService;
@@ -251,8 +251,12 @@ namespace DataWarehouse.Forms
             {
                 return;
             }
-   
+            var n = SelectedNode.Name;
             SelectedNode.Name = e.Label;
+            if (n == SelectedNode.Name)
+            {
+                e.CancelEdit = true;
+            }
         }
 
         private void listViewDoc_Click(object sender, EventArgs e)
@@ -304,19 +308,18 @@ namespace DataWarehouse.Forms
                     descr += s;
                     descr += " ";
                 }
-                IDirectory dir = new Classes.Directory(null, textBoxDirName.Text, textBoxDirDescr.Text, blob.Extension);
+                var nm = textBoxDirName.Text;
+                IDirectory dir = new Classes.Directory(null, nm, textBoxDirDescr.Text, blob.Extension);
                 IDirectory child = node.Add(dir);
                 if (child == null)
                 {
-                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal directory name");
+                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal directory name \"" + nm + "\"");
                     return;
                 }
-         /*       TreeNode nn = new TreeNode(child.Name);
-                nn.Tag = child;
-                SelectedTreeNode.Nodes.Add(nn);*/
             }
             catch (Exception ex)
             {
+                ex.HandleException();
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
 
@@ -440,6 +443,7 @@ namespace DataWarehouse.Forms
                 }
                 byte[] b = null;
                 string ext = "";
+                var nm = textBoxName.Text;
                 if (labelFileName.Text.Length != 0)
                 {
                     Stream stream = File.OpenRead(labelFileName.Text);
@@ -457,8 +461,13 @@ namespace DataWarehouse.Forms
                     b = blob.Bytes;
                     ext = blob.Extension;
                 }
-                var leaf = new Leaf(null, textBoxName.Text, textBoxDescription.Text, b, ext);
-                SelectedNode.Add(leaf);
+                var leaf = new Leaf(null, nm, textBoxDescription.Text, ext, b);
+                var l = SelectedNode.Add(leaf);
+                if (l == null)
+                {
+                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
+                    return;
+                }
                 Close();
             }
             catch (Exception ex)
@@ -485,7 +494,7 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
-                Selected.Remove();
+                Selected.RemoveItself();
                 //selectedNode.Remove(selected);
                 refreshTable();
             }
@@ -569,7 +578,6 @@ namespace DataWarehouse.Forms
         private void openToolStripButton_Click(object sender, EventArgs e)
         {
             openToolStripMenuItem_Click(sender, e);
-
         }
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -581,14 +589,19 @@ namespace DataWarehouse.Forms
         {
             try
             {
-               /* string guid = selected.Attributes["BinaryId"].Value;
-                XmlElement el = selected.GetElementsByTagName("Description")[0] as XmlElement;
-                data.UpdateData(guid, e.Label, el.InnerText); */
-                (Selected as ILeaf).Name = e.Label;
+                ILeaf leaf = Selected;
+                var name = leaf.Name;
+                leaf.Name = e.Label;
+                if (name == leaf.Name)
+                {
+                    e.CancelEdit = true;
+                }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                e.CancelEdit = true;
+                ex.HandleException();
             }
         }
 
