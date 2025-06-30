@@ -12,6 +12,10 @@ namespace DataWarehouse.Classes.Abstract
     /// </summary>
     public abstract class Leaf : ILeafData
     {
+        private void Init()
+        {
+
+        }
 
         #region Fields
 
@@ -37,6 +41,7 @@ namespace DataWarehouse.Classes.Abstract
         #endregion
         protected Leaf() 
         {
+            Init();
             GetData = GetDataInitial;
         }
 

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.Odbc" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataWarehouse\DataWarehouse\DataWarehouse.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSetWarehoues.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSetWarehoues.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSetWarehouse.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSetWarehouse.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSetWarehoues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetWarehoues.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="DataSetWarehouse.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetWarehouse.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

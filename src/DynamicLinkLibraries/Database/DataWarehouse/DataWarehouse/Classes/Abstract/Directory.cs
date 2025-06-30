@@ -12,6 +12,11 @@ namespace DataWarehouse.Classes.Abstract
 {
     public abstract class Directory : IDirectory
     {
+        private void Init()
+        {
+
+        }
+
         #region Fields
 
         protected string name;
@@ -37,15 +42,12 @@ namespace DataWarehouse.Classes.Abstract
         #region Ctor
 
 
-
-
         protected Directory() 
         {
+            Init();
             GetChildern = GetFuncInitial;
             GetLeaves = GetFuncLeafInitial;
         }
-
-        
 
         public Directory(object Id, string Name, string Description, string Extension = null) : this()
         {

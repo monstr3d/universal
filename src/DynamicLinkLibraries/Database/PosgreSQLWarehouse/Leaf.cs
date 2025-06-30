@@ -34,10 +34,7 @@ namespace PosgreSQLWarehouse
             return PosgreSQLWarehouseInterface.SetData(this, data) != null;
         }
 
-
-        #endregion
-
-
+        #region Ctor
         public Leaf(IDataRecord record, IDirectory directory, PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
             PosgreSQLWarehouseInterface = posgreSQLWarehouse;
@@ -54,7 +51,11 @@ namespace PosgreSQLWarehouse
             PosgreSQLWarehouseInterface = posgreSQLWarehouseInterface;
         }
 
-   
+        #endregion
+
+
+        #endregion
+
 
         protected override void Add(INode<INode> node)
         {

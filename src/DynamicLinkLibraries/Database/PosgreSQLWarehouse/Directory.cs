@@ -48,6 +48,7 @@ namespace PosgreSQLWarehouse
 
         PosgreSQLWarehouseInterface posgreSQLWarehouse;
 
+        #region Ctor
 
         public Directory(IDataRecord record, PosgreSQLWarehouseInterface posgreSQLWarehouse)
         {
@@ -91,6 +92,8 @@ namespace PosgreSQLWarehouse
             Extension = t.Item5;
 
         }
+
+        #endregion
 
         protected override void Add(INode<INode> node)
         {
