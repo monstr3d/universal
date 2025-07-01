@@ -8,6 +8,14 @@
         /// <summary>
         /// Data
         /// </summary>
-        public byte[] Data { get; set; }
+        byte[] Data { get; set; }
+    }
+
+    /// <summary>
+    /// Async data
+    /// </summary>
+    public interface IDataAsync
+    {
+        Task<byte[]> GetDataAsync();
     }
 }

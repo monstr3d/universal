@@ -86,6 +86,7 @@ namespace Diagram.UI.Components
         [ReadOnly(false)]
         [Description("Control")]
         [TypeConverter(typeof(DesignerConverter))]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ByteHolder Content
         {
             get

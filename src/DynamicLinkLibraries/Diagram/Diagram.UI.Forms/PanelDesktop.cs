@@ -20,11 +20,16 @@ using Diagram.UI.Forms.Interfaces;
 
 using SerializationInterface;
 
+using System.ComponentModel;
+using System.Threading.Tasks;
+
 using Common.UI;
 
 using ToolBox;
 using ErrorHandler;
 using NamedTree;
+using WindowsExtensions;
+using BaseTypes.Attributes;
 
 
 namespace Diagram.UI
@@ -404,6 +409,10 @@ namespace Diagram.UI
         /// <summary>
         /// The edit enabled sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The edit enabled sign
+        /// </summary>
         public bool EditEnabled
         {
             get
@@ -459,6 +468,10 @@ namespace Diagram.UI
         /// <summary>
         /// The "is moved" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The "is moved" sign
+        /// </summary>
         public bool IsMoved
         {
             get
@@ -483,6 +496,10 @@ namespace Diagram.UI
             Save(objs, arrs, stream, false);
         }
 
+        /// <summary>
+        /// File extension
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         /// <summary>
         /// File extension
         /// </summary>
@@ -1423,6 +1440,7 @@ namespace Diagram.UI
         /// <summary>
         /// Active arrow
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICategoryArrow ActiveArrow
         {
             get
@@ -1449,6 +1467,10 @@ namespace Diagram.UI
         /// <summary>
         /// Active label of object
         /// </summary>
+        /// <summary>
+        /// Active label of object
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IObjectLabel ActiveObjectLabel
         {
             get
@@ -1522,7 +1544,6 @@ namespace Diagram.UI
             }
             tools.AddObjectNode(label);
         }
-
   
         /// <summary>
         /// Adds converter for drag
@@ -1547,8 +1568,6 @@ namespace Diagram.UI
                 this.afterDrag = afterDrag;
             }
         }
-
-
 
         /// <summary>
         /// Adds arrow label to this component
@@ -1836,7 +1855,71 @@ namespace Diagram.UI
             Refresh();
         }
 
- 
+        public async Task<bool> LoadAsync(IDataAsync data, SerializationBinder binder, string ext, string extd)
+        {
+            var cur = Cursor;
+            Cursor = Cursors.WaitCursor;
+            try
+            {
+                var t = data.GetDataAsync();
+                await t;
+                using var stream = new MemoryStream(t.Result);
+                stream.Position = 0;
+                var tt  = LoadFromStreamAsync(stream, binder, ext, extd);
+                await tt;
+                Cursor = cur;
+                return tt.Result;
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            Cursor = cur;
+            return false;
+        }
+
+        public async Task<bool> LoadFromStreamAsync(Stream stream, SerializationBinder binder, string ext,
+            string extd, bool changCuror = false)
+        {
+            var cur = Cursor;
+            try
+            {
+                if (changCuror)
+                {
+                    Cursor = Cursors.WaitCursor;
+                }
+                Func<bool> f = () => LoadFromStreamInvoke(stream, binder, ext, extd);
+                var t = Task.FromResult(f());
+                await t;
+                if (changCuror)
+                {
+                    Cursor = cur; ;
+                }
+                return t.Result;
+            }
+            catch (Exception e)
+            {
+                e.HandleException();
+            }
+            if (changCuror)
+            {
+                Cursor = cur; ;
+            }
+            return false;
+        }
+
+        public bool  LoadFromStreamInvoke(Stream stream, SerializationBinder binder, string ext, string extd)
+        {
+            bool b = false;
+            var act = () =>
+            {
+                b = LoadFromStream(stream, binder, ext, extd);
+            };
+            this.InvokeIfNeeded(act);
+            return b;
+        }
+
+
         /// <summary>
         /// Loading
         /// </summary>
@@ -2469,7 +2552,7 @@ namespace Diagram.UI
             files.Clear();
             foreach (string fn in ob)
             {
-               string ex = System.IO.Path.GetExtension(fn);
+               string ex = Path.GetExtension(fn);
                 if (ex.ToLower().Equals(ext.ToLower()))
                 {
                     files.Add(fn);
@@ -2488,11 +2571,6 @@ namespace Diagram.UI
             if (d.GetDataPresent("FileDrop"))
             {
                 string[] s = d.GetData("FileDrop") as string[];
-                /*   string ex = System.IO.Path.GetExtension(fn);
-                     if (ex.ToLower().Equals(ext.ToLower()))
-                     {
-                         e.Effect = DragDropEffects.Copy;
-                     }*/
                 if (Detect(s))
                 {
                     e.Effect = DragDropEffects.Copy;

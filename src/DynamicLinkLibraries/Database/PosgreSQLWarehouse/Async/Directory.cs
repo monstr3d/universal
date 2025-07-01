@@ -152,5 +152,10 @@ namespace PostgreSQLWarehouse.Async
             await t;
             return t.Result;
         }
+
+        protected override Task<ILeafAsync> Add(ILeaf leaf)
+        {
+            throw new OwnNotImplemented();
+        }
     }
 }

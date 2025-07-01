@@ -28,13 +28,34 @@ namespace DataWarehouse.Interfaces.Async
         Task<bool> RemoveItselfAsync();
 
         /// <summary>
-        /// Adds directory
+        /// Adds a directory
         /// </summary>
-        /// <param name="name">Directory name</param>
-        /// <param name="description">Description</param>
-        /// <param name="ext">Extension</param>
-        /// <returns>Created directory</returns>
-        Task<IDirectoryAsync> Add(IDirectory directory);
+        /// <param name="directory">Prototype</param>
+        /// <returns>THe added directory</returns>
+         Task<IDirectoryAsync> Add(IDirectory directory);
+
+        /// <summary>
+        /// Adds a leaf
+        /// </summary>
+        /// <param name="leaf">Prototype</param>
+        /// <returns>THe added leaf</returns>
+        Task<ILeafAsync> Add(ILeaf leaf);
+
+        /// <summary>
+        /// Updates Name
+        /// </summary>
+        /// <param name="name">The name</param>
+        /// <returns>The name</returns>
+        Task<string> UpdateNameAsync(string name);
+
+        /// <summary>
+        /// Updates Description
+        /// </summary>
+        /// <param name="name">The description</param>
+        /// <returns>The description</returns>
+        Task<string> UpdateDescriptionAsync(string descriptuin);
+
+
 
     }
 }

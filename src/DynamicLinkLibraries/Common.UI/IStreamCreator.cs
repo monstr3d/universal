@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
+
+using NamedTree;
 
 namespace Common.UI
 {
@@ -17,5 +16,11 @@ namespace Common.UI
         {
             get;
         }
+
+        /// <summary>
+        /// Data async
+        /// </summary>
+        IDataAsync DataAsync { get; }
+
     }
 }

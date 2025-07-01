@@ -59,9 +59,15 @@ namespace DataWarehouse.Classes.Abstract
 
         #endregion
 
-   
+
 
         #region IDirectory events
+
+        protected void OnAddLeafAct(ILeaf leaf)
+        {
+            OnAddLeaf?.Invoke(leaf);
+        }
+
 
         protected void OnAddDirectoryAct(IDirectory directory)
         {

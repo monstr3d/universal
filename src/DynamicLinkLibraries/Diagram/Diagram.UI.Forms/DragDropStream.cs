@@ -56,7 +56,7 @@ namespace Diagram.UI
             }
         }
 
-        private void dragDrop(object sender, DragEventArgs e)
+        private async void dragDrop(object sender, DragEventArgs e)
         {
             string[] s = e.Data.GetFormats();
             if (s == null)
@@ -71,8 +71,17 @@ namespace Diagram.UI
             {
                 object o = e.Data.GetData(s[0]);
                 IStreamCreator cr = o as IStreamCreator;
+                var async = cr.DataAsync;
+                if (async != null)
+                {
+                    var t = desktop.LoadAsync(async,
+                        SerializationInterface.StaticExtensionSerializationInterface.Binder, 
+                        desktop.Extension, desktop.Extension);
+                    await t;
+                    return;
+                }
                 Stream stream = cr.Stream;
-                desktop.LoadFromStream(stream, 
+                desktop.LoadFromStream(stream,
                     SerializationInterface.StaticExtensionSerializationInterface.Binder, desktop.Extension, desktop.Extension);
                 afterDrag(stream);
             }

@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using System.Threading.Tasks;
+
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
@@ -33,9 +33,17 @@ namespace PostgreSQLWarehouse.Async
             warehouseInterface = posgreSQLWarehouseInterface;
         }
 
+
+        #endregion
+
         protected override void Add(INode<INode> node)
         {
             throw new OwnNotImplemented();
+        }
+
+        protected override Task<byte[]> GetDataAsync()
+        {
+            return warehouseInterface.GetDataAsync(this);
         }
 
         protected override byte[] GetDatabaseData()
@@ -72,11 +80,7 @@ namespace PostgreSQLWarehouse.Async
         {
             throw new OwnNotImplemented();
         }
-
-
-        #endregion
-
-
+  
 
     }
 }

@@ -15,7 +15,13 @@ namespace PostgreSQLWarehouse.Async
         {
         }
 
-        
+     
+        internal async Task<byte[]> GetDataAsync(ILeaf leaf)
+        {
+            var t = Execute(GetDataAsync, leaf);
+            await t;
+            return t.Result;
+        }
 
         async Task<IDirectoryAsync[]> IDatabaseInterfaceAsync.GetRoots(string[] extensions)
         {
@@ -29,8 +35,16 @@ namespace PostgreSQLWarehouse.Async
             var t = Execute(Add, parent, directory);
             await t;
             return t.Result;
+        }
+
+        internal async Task<ILeafAsync> Add(IDirectory parent, ILeafData directory)
+        {
+            var t = Execute(Add, parent, directory);
+            await t;
+            return t.Result;
 
         }
+
 
 
 

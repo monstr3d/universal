@@ -15,6 +15,8 @@ namespace DataWarehouse
 
         ILeaf leaf;
 
+        IDataAsync async;
+
 
         #endregion
 
@@ -27,6 +29,10 @@ namespace DataWarehouse
         public DatabaseStreamCreator(ILeaf leaf)
         {
             this.leaf = leaf;
+            if (leaf is IDataAsync async)
+            {
+                this.async = async;
+            }
         }
 
         #endregion
@@ -40,6 +46,8 @@ namespace DataWarehouse
                 return new MemoryStream((leaf as IData).Data);
             }
         }
+
+        IDataAsync IStreamCreator.DataAsync => async;
 
         #endregion
     }

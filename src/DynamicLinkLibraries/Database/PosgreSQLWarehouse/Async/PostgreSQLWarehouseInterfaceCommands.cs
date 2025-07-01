@@ -1,20 +1,39 @@
-﻿using DataWarehouse;
+﻿using Npgsql;
+using System.Data;
+
+using DataWarehouse;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PostgreSQLWarehouse.Async
 {
     partial class PostgreSQLWarehouseInterface
     {
+        async Task<byte[]> GetDataAsync(NpgsqlCommand command, ILeaf leaf)
+        {
+            Init();
+            try
+            {
+                string sqlQuery = $"SELECT \"Data\" FROM public.\"BinaryTable\" WHERE \"Id\" = @idd";
+                command.Parameters.AddWithValue("@idd", leaf.Id);
+                command.CommandText = sqlQuery;
+                var i = command.ExecuteReaderAsync();
+                await i;
+                var k = i.Result;
+                if (k.Read())
+                {
+                    return (byte[])k["data"];
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            return null;
+        }
+
+
         async Task<IEnumerable<IDirectoryAsync>> GetCommandRootsAsync(NpgsqlCommand command)
         {
             Init();
@@ -70,6 +89,34 @@ namespace PostgreSQLWarehouse.Async
         {
             command.Parameters.AddWithValue(s, o);
         }
+
+        async Task<ILeafAsync> Add(NpgsqlCommand command, IDirectory parent, ILeafData leaf)
+        {
+            try
+            {
+                var directory = parent;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "public.\"CreateTable\"";
+                var g = Guid.NewGuid();
+                Add(command, "id", g);
+                Add(command, "parent", directory.Id);
+                Add(command, "name", leaf.Name);
+                Add(command, "description", leaf.Description);
+                Add(command, "data", leaf.Data);
+                Add(command, "extension", leaf.Extension);
+                var i = command.ExecuteNonQueryAsync();
+                await i;
+                return (i.Result == -1) ? new Leaf(leaf, directory, g, this) : null;
+
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            return null;
+        }
+
+
 
         async Task<IDirectoryAsync> Add(NpgsqlCommand command, IDirectory parent, IDirectory directory)
         {
