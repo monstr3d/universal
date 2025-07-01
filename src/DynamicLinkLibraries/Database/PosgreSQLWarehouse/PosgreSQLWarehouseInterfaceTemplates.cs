@@ -2,12 +2,14 @@
 
 using ErrorHandler;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
-    partial class PosgreSQLWarehouseInterface
+    partial class PostgreSQLWarehouseInterface
     {
 
         #region Templates
+
+
 
         public T Execute<T>(Func<NpgsqlCommand, T> func) where T : class
         {

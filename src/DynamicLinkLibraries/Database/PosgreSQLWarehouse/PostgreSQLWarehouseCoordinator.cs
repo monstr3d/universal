@@ -1,13 +1,14 @@
 ﻿using DataWarehouse.Interfaces;
 using ErrorHandler;
 using Npgsql;
+using System.Threading.Tasks;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
-    public class PosgreSQLWarehouseCoordinator : IDatabaseCoordinator
+    public class PostgreSQLWarehouseCoordinator : IDatabaseCoordinator
     {
 
-        public PosgreSQLWarehouseCoordinator()
+        public PostgreSQLWarehouseCoordinator()
         {
 
         }
@@ -32,8 +33,8 @@ namespace PosgreSQLWarehouse
             {
                 try
                 {
-                    conn.Open();
-                    return new PosgreSQLWarehouseInterface(name);
+                    conn.Open(); ;
+                    return new Async.PostgreSQLWarehouseInterface(name);
                 }
                 catch (Exception e)
                 {

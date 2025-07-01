@@ -16,6 +16,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using WindowsExtensions;
+using System.ComponentModel;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -57,6 +58,12 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
             startStopPauseButtons = [[toolStripButtonStart], [toolStripButtonStop]];
         }
+
+        #endregion
+
+        #region Members
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
         #endregion
 
@@ -138,6 +145,7 @@ namespace DataPerformer.UI.UserControls
             StaticExtensionDiagramUIForms.Action(null, type, actionType);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal List<Dictionary<string, Dictionary<string, Color>>> Dictionary
         {
             set

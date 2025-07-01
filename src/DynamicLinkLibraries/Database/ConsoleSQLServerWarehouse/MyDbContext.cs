@@ -31,30 +31,30 @@ namespace ConsoleSQLServerWarehouse
 
         private bool disposedValue;
 
-        string IUnitOfWork.Id => throw new NotImplementedException();
+        string IUnitOfWork.Id => throw new OwnNotImplemented();
 
-        IUnitOfWork IUnitOfWork.Outer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IUnitOfWork IUnitOfWork.Outer { get => throw new OwnNotImplemented(); set => throw new OwnNotImplemented(); }
 
-        UnitOfWorkOptions IActiveUnitOfWork.Options => throw new NotImplementedException();
+        UnitOfWorkOptions IActiveUnitOfWork.Options => throw new OwnNotImplemented();
 
-        IReadOnlyList<DataFilterConfiguration> IActiveUnitOfWork.Filters => throw new NotImplementedException();
+        IReadOnlyList<DataFilterConfiguration> IActiveUnitOfWork.Filters => throw new OwnNotImplemented();
 
-        IReadOnlyList<AuditFieldConfiguration> IActiveUnitOfWork.AuditFieldConfiguration => throw new NotImplementedException();
+        IReadOnlyList<AuditFieldConfiguration> IActiveUnitOfWork.AuditFieldConfiguration => throw new OwnNotImplemented();
 
-        Dictionary<string, object> IActiveUnitOfWork.Items { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        Dictionary<string, object> IActiveUnitOfWork.Items { get => throw new OwnNotImplemented(); set => throw new OwnNotImplemented(); }
 
-        bool IActiveUnitOfWork.IsDisposed => throw new NotImplementedException();
+        bool IActiveUnitOfWork.IsDisposed => throw new OwnNotImplemented();
 
         event EventHandler IActiveUnitOfWork.Completed
         {
             add
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
         }
 
@@ -62,12 +62,12 @@ namespace ConsoleSQLServerWarehouse
         {
             add
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
         }
 
@@ -75,83 +75,83 @@ namespace ConsoleSQLServerWarehouse
         {
             add
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
 
             remove
             {
-                throw new NotImplementedException();
+                throw new OwnNotImplemented();
             }
         }
 
         void IUnitOfWork.Begin(UnitOfWorkOptions options)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         void IUnitOfWorkCompleteHandle.Complete()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         Task IUnitOfWorkCompleteHandle.CompleteAsync()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.DisableAuditing(params string[] fieldNames)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.DisableFilter(params string[] filterNames)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.EnableAuditing(params string[] fieldNames)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.EnableFilter(params string[] filterNames)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         int? IActiveUnitOfWork.GetTenantId()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         bool IActiveUnitOfWork.IsFilterEnabled(string filterName)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         void IActiveUnitOfWork.SaveChanges()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         Task IActiveUnitOfWork.SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.SetFilterParameter(string filterName, string parameterName, object value)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.SetTenantId(int? tenantId)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         IDisposable IActiveUnitOfWork.SetTenantId(int? tenantId, bool switchMustHaveTenantEnableDisable)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         protected virtual void Dispose(bool disposing)

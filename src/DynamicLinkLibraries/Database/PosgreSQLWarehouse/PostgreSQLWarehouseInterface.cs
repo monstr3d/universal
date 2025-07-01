@@ -1,23 +1,20 @@
-﻿using DataWarehouse;
-using DataWarehouse.Interfaces;
-using ErrorHandler;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Npgsql;
-using System;
-using System.Data;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+﻿using DataWarehouse.Interfaces;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
 
-    public partial class PosgreSQLWarehouseInterface : IDatabaseInterface
+    public partial class PostgreSQLWarehouseInterface : IDatabaseInterface
     {
         public string Connection { get; init; }
 
         IDirectory[] roots;
+        
+        protected void Init()
+        {
 
-        public PosgreSQLWarehouseInterface(string connection)
+        }
+
+        public PostgreSQLWarehouseInterface(string connection)
         {
             this.Connection = connection;
         }

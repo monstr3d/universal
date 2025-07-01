@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
 using NamedTree;
 
 using WindowsExtensions;
@@ -39,9 +42,26 @@ namespace DataWarehouse
             return new Forms.Tree.TreeNode(leaf);
         }
 
-        public static void Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice = false, bool leaves = true)
+        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice = false, bool leaves = true)
         {
-            IDirectory[] dir = data.GetRoots(new string[] { ext });
+            IDirectory[] dir = null; 
+            var act = () => treeView.Fill(dir, recursice, leaves);
+            if (!data.SupportsAsync)
+            {
+                dir = data.GetRoots(new string[] { ext });
+                act();
+                return;
+            }
+            var t = data.GetRootsAsync(new string[] { ext });
+            await t;
+            var r = t.Result;
+            dir = (from d in  r select d as IDirectory).ToArray();
+            treeView.InvokeIfNeeded(act);
+            
+         }
+
+        static void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves)
+        {
             foreach (IDirectory d in dir)
             {
                 var nd = d.GetNode(recursice, leaves);
@@ -51,6 +71,7 @@ namespace DataWarehouse
             {
                 SetDisposed(tn);
             }
+
         }
 
         static public async void FillNode(this IDirectory dir, System.Windows.Forms.TreeNode node,  bool recursive = false, bool leaves = true)
@@ -58,6 +79,13 @@ namespace DataWarehouse
             if (node.Nodes.Count > 0)
             {
                 return;
+            }
+            if (dir is IDirectoryAsync directoryAsync)
+            {
+                var t = directoryAsync.LoadChildren();
+                await t;
+                var tl = directoryAsync.LoadLeaves();
+                await tl;
             }
             IEnumerable<IDirectory> dirs = null;
             IEnumerable<ILeaf> cs = null; ;

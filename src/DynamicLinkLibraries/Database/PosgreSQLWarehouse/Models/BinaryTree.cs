@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PosgreSQLWarehouse.Models;
+namespace PostgreSQLWarehouse.Models;
 
 public partial class BinaryTree
 {

@@ -381,11 +381,6 @@ namespace BaseTypes
             return double.Parse(str, CultureInfo.InvariantCulture);
         }
 
-
-
-
-
-
         /// <summary>
         /// Adds element to dictionary
         /// </summary>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace PosgreSQLWarehouse.Models
+namespace PostgreSQLWarehouse.Models
 {
     public partial class BinaryTree : IDirectory
     {

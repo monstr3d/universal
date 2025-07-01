@@ -6,9 +6,9 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 using ErrorHandler;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
-    partial class PosgreSQLWarehouseInterface
+    partial class PostgreSQLWarehouseInterface
     {
         object DropTree(NpgsqlCommand command)
         {
@@ -297,10 +297,6 @@ namespace PosgreSQLWarehouse
             var list = new List<IDirectory>();
             try
             {
-                //command.CommandType = CommandType.StoredProcedure;
-                // command.CommandText = "public.\"TreeFunc";
-                // Add(command, "idd", d.Id);
-                //command.Parameters.AddWithValue("idd", d.Id);
                 string sqlQuery = $"SELECT * FROM public.\"BinaryTree\" WHERE \"ParentId\" = @idd AND \"ParentId\" <> \"Id\"";
                 // Double quotes for column name, @ for parameter
                 command.Parameters.AddWithValue("@idd", d.Id);

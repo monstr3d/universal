@@ -5,11 +5,13 @@ using System.Windows.Forms;
 
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
 using DataWarehouse.Utils;
 using ErrorHandler;
 using NamedTree;
 
 using ResourceService;
+using WindowsExtensions;
 
 
 namespace DataWarehouse.Forms
@@ -289,6 +291,19 @@ namespace DataWarehouse.Forms
 
         }
 
+        async void Add(IDirectoryAsync parent, IDirectory child)
+        {
+            var t = parent.Add(child);
+            await t;
+        }
+
+        async void Remove(IDirectoryAsync async)
+        {
+            var t = async.RemoveItselfAsync();
+            await t;
+        }
+
+
         private void buttonCreateDir_Click(object sender, EventArgs e)
         {
             try
@@ -310,6 +325,11 @@ namespace DataWarehouse.Forms
                 }
                 var nm = textBoxDirName.Text;
                 IDirectory dir = new Classes.Directory(null, nm, textBoxDirDescr.Text, blob.Extension);
+                if (node is IDirectoryAsync async)
+                {
+                    Add(async, dir);
+                    return;
+                }
                 IDirectory child = node.Add(dir);
                 if (child == null)
                 {
@@ -342,14 +362,12 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
-                SelectedNode.RemoveItself();
-             /*   SelectedNode = null;
-                TreeNode p = SelectedTreeNode.Parent;
-                if (p.Nodes.Count == 1)
+                if (SelectedNode is IDirectoryAsync async)
                 {
-                    treeViewDir.SelectedNode = p;
-                }
-                SelectedTreeNode.Remove();*/
+                    Remove(async);
+                    return;
+                 }
+                SelectedNode.RemoveItself();
             }
             catch (Exception ex)
             {

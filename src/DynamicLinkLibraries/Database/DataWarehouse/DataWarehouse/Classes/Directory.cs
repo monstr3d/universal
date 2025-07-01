@@ -29,7 +29,7 @@ namespace DataWarehouse.Classes
         }
 
 
-        protected override bool RemoveFromDatase()
+        protected override bool RemoveFromDatabase()
         {
             throw new OwnNotImplemented("Directory Remove");
 

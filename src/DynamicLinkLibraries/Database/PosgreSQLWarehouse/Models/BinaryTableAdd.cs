@@ -9,7 +9,7 @@ using DataWarehouse.Interfaces;
 using ErrorHandler;
 using NamedTree;
 
-namespace PosgreSQLWarehouse.Models
+namespace PostgreSQLWarehouse.Models
 {
     [Leaf<INode>]
     public partial class BinaryTable : ILeaf, IData

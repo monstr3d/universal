@@ -6,53 +6,19 @@ using ErrorHandler;
 
 using NamedTree;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
   
     public class Directory : DataWarehouse.Classes.Abstract.Directory
     {
-        #region NEW
 
-
-        protected override bool SetDatabaseName(string name)
-        {
-            return posgreSQLWarehouse.SetName(this, name) != null;
-        }
-
-
-        protected override bool RemoveFromDatase()
-        {
-            var o = posgreSQLWarehouse.Remove(this);
-            return o != null;
-        }
-
-
-        protected override bool SetDatabaseDescription(string description)
-        {
-            return posgreSQLWarehouse.SetDescription(this, description) != null;
-        }
-
-        protected override List<ILeaf> GetLeavesFormDatabase()
-        {
-           return  posgreSQLWarehouse.GetLeaves(this);
-        }
-
-        protected override List<IDirectory> GetDirectoriesFormDatabase()
-        {
-            return posgreSQLWarehouse.GetChildren(this);
-        }
-
-
-
-        #endregion
-
-        PosgreSQLWarehouseInterface posgreSQLWarehouse;
+        protected PostgreSQLWarehouseInterface postgreSQLWarehouse;
 
         #region Ctor
 
-        public Directory(IDataRecord record, PosgreSQLWarehouseInterface posgreSQLWarehouse)
+        public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse)
         {
-            this.posgreSQLWarehouse = posgreSQLWarehouse;
+            this.postgreSQLWarehouse = postgreSQLWarehouse;
             Id = record[0];
             var p = record[1];
             name = record.GetString(2);
@@ -60,38 +26,73 @@ namespace PosgreSQLWarehouse
             Extension = record.GetString(4);
         }
 
-        public Directory(IDataRecord record, IDirectory parent, PosgreSQLWarehouseInterface posgreSQLWarehouse) :
-            this(record, posgreSQLWarehouse)
+        public Directory(IDataRecord record, IDirectory parent, PostgreSQLWarehouseInterface postgreSQLWarehouse) :
+            this(record, postgreSQLWarehouse)
         {
             Parent = parent;
         }
 
 
-        internal Directory(IDirectory directory, Guid guid, PosgreSQLWarehouseInterface posgreSQLWarehouse)
+        internal Directory(IDirectory directory, Guid guid, PostgreSQLWarehouseInterface postgreSQLWarehouse)
         {
             var t = new Tuple<Guid, Guid, string, string, string>(guid, guid, directory.Name, directory.Description,
                 directory.Extension);
-            Create(t, posgreSQLWarehouse);
+            Create(t, postgreSQLWarehouse);
         }
 
 
         internal Directory(Tuple<Guid, Guid, string, string, string> t, 
-            PosgreSQLWarehouseInterface posgreSQLWarehouse)
+            PostgreSQLWarehouseInterface posgreSQLWarehouse)
         {
             Create(t, posgreSQLWarehouse);
         }
 
 
         void Create(Tuple<Guid, Guid, string, string, string> t,
-            PosgreSQLWarehouseInterface posgreSQLWarehouse)
+            PostgreSQLWarehouseInterface postgreSQLWarehouse)
         {
-            this.posgreSQLWarehouse = posgreSQLWarehouse;
+            this.postgreSQLWarehouse = postgreSQLWarehouse;
             Id = t.Item1;
             name = t.Item3;
             description = t.Item4;
             Extension = t.Item5;
 
         }
+
+        #endregion
+
+        #region NEW
+
+
+        protected override bool SetDatabaseName(string name)
+        {
+            return postgreSQLWarehouse.SetName(this, name) != null;
+        }
+
+
+        protected override bool RemoveFromDatabase()
+        {
+            var o = postgreSQLWarehouse.Remove(this);
+            return o != null;
+        }
+
+
+        protected override bool SetDatabaseDescription(string description)
+        {
+            return postgreSQLWarehouse.SetDescription(this, description) != null;
+        }
+
+        protected override List<ILeaf> GetLeavesFormDatabase()
+        {
+            return postgreSQLWarehouse.GetLeaves(this);
+        }
+
+        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        {
+            return postgreSQLWarehouse.GetChildren(this);
+        }
+
+
 
         #endregion
 
@@ -103,15 +104,15 @@ namespace PosgreSQLWarehouse
         {
 
             var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
-            var t = posgreSQLWarehouse.Insert(tt);
-            return (directory == null) ? new Directory(t, posgreSQLWarehouse) :
-                new Directory(directory, t.Item1, posgreSQLWarehouse);
+            var t = postgreSQLWarehouse.Insert(tt);
+            return (directory == null) ? new Directory(t, postgreSQLWarehouse) :
+                new Directory(directory, t.Item1, postgreSQLWarehouse);
         }
 
         protected override ILeaf AddToDatabase(ILeaf leaf)
         {
             var data = leaf as ILeafData;
-            return posgreSQLWarehouse.Get(this, data);
+            return postgreSQLWarehouse.Get(this, data);
         }
 
  

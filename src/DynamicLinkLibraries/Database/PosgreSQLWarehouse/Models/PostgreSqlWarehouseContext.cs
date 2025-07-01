@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace PosgreSQLWarehouse.Models;
+namespace PostgreSQLWarehouse.Models;
 
 public partial class PostgreSqlWarehouseContext : DbContext
 {

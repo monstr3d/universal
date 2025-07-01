@@ -1,11 +1,11 @@
-﻿using PosgreSQLWarehouse.Models;
+﻿using PostgreSQLWarehouse.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PosgreSQLWarehouse
+namespace PostgreSQLWarehouse
 {
     internal static class StaticExtension
     {

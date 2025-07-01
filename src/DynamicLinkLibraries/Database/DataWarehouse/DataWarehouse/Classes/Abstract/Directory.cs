@@ -32,9 +32,9 @@ namespace DataWarehouse.Classes.Abstract
 
         protected List<ILeaf> leaves;
 
-        Func<List<IDirectory>> GetChildern;
+        protected Func<List<IDirectory>> GetChildern;
 
-        Func<List<ILeaf>> GetLeaves;
+        protected Func<List<ILeaf>> GetLeaves;
 
 
         #endregion
@@ -63,8 +63,13 @@ namespace DataWarehouse.Classes.Abstract
 
         #region IDirectory events
 
+        protected void OnAddDirectoryAct(IDirectory directory)
+        {
+            OnAddDirectory?.Invoke(directory);
+        }
+
         /// <summary>
-        /// Addchild event
+        /// Add child event
         /// </summary>
         protected event Action<IDirectory> OnAddDirectory;
 
@@ -178,7 +183,7 @@ namespace DataWarehouse.Classes.Abstract
         {
             try
             {
-                var b =  RemoveFromDatase();
+                var b =  RemoveFromDatabase();
                 if (!b)
                 {
                     var x = "Directory \"" + name + "\" is not deleted";
@@ -194,7 +199,7 @@ namespace DataWarehouse.Classes.Abstract
 
         }
 
-        protected abstract bool RemoveFromDatase();
+        protected abstract bool RemoveFromDatabase();
 
 
     
@@ -512,12 +517,19 @@ namespace DataWarehouse.Classes.Abstract
             directories = GetDirectoriesFormDatabase();
             foreach (var directory in directories)
             {
-                directory.Parent = this;
-                Names.Add(directory.Name);
+                AddExternalDirectory(directory);
             }
             GetChildern = () => directories;
             return directories;
 
+        }
+
+        protected  bool AddExternalDirectory(IDirectory directory)
+        {
+            directory.Parent = this;
+            Names.Add(directory.Name);
+            directories.Add(directory);
+            return true;  
         }
 
         #region Absract
@@ -535,14 +547,25 @@ namespace DataWarehouse.Classes.Abstract
 
         protected List<ILeaf> GetFuncLeafInitial()
         {
-            leaves = GetLeavesFormDatabase();
+            var leaves = GetLeavesFormDatabase();
             foreach (var leaf in leaves)
             {
-                leaf.Parent = this;
-                Names.Add(leaf.Name);
+                AddExternalLeaf(leaf);
             }
             GetLeaves = () => leaves;
             return leaves;
+        }
+
+        protected bool AddExternalLeaf(ILeaf leaf, bool add = false)
+        {
+            leaf.Parent = this;
+            Names.Add(leaf.Name);
+            if (add)
+            {
+                leaves.Add(leaf);
+            }
+            return true;
+           
         }
 
 

@@ -129,6 +129,11 @@ namespace DataWarehouse.Classes.Abstract
 
         #region ILeaf events
 
+        protected void OnDeleteItselfAct()
+        {
+            OnDeleteItself?.Invoke();
+        }
+
         /// <summary>
         /// Delete itself event
         /// </summary>
