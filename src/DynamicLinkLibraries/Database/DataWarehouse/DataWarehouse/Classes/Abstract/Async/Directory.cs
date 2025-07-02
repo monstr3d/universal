@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.InteropServices.Marshalling;
 using System.Threading.Tasks;
 
 using DataWarehouse.Interfaces;
@@ -76,6 +74,11 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         protected override IDirectory Add(IDirectory directory)
         {
+            if (!ParentChildrenName.Check(directory))
+            {
+                OnAddDirectoryAct(Get(directory, ErrorType.IllegalName, OperationType.AddDirectory));
+                return directory;
+            }
             try
             {
                 CallAsync(directory);
@@ -115,6 +118,15 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
 
+
+        #endregion
+
+        #region Children name
+
+
+        IChildrenName ChildrenName => this;
+
+        IChildrenName ParentChildrenName => Parent as IChildrenName;
 
         #endregion
 
@@ -170,7 +182,6 @@ namespace DataWarehouse.Classes.Abstract.Async
         #endregion
 
 
-
         async Task<ILeafAsync> IDirectoryAsync.AddAsync(ILeaf leaf)
         {
             var t = AddAsync(leaf);
@@ -194,20 +205,22 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         async Task<IDirectoryAsync> IDirectoryAsync.AddAsync(IDirectory directory)
         {
+
             var t = AddAsync(directory);
             t.GetAwaiter().OnCompleted(() =>
             {
                 
                 if (t.Result == null)
                 {
-                    OnAddDirectoryAct(t.Result as IDirectory);
+                    OnAddDirectoryAct(Get(directory, ErrorType.Database, OperationType.AddDirectory));
                     return;
                 }
                 var dir = t.Result as IDirectory;
                 dir.Parent = this;
                 directories.Add(dir);
                 Names.Add(dir.Name);
-                OnAddDirectoryAct(t.Result as IDirectory);
+                var r = t.Result;
+                OnAddDirectoryAct(Get(r, ErrorType.None, OperationType.AddDirectory));
             });
             await t;
             return t.Result;
@@ -271,6 +284,8 @@ namespace DataWarehouse.Classes.Abstract.Async
             return t.Result;
         }
 
+        
+ 
         Task<string> IDirectoryAsync.UpdateDescriptionAsync(string description)
         {
             return UpdateDescriptionAsync(description);

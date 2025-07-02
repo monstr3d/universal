@@ -11,7 +11,7 @@ using NamedTree;
 
 namespace DataWarehouse.Classes.Abstract
 {
-    public abstract class Directory : IDirectory
+    public abstract class Directory : IDirectory, IChildrenName
     {
         private void Init()
         {
@@ -27,7 +27,7 @@ namespace DataWarehouse.Classes.Abstract
         protected List<string> Names
         {
             get;
-        } = new  List<string>();
+        } = new List<string>();
 
         protected List<IDirectory> directories;
 
@@ -43,7 +43,7 @@ namespace DataWarehouse.Classes.Abstract
         #region Ctor
 
 
-        protected Directory(bool childen) 
+        protected Directory(bool childen)
         {
             Init();
             if (childen)
@@ -67,6 +67,11 @@ namespace DataWarehouse.Classes.Abstract
 
         #endregion
 
+        protected IDirectory ThisDirectory
+        {
+            get => this;
+        }
+
 
         #region Event execution
 
@@ -77,9 +82,10 @@ namespace DataWarehouse.Classes.Abstract
         }
 
 
-        protected void OnAddDirectoryAct(IDirectory directory)
+        protected void OnAddDirectoryAct(object obj)
         {
-            OnAddDirectory?.Invoke(directory);
+            
+           
         }
 
         protected void OnDeleteItselfAct(object obj)
@@ -96,10 +102,18 @@ namespace DataWarehouse.Classes.Abstract
         }
 
 
+        protected void OnAddDirectoryObjectAct(object obj)
+        {
+            OnAddDirectoryObject?.Invoke(obj);
+        }
+
+
         #endregion
 
 
         #region IDirectory events
+
+        protected event Action<object> OnAddDirectoryObject;
 
 
         /// <summary>
@@ -117,7 +131,7 @@ namespace DataWarehouse.Classes.Abstract
         /// </summary>
         protected event Action<IDirectory> OnChangeItself;
 
-   
+
         /// <summary>
         /// Add leaf event
         /// </summary>
@@ -166,12 +180,12 @@ namespace DataWarehouse.Classes.Abstract
         {
             add
             {
-               OnAddDirectory += value;
+               OnAddDirectoryObject += value;
             }
 
             remove
             {
-               OnAddDirectory -= value;
+                OnAddDirectoryObject -= value;
             }
         }
 
@@ -201,7 +215,7 @@ namespace DataWarehouse.Classes.Abstract
 
         protected virtual IEnumerable<ILeaf> Leaves { get => GetLeaves(); set { } }
 
-        
+
 
         protected event Action<INode> OnAdd;
 
@@ -218,7 +232,7 @@ namespace DataWarehouse.Classes.Abstract
         {
             try
             {
-                var b =  RemoveFromDatabase();
+                var b = RemoveFromDatabase();
                 if (!b)
                 {
                     var x = "Directory \"" + name + "\" is not deleted";
@@ -237,7 +251,7 @@ namespace DataWarehouse.Classes.Abstract
         protected abstract bool RemoveFromDatabase();
 
 
-    
+
         protected abstract IDirectory AddToDatabase(IDirectory directory);
 
 
@@ -313,7 +327,7 @@ namespace DataWarehouse.Classes.Abstract
 
         protected abstract void Remove(ILeaf leaf, string ext);
 
-        internal virtual  bool Check(string name)
+        internal virtual bool Check(string name)
         {
             if (Names.Contains(name))
             {
@@ -342,7 +356,7 @@ namespace DataWarehouse.Classes.Abstract
             Names.Add(name);
         }
 
-  
+
 
 
         protected virtual bool UpdateName(string name)
@@ -463,7 +477,7 @@ namespace DataWarehouse.Classes.Abstract
         }
 
 
- 
+
         event Action<IDirectory> IChildren<IDirectory>.OnAdd
         {
             add
@@ -490,7 +504,7 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
-    
+
         event Action<IDirectory> IChildren<IDirectory>.OnRemove
         {
             add
@@ -575,12 +589,12 @@ namespace DataWarehouse.Classes.Abstract
 
         }
 
-        protected  bool AddExternalDirectory(IDirectory directory)
+        protected bool AddExternalDirectory(IDirectory directory)
         {
             directory.Parent = this;
             Names.Add(directory.Name);
             directories.Add(directory);
-            return true;  
+            return true;
         }
 
         #region Absract
@@ -616,9 +630,48 @@ namespace DataWarehouse.Classes.Abstract
                 leaves.Add(leaf);
             }
             return true;
-           
+
         }
 
+        bool IChildrenName.Check(INamed named)
+        {
+            return !Names.Contains(named.Name);
+        }
+
+        bool IChildrenName.Add(INamed named)
+        {
+            Names.Add(named.Name);
+            if (named is ILeaf leaf)
+            {
+                leaves.Add(leaf);
+            }
+            else if (named is IDirectory directory)
+            {
+                directories.Add(directory);
+            }
+            return true;
+        }
+
+        bool IChildrenName.Remove(INamed named)
+        {
+            {
+                Names.Remove(named.Name);
+                if (named is ILeaf leaf)
+                {
+                    leaves.Remove(leaf);
+                }
+                else if (named is IDirectory directory)
+                {
+                    directories.Remove(directory);
+                }
+                return true;
+            }
+        }
+
+        protected Issue Get(object o, ErrorType errorType, OperationType operationType)
+        {
+            return new Issue(o, errorType, operationType);
+        }
 
         #endregion
     }
