@@ -32,14 +32,14 @@ namespace DataWarehouse.Interfaces.Async
         /// </summary>
         /// <param name="directory">Prototype</param>
         /// <returns>THe added directory</returns>
-         Task<IDirectoryAsync> Add(IDirectory directory);
+         Task<IDirectoryAsync> AddAsync(IDirectory directory);
 
         /// <summary>
         /// Adds a leaf
         /// </summary>
         /// <param name="leaf">Prototype</param>
         /// <returns>THe added leaf</returns>
-        Task<ILeafAsync> Add(ILeaf leaf);
+        Task<ILeafAsync> AddAsync(ILeaf leaf);
 
         /// <summary>
         /// Updates Name
@@ -53,9 +53,7 @@ namespace DataWarehouse.Interfaces.Async
         /// </summary>
         /// <param name="name">The description</param>
         /// <returns>The description</returns>
-        Task<string> UpdateDescriptionAsync(string descriptuin);
-
-
+        Task<string> UpdateDescriptionAsync(string description);
 
     }
 }

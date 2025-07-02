@@ -84,7 +84,7 @@ namespace Motion6D.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {

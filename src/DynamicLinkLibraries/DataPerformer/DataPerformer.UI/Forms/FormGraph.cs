@@ -74,7 +74,7 @@ namespace DataPerformer.UI.Forms
 
         private void FormGraph_Load(object sender, EventArgs e)
         {
-            DataConsumer dc = label.Object as DataConsumer;
+            DataConsumer dc = (label as IObjectLabel).Object as DataConsumer;
             child.ParentLabel = label;
             (child as IGraphLabel).Data = (label as IGraphLabel).Data;
             child.Set(dc, (label as IGraphLabel).Data);

@@ -195,10 +195,10 @@ namespace DataWarehouse.Forms
             {
                 listViewDoc.Items.Clear();
             }
-            refreshTable();
+            RefreshTable();
         }
 
-        private void refreshTable()
+        private void RefreshTable()
         {
             if (SelectedNode == null)
             {
@@ -291,17 +291,6 @@ namespace DataWarehouse.Forms
 
         }
 
-        async void Add(IDirectoryAsync parent, IDirectory child)
-        {
-            var t = parent.Add(child);
-            await t;
-        }
-
-        async void Remove(IDirectoryAsync async)
-        {
-            var t = async.RemoveItselfAsync();
-            await t;
-        }
 
 
         private void buttonCreateDir_Click(object sender, EventArgs e)
@@ -324,14 +313,14 @@ namespace DataWarehouse.Forms
                     descr += " ";
                 }
                 var nm = textBoxDirName.Text;
-                IDirectory dir = new Classes.Directory(null, nm, textBoxDirDescr.Text, blob.Extension);
-                if (node is IDirectoryAsync async)
+                IDirectory dir = new Classes.Directory(null, nm, textBoxDirDescr.Text, blob.Extension, false);
+/*                if (node is IDirectoryAsync async)
                 {
                     Add(async, dir);
                     return;
-                }
+                }*/
                 IDirectory child = node.Add(dir);
-                if (child == null)
+                if (child == null & !(node is IDirectoryAsync))
                 {
                     WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal directory name \"" + nm + "\"");
                     return;
@@ -362,13 +351,9 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
-                if (SelectedNode is IDirectoryAsync async)
-                {
-                    Remove(async);
-                    return;
-                 }
-                SelectedNode.RemoveItself();
+                 SelectedNode.RemoveItself();
             }
+            
             catch (Exception ex)
             {
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
@@ -481,12 +466,12 @@ namespace DataWarehouse.Forms
                 }
                 var leaf = new Leaf(null, nm, textBoxDescription.Text, ext, b);
                 var l = SelectedNode.Add(leaf);
-                if (l == null)
+   /*             if (l == null)
                 {
                     WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
                     return;
-                }
-                Close();
+                }*/
+          //      Close();
             }
             catch (Exception ex)
             {
@@ -514,7 +499,7 @@ namespace DataWarehouse.Forms
                 }
                 Selected.RemoveItself();
                 //selectedNode.Remove(selected);
-                refreshTable();
+                RefreshTable();
             }
             catch (Exception ex)
             {

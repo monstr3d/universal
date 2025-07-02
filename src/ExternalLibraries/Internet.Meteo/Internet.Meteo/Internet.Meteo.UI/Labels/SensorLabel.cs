@@ -6,6 +6,7 @@ using CategoryTheory;
 using Diagram.UI.Labels;
 using Internet.Meteo.UI.Forms;
 using Internet.Meteo.UI.UserControls;
+using System.ComponentModel;
 
 namespace Internet.Meteo.UI.Labels
 {
@@ -73,7 +74,7 @@ namespace Internet.Meteo.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {
@@ -154,18 +155,21 @@ namespace Internet.Meteo.UI.Labels
         #region Public
 
         // Minimum
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float Min
         { get; set; } = 0;
 
         /// <summary>
         /// Maximum
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float Max
         { get; set; } = 100;
 
         /// <summary>
         /// Step
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float Step
         { get; set; } = 1;
 

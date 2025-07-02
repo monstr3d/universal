@@ -238,6 +238,7 @@ namespace Scada.Interfaces
         public abstract event Action OnRefresh;
 
         protected virtual string Name { get; set; }
+        string INamed.NewName { get; set; }
 
         #endregion
 

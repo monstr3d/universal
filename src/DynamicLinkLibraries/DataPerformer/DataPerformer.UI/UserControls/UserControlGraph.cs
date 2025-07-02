@@ -103,7 +103,11 @@ namespace DataPerformer.UI.UserControls
 
         private List<ISeries> ownSeries = new List<ISeries>();
 
-        private IDataConsumer consumer;
+        private IDataConsumer Consumer
+        {
+            get;
+            set;
+        }
 
         private ITimeMeasurementConsumer timeConsumer;
 
@@ -577,7 +581,7 @@ namespace DataPerformer.UI.UserControls
 
         void IPreRemove.PreRemove()
         {
-            consumer.OnChangeInput -= Fill;
+            Consumer.OnChangeInput -= Fill;
         }
 
         #endregion
@@ -648,6 +652,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IObjectLabel ParentLabel
         {
             set
@@ -676,6 +681,7 @@ namespace DataPerformer.UI.UserControls
             remove { userControlTimeType.ChangeTimeUnit -= value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal bool IsAbsuluteTime
         {
             get
@@ -688,6 +694,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal TimeType TimeUnit
         {
             get
@@ -715,12 +722,13 @@ namespace DataPerformer.UI.UserControls
             Dictionary<string, Dictionary<string,
             Tuple<Color[], bool, double[]>>>>[]> data)
         {
-            consumer = dataConsumer as DataConsumer;
-            timeConsumer = consumer as ITimeMeasurementConsumer;
+            Consumer = dataConsumer as DataConsumer;
+            timeConsumer = Consumer as ITimeMeasurementConsumer;
             Init();
             userControlRealtime.Set(dataConsumer, data);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IDesktop OwnDesktop
         {
             set
@@ -773,7 +781,7 @@ namespace DataPerformer.UI.UserControls
             performer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);
-            DataConsumer consumer = this.consumer as DataConsumer;
+            DataConsumer consumer = this.Consumer as DataConsumer;
             ArrayList graphControls = consumer.GraphControls;
             ControlPanel.LoadControls(panelGraph, graphControls);
             calculatorBoxStart.Text = consumer.StartTime + "";
@@ -795,6 +803,7 @@ namespace DataPerformer.UI.UserControls
             };
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string ArgumentString
         {
             get => data.Item4[1];
@@ -817,7 +826,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 ArgumentString = o + "";
                 changeArgument(ArgumentString);
-                return consumer.FindMeasurement(ArgumentString, true);
+                return Consumer.FindMeasurement(ArgumentString, true);
             }
 
  
@@ -865,14 +874,14 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
+                IDesktop desktop = (Consumer as IAssociatedObject).GetRootDesktop();
                 IIterator iterator = null;
                 desktop.ForEach((Diagram.UI.Portable.BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
                     var t = a.Target;
-                    if (s == consumer)
+                    if (s == Consumer)
                     {
                         if (t is IIterator it)
                         {
@@ -890,13 +899,13 @@ namespace DataPerformer.UI.UserControls
             get
             {
                 object l = null;
-                IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
+                IDesktop desktop = (Consumer as IAssociatedObject).GetRootDesktop();
                 desktop.ForEach((BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
                     var t = a.Target;
-                    if (s == consumer)
+                    if (s == Consumer)
                     {
                         if (t is LogHolder log)
                         {
@@ -909,12 +918,7 @@ namespace DataPerformer.UI.UserControls
                 return l;
             }
         }
-        /*
-                void SaveSettings()
-                {
-                    this.InvokeIfNeeded(SaveSettingsPrivate);
-                }
-        */
+ 
         void SaveSettings()
         {
             try
@@ -925,7 +929,7 @@ namespace DataPerformer.UI.UserControls
                 Dictionary<IMeasurement, Color[]> mc = MeasureColorDictionary;
                 var si = comboBoxCond.SelectedItem ?? "";
                 data.Item4[0] = si + "";
-                DataConsumer consumer = this.consumer as DataConsumer;
+                DataConsumer consumer = this.Consumer as DataConsumer;
                 if (toolStripComboBoxPoints.SelectedItem != null)
                 {
                     data.Item4[5] = toolStripComboBoxPoints.SelectedItem + "";
@@ -977,7 +981,7 @@ namespace DataPerformer.UI.UserControls
             comboBoxArg.Items.Clear();
             panelMea.Controls.Clear();
             int y = 0;
-            IDataConsumer consumer = this.consumer;
+            IDataConsumer consumer = this.Consumer;
             if (consumer == null)
             {
                 return;
@@ -1076,7 +1080,7 @@ namespace DataPerformer.UI.UserControls
             string[] reasons = new string[] { reason };
             if (aType == Animation.Interfaces.Enums.AnimationType.Asynchronous)
             {
-                DataConsumer consumer = this.consumer as DataConsumer;
+                DataConsumer consumer = this.Consumer as DataConsumer;
                 if (parentLab is Labels.GraphLabel)
                 {
                     Labels.GraphLabel gl = parentLab as Labels.GraphLabel;
@@ -1098,7 +1102,7 @@ namespace DataPerformer.UI.UserControls
             }
             else
             {
-                DataConsumer consumer = this.consumer as DataConsumer;
+                DataConsumer consumer = this.Consumer as DataConsumer;
                 IComponentCollection collection = consumer.CreateCollection(reason);
                 IAsynchronousCalculation calc = collection.StartAnimation(reasons, aType, Pause, TimeScale, false, false);
                 StopCalc(calc);
@@ -1184,7 +1188,7 @@ namespace DataPerformer.UI.UserControls
             toolStripMain.Items.Add(pic);
             SetVisible();
             FillMeasurements();
-            consumer.OnChangeInput += Fill;
+            Consumer.OnChangeInput += Fill;
             if (resizeLab)
             {
                 base.Resize += ResizeLabel;
@@ -1194,7 +1198,7 @@ namespace DataPerformer.UI.UserControls
         void Fill()
         {
             FillMeasurements();
-            userControlRealtime.Set(consumer, data);
+            userControlRealtime.Set(Consumer, data);
         }
 
         void ShowRuntimeIndicators()
@@ -1203,7 +1207,7 @@ namespace DataPerformer.UI.UserControls
             Dictionary<string, Size> sizes = gl.sizes;
             indicatorWrapper.sizes = sizes;
             IMeasurementObjectFactory f = StaticExtensionDataPerformerUI.GraphCollection;
-            IDataConsumer c = consumer;
+            IDataConsumer c = Consumer;
            // indicators.RemoveMeasurementObjects();
             //!!! ALL  INDICATORS c.GetMeasurementObjects(indicators, f);
             Dictionary<IMeasurement, string> d = c.GetMeasurementsDictionary();
@@ -1221,13 +1225,13 @@ namespace DataPerformer.UI.UserControls
             fillMea();
             int n = -1;
             int num = 0;
-            if (consumer != null)
+            if (Consumer != null)
             {
-                for (int i = 0; i < consumer.Count; i++)
+                for (int i = 0; i < Consumer.Count; i++)
                 {
 
-                    IMeasurements arrow = consumer[i];
-                    string name = consumer.GetMeasurementsName(arrow);
+                    IMeasurements arrow = Consumer[i];
+                    string name = Consumer.GetMeasurementsName(arrow);
                     for (int j = 0; j < arrow.Count; j++)
                     {
                         IMeasurement m = arrow[j];
@@ -1253,32 +1257,32 @@ namespace DataPerformer.UI.UserControls
             }
 
             bool b = false;
-            if (consumer != null)
+            if (Consumer != null)
             {
-                IList<string> l = consumer.GetAllMeasurements(b);
+                IList<string> l = Consumer.GetAllMeasurements(b);
                 DictionaryMeasurements.Clear();
                 panelText.Controls.Clear();
                 comboBoxCond.FillCombo(l);
                 comboBoxCond.SelectCombo(data.Item4[0]);
                 int y = 0;
                 int w = panelText.Width;
-                for (int i = 0; i < consumer.Count; i++)
+                for (int i = 0; i < Consumer.Count; i++)
                 {
-                    IMeasurements m = consumer[i];
-                    string name = consumer.GetMeasurementsName(m);
-                    Panel pm = new PanelMeasureText(consumer, consumer[i], w, DictionaryMeasurements, name, data.Item3);
+                    IMeasurements m = Consumer[i];
+                    string name = Consumer.GetMeasurementsName(m);
+                    Panel pm = new PanelMeasureText(Consumer, Consumer[i], w, DictionaryMeasurements, name, data.Item3);
                     pm.Top = y;
                     panelText.Controls.Add(pm);
                     y = pm.Bottom;
                 }
                 double a = 0;
-                IList<string> ld = consumer.GetAllMeasurements(a);
+                IList<string> ld = Consumer.GetAllMeasurements(a);
                 comboBoxStart.FillCombo(ld);
                 comboBoxStart.SelectCombo(data.Item4[2]);
                 comboBoxStep.FillCombo(ld);
                 comboBoxStep.SelectCombo(data.Item4[3]);
                 int ni = 0;
-                IList<string> li = consumer.GetAllMeasurements(ni);
+                IList<string> li = Consumer.GetAllMeasurements(ni);
                 comboBoxStepCount.FillCombo(li);
                 comboBoxStepCount.SelectCombo(data.Item4[4]);
             }
@@ -1292,7 +1296,7 @@ namespace DataPerformer.UI.UserControls
                 return (int)tb.Value;
             }
             str = cb.SelectedItem + "";
-            IMeasurement m = consumer.FindMeasurement(str, false);
+            IMeasurement m = Consumer.FindMeasurement(str, false);
             int i = (int)m.Parameter();
             tb.Value = i;
             return i;
@@ -1356,9 +1360,9 @@ Func<bool> stop)
      out MeasurementSeries[] series,
 Func<bool> stop)
         {
-            Dictionary<string, object> dic = consumer.CreateMeasurements(argument, values, out series);
-            consumer.ResetAll();
-            var rt = consumer.CreateRuntime(null);
+            Dictionary<string, object> dic = Consumer.CreateMeasurements(argument, values, out series);
+            Consumer.ResetAll();
+            var rt = Consumer.CreateRuntime(null);
             do
             {
                 if (stop())
@@ -1381,10 +1385,10 @@ Func<bool> stop)
             try
             {
                 mouseTransformerIndicator.X = null;
-                var it = (consumer as DataConsumerIterate).Iterator;
+                var it = (Consumer as DataConsumerIterate).Iterator;
                 if (it != null) 
                 {
-                    PerformIterator(consumer, it);
+                    PerformIterator(Consumer, it);
                     return;
                 }
                 if (array == null)
@@ -1439,8 +1443,8 @@ Func<bool> stop)
             try
             {
                // internalTextAction = (mc == null) ? new Action(CondWrite) : WriteText;
-                consumer.PerformArray(array,
-                    (consumer as ICategoryObject).GetRootDesktop(),
+                Consumer.PerformArray(array,
+                    (Consumer as ICategoryObject).GetRootDesktop(),
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                     processor, 0, TextAction, null);
             }
@@ -1455,7 +1459,7 @@ Func<bool> stop)
         {
             try
             {
-                DataConsumer consumer = this.consumer as DataConsumer;
+                DataConsumer consumer = this.Consumer as DataConsumer;
              /*   consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider, processor,
                     StaticExtensionDataPerformerInterfaces.Calculation,
@@ -1599,7 +1603,7 @@ Func<bool> stop)
             else
             {
                 UserControlRealtime rt = this.FindChild<UserControlRealtime>();
-                consumer.RealtimeAnalysis(l, stop, StaticExtensionEventInterfaces.RealtimeLogAnalysis,
+                Consumer.RealtimeAnalysis(l, stop, StaticExtensionEventInterfaces.RealtimeLogAnalysis,
                     TimeType.Second, checkBoxAbsoluteTime.Checked);
             }
         }
@@ -1609,7 +1613,7 @@ Func<bool> stop)
         void StartRealtimeClick()
         {
             currentCommand = "start";
-            DataConsumer dataConsumer = this.consumer as DataConsumer;
+            DataConsumer dataConsumer = this.Consumer as DataConsumer;
     /*        
             IDesktop desktop = consumer.GetRootDesktop();
             IComponentCollection collection = consumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
@@ -1623,7 +1627,7 @@ Func<bool> stop)
             StaticExtensionEventInterfaces.NewLog = null;
             buttonStartStopRealtime.Text = "Stop";
             buttonStartStopRealtime.BackColor = Color.Red;
-            var realtime = consumer.CreateRuntime(
+            var realtime = Consumer.CreateRuntime(
               userControlTimeType.TimeUnit, checkBoxAbsoluteTime.Checked, StaticExtensionEventInterfaces.Realtime, 0,
               StaticExtensionEventInterfaces.NewLog);
             userControlRealtime.Realtime = realtime;
@@ -1655,7 +1659,7 @@ Func<bool> stop)
             {
                 Dictionary<IMeasurement, Color[]> d = new Dictionary<IMeasurement, Color[]>();
                 data.Item1.Clear();
-                Dictionary<IMeasurement, string> dd = consumer.GetAllMeasurementsName();
+                Dictionary<IMeasurement, string> dd = Consumer.GetAllMeasurementsName();
                 foreach (PanelMeasureGraph pg in Panels)
                 {
                     Dictionary<IMeasurement, Color> dp = pg.MeasurementDictionary;
@@ -1679,7 +1683,7 @@ Func<bool> stop)
             get
             {
                 Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
-                Dictionary<string, IMeasurement> dd = consumer.GetAllMeasurementsByName();
+                Dictionary<string, IMeasurement> dd = Consumer.GetAllMeasurementsByName();
                 Dictionary<string, IMeasurement> dictionary = new Dictionary<string, IMeasurement>();
                 foreach (string key in dd.Keys)
                 {
@@ -1701,7 +1705,7 @@ Func<bool> stop)
 
                 Dictionary<string, IMeasurement> d = MeasureByNameInternal; //  ucmg.MeasureByName;
                 List<string> l = new List<string>(d.Keys);
-                measurementsWrapperDictionary = consumer.CreateDisassemblyMeasurements();
+                measurementsWrapperDictionary = Consumer.CreateDisassemblyMeasurements();
                 foreach (string key in l)
                 {
                     IMeasurement m = d[key];
@@ -1738,7 +1742,7 @@ Func<bool> stop)
         {
             try
             {
-                DataConsumer consumer = this.consumer as DataConsumer;
+                DataConsumer consumer = this.Consumer as DataConsumer;
                 type = 0;
                 text = false;
                 ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
@@ -1852,7 +1856,7 @@ Func<bool> stop)
             try
             {
                 ctx = new();
-                DataConsumer dc = consumer as DataConsumer;
+                DataConsumer dc = Consumer as DataConsumer;
                 dicto =
                      dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
             }
@@ -1898,11 +1902,11 @@ Func<bool> stop)
             {
                 return;
             }
-            if (consumer != null)
+            if (Consumer != null)
             {
                 if (toolStripComboBoxPoints.Items.Count == 0)
                 {
-                    string[] ss = (consumer as ICategoryObject).GetOneDimensionRealArrays();
+                    string[] ss = (Consumer as ICategoryObject).GetOneDimensionRealArrays();
                     toolStripComboBoxPoints.FillCombo(ss);
                 }
                 toolStripComboBoxPoints.SelectCombo(data.Item4[5]);
@@ -1935,7 +1939,7 @@ Func<bool> stop)
                 cond = o + "";
             }
             object a = Argument;
-            IAssociatedObject ao = consumer as IAssociatedObject;
+            IAssociatedObject ao = Consumer as IAssociatedObject;
             string name = ao.GetAbsoluteName();
             data.Item3.Clear();
             WritePar();
@@ -2051,7 +2055,7 @@ Func<bool> stop)
             analysisXML = dialog.FileName;
             beginAnalysis = true;
             textDictionary = TextDictionary;
-            StaticExtensionDataPerformerUI.initText(consumer);
+            StaticExtensionDataPerformerUI.initText(Consumer);
             object si = comboBoxCond.SelectedItem;
             if (si != null)
             {
@@ -2062,7 +2066,7 @@ Func<bool> stop)
                 data.Item4[0] = "";
             }
             measurementsWrapperList.Clear();
-            measurementsWrapperDictionary = consumer.CreateDisassemblyMeasurements();
+            measurementsWrapperDictionary = Consumer.CreateDisassemblyMeasurements();
             List<IMeasurement> lm = new List<IMeasurement>();
             foreach (IMeasurement mm in measurementsWrapperDictionary.Keys)
             {
@@ -2089,11 +2093,11 @@ Func<bool> stop)
             }
             textXML = XElement.Parse("<Analysis/>");
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
-                consumer.CreateDisassemblyMeasurements();
+                Consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
-            IDataConsumer dc = consumer;
+            IDataConsumer dc = Consumer;
             double time = 0;
-            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
+            ITimeMeasurementConsumer tc = Consumer as ITimeMeasurementConsumer;
             Action<object> act = (object sender) =>
             {
                 StaticExtensionDataPerformerUI.performText(sender);
@@ -2157,7 +2161,7 @@ Func<bool> stop)
         void StartLogInternal(object log, int number = 0)
         {
 
-            IEnumerable<object> en = consumer.RealtimeAnalysisEnumerable(
+            IEnumerable<object> en = Consumer.RealtimeAnalysisEnumerable(
                   log,
                   (object o) => { return false; }, StaticExtensionDataPerformerInterfaces.Calculation,
                    TimeType.Second, true);
@@ -2176,19 +2180,19 @@ Func<bool> stop)
                        MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
                }*/
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
-                consumer.CreateDisassemblyMeasurements();
+                Consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
-            IDataConsumer dc = consumer;
+            IDataConsumer dc = Consumer;
             dcolorAnalysis = MeasureColorDictionary;
             List<IMeasurement> lmm = new List<IMeasurement>(dcolorAnalysis.Keys);
             List<IMeasurement> all = new List<IMeasurement>();
             Dictionary<IMeasurement, string> dmea = new Dictionary<IMeasurement, string>();
             Dictionary<IMeasurement, string> dmeafull = new Dictionary<IMeasurement, string>();
             Dictionary<IMeasurement, IMeasurements> dmeamea = new Dictionary<IMeasurement, IMeasurements>();
-            for (int i = 0; i < consumer.Count; i++)
+            for (int i = 0; i < Consumer.Count; i++)
             {
                 IMeasurements mmm = dc[i];
-                string n = consumer.GetMeasurementsName(mmm) + ".";
+                string n = Consumer.GetMeasurementsName(mmm) + ".";
                 for (int j = 0; j < mmm.Count; j++)
                 {
                     IMeasurement mmmm = mmm[j];
@@ -2210,7 +2214,7 @@ Func<bool> stop)
                     dcolorAnalysis.Remove(mmm);
                     IMeasurements mtt = dmeamea[mmm];
                     dmeamea.Remove(mmm);
-                    string n = consumer.GetMeasurementsName(mtt) + ".";
+                    string n =  Consumer.GetMeasurementsName(mtt) + ".";
                     all.Remove(mmm);
                     IMeasurement[] mmp = disassemblyDictionary[mmm].Measurements;
                     int cn = 0;
@@ -2255,7 +2259,7 @@ Func<bool> stop)
             userControlRealtimeAnalysis.Names = lm;
 
             List<object> sel = new List<object>();
-            IEnumerable<IEvent> events = (consumer as IEventHandler).Children;
+            IEnumerable<IEvent> events = (Consumer as IEventHandler).Children;
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);
@@ -2269,7 +2273,7 @@ Func<bool> stop)
             double time = 0;
             double startTime = 0;
             bool first = true;
-            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
+            ITimeMeasurementConsumer tc = Consumer as ITimeMeasurementConsumer;
             int currNum = 0;
             double tstep = 0;
             Dictionary<string, IMeasurement> mbn = MeasurementsByName;
@@ -2468,19 +2472,19 @@ Func<bool> stop)
                        MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
                }*/
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
-                consumer.CreateDisassemblyMeasurements();
+                Consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
-            IDataConsumer dc = consumer;
+            IDataConsumer dc = Consumer;
             dcolorAnalysis = MeasureColorDictionary;
             List<IMeasurement> lmm = new List<IMeasurement>(dcolorAnalysis.Keys);
             List<IMeasurement> all = new List<IMeasurement>();
             Dictionary<IMeasurement, string> dmea = new Dictionary<IMeasurement, string>();
             Dictionary<IMeasurement, string> dmeafull = new Dictionary<IMeasurement, string>();
             Dictionary<IMeasurement, IMeasurements> dmeamea = new Dictionary<IMeasurement, IMeasurements>();
-            for (int i = 0; i < consumer.Count; i++)
+            for (int i = 0; i < Consumer.Count; i++)
             {
                 IMeasurements mmm = dc[i];
-                string n = consumer.GetMeasurementsName(mmm) + ".";
+                string n = Consumer.GetMeasurementsName(mmm) + ".";
                 for (int j = 0; j < mmm.Count; j++)
                 {
                     IMeasurement mmmm = mmm[j];
@@ -2503,7 +2507,7 @@ Func<bool> stop)
                     dcolorAnalysis.Remove(mmm);
                     IMeasurements mtt = dmeamea[mmm];
                     dmeamea.Remove(mmm);
-                    string n = consumer.GetMeasurementsName(mtt) + ".";
+                    string n = Consumer.GetMeasurementsName(mtt) + ".";
                     all.Remove(mmm);
                     IMeasurement[] mmp = disassemblyDictionary[mmm].Measurements;
                     int cn = 0;
@@ -2548,7 +2552,7 @@ Func<bool> stop)
             lm.Sort();
             userControlRealtimeAnalysis.Names = lm;
             List<object> sel = new List<object>();
-            IEnumerable<IEvent> events = (consumer as IChildren<IEvent>).Children;
+            IEnumerable<IEvent> events = (Consumer as IChildren<IEvent>).Children;
             foreach (IEvent ev in events)
             {
                 sel.Add(ev);
@@ -2560,7 +2564,7 @@ Func<bool> stop)
             double last = 0;
             double t0 = 0;
             double time = 0;
-            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
+            ITimeMeasurementConsumer tc = Consumer as ITimeMeasurementConsumer;
             DateTime timeStart = DateTime.Now;
             DateTime ct = timeStart;
             double lastDt = 0;
@@ -2737,7 +2741,7 @@ Func<bool> stop)
             if (toolStripComboBoxPoints.SelectedItem != null)
             {
                 data.Item4[5] = toolStripComboBoxPoints.SelectedItem + "";
-                array = (consumer as ICategoryObject).GetOneDimensionRealArray(data.Item4[5]);
+                array = (Consumer as ICategoryObject).GetOneDimensionRealArray(data.Item4[5]);
                 if (array == null)
                 {
                     data.Item4[5] = "";
@@ -2870,7 +2874,7 @@ Func<bool> stop)
             {
                 try
                 {
-                    var coll = consumer.GetDependentCollection();
+                    var coll = Consumer.GetDependentCollection();
                     coll.ForEach((IRunning s) => s.IsRunning = false);
                     bool pr = true;
                     if (dicto.Count > 0)
@@ -2962,7 +2966,7 @@ Func<bool> stop)
 
         private void Text_DoWork()
         {
-            DataConsumer consumer = this.consumer as DataConsumer;
+            DataConsumer consumer = this.Consumer as DataConsumer;
             IMeasurement arg = null;
             double st = 0;
             Action<string> actxml = (string filename) =>

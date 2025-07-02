@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataWarehouse.Interfaces;
-
+using ErrorHandler;
 using NamedTree;
 using WindowsExtensions;
 
@@ -82,7 +83,7 @@ namespace DataWarehouse.Forms.Tree
             t.Disposed += T_Disposed;
         }
 
-        private void Leaf_OnDeleteItself()
+        private void Leaf_OnDeleteItself(object obj)
         {
 
             Remove();
@@ -103,10 +104,21 @@ namespace DataWarehouse.Forms.Tree
             leaf.OnChangeItself -= Leaf_OnChangeItself;
         }
 
-        private void Directory_OnAddLeaf(ILeaf obj)
+        private void Directory_OnAddLeafT(object obj)
         {
+    /*        if (obj.Parent == null)
+            {
+                throw new OwnNotImplemented();
+            }
             var node = new TreeNode(obj);
-            Nodes.Add(node);
+            Nodes.Add(node);*/
+        }
+        private void Directory_OnAddLeaf(object obj)
+        {
+            if (Leaves)
+            {
+                Execute(Directory_OnAddLeafT, obj);
+            }
         }
 
         void Execute<T>(Action<T> action, T t) where T : class
@@ -120,18 +132,38 @@ namespace DataWarehouse.Forms.Tree
         }
 
 
-        private void Directory_OnAddDirectory(IDirectory obj)
+        private void Directory_OnAddDirectory(object obj)
         {
+            
             Execute(Directory_OnAddDirectoryT, obj);
         }
 
-        private void Directory_OnAddDirectoryT(IDirectory obj)
+        private void Directory_OnAddDirectoryT(object obj)
         {
+         /*   if (obj == null)
+            {
+                throw new OwnNotImplemented("NULL DIRECTORY");
+            }
+            if (obj.Parent == null)
+            {
+                throw new OwnNotImplemented("NULL DIRECTORY");
+
+            }
+
             var node = Leaves ? new TreeNode(obj) : new TreeNode(obj, false);
-            Nodes.Add(node);
+            Nodes.Add(node);*/
         }
 
-        private void Directory_OnDeleteItself()
+        private void Directory_OnDeleteItself(object obj)
+        {
+            if (directory.Parent != null)
+            {
+                throw new OwnNotImplemented();
+            }
+            Execute(Directory_OnDeleteItselfT);
+        }
+
+        private void Directory_OnDeleteItselfT()
         {
             directory.OnDeleteItself -= Directory_OnDeleteItself;
             directory.OnAddDirectory -= Directory_OnAddDirectory;
@@ -139,7 +171,9 @@ namespace DataWarehouse.Forms.Tree
             Remove();
         }
 
-   
+
+
+
 
         void Change(INamed named)
         {
@@ -151,14 +185,14 @@ namespace DataWarehouse.Forms.Tree
             Text = name;
 
         }
-        private void Directory_OnChangeItself(IDirectory obj)
+        private void Directory_OnChangeItself(object obj)
         {
-            Change(obj);
+           // Change(obj);
         }
 
-        private void Leaf_OnChangeItself(ILeaf obj)
+        private void Leaf_OnChangeItself(object obj)
         {
-            Change(obj);
+           // Change(obj);
         }
 
     }

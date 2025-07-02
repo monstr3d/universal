@@ -16,6 +16,7 @@ using Diagram.UI.Labels;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
 using NamedTree;
+using System.Diagnostics;
 
 namespace DataPerformer.Portable
 {
@@ -23,6 +24,7 @@ namespace DataPerformer.Portable
     /// Table of three parameters
     /// This table uses linear interpolation
     /// </summary>
+    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public class Table3D : Basic.Table3D, ICategoryObject, IDataConsumer, IMeasurements, IObjectOperation,
        IPowered, IPostSetArrow
     {
@@ -332,6 +334,8 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => output;
 
+        string INamed.NewName { get; set; }
+
         /// <summary>
         /// Pre initialization
         /// </summary>
@@ -394,6 +398,11 @@ namespace DataPerformer.Portable
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
 
 

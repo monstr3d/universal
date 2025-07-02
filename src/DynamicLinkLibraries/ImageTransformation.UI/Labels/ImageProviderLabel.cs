@@ -19,6 +19,7 @@ using ImageTransformations.Forms;
 using GraphicsControls;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+using System.ComponentModel;
 
 namespace ImageTransformations.Labels
 {
@@ -95,7 +96,7 @@ namespace ImageTransformations.Labels
 
        
 
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {
@@ -126,6 +127,12 @@ namespace ImageTransformations.Labels
             }
             form = new FormSourceBitmap(this);
         }
+
+        #endregion
+
+        #region Own Members
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using DataWarehouse.Interfaces;
@@ -42,14 +43,21 @@ namespace DataWarehouse.Classes.Abstract
         #region Ctor
 
 
-        protected Directory() 
+        protected Directory(bool childen) 
         {
             Init();
+            if (childen)
+            {
+                directories = new List<IDirectory>();
+                GetChildern = () => directories;
+                leaves = new List<ILeaf>();
+                GetLeaves = () => leaves;
+            }
             GetChildern = GetFuncInitial;
             GetLeaves = GetFuncLeafInitial;
         }
 
-        public Directory(object Id, string Name, string Description, string Extension = null) : this()
+        public Directory(object Id, string Name, string Description, string Extension, bool children) : this(children)
         {
             this.Id = Id;
             this.name = Name;
@@ -60,8 +68,8 @@ namespace DataWarehouse.Classes.Abstract
         #endregion
 
 
+        #region Event execution
 
-        #region IDirectory events
 
         protected void OnAddLeafAct(ILeaf leaf)
         {
@@ -74,6 +82,26 @@ namespace DataWarehouse.Classes.Abstract
             OnAddDirectory?.Invoke(directory);
         }
 
+        protected void OnDeleteItselfAct(object obj)
+        {
+            OnDeleteItself?.Invoke(obj);
+        }
+
+        /// <summary>
+        /// Change itself event
+        /// </summary>
+        protected void OnChangeItselfAct(IDirectory dir)
+        {
+            OnChangeItself?.Invoke(dir);
+        }
+
+
+        #endregion
+
+
+        #region IDirectory events
+
+
         /// <summary>
         /// Add child event
         /// </summary>
@@ -82,19 +110,20 @@ namespace DataWarehouse.Classes.Abstract
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action OnDeleteItself;
+        protected event Action<object> OnDeleteItself;
 
         /// <summary>
         /// Change itself event
         /// </summary>
         protected event Action<IDirectory> OnChangeItself;
 
+   
         /// <summary>
         /// Add leaf event
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
-        event Action IDirectory.OnDeleteItself
+        event Action<object> IDirectory.OnDeleteItself
         {
             add
             {
@@ -107,7 +136,7 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
-        event Action<IDirectory> IDirectory.OnChangeItself
+        event Action<object> IDirectory.OnChangeItself
         {
             add
             {
@@ -120,7 +149,7 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
-        event Action<ILeaf> IDirectory.OnAddLeaf
+        event Action<object> IDirectory.OnAddLeaf
         {
             add
             {
@@ -133,7 +162,7 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
-        event Action<IDirectory> IDirectory.OnAddDirectory
+        event Action<object> IDirectory.OnAddDirectory
         {
             add
             {
@@ -196,7 +225,7 @@ namespace DataWarehouse.Classes.Abstract
                     x.Log();
                     return;
                 }
-                OnDeleteItself?.Invoke();
+                OnDeleteItself?.Invoke(this);
             }
             catch (Exception exception)
             {
@@ -390,6 +419,8 @@ namespace DataWarehouse.Classes.Abstract
 
         IEnumerable<ILeaf> IChildren<ILeaf>.Children => Leaves;
 
+        string INamed.NewName { get; set; }
+
         event Action<INode> INode<INode>.OnAdd
         {
             add
@@ -508,15 +539,29 @@ namespace DataWarehouse.Classes.Abstract
 
         void IChildren<IDirectory>.RemoveChild(IDirectory child)
         {
-            Remove(child);
+            RemoveChild(child);
         }
 
         void IChildren<ILeaf>.RemoveChild(ILeaf child)
         {
-            Remove(child);
+            Names.Remove(child.Name);
+            leaves.Remove(child);
         }
 
         #region Protected
+
+        protected virtual void RemoveChild(IDirectory child)
+        {
+            Names.Remove(child.Name);
+            directories.Remove(child);
+        }
+
+        protected virtual void RemoveChild(ILeaf child)
+        {
+            Names.Remove(child.Name);
+            leaves.Remove(child);
+        }
+
 
         protected List<IDirectory> GetFuncInitial()
         {

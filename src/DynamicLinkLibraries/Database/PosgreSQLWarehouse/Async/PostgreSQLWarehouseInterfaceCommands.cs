@@ -47,7 +47,7 @@ namespace PostgreSQLWarehouse.Async
             var l = new List<IDirectoryAsync>();
             foreach (IDataRecord x in r)
             {
-                l.Add(new Directory(x, this));
+                l.Add(new Directory(x, this, false));
             }
             return l;
         }
@@ -73,7 +73,7 @@ namespace PostgreSQLWarehouse.Async
                 await i;
                 foreach (IDataRecord x in i.Result)
                 {
-                    var dr = new Directory(x, d, this);
+                    var dr = new Directory(x, d, this, false);
                     list.Add(dr);
                 }
 
@@ -134,7 +134,7 @@ namespace PostgreSQLWarehouse.Async
                 await i;
                 if (i.Result == -1)
                 {
-                    return new Directory(directory, id, this);
+                    return new Directory(directory, id, this, true);
                 }
 
                 return null;

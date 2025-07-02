@@ -1,24 +1,41 @@
-﻿using DataWarehouse.Interfaces;
-using DataWarehouse.Interfaces.Async;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices.Marshalling;
 using System.Threading.Tasks;
+
+using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
+using ErrorHandler;
+using NamedTree;
 
 namespace DataWarehouse.Classes.Abstract.Async
 {
     public abstract class Directory : Abstract.Directory, IDirectoryAsync
     {
 
+        #region Ctor
+
+        protected Directory(bool children) : base(children) { }
+
+        #endregion
+
+        #region Abstract
         protected abstract Task<List<IDirectoryAsync>> LoadChildren();
 
         protected abstract Task<List<ILeafAsync>> LoadLeaves();
 
         protected abstract Task<bool> RemoveItselfAsync();
 
-        protected abstract Task<IDirectoryAsync> Add(IDirectory directory);
+        /// <summary>
+        /// Adds a leaf
+        /// </summary>
+        /// <param name="leaf">Prototype</param>
+        /// <returns>THe added leaf</returns>
+        protected abstract Task<IDirectoryAsync> AddAsync(IDirectory directory);
+ 
+        protected abstract Task<ILeafAsync> AddAsync(ILeaf leaf);
 
         /// <summary>
         /// Updates Name
@@ -32,21 +49,131 @@ namespace DataWarehouse.Classes.Abstract.Async
         /// </summary>
         /// <param name="name">The description</param>
         /// <returns>The description</returns>
-        protected abstract Task<string> UpdateDescriptionAsync(string descriptuin);
+        protected abstract Task<string> UpdateDescriptionAsync(string description);
 
+        #endregion
 
+        #region Overriden
 
-
-        /// <summary>
-        /// Adds a leaf
-        /// </summary>
-        /// <param name="leaf">Prototype</param>
-        /// <returns>THe added leaf</returns>
-        protected abstract Task<ILeafAsync> Add(ILeaf leaf);
-
-        async Task<ILeafAsync> IDirectoryAsync.Add(ILeaf leaf)
+        protected override ILeaf Add(ILeaf leaf)
         {
-            var t = Add(leaf);
+            try
+            {
+                if (!Check(leaf.Name))
+                {
+                    OnAddLeafAct(leaf);
+                }
+                CallAsync(leaf);
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            return null;
+        }
+
+
+
+        protected override IDirectory Add(IDirectory directory)
+        {
+            try
+            {
+                CallAsync(directory);
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException();
+            }
+            return null;
+        }
+
+        protected override void RemoveItself()
+        {
+            try
+            {
+                CallAsync();
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Remove database binary item");
+            }
+
+        }
+
+        protected override bool UpdateName(string name)
+        {
+            var p = Parent as Directory;
+            INamed n = this;
+            n.NewName = this.name;
+            if (!p.Check(name))
+            {
+                OnChangeItselfAct(this);
+                return false;
+            }
+            CallAsyncName(name);
+            return true;
+        }
+
+
+
+        #endregion
+
+        #region Calls
+
+        protected async void CallAsyncName(string name)
+        {
+            var async = this as IDirectoryAsync;
+            var t = async.UpdateNameAsync(name);
+            await t;
+        }
+
+
+
+
+        protected async void CallAsync(ILeaf leaf)
+        {
+            var async = this as IDirectoryAsync;
+            var t = async.AddAsync(leaf);
+            await t;
+        }
+
+
+        async void CallAsync(IDirectory dir)
+        {
+            IDirectoryAsync async = this;
+            var t = async.AddAsync(dir);
+            await t;
+        }
+
+        async void CallAsync()
+        {
+            var async = this as IDirectoryAsync;
+            var t = async.RemoveItselfAsync();
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                if (!t.Result)
+                {
+                    OnDeleteItselfAct(this);
+                    return;
+                }
+                IDirectory dr = this;
+                var p = dr.Parent as Directory;
+                IChildren<IDirectory> cd = p;
+                cd.RemoveChild(this);
+                Parent = null;
+                OnDeleteItselfAct(this);
+            });
+
+            await t;
+        }
+
+        #endregion
+
+
+
+        async Task<ILeafAsync> IDirectoryAsync.AddAsync(ILeaf leaf)
+        {
+            var t = AddAsync(leaf);
             t.GetAwaiter().OnCompleted(() =>
             {
 
@@ -65,14 +192,15 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
 
-        async Task<IDirectoryAsync> IDirectoryAsync.Add(IDirectory directory)
+        async Task<IDirectoryAsync> IDirectoryAsync.AddAsync(IDirectory directory)
         {
-            var t = Add(directory);
+            var t = AddAsync(directory);
             t.GetAwaiter().OnCompleted(() =>
             {
                 
                 if (t.Result == null)
                 {
+                    OnAddDirectoryAct(t.Result as IDirectory);
                     return;
                 }
                 var dir = t.Result as IDirectory;
@@ -120,24 +248,32 @@ namespace DataWarehouse.Classes.Abstract.Async
             return RemoveItselfAsync();
         }
 
-        async  Task<string> IDirectoryAsync.UpdateNameAsync(string name)
+        async Task<string> IDirectoryAsync.UpdateNameAsync(string name)
         {
             var n = Name;
             if (n == name)
             {
                 return name;
             }
-            var t = UpdateNameAsync(name);
+            INamed mn = this;
+            mn.NewName = n;
+            var d = Parent as Directory;
+            if (!d.Check(name))
+            {
+                OnChangeItselfAct(this);
+            }
+              var t = UpdateNameAsync(name);
             t.GetAwaiter().OnCompleted(() =>
             {
-
+                OnChangeItselfAct(this);
             });
             await t;
+            return t.Result;
         }
 
-        Task<string> IDirectoryAsync.UpdateDescriptionAsync(string descriptuin)
+        Task<string> IDirectoryAsync.UpdateDescriptionAsync(string description)
         {
-            return UpdateDescriptionAsync(descriptuin);
+            return UpdateDescriptionAsync(description);
         }
     }
 }

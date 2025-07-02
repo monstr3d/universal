@@ -19,6 +19,7 @@ using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
 using Diagram.UI.Forms.Interfaces;
 using ErrorHandler;
+using System.ComponentModel;
 
 
 namespace DataPerformer.UI.Labels
@@ -235,6 +236,7 @@ namespace DataPerformer.UI.Labels
         /// <summary>
         /// Start stop
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IStartStop StartStop
         {
             get
@@ -349,18 +351,21 @@ namespace DataPerformer.UI.Labels
             get => multiSeries;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal double TimeScaleAnimation
         {
             get { return timeScaleAnimation; }
             set { timeScaleAnimation = value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal TimeType TimeUnitAnimation
         {
             get { return timeUnitAnimation; }
             set { timeUnitAnimation = value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Animation.Interfaces.Enums.AnimationType AnimationType
         {
             get
@@ -374,6 +379,7 @@ namespace DataPerformer.UI.Labels
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IDesktop OwnDesktop
         {
             set
@@ -449,7 +455,7 @@ namespace DataPerformer.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {
@@ -550,6 +556,12 @@ namespace DataPerformer.UI.Labels
                 ex.HandleException(10);
             }
         }
+
+        #endregion
+
+        #region Internal Members
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
         #endregion
 

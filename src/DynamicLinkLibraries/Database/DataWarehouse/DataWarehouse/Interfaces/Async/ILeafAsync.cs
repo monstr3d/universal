@@ -13,5 +13,20 @@ namespace DataWarehouse.Interfaces.Async
         /// <returns>Task</returns>
         Task<bool> RemoveItselfAsync();
 
+
+        /// <summary>
+        /// Updates Name
+        /// </summary>
+        /// <param name="name">The name</param>
+        /// <returns>The name</returns>
+        Task<string> UpdateNameAsync(string name);
+
+        /// <summary>
+        /// Updates Description
+        /// </summary>
+        /// <param name="name">The description</param>
+        /// <returns>The description</returns>
+        Task<string> UpdateDescriptionAsync(string description);
+
     }
 }

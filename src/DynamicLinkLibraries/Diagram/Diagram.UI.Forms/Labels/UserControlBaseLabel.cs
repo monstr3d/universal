@@ -54,6 +54,10 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Firswt load sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Firswt load sign
+        /// </summary>
         public bool FirstLoad
         {
             get;
@@ -213,10 +217,24 @@ namespace Diagram.UI.Labels
 
         #region IObjectLabel Members
 
+        ICategoryObject IObjectLabel.Object 
+        { 
+            get => Object; 
+            set => Object = value; 
+        }
+
+        #endregion
+
+        #region IObjectLabel Members
+
         /// <summary>
         /// Object
+        /// Object
         /// </summary>
-        public abstract ICategoryObject Object
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        protected abstract ICategoryObject Object
         {
             get;
             set;
@@ -419,6 +437,8 @@ namespace Diagram.UI.Labels
 
             }
         }
+
+        string INamed.NewName { get; set; }
 
         #endregion
 

@@ -1190,6 +1190,7 @@ namespace Diagram.UI
             get;
             set;
         }
+        string INamed.NewName { get; set; }
 
         /// <summary>
         /// Gets all arrows and objects

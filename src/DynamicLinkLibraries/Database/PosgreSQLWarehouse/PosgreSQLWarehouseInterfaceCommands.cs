@@ -22,7 +22,7 @@ namespace PostgreSQLWarehouse
         void CreateRoots()
         {
             var t = Insert(null);
-            var d = new Directory(t, this);
+            var d = new Directory(t, this, false);
             roots = [d];
         }
 
@@ -38,7 +38,7 @@ namespace PostgreSQLWarehouse
             var l = new List<IDirectory>();
             foreach (IDataRecord x in reader)
             {
-                l.Add(new Directory(x, this));
+                l.Add(new Directory(x, this, false));
             }
             return l.ToArray();
         }
@@ -305,7 +305,7 @@ namespace PostgreSQLWarehouse
                 var i = command.ExecuteReader();
                 foreach (IDataRecord x in i)
                 {
-                    var dr = new Directory(x, d, this);
+                    var dr = new Directory(x, d, this, false);
                     list.Add(dr);
                 }
 

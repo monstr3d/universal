@@ -61,9 +61,11 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override Task<bool> RemoveItselfAsync()
+        protected override async Task<bool> RemoveItselfAsync()
         {
-            throw new OwnNotImplemented();
+            var t = warehouseInterface.RemoveAsync(this);
+            await t;
+            return t.Result;
         }
 
         protected override bool SetDatabaseData(byte[] data)
@@ -80,7 +82,15 @@ namespace PostgreSQLWarehouse.Async
         {
             throw new OwnNotImplemented();
         }
-  
 
+        protected override Task<string> UpdateDescriptionAsync(string description)
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override Task<string> UpdateNameAsync(string name)
+        {
+            throw new OwnNotImplemented();
+        }
     }
 }

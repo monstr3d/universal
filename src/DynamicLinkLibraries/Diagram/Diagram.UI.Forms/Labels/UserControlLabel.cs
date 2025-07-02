@@ -12,6 +12,8 @@ using Diagram.UI.Interfaces.Labels;
 
 using SerializationInterface;
 using ErrorHandler;
+using NamedTree;
+using System.ComponentModel;
 
 
 namespace Diagram.UI.Labels
@@ -177,6 +179,15 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Associated object
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
+        #endregion
+
+        #region IObjectLabel Members
+
+        /// <summary>
+        /// Associated object
+        /// </summary>
         public virtual ICategoryObject Object
         {
             get
@@ -203,6 +214,15 @@ namespace Diagram.UI.Labels
                 Init();
             }
         }
+
+        #endregion
+
+        #region INamedComponent Members
+
+        /// <summary>
+        /// Name
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
         #endregion
 
@@ -747,6 +767,10 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// The name of the component
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The name of the component
+        /// </summary>
         public string ComponentName
         {
             set
@@ -999,6 +1023,8 @@ namespace Diagram.UI.Labels
                 return null;
             }
         }
+
+        string INamed.NewName { get; set; }
 
         #endregion
 

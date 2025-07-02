@@ -17,10 +17,10 @@ namespace DataPerformer.UI.UserControls
             {
                 components.Dispose();
                 base.Dispose(disposing);
-                if (consumer != null)
+                if (Consumer != null)
                 {
-                    consumer.OnChangeInput -= FillMeasurements;
-                    consumer = null;
+                    Consumer.OnChangeInput -= FillMeasurements;
+                   Consumer = null;
                 }
                 if (indicatorWrapper != null)
                 {

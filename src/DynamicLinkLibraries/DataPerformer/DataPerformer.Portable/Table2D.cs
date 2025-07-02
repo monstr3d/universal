@@ -331,6 +331,8 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => throw new ErrorHandler.WriteProhibitedException();
 
+        string INamed.NewName { get; set; }
+
         /// <summary>
         /// Pre initialization
         /// </summary>

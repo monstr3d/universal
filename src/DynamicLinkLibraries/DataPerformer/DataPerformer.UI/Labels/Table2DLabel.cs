@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Text;
@@ -21,6 +22,7 @@ namespace DataPerformer.UI.Labels
     /// Label of 2D Table
     /// </summary>
     [Serializable()]
+    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public partial class Table2DLabel : UserControl,
         IObjectLabel, ISerializable, INonstandardLabel
     {
@@ -252,6 +254,8 @@ namespace DataPerformer.UI.Labels
             }
         }
 
+        string INamed.NewName { get; set; }
+
         /// <summary>
         /// Post operation
         /// </summary>
@@ -347,6 +351,11 @@ namespace DataPerformer.UI.Labels
         private void checkBoxOut_CheckedChanged(object sender, EventArgs e)
         {
             table.ThrowsOutOfRangeException = checkBoxOut.Checked;
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
 
         #endregion

@@ -175,6 +175,7 @@ namespace DataTableSelection
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set =>throw new  ErrorHandler.WriteProhibitedException(); }
+        string INamed.NewName { get; set; }
 
         event Action<DataSet> IDataSetConsumer.OnAdd
         {

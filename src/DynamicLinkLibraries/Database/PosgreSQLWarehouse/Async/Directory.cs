@@ -1,13 +1,9 @@
-﻿using DataWarehouse.Interfaces;
+﻿using System.Data;
+
+using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostgreSQLWarehouse.Async
 {
@@ -17,7 +13,7 @@ namespace PostgreSQLWarehouse.Async
 
         #region Ctor
 
-        public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse)
+        public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
             warehouseInterface = postgreSQLWarehouse;
             Id = record[0];
@@ -27,7 +23,7 @@ namespace PostgreSQLWarehouse.Async
             Extension = record.GetString(4);
         }
 
-        public Directory(IDirectory directory, object id, PostgreSQLWarehouseInterface postgreSQLWarehouse)
+        public Directory(IDirectory directory, object id, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
             warehouseInterface = postgreSQLWarehouse;
             Id = id;
@@ -36,14 +32,14 @@ namespace PostgreSQLWarehouse.Async
             Extension = directory.Extension;
         }
 
-        public Directory(IDataRecord record, IDirectory parent, PostgreSQLWarehouseInterface postgreSQLWarehouse) :
-            this(record, postgreSQLWarehouse)
+        public Directory(IDataRecord record, IDirectory parent, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) :
+            this(record, postgreSQLWarehouse, b)
         {
             Parent = parent;
         }
 
 
-        internal Directory(IDirectory directory, Guid guid, PostgreSQLWarehouseInterface postgreSQLWarehouse)
+        internal Directory(IDirectory directory, Guid guid, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
             var t = new Tuple<Guid, Guid, string, string, string>(guid, guid, directory.Name, directory.Description,
                 directory.Extension);
@@ -52,7 +48,7 @@ namespace PostgreSQLWarehouse.Async
 
 
         internal Directory(Tuple<Guid, Guid, string, string, string> t,
-            PostgreSQLWarehouseInterface posgreSQLWarehouse)
+            PostgreSQLWarehouseInterface posgreSQLWarehouse, bool b) : base(b)
         {
             Create(t, posgreSQLWarehouse);
         }
@@ -80,7 +76,13 @@ namespace PostgreSQLWarehouse.Async
         {
             return warehouseInterface.GetLeavesAsync(this);
 
+        }
 
+        protected override async Task<ILeafAsync> AddAsync(ILeaf leaf)
+        {
+            var t = warehouseInterface.Add(this, leaf as ILeafData);
+            await t;
+            return t.Result;
         }
 
 
@@ -146,16 +148,22 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override async Task<IDirectoryAsync> Add(IDirectory directory)
+        protected override async Task<IDirectoryAsync> AddAsync(IDirectory directory)
         {
             var t = warehouseInterface.Add(this, directory);
             await t;
             return t.Result;
         }
 
-        protected override Task<ILeafAsync> Add(ILeaf leaf)
+
+        protected override Task<string> UpdateNameAsync(string name)
         {
-            throw new OwnNotImplemented();
+            throw new NotImplementedException();
+        }
+
+        protected override Task<string> UpdateDescriptionAsync(string description)
+        {
+            throw new NotImplementedException();
         }
     }
 }

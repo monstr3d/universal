@@ -47,7 +47,7 @@ namespace PostgreSQLWarehouse.Models
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action OnDeleteItself;
+        protected event Action<object> OnDeleteItself;
 
         /// <summary>
         /// Change itself event
@@ -59,7 +59,7 @@ namespace PostgreSQLWarehouse.Models
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
-        event Action IDirectory.OnDeleteItself
+        event Action<object> IDirectory.OnDeleteItself
         {
             add
             {
@@ -72,7 +72,7 @@ namespace PostgreSQLWarehouse.Models
             }
         }
 
-        event Action<IDirectory> IDirectory.OnChangeItself
+        event Action<object> IDirectory.OnChangeItself
         {
             add
             {
@@ -85,7 +85,7 @@ namespace PostgreSQLWarehouse.Models
             }
         }
 
-        event Action<ILeaf> IDirectory.OnAddLeaf
+        event Action<object> IDirectory.OnAddLeaf
         {
             add
             {
@@ -98,7 +98,7 @@ namespace PostgreSQLWarehouse.Models
             }
         }
 
-        event Action<IDirectory> IDirectory.OnAddDirectory
+        event Action<object> IDirectory.OnAddDirectory
         {
             add
             {
@@ -138,6 +138,7 @@ namespace PostgreSQLWarehouse.Models
             get => Name;
             set => UpdateName(value);
         }
+        string INamed.NewName { get; set; }
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -302,7 +303,7 @@ namespace PostgreSQLWarehouse.Models
                 }
                 ctx.BinaryTrees.Remove(this);
                 ctx.SaveChanges();
-                OnDeleteItself?.Invoke();
+                OnDeleteItself?.Invoke(this);
             }
             catch (Exception exception)
             {

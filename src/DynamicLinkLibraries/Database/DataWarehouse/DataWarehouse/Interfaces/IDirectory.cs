@@ -32,22 +32,22 @@ namespace DataWarehouse.Interfaces
         /// <summary>
         /// Adds child event
         /// </summary>
-        event Action<IDirectory> OnAddDirectory;
+        event Action<object> OnAddDirectory;
 
         /// <summary>
         /// Delete itself event
         /// </summary>
-        event Action OnDeleteItself;
+        event Action<object> OnDeleteItself;
 
         /// <summary>
         /// Change itself event
         /// </summary>
-        event Action<IDirectory> OnChangeItself;
+        event Action<object> OnChangeItself;
 
         /// <summary>
         /// Add leaf event
         /// </summary>
-        event Action<ILeaf> OnAddLeaf;
+        event Action<object> OnAddLeaf;
 
 
     }

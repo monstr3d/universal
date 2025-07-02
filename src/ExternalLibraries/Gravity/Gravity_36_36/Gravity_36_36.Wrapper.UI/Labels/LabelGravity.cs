@@ -100,7 +100,7 @@ namespace Gravity_36_36.Wrapper.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {

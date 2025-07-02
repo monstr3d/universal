@@ -14,6 +14,7 @@ using FormulaEditor.UI;
 using Motion6D;
 using WpfInterface.Objects3D;
 using WpfInterface.UI.UserControls;
+using System.ComponentModel;
 
 namespace WpfInterface.UI.Labels
 {
@@ -30,6 +31,7 @@ namespace WpfInterface.UI.Labels
 
         protected Form form = null;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Tuple<string, string, string, bool, int, int> ConversionData
         {
             get;
@@ -122,7 +124,7 @@ namespace WpfInterface.UI.Labels
             }
         }
 
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {

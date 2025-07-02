@@ -212,6 +212,8 @@ namespace Motion6D.Portable
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurementsData;
 
+        string INamed.NewName { get; set; }
+
         /// <summary>
         /// Sets positions
         /// </summary>

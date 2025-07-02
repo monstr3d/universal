@@ -13,8 +13,9 @@ namespace DataWarehouse.Classes
     {
          #region Ctor
 
-        public Directory(object Id, string Name, string Description, string Extension = null) : 
-            base(Id, Name, Description, Extension)
+
+        public Directory(object Id, string Name, string Description, string Extension, bool children) : 
+            base(Id, Name, Description, Extension, children)
         {
         }
 

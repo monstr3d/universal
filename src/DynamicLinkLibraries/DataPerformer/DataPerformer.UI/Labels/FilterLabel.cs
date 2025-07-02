@@ -18,7 +18,7 @@ namespace DataPerformer.UI.Labels
 
         FilterWrapper filterWrapper;
 
-        public override ICategoryObject Object 
+        protected override ICategoryObject Object 
         {
             get => filterWrapper;
             set

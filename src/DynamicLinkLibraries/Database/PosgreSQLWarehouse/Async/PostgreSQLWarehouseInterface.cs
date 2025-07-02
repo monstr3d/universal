@@ -15,7 +15,8 @@ namespace PostgreSQLWarehouse.Async
         {
         }
 
-     
+   
+
         internal async Task<byte[]> GetDataAsync(ILeaf leaf)
         {
             var t = Execute(GetDataAsync, leaf);
@@ -37,9 +38,9 @@ namespace PostgreSQLWarehouse.Async
             return t.Result;
         }
 
-        internal async Task<ILeafAsync> Add(IDirectory parent, ILeafData directory)
+        internal async Task<ILeafAsync> Add(IDirectory parent, ILeafData leaf)
         {
-            var t = Execute(Add, parent, directory);
+            var t = Execute(Add, parent, leaf);
             await t;
             return t.Result;
 
@@ -62,11 +63,11 @@ namespace PostgreSQLWarehouse.Async
             return t.Result;
         }
 
-        internal async Task<object> RemoveAsync(ILeaf leaf)
+        internal async Task<bool> RemoveAsync(ILeaf leaf)
         {
             var t = Execute(RemoveAsync, leaf);
             await t;
-            return t.Result;
+            return t.Result != null;
         }
 
 

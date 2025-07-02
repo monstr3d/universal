@@ -73,7 +73,7 @@ namespace ImageTransformations.Labels
             }
         }
 
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {

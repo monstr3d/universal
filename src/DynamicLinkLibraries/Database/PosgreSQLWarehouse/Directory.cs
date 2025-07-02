@@ -16,7 +16,7 @@ namespace PostgreSQLWarehouse
 
         #region Ctor
 
-        public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse)
+        public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
             this.postgreSQLWarehouse = postgreSQLWarehouse;
             Id = record[0];
@@ -26,14 +26,14 @@ namespace PostgreSQLWarehouse
             Extension = record.GetString(4);
         }
 
-        public Directory(IDataRecord record, IDirectory parent, PostgreSQLWarehouseInterface postgreSQLWarehouse) :
-            this(record, postgreSQLWarehouse)
+        public Directory(IDataRecord record, IDirectory parent, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b)  :
+            this(record, postgreSQLWarehouse, b)
         {
             Parent = parent;
         }
 
 
-        internal Directory(IDirectory directory, Guid guid, PostgreSQLWarehouseInterface postgreSQLWarehouse)
+        internal Directory(IDirectory directory, Guid guid, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
             var t = new Tuple<Guid, Guid, string, string, string>(guid, guid, directory.Name, directory.Description,
                 directory.Extension);
@@ -42,7 +42,7 @@ namespace PostgreSQLWarehouse
 
 
         internal Directory(Tuple<Guid, Guid, string, string, string> t, 
-            PostgreSQLWarehouseInterface posgreSQLWarehouse)
+            PostgreSQLWarehouseInterface posgreSQLWarehouse, bool b) : base(b)
         {
             Create(t, posgreSQLWarehouse);
         }
@@ -105,8 +105,8 @@ namespace PostgreSQLWarehouse
 
             var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
             var t = postgreSQLWarehouse.Insert(tt);
-            return (directory == null) ? new Directory(t, postgreSQLWarehouse) :
-                new Directory(directory, t.Item1, postgreSQLWarehouse);
+            return (directory == null) ? new Directory(t, postgreSQLWarehouse, true) :
+                new Directory(directory, t.Item1, postgreSQLWarehouse, true);
         }
 
         protected override ILeaf AddToDatabase(ILeaf leaf)

@@ -1,4 +1,5 @@
-﻿using Internet.Meteo.UI.Labels;
+﻿using Diagram.UI.Labels;
+using Internet.Meteo.UI.Labels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace Internet.Meteo.UI.UserControls
         internal void Set(SensorLabel sensorLabel)
         {
             this.sensorLabel = sensorLabel;
-            sensor = sensorLabel.Object as Sensor;
+            sensor = (sensorLabel as IObjectLabel).Object as Sensor;
             children[0].Text = sensor.Key;
             children[1].Text = sensor.Position;
             children[2].Text = sensorLabel.Min + "";

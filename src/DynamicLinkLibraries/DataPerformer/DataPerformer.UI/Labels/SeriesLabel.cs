@@ -1,14 +1,12 @@
+using CategoryTheory;
+using DataPerformer.UI.UserControls;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
-
-using DataPerformer.UI.UserControls;
+using System.Windows.Forms;
 
 
 namespace DataPerformer.UI.Labels
@@ -90,7 +88,7 @@ namespace DataPerformer.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {
@@ -183,12 +181,13 @@ namespace DataPerformer.UI.Labels
             }
         }
 
-        
+
 
         #endregion
 
         #region Specific Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string Formula
         {
             get

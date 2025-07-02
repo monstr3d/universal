@@ -54,6 +54,7 @@ namespace DataWarehouse.Classes.Abstract
             Extension = extension;
             this.description = description;
             this.data = data;
+            GetData = () => this.data;
         }
 
 
@@ -117,7 +118,7 @@ namespace DataWarehouse.Classes.Abstract
                     return;
                 }
                 Parent.Remove(this);
-                OnDeleteItself?.Invoke();
+                OnDeleteItself?.Invoke(this);
             }
             catch (Exception exception)
             {
@@ -125,40 +126,27 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
+        #region Event calls
 
-
-        #region ILeaf events
-
-        protected void OnDeleteItselfAct()
+        protected void OnDeleteItselfAct(object obj)
         {
-            OnDeleteItself?.Invoke();
+            OnDeleteItself?.Invoke(obj);
+        }
+        protected void OnChangeItselfAct(object obj)
+        {
+            OnChangeItself.Invoke(obj);
         }
 
-        /// <summary>
-        /// Delete itself event
-        /// </summary>
-        protected event Action OnDeleteItself;
-
-        /// <summary>
-        /// Change itself event
-        /// </summary>
-        protected event Action<ILeaf> OnChangeItself;
 
 
-        event Action ILeaf.OnDeleteItself
-        {
-            add
-            {
-                OnDeleteItself += value;
-            }
+        #endregion
 
-            remove
-            {
-                OnDeleteItself -= value;
-            }
-        }
+        #region Events
 
-        event Action<ILeaf> ILeaf.OnChangeItself
+
+
+    
+        event Action<object> ILeaf.OnChangeItself
         {
             add
             {
@@ -168,6 +156,36 @@ namespace DataWarehouse.Classes.Abstract
             remove
             {
                 OnChangeItself -= value;
+            }
+        }
+
+        #endregion
+
+
+        #region ILeaf events
+
+
+        /// <summary>
+        /// Delete itself event
+        /// </summary>
+        protected event Action<object> OnDeleteItself;
+
+        /// <summary>
+        /// Change itself event
+        /// </summary>
+        protected event Action<object> OnChangeItself;
+
+
+        event Action<object> ILeaf.OnDeleteItself
+        {
+            add
+            {
+                OnDeleteItself += value;
+            }
+
+            remove
+            {
+                OnDeleteItself -= value;
             }
         }
 
@@ -191,6 +209,7 @@ namespace DataWarehouse.Classes.Abstract
 
         string IDescription.Description { get => Description; set => Description = value; }
         byte[] IData.Data { get => Data; set => Data = value; }
+        string INamed.NewName { get; set; }
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -239,22 +258,23 @@ namespace DataWarehouse.Classes.Abstract
 
             try
             {
-                if (name == this.name)
+                INamed named = this;
+                named.NewName = name;
+                if (name != this.name)
                 {
-                    return false;
-                }
-                var d = Parent as Directory;
-                if (d != null && !d.Check(name))
-                {
-                    return false;
-                }
-                var b = SetDatabaseName(name);
-                if (b)
-                {
-                    d.Change(this.name, name);
-                    this.name = name;
-                    OnChangeItself?.Invoke(this);
-                    return true;
+                    var d = Parent as Directory;
+                    named.Name = name;
+                    if (d != null && d.Check(name))
+                    {
+                        var b = SetDatabaseName(name);
+                        if (b)
+                        {
+                            d.Change(this.name, name);
+                            this.name = name;
+                            OnChangeItself?.Invoke(this);
+                            return true;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

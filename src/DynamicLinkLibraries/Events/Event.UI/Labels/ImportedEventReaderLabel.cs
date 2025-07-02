@@ -1,24 +1,20 @@
-﻿using System;
+﻿using CategoryTheory;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using Event.Basic.Data.Events;
+using Event.Basic.Events;
+using Event.Interfaces;
+using Event.UI.UserControls;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Labels;
-
-using Event.Basic.Events;
-using Event.Basic.Data.Events;
-using Event.Interfaces;
-
-using Diagram.UI.Interfaces;
-
-using Event.UI.UserControls;
 
 namespace Event.UI.Labels
 {
@@ -197,7 +193,7 @@ namespace Event.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {
@@ -236,6 +232,7 @@ namespace Event.UI.Labels
 
         #region Own Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object OwnProperties
         {
             get { return ownproperties; }

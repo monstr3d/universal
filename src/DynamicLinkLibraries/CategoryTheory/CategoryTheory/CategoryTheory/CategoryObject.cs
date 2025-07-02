@@ -59,6 +59,7 @@ namespace CategoryTheory
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new  ErrorHandler.WriteProhibitedException(); }
+        string INamed.NewName { get; set; }
 
         #endregion
 

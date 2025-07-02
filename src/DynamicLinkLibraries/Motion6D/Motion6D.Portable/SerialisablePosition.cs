@@ -132,6 +132,7 @@ namespace Motion6D.Portable
 
         public virtual object Properties { get => properties; set => properties = value; }
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new OwnNotImplemented("Position"); }
+        string INamed.NewName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         #endregion
 

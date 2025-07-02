@@ -62,9 +62,10 @@ namespace Collada.Converters.Classes.Complicated
 
         public Tuple<List<float[]>, List<float[]>, List<float[]>, List<int[]>> Tuple { get; private set; }
 
-        float[] IGeometry.TransformationMatrix => throw new  ErrorHandler.WriteProhibitedException(); 
+        float[] IGeometry.TransformationMatrix => throw new  ErrorHandler.WriteProhibitedException();
 
- 
+        string INamed.NewName { get; set; }
+
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             Create(element);

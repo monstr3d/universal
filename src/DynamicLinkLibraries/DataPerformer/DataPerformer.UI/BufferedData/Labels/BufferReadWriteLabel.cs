@@ -81,7 +81,7 @@ namespace DataPerformer.UI.BufferedData.Labels
         /// <summary>
         /// Object
         /// </summary>
-        public override ICategoryObject Object
+        protected override ICategoryObject Object
         {
             get
             {

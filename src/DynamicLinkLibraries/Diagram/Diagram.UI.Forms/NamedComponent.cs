@@ -205,8 +205,12 @@ namespace Diagram.UI.Labels
 
         /// <summary>
         /// X - coordinate
+        /// X - coordinate
         /// </summary>
-		public virtual int X
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        public virtual int X
 		{
 			get
 			{
@@ -221,7 +225,11 @@ namespace Diagram.UI.Labels
         /// <summary>
         /// Y - coordinate
         /// </summary>
-		public virtual int Y
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Y - coordinate
+        /// </summary>
+        public virtual int Y
 		{
 			get
 			{
@@ -252,10 +260,14 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// Order on desktop
-		/// </summary>
-		public int Ord
+        /// <summary>
+        /// Order on desktop
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Order on desktop
+        /// </summary>
+        public int Ord
 		{
 			get
 			{
@@ -358,10 +370,14 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The name of the component
-		/// </summary>
-		public virtual string ComponentName
+        /// <summary>
+        /// The name of the component
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The name of the component
+        /// </summary>
+        public virtual string ComponentName
 		{
 			get
 			{
@@ -392,10 +408,14 @@ namespace Diagram.UI.Labels
 		}
 
 
-		/// <summary>
-		/// The associated button
-		/// </summary>
-		public IPaletteButton ComponentButton
+        /// <summary>
+        /// The associated button
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The associated button
+        /// </summary>
+        public IPaletteButton ComponentButton
 		{
 			get
 			{
@@ -407,10 +427,14 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The node
-		/// </summary>
-		public object Node
+        /// <summary>
+        /// The node
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The node
+        /// </summary>
+        public object Node
 		{
 			get
 			{
@@ -422,10 +446,14 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The selection indicator
-		/// </summary>
-		public abstract bool Selected
+        /// <summary>
+        /// The selection indicator
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The selection indicator
+        /// </summary>
+        public abstract bool Selected
 		{
 			get;
 			set;
@@ -443,11 +471,15 @@ namespace Diagram.UI.Labels
 				form.Refresh();
 			}
 		}
-		
-		/// <summary>
-		/// The desktop
-		/// </summary>
-		public virtual PanelDesktop Desktop
+
+        /// <summary>
+        /// The desktop
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// The desktop
+        /// </summary>
+        public virtual PanelDesktop Desktop
 		{
 			get
 			{
@@ -815,6 +847,8 @@ namespace Diagram.UI.Labels
             }
 
         }
+
+        string INamed.NewName { get; set; }
 
         #endregion
     }

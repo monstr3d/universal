@@ -53,7 +53,8 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
-    
+        string INamed.NewName { get; set; }
+
         private PolyList(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             try

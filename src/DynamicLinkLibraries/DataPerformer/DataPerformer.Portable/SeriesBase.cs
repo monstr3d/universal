@@ -636,7 +636,9 @@ namespace DataPerformer.Portable
 
         string INamed.Name { get => Name; set => throw new  ErrorHandler.WriteProhibitedException(); }
 
-        public IEnumerable<IMeasurement> Children => throw   new ErrorHandler.WriteProhibitedException(); 
+        public IEnumerable<IMeasurement> Children => throw   new ErrorHandler.WriteProhibitedException();
+
+        string INamed.NewName { get; set; }
 
         #endregion
 

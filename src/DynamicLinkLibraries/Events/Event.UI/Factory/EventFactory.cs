@@ -265,7 +265,7 @@ namespace Event.UI.Factory
             {
                 LogIterator iterator = obj as LogIterator;
                 Labels.LogIteratorLabel l = new Labels.LogIteratorLabel();
-                l.Object = obj;
+                (l as IObjectLabel).Object = obj;
                 return l.CreateLabelUI(Properties.Resources.logIterator.ToBitmap(), false);
             }
             return null;

@@ -7,6 +7,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {
@@ -359,6 +360,8 @@ namespace Diagram.UI.Labels
                 return PureObjectLabel.GetRoot(this);
             }
         }
+
+        string INamed.NewName { get; set; }
 
 
         #endregion

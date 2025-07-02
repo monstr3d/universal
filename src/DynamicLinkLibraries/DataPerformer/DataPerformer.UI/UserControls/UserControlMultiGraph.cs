@@ -17,6 +17,7 @@ using Diagram.UI.Interfaces;
 
 using WindowsExtensions;
 using System.ComponentModel;
+using Diagram.UI.Labels;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -75,7 +76,7 @@ namespace DataPerformer.UI.UserControls
             {
                 label = value;
                 ss = label;
-                consumer = label.Object as DataConsumer;
+                consumer = (label as IObjectLabel).Object as DataConsumer;
                 var l = this.FindChildren<UserControlMeasurementCollection>();
                 var m = consumer.GetDataConsumerMeasurements();
                 foreach (var c in l)

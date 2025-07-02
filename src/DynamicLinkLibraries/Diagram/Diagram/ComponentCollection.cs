@@ -196,11 +196,12 @@ namespace Diagram.UI
             get;
             set;
         }
+        string INamed.NewName { get; set; }
 
         #endregion
 
         #region 
 
-          #endregion
+        #endregion
     }
 }
