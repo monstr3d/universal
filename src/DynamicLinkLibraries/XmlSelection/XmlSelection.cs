@@ -164,7 +164,7 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 
     object IAssociatedObject.Object { get ; set; }
     string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
-    string INamed.NewName { get; set; }
+   
 
     void load()
 	{

@@ -8,11 +8,6 @@
         /// <summary>
         /// Name
         /// </summary>
-        public string Name { get;  set; }
-
-        /// <summary>
-        /// New name
-        /// </summary>
-        public string NewName { get; set; }
+        string Name { get;  set; }
     }
 }

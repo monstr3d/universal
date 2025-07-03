@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace DataWarehouse.Interfaces.Async
 {
@@ -27,6 +28,18 @@ namespace DataWarehouse.Interfaces.Async
         /// <param name="name">The description</param>
         /// <returns>The description</returns>
         Task<string> UpdateDescriptionAsync(string description);
+
+        /// <summary>
+        /// UpdatesData
+        /// </summary>
+        /// <param name="data">The data</param>
+        /// <returns></returns>
+        Task<byte[]> UpdateDataAcync(byte[] data);
+
+        /// <summary>
+        /// Update data 
+        /// </summary>
+        event Action<object> OnUpdateData;
 
     }
 }

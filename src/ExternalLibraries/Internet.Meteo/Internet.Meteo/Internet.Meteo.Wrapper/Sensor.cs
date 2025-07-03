@@ -195,7 +195,7 @@ namespace Internet.Meteo.Wrapper
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
-        string INamed.NewName { get; set; }
+       
 
         #endregion
 

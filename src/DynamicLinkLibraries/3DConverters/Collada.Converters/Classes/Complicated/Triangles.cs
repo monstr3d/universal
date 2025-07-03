@@ -64,7 +64,7 @@ namespace Collada.Converters.Classes.Complicated
 
         float[] IGeometry.TransformationMatrix => throw new  ErrorHandler.WriteProhibitedException();
 
-        string INamed.NewName { get; set; }
+       
 
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {

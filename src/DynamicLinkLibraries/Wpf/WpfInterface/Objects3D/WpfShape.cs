@@ -807,7 +807,7 @@ namespace WpfInterface.Objects3D
 
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => ch;
 
-        string INamed.NewName { get; set; }
+       
 
 
 

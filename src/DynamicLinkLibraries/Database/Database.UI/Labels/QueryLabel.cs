@@ -328,7 +328,7 @@ namespace Database.UI.Labels
             }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         private void ShowTable()
         {

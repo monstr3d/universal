@@ -59,7 +59,7 @@ namespace Dynamic.Atmosphere.Portable
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
-        string INamed.NewName { get; set; }
+       
 
         object IObjectTransformer.GetInputType(int i)
         {

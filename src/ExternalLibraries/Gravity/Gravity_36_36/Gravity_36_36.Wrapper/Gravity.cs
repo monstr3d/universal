@@ -163,7 +163,7 @@ namespace Gravity_36_36.Wrapper
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
-        string INamed.NewName { get; set; }
+       
 
         event Action<string> IUrlProvider.Change
         {

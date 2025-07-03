@@ -334,7 +334,7 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => output;
 
-        string INamed.NewName { get; set; }
+       
 
         /// <summary>
         /// Pre initialization

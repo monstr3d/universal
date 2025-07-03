@@ -52,6 +52,7 @@ namespace DataWarehouse.Classes.Abstract
                 GetChildern = () => directories;
                 leaves = new List<ILeaf>();
                 GetLeaves = () => leaves;
+                return;
             }
             GetChildern = GetFuncInitial;
             GetLeaves = GetFuncLeafInitial;
@@ -76,16 +77,15 @@ namespace DataWarehouse.Classes.Abstract
         #region Event execution
 
 
-        protected void OnAddLeafAct(ILeaf leaf)
+        protected void OnAddLeafAct(object obj)
         {
-            OnAddLeaf?.Invoke(leaf);
+            OnAddLeafObj?.Invoke(obj);
         }
 
 
         protected void OnAddDirectoryAct(object obj)
         {
-            
-           
+            OnAddDirectoryObject?.Invoke(obj);
         }
 
         protected void OnDeleteItselfAct(object obj)
@@ -137,6 +137,8 @@ namespace DataWarehouse.Classes.Abstract
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
+        protected event Action<object> OnAddLeafObj;
+
         event Action<object> IDirectory.OnDeleteItself
         {
             add
@@ -167,12 +169,12 @@ namespace DataWarehouse.Classes.Abstract
         {
             add
             {
-                OnAddLeaf += value;
+                OnAddLeafObj += value;
             }
 
             remove
             {
-                OnAddLeaf -= value;
+                OnAddLeafObj -= value;
             }
         }
 
@@ -433,7 +435,7 @@ namespace DataWarehouse.Classes.Abstract
 
         IEnumerable<ILeaf> IChildren<ILeaf>.Children => Leaves;
 
-        string INamed.NewName { get; set; }
+       
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -644,10 +646,12 @@ namespace DataWarehouse.Classes.Abstract
             if (named is ILeaf leaf)
             {
                 leaves.Add(leaf);
+                leaf.Parent = this;
             }
             else if (named is IDirectory directory)
             {
                 directories.Add(directory);
+                directory.Parent = this;
             }
             return true;
         }
@@ -659,10 +663,12 @@ namespace DataWarehouse.Classes.Abstract
                 if (named is ILeaf leaf)
                 {
                     leaves.Remove(leaf);
+                    leaf.Parent = null;
                 }
                 else if (named is IDirectory directory)
                 {
                     directories.Remove(directory);
+                    directory.Parent = null;
                 }
                 return true;
             }

@@ -83,6 +83,13 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
+        protected override async Task<byte[]> UpdateDataAcync(byte[] data)
+        {
+            var t = warehouseInterface.UpdateDataAcync(data, this);
+            await t;
+            return t.Result;
+        }
+
         protected override Task<string> UpdateDescriptionAsync(string description)
         {
             throw new OwnNotImplemented();

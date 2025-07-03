@@ -6,16 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PostgreSQLWarehouse.Async
 {
-    public partial class PostgreSQLWarehouseInterface : PostgreSQLWarehouse.PostgreSQLWarehouseInterface,  IDatabaseInterfaceAsync
+    public partial class PostgreSQLWarehouseInterface : PostgreSQLWarehouse.PostgreSQLWarehouseInterface,
+        IDatabaseInterfaceAsync
     {
+        IDirectoryAsync[] roots;
         public PostgreSQLWarehouseInterface(string connection) : base(connection)
         {
-        }
 
-   
+        }
 
         internal async Task<byte[]> GetDataAsync(ILeaf leaf)
         {
@@ -26,9 +28,13 @@ namespace PostgreSQLWarehouse.Async
 
         async Task<IDirectoryAsync[]> IDatabaseInterfaceAsync.GetRoots(string[] extensions)
         {
-            var t = Execute(GetCommandRootsAsync);
-            await t;
-            return t.Result.ToArray();
+            if (roots == null)
+            {
+                var t = Execute(GetCommandRootsAsync);
+                await t;
+                roots = t.Result.ToArray();
+            }
+            return roots;
         }
 
         internal async Task<IDirectoryAsync> Add(IDirectory parent, IDirectory directory)
@@ -45,8 +51,6 @@ namespace PostgreSQLWarehouse.Async
             return t.Result;
 
         }
-
-
 
 
         internal async Task<List<IDirectoryAsync>> LoadChildren(IDirectory dir)
@@ -70,6 +74,13 @@ namespace PostgreSQLWarehouse.Async
             return t.Result != null;
         }
 
+
+        internal async Task<byte[]> UpdateDataAcync(byte[] data, ILeafData leaf)
+        {
+            var t = Execute(UpdateDataAcync, data, leaf);
+            await t;
+            return t.Result;
+        }
 
         internal async Task<List<ILeafAsync>> GetLeavesAsync(IDirectory d)
         {

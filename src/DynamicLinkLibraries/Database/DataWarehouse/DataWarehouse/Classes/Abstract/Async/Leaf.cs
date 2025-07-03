@@ -1,19 +1,37 @@
-﻿using DataWarehouse.Interfaces;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+
+using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SqlTypes;
-using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace DataWarehouse.Classes.Abstract.Async
 {
     public abstract class Leaf : Abstract.Leaf, ILeafAsync, IDataAsync
     {
+        protected virtual event Action<object> OnUpdateData;
 
+
+
+        event Action<object> ILeafAsync.OnUpdateData
+        {
+            add
+            {
+                OnUpdateData += value;
+            }
+
+            remove
+            {
+               OnUpdateData -= value;
+            }
+        }
+
+        protected virtual void OnUpdateDataAct(object o)
+        {
+            OnUpdateData?.Invoke(o);
+        }
 
         protected abstract Task<bool> RemoveItselfAsync();
 
@@ -42,6 +60,8 @@ namespace DataWarehouse.Classes.Abstract.Async
             }
         }
 
+
+
         async void CallAsync()
         {
             ILeafAsync async = this;
@@ -49,6 +69,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             await t;
         }
 
+        IChildrenName ChildrenName => Parent as IChildrenName;
 
         async Task<bool> ILeafAsync.RemoveItselfAsync()
         {
@@ -58,11 +79,14 @@ namespace DataWarehouse.Classes.Abstract.Async
             {
                 if (t.Result)
                 {
-                    IChildren<ILeaf?> p = Parent as IChildren<ILeaf>;
-                    p.RemoveChild(this);
+                    ChildrenName.Remove(this);
                     Parent = null;
+                    var i = new Issue(this, ErrorType.None, OperationType.DeleteLeaf);
+                    OnDeleteItselfAct(i);
+                    return;
                 }
-                OnDeleteItselfAct(this);
+                var ii = new Issue(this, ErrorType.Database, OperationType.DeleteLeaf);
+                OnDeleteItselfAct(ii);
 
             });
 
@@ -74,10 +98,8 @@ namespace DataWarehouse.Classes.Abstract.Async
         protected async void CallNameAsync(string name)
         {
             var d = Parent as Directory;
-
             ILeafAsync async = this;
             INamed named = this;
-            named.NewName = name;
             var t = async.UpdateNameAsync(name);
             t.GetAwaiter().OnCompleted(() =>
             {
@@ -88,7 +110,8 @@ namespace DataWarehouse.Classes.Abstract.Async
             await t;
         }
 
-
+        protected abstract Task<byte[]> UpdateDataAcync(byte[] data);
+       
         protected override bool UpdateName(string name)
         {
             try
@@ -118,6 +141,37 @@ namespace DataWarehouse.Classes.Abstract.Async
         Task<string> ILeafAsync.UpdateDescriptionAsync(string description)
         {
             return UpdateDescriptionAsync(description);
+        }
+
+        protected override byte[] Data {  set => CallAsync(value); }
+
+        protected async void CallAsync(byte[] data)
+        {
+            ILeafAsync async = this;
+            var t = async.UpdateDataAcync(data);
+            await t;
+        }
+
+        async Task<byte[]> ILeafAsync.UpdateDataAcync(byte[] data)
+        {
+            var t = UpdateDataAcync(data);
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                var r = t.Result;
+                var s = new UpdateData(data, r, this);
+                if (r == null)
+                {
+                    var i = new Issue(s, ErrorType.Database, OperationType.UpdateLeafData);
+                    OnUpdateDataAct(i);
+                    return;
+                }
+                var ii = new Issue(s, ErrorType.None, OperationType.UpdateLeafData);
+                OnUpdateDataAct(ii);
+                this.data = r;
+            });
+            await t;
+            return t.Result;
+
         }
     }
 }

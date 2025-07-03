@@ -209,7 +209,7 @@ namespace DataWarehouse.Classes.Abstract
 
         string IDescription.Description { get => Description; set => Description = value; }
         byte[] IData.Data { get => Data; set => Data = value; }
-        string INamed.NewName { get; set; }
+       
 
         event Action<INode> INode<INode>.OnAdd
         {
@@ -259,7 +259,6 @@ namespace DataWarehouse.Classes.Abstract
             try
             {
                 INamed named = this;
-                named.NewName = name;
                 if (name != this.name)
                 {
                     var d = Parent as Directory;

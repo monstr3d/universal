@@ -611,7 +611,7 @@ namespace ImageNavigation
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measurement];
 
         object IAssociatedObject.Object { get; set; }
-        string INamed.NewName { get; set; }
+       
 
         private int GetX(int x)
         {

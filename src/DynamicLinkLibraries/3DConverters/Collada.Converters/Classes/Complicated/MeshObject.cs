@@ -33,7 +33,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<MeshObject>();
 
-        string INamed.NewName { get; set; }
+       
 
         private MeshObject(XmlElement xmlElement, IMeshCreator meshCreator) : base(xmlElement)
         {

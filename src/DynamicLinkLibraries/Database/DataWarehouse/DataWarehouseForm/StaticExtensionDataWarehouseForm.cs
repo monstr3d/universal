@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using NamedTree;
@@ -37,15 +37,11 @@ namespace DataWarehouse
             ResourceService.StaticExtensionResourceService.LoadControlResources(control, DataWarehouse.Utils.ControlUtilites.Resources);
         }
 
-        static TreeNode Get(ILeaf leaf)
-        {
-            return new Forms.Tree.TreeNode(leaf);
-        }
-
-        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice = false, bool leaves = true)
+   
+        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice, bool leaves, Action<Issue> action)
         {
             IDirectory[] dir = null; 
-            var act = () => treeView.Fill(dir, recursice, leaves);
+            var act = () => treeView.Fill(dir, recursice, leaves, action);
             if (!data.SupportsAsync)
             {
                 dir = data.GetRoots(new string[] { ext });
@@ -60,12 +56,13 @@ namespace DataWarehouse
             
          }
 
-        static void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves)
+        static async void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves, Action<Issue> action)
         {
             foreach (IDirectory d in dir)
             {
-                var nd = d.GetNode(recursice, leaves);
-                treeView.Nodes.Add(nd);
+                var nd = d.GetNode(recursice, leaves, action);
+                await nd;
+                treeView.Nodes.Add(nd.Result);
             }
             foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
             {
@@ -74,7 +71,8 @@ namespace DataWarehouse
 
         }
 
-        static public async void FillNode(this IDirectory dir, System.Windows.Forms.TreeNode node,  bool recursive = false, bool leaves = true)
+        static public async Task FillNode(this IDirectory dir, System.Windows.Forms.TreeNode node, 
+            bool recursive, bool leaves, Action<Issue> action)
         {
             if (node.Nodes.Count > 0)
             {
@@ -101,7 +99,7 @@ namespace DataWarehouse
                 }
             };
     //        var task = Task.FromResult(act);
-            var complete = () =>
+            var complete = async () =>
             {
                 if (dirs.Any())
                 {
@@ -112,7 +110,7 @@ namespace DataWarehouse
                     {
                         foreach (var child in ld)
                         {
-                            var n = GetNode(child, recursive, leaves);
+                            var n = GetNodeSimple(child, recursive, leaves, action);
                             node.Nodes.Add(n);
                         }
                     }
@@ -122,7 +120,7 @@ namespace DataWarehouse
                         {
                             foreach (var child in ld)
                             {
-                                var n = leaves ? new Forms.Tree.TreeNode(child) : new Forms.Tree.TreeNode(child, leaves);
+                                var n = leaves ? new Forms.Tree.TreeNode(child, action) : new Forms.Tree.TreeNode(child, leaves, action);
                                 node.Nodes.Add(n);
                             }
                         };
@@ -144,7 +142,7 @@ namespace DataWarehouse
                 ldp.Sort(NodeComparer.Singleton);
                 foreach (var child in ldp)
                 {
-                    var n = Get(child);
+                    var n = new Forms.Tree.TreeNode(child, action);
                     n.Tag = child;
                     node.Nodes.Add(n);
                 }
@@ -160,10 +158,18 @@ namespace DataWarehouse
             complete();
         }
 
-        static  System.Windows.Forms.TreeNode GetNode(this IDirectory dir, bool recursive = false, bool leaves = true)
+        static System.Windows.Forms.TreeNode GetNodeSimple(this IDirectory dir, bool recursive, bool leaves, Action<Issue> action)
         {
-            System.Windows.Forms.TreeNode node = leaves ?  new Forms.Tree.TreeNode(dir) : new Forms.Tree.TreeNode(dir, leaves);
-            dir.FillNode(node, recursive, leaves);
+            TreeNode node = leaves ? new Forms.Tree.TreeNode(dir, action) : new Forms.Tree.TreeNode(dir, leaves, action);
+            return node;
+        }
+
+
+        static async Task<System.Windows.Forms.TreeNode> GetNode(this IDirectory dir, bool recursive , bool leaves, Action<Issue> action)
+        {
+            var node = dir.GetNodeSimple(recursive, leaves, action);
+            var t = dir.FillNode(node, recursive, leaves, action);
+            await t;
             return node;
         }
 
@@ -173,7 +179,8 @@ namespace DataWarehouse
         /// </summary>
         /// <param name="dir"></param>
         /// <returns></returns>
-        public static System.Windows.Forms.TreeNode GetNode(this IDirectory dir, Dictionary<INode, TreeNode> nodes)
+        public static System.Windows.Forms.TreeNode GetNode(this IDirectory dir, 
+            Dictionary<INode, TreeNode> nodes, Action<Issue> action)
         {
             
             IChildren<IDirectory> ed = dir;
@@ -182,7 +189,7 @@ namespace DataWarehouse
             ld.Sort(NodeComparer.Singleton);
             foreach (IDirectory dird in ld)
             {
-                TreeNode tn = GetNode(dird, nodes);
+                TreeNode tn = GetNode(dird, nodes, action);
               //  ln.Add(tn);
             }
             List<ILeaf> ll = new List<ILeaf>();
@@ -191,7 +198,7 @@ namespace DataWarehouse
             ll.Sort(NodeComparer.Singleton as IComparer<ILeaf>);
             foreach (ILeaf leaf in ll)
             {
-                TreeNode tnl = Get(leaf);
+                TreeNode tnl = new Forms.Tree.TreeNode(leaf, action);
                 tnl.Tag = leaf;
                 nodes[leaf] = tnl;
               //  ln.Add(tnl);

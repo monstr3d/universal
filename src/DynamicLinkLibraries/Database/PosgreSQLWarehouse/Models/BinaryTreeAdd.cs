@@ -138,7 +138,7 @@ namespace PostgreSQLWarehouse.Models
             get => Name;
             set => UpdateName(value);
         }
-        string INamed.NewName { get; set; }
+       
 
         event Action<INode> INode<INode>.OnAdd
         {

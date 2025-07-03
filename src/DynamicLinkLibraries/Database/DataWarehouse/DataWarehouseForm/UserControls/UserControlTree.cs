@@ -93,7 +93,7 @@ namespace DataWarehouse.UserControls
             treeViewMain.BeforeExpand += TreeViewMain_BeforeExpand;
          }
 
-        private void TreeViewMain_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        private async void TreeViewMain_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             var node = e.Node;
             if (node == null)
@@ -104,7 +104,8 @@ namespace DataWarehouse.UserControls
             {
                 if (n is Forms.Tree.TreeNode nd)
                 {
-                    nd.Expand(true);
+                    var t = nd.Expand(true, null);
+                    await t;
                 }
             }
         }
@@ -246,7 +247,7 @@ namespace DataWarehouse.UserControls
    
         void Fill()
         {
-            treeViewMain.Fill(data, ext);
+            treeViewMain.Fill(data, ext, true, false, null);
         }
 
         #endregion

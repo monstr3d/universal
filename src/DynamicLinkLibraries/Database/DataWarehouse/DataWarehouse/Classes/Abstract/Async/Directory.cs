@@ -57,11 +57,7 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             try
             {
-                if (!Check(leaf.Name))
-                {
-                    OnAddLeafAct(leaf);
-                }
-                CallAsync(leaf);
+                 CallAsync(leaf);
             }
             catch (Exception ex)
             {
@@ -76,7 +72,8 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             if (!ParentChildrenName.Check(directory))
             {
-                OnAddDirectoryAct(Get(directory, ErrorType.IllegalName, OperationType.AddDirectory));
+                var i = Get(directory, ErrorType.IllegalName, OperationType.AddDirectory);
+                OnAddDirectoryAct(i);
                 return directory;
             }
             try
@@ -107,7 +104,6 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             var p = Parent as Directory;
             INamed n = this;
-            n.NewName = this.name;
             if (!p.Check(name))
             {
                 OnChangeItselfAct(this);
@@ -138,8 +134,6 @@ namespace DataWarehouse.Classes.Abstract.Async
             var t = async.UpdateNameAsync(name);
             await t;
         }
-
-
 
 
         protected async void CallAsync(ILeaf leaf)
@@ -173,7 +167,8 @@ namespace DataWarehouse.Classes.Abstract.Async
                 IChildren<IDirectory> cd = p;
                 cd.RemoveChild(this);
                 Parent = null;
-                OnDeleteItselfAct(this);
+                var i = Get(this, ErrorType.None, OperationType.DeleteDirectory);
+                OnDeleteItselfAct(i);
             });
 
             await t;
@@ -184,19 +179,25 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         async Task<ILeafAsync> IDirectoryAsync.AddAsync(ILeaf leaf)
         {
+            if (!ChildrenName.Check(leaf))
+            {
+                var i = Get(leaf, ErrorType.IllegalName, OperationType.AddLeaf);
+                OnAddLeafAct(i);
+                return null;
+            }
             var t = AddAsync(leaf);
             t.GetAwaiter().OnCompleted(() =>
             {
 
-                if (t.Result == null)
+                var l = t.Result as ILeaf;
+                if (l == null)
                 {
+                    var ii = Get(leaf, ErrorType.Database, OperationType.AddLeaf);
                     return;
                 }
-                var l = t.Result as ILeaf;
-                l.Parent = this;
-                leaves.Add(l);
-                Names.Add(l.Name);
-                OnAddLeafAct(l);
+                ChildrenName.Add(l);
+                var i = Get(leaf, ErrorType.None, OperationType.AddLeaf);
+                OnAddLeafAct(i);
             });
             await t;
             return t.Result;
@@ -205,22 +206,24 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         async Task<IDirectoryAsync> IDirectoryAsync.AddAsync(IDirectory directory)
         {
-
+            if (!ChildrenName.Check(directory))
+            {
+                var i = Get(directory, ErrorType.IllegalName, OperationType.AddDirectory);
+                OnAddDirectoryAct(i);
+                return this;
+            }
             var t = AddAsync(directory);
             t.GetAwaiter().OnCompleted(() =>
             {
-                
                 if (t.Result == null)
                 {
                     OnAddDirectoryAct(Get(directory, ErrorType.Database, OperationType.AddDirectory));
                     return;
                 }
                 var dir = t.Result as IDirectory;
-                dir.Parent = this;
-                directories.Add(dir);
-                Names.Add(dir.Name);
-                var r = t.Result;
-                OnAddDirectoryAct(Get(r, ErrorType.None, OperationType.AddDirectory));
+                ChildrenName.Add(dir);
+                var i = Get(dir, ErrorType.None, OperationType.AddDirectory);
+                OnAddDirectoryAct(i);
             });
             await t;
             return t.Result;
@@ -269,7 +272,6 @@ namespace DataWarehouse.Classes.Abstract.Async
                 return name;
             }
             INamed mn = this;
-            mn.NewName = n;
             var d = Parent as Directory;
             if (!d.Check(name))
             {

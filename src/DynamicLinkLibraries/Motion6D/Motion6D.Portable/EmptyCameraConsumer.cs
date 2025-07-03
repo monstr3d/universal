@@ -49,6 +49,6 @@ namespace Motion6D.Portable
         double[,] IVisible.Size => size;
 
         string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
-        string INamed.NewName { get; set; }
+       
     }
 }

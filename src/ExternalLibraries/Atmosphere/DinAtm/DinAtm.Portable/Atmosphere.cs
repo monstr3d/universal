@@ -101,7 +101,7 @@ namespace DinAtm.Portable
             get => performer.GetAssociatedName(this); 
             set => new  ErrorHandler.WriteProhibitedException(); 
         }
-        string INamed.NewName { get; set; }
+       
 
         void IObjectTransformer.Calculate(object[] input, object[] output)
         {

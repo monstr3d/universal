@@ -94,56 +94,64 @@ namespace WeifenLuo.WinFormsUI.Docking
         }
 		
 		[Browsable(false)]
-		public DockPanel DockPanel
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockPanel DockPanel
 		{
 			get {	return DockHandler.DockPanel; }
 			set	{	DockHandler.DockPanel = value;	}
 		}
 
 		[Browsable(false)]
-		public DockState DockState
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockState DockState
 		{
 			get	{	return DockHandler.DockState;	}
 			set	{	DockHandler.DockState = value;	}
 		}
 
 		[Browsable(false)]
-		public DockPane Pane
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockPane Pane
 		{
 			get {	return DockHandler.Pane; }
 			set	{	DockHandler.Pane = value;		}
 		}
 
 		[Browsable(false)]
-		public bool IsHidden
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool IsHidden
 		{
 			get	{	return DockHandler.IsHidden;	}
 			set	{	DockHandler.IsHidden = value;	}
 		}
 
 		[Browsable(false)]
-		public DockState VisibleState
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockState VisibleState
 		{
 			get	{	return DockHandler.VisibleState;	}
 			set	{	DockHandler.VisibleState = value;	}
 		}
 
 		[Browsable(false)]
-		public bool IsFloat
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool IsFloat
 		{
 			get	{	return DockHandler.IsFloat;	}
 			set	{	DockHandler.IsFloat = value;	}
 		}
 
 		[Browsable(false)]
-		public DockPane PanelPane
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockPane PanelPane
 		{
 			get	{	return DockHandler.PanelPane;	}
 			set	{	DockHandler.PanelPane = value;	}
 		}
 
 		[Browsable(false)]
-		public DockPane FloatPane
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DockPane FloatPane
 		{
 			get	{	return DockHandler.FloatPane;	}
 			set	{	DockHandler.FloatPane = value;	}

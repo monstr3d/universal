@@ -66,7 +66,7 @@ namespace CategoryTheory
         IEnumerable<IAssociatedObject> IChildren<IAssociatedObject>.Children => children;
 
         object IAssociatedObject.Object { get; set; }
-        string INamed.NewName { get; set; }
+       
 
         event Action<IAssociatedObject> IChildren<IAssociatedObject>.OnAdd
         {

@@ -98,7 +98,7 @@ namespace WpfInterface.Objects3D
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
-        string INamed.NewName { get; set; }
+       
 
         #endregion
 

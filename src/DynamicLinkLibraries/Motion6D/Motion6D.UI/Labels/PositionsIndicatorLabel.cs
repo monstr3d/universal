@@ -307,7 +307,7 @@ namespace Motion6D.UI.Labels
             }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         /// <summary>
         /// Post operation

@@ -231,7 +231,7 @@ namespace DataPerformer.UI.Labels
             get { return ResourceImage.Fisher.ToBitmap(); }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         #endregion
     }

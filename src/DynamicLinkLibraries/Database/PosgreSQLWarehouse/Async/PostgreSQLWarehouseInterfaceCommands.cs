@@ -80,7 +80,7 @@ namespace PostgreSQLWarehouse.Async
             }
             catch (Exception ex)
             {
-
+                ex.HandleException();
             }
             return list;
         }
@@ -165,7 +165,27 @@ namespace PostgreSQLWarehouse.Async
             return false;
         }
 
-        async Task<object> RemoveAsync(NpgsqlCommand command, ILeaf leaf)
+        async Task<byte[]> UpdateDataAcync(NpgsqlCommand command, byte[] data, ILeafData leaf)
+        {
+            Init();
+            try
+            {
+                string sqlQuery = $"UPDATE public.\"BinaryTable\" SET  \"Data\"=@data WHERE \"Id\" = @idd;";
+                // Double quotes for column name, @ for parameter
+                command.Parameters.AddWithValue("@idd", leaf.Id);
+                command.Parameters.AddWithValue("@data", data);
+                command.CommandText = sqlQuery;
+                var i = command.ExecuteNonQueryAsync();
+                await i;
+                return (i.Result == 1) ? data : null;
+            }
+            catch (Exception e)
+            {
+                e.ShowError();
+            }
+            return null;
+        }
+async Task<object> RemoveAsync(NpgsqlCommand command, ILeaf leaf)
         {
             Init();
             try

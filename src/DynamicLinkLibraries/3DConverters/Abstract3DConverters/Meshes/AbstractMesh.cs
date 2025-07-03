@@ -607,7 +607,7 @@ namespace Abstract3DConverters.Meshes
         }
 
         protected virtual IMeshCreator Creator { get; set; }
-        string INamed.NewName { get; set; }
+       
 
         #endregion
 

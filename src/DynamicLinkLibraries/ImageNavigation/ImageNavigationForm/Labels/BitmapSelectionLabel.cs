@@ -281,7 +281,7 @@ namespace ImageNavigation.Labels
             }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         #endregion
 

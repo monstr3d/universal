@@ -357,7 +357,7 @@ namespace DataPerformer.Formula.Regression
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new ErrorHandler.WriteProhibitedException(); }
-        string INamed.NewName { get; set; }
+       
 
         #region Private Members
 

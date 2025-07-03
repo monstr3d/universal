@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using ErrorHandler;
 using NamedTree;
+
 using WindowsExtensions;
 
 namespace DataWarehouse.Forms.Tree
@@ -12,12 +14,85 @@ namespace DataWarehouse.Forms.Tree
     public class TreeNode : System.Windows.Forms.TreeNode
     {
         IDirectory directory;
-        TreeView treeView;
         
+        TreeView treeView;
 
+        //
+        protected event Action<object> OnAddDirectoryObject;
+       
+        Action<Issue> action = (issue) => { };
+             
         ILeaf leaf;
 
-       void Set()
+        #region Ctor
+
+        public TreeNode(IDirectory directory, Action<Issue> action) : base(directory.Name, 0, 1)
+        {
+            if (directory == null)
+            {
+                throw new OwnException("Tree node deirectory");
+            }
+            Init(action);
+            this.directory = directory;
+            Set();
+        }
+
+        public TreeNode(IDirectory directory, bool leaves, Action<Issue> action) : base(directory.Name)
+        {
+            if (directory == null)
+            {
+                throw new OwnException("Tree node deirectory");
+            }
+            Init(action);
+            this.directory = directory;
+            Leaves = leaves;
+            Set();
+        }
+        public TreeNode(ILeaf leaf, Action<Issue> action) : base(leaf.Name, 2, 2)
+        {
+            if (leaf == null)
+            {
+                throw new OwnException("Tree node leaf");
+            }
+            Init(action);
+            this.directory = directory;
+            this.leaf = leaf;
+            leaf.OnDeleteItself += Leaf_OnDeleteItself;
+            leaf.OnChangeItself += Leaf_OnChangeItself;
+            Tag = leaf;
+        }
+
+        #endregion
+
+        void Act(object o)
+        {
+            if (o is Issue issue) action(issue);
+        }
+
+        Issue Get(object o)
+        {
+            return o as Issue;
+        }
+
+        T Get<T>(object o) where T : class
+        {
+            return Get(o).Object as T;
+        }
+
+
+        bool Fail(object o)
+        {
+            var i = Get(o);
+            if (i.ErrorType != ErrorType.None)
+            {
+                action(i);
+                return true;
+            }
+            return false;
+        }
+
+
+        void Set()
         {
             if (directory == null)
             {
@@ -33,49 +108,25 @@ namespace DataWarehouse.Forms.Tree
             Tag = directory;
         }
 
-        public async Task Expand(bool leaves)
+        public async Task Expand(bool leaves, Action<Issue> action)
         {
             if (directory != null)
             {
-              directory.FillNode(this, false, leaves);
+                var t = directory.FillNode(this, false, leaves, action);
+                await t;
             }
         }
 
         bool Leaves { get; set; } = true;
 
-        void Init()
+        void Init(Action<Issue> action)
         {
-            treeView = this.TreeView;
+            if (action != null)
+            {
+                this.action = action;
+            }
+            
         }
-
-        #region Ctor
-
-        
-
-        public TreeNode(IDirectory directory) : base(directory.Name, 0, 1)
-        {
-            Init();
-            this.directory = directory;
-            Set();
-        }
-
-        public TreeNode(IDirectory directory, bool leaves) : base(directory.Name)
-        {
-            Init();
-            this.directory = directory;
-            Leaves = leaves;
-            Set();
-        }
-        public TreeNode(ILeaf leaf) : base(leaf.Name, 2, 2)
-        {
-            Init();
-            this.leaf = leaf;
-            leaf.OnDeleteItself += Leaf_OnDeleteItself;
-            leaf.OnChangeItself += Leaf_OnChangeItself;
-            Tag = leaf;
-        }
-
-        #endregion
 
         public void SetDisposed()
         {
@@ -83,11 +134,14 @@ namespace DataWarehouse.Forms.Tree
             t.Disposed += T_Disposed;
         }
 
-        private void Leaf_OnDeleteItself(object obj)
+        void Execute<T>(Action<T> action, T t) where T : class
         {
+            treeView.InvokeIfNeeded(action, t);
+        }
 
-            Remove();
-            leaf.OnDeleteItself -= Leaf_OnDeleteItself;
+        void Execute(Action action)
+        {
+            treeView.InvokeIfNeeded(action);
         }
 
         private void T_Disposed(object sender, EventArgs e)
@@ -104,33 +158,31 @@ namespace DataWarehouse.Forms.Tree
             leaf.OnChangeItself -= Leaf_OnChangeItself;
         }
 
+        private void Leaf_OnDeleteItself(object obj)
+        {
+            Execute(Leaf_OnDeleteItselfT, obj);
+        }
+
+        private void Leaf_OnDeleteItselfT(object obj)
+        {
+            if (Fail(obj)) return;
+            Remove();
+            leaf.OnDeleteItself -= Leaf_OnDeleteItself;
+            leaf.OnChangeItself -= Leaf_OnChangeItself;
+        }
+
+
         private void Directory_OnAddLeafT(object obj)
         {
-    /*        if (obj.Parent == null)
-            {
-                throw new OwnNotImplemented();
-            }
-            var node = new TreeNode(obj);
-            Nodes.Add(node);*/
+            if (Fail(obj)) return;
+            if (Leaves) return;
+            var node = new TreeNode(Get<ILeaf>(obj), action);
+            Nodes.Add(node);
         }
         private void Directory_OnAddLeaf(object obj)
         {
-            if (Leaves)
-            {
-                Execute(Directory_OnAddLeafT, obj);
-            }
+            Execute(Directory_OnAddLeafT, obj);
         }
-
-        void Execute<T>(Action<T> action, T t) where T : class
-        {
-            treeView.InvokeIfNeeded(action, t);
-        }
-
-        void Execute(Action action)
-        {
-            treeView.InvokeIfNeeded(action);
-        }
-
 
         private void Directory_OnAddDirectory(object obj)
         {
@@ -140,26 +192,14 @@ namespace DataWarehouse.Forms.Tree
 
         private void Directory_OnAddDirectoryT(object obj)
         {
-         /*   if (obj == null)
-            {
-                throw new OwnNotImplemented("NULL DIRECTORY");
-            }
-            if (obj.Parent == null)
-            {
-                throw new OwnNotImplemented("NULL DIRECTORY");
-
-            }
-
-            var node = Leaves ? new TreeNode(obj) : new TreeNode(obj, false);
-            Nodes.Add(node);*/
+            if (Fail(obj)) return;
+            var node = new TreeNode(Get<IDirectory>(obj), action);
+            Nodes.Add(node);
         }
 
         private void Directory_OnDeleteItself(object obj)
         {
-            if (directory.Parent != null)
-            {
-                throw new OwnNotImplemented();
-            }
+            if (Fail(obj)) return;
             Execute(Directory_OnDeleteItselfT);
         }
 
@@ -187,12 +227,14 @@ namespace DataWarehouse.Forms.Tree
         }
         private void Directory_OnChangeItself(object obj)
         {
-           // Change(obj);
+            if (Fail(obj)) return;
+            Change(Get<IDirectory>(obj));
         }
 
         private void Leaf_OnChangeItself(object obj)
         {
-           // Change(obj);
+            if (Fail(obj)) return;
+            Change(Get<ILeaf>(obj));
         }
 
     }

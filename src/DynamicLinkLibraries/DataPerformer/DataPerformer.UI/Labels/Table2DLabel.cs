@@ -254,7 +254,7 @@ namespace DataPerformer.UI.Labels
             }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         /// <summary>
         /// Post operation

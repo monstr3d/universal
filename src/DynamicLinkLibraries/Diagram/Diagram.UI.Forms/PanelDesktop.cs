@@ -2743,7 +2743,7 @@ namespace Diagram.UI
 
         protected virtual IEnumerable<IComponentCollection> Children => ChildrenNodes;
 
-        string INamed.NewName { get; set; }
+       
 
         protected virtual void Add(INode<IComponentCollection> collection)
         {

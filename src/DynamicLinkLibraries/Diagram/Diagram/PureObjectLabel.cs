@@ -283,7 +283,7 @@ namespace Diagram.UI.Labels
             }
         }
 
-        string INamed.NewName { get; set; }
+       
 
         #endregion
 

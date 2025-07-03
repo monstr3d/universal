@@ -82,7 +82,7 @@ namespace PostgreSQLWarehouse.Models
 
         INode INode<INode>.Value => this;
 
-        string INamed.NewName { get; set; }
+       
 
         event Action<INode> INode<INode>.OnAdd
         {

@@ -17,6 +17,7 @@ namespace DataWarehouse
         /// </summary>
         IUser user;
 
+        IDirectory[] roots;
         public bool SupportsAsync { get; init; }
 
         /// <summary>
@@ -47,7 +48,11 @@ namespace DataWarehouse
         /// <returns>Root nodes</returns>
         public IDirectory[] GetRoots(string[] ext)
         {
-            return data.GetRoots( ext);
+            if (roots == null)
+            {
+                roots = data.GetRoots(ext);
+            }
+            return roots;
         }
 
     }

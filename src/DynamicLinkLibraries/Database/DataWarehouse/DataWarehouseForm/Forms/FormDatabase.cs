@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,6 +67,14 @@ namespace DataWarehouse.Forms
         private FormDatabase()
         {
             InitializeComponent();
+            var t = this.FindControlChild<TreeView>();
+            t.Tag = ActionIssue;
+        }
+
+        void ActionIssue(Issue issue)
+        {
+           WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Error");
+
         }
 
         /// <summary>
@@ -108,32 +117,26 @@ namespace DataWarehouse.Forms
 
         private async void TreeViewDir_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
-            var act = () =>
+            var node = e.Node;
+            if (node == null)
             {
-                var node = e.Node;
-                if (node == null)
+                return;
+            }
+            foreach (var n in node.Nodes)
+            {
+                if (n is Forms.Tree.TreeNode nd)
                 {
-                    return;
+                    var t = nd.Expand(false, ActionIssue);
+                    await t;
                 }
-                foreach (var n in node.Nodes)
-                {
-                    if (n is Forms.Tree.TreeNode nd)
-                    {
-                        nd.Expand(false);
-                    }
-                }
-            };
-            var task = new Task(act);
-            task.Start();
-            await task;
+            }
         }
-
         #endregion
 
 
         private void refreshTree()
         {
-            treeViewDir.Fill(data, ext[0], false);
+            treeViewDir.Fill(data, ext[0], false, true, ActionIssue);
    
        /* !!! DELETE      IDirectory[] dir = data.GetRoots(ext);
             foreach (IDirectory d in dir)
@@ -150,23 +153,7 @@ namespace DataWarehouse.Forms
             this.buttonDirDelete.Enabled = false;
         }
 
-        /*
-        private TreeNode GetNode(IDirectory dir)
-        {
-            return dir.GetNode(false);
-   /*         IChildren<IDirectory> d = dir;
-            List<IDirectory> l = new List<IDirectory>();
-            l.AddRange(d.Children);
-            l.Sort(NodeComparer.Singleton);
-            List<TreeNode> lt = new List<TreeNode>();
-            foreach (IDirectory dd in l)
-            {
-                lt.Add(GetNode(dd));
-            }
-            TreeNode node = new TreeNode(dir.Name, lt.ToArray());
-            node.Tag = dir;
-            return node;//
-        }*/
+ 
 
         private void treeViewDir_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -195,33 +182,113 @@ namespace DataWarehouse.Forms
             {
                 listViewDoc.Items.Clear();
             }
+            
             RefreshTable();
         }
 
-        private void RefreshTable()
+        Dictionary<IDirectory, Action<object>> leaf_add = new Dictionary<IDirectory, Action<object>>();
+
+        Dictionary<ILeaf, Action<object>> leaf_act_remove = new Dictionary<ILeaf, Action<object>>();
+
+
+
+        Dictionary<ILeaf, ListViewItem> items = new Dictionary<ILeaf, ListViewItem>();
+
+        private async void RefreshTable()
         {
-            if (SelectedNode == null)
+            try
             {
-                return;
+                if (SelectedNode == null)
+                {
+                    return;
+                }
+                listViewDoc.Items.Clear();
+                foreach (var i in leaf_act_remove)
+                {
+                    i.Key.OnDeleteItself -= i.Value;
+                }
+
+                foreach (var i in leaf_add)
+                {
+                    i.Key.OnAddLeaf -= i.Value;
+                }
+
+                leaf_add.Clear();
+
+     
+                leaf_act_remove.Clear();
+
+                var act_a = (object o) =>
+                {
+                    var i = o as Issue;
+                    if (i.ErrorType != ErrorType.None)
+                    {
+                        return;
+                    }
+                    var l = i.Object as ILeaf;
+                    var a = () =>
+                    {
+                        string[] s = new string[] { l.Name, l.Extension };
+                        ListViewItem it = new ListViewItem(s);
+                        it.Tag = l;
+                        listViewDoc.Items.Add(it);
+
+                    };
+                    listViewDoc.InvokeIfNeeded(a);
+                };
+                (SelectedNode as IDirectory).OnAddLeaf += act_a;
+                leaf_add[SelectedNode] = act_a;
+
+                /*
+               if (dataTableDoc.Rows.Count > 0)
+               {
+                   dataTableDoc.Clear();
+               }*/
+                IDirectory d = SelectedNode;
+                if (d is IDirectoryAsync async)
+                {
+                    var tl = async.LoadChildren();
+                    await tl;
+                    var t = async.LoadLeaves();
+                    await t;
+                }
+                IChildren<ILeaf> coll = d;
+                var act = () =>
+                {
+                    foreach (var leaf in coll.Children)
+                    {
+                        string[] s = new string[] { leaf.Value.Name, leaf.Value.Extension };
+                        ListViewItem it = new ListViewItem(s);
+                        it.Tag = leaf;
+                        listViewDoc.Items.Add(it);
+                        var act = (object o) =>
+                        {
+                            var i = o as Issue;
+                            if (i.ErrorType == ErrorType.None)
+                            {
+                                listViewDoc.InvokeIfNeeded(() => listViewDoc.Items.Remove(it));
+                            }
+                        };
+                        leaf.OnDeleteItself += act;
+                        leaf_act_remove[leaf] = act;
+                    }
+                    labelDescr.Text = "";
+                    buttonDelete.Enabled = false;
+                    buttonLoad.Enabled = false;
+                };
+                this.InvokeIfNeeded(act);
             }
-            listViewDoc.Items.Clear();
-            /*
-            if (dataTableDoc.Rows.Count > 0)
+            catch (Exception ex)
             {
-                dataTableDoc.Clear();
-            }*/
-            IDirectory d = SelectedNode;
-            IChildren<ILeaf> coll = d;
-            foreach (var leaf in coll.Children)
-            {
-                string[] s = new string[] { leaf.Value.Name, leaf.Value.Extension };
-                ListViewItem it = new ListViewItem(s);
-                it.Tag = leaf;
-                listViewDoc.Items.Add(it);
+                ex.HandleException();
             }
-            labelDescr.Text = "";
-            buttonDelete.Enabled = false;
-            buttonLoad.Enabled = false;
+        }
+
+        
+
+        private void Leaf_OnDeleteItself(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         void save(string filename)
@@ -314,17 +381,7 @@ namespace DataWarehouse.Forms
                 }
                 var nm = textBoxDirName.Text;
                 IDirectory dir = new Classes.Directory(null, nm, textBoxDirDescr.Text, blob.Extension, false);
-/*                if (node is IDirectoryAsync async)
-                {
-                    Add(async, dir);
-                    return;
-                }*/
                 IDirectory child = node.Add(dir);
-                if (child == null & !(node is IDirectoryAsync))
-                {
-                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal directory name \"" + nm + "\"");
-                    return;
-                }
             }
             catch (Exception ex)
             {
@@ -499,7 +556,7 @@ namespace DataWarehouse.Forms
                 }
                 Selected.RemoveItself();
                 //selectedNode.Remove(selected);
-                RefreshTable();
+            //    RefreshTable();
             }
             catch (Exception ex)
             {
