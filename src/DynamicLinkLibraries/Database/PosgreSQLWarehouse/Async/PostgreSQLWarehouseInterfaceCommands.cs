@@ -116,6 +116,55 @@ namespace PostgreSQLWarehouse.Async
             return null;
         }
 
+        async Task<string> UpdateDirNameAsync(NpgsqlCommand command, string name, IDirectory parent)
+        {
+            string sqlQuery = $"UPDATE public.\"BinaryTree\" SET  \"Name\"=@name  WHERE \"Id\" = @idd;";
+            // Double quotes for column name, @ for parameter
+            command.Parameters.AddWithValue("@idd", parent.Id);
+            command.Parameters.AddWithValue("@name", name);
+            command.CommandText = sqlQuery;
+            var i = command.ExecuteNonQueryAsync();
+            await i;
+            return (i.Result == 1) ? name : null;
+        }
+        async Task<string> UpdateDirDecriptionAsync(NpgsqlCommand command, string descrption, IDirectory parent)
+        {
+            string sqlQuery = $"UPDATE public.\"BinaryTree\" SET  \"Description\"=@descrption WHERE \"Id\" = @idd;";
+            // Double quotes for column name, @ for parameter
+            command.Parameters.AddWithValue("@idd", parent.Id);
+            command.Parameters.AddWithValue("@descrption", descrption);
+            command.CommandText = sqlQuery;
+            var i = command.ExecuteNonQueryAsync();
+            await i;
+            return (i.Result == 1) ? descrption : null;
+        }
+
+        async Task<string> UpdateLeafNameAsync(NpgsqlCommand command, string name, ILeaf leaf)
+        {
+            string sqlQuery = $"UPDATE public.\"BinaryTablr\" SET  \"Name\"=@name  WHERE \"Id\" = @idd;";
+            // Double quotes for column name, @ for parameter
+            command.Parameters.AddWithValue("@idd", parent.Id);
+            command.Parameters.AddWithValue("@name", name);
+            command.CommandText = sqlQuery;
+            var i = command.ExecuteNonQueryAsync();
+            await i;
+            return (i.Result == 1) ? name : null;
+        }
+        async Task<string> UpdateLeafrDecriptionAsync(NpgsqlCommand command, string descrption, ILeaf leaf)
+        {
+            string sqlQuery = $"UPDATE public.\"BinaryTable\" SET  \"Description\"=@descrption WHERE \"Id\" = @idd;";
+            // Double quotes for column name, @ for parameter
+            command.Parameters.AddWithValue("@idd", parent.Id);
+            command.Parameters.AddWithValue("@descrption", descrption);
+            command.CommandText = sqlQuery;
+            var i = command.ExecuteNonQueryAsync();
+            await i;
+            return (i.Result == 1) ? descrption : null;
+        }
+
+
+
+
 
 
         async Task<IDirectoryAsync> Add(NpgsqlCommand command, IDirectory parent, IDirectory directory)

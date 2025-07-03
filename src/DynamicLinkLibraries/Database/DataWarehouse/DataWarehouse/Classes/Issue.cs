@@ -3,19 +3,19 @@
 namespace DataWarehouse.Classes
 {
 
-    public record class UpdateData
+    public record class UpdateData<T, S> where T : class where S : class
     {
-        public byte[] Last { get; init; }
-        public byte[] New { get; init; }
-        public ILeaf Leaf { get; init; }
-
-        public UpdateData(byte[] last, byte[] New, ILeaf leaf)
+        public T Last { get; init; }
+        public T New { get; init; }
+        public S Node { get; init; }
+        public UpdateData(T last, T New, S node)
         {
             this.Last = last;
             this.New = New;
-            this.Leaf = leaf;
+            Node = node;
         }
     }
+ 
 
     public record class Issue
     {
@@ -49,6 +49,7 @@ namespace DataWarehouse.Classes
         DeleteDirectory,
         AddLeaf,
         DeleteLeaf,
-        UpdateLeafData
+        UpdateLeafData,
+        UpdateDirectoryName
     }
 }

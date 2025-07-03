@@ -158,7 +158,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             t.GetAwaiter().OnCompleted(() =>
             {
                 var r = t.Result;
-                var s = new UpdateData(data, r, this);
+                var s = new UpdateData<byte[], ILeaf>(data, r, this);
                 if (r == null)
                 {
                     var i = new Issue(s, ErrorType.Database, OperationType.UpdateLeafData);
@@ -166,8 +166,8 @@ namespace DataWarehouse.Classes.Abstract.Async
                     return;
                 }
                 var ii = new Issue(s, ErrorType.None, OperationType.UpdateLeafData);
-                OnUpdateDataAct(ii);
                 this.data = r;
+                OnUpdateDataAct(ii);
             });
             await t;
             return t.Result;

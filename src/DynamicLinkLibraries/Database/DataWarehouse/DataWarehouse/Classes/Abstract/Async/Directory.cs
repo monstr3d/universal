@@ -266,6 +266,12 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         async Task<string> IDirectoryAsync.UpdateNameAsync(string name)
         {
+            var s = new UpdateData<string, IDirectory>(this.name, name, this);
+            if ((name == this.name) || (!ParentChildrenName.Check(name)))
+            {
+                var i = new Issue(s, ErrorType.IllegalName, OperationType.UpdateDirectoryName);
+                OnChangeItselfAct(i);
+            }
             var n = Name;
             if (n == name)
             {
@@ -277,10 +283,18 @@ namespace DataWarehouse.Classes.Abstract.Async
             {
                 OnChangeItselfAct(this);
             }
-              var t = UpdateNameAsync(name);
+            var t = UpdateNameAsync(name);
             t.GetAwaiter().OnCompleted(() =>
             {
-                OnChangeItselfAct(this);
+                var r = t.Result;
+                if (r == null)
+                {
+                    var ii = new Issue(s, ErrorType.Database, OperationType.UpdateDirectoryName);
+                    OnChangeItselfAct(ii);
+                }
+                this.name = r;
+                var iii = new Issue(s, ErrorType.None, OperationType.UpdateDirectoryName);
+                OnChangeItselfAct(iii);
             });
             await t;
             return t.Result;

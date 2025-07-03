@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PostgreSQLWarehouse.Async
@@ -36,6 +37,36 @@ namespace PostgreSQLWarehouse.Async
             }
             return roots;
         }
+
+       internal async  Task<string> UpdateDirNameAsync(string name, IDirectory dir)
+        {
+            var t = Execute(UpdateDirNameAsync, name, dir);
+            await t;
+            return t.Result;
+        }
+
+        async Task<string> UpdateDirDecriptionAsync(string descrption, IDirectory dir)
+        {
+            var t = Execute(UpdateDirDecriptionAsync, descrption, dir);
+            await t;
+            return t.Result;
+        }
+
+        async Task<string> UpdateLeafNameAsync(string name, ILeaf leaf)
+        {
+            var t = Execute(UpdateLeafNameAsync, name, leaf);
+            await t;
+            return t.Result;
+        }
+
+        async Task<string> UpdateLeafrDecriptionAsync(string descrption, ILeaf leaf)
+        {
+            var t = Execute(UpdateLeafrDecriptionAsync, descrption, leaf);
+            await t;
+            return t.Result;
+        }
+
+
 
         internal async Task<IDirectoryAsync> Add(IDirectory parent, IDirectory directory)
         {

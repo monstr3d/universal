@@ -96,9 +96,9 @@ namespace DataWarehouse.Classes.Abstract
         /// <summary>
         /// Change itself event
         /// </summary>
-        protected void OnChangeItselfAct(IDirectory dir)
+        protected void OnChangeItselfAct(Object obj)
         {
-            OnChangeItself?.Invoke(dir);
+            OnChangeItself?.Invoke(obj);
         }
 
 
@@ -129,7 +129,7 @@ namespace DataWarehouse.Classes.Abstract
         /// <summary>
         /// Change itself event
         /// </summary>
-        protected event Action<IDirectory> OnChangeItself;
+        protected event Action<object> OnChangeItself;
 
 
         /// <summary>
@@ -640,6 +640,11 @@ namespace DataWarehouse.Classes.Abstract
             return !Names.Contains(named.Name);
         }
 
+        bool IChildrenName.Check(string name)
+        {
+            return !Names.Contains(name);
+        }
+
         bool IChildrenName.Add(INamed named)
         {
             Names.Add(named.Name);
@@ -679,6 +684,7 @@ namespace DataWarehouse.Classes.Abstract
             return new Issue(o, errorType, operationType);
         }
 
+ 
         #endregion
     }
 }

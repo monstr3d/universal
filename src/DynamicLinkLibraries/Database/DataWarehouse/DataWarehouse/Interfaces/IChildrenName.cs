@@ -6,6 +6,8 @@ namespace DataWarehouse.Interfaces
     {
         bool Check(INamed named);
 
+        bool Check(string name);
+
         bool Add(INamed named);
 
         bool Remove(INamed named);
