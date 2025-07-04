@@ -39,6 +39,7 @@ namespace DataWarehouse.Classes
     public enum ErrorType
     {
         None,
+        AlreadyExecuted,
         IllegalName,
         Database
     }
@@ -50,6 +51,8 @@ namespace DataWarehouse.Classes
         AddLeaf,
         DeleteLeaf,
         UpdateLeafData,
-        UpdateDirectoryName
+        UpdateDirectoryName,
+        LoadDirectories,
+        LoadLeaves
     }
 }

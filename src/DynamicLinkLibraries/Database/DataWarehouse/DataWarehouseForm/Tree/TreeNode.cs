@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
 
@@ -16,6 +19,24 @@ namespace DataWarehouse.Forms.Tree
         IDirectory directory;
         
         TreeView treeView;
+
+        DataWarehouse.Performer performer = new();
+
+        NamedTree.Performer p = new();
+
+  
+        bool LeavesOpened
+        {
+            get;
+            set;
+        } = false;
+
+        bool DirecoriesOpened
+        {
+            get;
+            set;
+        } = false;
+
 
         //
         protected event Action<object> OnAddDirectoryObject;
@@ -105,18 +126,89 @@ namespace DataWarehouse.Forms.Tree
             directory.OnAddDirectory += Directory_OnAddDirectory;
             directory.OnAddLeaf += Directory_OnAddLeaf;
             directory.OnChangeItself += Directory_OnChangeItself;
+            directory.OnGetDirectories += Directory_OnGetDirectories;
+            directory.OnGetLeaves += Directory_OnGetLeaves;
             Tag = directory;
         }
 
-        public async Task Expand(bool leaves, Action<Issue> action)
+        private void Directory_OnGetLeaves(object obj)
         {
-            if (directory != null)
+            Execute(Directory_OnGetLeavesT, obj);
+        }
+
+        private void Directory_OnGetLeavesT(object obj)
+        {
+            if (Leaves) return;
+            Fail(obj);
+            var p = performer.GetErrorType(obj);
+            if (p != ErrorType.None & p != ErrorType.AlreadyExecuted)
             {
-                var t = directory.FillNode(this, false, leaves, action);
-                await t;
+                return;
+            }
+            if (LeavesOpened)
+            {
+                return;
+            }
+            LeavesOpened = true;
+            var l = directory as IChildren<ILeaf>;
+            var leaves = l.Children;
+            leaves = this.p.SotByName<ILeaf>(leaves);
+            foreach (var child in leaves)
+            {
+                var t = new TreeNode(child, action);
+                t.Tag = child;
+                Nodes.Add(t);
             }
         }
 
+        private void Directory_OnGetDirectories(object obj)
+        {
+            Execute(Directory_OnGetDirectoriesT, obj);
+        }
+
+
+
+        private void Directory_OnGetDirectoriesT(object obj)
+        {
+            Fail(obj);
+            var p = performer.GetErrorType(obj);
+            if (p != ErrorType.None &  p != ErrorType.AlreadyExecuted)
+            {
+                return;
+            }
+            if (DirecoriesOpened)
+            {
+                return;
+            }
+            DirecoriesOpened = true;
+            var l = directory as IChildren<IDirectory>;
+            var dirs = l.Children;
+            dirs = this.p.SotByName<IDirectory>(dirs);
+            foreach (var child in dirs)
+            {
+                var t = new TreeNode(child, action);
+                t.Leaves = Leaves;
+                t.Tag = child;
+                Nodes.Add(t);
+            }
+        }
+/*                if (IsBlocked)
+                {
+                    IsBlocked = false;
+                    return;
+                }
+                if (child is IDirectoryAsync async)
+                {
+                    var td = async.LoadChildren();
+                    await td;
+                    var tl = async.LoadLeaves();
+                    await tl;
+
+                }
+            }
+        }
+*/
+  
         bool Leaves { get; set; } = true;
 
         void Init(Action<Issue> action)
@@ -152,6 +244,8 @@ namespace DataWarehouse.Forms.Tree
                 directory.OnAddDirectory -= Directory_OnAddDirectory;
                 directory.OnAddLeaf -= Directory_OnAddLeaf;
                 directory.OnChangeItself -= Directory_OnChangeItself;
+                directory.OnGetDirectories -= Directory_OnGetDirectories;
+                directory.OnGetLeaves -= Directory_OnGetLeaves;
                 return;
             }
             leaf.OnDeleteItself -= Leaf_OnDeleteItself;

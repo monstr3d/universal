@@ -24,6 +24,17 @@ namespace DataWarehouse
         #region Fields
 
         /// <summary>
+        /// Type of error
+        /// </summary>
+        /// <param name="o">Error object</param>
+        /// <returns>Type of error</returns>
+        public ErrorType GetErrorType(object o)
+        {
+            var issue = o as Issue;
+            return issue.ErrorType;
+        }
+
+        /// <summary>
         /// Saves node
         /// </summary>
         public ISaveNode Saver

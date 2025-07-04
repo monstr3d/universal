@@ -18,6 +18,9 @@ namespace DataWarehouse
     /// </summary>
     static public class StaticExtensionDataWarehouseForm
     {
+
+
+
         /// <summary>
         /// Shows error
         /// </summary>

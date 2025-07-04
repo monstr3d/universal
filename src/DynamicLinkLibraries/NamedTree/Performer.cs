@@ -9,8 +9,34 @@ namespace NamedTree
     public class Performer
     {
 
+        
+
         public Performer()
         {
+        }
+
+        /// <summary>
+        /// Sorts py name
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="nameds">collection</param>
+        /// <returns>Sorted</returns>
+        public IEnumerable<T> SotByName<T>(IEnumerable<INamed> nameds) where T : class 
+        {
+            var d = new Dictionary<string, INamed>();
+            Func<INamed, string> f = (INamed named) =>
+            {
+                var name = named.Name;
+                d[name] = named;
+                return name;
+            };
+
+            var l = (from n in nameds select f(n)).ToList();
+            l.Sort();
+            foreach (var n in l)
+            {
+                yield return d[n] as T;
+            }
         }
 
         public IEnumerable<T> GetAllT<T>(INode<T> node) where T : class

@@ -158,12 +158,12 @@ namespace PostgreSQLWarehouse.Async
 
         protected override Task<string> UpdateNameAsync(string name)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         protected override Task<string> UpdateDescriptionAsync(string description)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
     }
 }

@@ -45,23 +45,23 @@ namespace PostgreSQLWarehouse.Async
             return t.Result;
         }
 
-        async Task<string> UpdateDirDecriptionAsync(string descrption, IDirectory dir)
+        internal async Task<string> UpdateDirDecriptionAsync(string descrption, IDirectory dir)
         {
             var t = Execute(UpdateDirDecriptionAsync, descrption, dir);
             await t;
             return t.Result;
         }
 
-        async Task<string> UpdateLeafNameAsync(string name, ILeaf leaf)
+        internal async Task<string> UpdateLeafNameAsync(string name, ILeaf leaf)
         {
             var t = Execute(UpdateLeafNameAsync, name, leaf);
             await t;
             return t.Result;
         }
 
-        async Task<string> UpdateLeafrDecriptionAsync(string descrption, ILeaf leaf)
+        internal async Task<string> UpdateLeafDecriptionAsync(string descrption, ILeaf leaf)
         {
-            var t = Execute(UpdateLeafrDecriptionAsync, descrption, leaf);
+            var t = Execute(UpdateLeafDecriptionAsync, descrption, leaf);
             await t;
             return t.Result;
         }

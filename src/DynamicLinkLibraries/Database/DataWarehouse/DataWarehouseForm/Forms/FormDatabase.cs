@@ -24,6 +24,11 @@ namespace DataWarehouse.Forms
     {
 
         #region Fields
+
+        NamedTree.Performer perf = new();
+
+        DataWarehouse.Forms.Performer performer = new();
+
         /// <summary>
         /// Message string
         /// </summary>
@@ -39,6 +44,8 @@ namespace DataWarehouse.Forms
         bool open;
         string[] ext;
         private TreeNode root = null;
+
+        DataWarehouse.Performer p = new();
         private IDirectory SelectedNode
         {
             get;
@@ -73,6 +80,11 @@ namespace DataWarehouse.Forms
 
         void ActionIssue(Issue issue)
         {
+            var err = p.GetErrorType(issue);
+            if (err == ErrorType.AlreadyExecuted)
+            {
+                return;
+            }
            WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Error");
 
         }
@@ -90,17 +102,11 @@ namespace DataWarehouse.Forms
             this.data = data;
             this.open = open;
             ext = new string[] { blob.Extension };
-            //labelFileName.Visible = false;
             if (open)
             {
                 buttonCreateDir.Enabled = false;
                 buttonChangeNodeDescr.Enabled = false;
                 buttonSaveDoc.Visible = false;
-                //textBoxDescription.Visible = false;
-                //textBoxDirDescr.Visible = false;
-                //textBoxDirName.Visible = false;
-                //textBoxName.Visible = false;
-                //buttonSaveDoc.Visible = false;
                 buttonReplace.Enabled = false;
 
             }
@@ -111,26 +117,10 @@ namespace DataWarehouse.Forms
             buttonDelete.Enabled = false;
             buttonDirDelete.Enabled = false;
             buttonLoad.Enabled = false;
-            treeViewDir.BeforeExpand += TreeViewDir_BeforeExpand;
+            treeViewDir.BeforeExpand += performer.BeforeExpand;
             refreshTree();
         }
 
-        private async void TreeViewDir_BeforeExpand(object sender, TreeViewCancelEventArgs e)
-        {
-            var node = e.Node;
-            if (node == null)
-            {
-                return;
-            }
-            foreach (var n in node.Nodes)
-            {
-                if (n is Forms.Tree.TreeNode nd)
-                {
-                    var t = nd.Expand(false, ActionIssue);
-                    await t;
-                }
-            }
-        }
         #endregion
 
 
@@ -288,7 +278,7 @@ namespace DataWarehouse.Forms
 
         private void Leaf_OnDeleteItself(object obj)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
         void save(string filename)

@@ -49,6 +49,16 @@ namespace DataWarehouse.Interfaces
         /// </summary>
         event Action<object> OnAddLeaf;
 
+        /// <summary>
+        /// Get directories event
+        /// </summary>
+        event Action<object> OnGetDirectories;
+
+        /// <summary>
+        /// Get leves event
+        /// </summary>
+        event Action<object> OnGetLeaves;
+
 
     }
 }

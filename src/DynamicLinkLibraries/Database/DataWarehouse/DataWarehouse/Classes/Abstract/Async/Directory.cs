@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 
 using DataWarehouse.Interfaces;
@@ -18,6 +19,16 @@ namespace DataWarehouse.Classes.Abstract.Async
         protected Directory(bool children) : base(children) { }
 
         #endregion
+
+        #region Children name
+
+
+        IChildrenName ChildrenName => this;
+
+        IChildrenName ParentChildrenName => Parent as IChildrenName;
+
+        #endregion
+
 
         #region Abstract
         protected abstract Task<List<IDirectoryAsync>> LoadChildren();
@@ -117,14 +128,6 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         #endregion
 
-        #region Children name
-
-
-        IChildrenName ChildrenName => this;
-
-        IChildrenName ParentChildrenName => Parent as IChildrenName;
-
-        #endregion
 
         #region Calls
 
@@ -233,6 +236,9 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             if (directories != null)
             {
+                var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
+                var iss = new Issue(s, ErrorType.AlreadyExecuted, OperationType.LoadDirectories);
+                OnGetDirectoriesAct(iss);
                 return;
             }
             directories = new List<IDirectory>();
@@ -240,23 +246,50 @@ namespace DataWarehouse.Classes.Abstract.Async
             var t = LoadChildren();
             await t;
             var r = t.Result;
-            var c = from dir in r select AddExternalDirectory(dir as IDirectory);
-            c.ToArray();
+            if (r == null)
+            {
+                var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
+                var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
+                OnGetDirectoriesAct(iss);
+                return;
+            }
+            var c = from d in r select d as IDirectory;
+            var cc = c.ToList();
+                var ct = from cit in cc select AddExternalDirectory(cit);
+            ct.ToArray();
+            var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
+            var issue = new Issue(ss , ErrorType.None, OperationType.LoadDirectories);
+            OnGetDirectoriesAct(issue);
+
         }
 
         async Task IDirectoryAsync.LoadLeaves()
         {
             if (leaves != null)
             {
-                return;
+                var s = new UpdateData<List<ILeaf>, IDirectory>(null, null, this);
+                var iss = new Issue(s, ErrorType.AlreadyExecuted, OperationType.LoadLeaves);
+                OnGetLeavesAct(iss);
             }
             leaves = new List<ILeaf>();
             GetLeaves = () => leaves;
             var t = LoadLeaves();
             await t;
             var r = t.Result;
-            var c = from leaf in r select AddExternalLeaf(leaf as ILeaf, true);
-            c.ToArray();
+            if (r == null)
+            {
+                var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
+                var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
+                OnGetLeavesAct(iss);
+                return;
+            }
+            var c = from d in r select d as ILeaf;
+            var cc = c.ToList();
+            var ct = from cit in cc select AddExternalLeaf(cit);
+            ct.ToArray();
+            var ss  = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
+            var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
+            OnGetLeavesAct(issue);
         }
 
         Task<bool> IDirectoryAsync.RemoveItselfAsync()

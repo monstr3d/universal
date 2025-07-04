@@ -212,6 +212,32 @@ namespace PostgreSQLWarehouse.Models
             }
         }
 
+        event Action<object> IDirectory.OnGetDirectories
+        {
+            add
+            {
+                throw new OwnNotImplemented();
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented();
+            }
+        }
+
+        event Action<object> IDirectory.OnGetLeaves
+        {
+            add
+            {
+                throw new OwnNotImplemented();
+            }
+
+            remove
+            {
+                throw new OwnNotImplemented();
+            }
+        }
+
         IDirectory IDirectory.Add(IDirectory directory)
         {
 

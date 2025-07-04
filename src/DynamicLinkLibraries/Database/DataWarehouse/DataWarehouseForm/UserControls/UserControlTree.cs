@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 
 using Common.UI;
 
-using CommonControls.Interfaces;
 
 using DataWarehouse.Forms;
 using DataWarehouse.Interfaces;
@@ -24,6 +19,8 @@ namespace DataWarehouse.UserControls
     {
 
         #region Fields
+
+        Forms.Performer performer = new();
         string ext;
         DatabaseInterface data;
         Image image;
@@ -90,26 +87,10 @@ namespace DataWarehouse.UserControls
             treeViewMain.ImageList = l;
             Fill();
             this.ext = ext;
-            treeViewMain.BeforeExpand += TreeViewMain_BeforeExpand;
+            treeViewMain.BeforeExpand += performer.BeforeExpand;
          }
 
-        private async void TreeViewMain_BeforeExpand(object sender, TreeViewCancelEventArgs e)
-        {
-            var node = e.Node;
-            if (node == null)
-            {
-                return;
-            }
-            foreach (var n in node.Nodes)
-            {
-                if (n is Forms.Tree.TreeNode nd)
-                {
-                    var t = nd.Expand(true, null);
-                    await t;
-                }
-            }
-        }
-
+   
         /// <summary>
         /// Tree
         /// </summary>

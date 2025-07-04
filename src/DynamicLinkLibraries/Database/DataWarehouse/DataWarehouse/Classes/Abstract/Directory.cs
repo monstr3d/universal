@@ -101,6 +101,18 @@ namespace DataWarehouse.Classes.Abstract
             OnChangeItself?.Invoke(obj);
         }
 
+        /// Change itself event
+        /// </summary>
+        protected void OnGetLeavesAct(Object obj)
+        {
+            OnGetLeaves?.Invoke(obj);
+        }
+        /// Change itself event
+        /// </summary>
+        protected void OnGetDirectoriesAct(Object obj)
+        {
+            OnGetDirectories?.Invoke(obj);
+        }
 
         protected void OnAddDirectoryObjectAct(object obj)
         {
@@ -130,6 +142,14 @@ namespace DataWarehouse.Classes.Abstract
         /// Change itself event
         /// </summary>
         protected event Action<object> OnChangeItself;
+
+
+        protected event Action<object> OnGetDirectories;
+
+
+        protected event Action<object> OnGetLeaves;
+
+
 
 
         /// <summary>
@@ -533,6 +553,32 @@ namespace DataWarehouse.Classes.Abstract
             }
         }
 
+        event Action<object> IDirectory.OnGetDirectories
+        {
+            add
+            {
+                OnGetDirectories += value;
+            }
+
+            remove
+            {
+                OnGetDirectories -= value;
+            }
+        }
+
+        event Action<object> IDirectory.OnGetLeaves
+        {
+            add
+            {
+               OnGetLeaves += value;
+            }
+
+            remove
+            {
+                OnGetLeaves -= value; 
+            }
+        }
+
         IDirectory IDirectory.Add(IDirectory directory)
         {
             return Add(directory);
@@ -598,6 +644,15 @@ namespace DataWarehouse.Classes.Abstract
             directories.Add(directory);
             return true;
         }
+
+        protected bool AddExternalLeaf(ILeaf leaf)
+        {
+            leaf.Parent = this;
+            Names.Add(leaf.Name);
+            leaves.Add(leaf);
+            return true;
+        }
+
 
         #region Absract
         protected abstract bool SetDatabaseName(string name);
