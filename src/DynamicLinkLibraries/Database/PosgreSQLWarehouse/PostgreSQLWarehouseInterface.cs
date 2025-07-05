@@ -7,7 +7,7 @@ namespace PostgreSQLWarehouse
     {
         public string Connection { get; init; }
 
-        IDirectory[] roots;
+        protected IDirectory[] roots;
         
         protected void Init()
         {
@@ -21,11 +21,20 @@ namespace PostgreSQLWarehouse
 
         #region Interface Implementstion
 
+        protected virtual void GetRoots()
+        {
+            roots = Execute(GetCommandRoots);
+        }
+
+        
+        
+
         IDirectory[] IDatabaseInterface.GetRoots(params string[] extensions)
         {
             if (roots == null)
             {
-                roots = Execute(GetCommandRoots);
+                GetRoots();
+   //             roots = Execute(GetCommandRoots);
                 if (roots.Length > 1)
                 {
                     Execute(DropTree);

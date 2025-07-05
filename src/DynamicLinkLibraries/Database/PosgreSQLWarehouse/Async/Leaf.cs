@@ -9,28 +9,54 @@ namespace PostgreSQLWarehouse.Async
 {
     internal class Leaf :  DataWarehouse.Classes.Abstract.Async.Leaf
     {
+        PostgreSQLWarehouseInterface wi;
 
-        PostgreSQLWarehouseInterface warehouseInterface;
+        PostgreSQLWarehouseInterface WarehouseInterface
+        {
+            get => wi;
+            set
+            {
+                wi = value;
 
-        ILeafAsync async;
+            }
+        }
+
+        ILeafAsync Async => this;
+
+        ILeaf leaf => this;
+
+
+        
 
         #region Ctor
         public Leaf(IDataRecord record, IDirectory directory, PostgreSQLWarehouseInterface posgreSQLWarehouse)
         {
-            async = this;
-            warehouseInterface = posgreSQLWarehouse;
+           WarehouseInterface = posgreSQLWarehouse;
             Parent = directory;
             Id = record[0];
             name = record.GetString(2);
+            if (name == null)
+            {
+                throw new OwnException();
+            }
+            var n = leaf.Name;
+            if (n == null)
+            {
+                throw new OwnException();
+            }
             description = record.GetString(3);
             Extension = record.GetString(4);
         }
 
         public Leaf(ILeafData data, IDirectory directory, Guid id, PostgreSQLWarehouseInterface posgreSQLWarehouseInterface) 
         {
-            async = this;
             Id = id;
-            warehouseInterface = posgreSQLWarehouseInterface;
+           WarehouseInterface = posgreSQLWarehouseInterface;
+            Parent = directory;
+            name = data.Name;
+            description = data.Description;
+            Extension = data.Extension;
+
         }
 
 
@@ -43,7 +69,7 @@ namespace PostgreSQLWarehouse.Async
 
         protected override Task<byte[]> GetDataAsync()
         {
-            return warehouseInterface.GetDataAsync(this);
+            return WarehouseInterface.GetDataAsync(this);
         }
 
         protected override byte[] GetDatabaseData()
@@ -63,7 +89,7 @@ namespace PostgreSQLWarehouse.Async
 
         protected override async Task<bool> RemoveItselfAsync()
         {
-            var t = warehouseInterface.RemoveAsync(this);
+            var t =WarehouseInterface.RemoveAsync(this);
             await t;
             return t.Result;
         }
@@ -85,7 +111,7 @@ namespace PostgreSQLWarehouse.Async
 
         protected override async Task<byte[]> UpdateDataAcync(byte[] data)
         {
-            var t = warehouseInterface.UpdateDataAcync(data, this);
+            var t =WarehouseInterface.UpdateDataAcync(data, this);
             await t;
             return t.Result;
         }
@@ -95,9 +121,11 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override Task<string> UpdateNameAsync(string name)
+        protected override async Task<string> UpdateNameAsync(string name)
         {
-            throw new OwnNotImplemented();
+            var t =WarehouseInterface.UpdateLeafNameAsync(name, this);
+            await t;
+            return t.Result;
         }
     }
 }

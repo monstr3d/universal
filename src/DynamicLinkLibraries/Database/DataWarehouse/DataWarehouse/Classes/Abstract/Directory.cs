@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using DataWarehouse.Interfaces;
+using System;
 using System.Collections.Generic;
 
-using DataWarehouse.Interfaces;
-
+using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
-
 using NamedTree;
 
 
 namespace DataWarehouse.Classes.Abstract
 {
-    public abstract class Directory : IDirectory, IChildrenName
+    public abstract class Directory : IDirectory, IChildrenName, IAccceptNameUpdate
     {
         private void Init()
         {
@@ -19,6 +17,8 @@ namespace DataWarehouse.Classes.Abstract
         }
 
         #region Fields
+
+        
 
         protected string name;
 
@@ -73,6 +73,7 @@ namespace DataWarehouse.Classes.Abstract
             get => this;
         }
 
+  
 
         #region Event execution
 
@@ -149,9 +150,6 @@ namespace DataWarehouse.Classes.Abstract
 
         protected event Action<object> OnGetLeaves;
 
-
-
-
         /// <summary>
         /// Add leaf event
         /// </summary>
@@ -217,6 +215,36 @@ namespace DataWarehouse.Classes.Abstract
         #region Protected
 
 
+        #region Children name
+
+
+        protected IChildrenName ChildrenName => this;
+
+        protected IChildrenName ParentChildrenName => Parent as IChildrenName;
+
+        #endregion
+
+
+
+        protected virtual void RemoveAllChildren()
+        {
+            var d = this as IChildren<ILeaf>;
+            var ch = new List<ILeaf>(d.Children);
+            foreach (var child in ch)
+            {
+                child.RemoveItself();
+            }
+            ch.Clear();
+            var dd = this as IChildren<IDirectory>;
+            var cd= new List<IDirectory>(dd.Children);
+            foreach (var dir in  cd)
+            {
+                dir.RemoveAllChilden();
+                dir.RemoveItself();
+            }
+            cd.Clear();
+
+        }
         protected virtual object Id { get; set; }
 
         protected virtual string Name { get => name; set => UpdateName(name); }
@@ -285,12 +313,9 @@ namespace DataWarehouse.Classes.Abstract
         {
             try
             {
-
-                if (!Check(directory.Name))
+                if (!ChildrenName.Check(directory))
                 {
-                    var m = "Name of directory " + directory.Name + "alreary exists";
-                    m.Log();
-                    return null;
+                    throw new OwnException();
                 }
                 var dir = AddToDatabase(directory);
                 if (dir != null)
@@ -324,10 +349,10 @@ namespace DataWarehouse.Classes.Abstract
         {
             try
             {
-                if (!Check(leaf.Name))
+                if (!ChildrenName.Check(leaf))
                 {
-                    return null;
-                }
+                    throw new OwnException();
+                }    
                 var l = AddToDatabase(leaf);
                 if (l != null)
                 {
@@ -349,18 +374,10 @@ namespace DataWarehouse.Classes.Abstract
 
         protected abstract void Remove(ILeaf leaf, string ext);
 
-        internal virtual bool Check(string name)
-        {
-            if (Names.Contains(name))
-            {
-                ("Name \"" + name + "\" already exists").Log();
-                return false;
-            }
-            return true;
-        }
-
         public virtual void Add(string name)
         {
+            throw new OwnException();
+
             Names.Add(name);
         }
 
@@ -371,12 +388,6 @@ namespace DataWarehouse.Classes.Abstract
 
 
 
-
-        internal void Change(string old, string name)
-        {
-            Names.Remove(old);
-            Names.Add(name);
-        }
 
 
 
@@ -390,14 +401,14 @@ namespace DataWarehouse.Classes.Abstract
                 {
                     return false;
                 }
-                var d = Parent as Directory;
+                var d = ParentChildrenName;
                 if (d != null && !d.Check(name))
                 {
                     return false;
                 }
                 if (SetDatabaseName(name))
                 {
-                    d.Change(this.name, name);
+                    d.Change(this, name);
                     this.name = name;
                     OnChangeItself?.Invoke(this);
                     return true;
@@ -581,7 +592,32 @@ namespace DataWarehouse.Classes.Abstract
 
         IDirectory IDirectory.Add(IDirectory directory)
         {
-            return Add(directory);
+            try
+            {
+
+                if (!ChildrenName.Check(directory))
+                {
+                    throw new OwnException();
+                }
+                var dir = AddToDatabase(directory);
+                if (dir != null)
+                {
+                    dir.Parent = this;
+                    if (directories == null)
+                    {
+                        directories = new List<IDirectory>();
+                    }
+                    directories.Add(dir);
+                    Names.Add(dir.Name);
+                    OnAddDirectory?.Invoke(dir);
+                    return dir;
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException();
+            }
+            return null;
         }
 
         ILeaf IDirectory.Add(ILeaf leaf)
@@ -625,34 +661,30 @@ namespace DataWarehouse.Classes.Abstract
         }
 
 
-        protected List<IDirectory> GetFuncInitial()
+        protected virtual List<IDirectory> GetFuncInitial()
         {
-            directories = GetDirectoriesFormDatabase();
-            foreach (var directory in directories)
+            if (directories != null)
             {
-                AddExternalDirectory(directory);
+                GetChildern = () => directories;
+                return directories;
+            }
+            var d = GetDirectoriesFormDatabase();
+            if (directories == null)
+            {
+                foreach (var directory in d)
+                {
+                    ChildrenName.Add(directory);
+                }
             }
             GetChildern = () => directories;
             return directories;
 
         }
 
-        protected bool AddExternalDirectory(IDirectory directory)
-        {
-            directory.Parent = this;
-            Names.Add(directory.Name);
-            directories.Add(directory);
-            return true;
-        }
 
-        protected bool AddExternalLeaf(ILeaf leaf)
-        {
-            leaf.Parent = this;
-            Names.Add(leaf.Name);
-            leaves.Add(leaf);
-            return true;
-        }
+        static List<ILeaf> st = new List<ILeaf>();
 
+ 
 
         #region Absract
         protected abstract bool SetDatabaseName(string name);
@@ -667,31 +699,25 @@ namespace DataWarehouse.Classes.Abstract
         #endregion
 
 
-        protected List<ILeaf> GetFuncLeafInitial()
+        protected virtual List<ILeaf> GetFuncLeafInitial()
         {
-            var leaves = GetLeavesFormDatabase();
-            foreach (var leaf in leaves)
+            var l = GetLeavesFormDatabase();
+            if (leaves == null)
             {
-                AddExternalLeaf(leaf);
+                foreach (var leaf in l)
+                {
+                    ChildrenName.Add(leaf);
+                }
             }
             GetLeaves = () => leaves;
             return leaves;
         }
 
-        protected bool AddExternalLeaf(ILeaf leaf, bool add = false)
-        {
-            leaf.Parent = this;
-            Names.Add(leaf.Name);
-            if (add)
-            {
-                leaves.Add(leaf);
-            }
-            return true;
-
-        }
+  
 
         bool IChildrenName.Check(INamed named)
         {
+          
             return !Names.Contains(named.Name);
         }
 
@@ -702,7 +728,16 @@ namespace DataWarehouse.Classes.Abstract
 
         bool IChildrenName.Add(INamed named)
         {
-            Names.Add(named.Name);
+            var n = named.Name;
+            if (n == null)
+            {
+                throw new OwnException();
+            }
+            if (Names.Contains(n))
+            {
+                throw new OwnException();
+            }
+            Names.Add(n);
             if (named is ILeaf leaf)
             {
                 leaves.Add(leaf);
@@ -712,6 +747,10 @@ namespace DataWarehouse.Classes.Abstract
             {
                 directories.Add(directory);
                 directory.Parent = this;
+            }
+            else
+            {
+                throw new OwnException();
             }
             return true;
         }
@@ -739,7 +778,50 @@ namespace DataWarehouse.Classes.Abstract
             return new Issue(o, errorType, operationType);
         }
 
- 
+        void IDirectory.RemoveAllChilden()
+        {
+            RemoveAllChildren();
+        }
+
+        protected virtual bool AcceptUpdate(string name)
+        {
+            if (ParentChildrenName != null)
+            {
+                return ParentChildrenName.Check(name);
+            }
+            return false;
+        }
+
+        bool IAccceptNameUpdate.AcceptUpdate(string name)
+        {
+            return AcceptUpdate(name);
+        }
+        
+        protected virtual bool Change(INamed named, string newname)
+        {
+            Names.Remove(named.Name);
+            Names.Add(newname);
+            return true;
+        }
+
+
+        bool IChildrenName.Change(INamed named, string newname)
+        {
+           return Change(named, newname);
+            
+        }
+
+        protected virtual bool Post()
+        {
+            return true;
+        }
+
+        bool IDirectory.Post()
+        {
+            return Post();
+        }
+
+
         #endregion
     }
 }

@@ -1,23 +1,43 @@
-﻿using DataWarehouse.Interfaces;
+﻿using DataWarehouse.Classes;
+using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-
 namespace PostgreSQLWarehouse.Async
 {
     public partial class PostgreSQLWarehouseInterface : PostgreSQLWarehouse.PostgreSQLWarehouseInterface,
         IDatabaseInterfaceAsync
     {
         IDirectoryAsync[] roots;
+        IDatabaseInterfaceAsync Async => this;
+
+        SyncMode IDatabaseInterfaceAsync.SyncMode => SyncMode.Asynchronous;
+
+        async Task<int> ExecuteNonQuery(NpgsqlCommand command)
+        {
+            if (Async.SyncMode == SyncMode.Synchronous)
+            {
+                return command.ExecuteNonQuery();
+            }
+            var t = command.ExecuteNonQueryAsync();
+            await t;
+            return t.Result;
+        }
+
+        async Task<NpgsqlDataReader> ExecuteReader(NpgsqlCommand command)
+        {
+            if (Async.SyncMode == SyncMode.Synchronous)
+            {
+                return command.ExecuteReader();
+            }
+            var t = command.ExecuteReaderAsync();
+            await t;
+            return t.Result;
+
+        }
+
         public PostgreSQLWarehouseInterface(string connection) : base(connection)
         {
-
+            
         }
 
         internal async Task<byte[]> GetDataAsync(ILeaf leaf)
@@ -26,6 +46,30 @@ namespace PostgreSQLWarehouse.Async
             await t;
             return t.Result;
         }
+
+        protected async void Clean()
+        {
+            IDatabaseInterfaceAsync async = this;
+            var t = async.GetRoots(null);
+            await t;
+            var r = t.Result;
+            var c = from k in r select k as IDirectory;
+            var rr = c.ToArray();
+            rr[0].RemoveAllChilden();
+     
+        }
+
+        protected override async void GetRoots()
+        {
+ //           Clean();
+            IDatabaseInterfaceAsync async = this;
+            var t = async.GetRoots(null);
+            await t;
+            var r = t.Result;
+            var c = from k in r select k as IDirectory;
+            base.roots = c.ToArray();
+        }
+
 
         async Task<IDirectoryAsync[]> IDatabaseInterfaceAsync.GetRoots(string[] extensions)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.WebSockets;
+using System.Threading;
 using System.Threading.Tasks;
 
 using DataWarehouse.Interfaces;
@@ -14,21 +14,16 @@ namespace DataWarehouse.Classes.Abstract.Async
     public abstract class Directory : Abstract.Directory, IDirectoryAsync
     {
 
+        protected abstract SyncMode SyncMode { get; }
+
+
+        SyncMode IDirectoryAsync.SyncMode => SyncMode;
+
         #region Ctor
 
         protected Directory(bool children) : base(children) { }
 
         #endregion
-
-        #region Children name
-
-
-        IChildrenName ChildrenName => this;
-
-        IChildrenName ParentChildrenName => Parent as IChildrenName;
-
-        #endregion
-
 
         #region Abstract
         protected abstract Task<List<IDirectoryAsync>> LoadChildren();
@@ -62,22 +57,180 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         #endregion
 
-        #region Overriden
+        #region 
 
-        protected override ILeaf Add(ILeaf leaf)
+        protected  override List<ILeaf> GetLeavesFormDatabase()
+        {
+            var t = LoadLeaves();
+            if (!t.IsCompleted)
+            {
+                t.RunSynchronously();
+            }
+            var lold = leaves;
+            if (t == null || t.Result == null)
+            {
+                var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
+                var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
+                OnGetLeavesAct(iss);
+                return null;
+            }
+            var r = t.Result;
+            leaves = new List<ILeaf>();
+            GetLeaves = () => leaves;
+            var c = from d in r select d as ILeaf;
+            var cc = c.ToList();
+            var ct = from cit in cc select ChildrenName.Add(cit);
+            ct.ToArray();
+            var ss = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
+            var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
+            OnGetLeavesAct(issue);
+
+            if (leaves == null)
+            {
+                throw new OwnException();
+            }
+            return leaves;
+
+        }
+
+
+        protected override List<ILeaf> GetFuncLeafInitial()
+        {
+            var leaves = GetLeavesFormDatabase();
+            GetLeaves = () => leaves;
+            return leaves;
+        }
+
+
+
+        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        {
+            var t = LoadChildren();
+            if (!t.IsCompleted)
+            {
+                t.RunSynchronously();
+            }
+            var dd = directories;
+            var r = t.Result;
+            if (r == null)
+            {
+                var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
+                var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
+                OnGetDirectoriesAct(iss);
+                return null;
+            }
+            directories = new List<IDirectory>();
+            GetChildern = () => directories;
+            var cp = from d in r select  (d as IDirectory).Post();
+            cp.ToArray();
+            var c = from d in r select d as IDirectory;
+            var cc = c.ToList();
+            if (directories.Count > 0)
+            {
+                throw new OwnException();
+            }
+            var ct = from cit in cc select ChildrenName.Add(cit);
+            ct.ToArray();
+            var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
+            var issue = new Issue(ss, ErrorType.None, OperationType.LoadDirectories);
+            OnGetDirectoriesAct(issue);
+            return directories;
+        }
+
+        protected async Task LoadDirectoriesFormDatabase()
+        {
+            var t = LoadChildren();
+            await t;
+        }
+
+    
+
+        protected async Task LoadLeavesFormDatabase()
+        {
+            IDirectoryAsync async = this;
+            var t = async.LoadLeaves();
+            await t;
+        }
+
+        protected async Task LoadLeavesFormDatabase(AutoResetEvent e)
+        {
+            IDirectoryAsync async = this;
+            var t = async.LoadLeaves();
+            await t;
+            e.Set();
+        }
+
+
+        protected async Task LoadDirectoriesFormDatabase(AutoResetEvent e)
+        {
+            IDirectoryAsync async = this;
+            var t = async.LoadChildren();
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                e.Set();
+            }
+            );
+            await t;
+        }
+
+        async Task LoadLeavesFormData(AutoResetEvent ev)
+        {
+            var t = LoadLeavesFormDatabase();
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                ev.Reset();
+            });
+            await t;
+        }
+
+        Func<ILeaf, ILeaf> AddLeaf;
+
+        protected ILeaf AddAsyncLeaf(ILeaf leaf)
         {
             try
             {
-                 CallAsync(leaf);
+                CallAsync(leaf);
             }
             catch (Exception ex)
             {
                 ex.HandleException();
             }
             return null;
+
         }
 
+        protected ILeaf AddSyncLeaf(ILeaf leaf)
+        {
+            try
+            {
+                var async = this as IDirectoryAsync;
+                var t = async.AddAsync(leaf);
+                if (!t.IsCompleted)
+                {
+                    t.RunSynchronously();
+                }
+                return t.Result as ILeaf;
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            return null;
 
+        }
+
+        protected IDirectoryAsync DirectoryAsync => this;
+
+        protected override bool Post()
+        {
+            AddLeaf = DirectoryAsync.SyncMode == SyncMode.Synchronous ? AddSyncLeaf : AddAsyncLeaf;
+            return true;
+        }
+
+        protected override ILeaf Add(ILeaf leaf)
+        {
+            return AddLeaf(leaf);
+        }
 
         protected override IDirectory Add(IDirectory directory)
         {
@@ -113,13 +266,6 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         protected override bool UpdateName(string name)
         {
-            var p = Parent as Directory;
-            INamed n = this;
-            if (!p.Check(name))
-            {
-                OnChangeItselfAct(this);
-                return false;
-            }
             CallAsyncName(name);
             return true;
         }
@@ -184,25 +330,25 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             if (!ChildrenName.Check(leaf))
             {
-                var i = Get(leaf, ErrorType.IllegalName, OperationType.AddLeaf);
-                OnAddLeafAct(i);
+                var iss = Get(leaf, ErrorType.IllegalName, OperationType.AddLeaf);
+                OnAddLeafAct(iss);
                 return null;
             }
             var t = AddAsync(leaf);
-            t.GetAwaiter().OnCompleted(() =>
-            {
-
-                var l = t.Result as ILeaf;
-                if (l == null)
-                {
-                    var ii = Get(leaf, ErrorType.Database, OperationType.AddLeaf);
-                    return;
-                }
-                ChildrenName.Add(l);
-                var i = Get(leaf, ErrorType.None, OperationType.AddLeaf);
-                OnAddLeafAct(i);
-            });
             await t;
+            if (t == null || t.Result == null)
+            {
+                var ii = Get(leaf, ErrorType.Database, OperationType.AddLeaf);
+                return null;
+            }
+            var l = t.Result as ILeaf;
+            if (l == null)
+            {
+                throw new OwnException();
+            }
+            ChildrenName.Add(l);
+            var i = Get(leaf, ErrorType.None, OperationType.AddLeaf);
+            OnAddLeafAct(i);
             return t.Result;
         }
 
@@ -241,55 +387,73 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnGetDirectoriesAct(iss);
                 return;
             }
-            directories = new List<IDirectory>();
-            GetChildern = () => directories;
             var t = LoadChildren();
-            await t;
-            var r = t.Result;
-            if (r == null)
+            t.GetAwaiter().OnCompleted(() =>
             {
-                var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
-                var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
-                OnGetDirectoriesAct(iss);
-                return;
-            }
-            var c = from d in r select d as IDirectory;
-            var cc = c.ToList();
-                var ct = from cit in cc select AddExternalDirectory(cit);
-            ct.ToArray();
-            var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
-            var issue = new Issue(ss , ErrorType.None, OperationType.LoadDirectories);
-            OnGetDirectoriesAct(issue);
-
+                var dd = directories;
+                var r = t.Result;
+                if (r == null)
+                {
+                    var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
+                    var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
+                    OnGetDirectoriesAct(iss);
+                    return;
+                }
+                directories = new List<IDirectory>();
+                GetChildern = () => directories;
+                var c = from d in r select d as IDirectory;
+                var cc = c.ToList();
+                if (directories.Count > 0)
+                {
+                    throw new OwnException();
+                }
+                var ct = from cit in cc select ChildrenName.Add(cit);
+                ct.ToArray();
+                var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
+                var issue = new Issue(ss, ErrorType.None, OperationType.LoadDirectories);
+                OnGetDirectoriesAct(issue);
+            });
+            await t;
+    
         }
 
         async Task IDirectoryAsync.LoadLeaves()
         {
+            var ll = leaves;
             if (leaves != null)
             {
                 var s = new UpdateData<List<ILeaf>, IDirectory>(null, null, this);
                 var iss = new Issue(s, ErrorType.AlreadyExecuted, OperationType.LoadLeaves);
                 OnGetLeavesAct(iss);
-            }
-            leaves = new List<ILeaf>();
-            GetLeaves = () => leaves;
-            var t = LoadLeaves();
-            await t;
-            var r = t.Result;
-            if (r == null)
-            {
-                var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
-                var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
-                OnGetLeavesAct(iss);
                 return;
             }
-            var c = from d in r select d as ILeaf;
-            var cc = c.ToList();
-            var ct = from cit in cc select AddExternalLeaf(cit);
-            ct.ToArray();
-            var ss  = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
-            var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
-            OnGetLeavesAct(issue);
+            var t = LoadLeaves();
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                var lold = leaves;
+                if (lold != null)
+                {
+                   throw new OwnException();
+                }
+                if (t == null || t.Result == null)
+                {
+                    var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
+                    var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
+                    OnGetLeavesAct(iss);
+                    return;
+                }
+                var r = t.Result;
+                leaves = new List<ILeaf>();
+                GetLeaves = () => leaves;
+                var c = from d in r select d as ILeaf;
+                var cc = c.ToList();
+                var ct = from cit in cc select ChildrenName.Add(cit);
+                ct.ToArray();
+                var ss = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
+                var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
+                OnGetLeavesAct(issue);
+            });
+            await t;
         }
 
         Task<bool> IDirectoryAsync.RemoveItselfAsync()
@@ -310,13 +474,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             {
                 return name;
             }
-            INamed mn = this;
-            var d = Parent as Directory;
-            if (!d.Check(name))
-            {
-                OnChangeItselfAct(this);
-            }
-            var t = UpdateNameAsync(name);
+             var t = UpdateNameAsync(name);
             t.GetAwaiter().OnCompleted(() =>
             {
                 var r = t.Result;

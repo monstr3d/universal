@@ -13,6 +13,9 @@ namespace DataWarehouse.Classes.Abstract.Async
     {
         protected virtual event Action<object> OnUpdateData;
 
+        ILeafAsync Async => this;
+
+  
 
 
         event Action<object> ILeafAsync.OnUpdateData
@@ -69,8 +72,6 @@ namespace DataWarehouse.Classes.Abstract.Async
             await t;
         }
 
-        IChildrenName ChildrenName => Parent as IChildrenName;
-
         async Task<bool> ILeafAsync.RemoveItselfAsync()
         {
             var t = RemoveItselfAsync();
@@ -95,18 +96,10 @@ namespace DataWarehouse.Classes.Abstract.Async
             return t.Result;
         }
 
+
         protected async void CallNameAsync(string name)
         {
-            var d = Parent as Directory;
-            ILeafAsync async = this;
-            INamed named = this;
-            var t = async.UpdateNameAsync(name);
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                this.name = t.Result;
-                d.Change(this.name, name);
-                OnChangeItselfAct(this);
-            });
+            var t = Async.UpdateNameAsync(name);
             await t;
         }
 
@@ -129,13 +122,35 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
+  
         protected abstract Task<string> UpdateNameAsync(string name);
 
         protected abstract Task<string> UpdateDescriptionAsync(string description);
 
-        Task<string> ILeafAsync.UpdateNameAsync(string name)
+        async Task<string> ILeafAsync.UpdateNameAsync(string name)
         {
-            return UpdateNameAsync(name);
+            var s = new UpdateData<string, ILeaf>(this.name, name, this);
+            if ((name == this.name) || (!ChildrenName.Check(name)))
+            {
+                var i = new Issue(s, ErrorType.IllegalName, OperationType.UpdateLeafName);
+                OnChangeItselfAct(i);
+            }
+            var t = UpdateNameAsync(name);
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                var r = t.Result;
+                if (r == null)
+                {
+                    var ii = new Issue(s, ErrorType.Database, OperationType.UpdateLeafName);
+                    OnChangeItselfAct(ii);
+                }
+                this.name = r;
+                var iii = new Issue(s, ErrorType.None, OperationType.UpdateLeafName);
+                OnChangeItselfAct(iii);
+            });
+            await t;
+            return t.Result;
+
         }
 
         Task<string> ILeafAsync.UpdateDescriptionAsync(string description)

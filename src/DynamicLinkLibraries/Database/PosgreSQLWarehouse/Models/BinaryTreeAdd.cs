@@ -455,7 +455,17 @@ namespace PostgreSQLWarehouse.Models
 
         }
 
-   
+        void IDirectory.RemoveAllChilden()
+        {
+            throw new OwnNotImplemented();
+        }
+
+        bool IDirectory.Post()
+        {
+            throw new NotImplementedException();
+        }
+
+
         #endregion
     }
 }

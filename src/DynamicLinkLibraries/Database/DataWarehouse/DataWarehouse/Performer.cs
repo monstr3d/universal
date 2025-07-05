@@ -1,6 +1,8 @@
 ﻿using System;
+
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
+using ErrorHandler;
 using NamedTree;
 
 namespace DataWarehouse
@@ -102,16 +104,35 @@ namespace DataWarehouse
         /// <param name="to">to</param>
         public void Copy(IDirectory from, IDirectory to)
         {
+            if (to == null)
+            {
+                throw new OwnException();
+            }
+            to.Post();
             IChildren<IDirectory> children = from;
             foreach (var child in children.Children)
             {
-                var d = to.Add(child);
-                Copy(child, d);
+                if (child.Name != null)
+                {
+                    var d = to.Add(child);
+                    Copy(child, d);
+                }
+                else
+                {
+
+                }
             }
             IChildren<ILeaf> leaves = from;
             foreach (var leave in leaves.Children)
             {
-                to.AddChild(leave);
+                if (leave.Name != null)
+                {
+                    to.AddChild(leave);
+                }
+                else
+                {
+
+                }
             }
 
         }

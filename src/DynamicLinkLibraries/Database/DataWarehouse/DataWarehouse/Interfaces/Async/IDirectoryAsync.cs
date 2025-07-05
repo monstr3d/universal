@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using DataWarehouse.Classes;
+using System.Threading.Tasks;
 
 namespace DataWarehouse.Interfaces.Async
 {
@@ -53,5 +54,11 @@ namespace DataWarehouse.Interfaces.Async
         /// <returns>The description</returns>
         Task<string> UpdateDescriptionAsync(string description);
 
+        /// <summary>
+        /// SyncModde
+        /// </summary>
+        SyncMode SyncMode { get; }
+
+  
     }
 }

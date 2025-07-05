@@ -59,6 +59,17 @@ namespace DataWarehouse.Interfaces
         /// </summary>
         event Action<object> OnGetLeaves;
 
+        /// <summary>
+        /// Removes all children
+        /// </summary>
+        void RemoveAllChilden();
+
+        /// <summary>
+        /// Post method
+        /// </summary>
+        bool Post();
+
+
 
     }
 }

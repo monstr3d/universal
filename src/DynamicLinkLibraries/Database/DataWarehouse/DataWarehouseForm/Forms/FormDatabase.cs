@@ -193,7 +193,7 @@ namespace DataWarehouse.Forms
                     return;
                 }
                 listViewDoc.Items.Clear();
-                foreach (var i in leaf_act_remove)
+     /*           foreach (var i in leaf_act_remove)
                 {
                     i.Key.OnDeleteItself -= i.Value;
                 }
@@ -205,7 +205,7 @@ namespace DataWarehouse.Forms
 
                 leaf_add.Clear();
 
-     
+
                 leaf_act_remove.Clear();
 
                 var act_a = (object o) =>
@@ -238,35 +238,43 @@ namespace DataWarehouse.Forms
                 if (d is IDirectoryAsync async)
                 {
                     var tl = async.LoadChildren();
-                    await tl;
+                   
                     var t = async.LoadLeaves();
-                    await t;
-                }
-                IChildren<ILeaf> coll = d;
-                var act = () =>
-                {
-                    foreach (var leaf in coll.Children)
+                    var act = () =>
                     {
-                        string[] s = new string[] { leaf.Value.Name, leaf.Value.Extension };
-                        ListViewItem it = new ListViewItem(s);
-                        it.Tag = leaf;
-                        listViewDoc.Items.Add(it);
-                        var act = (object o) =>
+                        IChildren<ILeaf> coll = d;
+
+                        foreach (var leaf in coll.Children)
                         {
-                            var i = o as Issue;
-                            if (i.ErrorType == ErrorType.None)
-                            {
-                                listViewDoc.InvokeIfNeeded(() => listViewDoc.Items.Remove(it));
-                            }
-                        };
-                        leaf.OnDeleteItself += act;
-                        leaf_act_remove[leaf] = act;
-                    }
-                    labelDescr.Text = "";
-                    buttonDelete.Enabled = false;
-                    buttonLoad.Enabled = false;
-                };
-                this.InvokeIfNeeded(act);
+                            string[] s = new string[] { leaf.Value.Name, leaf.Value.Extension };
+                            ListViewItem it = new ListViewItem(s);
+                            it.Tag = leaf;
+                            listViewDoc.Items.Add(it);
+                            var act = (object o) =>
+                         {
+                               var i = o as Issue;
+                               if (i.ErrorType == ErrorType.None)
+                               {
+                                   listViewDoc.InvokeIfNeeded(() => listViewDoc.Items.Remove(it));
+                               }
+                           };
+                            leaf.OnDeleteItself += act;
+                            leaf_act_remove[leaf] = act;
+                        }
+                        labelDescr.Text = "";
+                        buttonDelete.Enabled = false;
+                        buttonLoad.Enabled = false;
+                    };
+                    tl.GetAwaiter().OnCompleted(async () =>
+                    {
+                        t.GetAwaiter().OnCompleted(() =>
+                        {
+                            this.InvokeIfNeeded(act);
+                        });
+                        await t;
+                    });
+                    await tl;
+                }
             }
             catch (Exception ex)
             {
@@ -482,6 +490,7 @@ namespace DataWarehouse.Forms
             return (Selected as IData).Data;
         }
 
+        IAccceptNameUpdate Update => SelectedNode as IAccceptNameUpdate;
 
         private void buttonSaveDoc_Click(object sender, EventArgs e)
         {
@@ -511,6 +520,11 @@ namespace DataWarehouse.Forms
                     b = blob.Bytes;
                     ext = blob.Extension;
                 }
+                if (!Update.AcceptUpdate(nm))
+                {
+                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
+                    return;
+                }
                 var leaf = new Leaf(null, nm, textBoxDescription.Text, ext, b);
                 var l = SelectedNode.Add(leaf);
    /*             if (l == null)
@@ -522,6 +536,7 @@ namespace DataWarehouse.Forms
             }
             catch (Exception ex)
             {
+                ex.HandleException();
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
         }
@@ -642,6 +657,10 @@ namespace DataWarehouse.Forms
                 ILeaf leaf = Selected;
                 var name = leaf.Name;
                 leaf.Name = e.Label;
+                if (leaf is ILeafAsync)
+                {
+                    return;
+                }
                 if (name == leaf.Name)
                 {
                     e.CancelEdit = true;

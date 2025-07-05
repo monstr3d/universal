@@ -33,7 +33,7 @@ namespace SQLServerWarehouse
             /// <summary>
             /// Delete itself event
             /// </summary>
-            protected event Action OnDeleteItself;
+            protected event Action<object> OnDeleteItself;
 
             /// <summary>
             /// Chang itself event
@@ -41,7 +41,7 @@ namespace SQLServerWarehouse
             protected event Action<ILeaf> OnChangeItself;
 
 
-            event Action ILeaf.OnDeleteItself
+            event Action<object> ILeaf.OnDeleteItself
             {
                 add
                 {
@@ -54,7 +54,7 @@ namespace SQLServerWarehouse
                 }
             }
 
-            event Action<ILeaf> ILeaf.OnChangeItself
+            event Action<object> ILeaf.OnChangeItself
             {
                 add
                 {
@@ -218,24 +218,24 @@ namespace SQLServerWarehouse
             /// <summary>
             /// Add child event
             /// </summary>
-            protected event Action<IDirectory> OnAddDirectory;
+            protected event Action<object> OnAddDirectory;
 
             /// <summary>
             /// Delete itself event
             /// </summary>
-            protected event Action OnDeleteItself;
+            protected event Action<object> OnDeleteItself;
 
             /// <summary>
             /// Change itself event
             /// </summary>
-            protected event Action<IDirectory> OnChangeItself;
+            protected event Action<object> OnChangeItself;
 
             /// <summary>
             /// Add leaf event
             /// </summary>
-            protected event Action<ILeaf> OnAddLeaf;
+            protected event Action<object> OnAddLeaf;
 
-            event Action IDirectory.OnDeleteItself
+            event Action<object> IDirectory.OnDeleteItself
             {
                 add
                 {
@@ -248,7 +248,7 @@ namespace SQLServerWarehouse
                 }
             }
 
-            event Action<IDirectory> IDirectory.OnChangeItself
+            event Action<object> IDirectory.OnChangeItself
             {
                 add
                 {
@@ -261,7 +261,7 @@ namespace SQLServerWarehouse
                 }
             }
 
-            event Action<ILeaf> IDirectory.OnAddLeaf
+            event Action<Object> IDirectory.OnAddLeaf
             {
                 add
                 {
@@ -274,7 +274,7 @@ namespace SQLServerWarehouse
                 }
             }
 
-            event Action<IDirectory> IDirectory.OnAddDirectory
+            event Action<object> IDirectory.OnAddDirectory
             {
                 add
                 {
@@ -381,6 +381,32 @@ namespace SQLServerWarehouse
                 remove
                 {
                     throw new OwnNotImplemented("DataWarehouse");
+                }
+            }
+
+            event Action<object> IDirectory.OnGetDirectories
+            {
+                add
+                {
+                     
+                }
+
+                remove
+                {
+                     
+                }
+            }
+
+            event Action<object> IDirectory.OnGetLeaves
+            {
+                add
+                {
+                     
+                }
+
+                remove
+                {
+                     
                 }
             }
 
@@ -575,6 +601,16 @@ namespace SQLServerWarehouse
             }
 
             ILeaf IDirectory.Add(ILeaf leaf)
+            {
+                throw new OwnNotImplemented("DataWarehouse");
+            }
+
+            void IDirectory.RemoveAllChilden()
+            {
+                throw new OwnNotImplemented();
+            }
+
+            bool IDirectory.Post()
             {
                 throw new OwnNotImplemented("DataWarehouse");
             }

@@ -11,5 +11,8 @@ namespace DataWarehouse.Interfaces
         bool Add(INamed named);
 
         bool Remove(INamed named);
+
+        bool Change(INamed named, string newname);
+
     }
 }

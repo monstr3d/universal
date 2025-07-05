@@ -47,19 +47,19 @@ namespace SQLServerWarehouse.Models
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action OnDeleteItself;
+        protected event Action<object> OnDeleteItself;
 
         /// <summary>
         /// Change itself event
         /// </summary>
-        protected event Action<IDirectory> OnChangeItself;
+        protected event Action<object> OnChangeItself;
 
         /// <summary>
         /// Add leaf event
         /// </summary>
         protected event Action<ILeaf> OnAddLeaf;
 
-        event Action IDirectory.OnDeleteItself
+        event Action<object> IDirectory.OnDeleteItself
         {
             add
             {
@@ -72,7 +72,7 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        event Action<IDirectory> IDirectory.OnChangeItself
+        event Action<object> IDirectory.OnChangeItself
         {
             add
             {
@@ -85,7 +85,7 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        event Action<ILeaf> IDirectory.OnAddLeaf
+        event Action<object> IDirectory.OnAddLeaf
         {
             add
             {
@@ -98,7 +98,7 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        event Action<IDirectory> IDirectory.OnAddDirectory
+        event Action<object> IDirectory.OnAddDirectory
         {
             add
             {
@@ -211,6 +211,32 @@ namespace SQLServerWarehouse.Models
             }
         }
 
+        event Action<object> IDirectory.OnGetDirectories
+        {
+            add
+            {
+                 
+            }
+
+            remove
+            {
+                 
+            }
+        }
+
+        event Action<object> IDirectory.OnGetLeaves
+        {
+            add
+            {
+                 
+            }
+
+            remove
+            {
+                 
+            }
+        }
+
         IDirectory IDirectory.Add(IDirectory directory)
         {
             
@@ -302,7 +328,7 @@ namespace SQLServerWarehouse.Models
                 }
                 ctx.BinaryTrees.Remove(this);
                 ctx.SaveChanges();
-                OnDeleteItself?.Invoke();
+              //  OnDeleteItself?.Invoke();
             }
             catch (Exception exception)
             {
@@ -417,6 +443,16 @@ namespace SQLServerWarehouse.Models
         void IChildren<ILeaf>.RemoveChild(ILeaf child)
         {
             Remove(child);
+        }
+
+        void IDirectory.RemoveAllChilden()
+        {
+            throw new OwnNotImplemented();
+        }
+
+        bool IDirectory.Post()
+        {
+            throw new OwnNotImplemented("DataWarehouse");
         }
 
         #endregion

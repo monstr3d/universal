@@ -26,9 +26,6 @@ namespace PostgreSQLWarehouse
             roots = [d];
         }
 
-
-
-
         IDirectory[] GetCommandRoots(NpgsqlCommand command)
         {
             command.CommandType = System.Data.CommandType.Text;

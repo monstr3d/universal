@@ -52,7 +52,14 @@ namespace DataWarehouse.Classes
         DeleteLeaf,
         UpdateLeafData,
         UpdateDirectoryName,
+        UpdateLeafName,
         LoadDirectories,
         LoadLeaves
+    }
+
+    public enum SyncMode
+    {
+        Synchronous,
+        Asynchronous
     }
 }

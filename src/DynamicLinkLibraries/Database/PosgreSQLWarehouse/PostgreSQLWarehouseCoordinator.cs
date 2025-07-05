@@ -12,6 +12,7 @@ namespace PostgreSQLWarehouse
         {
 
         }
+
         IDatabaseInterface IDatabaseCoordinator.this[string name] => Get(name);
 
         bool IDatabaseCoordinator.Create(string name)
@@ -33,7 +34,7 @@ namespace PostgreSQLWarehouse
             {
                 try
                 {
-                    conn.Open(); ;
+                    conn.Open();
                     return new Async.PostgreSQLWarehouseInterface(name);
                 }
                 catch (Exception e)

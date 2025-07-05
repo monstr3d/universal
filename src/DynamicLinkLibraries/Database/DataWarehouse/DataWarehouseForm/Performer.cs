@@ -17,10 +17,15 @@ namespace DataWarehouse.Forms
                 var ch = children.Children;
                 foreach (var child in ch)
                 {
-                    if (child is IDirectoryAsync async)
+                    if (child is IDirectoryAsync Async)
                     {
-                        await async.LoadChildren();
-                        await async.LoadLeaves();
+                        var t = Async.LoadChildren();
+                        t.GetAwaiter().OnCompleted(async () =>
+                        {
+                            var tl = Async.LoadLeaves();
+                            await tl;
+
+                        });
                     }
                 }
             }

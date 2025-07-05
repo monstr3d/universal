@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
-using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
 
@@ -24,7 +22,48 @@ namespace DataWarehouse.Forms.Tree
 
         NamedTree.Performer p = new();
 
+         #region Ctor
+
+        public TreeNode(IDirectory directory, Action<Issue> action) : base(directory.Name, 0, 1)
+        {
+            if (directory == null)
+            {
+                throw new OwnException("Tree node deirectory");
+            }
+            Init(action);
+            this.directory = directory;
+            Set();
+        }
+
+        public TreeNode(IDirectory directory, bool leaves, Action<Issue> action) : base(directory.Name)
+        {
   
+            if (directory == null)
+            {
+                throw new OwnException("Tree node deirectory");
+            }
+            Init(action);
+            this.directory = directory;
+            Leaves = leaves;
+            Set();
+        }
+
+        public TreeNode(ILeaf leaf, Action<Issue> action) : base(leaf.Name, 2, 2)
+        {
+            if (leaf == null)
+            {
+                throw new OwnException("Tree node leaf");
+            }
+            Init(action);
+            this.leaf = leaf;
+            Tag = leaf;
+            Set();
+        }
+
+        #endregion
+
+
+
         bool LeavesOpened
         {
             get;
@@ -45,46 +84,6 @@ namespace DataWarehouse.Forms.Tree
              
         ILeaf leaf;
 
-        #region Ctor
-
-        public TreeNode(IDirectory directory, Action<Issue> action) : base(directory.Name, 0, 1)
-        {
-            if (directory == null)
-            {
-                throw new OwnException("Tree node deirectory");
-            }
-            Init(action);
-            this.directory = directory;
-            Set();
-        }
-
-        public TreeNode(IDirectory directory, bool leaves, Action<Issue> action) : base(directory.Name)
-        {
-            if (directory == null)
-            {
-                throw new OwnException("Tree node deirectory");
-            }
-            Init(action);
-            this.directory = directory;
-            Leaves = leaves;
-            Set();
-        }
-        public TreeNode(ILeaf leaf, Action<Issue> action) : base(leaf.Name, 2, 2)
-        {
-            if (leaf == null)
-            {
-                throw new OwnException("Tree node leaf");
-            }
-            Init(action);
-            this.directory = directory;
-            this.leaf = leaf;
-            leaf.OnDeleteItself += Leaf_OnDeleteItself;
-            leaf.OnChangeItself += Leaf_OnChangeItself;
-            Tag = leaf;
-        }
-
-        #endregion
-
         void Act(object o)
         {
             if (o is Issue issue) action(issue);
@@ -97,7 +96,18 @@ namespace DataWarehouse.Forms.Tree
 
         T Get<T>(object o) where T : class
         {
-            return Get(o).Object as T;
+            var t = Get(o).Object;
+            if (t is T tt)
+            {
+                return tt;
+            }
+            return null;
+        }
+
+        T Get<T, S>(object o) where T : class where S: class
+        {
+            var up = Get(o).Object as UpdateData<S, T>;
+            return up.Node;
         }
 
 
@@ -136,12 +146,18 @@ namespace DataWarehouse.Forms.Tree
             Execute(Directory_OnGetLeavesT, obj);
         }
 
+   
+
         private void Directory_OnGetLeavesT(object obj)
         {
             if (Leaves) return;
-            Fail(obj);
+            if (Fail(obj))
+            {
+               // return;
+            }
+           
             var p = performer.GetErrorType(obj);
-            if (p != ErrorType.None & p != ErrorType.AlreadyExecuted)
+            if (p == ErrorType.AlreadyExecuted)
             {
                 return;
             }
@@ -153,6 +169,7 @@ namespace DataWarehouse.Forms.Tree
             var l = directory as IChildren<ILeaf>;
             var leaves = l.Children;
             leaves = this.p.SotByName<ILeaf>(leaves);
+            leaves = leaves.ToArray();
             foreach (var child in leaves)
             {
                 var t = new TreeNode(child, action);
@@ -170,15 +187,22 @@ namespace DataWarehouse.Forms.Tree
 
         private void Directory_OnGetDirectoriesT(object obj)
         {
-            Fail(obj);
+            if (Fail(obj))
+            {     
+               // return;
+            }
             var p = performer.GetErrorType(obj);
-            if (p != ErrorType.None &  p != ErrorType.AlreadyExecuted)
+            if (p != ErrorType.None & p != ErrorType.AlreadyExecuted)
             {
                 return;
             }
-            if (DirecoriesOpened)
+            var ld = new List<IDirectory>();
+            foreach (TreeNode node in Nodes)
             {
-                return;
+                if (node.Tag is IDirectory d)
+                {
+                    ld.Add(d);
+                }
             }
             DirecoriesOpened = true;
             var l = directory as IChildren<IDirectory>;
@@ -186,28 +210,16 @@ namespace DataWarehouse.Forms.Tree
             dirs = this.p.SotByName<IDirectory>(dirs);
             foreach (var child in dirs)
             {
+                if (ld.Contains(child))
+                {
+                    continue;
+                }
                 var t = new TreeNode(child, action);
                 t.Leaves = Leaves;
                 t.Tag = child;
                 Nodes.Add(t);
             }
         }
-/*                if (IsBlocked)
-                {
-                    IsBlocked = false;
-                    return;
-                }
-                if (child is IDirectoryAsync async)
-                {
-                    var td = async.LoadChildren();
-                    await td;
-                    var tl = async.LoadLeaves();
-                    await tl;
-
-                }
-            }
-        }
-*/
   
         bool Leaves { get; set; } = true;
 
@@ -261,8 +273,6 @@ namespace DataWarehouse.Forms.Tree
         {
             if (Fail(obj)) return;
             Remove();
-            leaf.OnDeleteItself -= Leaf_OnDeleteItself;
-            leaf.OnChangeItself -= Leaf_OnChangeItself;
         }
 
 
@@ -306,9 +316,6 @@ namespace DataWarehouse.Forms.Tree
         }
 
 
-
-
-
         void Change(INamed named)
         {
             var name = named.Name;
@@ -321,15 +328,27 @@ namespace DataWarehouse.Forms.Tree
         }
         private void Directory_OnChangeItself(object obj)
         {
-            if (Fail(obj)) return;
-            Change(Get<IDirectory>(obj));
+            Execute(Directory_OnChangeItselfT, obj);
         }
 
         private void Leaf_OnChangeItself(object obj)
         {
-            if (Fail(obj)) return;
-            Change(Get<ILeaf>(obj));
+            Execute(Leaf_OnChangeItselfT, obj);
         }
+
+        private void Directory_OnChangeItselfT(object obj)
+        {
+            if (Fail(obj)) return;
+            Change(directory as INamed);
+          
+        }
+
+        private void Leaf_OnChangeItselfT(object obj)
+        {
+            if (Fail(obj)) return;
+            Change(leaf as INamed);
+        }
+
 
     }
 }

@@ -18,7 +18,7 @@ namespace PostgreSQLWarehouse.Async
                 string sqlQuery = $"SELECT \"Data\" FROM public.\"BinaryTable\" WHERE \"Id\" = @idd";
                 command.Parameters.AddWithValue("@idd", leaf.Id);
                 command.CommandText = sqlQuery;
-                var i = command.ExecuteReaderAsync();
+                var i = ExecuteReader(command);
                 await i;
                 var k = i.Result;
                 if (k.Read())
@@ -33,6 +33,14 @@ namespace PostgreSQLWarehouse.Async
             return null;
         }
 
+        void Clear(NpgsqlCommand command)
+        {
+
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = $"DELETE FROM public.\"BinaryTree\"  WHERE \"Id\" <> \"ParentId\" CASCADE;";
+            var i = command.ExecuteNonQuery();
+        }
+
 
         async Task<IEnumerable<IDirectoryAsync>> GetCommandRootsAsync(NpgsqlCommand command)
         {
@@ -41,7 +49,7 @@ namespace PostgreSQLWarehouse.Async
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = "SelectRoots";
             command.CommandText = "SELECT \"Id\", \"ParentId\", \"Name\", \"Description\", \"ext\" \r \n FROM public.\"BinaryTree\"  WHERE \"Id\"=\"ParentId\";";
-            var reader = command.ExecuteReaderAsync();
+            var reader = ExecuteReader(command);
             await reader;
             var r = reader.Result;
             var l = new List<IDirectoryAsync>();
@@ -69,7 +77,7 @@ namespace PostgreSQLWarehouse.Async
                 command.Parameters.AddWithValue("@idd", d.Id);
                 command.CommandText = sqlQuery;
 
-                var i = command.ExecuteReaderAsync();
+                var i = ExecuteReader(command);
                 await i;
                 foreach (IDataRecord x in i.Result)
                 {
@@ -104,7 +112,7 @@ namespace PostgreSQLWarehouse.Async
                 Add(command, "description", leaf.Description);
                 Add(command, "data", leaf.Data);
                 Add(command, "extension", leaf.Extension);
-                var i = command.ExecuteNonQueryAsync();
+                var i = ExecuteNonQuery(command);
                 await i;
                 return (i.Result == -1) ? new Leaf(leaf, directory, g, this) : null;
 
@@ -123,7 +131,7 @@ namespace PostgreSQLWarehouse.Async
             command.Parameters.AddWithValue("@idd", parent.Id);
             command.Parameters.AddWithValue("@name", name);
             command.CommandText = sqlQuery;
-            var i = command.ExecuteNonQueryAsync();
+            var i = ExecuteNonQuery(command);
             await i;
             return (i.Result == 1) ? name : null;
         }
@@ -134,21 +142,29 @@ namespace PostgreSQLWarehouse.Async
             command.Parameters.AddWithValue("@idd", parent.Id);
             command.Parameters.AddWithValue("@descrption", descrption);
             command.CommandText = sqlQuery;
-            var i = command.ExecuteNonQueryAsync();
+            var i = ExecuteNonQuery(command);
             await i;
             return (i.Result == 1) ? descrption : null;
         }
 
         async Task<string> UpdateLeafNameAsync(NpgsqlCommand command, string name, ILeaf leaf)
         {
-            string sqlQuery = $"UPDATE public.\"BinaryTablr\" SET  \"Name\"=@name  WHERE \"Id\" = @idd;";
-            // Double quotes for column name, @ for parameter
-            command.Parameters.AddWithValue("@idd", leaf.Id);
-            command.Parameters.AddWithValue("@name", name);
-            command.CommandText = sqlQuery;
-            var i = command.ExecuteNonQueryAsync();
-            await i;
-            return (i.Result == 1) ? name : null;
+            try
+            {
+                string sqlQuery = $"UPDATE public.\"BinaryTable\" SET  \"Name\"=@name  WHERE \"Id\" = @idd;";
+                // Double quotes for column name, @ for parameter
+                command.Parameters.AddWithValue("@idd", leaf.Id);
+                command.Parameters.AddWithValue("@name", name);
+                command.CommandText = sqlQuery;
+                var i = ExecuteNonQuery(command);
+                await i;
+                return (i.Result == 1) ? name : null;
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            return null;
         }
         async Task<string> UpdateLeafDecriptionAsync(NpgsqlCommand command, string descrption, ILeaf leaf)
         {
@@ -157,7 +173,7 @@ namespace PostgreSQLWarehouse.Async
             command.Parameters.AddWithValue("@idd", leaf.Id);
             command.Parameters.AddWithValue("@descrption", descrption);
             command.CommandText = sqlQuery;
-            var i = command.ExecuteNonQueryAsync();
+            var i = ExecuteNonQuery(command);
             await i;
             return (i.Result == 1) ? descrption : null;
         }
@@ -179,7 +195,7 @@ namespace PostgreSQLWarehouse.Async
                 Add(command, "name", directory.Name);
                 Add(command, "description", directory.Description);
                 Add(command, "ext", directory.Extension);
-                var i = command.ExecuteNonQueryAsync();
+                var i = ExecuteNonQuery(command);
                 await i;
                 if (i.Result == -1)
                 {
@@ -203,7 +219,7 @@ namespace PostgreSQLWarehouse.Async
                 var q = $"DELETE FROM public.\"BinaryTree\" WHERE \"Id\" = @idd;";
                 command.Parameters.AddWithValue("@idd", directory.Id);
                 command.CommandText = q;
-                var i = command.ExecuteNonQueryAsync();
+                var i = ExecuteNonQuery(command);
                 await i;
                 return (i.Result == 1) ? new object() : null;
             }
@@ -224,7 +240,7 @@ namespace PostgreSQLWarehouse.Async
                 command.Parameters.AddWithValue("@idd", leaf.Id);
                 command.Parameters.AddWithValue("@data", data);
                 command.CommandText = sqlQuery;
-                var i = command.ExecuteNonQueryAsync();
+                var i = ExecuteNonQuery(command);
                 await i;
                 return (i.Result == 1) ? data : null;
             }
@@ -242,7 +258,7 @@ async Task<object> RemoveAsync(NpgsqlCommand command, ILeaf leaf)
                 var q = $"DELETE FROM public.\"BinaryTable\" WHERE \"Id\" = @idd;";
                 command.Parameters.AddWithValue("@idd", leaf.Id);
                 command.CommandText = q;
-                var i = command.ExecuteNonQueryAsync();
+                var i = ExecuteNonQuery(command);
                 await i;
                 return (i.Result == 1) ? new object() : null;
             }
@@ -264,7 +280,7 @@ async Task<object> RemoveAsync(NpgsqlCommand command, ILeaf leaf)
                 command.Parameters.AddWithValue("@idd", d.Id);
                 command.CommandText = sqlQuery;
 
-                var i = command.ExecuteReaderAsync();
+                var i = ExecuteReader(command);
                 await i;
                 foreach (IDataRecord x in i.Result)
                 {

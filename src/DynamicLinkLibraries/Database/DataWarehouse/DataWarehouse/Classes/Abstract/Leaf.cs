@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
 
@@ -10,11 +11,13 @@ namespace DataWarehouse.Classes.Abstract
     /// <summary>
     /// Leaf 
     /// </summary>
-    public abstract class Leaf : ILeafData
+    public abstract class Leaf : ILeafData, IAccceptNameUpdate
     {
         private void Init()
         {
-
+            if (!(this is ILeafAsync))
+            {
+            }
         }
 
         #region Fields
@@ -44,6 +47,24 @@ namespace DataWarehouse.Classes.Abstract
             Init();
             GetData = GetDataInitial;
         }
+
+        protected virtual IChildrenName ChildrenName => Parent as IChildrenName;
+
+        protected virtual bool AcceptUpdate(string name)
+        {
+            if (ChildrenName != null)
+            {
+                return ChildrenName.Check(name);
+            }
+            return false;
+        }
+
+        bool IAccceptNameUpdate.AcceptUpdate(string name)
+        {
+            return AcceptUpdate(name);
+        }
+
+
 
 
         protected Leaf(object id, string name,  string description, string extension,
@@ -81,7 +102,11 @@ namespace DataWarehouse.Classes.Abstract
 
         protected virtual object Id { get; set; }
 
-        protected virtual string Name { get => name; set => UpdateName(value); }
+        protected virtual string Name 
+        { 
+            get => name; 
+            set => UpdateName(value); 
+        }
 
         protected virtual string Extension { get; set; }
 
@@ -134,7 +159,7 @@ namespace DataWarehouse.Classes.Abstract
         }
         protected void OnChangeItselfAct(object obj)
         {
-            OnChangeItself.Invoke(obj);
+            OnChangeItself?.Invoke(obj);
         }
 
 
@@ -174,7 +199,7 @@ namespace DataWarehouse.Classes.Abstract
         /// Change itself event
         /// </summary>
         protected event Action<object> OnChangeItself;
-
+  
 
         event Action<object> ILeaf.OnDeleteItself
         {
@@ -261,14 +286,12 @@ namespace DataWarehouse.Classes.Abstract
                 INamed named = this;
                 if (name != this.name)
                 {
-                    var d = Parent as Directory;
-                    named.Name = name;
-                    if (d != null && d.Check(name))
+                    if (ChildrenName.Check(this)) ;
                     {
                         var b = SetDatabaseName(name);
                         if (b)
                         {
-                            d.Change(this.name, name);
+                            ChildrenName.Change(this, name);
                             this.name = name;
                             OnChangeItself?.Invoke(this);
                             return true;
@@ -290,6 +313,7 @@ namespace DataWarehouse.Classes.Abstract
                 if (SetDatabaseData(data))
                 {
                     this.data = data;
+                    throw new OwnException("FICTION");
                     OnChangeItself?.Invoke(this);
                     return data;
                 }
@@ -318,6 +342,7 @@ namespace DataWarehouse.Classes.Abstract
                 if (SetDatabaseDescription(description))
                 {
                     this.description = description;
+                    throw new OwnException("FICTION");
                     OnChangeItself?.Invoke(this);
                     return false;
                 }

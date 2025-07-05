@@ -30,15 +30,15 @@ namespace SQLServerWarehouse.Models
         /// <summary>
         /// Delete itself event
         /// </summary>
-        protected event Action OnDeleteItself;
+        protected event Action<object> OnDeleteItself;
 
         /// <summary>
         /// Change itself event
         /// </summary>
-        protected event Action<ILeaf> OnChangeItself;
+        protected event Action<object> OnChangeItself;
 
 
-        event Action ILeaf.OnDeleteItself
+        event Action<object> ILeaf.OnDeleteItself
         {
             add
             {
@@ -51,7 +51,7 @@ namespace SQLServerWarehouse.Models
             }
         }
 
-        event Action<ILeaf> ILeaf.OnChangeItself
+        event Action<object> ILeaf.OnChangeItself
         {
             add
             {
@@ -117,11 +117,11 @@ namespace SQLServerWarehouse.Models
             try
             {
 
-
+/*
                 StaticExtension.Context.BinaryTables.Remove(this);
                 Parent.Remove(this);
                 StaticExtension.Context.SaveChanges();
-                OnDeleteItself?.Invoke();
+                OnDeleteItself?.Invoke();*/
             }
             catch (Exception exception)
             {

@@ -1,5 +1,4 @@
 ﻿using System.Data;
-
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
@@ -9,13 +8,27 @@ namespace PostgreSQLWarehouse.Async
 {
     public class Directory : DataWarehouse.Classes.Abstract.Async.Directory
     {
-        private Async.PostgreSQLWarehouseInterface warehouseInterface;
+        private Async.PostgreSQLWarehouseInterface wi;
+
+        private Async.PostgreSQLWarehouseInterface WarehouseInterface
+        {
+            get => wi;
+            set
+            {
+                wi = value;
+                directory.Post();
+            }
+        }
+
+        private IDirectory directory => this;
+
+        protected override DataWarehouse.Classes.SyncMode SyncMode => (WarehouseInterface as IDatabaseInterfaceAsync).SyncMode;
 
         #region Ctor
 
         public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
-            warehouseInterface = postgreSQLWarehouse;
+           WarehouseInterface = postgreSQLWarehouse;
             Id = record[0];
             var p = record[1];
             name = record.GetString(2);
@@ -25,7 +38,7 @@ namespace PostgreSQLWarehouse.Async
 
         public Directory(IDirectory directory, object id, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
-            warehouseInterface = postgreSQLWarehouse;
+           WarehouseInterface = postgreSQLWarehouse;
             Id = id;
             name = directory.Name;
             description = directory.Description;
@@ -57,7 +70,7 @@ namespace PostgreSQLWarehouse.Async
         void Create(Tuple<Guid, Guid, string, string, string> t,
             PostgreSQLWarehouseInterface postgreSQLWarehouse)
         {
-            warehouseInterface = postgreSQLWarehouse;
+           WarehouseInterface = postgreSQLWarehouse;
             Id = t.Item1;
             name = t.Item3;
             description = t.Item4;
@@ -67,20 +80,35 @@ namespace PostgreSQLWarehouse.Async
 
         #endregion
 
+        protected override IDirectory Add(IDirectory directory)
+        {
+            return base.Add(directory);
+        }
+
         protected override Task<List<IDirectoryAsync>> LoadChildren()
         {
-            return warehouseInterface.LoadChildren(this);
+            return WarehouseInterface.LoadChildren(this);
         }
 
         protected override Task<List<ILeafAsync>> LoadLeaves()
         {
-            return warehouseInterface.GetLeavesAsync(this);
+            return WarehouseInterface.GetLeavesAsync(this);
 
         }
 
+        IDatabaseInterfaceAsync Async =>WarehouseInterface;
+
         protected override async Task<ILeafAsync> AddAsync(ILeaf leaf)
         {
-            var t = warehouseInterface.Add(this, leaf as ILeafData);
+            var t =WarehouseInterface.Add(this, leaf as ILeafData);
+            if (SyncMode == DataWarehouse.Classes.SyncMode.Synchronous)
+            {
+                if (!t.IsCompleted)
+                {
+                    t.RunSynchronously();
+                }
+                return t.Result;
+            }
             await t;
             return t.Result;
         }
@@ -88,7 +116,7 @@ namespace PostgreSQLWarehouse.Async
 
         protected override async Task<bool> RemoveItselfAsync()
         {
-            var t = warehouseInterface.RemoveAsync(this);
+            var t =WarehouseInterface.RemoveAsync(this);
             await t;
             return (t.Result != null);
         }
@@ -108,10 +136,6 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override IDirectory AddToDatabase(IDirectory directory)
-        {
-            throw new OwnNotImplemented();
-        }
 
         protected override ILeaf AddToDatabase(ILeaf leaf)
         {
@@ -138,32 +162,40 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override List<ILeaf> GetLeavesFormDatabase()
-        {
-            throw new OwnNotImplemented();
-        }
+        
 
-        protected override List<IDirectory> GetDirectoriesFormDatabase()
-        {
-            throw new OwnNotImplemented();
-        }
+    
 
         protected override async Task<IDirectoryAsync> AddAsync(IDirectory directory)
         {
-            var t = warehouseInterface.Add(this, directory);
+            var t =WarehouseInterface.Add(this, directory);
             await t;
             return t.Result;
         }
 
 
-        protected override Task<string> UpdateNameAsync(string name)
+        protected override async Task<string> UpdateNameAsync(string name)
         {
-            throw new OwnNotImplemented();
+            var t =WarehouseInterface.UpdateDirNameAsync(name, this);
+            await t;
+            return t.Result;
         }
 
-        protected override Task<string> UpdateDescriptionAsync(string description)
+        protected override async Task<string> UpdateDescriptionAsync(string description)
         {
-            throw new OwnNotImplemented();
+            var t =WarehouseInterface.UpdateDirDecriptionAsync(description, this);
+            await t;
+            return t.Result;
         }
+
+        protected override IDirectory AddToDatabase(IDirectory directory)
+        {
+
+            var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
+            var t =WarehouseInterface.Insert(tt);
+            return (directory == null) ? new Directory(t,WarehouseInterface, true) :
+                new Directory(directory, t.Item1,WarehouseInterface, true);
+        }
+
     }
 }
