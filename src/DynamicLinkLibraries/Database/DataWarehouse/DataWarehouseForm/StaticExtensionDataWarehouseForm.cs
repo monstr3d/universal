@@ -1,17 +1,19 @@
-﻿using System;
+﻿using DataWarehouse.Classes;
+using DataWarehouse.Interfaces;
+using DataWarehouse.Interfaces.Async;
+using ErrorHandler;
+using NamedTree;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataWarehouse.Classes;
-using DataWarehouse.Interfaces;
-using DataWarehouse.Interfaces.Async;
-using ErrorHandler;
-using NamedTree;
-
 using WindowsExtensions;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DataWarehouse
 {
@@ -42,57 +44,112 @@ namespace DataWarehouse
             ResourceService.StaticExtensionResourceService.LoadControlResources(control, DataWarehouse.Utils.ControlUtilites.Resources);
         }
 
-   
-        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice, bool leaves, Action<Issue> action)
+        static void Wrap(System.Windows.Forms.TreeView treeView)
         {
-            IDirectory[] dir = null; 
-            var act = () => treeView.Fill(dir, recursice, leaves, action);
-            if (!data.SupportsAsync)
+            var curs = treeView.Cursor;
+            treeView.Cursor = Cursors.WaitCursor;
+            treeView.Enabled = false;
+            try
             {
-                dir = data.GetRoots(new string[] { ext });
-                act();
-                return;
             }
-            var t = data.GetRootsAsync(new string[] { ext });
-            await t;
-            var r = t.Result;
-            dir = (from d in  r select d as IDirectory).ToArray();
-            treeView.InvokeIfNeeded(act);
-            
-         }
-
-        static async void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves, Action<Issue> action)
-        {
-            foreach (IDirectory d in dir)
+            catch (Exception ex)
             {
-                var nd = d.GetNode(recursice, leaves, action);
-                await nd;
-                treeView.Nodes.Add(nd.Result);
+                ex.HandleException();
             }
-            foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
-            {
-                SetDisposed(tn);
-            }
+            treeView.Cursor = curs;
+            treeView.Enabled = true;
 
         }
 
-        static public async Task FillNode(this IDirectory dir, System.Windows.Forms.TreeNode node,
+        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice, bool leaves, Action<Issue> action)
+        {
+            var curs = treeView.Cursor;
+            treeView.Cursor = Cursors.WaitCursor;
+            treeView.Enabled = false;
+            try
+            {
+                IDirectory[] dir = null;
+                var act = () => treeView.Fill(dir, recursice, leaves, action);
+                if (!data.SupportsAsync)
+                {
+                    dir = data.GetRoots(new string[] { ext });
+                    act();
+                    return;
+                }
+                var t = data.GetRootsAsync(new string[] { ext });
+                await t;
+                var r = t.Result;
+                dir = (from d in r select d as IDirectory).ToArray();
+                treeView.InvokeIfNeeded(act);
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            treeView.Cursor = curs;
+            treeView.Enabled = true;
+
+        }
+
+        static async void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves, Action<Issue> action)
+        {
+            var curs = treeView.Cursor;
+            treeView.Cursor = Cursors.WaitCursor;
+            treeView.Enabled = false;
+            try
+            {
+                foreach (IDirectory d in dir)
+                {
+                    var nd = d.GetNode(recursice, leaves, action);
+                    await nd;
+                    treeView.Nodes.Add(nd.Result);
+                }
+                foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
+                {
+                    SetDisposed(tn);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            treeView.Cursor = curs;
+            treeView.Enabled = true;
+
+
+        }
+
+        static public async Task FillNode(this IDirectory dir, 
+            System.Windows.Forms.TreeNode node,
             bool recursive, bool leaves, Action<Issue> action)
         {
-            if (node.Nodes.Count > 0)
+            var treeView = node.TreeView;
+            var curs = treeView.Cursor;
+            treeView.Cursor = Cursors.WaitCursor;
+            treeView.Enabled = false;
+            try
             {
-                return;
-            }
-            if (dir is IDirectoryAsync directoryAsync)
-            {
-                var t = directoryAsync.LoadChildren();
-                t.GetAwaiter().OnCompleted(async () =>
+                if (node.Nodes.Count > 0)
                 {
-                    var tl = directoryAsync.LoadLeaves();
-                    await tl;
+                    return;
+                }
+                if (dir is IDirectoryAsync directoryAsync)
+                {
+                    var t = directoryAsync.LoadChildren();
+                    await t;
+                        var tl = directoryAsync.LoadLeaves();
+                        await tl;
 
-                });
+                }
             }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            treeView.Cursor = curs;
+            treeView.Enabled = true;
+
+
             return;
             IEnumerable<IDirectory> dirs = null;
             IEnumerable<ILeaf> cs = null; ;
@@ -182,30 +239,53 @@ namespace DataWarehouse
         public static System.Windows.Forms.TreeNode GetNode(this IDirectory dir, 
             Dictionary<INode, TreeNode> nodes, Action<Issue> action)
         {
-            
-            IChildren<IDirectory> ed = dir;
-            List<IDirectory> ld = new List<IDirectory>();
-            ld.AddRange(ed.Children);
-            ld.Sort(NodeComparer.Singleton);
-            foreach (IDirectory dird in ld)
+            TreeView treeView = null;
+            foreach (var node in nodes)
             {
-                TreeNode tn = GetNode(dird, nodes, action);
-              //  ln.Add(tn);
+                treeView = node.Value;
+                break;
             }
-            List<ILeaf> ll = new List<ILeaf>();
-            IChildren<ILeaf> el = dir as IChildren<ILeaf>;
-            ll.AddRange(el.Children);
-            ll.Sort(NodeComparer.Singleton as IComparer<ILeaf>);
-            foreach (ILeaf leaf in ll)
+            if (treeView == null)
             {
-                TreeNode tnl = new Forms.Tree.TreeNode(leaf, action);
-                tnl.Tag = leaf;
-                nodes[leaf] = tnl;
-              //  ln.Add(tnl);
+                return null;
             }
-           // TreeNode node = Get(dir, ln.ToArray());
-         //   nodes[dir] = node;
-           // node.SetDisposed();
+            var curs = treeView.Cursor;
+            treeView.Cursor = Cursors.WaitCursor;
+            treeView.Enabled = false;
+            try
+            {
+                IChildren<IDirectory> ed = dir;
+                List<IDirectory> ld = new List<IDirectory>();
+                ld.AddRange(ed.Children);
+                ld.Sort(NodeComparer.Singleton);
+                foreach (IDirectory dird in ld)
+                {
+                    TreeNode tn = GetNode(dird, nodes, action);
+                    //  ln.Add(tn);
+                }
+                List<ILeaf> ll = new List<ILeaf>();
+                IChildren<ILeaf> el = dir as IChildren<ILeaf>;
+                ll.AddRange(el.Children);
+                ll.Sort(NodeComparer.Singleton as IComparer<ILeaf>);
+                foreach (ILeaf leaf in ll)
+                {
+                    TreeNode tnl = new Forms.Tree.TreeNode(leaf, action);
+                    tnl.Tag = leaf;
+                    nodes[leaf] = tnl;
+                    //  ln.Add(tnl);
+                }
+                // TreeNode node = Get(dir, ln.ToArray());
+                //   nodes[dir] = node;
+                // node.SetDisposed();
+
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            treeView.Cursor = curs;
+            treeView.Enabled = true;
+
             return null;
         }
 

@@ -118,13 +118,13 @@ namespace DataWarehouse.Forms
             buttonDirDelete.Enabled = false;
             buttonLoad.Enabled = false;
             treeViewDir.BeforeExpand += performer.BeforeExpand;
-            refreshTree();
+            RefreshTree();
         }
 
         #endregion
 
 
-        private void refreshTree()
+        private void RefreshTree()
         {
             treeViewDir.Fill(data, ext[0], false, true, ActionIssue);
    
@@ -417,7 +417,7 @@ namespace DataWarehouse.Forms
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            refreshTree();
+            RefreshTree();
         }
 
         private void buttonReplace_Click(object sender, EventArgs e)
