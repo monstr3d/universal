@@ -147,7 +147,7 @@ namespace Diagram.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.HandleException(-1);
+                icon = pictureBoxIcon.Image;
             }
             captionEditor.KeyUp += KeyUp;
             Disposed += UserControlLabel_Disposed;

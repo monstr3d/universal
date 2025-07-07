@@ -165,22 +165,15 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             IDirectoryAsync async = this;
             var t = async.LoadChildren();
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                e.Set();
-            }
-            );
             await t;
+            e.Set();
         }
 
         async Task LoadLeavesFormData(AutoResetEvent ev)
         {
             var t = LoadLeavesFormDatabase();
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                ev.Reset();
-            });
             await t;
+            ev.Set();
         }
 
         Func<ILeaf, ILeaf> AddLeaf;
@@ -304,23 +297,21 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             var async = this as IDirectoryAsync;
             var t = async.RemoveItselfAsync();
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                if (!t.Result)
-                {
-                    OnDeleteItselfAct(this);
-                    return;
-                }
-                IDirectory dr = this;
-                var p = dr.Parent as Directory;
-                IChildren<IDirectory> cd = p;
-                cd.RemoveChild(this);
-                Parent = null;
-                var i = Get(this, ErrorType.None, OperationType.DeleteDirectory);
-                OnDeleteItselfAct(i);
-            });
-
+   
             await t;
+            if (!t.Result)
+            {
+                OnDeleteItselfAct(this);
+                return;
+            }
+            IDirectory dr = this;
+            var p = dr.Parent as Directory;
+            IChildren<IDirectory> cd = p;
+            cd.RemoveChild(this);
+            Parent = null;
+            var i = Get(this, ErrorType.None, OperationType.DeleteDirectory);
+            OnDeleteItselfAct(i);
+
         }
 
         #endregion
@@ -357,25 +348,24 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             if (!ChildrenName.Check(directory))
             {
-                var i = Get(directory, ErrorType.IllegalName, OperationType.AddDirectory);
-                OnAddDirectoryAct(i);
+                var ii = Get(directory, ErrorType.IllegalName, OperationType.AddDirectory);
+                OnAddDirectoryAct(ii);
                 return this;
             }
             var t = AddAsync(directory);
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                if (t.Result == null)
-                {
-                    OnAddDirectoryAct(Get(directory, ErrorType.Database, OperationType.AddDirectory));
-                    return;
-                }
-                var dir = t.Result as IDirectory;
-                ChildrenName.Add(dir);
-                var i = Get(dir, ErrorType.None, OperationType.AddDirectory);
-                OnAddDirectoryAct(i);
-            });
             await t;
-            return t.Result;
+            var r = t.Result;
+            if (r == null)
+            {
+                OnAddDirectoryAct(Get(directory, ErrorType.Database, OperationType.AddDirectory));
+                return r;
+            }
+            var dir = r as IDirectory;
+            dir.Post();
+            ChildrenName.Add(dir);
+            var i = Get(dir, ErrorType.None, OperationType.AddDirectory);
+            OnAddDirectoryAct(i);
+            return r;
         }
 
         async Task IDirectoryAsync.LoadChildren()
@@ -388,33 +378,33 @@ namespace DataWarehouse.Classes.Abstract.Async
                 return;
             }
             var t = LoadChildren();
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                var dd = directories;
-                var r = t.Result;
-                if (r == null)
-                {
-                    var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
-                    var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
-                    OnGetDirectoriesAct(iss);
-                    return;
-                }
-                directories = new List<IDirectory>();
-                GetChildern = () => directories;
-                var c = from d in r select d as IDirectory;
-                var cc = c.ToList();
-                if (directories.Count > 0)
-                {
-                    throw new OwnException();
-                }
-                var ct = from cit in cc select ChildrenName.Add(cit);
-                ct.ToArray();
-                var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
-                var issue = new Issue(ss, ErrorType.None, OperationType.LoadDirectories);
-                OnGetDirectoriesAct(issue);
-            });
             await t;
-    
+            var dd = directories;
+            var r = t.Result;
+            if (r == null)
+            {
+                var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
+                var iss = new Issue(s, ErrorType.Database, OperationType.LoadDirectories);
+                OnGetDirectoriesAct(iss);
+                return;
+            }
+            directories = new List<IDirectory>();
+            GetChildern = () => directories;
+            var c = from d in r select d as IDirectory;
+            var cc = c.ToList();
+            var cb = from cd in r select (cd as IDirectory).Post();
+            cb.ToList();
+            if (directories.Count > 0)
+            {
+                throw new OwnException();
+            }
+            var ct = from cit in cc select ChildrenName.Add(cit);
+            ct.ToArray();
+            var ss = new UpdateData<List<IDirectory>, IDirectory>(directories, cc, this);
+            var issue = new Issue(ss, ErrorType.None, OperationType.LoadDirectories);
+            OnGetDirectoriesAct(issue);
+
+
         }
 
         async Task IDirectoryAsync.LoadLeaves()
@@ -428,32 +418,17 @@ namespace DataWarehouse.Classes.Abstract.Async
                 return;
             }
             var t = LoadLeaves();
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                var lold = leaves;
-                if (lold != null)
-                {
-                   throw new OwnException();
-                }
-                if (t == null || t.Result == null)
-                {
-                    var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
-                    var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
-                    OnGetLeavesAct(iss);
-                    return;
-                }
-                var r = t.Result;
-                leaves = new List<ILeaf>();
-                GetLeaves = () => leaves;
-                var c = from d in r select d as ILeaf;
-                var cc = c.ToList();
-                var ct = from cit in cc select ChildrenName.Add(cit);
-                ct.ToArray();
-                var ss = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
-                var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
-                OnGetLeavesAct(issue);
-            });
             await t;
+            leaves = new List<ILeaf>();
+            var r = t.Result;
+            GetLeaves = () => leaves;
+            var c = from d in r select d as ILeaf;
+            var cc = c.ToList();
+            var ct = from cit in cc select ChildrenName.Add(cit);
+            ct.ToArray();
+            var ss = new UpdateData<List<ILeaf>, IDirectory>(leaves, cc, this);
+            var issue = new Issue(ss, ErrorType.None, OperationType.LoadLeaves);
+            OnGetLeavesAct(issue);
         }
 
         Task<bool> IDirectoryAsync.RemoveItselfAsync()
@@ -474,20 +449,18 @@ namespace DataWarehouse.Classes.Abstract.Async
             {
                 return name;
             }
-             var t = UpdateNameAsync(name);
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                var r = t.Result;
-                if (r == null)
-                {
-                    var ii = new Issue(s, ErrorType.Database, OperationType.UpdateDirectoryName);
-                    OnChangeItselfAct(ii);
-                }
-                this.name = r;
-                var iii = new Issue(s, ErrorType.None, OperationType.UpdateDirectoryName);
-                OnChangeItselfAct(iii);
-            });
+            var t = UpdateNameAsync(name);
             await t;
+            var r = t.Result;
+            if (r == null)
+            {
+                var ii = new Issue(s, ErrorType.Database, OperationType.UpdateDirectoryName);
+                OnChangeItselfAct(ii);
+            }
+            this.name = r;
+            var iii = new Issue(s, ErrorType.None, OperationType.UpdateDirectoryName);
+            OnChangeItselfAct(iii);
+
             return t.Result;
         }
 

@@ -1,19 +1,16 @@
-﻿using DataWarehouse.Classes;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
 using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsExtensions;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DataWarehouse
 {
@@ -47,7 +44,7 @@ namespace DataWarehouse
         static void Wrap(System.Windows.Forms.TreeView treeView)
         {
             var curs = treeView.Cursor;
-            treeView.Cursor = Cursors.WaitCursor;
+           // treeView.Cursor = Cursors.WaitCursor;
             treeView.Enabled = false;
             try
             {
@@ -56,20 +53,22 @@ namespace DataWarehouse
             {
                 ex.HandleException();
             }
-            treeView.Cursor = curs;
+            treeView.Cursor = Cursors.Default;
             treeView.Enabled = true;
 
         }
 
         public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice, bool leaves, Action<Issue> action)
         {
-            var curs = treeView.Cursor;
             treeView.Cursor = Cursors.WaitCursor;
             treeView.Enabled = false;
             try
             {
                 IDirectory[] dir = null;
-                var act = () => treeView.Fill(dir, recursice, leaves, action);
+                var act = () =>
+                {
+                    treeView.Fill(dir, recursice, leaves, action);
+                };
                 if (!data.SupportsAsync)
                 {
                     dir = data.GetRoots(new string[] { ext });
@@ -86,8 +85,13 @@ namespace DataWarehouse
             {
                 ex.HandleException();
             }
-            treeView.Cursor = curs;
-            treeView.Enabled = true;
+            var actf = () =>
+            {
+                treeView.Cursor = Cursors.Default;
+                treeView.Enabled = true;
+            };
+            treeView.InvokeIfNeeded(actf);
+            
 
         }
 
@@ -101,8 +105,9 @@ namespace DataWarehouse
                 foreach (IDirectory d in dir)
                 {
                     var nd = d.GetNode(recursice, leaves, action);
-                    await nd;
-                    treeView.Nodes.Add(nd.Result);
+                    treeView.Nodes.Add(nd);
+                    var t = d.FillNode(nd, recursice, leaves, action);
+                    await t;
                 }
                 foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
                 {
@@ -113,9 +118,12 @@ namespace DataWarehouse
             {
                 ex.HandleException();
             }
-            treeView.Cursor = curs;
-            treeView.Enabled = true;
-
+            var actf = () =>
+            {
+                treeView.Cursor = Cursors.Default;
+                treeView.Enabled = true;
+            };
+            treeView.InvokeIfNeeded(actf);
 
         }
 
@@ -146,8 +154,12 @@ namespace DataWarehouse
             {
                 ex.HandleException();
             }
-            treeView.Cursor = curs;
-            treeView.Enabled = true;
+            var actf = () =>
+            {
+                treeView.Cursor = Cursors.Default;
+                treeView.Enabled = true;
+            };
+            treeView.InvokeIfNeeded(actf);
 
 
             return;
@@ -222,11 +234,9 @@ namespace DataWarehouse
         }
 
 
-        static async Task<System.Windows.Forms.TreeNode> GetNode(this IDirectory dir, bool recursive , bool leaves, Action<Issue> action)
+        static TreeNode GetNode(this IDirectory dir, bool recursive, bool leaves, Action<Issue> action)
         {
             var node = dir.GetNodeSimple(recursive, leaves, action);
-            var t = dir.FillNode(node, recursive, leaves, action);
-            await t;
             return node;
         }
 
@@ -240,9 +250,13 @@ namespace DataWarehouse
             Dictionary<INode, TreeNode> nodes, Action<Issue> action)
         {
             TreeView treeView = null;
+            if (!nodes.Any())
+            {
+                return null;
+            }
             foreach (var node in nodes)
             {
-                treeView = node.Value;
+                treeView = node.Value.TreeView;
                 break;
             }
             if (treeView == null)
@@ -283,7 +297,7 @@ namespace DataWarehouse
             {
                 ex.HandleException();
             }
-            treeView.Cursor = curs;
+            treeView.Cursor = Cursors.Default;
             treeView.Enabled = true;
 
             return null;

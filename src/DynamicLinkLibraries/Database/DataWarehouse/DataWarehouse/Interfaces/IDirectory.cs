@@ -70,6 +70,5 @@ namespace DataWarehouse.Interfaces
         bool Post();
 
 
-
     }
 }

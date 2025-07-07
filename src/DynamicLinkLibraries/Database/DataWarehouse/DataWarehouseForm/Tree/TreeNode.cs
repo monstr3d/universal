@@ -348,7 +348,5 @@ namespace DataWarehouse.Forms.Tree
             if (Fail(obj)) return;
             Change(leaf as INamed);
         }
-
-
     }
 }

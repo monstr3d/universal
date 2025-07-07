@@ -76,22 +76,18 @@ namespace DataWarehouse.Classes.Abstract.Async
         {
             var t = RemoveItselfAsync();
             ILeaf  l = this;
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                if (t.Result)
-                {
-                    ChildrenName.Remove(this);
-                    Parent = null;
-                    var i = new Issue(this, ErrorType.None, OperationType.DeleteLeaf);
-                    OnDeleteItselfAct(i);
-                    return;
-                }
-                var ii = new Issue(this, ErrorType.Database, OperationType.DeleteLeaf);
-                OnDeleteItselfAct(ii);
-
-            });
-
             await t;
+            if (t.Result)
+            {
+                ChildrenName.Remove(this);
+                Parent = null;
+                var i = new Issue(this, ErrorType.None, OperationType.DeleteLeaf);
+                OnDeleteItselfAct(i);
+                return t.Result;
+            }
+            var ii = new Issue(this, ErrorType.Database, OperationType.DeleteLeaf);
+            OnDeleteItselfAct(ii);
+
 
             return t.Result;
         }
@@ -136,20 +132,17 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnChangeItselfAct(i);
             }
             var t = UpdateNameAsync(name);
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                var r = t.Result;
-                if (r == null)
-                {
-                    var ii = new Issue(s, ErrorType.Database, OperationType.UpdateLeafName);
-                    OnChangeItselfAct(ii);
-                }
-                this.name = r;
-                var iii = new Issue(s, ErrorType.None, OperationType.UpdateLeafName);
-                OnChangeItselfAct(iii);
-            });
             await t;
-            return t.Result;
+            var r = t.Result;
+            if (r == null)
+            {
+                var ii = new Issue(s, ErrorType.Database, OperationType.UpdateLeafName);
+                OnChangeItselfAct(ii);
+            }
+            this.name = r;
+            var iii = new Issue(s, ErrorType.None, OperationType.UpdateLeafName);
+            OnChangeItselfAct(iii);
+            return r;
 
         }
 
@@ -170,21 +163,19 @@ namespace DataWarehouse.Classes.Abstract.Async
         async Task<byte[]> ILeafAsync.UpdateDataAcync(byte[] data)
         {
             var t = UpdateDataAcync(data);
-            t.GetAwaiter().OnCompleted(() =>
+              await t;
+            var r = t.Result;
+            var s = new UpdateData<byte[], ILeaf>(data, r, this);
+            if (r == null)
             {
-                var r = t.Result;
-                var s = new UpdateData<byte[], ILeaf>(data, r, this);
-                if (r == null)
-                {
-                    var i = new Issue(s, ErrorType.Database, OperationType.UpdateLeafData);
-                    OnUpdateDataAct(i);
-                    return;
-                }
-                var ii = new Issue(s, ErrorType.None, OperationType.UpdateLeafData);
-                this.data = r;
-                OnUpdateDataAct(ii);
-            });
-            await t;
+                var i = new Issue(s, ErrorType.Database, OperationType.UpdateLeafData);
+                OnUpdateDataAct(i);
+                return t.Result;
+            }
+            var ii = new Issue(s, ErrorType.None, OperationType.UpdateLeafData);
+            this.data = r;
+            OnUpdateDataAct(ii);
+
             return t.Result;
 
         }
