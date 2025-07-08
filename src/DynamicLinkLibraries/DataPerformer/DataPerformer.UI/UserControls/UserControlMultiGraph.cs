@@ -233,7 +233,7 @@ namespace DataPerformer.UI.UserControls
             ActParent(ActionType.Stop, null);
         }
 
-        void PefrormFixed()
+        async Task PefrormFixed()
         {
             dictionary.Clear();
             foreach (IColorDictionary item in measurements)
@@ -264,16 +264,9 @@ namespace DataPerformer.UI.UserControls
                 arg = o.ToString();
             }
             pFixed = new Task<Dictionary<string, object>>(FixedWork);
-            pFixed.GetAwaiter().OnCompleted(FixedCompleted);
-            try
-            {
-                pFixed.Start();
-            }
-            catch (Exception ex) 
-            { 
-            
-            }
-
+            await pFixed;
+            FixedCompleted();
+  
         }
 
         #endregion

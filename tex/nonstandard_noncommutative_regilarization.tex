@@ -1,0 +1,2951 @@
+\documentclass[10]{article}
+%\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+\usepackage{graphicx}
+\usepackage[toc,page]{appendix}
+\usepackage{nicefrac}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amssymb, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{mathbbol}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{cd}
+
+\usepackage{siunitx}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true]{microtype}
+
+
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+
+\usepackage[sc]{mathpazo}
+\usepackage{environ}
+
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+
+%\usepackage[usenames]{color}
+
+
+
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+% the command for it is \mathpzc
+
+\textwidth=140mm
+
+
+% % % % % % % % % % % % % % % % % % % %
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{prdf}[prop]{Proposition and Definition}
+\newtheorem{lem}[prop]{Lemma}%[section]
+\newtheorem{cor}[prop]{Corollary}%[section]
+\newtheorem{thm}[prop]{Theorem}%[section]
+\newtheorem{theorem}[prop]{Theorem}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{proposition}[prop]{Proposition}
+\newtheorem{corollary}[prop]{Corollary}
+\newtheorem{statement}[prop]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}%[section]
+\newtheorem{cordefn}[prop]{Corollary and Definition}%[section]
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{exm}[prop]{Example}%[section]
+\newtheorem{rem}[prop]{Remark}%[section]
+\newtheorem{prob}[prop]{Problem}
+\newtheorem{conj}{Conjecture}       %% Hypothesis 1
+\newtheorem{cond}{Condition}        %% Condition 1
+%\newtheorem{axiom}[thm]{Axiom}           %% Axiom 1 modified
+\newtheorem{fact}[prop]{Fact}
+\newtheorem{ques}{Question}         %% Question 1
+\newtheorem{answ}{Answer}           %% Answer 1
+\newtheorem{notn}{Notation}        %% Notations are not numbered
+
+\theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
+\newtheorem{definition}[prop]{Definition}
+\newtheorem{example}[prop]{Example}
+\newtheorem{exercise}[prop]{Exercise}
+\newtheorem{conclusion}[prop]{Conclusion}
+\newtheorem{conjecture}[prop]{Conjecture}
+\newtheorem{criterion}[prop]{Criterion}
+\newtheorem{summary}[prop]{Summary}
+\newtheorem{axiom}[prop]{Axiom}
+\newtheorem{problem}[prop]{Problem}
+%\theoremstyle{remark}
+\newtheorem{remark}[prop]{Remark}
+
+\numberwithin{equation}{section}
+\newtheorem*{claim}{Claim}
+\DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
+\newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
+\newcommand{\trG}{{\rm tr}_G\;}
+\newcommand{\trF}{{\rm tr}_{\cal F}\;}
+\newcommand{\TR}{{\rm TR}\;}
+\newcommand{\res}{{\rm res}\;}
+
+
+\newcommand\ci{${\mathcal C}^{\infty}$}
+\newcommand\CI{{\mathcal C}^{\infty}}
+\newcommand\CIc{{\mathcal C}^{\infty}_{\text{c}}}
+
+%\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\rar}[1]{\stackrel{#1}{\longrightarrow}}
+\newcommand{\lar}[1]{\stackrel{#1}{\longleftarrow}}
+
+\newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\norm}[1]{\left\| #1\right\|}    %\nor{x}=||x||
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\Ga}{\Gamma}  
+\newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
+\newcommand{\Coo}{C^\infty}                  %% smooth functions
+\newcommand{\dom}{\mathrm{dom}}                  %% smooth functions
+\newcommand{\Cont}{C} 
+\newcommand{\cl}{\overline} 
+\newcommand{\Contc}{C_c} 
+\newcommand{\Contb}{C_b} 
+\newcommand{\Repi}{\mathrm{Rep}_{int}} 
+\newcommand{\Rep}{\mathrm{Rep}} 
+\newcommand{\hor}[0]{\mathrm{hor}}
+\newcommand{\comp}{\operatorname{comp}}
+\newcommand{\adb}{\operatorname{adb}}
+\newcommand{\dist}{\operatorname{dist}}
+
+
+% % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
+
+\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
+		{\copy\ncinttbox}{\copy\ncinttbox}%
+		{\copy\ncinttbox}}\nolimits}  %% NC integral
+
+%%% Repeated relations:
+\newcommand{\xyx}{\times\cdots\times}      %% repeated product
+\newcommand{\opyop}{\oplus\cdots\oplus}    %% repeated direct sum
+\newcommand{\oxyox}{\otimes\cdots\otimes}  %% repeated tensor product
+\newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
+\newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
+\newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+\newcommand\CC{\mathbb C}
+\newcommand\NN{\mathbb N}
+\newcommand\RR{\mathbb R}
+\newcommand\ZZ{\mathbb Z}
+\newcommand{\LGR}{\matcal L}
+\newcommand{\rep}{\mathfrak{rep}}
+\newcommand{\lift}{\mathfrak{lift}}
+\newcommand{\desc}{\mathfrak{desc}}
+\newcommand{\Cstar}{C^*}
+\newcommand{\Cst}{C^*}
+\newcommand{\Star}{*}
+\newcommand{\PS}[1]{\Psi^{#1}(\GR;E)}
+
+%%% Roman letters:
+\newcommand{\id}{\mathrm{id}}                %% identity map
+\newcommand{\Id}{\mathrm{Id}}                %% identity map
+\newcommand{\pt}{\mathrm{pt ???}}                %% a point
+\newcommand{\const}{\mathrm{const}}          %% a constant
+\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
+\renewcommand{\d}{\mathrm{d}}       %% commutative differential
+\newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
+\newcommand{\proj}{\mathrm{proj}}                %% a projection
+\newcommand*{\braket}[2]{\langle#1 {,~} #2\rangle}% right inner products
+\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left inner products
+
+\newcommand*{\Mult}{\mathcal M}% multiplier algebra
+\newcommand{\Lt}{\mathcal{L}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
+
+\newcommand{\A}{\mathcal{A}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
+\newcommand{\units}{G^{(0)}}
+\newcommand{\haars}{\{\lambda^{u}\}_{u\in\units}}
+\newcommand{\shaars}{\{\lambda_{u}\}_{u\in\units}}
+\newcommand{\haarsv}[2]{\{\lambda^{#2}_{#1}\}_{#2\in\unitsv{#1}}}
+\newcommand{\haarv}[2]{\lambda^{#2}_{#1}}
+
+\renewcommand{\a}{\alpha}                    %% short for  \alphapha
+\DeclareMathOperator{\ad}{ad}                %% infml adjoint repn
+\newcommand{\as}{\quad\mbox{as}\enspace}     %% `as' with spacing
+\newcommand{\Aun}{\widetilde{\mathcal{A}}}   %% unital algebra
+\newcommand{\B}{\mathcal{B}}                 %% space of distributions
+\newcommand{\E}{\mathcal{E}}                 %% space of distributions
+\renewcommand{\b}{\beta}                     %% short for \beta
+\newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
+%\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+\newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
+\DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
+\newcommand{\F}{\mathcal{F}}                 %% space of test functions
+\newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\GR}{\mathcal{G}}                 %% 
+\newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
+\renewcommand{\H}{\mathcal{H}}               %% Hilbert space
+\newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
+\newcommand{\hh}{\mathcal{H}}                %% Hilbert space
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+\newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
+\newcommand{\I}{\mathcal{I}}                 %% tracelike functions
+\DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
+\newcommand{\K}{\mathcal{K}}                 %% compact operators
+\newcommand{\ket}[1]{|#1\rangle}             %% ket vector
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|} %% rank one operator
+\renewcommand{\L}{\mathcal{L}}               %% operator algebra
+\newcommand{\La}{\Lambda}                    %% short for \Lambda
+\newcommand{\la}{\lambda}                    %% short for \lambda
+\newcommand{\lf}{L_f^\theta}                 %% left  mult operator
+\newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\Lb}{\mathcal{L}}                 %% Moyal multplr algebra
+\newcommand{\mm}{\mathcal{M}^\theta}
+%\newcommand{{{\star_{\theta}}}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
+			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
+			%            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
+	\newcommand{\N}{\mathbb{N}}                  %%  integers
+	\newcommand{\nb}{\nabla}                     %% gradient
+	\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
+	\newcommand{\om}{\omega}                     %% short for \omega
+	\newcommand{\opp}{{\mathrm{op}}}             %% opposite algebra
+	\newcommand{\ox}{\otimes}                    %% tensor product
+	\newcommand{\eps}{\varepsilon}                    %% tensor product
+	\newcommand{\otimesyox}{\otimes\cdots\otimes}    %% repeated tensor product
+	\newcommand{\pa}{\partial}                   %% short for \partial
+	\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
+	\newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
+	\newcommand{\PsiDO}{\Psi~\mathrm{DO}}         %% pseudodiffl operators
+	\newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
+	\newcommand{\R}{\mathbb{R}}                  %% real numbers
+	\newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
+	\newcommand{\roundbraket}[2]{(#1\mathbin|#2)} %% (w|z)
+	\newcommand{\row}[3]{{#1}_{#2},\dots,{#1}_{#3}} %% list: a_1,...,a_n
+	\newcommand{\sepword}[1]{\quad\mbox{#1}\quad} %% well-spaced words
+	\newcommand{\set}[1]{\{\,#1\,\}}             %% set notation
+	\newcommand{\Sf}{\mathbb{S}}                 %% sphere
+	\newcommand{\uhor}[1]{\Omega^1_{hor}#1}
+	\newcommand{\sco}[1]{{\sp{(#1)}}}
+	\newcommand{\sw}[1]{{\sb{(#1)}}}
+	\DeclareMathOperator{\spec}{sp}              %% spectrum
+	\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
+	\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
+	\DeclareMathOperator{\supp}{\mathfrak{supp}}            %% support
+	\newcommand{\T}{\mathbb{T}}                  %% circle as a group
+	\renewcommand{\th}{\theta}                   %% short for \theta
+	\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
+	\newcommand{\tihalf}{\tfrac{i}{2}}           %% small* fraction i/2
+	\newcommand{\tpi}{{\tilde\pi}}               %% extended representation
+	\DeclareMathOperator{\Tr}{Tr}                %% trace of operator
+	\DeclareMathOperator{\tr}{tr}                %% trace of matrix
+	\newcommand{\del}{\partial}                  %% short for  \partial
+	\DeclareMathOperator{\tsum}{{\textstyle\sum}} %% small sum in display
+	\newcommand{\V}{\mathcal{V}}                 %% test function space
+	\newcommand{\vac}{\ket{0}}                   %% vacuum ket vector
+	\newcommand{\vf}{\varphi}                    %% scalar field
+	\newcommand{\w}{\wedge}                      %% exterior product
+	\DeclareMathOperator{\wres}{wres}            %% density of Wresidue
+	\newcommand{\x}{\times}                      %% cross
+	\newcommand{\Z}{\mathbb{Z}}                  %% integers
+	\newcommand{\7}{\dagger}                     %% short for + symbol
+	\newcommand{\8}{\bullet}                     %% anonymous degree
+	\renewcommand{\.}{\cdot}                     %% anonymous variable
+	\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
+	
+	%\newcommand{\sA}{\mathscr{A}}       %%
+	\newcommand{\sA}{\mathcal{A}} 
+	\newcommand{\sB}{\mathcal{B}}       %%
+	\newcommand{\sC}{\mathcal{C}}       %%
+	\newcommand{\sD}{\mathcal{D}}       %%
+	\newcommand{\sE}{\mathcal{E}}       %%
+	\newcommand{\sF}{\mathcal{F}}       %%
+	\newcommand{\sG}{\mathcal{G}}       %%
+	\newcommand{\sH}{\mathcal{H}}       %%
+	\newcommand{\sI}{\mathcal{I}}       %%
+	\newcommand{\sJ}{\mathcal{J}}       %%
+	\newcommand{\sK}{\mathcal{K}}       %%
+	\newcommand{\sL}{\mathcal{L}}       %%
+	\newcommand{\sM}{\mathcal{M}}       %%
+	\newcommand{\sN}{\mathcal{N}}       %%
+	\newcommand{\sO}{\mathcal{O}}       %%
+	\newcommand{\sP}{\mathcal{P}}       %%
+	\newcommand{\sQ}{\mathcal{Q}}       %%
+	\newcommand{\sR}{\mathcal{R}}       %%
+	\newcommand{\sS}{\mathcal{S}}       %%
+	\newcommand{\sT}{\mathcal{T}}       %%
+	\newcommand{\sU}{\mathcal{U}}       %%
+	\newcommand{\sV}{\mathcal{V}}       %%
+	\newcommand{\sX}{\mathcal{X}}       %%
+	\newcommand{\sY}{\mathcal{Y}}       %%
+	\newcommand{\sZ}{\mathcal{Z}}       %%
+	
+	\newcommand{\Om}{\Omega}       %%
+	
+	
+	\DeclareMathOperator{\ptr}{ptr}     %% Poisson trace
+	\DeclareMathOperator{\Trw}{Tr_\omega} %% Dixmier trace
+	\DeclareMathOperator{\vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Area}{Area}   %% area of a surface
+	\DeclareMathOperator{\Wres}{Wres}   %% (Wodzicki) residue
+	
+	\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
+	\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
+	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
+	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
+	
+	\newcommand\VD{{\mathcal D}}
+	\newcommand{\bA}{\mathbb{A}}       %%
+	\newcommand{\bB}{\mathbb{B}}       %%
+	\newcommand{\bC}{\mathbb{C}}       %%
+	\newcommand{\bCP}{\mathbb{C}P}     %%
+	\newcommand{\bD}{\mathbb{D}}       %%
+	\newcommand{\bE}{\mathbb{E}}       %%
+	\newcommand{\bF}{\mathbb{F}}       %%
+	\newcommand{\bG}{\mathbb{G}}       %%
+	\newcommand{\bH}{\mathbb{H}}       %%
+	\newcommand{\bHP}{\mathbb{H}P}     %%
+	\newcommand{\bI}{\mathbb{I}}       %%
+	\newcommand{\bJ}{\mathbb{J}}       %%
+	\newcommand{\bK}{\mathbb{K}}       %%
+	\newcommand{\bL}{\mathbb{L}}       %%
+	\newcommand{\bM}{\mathbb{M}}       %%
+	\newcommand{\bN}{\mathbb{N}}       %%
+	\newcommand{\bO}{\mathbb{O}}       %%
+	\newcommand{\bOP}{\mathbb{O}P}     %%
+	\newcommand{\bP}{\mathbb{P}}       %%
+	\newcommand{\bQ}{\mathbb{Q}}       %%
+	\newcommand{\bR}{\mathbb{R}}       %%
+	\newcommand{\bRP}{\mathbb{R}P}     %%
+	\newcommand{\bS}{\mathbb{S}}       %%
+	\newcommand{\bT}{\mathbb{T}}       %%
+	\newcommand{\bU}{\mathbb{U}}       %%
+	\newcommand{\bV}{\mathbb{V}}       %%
+	\newcommand{\bX}{\mathbb{X}}       %%
+	\newcommand{\bY}{\mathbb{Y}}       %%
+	\newcommand{\bZ}{\mathbb{Z}}       %%
+	
+	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+	\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}   
+	
+	
+	
+	\newcommand{\al}{\alpha}          %% short for  \alpha
+	\newcommand{\bt}{\beta}           %% short for  \beta
+	\newcommand{\Dl}{\Delta}          %% short for  \Delta
+	\newcommand{\dl}{\delta}          %% short for  \delta
+	\newcommand{\ga}{\gamma}          %% short for  \gamma
+	\newcommand{\ka}{\kappa}          %% short for  \kappa
+	\newcommand{\sg}{\sigma}          %% short for  \sigma
+	\newcommand{\Sg}{\Sigma}          %% short for  \Sigma
+	\newcommand{\Th}{\Theta}          %% short for  \Theta
+	\renewcommand{\th}{\theta}        %% short for  \theta
+	\newcommand{\vth}{\vartheta}      %% short for  \vartheta
+	\newcommand{\ze}{\zeta}           %% short for  \zeta
+	
+	\DeclareMathOperator{\ord}{ord}     %% order of a PsiDO
+	\DeclareMathOperator{\rank}{rank}   %% rank of a vector bundle
+	\DeclareMathOperator{\sign}{sign}   %%
+	\DeclareMathOperator{\sgn}{sgn}   %%
+	\DeclareMathOperator{\chr}{char}   %%
+	\DeclareMathOperator{\ev}{ev}       %% evaluation
+	
+	\newcommand{\Op}{\mathbf{Op}}
+	\newcommand{\As}{\mathbf{As}}
+	\newcommand{\Com}{\mathbf{Com}}
+	\newcommand{\LLie}{\mathbf{Lie}}
+	\newcommand{\Leib}{\mathbf{Leib}}
+	\newcommand{\Zinb}{\mathbf{Zinb}}
+	\newcommand{\Poiss}{\mathbf{Poiss}}
+	
+	\newcommand{\gX}{\mathfrak{X}}      %% vector fields
+	\newcommand{\sol}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gm}{\mathfrak{m}}      %% maximal ideal
+	
+	
+	\DeclareMathOperator{\Res}{Res}
+	\DeclareMathOperator{\NCRes}{NCRes}
+	\DeclareMathOperator{\Ind}{Ind}
+	%% co/homology theories
+	\DeclareMathOperator{\rH}{H}        %% any co/homology
+	\DeclareMathOperator{\rC}{C}        %%  any co/chains
+	\DeclareMathOperator{\rZ}{Z}        %% cycles
+	\DeclareMathOperator{\rB}{B}        %% boundaries
+	\DeclareMathOperator{\rF}{F}        %% filtration
+	\DeclareMathOperator{\Gr}{gr}        %% associated graded object
+	\DeclareMathOperator{\rHc}{H_{\mathrm{c}}}   %% co/homology with compact support
+	\DeclareMathOperator{\drH}{H_{\mathrm{dR}}}  %% de Rham co/homology
+	\DeclareMathOperator{\cechH}{\check{H}}    %% Cech co/homology
+	\DeclareMathOperator{\rK}{K}        %% K-groups
+	\DeclareMathOperator{\rKO}{KO}        %% real K-groups
+	\DeclareMathOperator{\rKU}{KU}        %% unitary K-groups
+	\DeclareMathOperator{\rKSp}{KSp}        %% symplectic K-groups
+	\DeclareMathOperator{\rR}{R}        %% representation ring
+	\DeclareMathOperator{\rI}{I}        %% augmentation ideal
+	\DeclareMathOperator{\HH}{HH}       %% Hochschild co/homology
+	\DeclareMathOperator{\HC}{HC}       %% cyclic co/homology
+	\DeclareMathOperator{\HP}{HP}       %% periodic cyclic co/homology
+	\DeclareMathOperator{\HN}{HN}       %% negative cyclic co/homology
+	\DeclareMathOperator{\HL}{HL}       %% Leibniz co/homology
+	\DeclareMathOperator{\KK}{KK}       %% KK-theory
+	\DeclareMathOperator{\KKK}{\mathbf{KK}}       %% KK-theory as a category
+	\DeclareMathOperator{\Ell}{Ell}       %% Abstract elliptic operators
+	\DeclareMathOperator{\cd}{cd}       %% cohomological dimension
+	\DeclareMathOperator{\spn}{span}       %% span
+	\DeclareMathOperator{\linspan}{span} %% linear span (can't use \span)
+	\newcommand{\blank}{-}   
+	
+	
+	
+	\newcommand{\twobytwo}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+	\newcommand{\CGq}[6]{C_q\!\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+	%% q-Clebsch--Gordan coefficients
+	\newcommand{\cz}{{\bullet}}         %% anonymous degree
+	\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
+	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
+	\newcommand{\downto}{\downarrow}    %% right hand limit
+	\newcommand{\isom}{\cong}          %% isomorphism
+	\newcommand{\lt}{\triangleright}    %% a left  action
+	\newcommand{\otto}{\leftrightarrow} %% bijection
+	\newcommand{\rt}{\triangleleft}     %% a right action
+	\newcommand{\semi}{\rtimes}         %% crossed product
+	\newcommand{\tensor}{\otimes}       %% tensor product
+	\newcommand{\cotensor}{\square}       %% cotensor product
+	\newcommand{\trans}{\pitchfork}     %% transverse
+	\newcommand{\ul}{\underline}        %% for sheaves
+	\newcommand{\upto}{\uparrow}        %% left  hand limit
+	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+	\newcommand{\blt}{\ast}
+	\newcommand{\Co}{C_{\bullet}}
+	\newcommand{\cCo}{C^{\bullet}}
+	\newcommand{\nbs}{\nabla^S}         %% spin connection
+	\newcommand{\up}{{\mathord{\uparrow}}} %% `up' spinors
+	\newcommand{\dn}{{\mathord{\downarrow}}} %% `down' spinors
+	\newcommand{\updn}{{\mathord{\updownarrow}}} %% up or down
+	
+	%%% Bilinear enclosures:
+	
+	\newcommand{\bbraket}[2]{\langle\!\langle#1\stroke#2\rangle\!\rangle}
+	%% <<w|z>>
+	\newcommand{\bracket}[2]{\langle#1,\, #2\rangle} %% <w,z>
+	\newcommand{\scalar}[2]{\langle#1,\,#2\rangle} %% <w,z>
+	\newcommand{\poiss}[2]{\{#1,\,#2\}} %% {w,z}
+	\newcommand{\dst}[2]{\langle#1,#2\rangle} %% distributions <u,\phi>
+	\newcommand{\pairing}[2]{(#1\stroke #2)} %% right-linear pairing
+	\def\<#1|#2>{\langle#1\stroke#2\rangle} %% \braket (Dirac notation)
+	\def\?#1|#2?{\{#1\stroke#2\}}        %% left-linear pairing
+	
+	%%% Accent-like macros:
+	
+	\renewcommand{\Bar}[1]{\overline{#1}} %% closure operator
+	\renewcommand{\Hat}[1]{\widehat{#1}}  %% short for \widehat
+	\renewcommand{\Tilde}[1]{\widetilde{#1}} %% short for \widetilde
+	
+	
+	\DeclareMathOperator{\bCl}{\bC l}   %% complex Clifford algebra
+	
+	%%% Small fractions in displays:
+	
+	\newcommand{\ihalf}{\tfrac{i}{2}}   %% small fraction  i/2
+	\newcommand{\quarter}{\tfrac{1}{4}} %% small fraction  1/4
+	\newcommand{\shalf}{{\scriptstyle\frac{1}{2}}}  %% tiny fraction  1/2
+	\newcommand{\third}{\tfrac{1}{3}}   %% small fraction  1/3
+	\newcommand{\ssesq}{{\scriptstyle\frac{3}{2}}} %% tiny fraction  3/2
+	\newcommand{\sesq}{{\mathchoice{\tsesq}{\tsesq}{\ssesq}{\ssesq}}} %% 3/2
+	\newcommand{\tsesq}{\tfrac{3}{2}}   %% small fraction  3/2
+	
+	
+	%\newcommand\eqdef{\over set{\mathclap{\normalfont\mbox{def}}}{=}}
+	\newcommand\eqdef{\over set{\mathrm{def}}{=}}
+	
+	
+	%+++++++++++++++++++++++++++++++++++
+	
+	\newcommand{\word}[1]{\quad\text{#1}\enspace} %% well-spaced words
+	\newcommand{\words}[1]{\quad\text{#1}\quad} %% better-spaced words
+	\newcommand{\su}[1]{{\sp{[#1]}}}
+	
+	\def\<#1,#2>{\langle#1,#2\rangle}            %% bilinear pairing
+	\def\ee_#1{e_{{\scriptscriptstyle#1}}}       %% basis projector
+	\def\wick:#1:{\mathopen:#1\mathclose:}       %% Wick-ordered operator
+	
+	\newcommand{\opname}[1]{\mathop{\mathrm{#1}}\nolimits}
+	
+	\newcommand{\hideqed}{\renewcommand{\qed}{}} %% to suppress `\qed'
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% 2. Some internal machinery
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+	\setbox0=\hbox{$-$}
+	\setbox2=\hbox{$\displaystyle\int$}
+	\setbox\ncintdbox=\hbox{\rlap{\hbox
+			to \wd2{\box2\relax\hfil}}\box0\kern.1em}
+	\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+	\setbox2=\hbox{$\textstyle\int$}
+	\setbox\ncinttbox=\hbox{\rlap{\hbox
+			to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
+	
+	\newcommand{\disp}{\displaystyle} %% short for  \displaystyle
+	
+	%\newcommand{\hideqed}{\renewcommand{\qed}{}} %% no `\qed' at end-proof
+	
+	\newcommand{\stroke}{\mathbin|}   %% (for `\bbraket' and such)
+	\newcommand{\tribar}{|\mkern-2mu|\mkern-2mu|} %% norm bars: |||
+	
+	%%% Enclose one argument with delimiters:
+	
+	\newcommand{\bra}[1]{\langle{#1}\rvert} %% bra vector <w|
+	\newcommand{\kett}[1]{\lvert#1\rangle\!\rangle} %% ket 2-vector |y>>
+	\newcommand{\snorm}[1]{\mathopen{\tribar}{#1}%
+		\mathclose{\tribar}}                 %% norm |||x|||
+	
+	
+	\newcommand{\End}{\mathrm{End}}       %%
+	\newcommand{\Endo}{\mathrm{End}}       %%
+	\newcommand{\Ext}{\mathrm{Ext}}       %%
+	\newcommand{\Hom}{\mathrm{Hom}}       %%
+	\newcommand{\Mrt}{\mathrm{Mrt}}       %%
+	\newcommand{\grad}{\mathrm{grad}}       %%
+	\newcommand{\Spin}{\mathrm{Spin}}       %%
+	\newcommand{\Ad}{\mathrm{Ad}}       %%
+	\newcommand{\Pic}{\mathrm{Pic}}       %%
+	\newcommand{\Aut}{\mathrm{Aut}}       %%
+	\newcommand{\Inn}{\mathrm{Inn}}       %%
+	\newcommand{\Out}{\mathrm{Out}}       %%
+	\newcommand{\Homeo}{\mathrm{Homeo}}       %%
+	\newcommand{\Diff}{\mathrm{Diff}}       %%
+	\newcommand{\im}{\mathrm{im}}       %%
+	
+	
+	\newcommand{\SO}{\mathrm{SO}}       %%
+	\newcommand{\SU}{SU}       %%
+	\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gero}{\mathfrak{o}}    %% orthogonal Lie algebra
+	\newcommand{\gspin}{\mathfrak{spin}} %% spin Lie algebra
+	\newcommand{\gu}{\mathfrak{u}}      %% unitary Lie algebra
+	\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
+	\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
+	\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+	
+	%\newcommand{\bes}{\begin{equation}\begin{split}}
+			%\newcommand{\ees}{\end{split}\end{equation}}
+	%\NewEnviron{split.enviro}{%
+		%	\begin{equation}\begin{split}
+				%	\BODY
+				%	\end{split}\end{equation}
+		%$}
+	\newenvironment{splitequation}{\begin{equation}\begin{split}}{\end{split}\end{equation}}
+	
+	%Begin equation split: Begin equation split = bes
+	\newcommand{\bs}{\begin{split}}
+		\newcommand{\es}{\end{split}}
+	\newcommand{\be}{\begin{equation}}
+		\renewcommand{\ee}{\end{equation}}
+	\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+		\newcommand{\eean}{\end{eqnarray*}}
+	\newcommand{\brray}{\begin{array}}
+		\newcommand{\erray}{\end{array}}
+	\newenvironment{equations}
+	{\begin{equation}
+			\begin{split}}
+			{\end{split}
+	\end{equation}}
+	\newcommand{\Hsquare}{%
+		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
+	}
+	\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+		decorations.pathreplacing,decorations.pathmorphing,shapes,%
+		matrix,shapes.symbols}
+	
+	\usetikzlibrary{trees,positioning,shapes,shadows,arrows}
+	
+	
+	\tikzset{
+		basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily,     rectangle},
+		root/.style   = {basic, rounded corners=2pt, thin, align=center,
+			fill=green!30},
+		level 2/.style = {basic, rounded corners=6pt, thin,align=center,     fill=green!60,
+			text width=8em},
+		level 3/.style = {basic, thin, align=left, fill=pink!60, text width=6.5em}
+	}
+	
+	
+	\title{Nonstandard Noncommutative Regularization}
+	
+	\author
+	{\textbf{Petr R. Ivankov*}\\
+		e-mail: * monster.ivankov@gmail.com \\
+	}
+	
+
+	\begin{document}
+		
+		\maketitle  %\setlength{\parindent}{0pt}
+		\pagestyle{plain}
+		
+		\begin{abstract}
+The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a $C^*$-Hilbert $C^*$-module. So the notion of Hilbert $C^*$-module is a generalization of Hilbert space one. Here a generalization of rigged Hilbert spaces also named Gelfand triples is discussed. This generalization yields a unified framework to different branches of present day mathematics. We consider applications to it to the  theory of spectral triples, $O*$-algebras, quasi $*$-algebras, and integrable representations.
+	\end{abstract}
+		\section{Introduction}\label{foliations_sec}
+	\section{Rigged Hilbert modules}
+\begin{definition}\label{rigged_defn}
+	Let $A$ be a $C^*$-algebra and let $\E$ be a $C^*$-Hilbert $A$-module.  A \textit{rigged} $C^*$-\textit{Hilbert} $A$-\textit{module} is a tripe
+	$\left(  \mathfrak{E} , \A, \mathfrak{E}^\times \right)$ of dense  subspace $\mathfrak{E} \subset \E$, dense $*$-subalgebra $\A \subset A$ 
+	such that 
+	\begin{enumerate}
+		\item [(a)] $\A\mathfrak{E}\subset \mathfrak{E}$.
+		\item[(b)] $\forall a \in A\setminus \A \quad \exists \xi \in \mathfrak{E}\quad a \xi \notin \mathfrak{E}$,
+		\item[(c)] $\mathfrak{E}^\times$ is a space of all $\A$-linear maps from $\mathfrak{E}$ to $\A$ so there is  pairing
+		$$
+		\left\langle\cdot, \cdot  \right\rangle : \mathfrak{E}^\times \times \mathfrak{E} \to \A.
+		$$
+	\end{enumerate}
+
+\end{definition}
+\begin{remark}
+The definition \ref{rigged_defn} differs from the given by !!!
+%journal of functional analysis 136, 365421 (1996) article no. 0034 A Generalization of Hilbert Modules David P. Blecher*Department of Mathematics, University of Houston,Houston, Texas 77204-3476Received May 12, 1994; revised March 23, 1995	
+\end{remark}
+
+\begin{definition}\label{integr_defn}
+ A {rigged} $C^*$-{Hilbert} $A$-{module} 	$\left(  \mathfrak{E} , \A, \mathfrak{E}^\times \right)$ is \textit{integrable} if $\A = A$. 
+\end{definition}
+\begin{remark}
+	If  A {rigged} $C^*$-{Hilbert} $A$-{module} 	$\left(  \mathfrak{E} , \A, \mathfrak{E}^\times \right)$ is {integrable} then one has
+\be 
+\mathfrak{E}\subset \E \subset  \mathfrak{E}^\times
+\ee
+\end{remark}
+\begin{remark}
+The Definition \ref{integr_defn} is motivated by the article.
+\end{remark}	
+	
+\begin{appendices}
+	\section{Rigged Hilbert spaces}
+\subsection{Introduction}\label{rhs_intro_sec}
+\paragraph{} Here I follow to \cite{rhs}
+Loosely speaking, a {\it rigged Hilbert} space (also called a {\it Gelfand triplet}) is
+a triad of spaces
+\begin{equation}
+	{\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}
+	\label{RHStIntro}
+\end{equation}
+such that $\cal H$ is a Hilbert space, $\mathbf \Phi$ is a dense
+subspace of $\cal H$~\cite{DENSE}, and $\mathbf \Phi ^{\times}$ is the space of
+antilinear functionals over $\mathbf \Phi$~\cite{FUNCTIONAL}. Mathematically,
+$\mathbf \Phi$ is the space of test functions, and $\mathbf \Phi ^{\times}$
+is the space of distributions. The space $\mathbf \Phi ^{\times}$ is called
+the antidual space of $\mathbf \Phi$. Associated with the 
+RHS~(\ref{RHStIntro}), there is always another RHS,
+\begin{equation}
+	{\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\prime} \, ,
+	\label{RHSpIntro}
+\end{equation}
+where ${\mathbf \Phi}^{\prime}$ is called the dual space of ${\mathbf \Phi}$
+and contains the linear functionals over $\mathbf \Phi$~\cite{FUNCTIONAL}. 
+
+The basic reason why we need the spaces ${\mathbf \Phi}^{\prime}$ and
+${\mathbf \Phi}^{\times}$ is that the bras and kets associated with the 
+elements in the continuous spectrum of an observable belong, respectively, to 
+${\mathbf \Phi}^{\prime}$ and ${\mathbf \Phi}^{\times}$ rather than to
+${\cal H}$. The basic reason reason why we need the space $\mathbf \Phi$ is 
+that unbounded operators are not defined on the whole of ${\cal H}$ but only
+on dense subdomains of ${\cal H}$ that are not invariant under the
+action of the observables. Such non-invariance makes expectation values,
+uncertainties and commutation relations not well defined on the whole
+of $\cal H$. The space $\mathbf \Phi$ is the largest subspace of the Hilbert 
+space on which such expectation values, uncertainties and commutation 
+relations are well defined.
+
+	\section{Locally convex quasi *-algebras and their representations}
+
+\paragraph*{}
+Here I follow to \cite{quasi_star}.
+
+\begin{definition}
+	%	Definition 2.1.2 
+	A \textit{partial $*$-algebra} is a complex vector space $\mathfrak{A}$, endowed with	an involution $a\mapsto a^*$(that is, a bijection, such that $a^{**}=a$, for all $a\in\mathfrak{A}$) and
+	a partial multiplication defined by a set $\Ga\subset \mathfrak{A} \times \mathfrak{A}$ (a binary relation), with the	following properties
+	\begin{enumerate}
+		\item [(a)]	$\left(a,b\right)\in\Ga$ implies $\left(b^*,a^*\right)\in\Ga$;
+		\item[(b)] $\left(a,b_1\right),\left(a,b_2\right)\in\Ga$ implies $\left(a,\la b_1 +  \mu bb_2\right)\in\Ga\forall \la,\mu\in\C$;
+		\item[(c)] for any $\left(a,b\right)\in\Ga$ , a product $a \cdot b \in \mathfrak{A}$ is defined, which is distributive with 		respect to the addition and satisfies the relation $\left( a^* \cdot b^*\right) = b^*a^*$
+	\end{enumerate}
+	We shall assume that the partial $*$-algebra $\mathfrak{A}$ contains a unit $e$, if
+	$$
+	e= e^*, \left( e, a\right) \in \Ga, \forall a\in \mathfrak{A}  \quad \text{and} \quad e \cdot a = a \cdot e = a,\quad  \forall a \in  \mathfrak{A}.
+	$$
+	If $\mathfrak{A}$ has no unit, it may always be embedded into a larger partial $*$-algebra with unit
+	(the so-called unitization of $\mathfrak{A}$), in the standard fashion (cf. \cite{antoine:part_s}).
+\end{definition}
+
+
+\begin{definition}\label{qousi_star_defn}\label{quasi_defn}
+	%	Definition 2.1.1 
+	A \textit{quasi $*$-algebra} $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ is a pair consisting of a vector space $\mathfrak{A}$
+	and a $*$-algebra $\mathfrak{A}_0$ contained in $\mathfrak{A}$ as a subspace, such that
+	\begin{itemize}
+		\item [(a)] $\mathfrak{A}$ carries an involution $a\mapsto a^*$
+		extending the involution of $\mathfrak{A}_0$;
+		\item [(b)] $\mathfrak{A}$ is a bimodule over $\mathfrak{A}$ and the module multiplications extend the multiplication
+		of $\mathfrak{A}_0$; In particular, the following associative laws hold:
+		\be\label{guasi_ass_eqn}
+		(xa)y = x(ay);\quad  a(xy) = (ax)y, \quad a \in \mathfrak{A},\quad x,y \in \mathfrak{A}_0; %(2.1.1)
+		\ee
+		\item [(c)]
+		$\left(ax\right)^*=x^*a^*$, for every $a \in \mathfrak{A}$ and $x\in \mathfrak{A}_0$.
+	\end{itemize}
+	We say that a quasi $*$-algebra $\left(\mathfrak{A}, \mathfrak{A}_0\right)$  is \textit{unital}, if there is an element $e \in \mathfrak{A}_0$,
+	such that $ae = a = ea$, for all $a \in \mathfrak{A}$; $e$ is unique and called unit of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$.
+	We say that $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ has a \textit{quasi-unit} if there exists an element $q \in \mathfrak{A}$, such that
+	$qx = xq = x$, for every $x \in \mathfrak{A}_0$. It is clear that the unit $e$, if any, is a quasi-unit but
+	the converse is false, in general.
+\end{definition}
+
+\begin{remark}
+	If $\mathfrak{A}$ has no unit, it may always be embedded into a larger partial $*$-algebra with unit
+	(the so-called unitization of $\mathfrak{A}$), in the standard fashion \cite{antoine:part_s}.
+\end{remark}
+
+\begin{definition}\label{qousi_star_tau_defn}\cite{quasi_star}
+	%Definition 2.2. 
+	Let  $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi $*$-algebra and $\tau$  a locally convex topology on A. We say that $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ is a locally
+	convex quasi $*$-algebra if
+	\begin{enumerate}
+		\item [(a)]  the map $a\in \mathfrak{A} \mapsto a^*\in\mathfrak{A}$ is continuous;
+		\item[(b)] for every $x\in \mathfrak{A}_0$, the maps $a \mapsto ax$, $a\mapsto xa$ are continuous in $\mathfrak{A}\left[\tau\right]$;\\
+		(c) $\mathfrak{A}_0$ is $\tau$-dense in $\mathfrak{A}$.
+	\end{enumerate}
+	
+\end{definition}
+\begin{definition}\label{quasi_hom_defn}
+	%Definition 2.2.3 
+	Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi $*$-algebra and $\mathfrak{B}$ a partial $*$-algebra (cf. \cite{quasi_star}). A
+	linear map 
+	from $\mathfrak{A}$ into $\mathfrak{B}$ is called a homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into $\mathfrak{A}$ if,
+	for $a \in\mathfrak{A}$ and $x\in\mathfrak{A}_0$ 
+	$\Phi\left(a \right) \Phi\left( x\right)$ and 
+	$\Phi\left( x\right) \Phi\left(a \right)$ are well defined in $\mathfrak{B}$ and $\Phi\left( a\right) \Phi\left( x\right)= 
+	\Phi(ax)$, 
+	$\Phi\left(x \right) \Phi\left(a \right)= 
+	\Phi(xa)$, respectively. The homomorphism is called a $*$-\textit{homomorphism} if 
+	$\Phi\left(a^*\right)
+	) = \Phi\left(a\right)^*$, for every $a\in\mathfrak{A}$.
+\end{definition}
+
+\subsection{Partial $O^*$-algebras}
+\paragraph*{}
+Here I follow to \cite{antoine:part_o}. Define partial $*$-algebras of closable operators in Hilbert spaces. Let $\H$ be a Hilbert space with inner product $\left(\cdot, \cdot\right)_\H$ and $\D$ a dense subspace of $\H$. We denote by $\L\left(\D, \H \right)$ the set of all closable linear 
+operators $X$ in $\H$ such that $\D\left(X \right)  =\D$ and put
+\be\label{l_dag_eqn}
+\begin{split}
+	\L\left( \D\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|X\D\subset \D \right\},\\
+	\L^\dagger\left( \D, \H\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|\D\left(X^* \right)\supset \D \right\},\\
+	\L^\dagger\left( \D\right) \bydef\left\{\left.X\in \L^\dagger\left(\D, \H \right)\cap \L\left( \D\right) \right|X^*\D\subset \D \right\}.
+\end{split}
+\ee
+Then $\L^\dagger\left( \D, \H\right)$ is a vector space 
+with the usual operations: $X + Y$, $\la X$, and $\L\left(\D \right)$ is a subspace of $\L^\dagger\left( \D, \H\right)$ and 
+an algebra with the usual 
+multiplication $XY$
+For $\L^\dagger\left(\D, \H \right)$ 
+and $\L^\dagger\left(\D\right)$, we 
+have 
+the following
+\begin{proposition}\cite{antoine:part_o}
+	$\L^\dagger\left(\D, \H \right)$ is a partial $*$-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\Hsquare Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left  multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a $*$-algebra 
+	with the usual multiplication $XY$ (which here coincides with the weak multiplication $\Hsquare$) and the involution $X \mapsto X^\dagger$.
+\end{proposition} 
+\begin{remark}\label{o*b_rem}
+	If 
+	\be
+	\begin{split}\label{o*b_eqn}
+		\L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\},\\
+		\L^\dagger\left( \D\right)_b\bydef \L^\dagger\left( \D, \H\right)_b\cap \L^\dagger\left(\D \right) 
+	\end{split}
+	\ee
+	then the  inclusion $\L^\dagger\left( \D, \H\right)_b\subset B\left(\H \right)$ induces a norm  on $\L^\dagger\left( \D, \H\right)_b$ which is a $C^*$-norm on $\L^\dagger\left( \D\right)_b$.
+\end{remark}
+
+\begin{definition}\label{o*alg_defn}\cite{antoine:part_o}
+	A subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
+	called an $O$-\textit{family} ($O$-\textit{vector space}) 
+	on $\D$, and a subalgebra of $\L\left( \D\right)$
+	is called an $O$-\textit{algebra} on $\D$. A $\dagger$-
+	invariant subset (subspace) of subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
+	called an $O^*$-\textit{family} ($O^*$-\textit{vector space}) 
+	on $\D$. A partial $*$-subalgebra of $\L^\dagger\left( \D, \H\right)$ is called a \textit{partial} $O^*$-\textit{algebra} on $\D$, and a 
+	$*$-subalgebra of  $\L^\dagger\left( \D\right)$ is 
+	called an $O^*$-\textit{algebra} on $\D$. 
+\end{definition}
+\begin{remark}\label{*_bound_rem}
+	If $A$ is a  $O^*$-\textit{algebra} on $\D$, i.e, 
+	$A \subset \L^\dagger\left( \D\right)$ then the subalgebra
+	\be\label{*_bound_eqn}
+	A_b \bydef A\cap \L^\dagger\left( \D\right)_b
+	\ee
+	and $C^*$-norm on 	it depend on multiplication and $*$-operation on $A$. The $*$-algebra	$A_b$
+	and $C^*$-norm on 	it do not depend in the inclusion $A \subset \L^\dagger\left( \D\right)$
+\end{remark}
+
+
+\subsection{Quasi $*$-algebras and partial $*$-algebras of operators}
+\paragraph{}
+Let $\D$ be a dense subspace of a Hilbert space $\H$.
+We denote by $\L^\dagger\left( \D, \H\right)$  the set of all (closable) linear operators $X$ in $\H$, such that $D\left( X\right) = \D$, $D\left( X^*\right)\supseteqq \D$ where $D\left( X\right)$ denotes the domain of $X$. The set $\L^\dagger\left( \D, \H\right)$ is a partial $*$-algebra with respect to the following operations:
+the usual sum $X_1 + X_2$, the scalar multiplication $\la X$, the involution $X \mapsto X^\dagger\bydef X^*\D$ and the (weak) partial multiplication $X1\square X_2\bydef X_1^{\dagger *}
+X_2$ (where $X_1^{\dagger *}\bydef  \left( X_1^{\dagger}\right)^*$). The latter is defined whenever $X_2$ is a \textit{weak right multiplier} of  $X_2$ (for this, we shall write $X_2\in R^w\left( X_1\right) $ or  $X_1\in L^w\left( X_1\right) $, that is, if and only if, $X_2\D\subset D\left(X_1^{\dagger *}\right)$ and $X_1^\dagger\D\in D\left(X_2^* \right)$. The operator $1_\D$, restriction to $\D$ of the identity
+operator $1_\H$ on $\H$, is the unit of the partial $*$-algebra $\L^\dagger\left( \D, \H\right)$. By $\L^\dagger\left( \D, \H\right)_b$ we shall denote the bounded part of $\L^\dagger\left( \D, \H\right)$; i.e.,
+$$
+\L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\}
+$$
+where $\overline{X}$ is the closure of $X$, i.e., a minimal closed extension of $X$.
+Let us denote by $\L^\dagger\left(\D \right)$  the space of all linear operators $X:\D\to\D$, having an adjoint $X^\dagger : \D\to\D$, by which we simply mean that 
+$$
+\left(X\xi, \eta\right)= \left(\xi, X^\dagger\eta\right)\quad\forall \xi, \eta\in \D.
+$$
+If $\L^\dagger\left( \D, \H\right)$ is endowed with the strong $*$-topology $\mathrm{t}_{s^*}$ , defined by the set of seminorms
+$$
+p_\xi(X)\bydef \left\| X\xi\right\|  + \left\| X^\dagger\xi\right\| \quad \xi\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
+$$
+then $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{s^*}\right],\L\dagger(D)_b)\right)$ is a locally convex quasi $*$-algebra or, more precisely, a \textit{locally convex quasi $C^*$-normed algebra}.
+If $\L^\dagger\left( \D, \H\right)$ is endowed with the weak topology $\mathrm{t}_w$ defined by the set of seminorms
+$$
+p_{\xi,\eta}(X)\bydef \left| \left(X\xi, \eta \right) \right|   \quad \xi, \eta\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
+$$
+then, again, $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{w}\right],\L\dagger(D)_b)\right)$. is a locally convex quasi $*$-algebra.
+\begin{definition}
+	%Definition 2.2.5 
+	Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi $*$-algebra and $\D_\pi$ a dense domain in a
+	certain Hilbert space $\H_\pi$ . A linear map $\pi$ from $\mathfrak{A}$ into $\L^\dagger\left(\H_\pi, \D_\pi \right)$ is called a
+	$*$-representation of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$, if the following properties are fulfilled:
+	\begin{enumerate}
+		\item [(a)] $\pi\left( a^*\right) = \pi\left( a\right)^\dagger\quad \forall a \in pi\left( a^*\right)$.
+		\item[(b)]  for $a\in \mathfrak{A}$ and $x\in \mathfrak{A}$ $\pi\left( a\right)\square \pi\left( x\right)$  is well defined and $\pi\left( a\right)\square \pi\left( x\right)=\pi\left(ax \right)$ 
+	\end{enumerate}
+	
+	In other words,  $\pi$ is a $*$-homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into the partial $*$-algebra
+	$\L^\dagger\left(\D_\pi, \H_\pi \right)$
+	
+	If $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ has a unit $e \in \mathfrak{A}_0$, we assume $\pi\left(e \right)  = \Id_{\D_\pi}$, where $\Id_{\D_\pi}$ is the identity operator on the space $\D_\pi$. If $\pi_o\bydef\pi|_{ \mathfrak{A}_0}$  is a $*$-representation of the $*$-algebra $\mathfrak{A}_0$ into $\L^\dagger\left(\D_\pi \right) $ we say that $\pi$ is a qu$*$-representation.
+\end{definition}
+
+\begin{empt}If
+	$$
+	\mathfrak{A}^+_0\bydef\left\{\sum_{k=1}^n x^*_kx_k\quad x_k \in  \mathfrak{A}_0\quad n\in \N \right\}
+	$$
+	
+	then, $\mathfrak{A}^+_0$ is a wedge in $\mathfrak{A}_0$ and we call the elements of $\mathfrak{A}^+_0$ \textit{positive elements} of $\mathfrak{A}_0$. We call \textit{positive elements} of $\mathfrak{A}\left[\tau\right]$ the elements of closure (with respect to $\tau$) of  $\mathfrak{A}^+_0$ in 
+	and we denote them by $\mathfrak{A}^+$.
+	
+\end{empt}
+\begin{proposition}
+	If $a \ge 0$, then $\pi\left(a \right)\ge 0$ , for every $\left(\tau,\mathrm{t}_{w} \right)$-continuous $*$-representation of $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$.
+\end{proposition}
+\begin{theorem}
+	%Theorem 6.2.2 
+	Assume that $\mathfrak{A}^+\cap \left(-\mathfrak{A}^+\right)= \{0\}$. Let $a \in \mathfrak{A}^+$, $a\neq 0$. Then, there
+	exists a continuous linear functional $\om$ on $\mathfrak{A}\left[\tau\right]$ with the properties:
+	\begin{enumerate}
+		\item[(i)] $\om\left(b \right)\ge 0\quad \forall b \in \mathfrak{A}^+$;
+		\item[(ii)] $\om\left(a \right)> 0$.
+	\end{enumerate}
+	
+\end{theorem}
+
+If $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ is an arbitrary locally convex quasi $*$-algebra then there is a natural order related to the topology $\tau$. This order can be  used to define bounded elements. In what follows, we shall assume that $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$
+has a unit $a$. Let $a\in \mathfrak{A}$; put  $\mathfrak{R}\left( a\right)\bydef \frac{1}{2}\left(a + a^* \right)$ $\mathfrak{J}\left( a\right)\bydef \frac{1}{2i}\left(a - a^* \right)$
+Then, $\mathfrak{R}\left( a\right),\mathfrak{J}\left( a\right) \in\mathfrak{A}_h$ and $a = \mathfrak{R}\left( a\right)+i\mathfrak{J}\left( a\right)$
+\begin{definition}
+	%Definition 6.4.1 
+	An element $a\in $ is called \textit{order bounded} if there exists $\ga \ge 0$, such that 
+	$$\pm \mathfrak{R}\left( a\right) \le \ga e,\quad \pm \mathfrak{J}\left( a\right) \le \ga e$$.
+	We denote by $\mathfrak{A}^{\mathrm{or}}_{\mathrm{b}}$
+	b the set of all order bounded elements of $\mathfrak{A}\left[\tau\right]$.
+\end{definition}
+
+
+We recall that an unbounded $C^*$-seminorm $p$ on a partial $*$-algebra $\mathfrak{A}$ is a seminorm defined on a partial $*$-subalgebra $D(p)$ of $\mathfrak{A}$, the domain of $p$, with the properties:
+\begin{itemize}
+	\item $p(ab)   p(a)p(b)$, whenever $ab$ is well-defined;
+	\item $p\left(a^*a \right) = p\left(a \right)^2$  whenever $a^*a$ is well-defined
+\end{itemize}
+
+\begin{proposition}
+	%Proposition 6.4.14 
+	$\left\|\cdot \right\|^{\mathrm{or}}_{\mathrm{b}}$ is an unbounded $C^*$-norm on $\mathfrak{A}$ with domain $\mathfrak{A}_b$.
+\end{proposition}
+\section{Representations by unbounded operators on Hilbert modules}
+\label{sec:rep_Hilbert_module}
+\paragraph*{} 
+Let $A $ be a unital $*$-algebra,  $D $ a $C^*$-algebra,
+and $\mathcal{E} $ a Hilbert  $D $-module.  
+
+\begin{definition}
+	\label{def:rep_Hilbert_module}\cite{meyer:unb_repr}
+	A \emph{representation} of $A $ on $\mathcal{E} $ is a
+	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
+	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
+	algebra homomorphism to the algebra of  $D$-module endomorphisms
+	of $\mathfrak{E} $, such that
+	\be\label{def:rep_Hilbert_module_eqn}
+	\braket{\pi(a)\xi}{\eta}_D = \braket{\xi}{\pi(a^*)\eta}_D
+	\qquad
+	\text{for all }a\in A,\ \xi,\eta\in\mathfrak{E}.
+	\ee
+	
+	We call $\mathfrak{E} $ the \emph{domain} of the representation.  We
+	may drop $\pi $ from our notation by saying that $\mathfrak{E} $ is an
+	$A,D $-bimodule with the right module structure inherited
+	from $\mathcal{E} $, or we may drop $\mathfrak{E} $ because it is the common
+	domain of the partial linear maps $\pi(a) $ on $\mathcal{E} $ for all
+	$a\in A $.
+	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
+	generated by the \emph{graph norms}
+	\be	\label{graph_norm_eqn}
+	\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle^{\nicefrac12}  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
+	\ee
+	for  $a\in A $.  The representation is \emph{closed} if $\mathfrak{E} $
+	is complete in this topology.  A \emph{core} for $(\mathfrak{E},\pi) $ is
+	an  $A,D $-subbimodule of $\mathfrak{E} $ that is dense in $\mathfrak{E} $ in
+	the graph topology.
+\end{definition}
+
+Definition~\ref{def:rep_Hilbert_module}  for  $D=\C $ is the usual
+definition of a representation of a $*$-algebra on a Hilbert
+space by unbounded operators.   For  $\mathcal{E}=D $ with the
+canonical Hilbert  $D $-module structure, we get representations
+of $A $ by \emph{densely defined unbounded multipliers}.  The
+domain of such a representation is a dense right ideal
+$\mathfrak{E}\subseteq D $.  
+
+Given two norms  $p,q $, we write  $p \preceq q $ if there is a
+scalar  $c>0 $ with  $p \le c q $.
+
+\begin{lemma}
+	\label{lem:graph_norms_directed}\cite{meyer:unb_repr}
+	The set of graph norms partially ordered by $\preceq $ is
+	directed: for all  $a_1,\dotsc,a_n\in A $ there are  $b\in A $ and
+	$c\in\R_{>0} $ so that  $\mathrm{norm}{\xi}_{a_i} \le c\mathrm{norm}{\xi}_b $ for
+	any representation  $(\mathfrak{E},\pi) $, any  $\xi\in\mathfrak{E} $, and
+	$i=1,\dotsc,n $.
+\end{lemma}
+
+
+
+
+\begin{definition}%[\cite{Pal:Regular},	\cite{Lance:Hilbert_modules}*{Chapter 9}]
+	\label{def:regular}
+	A densely defined operator $t $ on a Hilbert module $\mathcal{E} $ is
+	\emph{semiregular} if its adjoint is also densely defined; it is
+	\emph{regular} if it is closed, semiregular and  $1+t^*t $ has dense
+	range.  An \emph{affiliated multiplier} of a
+	$C^*$-algebra $D $ is a regular operator on $D $ viewed as
+	a Hilbert  $D $-module.
+\end{definition}
+
+
+
+The usual norm on $\mathcal{E} $ is the graph norm for  $0\in A $.  Hence
+the inclusion map  $\mathfrak{E}\hookto\mathcal{E} $ is continuous for the graph
+topology on $\mathfrak{E} $ and extends continuously to the
+completion $\overline{\mathfrak{E}} $ of $\mathfrak{E} $ in the graph topology.
+
+\begin{proposition}
+	\label{pro:closure_rep}
+	The canonical map  $\overline{\mathfrak{E}}\to\mathcal{E} $ is injective, and its
+	image is
+	\begin{equation}
+		\label{eq:domain_closure}
+		\overline{\mathfrak{E}} = \bigcap_{a\in A} \Dom \overline{\pi(a)}.
+	\end{equation}
+	Thus $(\mathfrak{E},\pi) $ is closed if and only if  $\mathfrak{E} =
+	\bigcap_{a\in A} \Dom \overline{\pi(a)} $.  Each  $\pi(a) $ extends
+	uniquely to a continuous operator $\overline{\pi(a)} $
+	on $\overline{\mathfrak{E}} $.  This defines a closed
+	representation $(\overline{\mathfrak{E}},\overline{\pi}) $ of $A $, called the
+	\emph{closure} of $(\mathfrak{E},\pi) $.
+\end{proposition}
+
+
+We shall need a generalisation of~\eqref{eq:domain_closure} that
+replaces $A $ by a sufficiently large subset.
+
+\begin{definition}
+	\label{def:strong_generating_set}
+	A subset  $S\subseteq A $
+	is called a \emph{strong generating} set if it generates $A $
+	as an algebra and the graph norms for  $a\in S $
+	generate the graph topology in any representation.  That is, for any
+	representation on a Hilbert module, any vector $\xi $
+	in its domain and any  $a\in A $,
+	there are  $c\ge1 $
+	in $\R $
+	and  $b_1,\dotsc,b_n\in S $
+	with  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $.
+\end{definition}
+
+An estimate  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $
+is usually shown by finding  $d_1,\dotsc,d_m\in A $
+with
+$a^* a + \sum_{j=1}^m d_j^* d_j = c\cdot \sum_{i=1}^n b_i^* b_i $,
+compare the proof of Lemma~\ref{lem:graph_norms_directed}.
+
+\begin{proposition}
+	\label{pro:equality_if_closure_equal}
+	Let  $S\subseteq A $ be a strong generating set.  Two closed
+	representations  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $
+	of $A $ on the same Hilbert module $\mathcal{E} $ are equal if and
+	only if  $\overline{\pi_1(a)} = \overline{\pi_2(a)} $ for all  $a\in S $.
+\end{proposition}
+
+Here we consider 
+
+\begin{corollary}
+	\label{cor:bounded_rep}
+	Let $S $ be a strong generating set of $A $ and
+	let $(\mathfrak{E},\pi) $ be a closed
+	representation of $A $ with  $\Dom \overline{\pi(a)} = \mathcal{E} $ for each
+	$a\in S $.  Then  $\mathfrak{E}=\mathcal{E} $ and $\pi $ is a
+	$*$-homomorphism to the $C^*$-algebra  $\mathbb{B}(\mathcal{E}) $ of
+	adjointable operators on $\mathcal{E} $.
+\end{corollary}
+
+
+An \emph{isometry}  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+between two Hilbert  $D $-modules  $\mathcal{E}_1 $
+and $\mathcal{E}_2 $
+is a right  $D $-module
+map with  $\braket{I\xi_1}{I\xi_2} = \braket{\xi_1}{\xi_2} $
+for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
+
+\begin{definition}
+	\label{def:isometric_intertwiner}
+	Let  $(\mathfrak{E}_1,\pi_1) $
+	and  $(\mathfrak{E}_2,\pi_2) $
+	be representations on Hilbert  $D $-modules
+	$\mathcal{E}_1 $
+	and $\mathcal{E}_2 $,
+	respectively.  An \emph{isometric intertwiner} between them is an
+	isometry  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+	with  $I(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $
+	and  $I\circ\pi_1(a) (\xi) = \pi_2(a) \circ I (\xi) $
+	for all  $a\in A $,
+	$\xi\in\mathfrak{E}_1 $;
+	equivalently,  $I\circ\pi_1(a)\subseteq \pi_2(a)\circ I $
+	for all  $a\in A $,
+	that is, the graph of $\pi_2(a)\circ I $
+	contains the graph of $I\circ \pi_1(a) $.
+	We neither ask $I $
+	to be adjointable nor  $I(\mathfrak{E}_1)=\mathfrak{E}_2 $.
+	Let  $\mathrm{Rep}(A,D) $
+	be the category with closed representations of $A $
+	on Hilbert  $D $-modules
+	as objects, isometric intertwiners as arrows, and the usual
+	composition.  The unit arrow on $(\mathfrak{E},\pi) $
+	is the identity operator on $\mathcal{E} $.
+\end{definition}
+
+\begin{lemma}
+	\label{lem:closure_functorial}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be
+	representations on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $, respectively, and let  $I\colon
+	\mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner.  Then $I $ is
+	also an intertwiner between the closures of  $(\mathfrak{E}_1,\pi_1) $
+	and  $(\mathfrak{E}_2,\pi_2) $.
+\end{lemma}
+\begin{proposition}
+	\label{pro:intertwiner_strong_generators}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be closed
+	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $, respectively.  Let  $S\subseteq A $ be a strong
+	generating set.  An isometry  $I\colon \mathcal{E}_1\hookto \mathcal{E}_2 $ is
+	an intertwiner from  $(\mathfrak{E}_1,\pi_1) $ to  $(\mathfrak{E}_2,\pi_2) $
+	if and only if  $I\circ \overline{\pi_1(a)} \subseteq \overline{\pi_2(a)}\circ
+	I $ for all  $a\in S $.
+\end{proposition}
+
+
+Now we relate the categories  $\mathrm{Rep}(A,D) $ for different
+$C^*$-algebras $D $.
+
+\begin{definition}
+	\label{def:Cstar-correspondence}
+	Let  $D_1 $ and $D_2 $ be two $C^*$-algebras.  A
+	\emph{$C^*$-correspondence} from $D_1 $ to $D_2 $ is a
+	Hilbert  $D_2 $-module with a representation of $D_1 $ by
+	adjointable operators (representations of $C^*$-algebras are
+	tacitly assumed nondegenerate).  An \emph{isometric intertwiner}
+	between two correspondences from $D_1 $ to $D_2 $ is an
+	isometric map on the underlying Hilbert  $D_2 $-modules that
+	intertwines the left   $D_1 $-actions.  Let  $\mathrm{Rep}(D_1,D_2) $
+	denote the category of correspondences from $D_1 $ to $D_2 $
+	with isometric intertwiners as arrows and the usual composition.
+\end{definition}
+
+
+Let $\mathcal{E} $ be a Hilbert  $D_1 $-module and $\F $ a
+correspondence from $D_1 $ to $D_2 $.  The interior tensor product
+$\mathcal{E}\otimes_{D_1} \F $ is the (Hausdorff) completion of the
+algebraic tensor product  $\mathcal{E}\odot \F $ to a Hilbert
+$D_2 $-module, using the inner product
+\begin{equation}
+	\label{eq:interior_tensor}
+	\braket{\xi_1\otimes\eta_1}{\xi_2\otimes\eta_2}
+	= \braket{\eta_1}{\braket{\xi_1}{\xi_2}_{D_1}\cdot\eta_2}_{D_2}.
+\end{equation}
+We may use the balanced tensor product
+$\mathcal{E}\odot_{D_1} \F $ instead of  $\mathcal{E}\odot \F $
+because the inner product~\eqref{eq:interior_tensor} descends to this
+quotient.  If we want to emphasise the left  action  $\varphi\colon
+D_1\to\mathbb{B}(\F) $ in the
+$C^*$-correspondence $\F $, we write  $\mathcal{E}\otimes_\varphi
+\F $ for  $\mathcal{E}\otimes_{D_1} \F $.
+
+In addition, let $(\mathfrak{E},\pi) $ be a closed representation of $A $
+on $\mathcal{E} $.  We are going to build a closed representation
+$(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ of $A $ on
+$\mathcal{E}\otimes_{D_1}\F $.  First let  $X\subseteq
+\mathcal{E}\otimes_{D_1}\F $ be the image of  $\mathfrak{E}\odot \F $
+or  $\mathfrak{E}\odot_{D_1} \F $ under the canonical map to
+$\mathcal{E}\otimes_{D_1}\F $.
+
+\begin{lemma}
+	\label{lem:tensor_rep_with_corr}
+	For  $a\in A $, there is a unique linear operator
+	$\pi(a)\otimes1\colon X\to X $ with  $(\pi(a)\otimes1)
+	(\xi\otimes\eta) = \pi(a)(\xi)\otimes \eta $ for all
+	$\xi\in\mathfrak{E} $,  $\eta\in\F $.  The map  $a\mapsto
+	\pi(a)\otimes 1 $ is a representation of $A $ with domain $X $.
+\end{lemma}
+
+\begin{definition}
+	Let  $(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ be the
+	closure of the representation on $\mathcal{E}\otimes_{D_1}\F $
+	defined in Lemma~\ref{lem:tensor_rep_with_corr}.
+\end{definition}
+
+\begin{lemma}
+	\label{lem:rep_tensor_corr_functor}
+	Let  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner
+	between two representations  $(\mathfrak{E}_1,\pi_1) $ and
+	$(\mathfrak{E}_2,\pi_2) $, and let  $J\colon \F_1\hookto \F_2 $
+	be an isometric intertwiner of $C^*$-correspondences.  Then
+	$I\otimes_{D_1} J\colon \mathcal{E}_1\otimes_{D_1}\F_1 \hookto
+	\mathcal{E}_2\otimes_{D_1}\F_2 $ is an isometric intertwiner between
+	$(\mathfrak{E}_1\otimes_{D_1}\F_1, \pi_1\otimes1) $ and
+	$(\mathfrak{E}_2\otimes_{D_1}\F_2, \pi_2\otimes1) $.
+\end{lemma}
+
+The lemma gives a bifunctor
+\begin{equation}
+	\label{eq:interior_tensor_bifunctor}
+	\otimes_{D_1}\colon \mathrm{Rep}(A,D_1)\times \mathrm{Rep}(D_1,D_2) \to
+	\mathrm{Rep}(A,D_2).
+\end{equation}
+The corresponding bifunctor
+\[
+\otimes_{D_1}\colon \mathrm{Rep}(B,D_1)\times \mathrm{Rep}(D_1,D_2) \to \mathrm{Rep}(B,D_2)
+\]
+for a $C^*$-algebra $B $ is the usual composition of
+$C^*$-correspondences.  This composition is associative up to
+canonical unitaries
+\begin{equation}
+	\label{eq:tensor_associative}
+	\mathcal{E} \otimes_{D_1} (\F \otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	(\mathcal{E} \otimes_{D_1} \F) \otimes_{D_2} \mathcal{E},\qquad
+	\xi \otimes (\eta\otimes \zeta) \mapsto
+	(\xi \otimes \eta)\otimes \zeta,
+\end{equation}
+for all triples of composable $C^*$-correspondences.
+
+\begin{lemma}
+	\label{lem:tensor_associative}
+	If $\mathcal{E} $ carries a representation $(\mathfrak{E},\pi) $ of a
+	$*$-algebra $A $, then the unitary
+	in~\eqref{eq:tensor_associative} is an intertwiner  $(\mathfrak{E},\pi)
+	\otimes_{D_1} (\F\otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	\bigl((\mathfrak{E},\pi) \otimes_{D_1} \F\bigr) \otimes_{D_2}
+	\mathcal{E}$.
+\end{lemma}
+
+\begin{definition}
+	\label{def:star-intertwiner}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $ be two
+	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $.  An adjointable operator  $x\colon
+	\mathcal{E}_1\to\mathcal{E}_2 $ is an \emph{intertwiner} if
+	$x(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $ and  $x\pi_1(a)\xi =
+	\pi_2(a)x\xi $ for all  $a\in A $,  $\xi\in\mathfrak{E}_1 $.  It is
+	a \emph{$*$-intertwiner} if both  $x $ and $x^* $ are
+	intertwiners.
+	\label{def:adjointable_intertwiner}
+\end{definition}
+
+Any adjointable intertwiner between two representations of a
+$C^*$-algebra $B $ is a $*$-intertwiner.  In contrast, for
+a general $*$-algebra, even the adjoint of a unitary
+intertwiner $u $ fails to be an intertwiner if
+$u(\mathfrak{E}_1)\subsetneq \mathfrak{E}_2 $.
+
+\begin{example}
+	\label{exa:Friedrichs_extension}
+	Let $t $ be a positive symmetric operator on a Hilbert
+	space $ \H $.  Assume that  $\bigcap_{n\in\N} \Dom t^n $ is
+	dense in $ \H $, so that $t $ generates a
+	representation $\pi $ of the polynomial algebra $\C[x] $
+	on $ \H $.  The Friedrichs extension of $t $ is a positive
+	self-adjoint operator $t' $ on $ \H $.  It generates
+	another representation $\pi' $ of $\C[x] $ on $ \H $.  The
+	identity map on $ \H $ is a unitary intertwiner
+	$\pi\hookto\pi' $.  It is not a $*$-intertwiner unless
+	$t=t' $.
+\end{example}
+
+The following proposition characterises when an adjointable isometry
+$I\colon \mathcal{E}_1\hookto \mathcal{E} $ between two representations
+on Hilbert  $D $-modules is a $*$-intertwiner.  Since
+$\mathcal{E}\cong \mathcal{E}_1 \oplus \mathcal{E}_1^\bot $ if $I $ is adjointable, we
+may as well assume that $I $ is the inclusion of a direct summand.
+
+\begin{proposition}
+	\label{pro:isometry_star-intertwiner}
+	Let  $\mathcal{E}_1 $ and $\mathcal{E}_2 $ be Hilbert modules over a
+	$C^*$-algebra $D $ and let  $(\mathfrak{E}_1,\pi_1) $ and
+	$(\mathfrak{E},\pi) $ be representations of $A $ on  $\mathcal{E}_1 $
+	and $\mathcal{E}_1\oplus\mathcal{E}_2 $, respectively.  The following are
+	equivalent:
+	\begin{enumerate}
+		\item \label{enum:isometry_star-intertwiner1} the canonical
+		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is a
+		$*$-intertwiner from $\pi_1 $ to $\pi $;
+		\item \label{enum:isometry_star-intertwiner2} the canonical
+		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is an
+		intertwiner from $\pi_1 $ to $\pi $ and  $\mathfrak{E} =
+		\mathfrak{E}_1 + (\mathfrak{E}\cap \mathcal{E}_2) $;
+		\item \label{enum:isometry_star-intertwiner3} there is a
+		representation  $(\mathfrak{E}_2,\pi_2) $ on $\mathcal{E}_2 $ such that  $\pi
+		= \pi_1 \oplus \pi_2 $.
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}\cite{meyer:unb_repr}
+	\label{def:Cstar-hull}
+	A {\it $C^*$-hull} for the integrable representations
+	of~\(A\) is a $\Cstar$-algebra~\(B\) with a family of bijections
+	\(\Phi=\Phi^{\E}\) from the set of representations of~\(B\)
+	on~\(\E\) to the set of integrable representations of~\(A\)
+	on~\(\E\) for all Hilbert modules~\(\E\) over all
+	$C^*$-algebras~\(D\) with the following properties:
+	\begin{itemize}
+		\item \emph{compatibility with isometric intertwiners}: an isometry
+		$\E_1 \hookto \E_2$ (not necessarily adjointable) is an
+		intertwiner between two representations \(\varrho_1\)
+		and~\(\varrho_2\) of~\(B\) \emph{if and only if} it is an
+		intertwiner between \(\Phi(\varrho_1)\) and~\(\Phi(\varrho_2)\);
+		
+		\item \emph{compatibility with interior tensor products}: if
+		$\F$ is a correspondence from~\(D_1\) to~\(D_2\),
+		\(\E\) is a Hilbert \(D_1\)-module, and~\(\varrho\) is a
+		representation of~\(B\) on~$\F$, then
+		$\Phi(\varrho\otimes_{D_1} 1_{\F}) =
+		\Phi(\varrho)\otimes_{D_1} 1_{\F}$ as representations
+		of~\(A\) on \(\E\otimes_{D_1} \F\).
+	\end{itemize}
+	
+	
+\end{definition}
+
+\begin{definition}
+	\label{def:weak_Cstar-hull}
+	A {\it weak $C^*$-hull} for the integrable representations
+	of~\(A\) is a $C^*$-algebra~\(B\) with a family of
+	bijections~\(\Phi\) between representations of~\(B\) and integrable
+	representations of~\(A\) on Hilbert modules that is compatible with
+	unitary $*$-intertwiners and interior tensor products.
+\end{definition}
+
+\begin{proposition}
+	\label{pro:unique_hull}
+	A class of integrable representations has at most one weak
+	$C^*$-hull.
+\end{proposition}
+
+\subsection{Universal enveloping algebras of Lie algebras}
+\label{sec:Ug}
+
+We illustrate our theory by an example.  Let~\(\mathfrak{g}\) be a
+finite-dimensional Lie algebra over~\(\R\) and let \(A=U(\mathfrak{g})\) be
+its universal enveloping algebra with the usual involution, where
+elements of~\(\mathfrak{g}\) are skew-symmetric.  A representation of~\(A\)
+on~\(\E\), possibly not closed, is equivalent to a dense
+submodule \(\mathfrak{C}\subseteq\E\) with a Lie algebra representation
+\(\pi\colon \mathfrak{g}\to\Endo_D(\mathfrak{C})\) satisfying
+\(\braket{\xi}{\pi(X)(\eta)} = -\braket{\pi(X)(\xi)}{\eta}\) for all
+\(X\in\mathfrak{g}\), \(\xi,\eta\in\mathfrak{C}\).
+
+Let~\(G\) be a simply connected Lie group with Lie algebra~\(\mathfrak{g}\)
+and let \(B\defeq \Cst(G)\).  A representation of~\(\Cst(G)\) on a
+Hilbert module~\(\E\) is equivalent to a strongly continuous,
+unitary representation of~\(G\) on~\(\E\).  Given such a
+representation, let~\(\E^\infty\subseteq \E\) be its subspace
+of smooth vectors.  This is the domain of a closed representation
+of~\(U(\mathfrak{g})\).  We call a representation of~\(U(\mathfrak{g})\) integrable if
+it comes from a unitary representation of~\(G\) in this way.
+
+In particular, \(G\) acts continuously on~\(\Cst(G)\) by left
+multiplication with unitary multipliers.  Let
+\(\mathfrak{B}=\Cst(G)^\infty\) be the right ideal of smooth elements
+for this \(G\)-action, equipped with the canonical
+\(U(\mathfrak{g})\)-module structure~\(\mu\).  By the universal property
+of~\(\Cst(G)\), the pair \((\mathfrak{B},\mu)\) is the universal
+integrable representation.  That is, a representation of~\(U(\mathfrak{g})\)
+is integrable if and only if it is of the form \((\mathfrak{B},\mu)
+\otimes_\varrho \E\) for a representation~\(\varrho\)
+of~\(\Cst(G)\).
+
+Let \(X_1,\dotsc,X_d\) form a basis of~\(\mathfrak{g}\).  The
+\emph{Laplacian} is \(L\defeq -\sum_{i=1}^d X_i^2 \in U(\mathfrak{g})\).
+
+\begin{theorem}[\cite{Pierrot:Reguliers}*{ThŽorme 2.12}]
+	\label{the:integrable_Ug}
+	A representation \((\pi,\mathfrak{C})\) of~\(U(\mathfrak{g})\) is integrable if
+	and only if~\(\cl{\pi(L^n)}\) is regular and self-adjoint for all
+	\(n\in\N\).
+\end{theorem}
+
+\begin{theorem}
+	\label{the:Cstar_hull_Lie_algebra}
+	The class of integrable representations of~\(U(\mathfrak{g})\)
+	has~\(\Cst(G)\) as a $C^*$-hull and is defined by submodule
+	conditions.  So it satisfies the Strong Local--Global Principle.
+\end{theorem}
+
+
+The results of Vassout~\cite{Vassout:Unbounded_groupoids} get close
+to proving an analogue of Theorem~\ref{the:Cstar_hull_Lie_algebra}
+for an \(s\)-simply connected Lie groupoid~\(G\) with compact base.
+This analogue would
+replace~\(\mathfrak{g}\) by the space of smooth sections of the Lie
+algebroid~\(A(G)\), and \(U(\mathfrak{g})\) by the \Star{}-algebra of
+\(G\)-equivariant differential operators on~\(G\), a subalgebra
+of the \Star{}-algebra of \(G\)-pseudodifferential operators.  Any
+symmetric, elliptic element of~\(U(\mathfrak{g})\) should be a possible
+replacement for the Laplacian in
+Theorem~\ref{the:Cstar_hull_Lie_algebra}.
+\subsection{Lie algebroids}
+\begin{lem}\cite{Vassout:Unbounded_groupoids}
+	Lemma 37. Let P be a pseudodifferential operator of order m with real part m0. Then P is in
+	L(Hm0,E) and L(E,H
+	?m0 ).
+\end{lem}
+
+\section{Spectral triples}
+
+\paragraph{}
+This section contains citations of  \cite{hajac:toknotes}. 
+\subsection{Definition of spectral triples}\label{sp_tr_defn_sec}
+\begin{defn}
+	\label{df:spec-triple}\cite{hajac:toknotes}
+	A (unital) {\it {spectral triple}} $(\A, \H, D)$ consists of:
+	\begin{itemize}
+		\item
+		an unital pre-$C^*$-algebra $\A$ with an involution $a \mapsto a^*$, equipped
+		with a faithful representation on:
+		\item
+		a \emph{Hilbert space} $\H$; and also
+		\item
+		a \emph{self-adjoint operator} $D$ on $\mathcal{H}$, with dense domain
+		$\Dom D \subset \H$, such that $a(\Dom D) \subseteq \Dom D$ for all 
+		$a \in \mathcal{A}$.
+	\end{itemize}
+\end{defn}
+\begin{defn}
+	\label{df:spt-real_defn}\cite{hajac:toknotes}
+	A {\it real  spectral triple} is a  spectral triple $(\sA, \sH, D)$,
+	together with an antiunitary operator $J\:\sH\to\sH$ such that
+	$J(\Dom D)\subset \Dom D$, and 
+	\be\label{df:spt-real_eqn}
+	[a, Jb^*J^\dagger] = 0
+	\ee for all
+	$a, b \in \sA$.
+\end{defn}
+
+\begin{defn}
+	\label{df:spt-even}\cite{hajac:toknotes}
+	A  spectral triple $(\sA, \sH, D)$ is {\it even} if there is
+	a selfadjoint unitary \textit{grading operator} $\Ga$ on $\sH$ such that $a\Ga = \Ga a$
+	for all $a \in \sA$, $\Ga(\Dom D) = \Dom D$, and $D\Ga = -\Ga D$. If
+	no such $\bZ_2$-grading operator $\Ga$ is given, we say that
+	the spectral triple is {\it odd}.
+\end{defn}
+There is a set of axioms for  spectral triples described in \cite{hajac:toknotes,varilly:noncom}. In this article the following axioms are used only.
+\begin{axiom}\label{regularity_axiom}\cite{varilly:noncom} (Regularity). 
+	For any $a \in \A$, $[D,a]$ is a bounded operator on~$\H$, and both
+	$a$ and $[D,a]$ belong to the domain of smoothness
+	$\bigcap_{k=1}^\infty \Dom(\delta^k)$ of the derivation $\delta$
+	on~$B(\H)$ given by $\delta(T) \stackrel{\mathrm{def}}{=} [\left|D\right|,T]$.
+\end{axiom}
+\begin{axiom}\label{finiteness_axiom}
+	(Finiteness)
+	The subspace of smooth vectors
+	$\sH^\infty \bydef \bigcap_{k\in\bN} \Dom D^k$ is a \emph{finitely
+		generated projective} left  $\sA$-module.
+	
+	This is equivalent to saying that, for some $N \in \bN$, there is a 
+	projector $p = p^2 = p^*$ in~$M_N(\sA)$ such that 
+	$\sH^\infty \isom \sA^N p$ as left  $\sA$-modules. 
+\end{axiom}
+\begin{axiom}[Real structure]
+	The antiunitary operator $J : \sH \to \sH$ satisfying
+	$J^2 = \pm 1$, $JDJ^\dagger = \pm D$, and $J\Ga = \pm \Ga J$ in the even
+	case, where the signs depend only on $n \bmod 8$ (and thus are given
+	by the table of signs for the standard commutative examples).
+	\[
+	\begin{array}[t]{|c|cccc|}
+		\hline
+		n \bmod 8               & 0 & 2 & 4 & 6 \rule[-5pt]{0pt}{17pt} \\
+		\hline
+		J^2 = \pm 1             & + & - & - & + \rule[-5pt]{0pt}{17pt} \\
+		JD = \pm D J & + & + & + & + \rule[-5pt]{0pt}{17pt} \\
+		J\Ga = \pm\Ga J         & + & - & + & - \rule[-5pt]{0pt}{17pt} \\
+		\hline
+	\end{array}
+	\qquad\qquad
+	\begin{array}[t]{|c|cccc|}
+		\hline
+		n \bmod 8               & 1 & 3 & 5 & 7 \rule[-5pt]{0pt}{17pt} \\
+		\hline
+		J^2 = \pm 1             & + & - & - & + \rule[-5pt]{0pt}{17pt} \\
+		JD = \pm D J & - & + & - & + \rule[-5pt]{0pt}{17pt} \\
+		\hline
+	\end{array}
+	\]
+	Moreover , $b \mapsto J b^* J^\dagger$ is an antirepresentation of $\sA$
+	on~$\sH$ (that is, a representation of the opposite algebra
+	$\sA^\opp$), which commutes with the given representation of~$\sA$:
+	\be\label{st_comn_eqn}
+	[a, J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA,
+	\ee
+	(cf. Definition \ref{df:spt-real_defn}).
+\end{axiom}
+
+
+\begin{axiom}\label{fist_order_st_ax}(First order).
+	For each $a,b \in \sA$, the following relation holds:
+	\begin{equation}\label{fist_order_eqn}
+		[[D, a], J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA.
+	\end{equation}
+	This generalizes, to the noncommutative context, the condition that
+	$D$ be a first-order differential operator.
+	Since 
+	\[
+	[[D, a], Jb^*J^\dagger]
+	= [[D, Jb^*J^\dagger], a] + [D, \underbrace{[a, Jb^*J^\dagger]}_{=0}],
+	\]
+	this is equivalent to the condition that 
+	\be\label{first_order_dual_eqn}
+	[a, [D, Jb^*J^\dagger]] = 0.
+	\ee
+\end{axiom}
+
+
+\begin{axiom}[Orientation]\label{orientation_st_ax}
+	There is a Hochschild $n$-cycle
+	$$
+	\cc = \tsum_j (a_j^0 \ox b_j^0) \ox a_j^1 \oxyox a_j^n 
+	\in Z_n(\sA, \sA \ox \sA^\opp),
+	$$
+	such that
+	\begin{equation}\label{eq:vol-cond}
+		\pi_D(\cc)
+		\equiv \tsum_j a_j^0 (J b_j^{0*} J^{-1}) \,[D,a_j^1] \dots [D,a_j^n]
+		= \begin{cases} \Ga, &\text{if $n$ is even}, \\
+			1, &\text{if $n$ is odd}. \end{cases}
+	\end{equation}
+\end{axiom}
+
+
+\begin{lem}
+	\label{lm:proj-approx}\cite{hajac:toknotes}
+	Let $\sA$ be an unital Fr\'echet pre-$C^*$-algebra, whose
+	$C^*$-completion is~$A$. If $\tilde{q} = \tilde{q}^2 = \tilde{q}^*$ is
+	a projection in $A$, then for any $\eps > 0$, we can find a projection
+	$q = q^2 = q^* \in \sA$ such that $\|q - \tilde{q}\| < \eps$.
+\end{lem}
+\begin{theorem}\label{smooth_k_iso_thm}\cite{varilly_bondia}
+	If $\sA$ is  a Fr\'echet pre-$C^*$-algebra with $C^*$-completion $A$, then the inclusion $j: \A \to A$ induces an isomorphism $K_0\left( j\right) : K_0\left(\A\right)\to K_0\left(A\right)$.
+\end{theorem}
+\begin{remark}\label{smooth_k_iso_rem}
+	The $K_0$-symbol in the above Theorem is the $K_0$-functor of $K$-theory (cf. \cite{bass,blackadar:ko}). The $K_0$-functor is related to projective finitely generated modules. Otherwise any projective finitely generated module corresponds to the idempotent of the matrix algebra. The idea of the proof of the Theorem \ref{smooth_k_iso_thm} contains following ingredients:
+	\begin{itemize}
+		\item For any idempotent $\tilde e \in \mathbb{M}_n\left(A\right)$ one constructs and idempotent $e\in \mathbb{M}_n\left(\A\right)$ such that there is the isomorphisms $\tilde e A^n\cong e A^n$ of $A$-modules.
+		\item The inverse to $K_0j$ homomorphism is roughly speaking given by
+		$$
+		\left[e\A^n\right]\mapsto \left[ \tilde e A^n\right] 
+		$$
+		where $\left[\cdot \right]$ means the $K$-theory class  of projective finitely generated module. From the isomorphism $\tilde e A^n\cong e A^n$ the above equation can be replaced with
+		\be\label{smooth_k_iso_eqn}
+		\left[e\A^n\right]\mapsto \left[  e A^n\right]
+		\ee
+	\end{itemize}
+\end{remark}
+\subsection{Representations of  smooth algebras}\label{s_repr}
+
+\paragraph*{}
+Let $(\A, \H, D)$ be a spectral triple. Similarly to \cite{bram:atricle} we  define a representation of $\pi^1:\A \to B(\H^2)$ given by
+\begin{equation}\label{s_diff1_repr_equ}
+	\pi^1(a) =  \begin{pmatrix} a & 0\\
+		[D,a] & a\end{pmatrix}.
+\end{equation}
+We can inductively construct  representations $\pi^s: \A \to B\left(\H^{2^s}\right)$ for any $s \in \mathbb{N}$. If $\pi^s$ is already constructed then  $\pi^{s+1}: \A \to B\left(\H^{2^{s+1}}\right)$ is given by
+\begin{equation}\label{s_diff_repr_equ}
+	\pi^{s+1}(a) =  \begin{pmatrix}  \pi^{s}(a) & 0 \\ \left[D,\pi^s(a)\right] &  \pi^s(a)\end{pmatrix}
+\end{equation}
+where we assume diagonal action of $D$ on $\H^{2^s}$, i.e.
+\begin{equation*}
+	D \begin{pmatrix} x_1\\ ... \\ x_{2^s}
+	\end{pmatrix}= \begin{pmatrix} D x_1\\ ... \\ D x_{2^s}
+	\end{pmatrix}; \ x_1,..., x_{2^s}\in \H.
+\end{equation*}
+For any $s \in \N^0$ there is a seminorm $\left\|\cdot \right\|_s$  on $\A$ given by
+\begin{equation}\label{s_semi_eqn}
+	\left\|a \right\|_s = \left\| \pi^{s}(a) \right\|.
+\end{equation}
+The definition of spectral triple requires that $\A$ is a Fr\'echet algebra with respect to seminorms $\left\|\cdot \right\|_s$.
+
+
+\subsection{Noncommutative differential forms}\label{ass_cycle_sec}
+
+\paragraph*{} 
+\begin{defn}\cite{connes:ncg94}\label{cycle_defn}
+	\begin{enumerate}
+		\item [(a)]  A \textit{cycle} of dimension $n$ is a triple $\left(\Om, d, \int \right)$ where $\Om = \bigoplus_{j=0}^n\Om^j$  is a graded algebra over $\C$, $d$ is a graded derivation of degree 1 such that $d^2=0$, and $\int :\Om^n \to \C$ is a closed graded trace on $\Om$,
+		\item[(b)] Let $\A$  be an algebra over $\C$. Then a \textit{cycle over } $\A$ is given by a cycle $\left(\Om, d, \int \right)$	and a homomorphism $\A \to \Om^0$.
+	\end{enumerate}
+\end{defn}
+\begin{empt}\label{connes_cycle_empt}
+	We  let $\Om^*\A$ be the reduced universal differential graded algebra over $\A$ (cf. \cite{connes:ncg94} Chapter III.1).
+	It is by definition equal to $\A$ in degree 0 and is generated by symbols $da$ ($a \in \A$) of
+	degree 1 with the following presentation:
+	\begin{enumerate}
+		\item[$(\a)$] $d(ab) = (da)b + adb \quad \forall a, b \in \A$,
+		\item[$(\bt)$] $d1 = 0$.
+	\end{enumerate}
+	
+	One can check that $\Om^1\A$ is isomorphic as an $\A$-bimodule to the kernel $\ker(m)$ of the
+	multiplication mapping $m : \A\otimes\A \to A$, the isomorphism being given by the mapping
+	$$
+	\sum a_j \otimes b_j \in \ker(m) \mapsto \sum a_j d b_j\in \Om^1\A
+	$$
+	The involution * of $\A$ extends uniquely to an involution on * with the rule
+	$$
+	\left(da \right)^* \stackrel{\text{def}}{=} - da^*.
+	$$
+	The differential $d$ on $A$ is defined unambiguously by
+	$$
+	d(a_0da_1 ... da_n) =  da_0da_1 ... da_n \quad \forall a_j \in \A,
+	$$
+	and it satisfies the relations
+	\bean
+	d^2\om = 0 \quad \forall \om \in \Om^*\A,\\
+	d(\om_1\om_2) = (d\om_1)\om_2 + \left( -1\right)^{\partial \om_1} \om_1 d\om_2.
+	\eean
+	
+\end{empt}
+\begin{proposition}\label{st_cycle_connes_prop}\cite{connes:ncg94}
+	Let  $\left( \A, \H, D\right)$  be a spectral triple.
+	\begin{enumerate}
+		\item 	The following equality defines a $*$-representation $\pi$ of the reduced universal
+		algebra $\Om^*\A$ on $\H$:
+		\be\label{diff_repr_eqn}
+		\pi(a_0da_1 ... da_n) = a_0[D, a_1] ... [D, a_n] \quad \forall a_j \in \A.
+		\ee
+		\item Let $J_0 = \ker \pi$  be the graded two-sided ideal of $\Om^*\A$ given by 
+		\be\label{junk_grad_eqn}
+		J_0^k = \left\{\left.\om \in \Om^k~\right| \pi\left(\om \right)=0 \right\}
+		\ee
+		then 
+		\be\label{junk_cycle_eqn}
+		J = J_0 + dJ_0
+		\ee
+		is a graded differential two-sided ideal of
+		$\Om^*\A$.
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	Using 2) of Proposition \ref{st_cycle_connes_prop}, we can now introduce the graded differential algebra
+	\be\label{connes_cycle_eqn}
+	\Om_D \bydef \Om^*\A/J.
+	\ee
+\end{remark}
+
+Thus any spectral triple $\left( \A, \H, D\right)$  naturally defines a cycle $\rho : \A \to \Om_D$ (cf. Definition \ref{cycle_defn}). 
+In particular for any spectral triple there is an $\A$-bimodule $\Om^1_D\subset B\left(\H \right) $ of differential forms which is the $\C$-linear span of operators given by
+\begin{equation}\label{dirac_d_module}
+	a\left[D, b \right];\quad a,b \in \A.
+\end{equation}
+There is the differential map
+\begin{equation}\label{diff_map_eqn}
+	\begin{split}
+		d: \A \to \Om^1_D, \\
+		a \mapsto \left[D, a \right].
+	\end{split}
+\end{equation}
+
+\begin{definition}\label{ass_cycle_defn}
+	We say that that both the cycle $\rho : \A \to \Om_D$ and the differential \eqref{diff_map_eqn} are \textit{associated} with the triple  $\left( \A, \H, D\right)$. We say that  $\A$-bimodule $\Om^1_D$ is the \textit{module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$.
+\end{definition}
+
+\subsection{Noncommutative connections and curvatures}
+
+\begin{defn}\label{connection_defn}\cite{connes:ncg94}
+	Let $\A\xrightarrow{\rho} \Om$ be a cycle over $\A$, and $\E$ a finite projective module over $\A$.
+	Then a \textit{connection} $\nabla$ on $\E$ is a linear map  $\nabla: \E \to \E \otimes_{\A} \Om^1$ such that
+	\be\label{conn_prop_eqn}
+	\nabla\left(\xi x \right) =  \nabla\left(\xi \right) x =  \xi \otimes d\rho\left(x \right) ; ~ \forall \xi \in \E, ~ \forall x \in \A.
+	\ee
+	Here $\E$ is a right module over $\A$ and $\Om^1$ is considered as a bimodule over $\A$.
+\end{defn}
+\begin{remark}
+	In case of associated cycles (cf. Definition \ref{connection_defn}) the connection equation \eqref{conn_prop_eqn} has the following form
+	\be\label{conn_triple_eqn}
+	\nabla \left(\xi a \right) = \nabla \left(\xi \right) a + \xi \left[ D,a\right] .
+	\ee
+\end{remark}
+
+
+\begin{rem}
+	The map $\nabla: \E \to \E \otimes_{\A} \Om^1$ is an algebraic analog of the map $\nabla : \Ga\left( E\right) \to \Ga\left( E \otimes T^*\left( M\right) \right)$ given by \eqref{comm_alg_conn}. 
+\end{rem}
+
+\begin{prop}\label{conn_prop}\cite{connes:ncg94}
+	Following conditions hold:	
+	\begin{enumerate} 
+		\item[(a)] 	Let $e \in \End_{\A}\left( \E\right)$ be an idempotent and $\nabla$ is a connection on $\E$; then 
+		\be\label{idem_conn}
+		\xi \mapsto \left(e \otimes 1 \right) \nabla \xi
+		\ee
+		is a connection on $e\E$,
+		\item[(b)] Any finitely generated projective module $\E$ admits a connection,
+		\item[(c)]  The space of connections is an affine space over the vector space $\Hom_{\sA}\left(\E, \E \otimes_{\A} \Om^1 \right)$, 
+		\item[(d)] Any connection $\nabla$ extends uniquely up to a linear map  of  $\widetilde{\mathcal E}= \mathcal E \otimes_{\A} \Om$ into itself
+		such that
+		\be\label{eop_into_eqn}
+		\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
+		\ee
+	\end{enumerate}
+\end{prop}
+\begin{remark}\label{conn_rem}
+	The Proposition \ref{conn_prop} implicitly assumes that $\mathcal E\cong  \mathcal E \otimes_{\A} \A\cong \mathcal E \otimes_{\A} \Om^0$ so  there is the natural inclusion
+	\be\label{conn_eqn}
+	\mathcal E \subset \mathcal E \otimes_{\A} \Om
+	\ee
+	of right $\A$-modules.
+	
+\end{remark}
+
+
+
+\subsection{Connection and curvature}
+\begin{definition}\label{curvature_definition}
+	A \textit{curvature} of a connection $\nabla$ is a (right $\A$-linear) map
+	\be
+	F_\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^2
+	\ee
+	defined as the restriction of $\nabla \circ \nabla$ to $\mathcal E$, that is, $F_{\nabla}\bydef \left.\nabla \circ \nabla \right|_{\mathcal E}$ (cf. \eqref{eop_into_eqn},\eqref{conn_eqn}).
+	A connection is said to be \textit{flat} if
+	its curvature is identically equal to $0$ (cf. \cite{brzezinsky:flat_co}).
+\end{definition}
+
+
+\begin{remark}
+	Above algebraic notions of curvature and flat connection are generalizations of corresponding geometrical notions explained in \cite{kobayashi_nomizu:diff_geom} and the Section \ref{geom_flat_subsec}.
+\end{remark}
+\begin{defn}\label{triv_conn_defn}
+	
+	For any projective $\A$ module $\mathcal E$ there is the unique \textit{trivial connection}
+	\bean
+	\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\
+	\nabla = \Id_{\mathcal E} \otimes d.
+	\eean
+\end{defn}
+\begin{remark}\label{triv_conn_rem}
+	From $d^2 = d \circ d = 0$ it follows that $\left(\Id_{\mathcal E} \otimes d \right) \circ   \left(\Id_{\mathcal E} \otimes d \right)$ = 0, i.e. any trivial connection is flat.
+\end{remark}
+
+
+
+\subsection{Commutative spectral triples}\label{comm_sp_tr_sec}
+
+\paragraph*{} This section contains citation of \cite{hajac:toknotes,varilly:noncom}.
+
+
+
+\subsection{Spin$^{c}$ manifolds}\label{spin_mani_sec}
+\paragraph*{}
+%	 \bean
+%	  	Xe^2 x = Xe \cdot e x + e \cdot X e x + e\cdot  %Xx= Xe \cdot x + e\cdot Xx\\
+% 	    Xe \cdot e x + e \cdot X e x = Xe \cdot x 
+%	 \eean
+% 	 \bean
+% 	 Xe^2  = Xe \cdot  e + e \cdot X  e = Xe \\
+%  	 e \cdot Xe \cdot e = 0.
+%    	 \eean
+Let  $M$ be a compact $n$-dimensional orientable Riemannian manifold with a metric~$g$ on  its tangent bundle~$TM$.  For any section  $X \in \Ga\left(M, TM \right)$ of the tangent bundle there is the \textit{derivative}  (cf. \cite{kobayashi_nomizu:diff_geom})
+$$
+X: \Coo\left(M \right) \to C\left( M\right) 
+$$
+We say that $X$ is \textit{smooth} if $X \left(  \Coo\left(M \right)\right) \subset\Coo\left(M \right)$.
+Denote by $\Ga^\infty\left(M, TM \right)$ the space of smooth vector fields. %For all $X \in  \Ga^\infty\left(M, TM \right)$ there is the  \textit{Lie derivative}
+% \bean
+% 	L_X : \Ga^\infty\left(M, TM \right)\to \Ga^\infty\left(M, TM \right);\\
+%	Y \mapsto \left[X, Y\right]
+%\eean
+A  \textit{tensor bundle}  corresponds to a tensor products
+$$
+\Ga\left(M, TM \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, TM \right)
+$$
+\textit{Smooth sections} of tensor bundle correspond to elements of
+\bean
+\Ga^\infty\left(M, TM \right)\otimes_{C^\infty\left( M\right) } ...\otimes_{C^\infty\left( M\right) } \Ga^\infty\left(M, TM \right)\subset \\ \subset\Ga\left(M, TM \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, TM \right).
+\eean
+The metric  tensor $g\bydef \left[g_{jk}\right]$ (cf. Remark \ref{riemann_mani_rem}) is a section of the tensor  bundle, or equivalently $g\in\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$,  we suppose that the section is smooth, i.e $g\in\Ga^\infty\left(M, TM \right)\otimes_{\Coo\left( M\right) }\Ga^\infty\left(M, TM \right)$. On the other hand $g$ yields the isomorphism
+$$
+\Ga\left(M, TM \right)\cong \Ga\left(M, T^*M \right)
+$$
+between sections of the tangent and the cotangent bundle. The section of cotangent bundle is said to be \textit{smooth} if it is an image of the smooth section of the tangent bundle. Below we consider tensor bundles which correspond to tensor products of exemplars of $\Ga\left(M, T^*M \right)$ and/or $\Ga\left(M, T^*M \right)$.
+The metric tensor  yields the given by
+\be\label{top_vol_eqn}
+v = \sqrt{\left[ g_{jk}\right] }~dx_1...dx_n
+\ee
+\textit{volume element} (cf. \cite{do_carmo:rg}. The volume element can be regarded as an element of $\Ga\left(M, T^*M \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, T^*M \right)$, i.e. $v$ is a section of the tensor field. On the other hand element $v$ defines the unique \textit{Riemannian measure} $\mu$ on $M$.
+If $E \to M$ is a complex bundle then from the Serre-Swan Theorem \ref{serre_swan_thm} it turns out that there is an idempotent $e \in \mathbb{M}_n\left(C\left(M \right)  \right)$ such that there is the  $C(M)$-module isomorphism
+$$
+\Ga\left(M, E \right) \cong e C\left(M \right)^n.
+$$
+From the Theorem \ref{smooth_k_iso_thm} one can suppose that $e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)$ (cf. Remark \ref{smooth_k_iso_rem}).
+\begin{definition}\label{top_smooth_m_defn}
+	The isomorphic to $e \Coo\left(M \right)^n$ group  with the induced by
+	\be\label{top_smooth_m_eqn}
+	\Ga^\infty\left(M, E \right) \cong e \Coo\left(M \right)^n \subset e C\left(M \right)^n\cong \Ga\left(M, E \right)\quad e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)
+	\ee
+	inclusion $\Ga^\infty\left(M, E \right) \subset \Ga\left(M, E \right)$ is said to be the subgroup of \textit{smooth sections}.
+\end{definition} 
+It is clear that 
+\be
+\Coo\left(M \right)\Ga^\infty\left(M, E \right)\subset \Ga^\infty\left(M, E \right)
+\ee
+and the map
+$$
+\Ga^\infty\left(M, E \right)\mapsto \Ga\left(M, E \right)
+$$
+yields the given by the Theorem \ref{smooth_k_iso_thm} isomorphism $K_0\left(\Coo\left(M \right) \right) \cong K_0\left( C\left(M \right)\right) $. 
+It can be proved that   the Definition \ref{top_smooth_m_defn} complies with the above definition of smooth tensor fields.
+We build a Clifford algebra bundle
+$\C\ell(M) \to M$ whose fibres are full matrix algebras (over ~$\C$) as
+follows. If $n$ is even, $n = 2m$, then
+$\C\ell_x(M) \bydef \Cl(T_xM,g_x) \ox_\R \C \simeq M_{2^m}(\C)$ is the
+complexified Clifford algebra over the tangent space $T_xM$. If $n$ is
+odd, $n = 2m + 1$, the analogous fibre splits as
+$\mathbb{M}_{2^m}(\C) \oplus \mathbb{M}_{2^m}(\C)$, so we take only the \textit{even}
+part of the Clifford algebra:
+$\C\ell_x(M) \bydef \Cl^\mathrm{even}(T_xM) \ox_\R \C \simeq \mathbb{M}_{2^m}(\C)$. %The price 	we pay for this choice is that we lose the $\Z_2$-grading of the 	Clifford algebra bundle in the odd-dimensional case.	
+What we gain is that in all cases, the bundle
+\be\label{st_cliffod_eqn}
+\C\ell(M) \to M
+\ee
+is a locally trivial field of (finite-dimensional) elementary
+$C^*$-algebras, so $B = \Ga\left( M, \C\ell(M)\right)$ is a $C^*$-algebra % Such a field is classified, up to equivalence, by a 	third-degree \v{C}ech cohomology class 	$\delta(\C\ell(M)) \in H^3(M,\Z)$ called the Dixmier-Douady   	class~\cite{dixmier_a_r}.	Locally, one finds trivial bundles with fibres
+$S_x$ such that 
+\be\label{st_spinor_eqn}
+\C\ell_x(M) \simeq \End(S_x);
+\ee the
+class~$\delta(\C\ell(M))$ is precisely the obstruction to patching them
+together (there is no obstruction to the existence of the algebra
+bundle $\C\ell(M)$). It was shown by Plymen~\cite{plymen:mor_s} that
+$\delta(\C\ell(M)) = W_3(TM)\in  H^3(M,\Z)$, the integral class that is the
+obstruction to the existence of a \textit{Spin$^c$ structure} in the
+conventional sense of a lifting of the structure group of~$TM$ {}from
+$SO(n)$ to $\Spin^c(n)$: see \cite{lawson_m} for more
+information on~$W_3(TM)$.
+
+Thus $M$ admits Spin$^c$ structures if and only if
+$\delta(\C\ell(M)) = 0$. But in the Dixmier--Douady theory,
+$\delta(\C\ell(M))$ is the obstruction to constructing (within the
+$C^*$-category) a $B$-$A$-bimodule $\SS$ that implements a Morita
+equivalence between $A = C(M)$ and $B = C(M,\C\ell(M))$. Let us
+paraphrase Plymen's redefinition of a Spin$^c$ structure, in the
+spirit of noncommutative geometry:
+\begin{definition}\label{spin_str_defn}
+	Let $M$ be a Riemannian manifold, $A = C(M)$ and\\
+	$B = C(M,\C\ell(M))$. We say that the tangent bundle $TM$
+	\textit{admits a }Spin$^c${ structure} if and only if it is orientable
+	and $\delta(\C\ell(M)) = 0$. In that case, a \textit{Spin$^{\bf c}$
+		structure} on~$TM$ is a pair $(\eps,S)$ where $\eps$ is an
+	orientation on~$TM$ and $S$ is a $B$-$A$-equivalence bimodule.
+\end{definition}
+
+%	Following an earlier terminology introduced by Atiyah, Bott and
+%	Shapiro~\cite{atiyah_b_s} in their seminal paper on Clifford modules,
+%	the pair $(\eps,\SS)$ is also called a \textbf{$K$-orientation}
+%	on~$M$. Notice that $K$-orientability demands more than mere
+%	orientability in the cohomological sense.
+
+What is this equivalence bimodule~$\SS$? By the Serre-Swan theorem  \ref{serre_swan_thm}, it
+is of the form $\Ga(M, S)$ for some complex vector bundle $S \to M$ that also
+carries an irreducible left  action of the Clifford algebra bundle
+$\C\ell(M)$. This is the \textit{spinor bundle} whose existence displays
+the Spin$^c$ structure in the conventional picture. We call
+$\Ga^\infty(M,S)$ the \textit{spinor module}; it is an irreducible
+Clifford module in the terminology of~\cite{atiyah_b_s}, and has
+rank~$2^m$ over $C(M)$ if $n = 2m$ or $2m + 1$.
+\begin{remark}
+	If $\B \bydef \Ga^\infty \left(M, \C\ell(M) \right)$ then $\B$ is an be an unital Fr\'echet pre-$C^*$-algebra, such that $\B$ is dense in $B$. Similarly if $\A\bydef \Coo\left(M \right)$ then $\A$ is dense in  $A\bydef C\left(M \right)$. The Morita equivalence between $B$ and $A$ is given by the projective $B$-$A$ bimodule $\Ga\left(M,S \right)$. Similarly  the Morita equivalence between $\B$ and $\A$ is given by the projective $\B$-$\A$ bimodule $\Ga^\infty\left(M,S \right)$.
+\end{remark}
+\begin{empt}
+	Let $\sS^\sharp\bydef \Hom_{C\left(M\right)}\left(\Ga\left(M,S \right), C\left(M\right) \right)$
+\end{empt}
+
+\begin{prop}\label{pr:charge-conj_prop}\cite{hajac:toknotes}
+	If $\sS^\sharp\bydef \Hom_{C\left(M\right)}\left(\Ga\left(M,S \right), C\left(M\right) \right)$ then 	there is a $B$-$A$-bimodule isomorphism $\sS^\sharp \isom \sS$ if and only
+	if there is an \textit{antilinear} endomorphism $C$ of $\sS$ such that
+	\begin{enumerate}
+		\item[(a)]
+		$C(\psi\,a) = C(\psi) \,\bar a$\quad
+		for $\psi \in \sS$, $a \in A$;
+		\item[(b)]
+		$C(b\,\psi) = \chi(\bar b)\, C(\psi)$\quad
+		for $\psi \in \sS$, $b \in B$;
+		\item[(c)]
+		$C$ is \emph{antiunitary} in the sense that
+		$\pairing{C\phi}{C\psi} = \pairing{\psi}{\phi} \in A$,\quad
+		for $\phi, \psi \in \sS$;
+		\item[(d)]
+		$C^2 = \pm 1$ on $\sS$ whenever $M$ is connected.
+	\end{enumerate}
+\end{prop}
+\begin{remark}\label{pr:charge-conj_rem}
+	Operator $C$ from the Proposition \ref{pr:charge-conj_prop} is a bijective isomorphism $\Ga\left(M,S \right)\cong \Ga\left(M,S \right)$ of Abelian groups. On the other hand since $\Ga\left(M,S \right)$ is dense in $L^2\left(M, S, \mu \right)$ it can be extended up to antiunitary  operator $J:L^2\left(M, S, \mu \right)\cong L^2\left(M, S, \mu \right)$. According to the construction of commutative real spectral triples $J$ is an operator which defines the structure of a real spectral triple (cf. Definition \ref{df:spt-real_defn}).
+\end{remark}
+
+
+
+\begin{remark}\label{top_spin_prod_rem}\cite{varilly:noncom}
+	Any spinor bundle $S$ has a sesquilinear form $S \times_\sX S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). In \cite{varilly:noncom} a bundle with  sesquilinear form is said to be a \textit{Hermitian bundle}.
+\end{remark}
+
+
+%Another matter is how to fit into this picture \textit{spin
+	%	structures} on~$M$ (liftings of the structure group of~$TM$ from
+%$SO(n)$ to $\Spin(n)$ rather than $\Spin^c(n)$). These are
+%distinguished by the availability of a %\textit{conjugation
+	%	operator}~$J$ on the spinors (which is antilinear); we shall take up
+%this matter later.
+
+
+
+
+\subsection{The Dirac operator}\label{comm_dirac_sec}
+\paragraph{}
+As soon as a spinor module makes its appearance, one can introduce the
+\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
+of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
+This is a selfadjoint first-order
+differential operator $\Dslash$ defined on the space $\H$
+of square-integrable spinors, whose domain includes the space of smooth spinors
+$\SS = \Ga^\infty\left(M, S \right)$.  The Riemannian metric $g = [g_{ij}]$
+defines isomorphisms $T_xM \simeq T^*_xM$ and induces a metric
+$g^{-1} = [g^{ij}]$ on the cotangent bundle $T^*M$. Via this
+isomorphism, we can redefine the Clifford algebra as the bundle with
+fibres $\C\ell_x(M) \bydef \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
+by $\Cl^\mathrm{even}$ when $\dim M$ is odd). Let $\Ga(M, T^*M)$ be
+the $C\left( M\right) $-module of \hbox{$1$-forms} on~$M$. 
+The spinor module $\SS$ is
+then a $B$-$A$-bimodule on which the algebra $B = \Ga\left( M,\C\ell\left( M\right) \right) $
+acts irreducibly. If 
+\be\label{spin_gamma_eqn}
+\begin{split}
+	\ga: B \cong \End_A\left( \SS\right) \\
+	\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_{C\left(M \right) }\left( \Ga\left(M,S \right) \right)
+\end{split}
+\ee	
+is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
+$$
+\{\ga(\a), \ga(\b)\} = -2 g^{-1}(\a,\b) = -2 g^{ij} \a_i \b_j\in C\left( M\right) 
+\sepword{for}  \a,\b \in \Ga(M, T^*M).
+$$
+The action~$\ga$ of $\Ga(M, \C\ell(M))$ on the Hilbert-space completion
+$\H$ of~$\SS$ is called the \textit{spin representation}.
+
+The metric $g^{-1}$ on $T^*M$ gives rise to a canonical
+\textit{Levi-Civita connection}\\
+$\nabla^g \: \Ga^\infty(M, T^*M) \to \Ga^\infty(M, T^*M) \otimes_\A \Ga^\infty(M, T^*M)$ that, as well as
+obeying the Leibniz rule
+$$
+\nabla^g(\om a) = \nabla^g(\om)\,a + \om \ox da,
+$$
+preserves the metric and is torsion-free. The \textit{spin connection}
+is then a linear operator
+\be\label{spin_conn_defn_eqn}
+\begin{split}
+	\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_{\Coo\left(M \right) } \Ga^\infty(M, TM)
+\end{split}
+\ee
+satisfying two Leibniz rules, one for the right action of~$\A$ and the
+other, involving the Levi-Civita connection, for the left  action of
+the Clifford algebra:
+\be\label{spin_conn_eqn}
+\begin{split}
+	\nabla^S(\psi a) \bydef \nabla^S(\psi)a + \psi \otimes  da,\\
+	\nabla^S(\ga(\om)\psi)= \ga(\nabla^g\om)\psi + \ga(\om)\nabla^S\psi,
+\end{split}
+\ee
+$$
+%\eqalignno{
+	%	\nabla^S(\psi a) &= \nabla^S(\psi)\,a + \psi \ox da,
+	%	\cr
+	%	\nabla^S(\ga(\om)\psi)
+	%	&= \ga(\nabla^g\om)\,\psi + \ga(\om)\,\nabla^S\psi,
+	%	& (1.3) \cr}
+$$
+for $a \in \A$, $\om \in \Ga^\infty(M, T^*M)$, $\psi \in \Ga^\infty(M, S)$.
+
+Once the spin connection is found, we define the Dirac operator as the
+composition $\ga \circ \nabla^S$; more precisely, the local expression
+\be\label{comm_dirac_eqn}
+\Dslash \bydef \sum_{j=1}^n\ga(dx^j) \, \nabla^S_{\del/\del x^j}
+\ee
+is independent of the local coordinates and defines $\Dslash$ on the domain
+$\SS \subset \H$.
+One can check that this operator is symmetric; it extends to an 	unbounded selfadjoint operator on~$\H$, also called $\Dslash$.
+In result one has the commutative spectral triple
+\be\label{comm_sp_tr_eqn}
+\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash , J  \right).
+\ee
+It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condition (cf. Axiom \ref{fist_order_st_ax}) is equivalent to the following equation
+\begin{equation}\label{comm_matr_x_eqn}
+	\begin{split}
+		\left[ {\slashed D}, {a}\right]b= b\left[ {\slashed D}, {a}\right] \quad\forall a, b \in \Coo\left( M\right).
+	\end{split}
+\end{equation}
+
+
+
+
+
+
+%%%Henceforth  $\left\{x_{\iota}\right\}_{\iota \in I}$ means a set indexed by finite or countable  set $I$ of indexes.
+
+
+
+
+
+
+
+
+
+
+					\end{appendices}
+					
+\begin{thebibliography}{10}
+	
+\bibitem{c_alg_hull} Stefano Baratella, Siu-Ah Ng.	{\it Nonstandard Hulls of $C^*$-Algebras} arXiv:0910.5058, 
+
+	
+	
+	\bibitem{counter_ex} 	Alexandru Chirvasitu. {\it Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
+	
+	%\bibitem{lie_groupoids_coov}  CORRECT TURKISH
+	
+	%I. I en, M. G rsoy, A.  zcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207   218. 	c T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
+	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, {\it 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
+	
+	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973.
+	
+	
+	\bibitem{Ambjorn:2000cs}  J.~Ambjorn, Y.~M.~Makeenko, J.~Nishimura and R.~J.~Szabo,  {\it Lattice gauge fields and discrete noncommutative Yang-Mills theory}.  JHEP {\bf 0005}, 023 hep-th/0004147, 2000.
+	
+	\bibitem{af:rings_cat_mod} Anderson F.W., Fuller K.R. \textit{Rings and categories of modules}, Graduate Text in Mathematics, Springer Verlag, N.Y. 1974.
+	%\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover  Publications, New York, 1961, 1963.
+	
+	\bibitem{antoine:part_o} Antoine, Jean-Pierre, Inoue, Atsushi, Trapani, C.  \textit{Partial $*$- Algebras and Their Operator Realizations}. SPRINGER-SCIENCE+BUSINESS MEDIA, B.V. 2002.
+	
+	
+	\bibitem{antoine:part_s} J.-P. Antoine, F. Mathot, \textit{Partial $*$-algebras of closed operators and their commutants. I. General
+		structure}. Ann. Inst. H. Poincar  46, 299 324 (1987), 1987.
+	
+	\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+	
+	
+	\bibitem{atiyah_b_s}
+	M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology {\bf 3} (1964), 3--38.  1964.
+	
+	
+	\bibitem{atiyah:kt}\textit{$K$-theory}
+	By Michael Atiyah
+	W. A. BENJAMIN, INC. New York, Amsterdam 1967
+	Work for these note is was partially supported by NSF Grant GP-1217
+	
+	
+	%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{M}hbb{R}/\mathbb{M}hbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
+	
+	\bibitem{auslander:galois} M. Auslander; I. Reiten; S.O. Smal\o{}. \textit{Galois actions on rings and finite Galois coverings}. Mathematica Scandinavica (1989), Volume: 65, Issue: 1, page 5-32, ISSN: 0025-5521; 1903-1807/e , 1989.
+	
+	\bibitem{bfss} T. Banks, W. Fischler, S.H. Shenker and L. Susskind, Phys.
+	Rev. {\bf
+		D55} (1997) 5112 [{\tt hep-th/9610043}].
+	
+	\bibitem{bss} T. Banks, N. Seiberg and S.H. Shenker, Nucl. Phys. {\bf B490}
+	(1997) 91
+	[{\tt hep-th/9612157}].
+	
+	
+	
+	
+	%\bibitem{bezandry_diagana:bound_unbound}Paul H. Bezandry, Toka Diagana {\it Bounded and Unbounded Linear Operators}, in {\it Almost Periodic Stochastic Processes}, Springer, 2011.
+	
+	%\bibitem{ballentine:qm} Leslie E Ballentine. {\it Quantum Mechanics: A Modern Development.} World Scientific Publishing Co. Pte. Ltd. 2000.
+	\bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
+	
+	
+	\bibitem{becker:sting_m}Katrin Becker, Melanie Becker, John H. Schwarz. \textit{String Theory and M-Theory: A Modern Introduction}. Cambridge University Press. 2007.
+	
+	\bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
+	
+	\bibitem{blackadar:oa} B. Blackadar. \textit{Operator Algebras: Theory of C$*$-Algebras and von Neumann Algebras}, (Encyclopaedia of Mathematical Sciences), Springer,  2006.
+	
+	\bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
+	
+	\bibitem{blecher_merdy} David P. Blecher, Christian Le Merdy. \textit{Operator algebras and their modules - an operator space approach}, CLARENDON PRESS - OXFORD, 2004.
+	
+	%\bibitem{blecher:hilb_gen} D.P. Blecher. {\it A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
+	
+	\bibitem{bogachev_measure_v1}V. I. Bogachev. {\it Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
+	
+	\bibitem{bogachev_measure_v2}V. I. Bogachev. {\it Measure Theory}. (volume 2). Springer-Verlag, Berlin, 2007.
+	
+	\bibitem{bogopolsky:group_theory}Oleg Bogopolski. \textit{Introduction to Group Theory}. European Mathematical Society. 2008.
+	
+	
+	\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
+	
+	\bibitem{bredon:topology_geometry} Bredon, Glen E. \textit{Topology and geometry} (Graduate texts in mathematics) Corr. 2nd print Edition, 1993
+	
+	
+	\bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
+	
+	
+	\bibitem{brickell_clark:diff_m} F. Brickell and R. S. Clark.
+	{\it Differentiable manifolds; An introduction.} London; New York: V. N. Reinhold Co., 1970.
+	
+	
+	
+	
+	
+	\bibitem{brown:proper_groupoids}Jonathan Henry Brown. \textit{Proper actions of groupoids on $C^*$-algebras}. arXiv:0907.5570, 2009.
+	
+	\bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel. \textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
+	
+	
+	
+	\bibitem{brzezinsky:flat_co}Tomasz Brzezinski \textit{Flat connections and (co)modules}, arXiv:math/0608170, 2006.
+	\bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
+	
+	\bibitem{uni_groupoid_ca}Alcides Buss, Rohit Holkar, Ralf Meyer. \textit{A universal property for groupoid C$*$-algebras. I}. math.arXiv:1612.04963v2, 2018.
+	
+	
+	
+	
+	\bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
+	
+	\bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012. This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
+	
+	%\bibitem{mont:hopf-morita} M. Cohen, D. Fischman, S. Montgomery. \textit{Hopf Galois extensions, smash products, and Morita equivalence}. Journal of Algebra Volume 133, Issue 2, September 1990, Pages 351-372, 1990.
+	
+	\bibitem{clarisson:phd} Clarisson Rizzie Canlubo. \textit{Non-commutative Covering Spaces and Their Symmetries}. PhD thesis. University of Copenhagen. 2017.
+	
+	\bibitem{connes:foli_survey} A. Connes. \textit{A survey of foliations and operator algebras}. Operator algebras and applications, Part 1, pp. 521-628, Proc. Sympos. Pure Math., 38, Amer. Math. Soc, Providence, R.I., 1982; MR 84m:58140. 1982.
+	
+	%	\bibitem{cds} A. Connes, M.R. Douglas and A. Schwarz, J. High Energy Phys.{\bf 9802}(1998) 003 [{\tt hep-th/9711162}].
+	\bibitem{matrix_tori} Alain Connes,   Michael R. Douglas and Albert Schwarz {\it Noncommutative Geometry and Matrix Theory: Compactification on Tori}, arXiv:hep-th/9711162, 1998.
+	
+	\bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
+	
+	\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
+	
+	
+	
+	\bibitem{connes_landi:isospectral} Alain Connes, Giovanni Landi. {\it Noncommutative Manifolds the Instanton Algebra and Isospectral Deformations}, arXiv:math/0011194, 2001.
+	
+	\bibitem{connes_lott:particle} Connes, Alain, Lott, John. \textit{Particle models and noncommutative geometry}, Nuclear Physics B - Proceedings Supplements (1991/01) 18(2): 29-47, 1991
+	
+	\bibitem{connes_rieffel:nc_ym}A. Connes, Marc A. Rieffel \textit{Yang-Mills for noncommutative two-tori}. 1987 30 pages Published in: Contemp. Math. 62 (1987) 237-266, In *Li, M. (ed.) et al.: Physics in non-commutative world, vol. 1* 46-62. 1987.
+	
+	%\bibitem{conway:fa}Conway, John B. (1990). \textit{A Course in Functional Analysis}. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908. 1990.
+	
+	\bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf  theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
+	
+	\bibitem{cuntz:k_c_a}  J. Cuntz. \textit{$K$-theory for certain $C^*$-algebras}, Ann. of Math. (2) 113:1, 1981.
+	
+	%\bibitem{vandaele:dqg} A. Van Daele. \textit{Discrete Quantum Groups.} Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994. Journal of Algebra Volume 180, Issue 2, March 1996, Pages 431-444, 1996.
+	
+	
+	\bibitem{dabrowski:product}
+	Ludwik D\k{a}browski, Giacomo Dossena. \textit{Product of real spectral triples}. International Journal of Geometric Methods in Modern Physics, Volume 08, Issue 08, December 2011.
+	
+	\bibitem{dix:profinite} John D. Dixon, Edward W. Formanek, John C. Poland, Luis Ribes. \textit{Profinite completion and isomorphic finite quotients}. Journal of Pure and Applied Algebra 23 (1982) 227-23 1, 1982.
+	
+	\bibitem{dimca:sheaves} Alexandru Dimca. \textit{Sheaves in Topology} Springer Science \& Business Media, Mar 12, 2004. 
+	
+	\bibitem{Driver} B.~Driver {\it Classifications of bundle connection pairs by parallel translation and lassos}.
+	J.\ Funct.\ Anal.\ {\bf 83}, no.\ 1, (1989).
+	\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
+	
+	\bibitem{varilly_bondia:phobos}Jos\'e M.  Gracia-Bond\'{\i}a, Joseph C.  V\'arilly.  \textit{Algebras of Distributions suitable for phase-space quantum mechanics. I}. Escuela de Matem\'{a}tica, Universidad de Costa Rica, San Jos\'e, Costa Rica J. Math. Phys 29 (1988), 869-879, 1988.
+	
+	%\bibitem{varilly_bondia:deimos} J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions suitable for phase-space quantum mechanics II: Topologies on the Moyal algebra}, J. Math. Phys. {\bf 29} (1988), 880--887. 1988.
+	
+	%\bibitem{hajac:s_conn}	P. M. Hajac, \textit{Strong connections on quantum principal bundles},Commun. Math. Phys. {\bf 182} (1996), 579--617. 1996.	
+	
+	%\bibitem{bruckler:tensor} Franka Miriam Br\"uckler. {\it Tensor products of $C^*$-algebras, operator spaces and Hilbert $C^*$-modules}. Mathematical Communications 4(1999), 1999.
+	
+	\bibitem{do_carmo:rg} Manfredo P. do Carmo. {\it Riemannian Geometry.} Birkh\"auser, 1992.
+	
+	
+	\bibitem{chakraborty_pal:quantum_su_2} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{Equivariant spectral triples on the quantum $SU(2)$ group}. arXiv:math/0201004v3, 2002.
+	
+	\bibitem{chakraborty_pal:inv_hom} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{An invariant for homogeneous spaces of compact quantum groups}. Advances in Mathematics. 301 (2016) 258  2016.
+	
+	%\bibitem{chang:fermionic} Ee Chang-Young, Hiroaki Nakajima, Hyeonjoon Shin. {\it Fermionic $T$-duality and Morita Equivalence}, arXiv:1101.0473, 2011.
+	
+	%\bibitem{morita_hopf_galois}S. Caenepeel, S. Crivei, A. Marcus, M. Takeuchi. {\it Morita equivalences induced by bimodules over   Hopf-Galois extensions.}arXiv:math/0608572, 2007.
+	
+	
+	
+	%\bibitem{cheng_li:gauge}Cheng, T.-P.; Li, L.-F. {\it Gauge Theory of Elementary Particle Physics}. Oxford University Press. ISBN 0-19-851961-3. 1983.
+	
+	%\bibitem{connes:gravity}A. Connes. {\it Gravity coupled with matter and foundation of noncommutative geometry \}, Commun. Math. Phys. 182 (1996), 155 176. 1996.
+		
+		%\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
+		
+		
+		
+		%\bibitem{connes_marcolli:motives}
+		%Alain Connes, Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives},  American Mathematical Society, Colloquium Publications, 2008.
+		
+		% \bibitem{connes_moscovici:local_index} A. Connes and H. Moscovici, {\it The local index theorem in noncommutative geometry"}. Geom. and Funct. Anal., 1996.
+		
+		
+		%\bibitem{cuntz_quillen:alg_ext} Joachim Cuntz, Daniel Quillen.  {\it Algebra extensions and nonsingularity}, J. Amer. Math. Soc. 8 251-289, 1995
+		
+		%\bibitem{davis_kirk_at}James F. Davis. Paul Kirk. {\it Lecture Notes in Algebraic Topology}. Department of Mathematics, Indiana University, Blooming- ton, IN 47405, 2001.
+		
+		\bibitem{dijkhuizen:so_doublecov} Dijkhuizen, Mathijs S. \textit{The double covering of the quantum group $SO_q(3)$}. Rend. Circ. Mat. Palermo (2) Suppl. (1994), 47-57. MR1344000, Zbl 0833.17019. 1994.
+		
+		\bibitem{dixmier_a_r} Jacques Dixmier {\it Les C$*$-alg\`{e}bres et leurs repr\'esentations} 2e \'ed. Gauthier-Villars in Paris 1969.
+		
+		
+		
+		\bibitem{dixmier_ca}Jacques Dixmier. \textit{$C^*$-Algebras}. University of Paris VI, North-Holland Publishing Company, 1977.
+		
+		\bibitem{dixmier_tr}J. Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963.
+		
+		\bibitem{dosi:multi} Anar Dosi. \textit{Local operator spaces, unbounded operators and multinormed $C^*$-algebras}.      Journal of Functional Analysis 255(7):1724-1760. October 2008.
+		
+		
+		\bibitem{effros:loc_conv} E.G. Effros, C. Webster \textit{ Operator analogues of locally convex spaces}, in: Operator Algebras and Applications,Samos 1996, in: NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., vol. 495, Kluwer, Amsterdam, 1997.
+		
+		\bibitem{elliot:an} Elliott H. Lieb, Michael Loss. \textit{Analysis}, American Mathematical Soc., 2001.
+		
+		
+		\bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
+		
+		\bibitem{quasi_star_many} M. Fragoulopoulou, C. Trapani S. Triolo \textit{Locally convex quasi $*$-algebras with sufficiently many $*$-representations}.  J. Math. Anal. Appl. 388 (2012) 1180 1193, 2012.
+		
+		\bibitem{quasi_star} Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi $*$-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
+		
+		
+		\bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
+		
+		\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Alg brique et Th orie des Faisceaux}. Actualit s Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
+		
+		\bibitem{cinfty_manifolds} Juan A. Navarro Gonz lez, Juan B. Sancho de Salas. $\Coo$-\textit{Differentiable Spaces}. Springer.  2003.
+		
+		
+		
+		%\bibitem{gilkey:odd_space}P.B. Gilkey. {\it The eta invariant and the $K$-theory of odd dimensional spherical space forms}.Inventiones mathematicae, Springer-Verlag, 1984.
+		
+		
+		%\bibitem{nicolas_ginoux:dirac_spectrum}Nicolas Ginoux. {\it The Dirac Spectrum.}Springer, Jun 11, 2009.
+		
+		\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
+		
+		\bibitem{varilly_bondia} Jos\'e M. Gracia-Bondia, Joseph C. Varilly, Hector Figueroa, {\it Elements of Noncommutative Geometry}, Springer, 2001.
+		
+		\bibitem{green_schwarz_witten:superstring} {\it Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics) by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
+		
+		
+		%\bibitem{gross_gauge}David J. Gross. {\it Gauge Theory-Past, Present, and Future} Joseph Henry Luborutoties, Ainceton University, Princeton, NJ 08544, USA. (Received November 3,1992).
+		
+		%\bibitem{ful:gr_repr} Fulton William, Harris Joe. {\it Representation theory. A first course} Graduate Texts in Mathematics, Readings in Mathematics 129, New York: Springer-Verlag. 1991.
+		
+		\bibitem{had:ntk} Tom Hadfield. \textit{K-homology of the rotation algebras} $A_\th$. arXiv:math/0112235, 2001.
+		
+		
+		\bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
+		
+		
+		
+		%\bibitem{halmos:set} Paul R.  Halmos {\it Naive Set Theory.} D. Van Nostrand Company, Inc., Prineston, N.J., 1960.
+		
+		
+		%\bibitem{helemsky:qfa} A. Ya. Helemsky. {\it Quantum Functional Analysis. Non-Coordinate Approach.} Providence, R.I. : American Mathematical Society, 2010.
+		
+		
+		\bibitem{hajac:toknotes}
+		{\it Lecture notes on noncommutative geometry and quantum groups}, Edited by Piotr M. Hajac.
+		
+		\bibitem{hamermesh:group} M. Hamermesh. \textit{Group Theory and its Applications to Physical Problems}, Addison-Wesley, 1962.
+		
+		
+		\bibitem{harzheim:os} Egbert Harzheim. \textit{Ordered sets}.
+		Springer Science+Business Media, Inc. 2005.
+		
+		
+		
+		
+		%\bibitem{isaacs:auto} I.M. Isaacs. \textit{Automorphisms of matrix algebras over   commutative rings}. Linear Algebra and its Applications, Volume 31, June 1980, Pages 215-231, 1980.
+		
+		\bibitem{hilsum_scandalis:stab}Hilsum, Michel; Skandalis, Georges. \textit{Stabilit  des $C^*$-alg bres de feuilletages}. Annales de l'Institut Fourier, Volume 33 (1983) no. 3, p. 201-208, 1983. 
+		
+		\bibitem{hatcher:at}Allen Hatcher, \textit{Algebraic topology}. Cambridge University Presses, Cambridge, 2002. 
+		
+		\bibitem{hatcher:kt}\textit{Vector Bundles \& $K$-Theory}. Version 2.2, November 2017. Copyright c 2003.
+		Paper or electronic copies for noncommercial use may be made freely without explicit permission from the author.
+		All other rights reserved.
+		
+		
+		\bibitem{horm:I}  Lars H\"ormander. \textit{The Analysis of Linear Partial Differential Operators I. Distribution Theory and Fourier Analysis}. Springer Verlag. 1990.
+		
+		%\bibitem{ivankov:ms}Petr Ivankov. \textit{Moduli space of noncommutative flat connections and finite-fold nomcommutative coverings}.{J. Phys.: Conf. Series}  \textbf{1194} 12051, 2018.
+		
+		
+		\bibitem{ikkt} N. Ishibashi, H. Kawai, Y. Kitazawa and A. Tsuchiya, Nucl.
+		Phys. {\bf
+			B498} (1997) 467 [{\tt hep-th/9612115}] 1997.
+		
+		\bibitem{jensen_thomsen:kk}Jensen, K. K. and Thomsen, K. \textit{Elements of KK-theory.} (Mathematics: Theory and Applications,
+		Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 1991.
+		
+		%\bibitem{johnstone:topos}P.T. Johnstone. Topos Theory, L. M. S. Monographs no. 10, Academic Press 1977.
+		
+		%\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
+		
+		\bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}.  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
+		
+		\bibitem{new_matrix} Giovanni Landi, Fedele Lizzi and Richard J. Szabo. {\it A New Matrix Model for Noncommutative Field Theory}.  arXiv:hep-th/0309031v1, 2003.
+		
+		\bibitem{kahn:glo_an} Donald W. Kahn. \textit{Introduction to Global Analysis}.  ACADEMIC PRESS
+		A Subsidiary of Harcourt Brace Jovanovich, Publishers
+		New York London Toronto Sydney San Francisco. 1980.  
+		
+		
+		\bibitem{kasch:mr} \textit{Modules and Rings}. A translation of \textit{Moduln und Ringe}. German text by F. Kasch, Ludwig-Maximilian University, Munich, Germany, Translation and editing by D. A. R. WALLACE University of Stirling, Stirling, Scotland 1982 ACADEMIC PRESS. A Subsidiary of Harcourt Brace Jovanovich, Publishers LONDON, NEW YORK, PARIS, SAN DIEGO, SAN FRANCISCO, S\~{A}O PAULO, SYDNEY, TOKYO, TORONTO.  1982.
+		
+		\bibitem{kaplansky:certain} I. Kaplanky. \textit{The structure of certain operator algebras.} Trans. Amer. Math. Soc., 70 (1951), 219-255. 1951.
+		
+		
+		
+		%\bibitem{kaku:loc}Kaku, M. {\it Locality in the gauge-covariant field theory of strings}. Phys. Lett. 162B, 97. Kaku, M. 1986.
+		
+		%\bibitem{karaali:ha} Gizem Karaali {\it On Hopf Algebras and Their Generalizations}, arXiv:math/0703441, 2007.
+		
+		\bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978.
+		
+		\bibitem{kelley:gt} John L. Kelley. {\it General Topology
+		}. Springer, 1975. 
+		
+		
+		\bibitem{kl-sch} Klimyk, A. \& Schmuedgen, K. {\sl Quantum Groups	and their Representations}, Springer, New York, 1998.
+		
+		
+		
+		%\bibitem{kastler:connes_lott} Daniel Kastler, Thomas Schucker, {\it The Standard Model a la Connes-Lott}, arXiv:hep-th/9412185, 1994.
+		
+		
+		
+		\bibitem{kobayashi_nomizu:diff_geom} S. Kobayashi, K. Nomizu. {\it Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
+		
+		
+		
+		\bibitem{krajewski:finite}
+		Thomas Krajewski. \textit{Classification of finite spectral triples}. Journal of Geometry and Physics Volume 28, Issues 1  November 1998, Pages 1-30, 1998.
+		
+		\bibitem{kreyszig:fa} Erwin Kreyszig. \textit{Introductory Functional Analysis with Applications}.  New York, N.Y. : Wiley, 1978.
+		\bibitem{Lance:Hilbert_modules}E. Christopher Lance, \textit{Hilbert $C^*$-modules}, London Mathematical Society Lecture Note Series, vol. 210, Cambridge University Press, Cambridge, 1995. DOI 10.1017/CBO9780511526206 MR, 1995.
+		
+		
+		\bibitem{kurosh:lga} A. G. Kurosh. \textit{Lectures on General Algebra}. PERGAMON PRESS.
+		OXFORD . LONDON   EDINBURGH   NEW YORK  
+		PARIS   FRANKFURT. 1965.
+		
+		
+		\bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
+		
+		
+		
+		\bibitem{lance:so} E. Christopher Lance. \textit{The compact quantum group $SO(3)_q$}. Journal of Operator Theory, Vol. 40, No. 2 (Fall 1998), pp. 295-307, 1998.
+		
+		\bibitem{lang} S. Lang. Algebra. Addison-Wesley Publishing Company, Reading, Mass. 1965.
+		
+		%\bibitem{lazar_tailor:mo}A. J. Lazar and D. C. Taylor, \textit{Multipliers of Pedersen's ideal}, Mem. Amer. Math. Soc No. 169, 1976. (1976).
+		
+		
+		
+		\bibitem{lawson_m}
+		H. B. Lawson, Jr. and M.-L. Michelsohn, {\it Spin Geometry}, Princeton
+		Univ. Press, Princeton, NJ, 1989. 
+		\bibitem{lee:smooth_manifolds} John M. Lee: \textit{Introduction to Smooth Manifolds} Published 2003, Springer: Graduate Texts in Mathematics ISBN 0-387-95495-3. 2003.
+		
+		\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
+		Translations of Mathematical Monographs, vol. 226, 2005.
+		
+		
+		
+		
+		\bibitem{bram:atricle}Bram Mesland. {\it Unbounded bivariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383, 2009.
+		
+		\bibitem{meyer:unb_repr} Ralf Meyer, \textit{Representations of $*$-algebras by unbounded operators: $C^*$-hulls, local-global principle, and induction} arXiv:1607.04472, 2017.
+		
+		\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press.  1980.
+		
+		\bibitem{milne:lec} J.S. Milne \textit{Lectures on \'Etale Cohomology} Version 2.21 March 22, 2013.
+		%\bibitem{miyashita_fin_outer_gal} Y\^oichi Miyashita, {\it Finite outer Galois theory of noncommutative rings}. Department of Mathematics, Hokkaido, University, 1966.
+		
+		%\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, {\it Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
+		
+		%\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. {\it continuous trace  groupoid $C^*$-algebras.}, Math. Scand. 1990
+		\bibitem{renault:gropoid_equiv}P. S. Muhly, Jean Renault, Dana P. Williams, \emph{Equivalence and isomorphism for groupoid $C^*$ - algebras} Journal of operator theory. January 1987
+		
+		
+		
+		\bibitem{MW08}
+		Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products}, New York Journal of Mathematics \textbf{3} (2008), 1--87. 2008;
+		
+		\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
+		
+		\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left  cancellative monoids}. M\"unster J. of Math. 16 (2023), 147 175, 2023.
+		
+		\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
+		\bibitem{Paschke:73}
+		William~L. Paschke. \emph{Inner product modules over {B}{$^\ast$}-algebras},
+		Transactions of the American Mathematical Society \textbf{182} (1973),
+		443--468. 1973.
+		
+		\bibitem{ouchi:cov_fol}Moto O'uchi \textit{Coverings of foliations and associated $C^*$-algebras}. Mathematica Scandinavica Vol. 58 (1986), pp. 69-76. 1986. 
+		
+		
+		
+		
+		\bibitem{pavlov_troisky:cov} Alexander Pavlov, Evgenij Troitsky. {\it Quantization of branched coverings.}   Russ. J. Math. Phys. (2011) 18: 338. doi:10.1134/S1061920811030071, 2011.
+		
+		%\bibitem{pedersen:semi}Gert  Kj rg rd  Pedersen.	\textit{Applications of weak* semicontinuity in $C^*$-algebra theory}. Duke Math. J. Volume 39, Number 3 (1972), 431-450. 1972.
+		\bibitem{parta:two_approaches_ym}
+		Partha Sarathi Chakraborty, Satyajit Guin. {\it Equivalence of Two Approaches to Yang-Mills on Non-commutative Torus }.
+		arXiv:1304.7616v1, 2013.
+		
+		
+		
+		\bibitem{pedersen:ca_aut}Gert Kj rg rd Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+		
+		%\bibitem{pierce:ass} Richard S. Pierce. \textit{Associative algebras}. Springer-Verlag, 1982.
+		
+		\bibitem{pedersen:mea_c} Gert Kj rg rd Pedersen.  \textit{Measure Theory for $C^*$-Algebras}. Mathematica Scandinavica (1966) Volume: 19, page 131-145
+		ISSN: 0025-5521; 1903-1807/e, 1966.
+		
+		\bibitem{phillips:inv_lim_app}
+		N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} 
+		University of California at Los Angeles, Los Angeles,  CA 90024
+		Edited by David E. Evans, Masamichi Takesaki
+		Publisher: Cambridge University Press
+		DOI: https://doi.org/10.1017/CBO9780511662270.011
+		pp 127-186, Print publication year: 1989.
+		
+		
+		\bibitem{phillips:ped_id}N. C. Phillips. \textit{A new approach to the multipliers of Pedersen's ideal}. Proc. American Mathematical Society, Volume 104, Number 3, November 1988.
+		
+		\bibitem{phillips:inv_lim} N. Christopher Phillips. {\it Inverse Limits of $C^*$ - algebras.} Journal of Operator Theory Vol. 19, No. 1 (Winter 1988), pp. 159-195. 1988.
+		
+		
+		\bibitem{phillips:nt_at}  \textit{Every simple higher dimensional noncommutative torus is an AT algebra}. arXiv:math/0609783, 2006.
+		
+		
+		\bibitem{plymen:mor_s}
+		R. J. Plymen, ``Strong Morita equivalence, spinors and symplectic
+		spinors'', J. Oper. Theory {\bf 16} (1986), 305--324. 1986.
+		
+		\bibitem{podles:so_su} Piotr Podle\'{s}. \textit{Symmetries of quantum spaces. Subgroups and quotient spaces of quantum SU(2) and SO(3) groups.} Comm. Math. Phys. Volume 170, Number 1 (1995), 1-20. 1995.
+		
+		\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
+		
+		\bibitem{reed_simon:mp_1}Michael Reed, Barry Simon. {\it Methods of modern mathematical physics 1: Functional Analysis}. Academic Press, 1972.
+		
+		\bibitem{Rieffel:74a}
+		Marc~A. Rieffel, \emph{Induced representations of {C}{$^\ast$}-algebras},
+		Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
+		
+		
+		\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+		
+		
+		%\bibitem{Rieffel:74b}Marc~A. Rieffel. \emph{{M}orita equivalence for {C}{$^\ast$}-algebras and	{W}{$^\ast$}-algebras}, Journal of Pure and Applied Algebra \textbf{5}(1974), 51--96. 1974.
+		
+		%\bibitem{adams:infinite_loop_spaces} J. F. Adams. {\it Infinite loop spaces}. Ann. of Math. Studies no. 90, Princeton Univ. Press, Princeton, N. J., 1978
+		
+		%\bibitem{phillips:c_infty_loop} N. Christopher Philllips. {\it $C^{\infty}$ Loop Algebras and Noncommutative Bott Periodicity}. Transactions of the American Matematical Society, Volume 325, Number 2, June 1991
+		
+		%\bibitem{sitarz:equiv} Andrzej Sitarz {\it Equivariant spectral triples}, Noncommutative Geometry and Quantum Groups (Piotr M. Hajac and Wieslaw Pusz, eds.), Banach Center Publ., vol 61, Polish Acad. Sci., pp. 231-268,  Warsaw 2003
+		
+		%\bibitem{cuntz:o_n} J. Cuntz, {\it Simple $C^*$ - algebras generated by isometries}, Comm. Math. Phys. 57:2, 1977
+		
+		%\bibitem{cuntz:k_o_n} J. Cuntz, {\it$K$ - theory of certain $C^*$ - algebras}, Ann. of Math. (2), 113:1 1981
+		
+		%\bibitem{Cohn:68} Paul~Moritz Cohn. {\it {M}orita equivalence and duality}, Queen Mary College   Mathematics Notes, Dillon's Q.M.C.\ Bookshop, London, 1968.
+		
+		%\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it General Topology}. Chapters 1-4, Springer, Sep 18, 1998
+		
+		%\bibitem{williams_sp:morita_cont_trace_alg} Iain Raeburn, Dana P. Williams. {\it Morita Equivalence and Continuous-Trace $C^*$-Algebras}. American Mathematical Soc., 1998
+		
+		%\bibitem{dixmier_tr}J.Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963
+		
+		\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. {\it On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007.
+		
+		%\bibitem{meyer:morita} Ralf Meyer. {\it Morita Equivalence In Algebra And Geometry.} math.berkeley.edu/~alanw/277papers/meyer.tex, 1997
+		
+		%\bibitem{rumynin_hopf_galois_ci} Dmitriy Rumynin  {\it Hopf-Galois extensions with central invariants.}  arXiv:q-alg/9707021 1997
+		
+		%\bibitem{rieffel_finite_g} Marc A. Reiffel, {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
+		
+		
+		\bibitem{rieffel_morita} Marc A. Reiffel, {\it Morita equivalence for $C^*$-algebras and $W^*$-algebras }, Journal of Pure and Applied Algebra 5 (1974), 51-96. 1974.
+		
+		\bibitem{Rieffel:76}
+		Marc A. Reiffel, \emph{Strong {M}orita equivalence of certain transformation group
+			{C}{$^\ast$}-algebras}, {M}athematische {A}nnalen \textbf{222} (1976), 7--22. 1976.
+		
+		\bibitem{Rieffel:irrat}
+		Marc A. Reiffel, 
+		\textit{$C^*$-algebras associated with irrational rotations}.
+		Pacific J. Math. 93(2): 415-429 (1981). 1981.
+		
+		%\bibitem{dixmier_douady_d} Claude Schochet, {\it Dixmier-Douady for Dummies}. 	arXiv:0902.2025 2009.
+		
+		
+		%\bibitem{rieffel:fin_act} Marc A. Rieffel. \textit{ Actions of finite groups on $C^*$-algebras.} Mathematica Scandinavica, Vol. 47, No. 1 (December 12, 1980), pp. 157-176, 1980.
+		
+		\bibitem{rtf:qlie} Reshetikhin, N. YU., Takhtadzhyan, L.A., Faddeev, L.D., \textit{Quantization of Lie groups and Lie algebras}. Leningrad Math. J., 1 (1) (1990), 193-225. 1990.
+		
+		
+		\bibitem{rotman:ag} Rotman, Joseph , \textit{ An Introduction to Algebraic Topology}. Part of the Graduate Texts in Mathematics book series (GTM, volume 119), 1988.
+		
+		%\bibitem{rieffel_finite_g} Marc A. Reiffel. {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
+		
+		
+		%\bibitem{Rieffel74} M.~A. Rieffel. \textit{ Morita equivalence for {$C\sp{\ast} $}-algebras and {$W\sp{\ast}	$}-algebras}. \newblock { J. Pure Appl. Algebra} {\bf 5} (1974), 51--96. 1974.
+		
+		%\bibitem{ros:ctr}Jonathan Rosenberg. \textit{Continuous-trace algebras from the bundle theoretic point of view}. Journal of the Australian Mathematical Society, Volume 47, Issue 3 December 1989 , pp. 368-381, 1989.
+		
+		
+		
+		\bibitem{ruan:real_comp} Ruan, Z.J. \textit{Complexifications of real operator spaces}. Illinois J. Math.
+		Volume 47, Number 4 (2003), 1047-1062. 2003.
+		
+		\bibitem{ruan:real_os} Ruan, Z.J. \textit{On Real Operator Spaces}. Acta Math Sinica 19, 485 496 (2003). https://doi.org/10.1007. 2003.
+		
+		
+		
+		\bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
+		
+		
+		\bibitem{rudin:pa} Rudin, Walter. \textit{ Principles of mathematical analysis}. (3rd. ed.), McGraw-Hill, ISBN 978-0-07-054235-8. 1976.
+		
+		%\bibitem{ros_scho:kt_uct} Jonathan Rosenberg, Claude Schochet, {\it The K\"unneth theorem and the universal coefficient theorem for Kasparov's generalized K -functor}, Duke Math. J. Volume 55, Number 2 1987.
+		
+		\bibitem{schenkel:nc_parallel}
+		Alexander Schenkel. {\it Module parallel transports in fuzzy gauge theory.},  arXiv:1201.4785, 2013.
+		
+		
+		\bibitem{schwieger:nt_cov}
+		Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}. 	arXiv:1710.09396 [math.OA], 2017.
+		
+		\bibitem{counter_topology}	Lynn Arthur Steen,
+		J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
+		1970.
+		
+		\bibitem{sw1} N. Seiberg and E. Witten, J. High Energy Phys. {\bf 9909}
+		(1999) 032
+		[{\tt hep-th/9908142}].
+		
+		
+		
+		\bibitem{Sengupta} A.~Sengupta. {\it Gauge invariant functions of connections}.  Proc.\ Am.\ Math.\ Soc.\ {\bf 121}, 897-905 (1994).
+		
+		\bibitem{discrete_crossed}Adam Sierakowski. \textit{Discrete Crossed product $C^*$-algebras}. Ph.D. Thesis. University of Copenhagen   Department of Mathematical Sciences   2009.
+		
+		\bibitem{sol_tro:ca_op} Yu. P. Solovyov, E. V. Troitsky. \textit{$C^*$-Algebras and Elliptic Operators in Differential Topology}. (vol. 192 of Translations of Mathemetical Monographs) Amer. Math. Soc, Providence, RI, 2000 (Revised English translation). 2000.
+		
+		%\bibitem{drag:ineq}  Silvestru Sever Dragomir. \textit{Inequalities for Functions of Selfadjoint Operators on Hilbert Spaces}.  arXiv:1203.166, 2012,
+		
+		\bibitem{spanier:at}
+		E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+		
+		\bibitem{sudo:ntk} Takahiro Sudo. \textit{K-Homology of Continuous Fields of Noncommutative Tori}. Nihonkai Math. J. Vol.19(2008), 1-19, 2008.
+		
+		\bibitem{sudo:k_ctr} Takahiro Sudo. \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
+		
+		
+		\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
+		
+		
+		\bibitem{takeda:inductive} Zir\^{o} Takeda. \textit{Inductive limit and infinite direct product of operator algebras.} Tohoku Math. J. (2) 	Volume 7, Number 1-2 (1955), 67-86. 1955.
+		
+		%\bibitem{takesaki:oa_ii} Takesaki, Masamichi. {\it Theory of Operator Algebras II}. Encyclopaedia of Mathematical Sciences, 2003.
+		
+		
+		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
+		
+		\bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.
+		
+		
+		
+		%\bibitem{takeuchi:inf_out_cov}Takeuchi, Yasuji {\it Infinite outer Galois theory of non commutative rings} Osaka J. Math. Volume 3, Number 2, 1966.
+		
+		%\bibitem{inikolaev:c_bundles} Igor Nikolaev, {\it Topology of the $C^*$ algebra bundles}. Centre interuniversitaire de recherche en g\'eom\'etrie diff\'erentielle et topologie UQAM Montr\'eal H3C 3P8 Canada 1999.
+		
+		
+		
+		
+		
+		
+		%\bibitem{thompsen:homtop}
+		%Klaus Thompsen. {\it Homotopy classes of * - homomorphisms between stable $C^*$ - algebras and their multiplier algebras.} Duke Matematical Journal (C) August 1990.
+		
+		
+		
+		
+		%\bibitem{blackadar:oa}
+		%B. Blackadar. {\it Operator Algebras Theory of $C^*$ Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006
+		
+		
+		
+		
+		%\bibitem{murre:fund}
+		%J.P. Murre. {\it Lectures on An Introduction to Grothendieck's  Theory of the Fundamental Group.} Notes by S. Anantharaman, Tata Institute of Fundamental Research, Bombay, 1967.
+		
+		
+		
+		%\bibitem{connes_marcolli::motives} Alain Connes Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives.} Preliminatry version. www.alainconnes.org/docs/bookwebfinal.pdf
+		
+		%\bibitem{mesland::unbounded_biviariant} Bram Mesland. {\it Unbounded biviariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383. 2009.
+		
+		
+		
+		%\bibitem{connes:ng} A. Connes. {\it Noncommutative Geometry.} Academic Press, London, 1994.
+		
+		%\bibitem{faith:I} C. Faith. Algebra: {\it Rings, Modules and Cathegories I}. Springer-Verlag 1973
+		
+		
+		
+		
+		\bibitem{varilly:noncom} J.C. V\'arilly. {\it An Introduction to Noncommutative Geometry}. EMS. 2006.
+		
+		%\bibitem{voic:dual} D. V. Voiculescu. \textit{Dual algebraic structures on operator algebras related to free products}. J. Operator Theory 17 (1987) 85-98. | MR 873463 | Zbl 0656.46058, 1987.
+		
+		\bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
+		
+		\bibitem{structure_of_standard} Wai Mee Ching. \textit{The structure of standard $C^*$-algebras and their representations}. Pacific J. Math. 67(1): 131-153 (1976).
+		
+		Profinite Groups
+		\bibitem{wilson:profinite} John S. Wilson. \textit{Profinite Groups}. A Clarendon Press Publication, 1999.
+		
+		\bibitem{xiaolu:foli_cov} Xiaolu Wang. \textit{On the Relation Between $C^*$-Algebras of Foliations and Those of Their Coverings}. Proceedings of the American Mathematical Society Vol. 102, No. 2 (Feb., 1988), pp. 355-360, 1988.
+		
+		\bibitem{wittenD} E. Witten, Nucl. Phys. {\bf B460} (1996) 335 [{\tt
+			hep-th/9510135}].
+		
+		
+		\bibitem{wegge_olsen} N. E. Wegge-Olsen. \textit{$K$-Theory and $C^*$-Algebras: A Friendly Approach.} Oxford University Press,
+		Oxford, England, 1993.
+		
+		
+		\bibitem{weil:basic_number_theory}Andre Weil. {\it Basic Number Theory}. Springer 1995.
+		
+		%\bibitem{Partha_quantum_su} Partha Sarathi Chakraborty, Arupkumar Pal. {\it Equivariant spectral triples on the quantum $SU(2)$ group.} arXiv:math.KT/0201004, 2003.
+		
+		%\bibitem{geom_anal_k_homology} Paul Baum, Nigel Higson, and Thomas Schick {\it On the Equivalence of Geometric and Analytic K-Homology} arXiv:math/0701484, 2009.
+		
+		%\bibitem{blackadar:kocalg_neumann} B. Blackadar {\it Operator Algebras Theory of C* - Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006.
+		
+		
+		
+		
+		
+		
+		
+		%\bibitem{connesdebois:3dsphere}
+		%A. Connes, M. Dubois-Violette. Moduli space and structure of
+		%noncommutative 3-spheres.  LPT-ORSAY 03-34 ; IHES/M/03/56.
+		%Lett.Math.Phys. 66 91-121. 2003.
+		
+		%\bibitem{conneslandi:isospectal}
+		%A. Connes, G. Landi. Noncommutative Manifolds the Instanton Algebra
+		%and Isospectral Deformations, math.QA/0011194, 2000.
+		
+		%\bibitem{suprsym:qt}
+		%J. Fr\"ohlich, O. Grandjean, A. Recknagel. Supersymmetric Quantum
+		%Theory and (Non-Commutative) Differential Geometry, ETH-TH/96-45
+		%1996.
+		
+		
+		
+		
+		%\bibitem{reconstr}
+		%A. Rennie, J.C. V\'arilly. Reconstruction of Manifolds in
+		%Noncommutative Geomery. \newline arXiv:math/0610418v3 [math.OA] 24
+		%Mar 2007.
+		
+		
+		%\bibitem{varilly:lecture}
+		%J.C. V\'arilly. Dirac operators and Spectral Geometry. Lecture notes
+		%by Pave{\l} Witkowsky from Warshaw Noncommutative Geometry, January
+		%2006.%http://ncg.mimuw.edu.pl/index.phpoption=com_docman&task=doc_download&gid=10&Itemid=58
+		
+		\bibitem{TFB2}%[Wil07]
+		Dana~P. Williams, \emph{Crossed products of {$C{\sp \ast}$}-algebras},
+		Mathematical Surveys and Monographs, vol. 134, American Mathematical Society, Providence, RI, 2007. MR2288954 (2007m:46003), 2007.
+		
+		
+		%\bibitem{wolf:const_curv} Wolf, J. {\it Spaces of constant curvature}. New York: McGraw-Hill, 1967.
+		
+		
+		
+		\bibitem{woronowicz:su2} S.L. Woronowicz. \textit{Twisted SU(2) Group. An Example of a Non-Commutative Differential Calculus}.	PubL RIMS, Kyoto Univ. 23 (1987), 117-181, 1987.
+		\bibitem{woronowicz:unb_affil} S.L. Woronowicz. \textit{Unbounded elements affiliated with C$*$-algebras and non-compact quantum groups
+		}. Communications in mathematical physics, 1991 - Springer, 1991.
+		
+		
+		\bibitem{zhi:cov_group} Zhi-Ming Luo. \textit{Covering groupoids} arXiv:math/0412230, 2004.
+		???
+		
+		\bibitem{higson:residue} \textit{The residue cocycle of Connes and Moscovici}, Clay Mathematics Proceedings,   2004 American Mathematical Society. 2004.
+		
+		\bibitem{raimar_wulkenhaar:nc_spectral_triple} Raimar Wulkenhaar. {\it Non-compact spectral triples with finite volume}. 	arXiv:0907.1351, 2009.
+		
+		\bibitem{kerner_kk}
+		Ryzard Kerner. \textit{
+			Generalization of the Kaluza-Klein theory for an
+			arbitrary non-abelian gauge group}
+		Annales de l I. H. P., section A, tome 9, no 2 (1968), p. 143-152, 1968.
+		
+		\bibitem{utiyama_kk}R. Utiyama. {\it Invariant theory of interactions}. Phys. Rev., t. 101, 1956, p. 1597. 186. 1956.
+		\bibitem{kaluza} Th. Kaluza, {\it Zum Unit tsproblem der Physik}. Berl. Berichte, 1921, p. 966. 1921.
+		
+		\bibitem{faddeev_slanov}L. D. Faddeev and A. A. Slavnov. {\it Gauge Fields: Introduction to Quantum Theory},. ISBN 0-8053-9016-2. Copyright   1980 by The Benjamin/Cummings Publishing. 1980.
+		
+		
+		
+		\bibitem{matrix_diaginal}Arundhati Dasgupta, Hermann Nicolai and Jan Plefka
+		{\it An Introduction to the Quantum Supermembrane}.  Max-Planck-Institut f ur Gravitationsphysik,
+		Albert-Einstein-Institut,
+		Golm, Germany, arXiv:hep-th/0201182, 2022.
+		
+		\bibitem{basic_algebraic_quantum} J. E. Roberts and G. Roepstorff {\it Some Basic Concepts of Algebraic Quantum Theory}, Commun. math. Phys. 11, 321 338 (1969), 1969.
+		
+		\bibitem{isumaru}	Isumaru, A. {\it Wave propagation and scattering in random	media} A. Isumaru.   New York: John Wiley \& Sons, 1999.
+		
+		
+		\bibitem{marmat} K.B. Marathe and G. Martucci. \textit{The Mathematical Foundations of Gauge Theories.} North-Holland, 1992.
+		
+		\bibitem{gauge_princilpal}Matthijs V\'{a}k\'{a}r.
+		{\it Principal Bundles and Gauge
+			Theories}
+		Bachelor s Thesis. Student number 3367428
+		Universiteit Utrecht
+		Utrecht, June 21, 2011 
+		arXiv:2110.06334, 2011.
+		
+		\bibitem{sheaf_gauge} Grigorios Giotopoulos.
+		{\it Sheaf Topos Theory:
+			A powerful setting for Lagrangian Field Theory} arXiv:2504.08095v1, 2025.
+		
+		
+		\bibitem{nistor:lie_alg}Victor Nistor {\it Groupoids and the integration of Lie algebroids}.	J. Math. Soc. Japan	Vol. 52, No. 4, 2000.
+		
+		\bibitem{nistor:convolution}J, -L Brylinsky, Victor Nistor {\it Cyclic Cohomology of Etale Groupoids}K-Theory 8: 341-365, 1994. 341
+		1994 Kluwer Academic Publishers. Printed in the Netherlands. 1994.
+		
+		
+		\bibitem{Vassout:Unbounded_groupoids}
+		St phane Vassout. {\it Unbounded pseudodifferential calculus
+			on Lie groupoids}. Journal of Functional Analysis 236 (2006) 161 200, 2006.
+		
+		\bibitem{nistor:diff_gr}{Victor Nistor}, {Alan Weinstein}, {Ping Xu}	{\it Pseudodifferential operators on differential groupoids}
+		
+		\bibitem{keisler:inf_calc}Jerome Keisler {\it Foundations of  Infinitesimal Calculus}.	This work is licensed under the Creative Commons Attribution-Noncommercial-
+		Share Alike 3.0 Unsupported License. To view a copy of this license, visit
+		http://creativecommons.org/licenses/by-nc-sa/3.0/
+		Copyright   2007 by H. Jerome Keisler, 2007.
+		
+		\bibitem{ATKINSON} D.~Atkinson, P.~W.~Johnson, \emph{Quantum Field 
+			Theory -- a Self-Contained Introduction},
+		Rinton Press, Princeton (2002).
+		
+		\bibitem{BOGOLIOBOV} N.~N.~Bogolubov, A.~A.~Logunov, I.~T.~Todorov,
+		\emph{Introduction to Axiomatic Quantum Field Theory}, Benjamin, Reading,
+		Massachusetts (1975).
+		
+		\bibitem{BALLENTINE} L.~E.~Ballentine, \emph{Quantum Mechanics}, Prentice-Hall
+		International, Inc., Englewood Cliffs, New Jersey (1990).
+		
+		\bibitem{BOHM} A.~Bohm, \emph{Quantum Mechanics: Foundations 
+			and Applications}, Springer-Verlag, New York (1994). 
+		
+		\bibitem{BG} A.~Bohm and M.~Gadella, {\it Dirac kets, Gamow 
+			Vectors, and Gelfand Triplets}, Springer Lectures Notes in Physics Vol.~348,
+		Springer, Berlin (1989).
+		
+		\bibitem{CAPRI} A.~Z.~Capri, \emph{Nonrelativistic Quantum 
+			Mechanics}, Benjamin, Menlo Park, California (1985).
+		
+		\bibitem{DUBIN} D.~A.~Dubin, M.~A.~Hennings, \emph{Quantum Mechanics, Algebras
+			and Distributions}, Longman, Harlow (1990).
+		
+		\bibitem{GALINDO} A.~Galindo, P.~Pascual, \emph{Quantum Mechanics I},
+		Springer-Verlag, Berlin (1990).
+		
+		\bibitem{KUKULIN} V.~I.~Kukulin, V.~M.~Krasnopol'sky, and J.~Horacek,
+		\emph{Theory of resonances}, Kluwer Academic Publishers, Dordrecht (1989).
+		
+		\bibitem{FOCO} R.~de la Madrid, J.~Phys.~A: Math.~Gen.~{\bf 37}, 8129-8157 (2004); {\sf quant-ph/0407195}.
+		
+		\bibitem{DIS} R.~de la Madrid, ``Quantum mechanics in rigged
+		Hilbert space language,'' Ph.D.~thesis, Universidad de Valladolid 
+		(2001). Available at \texttt{http://www.ehu.es/$\sim$wtbdemor/}.
+		
+		\bibitem{DIRAC} P.~A.~M.~Dirac, \emph{The principles of Quantum Mechanics},
+		3rd ed., Clarendon Press, Oxford (1947).
+		
+		\bibitem{VON} J.~von Neumann, \emph{Mathematische Grundlagen der 
+			Quantentheorie}, Springer, Berlin (1931); English translation by R.~T.~Beyer, 
+		{\it Mathematical Foundations of Quantum Mechanics}, Princeton University 
+		Press, Princeton (1955).
+		
+		\bibitem{QUOTEVONDIRAC} In Ref.~\cite{DIRAC}, page~40, Dirac states 
+		that ``{\it the bra and ket vectors that we now use form 
+			a more general space than a Hilbert space}.'' 
+		
+		In Ref.~\cite{VON}, page~viii, von Neumann states that ``{\it Dirac
+			has given a representation of quantum mechanics which is scarcely to be
+			surpassed in brevity and elegance,} [...].'' On pages~viii-ix, von Neumann
+		says that ``{\it The method of Dirac, mentioned above, (and this is overlooked
+			today in a great part of quantum mechanical literature, because of the clarity
+			and elegance of the theory) in no way satisfies the 
+			requirements of mathematical rigor -- not even if these are reduced in a 
+			natural and proper fashion to the extent common elsewhere in theoretical 
+			physics.}'' On page~ix, von Neumann says that ``[...],{\it this requires 
+			the introduction of `improper' functions with self-contradictory 
+			properties. The insertion of such mathematical `fiction' is frequently
+			necessary in Dirac's approach,}[...].'' Thus, essentially, although von
+		Neumann recognizes the clarity and beauty of Dirac's formalism, he states
+		very clearly that such formalism cannot be implemented within the framework
+		of the Hilbert space.
+		
+		\bibitem{SCHWARTZ} L.~Schwartz, \emph{Th\'eory de Distributions}, Hermann,
+		Paris (1950).
+		
+		\bibitem{GELFAND} I.~M.~Gelfand, N.~Y.~Vilenkin, 
+		\emph{Generalized Functions}, Vol.~IV, Academic Press, New York 
+		(1964).
+		
+		\bibitem{MAURIN} K.~Maurin, \emph{Generalized Eigenfunction Expansions and 
+			Unitary Representations of Topological Groups}, Polish Scientific 
+		Publishers, Warsaw (1968). 
+		
+		\bibitem{CITEMAURIN} In Ref.~\cite{MAURIN}, page~7, Maurin states that
+		``{\it It seems to us that this is the formulation 
+			which was anticipated by Dirac in his classic 
+			monograph.''}
+		
+		\bibitem{ROBERTS} J.~E.~Roberts, J.~Math.~Phys.~{\bf 7}, 1097--1104 (1966); 
+		J.~E.~Roberts, Commun.~Math.~Phys.~{\bf 3}, 98--119
+		(1966).
+		
+		\bibitem{ANTOINE}J.-P.~Antoine, J.~Math.~Phys.~{\bf 10}, 53--69 (1969); 
+		J.-P.~Antoine, J.~Math.~Phys.~{\bf 10}, 2276--2290 (1969).
+		
+		\bibitem{B60} A.~Bohm, ``The Rigged Hilbert Space in Quantum
+		Mechanics,'' \emph{Boulder Lectures in Theoretical Physics, 1966}, Vol.~9A
+		(Gordon and Breach, New York, 1967). 
+		
+		\bibitem{QUOTEBALLENTINE} The following quotation, extracted from
+		Ref.~\cite{BALLENTINE}, page~19, gives a clear idea of the status
+		the RHS is achieving: {\it ``...rigged Hilbert space seems to 
+			be a more natural mathematical setting for quantum mechanics than Hilbert 
+			space.''}
+		
+		\bibitem{AT93} I.~Antoniou, S.~Tasaki, Int.~J.~Quant.~Chem.~{\bf 44},
+		425--474 (1993).
+		
+		\bibitem{SUCHANECKI} Z.~Suchanecki, I.~Antoniou, S.~Tasaki, 
+		O.~F.~Brandtlow, J.~Math.~Phys.~{\bf 37}, 5837--5847 (1996).
+		
+		\bibitem{DENSE} A subspace $S$ of $\cal H$ is dense in $\cal H$
+		if we can approximate any element of $\cal H$ by an element of $S$
+		as well as we wish. Thus, for any $f$ of $\cal H$ and for any small
+		$\epsilon >0$, we can find a $\varphi$ in $S$ such that 
+		$\| f-\varphi \| < \epsilon$. In physical terms, this inequality means that
+		we can replace $f$ by $\varphi$ within an accuracy $\epsilon$.
+		
+		\bibitem{FUNCTIONAL} A function $F: {\mathbf \Phi} \to {\mathbb C}$ is called
+		a linear [respectively antilinear] functional over $\mathbf \Phi$ if for any 
+		complex numbers $\alpha , \beta$ 
+		and for any $\varphi , \psi \in \mathbf \Phi$, it holds that
+		$F(\alpha \varphi +\beta \psi)=\alpha F(\varphi) +\beta F(\psi )$ 
+		[respectively 
+		$F(\alpha \varphi +\beta \psi)=\alpha ^* F(\varphi) +\beta ^*F(\psi )$].
+		
+		\bibitem{JPA02} R.~de la Madrid, J.~Phys.~A: Math.~Gen.~{\bf 35}, 319--342 
+		(2002); {\sf quant-ph/0110165}. 
+		
+		\bibitem{FP02} R.~de la Madrid, A.~Bohm, and M.~Gadella, Fortsch.~Phys.~{\bf 50}, 185--216 (2002); {\sf quant-ph/0109154}.
+		
+		\bibitem{IJTP03} R.~de la Madrid, Int.~J.~Theor.~Phys.~{\bf 42}, 2441--2460 
+		(2003); {\sf quant-ph/0210167}.
+		
+		\bibitem{HSDEF} Strictly speaking, a Hilbert space possesses additional
+		properties (e.g., it must be complete with respect to the topology induced by
+		the scalar product). For a more technical definition of the Hilbert space,
+		see for example Ref.~\cite{DIS}.
+		
+		\bibitem{UNB} An operator $A$ is bounded if there is some finite $K$ such
+		that $\| Af \| <K \|f \|$ for all $f\in \cal H$, where $\| \  \|$ denotes 
+		the Hilbert space
+		norm. When such $K$ does not exist, $A$ is said to be unbounded. For a 
+		detailed account of the properties of bounded and unbounded operators, see for
+		example Ref.~\cite{DIS}.
+		
+		\bibitem{RS84} The mathematical reason why quantum mechanical unbounded
+		operators cannot be defined on all the vectors of the Hilbert space can be
+		found, for example, in Ref.~\cite{RS}, page~84.
+		
+		\bibitem{RS} M.~Reed, B.~Simon, ``Methods of modern mathematical physics,''
+		vol.~I, Academic Press, Inc., New York (1972).
+		
+		\bibitem{INFENER} If we nevertheless insisted in for example calculating the 
+		expectation value~(\ref{exintrodispP}) for elements of $\cal H$ that are not 
+		in ${\cal D}(A)$, we would obtain an unphysical infinity value. For instance, 
+		if $A$ represents an unbounded Hamiltonian $H$, then the expectation 
+		value~(\ref{exintrodispP}) would be infinite for those $\varphi$ of $\cal H$ 
+		that lie outside of ${\cal D}(H)$. Because they have infinite 
+		energy, those states do not represent physically preparable wave packets.
+		
+		\bibitem{SNHS} If they were in the Hilbert space, $|a\rangle$ and $\langle a|$
+		would be square integrable, and $a$ would belong to the discrete spectrum.
+		
+		\bibitem{RS274} It is well known that Heisenberg's commutation relation
+		necessarily implies that either $P$ or $Q$ is unbounded. See, for example, 
+		Ref.~\cite{RS}, page~274.
+		
+		\bibitem{ZERODERIV} The reason why the derivatives of $\varphi (x)$ must 
+		vanish at $x=a,b$ is that we want to be able to apply the Hamiltonian $H$
+		as many times as we wish. Since repeated applications of $H$ to $\varphi (x)$
+		involve the derivatives of $V(x)\varphi (x)$, and since $V(x)$ is 
+		discontinuous at $x=a,b$, the function $V(x)\varphi (x)$ is infinitely 
+		differentiable at $x=a,b$ only when the derivatives of $\varphi (x)$ 
+		vanish at $x=a,b$. For more details, see Ref.~\cite{ROBERTS}. The vanishing 
+		of the derivatives of $\varphi (x)$ at $x=a,b$ must be viewed as a 
+		mathematical consequence of the unphysical sharpness of the discontinuities of
+		the potential, rather than as a physical consequence of Quantum 
+		Mechanics. Note 
+		also that in standard numerical simulations, for example, Gaussian wave 
+		packets impinging on a rectangular barrier, one never sees that the wave
+		packet vanishes at $x=a,b$. This is due to the fact that on a Gaussian wave 
+		packet, the Hamiltonian~(\ref{fdoph}) can only be applied once.
+		
+		
+		\bibitem{ONEONEROBERTS} We recall that some authors have erroneously claimed 
+		that ``there are more kets than bras''~\cite{ROBERTS}, and that therefore such
+		one-to-one correspondence between bras and kets does not hold.
+		
+		\bibitem{EXTOHS} We can nevertheless  extend 
+		Eqs.~(\ref{resonidentPxphi}) and (\ref{resonidentHxphi}) to the 
+		whole Hilbert space $L^2$ by a limiting procedure, 
+		although the 
+		resulting expansions do not involve the Dirac bras and kets any more, but
+		simply the eigenfunctions of the differential operators.
+		
+		\bibitem{COHEN} C.~Cohen-Tannoudji, B.~Diu, and F.~Lalo\"e, 
+		{\it Quantum Mechanics}, Wiley, New York (1977). 
+		
+		\bibitem{USEFULNESSPW} This is one of the major reasons why plane waves 
+		are so useful in practical calculations.
+		
+		\bibitem{USEFULNESSBK} This is one of the major reasons why bras and kets
+		are so useful in practical calculations.
+		
+		
+		\bibitem{FSHORT} We recall that the direct integral decomposition of the 
+		Hilbert space falls short of such factorization, see Ref.~\cite{ANTOINE}.
+		
+		\bibitem{rhs} Rafael de la Madrid.
+		\textit{The role of the rigged Hilbert space in 
+			Quantum Mechanics}
+		
+		
+		Departamento de F\'\i sica Te\'orica, Facultad de Ciencias,
+		Universidad del Pa\'\i s Vasco, 48080 Bilbao, Spain \\
+		%	E-mail: {\texttt{wtbdemor@lg.ehu.es}}}
+	
+	
+	\date{\small{January 4, 2005}} !!!
+\end{thebibliography}
+
+
+		
+ \end{document}

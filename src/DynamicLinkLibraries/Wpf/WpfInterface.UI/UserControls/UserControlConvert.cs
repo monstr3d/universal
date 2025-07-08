@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Abstract3DConverters;
+using DataWarehouse.Interfaces.Async;
+using Diagram.UI.UserControls;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Abstract3DConverters;
-using Diagram.UI.UserControls;
-using Microsoft.Win32;
 using WindowsExtensions;
 using WpfInterface.UI.Labels;
 
@@ -20,6 +22,9 @@ namespace WpfInterface.UI.UserControls
         RadioButton current;
 
         private ShapeLabel label;
+
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ShapeLabel Label
         {
             set
@@ -36,7 +41,7 @@ namespace WpfInterface.UI.UserControls
             openFileDialogInput.Set();
 
         }
-
+        
         void SetControls()
         {
             var f = StaticExtensionAbstract3DConverters.FileTypes;
@@ -74,13 +79,21 @@ namespace WpfInterface.UI.UserControls
 
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private async Task buttonOK_Click()
         {
             buttonOK.Enabled = false;
             Task t = new Task(Execute);
-            t.GetAwaiter().OnCompleted(FinishExecute);
-            t.Start();
+            await t;
+            FinishExecute();
         }
+
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            buttonOK_Click();
+        }
+
+
 
         void FinishExecute()
         {

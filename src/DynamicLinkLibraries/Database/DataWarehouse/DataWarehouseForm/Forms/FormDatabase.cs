@@ -193,52 +193,52 @@ namespace DataWarehouse.Forms
                     return;
                 }
                 listViewDoc.Items.Clear();
-     /*           foreach (var i in leaf_act_remove)
-                {
-                    i.Key.OnDeleteItself -= i.Value;
-                }
+                /*           foreach (var i in leaf_act_remove)
+                           {
+                               i.Key.OnDeleteItself -= i.Value;
+                           }
 
-                foreach (var i in leaf_add)
-                {
-                    i.Key.OnAddLeaf -= i.Value;
-                }
+                           foreach (var i in leaf_add)
+                           {
+                               i.Key.OnAddLeaf -= i.Value;
+                           }
 
-                leaf_add.Clear();
+                           leaf_add.Clear();
 
 
-                leaf_act_remove.Clear();
+                           leaf_act_remove.Clear();
 
-                var act_a = (object o) =>
-                {
-                    var i = o as Issue;
-                    if (i.ErrorType != ErrorType.None)
-                    {
-                        return;
-                    }
-                    var l = i.Object as ILeaf;
-                    var a = () =>
-                    {
-                        string[] s = new string[] { l.Name, l.Extension };
-                        ListViewItem it = new ListViewItem(s);
-                        it.Tag = l;
-                        listViewDoc.Items.Add(it);
+                           var act_a = (object o) =>
+                           {
+                               var i = o as Issue;
+                               if (i.ErrorType != ErrorType.None)
+                               {
+                                   return;
+                               }
+                               var l = i.Object as ILeaf;
+                               var a = () =>
+                               {
+                                   string[] s = new string[] { l.Name, l.Extension };
+                                   ListViewItem it = new ListViewItem(s);
+                                   it.Tag = l;
+                                   listViewDoc.Items.Add(it);
 
-                    };
-                    listViewDoc.InvokeIfNeeded(a);
-                };
-                (SelectedNode as IDirectory).OnAddLeaf += act_a;
-                leaf_add[SelectedNode] = act_a;
+                               };
+                               listViewDoc.InvokeIfNeeded(a);
+                           };
+                           (SelectedNode as IDirectory).OnAddLeaf += act_a;
+                           leaf_add[SelectedNode] = act_a;
 
-                /*
-               if (dataTableDoc.Rows.Count > 0)
-               {
-                   dataTableDoc.Clear();
-               }*/
+                           /*
+                          if (dataTableDoc.Rows.Count > 0)
+                          {
+                              dataTableDoc.Clear();
+                          }*/
                 IDirectory d = SelectedNode;
                 if (d is IDirectoryAsync async)
                 {
                     var tl = async.LoadChildren();
-                   
+
                     var t = async.LoadLeaves();
                     var act = () =>
                     {
@@ -252,12 +252,12 @@ namespace DataWarehouse.Forms
                             listViewDoc.Items.Add(it);
                             var act = (object o) =>
                          {
-                               var i = o as Issue;
-                               if (i.ErrorType == ErrorType.None)
-                               {
-                                   listViewDoc.InvokeIfNeeded(() => listViewDoc.Items.Remove(it));
-                               }
-                           };
+                             var i = o as Issue;
+                             if (i.ErrorType == ErrorType.None)
+                             {
+                                 listViewDoc.InvokeIfNeeded(() => listViewDoc.Items.Remove(it));
+                             }
+                         };
                             leaf.OnDeleteItself += act;
                             leaf_act_remove[leaf] = act;
                         }
@@ -265,14 +265,9 @@ namespace DataWarehouse.Forms
                         buttonDelete.Enabled = false;
                         buttonLoad.Enabled = false;
                     };
-                    tl.GetAwaiter().OnCompleted(async () =>
-                    {
-                        t.GetAwaiter().OnCompleted(() =>
-                        {
-                            this.InvokeIfNeeded(act);
-                        });
-                        await t;
-                    });
+                    await tl;
+                    await t;
+                    this.InvokeIfNeeded(act);
                     await tl;
                 }
             }

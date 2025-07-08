@@ -62,19 +62,15 @@ namespace DataWarehouse.Classes.Abstract.Async
         protected  override List<ILeaf> GetLeavesFormDatabase()
         {
             var t = LoadLeaves();
-            if (!t.IsCompleted)
-            {
-                t.RunSynchronously();
-            }
-            var lold = leaves;
-            if (t == null || t.Result == null)
+            var r = t.Result;
+              var lold = leaves;
+            if (r == null)
             {
                 var s = new UpdateData<List<ILeaf>, IDirectory>(leaves, null, this);
                 var iss = new Issue(s, ErrorType.Database, OperationType.LoadLeaves);
                 OnGetLeavesAct(iss);
                 return null;
             }
-            var r = t.Result;
             leaves = new List<ILeaf>();
             GetLeaves = () => leaves;
             var c = from d in r select d as ILeaf;
@@ -106,12 +102,8 @@ namespace DataWarehouse.Classes.Abstract.Async
         protected override List<IDirectory> GetDirectoriesFormDatabase()
         {
             var t = LoadChildren();
-            if (!t.IsCompleted)
-            {
-                t.RunSynchronously();
-            }
-            var dd = directories;
             var r = t.Result;
+            var dd = directories;
             if (r == null)
             {
                 var s = new UpdateData<List<IDirectory>, IDirectory>(directories, null, this);
@@ -192,16 +184,18 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
-        protected ILeaf AddSyncLeaf(ILeaf leaf)
+        protected async Task<ILeaf> AddSyncLeaf(ILeaf leaf)
         {
             try
             {
-                var async = this as IDirectoryAsync;
+
+                 var async = this as IDirectoryAsync;
                 var t = async.AddAsync(leaf);
-                if (!t.IsCompleted)
+                if (SyncMode == SyncMode.Asynchronous)
                 {
-                    t.RunSynchronously();
+                    await t;
                 }
+
                 return t.Result as ILeaf;
             }
             catch (Exception ex)
@@ -216,7 +210,6 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         protected override bool Post()
         {
-            AddLeaf = DirectoryAsync.SyncMode == SyncMode.Synchronous ? AddSyncLeaf : AddAsyncLeaf;
             return true;
         }
 

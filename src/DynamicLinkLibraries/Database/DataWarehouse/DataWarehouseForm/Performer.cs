@@ -20,12 +20,9 @@ namespace DataWarehouse.Forms
                     if (child is IDirectoryAsync Async)
                     {
                         var t = Async.LoadChildren();
-                        t.GetAwaiter().OnCompleted(async () =>
-                        {
-                            var tl = Async.LoadLeaves();
-                            await tl;
-
-                        });
+                        await t;
+                        var tl = Async.LoadLeaves();
+                        await tl;
                     }
                 }
             }
