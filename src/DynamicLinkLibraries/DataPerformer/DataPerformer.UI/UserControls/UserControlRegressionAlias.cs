@@ -34,6 +34,7 @@ namespace DataPerformer.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal double Delta
         {
             get
@@ -46,6 +47,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal double Sigma
         {
             get

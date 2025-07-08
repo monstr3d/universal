@@ -41,6 +41,7 @@ namespace Chart.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ChartPerformer Performer
         {
             get
@@ -53,6 +54,7 @@ namespace Chart.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         new internal UserControlExternalChart Parent
         {
             get
@@ -65,6 +67,7 @@ namespace Chart.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IChartProperiesFormCreator FormCreator
         {
             get

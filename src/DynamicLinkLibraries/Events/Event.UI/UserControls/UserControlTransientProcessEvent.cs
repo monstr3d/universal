@@ -35,6 +35,7 @@ namespace Event.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal TransientProcessEvent Transient
         {
             set

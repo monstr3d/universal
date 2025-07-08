@@ -135,6 +135,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Provider of painter
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SeriesPainterControlPovider PainterProvider
         {
             get
@@ -186,6 +187,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Comments
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual ICollection[] Comments
         {
             get
@@ -280,6 +282,7 @@ namespace DataPerformer.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal virtual DataPerformer.Series Series
         {
             get
@@ -316,8 +319,7 @@ namespace DataPerformer.UI.UserControls
 
 
 
-
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object[] Array
         {
             set

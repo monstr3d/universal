@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Chart;
+using DataPerformer.Interfaces;
+using Diagram.UI;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-
-using DataPerformer.Interfaces;
-
-using Chart;
-using Diagram.UI;
 
 
 namespace DataPerformer.UI.UserControls
@@ -19,20 +18,24 @@ namespace DataPerformer.UI.UserControls
             this.Execute<Control>((c) => c.ContextMenuStrip = contextMenuStrip);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color[] Color
         {
             get => checkBoxName.Checked ? [comboBoxColorPicker.Color] : null;
             set => SetColor(value);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IMeasurement Measurement { get; set; }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string MeasurementName
         {
             set => checkBoxName.Text = value;
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
         { get; set; }
 

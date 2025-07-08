@@ -97,6 +97,7 @@ namespace DataPerformer.UI.Forms
         /// <summary>
         /// Formula for derivation
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Formula
         {
             get

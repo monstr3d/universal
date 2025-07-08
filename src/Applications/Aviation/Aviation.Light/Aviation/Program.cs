@@ -1,13 +1,11 @@
-﻿using Diagram.UI.Interfaces;
+﻿using Aviation.UI;
+using BasicEngineering.UI.Factory;
+using CommonService;
 using Diagram.UI;
-
+using Diagram.UI.Interfaces;
+using ErrorHandler;
 using ControlSystemLib = ControlSystems;
 
-using CommonService;
-using BasicEngineering.UI.Factory;
-
-using Aviation.UI;
-using ErrorHandler;
 
 
 namespace Aviation.Light

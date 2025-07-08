@@ -23,6 +23,8 @@ namespace OfficePickers.Util
         /// Gets or sets the left/upper color for the gradient panel
         /// </summary>
         [Category("Appearance"), Description("The left/upper color for the gradient panel.")]
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color StartColor
         {
             get { return _startColor; }
@@ -33,7 +35,9 @@ namespace OfficePickers.Util
         /// <summary>
         /// Gets or sets the right/lower color for the gradient panel
         /// </summary>
-        [Category("Appearance"), Description("The right/lower color for the gradient panel.")]        
+        [Category("Appearance"), Description("The right/lower color for the gradient panel.")]
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color EndColor
         {
             get { return _endColor; }
@@ -45,7 +49,8 @@ namespace OfficePickers.Util
         /// <summary>
         /// Gets or sets the direction of the linear gradient
         /// </summary>
-        [Category("Appearance"), Description("The direction of the linear gradient.")]        
+        [Category("Appearance"), Description("The direction of the linear gradient.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public LinearGradientMode GradientMode
         {
             get { return _gradientMode; }

@@ -39,6 +39,7 @@ namespace Event.UI.UserControls
 
         #region Internal Membres
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ForcedEventData Forced
         {
             set

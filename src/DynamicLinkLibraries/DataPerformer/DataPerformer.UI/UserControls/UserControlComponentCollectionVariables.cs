@@ -36,6 +36,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Collection
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IComponentCollection Collection
         {
             get

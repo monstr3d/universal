@@ -134,7 +134,8 @@ namespace DataPerformer.UI
         /// <summary>
         /// Edited formula
         /// </summary>
-		public string Formula
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string Formula
 		{
 			get
 			{

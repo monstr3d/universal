@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-
-
-using CategoryTheory;
-
+﻿using CategoryTheory;
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using DataPerformer.Portable.Measurements;
 using Diagram.UI;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
-using Diagram.UI.Interfaces;
-
-using DataPerformer.Portable.Measurements;
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
-using Motion6D.Interfaces;
-
-using PhysicalField.Interfaces;
-
 using ErrorHandler;
+using Motion6D.Interfaces;
+using PhysicalField.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Motion6D.UI.UserControls
 {
@@ -64,6 +58,7 @@ namespace Motion6D.UI.UserControls
         /// <summary>
         /// Label
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IObjectLabel Label
         {
             get

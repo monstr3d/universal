@@ -21,6 +21,7 @@ namespace Event.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal LogIterator Iterator
         {
             set

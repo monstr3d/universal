@@ -51,6 +51,8 @@ namespace WeifenLuo.WinFormsUI.Docking
                     }
 
                     private DockStyle m_status;
+
+                    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
                     public DockStyle Status
                     {
                         get { return m_status; }
@@ -203,6 +205,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                     }
 
                     private DockStyle m_status = DockStyle.None;
+                    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
                     public DockStyle Status
                     {
                         get { return m_status; }
@@ -319,6 +322,8 @@ namespace WeifenLuo.WinFormsUI.Docking
                 }
 
                 private bool m_fullPanelEdge = false;
+
+                [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
                 public bool FullPanelEdge
                 {
                     get { return m_fullPanelEdge; }
@@ -343,6 +348,8 @@ namespace WeifenLuo.WinFormsUI.Docking
                 }
 
                 private DockPane m_dockPane = null;
+
+                [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
                 public DockPane DockPane
                 {
                     get { return m_dockPane; }

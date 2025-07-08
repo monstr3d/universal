@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Xml;
-
-using BaseTypes.Interfaces;
-
+﻿using BaseTypes.Interfaces;
 using Chart;
 using Chart.Utils;
-
 using DataPerformer.Formula;
-
 using FormulaEditor.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -118,6 +115,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Series
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Series Series
         {
             get
@@ -174,6 +172,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Private And Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object[] Array
         {
             get
@@ -287,6 +286,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string Formula
         {
             set

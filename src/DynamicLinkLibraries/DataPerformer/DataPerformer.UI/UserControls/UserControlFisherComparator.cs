@@ -44,6 +44,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ObjectsCollection Collection
         {
             set

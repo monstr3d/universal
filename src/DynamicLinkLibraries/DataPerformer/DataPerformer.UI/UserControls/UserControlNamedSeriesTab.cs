@@ -57,6 +57,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Series
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public INamedCoordinates NamedCoordinates
         {
             get
@@ -104,6 +105,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Private And Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object[] Array
         {
             get

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
@@ -46,6 +47,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal int Number
         {
             set

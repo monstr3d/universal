@@ -42,9 +42,15 @@ namespace Diagram.UI.UserControls
 
         #region Public Members
 
+
+        #endregion
+
+        #region Public Members
+
         /// <summary>
         /// Types
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Tuple<string, object>> Types
         {
             get

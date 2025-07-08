@@ -57,6 +57,7 @@ namespace Chart.UserControls
         /// <summary>
         /// Performer of chart drawing
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ChartPerformer Performer
         {
             get
@@ -72,6 +73,7 @@ namespace Chart.UserControls
         /// <summary>
         /// The "horizontal" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Horizontal
         {
             get

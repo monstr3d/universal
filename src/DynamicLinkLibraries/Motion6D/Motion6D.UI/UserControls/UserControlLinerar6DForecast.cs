@@ -41,6 +41,7 @@ namespace Motion6D.UI.UserControls
         /// <summary>
         /// Forecast object
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Motion6D.Interfaces.ILinear6DForecast Forecast
         {
             get

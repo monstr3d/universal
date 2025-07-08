@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-
 using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Utils;
-
+using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
-using DataPerformer.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI
 {
@@ -89,6 +87,7 @@ namespace DataPerformer.UI
        }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object Vars
         {
             set
@@ -114,6 +113,7 @@ namespace DataPerformer.UI
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<string, string> Selected
         {
             get

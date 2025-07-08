@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Windows.Forms;
-
-using Diagram.UI;
+﻿using Diagram.UI;
 using Diagram.UI.Utils;
 using ErrorHandler;
 using Motion6D.Portable.Aggregates;
-
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Windows.Forms;
 using Vector3D;
 
 namespace Motion6D.UI.UserControls
@@ -46,6 +45,7 @@ namespace Motion6D.UI.UserControls
 
         #region Public Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public RigidBody RigidBody
         {
             set

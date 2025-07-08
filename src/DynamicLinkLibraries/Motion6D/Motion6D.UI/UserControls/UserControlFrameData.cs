@@ -1,18 +1,14 @@
-﻿using System;
+﻿using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Utils;
+using Motion6D;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
-using Diagram.UI.Utils;
-using Diagram.UI.Interfaces;
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-
-
-
-using Motion6D;
 
 
 namespace Motion6D.UI.UserControls
@@ -70,6 +66,7 @@ namespace Motion6D.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal virtual Portable.ReferenceFrameDataBase Frame
         {
             set

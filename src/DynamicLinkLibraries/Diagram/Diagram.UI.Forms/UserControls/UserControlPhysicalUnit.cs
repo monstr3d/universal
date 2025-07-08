@@ -86,10 +86,11 @@ namespace Diagram.UI.UserControls
         #endregion
 
         #region Public Members
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
-        /// <summary>
-        /// Phisical unit object
-        /// </summary>
+        #endregion
+
+        #region Public Members
         public IPhysicalUnitTypeAttribute PhysicalUnitObject
         {
             get
@@ -110,6 +111,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Attribute
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PhysicalUnitTypeAttribute Attribute
         {
             get

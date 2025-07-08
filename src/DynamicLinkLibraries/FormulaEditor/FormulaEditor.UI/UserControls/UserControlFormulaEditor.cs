@@ -398,6 +398,7 @@ namespace FormulaEditor.UI.UserControls
         /// <summary>
         /// String representation of formula
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Formula
         {
             get

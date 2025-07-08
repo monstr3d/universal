@@ -1,12 +1,12 @@
+using CategoryTheory;
+using DataPerformer;
+using DataPerformer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
-
-using DataPerformer;
-using CategoryTheory;
-using DataPerformer.Interfaces;
 
 namespace DataPerformer.UI
 {
@@ -53,6 +53,7 @@ namespace DataPerformer.UI
             Height = y;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object Vars
         {
             set

@@ -44,6 +44,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Desktop
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDesktop Desktop
         {
             get

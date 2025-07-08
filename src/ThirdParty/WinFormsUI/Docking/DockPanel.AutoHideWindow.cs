@@ -1,8 +1,8 @@
 using System;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
-
+using System.Windows.Forms;
 using WinFormsUI.Docking;
 
 namespace WeifenLuo.WinFormsUI.Docking
@@ -85,6 +85,9 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
 
             private IDockContent m_activeContent = null;
+
+
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public IDockContent ActiveContent
             {
                 get { return m_activeContent; }
@@ -136,6 +139,8 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
 
             private bool m_flagDragging = false;
+
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             internal bool FlagDragging
             {
                 get { return m_flagDragging; }

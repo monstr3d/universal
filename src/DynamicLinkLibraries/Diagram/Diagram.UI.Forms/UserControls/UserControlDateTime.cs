@@ -24,8 +24,9 @@ namespace Diagram.UI.UserControls
         }
 
         /// <summary>
-        /// Date Time
+        /// Date time
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DateTime DateTime
         {
             get

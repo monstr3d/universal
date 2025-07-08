@@ -39,6 +39,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
 
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDesktop Desktop
         {
             get

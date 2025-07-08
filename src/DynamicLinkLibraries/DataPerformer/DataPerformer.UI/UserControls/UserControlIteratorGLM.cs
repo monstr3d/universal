@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-using Diagram.UI;
+﻿using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
 using ErrorHandler;
 using Regression;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -44,6 +44,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Regression.Portable.IteratorGLM Iterator
         {
             set

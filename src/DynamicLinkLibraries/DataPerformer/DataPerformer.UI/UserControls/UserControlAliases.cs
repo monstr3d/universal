@@ -31,6 +31,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Data consumer
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDataConsumer DataConsumer
         {
             get => dataConsumer;
@@ -44,6 +45,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Dictionary
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, string> Dictionary
         {
 

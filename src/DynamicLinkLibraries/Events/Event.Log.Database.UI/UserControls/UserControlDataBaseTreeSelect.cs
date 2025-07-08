@@ -60,6 +60,7 @@ namespace Event.Log.Database.UI.UserControls
         /// <summary>
         /// Log
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public LogHolder Log
         {
             get

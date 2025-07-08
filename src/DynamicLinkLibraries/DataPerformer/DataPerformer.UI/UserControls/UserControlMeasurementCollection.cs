@@ -3,6 +3,7 @@ using DataPerformer.Portable;
 using DataPerformer.UI.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -33,6 +34,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Series
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
         {
             set
@@ -47,6 +49,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Measurements
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IEnumerable<IMeasurements> Measurements
         {
             set
@@ -70,6 +73,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDataConsumer DataConsumer { get; set; }
         
         Dictionary<string, Dictionary<string, Color>> IColorDictionary.ColorDictionary 

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using DataPerformer.Event.Portable.Objects.BufferedData;
+using System;
+using System.ComponentModel;
 using System.Windows.Forms;
-
-using DataPerformer.Event.Portable.Objects.BufferedData;
 
 namespace DataPerformer.UI.BufferedData.UserControls
 {
@@ -30,6 +30,7 @@ namespace DataPerformer.UI.BufferedData.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal BufferReadWrite Buffer
         {
             set

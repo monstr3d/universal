@@ -75,6 +75,7 @@ namespace FormulaEditor.UI.Forms
         /// <summary>
         /// String representation of formula
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Formula
         {
             get
@@ -91,6 +92,7 @@ namespace FormulaEditor.UI.Forms
         /// <summary>
         /// Test
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Test
         {
             set

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-
-using Diagram.UI.Utils;
-
+﻿using DataPerformer.Event.Portable.Objects;
 using DataPerformer.Portable;
-using DataPerformer.Event.Portable.Objects;
+using Diagram.UI.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -28,6 +26,7 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal TimeSeriesMedian TimeSeriesMedian
         {
             set

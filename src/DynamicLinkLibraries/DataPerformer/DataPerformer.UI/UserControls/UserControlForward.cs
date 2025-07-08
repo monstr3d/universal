@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-using Diagram.UI.Interfaces;
-
-using DataPerformer.Interfaces;
+﻿using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using Diagram.UI.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -42,6 +41,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Measurements
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IMeasurements Measurements
         {
             get
@@ -82,6 +82,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Items
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<int, string> Items
         {
             get

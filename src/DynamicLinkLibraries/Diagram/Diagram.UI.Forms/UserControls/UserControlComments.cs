@@ -54,6 +54,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Comments
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICollection Comments
         {
             get
@@ -85,6 +86,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Autosave sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AutoSave
         {
             get

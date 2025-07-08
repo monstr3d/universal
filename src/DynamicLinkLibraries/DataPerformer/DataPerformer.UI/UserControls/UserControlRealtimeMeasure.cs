@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DataPerformer.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-
-using DataPerformer.Interfaces;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -41,6 +41,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string ParentName
         {
             get
@@ -53,6 +54,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<IMeasurement, Tuple<Color[], bool, double[]>> Dictionary
         {
             get
@@ -66,6 +68,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IMeasurement Measure
         {
             get
@@ -92,6 +95,7 @@ namespace DataPerformer.UI.UserControls
             dictionary[measure] = Tuple;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Tuple<Color[],bool,double[]> Tuple
         {
             get

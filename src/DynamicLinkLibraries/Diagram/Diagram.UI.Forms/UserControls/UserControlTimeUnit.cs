@@ -44,6 +44,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Type of time
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TimeType TimeUnit
         {
             get

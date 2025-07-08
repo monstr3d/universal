@@ -1,19 +1,13 @@
-﻿using System;
+﻿using DataPerformer.Interfaces;
+using Diagram.UI;
+using Event.Interfaces;
+using Event.Portable.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
-
-using Diagram.UI;
-
-using Event.Interfaces;
-
-
-using DataPerformer.Interfaces;
-
-using Event.Portable.Interfaces;
-
-
 using WindowsExtensions;
 
 namespace DataPerformer.UI.UserControls
@@ -236,6 +230,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IRealtime Realtime
         {
             set

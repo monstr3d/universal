@@ -102,6 +102,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Provider of painter
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SeriesPainterControlPovider PainterProvider
         {
             get
@@ -148,6 +149,7 @@ namespace DataPerformer.UI.UserControls
         #region Own members
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal object[] Array
         {
             get
@@ -173,6 +175,7 @@ namespace DataPerformer.UI.UserControls
             boxes = new ToolStripComboBox[] { toolStripComboBoxX, toolStripComboBoxY };
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ToolStripComboBox[] Boxes
         {
             set
@@ -182,6 +185,7 @@ namespace DataPerformer.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal INamedCoordinates NamedCoordinates
         {
             get

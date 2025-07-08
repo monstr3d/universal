@@ -72,6 +72,7 @@ namespace Chart.UserControls
         /// <summary>
         /// The "is blocked" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsBlocked
         {
             get => (performer == null) ? false : performer.IsBlocked;
@@ -84,6 +85,7 @@ namespace Chart.UserControls
         /// <summary>
         /// Coordinator
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICoordPainter Coordinator
         {
             get

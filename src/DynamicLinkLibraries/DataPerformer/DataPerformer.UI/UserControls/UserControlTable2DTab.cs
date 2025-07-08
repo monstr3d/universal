@@ -40,6 +40,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Table2D Table
         {
             set
@@ -50,6 +51,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Action Action
         {
             set

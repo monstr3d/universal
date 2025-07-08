@@ -70,6 +70,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Associated function
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataPerformer.Advanced.DynamicFunction Function
         {
             get

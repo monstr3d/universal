@@ -59,6 +59,12 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// List of strings
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
+        #endregion
+
+        #region Public Members
+
         public List<string> List
         {
             get
@@ -85,6 +91,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Dictionary
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, string> Dictionary
         {
             get
@@ -129,11 +136,10 @@ namespace Diagram.UI.UserControls
             }
        }
 
-       
-
         /// <summary>
-        /// Count of comboboxes
+        /// Desktop
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Count
         {
             get
@@ -166,10 +172,11 @@ namespace Diagram.UI.UserControls
             }
         }
 
-  
+
         /// <summary>
         /// Texts of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string[] Texts
         {
             get
@@ -230,6 +237,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Font of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Font LabelFont
         {
             get

@@ -66,7 +66,8 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Table of measurements
         /// </summary>
-		public Hashtable Table
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Hashtable Table
 		{
 			get
 			{

@@ -51,6 +51,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Accumulator
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public AccumulatorSeriesArgument Accumulator
         {
             get

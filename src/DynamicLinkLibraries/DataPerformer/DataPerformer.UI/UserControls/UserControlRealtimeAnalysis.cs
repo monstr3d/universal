@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using WindowsExtensions;
 
@@ -14,6 +15,7 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IEnumerable<string> Names
         {
             set
@@ -30,6 +32,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IDictionary<string, object> Dictionary
         {
             set
@@ -50,6 +53,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal double Time
         {
             set

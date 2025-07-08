@@ -28,6 +28,7 @@ namespace DataWarehouse.Advanced.Forms
         /// <summary>
         /// Tree
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TreeView Tree
         {
             get
@@ -51,6 +52,7 @@ namespace DataWarehouse.Advanced.Forms
         /// <summary>
         /// Search text
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SearchText
         {
             set

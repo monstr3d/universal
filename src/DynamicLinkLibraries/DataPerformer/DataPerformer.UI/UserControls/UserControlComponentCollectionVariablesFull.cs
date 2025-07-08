@@ -48,6 +48,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Transformer
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataPerformerCollectionStateTransformer Transformer
         {
             get

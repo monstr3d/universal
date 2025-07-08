@@ -28,6 +28,7 @@ namespace Event.UI.UserControls
             panelDataBase.Controls.Add(uc);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string FileName
         {
             set

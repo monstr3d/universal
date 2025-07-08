@@ -55,6 +55,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Tuple<Dictionary<string, Color[]>, Dictionary<string, bool>,
             Dictionary<string, string>, string[], int[],
              Tuple<double[],
@@ -83,6 +84,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string ParentName
         {
             set
@@ -91,6 +93,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IMeasurement Measure
         {
             get
@@ -104,6 +107,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<IMeasurement, object> Dictionary
         {
             set

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
@@ -26,6 +27,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal FunctionAccumulator Function
         {
             get

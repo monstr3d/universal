@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace Diagram.UI.UserControls
 {
@@ -90,10 +91,10 @@ namespace Diagram.UI.UserControls
         }
 
 
-
         /// <summary>
         /// Type of control
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Type Type
         {
             get
@@ -118,6 +119,9 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Types
         /// </summary>
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
         public Type[] Types
         {
             get
@@ -135,8 +139,9 @@ namespace Diagram.UI.UserControls
         }
 
         /// <summary>
-        /// Count of comboboxes
+        /// Count of editord
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Count
         {
             get
@@ -168,9 +173,11 @@ namespace Diagram.UI.UserControls
             }
         }
 
+
         /// <summary>
         /// Texts of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string[] Texts
         {
             get

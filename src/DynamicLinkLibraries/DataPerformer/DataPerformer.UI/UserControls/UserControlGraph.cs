@@ -1738,7 +1738,7 @@ Func<bool> stop)
             }
         }
 
-        async Task StartChartClick()
+        void StartChartClick()
         {
             try
             {
@@ -1812,8 +1812,8 @@ Func<bool> stop)
                 ctx = new();
             }
             var t = new Task(DoWork);
-            await t;
-            WorkCompleted();
+            t.GetAwaiter().OnCompleted(WorkCompleted);
+            t.Start();
        //     backgroundWorker.RunWorkerAsync();
         }
 

@@ -115,6 +115,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Tuple<Dictionary<string, Color[]>, Dictionary<string, bool>,
             Dictionary<string, string>, string[], int[],
              Tuple<double[],
@@ -141,8 +142,9 @@ namespace DataPerformer.UI.UserControls
             string n = consumer.GetName(m);
             d[n] = m;
         }
- 
-       internal Dictionary<IMeasurement, object> Dictionary
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal Dictionary<IMeasurement, object> Dictionary
         {
             set
             {

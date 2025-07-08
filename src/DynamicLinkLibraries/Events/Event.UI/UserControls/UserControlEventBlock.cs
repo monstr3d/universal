@@ -50,6 +50,7 @@ namespace Event.UI.UserControls
         /// <summary>
         /// Event block
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICategoryObject Block
         {
             get

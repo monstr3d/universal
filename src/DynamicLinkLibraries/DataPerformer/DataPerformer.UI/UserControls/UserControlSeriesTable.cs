@@ -91,6 +91,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// The "Show" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         new public bool Show
         {
             set
@@ -152,6 +153,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Series of control
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Series Series
         {
             get

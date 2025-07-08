@@ -1,10 +1,10 @@
-﻿using System;
+﻿using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -13,6 +13,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Data Consumer
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDataConsumer DataConsumer { get; set; }
 
    
@@ -24,6 +25,7 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
         {
             set
@@ -35,6 +37,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IMeasurements Measurements
         {
             set => Set(value);
@@ -84,6 +87,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Dictionary 
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, Color> Dictionary
         {
             get

@@ -1,12 +1,11 @@
-using System;
-using System.Windows.Forms;
-
 using CategoryTheory;
-using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
-
-using Motion6D.Interfaces;
+using Diagram.UI.Labels;
 using ErrorHandler;
+using Motion6D.Interfaces;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Motion6D.UI
 {
@@ -53,6 +52,7 @@ namespace Motion6D.UI
         /// <summary>
         /// Header of component
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Header
         {
             set

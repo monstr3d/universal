@@ -37,6 +37,7 @@ namespace DataPerformer.UI.UserControls
 
         #endregion
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Table3D Table
         {
             set

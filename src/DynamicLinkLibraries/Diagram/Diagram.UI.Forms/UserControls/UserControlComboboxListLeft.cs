@@ -55,6 +55,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Count of comboboxes
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Count
         {
             get
@@ -88,6 +89,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Texts of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string[] Texts
         {
             get
@@ -114,6 +116,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Font of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Font LabelFont
         {
             get
@@ -264,6 +267,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Width of text
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int TextWidth
         {
             get

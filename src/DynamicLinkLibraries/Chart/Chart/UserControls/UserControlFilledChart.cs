@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Chart.Drawing.Interfaces;
+using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-
-using Chart.Drawing.Interfaces;
 
 
 namespace Chart.UserControls
@@ -25,6 +25,7 @@ namespace Chart.UserControls
         /// <summary>
         /// The "is blocked" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsBlocked
         {
             get => userControlChart.Performer.IsBlocked;
@@ -34,6 +35,7 @@ namespace Chart.UserControls
         /// <summary>
         /// Coordinator
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICoordPainter Coordinator
         {
             get => userControlChart.Coordinator;

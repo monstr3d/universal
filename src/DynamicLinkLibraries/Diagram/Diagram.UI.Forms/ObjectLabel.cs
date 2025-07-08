@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
 using ErrorHandler;
+using System.ComponentModel;
 
 namespace Diagram.UI.Labels
 {
@@ -240,10 +241,11 @@ namespace Diagram.UI.Labels
 				return Parent as PanelDesktop;
 			}
 		}
-		
-		/// <summary>
-		/// The associated object
-		/// </summary>
+
+        /// <summary>
+        /// The associated object
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICategoryObject Object
         {
             get
@@ -332,10 +334,11 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// Auxiliary property
-		/// </summary>
-		public bool ArrowSelected
+        /// <summary>
+        /// Auxiliary property
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool ArrowSelected
 		{
 			get
 			{

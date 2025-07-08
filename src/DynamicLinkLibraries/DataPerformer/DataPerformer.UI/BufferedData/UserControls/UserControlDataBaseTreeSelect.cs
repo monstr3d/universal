@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-using Diagram.UI;
-
-using DataPerformer.Interfaces;
+﻿using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
+using Diagram.UI;
 using ErrorHandler;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.BufferedData.UserControls
 {
@@ -42,6 +41,7 @@ namespace DataPerformer.UI.BufferedData.UserControls
         /// <summary>
         /// Log
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Event.Portable.Objects.BufferedData.BufferReadWrite Buffer
         {
             get

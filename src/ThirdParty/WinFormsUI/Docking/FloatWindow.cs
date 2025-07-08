@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
-using System.Diagnostics.CodeAnalysis;
-
+using System.Windows.Forms;
 using WinFormsUI.Docking;
 
 namespace WeifenLuo.WinFormsUI.Docking
@@ -72,7 +72,10 @@ namespace WeifenLuo.WinFormsUI.Docking
 		}
 
 		private bool m_allowEndUserDocking = true;
-		public bool AllowEndUserDocking
+
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool AllowEndUserDocking
 		{
 			get	{	return m_allowEndUserDocking;	}
 			set	{	m_allowEndUserDocking = value;	}

@@ -27,6 +27,7 @@ namespace Event.UI.UserControls
          ThresholdEvent ev;
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ThresholdEvent Event
         {
             set

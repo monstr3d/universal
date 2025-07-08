@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
+﻿using DataPerformer.UI.Labels;
 using Diagram.UI;
-using DataPerformer.UI.Labels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls.Graph
 {
@@ -25,6 +25,7 @@ namespace DataPerformer.UI.UserControls.Graph
             this.FindParent<GraphLabel>().CadrNumber = (int)numericUpDownCadr.Value;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal int Cadr
         {
             get
@@ -47,6 +48,7 @@ namespace DataPerformer.UI.UserControls.Graph
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<string, object> Dictionary
         {
             set

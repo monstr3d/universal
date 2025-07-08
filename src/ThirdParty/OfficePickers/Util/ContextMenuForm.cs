@@ -21,6 +21,7 @@ namespace OfficePickers.Util
         /// Gets or sets a value indicating that the form is locked.
         /// The form should be locked when opening a Dialog on it.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Locked
         {
             get { return _locked; }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data;
 using ErrorHandler;
+using System.ComponentModel;
 
 namespace Diagram.UI.Components
 {
@@ -34,9 +35,16 @@ namespace Diagram.UI.Components
 
         #region Members
 
+
+        #endregion
+
+
+        #region Members
+
         /// <summary>
         /// Matrix
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public double[,] RealMatrix
         {
             set

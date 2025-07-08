@@ -1,18 +1,14 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Collections;
-
-
-using CategoryTheory;
-
-using Diagram.UI.Labels;
-using Diagram.UI;
-using Diagram.UI.UserControls;
-
-
-using DataPerformer.Interfaces;
+﻿using CategoryTheory;
 using DataPerformer;
+using DataPerformer.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Labels;
+using Diagram.UI.UserControls;
 using Regression;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 
 namespace DataPerformer.UI.UserControls
@@ -75,6 +71,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Table of selections
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Hashtable Table
         {
             set

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 
 namespace Diagram.UI.UserControls
 {
@@ -15,8 +16,9 @@ namespace Diagram.UI.UserControls
         #region Members
 
         /// <summary>
-        /// Colors of label
+        /// Color of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color[] LabelColors
         {
             get

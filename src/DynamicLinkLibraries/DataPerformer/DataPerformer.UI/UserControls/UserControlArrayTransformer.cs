@@ -40,6 +40,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Specific Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ArrayTransformer Transformer
         {
             set

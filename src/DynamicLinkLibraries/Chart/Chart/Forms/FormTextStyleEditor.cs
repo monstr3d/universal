@@ -32,6 +32,7 @@ namespace Chart.Forms
         /// <summary>
         /// Chart performer
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ChartPerformer Performer
         {
             get

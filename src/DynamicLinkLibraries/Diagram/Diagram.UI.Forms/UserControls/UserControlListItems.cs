@@ -32,7 +32,7 @@ namespace Diagram.UI.UserControls
             Resize += UserControlListItems_Resize;
         }
 
-   
+
         #endregion
 
         #region Public members
@@ -40,6 +40,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Count of comboboxes
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Count
         {
             get
@@ -68,9 +69,11 @@ namespace Diagram.UI.UserControls
             }
         }
 
+
         /// <summary>
         /// Children
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control[] Children
         {
             get
@@ -95,9 +98,10 @@ namespace Diagram.UI.UserControls
             }
         }
 
-       /// <summary>
+        /// <summary>
         /// Texts of labels
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string[] Texts
         {
             get

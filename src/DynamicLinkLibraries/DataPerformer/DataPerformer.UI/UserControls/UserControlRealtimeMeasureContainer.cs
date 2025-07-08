@@ -157,6 +157,7 @@ namespace DataPerformer.UI.UserControls
             list.Add(uc);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<IMeasurement, Tuple<Color[], bool, double[]>> Dictionary
         {
             set

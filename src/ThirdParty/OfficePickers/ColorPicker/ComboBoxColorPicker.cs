@@ -24,12 +24,13 @@ namespace OfficePickers.ColorPicker
         [Category("Behavior"), Description("Occurs when the value of the Color property changes.")]
         public event EventHandler SelectedColorChanged;
         #endregion
-        
+
         #region Properties
-               
+
         /// <summary>
         /// Gets or sets the selected color from the OfficeColorPicker
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color Color
         {
             get

@@ -132,6 +132,7 @@ namespace OfficePickers.ColorPicker
         /// the color name will be rendered to the tooltip if the AddColorNameToolTip property set to true.
         /// </summary>
         [Category("Behavior"), Description("The text that appears as a tooltip (the color name will be render  automatically if defined to do so.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         new public string ToolTipText
         {
             get { return _originalToolTipText; }

@@ -73,6 +73,7 @@ namespace Chart.UserControls
         /// <summary>
         /// Creator of properties editor
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IChartProperiesFormCreator FormCreator
         {
             get

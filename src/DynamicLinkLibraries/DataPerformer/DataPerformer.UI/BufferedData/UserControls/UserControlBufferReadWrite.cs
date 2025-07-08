@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-using Diagram.UI;
-using Diagram.UI.Utils;
-
-using DataPerformer.Portable;
-using DataPerformer.Event.Portable.Objects.BufferedData;
+﻿using DataPerformer.Event.Portable.Objects.BufferedData;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Utils;
 using ErrorHandler;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.BufferedData.UserControls
 {
@@ -54,6 +53,7 @@ namespace DataPerformer.UI.BufferedData.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal BufferReadWrite Buffer
         {
             set

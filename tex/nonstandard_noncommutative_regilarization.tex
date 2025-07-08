@@ -621,6 +621,39 @@
 The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a $C^*$-Hilbert $C^*$-module. So the notion of Hilbert $C^*$-module is a generalization of Hilbert space one. Here a generalization of rigged Hilbert spaces also named Gelfand triples is discussed. This generalization yields a unified framework to different branches of present day mathematics. We consider applications to it to the  theory of spectral triples, $O*$-algebras, quasi $*$-algebras, and integrable representations.
 	\end{abstract}
 		\section{Introduction}\label{foliations_sec}
+		
+		\subsection{Infinitesimal  functionals}
+		\paragraph{}
+		Let 	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ be an infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn}), and let $\phi : M\left(\widetilde{A} \right)\to \C$ be a positive $\C$-linear continuous functional with
+		\be\label{inv_cong_eqn}
+		\forall  \widetilde{b} \in  M\left(\widetilde{A} \right) \quad \forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left( g \widetilde b\right) = \phi\left(  \widetilde b\right)
+		\ee
+		If $\phi\left(\widetilde{A} \right) \neq \{0\}$ then there is $\widetilde a \in K\left(\widetilde{A} \right)$ with $\phi\left(\widetilde a \right) >\eps > 0$. According to the equation \eqref{basic_cov_cl_eqn} there is 
+		\be\label{inv_congp_eqn}
+		\widetilde	b \bydef \bt\text{-} \sum_{	g \in G\left(\left.\widetilde{A}~\right| A\right) }g \widetilde a \in  M\left(\widetilde{A} \right)
+		\ee
+		such that
+		$$
+		\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad g \widetilde b = \widetilde b
+		$$
+		From \eqref{inv_congp_eqn} it follows that $\phi\left( \widetilde{b}\right) = \left|G\left(\left.\widetilde{A}~\right| A\right)\right|\eps = \infty$ since the group $G\left(\left.\widetilde{A}~\right| A\right)$ is not finite. However one can define $\phi \left( \widetilde{a}\right)$ as infinitesimal value. According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. Let us enumerate $G\left(\left.\widetilde{A}~\right| A\right)$ i.e. set $G\left(\left.\widetilde{A}~\right| A\right)= \bigsqcup_{\iota \in \N} \{g_\iota\}$. We suppose that $\phi\left(g_\iota \widetilde b\right)$ is represented by $\left(x^\iota_1, ...,  \right)$ with
+		$$
+		x^\iota_n \bydef \begin{cases}
+			0 & \iota < n\\
+			\frac{\phi\left( \widetilde	b\right) }{n} & \iota \ge n
+		\end{cases}
+		$$
+		From the Definition \ref{uf_eqn_defn} it follows that 
+		$$
+		\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left(g \widetilde a \right) = \phi\left( \widetilde a \right)
+		$$
+		Otherwise 
+		$$
+		\sum_{	g \in  G\left(\left.\widetilde A\right| A\right)}\phi\left(g \widetilde a\right) 
+		$$
+		is represented by the sequence $\left(\phi\left(\widetilde b \right), ..., \phi\left(\widetilde b \right), ...\right)\in \C^\N$ (cf. Definition \ref{ultra_power_defn}), it is agree with  the equation \eqref{inv_congp_eqn}.
+		
+		\
 	\section{Rigged Hilbert modules}
 \begin{definition}\label{rigged_defn}
 	Let $A$ be a $C^*$-algebra and let $\E$ be a $C^*$-Hilbert $A$-module.  A \textit{rigged} $C^*$-\textit{Hilbert} $A$-\textit{module} is a tripe
@@ -653,8 +686,868 @@ The definition \ref{rigged_defn} differs from the given by !!!
 \begin{remark}
 The Definition \ref{integr_defn} is motivated by the article.
 \end{remark}	
+	\section{Coverings of Gauge Theories with Local Lagrangians}
 	
+	
+	\paragraph{}
+	Let $(M,g)$ be an $m$-dimensional pseudo-Riemannian manifold and 
+	$G$ a Lie group which we take as the gauge group of our theory. (cf. Appendix \ref{gaurge_sec}). Denote by $P(M, G)$ corresponding principal bundle (cf. \ref{dg_prinicipal_defn}). Similarly to the Appendix \ref{set_of_fields_sec} there is a set of fields, which we denote collectively by $\Phi$, and $\mathscr E$ subsheaf of the sheaf of continuous sections of $\Phi$. Usually a the sheaf $\mathscr E$ is sheaf of smooth sections \ref{top_sm_sec_defn}. If $M$ is paracompact then from the Theorem \ref{soft_french_thm} it follows that the sheaf is soft (cf. Definition \ref{soft_sheaf_defn} and the English translation \ref{soft_e_thm} the Theorem \ref{soft_french_thm}).
+	If $\mathscr E$ satisfies to the condition of the Remark \ref{gauge_scalar_product_rem} then there is an inclusion 
+	$$
+	\Ga\left(\mathscr E \right) \hookto X_{C_0\left(M \right) }
+	$$
+	into $C^*$-Hilbert $C_0\left(M \right) $-module (cf. Definition \ref{hilbert_module_defn}).
+	
+	
+	
+	\subsection{Gauge transformations}!!!!
+	\paragraph{}
+	Here I follow to \cite{marmat}.
+	In physical applications one is usually interested in a fixed Lie 
+	group $G$ called the {\it gauge group} which represents an internal or local 
+	symmetry of the field. The base manifold $M$ of the principal bundle 
+	$P(M, G)$ is usually the space-time manifold or its Euclidean version, i.e. 
+	a pseudo-Riemannian manifold of dimension 4. But in some physical applications, such as superspace, Kaluza-Klein and string theories, the base 
+	manifold can be an essentially arbitrary manifold. In this chapter we 
+	formulate the theory of gauge fields on an arbitrary pseudo-Riemannian 
+	base manifold. 
+	
+	
+	Let $(M,g)$ be an $m$-dimensional pseudo-Riemannian manifold and 
+	$G$ a Lie group which we take as the gauge group of our theory. Let 
+	$P\left(M, G \right)$  be a principal bundle with the gauge group $G$ as its structure 
+	group. A connection in $P$ is called a {\it gauge connection}. The connection 1-form $\om$ is called the {\it gauge connection form} or simply the 
+	{\it gauge connection}. A {\it global gauge} or simply a {\it gauge} is a section 
+	$s \in \Ga\left(P \right)$. The gauge potential $A$ on $M$ in gauge $s$ is obtained by 
+	pull-back of the gauge connection $\om$ on $P$ to M by $s$, i.e. $A = s^*(\om)$. 
+	A {\it global gauge} and hence the gauge potential on $M$ exists if and only 
+	if the bundle $P$ is trivial. A {\it local gauge} is defined as a section of the 
+	bundle $P(M, G)$ restricted to some open subset $U \subset M$. Local gauges defined for the local representations $\left(\sU_\iota, \psi_\iota \right)_{\iota \in I}$  of $P$, always exist. Let $t \in \Ga\left( \right)$  be a local gauge; then the 1-form $t^*\om\in \La^1\left( \sU, \mathfrak g\right)$  is called the {\it gauge potential} in the {\it local gauge} $t$ and is denoted by $A_t$. If the local gauge $t$ is given we often denote $A_t$ by $A$ and call it a {\it local gauge potential}. In electromagnetism, the gauge group $G = U\left( 1\right)$ is the circle group. An element $e^{i\th}\in U(1)$ is determined  by the phase $\th$. Thus, in this case, a local gauge over an open set $\sV \subset M$ can be regarded as a choice of a phase in the bundle $P|_\sV = \sV \times G$, at each point of $\sV$. For this reason, the total space of the bundle $P$ is sometimes called the {\it space of phase factors} in the physics literature. 
+	
+	
+	Let $\Om \bydef d^\om \om$ be the curvature 2-form of $\om$ with values in the Lie 
+	algebra $\mathfrak g$. We call $\Om$ the {\it gauge field} on $P$. There exists a unique 2-form $F_\om$ on $M$ with values in the Lie 
+	algebra bundle $ad P$ associated to the curvature 2-form $\Om$ such that 
+	\be
+	F_\om = s_\Om
+	\ee
+	
+	The 2-form $F_\om \in \La^2\left( M, ad P\right)$  is called the {\it gauge field} on $M$ corresponding to the gauge connection $\om$. The gauge field Fu is globally defined on $M$, even though, in general, there is no corresponding globally 
+	defined gauge potential on $M$. If we are given a local gauge potential $A_t \in \La\left(\sU_\iota, \mathfrak g \right)$, then on $\sU_\iota$,  we have the relations 
+	\be
+	t^*\om = A_t \quad \text{and} \quad F_\om = d^\om A_t
+	\ee
+	The group $Diff(P)$ of the diffeomorphisms of $P$ is too large to 
+	serve as a group of gauge transformations, since it mixes up the fibers 
+	of $P$. The requirement that fibers map to fibers may be expressed by 
+	the condition that the following diagram commutes. 
+	\\
+	\begin{tikzcd}
+		P \arrow[r, "f"]\arrow[d, "\pi"] & P \arrow[d, "\pi"]\\
+		M \arrow[r, "f_M"] & M
+	\end{tikzcd}
+	\\
+	i.e.
+	\be\label{gauge_p_eqn}
+	\pi \circ f = f_M \circ \pi
+	\ee
+	We note that condition \eqref{gauge_p_eqn} does not depend on the principal bundle 
+	structure of $P$ and hence can be imposed on any fiber bundle.
+	\begin{definition}\label{gauge_projectable_dedn}
+		The pair $\left(f, f_M\right)$ 
+		satisfying condition  \eqref{gauge_p_eqn} is a fiber bundle automorphism. In 
+		this case we call $f$ a {\it projectable diffeomorphism} or {\it transformation}  of $P$. The projectable diffeomorphisms form a group $ Diff_M(P)$, 
+		defined by 
+		\be\label{gauge_g_eqn}
+		Diff_M(P) \bydef \left\{f \in Diff\left( P\right)| f \quad \text{is projectable} \right\}
+		\ee
+	\end{definition} 
+	
+	\subsection{Action Principles on Principal Bundles and Local Lagrangian}\label{set_of_fields_sec!}!!!
+	\paragraph{}
+	
+	According to \cite{new_matrix} there is there is a set of fields, which we denote collectively by $\Phi$, with {\it Lagrangian
+		density} $\L =\L\left[\Phi, \partial \Phi\right]$. In 
+	\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated  with $P$ vector bundle (cf.   the Definition \ref{top_vb_defn} and \ref{top_vb_defn}). One can suppose that the $\Phi$ is an associated with $P\left(M, G \right)$ vector bundle \ref{dg_assoc_empt}. 
+	One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}. 
+	Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$  and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. We say that $\mathscr{L}$ is the {\it Lagrangian}. 
+	\begin{definition}
+		Let $\mathscr E$ be a soft subsheaf of the sheaf of continuous sections of $\Phi$ and $\mathscr R$ is a sheaf of continuous real - valued maps from $M$ to $\R$. A 
+		Under the above hypothesis the {\it local Lagrangian
+			density} is a map $\phi:\Ga\left(\mathscr E \right) \to \Ga\left( \mathscr R \right)$ such that:
+		\begin{enumerate}
+			\item [(a)]  The diagram
+			\\
+			\begin{tikzcd}
+				\Ga\left(\mathscr E \right)\arrow[rr, "\phi"] \arrow[rd] &&  \Ga\left( \mathscr R \right)\arrow[ld]\\
+				& M &
+			\end{tikzcd}
+			\\
+			is commutative.
+			\item[(b)] The map $\phi$ is  invariant with respect to a  given  by \eqref{gauge_g_eqn} group $Diff_M(P)$.
+			\item[(c)] The map yields a continuous map $\mathrm{Sp\acute{e}}\left(\mathscr E \right)\to \mathrm{Sp\acute{e}}\left(\mathscr R \right)$ where  $\mathrm{Sp\acute{e}}$ denotes the {
+				\'espace etal\'e} (cf. Exercise \ref{sheaf_etale_exer}).
+		\end{enumerate}
+	\end{definition}
+	\begin{remark}
+		Usually there is $r \in \N$ such that  subsheaf  $\mathscr E$  is a sheaf or $r$-times differentiable sections of $\Phi$.
+	\end{remark}
+	\begin{remark}
+		The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
+	\end{remark}
+	\begin{rem}\label{gauge_scalar_product_rem!}!!!
+		In the lot of  situations there is a bilinear map $\mathscr E\times \mathscr E \to \mathscr C$  or equivalently  a linear homomorphism of sheaves   $\mathscr E\to \mathscr Hom \left(\mathscr E, \mathscr C\right)$ (cf. Definitions \ref{sheaf_mor_defn} and \ref{sheaf_hom_defn}) and $\mathscr C$ is a sheaf of complex-valued continuous mappings.
+	\end{rem}
+	
+	
+	
+	
+	
+	
+	
+	
+	\section{Utiyama’s Theory as a Noncommutative Covering}
+	
+	\section{Introduction}
+	\paragraph{} 
+	Here we would like to generalize the explained in  \cite{kerner_kk} construction of the Utiyama’s Theory (cf. \ref{ym_act_empt})
+	
+	
+	\subsection{Unrealistic Effective Infinite-Dimensional Matrix Theory}
+	
+	\paragraph{}
+	
+	\subsubsection{Unrealistic Phenomena}
+	
+	\paragraph{}
+	It is conjectured  that the $M$-theory can be represented as limit matrix model (cf. \cite{matrix_tori, bfss, ikkt} with finite-dimensional matrix. It is possible to obtain the  noncommutative toroidal compactification (cf. Appendix \ref{mat_tor_sec}) by infinite dimension matrix. However this solution is not realistic since infinite dimensional matrix yield infinite values of the given by the equation \eqref{ikkt_act_eqn} action functional. 
+	The infinite dimensional matrix model is not realistic since 
+	But physics can effectively operate with  unrealistic phenomena, i. e. phenomena which shall never occur. For example explained in \cite{isumaru} plain electromagnetic wave is not realistic. However this  "phenomenon" is effectively used in a lot of science and engineering calculations. If $\mathfrak{A}$ is a  $C^*$-realization (cf. Definition \ref{c_realization_defn}) of $d$-dimensional quantum physics then there is the natural inclusion $C_0\left(\R^d \right) \subset \mathfrak{A}$. According to the Appendix \ref{loc_mea_sec} one has  $\mathscr A \subset\mathfrak{A}_{\text{sa}}$  where $\mathscr A$ is the set of observables where $\mathfrak{A}_{\text{sa}}\subset \mathfrak{A}$ is the $\R$-subspace of self-adjoint operations. If $a \in C_0\left(\R^d \right)_{\text{sa}}\setminus C_c\left(\R^d \right)_{\text{sa}}$  then the volume of $\supp a$ is not finite. So a corresponding to the "observable" detector should have an infinite volume, i.e. $a$ corresponds to an unrealistic state. Note that $C_c\left(\R^d \right)$ is the Pedersen's ideal of $C_c\left(\R^d \right)$. According to my experience  the realistic phenomena are inside the Pedersen's ideal. 
+	
+	In \cite{landi:nm_nt,new_matrix} the necessary solution is associated with the inductive  limit of AT algebras, i.e. finite sums of $C\left(S^1 \right)\otimes \mathbb{M}_N\left( \C\right)$, Here we postulate that necessary solution equals to this limit.
+	
+	\section{Infinite-Dimensional Matrix Theory}
+	\paragraph{} Firstly we consider matrix theory which corresponds of the $C^*$-algebra $A \bydef C_0\left( \R\right) \otimes \K$. A mapping
+	\bean
+	\phi: \R^2 = \R \times \R \to \R,
+	\left(x, y \right)\mapsto y
+	\eean
+	is a fibration so it corresponds to a foliation $\left(\R^2, \widetilde{\F} \right)$. From the corollary \ref{foli_tens_comp_cor} and/or the Theorem \ref{foli_bundle_thm} it follows that $$C^*\left(\R^2, \widetilde{\F} \right)\cong C^*\left(\R^2, \widetilde{\F} \right) \cong C_0\left( \R\right)\otimes \K\left( L^2\left(\R \right) \right) \cong A.$$. If  $\th \in \R\setminus\Q$ be an irrational number, then the action
+	\bean
+	\Z^2 \times \R^2 \to \R^2,\\
+	\left( \left(m, n \right), \left(x, y \right) \right) \mapsto \left( x + m, y + n\th\right) 
+	\eean
+	is properly disconnected \ref{}???. There is a principal covering $q: \R^2 \to \R^2 / \Z^2\cong \T^2$. The group $\Z^2$ freely acts on the set of leaves, so one has a covering of groupoids
+	\bean
+	\left(\R^2, \widetilde{\F} \right)\to \left(\T^2, {\F} \right)
+	\eean
+	(cf. Definitions \ref{} and \ref{} ???)
+	From the Theorem \ref{} it follows that there is a !!! COV !!!
+	$$
+	\left(C^*_r \left(\T^2, {\F} \right), C^*_r \left(\T^2, {\F} \right), \Z^2 \right) 
+	$$
+	
+	
+	\section{Hausdorff non-Hausdorff duality}\label{haus_non_haus_dul_sec}
+	\paragraph*{}
+	
+	The most impressive directions of present day theoretical physics are superstring theory and noncommutative geometry. Both directions  are aimed to describe fundamental physical laws, i.e. these directions have the single purpose. However these directions seem very different. The superstring theory operates with the classical geometry of Hausdorff spaces (cf. Definition \ref{haudorff_defn}). Noncommutative geometry replaces spaces with $C^*$-algebras, which simultaneously describe both "outer space" (stars and galaxies) and "inner space" (fundamental particles and forces). The spectra of $C^*$-algebras should or  should not be Hausdorff. In \cite{connes_lott:particle} the Standard model is described by an operator algebra which generates a $C^*$-algebra with Hausdorff spectrum (cf. Section \ref{oa_sec}). In \cite{connes_rieffel:nc_ym} a physical model is described by a $C^*$-algebra with non-Hausdorff spectrum.
+	\paragraph*{}
+	The present day theoretical physics operates with models having  unbounded dimension of the internal physical space. The relationship between large $N$ matrix models and noncommutative geometry in
+	string theory is described in \cite{wittenD,bfss,bss,cds,ikkt,sw1}.
+	Here examples   of a duality between Hausdorff and non-Hausdorff geometry are presented. The Hausdorff and non-Hausdorff
+	geometry can be  manifestations of the single physical theory. All examples come from  having  unbounded dimension
+	models,
+	
+	\subsection{Application of noncommutative coverings}
+	\paragraph{}
+	Here we prove that described in \cite{landi:nm_nt}  results come from noncommutative coverings.
+	\subsection{Finite-fold coverings}\label{phys_fin_sec}
+	\paragraph{}  The described in \cite{landi:nm_nt} construction of based on the Morita equivalence between $C^*$-algebras $\Coo\left(\T^2_{M/N}\right)$ and
+	$C^\infty({\T}^2)$. We shall use the Morita equivalence given by the Theorem \ref{finite_morita_main_theorem}. If $\sX \cong S^1$ and $p: \sX\to S^1$ is an $N$-listed covering then there is an unital noncommutative finite-fold covering $\left(C\left(S^1\right), C\left(\sX\right), \Z_N, C_0\left(p\right)\right)$. If $u\in C\left(S^1\right)$ is an untary such that $C\left(S^1\right)\cong C\left(u\right)$ then is an untary $v\in C\left(\sX\right)$ such that $C\left(\sX\right)\cong C\left(v\right)$ and $C_0\left(p\right)$ is given by $u \mapsto v^N$. From the Theorem 
+	\ref{finite_morita_main_theorem} it follows that the algebra $C\left(S^1\right) $ is Morita equivalent to the algebra $C\left(\sX\right) \rtimes \Z_N$. The action $\Z_N \times C\left(\sX\right)\to C\left(\sX\right)$ is given by
+	$$
+	\forall m \in \Z\quad \overline k\cdot v^m = e^{\frac{2\pi i km}{N}} v^m\quad k \in \Z \text{ is a repesentative of } \overline k.
+	$$ If $\a\in \Aut\left(C\left(\sX\right) \right) $ corresponds to represented by $M$ element $\overline M \in \Z_N$ then one has 
+	\be\label{phys_Uarational}
+	v \a  = e^{\frac{2\pi i M}{N}}\a v
+	\ee
+	On the other hand if $\widetilde{U}_1, ~\widetilde{U}_2$ are given by \eqref{Uarational} then one has
+	$$
+	\widetilde{U}_1\widetilde{U}_2  = e^{\frac{2\pi i M}{N}}\widetilde{U}_2\widetilde{U}_1.
+	$$
+	The above equation is a counterpart of \eqref{phys_Uarational}. If one replaces $\widetilde{U}_1, ~\widetilde{U}_2$ with $v, ~ \a\in C\left(\sX\right) \rtimes \Z_N$ then one can give a based on the theory of coverings version of explained in \cite{landi:nm_nt} theory.
+	\subsection{Infinite coverings}
+	\paragraph{}
+	
+	Here we would like reformulate the given by \ref{phys_mm_sec} formalism in terms of noncommutative coverings. Consider a sequences $\left\{U_1^{(n)}\right\}_{n\in \N}$ $~\left\{U_2^{(n)}\right\}_{n \in \N}$ of matrices which satisfy to the equation
+	\eqref{hnh_comm_matr_eqn}, i.e. 
+	\bean
+	U_1^{(n)}U_2^{(n)}=e^{2\pi ip_n/q_n}\,U_2^{(n)}U_1^{(n)}
+	\eean
+	Suppose that 
+	
+	$$
+	\theta=\lim_{n\to\infty}\theta_n=\lim_{n\to\infty}p_n/q_n;\quad \th \in \R\setminus \Q,\quad p_n \in \Z, \quad q_n \in \N.
+	$$
+	%These matrices act on the algebraic union $\cup \C^n$ which is a dense subset of $\ell^2\left( \C\right)$ moreover  there are unitary $\widetilde U_1, \widetilde U_2 \in B\left(\ell^2\left( \C\right) \right) $ such that there are following limits
+	%\bean
+	%ggg
+	%\eean 
+	
+	The application of finite-coverings for obtaining $C\left( \T^2_\th\right)$ requires an infinite procedure  for obtaining the limit \eqref{thetalim}, i.e.
+	$$
+	\theta=\lim_{n\to\infty}\theta_n = \lim_{n\to\infty}p_n/ q_n \quad p_n,q_n \in \N.
+	$$
+	However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$.% From the Exercise \ref{comm_allow it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. 
+		If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ and 
+		\bean
+		v \in M\left( C_0\left( \R\right)\right) = C_b\left( \R\right),
+		x \mapsto e^{\pi i \th x} 
+		\eean
+		then one has
+		$$
+		v \a  = e^{2\pi i \th}\a v.
+		$$
+		The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative torus is obtained.
+		
+		\section{Unbounded  internal space dimension and Hausdorff non-Hausdorff duality}
+		\paragraph*{}
+		In the Section \ref{phys_mm_sec} it is proven that the algebra of  physical system with internal space of unbounded dimension yields inclusion of the noncommutative torus.  Here we prove that the infinite covering of physics with internal space of unbounded dimension yields the noncommutative torus itself.  Consider an one dimensional physics on $\R$ with gauge groups $U\left( N\right)$ for all $N\in \N$. For each $N \in \N$  the group $U\left( N\right)$ acts on $\C^N$. If $\C_\infty \bydef \cup_{N \in \N} \C^N$ then $\C_\infty$ is a dense subspace of $\ell_2\left(\C\right)$. If we use an isomorphism $\ell_2\left(\C\right)\to L^2\left(\R \right)$ then the generated by gauge elements group is isomorphic to
+		$$
+		C_0\left( \R\right) \otimes \K\left( \ell_2\left(\C\right)\right) \cong C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right),
+		$$
+		On the other hand from the Theorem  \ref{foli_bundle_thm} we have an isomorphism
+		$$
+		C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\cong C^*_r\left( \R^2, \widetilde{\sF}\right) 
+		$$
+		Otherwise
+		one has
+		an infinite noncommutative covering
+		$$
+		\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)\cong \left(C\left( \T^2_\th\right)\otimes \K, C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
+		$$
+		$C^*$-algebra $C\left( \T^2_\th\right)\otimes \K$ is Morita equivalent to $C\left( \T^2_\th\right)$. The spectrum  $C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\cong C^*_r\left( \R^2, \widetilde{\sF}\right)$  is the Hausdorff space $\R$ and the spectrum of  $C\left( \T^2_\th\right)\otimes \K$ is not Hausdorff, i.e. infinite noncommutative covering yields an example of the Hausdorff non-Hausdorff duality.
+		
+		\section{Wilson lines and noncommutative covering spaces}\label{wl_chap}
+		\subsection{Preliminaries}
+		\paragraph{} Commutative geometry has a lot of local structures, for example local sections of bundles. There are  bundles such that they have no global sections. Let $p: P \to M$ is a bundle such that $p$ has no global sections. Let $\pi : \widetilde{M} \to M$ be the universal covering projection, and $\widetilde{p}: \widetilde{M} \to M$ be the pullback \cite{spanier:at} of $p$ by $\pi$. Then $\widetilde{p}$ can have global sections. Any locally pure gauge field can be locally represented by \eqref{pure_gauge}, but cannot be represented by \eqref{pure_gauge} globally in general case. However pullback of this field can be globally repesented  by \eqref{pure_gauge}. Noncommutative geometry has no local sections. However in this book the noncommutative generalisation of covering projections are described. Local pure gauge fields can be regarded as global pure gauge fields on universal noncommutative covering projections. Locally gauge fields satisfy \eqref{pure_gauge} which can be rewritten in physical notation \cite{alekseev_bytsko:wilson_nc_tori}
+		\begin{equation} \label{Ag}
+			\partial_i g = i A_i * g \,.
+		\end{equation}
+		This equation has a noncommutative analog.  Let $A^{\infty}$ be a smooth algebra and $\mathcal{E}^{\infty}$ be a finitely generated projective smooth . Spaces $A^{\infty}$,  $\widetilde{A}^{\infty}$, $\mathcal{E}^{\infty}$ are operator spaces. Let denote $\widetilde{\mathcal{E}}^{\infty}=\mathcal{E}^{\infty} \otimes _{A^{\infty}}\widetilde{A}^{\infty}$ where $\otimes$ means the Haagerup tensor product. The $\widetilde{\mathcal{E}}^{\infty}$ module can be regarded as pullback of $\mathcal{E}^{\infty}$. Any vector $X \in \mathrm{Lie}G$ can be lifted to the vector $\widetilde{X}\in \mathrm{Lie}\widetilde{G}$ where $\mathrm{Lie}\widetilde{G}$ is a Lie algebra of infinitesimal transformations of the $\widetilde{A}^{\infty}$. Any connection $\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes \Omega^1A^{\infty}$ can be lifted to $G$ equivariant connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$. Otherwise any connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$ naturally induces a map $\widetilde{\nabla}':\mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \to \mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \otimes \Omega^1\widetilde{A}^{\infty}$.
+		Noncummutative analog of \eqref{Ag} is given by
+		\begin{equation}\label{nc_Ag}
+			\widetilde{X}U = \widetilde{\nabla}_{\widetilde{X}}U; \ \forall X \in \mathrm{Lie}G, \ U\in \mathrm{Aut} \left(\widetilde{\mathcal{E}}^{\infty}\right).
+		\end{equation}
+		$U$ is a noncommutative analog of a global gauge transformation on the universal covering space.
+		Wilson line can be regarded as a group homomorphisms $G \to \mathrm{Aut}\left(\widetilde{\mathcal{E}}^{\infty}\right)$ given by
+		\begin{equation}\label{wilson_rel}
+			g \mapsto (gU) \cdot U^{-1}
+		\end{equation}
+		where $g \in G(\widetilde{A}^{\infty}|A^{\infty})$ and $U$ satisfies \eqref{nc_Ag}.
+		
+		\section{Alternative Description of  Wilson Lines}
+		\paragraph{} As well as in \ref{alter_prot} (See \cite{green_schwarz_witten:superstring}) we can define an alternative approach to Wilson lines. Suppose that there is a spectral triple $(\mathcal{A}, \H, D)$ \cite{varilly:noncom}. Using the Section \ref{flat_sec} one can find a projective $\A$ bimodule $\E$ and a given by \eqref{nc_flat_conn}
+		\be\nonumber
+		\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^1_D
+		\ee
+		(cf. Lemma \ref{flat_lem}). This construction is a noncommutative version of a geometrical canonical connection explained in the Appendix \ref{geom_flat_subsec}. The mapping between algebra and geometry is presented in the Table \ref{geo_alg_table}.
+		
+		\section{Commutative Wilson Lines}\label{comm_prot}
+		\subsection{Basic construction}
+		\begin{empt}{\it Standard description of Wilson lines} \cite{green_schwarz_witten:superstring}. Here the physical notation is used.
+			Let $M$ be a compact Riemann manifold, and let $A$ be a locally pure gauge field, i.e. $A$ can be locally represented by following way
+			\begin{equation}\label{pure_gauge}
+				A_i = \partial_i U \cdot U^{-1}
+			\end{equation}
+			where $U$ is the gauge transformation. Whether \eqref{pure_gauge} is also true globally is another story. Condition \eqref{pure_gauge} is equivalent to that the field stength equals to zero \cite{green_schwarz_witten:superstring}.
+			If the manifold is not simply connected, $\pi_1(M) \neq \{e\}$ then there is a more general possibility that appears in electrodynamics as the Bohm-Aharonov effect. Let $\gamma$ be a noncontractible loop in $M$, beginning and ending at the same point $x$. Then "Wilson line"
+			\begin{equation}\label{gauge_transformation}
+				U_{\gamma} = P \ \mathrm{exp} \oint\limits_{\gamma} A \cdot dx
+			\end{equation}
+			is gauge invariant, and if $U_{\gamma}\neq 1$ it cannot be set to one by gauge transformation, $U_{\gamma}$ depends only on $[\gamma] \in \pi_1(M)$. If $G$ is the gauge transformation group then is a group homomorphism
+			\begin{equation}\label{from_fund_to_gauge}
+				\varphi: \pi_1(M)\to G,
+			\end{equation}
+			\begin{equation*}
+				[\gamma] \mapsto U_{\gamma}.
+			\end{equation*}
+		\end{empt}
+		\begin{empt}\label{alter_prot} {\it Alternative description of Wilson lines}.
+			In this construction I follow to \cite{green_schwarz_witten:superstring} 16.4.1. Let $\widetilde{M}$ be a simply connected manifold, and let $F$ be a discrete symmetry group which acts freely. Let $M = \widetilde{M}/F$. An ordinary field $\psi(x)$ is equivalent to a field on $\widetilde{M}$ that obeys
+			\begin{equation}\label{invariant_simple}
+				\psi(fx)=\psi(x); \ \forall f \in F.
+			\end{equation}
+			Then we can generalize \eqref{invariant_simple} as follows. There is a natural isomorphism $\pi_1(M) \approx F$, and from \eqref{from_fund_to_gauge} it follows that there is a natural homomorphism
+			\begin{equation}\label{from_trans_to_field}
+				F\to G,
+			\end{equation}
+			\begin{equation*}
+				f \mapsto U_f.
+			\end{equation*}
+			Now we require that $\psi$ obey not \eqref{invariant_simple} but
+			\begin{equation}\label{invariant_twist}
+				\psi(fx)=U_f\psi(x); \ \forall f \in F.
+			\end{equation}
+			This operation enables us replace guage field \eqref{gauge_transformation} by "twist" in boundary conditions \eqref{invariant_twist}. The gauge field $A$ which obeys \eqref{gauge_transformation} (resp. field $\psi$) is replaced with the trivial gauge field (resp. field $\psi'$ which obey \eqref{gauge_transformation}). Field $\psi'$ is given by
+			\begin{equation*}
+				\psi'(y) = \left(P \ \mathrm{exp} \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
+			\end{equation*}
+			where
+			\begin{itemize}
+				\item $\pi: \widetilde{M} \to M$ is a covering projection.
+				\item $\omega : [0,1] \to \widetilde{M}$ is such that $\omega(0) = y_0$ is a fixed point, $\omega(1)=y$.
+				\item $A'$ is a lift of $A$ by $\pi$.
+			\end{itemize}
+			This construction is similar to passive/active approach to physical transformations. Change of a gauge field is similar to a passive transformation of a coordinat system, a change of field is similar to an active transformation of point's position. Both transformations describe the same physical phenomenon.
+		\end{empt}
+		
+		\begin{empt}{\it Replacement of closed paths by covering projections}.
+			Construction from \cite{green_schwarz_witten:superstring} can be generalized such that the universal covering is replaced by a covering  $\pi:\widetilde{M} \to M$ such that the image of the composition
+			\begin{equation*}
+				\pi_1(\widetilde{M})\xrightarrow{\pi_1(\pi)} \pi_1(M) \xrightarrow{\varphi} G
+			\end{equation*}
+			coincides with image of $\varphi$. In this case homomorphism \eqref{from_fund_to_gauge} can be replaced with
+			\begin{equation}\label{from_trans_to_gauge}
+				G(\widetilde{M}|M) \to G
+			\end{equation}
+			where $G(\widetilde{M}|M)$ is a group of covering transformations \cite{spanier:at}.
+		\end{empt}
+		
+		
 \begin{appendices}
+	
+	\section{Nonstandard Calculus}
+	\paragraph{}
+	Here I follow to \cite{keisler:inf_calc}
+	
+	\begin{definition}\label{hyperreal_defn}
+		The following axioms describe a hyperreal number system as a triple $\left(*, \R, \R^*\right)$,
+		where $\R$ is called the field of {\it real numbers}, $\R^*$ the field of {\it hyperreal numbers}, and $*$ the {\it natural extension mapping} if it satisfies to the following axioms.
+		\begin{enumerate}
+			\item[(A)] $\R$ is a complete ordered field.
+			\item[(B)]$\R^*$ is an ordered field extension of $\R$.
+			\item[(C)] $\R^*$ has a positive infinitesimal, $x\neq 0$, i.e $\forall \eps > 0$ one has $\eps > 0 \quad \Rightarrow \quad x < \eps$
+			\item[(D)] (Function Axiom)
+			
+			For each real function $f$ of n variables there is a corresponding hyperreal
+			function $f^*$ of $n$ variables, called the natural extension of $F$. The field operations of $\R^*$ are the natural extensions of the field operations of $\R$.
+			
+			\item[(E)] Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
+			of $T$.
+			
+		\end{enumerate}
+		
+		By a {\it hyperreal solution} of a system of formulas $S$ with the variables
+		$x_1; ... x_n$ we mean an $n$-tuple $\left(c_1; ... c_n)\right)$ of hyperreal numbers such that
+		all the formulas in $S$ are true when each function is replaced by its natural
+		extension and each $x_j$ is replaced by $c_j$.
+		
+		
+	\end{definition}
+	\begin{definition}
+		%Definition 1.1.
+		\begin{itemize}
+			\item An element $x\in \R^*$ is {\it infinitesimal} if $\left|x\right|< r$ for all positive real $r$;
+			\item  {\it finite} if $\left|x\right|< r$ for some real $r$;
+			\item {\it 	infinite} if $\left|x\right|> r$ for all real $r$.
+			Two elements $x, y \in \R^*$ are said to be {\it infinitely} close, $x \approx y$, if $x - y$ is
+			infinitesimal. (Thus $x$ is infinitesimal if and only if $x \approx 0$).
+			
+		\end{itemize} 
+	\end{definition}
+	\begin{definition}
+		%Definition 1.2. 
+		Given a hyperreal number $x \in \R^*$, the {\it monad} of x is the
+		set
+		$$
+		\text{monad}(x) \bydef \left\{\left. x \in \R^*\right| x \approx y\right\}
+		$$
+		%The galaxy of x is the set
+		%galaxy(x) = fy 2 R : x ? y is niteg:
+	\end{definition}
+	\begin{theorem}
+		%Theorem 1.9. 
+		(Standard Part Principle) Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
+		unique real number.
+	\end{theorem}
+	\begin{definition}
+		%Definition 1.41.
+		Let $I$ be an infinite set. 
+		A {\it filter} $U$ over $I$ is a set of subsets of $I$ such that:
+		\begin{enumerate}
+			\item [(i)] $U$ is closed under supersets; if $X \in U$ and $X \subseteqq Y \subseteqq I$ then $Y \in U$.
+			(ii) $U$ is closed under finite intersections; if $X \in U$ and { $X \in U$} then $X \cap Y \in U$,
+			(iii) $I \in U$ but $\emptyset \notin U$.
+		\end{enumerate}
+		
+		An {\it ultrafilter} over I is a filter U over I with the additional property that for each $X \subsetneqq I$, exactly one of the sets $X$; $I \setminus  X$ belongs to $U$.
+		A {\it free ultrafilter} is an ultrafilter $U$ such that no finite set belongs to $U$.
+	\end{definition}
+	\begin{theorem}
+		%Theorem 1.42.
+		For every infinite set $I$, there exists a free ultrafilter over
+		$I$
+	\end{theorem}
+	\begin{definition}\label{uf_eqn_defn}
+		%Definition 1.43. 
+		Two $I$-sequences $a, b$ in $\R^I$ are said to be $U$-{\it equivalent},
+		in symbols $a =_U b$, if
+		$$
+		\left\{\iota: a_\iota = b_\iota \right\}\in U
+		$$
+	\end{definition}
+	\begin{lemma}
+		%Lemma 1.44. 
+		The relation $=_U$ is an equivalence relation on the set $\R^I$.
+	\end{lemma}
+	\begin{definition}\label{ultra_power_defn}
+		%Definition 1.45. 
+		Let $a$ be an $I$-sequence. If $a$ is $U$-equivalent to a constant
+		$I$-sequence $\left(r, r, ...\right)$ where $r \in \R$, we define $a_U \bydef r$. Otherwise, we define aU
+		to be the $U$-equivalence class of $a$,
+		$$
+		a_U \bydef \left\{b | a =_U b\right\}.
+		$$
+		The {\it ultrapower} of the set $R$ modulo $U$ is the set
+		$$
+		\prod_{U}\R \bydef \left\{a_U : a \in \R^I\right\}.
+		$$
+	\end{definition}
+	
+	\begin{theorem}\label{inf_ultra_thm}
+		%Theorem 1.55. 
+		For each free ultrafilter $U$ on a countable index set $I$, the
+		hyperreal number system $\left(*, \R, \R^*\right)$ built from $I$ satisfies to the Definition \ref{ultra_power_defn}.
+	\end{theorem}
+	\begin{rem}\label{inf_ultra_rem}
+		The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers.
+	\end{rem}
+	
+	\section{Algebraic Quantum Theory}\label{algebraic_quantum_theory_sec}
+	\subsection{Introduction}	
+	\paragraph{}
+	Here I follow to \cite{basic_algebraic_quantum}. The predictions of quantum theory were quickly realized to be probabilistic
+	in nature. These predictions do not fall within the scope of classical
+	probability theory but they can be accommodated within a noncommutative
+	probability theory. The probabilistic formulation of quantum
+	theory is related to noncommutative  Borel $*$-algebras and $C^*$-algebras. The states and the observables are treated as the primary entities
+	of the theory and a probability measure is assigned to each pair $\left(\om, A \right)$ 
+	consisting of a state $\om$ and an observable $A$.
+	
+	The algebraic approach to quantum theory with its stress on the
+	$C^*$-algebra of bounded observables is a useful tool
+	for understanding local quantum field theory. It is possible to embed any  $C^*$-algebra $\mathfrak{A}$ into the Borel $*$-algebra  $\mathfrak{A}^\sim$, $\mathfrak{A}^\sim$ is the $\sigma$-envelope of $\mathfrak{A}$, In classical statistical mechanics if  $\mathfrak{A}$  is chosen to be the $C^*$-algebra of
+	continuous functions on a compact subset of phase space,  $\mathfrak{A}^\sim$  may be
+	identified with the Borel $*$-algebra of bounded Borel functions on that subset. Regarding the probabilistic formulation of quantum theory as fundamental,
+	we take the view that a symmetry of a physical system is most properly defined as a transformation leaving invariant the underlying
+	probability measures. We shall denote by $\mathfrak{A}_{\hbar}$ the Jordan algebra of Hermitian
+	elements of the $C^*$-algebra. We shall also use the concept of a spectral measure, but only in the
+	special case of a spectral measure over  with values in a Borel $*$-algebra $\mathfrak{A}$.
+	In this case we mean a map $B \mapsto E\left(B \right)$  from the Borel sets of $R$ into the
+	projections of $\R$ such that $E\left(\emptyset \right)= 0$ , $E(\R) = 1_{\mathfrak{A}}$ and $E\left(B_1 \cap B_2 \right) =  
+	= E(B_1)E(B_2)$ for every pair of Borel sets $B_1$ and $B_2$ and which is
+	countably additive with respect to the weak operator topology of some
+	faithful $\sigma$-representation of $\mathfrak{A}$.
+	The spectrum of  $\mathfrak{A}$
+	is the set of complex numbers $\la$ such that $A - \la 1$ has no inverse in  $\mathfrak{A}$
+	and is denoted by $\mathrm{Sp} A$.
+	\textit{Local measurement and -realization}\label{loc_mea_sec} !!! $C^*$
+	\paragraph{}
+	\paragraph{}
+	Suppose that
+	if $\mathscr S$ is any set of states of a physical system and $\mathscr A$ any set of observables
+	of that system, then there is a map $\mu$ from $\mathscr S\times \mathscr A$ into the set of probability
+	measures on $\R$. The physical interpretation of $\mu\left(\om, A \right)$ is that it
+	predicts the probability distribution of measured values of $A$ when the
+	system is in the state $\om$. The expectation value of $A$ in the state $\om$, $\om\left(A \right)$ 
+	is simply the first moment of $\mu\left(\om, A\right)\bydef \int \la \mu\left(\om, A\right)\left(d\la \right)$.
+	
+	This 	expectation value will not necessarily exist if $A$ is unbounded.
+	If we wish to give a mathematical model for a physical system, we
+	must identify £f and si with certain abstract sets in such a way that
+	there is a natural probability measure associated with each pair $\left(\om, A\right)$.
+	Formally, this may be achieved by mapping $\mathscr S$ and  $\mathscr A$ into such sets.
+	This will then be called a realization of $\left(\mathscr S, \mathscr A, \mu \right) $ , and we shall be concerned
+	here with three types of realizations.
+	\begin{definition}\label{c_realization_defn}\cite{basic_algebraic_quantum}
+		%Definition 2.1.
+		Let $\mathfrak{A}$ be a $C^*$-algebra and  $S\left( \mathfrak{A}\right) $ the set of states of
+		$\mathfrak{A}$. A $C^*$-{\it realization} of $\left(\mathscr S, \mathscr A, \mu \right) $ consists of maps 
+		\be 
+		\begin{split}
+			\mathscr S\to S\left( \mathfrak{A}\right),\\
+			\om \mapsto \hat{\om};\\
+			\mathscr A \to  \mathfrak{A}_{\hbar},\\
+			A \mapsto \hat A
+		\end{split}
+		\ee
+		such that $\mu\left(\om, A\right)= \hat \mu\left(\hat \om, \hat A\right)$, where $\hat \mu\left(\hat \om, \hat A\right)$ is the
+		unique probability measure on $\R$   with support in $\mathrm{Sp}\left(\hat A \right)$ such that $\mu\left(\om, A\right)= \hat \mu\left(\hat \om, \hat A\right)$, where $\mu\left(\hat \om, \hat A\right)$ is the unique probability measure on $\R$ with support in $\mathrm{Sp}\left(\hat A \right)$ such that $\hat \om \left( g \hat A\right) = \int g\left(\la  \right)\hat \mu \left( \hat \om, \hat A \right) \left( d \la\right)$ for all $g \in C\left(\mathrm{Sp}\left(\hat A \right) \right)$. We say that   $\mathfrak{A}$'
+		% = fg{?) ?{?,A)(d?) for all ^?C(Spi)1 . A 0*-realization is called 			a ?*-realization if 21 is a 27*-algebra and if the image of Sf in ) consists 			of ?-states. We have a ?*-spectral realization of (of, si, ?), if 21 is 			a ?*-algebra, Sf is mapped into ?-states on 21, and if there is a map 			A i—> E? from si into the spectral measures over R with values in 2t 			such that ?(?, A) (B) = ?(E? (B)) for every Borel set BcRIt
+			\end{definition}
+			
+			
+			\section{Symmetries}
+			\paragraph{}
+			A symmetry of a physical system is intuitively a transformation of
+			the  leaving all physically significant features invariant. We have
+			chosen to introduce quantum theory in terms of the set of states $\mathscr S$ of
+			a physical system, the set of observables $\mathscr A$ of that system and a probability   measure $\mu\left(\om, A\right)$ defined for each pair $\om \in \mathscr S$ and $A \in \mathscr A$. In this
+			approach, we naturally define a symmetry to be a pair of bijections $\a: \mathscr S \cong \mathscr S$ and $\overline \a: \mathscr A \cong \mathscr A$
+			such that $\mu \left(\om, A \right)=  \mu \left(\a\left( \om\right) , \overline \a \left( \right) A \right)$ for all
+			$\om \in \mathscr S$ and 	$A \in \mathscr A$. 
+			
+			\section{Kaluza-Klein theory}
+			\subsection{Basic definitions}
+			\paragraph{}
+			The following definition is crude but gets the point across.
+			\begin{definition}\label{gauge_den}
+				Consider following objects.
+				\begin{itemize}
+					\item [(a)] A principal  bundle $P\left(\R^d, G, \pi \right)$ (cf. Definition \ref{dg_prinicipal_defn}) where $\R^d$ is the bases space.
+					\item[(b)] A set $	\left\{\left(E_1, M, F_1, G, P \right), ..., \left(E_n, M, F_n, G, P \right)\right\}$ of linear {bundles associated with $P$} where $F_j$ is a finite dimensional (possibly real) Hilbert space.
+					(cf. \ref{dg_assoc_empt});
+					\item[(c)] The \textit{action functional} $S: \Ga^\infty\left( E_1\right)\times_{\R^d} ... \times_{\R^d} \Ga^\infty\left( E_n\right)  \to \R$ which is given by
+					\be\label{kk_la_eqn}
+					S\left( \xi_1, ..., \xi_n\right) = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	
+					\ee
+					where $\mathscr L$ is the   \textit{Lagrangian} which for any $\xi \in \Ga^\infty\left( E\right)$ and $x \in \R^d$ the   $\mathscr L \left( x\right)$ depends on values of $\xi_j \in E_J$  and partial derivations of $\xi$ (cf. Example \ref{kk_ym_exm}. 	
+				\end{itemize}
+				If $U$ is s set of smooth maps from $R^d$ to $G$ then for all $j = 1,...n$ there is the natural action $U \times \Ga^\infty\left(E_j \right)\to \Ga^\infty\left(E_j \right)$. If the action is invariant with respect to $U$ then one has a \textit{gauge theory}. The group $U$ is the {\it group of gauge transformations}. 
+				
+			\end{definition}
+			\begin{example}\label{kk_ym_exm}.
+				The Yang-Mills theory 	contains two linear bundles $\left(E_1, M, F_1, G, P \right)$ and $\left(E_2, M, F_2, G, P \right)$ and its specialization of the equation \eqref{kk_la_eqn} is given by
+				\be\label{ym_act_eqn}
+				\begin{split}
+					S\left( A, \psi \right)  = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	,\\	  \mathscr L \left( x\right) = \frac{1}{4g^2} \left(\partial_\nu \partial A^a_\mu - \partial_\mu \partial A^a_\nu  + \eps^{abc} A^b_\mu A^c_\nu  \right)^2 + \\
+					+ i \overline \psi \ga_\mu \left(\partial_\mu \psi + \frac{i}{2}  A^a_\mu \tau^a \psi \right) - m  \overline \psi  \psi
+				\end{split}
+				\ee
+				where the letters $A$  and $\psi$ are responsible for $\left(E_1, M, F_1, G, P \right)$ and $\left(E_2, M, F_2, G, P \right)$ respectively.
+				(cf. \cite{faddeev_slanov} for details).
+			\end{example}
+			\begin{remark}
+				If one replaces  $\R^d$ with an arbitrary manifold $M$  in the above definition  $\R^d$ the one obtains the {\it (generalizes) Kaluza-Klein theory (on $M$)} (cf. \cite{kaluza, kerner_kk}). So the Kaluza-Klein theory can be regarded as a generalization of the gauge theory, We say that any Kaluza-Klein theory is a gauge theory. Originally  Kaluza-Klein theory was devoted for unification of gravitation and electromagnetism, then its generalizations had been appear. 
+			\end{remark}
+			\section{Utiyama’s theory}\label{utiyama_sec}
+			\paragraph{}
+			
+			Consider a gauge theory with the action functional
+			\bean
+			S: \Ga^\infty\left( E_1\right)\times_{\R^d} ... \times_{\R^d} \Ga^\infty\left( E_n\right)  \to \R,\\
+			S\left( \xi_1, ..., \xi_n\right) = \int_{\R^d} \mathscr L \left( x\right)  ~ dx	
+			\eean
+			
+			Let $M$ be a manifold such that $M= \R^d / \pi_1\left(M, x_0 \right)$. Suppose that there is the inclusion $\varphi: \pi_1\left(M, x_0 \right) \to U$ to group of gauge transformations such than for any $g \in \pi_1\left(M, x_0 \right)$ the diagram 
+			\\
+			\begin{tikzcd}
+				P\left(\R^d, G, \pi \right)\arrow[r, "g"] \arrow[d, "\pi"] & P\left(\R^d, G, \pi \right) \arrow[d, "\pi"]\\
+				M \arrow[r, "\phi\left( g \right)" ]& M
+			\end{tikzcd}
+			\\
+			One can obtain the sets $\Ga^\infty\left(E_1 \right)^{\pi_1\left(M, x_0 \right)}$, ... , $\Ga^\infty\left(E_n \right)^{\pi_1\left(M, x_0 \right)}$ of $\pi_1\left(M, x_0 \right)$ invariant sections.  Roughly speaking the above construction is {\it Utiyama’s theory}. 
+			
+			\begin{empt}\label{ym_act_empt}
+				If the action is given by \eqref{ym_act_eqn}	there is the natural  construction (cf. \cite{kerner_kk}) of the generalized Kaluza-Klein theory with the action 
+				\bean
+				S^{\pi_1\left(M, x_0 \right)}: \Ga^\infty\left( E_1\right)^{\pi_1\left(M, x_0 \right)}\times_{M} ... \times_{M} \Ga^\infty\left( E_n\right)^{\pi_1\left(M, x_0 \right)}  \to \R,\\
+				S\left( \xi^{\pi_1\left(M, x_0 \right)}_1, ..., \xi^{\pi_1\left(M, x_0 \right)}_n\right) = \int_{M} \mathscr L^{\pi_1\left(M, x_0 \right)} \left( x\right)  ~ dx,	
+				\eean
+			\end{empt}	
+			
+			
+			
+			
+			
+			
+			\section{Matrix theory of superstring}
+			\subsection{Fundamentals}
+			\paragraph{} The idea of matrix model comes from the Heisenberg matrix mechanics.
+			One can construct a sequence of maps 
+			$$
+			\sigma_N : \Coo\left(M \right) \to \mathbb{M}_N\left(\C \right) 
+			$$
+			where $M$ is a two-dimensional
+			compact symplectic manifold in such a way that in the limit $N \to \infty$
+			\bean
+			\sigma_N\left\{f, g\right\}- N\left[\sigma_N\left(f\right), \sigma_N\left(g\right)\right]\to 0,\\
+			\frac{1}{N}\int fdV = \Tr\sigma_N\left(f\right) \to 0
+			\eean
+			where $\left\{f, g\right\}$ is a Poisson bracket. In semiclassical approximation ($\hbar\to 0$) the commutator of quantum observables is related
+			to the Poisson bracket of classical observables:
+			$$
+			\sigma_{\hbar}\left\{f, g\right\}- \frac{1}{\hbar }\left[\sigma_{\hbar}\left(f\right), \sigma_{\hbar}\left(g\right)\right]
+			$$
+			Here $\sigma_{\hbar}\left(f\right)$ stands for the operator corresponding to a function $f \in \Coo\left(M\right)$ where $M$ is a
+			symplectic manifold. Rigorous construction of the maps $\sigma_{\hbar}$ can be given in the case when
+			$M$ is a Kaehler manifold. If $M$ is compact, then the number of quantum states is finite;
+			in semiclassical approximation it is equal to
+			\be\label{semi_eqn}
+			N = \frac{\text{volume}}{\left( {2\pi \hbar}\right) ^{\dim M/2}}
+			\ee
+			Indeed quantum states correspond to eigenvalues of wave functions and the equation \eqref{semi_eqn} correspond to an 
+			There is a rigorous analog of given by the first order with respect to $\hbar$ approximation of wave function. The rigorous formula is
+			\eqref{weyl_eqn} i.e.
+			\be\label{nweyl_eqn}
+			Trace_\om \left(\left| \slashed{D}\right|^{-n}  \right) = \frac{\dim\left( {\sS}\right) \mathrm{Vol}\left(M \right) }{\left( 2 \sqrt{\pi}\right)^n \Ga\left(\frac{n}{2} +1\right)  }.
+			\ee
+			The value  $Trace_\om \left(\left| \slashed{D}\right|^{-n}  \right)$ depends of infinite set of eigenvalues. If we take $N$ minimal eigenvalues in \eqref{nweyl_eqn} then we obtain an approximation of the volume. Since we have a conjecture instead rigorous statement such replacement is acceptable.
+			
+			\section{Discussion}
+			\paragraph{} Here I follow to \cite{cds} The recent development of superstring theory has shown that these
+			theories are the perturbative expansions of a more general theory where
+			strings are on equal footing with their multidimensional
+			analogs (branes).
+			This theory is called $M$ theory, where  $M$ 
+			stands for ``mysterious'' or ``membrane.''
+			
+			It was conjectured in BFSS (cf. \cite{bfss}) that $M$ theory can be defined as a
+			matrix quantum mechanics,
+			obtained from ten-dimensional supersymmetric
+			Yang-Mills (SYM) theory by means of reduction to
+			$0+1$ dimensional theory,
+			where the size of the matrix tends to infinity.
+			Another matrix model was
+			suggested in IKKT (cf. \cite{ikkt}) it can be obtained by reduction of
+			10-dimensional SYM theory to a point.
+			The two models, known as the BFSS Matrix model and the IKKT Matrix
+			model, are closely related.
+			We work with Weyl spinors (i.e.
+			with quantities that transform according to one of the irreducible representations in the
+			2
+			decomposition of the spinor representation of $SO(10,\C)$ into left and right parts). Due to
+			the absence of Majorana-Weyl spinors there is no $SO(10,\C)$-invariant real slice, but this
+			is irrelevant for us.
+			The symbol $\Pi$ is used to denote the parity reversion (e.g. $\Pi \R^{m|n}\bydef \R^{{n|m}}$).
+			The action of IKKT model is given by
+			\be\label{ikkt_act_eqn}
+			S \bydef R \sum_{j,k} \left\langle\left[X_j, X_k\right],\left[X_j, X_k\right] \right\rangle  +2R\sum_j \left\langle \Psi^\a, \Ga^j_{\a,\bt}\left[X_j, \right] \right\rangle 
+			\ee
+			where $X_J$, $j = 0, 1, . . . , 9$ are elements of a complex Lie algebra $\G$ equipped with an invariant
+			bilinear inner product $\left\langle, \right\rangle$, $\Psi^\a$,	$\a=,1, . . . , 16$ are elements of $\Pi \G$ and $\Ga^j_{\a,\bt}$ 
+			are
+			ten-dimensional Dirac matrices. $R$ is a constant of normalization whose significance will
+			be explained below. The functional \eqref{ikkt_act_eqn} is invariant with respect to the action of complex orthogonal
+			group $SO(10,\C)$ if $X_0, . . . ,X_9$ transform as a vector and  $\Psi^1, \Psi^{16}$ as a Weyl spinor.
+			The functional \eqref{ikkt_act_eqn} is also invariant with respect to infinitesimal gauge transformations
+			$$
+			X_j \mapsto \left[U, X_j\right], \quad \Psi^\a \mapsto \left[U, \Psi^\a\right]
+			$$
+			with $U \in \G$.
+			It was conjectured in \cite{bfss, ikkt} that this functional integral in the limit $N, R \to \infty$ with $N/R$
+			fixed can be used as a non-perturbative definition of the type $IIb$ superstring theory. This
+			conjecture is prompted by the remark that the action functional \ref{ikkt_act_eqn}
+			
+			\begin{remark}\label{diag_matr_rem}
+				According to the \cite{matrix_diaginal} any $X_j = D_j + S_J$ where !!!
+			\end{remark}
+			
+			\section{Noncommutative Toroidal Compactification}\label{mat_tor_sec}
+			\paragraph{}
+			Here I follow to \cite{matrix_tori}.
+			Let us first discuss the compactification of IKKT model on a circle. We would like to
+			restrict the action functional of this model to the subspace consisting of points $\left(X_j, \Psi^\a \right)$ 
+			that remain in the same gauge class after a shift by a real number $2\pi R_0$ in the direction
+			$X_0$. In other words, we should consider such points that there exists an invertible matrix
+			$U$ obeying
+			\be\label{mat_tor_eqn}
+			\begin{split}
+				X_0 + 2\pi R_0 = U X_0 U^{-1}, \quad X_j = UX_jU^{-1},
+				\Psi^\a = U \Psi^\a U^{-1}
+			\end{split}
+			\ee
+			
+			Taking the trace of both sides of the first equation we see that finite-dimensional matrices
+			cannot satisfy these conditions. However, if $X_j$  and  $\Psi^\a$ are operators in infinite-dimensional
+			Hilbert space $\H$ one can easily find solutions of \eqref{mat_tor_eqn}. The solution had been found as limit $N, R \to \infty$ with finite $N/R$ (cf. \cite{bfss,ikkt}).
+			\section{New Matrix Model}\label{phys_mm_sec}
+			\paragraph{} 
+			The paper \cite{landi:nm_nt,new_matrix} can be regarded as a manifestation of  Hausdorff and non-Hausdorff duality. The infinite sequence of $C^*$-algebras $\Coo\left(\T_{M, N} \right)$ yield $C\left(\T^2_\th \right)$ where $\th \in \R \setminus \Q$.
+			The algebra $\Coo\left(\T^2_\th\right)$ of smooth functions on the `noncommutative
+			two-torus'
+			${\bf T}_\theta^2$ is the unital $*$-algebra generated by two unitary
+			elements $U_1,
+			U_2$ with the relation
+			\be U_1U_2=e^{2\pi i\theta}\,U_2U_1 \ .
+			\label{Tthetarel}
+			\ee
+			A generic element $a\in \Coo\left(\T^2_\th\right)$ is written as a convergent series
+			of the form
+			\be
+			a = \sum_{(m,n)\in \\Z^2} a_{mn} ~(U_1)^m (U_2)^n
+			\ee
+			where $a_{mn}$ is a complex-valued Schwarz function on $\Z^2$, i.e. a
+			sequence
+			of complex numbers $\{a_{mn} \in  \C~| ~ (m,n) \in \Z^2 \}$
+			which decreases rapidly at `infinity'. When the deformation parameter
+			$\theta=M/N$ is a rational number, with $M$ and $N$
+			positive integers which we take to be relatively prime, the algebra
+			$\Coo\left(\T^2_{M/N}\right)$ is intimately
+			related to the algebra $C^\infty({\bf T}^2)$ of smooth functions on the
+			ordinary torus
+			${\bf T}^2$. Precisely, $\Coo\left(\T^2_{M/N}\right)$ is Morita equivalent to
+			$C^\infty({\T}^2)$, i.e. $\Coo\left(\T^2_{M/N}\right)$ is a twisted matrix bundle over 
+			$C^\infty({\bf T}^2)$ of topological charge $M$ whose fibers are $N\times N$
+			complex matrix algebras.
+			Physically, this  implies that noncommutative $U(1)$ Yang-Mills theory with
+			rational deformation parameter
+			$\theta=M/N$ is dual to a conventional $U(N)$ Yang-Mills theory with $M$
+			units of 't~Hooft flux.
+			
+			The algebra $\Coo\left(\T^2_{M/N}\right)$ has a
+			`huge' center ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ which is generated by the elements
+			$(U_1)^N$ and $(U_2)^N$. One identifies ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ with the algebra
+			$C^\infty({\T}^2)$, while the appearence of finite dimensional matrix
+			algebras can be seen as follows. With $\omega=e^{2\pi iM/N}$, one introduces
+			the $N\times N$ clock and shift matrices
+			\be\label{Uarational}
+			\widetilde{U}_1=\left({\begin{array}{lllll}
+					1& & & & \\ &\omega& & & \\
+					& &\omega^2& & \\& &
+					&\ddots& \\ & & & &
+					\omega^{N-1}
+			\end{array}}\right)~~~~~~,~~~~~~
+			\widetilde{U}_2=\left({\begin{array}{lllll}
+					0&1& & &0\\ &0&1& & \\
+					& &\ddots&\ddots& \\
+					& & &\ddots&1\\ 1& & & &0\end{array}}\right) \ .
+			\ee
+			These matrices are traceless (since $\sum_{k=0}^{N-1} \omega^k = 0$), they obey
+			the relation \ref{Tthetarel}, and they satisfy
+			\be
+			\left(\widetilde{U}_1\right)^N =\left(\widetilde{U}_2\right)^N = \id_N~.
+			\ee
+			Since $M$ and $N$ are relatively prime, the matrices \ref{Uarational} generate
+			the finite dimensional algebra $\mathbb{M}_N(\C)$ of $N\times N$ complex
+			matrices. In \cite{landi:nm_nt} the following representation
+			\be
+			\theta=\lim_{n\to\infty}\theta_n=\lim_{n\to\infty}p_n/q_n;\quad \th \in \R\setminus \Q,\quad p_n \in \Z, \quad q_n \in \N 
+			\label{thetalim}
+			\ee
+			is used.
+			Then, for any integer $n$, the semi-simple algebra
+			\be
+			A_n=\mathbb{M}_{q_n}(\C)\oplus\mathbb{M}_{q_{n-1}}(\C)
+			\label{Andef}
+			\ee
+			is considered.
+			At each finite level labeled by the integer $n$, let $A_{\theta_n}$ be
+			the algebra of
+			the noncommutative two-torus with rational deformation parameter
+			$\theta_n= p_n / q_n$ given in \ref{thetalim}, and generators
+			$U_a^{(n)}~, ~a=1,2$ obeying the relation
+			\be\label{hnh_comm_matr_eqn}
+			U_1^{(n)}U_2^{(n)}=e^{2\pi ip_n/q_n}\,U_2^{(n)}U_1^{(n)} 
+			\ee
+			Having the sequence of $C^*$-algebras $A_n$ and $A_{\th_n}$ one obtains $C\left(\T^2_n \right)$. The complete description of this procedure is presented in \cite{landi:nm_nt,new_matrix}. 
+			\section{The Mathematical Foundations of Gauge Theories}
+			
+			\subsection{Gauge Fields}\label{gaurge_sec}	
+			\subsubsection{Gauge transformations}
+			\paragraph{}
+			Here I follow to \cite{marmat}.
+			In physical applications one is usually interested in a fixed Lie 
+			group $G$ called the {\it gauge group} which represents an internal or local 
+			symmetry of the field. The base manifold $M$ of the principal bundle 
+			$P(M, G)$ is usually the space-time manifold or its Euclidean version, i.e. 
+			a pseudo-Riemannian manifold of dimension 4. But in some physical applications, such as superspace, Kaluza-Klein and string theories, the base 
+			manifold can be an essentially arbitrary manifold. In this chapter we 
+			formulate the theory of gauge fields on an arbitrary pseudo-Riemannian 
+			base manifold. 
+			
+			
+			Let $(M,g)$ be an $m$-dimensional pseudo-Riemannian manifold and 
+			$G$ a Lie group which we take as the gauge group of our theory. Let 
+			$P\left(M, G \right)$  be a principal bundle with the gauge group $G$ as its structure 
+			group. A connection in $P$ is called a {\it gauge connection}. The connection 1-form $\om$ is called the {\it gauge connection form} or simply the 
+			{\it gauge connection}. A {\it global gauge} or simply a {\it gauge} is a section 
+			$s \in \Ga\left(P \right)$. The gauge potential $A$ on $M$ in gauge $s$ is obtained by 
+			pull-back of the gauge connection $\om$ on $P$ to M by $s$, i.e. $A = s^*(\om)$. 
+			A {\it global gauge} and hence the gauge potential on $M$ exists if and only 
+			if the bundle $P$ is trivial. A {\it local gauge} is defined as a section of the 
+			bundle $P(M, G)$ restricted to some open subset $U \subset M$. Local gauges defined for the local representations $\left(\sU_\iota, \psi_\iota \right)_{\iota \in I}$  of $P$, always exist. Let $t \in \Ga\left( \right)$  be a local gauge; then the 1-form $t^*\om\in \La^1\left( \sU, \mathfrak g\right)$  is called the {\it gauge potential} in the {\it local gauge} $t$ and is denoted by $A_t$. If the local gauge $t$ is given we often denote $A_t$ by $A$ and call it a {\it local gauge potential}. In electromagnetism, the gauge group $G = U\left( 1\right)$ is the circle group. An element $e^{i\th}\in U(1)$ is determined  by the phase $\th$. Thus, in this case, a local gauge over an open set $\sV \subset M$ can be regarded as a choice of a phase in the bundle $P|_\sV = \sV \times G$, at each point of $\sV$. For this reason, the total space of the bundle $P$ is sometimes called the {\it space of phase factors} in the physics literature. 
+			
+			
+			Let $\Om \bydef d^\om \om$ be the curvature 2-form of $\om$ with values in the Lie 
+			algebra $\mathfrak g$. We call $\Om$ the {\it gauge field} on $P$. There exists a unique 2-form $F_\om$ on $M$ with values in the Lie 
+			algebra bundle $ad P$ associated to the curvature 2-form $\Om$ such that 
+			\be
+			F_\om = s_\Om
+			\ee
+			
+			The 2-form $F_\om \in \La^2\left( M, ad P\right)$  is called the {\it gauge field} on $M$ corresponding to the gauge connection $\om$. The gauge field Fu is globally defined on $M$, even though, in general, there is no corresponding globally 
+			defined gauge potential on $M$. If we are given a local gauge potential $A_t \in \La\left(\sU_\iota, \mathfrak g \right)$, then on $\sU_\iota$,  we have the relations 
+			\be
+			t^*\om = A_t \quad \text{and} \quad F_\om = d^\om A_t
+			\ee
+			The group $Diff(P)$ of the diffeomorphisms of $P$ is too large to 
+			serve as a group of gauge transformations, since it mixes up the fibers 
+			of $P$. The requirement that fibers map to fibers may be expressed by 
+			the condition that the following diagram commutes. 
+			\\
+			\begin{tikzcd}
+				P \arrow[r, "f"]\arrow[d, "\pi"] & P \arrow[d, "\pi"]\\
+				M \arrow[r, "f_M"] & M
+			\end{tikzcd}
+			\\
+			i.e.
+			\be\label{gauge_p_eqn}
+			\pi \circ f = f_M \circ \pi
+			\ee
+			We note that condition \eqref{gauge_p_eqn} does not depend on the principal bundle 
+			structure of $P$ and hence can be imposed on any fiber bundle.
+			\begin{definition}\label{gauge_projectable_dedn}
+				The pair $\left(f, f_M\right)$ 
+				satisfying condition  \eqref{gauge_p_eqn} is a fiber bundle automorphism. In 
+				this case we call $f$ a {\it projectable diffeomorphism} or {\it transformation}  of $P$. The projectable diffeomorphisms form a group $ Diff_M(P)$, 
+				defined by 
+				\be\label{gauge_g_eqn}
+				Diff_M(P) \bydef \left\{f \in Diff\left( P\right)| f \quad \text{is projectable} \right\}
+				\ee
+			\end{definition} 
+			
+			\subsection{Action Principles on Principal Bundles and Local Lagrangian}\label{set_of_fields_sec}
+			\paragraph{}
+			
+			According to \cite{new_matrix} there is there is a set of fields, which we denote collectively by $\Phi$, with {\it Lagrangian
+				density} $\L =\L\left[\Phi, \partial \Phi\right]$. In 
+			\cite{gauge_princilpal} there is a detailed description of this phenomenon. $\Phi$ corresponds to the associated  with $P$ vector bundle (cf.   the Definition \ref{top_vb_defn} and \ref{top_vb_defn}). One can suppose that the $\Phi$ is an associated with $P\left(M, G \right)$ vector bundle \ref{dg_assoc_empt}. 
+			One has a mathematical formalism in which we have a space of (formally) possible states of the physical system: the \emph{configuration space} \index{configuration space} $Q$, which we take to be a manifold (that is infinite dimensional in the case of field theories). However, some states turn out to be physically impossible. The criterion that a state is physically relevant can often be put into the form that it is a stationary point of a certain function $Q\rar{S}\R$, called the \emph{action}. 
+			Very often, $Q$ will be a manifold of mappings $Q\subset C^\infty(M,N)$  and $S$ is given by an integral $S(q)=\int_M \mathscr{L}(q)$, where $q\in Q$ and $Q\rar{\mathscr{L}} \mathrm{measures}(M)$. We say that $\mathscr{L}$ is the {\it Lagrangian}. 
+			\begin{definition}
+				Let $\mathscr E$ be a soft subsheaf of the sheaf of continuous sections of $\Phi$ and $\mathscr R$ is a sheaf of continuous real - valued maps from $M$ to $\R$. A 
+				Under the above hypothesis the {\it local Lagrangian
+					density} is a map $\phi:\Ga\left(\mathscr E \right) \to \Ga\left( \mathscr R \right)$ such that:
+				\begin{enumerate}
+					\item [(a)]  The diagram
+					\\
+					\begin{tikzcd}
+						\Ga\left(\mathscr E \right)\arrow[rr, "\phi"] \arrow[rd] &&  \Ga\left( \mathscr R \right)\arrow[ld]\\
+						& M &
+					\end{tikzcd}
+					\\
+					is commutative.
+					\item[(b)] The map $\phi$ is  invariant with respect to a  given  by \eqref{gauge_g_eqn} group $Diff_M(P)$.
+					\item[(c)] The map yields a continuous map $\mathrm{Sp\acute{e}}\left(\mathscr E \right)\to \mathrm{Sp\acute{e}}\left(\mathscr R \right)$ where  $\mathrm{Sp\acute{e}}$ denotes the {
+						\'espace etal\'e} (cf. Exercise \ref{sheaf_etale_exer}).
+				\end{enumerate}
+			\end{definition}
+			\begin{remark}
+				Usually there is $r \in \N$ such that  subsheaf  $\mathscr E$  is a sheaf or $r$-times differentiable sections of $\Phi$.
+			\end{remark}
+			\begin{remark}
+				The above definition is formulated by the author. It is the adopted to this work result of analysis of devoted to the gauge theory publications, e.g. \cite{marmat,gauge_princilpal,sheaf_gauge}.
+			\end{remark}
+			\begin{rem}\label{gauge_scalar_product_rem}
+				In the lot of  situations there is a bilinear map $\mathscr E\times \mathscr E \to \mathscr C$  or equivalently  a linear homomorphism of sheaves   $\mathscr E\to \mathscr Hom \left(\mathscr E, \mathscr C\right)$ (cf. Definitions \ref{sheaf_mor_defn} and \ref{sheaf_hom_defn}) and $\mathscr C$ is a sheaf of complex-valued continuous mappings.
+			\end{rem}
+			
+			
+			
+			
 	\section{Rigged Hilbert spaces}
 \subsection{Introduction}\label{rhs_intro_sec}
 \paragraph{} Here I follow to \cite{rhs}

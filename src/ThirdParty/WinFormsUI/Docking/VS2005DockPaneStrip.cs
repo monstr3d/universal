@@ -65,6 +65,8 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
 
             private int m_imageCategory = 0;
+
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public int ImageCategory
             {
                 get { return m_imageCategory; }

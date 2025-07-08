@@ -70,6 +70,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Creares necessary objects
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object[] Object
         {
             get

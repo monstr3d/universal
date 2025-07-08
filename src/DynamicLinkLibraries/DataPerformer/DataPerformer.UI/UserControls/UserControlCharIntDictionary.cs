@@ -26,6 +26,7 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ICollection<string> Keys
         {
             set
@@ -50,6 +51,7 @@ namespace DataPerformer.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<string, int> Dictionary
         {
             get
@@ -71,6 +73,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal int Minimum
         {
             get

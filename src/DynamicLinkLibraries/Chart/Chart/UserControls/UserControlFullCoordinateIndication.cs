@@ -24,6 +24,7 @@ namespace Chart.UserControls
         /// <summary>
         /// Performer of chart drawing
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ChartPerformer Performer
         {
             get

@@ -18,6 +18,7 @@ namespace Event.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string FileName
         {
             set

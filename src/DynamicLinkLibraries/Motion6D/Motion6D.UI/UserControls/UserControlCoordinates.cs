@@ -26,6 +26,7 @@ namespace Motion6D.UI.UserControls
         /// <summary>
         /// Width of text
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal int TextWidth
         {
             get

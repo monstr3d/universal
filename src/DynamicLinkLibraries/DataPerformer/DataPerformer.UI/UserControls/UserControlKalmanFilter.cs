@@ -51,6 +51,7 @@ namespace DataPerformer.UI.UserControls
         /// <summary>
         /// Filter
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public KalmanFilter Filter
         {
             get

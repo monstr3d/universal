@@ -59,6 +59,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal VectorFormulaConsumer Consumer
         {
             get

@@ -24,25 +24,26 @@ namespace Diagram.UI.UserControls
         }
 
 
-    /*    /// <summary>
-        /// Accepts comments
-        /// </summary>
-        public event AcceptComments AcceptComments
-        {
-            add
+        /*    /// <summary>
+            /// Accepts comments
+            /// </summary>
+            public event AcceptComments AcceptComments
             {
-                userControlComments.AcceptComments += value;
+                add
+                {
+                    userControlComments.AcceptComments += value;
+                }
+                remove
+                {
+                    userControlComments.AcceptComments -= value;
+                }
             }
-            remove
-            {
-                userControlComments.AcceptComments -= value;
-            }
-        }
-        */
+            */
 
         /// <summary>
         /// Autosave sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AutoSave
         {
             get

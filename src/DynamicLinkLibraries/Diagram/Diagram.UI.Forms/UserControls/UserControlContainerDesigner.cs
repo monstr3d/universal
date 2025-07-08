@@ -129,6 +129,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Distance of splitter
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SplitterDistance
         {
             get
@@ -158,6 +159,10 @@ namespace Diagram.UI.UserControls
         }
 
 
+        /// <summary>
+        /// Desktop
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IDesktop Desktop
         {
             set

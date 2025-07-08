@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-
-using DataPerformer.Portable;
+﻿using DataPerformer.Portable;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -19,6 +19,7 @@ namespace DataPerformer.UI.UserControls
 
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Base.Filters.FilterWrapper Filter
         {
             get => filterWrapper;

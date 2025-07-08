@@ -52,6 +52,8 @@ namespace Event.UI.UserControls
         /// <summary>
         /// Timer
         /// </summary>
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ITimerEvent Timer
         {
             get { return timer; }

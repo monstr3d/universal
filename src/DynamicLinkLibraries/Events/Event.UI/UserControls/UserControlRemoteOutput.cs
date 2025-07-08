@@ -29,6 +29,7 @@ namespace Event.UI.UserControls
 
         #region Internal Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ImportedEventWriter Writer
         {
             get

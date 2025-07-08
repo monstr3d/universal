@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Utils;
+using ErrorHandler;
+using Event.Log.Database;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
-
-using Diagram.UI;
-using Diagram.UI.Utils;
-using Diagram.UI.Interfaces;
-
-using Event.Log.Database;
-
-using ErrorHandler;
 
 namespace Event.UI.UserControls
 {
@@ -45,6 +43,7 @@ namespace Event.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string FileName
         {
             set
@@ -59,6 +58,7 @@ namespace Event.UI.UserControls
             this.history = history;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Portable.LogHolder Log
         {
             set

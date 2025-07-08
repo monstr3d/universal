@@ -64,6 +64,7 @@ namespace DataPerformer.UI.UserControls
             Height += dh;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Tuple<Dictionary<string, Color[]>, Dictionary<string, bool>,
             Dictionary<string, string>, string[], int[],
              Tuple<double[],
@@ -128,6 +129,7 @@ namespace DataPerformer.UI.UserControls
             list.Add(uc);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Dictionary<IMeasurement, object> ObjectDictionary
         {
             set

@@ -48,6 +48,7 @@ namespace DataPerformer.UI.UserControls
 
         #endregion
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Table2D Table
         {
             get

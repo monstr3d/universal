@@ -9,6 +9,7 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
+using System.ComponentModel;
 
 namespace Diagram.UI.Labels
 {
@@ -241,10 +242,11 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The label associated with arrow source
-		/// </summary>
-		public virtual IObjectLabel Source
+        /// <summary>
+        /// The label associated with arrow source
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public virtual IObjectLabel Source
 		{
 			get
 			{
@@ -256,10 +258,11 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The label associated with arrow target
-		/// </summary>
-		public virtual IObjectLabel Target
+        /// <summary>
+        /// The label associated with arrow target
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public virtual IObjectLabel Target
 		{
 			get
 			{
@@ -271,10 +274,11 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The number of source object
-		/// </summary>
-		public object SourceNumber
+        /// <summary>
+        /// The number of source object
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object SourceNumber
 		{
 			get
 			{
@@ -286,11 +290,12 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		
-		/// <summary>
-		/// The number of target object
-		/// </summary>
-		public object TargetNumber
+
+        /// <summary>
+        /// The number of target object
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object TargetNumber
 		{
 			get
 			{
@@ -302,10 +307,11 @@ namespace Diagram.UI.Labels
 			}
 		}
 
-		/// <summary>
-		/// The associated arrow
-		/// </summary>
-		public ICategoryArrow Arrow
+        /// <summary>
+        /// The associated arrow
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public ICategoryArrow Arrow
 		{
 			get
 			{

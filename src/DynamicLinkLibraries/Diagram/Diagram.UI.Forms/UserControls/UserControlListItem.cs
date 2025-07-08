@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Diagram.UI.UserControls
 {
@@ -37,6 +38,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Label
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Label
         {
             get
@@ -52,6 +54,7 @@ namespace Diagram.UI.UserControls
         /// <summary>
         /// Control
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control
         {
             get => control;
