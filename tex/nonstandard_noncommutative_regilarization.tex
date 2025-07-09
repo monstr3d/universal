@@ -630,9 +630,9 @@ The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a 
 	
 		\section{Infinitesimal  functionals}
 	\paragraph{}
-	
+	\begin{empt}\label{basic_conditions}
 	Let $A$ be an unital $C^*$-algebra, and let $I\subset A$ be a two sided ideal, such that
-	\be 
+	\be \label{dense_essential_ideal_eqn}
 	\forall a \in A \quad a I = \{0\}\quad \Rightarrow \quad  a = 0.
 	\ee 
 	and $I$ is dense in $A$ with respect to strict topology (cf. Definition \ref{strict_topology_defn})
@@ -641,27 +641,48 @@ The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a 
 	\bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
 	\ee
 	is convergent with respect to the strict topology 	(cf, Definition \ref{strict_topology_defn}).
-	For any $j, k\in \N$ define a $\C$-linear functional $\phi_{j, k}:\xi_{j} A \xi_k \to \C$. We suppose that for any $n \in \N$ the matrix 
+	For any $j, k\in \N$ define a $\C$-linear functional 
+\be\label{p_jk_eqn} 
+\phi_{j, k}:\xi_{j} A \xi_k \to \C.
+	\ee We suppose that for any $n \in \N$ the matrix 
 \be\label{bt_phi_sum_eqn}
 	\begin{pmatrix}
 	\phi_{1,1}\left( \xi_1 1_A \xi_{1}\right) &  \ldots &	\phi_{1, n}\left( \xi_1 1_A \xi_{n}\right) \\
 		\vdots& \ddots & \vdots& \\
-		\phi_{n,1}\left( \xi_1 1_A \xi_{n}\right)& \ldots &	\phi_{n,n}\left( \xi_{n} 1_A \xi_{n}\right)   \\
-	\end{pmatrix}
+		\phi_{n,1}\left( \xi_1 1_A \xi_{n}\right)& \ldots &	\phi_{n,n}\left( \xi_{n} 1_A \xi_{n}\right) 
+	\end{pmatrix}\in \mathbb{M}_n\left( \C\right) 
 	\ee
 	is positive.
- According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. For any $a\in A$ and $\left(j, k\right)\in \N^2$ there is an infinitesimal complex number $\hat a = \left(a_1, ..., a_j, ... \right)$ such that 
+ According to the Theorem \ref{inf_ultra_thm} and the Remark \ref{inf_ultra_compex_rem} any infinitesimal complex number $x\in \C^*$ can be represented by a sequence $\left(x_1, ...,  \right) \in \C^\N$. For any $a\in A$ and $\left(j, k\right)\in \N^2$ there is an infinitesimal complex number $\hat a^{j,k} = \left(a^{j,k}_1, ..., a^{j,k}_N, ... \right)$, such that 
  \be 
- a_j = \sum_{l, k = 1}^j \phi_{l,k}\left( \xi_{l} a \xi_{k}\right)
+ a^{j,k}_N = \begin{cases}
+ 0 & j \le N \text{ AND } k \le N\\
+ \frac{\phi_{j,k}\left( \xi_{l} a \xi_{k}\right)}{N}& \text{ Otherwise}
+ \end{cases} 
  \ee
- We suppose that $\hat a$ is finite for all $a\in A$ and infinitely small for all $a \in I$, where $\C^*$ is . The map
- \bean
+ We suppose that 
+$$
+ \hat a \bydef \sum_{!!!j = 1, k= 1}^\infty  \hat a^{j,k}
+ $$
+  is finite for all $a\in A$ and infinitely small for all $a \in I$, where $\C^*$ is . The map
+\be\label{inf_func_eqn}
+\begin{split}
  \phi^* : A \to \C^*,\\
- a \mapsto  \hat a
- \eean 
- is a linear functional with $\phi^*\left( I\right) \neq \{0\}$ where $\C^*$ comes form the hypercomplex system (cf. Remark \ref{inf_ultra_compex_rem}). This functional yields a classical functional $\phi : A \to \C$ such that $\phi\left(A \right)  = \C$ and  $\phi\left(I \right)  = \{0\}$.
+a \mapsto  \hat a
+\end{split}
+ \ee 
+ is a linear functional with $\phi^*\left( I\right) \neq \{0\}$. This functional and the Theorem \ref{standard_part_thm} naturally  yields the  classical functional 
+ \be\label{claass_func_eqn}
+ \begin{split}
+ \phi : A \to \C,\\
+ \phi\left(A \right)  = \C,\\
+ \phi\left(I \right)  = \{0\}.
+ \end{split}
+ \ee
+  \end{empt}
  \begin{example}
- If  $\H \bydef \ell^2\left( \N\right)$, 	$A = B\left(\H \right)$  and $\left\{\eta_n\right\}_{n \in \N}$ is an orthogonal and $\xi_n \bydef \eta_n\left\rangle \right\langle \eta_n$ then similarly to \eqref{bt_sum_eqn} one has
+ If  $\H \bydef \ell^2\left( \N\right)$, 	$A = B\left(\H \right)$  then the two sided ideal $I$ of finite-rank operators satisfies to the equation \eqref{dense_essential_ideal_eqn}.
+If  $\left\{\eta_n\right\}_{n \in \N}\subset \H$ is an orthogonal and $\xi_n \bydef \eta_n\left\rangle \right\langle \eta_n$ then similarly to \eqref{bt_sum_eqn} one has
  $$
  \bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
  $$
@@ -672,42 +693,47 @@ The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a 
  	\vdots& \ddots & \vdots& \ldots\\
  	a_{j,1}& \ldots &a_{j,j} &  \ldots \\
  	\vdots& \vdots & \vdots & \ddots \\
- \end{pmatrix}\in \K\left( \ell^2\left( A\right) \right)
+ \end{pmatrix}
  $$
- associated with the basis $\left\{\eta_n\right\}_{n \in \N}$. The set of finite-rank operators is 
+ associated with the basis $\left\{\eta_n\right\}_{n \in \N}$. One has 
+ $$
+ \xi_j A \xi_k = \left\{\left. \begin{pmatrix}
+ 	0& \ldots & 0 &  \dots & 0\\
+ 	\vdots& \ddots & \vdots & \ldots\\
+ 	0& \ldots &a_{j,k}= c &  \ldots & 0 \\
+ 	\vdots&  & \vdots & \ddots &  \\
+ 	0 & \ldots & 0 & &
+ \end{pmatrix} \right|x \in \C\right\}\cong \C
+ $$
+ so there is a natural isomorphism
+ $$
+ \psi_{j,k} : \xi_j A \xi_k \cong \C.
+ $$
+ 
+ Let $\left\{c_n\right\}_{n \in \N}\in \R+=^\N$ be a nonincreasing sequence of positive reals such that there is a positive limit of a nonincreasing sequence 
+ $$
+ \left\{\frac{ \sum_{n = 1}^{N} c_n}{N}\right\}_{N \in \N}
+ $$
+ and suppose that 
+ $$
+ \phi_{j, k}\left( a\right) = \begin{cases}
+ c_j a_{jj} & j= k\\
+ 0 & j \neq k
+ \end{cases}
+ $$
+ (cf. \eqref{p_jk_eqn})
  
  \end{example}
 
-	\subsection{Infinitesimal  functionals}
+\section{Unrealistic Phenomena}
+	
 	\paragraph{}
-	Let 	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ be an infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn}), and let $\phi : M\left(\widetilde{A} \right)\to \C$ be a positive $\C$-linear continuous functional with
-	\be\label{inv_cong_eqn}
-	\forall  \widetilde{b} \in  M\left(\widetilde{A} \right) \quad \forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left( g \widetilde b\right) = \phi\left(  \widetilde b\right)
-	\ee
-	If $\phi\left(\widetilde{A} \right) \neq \{0\}$ then there is $\widetilde a \in K\left(\widetilde{A} \right)$ with $\phi\left(\widetilde a \right) >\eps > 0$. According to the equation \eqref{basic_cov_cl_eqn} there is 
-	\be\label{inv_congp_eqn}
-	\widetilde	b \bydef \bt\text{-} \sum_{	g \in G\left(\left.\widetilde{A}~\right| A\right) }g \widetilde a \in  M\left(\widetilde{A} \right)
-	\ee
-	such that
-	$$
-	\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad g \widetilde b = \widetilde b
-	$$
-	From \eqref{inv_congp_eqn} it follows that $\phi\left( \widetilde{b}\right) = \left|G\left(\left.\widetilde{A}~\right| A\right)\right|\eps = \infty$ since the group $G\left(\left.\widetilde{A}~\right| A\right)$ is not finite. However one can define $\phi \left( \widetilde{a}\right)$ as infinitesimal value. According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. Let us enumerate $G\left(\left.\widetilde{A}~\right| A\right)$ i.e. set $G\left(\left.\widetilde{A}~\right| A\right)= \bigsqcup_{\iota \in \N} \{g_\iota\}$. We suppose that $\phi\left(g_\iota \widetilde b\right)$ is represented by $\left(x^\iota_1, ...,  \right)$ with
-	$$
-	x^\iota_n \bydef \begin{cases}
-		0 & \iota < n\\
-		\frac{\phi\left( \widetilde	b\right) }{n} & \iota \ge n
-	\end{cases}
-	$$
-	From the Definition \ref{uf_eqn_defn} it follows that 
-	$$
-	\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left(g \widetilde a \right) = \phi\left( \widetilde a \right)
-	$$
-	Otherwise 
-	$$
-	\sum_{	g \in  G\left(\left.\widetilde A\right| A\right)}\phi\left(g \widetilde a\right) 
-	$$
-	is represented by the sequence $\left(\phi\left(\widetilde b \right), ..., \phi\left(\widetilde b \right), ...\right)\in \C^\N$ (cf. Definition \ref{ultra_power_defn}), it is agree with  the equation \eqref{inv_congp_eqn}.
+	It is conjectured  that the $M$-theory can be represented as limit matrix model (cf. \cite{matrix_tori, bfss, ikkt} with finite-dimensional matrix. It is possible to obtain the  noncommutative toroidal compactification (cf. Appendix \ref{mat_tor_sec}) by infinite dimension matrix. However this solution is not realistic since infinite dimensional matrix yield infinite values of the given by the equation \eqref{ikkt_act_eqn} action functional. 
+	The infinite dimensional matrix model is not realistic since 
+	But physics can effectively operate with  unrealistic phenomena, i. e. phenomena which shall never occur. For example explained in \cite{isumaru} plain electromagnetic wave is not realistic. However this  "phenomenon" is effectively used in a lot of science and engineering calculations. If $\mathfrak{A}$ is a  $C^*$-realization (cf. Definition \ref{c_realization_defn}) of $d$-dimensional quantum physics then there is the natural inclusion $C_0\left(\R^d \right) \subset \mathfrak{A}$. According to the Appendix \ref{loc_mea_sec} one has  $\mathscr A \subset\mathfrak{A}_{\text{sa}}$  where $\mathscr A$ is the set of observables where $\mathfrak{A}_{\text{sa}}\subset \mathfrak{A}$ is the $\R$-subspace of self-adjoint operations. If $a \in C_0\left(\R^d \right)_{\text{sa}}\setminus C_c\left(\R^d \right)_{\text{sa}}$  then the volume of $\supp a$ is not finite. So a corresponding to the "observable" detector should have an infinite volume, i.e. $a$ corresponds to an unrealistic state. Note that $C_c\left(\R^d \right)$ is the Pedersen's ideal of $C_c\left(\R^d \right)$. According to my experience  the realistic phenomena are inside the Pedersen's ideal. 
+	
+	In \cite{landi:nm_nt,new_matrix} the necessary solution is associated with the inductive  limit of AT algebras, i.e. finite sums of $C\left(S^1 \right)\otimes \mathbb{M}_N\left( \C\right)$, Here we postulate that necessary solution equals to this limit.
+	
 		
 \begin{appendices}
 	\section{Rigged Hilbert modules}
@@ -1115,7 +1141,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 	\end{definition}
 	\begin{definition}
 		%Definition 1.2. 
-		Given a hyperreal number $x \in \R^*$, the {\it monad} of x is the
+		Given a hyperreal number $x \in \R^*$, the {\it monad} of $X$ is the
 		set
 		$$
 		\text{monad}(x) \bydef \left\{\left. x \in \R^*\right| x \approx y\right\}
@@ -1123,9 +1149,9 @@ The Definition \ref{integr_defn} is motivated by the article.
 		%The galaxy of x is the set
 		%galaxy(x) = fy 2 R : x ? y is niteg:
 	\end{definition}
-	\begin{theorem}
+	\begin{theorem}\label{standard_part_thm}
 		%Theorem 1.9. 
-		(Standard Part Principle) Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
+		(Standard Part Principle). Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
 		unique real number.
 	\end{theorem}
 	\begin{definition}
