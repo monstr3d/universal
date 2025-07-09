@@ -620,40 +620,97 @@
 		\begin{abstract}
 The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a $C^*$-Hilbert $C^*$-module. So the notion of Hilbert $C^*$-module is a generalization of Hilbert space one. Here a generalization of rigged Hilbert spaces also named Gelfand triples is discussed. This generalization yields a unified framework to different branches of present day mathematics. We consider applications to it to the  theory of spectral triples, $O*$-algebras, quasi $*$-algebras, and integrable representations.
 	\end{abstract}
-		\section{Introduction}\label{foliations_sec}
+		\section{Motivation}\label{foliations_sec}
 		
-		\subsection{Infinitesimal  functionals}
+		\cite{berkley_analyst} 
+		
+		Dirac wrote about formalization problem the following \cite{dirac_lectures}
 		\paragraph{}
-		Let 	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ be an infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn}), and let $\phi : M\left(\widetilde{A} \right)\to \C$ be a positive $\C$-linear continuous functional with
-		\be\label{inv_cong_eqn}
-		\forall  \widetilde{b} \in  M\left(\widetilde{A} \right) \quad \forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left( g \widetilde b\right) = \phi\left(  \widetilde b\right)
-		\ee
-		If $\phi\left(\widetilde{A} \right) \neq \{0\}$ then there is $\widetilde a \in K\left(\widetilde{A} \right)$ with $\phi\left(\widetilde a \right) >\eps > 0$. According to the equation \eqref{basic_cov_cl_eqn} there is 
-		\be\label{inv_congp_eqn}
-		\widetilde	b \bydef \bt\text{-} \sum_{	g \in G\left(\left.\widetilde{A}~\right| A\right) }g \widetilde a \in  M\left(\widetilde{A} \right)
-		\ee
-		such that
-		$$
-		\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad g \widetilde b = \widetilde b
-		$$
-		From \eqref{inv_congp_eqn} it follows that $\phi\left( \widetilde{b}\right) = \left|G\left(\left.\widetilde{A}~\right| A\right)\right|\eps = \infty$ since the group $G\left(\left.\widetilde{A}~\right| A\right)$ is not finite. However one can define $\phi \left( \widetilde{a}\right)$ as infinitesimal value. According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. Let us enumerate $G\left(\left.\widetilde{A}~\right| A\right)$ i.e. set $G\left(\left.\widetilde{A}~\right| A\right)= \bigsqcup_{\iota \in \N} \{g_\iota\}$. We suppose that $\phi\left(g_\iota \widetilde b\right)$ is represented by $\left(x^\iota_1, ...,  \right)$ with
-		$$
-		x^\iota_n \bydef \begin{cases}
-			0 & \iota < n\\
-			\frac{\phi\left( \widetilde	b\right) }{n} & \iota \ge n
-		\end{cases}
-		$$
-		From the Definition \ref{uf_eqn_defn} it follows that 
-		$$
-		\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left(g \widetilde a \right) = \phi\left( \widetilde a \right)
-		$$
-		Otherwise 
-		$$
-		\sum_{	g \in  G\left(\left.\widetilde A\right| A\right)}\phi\left(g \widetilde a\right) 
-		$$
-		is represented by the sequence $\left(\phi\left(\widetilde b \right), ..., \phi\left(\widetilde b \right), ...\right)\in \C^\N$ (cf. Definition \ref{ultra_power_defn}), it is agree with  the equation \eqref{inv_congp_eqn}.
+		People have done a great deal of work on this problem. They have found methods for handling these divergent integrals which seem to be tolerable to physicist. even thought they cannot be justified mathematically, and they have build up to renormalization technique, which allows to disregard the infinities in the case of certain kings of field theory.
+		\paragraph{}
+
+		\section{Infinitesimal  functionals}
+	\paragraph{}
+	
+	Let $A$ be an unital $C^*$-algebra, and let $I\subset A$ be a two sided ideal, such that
+	\be 
+	\forall a \in A \quad a I = \{0\}\quad \Rightarrow \quad  a = 0.
+	\ee 
+	and $I$ is dense in $A$ with respect to strict topology (cf. Definition \ref{strict_topology_defn})
+	 Let $\left\{\xi_j\right\}_{n \in \N}\in I_+$ be a set of positive elements  such that the series 
+	\be\label{bt_sum_eqn}
+	\bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
+	\ee
+	is convergent with respect to the strict topology 	(cf, Definition \ref{strict_topology_defn}).
+	For any $j, k\in \N$ define a $\C$-linear functional $\phi_{j, k}:\xi_{j} A \xi_k \to \C$. We suppose that for any $n \in \N$ the matrix 
+\be\label{bt_phi_sum_eqn}
+	\begin{pmatrix}
+	\phi_{1,1}\left( \xi_1 1_A \xi_{1}\right) &  \ldots &	\phi_{1, n}\left( \xi_1 1_A \xi_{n}\right) \\
+		\vdots& \ddots & \vdots& \\
+		\phi_{n,1}\left( \xi_1 1_A \xi_{n}\right)& \ldots &	\phi_{n,n}\left( \xi_{n} 1_A \xi_{n}\right)   \\
+	\end{pmatrix}
+	\ee
+	is positive.
+ According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. For any $a\in A$ and $\left(j, k\right)\in \N^2$ there is an infinitesimal complex number $\hat a = \left(a_1, ..., a_j, ... \right)$ such that 
+ \be 
+ a_j = \sum_{l, k = 1}^j \phi_{l,k}\left( \xi_{l} a \xi_{k}\right)
+ \ee
+ We suppose that $\hat a$ is finite for all $a\in A$ and infinitely small for all $a \in I$, where $\C^*$ is . The map
+ \bean
+ \phi^* : A \to \C^*,\\
+ a \mapsto  \hat a
+ \eean 
+ is a linear functional with $\phi^*\left( I\right) \neq \{0\}$ where $\C^*$ comes form the hypercomplex system (cf. Remark \ref{inf_ultra_compex_rem}). This functional yields a classical functional $\phi : A \to \C$ such that $\phi\left(A \right)  = \C$ and  $\phi\left(I \right)  = \{0\}$.
+ \begin{example}
+ If  $\H \bydef \ell^2\left( \N\right)$, 	$A = B\left(\H \right)$  and $\left\{\eta_n\right\}_{n \in \N}$ is an orthogonal and $\xi_n \bydef \eta_n\left\rangle \right\langle \eta_n$ then similarly to \eqref{bt_sum_eqn} one has
+ $$
+ \bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
+ $$
+ Any $a\in A$ is presented by an   infinite matrix
+ $$
+ \begin{pmatrix}
+ 	a_{1,1}& \ldots & a_{j,1} &  \dots \\
+ 	\vdots& \ddots & \vdots& \ldots\\
+ 	a_{j,1}& \ldots &a_{j,j} &  \ldots \\
+ 	\vdots& \vdots & \vdots & \ddots \\
+ \end{pmatrix}\in \K\left( \ell^2\left( A\right) \right)
+ $$
+ associated with the basis $\left\{\eta_n\right\}_{n \in \N}$. The set of finite-rank operators is 
+ 
+ \end{example}
+
+	\subsection{Infinitesimal  functionals}
+	\paragraph{}
+	Let 	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ be an infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn}), and let $\phi : M\left(\widetilde{A} \right)\to \C$ be a positive $\C$-linear continuous functional with
+	\be\label{inv_cong_eqn}
+	\forall  \widetilde{b} \in  M\left(\widetilde{A} \right) \quad \forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left( g \widetilde b\right) = \phi\left(  \widetilde b\right)
+	\ee
+	If $\phi\left(\widetilde{A} \right) \neq \{0\}$ then there is $\widetilde a \in K\left(\widetilde{A} \right)$ with $\phi\left(\widetilde a \right) >\eps > 0$. According to the equation \eqref{basic_cov_cl_eqn} there is 
+	\be\label{inv_congp_eqn}
+	\widetilde	b \bydef \bt\text{-} \sum_{	g \in G\left(\left.\widetilde{A}~\right| A\right) }g \widetilde a \in  M\left(\widetilde{A} \right)
+	\ee
+	such that
+	$$
+	\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad g \widetilde b = \widetilde b
+	$$
+	From \eqref{inv_congp_eqn} it follows that $\phi\left( \widetilde{b}\right) = \left|G\left(\left.\widetilde{A}~\right| A\right)\right|\eps = \infty$ since the group $G\left(\left.\widetilde{A}~\right| A\right)$ is not finite. However one can define $\phi \left( \widetilde{a}\right)$ as infinitesimal value. According to the Theorem \ref{inf_ultra_thm} and the remark \ref{inf_ultra_rem} any infinitesimal complex number $x$ can be represented by $\left(x_1, ...,  \right) \in \C^\N$. Let us enumerate $G\left(\left.\widetilde{A}~\right| A\right)$ i.e. set $G\left(\left.\widetilde{A}~\right| A\right)= \bigsqcup_{\iota \in \N} \{g_\iota\}$. We suppose that $\phi\left(g_\iota \widetilde b\right)$ is represented by $\left(x^\iota_1, ...,  \right)$ with
+	$$
+	x^\iota_n \bydef \begin{cases}
+		0 & \iota < n\\
+		\frac{\phi\left( \widetilde	b\right) }{n} & \iota \ge n
+	\end{cases}
+	$$
+	From the Definition \ref{uf_eqn_defn} it follows that 
+	$$
+	\forall g \in G\left(\left.\widetilde{A}~\right| A\right) \quad \phi\left(g \widetilde a \right) = \phi\left( \widetilde a \right)
+	$$
+	Otherwise 
+	$$
+	\sum_{	g \in  G\left(\left.\widetilde A\right| A\right)}\phi\left(g \widetilde a\right) 
+	$$
+	is represented by the sequence $\left(\phi\left(\widetilde b \right), ..., \phi\left(\widetilde b \right), ...\right)\in \C^\N$ (cf. Definition \ref{ultra_power_defn}), it is agree with  the equation \eqref{inv_congp_eqn}.
 		
-		\
+\begin{appendices}
 	\section{Rigged Hilbert modules}
 \begin{definition}\label{rigged_defn}
 	Let $A$ be a $C^*$-algebra and let $\E$ be a $C^*$-Hilbert $A$-module.  A \textit{rigged} $C^*$-\textit{Hilbert} $A$-\textit{module} is a tripe
@@ -1016,7 +1073,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 		\end{empt}
 		
 		
-\begin{appendices}
+
 	
 	\section{Nonstandard Calculus}
 	\paragraph{}
@@ -1121,10 +1178,517 @@ The Definition \ref{integr_defn} is motivated by the article.
 		For each free ultrafilter $U$ on a countable index set $I$, the
 		hyperreal number system $\left(*, \R, \R^*\right)$ built from $I$ satisfies to the Definition \ref{ultra_power_defn}.
 	\end{theorem}
-	\begin{rem}\label{inf_ultra_rem}
-		The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers.
+	\begin{rem}\label{inf_ultra_compex_rem}
+		The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers, i.e. one  has a the
+		hypercomplex number system $\left(*, \C, \C^*\right)$.
+	\end{rem}
+		\begin{rem}
+	There is an analog of  $\left(*, \R, \R^*\right)$ related to $C^*$-algebras (cf. \cite{c_ald_non_st}).
 	\end{rem}
 	
+	\section{Operator algebras}
+	
+	\subsection{!!!-algebras and von Neumann algebras} $C*$!!!!
+	\paragraph{}In this section I follow to \cite{apt_mult,blackadar:ko,murphy,pedersen:ca_aut,rae:ctr_morita}.
+	\begin{definition}\cite{murphy}
+		A \textit{Banach $*$-algebra} is a $*$-algebra $A$ together with a complete submultiplicative norm such that $\left\| a^*\right\|=\left\| a\right\| ~\forall a\in A$. If, in addition, $A$ has a unit
+		such that $\left\| 1\right\|=1$, we call $A$ a \textit{unital Banach $*$-algebra}.
+		A \textit{$C^*$-algebra} is a Banach $*$-algebra such that
+		\be
+		\left\| a^*a\right\|=\left\| a\right\|^2\quad \forall a\in A.
+		\ee
+	\end{definition}
+	\begin{example}\cite{murphy}
+		%	2.1.3. Ezample. 
+		If $\H$ is a Hilbert space, then the algebra of bounded operators $B\left(\H\right)$ is a $C^*$-algebra. %We 		shall see that every C$*$-algebra can be thought of as a C$*$-subalgebra of 		some B(H) 
+	\end{example}
+	\begin{definition}\label{ideal_left_right_defn}\cite{murphy}
+		A \textit{left} (respectively, \textit{right}) \textit{ideal} in an algebra $A$ is a vector subspace $I$
+		of $A$ such that
+		$$
+		\forall a \in A\quad \forall b \in I \quad ab \in I\quad \text{(respectively } ba \in I \text{)}.
+		$$
+	\end{definition}
+	\begin{definition}\label{opposite_algebra_defn}
+		If $A$ is an associative algebra then an \textit{	opposite algebra} $A^\opp$, consisting of elements
+		$
+		\left\{\left. a^0~ \right| a\in A \right\}
+		$
+		with product $a^0b^0\bydef \left(ba\right)^0$. If $A$ is a $*$-algebra then one can define $a^0 \bydef a^*$.
+	\end{definition}
+	\begin{definition}\label{essential_defn}\cite{rae:ctr_morita}
+		% Definition 2.35. 
+		A two sided ideal $I$ in a $C^*$-algebra $A$
+		is essential if $I$ 
+		has nonzero intersection 
+		with every other nonzero ideal $A$. 
+	\end{definition}
+	Alternatively the essential ideal can be given by the following lemma.
+	\begin{lemma}\label{essential_lem}\cite{rae:ctr_morita}
+		%Lemma 2.36. 
+		An ideal $I$ 
+		is essential if and only if $aI= \left\{0\right\}$
+		implies $a 
+		=0$.
+	\end{lemma}
+	\begin{example}\label{comm_ess_exm}\cite{rae:ctr_morita}
+		%Example 2.37. 
+		Let $A\bydef C_0\left( \sX\right)$ and let $\sU$ be an open subset of $\sX$. Then 
+		$$
+		I\bydef \left(\left.f\in A\right| f\left(x\right)= 0 \quad \forall x \in \sX\setminus\sU\right)
+		$$
+		is an essential ideal in $A$ 
+		if and only if $\sU$ 
+		is dense 
+		in $\sX$. 
+	\end{example}
+	
+	\begin{definition}\label{faithful_representation_defn}\cite{murphy}
+		A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if the $*$-homomorphism $\rho$ is injective.
+	\end{definition}
+	
+	\begin{definition}\label{nondegenerate_repr_defn}\cite{matro:hcm}
+		A representation $\rho : A\to B\left( \H\right)$ is called \textit{nondegenerate} if for any $\xi \in \H$  there exists an element $a \in A$ such that $\rho\left(a \right)\xi \neq 0$. 
+	\end{definition}
+	\begin{lemma}\label{nondegenerate_repr_lem}\cite{matro:hcm}
+		A representation $A\to B\left( \H\right)$ is {nondegenerate} if $\rho\left(A\right)\H$ is dense in $\sH$. 
+	\end{lemma}
+	\begin{defn}\label{unitization_defn}\cite{rae:ctr_morita}
+		A \textit{unitization} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective $*$-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential ideal of $B$. 
+	\end{defn}
+	
+	\begin{example}\label{unitization_exm}
+		Suppose $A$ is  $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
+		is a $*$-algebra with 
+		\be\label{a_plus_eqn}
+		\left( a \oplus \la\right)\left( b \oplus \mu\right) = \left(ab + \la b + \mu a\right)  \oplus \la \mu, \quad \left(a \oplus \la \right)^* = a^*\oplus \overline{\la}. 
+		\ee
+		It is proven in \cite{rae:ctr_morita} that there is the natural unique $C^*$-norm $\left\| \cdot\right\|_{A^+}$  on $A^+$ such that 
+		$$
+		\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
+		$$
+		where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$. Thus $A^+$ is an unital $C^*$-algebra, and the natural map $A\hookto A^+$ is a unitization.
+	\end{example}
+	\begin{definition}\label{multiplier_min_defn}
+		Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization_exm} unitization   $\iota: A \hookto B$  is called \textit{minimal}.
+	\end{definition}
+	\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
+		A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra there is a $*$-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
+	\end{definition}
+	
+	\begin{rem}\label{multiplier_rem}
+		It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization.
+	\end{rem}
+	
+	\begin{definition}\label{multiplier_defn}\cite{murphy,pedersen:ca_aut}
+		We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
+	\end{definition}
+	\begin{defn}\label{strict_topology_defn}\cite{pedersen:ca_aut}
+		Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms 
+		\be\label{strict_topology_norm_eqn}
+		\vertiii{x}_a\bydef \|ax\| + \|xa\|,\quad a\in A.
+		\ee
+		If $\La$ is a directed set and $\left\{a_\la\in M\left( A\right) \right\}_{\la\in \La}$ is a net the we denote by $\bt\text{-}\lim_{\la\in\La }a_\la$ the limit of $\left\{a_\la \right\}$ with respect to the strict topology.
+		If $x \in M(A)$  and a sequence of partial sums $\sum_{i=1}^{n}a_i$ ($n = 1,2, ...$), ($a_i \in A$) tends to $x$ in the strict topology then we shall write
+		\begin{equation}\label{strict_topology_eqn}
+			x = \bt\text{-}\sum_{i=1}^{\infty}a_i.
+		\end{equation}
+	\end{defn}
+	We also use an alternative equivalent definition of the multiplier algebra.
+	\begin{definition}\label{multiplier_el_defn}\cite{matro:hcm}
+		Let $\rho: A\hookto B\left( \H\right)$ be a faithful {nondegenerate} (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}) representation, so we assume $A \subset B\left( \H\right)$. An operator $x \in B\left(\H\right)$ is called (two-sided) \textit{multiplier} if 
+		\be\label{multiplier_el_eqn}
+		xa \in A, \quad ax\in A
+		\ee
+		for each $a\in A$. Denote by $M\left(A\right)$ the set of all multipliers. It is easy to see that $M\left(A\right)$ is an involutive unital algebra.
+	\end{definition}
+	\begin{lemma}\label{multiplier_al_lem}\cite{matro:hcm}
+		The set $M\left(A\right)$ is an unital $C^*$-algebra 
+		$$
+		A \subset M\left( A\right) \subset A^{**}
+		$$	
+		and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
+	\end{lemma}
+	\begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
+		A pair $\left(L, R\right)$ of maps
+		\be\label{double_centralizer_eqn}
+		L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
+		\ee
+		is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
+	\end{definition}
+	
+	\begin{proposition}\label{dc_prop}\cite{matro:hcm}
+		If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
+		\begin{enumerate}
+			\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
+			\item [(ii)] $L$ and $R$ are linear;
+			\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
+		\end{enumerate}
+		The set $\mathbf{DC}\left(A \right) $ with operations
+		\bean
+		\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
+		\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
+		\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
+		L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
+		\eean 
+		is a normed involutive algebra with respect to the norm
+		$$
+		\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
+		$$
+	\end{proposition}
+	\begin{remark}\label{double_centralizer_rem}
+		In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
+	\end{remark}
+	
+	
+	\begin{defn}\label{approximate_unit_defn} \cite{pedersen:ca_aut}
+		Let $A$ be a $C^*$-algebra. A net $\left\{u_\la \right\}_{\la \in \La}$ in $A_+$ with $\left\|u_\la \right\| \le 1$ for all $\la \in \La$ is called an \textit{approximate unit} for $A$ if $\la < \mu$ implies $u_\la < u_\mu$ and if $\lim \left\|x- xu_\la \right\| = 0$ for each $x$ in $A$. Then, of course, $\lim \left\|x- u_\la x \right\| = 0$ as well.
+	\end{defn}
+	\begin{theorem}\label{left_ideal_thm}\cite{murphy}
+		%3.1.2. Theorem.
+		If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
+		is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+		$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
+	\end{theorem}
+	\begin{proof}
+		Set $B \bydef L\cap L^*$. Since $B$ is a $C^*$-algebra, it admits an approximate
+		unit $\left\{u_\la\right\}_{\la\in \La}\subset B$. If $a \in L$, then $a^*a\in B$, so $0 =
+		\lim_{\la\in \La} a^*a\left(1_{A^\sim }- u_\la \right)$ . Hence,\\ $\lim_{\la\in \La}\left\|  a - au_\la \right\|^2= \lim_{\la\in \La}\left\| \left(1-u_\la \right)a^*a \left(1-u_\la \right) \right\|
+		\le \lim_{\la\in \La}\left\|a^*a \left(1-u_\la \right) \right\|=0$, and therefore $\lim_{\la\in \La}\left\|a - au_\la \right\|=0 $.
+		In the preceding proof we worked in the unitization $A^\sim$ of $A$. %We shall
+		frequently do this tacitly.
+	\end{proof}
+	
+	\begin{thm}\label{approximate_unit_thm} \cite{pedersen:ca_aut}
+		Each $C^*$-algebra contains an \textit{approximate unit}.
+	\end{thm}
+	\begin{proposition}\label{mult_str_pos_prop}\cite{apt_mult}
+		If $B$ is a $C^*$-subalgebra of $A$ containing an
+		approximate unit for $A$, then  $M\left(B \right) \subset M\left( A\right)$  (regarding $B''$ as a subalgebra	of $A''$).
+	\end{proposition}
+	\begin{definition}\label{hered_defn}\cite{pedersen:ca_aut}
+		A cone $M$ in the positive part of $C^*$-algebra $A$ is said to be \textit{hereditary} if $0 \le x \le y$, $y \in M$ implies $x \in M$ for each $x \in A$. A $*$-subalgebra $B$ of $A$ is \textit{hereditary} if $B_+$ is hereditary in $A_+$.
+	\end{definition}
+	\begin{lemma}\label{hered_bab_lem}\cite{murphy}
+		Let $B$ be a $C^*$-subalgebra of $C^*$-algebra $A$. Then $B$ is hereditary in $A$ if and only if $bab' \in B$ for all $b, b' \in B$ and $a \in A$.
+	\end{lemma}
+	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
+		Let $A$ be a $C^*$-algebra.
+		\begin{enumerate}
+			\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+			\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+			\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+			$$
+			L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
+			$$
+			is the unique closed left ideal of $A$ corresponding to $B$.
+		\end{enumerate}
+	\end{lemma}
+	\begin{remark}\cite{murphy}
+		Obviously, $0$ and
+		$A$ are hereditary $C^*$-subalgebras of $A$, and any intersection of hereditary
+		$C^*$-subalgebras is one also. 
+		
+	\end{remark}
+	\begin{definition}\label{hered_gen_defn}\cite{murphy}
+		The hereditary $C^*$-subalgebra \textit{generated} by a
+		subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing $S$.
+	\end{definition}
+	
+	
+	\begin{defn}\label{center_defn}\cite{murphy}
+		If $A$ is a $C^*$-algebra, its \textit{center} $C$ is the set of elements of $A$ commuting with every $a\in A$.
+	\end{defn}
+	\begin{defn}
+		\label{strong_topology_defn}\cite{pedersen:ca_aut} Let $\H$ be a Hilbert space. The {\it strong} topology on $B\left(\H\right)$ is the locally convex vector space topology associated with the family of seminorms of the form $x \mapsto \|x\xi\|$, $x \in B(\H)$, $\xi \in \H$.
+	\end{defn}
+	\begin{defn}\label{weak_topology_defn}\cite{pedersen:ca_aut} Let $\H$ be a Hilbert space. The {\it weak} topology on $B\left(\H\right)$ is the locally convex vector space topology associated with the family of seminorms of the form $x \mapsto \left|\left(x\xi, \eta\right)\right|$, $x \in B(\H)$, $\xi, \eta \in \H$.
+	\end{defn}
+	\begin{defn}\label{commutant_defn}
+		%2.2.1. 
+		For each subset $M$ of $B(\H)$ let $M'$ denote the \textit{commutant} of $M$, i.e. 
+		\bean
+		M'\bydef \left\{b \in B\left(\sH\right)|\forall a \in M \quad ab = ba \right\}
+		\eean
+		The $C^*$-algebra 
+		\bean
+		M''\bydef (M')'
+		\eean
+		is said to be a \textit{bicommutant} of $M$.
+	\end{defn}
+	
+	\begin{thm}\label{von_Neumann_thm}\cite{pedersen:ca_aut}
+		Let $M$ be a $C^*$-subalgebra of $B(\H)$, containing the identity operator. The following conditions are equivalent:
+		\begin{itemize}
+			\item $M=M''$ where $M''$ is the bicommutant of $M$;
+			\item $M$ is weakly closed;
+			\item $M$ is strongly closed.
+		\end{itemize}
+	\end{thm}
+	
+	
+	\begin{defn}\cite{pedersen:ca_aut}
+		Any $C^*$-algebra $M$ is said to be a {\it von Neumann algebra} or a {\it $W^*$- algebra} if $M$ satisfies to the conditions of the Theorem \ref{von_Neumann_thm}.
+	\end{defn}
+	\begin{definition}\label{factor_defn}\cite{pedersen:ca_aut}
+		We say that a  von Neumann algebra $M$ is 	a \textit{factor} if the center of consists only of scalar multiplies of $1_M$.
+	\end{definition}
+	
+	
+	%\begin{defn}\cite{pedersen:ca_aut}
+	%Let $B \in B(H)$ be a $C^*$-algebra. Denote by $B''$ the strong closure of $B$ in $B(H)$. $B''$ is an unital weakly closed $C^*$-algebra and if $B$ acts nondegenerately on $H$ then  $B''$ is the {\it bicommutant} of $B$. Any strongly (=weakly) closed algebra is said to be a {\it von Neumann algebra}.
+	%\end{defn}
+	%\begin{defn}\cite{pedersen:ca_aut}
+	%For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+	%\end{defn}
+	\begin{lemma}\label{increasing_convergent_w_lem}\cite{pedersen:ca_aut} Let $\Lambda$ be an increasing in the partial ordering.  Let $\left\{x_\lambda \right\}_{\la \in \La}$ be an increasing of self-adjoint operators in $B\left(\H\right)$, i.e. $\la \le \mu$ implies $x_\la \le x_\mu$. If $\left\|x_\la\right\| \le \ga$ for some $\ga \in \mathbb{R}$ and all $\la$ then $\left\{x_\lambda \right\}$ is strongly convergent to a self-adjoint element $x \in B\left(\H\right)$ with $\left\|x_\la\right\| \le \ga$.
+	\end{lemma}
+	%\begin{defn}\label{range_proj_defn}\cite{pedersen:ca_aut}
+	%For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection on closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]\H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. 
+	%\end{defn}
+	%\begin{cor}
+	%If $M$ is a $W^*$-algebra and $a \in M$ then the range projection $[a]$ of $a$ lies in $M$.
+	%\end{cor}
+	%If $\mathcal{M}$ is a von Neumann algebra in $B(\H)$ then $[x]\in \mathcal{M}$ for any $x\in \mathcal{M}$. We next prove a {\it polar decomposition}.
+	\begin{defn}\cite{pedersen:ca_aut}
+		For any $x\in B(\H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+	\end{defn}
+	For each $x\in B(\H)$ we define the { range projection} of $x$ (denoted by $[x]$) as projection on the closure of $x\H$. If $M$ is a von Neumann algebra and $x \in M$ then $[x]\in M$.
+	
+	
+	\begin{prop}\label{polar_decomposition_prop}\cite{pedersen:ca_aut}
+		For each element $x$ in   a von Neumann algebra $M$ there is a unique partial isometry $u\in M$ and positive $\left|x\right| \in M_+$ with $uu^*=[|x|]$ and  $x=|x|u$.
+	\end{prop}
+	\begin{defn}\label{polar_decomposition_defn}
+		The formula $x=|x|u$ in the Proposition \ref{polar_decomposition_prop} is said to be the \textit{polar decomposition}.
+	\end{defn}
+	
+	
+	\begin{definition}\label{stritly_pos_defn}\cite{pedersen:ca_aut}
+		%2.10.4	
+		We say that an element $h$ is a $C^*$-algebra is \textit{strictly positive} if $\phi\left( h\right)>0$ for any nonzero positive linear functional $\phi$ on $A$.
+	\end{definition}
+	\begin{thm}\label{stritly_pos_thm}\cite{pedersen:ca_aut}
+		Let $A$ be a $C^*$-algebra. The following conditions are equivalent:
+		\begin{enumerate}
+			\item [(i)] there is a strictly positive element $h$ in $A_+$,
+			\item[(ii)] there is an element $h$ in $A_+$ such that $\left[ h\right] = 1$ in $A''$,
+			\item[(iii)] there is a countable approximate unit for $A$.
+		\end{enumerate}
+	\end{thm}
+	\begin{proposition}\label{stritly_pos_prop}\cite{blackadar:ko}
+		%Proposition 12.3.1. 
+		Let $A$ be a $C^*$-algebra, and $h \in A_+$. Then $h$ is strictly
+		positive if and only if $hA$ is dense in $A$.
+	\end{proposition}
+	\begin{definition}\label{simple_ca_defn}\cite{pedersen:ca_aut}
+		A $C^*$-algebra $A$ is said to be \textit{simple} if $0$ and $A$ are its only closed ideals. In this book we consider only simple $C^*$-algebras of compact operators $\K\left(\H \right)$ where $\H = \C^n$ ($n \in \N$) or $\H = \ell^2\left( \N\right)$. 
+	\end{definition}
+	\begin{lemma}\label{haus_simple_lem}\cite{rae:ctr_morita}
+		%Lemma 5.1. 
+		Suppose 
+		$A$
+		is 
+		a 
+		$C^*$-algebra 
+		with 
+		Hausdorff 
+		spectrum 
+		$\sX$, 
+		and 
+		$P_x$
+		is 
+		the 
+		primitive 
+		ideal 
+		corresponding 
+		to $x\in\sX$.
+		Then 
+		the 
+		quotient $A\left(x\right)\bydef A/ P_x$
+		is 
+		a 
+		simple 
+		$C^*$-algebra 
+		with, 
+		up 
+		to 
+		equivalence, 
+		a 
+		unique 
+		irreducible 
+		representation. 
+	\end{lemma}
+	
+	
+	\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
+		% THEOREM 5.6.1
+		For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
+		which is minimal among dense ideals.
+		
+	\end{thm}
+	\begin{proof}
+		Let $K(]0, \infty [)$ denote the set of continuous functions on $]0, \infty [$ with 
+		compact support and define 
+		\be\label{pedersen_k0_eqn}
+		K\left( A \right)_0 \bydef \left\{f\left(x\right) \left|x \in A_+, \quad f \in K(]0, \infty [) \right.\right\}.
+		\ee
+		Let 
+		\be\label{pedersen_k_plus_eqn}
+		K\left( A \right)_+ \bydef \left\{x \in A_+ \left|x \le \sum_{j = 1}^nx_j, \quad x_j \in  	K\left( A \right)_0\right.\right\}, 	
+		\ee
+		so that $	K\left( A \right)_+$ is the smallest hereditary cone  containing $K\left( A \right)_0$. If $K(A)$ 
+		is  the algebraic  $\C$-linear span of $K(A)_+$ then $K(A)$,
+		which is minimal among dense ideals. The full  proof is  described in \cite{pedersen:ca_aut}.
+	\end{proof}
+	
+	\begin{defn}\label{pedersen_ideal_defn}\cite{blackadar:ko}
+		The ideal $K\left( A\right) $ from the theorem \ref{pedersen_ideal_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
+	\end{defn}
+	\begin{remark}\label{pedersen_ideal_rem}
+		There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$ (cf. \ref{weak_topology_defn}). A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
+		\be\label{pedersen_ideal_eqn}
+		\begin{split}
+			K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+			K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
+		\end{split}
+		\ee
+		$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
+		Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
+	\end{remark}
+	
+	
+	\begin{remark}\cite{pedersen:ca_aut} 
+		One has
+		\bea\label{peder_k_eqn}
+		K\left( \K\right) = \left\{\left. a \in \K\right| a  \text{ is a finite rank operator}\right\},\\
+		\label{peder_c0_eqn}
+		K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
+		\eea
+		
+	\end{remark}	
+	
+	%	If $\mathcal X$ is compact then we can select the a measure such that
+	%\begin{equation*}
+	%	\int_{\mathcal X}1_{\mathcal X} \ d\mu = 1.
+	%	\end{equation*}
+	%		\begin{equation*}
+	%		\int_{\mathcal X}\left|f\right| \ d\mu \le \left\|f\right\|_\infty;~~\forall f \in L^\infty\left(\mathcal X\right). 
+	%		\end{equation*}
+	%		If $\widetilde{\pi}: \widetilde{\mathcal X} \to \mathcal X$ is a covering then there is the measure $\widetilde{\mu}$ on $ \widetilde{\mathcal X}$ such that for any open relatively compact $\widetilde{\mathcal U} \subset \widetilde{\mathcal X}$ homeomorphically mapped onto $\widetilde{\pi}\left(\widetilde{\mathcal U}\right)$ following condition holds
+	%	\begin{equation*}
+	%	\widetilde{\mu}\left(\widetilde{\mathcal U}\right)= \mu\left(\widetilde{\pi}\left(\widetilde{\mathcal U}\right)\right)
+	%	\end{equation*}
+	%\paragraph{}For any self-adjoint operator $A \in B\left(H\right)$ and any bounded Borel-measured function $f$ on $\mathbb{R}$ there is the operator $f\left(A\right)\in B\left(H\right)$
+	
+	%\begin{defn}
+	%In the above situation the $\widetilde{\mu}$ is said to be the $\widetilde{\pi}$-\textit{pullback} or simply \textit{pullback} of $\mu$. We will write $\mathfrak{pullback}_{\widetilde{\pi}}\left(\mu\right)\stackrel{\mathrm{def}}{=}\widetilde{\mu}$.
+	%\end{defn}
+	% \begin{defn}\cite{pedersen:ca_aut}
+	%  For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+	%  \end{defn}
+	%  \begin{empt}\cite{pedersen:ca_aut}
+	% If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $\mathcal{M}$ is a von Neumann algebra in $B(H)$ then $[x]\in \mathcal{M}$ for any $x\in \mathcal{M}$. We next prove a {\it polar decomposition}.
+	%   \end{empt}
+	
+	%  \begin{prop}\cite{pedersen:ca_aut}
+	%   For each element $x$ in   a von Neumann algebra $\mathcal{M}$ there is a unique partial isometry $u\in \mathcal{M}$ with $uu^*=[|x|]$ and  $x=|x|u$.
+	%   \end{prop}
+	%   \begin{proof}
+	%   Consider the sequence $u_n =x\left(\left(1/n\right)+ |x|\right)^{-1}$. Since $x=x[|x|]$ we have $u_n=u_n[x]$. A short computation shows that
+	%   \begin{equation}
+		%   (u_n - u_m)^*(u_n-u_m)=\left(\left(\left(1/n\right)+|x|\right)^{-1}-\left(\left(1/m\right)+|x|\right)^{-1}\right)|x|^2
+		%  \end{equation}
+	%  and this tends strongly, hence weakly to zero by spectral theory. It follows that $\{u_n\}$ is strongly convergent to an element $u\in \mathcal{M}$ with $u[|x|]=u$. Since $\{u_n|x|\}$ is norm convergent to $x$ we have $x=u|x|$. Then $x^*x= |x|u^*u|x|$ which implies that $u^*u \ge [|x|]$. Hence $u^*u = [|x|]$, in particular $u$ is a partial isometry. If $x = v|x|$ then from $v|x|=u|x|$ we get $v=v[|x|]=u$, so $u$ is unique.
+	%  \end{proof}
+	
+	
+	
+	
+	%\begin{defn}
+	%Let $a \in B(H)$, $h \in H$. The {\it $\sigma$-strong topology} is defined by the seminorms
+	%\begin{equation}
+	%p(a)= \sum_{i=1}^{\infty}ah_i, \ \sum_{i=1}^{\infty}\|h\|^2_i < \infty.
+	%\end{equation}
+	%\end{defn}
+	
+	%\begin{defn}
+	%Let $X_B$ be a  Hilbert $B$-module, $B \to B(H)$ a faithful representation. For any $h \in H$  we define a seminorm $\vertiii{}_h$ on $_AX_B$ such that
+	% \begin{equation*}
+	% \vertiii{\xi}_h = \|\langle \xi, \xi \rangle_Bh\|.
+	% \end{equation*}
+	%  Completion of $X_B$ with respect to above seminorms is said to be the {\it strong completion}. Denote by $X''$ or $X''_{B''}$ the strong completion. There is the natural scalar product $\langle,\rangle_{X''}$ such that
+	% \begin{equation}
+	% \langle \xi, \zeta \rangle_{X''} \in B'',  \ \forall\xi,\zeta \in X''.
+	% \end{equation}
+	%  \end{defn}
+% \begin{empt}
+% Since $X\otimes_B H$ is norm complete there is a following natural $B$-isomorphism
+%  \begin{equation}\label{von_neum_iso}
+% X\otimes_B H \approx X''\otimes_{B''} H.
+% \end{equation}
+% \end{empt}
+%\begin{thm}\label{mult_m_m_thm}\cite{pedersen:semi}
+%	Let $A$ be a nonunital $C^*$-algebra, let  $A^m$ be a set of elements in $A''$ which can be approximated	weakly from below with self-adjoint operators of the form $x +\al$ a with $x \in A$ and $\al \in \R$. Denote by $A_m = - A^m$. The set $A^m \bigcap A_m$, is equal to the self-adjoint part of $M\left( A\right)$. 
+%\end{thm}
+\begin{theorem}\label{noncom_tietze_thm}\cite{apt_mult}
+Let $\pi$ be a surjective morphism between separable $C^*$-algebras $A$ and $B$. Then $\pi$ extends to a surjective morphism of $M\left(A \right)$ onto $M\left( B\right)$.  
+\end{theorem}
+\begin{remark}\label{noncom_tietze_rem}
+The Theorem \ref{noncom_tietze_thm} can be regarded as noncommutative Tietze's extension theorem \ref{tietze_ext_thm}, see \cite{apt_mult} for details.
+\end{remark}
+\begin{empt}\cite{pedersen:ca_aut}
+% 4.5.2. 
+Let $\H$ be a Hilbert space and $M$ a subset of $B\left(\H \right)_{\text{sa}}$ (where $B\left(\H \right)_{\text{sa}}\subset B\left(\H \right)$ is the $\R$-space of self-adjoint operators). The monotone  sequential closure of $M$ is defined as the smallest class $\mathscr B\left(M\right)$ in $B\left(\H \right)_{\text{sa}}$ that  contains $M$ and contains the strong limit of each monotone (increasing or  decreasing) sequence of elements from $\mathscr B\left(M\right)$.
+\end{empt}
+\begin{lemma}\cite{pedersen:ca_aut}
+% 4.5.3. LEMMA. 
+Each countable  subset of  $\mathscr B\left(M\right)$ lies in the monotone sequential  closure of a separable subset of $M$. 
+\end{lemma}
+\begin{theorem}\cite{pedersen:ca_aut}
+%4.5.4. THEOREM. 
+Let $A$ be a $C^*$-subalgebra of $B\left(\H \right)$. Then $\mathscr B\left(A_{\mathrm{sa}}\right)$ is the self-adjoint part of a C$*$-algebra. 
+\end{theorem}
+
+
+%\begin{theorem}[Furuta-Mi\'{c}i\'{c}-Pe\v{c}ari\'{c}-Seo, 2005, \protect\cite%
+%	{drag:ineq}]
+%	\label{0.t.2.3} Let $A_{j}$ be selfadjoint operators with $Sp\left(	A_{j}\right) \subseteq \left[ m,M\right] $, $j\in \left\{ 1,\dots ,n\right\} 	$ for some scalars $m<M$ and $x_{j}\in \H,j\in \left\{ 1,\dots ,n\right\} $	with $\sum_{j=1}^{n}\left\Vert x_{j}\right\Vert ^{2}=1$. If $f$ is a convex	function on $\left[ m,M\right] $, then 
+%	\begin{equation}\label{gen_convex_eqn}
+%	f\left( \sum_{j=1}^{n}\left\langle A_{j}x_{j},x_{j}\right\rangle \right)
+%	\leq \sum_{j=1}^{n}\left\langle f\left( A_{j}\right)
+%	x_{j},x_{j}\right\rangle .  
+%	\end{equation}
+%\end{theorem}
+%\begin{remark}
+%From \eqref{gen_convex_eqn}
+%\end{remark}
+%\begin{theorem}\label{pedesen_thm}\cite{pedersen:ca_aut}
+%	5.6.1. THEOREM. 
+%	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K\left(A \right)$ 	which is minimal among all dense ideals. 
+%\end{theorem}
+%\begin{definition}\label{pedesen_defn}
+%	The ideal $K\left(A \right)$  given by the Lemma \ref{pedesen_thm} is said to be the \textit{Pedersen's ideal}. 
+%\end{definition}
+
+\begin{empt}\label{von_nemann_op_empt}\cite{pedersen:ca_aut}
+For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection onto a closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $M$ is a von Neumann algebra in $B(\H)$ then $[x]\in M$ for any $x\in M$. \end{empt}
+
+
+\begin{definition}\label{central_supp_defn}\cite{blackadar:oa}
+Every projection $p$ in a von Neumann algebra $M$ has a central
+\textit{carrier} (or \textit{central support projection}) $z_p$, the smallest projection in the center
+$\mathscr Z(M)$ containing $p$ as a subprojection ($z_p$ exists since $\mathscr Z(M)$ is itself a von
+Neumann algebra).% By III.1.1.4,
+$$
+1- z_p = \bigvee\left\{q\in M | qMp = 0\right\}
+$$
+Projections $p$ and $q$ have nonzero equivalent subprojections if and only if
+$z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
+\end{definition}
+
+
+
 	\section{Algebraic Quantum Theory}\label{algebraic_quantum_theory_sec}
 	\subsection{Introduction}	
 	\paragraph{}
@@ -3837,6 +4401,14 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 	
 	
 	\date{\small{January 4, 2005}} !!!
+	
+	\bibitem{c_ald_non_st} 	Baratella, Stefano. {\it Nonstandard Hulls of $C^*$-Algebras and Their Applications}.	Baratella, Stefano.Mathematics; Basel Vol. 9, Iss. 20,  (2021): 2598. DOI:10.3390/math9202598. 2021.
+	
+	\bibitem{berkley_analyst} {\it The analyst, or, A discourse addressed to an infidel mathematician. The analyst, or, A discourse addressed to an infidel mathematician}.  Berkeley, George, 1685-1753; Gipps, George, Sir, 1791-1847 (bookplate). 
+	 London : Printed for J. Tonson. 1734.
+	 
+	\bibitem{dirac:principles}. P.A.M. Dirac. \textit{The Principles of Quantum Mechanics}. (Forth Edition), Clarendon Press, Oxford, 1958.
+	\bibitem{dirac_lectures} P. A. M. Dirac. \textit{Lectures on quantum mechanics}.	Hoffmann, Banesh, 1931.
 \end{thebibliography}
 
 
