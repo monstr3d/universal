@@ -1,5 +1,6 @@
 \documentclass[10]{article}
-%\documentclass[11pt]{article}
+
+
 \usepackage{hyperref}
 \usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
 \usepackage{graphicx}
@@ -103,7 +104,7 @@
 \DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
 \newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
 \newcommand{\trG}{{\rm tr}_G\;}
-\newcommand{\trF}{{\rm tr}_{\cal F}\;}
+\newcommand{\trF}{{\rm tr}_{\mathcal F}\;}
 \newcommand{\TR}{{\rm TR}\;}
 \newcommand{\res}{{\rm res}\;}
 
@@ -121,7 +122,7 @@
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
 		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 \newcommand{\Ga}{\Gamma}  
-\newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
+\newcommand{\Cker}{\mathrm{coker}}                   %% short for  \Gamma
 \newcommand{\Coo}{C^\infty}                  %% smooth functions
 \newcommand{\dom}{\mathrm{dom}}                  %% smooth functions
 \newcommand{\Cont}{C} 
@@ -131,10 +132,10 @@
 \newcommand{\Repi}{\mathrm{Rep}_{int}} 
 \newcommand{\Rep}{\mathrm{Rep}} 
 \newcommand{\hor}[0]{\mathrm{hor}}
-\newcommand{\comp}{\operatorname{comp}}
+\newcommand{\Cmp}{\operatorname{comp}}
 \newcommand{\adb}{\operatorname{adb}}
 \newcommand{\dist}{\operatorname{dist}}
-
+ \newcommand{\onto}{\to\mkern-14mu\to}
 
 % % % % % % % % % % % % % % % % % % % %
 
@@ -150,9 +151,9 @@
 \setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
 		to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
 
-\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
-		{\copy\ncinttbox}{\copy\ncinttbox}%
-		{\copy\ncinttbox}}\nolimits}  %% NC integral
+\newcommand{\ncint}{\mathop{\mathchoice{\Cpy\ncintdbox}%
+		{\Cpy\ncinttbox}{\Cpy\ncinttbox}%
+		{\Cpy\ncinttbox}}\nolimits}  %% NC integral
 
 %%% Repeated relations:
 \newcommand{\xyx}{\times\cdots\times}      %% repeated product
@@ -171,15 +172,19 @@
 \newcommand{\desc}{\mathfrak{desc}}
 \newcommand{\Cstar}{C^*}
 \newcommand{\Cst}{C^*}
+\newcommand{\AN}{\mathcal{A}_N} 
+\newcommand{\Gh}{\Gamma_{\mathrm{hol}}} 
 \newcommand{\Star}{*}
 \newcommand{\PS}[1]{\Psi^{#1}(\GR;E)}
+\newcommand{\opi}{1P\fchoice{\kern .08em}{}I}
+
 
 %%% Roman letters:
 \newcommand{\id}{\mathrm{id}}                %% identity map
 \newcommand{\Id}{\mathrm{Id}}                %% identity map
 \newcommand{\pt}{\mathrm{pt ???}}                %% a point
-\newcommand{\const}{\mathrm{const}}          %% a constant
-\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\Cnst}{\mathrm{const}}          %% a constant
+\newcommand{\Cdim}{\mathrm{codim}}          %% codimension
 \newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
 \renewcommand{\d}{\mathrm{d}}       %% commutative differential
 \newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
@@ -207,6 +212,7 @@
 \newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
 %\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
 \newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\Af}{\mathfrak{A}}
 \newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
 \DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
 \newcommand{\F}{\mathcal{F}}                 %% space of test functions
@@ -279,9 +285,11 @@
 	\newcommand{\7}{\dagger}                     %% short for + symbol
 	\newcommand{\8}{\bullet}                     %% anonymous degree
 	\renewcommand{\.}{\cdot}                     %% anonymous variable
-	\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
+	\renewcommand{\:}{:}                    %% colon in  f: A -> B
+	
 	
 	%\newcommand{\sA}{\mathscr{A}}       %%
+	\newcommand{\Nhat}{\hat{\mathbb{N}}} 
 	\newcommand{\sA}{\mathcal{A}} 
 	\newcommand{\sB}{\mathcal{B}}       %%
 	\newcommand{\sC}{\mathcal{C}}       %%
@@ -355,7 +363,9 @@
 	\newcommand{\bZ}{\mathbb{Z}}       %%
 	
 	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
-	\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}   
+	\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+	\newcommand{\ntr}{\widetilde{\smash\tr\vphantom{\raise.5pt\hbox{r}}}}
+	   
 	
 	
 	
@@ -378,6 +388,7 @@
 	\DeclareMathOperator{\sgn}{sgn}   %%
 	\DeclareMathOperator{\chr}{char}   %%
 	\DeclareMathOperator{\ev}{ev}       %% evaluation
+	\newcommand{\Or}{\mathcal{O}}
 	
 	\newcommand{\Op}{\mathbf{Op}}
 	\newcommand{\As}{\mathbf{As}}
@@ -433,17 +444,17 @@
 	\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
 	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
 	\newcommand{\downto}{\downarrow}    %% right hand limit
-	\newcommand{\isom}{\cong}          %% isomorphism
+	\newcommand{\isom}{\in}          %% isomorphism
 	\newcommand{\lt}{\triangleright}    %% a left  action
 	\newcommand{\otto}{\leftrightarrow} %% bijection
 	\newcommand{\rt}{\triangleleft}     %% a right action
 	\newcommand{\semi}{\rtimes}         %% crossed product
 	\newcommand{\tensor}{\otimes}       %% tensor product
-	\newcommand{\cotensor}{\square}       %% cotensor product
+	\newcommand{\Ctensor}{\square}       %% cotensor product
 	\newcommand{\trans}{\pitchfork}     %% transverse
 	\newcommand{\ul}{\underline}        %% for sheaves
 	\newcommand{\upto}{\uparrow}        %% left  hand limit
-	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+	\renewcommand{\:}{:}           %% colon in  f: A -> B
 	\newcommand{\blt}{\ast}
 	\newcommand{\Co}{C_{\bullet}}
 	\newcommand{\cCo}{C^{\bullet}}
@@ -630,101 +641,527 @@ The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a 
 	
 		\section{Infinitesimal  functionals}
 	\paragraph{}
+	\subsection{Basic construction}\label{bas_constr_sec}
 	\begin{empt}\label{basic_conditions}
-	Let $A$ be an unital $C^*$-algebra, and let $I\subset A$ be a two sided ideal, such that
+		
+		
+	Let $A$ be an unital $C^*$-algebra, and let $\A\subset A$ be a $*$-subalgebra.
+	Let $\I\subset A$ be a left $\A$ module, such that
 	\be \label{dense_essential_ideal_eqn}
-	\forall a \in A \quad a I = \{0\}\quad \Rightarrow \quad  a = 0.
+	\forall a \in A \quad a \I = \{0\}\quad \Rightarrow \quad  a = 0.
 	\ee 
-	and $I$ is dense in $A$ with respect to strict topology (cf. Definition \ref{strict_topology_defn})
-	 Let $\left\{\xi_j\right\}_{n \in \N}\in I_+$ be a set of positive elements  such that the series 
+	and $\I$ is dense in $\A$ with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left(A \right)$. 
+	Let $\phi^*: \I \to  \C^*$ be a $\C$-linear positive functional to the field of hypercomplex numbers (cf. Remark \ref{inf_ultra_compex_rem}). Let  $\left\{a_n\right\}_{n \in \N}\subset \I$ be an increasing sequence and
+	$$
+	a = \bt\text{-} \lim_{n \to \infty} a_n \in \A
+	$$
+	be a limit with respect to the strict topology  of $M\left(A \right)$. If $\phi\left( n\right)$  is represented by a sequence $\left(a^1_{n}, ..., a^j_{n}, ... \right) \subset \C$ then it is natural to  define $\phi\left( a\right)$ a hypercomplex number which is represented by $\left(a^1_1, ..., a^n_n, ... \right) \subset  \C$. It is not evident that this number depend on $a$ only but does not depend on the choice of the convergent sequence $\left\{a_n\right\}_{n \in \N}\subset \I$. So we shall use another definition.  Suppose that there is a set  $\left\{\xi_j\right\}_{n \in \N}\in \I_+$  of positive elements  such that the series 
 	\be\label{bt_sum_eqn}
-	\bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
+	\bt\text{-}\sum_{j = 0}^N \xi_j = 1_{M\left( A\right) }
 	\ee
-	is convergent with respect to the strict topology 	(cf, Definition \ref{strict_topology_defn}).
-	For any $j, k\in \N$ define a $\C$-linear functional 
-\be\label{p_jk_eqn} 
-\phi_{j, k}:\xi_{j} A \xi_k \to \C.
-	\ee We suppose that for any $n \in \N$ the matrix 
-\be\label{bt_phi_sum_eqn}
-	\begin{pmatrix}
-	\phi_{1,1}\left( \xi_1 1_A \xi_{1}\right) &  \ldots &	\phi_{1, n}\left( \xi_1 1_A \xi_{n}\right) \\
-		\vdots& \ddots & \vdots& \\
-		\phi_{n,1}\left( \xi_1 1_A \xi_{n}\right)& \ldots &	\phi_{n,n}\left( \xi_{n} 1_A \xi_{n}\right) 
-	\end{pmatrix}\in \mathbb{M}_n\left( \C\right) 
-	\ee
-	is positive.
- According to the Theorem \ref{inf_ultra_thm} and the Remark \ref{inf_ultra_compex_rem} any infinitesimal complex number $x\in \C^*$ can be represented by a sequence $\left(x_1, ...,  \right) \in \C^\N$. For any $a\in A$ and $\left(j, k\right)\in \N^2$ there is an infinitesimal complex number $\hat a^{j,k} = \left(a^{j,k}_1, ..., a^{j,k}_N, ... \right)$, such that 
- \be 
- a^{j,k}_N = \begin{cases}
- 0 & j \le N \text{ AND } k \le N\\
- \frac{\phi_{j,k}\left( \xi_{l} a \xi_{k}\right)}{N}& \text{ Otherwise}
- \end{cases} 
- \ee
- We suppose that 
-$$
- \hat a \bydef \sum_{!!!j = 1, k= 1}^\infty  \hat a^{j,k}
- $$
-  is finite for all $a\in A$ and infinitely small for all $a \in I$, where $\C^*$ is . The map
+	is convergent with respect to the strict topology 	(cf, Definition \ref{strict_topology_defn}). If $$
+	a_{j,k} \bydef \bt\text{-}\lim_{n\to\infty} a_j \xi_k = a \xi_k \in   I
+	$$
+	then $a_{j,k}$ depends on $a$ only. 
+	\end{empt}
+	\begin{definition}
+Under the above hypothesis if $a_{jk}$ is represented by a sequence $\left( a_{jkn} \right)_{n \in \N}$ then we define  $\phi\left( a\right)$ as a hypercomplex number represented by a sequence
 \be\label{inf_func_eqn}
+\left\lbrace \phi^* \left(\sum_{j = 1}^n a_{jnn} \right)\right\rbrace _{n \in \N}\in \C^N
+\ee
+This functional and the Theorem \ref{standard_part_thm} naturally  yields the  classical functional 
+\be\label{claass_func_eqn}
 \begin{split}
- \phi^* : A \to \C^*,\\
-a \mapsto  \hat a
+	\phi : A \to \C,\\
 \end{split}
- \ee 
- is a linear functional with $\phi^*\left( I\right) \neq \{0\}$. This functional and the Theorem \ref{standard_part_thm} naturally  yields the  classical functional 
- \be\label{claass_func_eqn}
- \begin{split}
- \phi : A \to \C,\\
- \phi\left(A \right)  = \C,\\
- \phi\left(I \right)  = \{0\}.
- \end{split}
- \ee
-  \end{empt}
- \begin{example}
- If  $\H \bydef \ell^2\left( \N\right)$, 	$A = B\left(\H \right)$  then the two sided ideal $I$ of finite-rank operators satisfies to the equation \eqref{dense_essential_ideal_eqn}.
-If  $\left\{\eta_n\right\}_{n \in \N}\subset \H$ is an orthogonal and $\xi_n \bydef \eta_n\left\rangle \right\langle \eta_n$ then similarly to \eqref{bt_sum_eqn} one has
- $$
- \bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
- $$
- Any $a\in A$ is presented by an   infinite matrix
- $$
- \begin{pmatrix}
- 	a_{1,1}& \ldots & a_{j,1} &  \dots \\
- 	\vdots& \ddots & \vdots& \ldots\\
- 	a_{j,1}& \ldots &a_{j,j} &  \ldots \\
- 	\vdots& \vdots & \vdots & \ddots \\
- \end{pmatrix}
- $$
- associated with the basis $\left\{\eta_n\right\}_{n \in \N}$. One has 
- $$
- \xi_j A \xi_k = \left\{\left. \begin{pmatrix}
- 	0& \ldots & 0 &  \dots & 0\\
- 	\vdots& \ddots & \vdots & \ldots\\
- 	0& \ldots &a_{j,k}= c &  \ldots & 0 \\
- 	\vdots&  & \vdots & \ddots &  \\
- 	0 & \ldots & 0 & &
- \end{pmatrix} \right|x \in \C\right\}\cong \C
- $$
- so there is a natural isomorphism
- $$
- \psi_{j,k} : \xi_j A \xi_k \cong \C.
- $$
+\ee
+	\end{definition}
+	\begin{example}
+		The natural covering  $\pi : \R \to S^1$ yields an inclusion $C\left( S^1\right)  \subset C_b\left(\R \right)$ Let $A$ be a $C^*$-norm closure in $C_b\left(\R \right)$ of generated by the set
+		$$
+		\left\{a' a'' \left| a' \in C_0\left( \R\right) \quad  a'' \in C\left( S^1\right)\right.\right\}
+		$$
+		$*$-subalgebra of $C_b\left(\R \right)$, and $\I \bydef C_c\left(\R \right)$   
+	\end{example}	
+	
+	
+	\begin{example}
+		If  $\H \bydef \ell^2\left( \N\right)$, 	$A = B\left(\H \right)$  then the two sided ideal $I$ of finite-rank operators satisfies to the equation \eqref{dense_essential_ideal_eqn}.
+		If  $\left\{\eta_n\right\}_{n \in \N}\subset \H$ is an orthogonal and $\xi_n \bydef \eta_n\left\rangle \right\langle \eta_n$ then similarly to \eqref{bt_sum_eqn} one has
+		$$
+		\bt\text{-}\sum_{j = 0}^N \xi_j = 1_A
+		$$
+		Any $a\in A$ is presented by an   infinite matrix
+		$$
+		\begin{pmatrix}
+			a_{1,1}& \ldots & a_{j,1} &  \dots \\
+			\vdots& \ddots & \vdots& \ldots\\
+			a_{j,1}& \ldots &a_{j,j} &  \ldots \\
+			\vdots& \vdots & \vdots & \ddots \\
+		\end{pmatrix}
+		$$
+		associated with the basis $\left\{\eta_n\right\}_{n \in \N}$. One has 
+		$$
+		\xi_j A \xi_k = \left\{\left. \begin{pmatrix}
+			0& \ldots & 0 &  \dots & 0\\
+			\vdots& \ddots & \vdots & \ldots\\
+			0& \ldots &a_{j,k}= c &  \ldots & 0 \\
+			\vdots&  & \vdots & \ddots &  \\
+			0 & \ldots & 0 & &
+		\end{pmatrix} \right|x \in \C\right\}\in \C
+		$$
+		so there is a natural isomorphism
+		$$
+		\psi_{j,k} : \xi_j A \xi_k \in \C.
+		$$
+		
+		Let $\left\{c_n\right\}_{n \in \N}\in \R+=^\N$ be a nonincreasing sequence of positive reals such that there is a positive limit of a nonincreasing sequence 
+		$$
+		\left\{\frac{ \sum_{n = 1}^{N} c_n}{N}\right\}_{N \in \N}
+		$$
+		and suppose that 
+		$$
+		\phi_{j, k}\left( a\right) = \begin{cases}
+			c_j a_{jj} & j= k\\
+			0 & j \neq k
+		\end{cases}
+		$$
+		(cf. \eqref{p_jk_eqn})
+		
+	\end{example}
+	
+	\subsection{Group action}
+	\paragraph{} Under the hypothesis we suppose that there is the topology $\mathcal T$ on $\A$ such that $\A$  is the $\mathcal T$-closure of $\A$ Suppose that there is an action $G \times A \to A$ of countable group with $G\A = \A$, the topology $\mathcal T$ is $G$-invariant and  $\A^G$ is the $\mathcal T$-closure of $\A^G$. Suppose that the set
+	\be 
+	\left\{\left.\bt\text{-}\sum_{g\in G} g a\right| a \in \I\right\}\subset \A^G
+	\ee
+	is dense in $\A^G$ with respect to $\mathcal T$. If $G = \left\{g_n\right\}_{n \in N}$, $\quad a \in \I$ and $\phi^*\left( a\right)\in \C^*$ is represented by a sequence $\left\lbrace a_j\right\rbrace_{j \in \N} \subset \C$ then $\bt\text{-}\sum_{g\in G} g a$ is represented by
+	\be 
+\left\{\sum_{k = 1}^n g_k a_n \right\} \in \C^\N
+	\ee
+	
+\section{Regularization}
+ In physics, especially quantum field theory, regularization is a method of modifying observables which have singularities in order to make them finite by the introduction of a suitable parameter called the regulator. The regulator, also known as a "cutoff", models our lack of knowledge about physics at unobserved scales (e.g. scales of small size or large energy levels). It compensates for (and requires) the possibility of separation of scales that "new physics" may be discovered at those scales which the present theory is unable to model, while enabling the current theory to give accurate predictions as an "effective theory" within its intended scale of use.
  
- Let $\left\{c_n\right\}_{n \in \N}\in \R+=^\N$ be a nonincreasing sequence of positive reals such that there is a positive limit of a nonincreasing sequence 
- $$
- \left\{\frac{ \sum_{n = 1}^{N} c_n}{N}\right\}_{N \in \N}
- $$
- and suppose that 
- $$
- \phi_{j, k}\left( a\right) = \begin{cases}
- c_j a_{jj} & j= k\\
- 0 & j \neq k
- \end{cases}
- $$
- (cf. \eqref{p_jk_eqn})
+ It is distinct from renormalization, another technique to control infinities without assuming new physics, by adjusting for self-interaction feedback.
  
- \end{example}
+ Regularization was for many decades controversial even amongst its inventors, as it combines physical and epistemological claims into the same equations. However, it is now well understood and has proven to yield useful, accurate predictions
+ \section{Geometric quantization}
+ \paragraph{} Here I follow to \cite{hawkins:nc_reg}.
+\label{GQ}
+We can maintain much greater symmetry with noncommutative approximating 
+algebras.  Geometric quantization provides a method of constructing 
+noncommutative approximations.  
 
+As the name suggests, geometric quantization was originally intended 
+as a systematic mathematical procedure for constructing quantum 
+mechanics from classical mechanics.  Geometric quantization applies to 
+a symplectic manifold (originally, phase space) with some additional 
+structure (a ``polarization'').  The terminology of quantization is 
+unfortunate here, since I am concerned with quantum field theory.  
+Insofar as geometric quantization goes here, the manifold is not to be 
+interpreted as phase space, the Hilbert spaces are not to be 
+interpreted as spaces of quantum-mechanical states, and the algebras 
+do not consist of observables.  In this paper, ``quantization'' and 
+``quantum'' have nothing to do with each other.
+
+Here I shall use geometric quantization with a ``complex 
+polarization''\!.  For a compact K\"{a}hler manifold, $\M$, this 
+generates a sequence of finite-di\-men\-sion\-al matrix algebras 
+$\AN$ which approximate the algebra $\C^\infty(\M)$ in a sense 
+that I shall explain below.
+
+A K\"{a}hler manifold is simultaneously a Riemannian, symplectic, and 
+complex manifold.  These structures are compatible with each other, 
+such that raising one index of the symplectic 2-form, $\omega$, with 
+the Riemannian metric gives the complex structure\footnote{A 2-index 
+	tensor such that $J^i_{\;j}J^j_{\;k}=-\delta^i_k$.} $J$.  I shall 
+assume, for a length $R$ (roughly, the size of $\M$), that the 
+integral of $\frac\omega{2\pi R^2}$ over any closed 2-surface is an 
+integer; this implies the existence of a line bundle 
+(1-di\-men\-sion\-al, complex vector bundle), $L$, with a connection 
+$\nabla$ and curvature $R^{-2}\omega$.  If $\M$ is simply connected, 
+then $L$ is unique.
+
+There is also a unique fiberwise, Hermitian inner product on $L$ 
+compatible with the connection.  Given two sections 
+$\psi,\varphi\in\G(\M,L)$, their inner product is a function 
+$\bar\psi\varphi\in\C(\M)$. Compatibility with the connection means 
+that for smooth sections, 
+$d(\bar\psi\varphi)=\nabla\bar\psi\, \varphi+\bar\psi\nabla\varphi$. 
+Using the fiberwise inner product, we can construct a global inner 
+product,
+\bean
+\langle\psi\mid\varphi\rangle \bydef \int_M \bar\psi\varphi\, \epsilon
+\mbox.\label{inner.product}\eean
+It is an elementary property of any K\"{a}hler manifold that the 
+Riemannian volume form can also be written in terms of the symplectic 
+form as $\epsilon = \frac{\omega^n}{n!}$, where $2n=\dim\M$.
+
+A holomorphic section of $L$ is one satisfying the differential 
+equation $J\nabla\psi=i\nabla\psi$, or in index notation 
+$J_{\;i}^{j}\psi_{|j} = i\psi_{|i}$.  The space of holomorphic 
+sections $\Gh(\M,L)$ is finite dimensional, and the inner product, 
+\eqref{inner.product}, makes it a Hilbert space.  
+
+With this notation and structure, I can now present the geometric 
+quantization construction.  The tensor power bundle $L^{\otimes N}$ 
+is much like $L$; it is a line bundle with an inner product,
+but with curvature $NR^{-2}\omega$.  As $N$ increases, the spaces of  
+holomorphic sections are increasingly large, 
+finite-dimensional Hilbert spaces, 
+\[
+\HN:=\Gh(\M,L^{\otimes N})
+\mbox.\]
+The 
+dimension of $\HN$ grows as a polynomial in $N$ (given by the 
+Riemann-Roch formula, Eq.~\eqref{riemann-roch}).  The algebra $\AN$ is 
+now defined as 
+\[
+\AN:=\End\HN \mbox;\] 
+that is, the space of $\C$-linear maps from $\HN$ to itself --- in 
+other words, matrices over $\HN$.  The inner product on $\HN$ gives 
+$\AN$ an involution (Hermitian adjoint) $a\mapsto a^*$; this makes 
+$\AN$ a finite-dimensional $C^*$-algebra.
+
+The collection of algebras $\{\AN\}$ alone knows nothing of $\M$.  In 
+order to connect $\AN$ with $\M$, we will need a structure such as the 
+Toeplitz quantization map $T_N:\C(\M)\onto\AN$.  For any function 
+$f\in\C(\M)$, the matrix $T_N(f)$ is defined by giving its 
+action on any $\psi\in\HN$.  Since $\psi$ is a section of $L^{\otimes 
+	N}$, the product $f\psi$ is also a (not necessarily holomorphic) 
+section of $L^{\otimes N}$.  Using the inner product 
+\eqref{inner.product} we can project $f\psi$ orthogonally back to 
+$\HN$ and call this $T_N(f)\psi$.  This implicitly defines $T_N$.
+
+If $\M$ were a phase space then 
+$T_N(f)$ would be interpreted as the quantum observable, $\hat f$, 
+corresponding to $f$.  The Toeplitz maps have the important property 
+of being \emph{approximately} multiplicative; that is, for any two 
+continuous functions on $\M$,
+\[
+\lim_{N\to\infty} \norm{T_N(f)T_N(g)-T_N(fg)} =0
+\mbox.\]
+
+According to Rieffel \cite{rie1}, quantization should be expressed in 
+terms of a continuous field of $C^*$-algebras.  A continuous field $\Af$ 
+of $C^*$-algebras over a compact topological space $\B$ is essentially a 
+vector bundle whose fibers are $C^*$-algebras (see \cite{dix,k-w1}).  
+The space of continuous sections $\G(\B,\Af)$ is a $C^*$-algebra.  For 
+every point $b\in\B$, the evaluation map from $\G(\B,\Af)$ onto the 
+fiber over $b$ is a $*$-homomorphism (a $C^*$-algebra map).  The product 
+of a continuous function on $\B$ with a continuous section of $\Af$ is 
+again a continuous section of $\Af$.  A continuous field of 
+$C^*$-algebras is completely specified by describing its base space, its 
+fibers, and which sections are continuous.
+
+The geometric quantization of $\M$ leads to a natural continuous field 
+of $C^*$-al\-ge\-bras, $\Af$.  The fibers of $\Af$ are each of the 
+algebras $\AN$ and  $\C(\M)$.  This is one algebra for 
+every natural number $N\in\N=\{1,2,\dots\}$, plus one extra.  The 
+notion is that the sequence of algebras $\A_1,\A_2,\A_3,\ldots$ tends 
+toward $\C(\M)$, so the natural topology for the base space is the 
+one-point compactification $\Nhat=\N\cup\{\infty\}$, in which $\infty$ 
+is the limit of any increasing sequence.  The field $\Af$ is 
+implicitly defined by the requirement that for every $f\in\C(\M)$, 
+there exists a section $T(f)\in\G(\Nhat,\Af)$ whose evaluation at $N$ 
+is $T_N(f)$ and at $\infty$ is $f$.
+
+The existence of this continuous field is the sense in which the 
+algebra $\AN$ approximates $\C(\M)$, but we can do better than this.  
+There is a sense in which $\AN$ approximates the algebra of smooth 
+functions $\Coo(\M)$.  As I discussed in \cite{haw5}, the field $\Af$ 
+has a further structure as a sort of \emph{smooth} field of 
+$C^*$-algebras.
+
+Obviously, our base space, $\Nhat$ is not a manifold.  However, there 
+is a reasonable notion of smooth functions on $\Nhat$.  We can 
+identify $\Nhat$ with the homeomorphic set 
+$\{1,\frac12,\frac13,\dots,0\}\subset\R$, and define the smooth 
+functions $\Coo(\Nhat)$ as those which are restrictions of smooth 
+functions on $\R$.  Equivalently, a smooth function on $\Nhat$ is one 
+which can be approximated to arbitrary order by a power series in 
+$N^{-1}$.
+
+The smooth structure of $\Af$ is given by a dense $*$-subalgebra 
+$\Ga^\infty(\Nhat,\Af)\subset\G(\Nhat,\Af)$ of ``smooth'' sections.  The 
+product of a smooth function on $\Nhat$ with a smooth section of $\Af$ 
+is again a smooth section of $\Af$.  The evaluation of any smooth 
+section at $\infty$ is a smooth function on $\M$.  The algebra 
+$\Ga^\infty(\Nhat,\Af)$ is essentially defined by the condition that any 
+smooth function $f\in\Coo(\M)$ gives a smooth section 
+$T(f)\in\Ga^\infty(\Nhat,\Af)$.
+\section{The Regularized Action}
+\label{regularized.action}
+For a single real scalar field, $\phi\in\Coo(\M)$, the general, 
+unregularized action functional is
+\bean
+S[\phi] := \int_M \left[\tfrac12(\nabla\phi)^2 + \tfrac12m^2\phi^2 
++ V(\phi)\right]\epsilon 
+\mbox,\label{general.action}\eean
+where $\epsilon$ is the volume form on $\M$, and $V$ is a 
+lower-bounded polynomial self-coupling.  Complex conjugation on 
+$\Coo(\M)$ corresponds to the adjoint on $\AN$, so our approximation to 
+the space of real functions on $\M$ will be the subspace 
+$\AN^\mathrm{s.a.}\subset\AN$ of self-adjoint elements.  To construct 
+the regularized theory, we need a regularized action defined on 
+$\AN^\mathrm{s.a.}$ that approximates \eqref{general.action}.
+
+Let's be precise about what it means to approximate an action 
+functional in this way.  We need a sequence of action functionals, 
+$S_N:\AN^\mathrm{s.a.}\to\R$, which converge to the unregularized 
+action $S$.  This is nontrivial to define because these are functionals 
+on different spaces.  Let $\phi\in\Ga^\infty(\Nhat,\Af)$ 
+be an arbitrary, self-adjoint, smooth section, and denote its 
+evaluations as $\phi_N\in\AN$; the sequence $\{\phi_N\}$ can be 
+considered to converge 
+well to the smooth function $\phi_\infty\in\Coo(\M,\R)$.  My 
+definition for convergence of $\{S_n\}$ is simply that for any such 
+$\phi$,
+\[
+\lim_{N\to\infty} S_N(\phi_N) = S[\phi_\infty]
+\mbox.\]
+
+Several ingredients are needed to construct a regularized action.  The 
+simplest is the product.  It is the most elementary property of 
+geometric quantization that multiplication in $\Coo(\M)$ is 
+approximated by multiplication in $\AN$.
+
+The normalized trace on $\AN$ approximates the normalized 
+integral on $\M$. That is, for any $a\in\Ga^\infty(\Nhat,\Af)$,
+\[
+\ntr a_N \equiv \frac{\tr a_N}{\tr 1} = \frac1{\vol\M}\int_M a_\infty 
+\epsilon + \Or^{-1}(N)
+\mbox.\]
+
+The unregularized kinetic term can be written in terms of the Laplacian, 
+$\Delta=-\nabla^2$,  using the 
+elementary identity,
+\[
+\int_M (\nabla\phi)^2\epsilon = \int_M \phi \,\Delta(\phi) \epsilon
+\mbox.\]
+Mimicking this, we can safely write the regularized kinetic term as
+\[
+\vol(\M)\, \ntr \left[\tfrac12 \phi 
+\,\Delta(\phi)\right]
+\mbox,\]
+since in fact, \emph{any} quadratic functional can be written in this form. 
+
+In the coadjoint orbit case, which I will mainly discuss, the 
+Laplacian is simply a multiple of the quadratic Casimir operator.  
+However, the discussion in this section will apply equally to any 
+K\"{a}hler manifold for which a suitable approximate Laplacian can be 
+constructed.  For this reason, I will write the approximate Laplacian 
+as $\Delta$ until a more explicit form is required for examples.
+
+The regularized action approximating \eqref{general.action} is (using 
+$\tr 1 =\dim\HN$)
+\bean
+S_N(\phi) = \frac{\vol\M}{\dim\HN} \tr \left[\tfrac12 \phi \,\Delta(\phi) + 
+\tfrac12m^2\phi^2 + V(\phi)\right]
+\mbox.\label{regact}\eean
+This regularized action was originally formulated by Grosse, 
+Klim\v{c}\'{\i}k, and Pre\v{s}\-naj\-der \cite{g-k-p1} in the special case 
+of $S^2$; however, the corresponding perturbation theory has not 
+previously been discussed in detail.
+
+\subsection{The commutative limit}
+Using the action, \eqref{regact} we can now define the regularized 
+theory using a path integral formula,
+\bean
+Z\cdot\langle0\rvert F(\hat\phi) \lvert0\rangle := 
+\int_{\AN^\mathrm{s.a.}} F(\phi) 
+e^{-S_N(\phi)} d\phi
+\mbox.\label{pathint2}\eean
+This is formally identical to Eq.~\eqref{pathint}, but it differs in 
+that it is not merely a formal expression.  The measure $d\phi$ is 
+simply the Lebesgue measure on the finite-dimensional vector space 
+$\AN^\mathrm{s.a.}$.  Because $S_N(\phi)$ increases at least 
+quadratically in all directions, Eq.~\eqref{pathint2} is finite for 
+all polynomial functionals $F$.
+
+In the standard lattice regularization, it is necessary to verify that 
+a theory is sufficiently well behaved in the ``continuum limit'' as 
+the regularization is removed.  The limit of removing the 
+regularization in the present case is the commutative limit, 
+$N\to\infty$.  At this stage, it is not entirely clear what the 
+correct definition of convergence in the commutative limit should be.
+
+Certainly, renormalization is necessary. That is, the bare mass, $m$, 
+and coupling constants (the coefficients in $V$) must depend on $N$, 
+and the field $\phi$ must also be renormalized by an $N$-dependent factor. 
+Some condition of convergence is then applied to the sequence of 
+renormalized, regularized theories.
+
+A plausible form of the convergence condition is in terms of the 
+one-particle irreducible generating functionals, $\G_N$.  These are 
+functions $\G_N:\AN^\mathrm{s.a.}\to\R$, derived from the 
+path-integral.  If the generating functionals are renormalized so that 
+$\G_N(0)=0$, then the condition may be that for any smooth, 
+self-adjoint section $\phi\in\Ga^\infty(\Nhat,\Af)$, with evaluations 
+$\phi_N\in\AN$, the sequence $\{\G_N(\phi_N)\}$ is convergent.
+
+The derivation of Feynman rules from the path integral can now proceed 
+in essentially the standard, heuristic way (see, e.~g., \cite{pok}), 
+except that now it is not just a formal calculation.  
+
+\subsection{Green's functions}
+Before we can discuss perturbation theory on a noncommutative space, 
+we must first understand what Green's functions are from an 
+algebraic perspective. I begin in greater generality than just a 
+scalar field. 
+
+In general, the space of classical field configurations, $\Phi$, need 
+not be a vector space.  Such is the case for nonlinear 
+$\sigma$-models.  However, for a free field theory, $\Phi$ is always a 
+vector space.  Since we are going to apply perturbation theory about a 
+free field theory, we must assume that $\Phi$ is a vector space here.
+
+A Green's function is the vacuum expectation value of a product of 
+fields.  An expectation value of a quantum field $\hat\phi$ is an 
+element of the space of classical field configurations, $\Phi$, since 
+$\hat\phi$ is thought of as a quantum field valued in $\Phi$.  An 
+expectation value of a product of two fields is an element of the 
+(real) tensor product $\Phi\otimes\Phi$.  Carrying on like this, we 
+see that a $k$-point Green's function is an element of the real tensor 
+power $\Phi^{\otimes k}$.  The use of real tensor products here is 
+actually not restrictive; for a complex field, $\phi$, a real tensor 
+product will include all possible combinations of $\phi$ and its 
+conjugate field.
+
+Actually, I am overoptimistically allowing a great deal to fall 
+into the ambiguity in a tensor product of infinite dimensional spaces.
+In the case of a real scalar field, $\Phi=\Coo(\M,\R)$, so the tensor 
+product $\Phi\otimes\Phi$ should intuitively be a space of functions 
+of two points on $\M$. Indeed, a 2-point Green's function for a 
+scalar field is a function of two points; however, it has a 
+singularity where the points coincide. This shows that the tensor 
+product needs to be interpreted liberally. Fortunately this issue is 
+irrelevant to the case at hand. Once $\Phi$ is finite-dimensional, 
+there is no ambiguity in the tensor product.
+
+In discussing divergences, one deals primarily with 
+one-particle-irreducible % !!!\linebreak (\opi) Green's functions.  These 
+can be constructed as derivatives of an $\R$-valued generating 
+functional on $\Phi$.  This shows immediately that a $k$-point, !!! % \opi\ 
+Greens function is a linear map from $\Phi^{\otimes k}$ to $\R$.  
+One-particle-irreducible Green's functions thus live in the dual space 
+of the corresponding ordinary Green's functions.
+
+Because of the coefficient in front of the action, there are powers of 
+(in the case of \eqref{regact}) $C=\tfrac{\vol\M}{\dim\HN}$ coming 
+from the vertices and propagators.  If, instead of setting $\hbar=1$, 
+we had kept explicit factors of $\hbar$, then the combination $\hbar 
+C$ multiplying the action would be the only appearance of $\hbar$ in 
+the functional integral.  This means that the overall power of $C$ for 
+a Feynman diagram is the same as the overall power of $\hbar$ --- 
+namely, the number of loops plus $1$.
+
+Actually, implicit in most action functionals is an inner product on 
+$\Phi$.  This means that $\Phi$ can be more or less naturally 
+identified with a subspace of $\Phi^*$ in general, and with all of 
+$\Phi^*$ when it is finite-dimensional.
+
+This inner product on $\Phi$ tends to suffer an ambiguity of 
+normalization.  The most natural inner product of two functions is given 
+by multiplying them and integrating.  The most natural inner product 
+on $\AN$ is given by multiplying matrices and taking the trace.  
+Unfortunately, these inner products disagree when we pair $1$ with 
+itself.  In $\C(\M)$ that gives $\vol\M$; in $\AN$ it gives $\dim\HN$.  
+We must correct the inner product on $\AN$ by a factor of $C$, for 
+consistency with that on functions.
+
+The natural form of the !!! % \opi\ Green's functions is not actually the 
+most useful normalization for comparison with the results of standard 
+perturbation theory.  In practice, we deal with ordinary Feynman 
+diagrams in momentum space.  The quantities we usually deal with are 
+not the momentum-space Green's functions themselves, but have an overall, 
+momentum-conserving $\delta$-function divided out.  
+
+Consider 2-point Green's functions in a scalar theory. In momentum 
+space, with the $\delta$-function divided out, these are simply 
+functions of a single momentum. Multiplying two such functions in 
+momentum space corresponds to convolution of Green's functions. In 
+this normalization, a 2-point Green's function is a convolution 
+operator; that is a linear map $\Phi\to\Phi$. 
+
+In general, a $k$-point !!! % \opi\ Green's function in this normalization 
+is a linear map $\Phi^{\otimes(k-1)}\to\Phi$.  In the regularized 
+theory, this change simply amounts to dividing our amplitudes by $C$.  
+This simplifies the Feynman rules slightly, so that the overall power 
+of $C$ is now simply the number of loops.
+
+\subsection{Noncommutative Feynman rules}
+\label{feynman}
+I'll now specialize to the theory given by the action \eqref{regact}, 
+although most of the considerations are more general.  
+As usual, the action splits into a free part (the first two terms) and 
+an interaction part (the $V$ term).  The free part gives the 
+propagator $(\Delta+m^2)^{-1}$; each monomial of $V(\phi)$ gives a 
+vertex whose valence is the degree of the monomial.
+
+A vertex of valence $r$ essentially represents the trace of a product 
+of $r$ matrices.  The term corresponding to a standard Feynman diagram 
+is a sum of terms with different orderings of the products.  It is 
+convenient to represent these subterms diagrammatically.  For each 
+vertex, the multiplicands correspond to incoming edges.  Because only 
+the cyclic order matters in a trace, we only need to indicate a cyclic 
+order to the edges.  This is easily done graphically by drawing the 
+vertex in the plane.  The order of multiplication is indicated by the 
+counterclockwise order of the attached edges.  The distinct terms are 
+thus labeled by ``framings'' of the Feynman diagram in the plane.  
+
+In ordinary quantum field theory involving a real field, there are 
+symmetry factors to deal with. The contribution of a given diagram is 
+divided by the number of its symmetries. In this case there is an 
+additional type of combinatorial factor present. Since a given 
+ordinary Feynman diagram corresponds to several framed diagrams, 
+these framed diagrams are weighted by coefficients adding up to $1$. 
+Determining these coefficients is a matter of enumerating the cyclic 
+orientations of all vertices, and sorting the resultant framings into 
+equivalence classes.
+
+To express the exact Feynman rules, it is convenient to adapt the 
+notation invented by 't~Hooft for discussing the large $N$ limit of 
+$U(N)$-gauge theories (see \cite{tho,col}).  In that diagrammar, the 
+gluon propagator is represented by a double line (two directed lines 
+in opposite directions).  An outgoing arrow indicates an upper index 
+and an ingoing arrow indicates a lower index.  The way lines are 
+connected indicates how indices are contracted.  In these diagrams, the 
+two lines of a gluon propagator do not touch.  This is appropriate, 
+since they really have nothing to do with each other.  The propagator 
+is not just invariant under $U(N)$, but under 2 separate actions of 
+$U(N)$ corresponding to the 2 separate edges.
+
+In the present context, however, the notation needs to be modified.  
+The propagator is not invariant under arbitrary unitary 
+transformations; it is only invariant under the isometries of $\M$ (if 
+there are any).  The two lines of the propagator are thus no longer 
+independent, and I indicate this by linked double lines as shown in 
+Fig~\ref{propagator}.
+
+The upper indices (outgoing arrows) are factors of $\HN$, while the 
+lower indices (ingoing arrows) are factors of $\HN^*$.  Each factor of 
+$\AN^\mathrm{s.a.}\subset \AN\subset \HN\otimes\HN^*$ thus gives an 
+upper and a lower index, or an incoming and an outgoing arrow.
+
+Figure~\ref{doubled} shows a more complicated doubled diagram.  Note 
+that no distinction is made between overcrossings and undercrossings.
+
+
+A reader might reasonably question that this is truly a regularization 
+of \emph{real} scalar field theory.  After all, the subspace 
+$\AN^\mathrm{s.a.}\subset\AN$ is not closed under multiplication, so 
+why should these Feynman rules respect this subspace?  The issue is 
+whether the Green's functions are self-adjoint, in the obvious sense 
+for elements of a tensor power of $\AN$.  In fact, a given (framed) 
+Feynman diagram may not be self-adjoint.  However, its adjoint is the 
+mirror-image diagram, which is another framing of the same diagram and 
+therefore contributes to the same Green's function.  This makes the 
+Green's functions themselves self-adjoint, order-by-order in 
+perturbation theory.
+
+\
 \section{Unrealistic Phenomena}
 	
 	\paragraph{}
@@ -736,6 +1173,256 @@ If  $\left\{\eta_n\right\}_{n \in \N}\subset \H$ is an orthogonal and $\xi_n \by
 	
 		
 \begin{appendices}
+	
+	\section{Operator spaces and algebras}\label{oa_sec}
+	\begin{definition}\label{op_space_defn}\cite{blecher_merdy}
+
+		
+
+		A concrete \textit{operator space} is a (usually closed) linear subspace $X$ of $B(\H_1,\H_2)$,
+		for Hilbert spaces $\H_1,\H_2$ (indeed the case $\H_1=\H_2$ usually suffices, via the canonical
+		inclusion $B(\H_1,\H_2)\subset B(\H_1\oplus\H_2)$.
+	\end{definition}
+	\begin{definition}\label{c_op_alg_defn}\cite{blecher_merdy}
+		A \textit{concrete operator algebra} is a closed subalgebra of $B(\H)$, for some Hilbert space $\H$.
+	\end{definition}
+	\begin{remark}\label{c_op_alg_n_rem}
+		Sometimes we consider operator algebras which are dense subalgebras of operator algebras.
+	\end{remark}
+	\begin{remark}\label{c_op_alg_rem}
+		There are  abstract definitions of  \textit{operator algebras} and and an \textit{operator spaces}. It is proven that the classes of operator algebras and operator spaces are equivalent to the class of concrete operator algebras and spaces respectively (cf. \cite{blecher_merdy}.)
+	\end{remark}
+	\begin{definition}\label{op_u_space_defn}\cite{blecher_merdy}
+		%1.3.1 
+		(Unital operator spaces). We say that an operator space $X$ is \textit{unital} if it has a distinguished element usually written as $e$ or 1, called the \textit{identity} of $X$, 
+		such that there exists a complete isometry $u: X \hookto A$ into a unital $C^*$-algebra with $u(e) = 1_A$. A \textit{unital-subspace} of such $X$ is a subspace containing $e$. 
+	\end{definition}
+	
+	\begin{empt}\label{complete_maps_empt}\cite{blecher_merdy}
+		%1.2.1 
+		(Completely bounded maps). Suppose that $X$ and $Y$ are operator spaces 
+		and that $u: X \to Y$ is a linear map. For a positive integer $n$, we write $u_n$ for 
+		the associated map $[x_{jk} ] \mapsto \left[u\left(x_{jk}\right)\right]$ from $\mathbb{M}_n(X)$ to $\mathbb{M}_n(Y )$. This is often called the ($n^{\text{th}}$) amplification of $u$, and may also be thought of as the map $\Id_{\mathbb{M}_n\left( \C\right)} \otimes u$ on 
+		$\mathbb{M}_n\left( \C\right)\otimes X$. Similarly one may define $u_{m,n} : \mathbb{M}_{m,n}(X) \to \mathbb{M}_{m,n}(Y)$. If each matrix 
+		space $\mathbb{M}_n(X)$ and $\mathbb{M}_n(Y)$ has a given norm $\left\|\cdot \right\|_n$ , and if un is an isometry for 
+		all $n\in \N$, then we say that $u$ is 
+		\textit{completely isometric}, or is a \textit{complete isometry}. 
+		Similarly, $u$ is \textit{completely contractive} (resp. is a \textit{complete quotient map}) if each 
+		$u_n$ is a contraction (resp. takes the open ball of $\mathbb{M}_n(X)$ onto the open ball of $\mathbb{M}_n(Y )$). A map $u$ is completely bounded if 
+		$$
+		\left\| u\right\|_{\mathrm{cb}}  \stackrel{\mathrm{def}}{=}\sup\left\{\left.\left\| \left[u\left(x_{jk}\right)\right]\right\|~\right|~\left\| \left[ x_{jk}\right] \right\|< 1 \quad\forall n \in \N\right\} 
+		$$
+		Compositions of completely bounded maps are completely bounded, and one 
+		has the expected relation $\left\| u\circ v\right\|_{\mathrm{cb}}\le \left\| u\right\|_{\mathrm{cb}}\left\| v\right\|_{\mathrm{cb}}$. If $u: X \to Y$ is a completely 
+		bounded linear bijection, and if its inverse is completely bounded too, then we 
+		say that $u$ is a complete isomorphism. In this case, we say that $X$ and $Y$ are 
+		completely isomorphic and we write $X \approx Y$. 
+		The matrix norms satisfy to the following \textit{Ruan's axioms}
+	\end{empt}
+	\begin{definition}
+		The following conditions:
+		\begin{itemize}
+			\item[(R1)]  $\left\|\a x\bt \right\|_n \le \left\|\a \right\|\left\|x \right\|_n\left\|\bt \right\|$, for all  $n\in \N$ and all  $\a, \bt \in \mathbb{M}_n\left(\C\right)$ and $x \in \mathbb{M}_n\left(X\right)$
+			(where multiplication of an element of $\mathbb{M}_n\left(X\right)$ by an element of $\mathbb{M}_n\left(\C\right)$ is
+			defined in the obvious way).
+			\item[(R2)]  For all $x\in\mathbb{M}_n\left(X\right)$ and $y\in\mathbb{M}_n\left(Y\right)$, we have
+			$$
+			\left\|\begin{pmatrix} x & 0\\
+				0& y
+			\end{pmatrix}\right\|_{n + m} = \max\left(\left\|x \right\|_n, \left\|y \right\|_m\right).
+			$$
+			
+		\end{itemize}
+		are said to be \textit{Ruan's axioms}.
+	\end{definition}
+			\begin{definition}
+		%DEFINITION 0.1 (cf. 2.2.3 2 ). 
+		A {\it quantum norm} on $E$ is a norm on $\F \times E$ (where $\F\subset B\left(\ell^2\left( \N\right)  \right) $ is the ideal of finite-rank operators), satisfying 
+		the following two conditions ("Ruan's axioms"): 
+		\begin{enumerate}
+			\item [(RI)]  For every $a \in  B\left(\ell^2\left( \N\right)  \right)$ and ,  $u \in\F \otimes E$ we have 
+			\bean
+			\left\| ua\right\|,\quad  \left\| au\right\|   \le \left\| a\right\| \left\| u\right\| 
+			\eean 
+			\item [(RII)]  If, for $u, v \in \F \otimes E$, there exist projections (i.e., self-adjoint idempotents)  $P, Q\in  B\left(\ell^2\left( \N\right)  \right)$ such that $P \dot u \dot P = u$, $Q \dot  v \dot Q = v$ and $PQ=0$, then we have 
+			\bean
+			\left\| u+ v\right\| = \max  \left(\left\| u\right\|, \left\|  v\right\| \right) 
+			\eean 
+			An abstract operator space is a linear space, equipped with a quantum norm 
+			(or, if we want to play a precisian, it is a pair (E, II. II), consisting of a linear space 
+			and a quantum norm on it). Rather often, when it seems to be convenient, we use 
+			the term quantum space instead of "abstract operator space". We emphasize that 
+			both terms have absolutely the same meaning.
+		\end{enumerate}
+		
+	\end{definition}
+	
+	\begin{remark}\label{c_star_iso_rem}\cite{blecher_merdy}
+		Any $*$-homomorphism $u: A \to B$ of $C^*$-algebras is injective if and only if $u$ is completely isometric (cf. \cite{blecher_merdy}).
+	\end{remark}
+	\begin{empt}\label{blecher_merdy_empt}\cite{blecher_merdy}
+		%4.2.3 
+		(Extensions of operator spaces). An \textit{extension} of an operator space $X$ is 
+		an operator space $Y$ , together with a linear completely isometric map $j : X\hookto Y$. 
+		Often we suppress mention of $j$, and identify $X$ with a subspace of $Y$. We say that $Y$ is a \textit{rigid} extension of $X$ if $\Id_Y$ is the only linear completely contractive 
+		map $Y\to Y$ which restricts to the identity map on $j\left( X\right)$. We say $Y$ is an \textit{essential} extension of $X$ if whenever $u: Y\to Z$ is a completely contractive map 
+		into another operator space $Z$ such that $u\circ j$ is a complete isometry, then $u$ is a complete isometry. We say that $(Y, j)$ is an \textit{injective envelope} of $X$ if $Y$ is 
+		injective, and if there is no injective subspace of $Y$ containing $j(X)$. 
+	\end{empt}
+	\begin{lem}\label{os_eqv_lem}
+		Let $(Y, j)$ be an extension of an operator space $X$ such that $Y$ is 
+		injective. The following are equivalent: 
+		\begin{enumerate}
+			\item[(i)] $Y$ is an injective envelope of $X$, 
+			\item[(ii)] $Y$ is a rigid extension of $X$, 
+			\item[(iii)] $Y$ is an essential extension of $X$.
+		\end{enumerate}
+	\end{lem}
+	\begin{definition}\label{c_ext_defn}\cite{blecher_merdy}
+		%4.1.10
+		Thus we define a $C^*$-\textit{extension} of a unital operator space 
+		$X$  to be a pair $(A, j)$ consisting of a unital $C^*$-algebra $A$, and a unital 
+		complete isometry $j : X\to  A$, such that $j(X)$ generates $A$ as a $C^*$-algebra. 
+	\end{definition}
+	%4.1.10 (C$*$-extensions) For a unital-subspace X of a unital C$*$-algebra A, the  noncommutative analogue of  point separation  is the assertion that X generates  A as a C$*$-algebra. Indeed by the Stone-Weierstrass theorem, to say that a unitalsubspace  X . C(O) generates C(O) as a C$*$-algebra, is the same as saying that  X separates points of O. Thus we define a C$*$-extension of a unital operator space  X (see 1.3.1) to be a pair (A, j) consisting of a unital C$*$-algebra A, and a unital  complete isometry j : X . A, such that j(X) generates A as a C$*$-algebra. Theorem 4.3.1  
+	
+	\begin{corollary}\cite{blecher_merdy} Following conditions hold:
+		%Corollary 4.2.8 
+		$ $
+		\begin{itemize}
+			\item[(i)] If $X$ is a unital operator space (resp. unital operator algebra, approximately 
+			unital operator algebra), then there is an injective envelope $(I(X), j)$ for $X$, 
+			such that $I(X)$ is a unital $C^*$-algebra and $j$ is a unital map (resp. $j$ is a 
+			unital homomorphism, $j$ is a homomorphism). 
+			\item[(ii)] If $A$ is an approximately unital operator algebra, and if $(Y, j)$ is an injective 
+			envelope for $A^+$, then $(Y, j|_A)$ is an injective envelope for $A$. 
+			\item[(iii)] If $A$ is an approximately unital operator algebra which is injective, then $A$ 
+			is a unital $C^*$-algebra. 
+		\end{itemize}
+		
+	\end{corollary}
+	
+	
+	\begin{theorem}\label{c_env_sp_thm}\cite{blecher_merdy}
+		%4.3.1
+		(Arveson  Hamana) If $X$ is a unital operator space, then there 
+		exists a $C^*$-extension $(B, j)$ of $X$ with the following universal property: Given 
+		any  $C^*$-extension $(A, k)$ of $X$, there exists a (necessarily unique and surjective) 
+		$*$-homomorphism $\pi: A \to B$, such that $\pi \circ k = j$. 
+	\end{theorem}
+	%\begin{remark}\label{c_env_sp_rem}\cite{blecher_merdy}
+	%	According to the proof of the theorem \ref{c_env_sp_thm} 
+	%	$B$ is a subspace of  the injective envelope $I\left(X\right)$ of $X$ and $B$ is a $C^*$-algebra the generated by $X$.
+	%\end{remark}
+	\begin{definition}\label{c_env_sp_defn}\cite{blecher_merdy}
+		If $X$ is a unital operator space, then the given by the Theorem \ref{c_env_sp_thm} pair  $(B, j)$ is said to be the $C^*$-\textit{envelope} of $X$. Denote by
+		\be\label{c_env_sp_eqn}
+		C^*_e\left( X\right)\stackrel{\text{def}}{=} B.
+		\ee 
+	\end{definition}
+	
+	
+	\begin{definition}\label{c_env_alg_defn}\cite{blecher_merdy}
+		The $C^*$-\textit{envelope} of a nonunital operator algebra $A$ is  a pair $(B, j)$, where $B$ is the $C^*$-subalgebra generated by the copy $j(A)$ of $A$ inside a $C^*$-envelope $(C^*_e (A^+), j)$ of the unitization $A^+$ of $A$. Denote by 
+		\be\label{c_env_alg_eqn}
+		C^*_e\left( A\right)\stackrel{\text{def}}{=} B.
+		\ee
+	\end{definition}
+	%	\begin{theorem}\label{oa_cb_lem}
+		%	Theorem 1.2.8 
+		%		(Haagerup, Paulsen, Wittstock). Suppose that $X$ is a subspace 		of a $C^*$-algebra $B$, that $\H_1$ and $H_2$ are Hilbert spaces, and that $u: X\to  B(\H_2, \H_1)$ is 		a completely bounded map. Then there exists a Hilbert space $\H_3$, a $*$-representation 		$\pi: B \to B(\H_3)$ (which may be taken to be unital if $B$ is unital), and bounded 		operators $S$ : $\H_3\to  \H_1$ and $T : \H_2 \to \H_3$, such that $u(x) = S\pi(x)T$ for all $x\in X$. 		Moreover  this can be done with $\left\| S\right\| \left\|T \right\| =\left\| \right\|_{\mathrm{cb}} $		In particular, if $\varphi \in \mathrm{Ball}(X^*)$, and if B is as above, then there exist $\H_3$, $p$ as 		above, and unit vectors $\xi, \eta \in \H_3$, with $\varphi= \left(\pi\left(x\right)\xi, \eta\right)_{\H_3}$ on $X$. 
+		%	\end{theorem} 
+	
+	
+	
+	
+	
+	\subsection{Real operator spaces}
+	
+	\begin{definition}\label{real_os_defn}\cite{ruan:real_os, ruan:real_comp}
+		A \textit{real operator space} on a real Hilbert space $\H$ is a norm closed subspace $V$ of $B\left(\H\right)$ 
+		together with the canonical matrix norm inherited from  $B\left(\H\right)$ . Then every real $C^*$-algebra,
+		which is defined to be a norm closed $*$-subalgebra of some $B\left(\H\right)$, is a real operator space with
+		a canonical matrix norm (actually, a real $C^*$-algebra matrix norm) inherited from $B\left(\H\right)$ . 
+	\end{definition}
+	
+	\begin{remark}
+		It is easy to verify
+		that there the family of matrix norms $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ which satisfies
+		\begin{enumerate}
+			\item [(M1)]  $\left\|x \oplus y \right\|_{n + m}= \max \left(\left\|x \right\|_{n}, \left\| y \right\|_m\right)$.
+			\item[(M2)] $\left\|\a x\bt\right\|_{n}\le\left\|\a \right\|\left\|x \right\|_{n}\left\|\bt \right\|$
+		\end{enumerate}
+		for all $x\in \mathbb{M}_n\left( V\right)$,   $y\in \mathbb{M}_m\left( V\right)$, $\a, \bt\in \mathbb{M}_n\left( \R\right)$,
+		
+		As in the complex case, we can define an \textit{abstract real operator space} to be
+		a real space $V$ together with a Banach space norm $\left\|\cdot \right\|_n$ on each matrix space
+		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ such that the conditions (M1) and (M2) are satisfied.
+	\end{remark}
+	
+	\begin{example}\label{op_real_exm}\cite{ruan:real_os}
+		If $\Om$ is a compact Hausdorff space, then the space of all real-valued continuous functions
+		$C\left(\Om, \R \right)$  is a commutative real $C^*$-algebra, and we may obtain a canonical (real $C^*$-algebra)
+	\end{example}
+	
+	\begin{empt}\label{complexification_empt}\cite{ruan:real_comp}
+		Let $V$ be a real vector space. The complexification $\C V$ of $V$ is defined as
+		the direct sum
+		$$
+		\C V \bydef V \oplus iV = \left\{\left. x +iy\right|x, y \in V\right\}
+		$$
+		
+		There is a natural complex linear structure on $\C V$ given by
+		$$(x_1 + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2)$$
+		and
+		$\left(a + i\bt \right)\left(x + iy\right)\bydef \left(\a x - \bt y\right)+ i\left(\bt x + \a y\right)$
+		$(\a + i\bt)(x + iy) = (\a x -\bt y) + i(\bt x + 
+		\a y)$
+		We can also define a natural conjugation on $\C V$ by letting
+		$\overline {x + iy} \bydef x - iy$,
+		Then up to the identification $x = x+i0$, we may identify $V$ with the real part
+		of $\C V$ since an element $z = x + iy\in \C V$ is contained in $V$ if and only if $\overline z = z$.
+	\end{empt}
+	
+	
+	
+	\begin{thm}\label{ros_contr_iso_thm}\cite{ruan:real_comp}
+		%	Theorem 2.1. 
+		Let $V$ and W be real operator spaces on real Hilbert spaces
+		$H$ and $K$ and let $T : V \to W$ be a complete contraction (respectively, a
+		complete isometry from $V$ into $W$). If $\C V$ and $\C W$ are equipped with the
+		canonical complex operator space matrix norms from $B(H_c)$ and $B(K_c)$, then
+		$\C T : \C V \to \C W$ is a complete contraction with $\left\| \C T\right\|_{\mathrm{cb}}  = \left\| T\right\|_{\mathrm{cb}}$ (respectively, a
+		complete isometry from $\C V$ into $\C W$).
+	\end{thm}
+	\begin{empt}
+		
+		The \textit{canonical complex operator space structure}
+		on $\C V$ is determined by the identification
+		\be\label{ros_can_eqn}
+		\C V = \left\{\left. \begin{pmatrix}
+			x & -y \\
+			y& x
+		\end{pmatrix}\right| x, y \in V\right\}
+		\ee
+		where the latter space is a real subspace of $\mathbb{M}_2(V )$.
+	\end{empt}
+	\begin{definition}\label{ros_reason_defn}\cite{ruan:real_comp}
+		The matrix norm on its complexification $\C V = V\oplus
+		iV$ satisfies the \textit{reasonable condition} if one has
+		\be\label{ros_reason_eqn}
+		\left\|x + iy\right\|_n= \left\| x - iy\right\|_n
+		\ee
+		for all $x + iy \in  \mathbb{M}_n\left( \C V\right) = \mathbb{M}_n\left( V\right) + i\mathbb{M}_n\left( V\right)$ and $n\in \N$.
+	\end{definition}
+	\begin{theorem}\label{rs_e_thm}\cite{ruan:real_comp}
+		%Theorem 3.1. 
+		Let $V$ be a real operator space. If a complex operator space
+		matrix norm $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ is a reasonable complex extension of the original
+		matrix norm on $V$ , then $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ must be equal to the canonical matrix norm
+		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
+	\end{theorem}
+	
 	\section{Rigged Hilbert modules}
 \begin{definition}\label{rigged_defn}
 	Let $A$ be a $C^*$-algebra and let $\E$ be a $C^*$-Hilbert $A$-module.  A \textit{rigged} $C^*$-\textit{Hilbert} $A$-\textit{module} is a tripe
@@ -914,12 +1601,12 @@ The Definition \ref{integr_defn} is motivated by the article.
 	\phi: \R^2 = \R \times \R \to \R,
 	\left(x, y \right)\mapsto y
 	\eean
-	is a fibration so it corresponds to a foliation $\left(\R^2, \widetilde{\F} \right)$. From the corollary \ref{foli_tens_comp_cor} and/or the Theorem \ref{foli_bundle_thm} it follows that $$C^*\left(\R^2, \widetilde{\F} \right)\cong C^*\left(\R^2, \widetilde{\F} \right) \cong C_0\left( \R\right)\otimes \K\left( L^2\left(\R \right) \right) \cong A.$$. If  $\th \in \R\setminus\Q$ be an irrational number, then the action
+	is a fibration so it corresponds to a foliation $\left(\R^2, \widetilde{\F} \right)$. From the corollary \ref{foli_tens_comp_cor} and/or the Theorem \ref{foli_bundle_thm} it follows that $$C^*\left(\R^2, \widetilde{\F} \right)\in C^*\left(\R^2, \widetilde{\F} \right) \in C_0\left( \R\right)\otimes \K\left( L^2\left(\R \right) \right) \in A.$$. If  $\th \in \R\setminus\Q$ be an irrational number, then the action
 	\bean
 	\Z^2 \times \R^2 \to \R^2,\\
 	\left( \left(m, n \right), \left(x, y \right) \right) \mapsto \left( x + m, y + n\th\right) 
 	\eean
-	is properly disconnected \ref{}???. There is a principal covering $q: \R^2 \to \R^2 / \Z^2\cong \T^2$. The group $\Z^2$ freely acts on the set of leaves, so one has a covering of groupoids
+	is properly disconnected \ref{}???. There is a principal covering $q: \R^2 \to \R^2 / \Z^2\in \T^2$. The group $\Z^2$ freely acts on the set of leaves, so one has a covering of groupoids
 	\bean
 	\left(\R^2, \widetilde{\F} \right)\to \left(\T^2, {\F} \right)
 	\eean
@@ -946,7 +1633,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 	Here we prove that described in \cite{landi:nm_nt}  results come from noncommutative coverings.
 	\subsection{Finite-fold coverings}\label{phys_fin_sec}
 	\paragraph{}  The described in \cite{landi:nm_nt} construction of based on the Morita equivalence between $C^*$-algebras $\Coo\left(\T^2_{M/N}\right)$ and
-	$C^\infty({\T}^2)$. We shall use the Morita equivalence given by the Theorem \ref{finite_morita_main_theorem}. If $\sX \cong S^1$ and $p: \sX\to S^1$ is an $N$-listed covering then there is an unital noncommutative finite-fold covering $\left(C\left(S^1\right), C\left(\sX\right), \Z_N, C_0\left(p\right)\right)$. If $u\in C\left(S^1\right)$ is an untary such that $C\left(S^1\right)\cong C\left(u\right)$ then is an untary $v\in C\left(\sX\right)$ such that $C\left(\sX\right)\cong C\left(v\right)$ and $C_0\left(p\right)$ is given by $u \mapsto v^N$. From the Theorem 
+	$C^\infty({\T}^2)$. We shall use the Morita equivalence given by the Theorem \ref{finite_morita_main_theorem}. If $\sX \in S^1$ and $p: \sX\to S^1$ is an $N$-listed covering then there is an unital noncommutative finite-fold covering $\left(C\left(S^1\right), C\left(\sX\right), \Z_N, C_0\left(p\right)\right)$. If $u\in C\left(S^1\right)$ is an untary such that $C\left(S^1\right)\in C\left(u\right)$ then is an untary $v\in C\left(\sX\right)$ such that $C\left(\sX\right)\in C\left(v\right)$ and $C_0\left(p\right)$ is given by $u \mapsto v^N$. From the Theorem 
 	\ref{finite_morita_main_theorem} it follows that the algebra $C\left(S^1\right) $ is Morita equivalent to the algebra $C\left(\sX\right) \rtimes \Z_N$. The action $\Z_N \times C\left(\sX\right)\to C\left(\sX\right)$ is given by
 	$$
 	\forall m \in \Z\quad \overline k\cdot v^m = e^{\frac{2\pi i km}{N}} v^m\quad k \in \Z \text{ is a repesentative of } \overline k.
@@ -997,19 +1684,19 @@ The Definition \ref{integr_defn} is motivated by the article.
 		\paragraph*{}
 		In the Section \ref{phys_mm_sec} it is proven that the algebra of  physical system with internal space of unbounded dimension yields inclusion of the noncommutative torus.  Here we prove that the infinite covering of physics with internal space of unbounded dimension yields the noncommutative torus itself.  Consider an one dimensional physics on $\R$ with gauge groups $U\left( N\right)$ for all $N\in \N$. For each $N \in \N$  the group $U\left( N\right)$ acts on $\C^N$. If $\C_\infty \bydef \cup_{N \in \N} \C^N$ then $\C_\infty$ is a dense subspace of $\ell_2\left(\C\right)$. If we use an isomorphism $\ell_2\left(\C\right)\to L^2\left(\R \right)$ then the generated by gauge elements group is isomorphic to
 		$$
-		C_0\left( \R\right) \otimes \K\left( \ell_2\left(\C\right)\right) \cong C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right),
+		C_0\left( \R\right) \otimes \K\left( \ell_2\left(\C\right)\right) \in C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right),
 		$$
 		On the other hand from the Theorem  \ref{foli_bundle_thm} we have an isomorphism
 		$$
-		C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\cong C^*_r\left( \R^2, \widetilde{\sF}\right) 
+		C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\in C^*_r\left( \R^2, \widetilde{\sF}\right) 
 		$$
 		Otherwise
 		one has
 		an infinite noncommutative covering
 		$$
-		\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)\cong \left(C\left( \T^2_\th\right)\otimes \K, C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
+		\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)\in \left(C\left( \T^2_\th\right)\otimes \K, C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
 		$$
-		$C^*$-algebra $C\left( \T^2_\th\right)\otimes \K$ is Morita equivalent to $C\left( \T^2_\th\right)$. The spectrum  $C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\cong C^*_r\left( \R^2, \widetilde{\sF}\right)$  is the Hausdorff space $\R$ and the spectrum of  $C\left( \T^2_\th\right)\otimes \K$ is not Hausdorff, i.e. infinite noncommutative covering yields an example of the Hausdorff non-Hausdorff duality.
+		$C^*$-algebra $C\left( \T^2_\th\right)\otimes \K$ is Morita equivalent to $C\left( \T^2_\th\right)$. The spectrum  $C_0\left( \R\right) \otimes \K\left(L^2\left(\R \right)\right)\in C^*_r\left( \R^2, \widetilde{\sF}\right)$  is the Hausdorff space $\R$ and the spectrum of  $C\left( \T^2_\th\right)\otimes \K$ is not Hausdorff, i.e. infinite noncommutative covering yields an example of the Hausdorff non-Hausdorff duality.
 		
 		\section{Wilson lines and noncommutative covering spaces}\label{wl_chap}
 		\subsection{Preliminaries}
@@ -1205,7 +1892,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 	\end{theorem}
 	\begin{rem}\label{inf_ultra_compex_rem}
 		The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers, i.e. one  has a the
-		hypercomplex number system $\left(*, \C, \C^*\right)$.
+		hypercomplex number system $\left(*, \C, \C^*\right)$. There is a field $C^*$ of {\it hypercomplex numbers} (which are not quaternion).
 	\end{rem}
 		\begin{rem}
 	There is an analog of  $\left(*, \R, \R^*\right)$ related to $C^*$-algebras (cf. \cite{c_ald_non_st}).
@@ -1362,7 +2049,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 		$$
 	\end{proposition}
 	\begin{remark}\label{double_centralizer_rem}
-		In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
+		In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\in M\left(A\right)$. 
 	\end{remark}
 	
 	
@@ -1784,7 +2471,7 @@ $z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
 			the  leaving all physically significant features invariant. We have
 			chosen to introduce quantum theory in terms of the set of states $\mathscr S$ of
 			a physical system, the set of observables $\mathscr A$ of that system and a probability   measure $\mu\left(\om, A\right)$ defined for each pair $\om \in \mathscr S$ and $A \in \mathscr A$. In this
-			approach, we naturally define a symmetry to be a pair of bijections $\a: \mathscr S \cong \mathscr S$ and $\overline \a: \mathscr A \cong \mathscr A$
+			approach, we naturally define a symmetry to be a pair of bijections $\a: \mathscr S \in \mathscr S$ and $\overline \a: \mathscr A \in \mathscr A$
 			such that $\mu \left(\om, A \right)=  \mu \left(\a\left( \om\right) , \overline \a \left( \right) A \right)$ for all
 			$\om \in \mathscr S$ and 	$A \in \mathscr A$. 
 			
@@ -1986,9 +2673,8 @@ $z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
 			$\theta=M/N$ is dual to a conventional $U(N)$ Yang-Mills theory with $M$
 			units of 't~Hooft flux.
 			
-			The algebra $\Coo\left(\T^2_{M/N}\right)$ has a
-			`huge' center ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ which is generated by the elements
-			$(U_1)^N$ and $(U_2)^N$. One identifies ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ with the algebra
+			The algebra $\Coo\left(\T^2_{M/N}\right)$ has a !!!!
+		%	`huge' center ${\mathcal C}(\Coo\left(\T^2_{M/N}\right))$ which is generated by the elements			$(U_1)^N$ and $(U_2)^N$. One identifies ${\mathcal C}(\Coo\left(\T^2_{M/N}\right))$ with the algebra
 			$C^\infty({\T}^2)$, while the appearence of finite dimensional matrix
 			algebras can be seen as follows. With $\omega=e^{2\pi iM/N}$, one introduces
 			the $N\times N$ clock and shift matrices
@@ -2143,18 +2829,18 @@ $z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
 Loosely speaking, a {\it rigged Hilbert} space (also called a {\it Gelfand triplet}) is
 a triad of spaces
 \begin{equation}
-	{\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}
+	{\mathbf \Phi} \subset {\H} \subset {\mathbf \Phi}^{\times}
 	\label{RHStIntro}
 \end{equation}
-such that $\cal H$ is a Hilbert space, $\mathbf \Phi$ is a dense
-subspace of $\cal H$~\cite{DENSE}, and $\mathbf \Phi ^{\times}$ is the space of
+such that $\H$ is a Hilbert space, $\mathbf \Phi$ is a dense
+subspace of $\H$~\cite{DENSE}, and $\mathbf \Phi ^{\times}$ is the space of
 antilinear functionals over $\mathbf \Phi$~\cite{FUNCTIONAL}. Mathematically,
 $\mathbf \Phi$ is the space of test functions, and $\mathbf \Phi ^{\times}$
 is the space of distributions. The space $\mathbf \Phi ^{\times}$ is called
 the antidual space of $\mathbf \Phi$. Associated with the 
 RHS~(\ref{RHStIntro}), there is always another RHS,
 \begin{equation}
-	{\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\prime} \, ,
+	{\mathbf \Phi} \subset {\H} \subset {\mathbf \Phi}^{\prime} \, ,
 	\label{RHSpIntro}
 \end{equation}
 where ${\mathbf \Phi}^{\prime}$ is called the dual space of ${\mathbf \Phi}$
@@ -2164,12 +2850,12 @@ The basic reason why we need the spaces ${\mathbf \Phi}^{\prime}$ and
 ${\mathbf \Phi}^{\times}$ is that the bras and kets associated with the 
 elements in the continuous spectrum of an observable belong, respectively, to 
 ${\mathbf \Phi}^{\prime}$ and ${\mathbf \Phi}^{\times}$ rather than to
-${\cal H}$. The basic reason reason why we need the space $\mathbf \Phi$ is 
-that unbounded operators are not defined on the whole of ${\cal H}$ but only
-on dense subdomains of ${\cal H}$ that are not invariant under the
+${\H}$. The basic reason reason why we need the space $\mathbf \Phi$ is 
+that unbounded operators are not defined on the whole of ${\H}$ but only
+on dense subdomains of ${\H}$ that are not invariant under the
 action of the observables. Such non-invariance makes expectation values,
 uncertainties and commutation relations not well defined on the whole
-of $\cal H$. The space $\mathbf \Phi$ is the largest subspace of the Hilbert 
+of $\H$. The space $\mathbf \Phi$ is the largest subspace of the Hilbert 
 space on which such expectation values, uncertainties and commutation 
 relations are well defined.
 
@@ -2401,7 +3087,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	\label{def:rep_Hilbert_module}\cite{meyer:unb_repr}
 	A \emph{representation} of $A $ on $\mathcal{E} $ is a
 	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
-	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
+	$D $-submodule and  $\pi: A\to\End_D(\mathfrak{E}) $ is a unital
 	algebra homomorphism to the algebra of  $D$-module endomorphisms
 	of $\mathfrak{E} $, such that
 	\be\label{def:rep_Hilbert_module_eqn}
@@ -2528,7 +3214,7 @@ Here we consider
 \end{corollary}
 
 
-An \emph{isometry}  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+An \emph{isometry}  $I: \mathcal{E}_1\hookto\mathcal{E}_2 $
 between two Hilbert  $D $-modules  $\mathcal{E}_1 $
 and $\mathcal{E}_2 $
 is a right  $D $-module
@@ -2543,7 +3229,7 @@ for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
 	$\mathcal{E}_1 $
 	and $\mathcal{E}_2 $,
 	respectively.  An \emph{isometric intertwiner} between them is an
-	isometry  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+	isometry  $I: \mathcal{E}_1\hookto\mathcal{E}_2 $
 	with  $I(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $
 	and  $I\circ\pi_1(a) (\xi) = \pi_2(a) \circ I (\xi) $
 	for all  $a\in A $,
@@ -2566,7 +3252,7 @@ for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
 	\label{lem:closure_functorial}
 	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be
 	representations on Hilbert  $D $-modules  $\mathcal{E}_1 $
-	and $\mathcal{E}_2 $, respectively, and let  $I\colon
+	and $\mathcal{E}_2 $, respectively, and let  $I:
 	\mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner.  Then $I $ is
 	also an intertwiner between the closures of  $(\mathfrak{E}_1,\pi_1) $
 	and  $(\mathfrak{E}_2,\pi_2) $.
@@ -2576,7 +3262,7 @@ for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
 	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be closed
 	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
 	and $\mathcal{E}_2 $, respectively.  Let  $S\subseteq A $ be a strong
-	generating set.  An isometry  $I\colon \mathcal{E}_1\hookto \mathcal{E}_2 $ is
+	generating set.  An isometry  $I: \mathcal{E}_1\hookto \mathcal{E}_2 $ is
 	an intertwiner from  $(\mathfrak{E}_1,\pi_1) $ to  $(\mathfrak{E}_2,\pi_2) $
 	if and only if  $I\circ \overline{\pi_1(a)} \subseteq \overline{\pi_2(a)}\circ
 	I $ for all  $a\in S $.
@@ -2614,7 +3300,7 @@ $D_2 $-module, using the inner product
 We may use the balanced tensor product
 $\mathcal{E}\odot_{D_1} \F $ instead of  $\mathcal{E}\odot \F $
 because the inner product~\eqref{eq:interior_tensor} descends to this
-quotient.  If we want to emphasise the left  action  $\varphi\colon
+quotient.  If we want to emphasise the left  action  $\varphi:
 D_1\to\mathbb{B}(\F) $ in the
 $C^*$-correspondence $\F $, we write  $\mathcal{E}\otimes_\varphi
 \F $ for  $\mathcal{E}\otimes_{D_1} \F $.
@@ -2630,7 +3316,7 @@ $\mathcal{E}\otimes_{D_1}\F $.
 \begin{lemma}
 	\label{lem:tensor_rep_with_corr}
 	For  $a\in A $, there is a unique linear operator
-	$\pi(a)\otimes1\colon X\to X $ with  $(\pi(a)\otimes1)
+	$\pi(a)\otimes1: X\to X $ with  $(\pi(a)\otimes1)
 	(\xi\otimes\eta) = \pi(a)(\xi)\otimes \eta $ for all
 	$\xi\in\mathfrak{E} $,  $\eta\in\F $.  The map  $a\mapsto
 	\pi(a)\otimes 1 $ is a representation of $A $ with domain $X $.
@@ -2644,11 +3330,11 @@ $\mathcal{E}\otimes_{D_1}\F $.
 
 \begin{lemma}
 	\label{lem:rep_tensor_corr_functor}
-	Let  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner
+	Let  $I: \mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner
 	between two representations  $(\mathfrak{E}_1,\pi_1) $ and
-	$(\mathfrak{E}_2,\pi_2) $, and let  $J\colon \F_1\hookto \F_2 $
+	$(\mathfrak{E}_2,\pi_2) $, and let  $J: \F_1\hookto \F_2 $
 	be an isometric intertwiner of $C^*$-correspondences.  Then
-	$I\otimes_{D_1} J\colon \mathcal{E}_1\otimes_{D_1}\F_1 \hookto
+	$I\otimes_{D_1} J: \mathcal{E}_1\otimes_{D_1}\F_1 \hookto
 	\mathcal{E}_2\otimes_{D_1}\F_2 $ is an isometric intertwiner between
 	$(\mathfrak{E}_1\otimes_{D_1}\F_1, \pi_1\otimes1) $ and
 	$(\mathfrak{E}_2\otimes_{D_1}\F_2, \pi_2\otimes1) $.
@@ -2657,19 +3343,19 @@ $\mathcal{E}\otimes_{D_1}\F $.
 The lemma gives a bifunctor
 \begin{equation}
 	\label{eq:interior_tensor_bifunctor}
-	\otimes_{D_1}\colon \mathrm{Rep}(A,D_1)\times \mathrm{Rep}(D_1,D_2) \to
+	\otimes_{D_1}: \mathrm{Rep}(A,D_1)\times \mathrm{Rep}(D_1,D_2) \to
 	\mathrm{Rep}(A,D_2).
 \end{equation}
 The corresponding bifunctor
 \[
-\otimes_{D_1}\colon \mathrm{Rep}(B,D_1)\times \mathrm{Rep}(D_1,D_2) \to \mathrm{Rep}(B,D_2)
+\otimes_{D_1}: \mathrm{Rep}(B,D_1)\times \mathrm{Rep}(D_1,D_2) \to \mathrm{Rep}(B,D_2)
 \]
 for a $C^*$-algebra $B $ is the usual composition of
 $C^*$-correspondences.  This composition is associative up to
 canonical unitaries
 \begin{equation}
 	\label{eq:tensor_associative}
-	\mathcal{E} \otimes_{D_1} (\F \otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	\mathcal{E} \otimes_{D_1} (\F \otimes_{D_2} \mathcal{E}) \xrightarrow{\in}
 	(\mathcal{E} \otimes_{D_1} \F) \otimes_{D_2} \mathcal{E},\qquad
 	\xi \otimes (\eta\otimes \zeta) \mapsto
 	(\xi \otimes \eta)\otimes \zeta,
@@ -2681,7 +3367,7 @@ for all triples of composable $C^*$-correspondences.
 	If $\mathcal{E} $ carries a representation $(\mathfrak{E},\pi) $ of a
 	$*$-algebra $A $, then the unitary
 	in~\eqref{eq:tensor_associative} is an intertwiner  $(\mathfrak{E},\pi)
-	\otimes_{D_1} (\F\otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	\otimes_{D_1} (\F\otimes_{D_2} \mathcal{E}) \xrightarrow{\in}
 	\bigl((\mathfrak{E},\pi) \otimes_{D_1} \F\bigr) \otimes_{D_2}
 	\mathcal{E}$.
 \end{lemma}
@@ -2690,7 +3376,7 @@ for all triples of composable $C^*$-correspondences.
 	\label{def:star-intertwiner}
 	Let  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $ be two
 	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
-	and $\mathcal{E}_2 $.  An adjointable operator  $x\colon
+	and $\mathcal{E}_2 $.  An adjointable operator  $x:
 	\mathcal{E}_1\to\mathcal{E}_2 $ is an \emph{intertwiner} if
 	$x(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $ and  $x\pi_1(a)\xi =
 	\pi_2(a)x\xi $ for all  $a\in A $,  $\xi\in\mathfrak{E}_1 $.  It is
@@ -2720,9 +3406,9 @@ $u(\mathfrak{E}_1)\subsetneq \mathfrak{E}_2 $.
 \end{example}
 
 The following proposition characterises when an adjointable isometry
-$I\colon \mathcal{E}_1\hookto \mathcal{E} $ between two representations
+$I: \mathcal{E}_1\hookto \mathcal{E} $ between two representations
 on Hilbert  $D $-modules is a $*$-intertwiner.  Since
-$\mathcal{E}\cong \mathcal{E}_1 \oplus \mathcal{E}_1^\bot $ if $I $ is adjointable, we
+$\mathcal{E}\in \mathcal{E}_1 \oplus \mathcal{E}_1^\bot $ if $I $ is adjointable, we
 may as well assume that $I $ is the inclusion of a direct summand.
 
 \begin{proposition}
@@ -2734,10 +3420,10 @@ may as well assume that $I $ is the inclusion of a direct summand.
 	equivalent:
 	\begin{enumerate}
 		\item \label{enum:isometry_star-intertwiner1} the canonical
-		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is a
+		inclusion  $I: \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is a
 		$*$-intertwiner from $\pi_1 $ to $\pi $;
 		\item \label{enum:isometry_star-intertwiner2} the canonical
-		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is an
+		inclusion  $I: \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is an
 		intertwiner from $\pi_1 $ to $\pi $ and  $\mathfrak{E} =
 		\mathfrak{E}_1 + (\mathfrak{E}\cap \mathcal{E}_2) $;
 		\item \label{enum:isometry_star-intertwiner3} there is a
@@ -2797,7 +3483,7 @@ its universal enveloping algebra with the usual involution, where
 elements of~\(\mathfrak{g}\) are skew-symmetric.  A representation of~\(A\)
 on~\(\E\), possibly not closed, is equivalent to a dense
 submodule \(\mathfrak{C}\subseteq\E\) with a Lie algebra representation
-\(\pi\colon \mathfrak{g}\to\Endo_D(\mathfrak{C})\) satisfying
+\(\pi: \mathfrak{g}\to\Endo_D(\mathfrak{C})\) satisfying
 \(\braket{\xi}{\pi(X)(\eta)} = -\braket{\pi(X)(\xi)}{\eta}\) for all
 \(X\in\mathfrak{g}\), \(\xi,\eta\in\mathfrak{C}\).
 
@@ -2996,12 +3682,12 @@ There is a set of axioms for  spectral triples described in \cite{hajac:toknotes
 \begin{remark}\label{smooth_k_iso_rem}
 	The $K_0$-symbol in the above Theorem is the $K_0$-functor of $K$-theory (cf. \cite{bass,blackadar:ko}). The $K_0$-functor is related to projective finitely generated modules. Otherwise any projective finitely generated module corresponds to the idempotent of the matrix algebra. The idea of the proof of the Theorem \ref{smooth_k_iso_thm} contains following ingredients:
 	\begin{itemize}
-		\item For any idempotent $\tilde e \in \mathbb{M}_n\left(A\right)$ one constructs and idempotent $e\in \mathbb{M}_n\left(\A\right)$ such that there is the isomorphisms $\tilde e A^n\cong e A^n$ of $A$-modules.
+		\item For any idempotent $\tilde e \in \mathbb{M}_n\left(A\right)$ one constructs and idempotent $e\in \mathbb{M}_n\left(\A\right)$ such that there is the isomorphisms $\tilde e A^n\in e A^n$ of $A$-modules.
 		\item The inverse to $K_0j$ homomorphism is roughly speaking given by
 		$$
 		\left[e\A^n\right]\mapsto \left[ \tilde e A^n\right] 
 		$$
-		where $\left[\cdot \right]$ means the $K$-theory class  of projective finitely generated module. From the isomorphism $\tilde e A^n\cong e A^n$ the above equation can be replaced with
+		where $\left[\cdot \right]$ means the $K$-theory class  of projective finitely generated module. From the isomorphism $\tilde e A^n\in e A^n$ the above equation can be replaced with
 		\be\label{smooth_k_iso_eqn}
 		\left[e\A^n\right]\mapsto \left[  e A^n\right]
 		\ee
@@ -3154,7 +3840,7 @@ There is the differential map
 	\end{enumerate}
 \end{prop}
 \begin{remark}\label{conn_rem}
-	The Proposition \ref{conn_prop} implicitly assumes that $\mathcal E\cong  \mathcal E \otimes_{\A} \A\cong \mathcal E \otimes_{\A} \Om^0$ so  there is the natural inclusion
+	The Proposition \ref{conn_prop} implicitly assumes that $\mathcal E\in  \mathcal E \otimes_{\A} \A\in \mathcal E \otimes_{\A} \Om^0$ so  there is the natural inclusion
 	\be\label{conn_eqn}
 	\mathcal E \subset \mathcal E \otimes_{\A} \Om
 	\ee
@@ -3229,7 +3915,7 @@ $$
 \eean
 The metric  tensor $g\bydef \left[g_{jk}\right]$ (cf. Remark \ref{riemann_mani_rem}) is a section of the tensor  bundle, or equivalently $g\in\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$,  we suppose that the section is smooth, i.e $g\in\Ga^\infty\left(M, TM \right)\otimes_{\Coo\left( M\right) }\Ga^\infty\left(M, TM \right)$. On the other hand $g$ yields the isomorphism
 $$
-\Ga\left(M, TM \right)\cong \Ga\left(M, T^*M \right)
+\Ga\left(M, TM \right)\in \Ga\left(M, T^*M \right)
 $$
 between sections of the tangent and the cotangent bundle. The section of cotangent bundle is said to be \textit{smooth} if it is an image of the smooth section of the tangent bundle. Below we consider tensor bundles which correspond to tensor products of exemplars of $\Ga\left(M, T^*M \right)$ and/or $\Ga\left(M, T^*M \right)$.
 The metric tensor  yields the given by
@@ -3239,13 +3925,13 @@ v = \sqrt{\left[ g_{jk}\right] }~dx_1...dx_n
 \textit{volume element} (cf. \cite{do_carmo:rg}. The volume element can be regarded as an element of $\Ga\left(M, T^*M \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, T^*M \right)$, i.e. $v$ is a section of the tensor field. On the other hand element $v$ defines the unique \textit{Riemannian measure} $\mu$ on $M$.
 If $E \to M$ is a complex bundle then from the Serre-Swan Theorem \ref{serre_swan_thm} it turns out that there is an idempotent $e \in \mathbb{M}_n\left(C\left(M \right)  \right)$ such that there is the  $C(M)$-module isomorphism
 $$
-\Ga\left(M, E \right) \cong e C\left(M \right)^n.
+\Ga\left(M, E \right) \in e C\left(M \right)^n.
 $$
 From the Theorem \ref{smooth_k_iso_thm} one can suppose that $e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)$ (cf. Remark \ref{smooth_k_iso_rem}).
 \begin{definition}\label{top_smooth_m_defn}
 	The isomorphic to $e \Coo\left(M \right)^n$ group  with the induced by
 	\be\label{top_smooth_m_eqn}
-	\Ga^\infty\left(M, E \right) \cong e \Coo\left(M \right)^n \subset e C\left(M \right)^n\cong \Ga\left(M, E \right)\quad e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)
+	\Ga^\infty\left(M, E \right) \in e \Coo\left(M \right)^n \subset e C\left(M \right)^n\in \Ga\left(M, E \right)\quad e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)
 	\ee
 	inclusion $\Ga^\infty\left(M, E \right) \subset \Ga\left(M, E \right)$ is said to be the subgroup of \textit{smooth sections}.
 \end{definition} 
@@ -3257,7 +3943,7 @@ and the map
 $$
 \Ga^\infty\left(M, E \right)\mapsto \Ga\left(M, E \right)
 $$
-yields the given by the Theorem \ref{smooth_k_iso_thm} isomorphism $K_0\left(\Coo\left(M \right) \right) \cong K_0\left( C\left(M \right)\right) $. 
+yields the given by the Theorem \ref{smooth_k_iso_thm} isomorphism $K_0\left(\Coo\left(M \right) \right) \in K_0\left( C\left(M \right)\right) $. 
 It can be proved that   the Definition \ref{top_smooth_m_defn} complies with the above definition of smooth tensor fields.
 We build a Clifford algebra bundle
 $\C\ell(M) \to M$ whose fibres are full matrix algebras (over ~$\C$) as
@@ -3343,7 +4029,7 @@ rank~$2^m$ over $C(M)$ if $n = 2m$ or $2m + 1$.
 	\end{enumerate}
 \end{prop}
 \begin{remark}\label{pr:charge-conj_rem}
-	Operator $C$ from the Proposition \ref{pr:charge-conj_prop} is a bijective isomorphism $\Ga\left(M,S \right)\cong \Ga\left(M,S \right)$ of Abelian groups. On the other hand since $\Ga\left(M,S \right)$ is dense in $L^2\left(M, S, \mu \right)$ it can be extended up to antiunitary  operator $J:L^2\left(M, S, \mu \right)\cong L^2\left(M, S, \mu \right)$. According to the construction of commutative real spectral triples $J$ is an operator which defines the structure of a real spectral triple (cf. Definition \ref{df:spt-real_defn}).
+	Operator $C$ from the Proposition \ref{pr:charge-conj_prop} is a bijective isomorphism $\Ga\left(M,S \right)\in \Ga\left(M,S \right)$ of Abelian groups. On the other hand since $\Ga\left(M,S \right)$ is dense in $L^2\left(M, S, \mu \right)$ it can be extended up to antiunitary  operator $J:L^2\left(M, S, \mu \right)\in L^2\left(M, S, \mu \right)$. According to the construction of commutative real spectral triples $J$ is an operator which defines the structure of a real spectral triple (cf. Definition \ref{df:spt-real_defn}).
 \end{remark}
 
 
@@ -3383,8 +4069,8 @@ then a $B$-$A$-bimodule on which the algebra $B = \Ga\left( M,\C\ell\left( M\rig
 acts irreducibly. If 
 \be\label{spin_gamma_eqn}
 \begin{split}
-	\ga: B \cong \End_A\left( \SS\right) \\
-	\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_{C\left(M \right) }\left( \Ga\left(M,S \right) \right)
+	\ga: B \in \End_A\left( \SS\right) \\
+	\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \in \End_{C\left(M \right) }\left( \Ga\left(M,S \right) \right)
 \end{split}
 \ee	
 is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
@@ -4317,9 +5003,9 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 		\bibitem{SUCHANECKI} Z.~Suchanecki, I.~Antoniou, S.~Tasaki, 
 		O.~F.~Brandtlow, J.~Math.~Phys.~{\bf 37}, 5837--5847 (1996).
 		
-		\bibitem{DENSE} A subspace $S$ of $\cal H$ is dense in $\cal H$
-		if we can approximate any element of $\cal H$ by an element of $S$
-		as well as we wish. Thus, for any $f$ of $\cal H$ and for any small
+		\bibitem{DENSE} A subspace $S$ of $\H$ is dense in $\H$
+		if we can approximate any element of $\H$ by an element of $S$
+		as well as we wish. Thus, for any $f$ of $\H$ and for any small
 		$\epsilon >0$, we can find a $\varphi$ in $S$ such that 
 		$\| f-\varphi \| < \epsilon$. In physical terms, this inequality means that
 		we can replace $f$ by $\varphi$ within an accuracy $\epsilon$.
@@ -4346,7 +5032,7 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 		see for example Ref.~\cite{DIS}.
 		
 		\bibitem{UNB} An operator $A$ is bounded if there is some finite $K$ such
-		that $\| Af \| <K \|f \|$ for all $f\in \cal H$, where $\| \  \|$ denotes 
+		that $\| Af \| <K \|f \|$ for all $f\in \H$, where $\| \  \|$ denotes 
 		the Hilbert space
 		norm. When such $K$ does not exist, $A$ is said to be unbounded. For a 
 		detailed account of the properties of bounded and unbounded operators, see for
@@ -4360,11 +5046,11 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 		vol.~I, Academic Press, Inc., New York (1972).
 		
 		\bibitem{INFENER} If we nevertheless insisted in for example calculating the 
-		expectation value~(\ref{exintrodispP}) for elements of $\cal H$ that are not 
-		in ${\cal D}(A)$, we would obtain an unphysical infinity value. For instance, 
+		expectation value~(\ref{exintrodispP}) for elements of $\H$ that are not 
+		in ${\mathcal D}(A)$, we would obtain an unphysical infinity value. For instance, 
 		if $A$ represents an unbounded Hamiltonian $H$, then the expectation 
-		value~(\ref{exintrodispP}) would be infinite for those $\varphi$ of $\cal H$ 
-		that lie outside of ${\cal D}(H)$. Because they have infinite 
+		value~(\ref{exintrodispP}) would be infinite for those $\varphi$ of $\H$ 
+		that lie outside of ${\mathcal D}(H)$. Because they have infinite 
 		energy, those states do not represent physically preparable wave packets.
 		
 		\bibitem{SNHS} If they were in the Hilbert space, $|a\rangle$ and $\langle a|$
@@ -4434,6 +5120,11 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 	 
 	\bibitem{dirac:principles}. P.A.M. Dirac. \textit{The Principles of Quantum Mechanics}. (Forth Edition), Clarendon Press, Oxford, 1958.
 	\bibitem{dirac_lectures} P. A. M. Dirac. \textit{Lectures on quantum mechanics}.	Hoffmann, Banesh, 1931.
+	
+	
+	title[Noncommutative Regularization]{Noncommutative Regularization\\ 
+		for the Practical Man}
+	\bibitem{hawkins:nc_reg}{Eli Hawkins}{\it Noncommutative Regularization	for the Practical Man} arxiv/hep-th/9908052, 1999.
 \end{thebibliography}
 
 
