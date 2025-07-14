@@ -2,6 +2,9 @@
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using PostgreSQLWarehouse.Models;
+
+PostgreSQLConsoleApp.A.TestA();
+
 //var k = Test3();
 
 /*

@@ -5,8 +5,7 @@ using OnlineGameConverter.Server.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
-//var fe = configuration["Frontend"];
-
+var fe = configuration["Frontend"];
 var services = builder.Services;
 
 // Add services to the container.
@@ -59,7 +58,7 @@ services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
           builder
            .AllowAnyMethod()
            .AllowAnyHeader()
-           .WithOrigins([configuration["Frontend"]])));
+           .WithOrigins(fe)));
 
 services.AddControllers();
 

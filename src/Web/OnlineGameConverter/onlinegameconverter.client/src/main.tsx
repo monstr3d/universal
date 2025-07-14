@@ -9,6 +9,6 @@ import MyComponent from './MyComponent.tsx'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <App />
+        <OrbitalTest />
    </StrictMode>
 )
