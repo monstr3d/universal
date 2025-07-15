@@ -14,5 +14,6 @@ namespace Diagram.UI.Interfaces
         /// <param name="obj">Prototype object</param>
         /// <returns>Code</returns>
         List<string> CreateCode(string preffix, object obj);
+
     }
 }

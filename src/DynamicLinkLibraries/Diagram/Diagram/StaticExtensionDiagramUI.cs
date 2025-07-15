@@ -18,6 +18,7 @@ using AssemblyService;
 using ErrorHandler;
 
 using NamedTree;
+using Diagram.Attributes;
 
 
 namespace Diagram.UI
@@ -30,11 +31,18 @@ namespace Diagram.UI
 
         #region Fields
 
+        private static NamedTree.Performer namedPerformer = new NamedTree.Performer();
+
 
         private static ExtensionObject extension = new ExtensionObject();
         
 
         static Performer performer = new Performer();
+
+        static Dictionary<string, CombinedCodeCreator> Creators
+        {
+            get;
+        } = new Dictionary<string, CombinedCodeCreator>();
 
 
 
@@ -60,10 +68,6 @@ namespace Diagram.UI
         /// </summary>
         public static readonly IComparer<object> ObjectComparer = new ObjectComparerClass();
 
-        /// <summary>
-        /// C# code creator
-        /// </summary>
-        private static IClassCodeCreator cSharpCodeCreator = new CombinedCodeCreator();
 
         /// Standard header of calculation class
         /// </summary>
@@ -519,7 +523,8 @@ namespace Diagram.UI
                 l.Add("\t\t\tobj.Object = this;");
                 l.Add("\t\t}");
                 l.Add("");
-                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
+                IClassCodeCreator cSharpCodeCreator = Creators["C#"];
+                List<string> lt =  cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
                 l.Add("\t\tinternal class CategoryObject : " + lt[0]);
                 for (int j = 1; j < lt.Count; j++)
                 {
@@ -545,7 +550,8 @@ namespace Diagram.UI
                 l.Add("\t\t\tarrow = new " + cln + ".CategoryArrow();");
                 l.Add("\t\t}");
                 l.Add("");
-                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
+                IClassCodeCreator cSharpCodeCreator = Creators["C#"];
+                List<string> lt =  cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
                 l.Add("\t\tinternal class CategoryArrow : " + lt[0]);
                 for (int j = 1; j < lt.Count; j++)
                 {
@@ -686,9 +692,25 @@ namespace Diagram.UI
         /// Adds C# class code creator
         /// </summary>
         /// <param name="creator"></param>
-        public static void AddCSharpCodeCreator(this IClassCodeCreator creator)
+        public static void AddCodeCreator(this IClassCodeCreator creator)
         {
-            (cSharpCodeCreator as CombinedCodeCreator).Add(creator);
+            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
+            if (att == null)
+            {
+                throw new OwnNotImplemented("LanguageAttribute");
+            }
+            var lang = att.Language;
+            CombinedCodeCreator c = null;
+            if (Creators.ContainsKey(lang))
+            {
+                c = Creators[lang];
+            }
+            else
+            {
+                c = new CombinedCodeCreator(lang);
+                Creators.Add(lang, c);
+            }
+            c.Add(creator);
         }
 
         /// <summary>
@@ -2598,7 +2620,7 @@ namespace Diagram.UI
                 return null;
             }
             l.Add(obj);
-            UrlAttribute attr = obj.GetAttribute<UrlAttribute>();
+            UrlAttribute attr = namedPerformer.GetAttribute<UrlAttribute>(obj);
             if (attr != null)
             {
                 return attr.Url;

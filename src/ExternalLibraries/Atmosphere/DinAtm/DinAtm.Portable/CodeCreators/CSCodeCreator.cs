@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
+using Diagram.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 
 namespace DinAtm.Portable.CodeCreators
 {
+    [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator();
         }
 
 

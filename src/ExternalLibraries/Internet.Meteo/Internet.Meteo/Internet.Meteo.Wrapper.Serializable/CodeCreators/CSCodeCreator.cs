@@ -1,4 +1,5 @@
-﻿using Diagram.UI;
+﻿using Diagram.Attributes;
+using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 namespace Internet.Meteo.Wrapper.Serializable.CodeCreators
@@ -6,12 +7,13 @@ namespace Internet.Meteo.Wrapper.Serializable.CodeCreators
     /// <summary>
     /// Code creator
     /// </summary>
+    [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator();
         }
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)

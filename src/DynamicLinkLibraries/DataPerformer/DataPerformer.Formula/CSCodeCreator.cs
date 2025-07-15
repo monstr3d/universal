@@ -7,9 +7,11 @@ using Diagram.UI;
 using FormulaEditor;
 
 using DataPerformer.Portable;
+using Diagram.Attributes;
 
 namespace DataPerformer.Formula
 {
+    [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
 
@@ -21,10 +23,9 @@ namespace DataPerformer.Formula
                     { (object o) => { return o is Recursive; } , CreateRecursive },
                 };
 
-
         internal CSCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator();
         }
 
         #region IClassCodeCreator Members

@@ -21,6 +21,8 @@ namespace Diagram.UI.Labels
     {
         #region Fields
 
+        NamedTree.Performer performer = new();
+
         /// <summary>
         /// Child control
         /// </summary>
@@ -200,7 +202,7 @@ namespace Diagram.UI.Labels
         /// <param name="context">Streaming context</param>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            var o = typeof(Type).GetAttribute<SerializableAttribute>();
+            var o = performer.GetAttribute<SerializableAttribute>(typeof(Type));
             if (o != null)
             {
                 info.AddValue("Type", type, typeof(Type));

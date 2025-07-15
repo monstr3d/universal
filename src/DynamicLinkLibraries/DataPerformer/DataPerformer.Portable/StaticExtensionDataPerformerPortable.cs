@@ -38,6 +38,8 @@ namespace DataPerformer.Portable
 
         #region Fields
 
+        static NamedTree.Performer performer = new NamedTree.Performer();
+
         // Type check
         private static readonly double a = 0;
         /// <summary>
@@ -1133,7 +1135,7 @@ namespace DataPerformer.Portable
             {
                 return false;
             }
-            CalculationReasonsAttribute attr = obj.GetAttribute<CalculationReasonsAttribute>();
+            CalculationReasonsAttribute attr = performer.GetAttribute<CalculationReasonsAttribute>(obj);
             if (attr == null)
             {
                 return false;
@@ -2544,7 +2546,7 @@ namespace DataPerformer.Portable
         static public bool ShouldInsertIntoChildren(this object value)
         {
             var att = 
-                value.GetAttribute<InsertIntoChilldrenCollectionAttribute>();
+                performer.GetAttribute<InsertIntoChilldrenCollectionAttribute>(value);
             return att == null ? false : att.Insert;
         }
 

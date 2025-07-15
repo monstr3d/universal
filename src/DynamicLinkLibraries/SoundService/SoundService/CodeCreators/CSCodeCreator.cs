@@ -1,4 +1,5 @@
-﻿using Diagram.UI;
+﻿using Diagram.Attributes;
+using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ namespace SoundService.CodeCreators
     /// <summary>
     /// Code creator
     /// </summary>
+    [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator();
         }
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)

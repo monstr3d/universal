@@ -13,7 +13,7 @@ namespace AliasRegression
     class StaticExtensionAliasRegression
     {
         /// <summary>
-        /// Initialize itself
+        /// Initializes itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

@@ -18,6 +18,8 @@ namespace DataPerformer.Portable
 
         #region Fields
 
+        static NamedTree.Performer performer = new NamedTree.Performer();
+
         /// <summary>
         /// Singleton
         /// </summary>
@@ -111,7 +113,7 @@ namespace DataPerformer.Portable
         static void CompletePost(object obj)
         {
             return;
-            ShouldCompleteAttribute at = obj.GetAttribute<ShouldCompleteAttribute>();
+            ShouldCompleteAttribute at = performer.GetAttribute<ShouldCompleteAttribute>(obj);
             if (at != null)
             {
                 TypeInfo ti = at.ToTypeInfo();

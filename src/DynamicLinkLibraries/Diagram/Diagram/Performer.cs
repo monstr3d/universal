@@ -1761,7 +1761,8 @@ namespace Diagram.UI
                 return null;
             }
             l.Add(obj);
-            UrlAttribute attr = obj.GetAttribute<UrlAttribute>();
+            var p = new NamedTree.Performer();
+            UrlAttribute attr = p.GetAttribute<UrlAttribute>(obj);
             if (attr != null)
             {
                 return attr.Url;

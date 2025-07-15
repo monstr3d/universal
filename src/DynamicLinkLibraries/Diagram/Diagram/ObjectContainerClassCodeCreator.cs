@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
 using Diagram.UI.Portable;
 using Diagram.UI.Interfaces;
+using Diagram.Attributes;
 
 
 namespace Diagram.UI
 {
+    [Language("C#")]
     class ObjectContainerClassCodeCreator : IClassCodeCreator
     {
 
         internal ObjectContainerClassCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator(); ;
         }
+
 
         #region IClassCodeCreator Members
 

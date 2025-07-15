@@ -459,16 +459,6 @@ namespace CategoryTheory
             return IntrospectionExtensions.GetTypeInfo(ob.GetType());
         }
 
-        /// <summary>
-        /// Gets attribute
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static T GetAttribute<T>(this object obj) where T : Attribute
-        {
-            return performer.GetAttribute<T>(obj);
-        }
 
         /// <summary>
         /// Hash Set Attribute
@@ -480,7 +470,7 @@ namespace CategoryTheory
         /// <returns>True if object has attribute</returns>
         public static bool HasAttribute<T>(this object obj) where T : Attribute
         {
-            return obj.GetAttribute<T>() != null;
+            return performer.GetAttribute<T>(obj) != null;
         }
 
         /// <summary>

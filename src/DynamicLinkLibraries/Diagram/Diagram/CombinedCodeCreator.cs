@@ -9,6 +9,15 @@ namespace Diagram.UI
     /// </summary>
     public class CombinedCodeCreator : IClassCodeCreator
     {
+        public CombinedCodeCreator(string language)
+        {
+            Language = language;   
+        }
+
+        protected virtual string Language { get; set; }
+
+
+
         #region Fields
 
         List<IClassCodeCreator> list = new List<IClassCodeCreator>();

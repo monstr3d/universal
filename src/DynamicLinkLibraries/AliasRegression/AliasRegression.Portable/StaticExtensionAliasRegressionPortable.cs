@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
 using AssemblyService.Attributes;
-using CategoryTheory;
+
+using Diagram.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
@@ -39,12 +40,13 @@ namespace Regression.Portable
 
         #region Code Creator
 
+        [Language("C#")]
         class CSCodeCreator : IClassCodeCreator
         {
 
             internal CSCodeCreator()
             {
-                this.AddCSharpCodeCreator();
+                this.AddCodeCreator();
             }
 
 

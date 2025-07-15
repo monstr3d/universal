@@ -1,5 +1,4 @@
-﻿using System;
-using NamedTree;
+﻿using NamedTree;
 
 
 namespace CategoryTheory

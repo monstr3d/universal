@@ -1,5 +1,6 @@
 ﻿using AssemblyService.Attributes;
 using BaseTypes;
+using Diagram.Attributes;
 using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -61,13 +62,15 @@ namespace Motion6D.EmptyCode
             }
         }
 
+        [Language("C#")]
+
         internal class CodeCreator : IClassCodeCreator
         {
             static internal readonly IClassCodeCreator Instance = new CodeCreator();
 
             private CodeCreator()
             {
-                this.AddCSharpCodeCreator();
+                this.AddCodeCreator();
             }
 
             List<string> IClassCodeCreator.CreateCode(string preffix, object obj)

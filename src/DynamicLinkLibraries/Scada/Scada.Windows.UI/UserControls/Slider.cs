@@ -1,19 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-using CustomControls.ComboBox;
-using CustomControls.Data;
-
-using Scada.Windows.UI.Converters;
 using Scada.Interfaces;
+using System.ComponentModel;
 
 
 namespace Scada.Windows.UI.UserControls
@@ -59,6 +48,7 @@ namespace Scada.Windows.UI.UserControls
              [DataList("GetInputs")]
              [TypeConverter(typeof(ListExpandableConverter))]
              [Category("SCADA"), Description("Input name"), DisplayName("Input")]*/
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Input
         {
             get
@@ -77,13 +67,16 @@ namespace Scada.Windows.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float MinValue
         { get; set; } = 0;
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float MaxValue
         { get; set; } = 100;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public float StepValue
         { get; set; } = 1;  
   

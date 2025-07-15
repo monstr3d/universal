@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿using Diagram.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 
 namespace Gravity_36_36.Wrapper.CodeCreators
 {
+    [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCSharpCodeCreator();
+            this.AddCodeCreator();
         }
 
 

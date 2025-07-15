@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Scada.Interfaces;
+using System.ComponentModel;
 
 
 namespace Scada.Windows.UI.UserControls
@@ -85,11 +86,12 @@ namespace Scada.Windows.UI.UserControls
         /// <summary>
         /// Event string
         /// </summary>
-    /*    [DefaultValue("")]
-        [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
-        [DataList("GetEvents")]
-        [TypeConverter(typeof(ListExpandableConverter))]
-        [Category("SCADA"), Description("Event name"), DisplayName("Event")]*/
+        /*    [DefaultValue("")]
+            [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
+            [DataList("GetEvents")]
+            [TypeConverter(typeof(ListExpandableConverter))]
+            [Category("SCADA"), Description("Event name"), DisplayName("Event")]*/
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Event
         {
             get
@@ -110,6 +112,15 @@ namespace Scada.Windows.UI.UserControls
         [DataList("GetOutputs")]
         [TypeConverter(typeof(ListExpandableConverter))]
         [Category("SCADA"), Description("Output name"), DisplayName("Output")]*/
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Output string
+        /// </summary>
+        /*    [DefaultValue("")]
+            [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
+            [DataList("GetOutputs")]
+            [TypeConverter(typeof(ListExpandableConverter))]
+            [Category("SCADA"), Description("Output name"), DisplayName("Output")]*/
         public string Output
         {
             get
