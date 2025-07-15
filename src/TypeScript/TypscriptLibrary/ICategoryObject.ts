@@ -1,0 +1,1 @@
+interface ICategoryObject { Get() : any, Set(obj : any) : void }

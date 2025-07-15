@@ -5,7 +5,12 @@ using OnlineGameConverter.Server.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
-var fe = configuration["Frontend"];
+var cf = configuration.GetChildren();
+var ff = (from c in cf where c.Path == "Frontend" select c).ToArray();
+var fc = ff[0].GetChildren();
+var fe = (from cc in  fc select cc.Value).ToArray();
+
+
 var services = builder.Services;
 
 // Add services to the container.
