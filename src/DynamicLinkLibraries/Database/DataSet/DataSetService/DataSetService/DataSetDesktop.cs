@@ -110,7 +110,7 @@ namespace DataSetService
         }
 
         /// <summary>
-        /// Creares desktop from data set
+        /// Creates desktop from data set
         /// </summary>
         /// <param name="dataSet">The data set</param>
         /// <returns>The desktop</returns>

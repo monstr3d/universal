@@ -8,7 +8,7 @@ namespace Diagram.TypeScript
     {
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
     }
 }

@@ -462,7 +462,7 @@ namespace PostgreSQLWarehouse.Models
 
         bool IDirectory.Post()
         {
-            throw new NotImplementedException();
+            throw new OwnNotImplemented();
         }
 
 

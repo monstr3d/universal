@@ -43,6 +43,11 @@ namespace Diagram.UI
         {
             get;
         } = new Dictionary<string, CombinedCodeCreator>();
+        static public Dictionary<string, IDesktopCodeCreator> DesktopCreators
+        {
+            get;
+        }
+   = new Dictionary<string, IDesktopCodeCreator>();
 
 
 
@@ -371,6 +376,7 @@ namespace Diagram.UI
         static StaticExtensionDiagramUI()
         {
             new ObjectContainerClassCodeCreator();
+            new CShapDesktopCodeCreator();
   /*          nativeDetectors.Add(
                 (object obj) => { return obj.HasAttribute<NativeObjectAttribute>(); }
                 );*/
@@ -689,7 +695,7 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Adds C# class code creator
+        /// Adds code creator
         /// </summary>
         /// <param name="creator"></param>
         public static void AddCodeCreator(this IClassCodeCreator creator)
@@ -711,6 +717,21 @@ namespace Diagram.UI
                 Creators.Add(lang, c);
             }
             c.Add(creator);
+        }
+
+        /// <summary>
+        /// Adds code creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void AddCodeCreator(this IDesktopCodeCreator creator)
+        {
+            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
+            if (att == null)
+            {
+                throw new OwnNotImplemented("LanguageAttribute");
+            }
+            var lang = att.Language;
+            DesktopCreators.Add(lang, creator); 
         }
 
         /// <summary>

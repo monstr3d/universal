@@ -8,6 +8,7 @@ namespace Diagram.TypeScript
         static StaticrExtensionDiagramTypeScript()
         {
             new ObjectContainerClassCodeCreator();
+            new DesktopCodeCreator();
         }
 
         /// <summary>
