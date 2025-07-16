@@ -10,6 +10,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using NamedTree;
 
 namespace DataPerformer
 {

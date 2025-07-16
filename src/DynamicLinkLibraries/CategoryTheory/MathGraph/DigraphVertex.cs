@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Text;
-
-using CategoryTheory;
+using NamedTree;
 
 namespace MathGraph
 {

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using CategoryTheory;
 
@@ -10,9 +8,10 @@ using BaseTypes;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
-using Diagram.UI.Helpers;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable;
+
+using NamedTree;
 
 namespace DataPerformer.Helpers
 {

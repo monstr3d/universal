@@ -1,5 +1,6 @@
 using CategoryTheory;
 using ErrorHandler;
+using NamedTree;
 
 namespace MathGraph
 {

@@ -21,6 +21,7 @@ using Event.Portable.Interfaces;
 
 using Scada.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace Scada.Desktop
 {

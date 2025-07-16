@@ -63,6 +63,7 @@ namespace TestCategory.UI.UserConrols
             remove { isAdmissible -= value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Func<TestCollection> CreateTestData
         {
             get

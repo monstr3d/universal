@@ -8,6 +8,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using ErrorHandler;
 using Motion6D.Interfaces;
+using NamedTree;
 using PhysicalField.Interfaces;
 using System;
 using System.Collections.Generic;

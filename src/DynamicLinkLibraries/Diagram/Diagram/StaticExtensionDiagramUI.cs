@@ -433,7 +433,7 @@ namespace Diagram.UI
         /// <param name="constructorType">Type of constructor</param>
         /// <param name="staticClass">The "static class sign</param>
         /// <returns>The code</returns>
-        public static List<string> CreateDesktopCode(this PureDesktop desktop, string prefix,
+        public static List<string> CreateDesktopCode(this IDesktop desktop, string prefix,
             string className, string check = null, bool postLoad = false, string constructorType = "internal ", bool staticClass = true)
         {
             var ct = constructorType;
@@ -609,7 +609,7 @@ namespace Diagram.UI
             else
             {
                 l.Add("\tpublic  class " + className + " : Diagram.UI.PureDesktop");
-                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", className,
+                List<string> lt = desktop.CreateDesktopCode("", className,
                " \t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "public ");
                 for (int i = 1; i < lt.Count; i++)
                 {

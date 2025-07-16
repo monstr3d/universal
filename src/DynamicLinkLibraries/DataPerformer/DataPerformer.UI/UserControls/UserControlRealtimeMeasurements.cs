@@ -8,6 +8,7 @@ using CategoryTheory;
 using Diagram.UI;
 
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.UI.UserControls
 {

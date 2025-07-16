@@ -20,6 +20,7 @@ namespace ImageTransformations
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IBitmapDrawing Drawing
         {
             get

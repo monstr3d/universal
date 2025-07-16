@@ -21,6 +21,7 @@ using Event.Portable.Interfaces;
 using Event.Portable.Internal;
 
 using ErrorHandler;
+using NamedTree;
 
 namespace Event.Portable
 {

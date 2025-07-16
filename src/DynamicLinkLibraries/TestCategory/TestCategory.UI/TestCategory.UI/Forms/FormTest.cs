@@ -75,6 +75,7 @@ namespace TestCategory.UI.Forms
             Close();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Func<TestCollection> CreateTest
         {
             get

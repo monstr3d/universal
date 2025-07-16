@@ -11,6 +11,7 @@ using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace Diagram.UI
@@ -335,9 +336,8 @@ namespace Diagram.UI
         /// <returns>The property editor form</returns>
         static public Form CreateEditorForm(object obj)
         {
-            if (obj is IAssociatedObject)
+            if (obj is IAssociatedObject ao)
             {
-                IAssociatedObject ao = obj as IAssociatedObject;
                 IPropertiesEditor pe = ao.GetObject<IPropertiesEditor>();
                 if (pe != null)
                 {

@@ -41,6 +41,7 @@ namespace ImageTransformations.UserControls
         /// <summary>
         /// Image
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ExternalContextImage Image
         {
             get

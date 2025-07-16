@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+using NamedTree;
 
 namespace DynamicAtmosphere.Wrapper.UI.Forms
 {
@@ -51,7 +52,7 @@ namespace DynamicAtmosphere.Wrapper.UI.Forms
         /// </summary>
         public void UpdateFormUI()
         {
-            CategoryTheory.IAssociatedObject ao = atmosphere as CategoryTheory.IAssociatedObject;
+            IAssociatedObject ao = atmosphere as IAssociatedObject;
             object o = ao.Object;
             if (o == null)
             {

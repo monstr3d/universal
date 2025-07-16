@@ -6,6 +6,7 @@ using CategoryTheory;
 using Diagram.UI;
 using ErrorHandler;
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable
 {

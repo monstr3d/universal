@@ -16,6 +16,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 
 using ErrorHandler;
+using NamedTree;
 
 
 namespace DataPerformer.Portable.Wrappers

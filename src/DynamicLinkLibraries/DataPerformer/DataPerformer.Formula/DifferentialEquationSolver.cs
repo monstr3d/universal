@@ -20,6 +20,7 @@ using DataPerformer.Portable;
 
 using DataPerformer.Formula.Interfaces;
 using ErrorHandler;
+using NamedTree;
 
 namespace DataPerformer.Formula
 {

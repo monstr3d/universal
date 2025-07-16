@@ -10,6 +10,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Motion6D.Portable.Runtime
 {

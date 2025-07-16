@@ -36,6 +36,7 @@ namespace ImageTransformations.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Url
         {
             get

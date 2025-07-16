@@ -31,6 +31,7 @@ using Chart.Objects;
 using DataPerformer.UI.Labels;
 using BaseTypes;
 using ErrorHandler;
+using NamedTree;
 
 
 namespace DataPerformer.UI

@@ -12,6 +12,7 @@ using Diagram.UI.Interfaces;
 
 using ErrorHandler;
 using System.ComponentModel;
+using NamedTree;
 
 namespace Diagram.UI.Labels
 {

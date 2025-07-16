@@ -16,6 +16,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal int ObjectNumber
         {
             get

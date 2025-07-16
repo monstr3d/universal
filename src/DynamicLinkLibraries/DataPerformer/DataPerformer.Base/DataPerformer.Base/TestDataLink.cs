@@ -4,6 +4,7 @@ using System.Text;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer
 {

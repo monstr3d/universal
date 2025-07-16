@@ -9,6 +9,7 @@ using Motion6D;
 using Diagram.UI;
 using CategoryTheory;
 using Diagram.UI.Labels;
+using NamedTree;
 
 namespace Motion6D.UI
 {

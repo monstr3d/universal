@@ -16,6 +16,7 @@ using DataPerformer.Portable;
 using Event.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using BaseTypes;
+using NamedTree;
 
 namespace DataPerformer.Portable.Runtime
 {

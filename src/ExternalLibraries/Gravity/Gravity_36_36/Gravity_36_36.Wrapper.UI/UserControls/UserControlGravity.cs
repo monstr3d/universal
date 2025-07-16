@@ -39,6 +39,7 @@ namespace Gravity_36_36.Wrapper.UI.UserControls
 
         #region Internal and Private Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Serializable.Gravity Gravity
         {
             set

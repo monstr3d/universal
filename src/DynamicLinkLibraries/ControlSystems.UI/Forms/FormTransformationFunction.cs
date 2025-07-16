@@ -82,6 +82,7 @@ namespace ControlSystems.UI.Forms
         /// <summary>
         /// Measurements
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICollection<string> Measurements
         {
             set
@@ -93,6 +94,7 @@ namespace ControlSystems.UI.Forms
         /// <summary>
         /// Sets selected item
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SelectedItem
         {
             set
@@ -115,6 +117,7 @@ namespace ControlSystems.UI.Forms
         /// <summary>
         /// Feedback
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IFeedback Feedback
         {
             set

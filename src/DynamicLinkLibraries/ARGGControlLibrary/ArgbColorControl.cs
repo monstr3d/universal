@@ -1,8 +1,9 @@
 ﻿
+using CutoutPro.Winforms.Helpers;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using CutoutPro.Winforms.Helpers;
 
 namespace CutoutPro.Winforms
 {
@@ -87,11 +88,12 @@ namespace CutoutPro.Winforms
 		private Form m_oldParent = null;
 		
 		public event EventHandler SelectedColorChanged;
-		
-		/// <summary>
-		/// When set to true, the color code text box sends events.
-		/// </summary>
-		public bool SendColorCodeChanged
+
+        /// <summary>
+        /// When set to true, the color code text box sends events.
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool SendColorCodeChanged
 		{
 			get
 			{
@@ -102,11 +104,12 @@ namespace CutoutPro.Winforms
 				m_sendColorCodeChanged = value;
 			}
 		}
-		
-		/// <summary>
-		/// When set to true, the alpha text box sends events.
-		/// </summary>
-		public bool SendAlphaChanged
+
+        /// <summary>
+        /// When set to true, the alpha text box sends events.
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool SendAlphaChanged
 		{
 			get
 			{
@@ -117,8 +120,9 @@ namespace CutoutPro.Winforms
 				m_sendAlphaChanged = value;
 			}
 		}
-		
-		public ColorDialogSettings Settings
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public ColorDialogSettings Settings
 		{
 			get 
 			{
@@ -142,8 +146,9 @@ namespace CutoutPro.Winforms
 		void OkButtonClick(object sender, EventArgs e)
 		{
 		}
-	
-		public Color Color
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Color Color
 		{
 			get
 			{
@@ -157,8 +162,9 @@ namespace CutoutPro.Winforms
 				this.brightnessTextBox.Text = ((int)(m_settings.Brightness*255)).ToString();
 			}
 		}
-		
-		public Bitmap AlphaBuffer
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Bitmap AlphaBuffer
 		{
 			get
 			{
@@ -169,8 +175,9 @@ namespace CutoutPro.Winforms
 				m_alphaBuffer = value;
 			}
 		}
-		
-		public Bitmap BrightnessBuffer
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Bitmap BrightnessBuffer
 		{
 			get
 			{
@@ -181,8 +188,9 @@ namespace CutoutPro.Winforms
 				m_brightnessBuffer = value;
 			}
 		}
-		
-		public Bitmap HsvBuffer
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Bitmap HsvBuffer
 		{
 			get
 			{

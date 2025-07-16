@@ -14,6 +14,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using Event.Interfaces;
+using NamedTree;
 
 namespace Event.UI.Forms
 {

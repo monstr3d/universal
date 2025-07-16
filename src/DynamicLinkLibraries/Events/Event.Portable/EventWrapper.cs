@@ -2,6 +2,7 @@
 using ErrorHandler;
 using Event.Interfaces;
 using Event.Portable.Interfaces;
+using NamedTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -19,6 +19,7 @@ using Scada.Interfaces;
 
 using Web.Interfaces;
 using DataPerformer.Portable.Interfaces;
+using NamedTree;
 
 namespace Scada.Desktop.Serializable
 {

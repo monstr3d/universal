@@ -17,6 +17,7 @@ using DataPerformer.Interfaces;
 
 
 using Regression;
+using NamedTree;
 
 
 
@@ -101,7 +102,7 @@ namespace DataPerformer.UI
             for (int i = 0; i < l.Count; i++)
             {
                 IStructuredSelectionCollection coll = l[i];
-                CategoryTheory.IAssociatedObject ao = coll as CategoryTheory.IAssociatedObject;
+                IAssociatedObject ao = coll as IAssociatedObject;
                 IObjectLabel lab = ao.Object as IObjectLabel;
                 UserControlObject op = new UserControlObject(null, lab);
                 op.Left = 0;

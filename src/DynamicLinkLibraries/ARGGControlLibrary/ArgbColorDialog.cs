@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel;
+
 namespace CutoutPro.Winforms
 {
 	/// <summary>
@@ -18,8 +20,9 @@ namespace CutoutPro.Winforms
 		
 		private Color m_color;
 		private int[] m_customColors;
-		
-		public Color Color
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Color Color
 		{
 			get
 			{return argbColorControl1.Color;}
@@ -29,33 +32,37 @@ namespace CutoutPro.Winforms
 				previewColor.BackColor = Color.FromArgb(m_color.R, m_color.G, m_color.B);
 			}
 		}
-		
-		public bool FullOpen
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool FullOpen
 		{
 			get
 			{return true;}
 			set
 			{}
 		}
-		
-		
-		public int[] CustomColors
+
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int[] CustomColors
 		{
 			get
 			{return m_customColors;}
 			set
 			{m_customColors = value;}
 		}
-		
-		public bool AnyColor
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool AnyColor
 		{
 			get
 			{return true;}
 			set
 			{}
 		}
-		
-		public bool SolidColorOnly
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool SolidColorOnly
 		{
 			get
 			{return false;}

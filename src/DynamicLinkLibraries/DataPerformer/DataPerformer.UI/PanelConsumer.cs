@@ -1,6 +1,7 @@
 using CategoryTheory;
 using DataPerformer;
 using DataPerformer.Interfaces;
+using NamedTree;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

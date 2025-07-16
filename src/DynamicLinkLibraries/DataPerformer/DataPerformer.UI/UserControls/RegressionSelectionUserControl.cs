@@ -4,6 +4,7 @@ using DataPerformer.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.UserControls;
+using NamedTree;
 using Regression;
 using System;
 using System.Collections;

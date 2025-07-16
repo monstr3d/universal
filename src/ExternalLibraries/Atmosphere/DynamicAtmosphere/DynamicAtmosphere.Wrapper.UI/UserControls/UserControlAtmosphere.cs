@@ -30,6 +30,7 @@ namespace DynamicAtmosphere.Wrapper.UI.UserControls
 
         #region Internal Member
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Atmosphere Atmosphere
         {
             set

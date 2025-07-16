@@ -31,6 +31,7 @@ namespace ImageNavigation.UserControls
             Refresh();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal BitmapColorTable Table
         {
             set

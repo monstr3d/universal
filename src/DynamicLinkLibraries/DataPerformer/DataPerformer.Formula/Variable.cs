@@ -11,6 +11,7 @@ using DataPerformer.Interfaces;
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.Formula
 {

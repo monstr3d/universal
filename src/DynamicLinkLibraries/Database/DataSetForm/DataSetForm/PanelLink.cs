@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Data;
 
 using DataSetService;
+using System.ComponentModel;
 
 
 namespace DataSetService.Forms
@@ -46,6 +47,7 @@ namespace DataSetService.Forms
 
         #region ILink Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IColumn Source
         {
             get
@@ -60,6 +62,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IColumn Target
         {
             get
@@ -77,6 +80,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDataSetDesktop Desktop
         {
             get
@@ -90,6 +94,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SourceTable
         {
             get
@@ -102,6 +107,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TargetTable
         {
             get
@@ -114,6 +120,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SourceColumn
         {
             get
@@ -126,6 +133,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TargetColumn
         {
             get
@@ -138,6 +146,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsMarked
         {
             get

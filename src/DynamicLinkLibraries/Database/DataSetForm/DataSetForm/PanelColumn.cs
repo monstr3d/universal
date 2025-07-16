@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Data;
 
 using DataSetService;
+using System.ComponentModel;
 
 
 namespace DataSetService.Forms
@@ -32,11 +33,12 @@ namespace DataSetService.Forms
         protected int length;
 
 
-        
+
         #endregion
- 
+
         #region IColumn Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ITable Table
         {
             get
@@ -49,6 +51,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataColumn Column
         {
             get
@@ -61,6 +64,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsMarked
         {
             get
@@ -73,6 +77,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Type
         {
             get
@@ -85,6 +90,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsNullable
         {
             get { return cbNull != null; }
@@ -98,6 +104,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsNull
         {
             get 
@@ -117,6 +124,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Modifier
         {
             get 
@@ -129,6 +137,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Value
         {
             get 
@@ -141,6 +150,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual int Length
         {
             get

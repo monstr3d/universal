@@ -1,3 +1,5 @@
+using NamedTree;
+
 namespace CategoryTheory
 {
     /// <summary>

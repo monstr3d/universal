@@ -1,16 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml;
-
-
-using CategoryTheory;
 
 using Diagram.UI;
 using Diagram.UI.Labels;
@@ -23,6 +14,7 @@ using DataPerformer.Portable;
 using Motion6D.Interfaces;
 
 using WpfInterface.Objects3D;
+using NamedTree;
 
 
 namespace WpfInterface.UI.UserControls

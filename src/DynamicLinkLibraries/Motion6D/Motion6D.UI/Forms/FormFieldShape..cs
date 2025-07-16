@@ -21,6 +21,7 @@ using Motion6D;
 using Motion6D.Interfaces;
 
 using PhysicalField;
+using NamedTree;
 
 
 namespace Motion6D.UI.Forms

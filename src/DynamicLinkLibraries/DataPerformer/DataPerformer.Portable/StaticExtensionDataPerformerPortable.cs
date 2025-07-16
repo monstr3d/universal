@@ -26,6 +26,7 @@ using Event.Interfaces;
 using System.Drawing;
 using ErrorHandler;
 using System.Threading;
+using NamedTree;
 
 namespace DataPerformer.Portable
 {

@@ -1,21 +1,15 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
-
+﻿using CutoutPro.Winforms;
 using Diagram.UI;
-
-
-using Motion6D.Interfaces;
-
-using WpfInterface.UI.Labels;
-using WpfInterface.UI.Forms;
-using WpfInterface.Objects3D;
-
-using Wpf.Loader;
-
 using ErrorHandler;
-
-using CutoutPro.Winforms;
+using Motion6D.Interfaces;
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Forms;
+using Wpf.Loader;
+using WpfInterface.Objects3D;
+using WpfInterface.UI.Forms;
+using WpfInterface.UI.Labels;
 
 
 namespace WpfInterface.UI.UserControls
@@ -75,6 +69,7 @@ namespace WpfInterface.UI.UserControls
                 }*/
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public WpfShape Shape
         {
             get

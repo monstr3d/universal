@@ -8,6 +8,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using ErrorHandler;
+using NamedTree;
 
 namespace BitmapConsumer
 {

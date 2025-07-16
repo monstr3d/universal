@@ -15,6 +15,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
 
 using Event.Interfaces;
+using NamedTree;
 
 namespace Event.UI.UserControls
 {

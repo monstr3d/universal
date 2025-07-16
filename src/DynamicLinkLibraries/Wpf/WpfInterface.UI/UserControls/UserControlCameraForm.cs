@@ -79,6 +79,7 @@ namespace WpfInterface.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public WpfCamera Camera
         {
             get
@@ -104,6 +105,7 @@ namespace WpfInterface.UI.UserControls
 
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string CameraBackground
         {
             get

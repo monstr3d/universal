@@ -68,6 +68,7 @@ namespace ControlSystems.UI.UserControls
 
         #region Members
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IFeedback Feedback
         {
             set
@@ -105,6 +106,7 @@ namespace ControlSystems.UI.UserControls
         /// <summary>
         /// Measurements
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ICollection<string> Measurements
         {
             set
@@ -120,6 +122,7 @@ namespace ControlSystems.UI.UserControls
         /// <summary>
         /// Sets selected item
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SelectedItem
         {
             set
@@ -180,6 +183,7 @@ namespace ControlSystems.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal RationalTransformControlSystemFunctionWrapper Transform
         {
             get

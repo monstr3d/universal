@@ -28,6 +28,8 @@ namespace Database.UI.UserControls
 
         #endregion
 
+
+         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal StatementWrapper Wrapper
         {
             get

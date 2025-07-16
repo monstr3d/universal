@@ -13,6 +13,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using Motion6D.Interfaces;
+using NamedTree;
 
 
 namespace WpfInterface.UI.Forms

@@ -12,6 +12,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.UserControls;
 
 using DataPerformer.Interfaces;
+using NamedTree;
 
 
 namespace DataPerformer.UI

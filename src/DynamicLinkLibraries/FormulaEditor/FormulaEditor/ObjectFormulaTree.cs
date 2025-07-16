@@ -7,6 +7,7 @@ using BaseTypes.Interfaces;
 using FormulaEditor.Attributes;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using NamedTree;
 
 namespace FormulaEditor
 {
@@ -14,7 +15,7 @@ namespace FormulaEditor
 	/// <summary>
 	/// Tree of an object formula
 	/// </summary>
-	public class ObjectFormulaTree 
+	public class ObjectFormulaTree : IAssociatedObject
     {
 
         #region Fields
@@ -53,6 +54,8 @@ namespace FormulaEditor
 
         static private readonly object[] emptyArray = new object[0];
 
+        protected virtual object Object { get; set; }
+
         #endregion
 
         #region Ctor
@@ -62,7 +65,6 @@ namespace FormulaEditor
 		/// </summary>
         protected ObjectFormulaTree()
         {
-
         }
 
 		/// <summary>
@@ -70,11 +72,11 @@ namespace FormulaEditor
 		/// </summary>
 		/// <param name="operation">Tree operation</param>
 		/// <param name="children">Children trees</param>
-		public ObjectFormulaTree(IObjectOperation operation, List<ObjectFormulaTree> children)
+		public ObjectFormulaTree(IObjectOperation operation, List<ObjectFormulaTree> children) 
 		{
-			if (operation is Interfaces.ICloneable)
+         	if (operation is ICloneable)
 			{
-				Interfaces.ICloneable c = operation as Interfaces.ICloneable;
+				ICloneable c = operation as ICloneable;
 				this.operation = c.Clone() as IObjectOperation;
 			}
 			else
@@ -377,6 +379,8 @@ namespace FormulaEditor
                 tag = value;
             }
         }
+
+        object IAssociatedObject.Object { get => Object; set => Object = value; }
 
         /// <summary>
         /// Gets binary operation

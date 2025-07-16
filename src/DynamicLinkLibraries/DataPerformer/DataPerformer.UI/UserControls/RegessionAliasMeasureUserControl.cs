@@ -10,6 +10,7 @@ using DataPerformer;
 using CategoryTheory;
 using Diagram.UI.Labels;
 using DataPerformer.Interfaces;
+using NamedTree;
 
 namespace DataPerformer.UI.UserControls
 {

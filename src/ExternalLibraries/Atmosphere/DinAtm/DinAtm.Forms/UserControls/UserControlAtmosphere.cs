@@ -19,6 +19,7 @@ namespace DinAtm.Forms.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Portable.Atmosphere Atmosphere
         {
             set

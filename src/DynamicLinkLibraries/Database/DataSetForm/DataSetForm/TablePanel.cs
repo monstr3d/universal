@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Data;
 
 using DataSetService;
+using System.ComponentModel;
 
 namespace DataSetService.Forms
 {
@@ -44,6 +45,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int X
         {
             get
@@ -56,6 +58,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Y
         {
             get
@@ -68,6 +71,7 @@ namespace DataSetService.Forms
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataTable Table
         {
             get
@@ -85,6 +89,7 @@ namespace DataSetService.Forms
             AbstractDataSetDesktop.RemoveTable(this);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDataSetDesktop Desktop
         {
             get

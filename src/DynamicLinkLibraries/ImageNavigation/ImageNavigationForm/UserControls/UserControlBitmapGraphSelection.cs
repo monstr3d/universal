@@ -113,6 +113,7 @@ namespace ImageNavigation.UserControls
         /// <summary>
         /// The "strip visible" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool StripVisible
         {
             get
@@ -137,6 +138,7 @@ namespace ImageNavigation.UserControls
         /// <summary>
         /// Color
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color Color
         {
             get
@@ -152,6 +154,7 @@ namespace ImageNavigation.UserControls
         /// <summary>
         /// The "show" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new bool Show
         {
             get
@@ -165,6 +168,7 @@ namespace ImageNavigation.UserControls
 
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ChartPerformer Performer
         {
             get
@@ -173,6 +177,7 @@ namespace ImageNavigation.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IChartTable ChartTable
         {
             set
@@ -264,6 +269,7 @@ namespace ImageNavigation.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal BitmapGraphSelection Selection
         {
             get

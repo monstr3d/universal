@@ -73,6 +73,7 @@ namespace Database.UI.Labels
         /// <summary>
         /// Object
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual ICategoryObject Object
         {
             get

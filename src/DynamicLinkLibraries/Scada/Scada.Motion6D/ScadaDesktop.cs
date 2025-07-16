@@ -24,6 +24,7 @@ using Animation.Interfaces;
 
 using Motion6D.Portable;
 using Motion6D.Interfaces;
+using NamedTree;
 
 namespace Scada.Motion6D
 {

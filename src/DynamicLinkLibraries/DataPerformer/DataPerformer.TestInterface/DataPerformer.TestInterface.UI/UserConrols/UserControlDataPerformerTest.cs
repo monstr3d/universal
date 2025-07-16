@@ -61,6 +61,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             remove { isAdmissible -= value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Func<TestData1> CreateTestData
         {
             get

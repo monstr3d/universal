@@ -15,6 +15,7 @@ using Event.Basic.Events;
 using Event.Basic.Data.Events;
 
 using Event.UI.UserControls;
+using NamedTree;
 
 namespace Event.UI.Labels
 {

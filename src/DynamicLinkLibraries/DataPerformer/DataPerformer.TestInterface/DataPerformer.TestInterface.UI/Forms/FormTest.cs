@@ -75,6 +75,7 @@ namespace DataPerformer.TestInterface.UI.Forms
             Close();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Func<TestData1> CreateTest
         {
             get

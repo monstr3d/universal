@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
+using NamedTree;
 using ResourceService;
 
 namespace DinAtm.Forms.FormUI
@@ -37,7 +38,7 @@ namespace DinAtm.Forms.FormUI
         /// </summary>
         public void UpdateFormUI()
         {
-            CategoryTheory.IAssociatedObject ao = atmosphere as CategoryTheory.IAssociatedObject;
+            IAssociatedObject ao = atmosphere as IAssociatedObject;
             object o = ao.Object;
             if (o == null)
             {

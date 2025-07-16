@@ -33,6 +33,7 @@ namespace ImageNavigation.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal BitmapGraphSelection Selection
         {
             set
@@ -42,6 +43,7 @@ namespace ImageNavigation.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IChartTable ChartTable
         {
             set

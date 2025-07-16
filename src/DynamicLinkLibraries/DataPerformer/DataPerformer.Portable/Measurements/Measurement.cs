@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BaseTypes;
 using BaseTypes.Interfaces;
-using CategoryTheory;
 using DataPerformer.Interfaces;
 using Diagram.UI;
+using NamedTree;
 
 namespace DataPerformer.Portable.Measurements
 {

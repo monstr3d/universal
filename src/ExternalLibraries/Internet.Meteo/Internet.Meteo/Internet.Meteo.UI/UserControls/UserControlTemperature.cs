@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using WindowsExtensions;
@@ -24,6 +25,7 @@ namespace Internet.Meteo.UI.UserControls
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Wrapper.Sensor Sensor
         {
             get => sensor;

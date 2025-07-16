@@ -12,6 +12,7 @@ using CategoryTheory;
 
 using Diagram.UI.Labels;
 using ErrorHandler;
+using NamedTree;
 
 namespace Diagram.UI.UserControls
 {
@@ -126,9 +127,8 @@ namespace Diagram.UI.UserControls
             {
                 return o as IObjectLabel;
             }
-            if (o is IAssociatedObject)
+            if (o is IAssociatedObject ao)
             {
-                IAssociatedObject ao = o as IAssociatedObject;
                 object ob = ao.Object;
                 if (ob is IObjectLabel)
                 {

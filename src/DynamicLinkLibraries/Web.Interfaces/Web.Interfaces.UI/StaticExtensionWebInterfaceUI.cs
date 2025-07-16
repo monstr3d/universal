@@ -3,6 +3,7 @@
 using CategoryTheory;
 
 using Diagram.UI;
+using NamedTree;
 
 namespace Web.Interfaces.UI
 {

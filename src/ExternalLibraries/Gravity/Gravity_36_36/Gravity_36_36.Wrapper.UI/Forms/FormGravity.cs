@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Gravity_36_36.Wrapper.UI.Labels;
+using NamedTree;
 
 namespace Gravity_36_36.Wrapper.UI.Forms
 {
@@ -42,7 +43,7 @@ namespace Gravity_36_36.Wrapper.UI.Forms
         /// </summary>
         public void UpdateFormUI()
         {
-            CategoryTheory.IAssociatedObject ao = gravity as CategoryTheory.IAssociatedObject;
+            IAssociatedObject ao = gravity as IAssociatedObject;
             object o = ao.Object;
             if (o == null)
             {

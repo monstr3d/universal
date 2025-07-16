@@ -82,7 +82,8 @@ namespace Aviation.Light
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            ApplicationConfiguration.Initialize();
+      //      ApplicationConfiguration.Initialize();
+
 
             AssemblyService.StaticExtensionAssemblyService.Init();
 

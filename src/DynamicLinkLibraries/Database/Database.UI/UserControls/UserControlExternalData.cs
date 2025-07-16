@@ -34,6 +34,7 @@ namespace Database.UI.UserControls
             panelSource.Controls.Add(control);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal IDataSetProvider Provider
         {
             get

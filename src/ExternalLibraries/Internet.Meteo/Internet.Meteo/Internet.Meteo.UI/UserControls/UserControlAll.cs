@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Internet.Meteo.UI.UserControls
@@ -17,6 +17,7 @@ namespace Internet.Meteo.UI.UserControls
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Sensor Sensor
         {
             set

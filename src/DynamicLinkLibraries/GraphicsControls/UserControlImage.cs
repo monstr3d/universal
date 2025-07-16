@@ -45,6 +45,7 @@ namespace GraphicsControls
         /// <summary>
         /// Image
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Image Image
         {
             set
@@ -57,6 +58,7 @@ namespace GraphicsControls
         /// <summary>
         /// "is scaled" sign
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsScaled
         {
             get

@@ -34,6 +34,7 @@ namespace ImageTransformations.UserControls
             e.Graphics.DrawImage(bmp, p);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal Bitmap Bitmap
         {
             set

@@ -4,6 +4,7 @@ using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using Diagram.UI;
 using Diagram.UI.Utils;
+using NamedTree;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

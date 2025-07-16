@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Diagram.UI.Labels;
+using System;
+using System.ComponentModel;
 using System.Windows.Forms;
-using Diagram.UI.Labels;
 using WpfInterface.UI.Labels;
 
 namespace WpfInterface.UI.Forms
 {
     public partial class FormConvert : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal ShapeLabel Label
         {
             set;
