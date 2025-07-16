@@ -1,11 +1,4 @@
-﻿using CategoryTheory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-
-
+﻿
 namespace BasicEngineering.UI.Factory
 {
     /// <summary>
@@ -17,6 +10,13 @@ namespace BasicEngineering.UI.Factory
         {
 
         }
+
+        public static string ConversionLanguage
+        {
+            get => Properties.Settings.Default.ConversionLanguage;
+            set { Properties.Settings.Default.ConversionLanguage = value; Properties.Settings.Default.Save(); }
+        }
+
 
         public static bool StaticClassGenerated
         {

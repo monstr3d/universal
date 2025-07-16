@@ -1,5 +1,8 @@
 "use strict";
 class Measurements extends CategoryObject {
+    GetName() {
+        throw new Error("Method not implemented.");
+    }
     Update() {
         throw new Error("Method not implemented.");
     }

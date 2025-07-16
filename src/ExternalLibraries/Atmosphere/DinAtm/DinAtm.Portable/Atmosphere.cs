@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
-using System.Collections.Generic;
+
 using NamedTree;
 
 namespace DinAtm.Portable

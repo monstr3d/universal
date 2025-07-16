@@ -17,5 +17,6 @@ namespace Diagram.UI.Interfaces
         /// <returns>The code</returns>
         List<string> CreateCode(IDesktop desktop, string namespacE,
             string className, bool staticClass = true);
-    }
+
+      }
 }

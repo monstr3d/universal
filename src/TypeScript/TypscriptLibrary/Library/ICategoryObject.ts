@@ -1,1 +1,1 @@
-interface ICategoryObject { Get() : any, Set(obj : any) : void }
+interface ICategoryObject { Get() : any, Set(obj : any) : void, GetName() : string}

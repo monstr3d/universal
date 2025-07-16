@@ -1,5 +1,8 @@
 class Measurements extends CategoryObject  implements IMeasurements, ICategoryArrow
 {
+    GetName(): string {
+        throw new Error("Method not implemented.");
+    }
     Update(): void {
         throw new Error("Method not implemented.");
     }

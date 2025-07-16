@@ -1,15 +1,19 @@
-﻿using CategoryTheory;
-using Diagram.UI.Attributes;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
-using ErrorHandler;
-using NamedTree;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+
+using CategoryTheory;
+
+using Diagram.UI.Attributes;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+
+using ErrorHandler;
+
+using NamedTree;
 
 namespace Diagram.UI
 {
@@ -36,7 +40,28 @@ namespace Diagram.UI
 
         public IEnumerable<T> Get<T>(IComponentCollection desktop) where T : class
         {
-            return Get<T>(desktop.Desktop);
+            return Get<T>(desktop.AllComponents);
+        }
+
+        public void Get(IComponentCollection collection, out List<ICategoryObject> categoryObjects, 
+            out List<ICategoryArrow> categoryArrows, out Dictionary<ICategoryObject, int> objects,
+            out Dictionary<ICategoryArrow, int> arrows)
+        {
+            var lab = Get<IObjectLabel>(collection);
+            categoryObjects = (from ll in lab select ll.Object).ToList();
+            var al = Get<IArrowLabel>(collection);
+            categoryArrows = (from la in al select la.Arrow).ToList(); 
+            objects = new Dictionary<ICategoryObject, int>();
+            arrows = new Dictionary<ICategoryArrow, int>();
+            for (int i = 0; i < categoryObjects.Count; i++)
+            {
+                objects[categoryObjects[i]] = i;
+            }
+            for (int i = 0; i <  categoryArrows.Count; i++)
+            {
+                arrows[categoryArrows[i]] = i;
+            }
+
         }
 
 

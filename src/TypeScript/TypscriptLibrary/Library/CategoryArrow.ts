@@ -2,6 +2,9 @@
 
 class CategoryArrow implements ICategoryArrow
 {
+    GetName(): string {
+        throw new Error("Method not implemented.");
+    }
 
     source!: ICategoryObject;
 

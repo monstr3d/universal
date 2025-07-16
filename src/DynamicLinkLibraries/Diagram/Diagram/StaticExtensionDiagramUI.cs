@@ -39,7 +39,7 @@ namespace Diagram.UI
 
         static Performer performer = new Performer();
 
-        static Dictionary<string, CombinedCodeCreator> Creators
+        static public Dictionary<string, CombinedCodeCreator> Creators
         {
             get;
         } = new Dictionary<string, CombinedCodeCreator>();

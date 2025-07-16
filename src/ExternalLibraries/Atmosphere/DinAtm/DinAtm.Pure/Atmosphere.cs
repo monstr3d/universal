@@ -190,26 +190,7 @@ namespace DinAtm.Pure
 
 
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);
-            //int N10=0;
-            //       int i, j, k, j1, k1;
-            /*for(i=0;i<6;i++)
-            if(ifa[0]==if1[i]) break; else N10++;
-            //N10++;
-            if(h<=180) //N10=1;
-            for(j=0;j<21;j++)
-            {
-            j1=N10*21+j;
-            f1[j]=f0[j1];
-            }
-            else
-            for(k=0;k<21;k++)
-            {
-            k1=N10*21+k;
-            f1[k]=f01[k1];
-            }
-            */
-            //f1[12]=.611;
-            if (h <= 180)
+           if (h <= 180)
             {
                 f1 = ff0[N10];
             }

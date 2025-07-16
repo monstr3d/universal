@@ -1,5 +1,8 @@
 "use strict";
 class CategoryObject {
+    GetName() {
+        throw new Error("Method not implemented.");
+    }
     Get() {
         return this.obj;
     }

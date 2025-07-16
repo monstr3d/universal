@@ -1,5 +1,8 @@
 class CategoryObject implements ICategoryObject
 {
+    GetName(): string {
+        throw new Error("Method not implemented.");
+    }
     obj: any;
 
     Get(): any {

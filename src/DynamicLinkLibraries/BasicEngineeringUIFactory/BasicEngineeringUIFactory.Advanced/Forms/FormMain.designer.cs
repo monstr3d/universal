@@ -145,6 +145,9 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             classNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripTextBoxClassName = new System.Windows.Forms.ToolStripTextBox();
             staticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripComboBoxLanguage = new System.Windows.Forms.ToolStripComboBox();
             databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             readWriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -562,7 +565,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            toolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             toolStripMenuItem1.Text = "Start time";
             // 
             // toolStripTextBoxStart
@@ -573,12 +576,12 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripSeparator11
             // 
             toolStripSeparator11.Name = "toolStripSeparator11";
-            toolStripSeparator11.Size = new System.Drawing.Size(178, 6);
+            toolStripSeparator11.Size = new System.Drawing.Size(179, 6);
             // 
             // stepToolStripMenuItem
             // 
             stepToolStripMenuItem.Name = "stepToolStripMenuItem";
-            stepToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            stepToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             stepToolStripMenuItem.Text = "Step";
             // 
             // toolStripTextBoxStep
@@ -589,12 +592,12 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new System.Drawing.Size(178, 6);
+            toolStripSeparator7.Size = new System.Drawing.Size(179, 6);
             // 
             // stepCountToolStripMenuItem
             // 
             stepCountToolStripMenuItem.Name = "stepCountToolStripMenuItem";
-            stepCountToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            stepCountToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             stepCountToolStripMenuItem.Text = "Step count";
             // 
             // toolStripTextBoxStepCount
@@ -605,12 +608,12 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripSeparator10
             // 
             toolStripSeparator10.Name = "toolStripSeparator10";
-            toolStripSeparator10.Size = new System.Drawing.Size(178, 6);
+            toolStripSeparator10.Size = new System.Drawing.Size(179, 6);
             // 
             // pauseToolStripMenuItem
             // 
             pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            pauseToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            pauseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             pauseToolStripMenuItem.Text = "Pause";
             // 
             // toolStripTextBoxPause
@@ -621,12 +624,12 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new System.Drawing.Size(178, 6);
+            toolStripSeparator6.Size = new System.Drawing.Size(179, 6);
             // 
             // toolStripMenuItemTimeIndicator
             // 
             toolStripMenuItemTimeIndicator.Name = "toolStripMenuItemTimeIndicator";
-            toolStripMenuItemTimeIndicator.Size = new System.Drawing.Size(181, 22);
+            toolStripMenuItemTimeIndicator.Size = new System.Drawing.Size(182, 22);
             toolStripMenuItemTimeIndicator.Text = "Time indication step";
             // 
             // toolStripTextBoxTimeIndicator
@@ -984,7 +987,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // 
             toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { customizeToolStripMenuItem, optionsToolStripMenuItem });
             toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
-            toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            toolsToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
             toolsToolStripMenuItem1.Text = "&Tools";
             toolsToolStripMenuItem1.Visible = false;
             // 
@@ -1002,7 +1005,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // 
             // wizardsToolStripMenuItem
             // 
-            wizardsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { containerDesignerToolStripMenuItem, derivationCalculatorToolStripMenuItem, editorOfAliasesToolStripMenuItem, toolStripSeparator3, toolStripMenuGereratedFiles, classNameToolStripMenuItem, toolStripTextBoxClassName, staticToolStripMenuItem });
+            wizardsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { containerDesignerToolStripMenuItem, derivationCalculatorToolStripMenuItem, editorOfAliasesToolStripMenuItem, toolStripSeparator3, toolStripMenuGereratedFiles, classNameToolStripMenuItem, toolStripTextBoxClassName, staticToolStripMenuItem, toolStripMenuItem2, toolStripMenuItem3, toolStripComboBoxLanguage });
             wizardsToolStripMenuItem.Name = "wizardsToolStripMenuItem";
             wizardsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             wizardsToolStripMenuItem.Text = "Wizards";
@@ -1059,6 +1062,22 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             staticToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             staticToolStripMenuItem.Text = "Static class";
             staticToolStripMenuItem.Click += staticToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
+            toolStripMenuItem3.Text = "Language";
+            // 
+            // toolStripComboBoxLanguage
+            // 
+            toolStripComboBoxLanguage.Name = "toolStripComboBoxLanguage";
+            toolStripComboBoxLanguage.Size = new System.Drawing.Size(121, 23);
             // 
             // databaseToolStripMenuItem
             // 
@@ -1158,7 +1177,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // testToolStripMenuItem
             // 
             testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             testToolStripMenuItem.Text = "Test";
             testToolStripMenuItem.Click += testToolStripMenuItem_Click;
             // 
@@ -1334,6 +1353,9 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
         private System.Windows.Forms.ToolStripMenuItem staticToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripApplicationFolder;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxHasLog;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLanguage;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 

@@ -8,4 +8,6 @@ interface ICategoryArrow
 
     setTarget(target: ICategoryObject): void;
 
+    GetName(): string;
+
 }
