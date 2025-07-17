@@ -1,24 +1,19 @@
-﻿using System;
+﻿using AssemblyService;
+using CategoryTheory;
+using Diagram.Attributes;
+using Diagram.Interfaces;
+using Diagram.UI.Attributes;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using ErrorHandler;
+using NamedTree;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
-using System.Data;
-
-using CategoryTheory;
-
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Attributes;
-using Diagram.Interfaces;
-
-using AssemblyService;
-
-using ErrorHandler;
-
-using NamedTree;
-using Diagram.Attributes;
 
 
 namespace Diagram.UI
@@ -31,23 +26,27 @@ namespace Diagram.UI
 
         #region Fields
 
-        private static NamedTree.Performer namedPerformer = new NamedTree.Performer();
-
 
         private static ExtensionObject extension = new ExtensionObject();
         
 
         static Performer performer = new Performer();
 
+        static NamedTree.Performer namedPerformer = new NamedTree.Performer();
+
+
         static public Dictionary<string, CombinedCodeCreator> Creators
         {
             get;
         } = new Dictionary<string, CombinedCodeCreator>();
+
+
         static public Dictionary<string, IDesktopCodeCreator> DesktopCreators
         {
             get;
         }
-   = new Dictionary<string, IDesktopCodeCreator>();
+        = new Dictionary<string, IDesktopCodeCreator>();
+
 
 
 
@@ -73,6 +72,10 @@ namespace Diagram.UI
         /// </summary>
         public static readonly IComparer<object> ObjectComparer = new ObjectComparerClass();
 
+        /// <summary>
+        /// C# code creator
+        /// </summary>
+   //     private static IClassCodeCreator cSharpCodeCreator = new CombinedCodeCreator();
 
         /// Standard header of calculation class
         /// </summary>
@@ -89,7 +92,50 @@ namespace Diagram.UI
 
         #endregion
 
+
         #region Public Memberes
+
+        /// <summary>
+        /// Adds code creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void AddCodeCreator(this IClassCodeCreator creator)
+        {
+            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
+            if (att == null)
+            {
+                throw new OwnNotImplemented("LanguageAttribute");
+            }
+            var lang = att.Language;
+            CombinedCodeCreator c = null;
+            if (Creators.ContainsKey(lang))
+            {
+                c = Creators[lang];
+            }
+            else
+            {
+                c = new CombinedCodeCreator(lang);
+                Creators.Add(lang, c);
+            }
+            c.Add(creator);
+        }
+
+        /// <summary>
+        /// Adds code creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void AddCodeCreator(this IDesktopCodeCreator creator)
+        {
+            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
+            if (att == null)
+            {
+                throw new OwnNotImplemented("LanguageAttribute");
+            }
+            var lang = att.Language;
+            DesktopCreators.Add(lang, creator);
+        }
+
+
 
         /// <summary>
         /// Adds creator
@@ -377,9 +423,6 @@ namespace Diagram.UI
         {
             new ObjectContainerClassCodeCreator();
             new CShapDesktopCodeCreator();
-  /*          nativeDetectors.Add(
-                (object obj) => { return obj.HasAttribute<NativeObjectAttribute>(); }
-                );*/
         }
 
         #endregion
@@ -433,7 +476,7 @@ namespace Diagram.UI
         /// <param name="constructorType">Type of constructor</param>
         /// <param name="staticClass">The "static class sign</param>
         /// <returns>The code</returns>
-        public static List<string> CreateDesktopCode(this IDesktop desktop, string prefix,
+        public static List<string> CreateDesktopCode(this PureDesktop desktop, string prefix,
             string className, string check = null, bool postLoad = false, string constructorType = "internal ", bool staticClass = true)
         {
             var ct = constructorType;
@@ -530,7 +573,7 @@ namespace Diagram.UI
                 l.Add("\t\t}");
                 l.Add("");
                 IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                List<string> lt =  cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
+                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
                 l.Add("\t\tinternal class CategoryObject : " + lt[0]);
                 for (int j = 1; j < lt.Count; j++)
                 {
@@ -557,7 +600,7 @@ namespace Diagram.UI
                 l.Add("\t\t}");
                 l.Add("");
                 IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                List<string> lt =  cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
+                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
                 l.Add("\t\tinternal class CategoryArrow : " + lt[0]);
                 for (int j = 1; j < lt.Count; j++)
                 {
@@ -609,7 +652,7 @@ namespace Diagram.UI
             else
             {
                 l.Add("\tpublic  class " + className + " : Diagram.UI.PureDesktop");
-                List<string> lt = desktop.CreateDesktopCode("", className,
+                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", className,
                " \t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "public ");
                 for (int i = 1; i < lt.Count; i++)
                 {
@@ -695,44 +738,13 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Adds code creator
+        /// Adds C# class code creator
         /// </summary>
         /// <param name="creator"></param>
-        public static void AddCodeCreator(this IClassCodeCreator creator)
+    /*    public static void AddCSharpCodeCreator(this IClassCodeCreator creator)
         {
-            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
-            if (att == null)
-            {
-                throw new OwnNotImplemented("LanguageAttribute");
-            }
-            var lang = att.Language;
-            CombinedCodeCreator c = null;
-            if (Creators.ContainsKey(lang))
-            {
-                c = Creators[lang];
-            }
-            else
-            {
-                c = new CombinedCodeCreator(lang);
-                Creators.Add(lang, c);
-            }
-            c.Add(creator);
-        }
-
-        /// <summary>
-        /// Adds code creator
-        /// </summary>
-        /// <param name="creator"></param>
-        public static void AddCodeCreator(this IDesktopCodeCreator creator)
-        {
-            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
-            if (att == null)
-            {
-                throw new OwnNotImplemented("LanguageAttribute");
-            }
-            var lang = att.Language;
-            DesktopCreators.Add(lang, creator); 
-        }
+            (cSharpCodeCreator as CombinedCodeCreator).Add(creator);
+        }*/
 
         /// <summary>
         /// Gets difference between components 

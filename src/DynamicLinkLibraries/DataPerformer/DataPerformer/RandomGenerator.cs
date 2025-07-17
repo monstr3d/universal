@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
-using CategoryTheory;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable.Measurements;
-using NamedTree;
 
 namespace DataPerformer
 {
@@ -15,7 +10,7 @@ namespace DataPerformer
     /// Generator of random numbers
     /// </summary>
     [Serializable()]
-    public class RandomGenerator : CategoryObject, ISerializable, IMeasurements
+    public class RandomGenerator : Portable.RandomGenerator, ISerializable
     {
         #region Fields
 
@@ -35,7 +30,6 @@ namespace DataPerformer
         /// </summary>
         public RandomGenerator()
         {
-            Init();
         }
 
 
@@ -46,33 +40,10 @@ namespace DataPerformer
         /// <param name="context">Streaming context</param>
         protected RandomGenerator(SerializationInfo info, StreamingContext context)
         {
-            Init();
         }
 
-        event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
-        {
-            add
-            {
-            }
-
-            remove
-            {
-            }
-        }
-
-        event Action<IMeasurement> IChildren<IMeasurement>.OnRemove
-        {
-            add
-            {
-            }
-
-            remove
-            {
-            }
-        }
-
+    
         #endregion
-
 
         #region ISerializable Members
 
@@ -82,60 +53,6 @@ namespace DataPerformer
 
         #endregion
 
-        #region IMeasurements Members
-
-        int IMeasurements.Count
-        {
-            get { return 1; }
-        }
-
-        IMeasurement IMeasurements.this[int n]
-        {
-            get { return measure; }
-        }
-
-        void IMeasurements.UpdateMeasurements()
-        {
-        }
-
-        bool IMeasurements.IsUpdated
-        {
-            get
-            {
-                return isUpdated;
-            }
-            set
-            {
-                isUpdated = value;
-            }
-        }
-
-        IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measure];
-
-        #endregion
-
-        #region Specifc Members
-
-        private void Init()
-        {
-            Double a = 0;
-            Func<object> p = getMeasure;
-            measure = new Measurement(a, p, "Random", this);
-        }
-
-        private object getMeasure()
-        {
-            return random.NextDouble();
-        }
-
-        void IChildren<IMeasurement>.AddChild(IMeasurement child)
-        {
-        }
-
-        void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
-        {
-        }
-
-        #endregion
+   
     }
 }

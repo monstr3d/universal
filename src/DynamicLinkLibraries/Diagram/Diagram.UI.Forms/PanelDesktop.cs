@@ -29,7 +29,6 @@ using ToolBox;
 using ErrorHandler;
 using NamedTree;
 using WindowsExtensions;
-using BaseTypes.Attributes;
 
 
 namespace Diagram.UI

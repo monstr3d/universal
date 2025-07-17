@@ -1,6 +1,7 @@
 ﻿using System;
 
 using CategoryTheory;
+
 using ErrorHandler;
 
 namespace Diagram.UI
@@ -8,7 +9,7 @@ namespace Diagram.UI
     /// <summary>
     /// Associated Exception
     /// </summary>
-    public class AssociatedException : Exception
+    public class AssociatedException : OwnException
     {
         #region Fields
 

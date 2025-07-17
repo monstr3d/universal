@@ -15,6 +15,7 @@ namespace Diagram.TypeScript
         }
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
+            return null;
             throw new OwnNotImplemented();
         }
     }

@@ -14,6 +14,7 @@ namespace DataPerformer.Formula
     [Language("C#")]
     class CSCodeCreator : IClassCodeCreator
     {
+        
 
         static readonly Dictionary<Func<object, bool>, Func<string, object, List<string>>> dictionary =
                 new Dictionary<Func<object, bool>, Func<string, object, List<string>>>()

@@ -3,6 +3,8 @@
 using Diagram.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using NamedTree;
 
 namespace Diagram.TypeScript
 {
@@ -10,6 +12,7 @@ namespace Diagram.TypeScript
     internal class DesktopCodeCreator : IDesktopCodeCreator
     {
         Diagram.UI.Performer performer = new Diagram.UI.Performer();
+        Performer p = new ();
 
         public DesktopCodeCreator() { this.AddCodeCreator(); }
 
@@ -49,6 +52,65 @@ namespace Diagram.TypeScript
             }
             l.Add("");
             l.Add("");
+            var s = p.ClassString(className, "Desktop");
+            l.Add("export " + s);
+            l.Add("{");
+            l.Add("\tconstructor()");
+
+            l.Add("\t{");
+            l.Add("\t\tsuper();");
+            l.Add("");
+            l.Add("\t\tthis.name = \"" + className + "\";");
+            l.Add("");
+            for (var i = 0; i < categoryObjects.Count; i++)
+            {
+                var categoryObject = categoryObjects[i] as IAssociatedObject;
+                var nac = categoryObject.Object as INamedComponent;
+                string name = nac.RootName;
+                name = "\"" + name + "\"";
+                var pr = "\t\tnew " + className + "_" + "CategoryObject_" + i + "(this, " + name + ");";
+                l.Add(pr);
+            }
+            for (var i = 0; i < categoryArrows.Count; i++)
+            {
+                var categoryArrow = categoryArrows[i] as IAssociatedObject;
+                var nac = categoryArrow.Object as INamedComponent;
+                string name = nac.RootName;
+                name = "\"" + name + "\"";
+                var pr = "\t\tnew " + className + "_" + "CategoryArrow_" + i + "(this, " + name + ");";
+                l.Add(pr);
+            }
+            l.Add("");
+            l.Add("\t\tlet arrows  = this.getArrows();");
+            l.Add("\t\tlet objects = this.getObjects();");
+            l.Add("");
+            for (int i = 0; i < categoryArrows.Count; i++)
+            {
+                var categoryArrow = categoryArrows[i];
+                var sn = objects[categoryArrow.Source];
+                var tn = objects[categoryArrow.Target];
+                l.Add("\t\tarrows[" + i + "].setSource(objects[" + sn + "]);");
+                l.Add("\t\tarrows[" + i + "].setTarget(objects[" + tn + "]);");
+            }
+            for (int i = 0; i < categoryArrows.Count; i++)
+            {
+                var categoryArrow = categoryArrows[i];
+                if (categoryArrow is IPostSetArrow)
+                {
+                    l.Add("\t\t(arrows[" + i + "] as IPostSetArrow).PostSetArrow();");
+                }
+
+            }
+            for (var i = 0; i < categoryObjects.Count; i++)
+            {
+                if (categoryObjects[i] is IPostSetArrow)
+                {
+                    l.Add("\t\t(objects[" + i + "] as unknown as IPostSetArrow).PostSetArrow();");
+                }
+            }
+
+            l.Add("\t}");
+            l.Add("}");
             return l;
         }
     }

@@ -14,7 +14,7 @@ namespace BasicEngineering.UI.Factory
         public static string ConversionLanguage
         {
             get => Properties.Settings.Default.ConversionLanguage;
-            set { Properties.Settings.Default.ConversionLanguage = value; Properties.Settings.Default.Save(); }
+            set => Properties.Settings.Default.ConversionLanguage = value;
         }
 
 
