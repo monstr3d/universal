@@ -696,7 +696,6 @@ namespace DataPerformer.Portable
         /// <returns>Text list</returns>
         public static List<string> CreateCSharpAliasList(this IAlias alias)
         {
-            new Dictionary<string, object>();
             List<string> l = new List<string>();
             IList<string> al = alias.AliasNames;
             int n = al.Count;

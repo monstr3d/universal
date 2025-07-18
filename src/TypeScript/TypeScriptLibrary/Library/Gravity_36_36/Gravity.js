@@ -1,7 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Performer_1 = require("../Performer");
 class Gravity {
     constructor() {
-        this.performer = new Performer();
+        this.performer = new Performer_1.Performer();
         this.R = [];
         this.C = [];
         this.S = [];

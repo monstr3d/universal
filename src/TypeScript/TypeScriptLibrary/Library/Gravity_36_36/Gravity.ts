@@ -1,3 +1,5 @@
+import { Performer } from "../Performer";
+
 class Gravity {
 
     performer: Performer = new Performer();

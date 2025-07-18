@@ -1,11 +1,10 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { IDesktop } from "../IDesktop";
 import { IPostSetArrow } from "../IPostSetArrow";
-import { Measurements } from "./Measurements";
+import { DataConsumerMeasurements } from "./DataConsumerMeasurements";
 
-export class VectorFormulaConsumer extends Measurements implements IDataConsumer, IPostSetArrow
+export class VectorFormulaConsumer extends DataConsumerMeasurements implements IPostSetArrow
 {
-    protected inputs: IMeasurements[] = [];
 
     constructor(desktop: IDesktop, name: string)
     {
@@ -13,18 +12,13 @@ export class VectorFormulaConsumer extends Measurements implements IDataConsumer
 
     }
 
-    getAllMeasurements(): IMeasurements[] {
-        return this.inputs;
-    }
-    addMeasurements(item: IMeasurements): void {
-        this.inputs.push(item);
-    }
     PostSetArrow(): void {
         try {
             throw new OwnNotImplemented();
         }
         catch (e: any) { }
     }
+
 
 }
 

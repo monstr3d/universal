@@ -15,7 +15,6 @@ export class CategoryObject implements ICategoryObject
         desktop.addObject(this);
     }
 
-
     getDesktop(): IDesktop {
         return this.desktop;
     }

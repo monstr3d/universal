@@ -2,17 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VectorFormulaConsumer = void 0;
 const OwnNotImplemented_1 = require("../ErrorHandler/OwnNotImplemented");
-const Measurements_1 = require("./Measurements");
-class VectorFormulaConsumer extends Measurements_1.Measurements {
+const DataConsumerMeasurements_1 = require("./DataConsumerMeasurements");
+class VectorFormulaConsumer extends DataConsumerMeasurements_1.DataConsumerMeasurements {
     constructor(desktop, name) {
         super(desktop, name);
-        this.inputs = [];
-    }
-    getAllMeasurements() {
-        return this.inputs;
-    }
-    addMeasurements(item) {
-        this.inputs.push(item);
     }
     PostSetArrow() {
         try {

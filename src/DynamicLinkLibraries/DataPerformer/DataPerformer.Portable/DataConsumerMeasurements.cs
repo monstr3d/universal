@@ -13,7 +13,9 @@ using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace DataPerformer.Portable
