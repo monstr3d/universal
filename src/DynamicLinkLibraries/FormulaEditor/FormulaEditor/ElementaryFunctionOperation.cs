@@ -306,7 +306,7 @@ namespace FormulaEditor
 		/// <summary>
 		/// Opreation symbol
 		/// </summary>
-		internal char Symbol
+		public char Symbol
 		{
 			get
 			{

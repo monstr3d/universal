@@ -1,6 +1,8 @@
 import { ICategoryObject } from "../ICategoryObject";
 import { CategoryArrow } from "../CategoryArrow";
 import { IDesktop } from "../IDesktop";
+import { IMeasurements } from "./IMeasurements";
+import { IDataConsumer } from "./IDataConsumer";
 
 export class DataLink extends  CategoryArrow
 {

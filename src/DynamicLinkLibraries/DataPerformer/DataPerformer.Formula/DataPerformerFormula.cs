@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using CategoryTheory;
-
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 
@@ -80,6 +78,35 @@ namespace DataPerformer.Formula
             if (operation is IMeasurementHolder)
             {
                 return new HolderMeasurement((IMeasurementHolder)operation, treeCollection);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Index of measurement
+        /// </summary>
+        /// <param name="tree">Tree</param>
+        /// <param name="measurements">all measurements</param>
+        /// <returns>The index</returns>
+        public int[] FindIndex(ObjectFormulaTree tree, IMeasurements[] measurements)
+        {
+            IObjectOperation operation = tree.Operation;
+            if (operation is IMeasurementHolder mh)
+            {
+                var mm = mh.Measurement;
+                for (int i = 0; i < measurements.Length; i++)
+                {
+                    var mea = measurements[i];
+                    var n = mea.Count;
+                    for (var j = 0; j < n; j++)
+                    {
+                        var m = mea[j];
+                        if (m == mm)
+                        {
+                            return [i, j];
+                        }
+                    }
+                }
             }
             return null;
         }

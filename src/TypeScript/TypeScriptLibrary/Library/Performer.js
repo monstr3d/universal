@@ -7,6 +7,32 @@ class Performer {
         this.b = false;
         this.s = "";
     }
+    Convert(operation) {
+        return () => {
+            let value = operation();
+            if (typeof value === 'number') {
+                return value; // Already a number
+            }
+            return 0;
+        };
+    }
+    GetAnyTimeOperation(consumer) {
+        var m = consumer.getTimeMeasutement();
+        return () => { m.getOperation()(); };
+    }
+    GetNumberTimeOperation(consumer) {
+        return () => {
+            var m = consumer.getTimeMeasutement();
+            let value = m.getOperation()();
+            if (typeof value === 'number') {
+                return value; // Already a number
+            }
+            return 0;
+        };
+    }
+    getMeasurement(i, j, dataConsumer) {
+        return dataConsumer.getAllMeasurements()[i].geMeasurement(j);
+    }
     enlarge(t, x, size) {
         for (let i = 0; i < size; i++)
             t.push(x);
@@ -24,6 +50,12 @@ class Performer {
     }
     enlargeNumber2(x, row, column) {
         this.enlarge2(x, 0, row, column);
+    }
+    copyArray(f, t) {
+        let i = 0;
+        for (i = 0; i < f.length; i++) {
+            t.push(f[i]);
+        }
     }
     setAliasType(name, value, map, names) {
         if (map.has(name)) {
@@ -44,6 +76,11 @@ class Performer {
     SetAliasMap(map, alias) {
         for (const key in map.keys()) {
             alias.setAliasValue(key, map.get(key));
+        }
+    }
+    copyMap(s, t) {
+        for (const [key, value] of s) {
+            t.set(key, value);
         }
     }
 }

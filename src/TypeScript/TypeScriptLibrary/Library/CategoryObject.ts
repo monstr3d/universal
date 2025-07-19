@@ -1,5 +1,7 @@
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { Performer } from "./Performer";
+import { Check } from "./Types/Check";
 
 export class CategoryObject implements ICategoryObject
 {
@@ -9,10 +11,15 @@ export class CategoryObject implements ICategoryObject
 
     protected name !: string;
 
+    protected check !: Check;
+
+    protected performer: Performer = new Performer();
+
     constructor(desktop: IDesktop, name: string) {
         this.desktop = desktop;
         this.name = name;
         desktop.addObject(this);
+        this.check = desktop.getCheck();
     }
 
     getDesktop(): IDesktop {

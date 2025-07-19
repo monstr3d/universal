@@ -1,1 +1,5 @@
-interface IAssociatedObject { getAssociatedObject(): Object, setAssociatedObject(obj: Object): void }
+export interface IAssociatedObject
+{
+    getAssociatedObject(): Object;
+    setAssociatedObject(obj: Object): void;
+}

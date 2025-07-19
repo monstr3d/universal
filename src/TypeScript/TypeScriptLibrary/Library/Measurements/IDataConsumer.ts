@@ -1,4 +1,6 @@
-interface IDataConsumer
+import { IMeasurements } from "./IMeasurements";
+
+export interface IDataConsumer
 {
 
     getAllMeasurements(): IMeasurements[];

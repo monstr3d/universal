@@ -191,9 +191,8 @@ namespace DataPerformer.Helpers
         {
             get
             {
-                if (transformer is ITimeMeasurementProvider)
+                if (transformer is ITimeMeasurementProvider pr)
                 {
-                    ITimeMeasurementProvider pr = transformer as ITimeMeasurementProvider;
                     return pr.Step;
                 }
                 return 0;

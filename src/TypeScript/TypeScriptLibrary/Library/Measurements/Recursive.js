@@ -8,6 +8,9 @@ class Recursive extends Measurements_1.Measurements {
         super(desktop, name);
         this.inputs = [];
     }
+    postSetArrow() {
+        throw new Error("Method not implemented.");
+    }
     getAllMeasurements() {
         return this.inputs;
     }

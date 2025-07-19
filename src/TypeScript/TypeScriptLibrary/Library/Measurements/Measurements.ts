@@ -1,5 +1,7 @@
 import { CategoryObject } from "../CategoryObject";
 import { IDesktop } from "../IDesktop";
+import { IMeasurement } from "./IMeasurement";
+import { IMeasurements } from "./IMeasurements";
 
 export class Measurements extends CategoryObject  implements IMeasurements
 {

@@ -2,6 +2,8 @@
 import { IDesktop } from "../IDesktop";
 import { Performer } from "../Performer";
 import { DataConsumer } from "./DataConsumer";
+import { IMeasurement } from "./IMeasurement";
+import { IMeasurements } from "./IMeasurements";
 
 
 export class DataConsumerMeasurements extends DataConsumer implements IMeasurements, IAlias {

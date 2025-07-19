@@ -14,9 +14,16 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 			["a", 5 ]
 		]);
 		this.performer.SetAliasMap(map, this);
+		let feed = new Map<number, string>(
+		[
+		]);
+		this.performer.copyMap(feed, this.feedback);
+		this.arguments.push("t = Time");
+		let ops = new Map<number, string>(
+		[
+		]);
+		this.performer.copyMap(ops, this.operationNames);
 	}
-
-
 
 }
 
@@ -35,6 +42,6 @@ export class Orbital extends Desktop
 		let arrows  = this.getArrows();
 		let objects = this.getObjects();
 
-		(objects[0] as unknown as IPostSetArrow).PostSetArrow();
+		(objects[0] as unknown as IPostSetArrow).postSetArrow();
 	}
 }

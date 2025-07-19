@@ -1,0 +1,1 @@
+export type Check = (o: any) => boolean;

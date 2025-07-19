@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using ErrorHandler;
 using FormulaEditor.Interfaces;
 
 namespace FormulaEditor.CodeCreators
@@ -52,55 +52,67 @@ namespace FormulaEditor.CodeCreators
         /// <returns>Strings of code</returns>
         public static IList<string> CreateCode(ObjectFormulaTree[] trees, ICodeCreator creator,
             out ICodeCreator local,
-             out IList<string> variables, out IList<string> initializers)
+             out IList<string> variables, 
+             out IList<string> initializers)
         {
             List<string> code = new List<string>();
             List<string> vari = new List<string>();
             List<string> init = new List<string>();
-            local = creator.Create(trees);
-            IList<ObjectFormulaTree> lt = local.Trees;
-            if (local.Optional.Count > 0)
+            try
             {
-                return CreateOptionalCode(local, out variables, out initializers);
-            }
-            foreach (ObjectFormulaTree t in lt)
-            {
-                string ret = local[t];
-                IList<string> par = new List<string>();
-                int n = t.Count;
-                for (int i = 0; i < n; i++)
+                local = creator.Create(trees);
+                IList<ObjectFormulaTree> lt = local.Trees;
+                if (local.Optional.Count > 0)
                 {
-                    ObjectFormulaTree child = t[i];
-                    if (child == null)
+                    return CreateOptionalCode(local, out variables, out initializers);
+                }
+                foreach (ObjectFormulaTree t in lt)
+                {
+                    string ret = local[t];
+                    IList<string> par = new List<string>();
+                    int n = t.Count;
+                    for (int i = 0; i < n; i++)
                     {
-                        continue;
+                        ObjectFormulaTree child = t[i];
+                        if (child == null)
+                        {
+                            continue;
+                        }
+                        par.Add(local[child]);
                     }
-                    par.Add(local[child]);
+                    IList<string> lv;
+                    IList<string> lp;
+                    IList<string> c = local.CreateCode(t, ret, par.ToArray<string>(),
+                        out lv, out lp);
+                    if (lv != null)
+                    {
+                        vari.AddRange(lv);
+                    }
+                    if (lp != null)
+                    {
+                        init.AddRange(lp);
+                    }
+                    if (creator.GetConstValue(t) == null)
+                    {
+                        code.AddRange(c);
+                    }
+                    else if (creator.GetConstValue(t).Equals("\"\""))
+                    {
+                        code.AddRange(c);
+                    }
                 }
-                IList<string> lv;
-                IList<string> lp;
-                IList<string> c = local.CreateCode(t, ret, par.ToArray<string>(),
-                    out lv, out lp);
-                if (lv != null)
-                {
-                    vari.AddRange(lv);
-                }
-                if (lp != null)
-                {
-                    init.AddRange(lp);
-                }
-                if (creator.GetConstValue(t) == null)
-                {
-                    code.AddRange(c);
-                }
-                else if (creator.GetConstValue(t).Equals("\"\""))
-                {
-                    code.AddRange(c);
-                }
+                variables = vari;
+                initializers = init;
+                return code;
             }
-            variables = vari;
-            initializers = init;
-            return code;
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+            local = null;
+            variables = null;
+            initializers = null;
+            return null;
         }
 
         #endregion

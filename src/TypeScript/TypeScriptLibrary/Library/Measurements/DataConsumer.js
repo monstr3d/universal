@@ -2,17 +2,24 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataConsumer = void 0;
 const CategoryObject_1 = require("../CategoryObject");
-const OwnNotImplemented_1 = require("../ErrorHandler/OwnNotImplemented");
 class DataConsumer extends CategoryObject_1.CategoryObject {
-    constructor() {
-        super(...arguments);
+    constructor(desktop, name) {
+        super(desktop, name);
         this.measurements = [];
+        this.tms = this;
+        this.timeOperation = this.performer.GetNumberTimeOperation(this);
     }
-    PostSetArrow() {
-        try {
-            throw new OwnNotImplemented_1.OwnNotImplemented();
-        }
-        catch (e) { }
+    getInternalTime() {
+        return this.timeOperation();
+    }
+    getTimeMeasutement() {
+        return this.timeMeasurement;
+    }
+    setTimeMeasutement(measurement) {
+        this.timeMeasurement = measurement;
+        ;
+    }
+    postSetArrow() {
     }
     getAllMeasurements() {
         return this.measurements;

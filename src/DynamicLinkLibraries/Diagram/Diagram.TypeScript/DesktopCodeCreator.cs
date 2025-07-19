@@ -97,7 +97,7 @@ namespace Diagram.TypeScript
                 var categoryArrow = categoryArrows[i];
                 if (categoryArrow is IPostSetArrow)
                 {
-                    l.Add("\t\t(arrows[" + i + "] as IPostSetArrow).PostSetArrow();");
+                    l.Add("\t\t(arrows[" + i + "] as unknown as IPostSetArrow).postSetArrow();");
                 }
 
             }
@@ -105,7 +105,7 @@ namespace Diagram.TypeScript
             {
                 if (categoryObjects[i] is IPostSetArrow)
                 {
-                    l.Add("\t\t(objects[" + i + "] as unknown as IPostSetArrow).PostSetArrow();");
+                    l.Add("\t\t(objects[" + i + "] as unknown as IPostSetArrow).postSetArrow();");
                 }
             }
 

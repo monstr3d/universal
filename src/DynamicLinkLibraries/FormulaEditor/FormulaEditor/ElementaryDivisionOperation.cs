@@ -1,16 +1,13 @@
-﻿using BaseTypes.Interfaces;
+﻿using System;
+
+using BaseTypes.Interfaces;
 using BaseTypes.Utils;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FormulaEditor
 {
-    class ElementaryDivisionOperation : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
+    public class ElementaryDivisionOperation : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation, IString
     {
         #region Fields

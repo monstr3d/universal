@@ -11,6 +11,11 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer_1.VectorFormulaCons
             ["a", 5]
         ]);
         this.performer.SetAliasMap(map, this);
+        let feed = new Map([]);
+        this.performer.copyMap(feed, this.feedback);
+        this.arguments.push("t = Time");
+        let ops = new Map([]);
+        this.performer.copyMap(ops, this.operationNames);
     }
 }
 class Orbital extends Desktop_1.Desktop {
@@ -20,7 +25,7 @@ class Orbital extends Desktop_1.Desktop {
         new Orbital_CategoryObject_0(this, "input");
         let arrows = this.getArrows();
         let objects = this.getObjects();
-        objects[0].PostSetArrow();
+        objects[0].postSetArrow();
     }
 }
 exports.Orbital = Orbital;

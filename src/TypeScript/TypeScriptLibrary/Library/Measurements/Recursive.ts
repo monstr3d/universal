@@ -1,6 +1,8 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { IDesktop } from "../IDesktop";
 import { IPostSetArrow } from "../IPostSetArrow";
+import { IDataConsumer } from "./IDataConsumer";
+import { IMeasurements } from "./IMeasurements";
 import { Measurements } from "./Measurements";
 
 export class Recursive extends Measurements implements IDataConsumer, IPostSetArrow
@@ -10,6 +12,9 @@ export class Recursive extends Measurements implements IDataConsumer, IPostSetAr
     constructor(desktop: IDesktop, name: string) {
         super(desktop, name);
 
+    }
+    postSetArrow(): void {
+        throw new Error("Method not implemented.");
     }
 
     getAllMeasurements(): IMeasurements[] {

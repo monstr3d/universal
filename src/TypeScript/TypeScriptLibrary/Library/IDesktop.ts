@@ -1,5 +1,6 @@
 import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
+import { Check } from "./Types/Check";
 
 export interface IDesktop
 {
@@ -12,6 +13,10 @@ export interface IDesktop
     addArrow(arr: ICategoryArrow): void;
 
     getName(): string;
+
+    getCheck(): Check;
+
+    setCheck(check: Check): void;
 
 }
 

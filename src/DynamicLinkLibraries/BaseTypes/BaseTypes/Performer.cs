@@ -177,7 +177,7 @@ namespace BaseTypes
         };
 
 
-
+        
 
         #endregion
 
@@ -189,6 +189,15 @@ namespace BaseTypes
         public Func<object, double> GetDoubleFunction(object type)
         {
             return IntertnalDouble.CreateFunction(type);
+        }
+
+
+
+        public double GetCoefficient<T>(T value)
+        {
+            
+            var d = dCoefficients[typeof(T)] as Dictionary<T, double>;
+            return d[value];
         }
 
         /// <summary>

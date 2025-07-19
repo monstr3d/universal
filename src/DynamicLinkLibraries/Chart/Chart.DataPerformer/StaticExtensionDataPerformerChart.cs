@@ -82,11 +82,6 @@ namespace Chart.DataPerformer
             series = ss;
             return dic;
         }
-      /* PerformFixed(this IDataConsumer consumer, double start, double step, int count,
-                ITimeMeasurementProvider provider,
-                  IDifferentialEquationProcessor processor, string reason,
-                 int priority, Action action, string condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
-                 IErrorHandler errorHandler = null)*/
 
         /// <summary>
         /// Performs iterator

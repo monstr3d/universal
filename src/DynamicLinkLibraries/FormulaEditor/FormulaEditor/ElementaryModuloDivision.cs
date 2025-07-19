@@ -12,7 +12,7 @@ namespace FormulaEditor
     /// <summary>
     /// Elementary modulo division operation
     /// </summary>
-    class ElementaryModuloDivision : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
+    public class ElementaryModuloDivision : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation, IString
     {
 

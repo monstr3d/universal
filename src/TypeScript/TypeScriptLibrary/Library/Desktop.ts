@@ -1,9 +1,20 @@
 import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { Check } from "./Types/Check";
 
 export class Desktop implements IDesktop
 {
+    setCheck(check: Check): void {
+        this.check = check
+    }
+    getCheck() {
+        return  this.check;
+    }
+
+    protected check: Check = () => {
+        return true;
+    }
 
     protected objects: ICategoryObject[] = [];
 
