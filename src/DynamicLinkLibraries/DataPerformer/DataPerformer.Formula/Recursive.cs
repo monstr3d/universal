@@ -948,6 +948,7 @@ namespace DataPerformer.Formula
 
         IEnumerable<IMeasurements> IChildren<IMeasurements>.Children => measurements;
 
+    
         #endregion
 
         #region Private Members

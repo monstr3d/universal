@@ -111,7 +111,7 @@ namespace DataPerformer.Formula
         public FormulaMeasurementDerivation Iterate(bool next, AssociatedAddition addition, object obj)
         {
             string dn = "D" + name;
-            ObjectFormulaTree t = tree.Derivation("d/dt");
+            ObjectFormulaTree t = Tree.Derivation("d/dt");
             IDistribution d = DeltaFunction.GetDistribution(t);
             AssociatedAddition aa = FormulaMeasurementDerivation.Create(associated);
             if (next)

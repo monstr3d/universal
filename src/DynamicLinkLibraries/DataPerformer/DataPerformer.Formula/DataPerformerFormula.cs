@@ -14,6 +14,7 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using NamedTree;
+using System.Linq;
 
 namespace DataPerformer.Formula
 {
@@ -29,6 +30,11 @@ namespace DataPerformer.Formula
         static internal List<IBinaryDetector> binary = new List<IBinaryDetector>();
 
         ITreeCollection treeCollection;
+
+        Dictionary<string, int> output;
+
+
+    
 
         protected IDataConsumer DataConsumer
         {
@@ -57,6 +63,62 @@ namespace DataPerformer.Formula
         #endregion
 
         #region Public Membres
+
+        public Dictionary<string, int> Output
+        {
+            get
+            {
+                if (output == null)
+                {
+                    CreateOutput();
+                }
+
+              return output;
+            }
+        }
+
+        static public Dictionary<string, int> GetOutput(IMeasurements m, ObjectFormulaTree[] t)
+        {
+            var l = t.ToList();
+            var output = new Dictionary<string, int>();
+            for (int i = 0; i < m.Count; i++)
+            {
+                var mea = m[i];
+                if (mea is ITreeAssociated mh)
+                {
+                    var h = mh.ObjectFormulaTree;
+                    var n = l.IndexOf(h);
+                    if (n >= 0)
+                    {
+                        output[mea.Name] = n;
+                    }
+                }
+            }
+            return output;
+        }
+
+
+        void CreateOutput()
+        {
+            
+            output = new Dictionary<string, int>();
+            IMeasurements measurements = treeCollection as IMeasurements;
+            var trees = treeCollection.Trees.ToList();
+            for (int i = 0; i < measurements.Count; i++)
+            {
+                var m = measurements[i];
+                if (m is ITreeAssociated mh)
+                {
+                    var h = mh.ObjectFormulaTree;
+                    var n = trees.IndexOf(h);
+                    if (n >= 0)
+                    {
+                        output[m.Name] = n;
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Collection of trees

@@ -163,6 +163,8 @@ namespace DataPerformer.Formula
             }
         }
 
+    
+
         bool ITreeCollection.IsValid
         {
             get
@@ -170,6 +172,9 @@ namespace DataPerformer.Formula
                 return proxy != null;
             }
         }
+
+ 
+
 
         #endregion
 
@@ -832,6 +837,7 @@ namespace DataPerformer.Formula
                 return t;
             }
         }
+
 
         #endregion
 

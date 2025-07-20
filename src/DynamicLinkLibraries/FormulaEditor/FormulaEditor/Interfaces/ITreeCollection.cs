@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using FormulaEditor;
-
-namespace FormulaEditor.Interfaces
+﻿namespace FormulaEditor.Interfaces
 {
     /// <summary>
     /// Collection of trees
@@ -27,5 +20,6 @@ namespace FormulaEditor.Interfaces
         {
             get;
         }
+
     }
 }

@@ -1652,6 +1652,7 @@ namespace DataPerformer.Formula
         internal Dictionary<object, object> VariableValues => vars;
 
 
+
         #endregion
 
         #region Classes & Delegates

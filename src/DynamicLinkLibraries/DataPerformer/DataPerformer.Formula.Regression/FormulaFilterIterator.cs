@@ -32,6 +32,8 @@ namespace DataPerformer.Formula.Regression
 
         Action update = null;
 
+        Dictionary<string, int> d = new();
+
         event Action<IAlias, string> onChange;
 
         /// <summary>
@@ -180,6 +182,7 @@ namespace DataPerformer.Formula.Regression
 
         bool ITreeCollection.IsValid => proxy != null;
 
+  
         #endregion
 
         #region Overriden Members
@@ -357,7 +360,8 @@ namespace DataPerformer.Formula.Regression
         }
 
         string INamed.Name { get => performer.GetAssociatedName(this); set => throw new ErrorHandler.WriteProhibitedException(); }
-       
+
+
 
         #region Private Members
 

@@ -35,12 +35,12 @@ namespace DataPerformer.Formula
 
         void IDistribution.Reset()
         {
-            DeltaFunction.Reset(tree);
+            DeltaFunction.Reset(Tree);
         }
 
         double IDistribution.Integral
         {
-            get { return DeltaFunction.Integral(tree); }
+            get { return DeltaFunction.Integral(Tree); }
         }
 
         #endregion

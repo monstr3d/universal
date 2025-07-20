@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using DataPerformer.Interfaces;
 using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.CSharp;
@@ -10,6 +11,12 @@ namespace DataPerformer.Formula.TypeScript
     {
 
         #region Fields
+
+        protected Dictionary<string, int> Output
+        {
+            get;
+            set;
+        }
 
         protected object Object
         {
@@ -152,6 +159,7 @@ namespace DataPerformer.Formula.TypeScript
             var lcode = TypeScriptCodeCreator.CreateCode(obj, trees, codeCreator,
                 out local, out variables, out initializers) as List<string>;
             ObjectFormulaTree[] tr = local.Trees;
+            Output = DataPerformerFormula.GetOutput(obj as IMeasurements, tr);
             foreach (ObjectFormulaTree tree in tr)
             {
                 AddTree(tree, initializers, variables);

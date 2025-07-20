@@ -2,6 +2,7 @@
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using FormulaEditor.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataPerformer.Formula.TypeScript
 {
@@ -60,6 +61,8 @@ namespace DataPerformer.Formula.TypeScript
         {
             bool check = true;
             var v = obj as VectorFormulaConsumer;
+            var dpf = new DataPerformerFormula(v);
+            var mea = dpf.Output;
             List<string> l = new List<string>();
             var cs = performer.ClassString(preffix, "VectorFormulaConsumer");
             l.Add(cs);

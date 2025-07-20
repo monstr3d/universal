@@ -13,8 +13,10 @@ using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using ErrorHandler;
+
 using NamedTree;
+
+using ErrorHandler;
 
 
 namespace DataPerformer.Formula
@@ -22,7 +24,7 @@ namespace DataPerformer.Formula
     /// <summary>
     /// Formula measure
     /// </summary>
-    public class FormulaMeasurement : IMeasurement, IAssociatedObject
+    public class FormulaMeasurement : IMeasurement, IAssociatedObject, ITreeAssociated
     {
 
         #region Fields
@@ -35,7 +37,11 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Associated tree
         /// </summary>
-        protected ObjectFormulaTree tree;
+        protected ObjectFormulaTree Tree
+        {
+            get;
+            init;
+        }
 
         /// <summary>
         /// Return value
@@ -74,11 +80,15 @@ namespace DataPerformer.Formula
 
         #region Ctor
 
+        protected FormulaMeasurement(ObjectFormulaTree tree)
+        {
+            Tree = tree;
+        }
+
         public FormulaMeasurement(ObjectFormulaTree tree, string name, 
-            AssociatedAddition associated, object obj)
+            AssociatedAddition associated, object obj) : this(tree)
         {
             this.obj = obj;
-            this.tree = tree;
             this.name = name;
             this.associated = associated;
             var operation = tree.Operation;
@@ -117,7 +127,7 @@ namespace DataPerformer.Formula
 
         object IMeasurement.Type 
         {
-            get => tree.ReturnType;
+            get => Tree.ReturnType;
         }
 
         #endregion
@@ -157,9 +167,9 @@ namespace DataPerformer.Formula
         {
             foreach (FormulaMeasurement m in meas)
             {
-                if (!list.Contains(m.tree))
+                if (!list.Contains(m.Tree))
                 {
-                    list.Add(m.tree);
+                    list.Add(m.Tree);
                 }
             }
             List<FormulaMeasurement> l = new List<FormulaMeasurement>();
@@ -174,14 +184,14 @@ namespace DataPerformer.Formula
                         if (!globalList.Contains(fm))
                         {
                             globalList.Add(fm);
-                            if (!list.Contains(fm.tree))
+                            if (!list.Contains(fm.Tree))
                             {
                                 if (!l.Contains(fm))
                                 {
                                     l.Add(fm);
-                                    if (!list.Contains(fm.tree))
+                                    if (!list.Contains(fm.Tree))
                                     {
-                                        list.Add(fm.tree);
+                                        list.Add(fm.Tree);
                                     }
                                 }
                             }
@@ -212,7 +222,7 @@ namespace DataPerformer.Formula
         {
             get
             {
-                return new ObjectFormulaTree[] { tree };
+                return new ObjectFormulaTree[] { Tree };
             }
         }
 
@@ -223,7 +233,7 @@ namespace DataPerformer.Formula
         {
             try
             {
-                object o = tree.Result;
+                object o = Tree.Result;
                 if (!checkValue(o))
                 {
                     ReturnValue = o;
@@ -260,7 +270,7 @@ namespace DataPerformer.Formula
             proxyPar = null;
             if (proxy != null)
             {
-                proxyPar = new Func<object>(proxy[tree]);
+                proxyPar = new Func<object>(proxy[Tree]);
                 if (parameter == zero)
                 {
                     parameter = proxyPar;
@@ -377,6 +387,8 @@ namespace DataPerformer.Formula
             }
         }
 
+        ObjectFormulaTree ITreeAssociated.ObjectFormulaTree => Tree;
+
         /// <summary>
         /// Empty check of object
         /// </summary>
@@ -420,7 +432,7 @@ namespace DataPerformer.Formula
         /// <returns>The value of tree</returns>
         protected object GetValue()
         {
-            return tree.Result;
+            return Tree.Result;
         }
 
 
@@ -431,17 +443,17 @@ namespace DataPerformer.Formula
 
         private void SetTree()
         {
-            ReturnValue = tree.Result;
+            ReturnValue = Tree.Result;
         }
 
 
         private object GetDefaultValue()
         {
-            object type = tree.ReturnType;
+            object type = Tree.ReturnType;
             bool b = proxyPar == null;
             if (b)
             {
-                ReturnValue = tree.Result;
+                ReturnValue = Tree.Result;
             }
             else
             {
@@ -453,7 +465,7 @@ namespace DataPerformer.Formula
             }
             if (ReturnValue == null)
             {
-                ReturnValue = tree.Result;
+                ReturnValue = Tree.Result;
             }
             if (ReturnValue != null)
             {
@@ -467,7 +479,7 @@ namespace DataPerformer.Formula
                         ReturnValue = dr;
                         try
                         {
-                            ReturnValue = tree.Result;
+                            ReturnValue = Tree.Result;
                         }
                         catch (Exception ex)
                         {
@@ -506,7 +518,7 @@ namespace DataPerformer.Formula
         /// <returns>Result of formula</returns>
         protected object GetFormulaResult()
         {
-            return tree.Result;
+            return Tree.Result;
         }
 
         #endregion

@@ -1,14 +1,16 @@
-﻿using BaseTypes;
-using BaseTypes.CSharp;
-using BaseTypes.Interfaces;
-using ErrorHandler;
-using FormulaEditor.CodeCreators;
-using FormulaEditor.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using Diagram.UI;
+using BaseTypes;
+
+using BaseTypes.CSharp;
+using BaseTypes.Interfaces;
+
+using FormulaEditor.CodeCreators;
+using FormulaEditor.Interfaces;
+
+using ErrorHandler;
 
 namespace FormulaEditor.CSharp
 {
@@ -133,7 +135,6 @@ namespace FormulaEditor.CSharp
 
         private List<string> CreateTSCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
         {
-            1
                 /* !!!
                 if (tree.Operation is OptionalOperation)
                 {
