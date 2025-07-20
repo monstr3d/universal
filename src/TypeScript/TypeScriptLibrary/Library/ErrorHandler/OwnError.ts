@@ -1,5 +1,6 @@
 export class OwnError implements Error
 {
+
     constructor(name: string,
         message: string,
         stack?: string | undefined)

@@ -7,6 +7,7 @@ using BaseTypes.Interfaces;
 using BaseTypes.CSharp;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.Interfaces;
+
 using ErrorHandler;
 //using Diagram.UI;
 
@@ -140,9 +141,9 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public override IList<string> CreateCode(ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
+        public override IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
         {
-            IList<string> l = base.CreateCode(tree, ret, parameters, out variables, out initializers);
+            IList<string> l = base.CreateCode(obj, tree, ret, parameters, out variables, out initializers);
             if (l != null)
             {
                 return l;
@@ -154,7 +155,7 @@ namespace FormulaEditor.CSharp
             }
             try
             {
-                l = CreateArrayCode(tree, ret, parameters, out variables, out initializers);
+                l = CreateArrayCode(obj, tree, ret, parameters, out variables, out initializers);
                 if (l != null)
                 {
                     return l;
@@ -232,7 +233,7 @@ namespace FormulaEditor.CSharp
         /// </summary>
         /// <param name="trees">Trees</param>
         /// <returns>Creator</returns>
-        public override ICodeCreator Create(ObjectFormulaTree[] trees)
+        public override ICodeCreator Create(object obj, ObjectFormulaTree[] trees)
         {
             return new CSharpCodeCreator(trees);
         }
@@ -265,11 +266,11 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
-        public static IList<string> CreateCode(ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
+        public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
             local = null;
-            IList<string> l = StaticCodeCreator.CreateCode(trees, creator, out local,
+            IList<string> l = StaticCodeCreator.CreateCode(obj, trees, creator, out local,
                 out variables, out initializers);
             variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
             variables.Add("object[] currentArray = null;");
@@ -580,7 +581,7 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables of tree</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
-        protected IList<string> CreateArrayCode(ObjectFormulaTree tree, string ret, string[] parameters,
+        protected IList<string> CreateArrayCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters,
             out IList<string> variables, out IList<string> initializers)
         {
             List<string> vari = new List<string>();
@@ -613,11 +614,11 @@ namespace FormulaEditor.CSharp
             bool success;
             if (cycle)
             {
-                ProcessCycleArrayCode(0, tree, t, ret, par, parameters, types, art, list, vari, init, out success);
+                ProcessCycleArrayCode(obj, 0, tree, t, ret, par, parameters, types, art, list, vari, init, out success);
             }
             else
             {
-                ProcessArrayCode(0, tree, t, ret, par, types, art, list, vari, init, out success);
+                ProcessArrayCode(obj, 0, tree, t, ret, par, types, art, list, vari, init, out success);
             }
             if (!success)
             {
@@ -641,7 +642,7 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">List of variables</param>
         /// <param name="initializers">List of initializers</param>
         /// <param name="success">The success sign</param>
-        protected void ProcessCycleArrayCode(int level, ObjectFormulaTree baseTree, 
+        protected void ProcessCycleArrayCode(object obj, int level, ObjectFormulaTree baseTree, 
             ObjectFormulaTree childTree, string ret, string[] parameters, 
             string[] pureParameters, object[] types, ArrayReturnType retType, 
             List<string> list, List<string> variables, List<string> initializers, out bool success)
@@ -679,7 +680,7 @@ namespace FormulaEditor.CSharp
                 }
                 IList<string> vari;
                 IList<string> init;
-                IList<string> l = CreateCode(childTree, ret, par, out vari, out init);
+                IList<string> l = CreateCode(obj, childTree, ret, par, out vari, out init);
                 success = (l != null);
                 if (!success)
                 {
@@ -726,7 +727,7 @@ namespace FormulaEditor.CSharp
                     }
                     IList<string> vari;
                     IList<string> init;
-                    IList<string> l = CreateCode(childTree, retLocal, par, out vari, out init);
+                    IList<string> l = CreateCode(obj, childTree, retLocal, par, out vari, out init);
                     success = (l != null);
                     if (!success)
                     {
@@ -770,7 +771,7 @@ namespace FormulaEditor.CSharp
                     }
                     parlocal[i] += i + ",";
                 }
-                ProcessArrayCode(level + 1, baseTree, childTree, retLocal, parlocal, types,
+                ProcessArrayCode(obj, level + 1, baseTree, childTree, retLocal, parlocal, types,
                     retType, list, variables, initializers, out success);
                 if (!success)
                 {
@@ -795,7 +796,7 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <param name="success">The "success" sign</param>
-        protected void ProcessArrayCode(int level, ObjectFormulaTree baseTree, ObjectFormulaTree childTree,
+        protected void ProcessArrayCode(object obj, int level, ObjectFormulaTree baseTree, ObjectFormulaTree childTree,
             string ret, string[] parameters, object[] types, ArrayReturnType retType, List<string> list,
            List<string> variables, List<string> initializers, out bool success)
         {
@@ -825,7 +826,7 @@ namespace FormulaEditor.CSharp
                     }
                     IList<string> vari;
                     IList<string> init;
-                    IList<string> l = CreateCode(childTree, retLocal, par, out vari, out init);
+                    IList<string> l = CreateCode(obj, childTree, retLocal, par, out vari, out init);
                     success = (l != null);
                     if (!success)
                     {
@@ -869,7 +870,7 @@ namespace FormulaEditor.CSharp
                     }
                     parlocal[i] += i + ",";
                 }
-                ProcessArrayCode(level + 1, baseTree, childTree, retLocal, parlocal, types,
+                ProcessArrayCode(obj, level + 1, baseTree, childTree, retLocal, parlocal, types,
                     retType, list, variables, initializers, out success);
                 if (!success)
                 {

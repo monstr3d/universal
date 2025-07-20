@@ -66,7 +66,7 @@ namespace FormulaEditor.CSharp
                 lt.Add(t);
             }
             trees = lt.ToArray();
-            CreateCode();
+            CreateCode(collection);
             return Proxy;
         }
 
@@ -74,7 +74,7 @@ namespace FormulaEditor.CSharp
 
         #region ITreeCalculatorCodeCreator Members
 
-        List<string> ITreeCollectionCodeCreator.CreateCode(ObjectFormulaTree[] trees, 
+        List<string> ITreeCollectionCodeCreator.CreateCode(object obj, ObjectFormulaTree[] trees, 
             string className, string constructorModifier, bool checkValue)
         {
             this.trees = trees;
@@ -84,7 +84,7 @@ namespace FormulaEditor.CSharp
             l.Add(" : FormulaEditor.Interfaces.ITreeCollectionProxy");
             l.Add("{");
             local = null;
-            IList<string> lt = PreCreateCode(out local, out variables, out initializers);
+            IList<string> lt = PreCreateCode(obj, out local, out variables, out initializers);
             List<string> ltt = PostCreateCode(local, lt, variables, initializers, 
                 constructorModifier + " " + className, 
                 checkValue);
@@ -204,10 +204,10 @@ namespace FormulaEditor.CSharp
             return l;
         }
 
-        private IList<string> PreCreateCode(out ICodeCreator local,
+        private IList<string> PreCreateCode(object obj, out ICodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
-            IList<string> lcode = CSharpCodeCreator.CreateCode(trees, codeCreator, 
+            IList<string> lcode = CSharpCodeCreator.CreateCode(obj, trees, codeCreator, 
                 out local, out variables, out initializers);
             ObjectFormulaTree[] tr = local.Trees;
             foreach (ObjectFormulaTree tree in tr)
@@ -220,7 +220,7 @@ namespace FormulaEditor.CSharp
             return lcode;
         }
 
-        private void CreateCode()
+        private void CreateCode(object obj)
         {
             IList<string> variables;
             IList<string> initializers;
@@ -228,7 +228,7 @@ namespace FormulaEditor.CSharp
             l.Add(CSharpCodeCreator.StandardHeader);
             l.Add(CSharpCodeCreator.GetGuidClass(new Type[] { typeof(ITreeCollectionProxy) }));
             local = null;
-            IList<string> lt = PreCreateCode(out local, out variables, out initializers);
+            IList<string> lt = PreCreateCode(obj, out local, out variables, out initializers);
             l.Add("\t\t");
             List<string> ltt = PostCreateCode(local, lt, variables, initializers, "public Calculate", checkValue != null);
             StringBuilder sb = new StringBuilder();

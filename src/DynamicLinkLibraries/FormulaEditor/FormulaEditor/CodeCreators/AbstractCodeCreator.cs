@@ -87,7 +87,7 @@ namespace FormulaEditor.CodeCreators
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public virtual IList<string> CreateCode(ObjectFormulaTree tree, string ret,
+        public virtual IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret,
             string[] parameters, out IList<string> variables,
             out IList<string> initializers)
         {
@@ -99,7 +99,7 @@ namespace FormulaEditor.CodeCreators
             }
             foreach (ICodeCreator cc in creators)
             {
-                IList<string> l = cc.CreateCode(tree, ret, parameters, out variables, out initializers);
+                IList<string> l = cc.CreateCode(obj, tree, ret, parameters, out variables, out initializers);
                 if (l != null)
                 {
                     return l;
@@ -121,7 +121,7 @@ namespace FormulaEditor.CodeCreators
         /// </summary>
         /// <param name="trees">Trees</param>
         /// <returns>Creator</returns>
-        public abstract ICodeCreator Create(ObjectFormulaTree[] trees);
+        public abstract ICodeCreator Create(object obj, ObjectFormulaTree[] trees);
 
         /// <summary>
         /// Trees

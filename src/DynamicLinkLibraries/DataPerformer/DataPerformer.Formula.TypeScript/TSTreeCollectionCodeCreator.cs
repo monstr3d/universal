@@ -1,5 +1,4 @@
 ﻿using System.Text;
-
 using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.CSharp;
@@ -11,6 +10,14 @@ namespace DataPerformer.Formula.TypeScript
     {
 
         #region Fields
+
+        protected object Object
+        {
+            get;
+            set;
+        }
+
+        Diagram.TypeScript.Performer performer = new();
 
         private static ICodeCreator codeCreator = TypeScriptCodeCreator.CodeCreator;
 
@@ -34,26 +41,22 @@ namespace DataPerformer.Formula.TypeScript
 
         #region ITreeCalculatorCodeCreator Members
 
-        List<string> ITreeCollectionCodeCreator.CreateCode(ObjectFormulaTree[] trees,
+        List<string> ITreeCollectionCodeCreator.CreateCode(object obj, ObjectFormulaTree[] trees,
             string className, string constructorModifier, bool checkValue)
         {
+            Object = obj;
             this.trees = trees;
             IList<string> variables;
             IList<string> initializers;
             List<string> l = new List<string>();
   //          l.Add(" : FormulaEditor.Interfaces.ITreeCollectionProxy");
-            l.Add("{");
     //        local = null;
-            IList<string> lt = PreCreateCode(out local, out variables, out initializers);
-            List<string> ltt = PostCreateCode(local, lt, variables, initializers,
-                constructorModifier + " " + className,
-                checkValue);
-            foreach (string s in ltt)
-            {
-                l.Add("\t" + s);
-            }
+           var lt = PreCreateCode(obj, out local, out variables, out initializers);
+           List<string> ltt = PostCreateCode(local, lt, variables, initializers,
+                        constructorModifier + " " + className,
+                        checkValue);
+            performer.Add(l, ltt, 0);
             l.Add("");
-            l.Add("}");
             return l;
         }
 
@@ -160,11 +163,11 @@ namespace DataPerformer.Formula.TypeScript
             return l;
         }
 
-        private IList<string> PreCreateCode(out ICodeCreator local,
+        private List<string> PreCreateCode(object obj, out ICodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
-            IList<string> lcode = TypeScriptCodeCreator.CreateCode(trees, codeCreator,
-                out local, out variables, out initializers);
+            var lcode = TypeScriptCodeCreator.CreateCode(obj, trees, codeCreator,
+                out local, out variables, out initializers) as List<string>;
             ObjectFormulaTree[] tr = local.Trees;
             foreach (ObjectFormulaTree tree in tr)
             {
@@ -173,10 +176,14 @@ namespace DataPerformer.Formula.TypeScript
             if (checkValue != null)
             {
             }
-            return lcode;
+            var l = new List<string>();
+            l.Add("calculateTree() : void {");
+            performer.Add(l, lcode, 1);
+            l.Add("}");
+            return l;
         }
 
-        private void CreateCode()
+        private void CreateCode(object obj)
         {
             IList<string> variables;
             IList<string> initializers;
@@ -184,7 +191,7 @@ namespace DataPerformer.Formula.TypeScript
             l.Add(CSharpCodeCreator.StandardHeader);
             l.Add(CSharpCodeCreator.GetGuidClass(new Type[] { typeof(ITreeCollectionProxy) }));
             local = null;
-            IList<string> lt = PreCreateCode(out local, out variables, out initializers);
+            IList<string> lt = PreCreateCode(obj, out local, out variables, out initializers);
             l.Add("\t\t");
             List<string> ltt = PostCreateCode(local, lt, variables, initializers, "public Calculate", checkValue != null);
             StringBuilder sb = new StringBuilder();
@@ -206,12 +213,12 @@ namespace DataPerformer.Formula.TypeScript
         {
             int n = StaticCodeCreator.GetNumber(local, tree);
             string tid = local[tree];
-            string f = "Get_" + n;
-            init.Add("dictionary[trees[" + n + "]] = " + f + ";");
+            string f = "get_" + n;
+            init.Add("this.mapOperations.set(" + n + ", " + f + ");");
             func.Add("");
-            func.Add("object " + f + "()");
+            func.Add(f + "() : any");
             func.Add("{");
-            func.Add("\treturn success ? " + tid + " : null;");
+            func.Add("\treturn success ? " + tid + " : undefined;");
             func.Add("}");
         }
 

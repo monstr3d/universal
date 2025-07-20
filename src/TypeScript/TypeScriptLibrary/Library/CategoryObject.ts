@@ -13,6 +13,8 @@ export class CategoryObject implements ICategoryObject
 
     protected check !: Check;
 
+    protected variable !: any;
+
     protected performer: Performer = new Performer();
 
     constructor(desktop: IDesktop, name: string) {

@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Performer = void 0;
+const OwnError_1 = require("./ErrorHandler/OwnError");
 class Performer {
     constructor() {
         this.a = 0;
         this.b = false;
         this.s = "";
     }
-    Convert(operation) {
+    ConvertOperationToNumber(operation) {
         return () => {
             let value = operation();
             if (typeof value === 'number') {
@@ -25,10 +26,40 @@ class Performer {
             var m = consumer.getTimeMeasutement();
             let value = m.getOperation()();
             if (typeof value === 'number') {
-                return value; // Already a number
+                return value;
             }
             return 0;
         };
+    }
+    Convert(t) {
+        // Typeof checks against string representations of types. S is a generic type,
+        // so you can't directly use typeof S.  It will just return the string "object" or "function".
+        // You need to find a way to determine the *actual* type S at runtime
+        //  and compare it against the type of 't'.
+        // A very limited approach would be to use type guards, but that means
+        // you'd have to know what type S *could* be in advance. This is not
+        // really a general solution.
+        if (typeof t === "string" && null instanceof String) { //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t; // Force the type assertion (VERY UNSAFE)
+        }
+        if (typeof t === "number" && null instanceof Number) { //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t; // Force the type assertion (VERY UNSAFE)
+        }
+        if (typeof t === "boolean" && null instanceof Boolean) { //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t; // Force the type assertion (VERY UNSAFE)
+        }
+        //This is better, but assumes S is a string or number
+        if (typeof t === 'string' && null === String) {
+            return t;
+        }
+        if (typeof t === 'number' && null === Number) {
+            return t;
+        }
+        throw new OwnError_1.OwnError("Type conversion", "Performer", undefined);
+        // In many cases, a direct conversion may not be possible
+        // or may require a more complex transformation.
+        // console.warn("Conversion not possible for types:", typeof t, S);
+        return undefined; // Or throw an error, or return a default value.
     }
     getMeasurement(i, j, dataConsumer) {
         return dataConsumer.getAllMeasurements()[i].geMeasurement(j);

@@ -139,7 +139,7 @@ namespace DataPerformer.Formula
             l.Add("\t}");
             l.Add("");
             FormulaEditor.Interfaces.ITreeCollection tc = v;
-            lt = StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, "Calculation", "internal ",
+            lt = StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(v, tc.Trees, "Calculation", "internal ",
                 check);
             l.Add("\tinternal class Calculation" + lt[0]);
             for (int i = 1; i < lt.Count; i++)
@@ -300,7 +300,7 @@ namespace DataPerformer.Formula
             l.Add("");
             FormulaEditor.Interfaces.ITreeCollection tc = v;
             List<string> lt = 
-                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, 
+                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(obj, tc.Trees, 
                 "Calculation", "internal ",
                 check);
             l.Add("\tinternal class Calculation" + lt[0]);
@@ -431,7 +431,7 @@ namespace DataPerformer.Formula
             l.Add("");
             FormulaEditor.Interfaces.ITreeCollection tc = v;
             List<string> lt =
-                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees,
+                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(obj, tc.Trees,
                 "Calculation", "internal ",
                 check);
             l.Add("\tinternal class Calculation" + lt[0]);

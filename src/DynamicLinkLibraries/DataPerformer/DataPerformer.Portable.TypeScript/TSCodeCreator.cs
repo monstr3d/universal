@@ -77,7 +77,11 @@ namespace DataPerformer.Portable.TypeScript
 
    
 
-
+        public S Convert<T, S>(T obj)
+        {
+            var o = (object)obj;
+            return (S)o;
+        }
 
 
         static List<string> CreateDataLink(string preffix, object obj)

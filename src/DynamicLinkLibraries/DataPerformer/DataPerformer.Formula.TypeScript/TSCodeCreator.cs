@@ -115,20 +115,11 @@ namespace DataPerformer.Formula.TypeScript
             l.Add("\t\tthis.performer.copyMap(ops, this.operationNames);");
             l.Add("\t}");
             l.Add("");
-          /*
-            
-
-
-            l.Add("\tcalculateTree(): void");
-            l.Add("\t{");
             ITreeCollection tc = v;
             ITreeCollectionCodeCreator treeCollectionCodeCreator = new TSTreeCollectionCodeCreator();
-            var lt = treeCollectionCodeCreator.CreateCode(tc.Trees, "Calculation", "internal ",
+            var lt = treeCollectionCodeCreator.CreateCode(v, tc.Trees, "Calculation", "internal ",
             check);
-            performer.Add(l, lt, 2);
-            l.Add("\t}");
-          */
-            l.Add("}");
+            performer.Add(l, lt, 1);
             return l;
         }
 

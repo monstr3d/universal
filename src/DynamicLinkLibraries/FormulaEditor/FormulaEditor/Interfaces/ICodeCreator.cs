@@ -16,7 +16,7 @@ namespace FormulaEditor.Interfaces
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        IList<string> CreateCode(ObjectFormulaTree tree, string ret, string[] parameters,
+        IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters,
             out IList<string> variables, out IList<string> initializers);
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace FormulaEditor.Interfaces
         /// </summary>
         /// <param name="trees">Trees</param>
         /// <returns>Creator</returns>
-        ICodeCreator Create(ObjectFormulaTree[] trees);
+        ICodeCreator Create(object obj, ObjectFormulaTree[] trees);
 
 
         /// <summary>

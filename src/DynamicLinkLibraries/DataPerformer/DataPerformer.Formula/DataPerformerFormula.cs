@@ -12,6 +12,7 @@ using DataPerformer.Interfaces;
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
+
 using NamedTree;
 
 namespace DataPerformer.Formula
@@ -88,15 +89,15 @@ namespace DataPerformer.Formula
         /// <param name="tree">Tree</param>
         /// <param name="measurements">all measurements</param>
         /// <returns>The index</returns>
-        public int[] FindIndex(ObjectFormulaTree tree, IMeasurements[] measurements)
+        public int[] FindIndex(ObjectFormulaTree tree, IDataConsumer dataConsumer)
         {
             IObjectOperation operation = tree.Operation;
             if (operation is IMeasurementHolder mh)
             {
                 var mm = mh.Measurement;
-                for (int i = 0; i < measurements.Length; i++)
+                for (int i = 0; i < dataConsumer.Count; i++)
                 {
-                    var mea = measurements[i];
+                    var mea = dataConsumer[i];
                     var n = mea.Count;
                     for (var j = 0; j < n; j++)
                     {

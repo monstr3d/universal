@@ -1,3 +1,4 @@
+import { OwnError } from "./ErrorHandler/OwnError";
 import { IAlias } from "./IAlias";
 import { IDataConsumer } from "./Measurements/IDataConsumer";
 import { IMeasurement } from "./Measurements/IMeasurement";
@@ -13,7 +14,7 @@ export class Performer
 
     protected s: string = "";
 
-    public Convert(operation: Operation<any>): Operation<number>  {
+    public convertOperationToNumber(operation: Operation<any>): Operation<number>  {
       
         return () => {
             let value = operation();
@@ -24,20 +25,66 @@ export class Performer
         }
     }
 
-    public GetAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
+    public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
         var m = consumer.getTimeMeasutement();
         return () => { m.getOperation()(); }
     }
 
-    public GetNumberTimeOperation(consumer: ITimeMeasurementConsumer): Operation<number> {
+    public getNumberTimeOperation(consumer: ITimeMeasurementConsumer): Operation<number> {
         return () => {
             var m = consumer.getTimeMeasutement();
             let value = m.getOperation()();
             if (typeof value === 'number') {
-                return value; // Already a number
+                return value; 
             }
             return 0;
         }
+    }
+
+    public convertFromAny<T>(t: any): T
+    {
+        return this.convert<any, T>(t);
+    }
+
+ 
+    public convert<T, S>(t: T): S {
+        // Typeof checks against string representations of types. S is a generic type,
+        // so you can't directly use typeof S.  It will just return the string "object" or "function".
+
+        // You need to find a way to determine the *actual* type S at runtime
+        //  and compare it against the type of 't'.
+
+        // A very limited approach would be to use type guards, but that means
+        // you'd have to know what type S *could* be in advance. This is not
+        // really a general solution.
+
+        if (typeof t === "string" && (null as any as S) instanceof String) {  //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t as any as S; // Force the type assertion (VERY UNSAFE)
+        }
+
+        if (typeof t === "number" && (null as any as S) instanceof Number) {  //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t as any as S; // Force the type assertion (VERY UNSAFE)
+        }
+
+        if (typeof t === "boolean" && (null as any as S) instanceof Boolean) {  //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t as any as S; // Force the type assertion (VERY UNSAFE)
+        }
+
+        //This is better, but assumes S is a string or number
+        if (typeof t === 'string' && (null as any as S) as any === String) {
+            return t as any as S;
+        }
+
+        if (typeof t === 'number' && (null as any as S) as any === Number) {
+            return t as any as S;
+        }
+
+        throw new OwnError("Type conversion", "Performer", undefined);
+
+        // In many cases, a direct conversion may not be possible
+        // or may require a more complex transformation.
+       // console.warn("Conversion not possible for types:", typeof t, S);
+        return undefined as any as S; // Or throw an error, or return a default value.
     }
 
 

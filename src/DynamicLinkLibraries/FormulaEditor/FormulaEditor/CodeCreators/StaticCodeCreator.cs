@@ -50,7 +50,7 @@ namespace FormulaEditor.CodeCreators
         /// <param name="variables">Strings of variables</param>
         /// <param name="initializers">Strings of initializers</param>
         /// <returns>Strings of code</returns>
-        public static IList<string> CreateCode(ObjectFormulaTree[] trees, ICodeCreator creator,
+        public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator,
             out ICodeCreator local,
              out IList<string> variables, 
              out IList<string> initializers)
@@ -60,11 +60,11 @@ namespace FormulaEditor.CodeCreators
             List<string> init = new List<string>();
             try
             {
-                local = creator.Create(trees);
+                local = creator.Create(obj, trees);
                 IList<ObjectFormulaTree> lt = local.Trees;
                 if (local.Optional.Count > 0)
                 {
-                    return CreateOptionalCode(local, out variables, out initializers);
+                    return CreateOptionalCode(obj, local, out variables, out initializers);
                 }
                 foreach (ObjectFormulaTree t in lt)
                 {
@@ -82,7 +82,7 @@ namespace FormulaEditor.CodeCreators
                     }
                     IList<string> lv;
                     IList<string> lp;
-                    IList<string> c = local.CreateCode(t, ret, par.ToArray<string>(),
+                    IList<string> c = local.CreateCode(obj, t, ret, par.ToArray<string>(),
                         out lv, out lp);
                     if (lv != null)
                     {
@@ -119,7 +119,7 @@ namespace FormulaEditor.CodeCreators
 
         #region Private Members
 
-        static IList<string> CreateOptionalCode(ICodeCreator creator, out IList<string> variables, out IList<string> initializers)
+        static IList<string> CreateOptionalCode(object obj, ICodeCreator creator, out IList<string> variables, out IList<string> initializers)
         {
             List<string> code = new List<string>();
             List<string> vari = new List<string>();
@@ -166,7 +166,7 @@ namespace FormulaEditor.CodeCreators
                     if (!conds.Contains(cond))
                     {
                         conds.Add(cond);
-                        IList<string> cc = creator.CreateCode(cond, rc, par.ToArray(),
+                        IList<string> cc = creator.CreateCode(obj, cond, rc, par.ToArray(),
                             out lvc, out lpc);
                         if (lvc != null)
                         {
@@ -205,7 +205,7 @@ namespace FormulaEditor.CodeCreators
                                     p.Add(creator[chc]);
                                 }
                             }
-                            IList<string> cr = creator.CreateCode(tt, rr, p.ToArray<string>(),
+                            IList<string> cr = creator.CreateCode(obj, tt, rr, p.ToArray<string>(),
                               out lvr, out lpr);
                             if (lvr != null)
                             {
@@ -222,7 +222,7 @@ namespace FormulaEditor.CodeCreators
                         }
                         else
                         {
-                            code.AddRange(CreateCode(creator, tt, busy));
+                            code.AddRange(CreateCode(obj, creator, tt, busy));
                             code.Add(rcr + " = " + creator[tt] + ";");
                         }
                         if (k == 1)
@@ -249,7 +249,7 @@ namespace FormulaEditor.CodeCreators
                 }
                 IList<string> lv;
                 IList<string> lp;
-                IList<string> c = creator.CreateCode(t, ret, par.ToArray<string>(),
+                IList<string> c = creator.CreateCode(obj, t, ret, par.ToArray<string>(),
                     out lv, out lp);
                 if (lv != null)
                 {
@@ -298,7 +298,7 @@ namespace FormulaEditor.CodeCreators
             }
         }
 
-        private static IList<string> CreateCode(ICodeCreator creator, ObjectFormulaTree tree, List<ObjectFormulaTree> busy)
+        private static IList<string> CreateCode(object obj, ICodeCreator creator, ObjectFormulaTree tree, List<ObjectFormulaTree> busy)
         {
             List<ObjectFormulaTree> l = new List<ObjectFormulaTree>();
             GetList(tree, l, busy);
@@ -319,7 +319,7 @@ namespace FormulaEditor.CodeCreators
                     }
                     p.Add(creator[chc]);
                 }
-                cc.AddRange(creator.CreateCode(tr, rr, p.ToArray(), out lvr, out lpr));
+                cc.AddRange(creator.CreateCode(obj, tr, rr, p.ToArray(), out lvr, out lpr));
             }
             return cc;
         }

@@ -1,5 +1,4 @@
 import { CategoryObject } from "../CategoryObject";
-import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { IDesktop } from "../IDesktop";
 import { IPostSetArrow } from "../IPostSetArrow";
 import { Operation } from "../Types/Operation";
@@ -10,13 +9,15 @@ import { ITimeMeasurementConsumer } from "./ITimeMeasurementConsumer";
 
 export class DataConsumer extends CategoryObject implements IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer
 {
-    constructor(desktop: IDesktop, name: string) {
+    constructor(desktop: IDesktop, name: string)
+    {
         super(desktop, name);
         this.tms = this;
-        this.timeOperation = this.performer.GetNumberTimeOperation(this);
+        this.timeOperation = this.performer.getNumberTimeOperation(this);
+    }
 
-      }
-    getInternalTime(): number {
+    getInternalTime(): number
+    {
         return this.timeOperation();
     }
 
@@ -25,11 +26,14 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
     timeOperation !: Operation<number>;
 
     timeMeasurement !: IMeasurement;
+
+    protected mapOperations: Map<number, Operation<any>> = new Map;
    
     
     getTimeMeasutement(): IMeasurement {
         return this.timeMeasurement;
     }
+
     setTimeMeasutement(measurement: IMeasurement): void {
         this.timeMeasurement = measurement;            ;
     }
@@ -45,7 +49,5 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
     addMeasurements(item: IMeasurements): void {
         this.measurements.push(item);
     }
-
-
 
 }

@@ -12,17 +12,17 @@ namespace DataPerformer.Formula.TypeScript
         static private readonly Dictionary<Type, string> dictionary =
             new Dictionary<Type, string>()
             {
-               { typeof(double), "double" },
-               { typeof(float), "float" },
-               { typeof(sbyte), "sbyte" },
+               { typeof(double), "number" },
+               { typeof(float), "number" },
+               { typeof(sbyte), "number" },
                { typeof(byte), "byte" },
-               { typeof(short), "short" },
-               { typeof(ushort), "ushort" },
-               { typeof(int), "int" },
-               { typeof(uint), "uint" },
-               { typeof(long), "long" },
-               { typeof(ulong), "ulong" },
-               { typeof(bool), "bool" },
+               { typeof(short), "number" },
+               { typeof(ushort), "number" },
+               { typeof(int), "number" },
+               { typeof(uint), "number" },
+               { typeof(long), "number" },
+               { typeof(ulong), "number" },
+               { typeof(bool), "boolean" },
               { typeof(string), "string" },
             };
 

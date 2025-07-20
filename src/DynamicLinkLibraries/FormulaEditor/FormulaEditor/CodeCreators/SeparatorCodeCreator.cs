@@ -45,7 +45,7 @@ namespace FormulaEditor.CodeCreators
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public override IList<string> CreateCode(ObjectFormulaTree tree, string ret, 
+        public override IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, 
             string[] parameters, out IList<string> variables, out IList<string> initializers)
         {
             /* !!!
