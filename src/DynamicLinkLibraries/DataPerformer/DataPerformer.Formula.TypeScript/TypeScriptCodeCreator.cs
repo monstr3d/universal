@@ -167,9 +167,10 @@ namespace DataPerformer.Formula.TypeScript
             if (sep.Length == 2)
             {
                 string[] ss = [" = this.measurement", ".getOperation()();"];
-                if (sep[0].Equals(ss[0]) & sep[1].Equals(ss[1]))
+                if (sep[0].Equals(ss[0]) & sep[1].Equals(ss[1]) & false)
                 {
                    var op = tree.Operation;
+                    
                    var ii = formula.FindIndex(tree, DataConsumer);
                     if (ii != null)
                     {
@@ -379,20 +380,21 @@ namespace DataPerformer.Formula.TypeScript
             local = null;
             IList<string> l = StaticCodeCreator.CreateCode(obj, trees, creator, out local,
                 out variables, out initializers);
-            variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
+         /*   variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
             variables.Add("object[] currentArray = null;");
             variables.Add("double doubleValue = 0;");
-            variables.Add("FormulaEditor.ObjectFormulaTree[] trees = null;");
+            variables.Add("FormulaEditor.ObjectFormulaTree[] trees = null;");*/
             ObjectFormulaTree[] lt = local.Trees;
             foreach (ObjectFormulaTree tree in lt)
             {
+                var s = "";
                 object ret = tree.ReturnType;
                 if (ret.IsEmpty())
                 {
                     continue;
                 }
-                string s = typeCreator.GetType(ret) + " ";
-                s += local[tree];
+                var t = typeCreator.GetType(ret) + " ";
+                var id = local[tree];
                 string cv = creator.GetConstValue(tree);
                 string def = "";
                 if (cv == null)
@@ -400,13 +402,12 @@ namespace DataPerformer.Formula.TypeScript
                     def = typeCreator.GetDefaultValue(ret) + "";
                     if (def.Length > 0)
                     {
-                        s += " = ";
+                        s = id + " : " + t + " = " + def;
                     }
-                    s += def;
                 }
                 else
                 {
-                    s += " = " + cv;
+                    s = id + " : " + t + " = " + cv;
                 }
                 s += ";";
                 variables.Add(s);

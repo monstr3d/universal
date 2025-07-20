@@ -97,19 +97,8 @@ namespace DataPerformer.Formula.TypeScript
         private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
            IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
-            List<string> l = new()
-            {
-                "public bool Success { get => success; }",
-                "",
-                "public void Update()",
-                "{",
-                "\tsuccess = true;",
-            };
-            foreach (string s in lcode)
-            {
-                l.Add("\t" + s);
-            }
-            // StaticCodeCreator.Add(sb, lcode);
+            List<string> l = new();
+             performer.Add(l, lcode as List<string>, 1);
             int nTree = local.Trees.Length;
             if (checkValue)
             {
@@ -118,16 +107,17 @@ namespace DataPerformer.Formula.TypeScript
                         l.Add("\tcheckValue(var_" + i + ");");
                     */
             }
-            l.Add("}");
+       //     l.Add("}");
             l.Add("");
             if (checkValue)
             {
-                l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)");
+              /*  l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)");
                 l.Add("{");
                 l.Add("\tsuccess = true;");
                 l.Add("\tthis.trees = trees;");
                 l.Add("\tthis.checkValue = checkValue;");
                 l.Add("\tthis.dataPerformerFormula = dataPerformerFormula;");
+              */
             }
             else
             {
@@ -135,29 +125,22 @@ namespace DataPerformer.Formula.TypeScript
                 l.Add("{");
                 l.Add("\tthis.trees = trees;");
             }
-            foreach (string s in initializers)
-            {
-                l.Add("\t" + s);
-            }
+            l.Add("init() : void");
+            l.Add("{");
+            performer.Add(l, initializers as List<string>, 1);
             l.Add("}");
-            l.Add("");
+      /*      l.Add("");
             l.Add("public Func<object> this[FormulaEditor.ObjectFormulaTree tree]");
             l.Add("{ get { return dictionary[tree]; }}");
             l.Add("");
             l.Add("Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();");
-            l.Add("");
+            l.Add("");*/
             foreach (string s in variables)
             {
                 l.Add("" + s);
             }
             if (checkValue)
             {
-                l.Add("");
-                l.Add("Func<object, bool> checkValue = (o) => false;");
-                l.Add("object variable;");
-                l.Add("bool success = true;");
-                l.Add("DataPerformer.Formula.DataPerformerFormula dataPerformerFormula = null;");
-
             }
             // l.Add("\t}");
             return l;
@@ -177,7 +160,9 @@ namespace DataPerformer.Formula.TypeScript
             {
             }
             var l = new List<string>();
-            l.Add("calculateTree() : void {");
+            l.Add("calculateTree() : void");
+            l.Add("{");
+            l.Add("\tthis.success = true;");
             performer.Add(l, lcode, 1);
             l.Add("}");
             return l;
@@ -214,11 +199,11 @@ namespace DataPerformer.Formula.TypeScript
             int n = StaticCodeCreator.GetNumber(local, tree);
             string tid = local[tree];
             string f = "get_" + n;
-            init.Add("this.mapOperations.set(" + n + ", " + f + ");");
+            init.Add("this.mapOperations.set(" + n + ", this." + f + ");");
             func.Add("");
             func.Add(f + "() : any");
             func.Add("{");
-            func.Add("\treturn success ? " + tid + " : undefined;");
+            func.Add("\treturn this.success ? this." + tid + " : undefined;");
             func.Add("}");
         }
 

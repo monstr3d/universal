@@ -30,6 +30,12 @@ namespace DataPerformer.Formula
 
         ITreeCollection treeCollection;
 
+        protected IDataConsumer DataConsumer
+        {
+            get;
+            init;
+        }
+
         #endregion
 
         #region Ctor
@@ -40,7 +46,12 @@ namespace DataPerformer.Formula
         /// <param name="treeCollection">Collection of trees</param>
         public DataPerformerFormula(ITreeCollection treeCollection)
         {
+            if (treeCollection == null)
+            {
+                return;
+            }
             this.treeCollection = treeCollection;
+            DataConsumer = treeCollection as IDataConsumer;
         }
 
         #endregion
@@ -81,6 +92,31 @@ namespace DataPerformer.Formula
                 return new HolderMeasurement((IMeasurementHolder)operation, treeCollection);
             }
             return null;
+        }
+
+        /// <summary>
+        /// Gets table
+        /// </summary>
+        /// <returns></returns>
+        public List<int[]> Get()
+        {
+            var d = new Dictionary<int, int[]>();
+            var tr = treeCollection.Trees;
+            for (var i = 0; i < tr.Length; i++)
+            {
+                var k = FindIndex(tr[i], DataConsumer);
+                if (k != null)
+                {
+                    d[i] = k;
+                }
+            }
+            var l = new List<int[]>();
+            foreach (var k in d)
+            {
+                var v = k.Value;
+                l.Add([k.Key, v[0], v[1]]);
+            }
+            return l;
         }
 
         /// <summary>

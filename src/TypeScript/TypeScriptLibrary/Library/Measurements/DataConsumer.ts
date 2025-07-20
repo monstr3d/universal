@@ -27,6 +27,8 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
 
     timeMeasurement !: IMeasurement;
 
+    success: boolean = true;
+
     protected mapOperations: Map<number, Operation<any>> = new Map;
    
     

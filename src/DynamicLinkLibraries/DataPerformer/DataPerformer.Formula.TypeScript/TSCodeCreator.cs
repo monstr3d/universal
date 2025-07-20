@@ -113,6 +113,7 @@ namespace DataPerformer.Formula.TypeScript
             la = performer.CreateMap<int>("ops", v.OperationNames, "number");
             performer.Add(l, la, 2);
             l.Add("\t\tthis.performer.copyMap(ops, this.operationNames);");
+            l.Add("\t\tthis.init();");
             l.Add("\t}");
             l.Add("");
             ITreeCollection tc = v;
