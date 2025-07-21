@@ -4,6 +4,7 @@ using Diagram.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+
 using NamedTree;
 
 namespace Diagram.TypeScript

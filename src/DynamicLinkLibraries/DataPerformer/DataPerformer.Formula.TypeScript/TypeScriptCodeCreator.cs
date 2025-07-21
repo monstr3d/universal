@@ -1,12 +1,11 @@
 ﻿using BaseTypes;
 using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using ErrorHandler;
+using DataPerformer.Portable.Measurements;
 using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.Interfaces;
-using System.Runtime.CompilerServices;
+using System.Diagnostics.Metrics;
 using System.Text;
 
 namespace DataPerformer.Formula.TypeScript
@@ -144,8 +143,37 @@ namespace DataPerformer.Formula.TypeScript
 
         #region Overriden Members
 
-        private List<string> CreateTSCode(object obj,ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
+        private List<string>                                                                                                                                                                                                            CreateTSCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters,  List<string> variables, List<string> initializers)
         {
+            var num = int.Parse(ret.Substring(4));
+            var op = tree.Operation;
+            if (op is IMeasurementHolder mh)
+            {
+                var mea = mh.Measurement;
+                if (mea is TimeMeasurement)
+                {
+                    return new List<string>()
+                    {
+                        "this." + ret + " = this.getInternalTime();"
+                    };
+                }
+            }
+            if (op is AliasNameVariable anv)
+            {
+                var an = anv.AliasName;
+                var nam = an.Name;
+                var anvn = "aliasName" + num;
+                var lan = new List<string>();
+                lan.Add("this.variable = " + anvn + ".getAliasNameValue()");
+                var init = new List<string>()
+                {
+                    "this." + anvn + " = new AliasName(this.alias, \"" + nam +"\");"
+                };
+                initializers.AddRange(init);
+                var vari  = new List<string> { anvn + " !: IAliasName;"};
+                variables.AddRange(vari);
+            }
+
             string[] sep = separatorCreator[tree];
             if (sep == null)
             {
@@ -154,74 +182,20 @@ namespace DataPerformer.Formula.TypeScript
                 initializers = null;
                 return null;
             }
+            if (sep[1][0] == '.')
+            {
+                sep[1] = num + sep[1];
+            }
             List<string> l = new List<string>();
             string tt = TypeCreator.GetType(tree.ReturnType);
             string st = "";
             if (!tt.Equals("any"))
             {
-                st = "this.performer.convertFromAny<" + tt + ">(";
-            }
-            string sp = ret.Substring(4);
-            int k = int.Parse(sp);
-
-            if (sep.Length == 2)
-            {
-                string[] ss = [" = this.measurement", ".getOperation()();"];
-                if (sep[0].Equals(ss[0]) & sep[1].Equals(ss[1]) & false)
-                {
-                   var op = tree.Operation;
-                    
-                   var ii = formula.FindIndex(tree, DataConsumer);
-                    if (ii != null)
-                    {
-                        initializers = new List<string>()
-                        {
-
-                       "measurement" + sp + " = " +
-                        "dataPerformerFormula.ToMeasurement(trees["
-                        + k + "]);"
-                        };
-                    }
-                    else
-                    {
-                        initializers = new List<string>()
-                        {
-                            "measurement" + sp + " = new TimeMeasurementWrapper(this);"
-                        };
-                    }
-   variables = new List<string>()
-                   {
-                       "measurement" + sp + "|: IMeasurement;"
-                   };
-                    string[] str = new string[]
-                        {
-                        "variable = measurement" + sp + sep[1],
-                               "if (check(variable)) { success = false; return; }",
-                          ret + " = " + st + "variable;"
-                        };
-                    return str.ToList();
-                }
-                if (sep[0].Equals(" = aliasName") & sep[1].Equals(".Value;"))
-                {
-                    string[] str = new string[] {"this.variable = aliasName" + sp + sep[1],
-                        "if (this.check(variable)) { this.success = false; return; }",
-                    ret + " = " + st + "variable;" };
-                    initializers = new List<string>()
-                   {
-                       "aliasName" + sp + " = " +
-                        "dataPerformerFormula.ToAliasName(trees["
-                        + k + "]);"
-                   };
-                    variables = new List<string>()
-                   {
-                       "Diagram.UI.Interfaces.IAliasName aliasName" + sp + ";"
-                   };
-                    return str.ToList();
-                }
+                st = "this.check<" + tt + ">(";
             }
             variables = new List<string>();
             initializers = new List<string>();
-            string s = ret;
+            string s = "this.variable"; 
             int n = sep.Length;
             int m = parameters.Length;
             for (int i = 0; i < n; i++)
@@ -229,13 +203,23 @@ namespace DataPerformer.Formula.TypeScript
                 s += sep[i];
                 if (i < m)
                 {
-                    s += parameters[i];
+                    s += "this." + parameters[i];
                 }
             }
             l.Add(s);
+            l.Add("if (this.check(this.variable)) { this.success = false; return; } ");
+            l.Add("this." + ret + " = this.convert<" + tt + ">(this.variable);");
+            if (s.Contains("this.measurement"))
+            {
+         //       variables.Add("measurement" + num + " != IMeasurement");
+            }
             return l;
         }
 
+
+
+
+ 
 
 
         /// <summary>
@@ -249,12 +233,15 @@ namespace DataPerformer.Formula.TypeScript
         /// <returns>List of code</returns>
         public override IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
         {
-            IList<string> l = CreateTSCode(obj, tree, ret, parameters, out variables, out initializers);
+            variables = new List<string>();
+            initializers = new List<string>();
+            IList<string> l = CreateTSCode(obj, tree, ret, parameters,  variables as List<string>,  initializers as List<string>);
             if (l != null)
             {
                 return l;
             }
-            l = CreateArraySingleCode(tree, ret, parameters, out variables, out initializers);
+            /*
+            l = CreateArraySingleCode(tree, ret, parameters,  variables, initializers);
             if (l != null)
             {
                 return l;
@@ -274,7 +261,7 @@ namespace DataPerformer.Formula.TypeScript
             if (ret.Length > 0)
             {
                 return CreateTreeCode(tree, ret, parameters, out variables, out initializers);
-            }
+            }*/
             return null;
         }
 
@@ -378,7 +365,7 @@ namespace DataPerformer.Formula.TypeScript
              out IList<string> variables, out IList<string> initializers)
         {
             local = null;
-            IList<string> l = StaticCodeCreator.CreateCode(obj, trees, creator, out local,
+            IList<string> l = StaticCodeCreatorTypeScript.CreateCode(obj, trees, creator, out local,
                 out variables, out initializers);
          /*   variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
             variables.Add("object[] currentArray = null;");
@@ -608,10 +595,10 @@ namespace DataPerformer.Formula.TypeScript
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
         protected IList<string> CreateArraySingleCode(ObjectFormulaTree tree, string ret, string[] parameters,
-            out IList<string> variables, out IList<string> initializers)
+            List<string> variables, List<string> initializers)
         {
-            variables = new List<string>();
-            initializers = new List<string>();
+          //  variables = new List<string>();
+           // initializers = new List<string>();
             IObjectOperation op = tree.Operation;
             if (!(op is ArraySingleOperation))
             {

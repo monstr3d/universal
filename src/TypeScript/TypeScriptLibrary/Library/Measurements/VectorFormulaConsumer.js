@@ -10,7 +10,6 @@ class VectorFormulaConsumer extends DataConsumerMeasurements_1.DataConsumerMeasu
         this.feedback = new Map();
         this.arguments = [];
         this.operationNames = new Map();
-        this.success = true;
     }
     updateMeasurements() {
         this.calculateTree();

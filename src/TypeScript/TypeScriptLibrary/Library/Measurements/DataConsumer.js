@@ -5,9 +5,12 @@ const CategoryObject_1 = require("../CategoryObject");
 class DataConsumer extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);
+        this.success = true;
+        this.mapOperations = new Map;
         this.measurements = [];
         this.tms = this;
-        this.timeOperation = this.performer.GetNumberTimeOperation(this);
+        this.timeOperation = this.performer.getNumberTimeOperation(this);
+        this.dataConsumer = this;
     }
     getInternalTime() {
         return this.timeOperation();

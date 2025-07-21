@@ -7,6 +7,9 @@ class Measurements extends CategoryObject_1.CategoryObject {
         super(desktop, name);
         this.measurements = [];
     }
+    addMeasurement(measurement) {
+        this.measurements.push(measurement);
+    }
     getMeasurementsCount() {
         return this.measurements.length;
     }

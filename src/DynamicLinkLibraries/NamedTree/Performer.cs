@@ -129,7 +129,7 @@ namespace NamedTree
         /// Sets parents for the Dictionary
         /// </summary>
         /// <param name="nodes">The dictionary</param>
-        public void SetParents1<T>(Dictionary<XmlElement, T> nodes) where T : class
+        public void SetParents<T>(Dictionary<XmlElement, T> nodes) where T : class
         {
             foreach (var node in nodes)
             {
@@ -186,7 +186,7 @@ namespace NamedTree
         }
 
 
-        public Dictionary<T, S> Inverse<T, S>(Dictionary<S, T> dictionray) where T : class where S : class
+        public Dictionary<T, S> Inverse<T, S>(Dictionary<S, T> dictionray)
         {
             var d = new Dictionary<T, S>();
             foreach (var p in dictionray) d[p.Value] = p.Key;
@@ -228,12 +228,11 @@ namespace NamedTree
             return GetRoots(dd, dictionary);
         }
 
-
         /// <summary>
         /// Sets parents for the Dictionary
         /// </summary>
         /// <param name="nodes">The dictionary</param>
-        public void SetParents1<T>(Dictionary<XmlElement, INode<T>> nodes) where T : class
+        public void SetParents<T>(Dictionary<XmlElement, INode<T>> nodes) where T : class
         {
             foreach (var node in nodes)
             {

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Orbital_1 = require("./src/Orbital");
+const Orbital1_1 = require("./src/Orbital1");
 console.log('Hello world');
 //import Orbital from "./src/Orbital";
 try {
-    new Orbital_1.Orbital();
+    new Orbital1_1.Orbital();
 }
 catch (e) {
     let i = 0;

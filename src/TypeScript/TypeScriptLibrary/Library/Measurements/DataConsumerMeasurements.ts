@@ -9,6 +9,7 @@ import { IMeasurements } from "./IMeasurements";
 export class DataConsumerMeasurements extends DataConsumer implements IMeasurements, IAlias {
     constructor(desktop: IDesktop, name: string) {
         super(desktop, name);
+        this.alias = this;
 
     }
     protected output: IMeasurement[] = [];
@@ -23,6 +24,8 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
 
     protected variable: any;
 
+    protected alias !: IAlias;
+
  
     getMeasurementsCount(): number {
         return this.output.length;
@@ -31,6 +34,11 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
     geMeasurement(i: number): IMeasurement {
         return this.output[i];
     }
+
+    addMeasurement(measurement: IMeasurement): void {
+        this.output.push(measurement);
+    }
+
 
     updateMeasurements(): void {
     }

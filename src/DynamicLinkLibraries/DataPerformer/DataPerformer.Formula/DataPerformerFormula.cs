@@ -77,10 +77,10 @@ namespace DataPerformer.Formula
             }
         }
 
-        static public Dictionary<string, int> GetOutput(IMeasurements m, ObjectFormulaTree[] t)
+        static public Dictionary<string, Tuple<int, object>> GetOutput(IMeasurements m, ObjectFormulaTree[] t)
         {
             var l = t.ToList();
-            var output = new Dictionary<string, int>();
+            var output = new Dictionary<string, Tuple<int, object>>();
             for (int i = 0; i < m.Count; i++)
             {
                 var mea = m[i];
@@ -90,7 +90,7 @@ namespace DataPerformer.Formula
                     var n = l.IndexOf(h);
                     if (n >= 0)
                     {
-                        output[mea.Name] = n;
+                        output[mea.Name] = new Tuple<int, object>(n, mea.Type);
                     }
                 }
             }
@@ -156,6 +156,26 @@ namespace DataPerformer.Formula
             return null;
         }
 
+        public static List<int[]> Get(IDataConsumer dataConsumer, ObjectFormulaTree[] trees)
+        {
+            var d = new Dictionary<int, int[]>();
+            for (var i = 0; i < trees.Length; i++)
+            {
+                var idx = FindIndex(trees[i], dataConsumer);
+                if (idx != null)
+                {
+                    d[i] = idx;
+                }
+            }
+            var l = new List<int[]>();
+            foreach (var k in d)
+            {
+                var v = k.Value;
+                l.Add([k.Key, v[0], v[1]]);
+            }
+            return l;
+        }
+
         /// <summary>
         /// Gets table
         /// </summary>
@@ -187,7 +207,7 @@ namespace DataPerformer.Formula
         /// <param name="tree">Tree</param>
         /// <param name="measurements">all measurements</param>
         /// <returns>The index</returns>
-        public int[] FindIndex(ObjectFormulaTree tree, IDataConsumer dataConsumer)
+        public static  int[] FindIndex(ObjectFormulaTree tree, IDataConsumer dataConsumer)
         {
             IObjectOperation operation = tree.Operation;
             if (operation is IMeasurementHolder mh)

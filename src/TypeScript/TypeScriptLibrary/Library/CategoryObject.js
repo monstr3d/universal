@@ -8,7 +8,10 @@ class CategoryObject {
         this.desktop = desktop;
         this.name = name;
         desktop.addObject(this);
-        this.check = desktop.getCheck();
+        this.checker = desktop.getCheck();
+    }
+    convert(a) {
+        return this.performer.convertFromAny(a);
     }
     getDesktop() {
         return this.desktop;
@@ -22,20 +25,9 @@ class CategoryObject {
     getName() {
         return this.name;
     }
+    check(x) {
+        return this.checker(x);
+    }
 }
 exports.CategoryObject = CategoryObject;
-class FictiveCategoryObject {
-    getObject() {
-        throw new Error("Method not implemented.");
-    }
-    setObject(obj) {
-        throw new Error("Method not implemented.");
-    }
-    getName() {
-        throw new Error("Method not implemented.");
-    }
-    getDesktop() {
-        throw new Error("Method not implemented.");
-    }
-}
 //# sourceMappingURL=CategoryObject.js.map

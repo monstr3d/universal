@@ -1,5 +1,7 @@
 import { OwnError } from "./ErrorHandler/OwnError";
 import { IAlias } from "./IAlias";
+import { ICategoryObject } from "./ICategoryObject";
+import { IDesktop } from "./IDesktop";
 import { IDataConsumer } from "./Measurements/IDataConsumer";
 import { IMeasurement } from "./Measurements/IMeasurement";
 import { ITimeMeasurementConsumer } from "./Measurements/ITimeMeasurementConsumer";
@@ -24,6 +26,18 @@ export class Performer
             return 0;
         }
     }
+
+    public getCategoryObject(desktop: IDesktop, name: string): ICategoryObject {
+        let objects = desktop.getObjects();
+        return objects.find(x => x.getName() === name);
+    }
+
+
+    public getCategoryArrow(desktop: IDesktop, name: string): ICategoryArrow {
+        let arrows = desktop.getArrows();
+        return arrows.find(x => x.getName() === name);
+    }
+
 
     public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
         var m = consumer.getTimeMeasutement();

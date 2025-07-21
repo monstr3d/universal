@@ -14,6 +14,7 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
         super(desktop, name);
         this.tms = this;
         this.timeOperation = this.performer.getNumberTimeOperation(this);
+        this.dataConsumer = this;
     }
 
     getInternalTime(): number
@@ -21,6 +22,7 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
         return this.timeOperation();
     }
 
+  
     tms!: ITimeMeasurementConsumer; 
 
     timeOperation !: Operation<number>;
@@ -28,6 +30,8 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
     timeMeasurement !: IMeasurement;
 
     success: boolean = true;
+
+    protected dataConsumer !: IDataConsumer;
 
     protected mapOperations: Map<number, Operation<any>> = new Map;
    
@@ -45,6 +49,7 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
 
     private measurements: IMeasurements[] = [];
 
+   
     getAllMeasurements(): IMeasurements[] {
         return this.measurements;
     }

@@ -56,6 +56,14 @@ namespace DataPerformer.Formula.TypeScript
             return l;
         }
 
+        static void AddPost(List<string> l)
+        {
+            l.Add("postSetArrow() : void {");
+            l.Add("\tthis.init();");
+            l.Add("}");
+
+        }
+
 
         static List<string> CreateVectorConsumer(string preffix, object obj)
         {
@@ -78,38 +86,6 @@ namespace DataPerformer.Formula.TypeScript
             l.Add("\t\tthis.performer.copyMap(feed, this.feedback);");
 
             int dim = v.Dimension;
-            /*      
-                  l.Add("\t\tformulaString = new string[]");
-                  List<string> lf = new List<string>();
-                  for (int i = 0; i < dim; i++)
-                  {
-                      string sf = v.GetFormula(i);
-                      sf = sf.Replace("\r", "");
-                      sf = sf.Replace("\n", "");
-                      sf = sf.Replace("\"", "\\\"");
-                      lf.Add(sf);
-                  }
-                  List<string> lt = lf.GetCSharpCodeArray();
-                  foreach (string s in lt)
-                  {
-                      l.Add("\t\t" + s);
-                  }
-                  l.Add("\t\tisSerialized = true;");
-                  l.Add("\t\tcalculateDerivation = " + v.CalculateDerivation.StringValue() + ";");
-                  l.Add("\t\tderiOrder = " + v.DerivationOrder + ";");
-                  l.Add("\t\targuments =  new List<string>()");
-                  List<string> args = v.Arguments.GetCSharpCodeArray();
-
-                  foreach (string s in args)
-                  {
-                      l.Add("\t\t" + s);
-                  }
-          //        lt = v.CreateCSharpAliasList();
-                  l.Add("\t\tparameters =" + lt[0]);
-                  for (int i = 1; i < lt.Count; i++)
-                  {
-                      l.Add("\t\t" + lt[i]);
-                  }*/
             var args = performer.CreateList("this.arguments", v.Arguments);
             performer.Add(l, args, 2);
        //     l.Add("\t\tthis.performer.copyArray<string>(args, this.arguments);");
@@ -124,6 +100,8 @@ namespace DataPerformer.Formula.TypeScript
             var lt = treeCollectionCodeCreator.CreateCode(v, tc.Trees, "Calculation", "internal ",
             check);
             performer.Add(l, lt, 1);
+            AddPost(l);
+            l.Add("}");
             return l;
         }
 

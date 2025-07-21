@@ -30,8 +30,6 @@ export class Desktop implements IDesktop
 
     protected target!: ICategoryObject;
 
-
-
     getObjects(): ICategoryObject[] {
         return this.objects;
     }

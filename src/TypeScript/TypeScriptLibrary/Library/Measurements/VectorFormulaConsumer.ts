@@ -11,8 +11,7 @@ export class VectorFormulaConsumer extends DataConsumerMeasurements implements I
 
     protected operationNames: Map<number, string> = new Map();
 
-    protected success: boolean = true;
-
+ 
 //    protected parameters: Map<string, any> = new Map();
 
     

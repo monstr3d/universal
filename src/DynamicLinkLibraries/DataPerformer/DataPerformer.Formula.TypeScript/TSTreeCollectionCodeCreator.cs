@@ -159,7 +159,6 @@ namespace DataPerformer.Formula.TypeScript
             var lcode = TypeScriptCodeCreator.CreateCode(obj, trees, codeCreator,
                 out local, out variables, out initializers) as List<string>;
             ObjectFormulaTree[] tr = local.Trees;
-            Output = DataPerformerFormula.GetOutput(obj as IMeasurements, tr);
             foreach (ObjectFormulaTree tree in tr)
             {
                 AddTree(tree, initializers, variables);
@@ -207,7 +206,7 @@ namespace DataPerformer.Formula.TypeScript
             int n = StaticCodeCreator.GetNumber(local, tree);
             string tid = local[tree];
             string f = "get_" + n;
-            init.Add("this.mapOperations.set(" + n + ", this." + f + ");");
+           // init.Add("this.mapOperations.set(" + n + ", this." + f + ");");
             func.Add("");
             func.Add(f + "() : any");
             func.Add("{");

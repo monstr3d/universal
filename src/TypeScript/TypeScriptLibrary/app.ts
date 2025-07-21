@@ -1,4 +1,4 @@
-import { Orbital } from "./src/Orbital";
+import { Orbital } from "./src/Orbital1";
 
 console.log('Hello world');
 //import Orbital from "./src/Orbital";

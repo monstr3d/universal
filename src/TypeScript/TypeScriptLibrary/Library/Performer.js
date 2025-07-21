@@ -8,7 +8,7 @@ class Performer {
         this.b = false;
         this.s = "";
     }
-    ConvertOperationToNumber(operation) {
+    convertOperationToNumber(operation) {
         return () => {
             let value = operation();
             if (typeof value === 'number') {
@@ -17,11 +17,19 @@ class Performer {
             return 0;
         };
     }
-    GetAnyTimeOperation(consumer) {
+    getCategoryObject(desktop, name) {
+        let objects = desktop.getObjects();
+        return objects.find(x => x.getName() === name);
+    }
+    getCategoryArrow(desktop, name) {
+        let arrows = desktop.getArrows();
+        return arrows.find(x => x.getName() === name);
+    }
+    getAnyTimeOperation(consumer) {
         var m = consumer.getTimeMeasutement();
         return () => { m.getOperation()(); };
     }
-    GetNumberTimeOperation(consumer) {
+    getNumberTimeOperation(consumer) {
         return () => {
             var m = consumer.getTimeMeasutement();
             let value = m.getOperation()();
@@ -31,7 +39,10 @@ class Performer {
             return 0;
         };
     }
-    Convert(t) {
+    convertFromAny(t) {
+        return this.convert(t);
+    }
+    convert(t) {
         // Typeof checks against string representations of types. S is a generic type,
         // so you can't directly use typeof S.  It will just return the string "object" or "function".
         // You need to find a way to determine the *actual* type S at runtime

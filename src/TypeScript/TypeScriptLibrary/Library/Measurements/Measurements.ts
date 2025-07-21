@@ -9,6 +9,9 @@ export class Measurements extends CategoryObject  implements IMeasurements
         super(desktop, name);
 
     }
+    addMeasurement(measurement: IMeasurement): void {
+        this.measurements.push(measurement);
+    }
     protected measurements: IMeasurement[] = [];
     getMeasurementsCount(): number
     {

@@ -11,7 +11,7 @@ export class CategoryObject implements ICategoryObject
 
     protected name !: string;
 
-    protected check !: Check;
+    protected checker !: Check;
 
     protected variable !: any;
 
@@ -21,7 +21,11 @@ export class CategoryObject implements ICategoryObject
         this.desktop = desktop;
         this.name = name;
         desktop.addObject(this);
-        this.check = desktop.getCheck();
+        this.checker = desktop.getCheck();
+    }
+
+    protected convert<T>(a: any): T {
+        return this.performer.convertFromAny<T>(a);
     }
 
     getDesktop(): IDesktop {
@@ -37,21 +41,9 @@ export class CategoryObject implements ICategoryObject
     getName(): string {
         return this.name;
     }
+
+    protected check(x: any): boolean {
+        return this.checker(x);
+    }
 }
 
-class FictiveCategoryObject implements ICategoryObject
-{
-    getObject(): Object {
-        throw new Error("Method not implemented.");
-    }
-    setObject(obj: Object): void {
-        throw new Error("Method not implemented.");
-    }
-    getName(): string {
-        throw new Error("Method not implemented.");
-    }
-    getDesktop(): IDesktop {
-        throw new Error("Method not implemented.");
-    }
-
-}
