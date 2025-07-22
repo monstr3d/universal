@@ -362,15 +362,11 @@ namespace DataPerformer.Formula.TypeScript
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
         public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
-             out IList<string> variables, out IList<string> initializers)
+             out IList<string> variables, out IList<string> initializers, out List<string> claases, string current)
         {
             local = null;
             IList<string> l = StaticCodeCreatorTypeScript.CreateCode(obj, trees, creator, out local,
-                out variables, out initializers);
-         /*   variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
-            variables.Add("object[] currentArray = null;");
-            variables.Add("double doubleValue = 0;");
-            variables.Add("FormulaEditor.ObjectFormulaTree[] trees = null;");*/
+                out variables, out initializers, out claases, current);
             ObjectFormulaTree[] lt = local.Trees;
             foreach (ObjectFormulaTree tree in lt)
             {
@@ -462,7 +458,7 @@ namespace DataPerformer.Formula.TypeScript
         {
             if (op is VariableMeasurement)
             {
-                return [" = this.measurement", ".getOperation()();"];
+                return [" = this.measurement", ".getMeasurementValue();"];
             }
             if (op is AliasNameVariable)
             {

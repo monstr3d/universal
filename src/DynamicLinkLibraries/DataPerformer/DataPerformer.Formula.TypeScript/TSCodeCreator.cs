@@ -1,8 +1,8 @@
 ﻿using Diagram.Attributes;
+using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using FormulaEditor.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
 namespace DataPerformer.Formula.TypeScript
 {
@@ -13,9 +13,13 @@ namespace DataPerformer.Formula.TypeScript
     internal class TSCodeCreator : IClassCodeCreator
     {
         static ITreeCollectionCodeCreator treeCollectionCodeCreator = new TSTreeCollectionCodeCreator();
+
+        static FormulaEditor.Performer formulaPerformer = new FormulaEditor.Performer();
         
 
         static Diagram.TypeScript.Performer performer = new ();
+
+
    
         #region Ctor
         internal TSCodeCreator()
@@ -71,35 +75,44 @@ namespace DataPerformer.Formula.TypeScript
             var v = obj as VectorFormulaConsumer;
             var dpf = new DataPerformerFormula(v);
             var mea = dpf.Output;
+            ITreeCollection tc = v;
+            ITreeCollectionCodeCreator treeCollectionCodeCreator = new TSTreeCollectionCodeCreator();
+            var lt = treeCollectionCodeCreator.CreateCode(v, tc.Trees, preffix, "internal ",
+            check);
+            var add = treeCollectionCodeCreator as IAdditionalClassCodeCreator;
             List<string> l = new List<string>();
+            var classes = add.AdditionalCode;
+            if (classes.Count > 0)
+            {
+                l.Add("");
+                l.Add("");
+                formulaPerformer.Add(l, classes, 0);
+                l.Add("");
+                l.Add("");
+            }
             var cs = performer.ClassString(preffix, "VectorFormulaConsumer");
             l.Add(cs);
             l.Add("{");
             performer.AddObjectConstructor(l);
             var la = performer.CreateTSAliasList("map", v);
-            performer.Add(l, la, 2);
-            l.Add("\t\tthis.performer.SetAliasMap(map, this);");
+            formulaPerformer.Add(l, la, 2);
+            l.Add("\t\tthis.performer.setAliasMap(map, this);");
             bool beg = true;
             var feed = v.Feedback;
             la = performer.CreateMap<int>("feed", feed, "number");
-            performer.Add(l, la, 2);
+            formulaPerformer.Add(l, la, 2);
             l.Add("\t\tthis.performer.copyMap(feed, this.feedback);");
 
             int dim = v.Dimension;
             var args = performer.CreateList("this.arguments", v.Arguments);
-            performer.Add(l, args, 2);
+            formulaPerformer.Add(l, args, 2);
        //     l.Add("\t\tthis.performer.copyArray<string>(args, this.arguments);");
             la = performer.CreateMap<int>("ops", v.OperationNames, "number");
-            performer.Add(l, la, 2);
+            formulaPerformer.Add(l, la, 2);
             l.Add("\t\tthis.performer.copyMap(ops, this.operationNames);");
-            l.Add("\t\tthis.init();");
             l.Add("\t}");
             l.Add("");
-            ITreeCollection tc = v;
-            ITreeCollectionCodeCreator treeCollectionCodeCreator = new TSTreeCollectionCodeCreator();
-            var lt = treeCollectionCodeCreator.CreateCode(v, tc.Trees, "Calculation", "internal ",
-            check);
-            performer.Add(l, lt, 1);
+            formulaPerformer.Add(l, lt, 1);
             AddPost(l);
             l.Add("}");
             return l;

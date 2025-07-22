@@ -3,9 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryArrow = void 0;
 class CategoryArrow {
     constructor(desktop, name) {
+        this.typeName = "CategoryArrow";
+        this.types = ["ICategoryArrow", "CategoryArrow"];
         this.desktop = desktop;
         this.name = name;
-        desktop.addArrow(this);
+        desktop.addCategoryArrow(this);
+        desktop.addObject(this);
+    }
+    getClassName() {
+        return this.typeName;
+    }
+    imlplementsType(type) {
+        return this.types.indexOf(type) >= 0;
     }
     getDesktop() {
         return this.desktop;
@@ -27,24 +36,4 @@ class CategoryArrow {
     }
 }
 exports.CategoryArrow = CategoryArrow;
-class FictiveCategoryArrow {
-    getSource() {
-        throw new Error("Method not implemented.");
-    }
-    getTagret() {
-        throw new Error("Method not implemented.");
-    }
-    setSource(source) {
-        throw new Error("Method not implemented.");
-    }
-    setTarget(target) {
-        throw new Error("Method not implemented.");
-    }
-    getName() {
-        throw new Error("Method not implemented.");
-    }
-    getDesktop() {
-        throw new Error("Method not implemented.");
-    }
-}
 //# sourceMappingURL=CategoryArrow.js.map

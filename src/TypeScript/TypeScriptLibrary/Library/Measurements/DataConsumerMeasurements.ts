@@ -10,7 +10,10 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
     constructor(desktop: IDesktop, name: string) {
         super(desktop, name);
         this.alias = this;
-
+        this.typeName = "DataConsumerMeasurements";
+        this.types.push("DataConsumerMeasurements");
+        this.types.push("IMeasurements");
+        this.types.push("IAlias");
     }
     protected output: IMeasurement[] = [];
 
@@ -26,12 +29,13 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
 
     protected alias !: IAlias;
 
+
  
     getMeasurementsCount(): number {
         return this.output.length;
     }
 
-    geMeasurement(i: number): IMeasurement {
+    getMeasurement(i: number): IMeasurement {
         return this.output[i];
     }
 

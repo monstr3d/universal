@@ -1,23 +1,11 @@
 ﻿using Diagram.UI.Interfaces;
-using System;
-using System.Globalization;
+
 namespace Diagram.TypeScript
 {
+ 
     public class Performer 
     {
-        public void Add(List<string> list, List<string> l, int n)
-        {
-            var s = "";
-            for (int i = 0; i < n; i++)
-            {
-                s += "\t";
-            }
-            foreach (var item in l)
-            {
-                list.Add(s + item);
-            }
-        }
-       
+
         public void AddObjectConstructor(List<string> l)
         {
             l.Add("\tconstructor(desktop: IDesktop, name: string)");
@@ -143,9 +131,5 @@ namespace Diagram.TypeScript
             }
             return l;
         }
-
-
-
-
     }
 }

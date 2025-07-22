@@ -8,6 +8,33 @@ import { IMeasurement } from "../Library/Measurements/IMeasurement";
 import { Measurement } from "../Library/Measurements/Measurement";
 import { VectorFormulaConsumer } from "../Library/Measurements/VectorFormulaConsumer";
 
+
+class Orbital_CategoryObject_0_Measurement_2 extends Measurement {
+	obj !: Orbital_CategoryObject_0;
+	constructor(o:  Orbital_CategoryObject_0, name: string, type: any) {
+		super(name, type);
+		this.obj = o;
+	}
+
+	getMeasurementValue() {
+		return this.obj.get_2();
+	}
+}
+
+class Orbital_CategoryObject_0_Measurement_9 extends Measurement {
+	obj !: Orbital_CategoryObject_0;
+	constructor(o:  Orbital_CategoryObject_0, name: string, type: any) {
+		super(name, type);
+		this.obj = o;
+	}
+
+	getMeasurementValue() {
+		return this.obj.var_9;
+	}
+}
+
+
+
 class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 {
 	constructor(desktop: IDesktop, name: string)
@@ -15,10 +42,10 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 		super(desktop, name);
 		let map = new Map<string, any>(
 		[
-			["a", 5 ],
-			["b", 1 ]
+			["b", 1 ],
+			["a", 5 ]
 		]);
-		this.performer.SetAliasMap(map, this);
+		this.performer.setAliasMap(map, this);
 		let feed = new Map<number, string>(
 		[
 		]);
@@ -28,7 +55,6 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 		[
 		]);
 		this.performer.copyMap(ops, this.operationNames);
-		this.init();
 	}
 
 		calculateTree() : void
@@ -61,8 +87,8 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 	
 	init() : void
 	{
-		this.addMeasurement(new Measurement("Formula_1", 0, this.get_2));
-		this.addMeasurement(new Measurement("Formula_2", 0, this.get_9));
+		this.addMeasurement(new Orbital_CategoryObject_0_Measurement_2(this, "Formula_1" ,0));
+		this.addMeasurement(new Orbital_CategoryObject_0_Measurement_9(this, "Formula_2" ,0));
 		this.aliasName1 = new AliasName(this.alias, "b");
 		this.aliasName3 = new AliasName(this.alias, "a");
 	}
@@ -134,6 +160,46 @@ postSetArrow() : void {
 }
 }
 
+
+
+class Orbital_CategoryObject_1_Measurement_2 extends Measurement {
+	obj !: Orbital_CategoryObject_1;
+	constructor(o:  Orbital_CategoryObject_1, name: string, type: any) {
+		super(name, type);
+		this.obj = o;
+	}
+
+	getMeasurementValue() {
+		return this.obj.var_2;
+	}
+}
+
+class Orbital_CategoryObject_1_Measurement_4 extends Measurement {
+	obj !: Orbital_CategoryObject_1;
+	constructor(o:  Orbital_CategoryObject_1, name: string, type: any) {
+		super(name, type);
+		this.obj = o;
+	}
+
+	getMeasurementValue() {
+		return this.obj.var_4;
+	}
+}
+
+class Orbital_CategoryObject_1_Measurement_7 extends Measurement {
+	obj !: Orbital_CategoryObject_1;
+	constructor(o:  Orbital_CategoryObject_1, name: string, type: any) {
+		super(name, type);
+		this.obj = o;
+	}
+
+	getMeasurementValue() {
+		return this.obj.var_7;
+	}
+}
+
+
+
 class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 {
 	constructor(desktop: IDesktop, name: string)
@@ -143,7 +209,7 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 		[
 			["a", 7 ]
 		]);
-		this.performer.SetAliasMap(map, this);
+		this.performer.setAliasMap(map, this);
 		let feed = new Map<number, string>(
 		[
 		]);
@@ -154,7 +220,6 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 		[
 		]);
 		this.performer.copyMap(ops, this.operationNames);
-		this.init();
 	}
 
 		calculateTree() : void
@@ -166,7 +231,7 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 			this.variable = Math.pow(this.var_0, this.var_1);
 			if (this.check(this.variable)) { this.success = false; return; } 
 			this.var_2 = this.convert<number>(this.variable);
-			this.variable = this.measurement3.getOperation()();
+			this.variable = this.measurement3.getMeasurementValue();
 			if (this.check(this.variable)) { this.success = false; return; } 
 			this.var_3 = this.convert<number>(this.variable);
 			this.variable = Math.cos(this.var_3);
@@ -183,10 +248,10 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 	
 	init() : void
 	{
-		this.addMeasurement(new Measurement("Formula_1", 0, this.get_2));
-		this.addMeasurement(new Measurement("Formula_2", 0, this.get_4));
-		this.addMeasurement(new Measurement("Formula_3", 0, this.get_7));
-		this.measurement3 = this.dataConsumer.getAllMeasurements()[0].geMeasurement(1);
+		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_2(this, "Formula_1" ,0));
+		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_4(this, "Formula_2" ,0));
+		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_7(this, "Formula_3" ,0));
+		this.measurement3 = this.dataConsumer.getAllMeasurements()[0].getMeasurement(1);
 		this.aliasName0 = new AliasName(this.alias, "a");
 		this.aliasName5 = new AliasName(this.alias, "a");
 	}
@@ -269,8 +334,8 @@ export class Orbital extends Desktop
 		new Orbital_CategoryObject_1(this, "Output");
 		new Orbital_CategoryArrow_0(this, "22");
 
-		let arrows  = this.getArrows();
-		let objects = this.getObjects();
+		let objects = this.getCategoryObjects();
+		let arrows = this.getCategoryArrows();
 
 		arrows[0].setSource(objects[1]);
 		arrows[0].setTarget(objects[0]);

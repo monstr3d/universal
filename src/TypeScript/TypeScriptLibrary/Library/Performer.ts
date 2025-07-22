@@ -1,11 +1,12 @@
 import { OwnError } from "./ErrorHandler/OwnError";
 import { IAlias } from "./IAlias";
+import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { IObject } from "./IObject";
 import { IDataConsumer } from "./Measurements/IDataConsumer";
 import { IMeasurement } from "./Measurements/IMeasurement";
 import { ITimeMeasurementConsumer } from "./Measurements/ITimeMeasurementConsumer";
-import { Operation } from "./Types/Operation";
 
 export class Performer
 {
@@ -16,30 +17,23 @@ export class Performer
 
     protected s: string = "";
 
-    public convertOperationToNumber(operation: Operation<any>): Operation<number>  {
-      
-        return () => {
-            let value = operation();
-            if (typeof value === 'number') {
-                return value; // Already a number
+    public select<T>(objects: IObject[], type: string): T[] {
+
+        let t: T[] = [];
+        for (var i = 0; i < objects.length; i++)
+        {
+            let o = objects[i];
+            if (o.imlplementsType(type))
+            {
+                t.push(o as unknown as T);
             }
-            return 0;
         }
+        return t;
     }
 
-    public getCategoryObject(desktop: IDesktop, name: string): ICategoryObject {
-        let objects = desktop.getObjects();
-        return objects.find(x => x.getName() === name);
-    }
-
-
-    public getCategoryArrow(desktop: IDesktop, name: string): ICategoryArrow {
-        let arrows = desktop.getArrows();
-        return arrows.find(x => x.getName() === name);
-    }
-
-
-    public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
+ 
+    /*
+     public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
         var m = consumer.getTimeMeasutement();
         return () => { m.getOperation()(); }
     }
@@ -47,13 +41,14 @@ export class Performer
     public getNumberTimeOperation(consumer: ITimeMeasurementConsumer): Operation<number> {
         return () => {
             var m = consumer.getTimeMeasutement();
-            let value = m.getOperation()();
+            var v = m.getOperation();
+            var value = v();
             if (typeof value === 'number') {
                 return value; 
             }
             return 0;
         }
-    }
+    }*/
 
     public convertFromAny<T>(t: any): T
     {
@@ -104,7 +99,7 @@ export class Performer
 
     public getMeasurement(i: number, j: number, dataConsumer: IDataConsumer): IMeasurement
     {
-        return dataConsumer.getAllMeasurements()[i].geMeasurement(j);
+        return dataConsumer.getAllMeasurements()[i].getMeasurement(j);
     }
 
 
@@ -155,7 +150,7 @@ export class Performer
         return true;
     }
 
-    public SetAliasMap(map: Map<string, any>, alias: IAlias): void
+    public setAliasMap(map: Map<string, any>, alias: IAlias): void
     {
         for (const key in map.keys())
         {
@@ -169,4 +164,11 @@ export class Performer
             t.set(key, value);
         }
     }
+
+    public implementsType(o: unknown, type: string): boolean {
+        let obj: IObject = o as IObject;
+        return obj.imlplementsType(type);
+    }
+
+
 }

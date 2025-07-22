@@ -1,14 +1,22 @@
 import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { IObject } from "./IObject";
 
 
-export class CategoryArrow implements ICategoryArrow
+export class CategoryArrow implements ICategoryArrow, IObject
 {
     constructor(desktop: IDesktop, name: string) {
         this.desktop = desktop;
         this.name = name;
-        desktop.addArrow(this);
+        desktop.addCategoryArrow(this);
+        desktop.addObject(this);
+    }
+    getClassName(): string {
+        return this.typeName;
+    }
+    imlplementsType(type: string): boolean {
+        return this.types.indexOf(type) >= 0;
     }
 
     protected name !: string;
@@ -27,6 +35,11 @@ export class CategoryArrow implements ICategoryArrow
 
     target!: ICategoryObject;
 
+    protected typeName: string = "CategoryArrow";
+
+    protected types: string[] = ["ICategoryArrow", "CategoryArrow"];
+
+
     getSource(): ICategoryObject {
         return this.source;
     }
@@ -41,25 +54,3 @@ export class CategoryArrow implements ICategoryArrow
     }
 }
 
-class FictiveCategoryArrow implements ICategoryArrow
-{
-    getSource(): ICategoryObject {
-        throw new Error("Method not implemented.");
-    }
-    getTagret(): ICategoryObject {
-        throw new Error("Method not implemented.");
-    }
-    setSource(source: ICategoryObject): void {
-        throw new Error("Method not implemented.");
-    }
-    setTarget(target: ICategoryObject): void {
-        throw new Error("Method not implemented.");
-    }
-    getName(): string {
-        throw new Error("Method not implemented.");
-    }
-    getDesktop(): IDesktop {
-        throw new Error("Method not implemented.");
-    }
-
-}

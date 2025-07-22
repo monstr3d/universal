@@ -1,19 +1,15 @@
-import { Operation } from "../Types/Operation";
+import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { IMeasurement } from "./IMeasurement";
 
-export class Measurement implements IMeasurement
-{
+export class Measurement implements IMeasurement {
 
     name: string = "";
 
-    type: any = undefined;
+    type !: any;
 
-    operation!: Operation<any>;
-
-    constructor(name: string, type: any, operation: Operation<any>) {
+    constructor(name: string, type: any) {
         this.name = name;
         this.type = type;
-        this.operation = operation;
     }
 
     getName(): string {
@@ -22,8 +18,8 @@ export class Measurement implements IMeasurement
     getType() {
         return this.type;
     }
-    getOperation(): Operation<any> {
-        return this.operation;
+    getMeasurementValue() {
+        throw new OwnNotImplemented();;
     }
 
 }

@@ -8,6 +8,16 @@ class Performer {
         this.b = false;
         this.s = "";
     }
+    select(objects, type) {
+        let t = [];
+        for (var i = 0; i < objects.length; i++) {
+            let o = objects[i];
+            if (o.imlplementsType(type)) {
+                t.push(o);
+            }
+        }
+        return t;
+    }
     convertOperationToNumber(operation) {
         return () => {
             let value = operation();
@@ -17,28 +27,23 @@ class Performer {
             return 0;
         };
     }
-    getCategoryObject(desktop, name) {
-        let objects = desktop.getObjects();
-        return objects.find(x => x.getName() === name);
-    }
-    getCategoryArrow(desktop, name) {
-        let arrows = desktop.getArrows();
-        return arrows.find(x => x.getName() === name);
-    }
-    getAnyTimeOperation(consumer) {
+    /*
+     public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
         var m = consumer.getTimeMeasutement();
-        return () => { m.getOperation()(); };
+        return () => { m.getOperation()(); }
     }
-    getNumberTimeOperation(consumer) {
+
+    public getNumberTimeOperation(consumer: ITimeMeasurementConsumer): Operation<number> {
         return () => {
             var m = consumer.getTimeMeasutement();
-            let value = m.getOperation()();
+            var v = m.getOperation();
+            var value = v();
             if (typeof value === 'number') {
                 return value;
             }
             return 0;
-        };
-    }
+        }
+    }*/
     convertFromAny(t) {
         return this.convert(t);
     }
@@ -73,7 +78,7 @@ class Performer {
         return undefined; // Or throw an error, or return a default value.
     }
     getMeasurement(i, j, dataConsumer) {
-        return dataConsumer.getAllMeasurements()[i].geMeasurement(j);
+        return dataConsumer.getAllMeasurements()[i].getMeasurement(j);
     }
     enlarge(t, x, size) {
         for (let i = 0; i < size; i++)
@@ -115,7 +120,7 @@ class Performer {
         }
         return true;
     }
-    SetAliasMap(map, alias) {
+    setAliasMap(map, alias) {
         for (const key in map.keys()) {
             alias.setAliasValue(key, map.get(key));
         }
@@ -124,6 +129,10 @@ class Performer {
         for (const [key, value] of s) {
             t.set(key, value);
         }
+    }
+    implementsType(o, type) {
+        let obj = o;
+        return obj.imlplementsType(type);
     }
 }
 exports.Performer = Performer;

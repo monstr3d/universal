@@ -1,9 +1,10 @@
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { IObject } from "./IObject";
 import { Performer } from "./Performer";
 import { Check } from "./Types/Check";
 
-export class CategoryObject implements ICategoryObject
+export class CategoryObject implements ICategoryObject, IObject
 {
     protected desktop !: IDesktop;
 
@@ -15,13 +16,24 @@ export class CategoryObject implements ICategoryObject
 
     protected variable !: any;
 
+    protected types: string[] = ["ICategoryObject", "CategoryObject"];
+
+    protected typeName: string = "CategoryObject";
+
     protected performer: Performer = new Performer();
 
     constructor(desktop: IDesktop, name: string) {
         this.desktop = desktop;
         this.name = name;
+        desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
+    }
+    getClassName(): string {
+        return this.typeName;
+    }
+    imlplementsType(type: string): boolean {
+        return this.types.indexOf(type) > 0;
     }
 
     protected convert<T>(a: any): T {

@@ -16,7 +16,38 @@ namespace DataPerformer.Formula.TypeScript
             set;
         }
 
-      
+            public static string GetMeasurementName(string current, int n)
+            {
+                string st = current;
+                st += "_Measurement_" + n;
+                return st;
+            }
+
+        public static List<string> GetMeasurement(string current, int n)
+        {
+            var nn = "class " + GetMeasurementName(current, n);
+            var s = nn + " extends Measurement {";
+            var l = new List<string>();
+            l.Add(s); ;
+            l.Add("\tobj !: " + current + ";");
+            l.Add("\tconstructor(o:  " + current + ", name: string, type: any) {");
+            l.Add("\t\tsuper(name, type);");
+            l.Add("\t\tthis.obj = o;");
+            l.Add("\t}");
+            l.Add("");
+            l.Add("\tgetMeasurementValue() {");
+            l.Add("\t\treturn this.obj.var_" + n + ";");
+            l.Add("\t}");
+            l.Add("}");
+            l.Add("");
+            return l;
+        }
+
+
+
+
+
+
 
 
         /// <summary>
@@ -45,6 +76,7 @@ namespace DataPerformer.Formula.TypeScript
             }
         }
 
+
         /// <summary>
         /// Creates code from trees
         /// </summary>
@@ -57,11 +89,14 @@ namespace DataPerformer.Formula.TypeScript
         public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator,
             out ICodeCreator local,
              out IList<string> variables,
-             out IList<string> initializers)
+             out IList<string> initializers, 
+             out List<string> classes, string current )
         {
             List<string> code = new List<string>();
             List<string> vari = new List<string>();
             List<string> init = new List<string>();
+
+            classes = new List<string>();   
             try
             {
                 local = creator.Create(obj, trees);
@@ -71,8 +106,13 @@ namespace DataPerformer.Formula.TypeScript
                 {
                     var mname = "\"" + item.Key + "\"";
                     var mt = item.Value.Item2 + "";
-                    var mf = "this.get_" + item.Value.Item1; 
-                    init.Add("this.addMeasurement(new Measurement(" + mname + ", " + mt + ", " + mf + "));");
+                    var mf = "this.get_" + item.Value.Item1;
+                    var s = GetMeasurementName(current, item.Value.Item1);
+             //       init.Add("this.addMeasurement(new Measurement(" + mname + ", " + mt + ", " + mf + "));");
+                    init.Add("this.addMeasurement(new " + s +"(this, " + mname + " ," + item.Value.Item2 +"));");
+                    var lc = GetMeasurement(current, item.Value.Item1);
+                    classes.AddRange(lc);
+
                 }
                 var ct = DataPerformerFormula.Get(obj as IDataConsumer, lt.ToArray());
                 foreach (var ii in ct)
@@ -80,7 +120,7 @@ namespace DataPerformer.Formula.TypeScript
                     var mtt = "measurement" + ii[0];
                     vari.Add(mtt + " !: " + "IMeasurement;");
                     init.Add("this." + mtt + " = this.dataConsumer.getAllMeasurements()[" + ii[1] +
-                        "].geMeasurement(" + ii[2] + ");");
+                        "].getMeasurement(" + ii[2] + ");");
                 }
                 if (local.Optional.Count > 0)
                 {

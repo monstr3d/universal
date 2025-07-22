@@ -13,7 +13,20 @@ namespace Diagram.TypeScript
     internal class DesktopCodeCreator : IDesktopCodeCreator
     {
         Diagram.UI.Performer performer = new Diagram.UI.Performer();
-        Performer p = new ();
+        string Global
+        {
+            get;
+            set;
+        }
+
+        
+        Performer p = new();
+
+        string Current
+        {
+            get;
+            set;
+        }
 
         public DesktopCodeCreator() { this.AddCodeCreator(); }
 
@@ -28,6 +41,7 @@ namespace Diagram.TypeScript
         /// <returns>The code</returns>
         List<string> IDesktopCodeCreator.CreateCode(IDesktop desktop, string namespacE, string className, bool staticClass)
         {
+            Global = className;
             List<ICategoryObject> categoryObjects;
             List<ICategoryArrow> categoryArrows;
             Dictionary<ICategoryObject, int> objects;
@@ -39,6 +53,7 @@ namespace Diagram.TypeScript
             {
                 var categoryObject = categoryObjects[i];
                 var pr = className + "_" + "CategoryObject_" + i;
+                Current = pr;
                 var c = classCodeCreator.CreateCode(pr, categoryObject);
                 l.AddRange(c);
                 l.Add("");
@@ -82,8 +97,9 @@ namespace Diagram.TypeScript
                 l.Add(pr);
             }
             l.Add("");
-            l.Add("\t\tlet arrows  = this.getArrows();");
-            l.Add("\t\tlet objects = this.getObjects();");
+
+            l.Add("\t\tlet objects = this.getCategoryObjects();");
+            l.Add("\t\tlet arrows = this.getCategoryArrows();");
             l.Add("");
             for (int i = 0; i < categoryArrows.Count; i++)
             {

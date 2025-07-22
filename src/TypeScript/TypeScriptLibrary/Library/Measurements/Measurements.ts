@@ -17,7 +17,7 @@ export class Measurements extends CategoryObject  implements IMeasurements
     {
         return this.measurements.length;
     }
-    geMeasurement(i: number): IMeasurement
+    getMeasurement(i: number): IMeasurement
     {
         return this.measurements[i];
     }

@@ -11,15 +11,12 @@ export class VectorFormulaConsumer extends DataConsumerMeasurements implements I
 
     protected operationNames: Map<number, string> = new Map();
 
- 
-//    protected parameters: Map<string, any> = new Map();
-
-    
-
     constructor(desktop: IDesktop, name: string)
     {
         super(desktop, name);
-
+        this.typeName = "VectorFormulaConsumer";
+        this.types.push("VectorFormulaConsumer");
+        this.types.push("IPostSetArrow");
     }
 
     updateMeasurements(): void {

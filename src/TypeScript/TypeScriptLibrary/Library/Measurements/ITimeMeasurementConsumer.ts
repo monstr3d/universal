@@ -1,10 +1,10 @@
-import { IMeasurement } from "./IMeasurement";
+import { ITimeMeasurementProvider } from "./ITimeMeasurementProvider";
 
 export interface ITimeMeasurementConsumer
 {
-    getTimeMeasutement(): IMeasurement;
+    getTimeMeasutement(): ITimeMeasurementProvider;
 
-    setTimeMeasutement(measurement: IMeasurement): void;
+    setTimeMeasurement(measurement: ITimeMeasurementProvider): void;
 
     getInternalTime(): number;
     

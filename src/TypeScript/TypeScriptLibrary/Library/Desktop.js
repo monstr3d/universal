@@ -6,8 +6,15 @@ class Desktop {
         this.check = () => {
             return true;
         };
+        this.categoryObjects = [];
+        this.categoryArrows = [];
         this.objects = [];
-        this.arrows = [];
+    }
+    addObject(obj) {
+        this.objects.push(obj);
+    }
+    getObjects() {
+        return this.objects;
     }
     setCheck(check) {
         this.check = check;
@@ -15,17 +22,17 @@ class Desktop {
     getCheck() {
         return this.check;
     }
-    getObjects() {
-        return this.objects;
+    getCategoryObjects() {
+        return this.categoryObjects;
     }
-    getArrows() {
-        return this.arrows;
+    getCategoryArrows() {
+        return this.categoryArrows;
     }
-    addObject(obj) {
-        this.objects.push(obj);
+    addCategoryObject(obj) {
+        this.categoryObjects.push(obj);
     }
-    addArrow(arr) {
-        this.arrows.push(arr);
+    addCategoryArrow(arr) {
+        this.categoryArrows.push(arr);
     }
     getName() {
         return this.name;

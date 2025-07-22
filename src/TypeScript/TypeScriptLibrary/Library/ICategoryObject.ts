@@ -1,6 +1,6 @@
 import { IDesktop } from "./IDesktop";
 
-export interface ICategoryObject
+export interface ICategoryObject 
 {
     getObject(): Object;
     setObject(obj: Object): void;

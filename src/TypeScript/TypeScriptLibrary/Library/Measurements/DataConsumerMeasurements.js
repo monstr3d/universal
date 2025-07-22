@@ -12,11 +12,15 @@ class DataConsumerMeasurements extends DataConsumer_1.DataConsumer {
         this.aliasNames = [];
         this.performer = new Performer_1.Performer();
         this.alias = this;
+        this.typeName = "DataConsumerMeasurements";
+        this.types.push("DataConsumerMeasurements");
+        this.types.push("IMeasurements");
+        this.types.push("IAlias");
     }
     getMeasurementsCount() {
         return this.output.length;
     }
-    geMeasurement(i) {
+    getMeasurement(i) {
         return this.output[i];
     }
     addMeasurement(measurement) {

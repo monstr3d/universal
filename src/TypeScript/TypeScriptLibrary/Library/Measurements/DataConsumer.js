@@ -8,17 +8,22 @@ class DataConsumer extends CategoryObject_1.CategoryObject {
         this.success = true;
         this.mapOperations = new Map;
         this.measurements = [];
+        this.typeName = "DataConsumer";
+        this.types.push("DataConsumer");
+        this.types.push("IDataConsumer");
+        this.types.push("IPostSetArrow");
+        this.types.push("ITimeMeasurementConsumer");
         this.tms = this;
-        this.timeOperation = this.performer.getNumberTimeOperation(this);
         this.dataConsumer = this;
     }
     getInternalTime() {
-        return this.timeOperation();
+        var tm = this.timeMeasurement;
+        return tm.getTime();
     }
     getTimeMeasutement() {
         return this.timeMeasurement;
     }
-    setTimeMeasutement(measurement) {
+    setTimeMeasurement(measurement) {
         this.timeMeasurement = measurement;
         ;
     }

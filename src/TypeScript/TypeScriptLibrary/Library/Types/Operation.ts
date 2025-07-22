@@ -1,1 +1,0 @@
-export type Operation<T> = () => T;

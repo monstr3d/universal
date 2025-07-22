@@ -5,6 +5,8 @@ const CategoryArrow_1 = require("../CategoryArrow");
 class DataLink extends CategoryArrow_1.CategoryArrow {
     constructor(desktop, name) {
         super(desktop, name);
+        this.typeName = "DataLink";
+        this.types.push("DataLink");
     }
     getSource() {
         return this.consumer;

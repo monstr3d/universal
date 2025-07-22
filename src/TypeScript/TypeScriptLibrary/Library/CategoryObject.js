@@ -4,11 +4,20 @@ exports.CategoryObject = void 0;
 const Performer_1 = require("./Performer");
 class CategoryObject {
     constructor(desktop, name) {
+        this.types = ["ICategoryObject", "CategoryObject"];
+        this.typeName = "CategoryObject";
         this.performer = new Performer_1.Performer();
         this.desktop = desktop;
         this.name = name;
+        desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
+    }
+    getClassName() {
+        return this.typeName;
+    }
+    imlplementsType(type) {
+        return this.types.indexOf(type) > 0;
     }
     convert(a) {
         return this.performer.convertFromAny(a);

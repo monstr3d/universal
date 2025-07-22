@@ -1,10 +1,17 @@
 import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
 import { IDesktop } from "./IDesktop";
+import { IObject } from "./IObject";
 import { Check } from "./Types/Check";
 
 export class Desktop implements IDesktop
 {
+    addObject(obj: IObject): void {
+        this.objects.push(obj);
+    }
+    getObjects(): IObject[] {
+        return this.objects;
+    }
     setCheck(check: Check): void {
         this.check = check
     }
@@ -16,9 +23,11 @@ export class Desktop implements IDesktop
         return true;
     }
 
-    protected objects: ICategoryObject[] = [];
+    protected categoryObjects: ICategoryObject[] = [];
 
-    protected arrows: ICategoryArrow[] = [];
+    protected categoryArrows: ICategoryArrow[] = [];
+
+    protected objects: IObject[] = [];
 
     protected name!: string;
 
@@ -30,17 +39,17 @@ export class Desktop implements IDesktop
 
     protected target!: ICategoryObject;
 
-    getObjects(): ICategoryObject[] {
-        return this.objects;
+    getCategoryObjects(): ICategoryObject[] {
+        return this.categoryObjects;
     }
-    getArrows(): ICategoryArrow[] {
-        return this.arrows;
+    getCategoryArrows(): ICategoryArrow[] {
+        return this.categoryArrows;
     }
-    addObject(obj: ICategoryObject): void {
-        this.objects.push(obj);
+    addCategoryObject(obj: ICategoryObject): void {
+        this.categoryObjects.push(obj);
     }
-    addArrow(arr: ICategoryArrow): void {
-        this.arrows.push(arr);
+    addCategoryArrow(arr: ICategoryArrow): void {
+        this.categoryArrows.push(arr);
     }
     getName(): string {
         return this.name;

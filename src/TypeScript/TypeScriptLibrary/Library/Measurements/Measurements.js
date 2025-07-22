@@ -13,7 +13,7 @@ class Measurements extends CategoryObject_1.CategoryObject {
     getMeasurementsCount() {
         return this.measurements.length;
     }
-    geMeasurement(i) {
+    getMeasurement(i) {
         return this.measurements[i];
     }
     updateMeasurements() {

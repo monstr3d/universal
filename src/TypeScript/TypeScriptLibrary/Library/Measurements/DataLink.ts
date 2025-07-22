@@ -6,8 +6,11 @@ import { IDataConsumer } from "./IDataConsumer";
 
 export class DataLink extends  CategoryArrow
 {
-    constructor(desktop: IDesktop, name: string) {
+    constructor(desktop: IDesktop, name: string)
+    {
         super(desktop, name)
+        this.typeName = "DataLink";
+        this.types.push("DataLink");
     }
 
     name!: string;

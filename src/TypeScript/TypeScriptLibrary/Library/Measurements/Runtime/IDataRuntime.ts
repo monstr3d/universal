@@ -17,10 +17,6 @@ export interface IDataRuntime {
     /// <param name="time">Start time</param>
     startRuntime(time: number): void;
 
-    /// <summary>
-    /// Updates all components
-    /// </summary>
-    updateRuntime(): void;
 
     setTimeProvider(timeProvider: ITimeMeasurementProvider): void;
 

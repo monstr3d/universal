@@ -1,18 +1,22 @@
 import { ICategoryArrow } from "./ICategoryArrow";
 import { ICategoryObject } from "./ICategoryObject";
+import { IObject } from "./IObject";
 import { Check } from "./Types/Check";
 
 export interface IDesktop
 {
-    getObjects(): ICategoryObject[];
+    getCategoryObjects(): ICategoryObject[];
 
-    getArrows(): ICategoryArrow[];
+    getCategoryArrows(): ICategoryArrow[];
 
-    addObject(obj: ICategoryObject): void;
+    addCategoryObject(obj: ICategoryObject): void;
 
-    addArrow(arr: ICategoryArrow): void;
+    addCategoryArrow(arr: ICategoryArrow): void;
 
-    getName(): string;
+    addObject(obj: IObject): void;
+
+    getObjects(): IObject[];
+
 
     getCheck(): Check;
 
