@@ -23,8 +23,8 @@ class PefrormerMeasuremets {
         for (var i = 0; i < steps; i++) {
             tm.setTime(st);
             runtime.updateRuntime();
-            act();
-            start += step;
+            act.action();
+            st += step;
         }
     }
 }

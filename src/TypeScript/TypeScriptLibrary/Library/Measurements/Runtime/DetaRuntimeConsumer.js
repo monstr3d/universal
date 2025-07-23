@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DetaRuntimeConsumer = void 0;
+const OwnNotImplemented_1 = require("../../ErrorHandler/OwnNotImplemented");
 const Performer_1 = require("../../Performer");
 class DetaRuntimeConsumer {
     constructor(dataConsumer) {
@@ -17,14 +18,15 @@ class DetaRuntimeConsumer {
     }
     updateRuntime() {
         let n = this.measurements.length;
-        for (let i = 0; i < n; i++)
+        for (let i = 0; i < n; i++) {
             this.measurements[i].updateMeasurements();
+        }
     }
     refreshRuntime() {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     startRuntime(time) {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     setTimeProvider(timeProvider) {
         let n = this.measurements.length;
@@ -32,7 +34,7 @@ class DetaRuntimeConsumer {
             let m = this.measurements[i];
             if (this.performer.implementsType(m, "ITimeMeasurementConsumer")) {
                 let tm = m;
-                tm.setTimeMeasurement(timeProvider.getTimeMeasurement());
+                tm.setTimeMeasurement(timeProvider);
             }
         }
     }
@@ -40,10 +42,10 @@ class DetaRuntimeConsumer {
         return this.timeProvider;
     }
     getRumtimeObjects() {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     getRunimeArrows() {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     add(dc, measurements) {
         var m = dc.getAllMeasurements();

@@ -9,7 +9,7 @@ class Recursive extends Measurements_1.Measurements {
         this.inputs = [];
     }
     postSetArrow() {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     getAllMeasurements() {
         return this.inputs;

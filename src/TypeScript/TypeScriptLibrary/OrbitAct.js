@@ -9,15 +9,15 @@ class OrbitAct extends Orbital_1.Orbital {
         super();
         this.dc = this.getCategoryObjects()[1];
     }
-    act() {
-        var k = this.dc.getAllMeasurements();
-        var a = k[0].getMeasurement(0).getMeasurementValue();
-        var b = k[1].getMeasurement(0).getMeasurementValue();
+    action() {
+        var k = this.dc.getAllMeasurements()[0];
+        var a = k.getMeasurement(0).getMeasurementValue();
+        var b = k.getMeasurement(1).getMeasurementValue();
     }
     test() {
         var runtime = new DetaRuntimeConsumer_1.DetaRuntimeConsumer(this.dc);
         var p = new PefrormerMeasuremets_1.PefrormerMeasuremets();
-        p.peformCalculation(runtime, 0, 1, 3, this.act);
+        p.peformCalculation(runtime, 0, 1, 3, this);
     }
 }
 exports.OrbitAct = OrbitAct;

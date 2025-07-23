@@ -17,7 +17,7 @@ class Orbital_CategoryObject_0_Measurement_2 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.get_2();
+		return this.obj.var_2;
 	}
 }
 
@@ -42,8 +42,8 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer
 		super(desktop, name);
 		let map = new Map<string, any>(
 		[
-			["b", 1 ],
-			["a", 5 ]
+			["a", 5 ],
+			["b", 1 ]
 		]);
 		this.performer.setAliasMap(map, this);
 		let feed = new Map<number, string>(

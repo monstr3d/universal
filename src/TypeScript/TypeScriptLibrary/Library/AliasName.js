@@ -8,7 +8,7 @@ class AliasName {
         this.name = name;
     }
     getAliasNameValue() {
-        throw new Error("Method not implemented.");
+        return this.alias.getAliasValue(this.name);
     }
     setAliasNameValue(value) {
     }

@@ -1,3 +1,4 @@
+import { OwnNotImplemented } from "./ErrorHandler/OwnNotImplemented";
 import { IAlias } from "./IAlias";
 import { IAliasBase } from "./IAliasBase";
 import { IAliasName } from "./IAliasName";
@@ -15,7 +16,7 @@ export class AliasName implements IAliasName
     }
     getAliasNameValue(): any
     {
-        throw new Error("Method not implemented.");
+        return this.alias.getAliasValue(this.name);
     }
 
 

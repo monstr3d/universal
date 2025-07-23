@@ -71,8 +71,8 @@ export class Performer
             return t as any as S; // Force the type assertion (VERY UNSAFE)
         }
 
-        if (typeof t === "number" && (null as any as S) instanceof Number) {  //VERY LIMITED AND UNSAFE EXAMPLE.
-            return t as any as S; // Force the type assertion (VERY UNSAFE)
+        if (typeof t === "number") {// } && (t as unknown as S) instanceof Number) {  //VERY LIMITED AND UNSAFE EXAMPLE.
+            return t as unknown as S; // Force the type assertion (VERY UNSAFE)
         }
 
         if (typeof t === "boolean" && (null as any as S) instanceof Boolean) {  //VERY LIMITED AND UNSAFE EXAMPLE.
@@ -152,7 +152,12 @@ export class Performer
 
     public setAliasMap(map: Map<string, any>, alias: IAlias): void
     {
-        for (const key in map.keys())
+        var keys = map.keys();
+    /*    keys.foreach(
+            key => alias.setAliasValue(key, map.get(key));
+        );
+        return;*/
+        for (var key of keys)
         {
             alias.setAliasValue(key, map.get(key));
         }

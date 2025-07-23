@@ -6,7 +6,6 @@ class DataConsumer extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);
         this.success = true;
-        this.mapOperations = new Map;
         this.measurements = [];
         this.typeName = "DataConsumer";
         this.types.push("DataConsumer");

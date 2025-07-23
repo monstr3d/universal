@@ -1,3 +1,4 @@
+import { OwnNotImplemented } from "../../ErrorHandler/OwnNotImplemented";
 import { ICategoryArrow } from "../../ICategoryArrow";
 import { ICategoryObject } from "../../ICategoryObject";
 import { Performer } from "../../Performer";
@@ -23,15 +24,19 @@ export class DetaRuntimeConsumer implements IDataRuntime
         }
 
     }
-    updateRuntime(): void {
+    updateRuntime(): void
+    {
         let n = this.measurements.length;
-        for (let i = 0; i < n; i++) this.measurements[i].updateMeasurements();
+        for (let i = 0; i < n; i++)
+        {
+            this.measurements[i].updateMeasurements();
+        }
     }
     refreshRuntime(): void {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented();
     }
     startRuntime(time: number): void {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented();
     }
     setTimeProvider(timeProvider: ITimeMeasurementProvider): void {
         let n = this.measurements.length;
@@ -39,7 +44,7 @@ export class DetaRuntimeConsumer implements IDataRuntime
             let m = this.measurements[i];
             if (this.performer.implementsType(m, "ITimeMeasurementConsumer")) {
                 let tm: ITimeMeasurementConsumer = m as unknown as ITimeMeasurementConsumer;
-                tm.setTimeMeasurement(timeProvider.getTimeMeasurement())
+                tm.setTimeMeasurement(timeProvider)
             }
         }
     }
@@ -48,10 +53,10 @@ export class DetaRuntimeConsumer implements IDataRuntime
         return this.timeProvider;
     }
     getRumtimeObjects(): ICategoryObject[] {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented();
     }
     getRunimeArrows(): ICategoryArrow[] {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented();
     }
 
 

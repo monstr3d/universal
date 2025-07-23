@@ -25,9 +25,6 @@ class TimeMeasurementProvider {
     getType() {
         return 0;
     }
-    getOperation() {
-        return this.getTime;
-    }
     getTime() {
         return this.time;
     }

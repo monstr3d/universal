@@ -18,15 +18,6 @@ class Performer {
         }
         return t;
     }
-    convertOperationToNumber(operation) {
-        return () => {
-            let value = operation();
-            if (typeof value === 'number') {
-                return value; // Already a number
-            }
-            return 0;
-        };
-    }
     /*
      public getAnyTimeOperation(consumer: ITimeMeasurementConsumer): Operation<any> {
         var m = consumer.getTimeMeasutement();
@@ -58,7 +49,7 @@ class Performer {
         if (typeof t === "string" && null instanceof String) { //VERY LIMITED AND UNSAFE EXAMPLE.
             return t; // Force the type assertion (VERY UNSAFE)
         }
-        if (typeof t === "number" && null instanceof Number) { //VERY LIMITED AND UNSAFE EXAMPLE.
+        if (typeof t === "number") { // } && (t as unknown as S) instanceof Number) {  //VERY LIMITED AND UNSAFE EXAMPLE.
             return t; // Force the type assertion (VERY UNSAFE)
         }
         if (typeof t === "boolean" && null instanceof Boolean) { //VERY LIMITED AND UNSAFE EXAMPLE.
@@ -121,7 +112,12 @@ class Performer {
         return true;
     }
     setAliasMap(map, alias) {
-        for (const key in map.keys()) {
+        var keys = map.keys();
+        /*    keys.foreach(
+                key => alias.setAliasValue(key, map.get(key));
+            );
+            return;*/
+        for (var key of keys) {
             alias.setAliasValue(key, map.get(key));
         }
     }

@@ -28,11 +28,12 @@ export class PefrormerMeasuremets {
         var tm: ITimeMeasurementProvider = new TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         var st = start;
-        for (var i = 0; i < steps; i++) {
+        for (var i = 0; i < steps; i++)
+        {
             tm.setTime(st);
             runtime.updateRuntime();
             act.action();
-            start += step;
+            st += step;
         }
 
     }

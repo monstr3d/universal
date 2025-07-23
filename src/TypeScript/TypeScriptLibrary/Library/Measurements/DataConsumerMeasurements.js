@@ -17,6 +17,9 @@ class DataConsumerMeasurements extends DataConsumer_1.DataConsumer {
         this.types.push("IMeasurements");
         this.types.push("IAlias");
     }
+    getAliasValue(name) {
+        return this.aliasValues.get(name);
+    }
     getMeasurementsCount() {
         return this.output.length;
     }

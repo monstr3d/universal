@@ -15,6 +15,11 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
         this.types.push("IMeasurements");
         this.types.push("IAlias");
     }
+
+    getAliasValue(name: string)
+    {
+        return this.aliasValues.get(name);
+    }
     protected output: IMeasurement[] = [];
 
     protected aliasTypes: Map<string, any> = new Map();
@@ -63,7 +68,8 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
         return this.aliasValues.get(name);
     }
 
-    setAliasValue(name: string, value: any) {
+    setAliasValue(name: string, value: any)
+    {
         this.performer.setAliasType(name, value, this.aliasTypes, this.aliasNames);
         this.aliasValues.set(name, value);
     }

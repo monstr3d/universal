@@ -4,7 +4,7 @@ exports.Desktop = void 0;
 class Desktop {
     constructor() {
         this.check = () => {
-            return true;
+            return false;
         };
         this.categoryObjects = [];
         this.categoryArrows = [];

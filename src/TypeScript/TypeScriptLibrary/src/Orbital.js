@@ -38,8 +38,8 @@ class Orbital_CategoryObject_0 extends VectorFormulaConsumer_1.VectorFormulaCons
         this.var_8 = 0;
         this.var_9 = 0;
         let map = new Map([
-            ["b", 1],
-            ["a", 5]
+            ["a", 5],
+            ["b", 1]
         ]);
         this.performer.setAliasMap(map, this);
         let feed = new Map([]);

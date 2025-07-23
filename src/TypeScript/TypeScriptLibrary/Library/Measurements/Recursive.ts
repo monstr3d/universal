@@ -14,7 +14,7 @@ export class Recursive extends Measurements implements IDataConsumer, IPostSetAr
 
     }
     postSetArrow(): void {
-        throw new Error("Method not implemented.");
+        throw new OwnNotImplemented();
     }
 
     getAllMeasurements(): IMeasurements[] {

@@ -5,7 +5,7 @@
 
     getAliasType(name: string): any;
 
-    getAliasVаlue(name: string): any;
+    getAliasValue(name: string): any;
 
     setAliasValue(name: string, value: any): any;
 

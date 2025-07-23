@@ -20,7 +20,7 @@ export class Desktop implements IDesktop
     }
 
     protected check: Check = () => {
-        return true;
+        return false;
     }
 
     protected categoryObjects: ICategoryObject[] = [];
