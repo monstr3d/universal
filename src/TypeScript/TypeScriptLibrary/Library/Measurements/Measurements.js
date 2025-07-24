@@ -6,6 +6,8 @@ class Measurements extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);
         this.measurements = [];
+        this.types.push("IMeasurements");
+        this.types.push("Measurements");
     }
     addMeasurement(measurement) {
         this.measurements.push(measurement);

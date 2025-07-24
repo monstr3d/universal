@@ -47,8 +47,6 @@ namespace ErrorHandler
         /// </summary>
         public static IExceptionHandler? ErrorHandler => exceptionHandler;
 
-       
-       
         /// <summary>
         /// Shows exception (extension method)
         /// </summary>
@@ -119,7 +117,7 @@ namespace ErrorHandler
         {
             HandleException();
             exceptionHandler?.HandleException(exception, obj);
-            throw new IncludedException(exception, GetErrorString(obj));
+            throw IncludedException.Get(exception, GetErrorString(obj));
         }
 
         /// <summary>

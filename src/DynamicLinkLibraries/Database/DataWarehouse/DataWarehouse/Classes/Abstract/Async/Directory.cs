@@ -21,7 +21,10 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         #region Ctor
 
-        protected Directory(bool children) : base(children) { }
+        protected Directory(bool children) : base(children) 
+        {
+            AddLeaf = AddAsyncLeaf;
+        }
 
         #endregion
 
@@ -189,13 +192,12 @@ namespace DataWarehouse.Classes.Abstract.Async
             try
             {
 
-                 var async = this as IDirectoryAsync;
+                var async = this as IDirectoryAsync;
                 var t = async.AddAsync(leaf);
                 if (SyncMode == SyncMode.Asynchronous)
                 {
                     await t;
                 }
-
                 return t.Result as ILeaf;
             }
             catch (Exception ex)
@@ -215,7 +217,16 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         protected override ILeaf Add(ILeaf leaf)
         {
-            return AddLeaf(leaf);
+            Exception ex = null;
+            try
+            {
+                return AddLeaf(leaf);
+            }
+            catch (Exception e)
+            {
+                ex = IncludedException.Get(e);
+            }
+            throw ex;
         }
 
         protected override IDirectory Add(IDirectory directory)

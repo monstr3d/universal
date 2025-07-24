@@ -1,6 +1,6 @@
-import { ICategoryObject } from "./ICategoryObject";
-import { IDesktop } from "./IDesktop";
-import { IObject } from "./IObject";
+import { ICategoryObject } from "./Interfaces/ICategoryObject";
+import { IDesktop } from "./Interfaces/IDesktop";
+import { IObject } from "./Interfaces/IObject";
 import { Performer } from "./Performer";
 import { Check } from "./Types/Check";
 
@@ -28,7 +28,11 @@ export class CategoryObject implements ICategoryObject, IObject
         desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
+        this.types.push("IObject");
+        this.types.push("ICategoryObject");
+        this.types.push("CategoryObject");
     }
+
     getClassName(): string {
         return this.typeName;
     }

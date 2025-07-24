@@ -1,5 +1,5 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
-import { IMeasurement } from "./IMeasurement";
+import { IMeasurement } from "./Interfaces/IMeasurement";
 
 export class Measurement implements IMeasurement {
 
@@ -10,6 +10,7 @@ export class Measurement implements IMeasurement {
     constructor(name: string, type: any) {
         this.name = name;
         this.type = type;
+        
     }
 
     getName(): string {

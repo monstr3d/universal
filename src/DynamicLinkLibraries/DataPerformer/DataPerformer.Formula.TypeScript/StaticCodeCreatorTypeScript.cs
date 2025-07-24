@@ -36,7 +36,7 @@ namespace DataPerformer.Formula.TypeScript
             l.Add("\t}");
             l.Add("");
             l.Add("\tgetMeasurementValue() {");
-            l.Add("\t\treturn this.obj.var_" + n + ";");
+            l.Add("\t\treturn this.obj.get_" + n + "();");
             l.Add("\t}");
             l.Add("}");
             l.Add("");

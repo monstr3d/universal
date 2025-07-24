@@ -1,13 +1,12 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
-import { IAliasName } from "../Library/IAliasName";
-import { IDesktop } from "../Library/IDesktop";
-import { IPostSetArrow } from "../Library/IPostSetArrow";
+import { IAliasName } from "../Library/Interfaces/IAliasName";
+import { IDesktop } from "../Library/Interfaces/IDesktop";
+import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
 import { DataLink } from "../Library/Measurements/DataLink";
-import { IMeasurement } from "../Library/Measurements/IMeasurement";
+import { IMeasurement } from "../Library/Measurements/Interfaces/IMeasurement";
 import { Measurement } from "../Library/Measurements/Measurement";
 import { VectorFormulaConsumer } from "../Library/Measurements/VectorFormulaConsumer";
-
 
 class Complicated_CategoryObject_0_Measurement_2 extends Measurement {
 	obj !: Complicated_CategoryObject_0;

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DetaRuntimeConsumer = void 0;
-const OwnNotImplemented_1 = require("../../ErrorHandler/OwnNotImplemented");
-const Performer_1 = require("../../Performer");
+const OwnNotImplemented_1 = require("../ErrorHandler/OwnNotImplemented");
+const Performer_1 = require("../Performer");
 class DetaRuntimeConsumer {
     constructor(dataConsumer) {
         this.performer = new Performer_1.Performer();

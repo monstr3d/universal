@@ -1,10 +1,9 @@
-﻿import { IAlias } from "../IAlias";
-import { IDesktop } from "../IDesktop";
+﻿import { IAlias } from "../Interfaces/IAlias";
+import { IDesktop } from "../Interfaces/IDesktop";
 import { Performer } from "../Performer";
 import { DataConsumer } from "./DataConsumer";
-import { IMeasurement } from "./IMeasurement";
-import { IMeasurements } from "./IMeasurements";
-
+import { IMeasurement } from "./Interfaces/IMeasurement";
+import { IMeasurements } from "./Interfaces/IMeasurements";
 
 export class DataConsumerMeasurements extends DataConsumer implements IMeasurements, IAlias {
     constructor(desktop: IDesktop, name: string) {

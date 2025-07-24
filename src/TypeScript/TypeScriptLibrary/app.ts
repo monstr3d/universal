@@ -1,15 +1,31 @@
-import { ICategoryArrow } from "./Library/ICategoryArrow";
-import { ICategoryObject } from "./Library/ICategoryObject";
+import { read } from "fs";
+import { ICategoryArrow } from "./Library/Interfaces/ICategoryArrow";
+import { ICategoryObject } from "./Library/Interfaces/ICategoryObject";
 import { DataLink } from "./Library/Measurements/DataLink";
-import { IDataConsumer } from "./Library/Measurements/IDataConsumer";
-import { PefrormerMeasuremets } from "./Library/Measurements/PefrormerMeasuremets";
-import { DetaRuntimeConsumer } from "./Library/Measurements/Runtime/DetaRuntimeConsumer";
-import { IDataRuntime } from "./Library/Measurements/Runtime/IDataRuntime";
 import { Performer } from "./Library/Performer";
 import { OrbitAct } from "./OrbitAct";
 import { Orbital } from "./src/Orbital";
+import * as readline from 'readline';
 actT();
 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Is this example useful? [y/n] ', (answer) => {
+    switch (answer.toLowerCase()) {
+        case 'y':
+            console.log('Super!');
+            break;
+        case 'n':
+            console.log('Sorry! :(');
+            break;
+        default:
+            console.log('Invalid answer!');
+    }
+    rl.close();
+});
 function load() {
     try {
 

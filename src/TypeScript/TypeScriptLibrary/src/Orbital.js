@@ -12,7 +12,7 @@ class Orbital_CategoryObject_0_Measurement_2 extends Measurement_1.Measurement {
         this.obj = o;
     }
     getMeasurementValue() {
-        return this.obj.var_2;
+        return this.obj.get_2();
     }
 }
 class Orbital_CategoryObject_0_Measurement_9 extends Measurement_1.Measurement {
@@ -21,7 +21,7 @@ class Orbital_CategoryObject_0_Measurement_9 extends Measurement_1.Measurement {
         this.obj = o;
     }
     getMeasurementValue() {
-        return this.obj.var_9;
+        return this.obj.get_9();
     }
 }
 class Orbital_CategoryObject_0 extends VectorFormulaConsumer_1.VectorFormulaConsumer {
@@ -141,7 +141,7 @@ class Orbital_CategoryObject_1_Measurement_2 extends Measurement_1.Measurement {
         this.obj = o;
     }
     getMeasurementValue() {
-        return this.obj.var_2;
+        return this.obj.get_2();
     }
 }
 class Orbital_CategoryObject_1_Measurement_4 extends Measurement_1.Measurement {
@@ -150,7 +150,7 @@ class Orbital_CategoryObject_1_Measurement_4 extends Measurement_1.Measurement {
         this.obj = o;
     }
     getMeasurementValue() {
-        return this.obj.var_4;
+        return this.obj.get_4();
     }
 }
 class Orbital_CategoryObject_1_Measurement_7 extends Measurement_1.Measurement {
@@ -159,7 +159,7 @@ class Orbital_CategoryObject_1_Measurement_7 extends Measurement_1.Measurement {
         this.obj = o;
     }
     getMeasurementValue() {
-        return this.obj.var_7;
+        return this.obj.get_7();
     }
 }
 class Orbital_CategoryObject_1 extends VectorFormulaConsumer_1.VectorFormulaConsumer {
@@ -174,12 +174,12 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer_1.VectorFormulaCons
         this.var_6 = 0;
         this.var_7 = 0;
         let map = new Map([
-            ["a", 7]
+            ["a", 7],
+            ["b", 8]
         ]);
         this.performer.setAliasMap(map, this);
         let feed = new Map([]);
         this.performer.copyMap(feed, this.feedback);
-        this.arguments.push("b = input.Formula_2");
         this.arguments.push("l = Time");
         let ops = new Map([]);
         this.performer.copyMap(ops, this.operationNames);
@@ -198,7 +198,7 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer_1.VectorFormulaCons
             return;
         }
         this.var_2 = this.convert(this.variable);
-        this.variable = this.measurement3.getMeasurementValue();
+        this.variable = this.aliasName3.getAliasNameValue();
         if (this.check(this.variable)) {
             this.success = false;
             return;
@@ -228,8 +228,8 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer_1.VectorFormulaCons
         this.addMeasurement(new Orbital_CategoryObject_1_Measurement_2(this, "Formula_1", 0));
         this.addMeasurement(new Orbital_CategoryObject_1_Measurement_4(this, "Formula_2", 0));
         this.addMeasurement(new Orbital_CategoryObject_1_Measurement_7(this, "Formula_3", 0));
-        this.measurement3 = this.dataConsumer.getAllMeasurements()[0].getMeasurement(1);
         this.aliasName0 = new AliasName_1.AliasName(this.alias, "a");
+        this.aliasName3 = new AliasName_1.AliasName(this.alias, "b");
         this.aliasName5 = new AliasName_1.AliasName(this.alias, "a");
     }
     get_0() {

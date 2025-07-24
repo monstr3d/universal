@@ -1,5 +1,5 @@
-import { IMeasurement } from "./IMeasurement";
-import { ITimeMeasurementProvider } from "./ITimeMeasurementProvider";
+import { IMeasurement } from "./Interfaces/IMeasurement";
+import { ITimeMeasurementProvider } from "./Interfaces/ITimeMeasurementProvider";
 
 export class TimeMeasurementProvider implements ITimeMeasurementProvider, IMeasurement {
     getMeasurementValue() {

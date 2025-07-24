@@ -1,6 +1,6 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
-import { IDesktop } from "../IDesktop";
-import { IPostSetArrow } from "../IPostSetArrow";
+import { IDesktop } from "../Interfaces/IDesktop";
+import { IPostSetArrow } from "../Interfaces/IPostSetArrow";
 import { DataConsumerMeasurements } from "./DataConsumerMeasurements";
 
 export class VectorFormulaConsumer extends DataConsumerMeasurements implements IPostSetArrow

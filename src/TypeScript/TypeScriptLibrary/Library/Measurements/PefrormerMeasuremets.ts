@@ -1,9 +1,9 @@
-import { IDataConsumer } from "./IDataConsumer";
-import { IMeasurements } from "./IMeasurements";
-import { IDataRuntime } from "./Runtime/IDataRuntime";
-import { ITimeMeasurementProvider } from "./ITimeMeasurementProvider";
+import { IAction } from "../Interfaces/IAction";
+import { IDataConsumer } from "./Interfaces/IDataConsumer";
+import { IMeasurements } from "./Interfaces/IMeasurements";
+import { ITimeMeasurementProvider } from "./Interfaces/ITimeMeasurementProvider";
+import { IDataRuntime } from "../Runtime/Interfaces/IDataRuntime";
 import { TimeMeasurementProvider } from "./TimeMeasurementProvider";
-import { IAction } from "../IAction";
 
 export class PefrormerMeasuremets {
 
@@ -24,7 +24,7 @@ export class PefrormerMeasuremets {
         }
     }
 
-    public peformCalculation(runtime: IDataRuntime, start: number, step: number, steps: number, act: IAction): void {
+    public peformFixedStepCalculation(runtime: IDataRuntime, start: number, step: number, steps: number, act: IAction): void {
         var tm: ITimeMeasurementProvider = new TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         var st = start;

@@ -5,6 +5,20 @@ const Measurements_1 = require("./Measurements");
 class RandomGenerator extends Measurements_1.Measurements {
     constructor(desktop, name) {
         super(desktop, name);
+        this.a = 0;
+        this.value = 0;
+        this.measurements.push(this);
+        this.types.push("IMeasurement");
+        this.types.push("RandomGenerator");
+    }
+    getType() {
+        return this.a;
+    }
+    getMeasurementValue() {
+        return this.value;
+    }
+    updateMeasurements() {
+        this.value = Math.random();
     }
 }
 exports.RandomGenerator = RandomGenerator;

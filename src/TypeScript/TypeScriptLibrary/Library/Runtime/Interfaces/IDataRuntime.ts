@@ -1,6 +1,6 @@
-import { ICategoryArrow } from "../../ICategoryArrow";
-import { ICategoryObject } from "../../ICategoryObject";
-import { ITimeMeasurementProvider } from "../ITimeMeasurementProvider";
+import { ICategoryArrow } from "../../Interfaces/ICategoryArrow";
+import { ICategoryObject } from "../../Interfaces/ICategoryObject";
+import { ITimeMeasurementProvider } from "../../Measurements/Interfaces/ITimeMeasurementProvider";
 
 export interface IDataRuntime {
 

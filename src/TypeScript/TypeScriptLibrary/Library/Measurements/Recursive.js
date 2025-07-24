@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Recursive = void 0;
 const OwnNotImplemented_1 = require("../ErrorHandler/OwnNotImplemented");
-const Measurements_1 = require("./Measurements");
-class Recursive extends Measurements_1.Measurements {
+const DataConsumerMeasurements_1 = require("./DataConsumerMeasurements");
+class Recursive extends DataConsumerMeasurements_1.DataConsumerMeasurements {
     constructor(desktop, name) {
         super(desktop, name);
         this.inputs = [];
@@ -16,12 +16,6 @@ class Recursive extends Measurements_1.Measurements {
     }
     addMeasurements(item) {
         this.inputs.push(item);
-    }
-    PostSetArrow() {
-        try {
-            throw new OwnNotImplemented_1.OwnNotImplemented();
-        }
-        catch (e) { }
     }
 }
 exports.Recursive = Recursive;

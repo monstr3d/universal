@@ -1,12 +1,12 @@
-import { OwnNotImplemented } from "../../ErrorHandler/OwnNotImplemented";
-import { ICategoryArrow } from "../../ICategoryArrow";
-import { ICategoryObject } from "../../ICategoryObject";
-import { Performer } from "../../Performer";
-import { IDataConsumer } from "../IDataConsumer";
-import { IMeasurements } from "../IMeasurements";
-import { ITimeMeasurementConsumer } from "../ITimeMeasurementConsumer";
-import { ITimeMeasurementProvider } from "../ITimeMeasurementProvider";
-import { IDataRuntime } from "./IDataRuntime";
+import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
+import { ICategoryArrow } from "../Interfaces/ICategoryArrow";
+import { ICategoryObject } from "../Interfaces/ICategoryObject";
+import { Performer } from "../Performer";
+import { IDataConsumer } from "../Measurements/Interfaces/IDataConsumer";
+import { IMeasurements } from "../Measurements/Interfaces/IMeasurements";
+import { ITimeMeasurementConsumer } from "../Measurements/Interfaces/ITimeMeasurementConsumer";
+import { ITimeMeasurementProvider } from "../Measurements/Interfaces/ITimeMeasurementProvider";
+import { IDataRuntime } from "./Interfaces/IDataRuntime";
 
 export class DetaRuntimeConsumer implements IDataRuntime
 {

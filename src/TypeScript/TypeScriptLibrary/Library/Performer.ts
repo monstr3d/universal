@@ -1,12 +1,8 @@
 import { OwnError } from "./ErrorHandler/OwnError";
-import { IAlias } from "./IAlias";
-import { ICategoryArrow } from "./ICategoryArrow";
-import { ICategoryObject } from "./ICategoryObject";
-import { IDesktop } from "./IDesktop";
-import { IObject } from "./IObject";
-import { IDataConsumer } from "./Measurements/IDataConsumer";
-import { IMeasurement } from "./Measurements/IMeasurement";
-import { ITimeMeasurementConsumer } from "./Measurements/ITimeMeasurementConsumer";
+import { IAlias } from "./Interfaces/IAlias";
+import { IObject } from "./Interfaces/IObject";
+import { IDataConsumer } from "./Measurements/Interfaces/IDataConsumer";
+import { IMeasurement } from "./Measurements/Interfaces/IMeasurement";
 
 export class Performer
 {

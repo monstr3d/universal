@@ -16,7 +16,7 @@ class PefrormerMeasuremets {
             }
         }
     }
-    peformCalculation(runtime, start, step, steps, act) {
+    peformFixedStepCalculation(runtime, start, step, steps, act) {
         var tm = new TimeMeasurementProvider_1.TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         var st = start;

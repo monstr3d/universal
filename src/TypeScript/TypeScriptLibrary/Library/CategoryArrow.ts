@@ -1,8 +1,7 @@
-import { ICategoryArrow } from "./ICategoryArrow";
-import { ICategoryObject } from "./ICategoryObject";
-import { IDesktop } from "./IDesktop";
-import { IObject } from "./IObject";
-
+import { ICategoryArrow } from "./Interfaces/ICategoryArrow";
+import { ICategoryObject } from "./Interfaces/ICategoryObject";
+import { IDesktop } from "./Interfaces/IDesktop";
+import { IObject } from "./Interfaces/IObject";
 
 export class CategoryArrow implements ICategoryArrow, IObject
 {

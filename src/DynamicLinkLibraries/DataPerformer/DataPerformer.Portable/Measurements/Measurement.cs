@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using BaseTypes;
 using BaseTypes.Interfaces;
+
 using DataPerformer.Interfaces;
+
 using Diagram.UI;
+
 using NamedTree;
 
 namespace DataPerformer.Portable.Measurements

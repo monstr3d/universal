@@ -1,13 +1,11 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
-import { IAliasName } from "../Library/IAliasName";
-import { IDesktop } from "../Library/IDesktop";
-import { IPostSetArrow } from "../Library/IPostSetArrow";
+import { IAliasName } from "../Library/Interfaces/IAliasName";
+import { IDesktop } from "../Library/Interfaces/IDesktop";
+import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
 import { DataLink } from "../Library/Measurements/DataLink";
-import { IMeasurement } from "../Library/Measurements/IMeasurement";
 import { Measurement } from "../Library/Measurements/Measurement";
 import { VectorFormulaConsumer } from "../Library/Measurements/VectorFormulaConsumer";
-
 
 class Orbital_CategoryObject_0_Measurement_2 extends Measurement {
 	obj !: Orbital_CategoryObject_0;
@@ -17,7 +15,7 @@ class Orbital_CategoryObject_0_Measurement_2 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.var_2;
+		return this.obj.get_2();
 	}
 }
 
@@ -29,7 +27,7 @@ class Orbital_CategoryObject_0_Measurement_9 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.var_9;
+		return this.obj.get_9();
 	}
 }
 
@@ -170,7 +168,7 @@ class Orbital_CategoryObject_1_Measurement_2 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.var_2;
+		return this.obj.get_2();
 	}
 }
 
@@ -182,7 +180,7 @@ class Orbital_CategoryObject_1_Measurement_4 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.var_4;
+		return this.obj.get_4();
 	}
 }
 
@@ -194,7 +192,7 @@ class Orbital_CategoryObject_1_Measurement_7 extends Measurement {
 	}
 
 	getMeasurementValue() {
-		return this.obj.var_7;
+		return this.obj.get_7();
 	}
 }
 
@@ -207,14 +205,14 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 		super(desktop, name);
 		let map = new Map<string, any>(
 		[
-			["a", 7 ]
+			["a", 7 ],
+			["b", 8 ]
 		]);
 		this.performer.setAliasMap(map, this);
 		let feed = new Map<number, string>(
 		[
 		]);
 		this.performer.copyMap(feed, this.feedback);
-		this.arguments.push("b = input.Formula_2");
 		this.arguments.push("l = Time");
 		let ops = new Map<number, string>(
 		[
@@ -231,7 +229,7 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 			this.variable = Math.pow(this.var_0, this.var_1);
 			if (this.check(this.variable)) { this.success = false; return; } 
 			this.var_2 = this.convert<number>(this.variable);
-			this.variable = this.measurement3.getMeasurementValue();
+			this.variable = this.aliasName3.getAliasNameValue();
 			if (this.check(this.variable)) { this.success = false; return; } 
 			this.var_3 = this.convert<number>(this.variable);
 			this.variable = Math.cos(this.var_3);
@@ -251,12 +249,12 @@ class Orbital_CategoryObject_1 extends VectorFormulaConsumer
 		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_2(this, "Formula_1" ,0));
 		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_4(this, "Formula_2" ,0));
 		this.addMeasurement(new Orbital_CategoryObject_1_Measurement_7(this, "Formula_3" ,0));
-		this.measurement3 = this.dataConsumer.getAllMeasurements()[0].getMeasurement(1);
 		this.aliasName0 = new AliasName(this.alias, "a");
+		this.aliasName3 = new AliasName(this.alias, "b");
 		this.aliasName5 = new AliasName(this.alias, "a");
 	}
-	measurement3 !: IMeasurement;
 	aliasName0 !: IAliasName;
+	aliasName3 !: IAliasName;
 	aliasName5 !: IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 2;

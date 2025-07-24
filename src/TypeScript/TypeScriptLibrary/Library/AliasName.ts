@@ -1,7 +1,6 @@
-import { OwnNotImplemented } from "./ErrorHandler/OwnNotImplemented";
-import { IAlias } from "./IAlias";
-import { IAliasBase } from "./IAliasBase";
-import { IAliasName } from "./IAliasName";
+import { IAlias } from "./Interfaces/IAlias";
+import { IAliasBase } from "./Interfaces/IAliasBase";
+import { IAliasName } from "./Interfaces/IAliasName";
 
 export class AliasName implements IAliasName
 {

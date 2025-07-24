@@ -1,12 +1,11 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
-import { IDesktop } from "../IDesktop";
-import { IPostSetArrow } from "../IPostSetArrow";
-import { IDataConsumer } from "./IDataConsumer";
-import { IMeasurements } from "./IMeasurements";
-import { Measurements } from "./Measurements";
+import { IDesktop } from "../Interfaces/IDesktop";
+import { DataConsumerMeasurements } from "./DataConsumerMeasurements";
+import { IMeasurements } from "./Interfaces/IMeasurements";
+import { IPostSetArrow } from "../Interfaces/IPostSetArrow";
 
-export class Recursive extends Measurements implements IDataConsumer, IPostSetArrow
-{
+
+export class Recursive extends DataConsumerMeasurements implements IPostSetArrow {
     protected inputs: IMeasurements[] = [];
 
     constructor(desktop: IDesktop, name: string) {
@@ -22,12 +21,6 @@ export class Recursive extends Measurements implements IDataConsumer, IPostSetAr
     }
     addMeasurements(item: IMeasurements): void {
         this.inputs.push(item);
-    }
-    PostSetArrow(): void {
-        try {
-            throw new OwnNotImplemented();
-        }
-        catch (e: any) { }
     }
 
 }

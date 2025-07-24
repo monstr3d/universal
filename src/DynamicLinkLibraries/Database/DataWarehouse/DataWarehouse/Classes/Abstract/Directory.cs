@@ -1,9 +1,11 @@
-﻿using DataWarehouse.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
+using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
+
 using ErrorHandler;
+
 using NamedTree;
 
 
@@ -73,8 +75,6 @@ namespace DataWarehouse.Classes.Abstract
             get => this;
         }
 
-  
-
         #region Event execution
 
 
@@ -122,7 +122,6 @@ namespace DataWarehouse.Classes.Abstract
 
 
         #endregion
-
 
         #region IDirectory events
 
@@ -211,20 +210,16 @@ namespace DataWarehouse.Classes.Abstract
 
         #endregion
 
-
         #region Protected
 
 
         #region Children name
-
 
         protected IChildrenName ChildrenName => this;
 
         protected IChildrenName ParentChildrenName => Parent as IChildrenName;
 
         #endregion
-
-
 
         protected virtual void RemoveAllChildren()
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI
 {
@@ -36,7 +37,7 @@ namespace Diagram.UI
                     return l;
                 }
             }
-            return null;
+            throw new IncludedException("Type \"" + obj.GetType() + "\" is not supported", obj);
         }
 
         #endregion

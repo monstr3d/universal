@@ -12,6 +12,9 @@ class CategoryObject {
         desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
+        this.types.push("IObject");
+        this.types.push("ICategoryObject");
+        this.types.push("CategoryObject");
     }
     getClassName() {
         return this.typeName;

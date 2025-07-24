@@ -1,19 +1,24 @@
-﻿using AssemblyService;
-using CategoryTheory;
-using Diagram.Attributes;
-using Diagram.Interfaces;
-using Diagram.UI.Attributes;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
-using ErrorHandler;
-using NamedTree;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+
+using AssemblyService;
+
+using CategoryTheory;
+
+using Diagram.Attributes;
+using Diagram.Interfaces;
+using Diagram.UI.Attributes;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+
+using ErrorHandler;
+
+using NamedTree;
 
 
 namespace Diagram.UI
@@ -479,140 +484,149 @@ namespace Diagram.UI
         public static List<string> CreateDesktopCode(this PureDesktop desktop, string prefix,
             string className, string check = null, bool postLoad = false, string constructorType = "internal ", bool staticClass = true)
         {
-            var ct = constructorType;
-            if (staticClass)
+            Exception ex;
+            try
             {
-                ct = "public ";
-            }
-            List <string> l = new List<string>();
-            string pr = prefix;
-            if (pr.Length > 0)
-            {
-                if (pr[pr.Length - 1] != '.')
+                var ct = constructorType;
+                if (staticClass)
                 {
-                    pr += ".";
+                    ct = "public ";
                 }
-            }
-            string preffixFull = pr + className;
-            l.Add(className + " : Diagram.UI.PureDesktop");
-            l.Add("{");
-            l.Add("\t" + constructorType + className + "()");
-            l.Add("\t{");
-            int ko = 0;
-            var ignoredObjs = new List<IObjectLabel>();
-            foreach (IObjectLabel lab in desktop.Objects)
-            {
-                if (!lab.ShouldCreateCode())
+                List<string> l = new List<string>();
+                string pr = prefix;
+                if (pr.Length > 0)
                 {
-                    ignoredObjs.Add(lab);
-                    continue;
+                    if (pr[pr.Length - 1] != '.')
+                    {
+                        pr += ".";
+                    }
                 }
-                l.Add("\t\tobjects.Add(new " + preffixFull +".OblectLabel" + ko + "(\"" + lab.Name + "\", this));");
-                ++ko;
-            }
-            int ka = 0;
-            l.Add("\t\tDiagram.UI.Labels.PureArrowLabel currALabel = null;");
-            var ignoredArrs = new List<IArrowLabel>();
-            foreach (IArrowLabel lab in desktop.Arrows)
-            {
-                if (!lab.ShouldCreateCode())
+                string preffixFull = pr + className;
+                l.Add(className + " : Diagram.UI.PureDesktop");
+                l.Add("{");
+                l.Add("\t" + constructorType + className + "()");
+                l.Add("\t{");
+                int ko = 0;
+                var ignoredObjs = new List<IObjectLabel>();
+                foreach (IObjectLabel lab in desktop.Objects)
                 {
-                    ignoredArrs.Add(lab);
-                    continue;
+                    if (!lab.ShouldCreateCode())
+                    {
+                        ignoredObjs.Add(lab);
+                        continue;
+                    }
+                    l.Add("\t\tobjects.Add(new " + preffixFull + ".OblectLabel" + ko + "(\"" + lab.Name + "\", this));");
+                    ++ko;
                 }
-                if (ignoredObjs.Contains(lab.Source) | ignoredObjs.Contains(lab.Target))
+                int ka = 0;
+                l.Add("\t\tDiagram.UI.Labels.PureArrowLabel currALabel = null;");
+                var ignoredArrs = new List<IArrowLabel>();
+                foreach (IArrowLabel lab in desktop.Arrows)
                 {
-                    ignoredArrs.Add(lab);
-                    continue;
+                    if (!lab.ShouldCreateCode())
+                    {
+                        ignoredArrs.Add(lab);
+                        continue;
+                    }
+                    if (ignoredObjs.Contains(lab.Source) | ignoredObjs.Contains(lab.Target))
+                    {
+                        ignoredArrs.Add(lab);
+                        continue;
 
+                    }
+                    l.Add("\t\tcurrALabel  = new " + preffixFull + ".ArrowLabel" + ka + "(\"" + lab.Name + "\", this);");
+                    l.Add("\t\tarrows.Add(currALabel);");
+                    l.Add("\t\tcurrALabel.SourceNumber = " + lab.SourceNumber.ArrowNumToString() + ";");
+                    l.Add("\t\tcurrALabel.TargetNumber = " + lab.TargetNumber.ArrowNumToString() + ";");
+                    ++ka;
                 }
-                l.Add("\t\tcurrALabel  = new " + preffixFull + ".ArrowLabel" + ka + "(\"" + lab.Name + "\", this);");
-                l.Add("\t\tarrows.Add(currALabel);");
-                l.Add("\t\tcurrALabel.SourceNumber = " + lab.SourceNumber.ArrowNumToString() + ";");
-                l.Add("\t\tcurrALabel.TargetNumber = " + lab.TargetNumber.ArrowNumToString() + ";");
-                ++ka;
-            }
-            if (postLoad)
-            {
-     /*           l.Add("\t\tforeach (IObjectLabel l in objects)");
-                l.Add("\t\t{");
-                l.Add("\t\t\tl.Desktop = this;");
-                l.Add("\t\t}");*/
-                l.Add("\t\tbool pl = PostLoad();");
-                l.Add("\t\tbool pd = PostDeserialize();");
-                if (check != null)
+                if (postLoad)
                 {
-                    l.Add("\t\t" + check);
-                }
-            }
-            l.Add("\t}");
-            l.Add("");
-            int i = 0;
-            foreach (IObjectLabel lab in desktop.Objects)
-            {
-                if (ignoredObjs.Contains(lab))
-                {
-                    continue;
-                }
-                string cln = "OblectLabel" + i;
-                l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureObjectLabel");
-                l.Add("\t{");
-                l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
-                l.Add("\t\t{");
-                l.Add("\t\t\tthis.desktop = desktop;");
-                var o = lab.Object;
-                if (o is IObjectContainer)
-                {
-                    l.Add("\t\t\tobj = new " + cln + ".CategoryObject(this);");
-                }
-                else
-                {
-                    l.Add("\t\t\tobj = new " + cln + ".CategoryObject();");
-                }
-                l.Add("\t\t\tobj.Object = this;");
-                l.Add("\t\t}");
-                l.Add("");
-                IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
-                l.Add("\t\tinternal class CategoryObject : " + lt[0]);
-                for (int j = 1; j < lt.Count; j++)
-                {
-                    l.Add("\t\t" + lt[j]);
+                    /*           l.Add("\t\tforeach (IObjectLabel l in objects)");
+                               l.Add("\t\t{");
+                               l.Add("\t\t\tl.Desktop = this;");
+                               l.Add("\t\t}");*/
+                    l.Add("\t\tbool pl = PostLoad();");
+                    l.Add("\t\tbool pd = PostDeserialize();");
+                    if (check != null)
+                    {
+                        l.Add("\t\t" + check);
+                    }
                 }
                 l.Add("\t}");
                 l.Add("");
-                ++i;
+                int i = 0;
+                foreach (IObjectLabel lab in desktop.Objects)
+                {
+                    if (ignoredObjs.Contains(lab))
+                    {
+                        continue;
+                    }
+                    string cln = "OblectLabel" + i;
+                    l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureObjectLabel");
+                    l.Add("\t{");
+                    l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
+                    l.Add("\t\t{");
+                    l.Add("\t\t\tthis.desktop = desktop;");
+                    var o = lab.Object;
+                    if (o is IObjectContainer)
+                    {
+                        l.Add("\t\t\tobj = new " + cln + ".CategoryObject(this);");
+                    }
+                    else
+                    {
+                        l.Add("\t\t\tobj = new " + cln + ".CategoryObject();");
+                    }
+                    l.Add("\t\t\tobj.Object = this;");
+                    l.Add("\t\t}");
+                    l.Add("");
+                    IClassCodeCreator cSharpCodeCreator = Creators["C#"];
+                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
+                    l.Add("\t\tinternal class CategoryObject : " + lt[0]);
+                    for (int j = 1; j < lt.Count; j++)
+                    {
+                        l.Add("\t\t" + lt[j]);
+                    }
+                    l.Add("\t}");
+                    l.Add("");
+                    ++i;
+                }
+                i = 0;
+                foreach (IArrowLabel lab in desktop.Arrows)
+                {
+                    if (ignoredArrs.Contains(lab))
+                    {
+                        continue;
+                    }
+                    string cln = "ArrowLabel" + i;
+                    l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureArrowLabel");
+                    l.Add("\t{");
+                    l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
+                    l.Add("\t\t{");
+                    l.Add("\t\t\tthis.desktop = desktop;");
+                    l.Add("\t\t\tarrow = new " + cln + ".CategoryArrow();");
+                    l.Add("\t\t}");
+                    l.Add("");
+                    IClassCodeCreator cSharpCodeCreator = Creators["C#"];
+                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
+                    l.Add("\t\tinternal class CategoryArrow : " + lt[0]);
+                    for (int j = 1; j < lt.Count; j++)
+                    {
+                        l.Add("\t\t" + lt[j]);
+                    }
+                    l.Add("\t}");
+                    l.Add("");
+                    ++i;
+                }
+                l.Add("}");
+                l.Add("");
+                return l;
             }
-            i = 0;
-            foreach (IArrowLabel lab in desktop.Arrows)
+            catch (Exception e)
             {
-                if (ignoredArrs.Contains(lab))
-                {
-                    continue;
-                }
-                string cln = "ArrowLabel" + i;
-                l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureArrowLabel");
-                l.Add("\t{");
-                l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
-                l.Add("\t\t{");
-                l.Add("\t\t\tthis.desktop = desktop;");
-                l.Add("\t\t\tarrow = new " + cln + ".CategoryArrow();");
-                l.Add("\t\t}");
-                l.Add("");
-                IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
-                l.Add("\t\tinternal class CategoryArrow : " + lt[0]);
-                for (int j = 1; j < lt.Count; j++)
-                {
-                    l.Add("\t\t" + lt[j]);
-                }
-                l.Add("\t}");
-                l.Add("");
-                ++i;
+                ex = IncludedException.Get(e);
             }
-            l.Add("}");
-            l.Add("");
-            return l;
+            throw ex;
         }
 
         /// <summary>
@@ -626,42 +640,51 @@ namespace Diagram.UI
         public static List<string> CreateInitDesktopCSharpCode(this IDesktop desktop, string namespacE, 
             string className, bool staticClass = true)
         {
-            List<string> l = new List<string>();
-            l.Add(StandardHeader);
-            l.Add("namespace " + namespacE);
-            l.Add("{");
-            if (staticClass)
+            Exception ex;
+            try
             {
-                l.Add("\tpublic static class " + className);
-                l.Add("\t{");
-                l.Add("");
-                l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
-                l.Add("");
-                l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }");
-                l.Add("");
-                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "InternalDesktop",
-                    "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
-                l.Add("\t\tinternal class " + lt[0]);
-                for (int i = 1; i < lt.Count; i++)
+                List<string> l = new List<string>();
+                l.Add(StandardHeader);
+                l.Add("namespace " + namespacE);
+                l.Add("{");
+                if (staticClass)
                 {
-                    l.Add("\t\t" + lt[i]);
+                    l.Add("\tpublic static class " + className);
+                    l.Add("\t{");
+                    l.Add("");
+                    l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
+                    l.Add("");
+                    l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }");
+                    l.Add("");
+                    List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "InternalDesktop",
+                        "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
+                    l.Add("\t\tinternal class " + lt[0]);
+                    for (int i = 1; i < lt.Count; i++)
+                    {
+                        l.Add("\t\t" + lt[i]);
+                    }
+                    l.Add("\t}");
+                    l.Add("}");
                 }
-                l.Add("\t}");
-                l.Add("}");
+                else
+                {
+                    l.Add("\tpublic  class " + className + " : Diagram.UI.PureDesktop");
+                    List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", className,
+                   " \t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "public ");
+                    for (int i = 1; i < lt.Count; i++)
+                    {
+                        l.Add("\t" + lt[i]);
+                    }
+                    l.Add("}");
+                }
+                onCreateCode?.Invoke(l);
+                return l;
             }
-            else
+            catch (Exception e)
             {
-                l.Add("\tpublic  class " + className + " : Diagram.UI.PureDesktop");
-                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", className,
-               " \t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "public ");
-                for (int i = 1; i < lt.Count; i++)
-                {
-                    l.Add("\t" + lt[i]);
-                }
-                l.Add("}");
+                ex = IncludedException.Get(e);
             }
-            onCreateCode?.Invoke(l);
-            return l;
+            throw ex;
         }
 
         #endregion

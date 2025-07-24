@@ -32,6 +32,8 @@ namespace DataPerformer.Portable
                     return GetObjectTransformer(objectTransformer);
                 case VectorAssembly vectorAssembly:
                     return Get(vectorAssembly);
+                case  DataPerformer.Portable.RandomGenerator random:
+                    return Get(random);
                 case DataLink dataLink:
                     str = "DataPerformer.Portable.DataLink";
                     break;
@@ -66,6 +68,19 @@ namespace DataPerformer.Portable
             l.Add("{");
             l.Add("}");
             return l;
+        }
+
+        List<string> Get(DataPerformer.Portable.RandomGenerator random)
+        {
+            var l = new List<string>();
+            string str = "DataPerformer.Portable.RandomGenerator";
+            l.Add(str);
+            l.Add("{");
+            l.Add("\tinternal CategoryObject() : base()");
+            l.Add("\t{");
+            l.Add("\t}");
+            l.Add("}");
+            return (l);
         }
 
         List<string> Get(VectorAssembly assembly)
