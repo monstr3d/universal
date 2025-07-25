@@ -7,14 +7,27 @@ class DetaRuntimeConsumer {
     constructor(dataConsumer) {
         this.performer = new Performer_1.Performer();
         this.measurements = [];
+        this.categoryObjects = [];
+        this.cotegoryArrows = [];
+        this.started = [];
         let nm = [];
         this.add(dataConsumer, nm);
         for (let i = nm.length - 1; i >= 0; i--) {
+            var n = nm[i];
             this.measurements.push(nm[i]);
+            if (this.performer.implementsType(n, "ICategoryObject")) {
+                this.categoryObjects.push(n);
+            }
+            if (this.performer.implementsType(n, "IStarted")) {
+                this.started.push(n);
+            }
         }
         if (this.performer.implementsType(dataConsumer, "IMeasurements")) {
             this.measurements.push(dataConsumer);
         }
+    }
+    getStarted() {
+        return this.started;
     }
     updateRuntime() {
         let n = this.measurements.length;
@@ -26,12 +39,12 @@ class DetaRuntimeConsumer {
         throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     startRuntime(time) {
-        throw new OwnNotImplemented_1.OwnNotImplemented();
+        for (let st of this.started) {
+            st.startedStart(time);
+        }
     }
     setTimeProvider(timeProvider) {
-        let n = this.measurements.length;
-        for (let i = 0; i < n; i++) {
-            let m = this.measurements[i];
+        for (let m of this.measurements) {
             if (this.performer.implementsType(m, "ITimeMeasurementConsumer")) {
                 let tm = m;
                 tm.setTimeMeasurement(timeProvider);
@@ -42,10 +55,11 @@ class DetaRuntimeConsumer {
         return this.timeProvider;
     }
     getRumtimeObjects() {
-        throw new OwnNotImplemented_1.OwnNotImplemented();
+        return this.categoryObjects;
+        ;
     }
     getRunimeArrows() {
-        throw new OwnNotImplemented_1.OwnNotImplemented();
+        return this.cotegoryArrows;
     }
     add(dc, measurements) {
         var m = dc.getAllMeasurements();

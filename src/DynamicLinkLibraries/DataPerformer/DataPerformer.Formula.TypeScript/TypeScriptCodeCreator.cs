@@ -362,11 +362,11 @@ namespace DataPerformer.Formula.TypeScript
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
         public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
-             out IList<string> variables, out IList<string> initializers, out List<string> claases, string current)
+             out IList<string> variables, out IList<string> initializers, out List<string> classes, string current)
         {
             local = null;
             IList<string> l = StaticCodeCreatorTypeScript.CreateCode(obj, trees, creator, out local,
-                out variables, out initializers, out claases, current);
+                out variables, out initializers, out classes, current);
             ObjectFormulaTree[] lt = local.Trees;
             foreach (ObjectFormulaTree tree in lt)
             {

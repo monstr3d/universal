@@ -7,28 +7,49 @@ import { IMeasurements } from "../Measurements/Interfaces/IMeasurements";
 import { ITimeMeasurementConsumer } from "../Measurements/Interfaces/ITimeMeasurementConsumer";
 import { ITimeMeasurementProvider } from "../Measurements/Interfaces/ITimeMeasurementProvider";
 import { IDataRuntime } from "./Interfaces/IDataRuntime";
+import { IStarted } from "../Measurements/Interfaces/IStarted";
 
-export class DetaRuntimeConsumer implements IDataRuntime
-{
+export class DetaRuntimeConsumer implements IDataRuntime {
 
     performer: Performer = new Performer();
-    constructor(dataConsumer: IDataConsumer)
-    {
+
+    protected timeProvider !: ITimeMeasurementProvider;
+
+    protected measurements: IMeasurements[] = [];
+
+    protected categoryObjects: ICategoryObject[] = [];
+
+    protected cotegoryArrows: ICategoryArrow[] = [];
+
+    protected started: IStarted[] = [];
+
+
+    constructor(dataConsumer: IDataConsumer) {
         let nm: IMeasurements[] = [];
         this.add(dataConsumer, nm);
         for (let i = nm.length - 1; i >= 0; i--) {
+            var n = nm[i];
             this.measurements.push(nm[i]);
+            if (this.performer.implementsType(n, "ICategoryObject")) {
+                this.categoryObjects.push(n as unknown as ICategoryObject);
+            }
+            if (this.performer.implementsType(n, "IStarted")) {
+                this.started.push(n as unknown as IStarted);
+            }
+
         }
         if (this.performer.implementsType(dataConsumer, "IMeasurements")) {
             this.measurements.push(dataConsumer as unknown as IMeasurements);
         }
 
+
     }
-    updateRuntime(): void
-    {
+    getStarted(): IStarted[] {
+        return this.started;
+    }
+    updateRuntime(): void {
         let n = this.measurements.length;
-        for (let i = 0; i < n; i++)
-        {
+        for (let i = 0; i < n; i++) {
             this.measurements[i].updateMeasurements();
         }
     }
@@ -36,12 +57,13 @@ export class DetaRuntimeConsumer implements IDataRuntime
         throw new OwnNotImplemented();
     }
     startRuntime(time: number): void {
-        throw new OwnNotImplemented();
+        for (let st of this.started) {
+            st.startedStart(time);
+        }
     }
     setTimeProvider(timeProvider: ITimeMeasurementProvider): void {
-        let n = this.measurements.length;
-        for (let i = 0; i < n; i++) {
-            let m = this.measurements[i];
+        for (let m of this.measurements) {
+
             if (this.performer.implementsType(m, "ITimeMeasurementConsumer")) {
                 let tm: ITimeMeasurementConsumer = m as unknown as ITimeMeasurementConsumer;
                 tm.setTimeMeasurement(timeProvider)
@@ -53,17 +75,14 @@ export class DetaRuntimeConsumer implements IDataRuntime
         return this.timeProvider;
     }
     getRumtimeObjects(): ICategoryObject[] {
-        throw new OwnNotImplemented();
+        return this.categoryObjects;;
     }
     getRunimeArrows(): ICategoryArrow[] {
-        throw new OwnNotImplemented();
+        return this.cotegoryArrows;
     }
 
 
-    protected timeProvider !: ITimeMeasurementProvider;
-
-    protected measurements: IMeasurements[] = [];
-
+ 
     add(dc: IDataConsumer, measurements: IMeasurements[]): void
     {
         var m = dc.getAllMeasurements();

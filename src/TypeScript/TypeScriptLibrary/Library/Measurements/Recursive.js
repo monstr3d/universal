@@ -7,6 +7,13 @@ class Recursive extends DataConsumerMeasurements_1.DataConsumerMeasurements {
     constructor(desktop, name) {
         super(desktop, name);
         this.inputs = [];
+        this.typeName = "Recursive";
+        this.types.push("ISarted");
+        this.types.push("IPostSetArrow");
+        this.types.push("Recursive");
+    }
+    startedStart(start) {
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     postSetArrow() {
         throw new OwnNotImplemented_1.OwnNotImplemented();

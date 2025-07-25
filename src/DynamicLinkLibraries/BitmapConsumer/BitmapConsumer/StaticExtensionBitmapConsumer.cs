@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-
-using Diagram.UI;
+﻿using Diagram.UI;
 using NamedTree;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace BitmapConsumer
 {
@@ -11,6 +11,16 @@ namespace BitmapConsumer
     /// </summary>
     public static class StaticExtensionBitmapConsumer
     {
+
+
+        public static Icon IconFromBitmap(this Bitmap bmp)
+        {
+            IntPtr Hicon = bmp.GetHicon();
+            Icon myIcon = Icon.FromHandle(Hicon);
+            return myIcon;
+        }
+
+
         /// <summary>
         /// Gets names of providers
         /// </summary>

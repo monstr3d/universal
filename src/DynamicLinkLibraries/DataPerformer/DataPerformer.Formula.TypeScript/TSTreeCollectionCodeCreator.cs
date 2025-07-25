@@ -1,5 +1,7 @@
 ﻿using System.Text;
+
 using Diagram.Interfaces;
+
 using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.CSharp;
@@ -92,7 +94,6 @@ namespace DataPerformer.Formula.TypeScript
 
         #endregion
 
-
         #region Protected Members
 
         /// <summary>
@@ -103,7 +104,6 @@ namespace DataPerformer.Formula.TypeScript
         List<string> IAdditionalClassCodeCreator.AdditionalCode => classes;
 
         #endregion
-
 
         #region Private Members
 

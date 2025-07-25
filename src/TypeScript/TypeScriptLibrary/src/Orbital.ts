@@ -4,9 +4,21 @@ import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
 import { DataLink } from "../Library/Measurements/DataLink";
+import { IGet } from "../Library/Measurements/IGet";
 import { Measurement } from "../Library/Measurements/Measurement";
 import { VectorFormulaConsumer } from "../Library/Measurements/VectorFormulaConsumer";
 
+
+class Orbital_CategoryObject_0_Get_2 implements IGet {
+	obj !: Orbital_CategoryObject_0;
+	constructor(o: Orbital_CategoryObject_0) {
+		this.obj = o;
+	}
+	get() {
+		return this.obj.get_2();
+    }
+
+}
 class Orbital_CategoryObject_0_Measurement_2 extends Measurement {
 	obj !: Orbital_CategoryObject_0;
 	constructor(o:  Orbital_CategoryObject_0, name: string, type: any) {

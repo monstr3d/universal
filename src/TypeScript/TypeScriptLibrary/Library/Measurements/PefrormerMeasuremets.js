@@ -2,7 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PefrormerMeasuremets = void 0;
 const TimeMeasurementProvider_1 = require("./TimeMeasurementProvider");
+const Performer_1 = require("../Performer");
 class PefrormerMeasuremets {
+    constructor() {
+        this.performer = new Performer_1.Performer();
+    }
     getDependentPrivate(dataConsumer, measurements) {
         let m = dataConsumer.getAllMeasurements();
         for (let i = 0; i < m.length; i++) {

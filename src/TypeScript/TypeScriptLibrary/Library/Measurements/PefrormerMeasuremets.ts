@@ -4,8 +4,31 @@ import { IMeasurements } from "./Interfaces/IMeasurements";
 import { ITimeMeasurementProvider } from "./Interfaces/ITimeMeasurementProvider";
 import { IDataRuntime } from "../Runtime/Interfaces/IDataRuntime";
 import { TimeMeasurementProvider } from "./TimeMeasurementProvider";
+import { Performer } from "../Performer";
+import { IArrayElementMeasurement } from "./Interfaces/IArrayElemetMeasurements";
+import { IMeasurement } from "./Interfaces/IMeasurement";
+import { ArrayMeasurement } from "./ArrayMeasurement";
 
 export class PefrormerMeasuremets {
+
+    performer: Performer = new Performer();
+
+    public getArrayMeasurements(array: IArrayElementMeasurement): IMeasurement[] {
+        var n = array.getMeasurementNames().length;
+        var mea: IMeasurement[] = [];
+        for (var i = 0; i < n; i++) {
+            mea.push(new ArrayMeasurement(array, i);
+        }
+        return mea;
+    }
+
+    public initStart(array: IArrayElementMeasurement, x: []): void {
+        var n = x.length;
+        var y = array.getMeasurementValues();
+        for (var i = 0; i < n; i++) {
+            y[i] = x[i];
+        }
+    }
 
     getDependentPrivate(dataConsumer: IDataConsumer, measurements: IMeasurements[]): void {
 
@@ -22,11 +45,15 @@ export class PefrormerMeasuremets {
 
             }
         }
+        
     }
+
+    
 
     public peformFixedStepCalculation(runtime: IDataRuntime, start: number, step: number, steps: number, act: IAction): void {
         var tm: ITimeMeasurementProvider = new TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
+        runtime.startRuntime(start);
         var st = start;
         for (var i = 0; i < steps; i++)
         {

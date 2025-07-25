@@ -497,7 +497,7 @@ namespace DataPerformer.Formula
 		/// <summary>
 		/// Step
 		/// </summary>
-		public long Step
+		long IStep.Step
 		{
 			get
 			{
@@ -852,7 +852,7 @@ namespace DataPerformer.Formula
             foreach (char c in varc)
             {
                 Variable v;
-                output.Add(Variable.GetMeasure(c, this, out v));
+                output.Add(Variable.GetMeasurement(c, this, out v));
                 acc[c + ""] = v;
             }
             foreach (char c in parameters.Keys)
@@ -1206,7 +1206,7 @@ namespace DataPerformer.Formula
             /// <param name="r">Parent</param>
             /// <param name="v">Variable</param>
             /// <returns>The measure</returns>
-            static internal IMeasurement GetMeasure(char key, Recursive r, out Variable v)
+            static internal IMeasurement GetMeasurement(char key, Recursive r, out Variable v)
 			{
 				v = new Variable(key, r);
 				return v;
