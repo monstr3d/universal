@@ -629,15 +629,35 @@
 		\pagestyle{plain}
 		
 		\begin{abstract}
-The field $\C$ of complex numbers is a $C^*$-algebra, so any Hilbert space is a $C^*$-Hilbert $C^*$-module. So the notion of Hilbert $C^*$-module is a generalization of Hilbert space one. Here a generalization of rigged Hilbert spaces also named Gelfand triples is discussed. This generalization yields a unified framework to different branches of present day mathematics. We consider applications to it to the  theory of spectral triples, $O*$-algebras, quasi $*$-algebras, and integrable representations.
+The traditional 
+matrix regularization requires  the infinite scale renormalization and usually cases  the  symmetry braking. Here the  based on the nonstandard calculus regularization is discussed. It  operates with infinitesimally small numbers.  Usage of it prevents the symmetry breaking and does not require any renormalization.
 	\end{abstract}
-		\section{Motivation}\label{foliations_sec}
-	\paragraph{} The physical renormalization theory has a consistency problem 	Dirac about it  the following \cite{dirac_lectures}
+	\section{Motivation}
+	The quantum field theory has a set of features \cite{Collins})
+	\begin{enumerate}
+		\item The self-interactions of the field create, among other things, dynamical 
+		contributions to the mass of the particle, to the potential between 
+		particles, and to the coupling of the field to the single particle state. Thus 
+		the measured values of these parameters are renormalized relative to 
+		the values appearing in the Lagrangian. 
+	\item These contributions, or renormalizations, are infinite, in many cases. 
+		The most important theorem of renormalization theory is that they are 
+		the only infinities, in the class of theories called 'renormalizable'. 
+	\item The infinities are canceled by wave-function, mass, and coupling 
+		counterterms, so that the net effect of the interactions is finite. 
+	\end{enumerate}
+	\paragraph{}
+	Physical theories has symmetries, and the renormalization may occur the anomalous breaking (cf. \cite{Collins}, i. e, even though the classical action is invariant, the 
+		quantum theory is not, and there is no conserved current. The classical 
+		action is important for the quantum theory, since it appears in the 
+		functional integral defining the theory. The cause of anomalous 
+		breaking is generally caused by renormalization , and the non-conservation does not disappear when the cut-off is 
+		removed. 
+	Dirac wrote about the renormalization the following \cite{dirac_lectures}
 	\paragraph{}
 	People have done a great deal of work on this problem. They have found methods for handling these divergent integrals which seem to be tolerable to physicist. even thought they cannot be justified mathematically, and they have build up to renormalization technique, which allows to disregard the infinities in the case of certain kings of field theory.
 	\paragraph{}
-	Indeed the problems related to infinities are known since ancient times. Infinitely small values had been used by Newton and Leibniz as foundation of the calculus. On the other hand the calculus had been criticized by Berkeley (cf.  \cite{berkley_analyst}) since there was no rigorous definition of infinitely small values. This definition had been developed at XX century and it is names \textit{infinitesimal calculus} or \textit{nonstandard calculus} (cf \cite{berkley_analyst}). I think that the application of th!!!
-		
+	Indeed the problems related to infinities are known since ancient times. Infinitely small values had been used by Newton and Leibniz as foundation of the calculus. On the other hand the calculus had been criticized by Berkeley (cf.  \cite{berkley_analyst}) since there was no rigorous definition of infinitely small values. This definition had been developed at XX century and it is names \textit{infinitesimal calculus} or \textit{nonstandard calculus} (cf \cite{berkley_analyst}). Maybe the nonstandard calculus enable as to avoid the renormalization.  Here I discuss this matter.
 	
 		\section{Infinitesimal  functionals}
 	\paragraph{}
@@ -707,37 +727,38 @@ then $^*\phi$ is the \textit{nonstandard extension} of $\phi$.
 \end{example}
 	\subsection{Group Action}\label{ga_sec}	
 	\paragraph{}
-	Under the hypothesis of the Definition  \ref{b_ext_defn} suppose that there is an action $G \times M\left(  A\right)  \to M\left(  A\right) $ of countable group $G$ with $G\I' = \I'$ and 
 	
-	$$
-	\forall g \in G\quad \forall a \in B \quad gb = b;
-	$$
-
-	\begin{definition}	
-		Under the above hypothesis a $G$-invariant positive functional $^*\phi: \I' \to \C^*$ is the $G$- \textit{nonstandard extension} of $\phi$ if one has:
-		\begin{itemize}
-			\item 
-			\bean
-			\forall a' \in \I'\quad a = \bt\sum_{g \in G}a' \in B \quad \text{AND} \quad  \phi\left(\varphi\left( a \right) \right) =  \mathfrak{st}\left(^* \lim_{n \to \infty}~^*\phi\left(a_n \right)  \right) , 
-			\eean 
-			\item for any $a \in B_+$ and any $\eps > 0$ there is $a'\in \I'_+$ with
-				\bean
-			\left\|\bt \sum_{g \in G}g a' - a\right\| 	< 	\eps
-			\eean
-		\end{itemize}
-
+	\begin{definition}\label{g_nonst_defn}	
+			Let $\I$ and $B$ be $C^*$-algebras with an inclusion $B\subset M\left( \I\right)$. If $A \subset M\left(\I \right)$ is $C^*$-subalgebra  generated by the union $B\cup \I$. If $\I$ is a two sided ideal of $A$ and $B \cong A/\I$.
+		Suppose that there is an action $G \times M\left(  A\right)  \to M\left(  A\right) $ of countable group $G$ and a $\C$-linear subspace $\I'\subset \I$ with $G\I' = \I'$ and 
+\be\label{g_nonst_b_inv_eqn}	
+		\forall g \in G\quad \forall a \in B \quad gb = b;
+\ee
+		Assume that for any positive $a'\in \I'_+$ the series $\bt\sum_{g \in G}a'$ is convergent with respect to the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology_defn}) and
+	\be\label{g_nonst_bt_eqn}
+	\forall a' \in \I' \quad \bt\sum_{g \in G}a' \in B	
+	\ee
+		Suppose that  every any $a \in B_+$ and any $\eps > 0$ there is $a'\in \I'_+$ with
+		\be\label{g_nonst_dense_eqn}
+		\left\|\bt \sum_{g \in G}g a' - a\right\| 	< 	\eps
+		\ee
+		If $\phi: B \to \C$ is a functional then a $G$-invariant positive $\C$-linear  functional $^*\phi: \I' \to \C^*$ is the $G$-\textit{nonstandard extension} of $\phi$ if 
+		\be\label{g_nonst_eqn}
+			\forall a' \in \I'\quad a = \bt\sum_{g \in G}a' \in B \quad \text{AND} \quad  \phi\left(a \right) =  \mathfrak{st}\left(^* \sum_{g\in G}~^*\phi\left(g a'\right)  \right). 
+			\ee
+	(cf. notations of the Remark \ref{inf_ultra_compex_rem}).
 	\end{definition}
 	\begin{example}
 		If $\widetilde \sX$ is a locally compact Hausdorff space with a action $G \times \widetilde \sX$ of infinite, countable, properly disconnected group (cf. Definition  \ref{top_properly_disc_group_defn}). then from the Theorem \ref{top_group_of_covering_transformations_thm} it follows that there is a covering $p: \widetilde \sX\to \sX \bydef \widetilde \sX/G$. One has $M\left( C_0\left(\widetilde \sX \right) \right)= C_b\left( \widetilde \sX \right)$  There is the natural inclusion $C_0\left(\sX \right)\to  
 		C_b\left( \widetilde \sX \right)$. If $A \subset C_b\left( \widetilde \sX\right)$ is the $C^*$-subalgebra  generated by the union $C_0\left( \widetilde \sX\right) \cup C_0\left(\sX \right)$ and  then there is a $*$ isomorphism
 		$$
-		B\bydef C_0\left( \sX\right) \cong  A / \I 
+		 C_0\left( \sX\right) \cong  A / C_0\left(\widetilde \sX \right) 
 		$$
-		where $\I \bydef C_0\left( \widetilde\sX\right)$. If $\I' \bydef C_c\left(  \widetilde\sX\right)$ then for any  $a' \in \I'$ the series 
+		 For any  $a' \in \C_c\left(  \widetilde\sX\right)'$ the series 
 	\be\label{sum_a_eqn}
 \sum_{g\in G} g a'
 \ee
-		is convergent with respect to the strict topology of $M\left(C_0\left( \widetilde\sX\right)  \right) = C_b\left( \widetilde\sX\right)$. The sum of the series \eqref{sum_a_eqn} so one has a $C_b\left(\sX \right)$ linear mapping  
+		is convergent with respect to the strict topology of $M\left(C_0\left( \widetilde\sX\right)  \right) = C_b\left( \widetilde\sX\right)$. The sum of the series \eqref{sum_a_eqn} lies in $C_b\left(\sX \right)^G$ linear mapping  
 		\bean
 		 C_c\left( \widetilde\sX\right)\to C_b\left(  \widetilde\sX\right)^G \cong C_b\left(\sX \right),\\
 		 a' \mapsto  \sum_{g\in G} g a'
@@ -746,13 +767,19 @@ then $^*\phi$ is the \textit{nonstandard extension} of $\phi$.
 		\be\label{var_p_map} 
 		\varphi: C_c\left( \widetilde\sX\right)\to C_c\left( \sX\right)
 		\ee 
-		Any Radon measure $\mu$ (cf. Appendix \ref{mea_th_sec}) on $\sX$ yields a positive functional $C_c\left( \sX\right)\to \C$ (cf. Theorem \ref{meafunc_thm}). This functional and the mapping $\varphi$ yield a functional $C_c\left( \widetilde\sX \right) \to \C$. From the Theorem \ref{meafunc_thm} it follows that the functional  $C_c\left( \widetilde\sX \right) \to \C$ yields a Radon measure $\widetilde \mu$ on $\widetilde \sX$. One can prove that $\widetilde \mu$ is thr
-		
-		
-		If  $\sX$ is compact If $A \bydef C_0\left(\widetilde \sX \right)$ then $M\left(A \right)= C_b\left( \widetilde \sX \right)$, and   $B\bydef M\left( A\right)^G \cong C\left(\sX \right)$,  
-		
-		
-		If $\sX$ is compact then any Radon measure (cf. Appendix \ref{mea_th_sec}) of $\sX$ yields a positive functional $\phi: C\left(\sX \right) \to \R$ (cf. Theorem \ref{meafunc_thm}). 
+		Any positive functional $\phi :C_0\left( \sX\right)\C$ yields  
+		a Radon measure $\mu$ ((cf. Theorem \ref{meafunc_thm}) . This functional and the mapping \eqref{var_p_map} yield a functional $C_c\left( \widetilde\sX \right) \to \C$. From the Theorem \ref{meafunc_thm} it follows that the functional  $C_c\left( \widetilde\sX \right) \to \C$ yields a Radon measure $\widetilde \mu$ on $\widetilde \sX$. One can prove that $\widetilde \mu$ is the  preimage of $\mu$ (cf. Definition \ref{measure_image_defn}). One can define $\C^*$-linear functional
+		\bean
+		^*\phi : C_c\left(\widetilde \sX  \right) \to \C^*,\\
+		a' \mapsto \left\{\frac{\int a ~d \widetilde \mu }{n}\right\}_{n \in \N}.
+		\eean
+		One can proof that if 
+		\bean
+		B \bydef C_0\left(\sX \right),\\
+		\I \bydef C_0\left(\widetilde \sX \right),\\  
+		\I' \bydef C_c\left(\widetilde \sX \right)  
+		\eean 
+		then $^*\phi$ is $G$-{nonstandard extension} of $\phi$ (cf. Definition \ref{g_nonst_defn}).
 	\end{example}	
 
 	\subsection{!!!!Group Action!!!!}\label{ga_sec1}
@@ -838,7 +865,143 @@ the finite part of it  depends on $\bt$-$\sum g x\in \A^G_X$ only (cf. Remark \r
 	(cf. \eqref{p_jk_eqn})
 	
 \end{example}
-%\begin{appendices}
+	\section{Nonstandard Calculus}
+\paragraph{}
+Here I follow to \cite{keisler:inf_calc}
+
+\begin{definition}\label{hyperreal_defn}
+	The following axioms describe a hyperreal number system as a triple $\left(*, \R, \R^*\right)$,
+	where $\R$ is called the field of {\it real numbers}, $\R^*$ the field of {\it hyperreal numbers}, and $*$ the {\it natural extension mapping} if it satisfies to the following axioms.
+	\begin{enumerate}
+		\item[(A)] $\R$ is a complete ordered field.
+		\item[(B)]$\R^*$ is an ordered field extension of $\R$.
+		\item[(C)] $\R^*$ has a positive infinitesimal, $x\neq 0$, i.e $\forall \eps > 0$ one has $\eps > 0 \quad \Rightarrow \quad x < \eps$
+		\item[(D)] (Function Axiom)
+		
+		For each real function $f$ of n variables there is a corresponding hyperreal
+		function $f^*$ of $n$ variables, called the natural extension of $F$. The field operations of $\R^*$ are the natural extensions of the field operations of $\R$.
+		
+		\item[(E)] Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
+		of $T$.
+		
+	\end{enumerate}
+	
+	By a {\it hyperreal solution} of a system of formulas $S$ with the variables
+	$x_1; ... x_n$ we mean an $n$-tuple $\left(c_1; ... c_n)\right)$ of hyperreal numbers such that
+	all the formulas in $S$ are true when each function is replaced by its natural
+	extension and each $x_j$ is replaced by $c_j$.
+	
+	
+\end{definition}
+\begin{definition}
+	%Definition 1.41.
+	Let $I$ be an infinite set. 
+	A {\it filter} $U$ over $I$ is a set of subsets of $I$ such that:
+	\begin{enumerate}
+		\item [(i)] $U$ is closed under supersets; if $X \in U$ and $X \subseteqq Y \subseteqq I$ then $Y \in U$.
+		\item[(ii)] $U$ is closed under finite intersections; if $X \in U$ and { $X \in U$} then $X \cap Y \in U$,
+		\item	[(iii)] $I \in U$ but $\emptyset \notin U$.
+	\end{enumerate}
+	An {\it ultrafilter} over $I$ is a filter $U$ over $I$ with the additional property that for each $X \subsetneqq I$, exactly one of the sets $X$; $I \setminus  X$ belongs to $U$.
+	A {\it free ultrafilter} is an ultra filter $U$ such that no finite set belongs to $U$.
+\end{definition}
+\begin{theorem}
+	%Theorem 1.42.
+	For every infinite set $I$, there exists a free ultrafilter over
+	$I$.
+\end{theorem}
+
+\begin{definition}\label{finite_defn}
+	%Definition 1.1.
+	We say that:
+	\begin{itemize}
+		\item An element $x\in \R^*$ is {\it infinitesimal} if $\left|x\right|< r$ for all positive real $r$;
+		\item  {\it finite} if $\left|x\right|< r$ for some real $r$;
+		\item {\it 	infinite} if $\left|x\right|> r$ for all real $r$.
+		Two elements $x, y \in \R^*$ are said to be {\it infinitely} close, $x \approx y$, if $x - y$ is
+		infinitesimal. (Thus $x$ is infinitesimal if and only if $x \approx 0$).
+		
+	\end{itemize} 
+\end{definition}
+\begin{definition}\label{uf_eqn_defn}
+	%Definition 1.43. 
+	Two $I$-sequences $a, b$ in $\R^I$ are said to be $U$-{\it equivalent},
+	in symbols $a =_U b$, if
+	$$
+	\left\{\iota: a_\iota = b_\iota \right\}\in U.
+	$$
+	The relation $=_U$ is an equivalence relation on the set $\R^I$.
+	
+\end{definition}
+
+\begin{definition}
+	%Definition 1.2. 
+	Given a hyperreal number $x \in \R^*$, the {\it monad} of $X$ is the
+	set
+	$$
+	\text{monad}(x) \bydef \left\{\left. x \in \R^*\right| x \approx y\right\}
+	$$
+	%The galaxy of x is the set
+	%galaxy(x) = fy 2 R : x ? y is niteg:
+\end{definition}
+\begin{theorem}\label{standard_part_thm}
+	%Theorem 1.9. 
+	(Standard Part Principle). Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
+	unique real number.
+\end{theorem}
+\begin{lemma}
+	%Lemma 1.44. 
+	\begin{definition}\label{standard_part_defn} 
+		The given by the Theorem \ref{inf_ultra_thm} real number is the \textit{standard part}.
+	\end{definition}
+\end{lemma}
+\begin{definition}\label{ultra_power_defn}
+	%Definition 1.45. 
+	Let $a$ be an $I$-sequence. If $a$ is $U$-equivalent to a constant
+	$I$-sequence $\left(r, r, ...\right)$ where $r \in \R$, we define $a_U \bydef r$. Otherwise, we define aU
+	to be the $U$-equivalence class of $a$,
+	$$
+	a_U \bydef \left\{b | a =_U b\right\}.
+	$$
+	The {\it ultrapower} of the set $R$ modulo $U$ is the set
+	$$
+	\prod_{U}\R \bydef \left\{a_U : a \in \R^I\right\}.
+	$$
+\end{definition}
+
+\begin{theorem}\label{inf_ultra_thm}
+	%Theorem 1.55. 
+	For each free ultrafilter $U$ on a countable index set $I$, the
+	hyperreal number system $\left(*, \R, \R^*\right)$ built from $I$ satisfies to the Definition \ref{ultra_power_defn}.
+\end{theorem}
+
+\begin{rem}\label{inf_ultra_compex_rem}
+	The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers, i.e. one  has a the
+	hypercomplex number system $\left(*, \C, \C^*\right)$. There is a field $\C^*$ of {\it hypercomplex numbers} (which are not quaternion). There are similarly to the Definitions \ref{finite_defn} and \ref{standard_part_defn} there are \textit{finite hypercomplex numbers} and their \textit{standard parts}. To avoid conflict with $*$-operation we write $^*a\in \C^*$.  If $^*a$ is represented by a sequence $\left\{a_n\right\}_{n \in \N}\subset \C$ then we write
+	\be\label{inf_repr_eqn}
+	^*a \bydef \left\{a_n\right\}_{n \in \N}
+	\ee
+	If $\left\{^*a_m\right\}_{n \in \N}\subset \C^*$  and for all $n \in \N$ one has
+	$^*a_m= \left\{a_{mn}\right\}_{n \in \N}\subset \C$ then we write
+	\be\label{inf_lim_eqn}
+	\begin{split}
+		^*\lim_{m \to \infty}~^*a_m \bydef \left\{a_{nn}\right\}_{n \in \N},\\
+		*\sum_{m =1}^\infty ~ ^*a_m \bydef \left\{\sum_{m = 1}^n a_{mn}\right\}_{n \in \N}.\
+	\end{split}
+	\ee
+	For any $^*a \in \C^*$ we denote by 
+	\be\label{inf_st_eqn} 
+	\mathfrak{st}\left( ^*a\right)  \in \C
+	\ee the standard part of $^* a$.
+	
+	
+	
+\end{rem}
+\begin{rem}
+	There is an analog of  $\left(*, \R, \R^*\right)$ related to $C^*$-algebras (cf. \cite{c_ald_non_st}).
+\end{rem}
+
+
 	\section{Topology}
 	
 	
@@ -2797,143 +2960,7 @@ The Definition \ref{integr_defn} is motivated by the article.
 		
 
 	
-	\section{Nonstandard Calculus}
-	\paragraph{}
-	Here I follow to \cite{keisler:inf_calc}
-	
-	\begin{definition}\label{hyperreal_defn}
-		The following axioms describe a hyperreal number system as a triple $\left(*, \R, \R^*\right)$,
-		where $\R$ is called the field of {\it real numbers}, $\R^*$ the field of {\it hyperreal numbers}, and $*$ the {\it natural extension mapping} if it satisfies to the following axioms.
-		\begin{enumerate}
-			\item[(A)] $\R$ is a complete ordered field.
-			\item[(B)]$\R^*$ is an ordered field extension of $\R$.
-			\item[(C)] $\R^*$ has a positive infinitesimal, $x\neq 0$, i.e $\forall \eps > 0$ one has $\eps > 0 \quad \Rightarrow \quad x < \eps$
-			\item[(D)] (Function Axiom)
-			
-			For each real function $f$ of n variables there is a corresponding hyperreal
-			function $f^*$ of $n$ variables, called the natural extension of $F$. The field operations of $\R^*$ are the natural extensions of the field operations of $\R$.
-			
-			\item[(E)] Given two systems of formulas $S$, $T$ with the same variables, if every real solution of $S$ is a solution of $T$, then every hyperreal solution of $S$ is a solution
-			of $T$.
-			
-		\end{enumerate}
-		
-		By a {\it hyperreal solution} of a system of formulas $S$ with the variables
-		$x_1; ... x_n$ we mean an $n$-tuple $\left(c_1; ... c_n)\right)$ of hyperreal numbers such that
-		all the formulas in $S$ are true when each function is replaced by its natural
-		extension and each $x_j$ is replaced by $c_j$.
-		
-		
-	\end{definition}
-		\begin{definition}
-		%Definition 1.41.
-		Let $I$ be an infinite set. 
-		A {\it filter} $U$ over $I$ is a set of subsets of $I$ such that:
-		\begin{enumerate}
-			\item [(i)] $U$ is closed under supersets; if $X \in U$ and $X \subseteqq Y \subseteqq I$ then $Y \in U$.
-		\item[(ii)] $U$ is closed under finite intersections; if $X \in U$ and { $X \in U$} then $X \cap Y \in U$,
-		\item	[(iii)] $I \in U$ but $\emptyset \notin U$.
-		\end{enumerate}
-			An {\it ultrafilter} over $I$ is a filter $U$ over $I$ with the additional property that for each $X \subsetneqq I$, exactly one of the sets $X$; $I \setminus  X$ belongs to $U$.
-		A {\it free ultrafilter} is an ultra filter $U$ such that no finite set belongs to $U$.
-	\end{definition}
-	\begin{theorem}
-		%Theorem 1.42.
-		For every infinite set $I$, there exists a free ultrafilter over
-		$I$.
-	\end{theorem}
-	
-	\begin{definition}\label{finite_defn}
-		%Definition 1.1.
-		We say that:
-		\begin{itemize}
-			\item An element $x\in \R^*$ is {\it infinitesimal} if $\left|x\right|< r$ for all positive real $r$;
-			\item  {\it finite} if $\left|x\right|< r$ for some real $r$;
-			\item {\it 	infinite} if $\left|x\right|> r$ for all real $r$.
-			Two elements $x, y \in \R^*$ are said to be {\it infinitely} close, $x \approx y$, if $x - y$ is
-			infinitesimal. (Thus $x$ is infinitesimal if and only if $x \approx 0$).
-			
-		\end{itemize} 
-	\end{definition}
-		\begin{definition}\label{uf_eqn_defn}
-		%Definition 1.43. 
-		Two $I$-sequences $a, b$ in $\R^I$ are said to be $U$-{\it equivalent},
-		in symbols $a =_U b$, if
-		$$
-		\left\{\iota: a_\iota = b_\iota \right\}\in U.
-		$$
-				The relation $=_U$ is an equivalence relation on the set $\R^I$.
-		
-	\end{definition}
-	
-	\begin{definition}
-		%Definition 1.2. 
-		Given a hyperreal number $x \in \R^*$, the {\it monad} of $X$ is the
-		set
-		$$
-		\text{monad}(x) \bydef \left\{\left. x \in \R^*\right| x \approx y\right\}
-		$$
-		%The galaxy of x is the set
-		%galaxy(x) = fy 2 R : x ? y is niteg:
-	\end{definition}
-	\begin{theorem}\label{standard_part_thm}
-		%Theorem 1.9. 
-		(Standard Part Principle). Every finite $x \in \R^*$ is in finitely close to a unique real number $r \in \R$. That is, every finite monad contains a
-		unique real number.
-	\end{theorem}
-	\begin{lemma}
-		%Lemma 1.44. 
-			\begin{definition}\label{standard_part_defn} 
-			The given by the Theorem \ref{inf_ultra_thm} real number is the \textit{standard part}.
-		\end{definition}
-	\end{lemma}
-	\begin{definition}\label{ultra_power_defn}
-		%Definition 1.45. 
-		Let $a$ be an $I$-sequence. If $a$ is $U$-equivalent to a constant
-		$I$-sequence $\left(r, r, ...\right)$ where $r \in \R$, we define $a_U \bydef r$. Otherwise, we define aU
-		to be the $U$-equivalence class of $a$,
-		$$
-		a_U \bydef \left\{b | a =_U b\right\}.
-		$$
-		The {\it ultrapower} of the set $R$ modulo $U$ is the set
-		$$
-		\prod_{U}\R \bydef \left\{a_U : a \in \R^I\right\}.
-		$$
-	\end{definition}
-	
-	\begin{theorem}\label{inf_ultra_thm}
-		%Theorem 1.55. 
-		For each free ultrafilter $U$ on a countable index set $I$, the
-		hyperreal number system $\left(*, \R, \R^*\right)$ built from $I$ satisfies to the Definition \ref{ultra_power_defn}.
-	\end{theorem}
-
-	\begin{rem}\label{inf_ultra_compex_rem}
-		The theorem \ref{inf_ultra_thm} can be generalized up to a field $\C$ of complex numbers, i.e. one  has a the
-		hypercomplex number system $\left(*, \C, \C^*\right)$. There is a field $\C^*$ of {\it hypercomplex numbers} (which are not quaternion). There are similarly to the Definitions \ref{finite_defn} and \ref{standard_part_defn} there are \textit{finite hypercomplex numbers} and their \textit{standard parts}. To avoid conflict with $*$-operation we write $^*a\in \C^*$.  If $^*a$ is represented by a sequence $\left\{a_n\right\}_{n \in \N}\subset \C$ then we write
-	\be\label{inf_repr_eqn}
-	^*a \bydef \left\{a_n\right\}_{n \in \N}
-	\ee
-	If $\left\{^*a_m\right\}_{n \in \N}\subset \C^*$  and for all $n \in \N$ one has
-	$^*a_m= \left\{a_{mn}\right\}_{n \in \N}\subset \C$ then we write
-	\be\label{inf_lim_eqn}
-	\begin{split}
-^*\lim_{m \to \infty}~^*a_m \bydef \left\{a_{nn}\right\}_{n \in \N},\\
-*\sum_{m =1}^\infty ~ ^*a_m \bydef \left\{\sum_{m = 1}^n a_{mn}\right\}_{n \in \N}.\
-	\end{split}
-\ee
-For any $^*a \in \C^*$ we denote by 
-\be\label{inf_st_eqn} 
-\mathfrak{st}\left( ^*a\right)  \in \C
-\ee the standard part of $^* a$.
-	
-
-
-	\end{rem}
-		\begin{rem}
-	There is an analog of  $\left(*, \R, \R^*\right)$ related to $C^*$-algebras (cf. \cite{c_ald_non_st}).
-	\end{rem}
-	
-	\section{Operator algebras}
+\section{Operator algebras}
 	
 	\subsection{!!!-algebras and von Neumann algebras} $C*$!!!!
 	\paragraph{}In this section I follow to \cite{apt_mult,blackadar:ko,murphy,pedersen:ca_aut,rae:ctr_morita}.
@@ -3574,8 +3601,31 @@ $z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
 			
 			
 			
-			\section{Matrix theory of superstring}
-			\subsection{Fundamentals}
+			\section{Matrix regularization}
+			\subsection{Matrix regularization}
+			\paragraph{} Here I follow to \cite{hawkins:nc_reg}.
+			It is generally expected that in a full description of quantum gravity the geometry
+			of space-time at small scales will not resemble that of a manifold. The nature
+			of this “quantum geometry” is one of the fundamental issues in the search for a
+			quantum theory of gravity.
+			One argument for quantum geometry is that quantum field theories give our
+			best descriptions of microscopic physics, yet they must be regularized in order to
+			yield meaningful predictions. The trouble being that quantum field theory suffers
+			from ultra-violet divergences due to physical processes occurring at arbitrarily
+			large momenta, or equivalently, arbitrarily small distances. Some fundamental
+			regularization that fixes these divergences can probably be interpreted as a modification
+			of geometry at extremely short distances, perhaps even such that the concept
+			of arbitrarily small distances is meaningless.
+			Another argument extends Heisenberg’s classic \textit{gedankenexperiment} in support
+			of the uncertainty relations. The observation of structures at very small distances
+			requires radiation of very short wavelength and correspondingly large energy. Attempting
+			to observe a sufficiently small structure would thus require such a high
+			concentration of energy that a black hole would be formed and no observation
+			1
+			2 ELI HAWKINS
+			could be made. If this is so, then distances below about the Plank scale are unobservable
+			— and thus operationally meaningless.
+			\subsection{Matrix theory of superstring}
 			\paragraph{} The idea of matrix model comes from the Heisenberg matrix mechanics.
 			One can construct a sequence of maps 
 			$$
@@ -6156,6 +6206,9 @@ It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condi
 	title[Noncommutative Regularization]{Noncommutative Regularization\\ 
 		for the Practical Man}
 	\bibitem{hawkins:nc_reg}{Eli Hawkins}{\it Noncommutative Regularization	for the Practical Man} arxiv/hep-th/9908052, 1999.
+	
+	\bibitem{Collins} J.~Collins, {\em Renormalization}, Cambridge
+	Monographs in Math. Physics, Cambridge University Press, 1984.
 \end{thebibliography}
 
 
