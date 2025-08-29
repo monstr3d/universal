@@ -667,7 +667,7 @@
 \end{figure}
 
 
-There are theories of coverings of $C^*$-algebras which can be included into a following list (cf. Figure \ref{fig:M1}):
+\paragraph{}There are theories of coverings of $C^*$-algebras which can be included into a following list (cf. Figure \ref{fig:M1}):
 \begin{itemize}
 	\item coverings of commutative $C^*$-algebras  \cite{clarisson:phd,pavlov_troisky:cov},
 	\item coverings of $C^*$-algebras of groupoids and foliations  \cite{ouchi:cov_fol,xiaolu:foli_cov,zhi:cov_group}),
@@ -734,7 +734,7 @@ Unoriented  Spin$^c$-manifolds  & Unoriented  spectral triples\\
 \end {table}
 
 \paragraph*{}
-There is a set of theories of noncommutative coverings (e.g. \cite{clarisson:phd,schwieger:nt_cov}). In contrary of them the presented here theory gives results which are (almost) equivalent to the classical topological theory. In particular covering spaces of commutative spaces are also commutative. This fact yields pure algebraic definition of the fundamental group   (cf. Theorem \ref{comm_uni_lim_thm}).% and the $n^{\text{th}}$-homotopy group (cf. Theorem \ref{ho_gr_thm}).
+In contrary of the explained in  \cite{clarisson:phd,schwieger:nt_cov} results the presented here theory gives results which are (almost) equivalent to the classical topological theory. In particular covering spaces of commutative spaces are also commutative. This fact yields pure algebraic definition of the fundamental group   (cf. Theorem \ref{comm_uni_lim_thm}).% and the $n^{\text{th}}$-homotopy group (cf. Theorem \ref{ho_gr_thm}).
 \paragraph*{}
 The Part \ref{math_part} is devoted to mathematical aspects of the theory.
 \paragraph*{}
@@ -3222,6 +3222,260 @@ Moreover   a natural representation
 \ee
 is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
+\section{Coverings of rigged Hilbert spaces}
+\paragraph{}
+Let ${\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}$ be 
+{a rigged Hilbert} space (cf. Appendix \ref{rhs_intro_sec}). 	Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  covering with unitization   (cf. Definition \ref{fin_defn}). 
+If  $\pi : A\to B\left( \H\right) $ is a faithful nondegenerate representation then there is an induced by the pair $\left(\pi, \left(A, \widetilde{A}, G, \lift \right) \right)$ representation  $\widetilde\pi : \widetilde A\to B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_fin_defn}).
+\begin{definition}\label{spec_fin_defn}
+	An element $\widetilde a \in \widetilde A$ is \textit{special} if $\left(g a \right)a^* = 0$ for every nontrivial $g \in G$. An element $\widetilde \xi \in \widetilde \H$ is \textit{special} is there $\widetilde \xi = \widetilde \pi\left( \widetilde a\right)\widetilde \eta $ where $\widetilde \eta \in \widetilde \H$ and the element $\widetilde a$ is special. 
+\end{definition}
+\begin{empt}\label{spec_fin_empt}
+	Henceforth we suppose that the algebraic $\C$-linear span of special elements is dense in $\widetilde A$. 
+\end{empt}
+ We suppose that $C^*$-algebra $M\left( \widetilde{   A}\right) $ is generated the set
+\be\label{f_a_fin_ern}
+\begin{split}
+	\mathscr A \bydef \left\{\left.\widetilde a\in M\left(\widetilde  A\right) _+\right| \forall \text{ nontrivial } g \in G \quad \left(g \widetilde a \right) \widetilde a = 0 \right\} 
+\end{split}
+\ee
+We define a mapping
+\be 
+\begin{split}
+	\phi_{\mathscr A}:\mathscr A \to M\left( A\right)_+,\\
+	\widetilde a \mapsto \desc\left( \widetilde{a}\right) .
+\end{split}
+\ee
+where $\desc$ is the $\left(M\left(A \right), M\left( \widetilde A, \right), G , M\left(\lift \right)   \right)$-descent (cf. Definition \ref{fin_desc_defn}).
+For any $\widetilde a\in  \mathscr A$ we denote a  projector $p_{\widetilde a}\in B\left( \widetilde \H\right)$ onto the image of  ${\widetilde a}$, i.e.
+$$
+p_{\widetilde a}= \sup \left\{\left.\widetilde{b}\in \widetilde{\pi}\left(M\left(\widetilde A\right)\right)_+  \right| \left\| \widetilde{b}\right\|\le 1 \quad \widetilde{b}\widetilde \H = \widetilde{\pi}\left( \widetilde{a} \right) \widetilde \H \right\}.
+$$
+From \eqref{f_a_fin_ern} it turns out that 
+\be 
+p^\Sigma_{\widetilde a} \bydef \sum_{g \in G} g p_{\widetilde a} 
+\ee
+is also a projector. There is an action $G\times \widetilde \H \to \widetilde \H$ such that $\H$ cong $\widetilde \H^G \bydef \left\{\left. \xi \in \widetilde \H\right| \forall g \in G \quad g\xi = \xi\right\}$. Using this fact and taking into account that 
+$$
+\forall g \in G \quad gp^\Sigma_{\widetilde a}= p^\Sigma_{\widetilde a}
+$$
+one can assume that $p^\Sigma_{\widetilde a}\in B\left(\H \right)$. 
+For any $\widetilde a\in \mathscr A$ we define 
+\be
+\begin{split}
+	\H_{\widetilde a } \bydef \left\{\xi \in \H \left|p^\Sigma_{\widetilde a} \xi = \xi \right.\right\},\\
+	\mathbf \Phi_{\widetilde a }\bydef  \H_{\widetilde a }\cap  \mathbf \Phi.
+\end{split}
+\ee 
+Suppose that $\mathbf \Phi$ is a topological vector space and its topology $\mathfrak T_{\mathbf \Phi}$ is such that the $\mathfrak T_{\mathbf \Phi}$-closure of $\mathbf \Phi$ in $\H$ equals to $\mathbf \Phi$. Suppose that the algebraical sum
+$$
+\sum_{\widetilde a\in \mathscr A} \mathbf \Phi_{\widetilde a } 
+$$
+is dense in $\mathbf \Phi$ with respect to $\mathfrak T_{\mathbf \Phi}$.
+For any $\widetilde a \in \mathscr A$ we define a map
+\bean
+\phi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\to \widetilde \H,\\
+\xi \mapsto p_{\widetilde a}\otimes \xi.
+\eean 
+(cf. the equation \eqref{tp_eqn}). If $\widetilde { \H}_{\widetilde a }\bydef \phi_{\widetilde a}\left({ \H}_{\widetilde a } \right) $ and $\widetilde {\mathbf \Phi}_{\widetilde a }\bydef \phi_{\widetilde a}\left({\mathbf \Phi}_{\widetilde a } \right) $ then there are isomorphisms
+\be
+\begin{split}
+	{ \H}_{\widetilde a }\cong \widetilde { \H}_{\widetilde a },\\
+	{\mathbf \Phi}_{\widetilde a }\cong \widetilde {\mathbf \Phi}_{\widetilde a }.
+\end{split}
+\ee 
+For any $\widetilde a\in \mathscr A$ the is a topology $\mathfrak T_{\mathbf \Phi_{\widetilde a}}$ on $\mathbf \Phi_{\widetilde a }$ which comes from $\mathfrak T_{\mathbf \Phi}$. If
+$$
+{\mathbf \Psi}\bydef \sum_{\widetilde a\in \mathscr A}\widetilde {\mathbf \Phi}_{\widetilde a }  \subset \widetilde \H
+$$
+is  an algebraic sum then for every $\widetilde a\in \mathscr A$ there is an inclusion
+$$
+\psi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\hookto {\mathbf \Psi}.
+$$
+There is the {final} {with respect to the family of maps} $\left\{\psi_{\widetilde a}:\mathbf \Phi_{\widetilde a } \to \mathbf \Psi\right\}_{\widetilde a \in \mathscr A}$ topology $\mathfrak T_{\mathbf \Psi}$ on $\mathbf \Psi$ (cf. Definition \ref{top_final_defn}).  If $\widetilde {\bf \Phi}$ is the completion in $\widetilde \H$ of  $\bf \Psi$ then the topology  $\mathfrak T_{\mathbf \Psi}$ naturally defines  the topology $\mathfrak T_{\widetilde{ \mathbf \Phi}}$ on $\widetilde{\mathbf \Phi}$. One has a rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$
+\begin{definition}
+	Under the above hypothesis the  rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of ${\mathbf \Phi} \subset  \H \subset  {\mathbf \Phi}^{\times}$. 
+\end{definition}
+\begin{remark}
+	The action $G \times \widetilde \H$ naturally yields actions   $G \times \widetilde {\mathbf \Phi}\to \widetilde {\mathbf \Phi}$  and  $G \times \widetilde {\mathbf \Phi}^{\times}\to \widetilde {\mathbf \Phi}^{\times}$
+\end{remark}
+\section{Coverings of spectral triples}\label{triple_fin_cov}
+!!! ADD RIGGED !!!
+\paragraph*{} 
+If $\left( \A, \H, D, J\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
+\begin{itemize}
+	\item the space  
+	$
+	\H^\infty\bydef	\bigcap_{k\in\bN} \Dom D^k
+	$
+	is dense in $\H$;
+	\item one has
+	\bean
+	\A\subset \L^\dagger \left( \H^\infty \right), \\
+	D \in 	\L^\dagger \left( \H^\infty \right)
+	\eean
+	(cf. equation \eqref{l_dag_eqn}).
+\end{itemize}
+
+\begin{empt}\label{triple_conn_lift_empt} 
+	Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \lift  \right)$ be a {noncommutative finite-fold covering of  bounded operator $*$-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. 
+	If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  an  unital noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \lift  \right)$ (cf. Definition \ref{fin_unital_defn}) such that $\lift= \widetilde\lift|_{\A}$. Similarly to the equation \eqref{finite_hilb_mod_prod_eqn} one has a sesquilinear product
+	$\left\langle \cdot , \cdot  \right\rangle_{\widetilde A} : \widetilde A\times \widetilde A \to \A$ such that
+	\bean
+	\forall \widetilde a, \widetilde b \in \widetilde A\quad \left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde A}\bydef\frac{1}{\left| G\right| } \sum_{	g \in G}g\left(\widetilde a^* \widetilde b \right),\\
+	\left\langle\widetilde \A, \widetilde \A \right\rangle_{\widetilde A}= \A.
+	\eean
+	Denote by 
+	\bean
+	\rho : A \hookto B\left(\H \right),\\
+	\eean
+	a natural representations of $A$. If the natural representation $\widetilde \rho: \widetilde A \to B\left(\widetilde \H \right)$ is induced by a pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \lift  \right) \right)$ (cf. Definition \ref{induced_repr_fin_defn}) then we have
+	\be\label{st_h_defn_eqn}
+	\widetilde \H \bydef \widetilde A\ox_A \H
+	\ee
+	because $ \widetilde A$ is a finitely generated $A$-module.  Moreover  the  Hilbert space $\widetilde A \ox_A \H$ has  the following scalar product
+	\bean
+	\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\widetilde A} \eta \right)_\H,
+	\eean
+	If operators $\widetilde J, \widetilde J^\7 : \widetilde{\H}\to \widetilde{\H}$ are given by
+	\bea\label{cc_eqn}
+	\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
+	\label{ccc_eqn}
+	\widetilde J^\7\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J^\7\xi
+	\eea
+	then on has 
+	\bean
+	\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{B\left( \widetilde \H\right) },\\
+	\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)_{\widetilde\H}= \left( \widetilde a^*\ox J\xi ,  \widetilde b^*\ox J \eta \right)_{\widetilde\H}= \left(J\xi, \left\langle \widetilde a^*, \widetilde b^* \right\rangle J\eta \right)_{\H}  =
+	\\
+	= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J\left(  \left\langle \widetilde b, \widetilde a \right\rangle \otimes \eta\right)    \right)_{\widetilde\H} =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)_{\widetilde\H}=\\=\left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H= \left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}.
+	\eean 
+	From the  equation\eqref{cc_eqn} and one has
+	$$
+	\forall z \in \C \quad \widetilde J z \left(\widetilde a \ox \xi \right) = \widetilde J  \left(\widetilde a \ox z \xi \right)= \widetilde a^* \ox Jz\xi= \widetilde a^* \ox \overline{z} J\xi= \overline{z} \widetilde a^* \ox J\xi=\overline{z} \widetilde J  \left(\widetilde a \ox \xi \right) 
+	$$
+	where $\overline{z}$ is the complex adjoint to $z$.
+	It follows that $\widetilde J$ is an antiunitary operator. Similarly one can prove that the operator $\widetilde J^\dagger$ is also  antiunitary.
+	If $\xi \in \H$ and $\widetilde a, \widetilde b, \widetilde c\in  \widetilde A$ then one has
+	\bean
+	\forall \widetilde a, \widetilde b, \widetilde c \quad \widetilde a \left(\widetilde J \widetilde b^* J^\7 \right) \left(\widetilde c \ox \xi \right)=\widetilde a \widetilde J \left( \widetilde b^*\widetilde c^*\ox \widetilde J^\7 \xi\right) = \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes \xi,
+	\eean
+	\be\label{jbj_eqn}
+	\begin{split}
+		\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a\left(\widetilde c \ox \xi \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\left(\widetilde a\widetilde c \ox \xi \right)= \widetilde J \widetilde b^*\left(  \widetilde c^* \widetilde a^*\otimes J^\7\xi \right) = \\= \widetilde J \left(   \widetilde b^*\widetilde c^* \widetilde a^*\otimes J^\7\xi \right)
+		=  \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes\xi.
+	\end{split}
+	\ee
+	So a following condition holds
+	$$
+	\widetilde a \left(\widetilde J \widetilde b^* J^\7 \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a,
+	$$
+	or equivalently
+	\be\label{st_comn_wt_eqn}
+	\forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
+	\ee
+	i.e. one has a situation of the Definition \ref{df:spt-real_defn}. 
+	Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+	\be\label{nabla_cov_herm_eqn}
+	\nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
+	\ee
+	be  a connection (cf. Definition \ref{connection_defn}).
+	We suppose that $\nabla$ is $G$-equivariant, i.e.
+	\be\label{conn_equ_conn}
+	\forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j. 
+	\ee
+	Let us prove that there is an action
+	$$
+	\left( \widetilde \A\otimes_\A \Om^1_D\right)  \times \left(\widetilde \A\otimes_\A \H^\infty\right)\to \left(\widetilde \A\otimes_\A \H^\infty\right)
+	$$
+	such that for all $\widetilde a \otimes b\left[D, a\right]\in \widetilde \A\ox_\A \Om^1_D$ and $\widetilde c\otimes\xi \in\widetilde \A\ox_\A  \H^\infty$ one has
+	\be\label{om_act_eqn}
+	\begin{split}
+		\left(\left(\widetilde a \otimes b\left[D, a\right]\right) , \left(\widetilde c\otimes\xi\right)\right)\mapsto \widetilde a \widetilde c \otimes b\left[D, a\right]\xi.
+	\end{split}
+	\ee
+	The  action \eqref{om_act_eqn} is correct if for all $c \in\A$ one has
+	\bean
+	\left( \widetilde a  c \otimes b\left[D, a\right]\right)\left(  \widetilde c\otimes\xi\right)   =\left( \widetilde a  \otimes cb\left[D, a\right]\right) \left(  \widetilde c\otimes\xi\right),
+	\eean
+	or, equivalently
+	\be\label{corr_conn_act_eqn}
+	\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi = \widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
+	\ee
+	From \eqref{jbj_eqn} it follows that
+	\bean
+	\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi= \left(\widetilde J \widetilde c^*\widetilde J^\7 \right) \left(\widetilde a c \otimes b\left[D, a\right]\xi \right)= \\ =\left(\widetilde J \widetilde c^*\widetilde J^\7 \right)\left(\widetilde a \otimes cb\left[D, a\right]\xi \right) 
+	=\widetilde J \widetilde c^* \widetilde a^* \otimes  J^\dagger cb\left[D, a\right]\xi =\\= \widetilde a \widetilde c \otimes J J^\dagger cb\left[D, a\right]\xi=\widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
+	\eean
+	So the condition \eqref{corr_conn_act_eqn} holds and the given by \eqref{om_act_eqn} action is correct. 
+	We define an operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $  such that 
+	\be\label{wtd_eqn}
+	\begin{split}
+		\widetilde D \left(\widetilde a \otimes \xi  \right)\bydef \left(\nabla \widetilde a \right)\xi +  \widetilde a\otimes D\xi = \sum_{j=1}^n \widetilde a_j \otimes \om_j \xi+  \widetilde a\otimes D\xi \\ \text{where}\quad \nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om_j.
+	\end{split}
+	\ee
+	We also require that the operator $\widetilde D$ is self-adjoint, i.e.
+	$$
+	\forall \widetilde a \otimes \xi, \widetilde b \otimes \eta\in  \widetilde \A\otimes_\A \H^\infty\quad \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}. 
+	$$
+	If $\nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om'_j$ and $\nabla \widetilde b = \sum_{j=1}^m\widetilde b_j \otimes \om''_j$ then one has
+	\bean
+	\left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left( \sum_{j=1}^n \widetilde a_j \otimes \om'_j \xi + \widetilde a \otimes D \xi , \widetilde b \otimes \eta \right)_{\widetilde \H}=\\= \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H, \\
+	\left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}= \sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle_{\widetilde A} \om''_j \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} D \eta \right)_\H.
+	\eean
+	It follows that if 
+	\be\label{herma_conn_eqn}
+	\begin{split}
+		\sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H =\\=\sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle_{\widetilde A} \om''_j \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} D \eta \right)_\H 
+	\end{split}
+	\ee
+	then the given by \eqref{wtd_eqn} operator $\widetilde{D}$ is self-adjoint.
+\end{empt}
+\begin{definition}\label{herma_conn_defn}
+	If a connection $\nabla$ satisfies to the equation \eqref{herma_conn_eqn} then we say that $\nabla$ is  \textit{Hermitian} (cf. Definition \ref{herm_conn_defn}).
+\end{definition}
+Henceforth we require that the connection  $\nabla$  is Hermitian. 
+From the equations \eqref{nabla_cov_herm_eqn} and \eqref{wtd_eqn} it follows that
+\be\label{dta_eqn}
+\forall \widetilde{a}\in \widetilde{\A}\quad \exists \widetilde{a_1},..., \widetilde{a_n}\in \widetilde{\A}\quad \exists a_1, ..., a_n \in \A\quad \left[ \widetilde D, \widetilde a\right]= \sum_{j=1}^n \widetilde{a_j} \otimes \left[ D, a_j\right]
+\ee
+If  $\widetilde{b}, \widetilde{c}\in \widetilde{\A}$ and $\xi \in \H^\infty$ then for any $j = 1,..., n$  one has
+\bean
+\widetilde J\widetilde b^*\widetilde J^\dagger \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right) \left(\widetilde c \ox \xi \right) = \widetilde J\widetilde b^*\widetilde J^\dagger\left(\widetilde a_j \widetilde c \ox \left[  D,  a_j\right]\xi \right) = \\=\widetilde J \widetilde b^*\widetilde c^*\widetilde a^*_j \ox J^\dagger \left[  D,  a_j\right]\xi
+= \widetilde a_j\widetilde c \widetilde b \otimes JJ^\dagger \left[  D,  a_j\right]\xi= \widetilde a_j\widetilde c \widetilde b \otimes \left[  D,  a_j\right]\xi, \\
+\left( \widetilde a_j \otimes \left[  D,  a_j\right]\right)\widetilde J\widetilde b^*\widetilde J^\dagger \left(\widetilde c \ox \xi \right)= \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right)\widetilde J\widetilde b^*  \left(\widetilde c^* \ox J^\dagger \xi \right)=\\ \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right]\left( \widetilde c \widetilde b\ox JJ^\dagger \xi\right) =\widetilde a_j\widetilde c \widetilde b \otimes \left[  D,  a_j\right]=
+\widetilde J\widetilde b^*\widetilde J^\dagger \left( \widetilde a_j \otimes \left[  D,  a_j\right]\xi\right) \left(\widetilde c \ox \xi \right)
+\eean
+and taking into account \eqref{dta_eqn} we obtain the following equation
+\bea
+\label{first_order_wt_eqn}
+\forall\widetilde a, \widetilde b \in \widetilde\A\quad \left[\left[ \widetilde D, \widetilde a\right] , \widetilde J\widetilde b^*\widetilde J^\dagger\right]=  0.
+\eea
+(cf. equation \eqref{fist_order_eqn})
+\begin{exercise}\label{st_ax_exer}
+	Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following condition hold.
+	\bea
+	\label{first_order_wtb_eqn}
+	\left[\widetilde a, \left[ \widetilde D, J\widetilde b^*\widetilde J^\dagger \right]\right]  = 0.
+	\eea
+	(cf. equation \eqref{first_order_dual_eqn}).
+\end{exercise}
+From our construction it follows that
+\be\label{dirac_om_fin_lift_eqn}
+\nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
+\ee
+\begin{defn}\label{spectral_triple_fin_lift_defn} 	In the above situation the spectral  triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$  is said to be the  $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of $\left( {\A}, {\H}, {D}, J\right)$.  
+\end{defn} 
+\begin{definition}\label{ext_st_alg_defn}
+	If $\A_D$ is a $*$-subalgebra of $\L^\dagger \left(\D \right)$ generated by a union $\A\cup \left\{D\right\}$ then we say that $\A_D$ is the \textit{extended algebra of the spectral triple} $\left( \A, \H, D\right)$.
+\end{definition}
+
+\begin{exercise}\label{str_ad_exer}
+	Let both $\A_D$ and  $\widetilde\A_{\widetilde D}$ are {extended algebras of the spectral triples} $\left( \A, \H, D\right)$ and $\left(\widetilde \A, \widetilde\H, \widetilde D\right)$. Prove that there is a {noncommutative finite-fold covering of $O^*$-algebras} 
+	$\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \ref{fino*_defn}), such that $\lift = \psi|_\A$ and $\widetilde D = \psi\left(D \right)$.
+\end{exercise}
+
+
 
  \section{Strong Morita equivalence of finite-fold coverings}
 
@@ -3746,253 +4000,6 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
 	
 	%We say that  $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{connected} if $\widetilde A$ is connected.
 \end{definition}
-
-\section{Coverings of rigged Hilbert spaces}
-\paragraph{}
-Let ${\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}$ be 
-{a rigged Hilbert} space (cf. Appendix \ref{rhs_intro_sec}). 	Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  covering with unitization   (cf. Definition \ref{fin_defn}). 
-If  $\pi : A\to B\left( \H\right) $ is a representation then there is an induced by the pair $\left(\pi, \left(A, \widetilde{A}, G, \lift \right) \right)$ representation  $\widetilde\pi : \widetilde A\to B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_fin_defn}). We suppose that $C^*$-algebra $M\left( \widetilde{   A}\right) $ is generated the set
-\be\label{f_a_fin_ern}
-\begin{split}
-\mathscr A \bydef \left\{\left.\widetilde a\in M\left(\widetilde  A\right) _+\right| \forall \text{ nontrivial } g \in G \quad \left(g \widetilde a \right) \widetilde a = 0 \right\} 
- \end{split}
-\ee
-We define a mapping
-\be 
-\begin{split}
-\phi_{\mathscr A}:\mathscr A \to M\left( A\right)_+,\\
-\widetilde a \mapsto \desc\left( \widetilde{a}\right) .
-\end{split}
-\ee
-where $\desc$ is the $\left(M\left(A \right), M\left( \widetilde A, \right), G , M\left(\lift \right)   \right)$-descent (cf. Definition \ref{fin_desc_defn}).
-For any $\widetilde a\in  \mathscr A$ we denote a  projector $p_{\widetilde a}\in B\left( \widetilde \H\right)$ onto the image of  ${\widetilde a}$, i.e.
-$$
-p_{\widetilde a}= \sup \left\{\left.\widetilde{b}\in \widetilde{\pi}\left(M\left(\widetilde A\right)\right)_+  \right| \left\| \widetilde{b}\right\|\le 1 \quad \widetilde{b}\widetilde \H = \widetilde{\pi}\left( \widetilde{a} \right) \widetilde \H \right\}.
-$$
-From \eqref{f_a_fin_ern} it turns out that 
-\be 
-p^\Sigma_{\widetilde a} \bydef \sum_{g \in G} g p_{\widetilde a} 
-\ee
-is also a projector. There is an action $G\times \widetilde \H \to \widetilde \H$ such that $\H$ cong $\widetilde \H^G \bydef \left\{\left. \xi \in \widetilde \H\right| \forall g \in G \quad g\xi = \xi\right\}$. Using this fact and taking into account that 
-$$
-\forall g \in G \quad gp^\Sigma_{\widetilde a}= p^\Sigma_{\widetilde a}
-$$
-one can assume that $p^\Sigma_{\widetilde a}\in B\left(\H \right)$. 
-For any $\widetilde a\in \mathscr A$ we define 
-\be
-\begin{split}
-\H_{\widetilde a } \bydef \left\{\xi \in \H \left|p^\Sigma_{\widetilde a} \xi = \xi \right.\right\},\\
-\mathbf \Phi_{\widetilde a }\bydef  \H_{\widetilde a }\cap  \mathbf \Phi.
-\end{split}
-\ee 
-Suppose that $\mathbf \Phi$ is a topological vector space and its topology $\mathfrak T_{\mathbf \Phi}$ is such that the $\mathfrak T_{\mathbf \Phi}$-closure of $\mathbf \Phi$ in $\H$ equals to $\mathbf \Phi$. Suppose that the algebraical sum
-$$
-\sum_{\widetilde a\in \mathscr A} \mathbf \Phi_{\widetilde a } 
-$$
-is dense in $\mathbf \Phi$ with respect to $\mathfrak T_{\mathbf \Phi}$.
-For any $\widetilde a \in \mathscr A$ we define a map
-\bean
- \phi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\to \widetilde \H,\\
-\xi \mapsto p_{\widetilde a}\otimes \xi.
-\eean 
-(cf. the equation \eqref{tp_eqn}). If $\widetilde { \H}_{\widetilde a }\bydef \phi_{\widetilde a}\left({ \H}_{\widetilde a } \right) $ and $\widetilde {\mathbf \Phi}_{\widetilde a }\bydef \phi_{\widetilde a}\left({\mathbf \Phi}_{\widetilde a } \right) $ then there are isomorphisms
-\be
-\begin{split}
- { \H}_{\widetilde a }\cong \widetilde { \H}_{\widetilde a },\\
- {\mathbf \Phi}_{\widetilde a }\cong \widetilde {\mathbf \Phi}_{\widetilde a }.
-\end{split}
-\ee 
- For any $\widetilde a\in \mathscr A$ the is a topology $\mathfrak T_{\mathbf \Phi_{\widetilde a}}$ on $\mathbf \Phi_{\widetilde a }$ which comes from $\mathfrak T_{\mathbf \Phi}$. If
-$$
-{\mathbf \Psi}\bydef \sum_{\widetilde a\in \mathscr A}\widetilde {\mathbf \Phi}_{\widetilde a }  \subset \widetilde \H
-$$
-is  an algebraic sum then for every $\widetilde a\in \mathscr A$ there is an inclusion
-$$
-\psi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\hookto {\mathbf \Psi}.
-$$
-There is the {final} {with respect to the family of maps} $\left\{\psi_{\widetilde a}:\mathbf \Phi_{\widetilde a } \to \mathbf \Psi\right\}_{\widetilde a \in \mathscr A}$ topology $\mathfrak T_{\mathbf \Psi}$ on $\mathbf \Psi$ (cf. Definition \ref{top_final_defn}).  If $\widetilde {\bf \Phi}$ is the completion in $\widetilde \H$ of  $\bf \Psi$ then the topology  $\mathfrak T_{\mathbf \Psi}$ naturally defines  the topology $\mathfrak T_{\widetilde{ \mathbf \Phi}}$ on $\widetilde{\mathbf \Phi}$. One has a rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$
-\begin{definition}
-Under the above hypothesis the  rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of ${\mathbf \Phi} \subset  \H \subset  {\mathbf \Phi}^{\times}$. 
-\end{definition}
-\begin{remark}
-The action $G \times \widetilde \H$ naturally yields actions   $G \times \widetilde {\mathbf \Phi}\to \widetilde {\mathbf \Phi}$  and  $G \times \widetilde {\mathbf \Phi}^{\times}\to \widetilde {\mathbf \Phi}^{\times}$
-\end{remark}
-\section{Coverings of spectral triples}\label{triple_fin_cov}
-
-\paragraph*{} 
- If $\left( \A, \H, D, J\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
- \begin{itemize}
- 	\item the space  
- 	$
- \H^\infty\bydef	\bigcap_{k\in\bN} \Dom D^k
- 	$
- 	is dense in $\H$;
- 	\item one has
- 	\bean
- \A\subset \L^\dagger \left( \H^\infty \right), \\
- D \in 	\L^\dagger \left( \H^\infty \right)
- 	\eean
- 	(cf. equation \eqref{l_dag_eqn}).
- \end{itemize}
-
-\begin{empt}\label{triple_conn_lift_empt} 
-Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \lift  \right)$ be a {noncommutative finite-fold covering of  bounded operator $*$-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. 
- If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  an  unital noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \lift  \right)$ (cf. Definition \ref{fin_unital_defn}) such that $\lift= \widetilde\lift|_{\A}$. Similarly to the equation \eqref{finite_hilb_mod_prod_eqn} one has a sesquilinear product
- $\left\langle \cdot , \cdot  \right\rangle_{\widetilde A} : \widetilde A\times \widetilde A \to \A$ such that
-\bean
- \forall \widetilde a, \widetilde b \in \widetilde A\quad \left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde A}\bydef\frac{1}{\left| G\right| } \sum_{	g \in G}g\left(\widetilde a^* \widetilde b \right),\\
- \left\langle\widetilde \A, \widetilde \A \right\rangle_{\widetilde A}= \A.
-\eean
-   Denote by 
-\bean
-\rho : A \hookto B\left(\H \right),\\
-\eean
-a natural representations of $A$. If the natural representation $\widetilde \rho: \widetilde A \to B\left(\widetilde \H \right)$ is induced by a pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \lift  \right) \right)$ (cf. Definition \ref{induced_repr_fin_defn}) then we have
-\be\label{st_h_defn_eqn}
-\widetilde \H \bydef \widetilde A\ox_A \H
-\ee
-because $ \widetilde A$ is a finitely generated $A$-module.  Moreover  the  Hilbert space $\widetilde A \ox_A \H$ has  the following scalar product
-\bean
-\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\widetilde A} \eta \right)_\H,
-\eean
-If operators $\widetilde J, \widetilde J^\7 : \widetilde{\H}\to \widetilde{\H}$ are given by
-\bea\label{cc_eqn}
-\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
-\label{ccc_eqn}
-\widetilde J^\7\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J^\7\xi
-\eea
-then on has 
-\bean
-\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{B\left( \widetilde \H\right) },\\
-\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)_{\widetilde\H}= \left( \widetilde a^*\ox J\xi ,  \widetilde b^*\ox J \eta \right)_{\widetilde\H}= \left(J\xi, \left\langle \widetilde a^*, \widetilde b^* \right\rangle J\eta \right)_{\H}  =
-\\
-= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J\left(  \left\langle \widetilde b, \widetilde a \right\rangle \otimes \eta\right)    \right)_{\widetilde\H} =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)_{\widetilde\H}=\\=\left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H= \left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}.
-\eean 
-From the  equation\eqref{cc_eqn} and one has
-$$
-\forall z \in \C \quad \widetilde J z \left(\widetilde a \ox \xi \right) = \widetilde J  \left(\widetilde a \ox z \xi \right)= \widetilde a^* \ox Jz\xi= \widetilde a^* \ox \overline{z} J\xi= \overline{z} \widetilde a^* \ox J\xi=\overline{z} \widetilde J  \left(\widetilde a \ox \xi \right) 
-$$
-where $\overline{z}$ is the complex adjoint to $z$.
-It follows that $\widetilde J$ is an antiunitary operator. Similarly one can prove that the operator $\widetilde J^\dagger$ is also  antiunitary.
-If $\xi \in \H$ and $\widetilde a, \widetilde b, \widetilde c\in  \widetilde A$ then one has
-\bean
-\forall \widetilde a, \widetilde b, \widetilde c \quad \widetilde a \left(\widetilde J \widetilde b^* J^\7 \right) \left(\widetilde c \ox \xi \right)=\widetilde a \widetilde J \left( \widetilde b^*\widetilde c^*\ox \widetilde J^\7 \xi\right) = \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes \xi,
-\eean
-\be\label{jbj_eqn}
-\begin{split}
-\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a\left(\widetilde c \ox \xi \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\left(\widetilde a\widetilde c \ox \xi \right)= \widetilde J \widetilde b^*\left(  \widetilde c^* \widetilde a^*\otimes J^\7\xi \right) = \\= \widetilde J \left(   \widetilde b^*\widetilde c^* \widetilde a^*\otimes J^\7\xi \right)
-=  \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes\xi.
-\end{split}
-\ee
-So a following condition holds
-$$
-\widetilde a \left(\widetilde J \widetilde b^* J^\7 \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a,
-$$
-or equivalently
-\be\label{st_comn_wt_eqn}
-\forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
-\ee
-i.e. one has a situation of the Definition \ref{df:spt-real_defn}. 
- Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
-\be\label{nabla_cov_herm_eqn}
-\nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
-\ee
-be  a connection (cf. Definition \ref{connection_defn}).
- We suppose that $\nabla$ is $G$-equivariant, i.e.
-\be\label{conn_equ_conn}
-\forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j. 
-\ee
-Let us prove that there is an action
-$$
-\left( \widetilde \A\otimes_\A \Om^1_D\right)  \times \left(\widetilde \A\otimes_\A \H^\infty\right)\to \left(\widetilde \A\otimes_\A \H^\infty\right)
-$$
-such that for all $\widetilde a \otimes b\left[D, a\right]\in \widetilde \A\ox_\A \Om^1_D$ and $\widetilde c\otimes\xi \in\widetilde \A\ox_\A  \H^\infty$ one has
-\be\label{om_act_eqn}
-\begin{split}
- \left(\left(\widetilde a \otimes b\left[D, a\right]\right) , \left(\widetilde c\otimes\xi\right)\right)\mapsto \widetilde a \widetilde c \otimes b\left[D, a\right]\xi.
-\end{split}
-\ee
-The  action \eqref{om_act_eqn} is correct if for all $c \in\A$ one has
-\bean
-\left( \widetilde a  c \otimes b\left[D, a\right]\right)\left(  \widetilde c\otimes\xi\right)   =\left( \widetilde a  \otimes cb\left[D, a\right]\right) \left(  \widetilde c\otimes\xi\right),
-\eean
-or, equivalently
-\be\label{corr_conn_act_eqn}
-\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi = \widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
-\ee
-From \eqref{jbj_eqn} it follows that
-\bean
-\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi= \left(\widetilde J \widetilde c^*\widetilde J^\7 \right) \left(\widetilde a c \otimes b\left[D, a\right]\xi \right)= \\ =\left(\widetilde J \widetilde c^*\widetilde J^\7 \right)\left(\widetilde a \otimes cb\left[D, a\right]\xi \right) 
-=\widetilde J \widetilde c^* \widetilde a^* \otimes  J^\dagger cb\left[D, a\right]\xi =\\= \widetilde a \widetilde c \otimes J J^\dagger cb\left[D, a\right]\xi=\widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
-\eean
-So the condition \eqref{corr_conn_act_eqn} holds and the given by \eqref{om_act_eqn} action is correct. 
-We define an operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $  such that 
-\be\label{wtd_eqn}
-\begin{split}
-\widetilde D \left(\widetilde a \otimes \xi  \right)\bydef \left(\nabla \widetilde a \right)\xi +  \widetilde a\otimes D\xi = \sum_{j=1}^n \widetilde a_j \otimes \om_j \xi+  \widetilde a\otimes D\xi \\ \text{where}\quad \nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om_j.
-\end{split}
-\ee
-We also require that the operator $\widetilde D$ is self-adjoint, i.e.
-$$
-\forall \widetilde a \otimes \xi, \widetilde b \otimes \eta\in  \widetilde \A\otimes_\A \H^\infty\quad \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}. 
-$$
-If $\nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om'_j$ and $\nabla \widetilde b = \sum_{j=1}^m\widetilde b_j \otimes \om''_j$ then one has
-\bean
-\left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left( \sum_{j=1}^n \widetilde a_j \otimes \om'_j \xi + \widetilde a \otimes D \xi , \widetilde b \otimes \eta \right)_{\widetilde \H}=\\= \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H, \\
-\left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}= \sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle_{\widetilde A} \om''_j \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} D \eta \right)_\H.
-\eean
-It follows that if 
-\be\label{herma_conn_eqn}
-\begin{split}
- \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} \eta \right)_\H =\\=\sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle_{\widetilde A} \om''_j \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde A} D \eta \right)_\H 
-\end{split}
-\ee
-then the given by \eqref{wtd_eqn} operator $\widetilde{D}$ is self-adjoint.
-\end{empt}
-\begin{definition}\label{herma_conn_defn}
-If a connection $\nabla$ satisfies to the equation \eqref{herma_conn_eqn} then we say that $\nabla$ is  \textit{Hermitian} (cf. Definition \ref{herm_conn_defn}).
-\end{definition}
-Henceforth we require that the connection  $\nabla$  is Hermitian. 
-From the equations \eqref{nabla_cov_herm_eqn} and \eqref{wtd_eqn} it follows that
-\be\label{dta_eqn}
-\forall \widetilde{a}\in \widetilde{\A}\quad \exists \widetilde{a_1},..., \widetilde{a_n}\in \widetilde{\A}\quad \exists a_1, ..., a_n \in \A\quad \left[ \widetilde D, \widetilde a\right]= \sum_{j=1}^n \widetilde{a_j} \otimes \left[ D, a_j\right]
-\ee
-If  $\widetilde{b}, \widetilde{c}\in \widetilde{\A}$ and $\xi \in \H^\infty$ then for any $j = 1,..., n$  one has
-\bean
-\widetilde J\widetilde b^*\widetilde J^\dagger \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right) \left(\widetilde c \ox \xi \right) = \widetilde J\widetilde b^*\widetilde J^\dagger\left(\widetilde a_j \widetilde c \ox \left[  D,  a_j\right]\xi \right) = \\=\widetilde J \widetilde b^*\widetilde c^*\widetilde a^*_j \ox J^\dagger \left[  D,  a_j\right]\xi
-= \widetilde a_j\widetilde c \widetilde b \otimes JJ^\dagger \left[  D,  a_j\right]\xi= \widetilde a_j\widetilde c \widetilde b \otimes \left[  D,  a_j\right]\xi, \\
- \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right)\widetilde J\widetilde b^*\widetilde J^\dagger \left(\widetilde c \ox \xi \right)= \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right)\widetilde J\widetilde b^*  \left(\widetilde c^* \ox J^\dagger \xi \right)=\\ \left( \widetilde a_j \otimes \left[  D,  a_j\right]\right]\left( \widetilde c \widetilde b\ox JJ^\dagger \xi\right) =\widetilde a_j\widetilde c \widetilde b \otimes \left[  D,  a_j\right]=
- \widetilde J\widetilde b^*\widetilde J^\dagger \left( \widetilde a_j \otimes \left[  D,  a_j\right]\xi\right) \left(\widetilde c \ox \xi \right)
-\eean
-and taking into account \eqref{dta_eqn} we obtain the following equation
-\bea
-\label{first_order_wt_eqn}
-\forall\widetilde a, \widetilde b \in \widetilde\A\quad \left[\left[ \widetilde D, \widetilde a\right] , \widetilde J\widetilde b^*\widetilde J^\dagger\right]=  0.
-\eea
-(cf. equation \eqref{fist_order_eqn})
-\begin{exercise}\label{st_ax_exer}
-Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following condition hold.
-\bea
- \label{first_order_wtb_eqn}
-  \left[\widetilde a, \left[ \widetilde D, J\widetilde b^*\widetilde J^\dagger \right]\right]  = 0.
-\eea
- (cf. equation \eqref{first_order_dual_eqn}).
-\end{exercise}
-From our construction it follows that
-\be\label{dirac_om_fin_lift_eqn}
-\nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
-\ee
-\begin{defn}\label{spectral_triple_fin_lift_defn} 	In the above situation the spectral  triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$  is said to be the  $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of $\left( {\A}, {\H}, {D}, J\right)$.  
-\end{defn} 
-\begin{definition}\label{ext_st_alg_defn}
-	If $\A_D$ is a $*$-subalgebra of $\L^\dagger \left(\D \right)$ generated by a union $\A\cup \left\{D\right\}$ then we say that $\A_D$ is the \textit{extended algebra of the spectral triple} $\left( \A, \H, D\right)$.
-\end{definition}
-
-\begin{exercise}\label{str_ad_exer}
-Let both $\A_D$ and  $\widetilde\A_{\widetilde D}$ are {extended algebras of the spectral triples} $\left( \A, \H, D\right)$ and $\left(\widetilde \A, \widetilde\H, \widetilde D\right)$. Prove that there is a {noncommutative finite-fold covering of $O^*$-algebras} 
-$\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \ref{fino*_defn}), such that $\lift = \psi|_\A$ and $\widetilde D = \psi\left(D \right)$.
-\end{exercise}
-
 
 \section{Finite noncommutative coverings and flat connections}\label{flat_sec}
 
