@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Text;
 
 using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+
 using ErrorHandler;
 
 namespace FormulaEditor
@@ -195,7 +194,7 @@ namespace FormulaEditor
         {
             if (types.Length < 2)
             {
-                throw new ErrorHandler.OwnException("Incomplete fraction");
+                throw new OwnException("Incomplete fraction");
             }
             for (int i = 0; i < types.Length; i++)
             {

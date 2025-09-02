@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
-using FormulaEditor.Interfaces;
+using FormulaEditor.CodeCreators.Interfaces;
 
 namespace FormulaEditor.CodeCreators
 {
@@ -19,8 +18,12 @@ namespace FormulaEditor.CodeCreators
 
         #endregion
 
-
         #region Ctor
+
+        protected SeparatorCodeCreator() : base() 
+        {
+
+        }
 
         /// <summary>
         /// Constructor
@@ -45,9 +48,10 @@ namespace FormulaEditor.CodeCreators
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public override IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, 
-            string[] parameters, out IList<string> variables, out IList<string> initializers)
+        protected override Dictionary<string, List<string>> CreateCode(object obj, ObjectFormulaTree tree, string ret, 
+            string[] parameters)
         {
+            var d = new Dictionary<string, List<string>>();
             /* !!!
             if (tree.Operation is OptionalOperation)
             {
@@ -59,9 +63,6 @@ namespace FormulaEditor.CodeCreators
             string[] sep = separatorCreator[tree];
             if (sep == null)
             {
-                var ss = separatorCreator[tree]; // DELETE AFTER !!!
-                variables = null;
-                initializers = null;
                 return null;
             }
             List<string> l = new List<string>();
@@ -73,50 +74,55 @@ namespace FormulaEditor.CodeCreators
             }
             string sp = ret.Substring(4);
             int k = int.Parse(sp);
-
             if (sep.Length == 2)
             {
                 string[] ss =  new string[] { " = measurement", ".Parameter();" };
                 if (sep[0].Equals(ss[0]) & sep[1].Equals(ss[1]))
                 {
-                    initializers = new List<string>()
+                    var initializers = new List<string>()
                    {
                        "measurement" + sp + " = " +
                         "dataPerformerFormula.ToMeasurement(trees["
                         + k + "]);"
                    };
-                    variables = new List<string>()
+                    d["initializers"] = initializers;
+                    
+                    var variables = new List<string>()
                    {
                        "DataPerformer.Interfaces.IMeasurement measurement" + sp + ";"
                    };
+                    d["variables"] = variables;
                     string[] str = new string[]
                         {
                         "variable = measurement" + sp + sep[1],
                                "if (checkValue(variable)) { success = false; return; }",
                           ret + " = " + st + "variable;"
                         };
-                    return str.ToList();
+                    d["code"] = str.ToList();
+                    return d;
                 }
                 if (sep[0].Equals(" = aliasName") & sep[1].Equals(".Value;"))
                 {
                     string[] str = new string[] {"variable = aliasName" + sp + sep[1],
                         "if (checkValue(variable)) { success = false; return; }",
                     ret + " = " + st + "variable;" };
-                   initializers = new List<string>()
+                   var initializers = new List<string>()
                    {
                        "aliasName" + sp + " = " +
                         "dataPerformerFormula.ToAliasName(trees["
                         + k + "]);"
                    };
-                    variables = new List<string>()
+                    d["initializers"] = initializers;
+
+                   var  variables = new List<string>()
                    {
                        "Diagram.UI.Interfaces.IAliasName aliasName" + sp + ";"
                    };
-                    return str.ToList();
+                    d["variables"] = variables;
+                    d["code"] = str.ToList();
+                    return d;
                 }
             }
-            variables = new List<string>();
-            initializers = new List<string>();
             string s = ret;
             int n = sep.Length;
             int m = parameters.Length;
@@ -129,7 +135,7 @@ namespace FormulaEditor.CodeCreators
                 }
             }
             l.Add(s);
-            return l;
+            return new Dictionary<string, List<string>> { { "code", l } };
         }
 
         #endregion

@@ -15,7 +15,7 @@ namespace DataPerformer.Portable.TypeScript
         /// </summary>
         static StaticExtensionDataPerformerPortableTypeScript()
         {
-            new TSCodeCreator();
+            new ClassCodeCreator();
         }
 
         /// <summary>

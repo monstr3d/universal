@@ -1,18 +1,11 @@
-﻿using System;
+﻿using Diagram.UI.Interfaces;
+using ErrorHandler;
+using Event.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography.Xml;
 using System.Windows.Forms;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-
-using Event.Interfaces;
-using ErrorHandler;
 
 namespace Event.UI.UserControls
 {
@@ -64,11 +57,25 @@ namespace Event.UI.UserControls
                 {
                     textBox.Text = timer.TimeSpan.TotalMilliseconds + "";
                 }
-                
+                textBox.KeyUp += TextBox_KeyUp;
             }
         }
-       
-        #endregion
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+            {
+                return;
+            }
+            double a;
+            if (double.TryParse(textBox.Text, out a))
+            {
+                timer.TimeSpan =  new TimeSpan(long.Parse(textBox.Text) * 10000);
+
+                return;
+            }
+            textBox.Text = timer.TimeSpan.Ticks.ToString();
+        }
 
         void Set()
         {
@@ -85,6 +92,8 @@ namespace Event.UI.UserControls
                 exception.HandleException();
             }
         }
+
+        #endregion
 
         #region Event handlers
 

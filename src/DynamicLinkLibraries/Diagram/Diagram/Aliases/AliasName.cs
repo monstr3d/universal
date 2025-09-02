@@ -1,4 +1,5 @@
-﻿using Diagram.UI.Interfaces;
+﻿using BaseTypes.Interfaces;
+using Diagram.UI.Interfaces;
 
 namespace Diagram.UI.Aliases
 {
@@ -15,10 +16,18 @@ namespace Diagram.UI.Aliases
         /// </summary>
         private IAlias alias;
 
+        private IAliasName aliasName;
+
         /// <summary>
         /// Name
         /// </summary>
         private string name;
+
+
+        protected Performer performer = new Performer();
+
+        protected static readonly object[] types = new object[0];
+
 
         #endregion
 
@@ -33,6 +42,9 @@ namespace Diagram.UI.Aliases
         {
             this.alias = alias;
             this.name = name;
+            aliasName = this;
+            var rt = performer.GetRootName(alias);
+            FullName = (rt == null) ? name : rt + "." + name;
         }
 
         #endregion
@@ -61,9 +73,24 @@ namespace Diagram.UI.Aliases
             get { return name; }
         }
 
+        string IAliasName.FullName => FullName;
+
+
+        object IAliasName.Type => alias.GetType(name);
+
+
+
         #endregion
 
         #region Members
+
+
+        protected virtual string FullName
+        {
+            get;
+            set;
+        }
+
 
         /// <summary>
         /// Sets value to alias

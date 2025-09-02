@@ -6,6 +6,7 @@ using BaseTypes;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.CodeCreators;
+using FormulaEditor.CodeCreators.Interfaces;
 
 namespace FormulaEditor.CSharp
 {
@@ -18,12 +19,12 @@ namespace FormulaEditor.CSharp
 
         #region Fields
 
-        private static ICodeCreator codeCreator;
+        private static ITreeCodeCreator codeCreator;
 
         /// <summary>
         /// Local code creator
         /// </summary>
-        protected ICodeCreator local;
+        protected ITreeCodeCreator local;
 
         protected ITreeCollection collection = null;
 
@@ -74,7 +75,7 @@ namespace FormulaEditor.CSharp
 
         #region ITreeCalculatorCodeCreator Members
 
-        List<string> ITreeCollectionCodeCreator.CreateCode(object obj, ObjectFormulaTree[] trees, 
+        Dictionary<string, List<string>> ITreeCollectionCodeCreator.CreateCode(object obj, ObjectFormulaTree[] trees, 
             string className, string constructorModifier, bool checkValue)
         {
             this.trees = trees;
@@ -94,7 +95,9 @@ namespace FormulaEditor.CSharp
             }
             l.Add("");
             l.Add("}");
-            return l;
+            var d = new Dictionary<string, List<string>>();
+            d["code"] = l;
+            return d;
        }
 
         #endregion
@@ -104,7 +107,7 @@ namespace FormulaEditor.CSharp
         /// <summary>
         /// Creator of code
         /// </summary>
-        public static ICodeCreator CodeCreator
+        public static ITreeCodeCreator CodeCreator
         {
             get
             {
@@ -117,7 +120,6 @@ namespace FormulaEditor.CSharp
         }
 
         #endregion
-
 
         #region Protected Members
 
@@ -132,10 +134,9 @@ namespace FormulaEditor.CSharp
 
         #endregion
 
-
         #region Private Members
 
-        private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
+        private List<string> PostCreateCode(ITreeCodeCreator local, IList<string> lcode,
            IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
             List<string> l = new()
@@ -204,7 +205,7 @@ namespace FormulaEditor.CSharp
             return l;
         }
 
-        private IList<string> PreCreateCode(object obj, out ICodeCreator local,
+        private IList<string> PreCreateCode(object obj, out ITreeCodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
             IList<string> lcode = CSharpCodeCreator.CreateCode(obj, trees, codeCreator, 

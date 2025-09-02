@@ -10,7 +10,6 @@ using BaseTypes.Interfaces;
 using FormulaEditor.Collections;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-using NamedTree;
 
 
 namespace FormulaEditor
@@ -23,7 +22,7 @@ namespace FormulaEditor
 
         #region Fields
 
-       static  NamedTree.Performer p = new ();
+       static NamedTree.Performer p = new ();
 
 
 

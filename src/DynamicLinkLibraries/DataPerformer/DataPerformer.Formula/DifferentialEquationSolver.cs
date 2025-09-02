@@ -8,6 +8,7 @@ using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
+using Diagram.UI.Attributes;
 
 using BaseTypes.Interfaces;
 
@@ -17,23 +18,29 @@ using FormulaEditor.Symbols;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-
 using DataPerformer.Formula.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
+using DataPerformer.Interfaces.Attributes;
+
 
 namespace DataPerformer.Formula
 {
-    /// <summary>
-    /// Solver of ordinary differential equations system
-    /// </summary>
+
+ 
+
+/// <summary>
+/// Solver of ordinary differential equations system
+/// </summary>
+[CodeCreator(InitialState = true, IsSysemOfDifferentialEquations = true)]
     public class DifferentialEquationSolver : DataConsumerMeasurements, 
         IDifferentialEquationSolver, 
         IStarted,  ICheckCorrectness, IVariableDetector,
         IDynamical, ITreeCollection, ITimeVariable, IStack, 
-        IRuntimeUpdate, IPostSetArrow
+        IRuntimeUpdate, IPostSetArrow, IStringTreeDictionary, IInitialValueCollection
     {
-
         #region Fields
 
 
@@ -43,6 +50,8 @@ namespace DataPerformer.Formula
 
         DataPerformerFormula dataPerformerFormula;
 
+        protected IInitialValueCollection initial;
+    
         /// <summary>
         /// Input dynamical parameter
         /// </summary>
@@ -92,7 +101,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Table of aliases
         /// </summary>
-        protected Dictionary<object, object> aliases = new ();
+        protected Dictionary<object, object> aliases;// = new ();
 
         /// <summary>
         /// Table of aliases names
@@ -111,6 +120,12 @@ namespace DataPerformer.Formula
 
 
         protected List<string> variabelstr = new ();
+
+        Dictionary<object, object> Aliases
+        {
+            get;
+            set;
+        }
 
 
 
@@ -161,22 +176,24 @@ namespace DataPerformer.Formula
 
         ITreeCollectionProxy proxy;
 
+
+
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Consructor
+        /// Constructor
         /// </summary>
         public DifferentialEquationSolver()
         {
+            initial = this;
             dataPerformerFormula = new(this);
             proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
             init();
             vars = new Dictionary<object, object>();
             pars = new Dictionary<object, object>();
             aliases = new Dictionary<object, object>();
-            creator = VariableDetector.GetCreator(this);
         }
 
 
@@ -242,8 +259,10 @@ namespace DataPerformer.Formula
         {
             try
             {
+                
                 foreach (Variable v in externalAliases.Keys)
                 {
+                    break;
                     AliasName an = externalAliases[v];
                     IMeasurement m = v;
                     var p = m.Parameter;
@@ -254,6 +273,7 @@ namespace DataPerformer.Formula
                     }
                     an.SetValue(value);
                 }
+                feedbackCollection.Set();
                 foreach (IMeasurements m in Dependent)
                 {
                     m.IsUpdated = false;
@@ -279,6 +299,7 @@ namespace DataPerformer.Formula
             set
             {
                 aliasNames = value;
+                feedbackCollection = new FeedbackAliasCollection(this, this, aliasNames);
                 postSetAlias();
             }
         }
@@ -358,7 +379,7 @@ namespace DataPerformer.Formula
                             goto m;
                         }
                     }
-                    throw new Exception(DataConsumer.VariablesShortage + " : " + c);
+                    throw new OwnException(DataConsumer.VariablesShortage + " : " + c);
                 m:
                     b = !b;
                 }
@@ -419,7 +440,7 @@ namespace DataPerformer.Formula
         }
 
         /// <summary>
-        /// All variabeles in formulas
+        /// All variables in formulas
         /// </summary>
         public override string AllVariables
         {
@@ -700,6 +721,7 @@ namespace DataPerformer.Formula
                     }
                 }
                 isSerialized = false;
+                feedbackCollection = new FeedbackAliasCollection(this, this, aliasNames);
             }
 
         }
@@ -1007,9 +1029,6 @@ namespace DataPerformer.Formula
                 {
                     if (pars[c] != null)
                     {
-                        /*!!!   this.Throw(new Exception(PureDesktop.GetResourceString(VectorFormulaConsumer.ExternalParameter_) +
-                               c + PureDesktop.GetResourceString(VectorFormulaConsumer._IsNotDefined)));
-                       */
                     }
                 }
             }
@@ -1138,6 +1157,35 @@ namespace DataPerformer.Formula
         #endregion
 
         #endregion
+
+        #region IInitialValueCollection Members
+
+        IEnumerable<IInitialValue> IInitialValueCollection.Values => throw new OwnNotImplemented();
+
+        void IInitialValueCollection.Add(IInitialValue value)
+        {
+            throw new OwnNotImplemented();
+        }
+
+        void IInitialValueCollection.Clear()
+        {
+            throw new OwnNotImplemented(); ;
+        }
+
+        void IInitialValueCollection.Set()
+        {
+
+            foreach (Variable v in output)
+            {
+                char c = v.Symbol;
+                object[] o = variables[c] as object[];
+                v.Value = (double)o[4];
+            }
+        }
+
+        #endregion
+
+
 
         #region IMeasurements Members
 
@@ -1385,13 +1433,12 @@ namespace DataPerformer.Formula
         {
             try
             {
+                feedbackCollection.Fill();
+               
+            //    feedbackCollection.Set();
                 timeOld = time;
-                foreach (Variable v in output)
-                {
-                    char c = v.Symbol;
-                    object[] o = variables[c] as object[];
-                    v.Value = (double)o[4];
-                }
+                initial.Set();
+                feedbackCollection.Set();
                 prepareStart = () =>
                 {
                     UpdateChildrenData();
@@ -1420,6 +1467,11 @@ namespace DataPerformer.Formula
         {
             var s = ToString();
             PostSetArrowProtected();
+        }
+
+        protected override void CreateFeedback()
+        {
+            throw new OwnNotImplemented();
         }
 
         #endregion
@@ -1584,7 +1636,7 @@ namespace DataPerformer.Formula
                         {
                             throw ex;
                         }
-                        throw new Exception("Formula " + (i + 1) + " : " + ex.Message);
+                        throw new OwnException("Formula " + (i + 1) + " : " + ex.Message);
                     }
                 }
                 try
@@ -1652,14 +1704,34 @@ namespace DataPerformer.Formula
         internal Dictionary<object, object> VariableValues => vars;
 
 
+        Dictionary<string, ObjectFormulaTree> IStringTreeDictionary.Dictionary => GetDic();
+
+        Dictionary<string, ObjectFormulaTree> GetDic()
+        {
+            var d = new Dictionary<string, ObjectFormulaTree>();
+            foreach (var v in variables)
+            {
+                var o = v.Value as object[];
+                var t = o[2] as ObjectFormulaTree;
+                d[v.Key + ""] = t;
+            }
+            return d;
+        }
 
         #endregion
 
+
         #region Classes & Delegates
 
-        class Variable : IObjectOperation, 
-            IPowered, IOperationAcceptor, IMeasurement, IDerivation, 
-            IDerivationOperation, IStack, IMeasurementHolder, IAssociatedObject
+
+        #region Variable 
+
+        [CodeCreator(InitialState = true)]
+        [InternalVariable(IsDerivation=true)]
+        class Variable : IObjectOperation,
+            IPowered, IOperationAcceptor, IMeasurement, IDerivation,
+            IDerivationOperation, IStack, IMeasurementHolder, IAssociatedObject, IValue,
+            ITreeCreator, IInitialValue
         {
 
             #region Fields
@@ -1788,7 +1860,7 @@ namespace DataPerformer.Formula
 
             public override string ToString()
             {
-                return equationSolver.ToString() +  base.ToString();
+                return equationSolver.ToString() + base.ToString();
             }
 
 
@@ -1888,9 +1960,81 @@ namespace DataPerformer.Formula
 
             #endregion
 
+            #region IValue Members
+
+            object IValue.Value
+            {
+                get => GetValue();
+                set { }
+            }
+
+
+            ObjectFormulaTree owntree;
+
+
+            ObjectFormulaTree CreateTree()
+            {
+                if (owntree == null)
+                {
+                    owntree = new ObjectFormulaTree(this);
+                }
+                return owntree;
+            }
+
+
+            ObjectFormulaTree ITreeCreator.Tree => CreateTree();
+
+            #endregion
+
+            #region
+
+            object IInitialValue.Value { get => GetValue(); set { } }
+
+            void IInitialValue.Set()
+            {
+                char c = Symbol;
+                object[] o = equationSolver.variables[c] as object[];
+                value = (double)o[4];
+            }
+
+
+            #endregion
+
         }
 
         #endregion
+
+        #region
+
+        class FeedbackAliasCollection : Portable.FeedbackAliasCollection
+        {
+
+            Dictionary<object, object> dict;
+            internal FeedbackAliasCollection(IDataConsumer dataConsumer, IFeedbackCollectionHolder holder,
+                Dictionary<object, object> dictionary) : base(dataConsumer, holder)
+            {
+                dict = dictionary;
+                this.Dictionary = new Dictionary<string, string>();
+
+            }
+
+            protected override void Fill()
+            {
+                var d = Dictionary;
+                d.Clear();
+                foreach (var item in dict)
+                {
+                    d[item.Key + ""] = item.Value + "";
+                }
+                base.Fill();
+            }
+        }
+
+
+        #endregion
+
+        #endregion
+
 
     }
 }

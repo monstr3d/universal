@@ -118,7 +118,7 @@ namespace ControlSystems.UI.Forms
         /// Feedback
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public IFeedback Feedback
+        public Interfaces.IFeedback Feedback
         {
             set
             {

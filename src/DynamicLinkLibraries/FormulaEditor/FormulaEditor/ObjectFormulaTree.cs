@@ -67,13 +67,26 @@ namespace FormulaEditor
         {
         }
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="operation">Tree operation</param>
-		/// <param name="children">Children trees</param>
-		public ObjectFormulaTree(IObjectOperation operation, List<ObjectFormulaTree> children) 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="operation">Tree operation</param>
+        public ObjectFormulaTree(IObjectOperation operation) : this(operation, new List<ObjectFormulaTree>())
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="operation">Tree operation</param>
+        /// <param name="children">Children trees</param>
+        public ObjectFormulaTree(IObjectOperation operation, List<ObjectFormulaTree> children) 
 		{
+            if (operation is ITreeAssociated associated)
+            {
+                associated.ObjectFormulaTree = this;
+            }
          	if (operation is ICloneable)
 			{
 				ICloneable c = operation as ICloneable;
@@ -101,7 +114,7 @@ namespace FormulaEditor
 		}
 
 		/// <summary>
-		/// Consructor from formula
+		/// Constructor from formula
 		/// </summary>
 		/// <param name="formula">The formula</param>
 		/// <param name="creator">The formula object creator</param>
@@ -162,14 +175,29 @@ namespace FormulaEditor
         {
             ObjectFormulaTree tree = new ObjectFormulaTree(formula, creator);
             IObjectOperation op = tree.Operation;
+            var c = op.InputTypes.Length;
+            var ch = tree.children.Count;
+            if (c != ch)
+            {
+                throw new ErrorHandler.OwnNotImplemented();
+            }
             if (op is ITreeCreator)
             {
                 ITreeCreator tc = op as ITreeCreator;
                 ObjectFormulaTree tp = tc.Tree;
                 if (tp != null)
                 {
+
+                    if (op is ITreeAssociated treeAss)
+                    {
+                        treeAss.ObjectFormulaTree = tree;
+                    }
                     return tp;
                 }
+            }
+            if (op is ITreeAssociated treeAssociated)
+            {
+                treeAssociated.ObjectFormulaTree = tree;
             }
             if (op == null)
             {

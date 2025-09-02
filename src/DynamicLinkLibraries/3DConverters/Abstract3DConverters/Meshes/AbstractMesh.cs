@@ -15,7 +15,73 @@ namespace Abstract3DConverters.Meshes
     /// </summary>
     public class AbstractMesh :  IMesh
     {
- 
+        #region Fields
+
+        protected IMesh parent;
+
+        IMesh temp;
+
+        /// <summary>
+        /// Parent
+        /// </summary>
+        protected virtual INode<IMesh> Parent
+        {
+            get => parent;
+            set
+            {
+                if (parent != null)
+                {
+                    return;
+                }
+                if (value == null)
+                {
+                    return;
+                }
+                if (temp != null)
+                {
+                    parent = temp;
+                    return;
+                }
+                temp = value as IMesh;
+                performer.AddChildNode(value, this, false);
+            }
+        }
+
+        protected AbstractMesh ParentMesh => Parent as AbstractMesh;
+
+        //  protected virtual IMesh ParentMesh => Parent;
+
+        protected NamedTree.Performer performer = new NamedTree.Performer();
+        /// <summary>
+        /// Service
+        /// </summary>
+        protected Service s = new();
+
+
+        /// <summary>
+        /// The "triangles created@ sign
+        /// </summary>
+        protected bool trianglesCreated = false;
+
+        protected float[,] relative;
+
+        protected float[,] absolute;
+
+
+        Func<float[,]> GetRelativeMatrix;
+
+        Func<float[,]> GetAbsoluteMatrix;
+
+        //   protected List<Polygon> absolutePolygons;
+
+        Func<List<Polygon>> GetAbsolutePolygons;
+
+        protected IMesh mesh;
+
+
+        #endregion
+
+
         #region Ctor
 
         private AbstractMesh()
@@ -132,72 +198,6 @@ namespace Abstract3DConverters.Meshes
             {
             }
         }
-
-        #endregion
-
-        #region Fields
-
-        protected IMesh parent;
-
-        IMesh temp;
-
-        /// <summary>
-        /// Parent
-        /// </summary>
-        protected virtual INode<IMesh> Parent
-        {
-            get => parent;
-            set
-            {
-                if (parent != null)
-                {
-                    return;
-                }
-                if (value == null)
-                {
-                    return;
-                }
-                if (temp != null)
-                {
-                    parent = temp;
-                    return;
-                }
-                temp = value as IMesh;
-                performer.AddChildNode(value, this, false);
-            }
-        }
-
-        protected AbstractMesh ParentMesh => Parent as AbstractMesh;
-
-      //  protected virtual IMesh ParentMesh => Parent;
-
-        protected NamedTree.Performer performer = new NamedTree.Performer();
-        /// <summary>
-        /// Service
-        /// </summary>
-        protected Service s = new();
-
-
-        /// <summary>
-        /// The "triangles created@ sign
-        /// </summary>
-        protected bool trianglesCreated = false;
-
-        protected float[,] relative;
-
-        protected float[,] absolute;
-
-
-        Func<float[,]> GetRelativeMatrix;
-
-        Func<float[,]> GetAbsoluteMatrix;
-
-        //   protected List<Polygon> absolutePolygons;
-
-        Func<List<Polygon>> GetAbsolutePolygons;
-
-        protected IMesh mesh;
-
 
         #endregion
 

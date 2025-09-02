@@ -20,7 +20,6 @@ namespace DataWarehouse.Forms.Tree
 
         DataWarehouse.Performer performer = new();
 
-        NamedTree.Performer p = new();
 
          #region Ctor
 
@@ -168,7 +167,7 @@ namespace DataWarehouse.Forms.Tree
             LeavesOpened = true;
             var l = directory as IChildren<ILeaf>;
             var leaves = l.Children;
-            leaves = this.p.SotByName<ILeaf>(leaves);
+            leaves = performer.SotByName<ILeaf>(leaves);
             leaves = leaves.ToArray();
             foreach (var child in leaves)
             {
@@ -207,7 +206,7 @@ namespace DataWarehouse.Forms.Tree
             DirecoriesOpened = true;
             var l = directory as IChildren<IDirectory>;
             var dirs = l.Children;
-            dirs = this.p.SotByName<IDirectory>(dirs);
+            dirs =  performer.SotByName<IDirectory>(dirs);
             foreach (var child in dirs)
             {
                 if (ld.Contains(child))

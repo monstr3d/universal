@@ -25,8 +25,6 @@ namespace Abstract3DConverters
 
         Action<Image, string, string> CopyImageFunc = null;
 
-        NamedTree.Performer p = new ();
-
         #endregion
 
 
@@ -504,7 +502,7 @@ namespace Abstract3DConverters
         public T GetAttribute<T>(object obj) where T : Attribute
         {
             
-           return  p.GetAttribute<T>(obj);
+           return  performer.GetAttribute<T>(obj);
         }
 
         /// <summary>

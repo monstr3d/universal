@@ -22,6 +22,8 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
+using System.Threading.Tasks;
+using System.Collections.Immutable;
 
 
 namespace DataPerformer.UI.Forms
@@ -36,6 +38,7 @@ namespace DataPerformer.UI.Forms
         /// Vraiables letters
         /// </summary>
         public const string Variables = "abcdfghijklmnoqrstuvwxyz";
+
         private Hashtable aliasCombo = new Hashtable();
 
         private DifferentialEquationSolver solver;
@@ -106,7 +109,13 @@ namespace DataPerformer.UI.Forms
                 }
             }
             int top = 0;
+            var list = new List<char>();
             foreach (char c in solver.Keys)
+            {
+                list.Add(c);
+            }
+            list.Sort();
+            foreach (char c in list)
             {
                 PanelFormula p = new PanelFormula("" + c, this, panelFormula.Width, 200, Variables, true, null, null);
                 p.Left = 0;
@@ -135,11 +144,12 @@ namespace DataPerformer.UI.Forms
 
         #endregion
 
-        private void setFormulas()
+        private async Task setFormulas()
         {
             int y = 20;
             string variables = "";
-            for (int i = 0; i < solver.Count; i++)
+            var d = new Dictionary<string, int>();
+             for (int i = 0; i < solver.Count; i++)
             {
                 IMeasurements arrow = solver[i];
                 PanelMeasureFormula panel = new PanelMeasureFormula(arrow, variables, solver);

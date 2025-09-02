@@ -18,7 +18,7 @@ namespace Motion6D.Portable.Comparation
     {
         #region Fields
 
-        NamedTree.Performer p = new NamedTree.Performer();
+        Diagram.UI.Performer p = new ();
 
         /// <summary>
         /// Singleton

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using ErrorHandler;
-using FormulaEditor.Interfaces;
+using FormulaEditor.CodeCreators.Interfaces;
 
 namespace FormulaEditor.CodeCreators
 {
     /// <summary>
-    /// Statioc class for creation of code
+    /// Static class for creation of code
     /// </summary>
     public static class StaticCodeCreator
     {
@@ -21,24 +20,19 @@ namespace FormulaEditor.CodeCreators
         /// <param name="creator">Creator of code</param>
         /// <param name="tree">The tree</param>
         /// <returns>Number of tree</returns>
-        public static int GetNumber(ICodeCreator creator, ObjectFormulaTree tree)
+        public static int GetNumber(ITreeCodeCreator creator, ObjectFormulaTree tree)
         {
+            Exception exteption;
             try
             {
                 return creator.GetNumber(tree);
-                /*  ObjectFormulaTree[] trees = creator.Trees;
-                  for (int i = 0; i < trees.Length; i++)
-                  {
-                      if (trees[i] == tree)
-                      {
-                          return i;
-                      }
-                  }*/
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new Exception("Tree not found");
+                object o = new object[] { creator, tree };
+                exteption =  IncludedException.Get(e, o, "Tree not found");
             }
+            throw exteption;
         }
 
         /// <summary>
@@ -46,25 +40,25 @@ namespace FormulaEditor.CodeCreators
         /// </summary>
         /// <param name="trees">The trees</param>
         /// <param name="creator">Code creator</param>
-        /// <param name="local">Local code reator</param>
+        /// <param name="local">Local code creator</param>
         /// <param name="variables">Strings of variables</param>
         /// <param name="initializers">Strings of initializers</param>
         /// <returns>Strings of code</returns>
-        public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator,
-            out ICodeCreator local,
-             out IList<string> variables, 
-             out IList<string> initializers)
+        public static Dictionary<string, List<string>> CreateCode(object obj, 
+            ObjectFormulaTree[] trees, ITreeCodeCreator creator,
+            out ITreeCodeCreator local)
         {
             List<string> code = new List<string>();
             List<string> vari = new List<string>();
             List<string> init = new List<string>();
+            Dictionary<string, List<string>> c;
             try
             {
                 local = creator.Create(obj, trees);
-                IList<ObjectFormulaTree> lt = local.Trees;
+                List<ObjectFormulaTree> lt = local.Trees.ToList();
                 if (local.Optional.Count > 0)
                 {
-                    return CreateOptionalCode(obj, local, out variables, out initializers);
+                    return CreateOptionalCode(obj, local);
                 }
                 foreach (ObjectFormulaTree t in lt)
                 {
@@ -80,38 +74,37 @@ namespace FormulaEditor.CodeCreators
                         }
                         par.Add(local[child]);
                     }
-                    IList<string> lv;
-                    IList<string> lp;
-                    IList<string> c = local.CreateCode(obj, t, ret, par.ToArray<string>(),
-                        out lv, out lp);
-                    if (lv != null)
+                    c = local.CreateCode(obj, t, ret, par.ToArray());
+                    if (c.ContainsKey("variables"))
                     {
-                        vari.AddRange(lv);
+                        vari.AddRange(c["variables"]);
                     }
-                    if (lp != null)
+                    if (c.ContainsKey("initializers"))
                     {
-                        init.AddRange(lp);
+                        init.AddRange(c["initializers"]);
                     }
                     if (creator.GetConstValue(t) == null)
                     {
-                        code.AddRange(c);
+                        code.AddRange(c["code"]);
                     }
                     else if (creator.GetConstValue(t).Equals("\"\""))
                     {
-                        code.AddRange(c);
+                        code.AddRange(c["code"]);
                     }
                 }
-                variables = vari;
-                initializers = init;
-                return code;
+                var d = new Dictionary<string, List<string>>()
+                {
+                    { "initializers", init },
+                    { "variables", vari },
+                    { "code", code }
+                };
+                 return d;
             }
             catch (Exception ex)
             {
                 ex.HandleException();
             }
             local = null;
-            variables = null;
-            initializers = null;
             return null;
         }
 
@@ -119,7 +112,7 @@ namespace FormulaEditor.CodeCreators
 
         #region Private Members
 
-        static IList<string> CreateOptionalCode(object obj, ICodeCreator creator, out IList<string> variables, out IList<string> initializers)
+        static Dictionary<string, List<string>> CreateOptionalCode(object obj, ITreeCodeCreator creator)
         {
             List<string> code = new List<string>();
             List<string> vari = new List<string>();
@@ -160,25 +153,16 @@ namespace FormulaEditor.CodeCreators
                         busy.Add(chc);
                         par.Add(creator[chc]);
                     }
-                    IList<string> lvc;
-                    IList<string> lpc;
                     string rc = creator[cond];
                     if (!conds.Contains(cond))
                     {
                         conds.Add(cond);
-                        IList<string> cc = creator.CreateCode(obj, cond, rc, par.ToArray(),
-                            out lvc, out lpc);
-                        if (lvc != null)
-                        {
-                            vari.AddRange(lvc);
-                        }
-                        if (lpc != null)
-                        {
-                            init.AddRange(lpc);
-                        }
+                        var cc = creator.CreateCode(obj, cond, rc, par.ToArray());
+                             vari.AddRange(cc["variables"]);
+                            init.AddRange(cc["initializers"]);
                         if (creator.GetConstValue(cond) == null)
                         {
-                            code.AddRange(cc);
+                        code.AddRange(cc["code"]);
                         }
                     }
                     code.Add("if (" + rc + ")");
@@ -205,24 +189,17 @@ namespace FormulaEditor.CodeCreators
                                     p.Add(creator[chc]);
                                 }
                             }
-                            IList<string> cr = creator.CreateCode(obj, tt, rr, p.ToArray<string>(),
-                              out lvr, out lpr);
-                            if (lvr != null)
-                            {
-                                vari.AddRange(lvr);
-                            }
-                            if (lpr != null)
-                            {
-                                init.AddRange(lpr);
-                            }
+                            var cr = creator.CreateCode(obj, tt, rr, p.ToArray<string>());
+                            vari.AddRange(cr["variablves"]);
+                            init.AddRange(cr["initializers"]);
                             if (creator.GetConstValue(t) == null)
                             {
-                                code.AddRange(cr);
+                                code.AddRange(cr["code"]);
                             }
                         }
                         else
                         {
-                            code.AddRange(CreateCode(obj, creator, tt, busy));
+                            code.AddRange(CreateCode(obj, creator, tt, busy)["code"]);
                             code.Add(rcr + " = " + creator[tt] + ";");
                         }
                         if (k == 1)
@@ -249,19 +226,12 @@ namespace FormulaEditor.CodeCreators
                 }
                 IList<string> lv;
                 IList<string> lp;
-                IList<string> c = creator.CreateCode(obj, t, ret, par.ToArray<string>(),
-                    out lv, out lp);
-                if (lv != null)
-                {
-                    vari.AddRange(lv);
-                }
-                if (lp != null)
-                {
-                    init.AddRange(lp);
-                }
+                var c = creator.CreateCode(obj, t, ret, par.ToArray<string>());
+                vari.AddRange(c["variables"]);
+                init.AddRange(c["ititializers"]);
                 if (creator.GetConstValue(t) == null)
                 {
-                    code.AddRange(c);
+                    code.AddRange(c["code"]);
                 }
             }
             List<string> lvar = new List<string>();
@@ -272,7 +242,6 @@ namespace FormulaEditor.CodeCreators
                     lvar.Add(s);
                 }
             }
-            variables = lvar;
             List<string> lini = new List<string>();
             foreach (string s in init)
             {
@@ -281,30 +250,24 @@ namespace FormulaEditor.CodeCreators
                     lini.Add(s);
                 }
             }
-            initializers = lini;
-            return code;
+            var d = new Dictionary<string, List<string>>()
+         {
+             { "initializers", init },
+             { "variables", vari },
+             { "code", code }
+         };
+          return d;
         }
 
-        private static void GetList(ObjectFormulaTree tree, List<ObjectFormulaTree> l, List<ObjectFormulaTree> busy)
-        {
-            int n = tree.Count;
-            for (int i = 0; i < n; i++)
-            {
-                GetList(tree[i], l, busy);
-            }
-            if (!busy.Contains(tree))
-            {
-                l.Add(tree);
-            }
-        }
+        static FormulaEditor.Performer formulaPerformer = new Performer();
 
-        private static IList<string> CreateCode(object obj, ICodeCreator creator, ObjectFormulaTree tree, List<ObjectFormulaTree> busy)
+
+        private static Dictionary<string, List<string>> CreateCode(object obj, ITreeCodeCreator creator, 
+            ObjectFormulaTree tree, List<ObjectFormulaTree> busy)
         {
             List<ObjectFormulaTree> l = new List<ObjectFormulaTree>();
-            GetList(tree, l, busy);
-            IList<string> lvr;
-            IList<string> lpr;
-            List<string> cc = new List<string>();
+            var d = new Dictionary<string, List<string>>();
+            formulaPerformer.GetList(tree, l, busy);
             for (int i = 0; i < l.Count; i++)
             {
                 ObjectFormulaTree tr = l[i];
@@ -319,9 +282,25 @@ namespace FormulaEditor.CodeCreators
                     }
                     p.Add(creator[chc]);
                 }
-                cc.AddRange(creator.CreateCode(obj, tr, rr, p.ToArray(), out lvr, out lpr));
+                var ct = creator.CreateCode(obj, tr, rr, p.ToArray());
+                foreach (var c in ct)
+                {
+                    List<string> list = null;
+                    var k = c.Key;
+                    if (d.ContainsKey(k))
+                    {
+                        list = d[k];
+                    }
+                    else
+                    {
+                        list = new List<string>();
+                        d[k] = list;
+                    }
+                    list.AddRange(c.Value);
+                }
+
             }
-            return cc;
+            return d;
         }
 
         #endregion

@@ -24,7 +24,7 @@ namespace Motion6D.Portable
 
         IReferenceFrame target;
 
-        static NamedTree.Performer performer = new NamedTree.Performer();
+        static Diagram.UI.Performer performer = new ();
 
         #endregion
 

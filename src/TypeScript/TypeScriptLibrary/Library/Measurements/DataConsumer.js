@@ -19,7 +19,7 @@ class DataConsumer extends CategoryObject_1.CategoryObject {
         var tm = this.timeMeasurement;
         return tm.getTime();
     }
-    getTimeMeasutement() {
+    getTimeMeasurement() {
         return this.timeMeasurement;
     }
     setTimeMeasurement(measurement) {

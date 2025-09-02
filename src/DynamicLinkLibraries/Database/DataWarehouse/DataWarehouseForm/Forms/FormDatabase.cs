@@ -1,33 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using DataWarehouse.Utils;
+using Diagram.UI.Interfaces;
 using ErrorHandler;
 using NamedTree;
-
 using ResourceService;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsExtensions;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 namespace DataWarehouse.Forms
 {
+
     /// <summary>
     /// Database form
     /// </summary>
-    public partial class FormDatabase : Form
+    public partial class FormDatabase : Form, ICancellation
     {
 
         #region Fields
 
-        NamedTree.Performer perf = new();
-
-        DataWarehouse.Forms.Performer performer = new();
+ 
+        Performer performer = new();
 
         /// <summary>
         /// Message string
@@ -44,8 +45,7 @@ namespace DataWarehouse.Forms
         bool open;
         string[] ext;
         private TreeNode root = null;
-
-        DataWarehouse.Performer p = new();
+      
         private IDirectory SelectedNode
         {
             get;
@@ -67,6 +67,8 @@ namespace DataWarehouse.Forms
             set;
         }
 
+ 
+
         #endregion
 
         #region Ctor
@@ -80,7 +82,7 @@ namespace DataWarehouse.Forms
 
         void ActionIssue(Issue issue)
         {
-            var err = p.GetErrorType(issue);
+            var err = performer.GetErrorType(issue);
             if (err == ErrorType.AlreadyExecuted)
             {
                 return;
@@ -88,6 +90,16 @@ namespace DataWarehouse.Forms
            WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Error");
 
         }
+
+        #region ICancellation
+        CancellationToken ICancellation.CancellationToken => CancellationToken;
+
+        CancellationToken ICancellation.CreateCancellationToken()
+        {
+            return GetCancellation();
+        }
+
+        #endregion
 
         /// <summary>
         /// Constructor
@@ -97,6 +109,7 @@ namespace DataWarehouse.Forms
         /// <param name="open">The "open" sign</param>
         public FormDatabase(IBlob blob, DatabaseInterface data, bool open) : this()
         {
+            
             this.LoadControlResources();
             this.blob = blob;
             this.data = data;
@@ -117,6 +130,8 @@ namespace DataWarehouse.Forms
             buttonDelete.Enabled = false;
             buttonDirDelete.Enabled = false;
             buttonLoad.Enabled = false;
+            var c = GetCancellation();
+            performer = new Performer(c);
             treeViewDir.BeforeExpand += performer.BeforeExpand;
             RefreshTree();
         }
@@ -126,7 +141,8 @@ namespace DataWarehouse.Forms
 
         private void RefreshTree()
         {
-            treeViewDir.Fill(data, ext[0], false, true, ActionIssue);
+            var c = GetCancellation();
+            treeViewDir.Fill(data, ext[0], false, true, ActionIssue, c);
    
        /* !!! DELETE      IDirectory[] dir = data.GetRoots(ext);
             foreach (IDirectory d in dir)
@@ -184,62 +200,35 @@ namespace DataWarehouse.Forms
 
         Dictionary<ILeaf, ListViewItem> items = new Dictionary<ILeaf, ListViewItem>();
 
+        protected CancellationToken CancellationToken
+        {
+            get;
+            set;
+        }
+
+        CancellationToken GetCancellation()
+        {
+            var c = new CancellationToken();
+            CancellationToken = c;
+            return c;
+        }
+
         private async void RefreshTable()
         {
             try
             {
+                var c = GetCancellation();
                 if (SelectedNode == null)
                 {
                     return;
                 }
                 listViewDoc.Items.Clear();
-                /*           foreach (var i in leaf_act_remove)
-                           {
-                               i.Key.OnDeleteItself -= i.Value;
-                           }
-
-                           foreach (var i in leaf_add)
-                           {
-                               i.Key.OnAddLeaf -= i.Value;
-                           }
-
-                           leaf_add.Clear();
-
-
-                           leaf_act_remove.Clear();
-
-                           var act_a = (object o) =>
-                           {
-                               var i = o as Issue;
-                               if (i.ErrorType != ErrorType.None)
-                               {
-                                   return;
-                               }
-                               var l = i.Object as ILeaf;
-                               var a = () =>
-                               {
-                                   string[] s = new string[] { l.Name, l.Extension };
-                                   ListViewItem it = new ListViewItem(s);
-                                   it.Tag = l;
-                                   listViewDoc.Items.Add(it);
-
-                               };
-                               listViewDoc.InvokeIfNeeded(a);
-                           };
-                           (SelectedNode as IDirectory).OnAddLeaf += act_a;
-                           leaf_add[SelectedNode] = act_a;
-
-                           /*
-                          if (dataTableDoc.Rows.Count > 0)
-                          {
-                              dataTableDoc.Clear();
-                          }*/
                 IDirectory d = SelectedNode;
                 if (d is IDirectoryAsync async)
                 {
-                    var tl = async.LoadChildren();
+                    var tl = async.LoadChildren(c);
 
-                    var t = async.LoadLeaves();
+                    var t = async.LoadLeaves(c);
                     var act = () =>
                     {
                         IChildren<ILeaf> coll = d;
@@ -445,23 +434,26 @@ namespace DataWarehouse.Forms
             }
             try
             {
-                (Selected as IData).Data = b;
+                Replace((Selected as IData),  b);
             }
             catch (Exception ex)
             {
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
 
-            /*string guid = selected.Attributes["BinaryID"].Value;
-            MemoryStream mStream = new MemoryStream();
-            parent.SaveAll(mStream);
-            int length = (int)mStream.Length;
-            byte[] buffer = mStream.GetBuffer();
-            DatabaseInterface.DatabaseClient.Service.UpdateBinaryData(guid, buffer);
-            mStream.Close();*/
-            //DatabaseInterface.DatabaseClient.Service.UpdateBinaryDataTable();
-            //DatabaseInterface.DatabaseClient.Service.updateBinaryData();
+        }
 
+        async Task Replace(IData data, byte[] b)
+        {
+            if (data is ILeafAsync async)
+            {
+                var ct = GetCancellation();
+                var t = async.UpdateDataAcync(b, ct);
+                await t;
+                var r = t.Result;
+                return;
+            }
+            data.Data = b;
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
@@ -486,6 +478,15 @@ namespace DataWarehouse.Forms
         }
 
         IAccceptNameUpdate Update => SelectedNode as IAccceptNameUpdate;
+
+        async void Save(IDirectoryAsync asnyc, ILeaf leaf)
+        {
+            var ct = GetCancellation();
+            var t = asnyc.AddAsync(leaf, ct);
+            await t;
+            var l = t.Result;
+
+        }
 
         private void buttonSaveDoc_Click(object sender, EventArgs e)
         {
@@ -520,13 +521,22 @@ namespace DataWarehouse.Forms
                     WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
                     return;
                 }
+                object l = null;
+
                 var leaf = new Leaf(null, nm, textBoxDescription.Text, ext, b);
-                var l = SelectedNode.Add(leaf);
-   /*             if (l == null)
+                if (SelectedNode is IDirectoryAsync async)
+                {
+                    Save(async, leaf);
+                    return;
+                }
+
+                    l = SelectedNode.Add(leaf);
+
+               if (l == null)
                 {
                     WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
                     return;
-                }*/
+                }
           //      Close();
             }
             catch (Exception ex)
@@ -593,7 +603,7 @@ namespace DataWarehouse.Forms
                 return;
             }
             byte[] b = (Selected as IData).Data;
-            saveFileDialogData.Filter = "|*.cfa"; // !!! + ext;
+            saveFileDialogData.Filter = "|*." + ext[0]; // !!! + ext;
             /*!!!         try
                      {
                          saveFileDialogData.FileName = selected.Name;

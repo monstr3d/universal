@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI;
@@ -14,7 +15,6 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using NamedTree;
-using System.Linq;
 
 namespace DataPerformer.Formula
 {
@@ -77,6 +77,22 @@ namespace DataPerformer.Formula
             }
         }
 
+        static public Dictionary<string, Tuple<int, object>> GetOutput(IStringTreeDictionary d, IEnumerable< ObjectFormulaTree> t)
+        {
+            var l = t.ToList();
+            var output = new Dictionary<string, Tuple<int, object>>();
+            var dict = d.Dictionary;
+            foreach (var k in dict)
+            {
+                var i = l.IndexOf(k.Value);
+                if (i >= 0)
+                {
+                    output[k.Key] = new Tuple<int, object>(i, k.Value.ReturnType);
+                }
+            }
+            return output;
+        }
+
         static public Dictionary<string, Tuple<int, object>> GetOutput(IMeasurements m, ObjectFormulaTree[] t)
         {
             var l = t.ToList();
@@ -84,9 +100,9 @@ namespace DataPerformer.Formula
             for (int i = 0; i < m.Count; i++)
             {
                 var mea = m[i];
-                if (mea is ITreeAssociated mh)
+                if (mea is IOutputTree mh)
                 {
-                    var h = mh.ObjectFormulaTree;
+                    var h = mh.Tree;
                     var n = l.IndexOf(h);
                     if (n >= 0)
                     {
@@ -100,16 +116,15 @@ namespace DataPerformer.Formula
 
         void CreateOutput()
         {
-            
             output = new Dictionary<string, int>();
             IMeasurements measurements = treeCollection as IMeasurements;
             var trees = treeCollection.Trees.ToList();
             for (int i = 0; i < measurements.Count; i++)
             {
                 var m = measurements[i];
-                if (m is ITreeAssociated mh)
+                if (m is IOutputTree mh)
                 {
-                    var h = mh.ObjectFormulaTree;
+                    var h = mh.Tree;
                     var n = trees.IndexOf(h);
                     if (n >= 0)
                     {
@@ -318,7 +333,6 @@ namespace DataPerformer.Formula
 
         #endregion
 
-
         #region Classes
 
 
@@ -365,8 +379,6 @@ namespace DataPerformer.Formula
 
 
         #endregion
-
-
 
 
     }

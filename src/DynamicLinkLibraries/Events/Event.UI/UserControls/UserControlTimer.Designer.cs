@@ -28,214 +28,214 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.panelCenter.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panelTop.SuspendLayout();
-            this.SuspendLayout();
+            panelCenter = new System.Windows.Forms.Panel();
+            panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
+            panel3 = new System.Windows.Forms.Panel();
+            panel4 = new System.Windows.Forms.Panel();
+            panel6 = new System.Windows.Forms.Panel();
+            textBox = new System.Windows.Forms.TextBox();
+            panel7 = new System.Windows.Forms.Panel();
+            panel8 = new System.Windows.Forms.Panel();
+            panel9 = new System.Windows.Forms.Panel();
+            panel10 = new System.Windows.Forms.Panel();
+            panel5 = new System.Windows.Forms.Panel();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            panelBottom = new System.Windows.Forms.Panel();
+            panelCenter.SuspendLayout();
+            panel4.SuspendLayout();
+            panel6.SuspendLayout();
+            panelTop.SuspendLayout();
+            SuspendLayout();
             // 
             // panelCenter
             // 
-            this.panelCenter.Controls.Add(this.panel1);
-            this.panelCenter.Controls.Add(this.panel2);
-            this.panelCenter.Controls.Add(this.panel3);
-            this.panelCenter.Controls.Add(this.panel4);
-            this.panelCenter.Controls.Add(this.panel5);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 37);
-            this.panelCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(200, 40);
-            this.panelCenter.TabIndex = 20;
+            panelCenter.Controls.Add(panel1);
+            panelCenter.Controls.Add(panel2);
+            panelCenter.Controls.Add(panel3);
+            panelCenter.Controls.Add(panel4);
+            panelCenter.Controls.Add(panel5);
+            panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenter.Location = new System.Drawing.Point(0, 28);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new System.Drawing.Size(175, 30);
+            panelCenter.TabIndex = 20;
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 6);
-            this.panel1.TabIndex = 20;
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Location = new System.Drawing.Point(0, 26);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(175, 4);
+            panel1.TabIndex = 20;
             // 
             // panel2
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(200, 34);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 6);
-            this.panel2.TabIndex = 18;
+            panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            panel2.Location = new System.Drawing.Point(175, 26);
+            panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(0, 4);
+            panel2.TabIndex = 18;
             // 
             // panel3
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 34);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(0, 6);
-            this.panel3.TabIndex = 17;
+            panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            panel3.Location = new System.Drawing.Point(0, 26);
+            panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(0, 4);
+            panel3.TabIndex = 17;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.panel9);
-            this.panel4.Controls.Add(this.panel10);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 34);
-            this.panel4.TabIndex = 16;
+            panel4.Controls.Add(panel6);
+            panel4.Controls.Add(panel7);
+            panel4.Controls.Add(panel8);
+            panel4.Controls.Add(panel9);
+            panel4.Controls.Add(panel10);
+            panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            panel4.Location = new System.Drawing.Point(0, 0);
+            panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(175, 26);
+            panel4.TabIndex = 16;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(198, 34);
-            this.panel6.TabIndex = 20;
+            panel6.Controls.Add(textBox);
+            panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel6.Location = new System.Drawing.Point(1, 0);
+            panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(173, 26);
+            panel6.TabIndex = 20;
             // 
             // textBox
             // 
-            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox.Location = new System.Drawing.Point(0, 0);
-            this.textBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(198, 27);
-            this.textBox.TabIndex = 0;
+            textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox.Location = new System.Drawing.Point(0, 0);
+            textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            textBox.Name = "textBox";
+            textBox.Size = new System.Drawing.Size(173, 23);
+            textBox.TabIndex = 0;
             // 
             // panel7
             // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(199, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1, 34);
-            this.panel7.TabIndex = 18;
+            panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            panel7.Location = new System.Drawing.Point(174, 0);
+            panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(1, 26);
+            panel7.TabIndex = 18;
             // 
             // panel8
             // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1, 34);
-            this.panel8.TabIndex = 17;
+            panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            panel8.Location = new System.Drawing.Point(0, 0);
+            panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(1, 26);
+            panel8.TabIndex = 17;
             // 
             // panel9
             // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 0);
-            this.panel9.TabIndex = 16;
+            panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            panel9.Location = new System.Drawing.Point(0, 0);
+            panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel9.Name = "panel9";
+            panel9.Size = new System.Drawing.Size(175, 0);
+            panel9.TabIndex = 16;
             // 
             // panel10
             // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 34);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(200, 0);
-            this.panel10.TabIndex = 19;
+            panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel10.Location = new System.Drawing.Point(0, 26);
+            panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel10.Name = "panel10";
+            panel10.Size = new System.Drawing.Size(175, 0);
+            panel10.TabIndex = 19;
             // 
             // panel5
             // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 40);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 0);
-            this.panel5.TabIndex = 19;
+            panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel5.Location = new System.Drawing.Point(0, 30);
+            panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(175, 0);
+            panel5.TabIndex = 19;
             // 
             // panelRight
             // 
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(200, 37);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(0, 40);
-            this.panelRight.TabIndex = 18;
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(175, 28);
+            panelRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(0, 30);
+            panelRight.TabIndex = 18;
             // 
             // panelLeft
             // 
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 37);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(0, 40);
-            this.panelLeft.TabIndex = 17;
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 28);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(0, 30);
+            panelLeft.TabIndex = 17;
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.label1);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(200, 37);
-            this.panelTop.TabIndex = 16;
+            panelTop.Controls.Add(label1);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(175, 28);
+            panelTop.TabIndex = 16;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Interval, ms";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(4, 9);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(68, 15);
+            label1.TabIndex = 27;
+            label1.Text = "Interval, ms";
             // 
             // panelBottom
             // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 77);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(200, 0);
-            this.panelBottom.TabIndex = 19;
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 58);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(175, 0);
+            panelBottom.TabIndex = 19;
             // 
             // UserControlTimer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelCenter);
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelBottom);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UserControlTimer";
-            this.Size = new System.Drawing.Size(200, 77);
-            this.panelCenter.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(panelCenter);
+            Controls.Add(panelRight);
+            Controls.Add(panelLeft);
+            Controls.Add(panelTop);
+            Controls.Add(panelBottom);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "UserControlTimer";
+            Size = new System.Drawing.Size(175, 58);
+            panelCenter.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            ResumeLayout(false);
 
         }
 

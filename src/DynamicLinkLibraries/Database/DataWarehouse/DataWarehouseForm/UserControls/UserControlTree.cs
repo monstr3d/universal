@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 
 using Common.UI;
 
+using Diagram.UI.Forms;
+
 
 using DataWarehouse.Forms;
 using DataWarehouse.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 
 namespace DataWarehouse.UserControls
 {
@@ -76,7 +81,7 @@ namespace DataWarehouse.UserControls
         /// <param name="data">Database interface</param>
         /// <param name="ext">Extension</param>
         /// <param name="image">Tree image</param>
-        public void Set(DatabaseInterface data, string ext, Image image)
+        public void Set(DatabaseInterface data, string ext, Image image, CancellationToken cancellationToken)
         {
             this.data = data;
             this.image = image;
@@ -85,7 +90,8 @@ namespace DataWarehouse.UserControls
             l.Images.Add(ResourceImage.OPENFOLD);
             l.Images.Add(image);
             treeViewMain.ImageList = l;
-            Fill();
+            Fill(cancellationToken);
+            performer = new Forms.Performer(cancellationToken);
             this.ext = ext;
             treeViewMain.BeforeExpand += performer.BeforeExpand;
          }
@@ -130,21 +136,40 @@ namespace DataWarehouse.UserControls
             }
         }
 
-        private void refresh()
+        private void refresh(CancellationToken cancellationToken)
         {
             try
             {
                 treeViewMain.Nodes[0].Remove();
-                Fill();
+                Fill(cancellationToken);
             }
             catch (Exception)
             {
             }
         }
 
+        ICancellation Find(Control control)
+        {
+            if (control is ICancellation c)
+            {
+                return c;
+            }
+            var p = control.Parent;
+            if (p != null)
+            {
+                return Find(p);
+            }
+            return null;
+        }
+
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-            refresh();
+            var f = Find(this);
+            if (f != null)
+            {
+                var c = f.CreateCancellationToken();
+                refresh(c);
+            }
         }
 
         private void toolStripButtonFind_Click(object sender, EventArgs e)
@@ -226,9 +251,9 @@ namespace DataWarehouse.UserControls
         }
 
    
-        void Fill()
+        void Fill(CancellationToken cancellationToken)
         {
-            treeViewMain.Fill(data, ext, true, false, null);
+            treeViewMain.Fill(data, ext, true, false, null, cancellationToken);
         }
 
         #endregion

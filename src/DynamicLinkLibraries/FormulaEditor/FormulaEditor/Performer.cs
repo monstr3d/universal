@@ -1,32 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FormulaEditor
 {
-    /// <summary>
-    /// Performer of general operations
-    /// </summary>
     public class Performer
     {
-        /// <summary>
-        /// Adding list with shift
-        /// </summary>
-        /// <param name="list">The list</param>
-        /// <param name="l">The added list</param>
-        /// <param name="shift">The shift</param>
-        public void Add(List<string> list, List<string> l, int shift)
+        public void GetList(ObjectFormulaTree tree, List<ObjectFormulaTree> l, List<ObjectFormulaTree> busy)
         {
-            var s = "";
-            for (int i = 0; i < shift; i++)
+            int n = tree.Count;
+            for (int i = 0; i < n; i++)
             {
-                s += "\t";
+                GetList(tree[i], l, busy);
             }
-            foreach (var item in l)
+            if (!busy.Contains(tree))
             {
-                list.Add(s + item);
+                l.Add(tree);
             }
         }
     }

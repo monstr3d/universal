@@ -37,7 +37,7 @@ namespace Diagram.UI
 		}
 
         /// <summary>
-        /// Consructor
+        /// Constructor
         /// </summary>
         /// <param name="desktop">Desktop</param>
 		public FormOrder(PanelDesktop desktop)

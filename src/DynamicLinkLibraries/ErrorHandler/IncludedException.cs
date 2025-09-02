@@ -1,6 +1,4 @@
-﻿using System.Net.NetworkInformation;
-
-namespace ErrorHandler
+﻿namespace ErrorHandler
 {
     /// <summary>
     /// Included exception
@@ -31,11 +29,23 @@ namespace ErrorHandler
         /// </summary>
         /// <param name="exception">Include exception</param>
         /// <param name="message">Message</param>
-        protected IncludedException(Exception exception, object obj = null) : base(exception.Message)
+        public IncludedException(Exception exception, object obj = null) : base(exception.Message)
         {
             Exception = exception;
             Object = obj;
         }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="exception">Include exception</param>
+        /// <param name="message">Message</param>
+        protected IncludedException(Exception exception, object obj, string ownMessage) : base(ownMessage)
+        {
+            Exception = exception;
+            Object = obj;
+        }
+
 
         public static IncludedException Get(Exception exception, object obj = null)
         {
@@ -45,5 +55,15 @@ namespace ErrorHandler
             }
             return new IncludedException(exception, obj);
         }
+
+        public static IncludedException Get(Exception exception, object obj, string ownMessage)
+        {
+            if (exception is IncludedException ic)
+            {
+                return ic;
+            }
+            return new IncludedException(exception, obj, ownMessage);
+        }
+
     }
 }

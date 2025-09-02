@@ -4,10 +4,13 @@ using System;
 
 namespace DataPerformer.Interfaces
 {
-    public class Performer
+    /// <summary>
+    /// Performer of basic operations
+    /// </summary>
+    public class Performer : Diagram.UI.Performer
     {
-        public Performer() { }
-
+ 
+  
         public Func<double> Create(ITimeMeasurementConsumer consumer, TimeType timeType = TimeType.Second)
         {
             var m = consumer.Time;
@@ -19,6 +22,7 @@ namespace DataPerformer.Interfaces
             var k = TimeType.Second.Coefficient(timeType);
             return () => k * f();
         }
+
 
     }
 }

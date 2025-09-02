@@ -9,7 +9,8 @@ namespace PostgreSQLWarehouse
 {
     internal static class StaticExtension
     {
+        //  Host=127.0.0.1;Database=PostgreSQL_Warehouse;Username=postgres;Password=GREM0nP0
 
-       internal static PostgreSqlWarehouseContext Context { get; set; } 
+        internal static PostgreSqlWarehouseContext Context { get; set; } 
     }
 }

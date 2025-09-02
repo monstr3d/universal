@@ -1,8 +1,9 @@
-﻿using Diagram.Attributes;
-using Diagram.UI;
-using Diagram.UI.Interfaces;
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
+using BaseTypes.Attributes;
+using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
+using Diagram.UI.Interfaces;
 
 namespace SoundService.CodeCreators
 {
@@ -15,10 +16,21 @@ namespace SoundService.CodeCreators
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+           this.AddClassCodeCreator();
         }
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+
+     
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             var code = new List<string>();
  

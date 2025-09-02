@@ -111,7 +111,8 @@ namespace DinAtm.Pure
             //dt.DecodeTime(&ho, &mi, &ss, &sss);
             double tt = (ho * 60 + mi) * 60 + ss + .001 * sss;
             double days = days1900(dt) + 1;
-            double ASoL = 0, DSoL = 0;//,ASoL1,DSoL1;
+            double ASoL = 0;
+            double    DSoL = 0;//,ASoL1,DSoL1;
             //AngleSun(tt-10800.,days-1,ASoL,DSoL);
             AngleSun(tt - 10800.0, days, ref ASoL, ref DSoL);
             double alphastar = zvvr(days);
@@ -228,42 +229,8 @@ namespace DinAtm.Pure
             return roh * xk1 * xk2 * xk3 * xk4;
         }
 
-        double atm(double[] x, double t, ref double s0, ref double h, int[] ifa, DateTime Date)
-        {
-            date[0] = Date.Day;
-            date[1] = Date.Month;
-            date[2] = Date.Year;
-            double days = days1900(Date);
-            double ASoL = 0, DSoL = 0;
-            AngleSun(t - 10800.0, days, ref ASoL, ref DSoL);
-            return atm(x, t, ASoL, DSoL, ref s0, ref h, date);
-        }
 
-        double atm(double[] x, double t, ref double s0, ref double h, int[] ifa)
-        {
-            double ASoL = 0, DSoL = 0;
-            AngleSun(-10800.0, t, ref ASoL, ref DSoL);
-            //MyTime=t;
-            DateTime dt = DateTime.FromOADate(t);
-            dd[2] = (ushort)dt.Year;
-            dd[1] = (ushort)dt.Month;
-            dd[0] = (ushort)dt.Day;
-            for (int i = 0; i < 3; i++) date[i] = (int)dd[i];
-
-            double tt;
-            dd[3] = (ushort)dt.Hour;
-            dd[2] = (ushort)dt.Minute;
-            dd[1] = (ushort)dt.Second;
-            double aa = ((double)dt.ToBinary()) / 1000000000;
-            dd[0] = (ushort)(1000 * (aa - Math.Floor(aa)));
-
-            //MyTime.GetDateSec(tm,tt);
-            //memcpy(date,&tm.tm_day,3*sizeof(int));
-            tt = (dd[3] * 60 + dd[2]) * 60 + dd[1] + 0.001 * dd[0];
-            s0 = 0.0;
-            return atm(x, tt, ASoL, DSoL, ref s0, ref h, date);
-        }
-
+ 
         void AngleSun(double T, double D, ref double ASoL, ref double DSoL)
         {
             DSoL = D + T / 86400.0;
@@ -316,7 +283,8 @@ namespace DinAtm.Pure
                 }
                 ii++;
             }
-            return d + db;
+            var x = d + db;
+            return x;
         }
 
         static long shiftdat(DateTime dat)

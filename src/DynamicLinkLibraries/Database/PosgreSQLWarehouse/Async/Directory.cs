@@ -28,12 +28,21 @@ namespace PostgreSQLWarehouse.Async
 
         public Directory(IDataRecord record, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
         {
-           WarehouseInterface = postgreSQLWarehouse;
-            Id = record[0];
-            var p = record[1];
-            name = record.GetString(2);
-            description = record.GetString(3);
-            Extension = record.GetString(4);
+            try
+            {
+                WarehouseInterface = postgreSQLWarehouse;
+                Id = record[0];
+                var p = record[1];
+                name = record.GetString(2);
+                description = record.GetString(3);
+                Extension = record.GetString(4);
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException();
+            }
+
+
         }
 
         public Directory(IDirectory directory, object id, PostgreSQLWarehouseInterface postgreSQLWarehouse, bool b) : base(b)
@@ -85,12 +94,12 @@ namespace PostgreSQLWarehouse.Async
             return base.Add(directory);
         }
 
-        protected override Task<List<IDirectoryAsync>> LoadChildren()
+        protected override Task<List<IDirectoryAsync>> LoadChildren(CancellationToken cancellationToken)
         {
             return WarehouseInterface.LoadChildren(this);
         }
 
-        protected override Task<List<ILeafAsync>> LoadLeaves()
+        protected override Task<List<ILeafAsync>> LoadLeaves(CancellationToken cancellationToken)
         {
             return WarehouseInterface.GetLeavesAsync(this);
 
@@ -98,9 +107,9 @@ namespace PostgreSQLWarehouse.Async
 
         IDatabaseInterfaceAsync Async =>WarehouseInterface;
 
-        protected override async Task<ILeafAsync> AddAsync(ILeaf leaf)
+        protected override async Task<ILeafAsync> AddAsync(ILeaf leaf, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.Add(this, leaf as ILeafData);
+            var t = WarehouseInterface.Add(this, leaf as ILeafData);
             if (SyncMode == DataWarehouse.Classes.SyncMode.Synchronous)
             {
                 if (!t.IsCompleted)
@@ -114,9 +123,9 @@ namespace PostgreSQLWarehouse.Async
         }
 
 
-        protected override async Task<bool> RemoveItselfAsync()
+        protected override async Task<bool> RemoveItselfAsync(CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.RemoveAsync(this);
+            var t = WarehouseInterface.RemoveAsync(this);
             await t;
             return (t.Result != null);
         }
@@ -166,24 +175,24 @@ namespace PostgreSQLWarehouse.Async
 
     
 
-        protected override async Task<IDirectoryAsync> AddAsync(IDirectory directory)
+        protected override async Task<IDirectoryAsync> AddAsync(IDirectory directory, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.Add(this, directory);
+            var t = WarehouseInterface.Add(this, directory);
             await t;
             return t.Result;
         }
 
 
-        protected override async Task<string> UpdateNameAsync(string name)
+        protected override async Task<string> UpdateNameAsync(string name, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.UpdateDirNameAsync(name, this);
+            var t = WarehouseInterface.UpdateDirNameAsync(name, this);
             await t;
             return t.Result;
         }
 
-        protected override async Task<string> UpdateDescriptionAsync(string description)
+        protected override async Task<string> UpdateDescriptionAsync(string description, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.UpdateDirDecriptionAsync(description, this);
+            var t = WarehouseInterface.UpdateDirDecriptionAsync(description, this);
             await t;
             return t.Result;
         }
@@ -192,10 +201,19 @@ namespace PostgreSQLWarehouse.Async
         {
 
             var tt = new Tuple<Guid, IDirectory>((Guid)Id, directory);
-            var t =WarehouseInterface.Insert(tt);
+            var  t = WarehouseInterface.Insert(tt);
             return (directory == null) ? new Directory(t,WarehouseInterface, true) :
                 new Directory(directory, t.Item1,WarehouseInterface, true);
         }
 
+        protected override List<ILeaf> GetLeavesFormDatabase()
+        {
+            throw new OwnNotImplemented();
+        }
+
+        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        {
+            throw new OwnNotImplemented();
+        }
     }
 }

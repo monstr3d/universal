@@ -1,6 +1,6 @@
 export interface IMeasurement
 {
-    getName(): string;
-    getType(): any;
+    getMeasurementName(): string;
+    getMeasurementType(): any;
     getMeasurementValue() : any;
 }

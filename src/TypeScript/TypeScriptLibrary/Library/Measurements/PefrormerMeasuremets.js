@@ -1,11 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PefrormerMeasuremets = void 0;
-const TimeMeasurementProvider_1 = require("./TimeMeasurementProvider");
 const Performer_1 = require("../Performer");
+const DataConsumerBoolFunc_1 = require("./DataConsumerBoolFunc");
+const TimeMeasurementProvider_1 = require("./TimeMeasurementProvider");
 class PefrormerMeasuremets {
     constructor() {
         this.performer = new Performer_1.Performer();
+    }
+    getArrayMeasurements(array) {
+        var n = array.getMeasurementNames().length;
+        var mea = [];
+        for (var i = 0; i < n; i++) {
+            //  mea.push(new ArrayMeasurement(array, i));
+        }
+        return mea;
+    }
+    initStart(array, x) {
+        var n = x.length;
+        var y = array.getMeasurementValues();
+        for (var i = 0; i < n; i++) {
+            y[i] = x[i];
+        }
     }
     getDependentPrivate(dataConsumer, measurements) {
         let m = dataConsumer.getAllMeasurements();
@@ -20,12 +36,40 @@ class PefrormerMeasuremets {
             }
         }
     }
-    peformFixedStepCalculation(runtime, start, step, steps, act) {
+    peformCondDCFixedStepCalculation(runtime, dataConsumer, conditionName, start, step, steps, act) {
+        var cond = new DataConsumerBoolFunc_1.DataConsumerBoolFunc(dataConsumer, conditionName);
+        this.peformCondFixedStepCalculation(runtime, cond, start, step, steps, act);
+    }
+    peformCondFixedStepCalculation(runtime, condition, start, step, steps, act) {
         var tm = new TimeMeasurementProvider_1.TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
+        runtime.startRuntime(start);
         var st = start;
         for (var i = 0; i < steps; i++) {
             tm.setTime(st);
+            runtime.updateRuntime();
+            if (condition.func()) {
+                act.action();
+            }
+            let s = st + step;
+            if (i > 0) {
+                runtime.stepRuntime(st, s);
+            }
+            st = s;
+        }
+    }
+    performFixedStepCalculation(runtime, start, step, steps, act) {
+        let tm = new TimeMeasurementProvider_1.TimeMeasurementProvider();
+        runtime.setTimeProvider(tm);
+        runtime.startRuntime(start);
+        var st = start;
+        var curr = start;
+        for (var i = 0; i < steps; i++) {
+            tm.setTime(st);
+            if (i > 0) {
+                runtime.stepRuntime(curr, st);
+                curr = st;
+            }
             runtime.updateRuntime();
             act.action();
             st += step;

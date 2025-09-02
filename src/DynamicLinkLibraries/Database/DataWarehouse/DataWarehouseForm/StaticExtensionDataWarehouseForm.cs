@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,7 +59,8 @@ namespace DataWarehouse
 
         }
 
-        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, string ext, bool recursice, bool leaves, Action<Issue> action)
+        public static async Task Fill(this TreeView treeView,  DatabaseInterface data, 
+            string ext, bool recursice, bool leaves, Action<Issue> action, CancellationToken cancellationToken)
         {
             treeView.Cursor = Cursors.WaitCursor;
             treeView.Enabled = false;
@@ -67,7 +69,7 @@ namespace DataWarehouse
                 IDirectory[] dir = null;
                 var act = () =>
                 {
-                    treeView.Fill(dir, recursice, leaves, action);
+                    treeView.Fill(dir, recursice, leaves, action, cancellationToken);
                 };
                 if (!data.SupportsAsync)
                 {
@@ -75,7 +77,7 @@ namespace DataWarehouse
                     act();
                     return;
                 }
-                var t = data.GetRootsAsync(new string[] { ext });
+                var t = data.GetRootsAsync(new string[] { ext }, cancellationToken);
                 await t;
                 var r = t.Result;
                 dir = (from d in r select d as IDirectory).ToArray();
@@ -95,7 +97,8 @@ namespace DataWarehouse
 
         }
 
-        static async void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice, bool leaves, Action<Issue> action)
+        static async void Fill(this TreeView treeView, IEnumerable<IDirectory> dir, bool recursice,
+            bool leaves, Action<Issue> action, CancellationToken token)
         {
             var curs = treeView.Cursor;
             treeView.Cursor = Cursors.WaitCursor;
@@ -106,7 +109,7 @@ namespace DataWarehouse
                 {
                     var nd = d.GetNode(recursice, leaves, action);
                     treeView.Nodes.Add(nd);
-                    var t = d.FillNode(nd, recursice, leaves, action);
+                    var t = d.FillNode(nd, recursice, leaves, action, token);
                     await t;
                 }
                 foreach (System.Windows.Forms.TreeNode tn in treeView.Nodes)
@@ -129,7 +132,7 @@ namespace DataWarehouse
 
         static public async Task FillNode(this IDirectory dir, 
             System.Windows.Forms.TreeNode node,
-            bool recursive, bool leaves, Action<Issue> action)
+            bool recursive, bool leaves, Action<Issue> action, CancellationToken cancellationToken)
         {
             var treeView = node.TreeView;
             var curs = treeView.Cursor;
@@ -143,10 +146,10 @@ namespace DataWarehouse
                 }
                 if (dir is IDirectoryAsync directoryAsync)
                 {
-                    var t = directoryAsync.LoadChildren();
+                    var t = directoryAsync.LoadChildren(cancellationToken);
                     await t;
-                        var tl = directoryAsync.LoadLeaves();
-                        await tl;
+                    var tl = directoryAsync.LoadLeaves(cancellationToken);
+                    await tl;
 
                 }
             }

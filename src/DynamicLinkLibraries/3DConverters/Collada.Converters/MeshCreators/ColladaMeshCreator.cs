@@ -18,8 +18,7 @@ namespace Collada.Converters.MeshCreators
 
         Dictionary<string, List<XmlElement>> elementList = new();
 
-        NamedTree.Performer p = new NamedTree.Performer();
-
+   
               
 
         internal Dictionary<string, List<Abstract3DConverters.Materials.Material>> MaterialList { get; private set; } = new();

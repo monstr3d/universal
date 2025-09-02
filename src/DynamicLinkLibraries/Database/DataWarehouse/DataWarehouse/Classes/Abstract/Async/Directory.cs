@@ -29,42 +29,42 @@ namespace DataWarehouse.Classes.Abstract.Async
         #endregion
 
         #region Abstract
-        protected abstract Task<List<IDirectoryAsync>> LoadChildren();
+        protected abstract Task<List<IDirectoryAsync>> LoadChildren(CancellationToken cancellationToken);
 
-        protected abstract Task<List<ILeafAsync>> LoadLeaves();
+        protected abstract Task<List<ILeafAsync>> LoadLeaves(CancellationToken cancellationToken);
 
-        protected abstract Task<bool> RemoveItselfAsync();
+        protected abstract Task<bool> RemoveItselfAsync(CancellationToken cancellationToken);
 
         /// <summary>
         /// Adds a leaf
         /// </summary>
         /// <param name="leaf">Prototype</param>
         /// <returns>THe added leaf</returns>
-        protected abstract Task<IDirectoryAsync> AddAsync(IDirectory directory);
+        protected abstract Task<IDirectoryAsync> AddAsync(IDirectory directory, CancellationToken cancellationToken);
  
-        protected abstract Task<ILeafAsync> AddAsync(ILeaf leaf);
+        protected abstract Task<ILeafAsync> AddAsync(ILeaf leaf, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates Name
         /// </summary>
         /// <param name="name">The name</param>
         /// <returns>The name</returns>
-        protected abstract Task<string> UpdateNameAsync(string name);
+        protected abstract Task<string> UpdateNameAsync(string name, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates Description
         /// </summary>
         /// <param name="name">The description</param>
         /// <returns>The description</returns>
-        protected abstract Task<string> UpdateDescriptionAsync(string description);
+        protected abstract Task<string> UpdateDescriptionAsync(string description, CancellationToken cancellationToken);
 
         #endregion
 
         #region 
 
-        protected  override List<ILeaf> GetLeavesFormDatabase()
+        protected  virtual List<ILeaf> GetLeavesFormDatabase(CancellationToken cancellationToken)
         {
-            var t = LoadLeaves();
+            var t = LoadLeaves(cancellationToken); ;
             var r = t.Result;
               var lold = leaves;
             if (r == null)
@@ -93,18 +93,18 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
 
-        protected override List<ILeaf> GetFuncLeafInitial()
+        protected virtual List<ILeaf> GetFuncLeafInitial(CancellationToken cancellationToken)
         {
-            var leaves = GetLeavesFormDatabase();
+            var leaves = GetLeavesFormDatabase(cancellationToken);
             GetLeaves = () => leaves;
             return leaves;
         }
 
 
 
-        protected override List<IDirectory> GetDirectoriesFormDatabase()
+        protected  List<IDirectory> GetDirectoriesFormDatabase(CancellationToken cancellationToken)
         {
-            var t = LoadChildren();
+            var t = LoadChildren(cancellationToken);
             var r = t.Result;
             var dd = directories;
             if (r == null)
@@ -132,52 +132,52 @@ namespace DataWarehouse.Classes.Abstract.Async
             return directories;
         }
 
-        protected async Task LoadDirectoriesFormDatabase()
+        protected async Task LoadDirectoriesFormDatabase(CancellationToken cancellationToken)
         {
-            var t = LoadChildren();
+            var t = LoadChildren(cancellationToken);
             await t;
         }
 
     
 
-        protected async Task LoadLeavesFormDatabase()
+        protected async Task LoadLeavesFormDatabaseAsync(CancellationToken cancellationToken)
         {
             IDirectoryAsync async = this;
-            var t = async.LoadLeaves();
+            var t = async.LoadLeaves(cancellationToken);
             await t;
         }
 
-        protected async Task LoadLeavesFormDatabase(AutoResetEvent e)
+        protected async Task LoadLeavesFormDatabaseAsync(AutoResetEvent e, CancellationToken cancellationToken)
         {
             IDirectoryAsync async = this;
-            var t = async.LoadLeaves();
-            await t;
-            e.Set();
-        }
-
-
-        protected async Task LoadDirectoriesFormDatabase(AutoResetEvent e)
-        {
-            IDirectoryAsync async = this;
-            var t = async.LoadChildren();
+            var t = async.LoadLeaves(cancellationToken);
             await t;
             e.Set();
         }
 
-        async Task LoadLeavesFormData(AutoResetEvent ev)
+
+        protected async Task LoadDirectoriesFormDatabaseAsync(AutoResetEvent e, CancellationToken cancellationToken)
         {
-            var t = LoadLeavesFormDatabase();
+            IDirectoryAsync async = this;
+            var t = async.LoadChildren(cancellationToken);
+            await t;
+            e.Set();
+        }
+
+        async Task LoadLeavesFormDataAsync(AutoResetEvent ev, CancellationToken cancellationToken)
+        {
+            var t = LoadLeavesFormDatabaseAsync(cancellationToken);
             await t;
             ev.Set();
         }
 
-        Func<ILeaf, ILeaf> AddLeaf;
+        Func<ILeaf, CancellationToken, ILeaf> AddLeaf;
 
-        protected ILeaf AddAsyncLeaf(ILeaf leaf)
+        protected ILeaf AddAsyncLeaf(ILeaf leaf, CancellationToken cancellationToken)
         {
             try
             {
-                CallAsync(leaf);
+                CallAsync(leaf, cancellationToken);
             }
             catch (Exception ex)
             {
@@ -187,13 +187,13 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
-        protected async Task<ILeaf> AddSyncLeaf(ILeaf leaf)
+        protected virtual async Task<ILeaf> AddSyncLeaf(ILeaf leaf, CancellationToken cancellationToken)
         {
             try
             {
 
                 var async = this as IDirectoryAsync;
-                var t = async.AddAsync(leaf);
+                var t = async.AddAsync(leaf, cancellationToken);
                 if (SyncMode == SyncMode.Asynchronous)
                 {
                     await t;
@@ -215,12 +215,12 @@ namespace DataWarehouse.Classes.Abstract.Async
             return true;
         }
 
-        protected override ILeaf Add(ILeaf leaf)
+        protected ILeaf Add(ILeaf leaf, CancellationToken cancellationToken)
         {
             Exception ex = null;
             try
             {
-                return AddLeaf(leaf);
+                return AddLeaf(leaf, cancellationToken);
             }
             catch (Exception e)
             {
@@ -229,7 +229,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             throw ex;
         }
 
-        protected override IDirectory Add(IDirectory directory)
+        protected  IDirectory Add(IDirectory directory, CancellationToken cancellationToken)
         {
             if (!ParentChildrenName.Check(directory))
             {
@@ -239,7 +239,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             }
             try
             {
-                CallAsync(directory);
+                CallAsync(directory, cancellationToken);
             }
             catch (Exception exception)
             {
@@ -248,11 +248,11 @@ namespace DataWarehouse.Classes.Abstract.Async
             return null;
         }
 
-        protected override void RemoveItself()
+        protected virtual void RemoveItself(CancellationToken cancellationToken)
         {
             try
             {
-                CallAsync();
+                CallAsync(cancellationToken);
             }
             catch (Exception exception)
             {
@@ -261,9 +261,9 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
-        protected override bool UpdateName(string name)
+        protected bool UpdateName(string name, CancellationToken cancellationToken)
         {
-            CallAsyncName(name);
+            CallAsyncName(name, cancellationToken);
             return true;
         }
 
@@ -274,33 +274,33 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         #region Calls
 
-        protected async void CallAsyncName(string name)
+        protected async void CallAsyncName(string name, CancellationToken cancellationToken)
         {
             var async = this as IDirectoryAsync;
-            var t = async.UpdateNameAsync(name);
+            var t = async.UpdateNameAsync(name, cancellationToken);
             await t;
         }
 
 
-        protected async void CallAsync(ILeaf leaf)
+        protected async void CallAsync(ILeaf leaf, CancellationToken cancellationToken)
         {
             var async = this as IDirectoryAsync;
-            var t = async.AddAsync(leaf);
+            var t = async.AddAsync(leaf, cancellationToken);
             await t;
         }
 
 
-        async void CallAsync(IDirectory dir)
+        async void CallAsync(IDirectory dir, CancellationToken cancellationToken)
         {
             IDirectoryAsync async = this;
-            var t = async.AddAsync(dir);
+            var t = async.AddAsync(dir, cancellationToken);
             await t;
         }
 
-        async void CallAsync()
+        async void CallAsync(CancellationToken cancellationToken)
         {
             var async = this as IDirectoryAsync;
-            var t = async.RemoveItselfAsync();
+            var t = async.RemoveItselfAsync(cancellationToken);
    
             await t;
             if (!t.Result)
@@ -321,7 +321,7 @@ namespace DataWarehouse.Classes.Abstract.Async
         #endregion
 
 
-        async Task<ILeafAsync> IDirectoryAsync.AddAsync(ILeaf leaf)
+        async Task<ILeafAsync> IDirectoryAsync.AddAsync(ILeaf leaf, CancellationToken cancellationToken)
         {
             if (!ChildrenName.Check(leaf))
             {
@@ -329,7 +329,7 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnAddLeafAct(iss);
                 return null;
             }
-            var t = AddAsync(leaf);
+            var t = AddAsync(leaf, cancellationToken);
             await t;
             if (t == null || t.Result == null)
             {
@@ -348,7 +348,7 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
 
-        async Task<IDirectoryAsync> IDirectoryAsync.AddAsync(IDirectory directory)
+        async Task<IDirectoryAsync> IDirectoryAsync.AddAsync(IDirectory directory, CancellationToken cancellationToken)
         {
             if (!ChildrenName.Check(directory))
             {
@@ -356,7 +356,7 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnAddDirectoryAct(ii);
                 return this;
             }
-            var t = AddAsync(directory);
+            var t = AddAsync(directory, cancellationToken);
             await t;
             var r = t.Result;
             if (r == null)
@@ -372,7 +372,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             return r;
         }
 
-        async Task IDirectoryAsync.LoadChildren()
+        async Task IDirectoryAsync.LoadChildren(CancellationToken cancellationToken)
         {
             if (directories != null)
             {
@@ -381,7 +381,7 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnGetDirectoriesAct(iss);
                 return;
             }
-            var t = LoadChildren();
+            var t = LoadChildren(cancellationToken);
             await t;
             var dd = directories;
             var r = t.Result;
@@ -411,7 +411,7 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
-        async Task IDirectoryAsync.LoadLeaves()
+        async Task IDirectoryAsync.LoadLeaves(CancellationToken cancellationToken)
         {
             var ll = leaves;
             if (leaves != null)
@@ -421,7 +421,7 @@ namespace DataWarehouse.Classes.Abstract.Async
                 OnGetLeavesAct(iss);
                 return;
             }
-            var t = LoadLeaves();
+            var t = LoadLeaves(cancellationToken);
             await t;
             leaves = new List<ILeaf>();
             var r = t.Result;
@@ -435,12 +435,12 @@ namespace DataWarehouse.Classes.Abstract.Async
             OnGetLeavesAct(issue);
         }
 
-        Task<bool> IDirectoryAsync.RemoveItselfAsync()
+        Task<bool> IDirectoryAsync.RemoveItselfAsync(CancellationToken cancellationToken)
         {
-            return RemoveItselfAsync();
+            return RemoveItselfAsync(cancellationToken);
         }
 
-        async Task<string> IDirectoryAsync.UpdateNameAsync(string name)
+        async Task<string> IDirectoryAsync.UpdateNameAsync(string name, CancellationToken cancellationToken)
         {
             var s = new UpdateData<string, IDirectory>(this.name, name, this);
             if ((name == this.name) || (!ParentChildrenName.Check(name)))
@@ -453,7 +453,7 @@ namespace DataWarehouse.Classes.Abstract.Async
             {
                 return name;
             }
-            var t = UpdateNameAsync(name);
+            var t = UpdateNameAsync(name, cancellationToken);
             await t;
             var r = t.Result;
             if (r == null)
@@ -470,9 +470,9 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         
  
-        Task<string> IDirectoryAsync.UpdateDescriptionAsync(string description)
+        Task<string> IDirectoryAsync.UpdateDescriptionAsync(string description, CancellationToken cancellationToken)
         {
-            return UpdateDescriptionAsync(description);
+            return UpdateDescriptionAsync(description, cancellationToken);
         }
     }
 }

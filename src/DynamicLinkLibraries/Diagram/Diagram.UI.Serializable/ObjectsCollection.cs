@@ -22,8 +22,7 @@ namespace Diagram.UI
 
         Performer performer = new();
 
-        NamedTree.Performer p = new();
-
+ 
         /// <summary>
         /// Type of element
         /// </summary>

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Diagram.Interfaces
+namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Additional code

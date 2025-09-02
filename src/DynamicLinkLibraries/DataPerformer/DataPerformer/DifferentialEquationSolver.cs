@@ -31,7 +31,7 @@ namespace DataPerformer
         #region Constructors
 
         /// <summary>
-        /// Consructor
+        /// Constructor
         /// </summary>
         public DifferentialEquationSolver()
         {

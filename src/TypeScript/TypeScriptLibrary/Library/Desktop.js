@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Desktop = void 0;
+const OwnNotImplemented_1 = require("./ErrorHandler/OwnNotImplemented");
 class Desktop {
     constructor() {
         this.check = () => {
@@ -21,6 +22,15 @@ class Desktop {
     }
     getCheck() {
         return this.check;
+    }
+    getCategoryObject(name) {
+        for (var o of this.categoryObjects) {
+            var n = o.getCategoryObjectName();
+            if (n == name) {
+                return o;
+            }
+        }
+        throw new OwnNotImplemented_1.OwnNotImplemented();
     }
     getCategoryObjects() {
         return this.categoryObjects;

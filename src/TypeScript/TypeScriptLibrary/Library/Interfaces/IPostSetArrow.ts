@@ -1,1 +1,4 @@
-export interface IPostSetArrow { postSetArrow(): void; }
+export interface IPostSetArrow
+{
+    postSetArrow(): void;
+}

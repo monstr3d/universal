@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-
-using FormulaEditor.Interfaces;
-using BaseTypes.Interfaces;
+using BaseTypes.CodeCreator.Interfaces;
+using ErrorHandler;
+using FormulaEditor.CodeCreators.Interfaces;
 
 namespace FormulaEditor.CodeCreators
 {
     /// <summary>
     /// Abstract creator of code
     /// </summary>
-    public abstract class AbstractCodeCreator : ICodeCreator
+    public abstract class AbstractCodeCreator : ITreeCodeCreator
     {
         #region Fields
+
+
 
         /// <summary>
         /// Trees
@@ -22,7 +23,7 @@ namespace FormulaEditor.CodeCreators
         protected ObjectFormulaTree[] trees;
 
         /// <summary>
-        /// Identificators of trees
+        /// Identifiers of trees
         /// </summary>
         protected Dictionary<ObjectFormulaTree, string> ident =
             new Dictionary<ObjectFormulaTree, string>();
@@ -30,12 +31,12 @@ namespace FormulaEditor.CodeCreators
         /// <summary>
         /// Creators
         /// </summary>
-        protected ICodeCreator[] creators;
+        protected ITreeCodeCreator[] creators;
 
         /// <summary>
         /// Creator
         /// </summary>
-        protected ICodeCreator codeCreator;
+        protected ITreeCodeCreator codeCreator;
 
         /// <summary>
         /// Optional operations
@@ -45,33 +46,25 @@ namespace FormulaEditor.CodeCreators
         /// <summary>
         /// Dictionary
         /// </summary>
-        protected Dictionary<ObjectFormulaTree, int> dictionary = 
+        protected Dictionary<ObjectFormulaTree, int> dictionary =
             new Dictionary<ObjectFormulaTree, int>();
 
         #endregion
 
         #region Ctor
 
+        protected AbstractCodeCreator()
+        {
+            codeCreator = this;
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="trr">Collection of trees</param>
-        protected AbstractCodeCreator(ObjectFormulaTree[] trr)
+        protected AbstractCodeCreator(ObjectFormulaTree[] trr) : this()
         {
-            codeCreator = this;
-            ObjectFormulaTree[] t = trr;
-            if (t == null)
-            {
-                t = new ObjectFormulaTree[0];
-            }
-            trees = ObjectFormulaTree.CreateList(t, optional).ToArray();
-            int i = 0;
-            foreach (ObjectFormulaTree tr in trees)
-            {
-                ident[tr] = "var_" + i;
-                dictionary[tr] = i;
-                ++i;
-            }
+            Set(trr);
         }
 
         #endregion
@@ -84,22 +77,17 @@ namespace FormulaEditor.CodeCreators
         /// <param name="tree">The tree</param>
         /// <param name="ret">Return value</param>
         /// <param name="parameters">Parameters</param>
-        /// <param name="variables">Variables</param>
-        /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public virtual IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret,
-            string[] parameters, out IList<string> variables,
-            out IList<string> initializers)
+        protected virtual Dictionary<string, List<string>> CreateCode(object obj, ObjectFormulaTree tree, string ret,
+            string[] parameters)
         {
-            variables = null;
-            initializers = null;
             if (creators == null)
             {
                 return null;
             }
-            foreach (ICodeCreator cc in creators)
+            foreach (var cc in creators)
             {
-                IList<string> l = cc.CreateCode(obj, tree, ret, parameters, out variables, out initializers);
+                var l = cc.CreateCode(obj, tree, ret, parameters);
                 if (l != null)
                 {
                     return l;
@@ -121,7 +109,7 @@ namespace FormulaEditor.CodeCreators
         /// </summary>
         /// <param name="trees">Trees</param>
         /// <returns>Creator</returns>
-        public abstract ICodeCreator Create(object obj, ObjectFormulaTree[] trees);
+        public abstract ITreeCodeCreator Create(object obj, ObjectFormulaTree[] trees);
 
         /// <summary>
         /// Trees
@@ -131,8 +119,12 @@ namespace FormulaEditor.CodeCreators
             get { return trees; }
         }
 
-        int ICodeCreator.GetNumber(ObjectFormulaTree tree)
+        int ITreeCodeCreator.GetNumber(ObjectFormulaTree tree)
         {
+            if (!dictionary.ContainsKey(tree))
+            {
+                throw new OwnNotImplemented();
+            }
             return dictionary[tree];
         }
 
@@ -146,12 +138,20 @@ namespace FormulaEditor.CodeCreators
 
         #region Abstract Members
 
+        protected virtual object Object { get; set; }
+
+
         /// <summary>
         /// Gets constant string representation of value of tree 
         /// </summary>
         /// <param name="tree">The tree</param>
         /// <returns>String representation</returns>
         public abstract string GetConstValue(ObjectFormulaTree tree);
+
+        Dictionary<string, List<string>> ITreeCodeCreator.CreateCode(object obj, ObjectFormulaTree tree, string ret, params string[] parameters)
+        {
+            return CreateCode(obj, tree, ret, parameters);
+        }
 
         /// <summary>
         /// Type creator
@@ -160,9 +160,30 @@ namespace FormulaEditor.CodeCreators
         {
             get;
         }
+        object ITreeCodeCreator.Object { get => Object; set => Object = value; }
 
-        #endregion
+        protected virtual void Set(ObjectFormulaTree[] trr)
+        {
+            ident.Clear();
+            dictionary.Clear();
+            ObjectFormulaTree[] t = trr;
+            if (t == null)
+            {
+                t = new ObjectFormulaTree[0];
+            }
+            trees = ObjectFormulaTree.CreateList(t, optional).ToArray();
+            int i = 0;
+            foreach (ObjectFormulaTree tr in trees)
+            {
+                ident[tr] = "var_" + i;
+                dictionary[tr] = i;
+                ++i;
 
-        #endregion
+            }
+
+            #endregion
+
+            #endregion
+        }
     }
 }

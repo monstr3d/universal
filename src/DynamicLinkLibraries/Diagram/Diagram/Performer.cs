@@ -5,20 +5,117 @@ using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
 
+using BaseTypes.Attributes;
+using BaseTypes.CodeCreator.Interfaces;
 using CategoryTheory;
-
+using Diagram.UI;
 using Diagram.UI.Attributes;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-
 using ErrorHandler;
-
 using NamedTree;
 
 namespace Diagram.UI
 {
-    public class Performer
+    /// <summary>
+    /// Performer of basic operations
+    /// </summary>
+    public class Performer : NamedTree.Performer
     {
+
+
+   
+        /// <summary>
+        /// Dictionary from alias
+        /// </summary>
+        /// <param name="alias">the alias</param>
+        /// <returns>Thr dictionary</returns>
+        public Dictionary<string, object> FromAlias(IAlias alias)
+        {
+            
+            var d = new Dictionary<string, object>();
+            foreach (var name in alias.AliasNames)
+            {
+                d.Add(name, alias[name]);
+            }
+            return d;
+        }
+
+
+
+        readonly Type tclassdcc = typeof(IDesktopCodeCreator);
+
+
+        readonly Type tclasscc = typeof(IClassCodeCreator);
+
+        readonly Type tcreatort = typeof(ITypeCreator);
+
+        readonly Type tcreatora = typeof(IAliasCodeCreator);
+        
+        readonly Type tcreatfcc = typeof(IFeedbackCollectionCodeCreator);
+
+        public virtual T GetLaguageObject<T>(string language) where T : class
+        {
+            var s = language;
+            if (s == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            var t = typeof(T);
+            if (t == tclassdcc)
+            {
+                return StaticExtensionDiagramUI.DesktopCreators[s] as T;
+            }
+
+            if (t == tclasscc)
+            {
+                return StaticExtensionDiagramUI.Creators[s] as T;
+            }
+            if (t == tcreatort)
+            {
+                return StaticExtensionDiagramUI.TypeCreators[s] as T;
+            }
+            if (t == tcreatora)
+            {
+                return StaticExtensionDiagramUI.AliasCreators[s] as T;
+            }
+            if (t == tcreatfcc)
+            {
+                return StaticExtensionDiagramUI.FeedBackCreators[s] as T;
+            }
+            return null;
+
+        }
+
+        public T GetLaguageObject<T>(object o) where T : class
+        {
+
+            var s = GetLanguage(o);
+            if (s == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            return GetLaguageObject<T>(s);
+        }
+
+        
+        /// <summary>
+        /// Gets language of object
+        /// </summary>
+        /// <param name="o">The object</param>
+        /// <returns>The language</returns>
+        public string GetLanguage(object o)
+        {
+            var att = GetAttribute<LanguageAttribute>(o);
+            if (att == null)
+            {
+                return null;
+            }
+            return att.Language;
+        }
+
+
 
 
         /// <summary>
@@ -249,9 +346,22 @@ namespace Diagram.UI
         }
 
 
+        /// <summary>
+        /// Gets root  name of an object
+        /// </summary>
+        /// <param name="obj">The object</param>
+        /// <returns>The name</returns>
+        public string GetRootName(object obj)
+        {
+            if (obj is IAssociatedObject ao)
+            {
+                return GetRootName(ao);
+            }
+            return null;
+        }
 
         /// <summary>
-        /// Gets root  name of associated object
+        /// Gets root  name of an associated object
         /// </summary>
         /// <param name="associatedObject">The object</param>
         /// <returns>The name</returns>
@@ -1258,9 +1368,32 @@ namespace Diagram.UI
             return l;
         }
 
+        /// <summary>
+        /// Enumerates component collection
+        /// </summary>
+        /// <param name="collection">TThe collection</param>
+        /// <returns>The enumeration</returns>
 
-
-
+        public Tuple<Dictionary<ICategoryObject, int>, Dictionary<ICategoryArrow, int>> Enumerate(IComponentCollection collection)
+        {
+            var dob = new Dictionary<ICategoryObject, int>();
+            int i = 0;
+            var acto = (ICategoryObject ob) =>
+            {
+                dob[ob] = i;
+                ++i;
+            };
+            ForAll(collection, acto);
+            var doa = new Dictionary<ICategoryArrow, int>();
+            i = 0;
+            var acta = (ICategoryArrow ar) =>
+            {
+                doa[ar] = i;
+                ++i;
+            };
+          ForAll(collection, acta);
+            return new Tuple<Dictionary<ICategoryObject, int>, Dictionary<ICategoryArrow, int>>(dob, doa);
+        }
 
         /// <summary>
         /// Performs action for each collection objects
@@ -1570,16 +1703,6 @@ namespace Diagram.UI
             return o + "";
         }
 
-        /// <summary>
-        /// Converts to string
-        /// </summary>
-        /// <param name="a">Double value</param>
-        /// <returns>String</returns>
-        public  string DoubleToString(double a)
-        {
-            return a.ToString("G17", System.Globalization.CultureInfo.InvariantCulture);
-        }
-
 
         /// <summary>
         /// Any to string
@@ -1786,8 +1909,7 @@ namespace Diagram.UI
                 return null;
             }
             l.Add(obj);
-            var p = new NamedTree.Performer();
-            UrlAttribute attr = p.GetAttribute<UrlAttribute>(obj);
+            UrlAttribute attr = GetAttribute<UrlAttribute>(obj);
             if (attr != null)
             {
                 return attr.Url;

@@ -1,13 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
-
-using CategoryTheory;
-using Diagram.UI;
-using FormulaEditor;
-using GeneralLinearMethod;
-using AnalyticPolynom;
 using DataPerformer.Interfaces;
 
 

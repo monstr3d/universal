@@ -4,16 +4,21 @@ using System.Drawing;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
+
 using CategoryTheory;
-using Diagram.UI.Forms.Interfaces;
+
 using Diagram.UI.Interfaces;
+
+using Diagram.UI.Forms.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace Diagram.UI.Labels
 {
     /// <summary>
-    /// Base label for all labers
+    /// Base label for all labels
     /// </summary>
     [Serializable()]
     public abstract partial class UserControlBaseLabel : UserControl,
@@ -21,7 +26,7 @@ namespace Diagram.UI.Labels
     {
         #region Fields
 
-        NamedTree.Performer performer = new();
+        Performer performer = new();
 
         /// <summary>
         /// Child control

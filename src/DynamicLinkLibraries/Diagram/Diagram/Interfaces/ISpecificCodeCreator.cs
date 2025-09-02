@@ -1,7 +1,5 @@
 ﻿
-using Diagram.UI.Interfaces;
-
-namespace Diagram.Interfaces
+namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Specific code creator

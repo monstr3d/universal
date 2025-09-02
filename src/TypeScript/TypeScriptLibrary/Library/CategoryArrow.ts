@@ -11,6 +11,9 @@ export class CategoryArrow implements ICategoryArrow, IObject
         desktop.addCategoryArrow(this);
         desktop.addObject(this);
     }
+    getArrowName(): string {
+        return this.name;
+    }
     getClassName(): string {
         return this.typeName;
     }
@@ -42,7 +45,7 @@ export class CategoryArrow implements ICategoryArrow, IObject
     getSource(): ICategoryObject {
         return this.source;
     }
-    getTagret(): ICategoryObject {
+    getTarget(): ICategoryObject {
         return this.target;
     }
     setSource(source: ICategoryObject): void {

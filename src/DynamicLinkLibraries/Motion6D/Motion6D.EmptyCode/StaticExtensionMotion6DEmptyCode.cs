@@ -1,13 +1,14 @@
 ﻿using AssemblyService.Attributes;
+
 using BaseTypes;
-using Diagram.Attributes;
-using Diagram.Interfaces;
+using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
+
 using Motion6D.Interfaces;
 using Motion6D.Portable;
 using Motion6D.Portable.Interfaces;
-using static Motion6D.EmptyCode.StaticExtensionMotion6DEmptyCode;
 
 namespace Motion6D.EmptyCode
 {
@@ -70,10 +71,21 @@ namespace Motion6D.EmptyCode
 
             private CodeCreator()
             {
-                this.AddCodeCreator();
+               this.AddClassCodeCreator();
             }
 
-            List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+            protected IDesktopCodeCreator DesktopCodeCreator
+            { get; set; }
+
+
+            protected virtual string BaseClassString(string prefix, object obj, string volume)
+            {
+                return obj.GetType().Name;
+            }
+
+
+            List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
             {
                 if (!(obj is IAllowCodeCreation))
                 {

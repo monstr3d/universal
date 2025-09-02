@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-
-using Diagram.Attributes;
+﻿using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
+using System.Collections.Generic;
 
 namespace DataPerformer.Portable
 {
@@ -12,14 +12,26 @@ namespace DataPerformer.Portable
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+            this.AddClassCodeCreator();
         }
 
 
 
         #region IClassCodeCreator Members
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
 
             string str = null;

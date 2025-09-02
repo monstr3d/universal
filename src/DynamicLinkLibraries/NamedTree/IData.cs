@@ -16,6 +16,6 @@
     /// </summary>
     public interface IDataAsync
     {
-        Task<byte[]> GetDataAsync();
+        Task<byte[]> GetDataAsync(CancellationToken cancellationToken);
     }
 }

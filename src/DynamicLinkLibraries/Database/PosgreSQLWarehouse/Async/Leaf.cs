@@ -2,7 +2,9 @@
 
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace PostgreSQLWarehouse.Async
@@ -67,7 +69,7 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override Task<byte[]> GetDataAsync()
+        protected override Task<byte[]> GetDataAsync(CancellationToken cancellationToken)
         {
             return WarehouseInterface.GetDataAsync(this);
         }
@@ -87,7 +89,7 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override async Task<bool> RemoveItselfAsync()
+        protected override async Task<bool> RemoveItselfAsync(CancellationToken cancellationToken)
         {
             var t =WarehouseInterface.RemoveAsync(this);
             await t;
@@ -109,21 +111,21 @@ namespace PostgreSQLWarehouse.Async
             throw new OwnNotImplemented();
         }
 
-        protected override async Task<byte[]> UpdateDataAcync(byte[] data)
+        protected override async Task<byte[]> UpdateDataAcync(byte[] data, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.UpdateDataAcync(data, this);
+            var t = WarehouseInterface.UpdateDataAcync(data, this);
             await t;
             return t.Result;
         }
 
-        protected override Task<string> UpdateDescriptionAsync(string description)
+        protected override Task<string> UpdateDescriptionAsync(string description, CancellationToken cancellationToken)
         {
             throw new OwnNotImplemented();
         }
 
-        protected override async Task<string> UpdateNameAsync(string name)
+        protected override async Task<string> UpdateNameAsync(string name, CancellationToken cancellationToken)
         {
-            var t =WarehouseInterface.UpdateLeafNameAsync(name, this);
+            var t = WarehouseInterface.UpdateLeafNameAsync(name, this);
             await t;
             return t.Result;
         }

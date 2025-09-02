@@ -64,9 +64,6 @@ namespace DataWarehouse.Classes.Abstract
             return AcceptUpdate(name);
         }
 
-
-
-
         protected Leaf(object id, string name,  string description, string extension,
          byte[] data) : this()
         {
@@ -224,7 +221,7 @@ namespace DataWarehouse.Classes.Abstract
 
         object INode.Id => Id;
 
-        string INode.Extension =>   Extension;
+        string INode.Extension =>  Extension;
 
         string INamed.Name { get => Name; set => Name = value; }
         INode<INode> INode<INode>.Parent { get => Parent; set => Parent = value; }
@@ -233,6 +230,7 @@ namespace DataWarehouse.Classes.Abstract
         INode INode<INode>.Value => Value;
 
         string IDescription.Description { get => Description; set => Description = value; }
+        
         byte[] IData.Data { get => Data; set => Data = value; }
        
 

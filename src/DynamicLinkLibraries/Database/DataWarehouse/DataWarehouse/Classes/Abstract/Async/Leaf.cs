@@ -1,10 +1,12 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Threading;
 using System.Threading.Tasks;
 
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace DataWarehouse.Classes.Abstract.Async
@@ -14,9 +16,6 @@ namespace DataWarehouse.Classes.Abstract.Async
         protected virtual event Action<object> OnUpdateData;
 
         ILeafAsync Async => this;
-
-  
-
 
         event Action<object> ILeafAsync.OnUpdateData
         {
@@ -36,26 +35,26 @@ namespace DataWarehouse.Classes.Abstract.Async
             OnUpdateData?.Invoke(o);
         }
 
-        protected abstract Task<bool> RemoveItselfAsync();
+        protected abstract Task<bool> RemoveItselfAsync(CancellationToken cancellationToken);
 
-        protected abstract Task<byte[]> GetDataAsync();
+        protected abstract Task<byte[]> GetDataAsync(CancellationToken cancellationToken);
 
-        async Task<byte[]> IDataAsync.GetDataAsync()
+        async Task<byte[]> IDataAsync.GetDataAsync(CancellationToken cancellationToken)
         {
             if (data == null)
             {
-                var t = GetDataAsync();
+                var t = GetDataAsync(cancellationToken);
                 await t;
                 data = t.Result;
             }
             return data;
         }
 
-        protected override void RemoveItself()
+        protected virtual void RemoveItself(CancellationToken cancellationToken)
         {
             try
             {
-                CallAsync();
+                CallAsync(cancellationToken);
             }
             catch (Exception exception)
             {
@@ -65,16 +64,16 @@ namespace DataWarehouse.Classes.Abstract.Async
 
 
 
-        async void CallAsync()
+        async void CallAsync(CancellationToken cancellationToken)
         {
             ILeafAsync async = this;
-            var t = async.RemoveItselfAsync();
+            var t = async.RemoveItselfAsync(cancellationToken);
             await t;
         }
 
-        async Task<bool> ILeafAsync.RemoveItselfAsync()
+        async Task<bool> ILeafAsync.RemoveItselfAsync(CancellationToken cancellationToken)
         {
-            var t = RemoveItselfAsync();
+            var t = RemoveItselfAsync(cancellationToken);
             ILeaf  l = this;
             await t;
             if (t.Result)
@@ -93,21 +92,21 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
 
-        protected async void CallNameAsync(string name)
+        protected async void CallNameAsync(string name, CancellationToken cancellationToken)
         {
-            var t = Async.UpdateNameAsync(name);
+            var t = Async.UpdateNameAsync(name, cancellationToken);
             await t;
         }
 
-        protected abstract Task<byte[]> UpdateDataAcync(byte[] data);
+        protected abstract Task<byte[]> UpdateDataAcync(byte[] data, CancellationToken cancellationToken);
        
-        protected override bool UpdateName(string name)
+        protected virtual bool UpdateName(string name, CancellationToken cancellationToken)
         {
             try
             {
                 if (name != this.name)
                 {
-                    CallNameAsync(name);
+                    CallNameAsync(name, cancellationToken);
                 }
             }
             catch (Exception ex)
@@ -119,11 +118,11 @@ namespace DataWarehouse.Classes.Abstract.Async
         }
 
   
-        protected abstract Task<string> UpdateNameAsync(string name);
+        protected abstract Task<string> UpdateNameAsync(string name, CancellationToken cancellationToken);
 
-        protected abstract Task<string> UpdateDescriptionAsync(string description);
+        protected abstract Task<string> UpdateDescriptionAsync(string description, CancellationToken cancellationToken);
 
-        async Task<string> ILeafAsync.UpdateNameAsync(string name)
+        async Task<string> ILeafAsync.UpdateNameAsync(string name, CancellationToken cancellationToken)
         {
             var s = new UpdateData<string, ILeaf>(this.name, name, this);
             if ((name == this.name) || (!ChildrenName.Check(name)))
@@ -131,7 +130,7 @@ namespace DataWarehouse.Classes.Abstract.Async
                 var i = new Issue(s, ErrorType.IllegalName, OperationType.UpdateLeafName);
                 OnChangeItselfAct(i);
             }
-            var t = UpdateNameAsync(name);
+            var t = UpdateNameAsync(name, cancellationToken);
             await t;
             var r = t.Result;
             if (r == null)
@@ -146,23 +145,23 @@ namespace DataWarehouse.Classes.Abstract.Async
 
         }
 
-        Task<string> ILeafAsync.UpdateDescriptionAsync(string description)
+        Task<string> ILeafAsync.UpdateDescriptionAsync(string description, CancellationToken cancellationToken)
         {
-            return UpdateDescriptionAsync(description);
+            return UpdateDescriptionAsync(description, cancellationToken);
         }
 
-        protected override byte[] Data {  set => CallAsync(value); }
+      //  protected override byte[] Data {  set => CallAsync(value); }
 
-        protected async void CallAsync(byte[] data)
+        protected async void CallAsync(byte[] data, CancellationToken cancellationToken)
         {
             ILeafAsync async = this;
-            var t = async.UpdateDataAcync(data);
+            var t = async.UpdateDataAcync(data, cancellationToken);
             await t;
         }
 
-        async Task<byte[]> ILeafAsync.UpdateDataAcync(byte[] data)
+        async Task<byte[]> ILeafAsync.UpdateDataAcync(byte[] data, CancellationToken cancellationToken)
         {
-            var t = UpdateDataAcync(data);
+            var t = UpdateDataAcync(data, cancellationToken);
               await t;
             var r = t.Result;
             var s = new UpdateData<byte[], ILeaf>(data, r, this);
@@ -175,7 +174,6 @@ namespace DataWarehouse.Classes.Abstract.Async
             var ii = new Issue(s, ErrorType.None, OperationType.UpdateLeafData);
             this.data = r;
             OnUpdateDataAct(ii);
-
             return t.Result;
 
         }

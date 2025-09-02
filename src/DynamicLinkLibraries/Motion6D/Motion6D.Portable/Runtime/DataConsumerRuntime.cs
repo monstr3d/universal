@@ -174,7 +174,7 @@ namespace Motion6D.Portable.Runtime
         /// <param name="time">Start time</param>
         protected override void StartAll(double time)
         {
-            provider.Time = time;
+            Provider.Time = time;
             foreach (var sta in started) 
             { 
                 sta.Start(time);

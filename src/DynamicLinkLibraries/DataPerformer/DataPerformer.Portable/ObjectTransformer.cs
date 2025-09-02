@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CategoryTheory;
 
 using Diagram.UI;
@@ -10,7 +8,9 @@ using Diagram.UI;
 using BaseTypes;
 
 using DataPerformer.Interfaces;
+
 using ErrorHandler;
+
 using NamedTree;
 
 namespace DataPerformer.Portable
@@ -19,10 +19,13 @@ namespace DataPerformer.Portable
     /// Transformer of objects
     /// </summary>
     public class ObjectTransformer : CategoryObject, 
-        IDataConsumer, IMeasurements, IPostSetArrow, IObjectTransformerConsumer
+        IDataConsumer, IMeasurements, IPostSetArrow, 
+        IObjectTransformerConsumer
     {
 
         #region Fields
+
+        Performer performer = new Performer();
 
         /// <summary>
         /// Change input event
@@ -91,8 +94,6 @@ namespace DataPerformer.Portable
 
         private Action act;
 
-        private IDataConsumer cons;
-
         private ArrayReturnType art;
 
         /// <summary>
@@ -110,7 +111,6 @@ namespace DataPerformer.Portable
         /// </summary>
         public ObjectTransformer()
         {
-            cons = this;
             act = () =>
             {
                 transformer.Calculate(inO, outO);
@@ -297,8 +297,21 @@ namespace DataPerformer.Portable
 
         #endregion
 
-
         #region Specific Members
+
+        public List<int[]> InputOutput
+        {
+            get
+            {
+                var list = new List<int[]>();
+                for (int i = 0; i < inMea.Length; i++)
+                {
+                    list.Add(performer.GetNumber(this, inMea[i]));
+                }
+                return list;
+            }
+
+        }
 
         /// <summary>
         /// Child transformer

@@ -4,7 +4,7 @@ exports.CategoryObject = void 0;
 const Performer_1 = require("./Performer");
 class CategoryObject {
     constructor(desktop, name) {
-        this.types = ["ICategoryObject", "CategoryObject"];
+        this.types = ["IObject", "ICategoryObject", "CategoryObject"];
         this.typeName = "CategoryObject";
         this.performer = new Performer_1.Performer();
         this.desktop = desktop;
@@ -12,9 +12,9 @@ class CategoryObject {
         desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
-        this.types.push("IObject");
-        this.types.push("ICategoryObject");
-        this.types.push("CategoryObject");
+    }
+    getName() {
+        return this.name;
     }
     getClassName() {
         return this.typeName;
@@ -34,7 +34,7 @@ class CategoryObject {
     setObject(obj) {
         this.obj = obj;
     }
-    getName() {
+    getCategoryObjectName() {
         return this.name;
     }
     check(x) {

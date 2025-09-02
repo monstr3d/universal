@@ -2,16 +2,20 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using System.Threading;
+
 using WeifenLuo.WinFormsUI.Docking;
 
 using DataWarehouse.Interfaces;
+
+using Diagram.UI.Interfaces;
 
 namespace DataWarehouse.Advanced.Forms
 {
     /// <summary>
     /// Database tree
     /// </summary>
-    public partial class FormDatabaseTree : DockContent
+    public partial class FormDatabaseTree : DockContent, ICancellation
     {
         #region Fields
 
@@ -19,6 +23,7 @@ namespace DataWarehouse.Advanced.Forms
 
         DockPanel dockPanel;
 
+ 
         #endregion
 
         #region Ctor
@@ -29,7 +34,7 @@ namespace DataWarehouse.Advanced.Forms
         }
 
         /// <summary>
-        /// Costructor
+        /// Constructor
         /// </summary>
         /// <param name="data">Database interface</param>
         /// <param name="ext">Extension</param>
@@ -38,7 +43,9 @@ namespace DataWarehouse.Advanced.Forms
             : this()
         {
             this.LoadControlResources();
-            userControlTree.Set(data, ext, image);
+            ICancellation cl = this;
+            var t = cl.CreateCancellationToken();
+            userControlTree.Set(data, ext, image, t);
             init();
             formSearch = new FormSearch();
             formSearch.Tree = userControlTree.Tree;
@@ -142,6 +149,16 @@ namespace DataWarehouse.Advanced.Forms
         private void userControlTree_OnRemove(TreeNode obj)
         {
             onRemoveNode(obj);
+        }
+
+        CancellationToken token;
+
+       CancellationToken ICancellation.CancellationToken => token;
+
+        CancellationToken ICancellation.CreateCancellationToken()
+        {
+            token = new CancellationToken();
+            return token;
         }
     }
 }

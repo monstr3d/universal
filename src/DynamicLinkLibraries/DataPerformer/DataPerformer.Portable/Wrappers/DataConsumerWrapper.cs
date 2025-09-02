@@ -5,9 +5,7 @@ using System.Reflection;
 using System.Threading;
 
 
-using CategoryTheory;
 
-using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
@@ -249,6 +247,7 @@ namespace DataPerformer.Portable.Wrappers
                     var p = backup.Processor;
                     provider.Time = start;
                     IDataRuntime runtime = backup.Runtime;
+                    runtime.TimeProvider = provider;
                     runtime.StartAll(start);
                     p.TimeProvider = provider;
                     IStep st = null;
@@ -660,7 +659,6 @@ namespace DataPerformer.Portable.Wrappers
         }
 
         #endregion
-
 
         #region Public members
 

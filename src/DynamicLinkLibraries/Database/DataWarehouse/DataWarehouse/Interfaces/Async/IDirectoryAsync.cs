@@ -1,4 +1,5 @@
 ﻿using DataWarehouse.Classes;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DataWarehouse.Interfaces.Async
@@ -12,47 +13,47 @@ namespace DataWarehouse.Interfaces.Async
         /// Loads children
         /// </summary>
         /// <returns>Task</returns>
-        Task LoadChildren();
+        Task LoadChildren(CancellationToken cancellationToken);
 
         /// <summary>
         /// Loads leaves
         /// </summary>
         /// <returns></returns>
-        Task LoadLeaves();
+        Task LoadLeaves(CancellationToken cancellationToken);
         
         /// <summary>
         /// Removes itself 
         /// </summary>
         /// <returns>Task</returns>
-        Task<bool> RemoveItselfAsync();
+        Task<bool> RemoveItselfAsync(CancellationToken cancellationToken);
 
         /// <summary>
         /// Adds a directory
         /// </summary>
         /// <param name="directory">Prototype</param>
         /// <returns>THe added directory</returns>
-         Task<IDirectoryAsync> AddAsync(IDirectory directory);
+         Task<IDirectoryAsync> AddAsync(IDirectory directory, CancellationToken cancellationToken);
 
         /// <summary>
         /// Adds a leaf
         /// </summary>
         /// <param name="leaf">Prototype</param>
         /// <returns>THe added leaf</returns>
-        Task<ILeafAsync> AddAsync(ILeaf leaf);
+        Task<ILeafAsync> AddAsync(ILeaf leaf, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates Name
         /// </summary>
         /// <param name="name">The name</param>
         /// <returns>The name</returns>
-        Task<string> UpdateNameAsync(string name);
+        Task<string> UpdateNameAsync(string name, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates Description
         /// </summary>
         /// <param name="name">The description</param>
         /// <returns>The description</returns>
-        Task<string> UpdateDescriptionAsync(string description);
+        Task<string> UpdateDescriptionAsync(string description, CancellationToken cancellationToken);
 
         /// <summary>
         /// SyncModde

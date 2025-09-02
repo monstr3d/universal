@@ -1,5 +1,6 @@
-﻿using Diagram.Attributes;
+﻿using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 
 namespace Internet.Meteo.Wrapper.CodeCreators
@@ -13,10 +14,22 @@ namespace Internet.Meteo.Wrapper.CodeCreators
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+           this.AddClassCodeCreator();
         }
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             var tt = typeof(Internet.Meteo.Wrapper.Sensor);
             var t = obj.GetType();

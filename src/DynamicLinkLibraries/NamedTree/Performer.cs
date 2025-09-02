@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using System.Security.Cryptography;
+﻿using System.Reflection;
+
 using System.Xml;
+
 using ErrorHandler;
 
 namespace NamedTree
@@ -9,11 +9,60 @@ namespace NamedTree
     public class Performer
     {
 
-        
-
-        public Performer()
+        /// <summary>
+        /// Converts to string
+        /// </summary>
+        /// <param name="a">Double value</param>
+        /// <returns>String</returns>
+        public string DoubleToString(double a)
         {
+            return a.ToString("G17", System.Globalization.CultureInfo.InvariantCulture);
         }
+
+        /// <summary>
+        /// Gets strings from double array
+        /// </summary>
+        /// <param name="x">The array</param>
+        /// <returns>The strings</returns>
+        public List<string> GetStrings(double[] x)
+        {
+            var l = new List<string>();
+            var n = x.Length;
+            var m = n - 1;
+            for (var i = 0; i < x.Length; i++)
+            {
+                var s = i < m ? "," : "";
+                s = DoubleToString(x[i]) + s;
+                l.Add(s);
+            }
+            return l;
+        }
+
+        /// <summary>
+        /// Adding list with shift
+        /// </summary>
+        /// <param name="list">The list</param>
+        /// <param name="l">The added list</param>
+        /// <param name="shift">The shift</param>
+        public void Add(List<string> list, List<string> l, int shift)
+        {
+            var s = "";
+            for (int i = 0; i < shift; i++)
+            {
+                s += "\t";
+            }
+            foreach (var item in l)
+            {
+                list.Add(s + item);
+            }
+        }
+
+        public IEnumerable<T> Convert<T, S>(IEnumerable<S> values) where T : class where S : class
+        {
+          return from value in values where value is T select value as T;
+
+        }
+
 
         /// <summary>
         /// Sorts py name
@@ -253,8 +302,6 @@ namespace NamedTree
                 }
             }
         }
-
-
 
         public void AddChildNode<T>(INode<T> parent, INode<T> child, bool change = true) where T : class
         {

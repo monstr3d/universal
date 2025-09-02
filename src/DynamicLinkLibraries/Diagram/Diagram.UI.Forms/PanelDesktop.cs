@@ -29,6 +29,7 @@ using ToolBox;
 using ErrorHandler;
 using NamedTree;
 using WindowsExtensions;
+using System.Threading;
 
 
 namespace Diagram.UI
@@ -36,16 +37,17 @@ namespace Diagram.UI
     /// <summary>
     /// The desktop of situation object
     /// </summary>
-    public class PanelDesktop : Panel, IDesktop
+    public class PanelDesktop : Panel, IDesktop, ICancellation
     {
 
         #region Fields
 
-        NamedTree.Performer performer = new NamedTree.Performer();
 
         Diagram.UI.Performer p = new Diagram.UI.Performer();
 
         IComponentCollection collection;
+
+        CancellationToken cancellationToken;
 
         /// <summary>
 		/// Then "is not equal" string
@@ -1854,13 +1856,14 @@ namespace Diagram.UI
             Refresh();
         }
 
-        public async Task<bool> LoadAsync(IDataAsync data, SerializationBinder binder, string ext, string extd)
+        public async Task<bool> LoadAsync(IDataAsync data, SerializationBinder binder, 
+            string ext, string extd, CancellationToken cancellation)
         {
             var cur = Cursor;
             Cursor = Cursors.WaitCursor;
             try
             {
-                var t = data.GetDataAsync();
+                var t = data.GetDataAsync(cancellation);
                 await t;
                 using var stream = new MemoryStream(t.Result);
                 stream.Position = 0;
@@ -2742,8 +2745,6 @@ namespace Diagram.UI
 
         protected virtual IEnumerable<IComponentCollection> Children => ChildrenNodes;
 
-       
-
         protected virtual void Add(INode<IComponentCollection> collection)
         {
             ChildrenNodes.Add(collection.Value);
@@ -2761,6 +2762,14 @@ namespace Diagram.UI
             var obj = objects.ToArray();
             var arrs = arrows.ToArray();
             Copy(obj, arrs, associated);
+        }
+
+        CancellationToken ICancellation.CancellationToken => cancellationToken;
+
+        CancellationToken ICancellation.CreateCancellationToken()
+        {
+            cancellationToken = new CancellationToken();
+            return cancellationToken; 
         }
     }
 }

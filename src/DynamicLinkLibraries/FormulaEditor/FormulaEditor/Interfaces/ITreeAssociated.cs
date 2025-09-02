@@ -5,6 +5,6 @@
     /// </summary>
     public interface ITreeAssociated
     {
-        ObjectFormulaTree ObjectFormulaTree { get; }
+        ObjectFormulaTree ObjectFormulaTree { get; set; }
     }
 }

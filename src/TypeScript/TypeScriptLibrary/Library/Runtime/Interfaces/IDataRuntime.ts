@@ -3,7 +3,8 @@ import { ICategoryObject } from "../../Interfaces/ICategoryObject";
 import { IStarted } from "../../Measurements/Interfaces/IStarted";
 import { ITimeMeasurementProvider } from "../../Measurements/Interfaces/ITimeMeasurementProvider";
 
-export interface IDataRuntime {
+export interface IDataRuntime
+{
 
     updateRuntime(): void;
 
@@ -18,14 +19,23 @@ export interface IDataRuntime {
     /// <param name="time">Start time</param>
     startRuntime(time: number): void;
 
+    stepRuntime(begin: number, end: number): void;
+
+    
+    addCategoryObjectToRuntime(object: ICategoryObject): void;
+
+
+    getRuntimeObject(name: string): ICategoryObject;
+
 
     setTimeProvider(timeProvider: ITimeMeasurementProvider): void;
 
     getTimeProvider(): ITimeMeasurementProvider;
 
-    getRumtimeObjects(): ICategoryObject[];
+    getRuntimeObjects(): ICategoryObject[];
 
-    getRunimeArrows(): ICategoryArrow[];
+
+    getRuntimeArrows(): ICategoryArrow[];
 
     getStarted(): IStarted[];
 

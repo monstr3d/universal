@@ -1,10 +1,13 @@
 ﻿using Diagram.UI.Interfaces;
 
-namespace Diagram.TypeScript
+namespace Diagram.UI.TypeScript
 {
  
-    public class Performer 
+    public class Performer : DataPerformer.Interfaces.Performer
     {
+
+        public Performer() : base() { }
+
 
         public void AddObjectConstructor(List<string> l)
         {
@@ -23,13 +26,13 @@ namespace Diagram.TypeScript
             return s;
         }
 
-        public string DoubleToString(double a)
-        {
-            return a.ToString("G17", System.Globalization.CultureInfo.InvariantCulture);
-        }
-
+     
         public string StringValue(object o)
         {
+            if (o == null)
+            {
+
+            }
             Type t = o.GetType();
             if (t.Equals(typeof(double)))
             {
@@ -102,6 +105,46 @@ namespace Diagram.TypeScript
             }
             return l;
         }
+/* !!! DELETE AFTER !!!
+        public List<string> CreateFeedback(Dictionary<string, string> dictionary)
+        {
+            var l = new List<string>();
+            l.Add("setFeedback(): void {");
+            var ll = CreateStringDictionary("map", dictionary);
+            return l;
+        }
+*/
+
+        
+        public List<string> CreateStringDictionary(string id, Dictionary<string, string> dictionary)
+        {
+            List<string> l = new List<string>();
+            var keys = new List<string>(dictionary.Keys);
+            l.Add("let " + id + " = new Map<string, string>(");
+            int n = keys.Count;
+            l.Add("[");
+            if (n == 0)
+            {
+                l.Add("]);");
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    string s = keys[i];
+                    s = "\t[\"" + s + "\", \"" + dictionary[s] + "\" ]";
+                    if (i < (n - 1))
+                    {
+                        s += ',';
+                    }
+                    l.Add(s);
+                }
+                l.Add("]);");
+            }
+            return l;
+        }
+
+
 
 
         public List<string> CreateTSAliasList(string id,  IAlias alias)

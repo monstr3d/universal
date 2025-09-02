@@ -50,7 +50,7 @@ namespace PostgreSQLWarehouse.Async
         protected async void Clean()
         {
             IDatabaseInterfaceAsync async = this;
-            var t = async.GetRoots(null);
+            var t = async.GetRoots(null, new CancellationToken());
             await t;
             var r = t.Result;
             var c = from k in r select k as IDirectory;
@@ -59,11 +59,11 @@ namespace PostgreSQLWarehouse.Async
      
         }
 
-        protected override async void GetRoots()
+        protected  async void GetRoots(string[] ext, CancellationToken cancellationToken)
         {
  //           Clean();
             IDatabaseInterfaceAsync async = this;
-            var t = async.GetRoots(null);
+            var t = async.GetRoots(ext, cancellationToken);
             await t;
             var r = t.Result;
             var c = from k in r select k as IDirectory;
@@ -71,7 +71,7 @@ namespace PostgreSQLWarehouse.Async
         }
 
 
-        async Task<IDirectoryAsync[]> IDatabaseInterfaceAsync.GetRoots(string[] extensions)
+        async Task<IDirectoryAsync[]> IDatabaseInterfaceAsync.GetRoots(string[] extensions, CancellationToken cancellationToken)
         {
             if (roots == null)
             {

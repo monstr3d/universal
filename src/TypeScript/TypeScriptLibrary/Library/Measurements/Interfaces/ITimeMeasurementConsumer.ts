@@ -2,7 +2,7 @@ import { ITimeMeasurementProvider } from "./ITimeMeasurementProvider";
 
 export interface ITimeMeasurementConsumer
 {
-    getTimeMeasutement(): ITimeMeasurementProvider;
+    getTimeMeasurement(): ITimeMeasurementProvider;
 
     setTimeMeasurement(measurement: ITimeMeasurementProvider): void;
 

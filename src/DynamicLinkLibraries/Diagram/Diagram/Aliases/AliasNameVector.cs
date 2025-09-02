@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Diagram.UI.Interfaces;
+﻿using Diagram.UI.Interfaces;
 
 namespace Diagram.UI.Aliases
 {
@@ -13,6 +8,8 @@ namespace Diagram.UI.Aliases
     public class AliasNameVector : IAliasName
     {
         #region Fields
+
+       
 
         /// <summary>
         /// Alias
@@ -29,6 +26,8 @@ namespace Diagram.UI.Aliases
         /// </summary>
         protected int number;
 
+        protected Diagram.UI.Performer performer = new Diagram.UI.Performer();
+
         #endregion
 
         #region Ctor
@@ -44,6 +43,8 @@ namespace Diagram.UI.Aliases
             this.alias = alias;
             this.name = name;
             this.number = number;
+            var rt = performer.GetRootName(alias);
+            FullName = (rt == null) ? name : rt + "." + name;
         }
 
         #endregion
@@ -72,6 +73,16 @@ namespace Diagram.UI.Aliases
             get { return name + "[" + number + "]"; }
         }
 
+        string IAliasName.FullName => FullName;
+
         #endregion
+
+        protected virtual string FullName
+        {
+            get;
+            set;
+        }
+
+        object IAliasName.Type => throw new ErrorHandler.OwnNotImplemented();
     }
 }

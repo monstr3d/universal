@@ -14,7 +14,6 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.UserControls;
-using Diagram.Interfaces;
 
 using AssemblyService.Attributes;
 

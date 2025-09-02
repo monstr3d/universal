@@ -25,7 +25,6 @@ namespace Diagram.UI.Portable
 
         IComponentCollection components;
 
-        protected NamedTree.Performer p = new NamedTree.Performer();
 
         protected Performer perf = new Performer();
 

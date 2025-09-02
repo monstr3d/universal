@@ -15,7 +15,7 @@ namespace FormulaEditor.Interfaces
         /// <param name="constructorModifier">Modifier of constructor</param>
         /// <param name="checkValue">Check value</param>
         /// <returns>Code</returns>
-        List<string> CreateCode(object obj, ObjectFormulaTree[] trees, string className,
+        Dictionary<string, List<string>> CreateCode(object obj, ObjectFormulaTree[] trees, string className,
             string constructorModifier = "internal ", bool checkValue = false);
     }
 }

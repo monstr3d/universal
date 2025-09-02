@@ -1,10 +1,10 @@
-import { IAliasBase } from "./IAliasBase";
+import { IAlias } from "./IAlias";
 
 export interface IAliasName
 {
 
     getAliasNameValue(): any;
     setAliasNameValue(value: any): void;
-    getAliasBase(): IAliasBase;
+    getAlias(): IAlias;
     getNameOfAliasName(): string;
 }

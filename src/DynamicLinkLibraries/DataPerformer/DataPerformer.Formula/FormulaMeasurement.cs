@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CategoryTheory;
 
 using Diagram.UI;
+using Diagram.UI.Interfaces;
 
 using BaseTypes.Interfaces;
 using BaseTypes;
@@ -24,7 +25,7 @@ namespace DataPerformer.Formula
     /// <summary>
     /// Formula measure
     /// </summary>
-    public class FormulaMeasurement : IMeasurement, IAssociatedObject, ITreeAssociated
+    public class FormulaMeasurement : IMeasurement, IAssociatedObject, IOutputTree, IValue
     {
 
         #region Fields
@@ -35,22 +36,10 @@ namespace DataPerformer.Formula
         protected object obj;
 
         /// <summary>
-        /// Associated tree
+        /// Value
         /// </summary>
-        protected ObjectFormulaTree Tree
-        {
-            get;
-            init;
-        }
+        protected object value;
 
-        /// <summary>
-        /// Return value
-        /// </summary>
-        protected object ReturnValue
-        {
-            get;
-            set;
-        }
 
         /// <summary>
         /// Name
@@ -117,7 +106,7 @@ namespace DataPerformer.Formula
 
         Func<object> IMeasurement.Parameter
         {
-            get => parameter;
+            get => Get;
         }
 
         string IMeasurement.Name
@@ -387,7 +376,11 @@ namespace DataPerformer.Formula
             }
         }
 
-        ObjectFormulaTree ITreeAssociated.ObjectFormulaTree => Tree;
+        ObjectFormulaTree IOutputTree.Tree
+        {
+            get => Tree;
+        }
+
 
         /// <summary>
         /// Empty check of object
@@ -519,6 +512,46 @@ namespace DataPerformer.Formula
         protected object GetFormulaResult()
         {
             return Tree.Result;
+        }
+
+        #endregion
+
+        #region Protected
+
+        /// <summary>
+        /// Delegate
+        /// </summary>
+        /// <returns></returns>
+        protected virtual object Get()
+        {
+            value = parameter();
+            return value;
+        }
+
+        /// <summary>
+        /// Associated tree
+        /// </summary>
+        protected ObjectFormulaTree Tree
+        {
+            get;
+            init;
+        }
+
+        /// <summary>
+        /// Return value
+        /// </summary>
+        protected object ReturnValue
+        {
+            get;
+            set;
+        }
+        object IValue.Value { 
+            get  
+            { 
+                value = Get(); 
+                return value; 
+            } 
+            set { } 
         }
 
         #endregion

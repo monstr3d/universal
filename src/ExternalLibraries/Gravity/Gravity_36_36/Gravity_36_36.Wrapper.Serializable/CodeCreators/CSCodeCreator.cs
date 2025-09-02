@@ -1,10 +1,10 @@
-﻿using Diagram.Attributes;
+﻿using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 
 namespace Gravity_36_36.Wrapper.CodeCreators
@@ -15,13 +15,26 @@ namespace Gravity_36_36.Wrapper.CodeCreators
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+           this.AddClassCodeCreator();
         }
 
 
         #region IClassCodeCreator Members
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+
+  
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             var b = obj is Gravity_36_36.Wrapper.Gravity;
             if (!b)

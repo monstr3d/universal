@@ -11,6 +11,8 @@ using FormulaEditor.CodeCreators;
 using FormulaEditor.Interfaces;
 
 using ErrorHandler;
+using FormulaEditor.CodeCreators.Interfaces;
+using BaseTypes.CodeCreator.Interfaces;
 
 namespace FormulaEditor.CSharp
 {
@@ -24,7 +26,7 @@ namespace FormulaEditor.CSharp
         /// <summary>
         /// Singleton
         /// </summary>
-        public static readonly ICodeCreator CodeCreator = new CSharpCodeCreator();
+        public static readonly ITreeCodeCreator CodeCreator = new CSharpCodeCreator();
 
         /// <summary>
         /// Standard header of calculation class
@@ -218,6 +220,7 @@ namespace FormulaEditor.CSharp
             l.Add(s);
             return l;
         }
+
         /// <summary>
         /// Creates Code from tree
         /// </summary>
@@ -227,24 +230,37 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code</returns>
-        public override IList<string> CreateCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters, out IList<string> variables, out IList<string> initializers)
+        protected override Dictionary<string, List<string>> CreateCode(object obj, ObjectFormulaTree tree, 
+            string ret, string[] parameters)
         {
-            IList<string> l = base.CreateCode(obj, tree, ret, parameters, out variables, out initializers);
-            if (l != null)
+            var d = base.CreateCode(obj, tree, ret, parameters);
+            if (d != null)
             {
-                return l;
+                return d;
             }
-            l = CreateArraySingleCode(tree, ret, parameters, out variables, out initializers);
+            IList<string> variables = null;
+            IList<string> initializers = null;
+            var l = CreateArraySingleCode(tree, ret, parameters, out variables, out initializers);
             if (l != null)
             {
-                return l;
+                return new Dictionary<string, List<string>>()
+                {
+                    {"code", l as List<string> },
+                    {"initializers", initializers as List<string> },
+                    {"variables", variables as List<string> },
+                };
             }
             try
             {
                 l = CreateArrayCode(obj, tree, ret, parameters, out variables, out initializers);
                 if (l != null)
                 {
-                    return l;
+                    return new Dictionary<string, List<string>>()
+                {
+                    {"code", l as List<string> },
+                    {"initializers", initializers as List<string> },
+                    {"variables", variables as List<string> },
+                };
                 }
             }
             catch (Exception exception)
@@ -253,7 +269,14 @@ namespace FormulaEditor.CSharp
             }
             if (ret.Length > 0)
             {
-                return CreateTreeCode(tree, ret, parameters, out variables, out initializers);
+                var list = CreateTreeCode(tree, ret, parameters, out variables, out initializers);
+                return new Dictionary<string, List<string>>()
+                {
+                    {"code", list as List<string> },
+                    {"initializers", initializers as List<string> },
+                    {"variables", variables as List<string> },
+                };
+
             }
             return null;
         }
@@ -319,7 +342,7 @@ namespace FormulaEditor.CSharp
         /// </summary>
         /// <param name="trees">Trees</param>
         /// <returns>Creator</returns>
-        public override ICodeCreator Create(object obj, ObjectFormulaTree[] trees)
+        public override ITreeCodeCreator Create(object obj, ObjectFormulaTree[] trees)
         {
             return new CSharpCodeCreator(trees);
         }
@@ -352,12 +375,15 @@ namespace FormulaEditor.CSharp
         /// <param name="variables">Variables</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
-        public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
+        public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees,
+            ITreeCodeCreator creator, out ITreeCodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
             local = null;
-            IList<string> l = StaticCodeCreator.CreateCode(obj, trees, creator, out local,
-                out variables, out initializers);
+            var d = StaticCodeCreator.CreateCode(obj, trees, creator, out local);
+            var l = d["code"];
+            variables = d["variables"];
+            initializers = d["initializers"];
             variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
             variables.Add("object[] currentArray = null;");
             variables.Add("double doubleValue = 0;");
@@ -766,12 +792,16 @@ namespace FormulaEditor.CSharp
                 }
                 IList<string> vari;
                 IList<string> init;
-                IList<string> l = CreateCode(obj, childTree, ret, par, out vari, out init);
-                success = (l != null);
+                var ld  = CreateCode(obj, childTree, ret, par);
+                
+                success = (ld != null);
                 if (!success)
                 {
                     return;
                 }
+                var l = ld["code"];
+                vari = ld["variables"];
+                init = ld["iniializers"];
                 foreach (string s in l)
                 {
                     list.Add("\t" + s);
@@ -813,13 +843,16 @@ namespace FormulaEditor.CSharp
                     }
                     IList<string> vari;
                     IList<string> init;
-                    IList<string> l = CreateCode(obj, childTree, retLocal, par, out vari, out init);
-                    success = (l != null);
+                    var ld  = CreateCode(obj, childTree, retLocal, par);
+                    success = (ld != null);
                     if (!success)
                     {
                         return;
                     }
-                    list.AddRange(l);
+                    var lcode = ld["code"];
+                    vari = ld["variables"];
+                    init = ld["iniializers"];
+                    list.AddRange(lcode);
                     if (vari != null)
                     {
                         variables.AddRange(vari);
@@ -912,12 +945,16 @@ namespace FormulaEditor.CSharp
                     }
                     IList<string> vari;
                     IList<string> init;
-                    IList<string> l = CreateCode(obj, childTree, retLocal, par, out vari, out init);
-                    success = (l != null);
+                    var ld = CreateCode(obj, childTree, retLocal, par);
+                    success = (ld != null);
                     if (!success)
                     {
                         return;
                     }
+                    var l = ld["code"];
+                    vari = ld["variables"];
+                    init = ld["iniializers"];
+
                     list.AddRange(l);
                     if (vari != null)
                     {

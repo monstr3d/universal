@@ -39,7 +39,7 @@ namespace DataPerformer.Portable
 
         #region Fields
 
-        static NamedTree.Performer performer = new NamedTree.Performer();
+        static Performer performer = new Performer();
 
         // Type check
         private static readonly double a = 0;

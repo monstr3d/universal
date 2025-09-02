@@ -40,7 +40,7 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Consructor
+        /// Constructor
         /// </summary>
         /// <param name="item">The item</param>
         public FormStandardAliasEditor(PropertyEditors.AliasItem item)

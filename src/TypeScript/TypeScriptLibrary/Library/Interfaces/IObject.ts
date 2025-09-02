@@ -1,4 +1,5 @@
-export interface IObject {
+export interface IObject
+{
 
     getClassName(): string;
 

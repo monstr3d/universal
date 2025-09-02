@@ -5,18 +5,20 @@ using BaseTypes.Interfaces;
 
 using CategoryTheory;
 
-using Diagram.UI;
-using Diagram.UI.Aliases;
-using Diagram.UI.Labels;
-
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
+using Diagram.UI;
+using Diagram.UI.Aliases;
+using Diagram.UI.Labels;
+
+using ErrorHandler;
+
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-using ErrorHandler;
+    
 using NamedTree;
 
 namespace DataPerformer.Formula
@@ -26,7 +28,7 @@ namespace DataPerformer.Formula
     /// </summary>
     public class VectorFormulaConsumer :
        DataConsumerMeasurements,   IVariableDetector,
-       IStarted, IRuntimeUpdate, ITreeCollection, ITimeVariable,
+       IStarted, IRuntimeUpdate, ITreeCollection, ITimeVariable, 
         IReplaceMeasurements, IPostSetArrow
     {
 
@@ -85,6 +87,7 @@ namespace DataPerformer.Formula
             dataPerformerFormula = new (this);
             th = this;
             proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
+            feedbackCollection = new FeedbackAliasCollection(this, this, FeedBack);
         }
 
     
@@ -807,6 +810,11 @@ namespace DataPerformer.Formula
         {
             Dictionary<int, ICategoryObject> t = InternalOperationTable;
             SetUnaryTrees(t);
+        }
+
+        protected override void CreateFeedback()
+        {
+            throw new OwnNotImplemented();
         }
 
         /// <summary>

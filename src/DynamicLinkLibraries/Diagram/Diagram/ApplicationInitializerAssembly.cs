@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Diagram.UI.Interfaces;
+﻿using Diagram.UI.Interfaces;
 using ErrorHandler;
 
 namespace Diagram.UI

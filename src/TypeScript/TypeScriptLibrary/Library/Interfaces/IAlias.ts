@@ -7,6 +7,6 @@
 
     getAliasValue(name: string): any;
 
-    setAliasValue(name: string, value: any): any;
+    setAliasValue(name: string, value: any): void;
 
 }

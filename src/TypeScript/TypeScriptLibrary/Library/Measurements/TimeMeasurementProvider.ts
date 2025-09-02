@@ -1,27 +1,40 @@
 import { IMeasurement } from "./Interfaces/IMeasurement";
 import { ITimeMeasurementProvider } from "./Interfaces/ITimeMeasurementProvider";
 
-export class TimeMeasurementProvider implements ITimeMeasurementProvider, IMeasurement {
-    getMeasurementValue() {
+export class TimeMeasurementProvider implements ITimeMeasurementProvider, IMeasurement
+{
+    getMeasurementName(): string
+    {
+        return "Time";
+    }
+
+    getMeasurementType()
+    {
+        return 0;
+    }
+
+    getMeasurementValue()
+    {
         return this.time;
     }
 
-    getTimeMeasurement(): IMeasurement {
+    getTimeMeasurement(): IMeasurement
+    {
         return this;
     }
-    setTime(time: number): void {
+
+    setTime(time: number): void
+    {
         this.time = time;
     }
-    getStep(): number {
+
+    getStep(): number
+    {
         return 0;
     }
-    setStep(time: number): void {
-    }
-    getName(): string {
-        return "Time";
-    }
-    getType() {
-        return 0;
+
+    setStep(time: number): void
+    {
     }
 
     getTime() : any

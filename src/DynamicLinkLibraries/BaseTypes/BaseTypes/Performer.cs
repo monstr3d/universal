@@ -10,7 +10,7 @@ using ErrorHandler;
 
 namespace BaseTypes
 {
-    public class Performer
+    public class Performer 
     {
 
         #region Fields

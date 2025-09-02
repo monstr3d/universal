@@ -1,23 +1,27 @@
 import { IAction } from "../Interfaces/IAction";
+import { IFunc } from "../Interfaces/IFunc";
+import { Performer } from "../Performer";
+import { IDataRuntime } from "../Runtime/Interfaces/IDataRuntime";
+import { DataConsumerBoolFunc } from "./DataConsumerBoolFunc";
+import { IArrayElementMeasurement } from "./Interfaces/IArrayElemetMeasurements";
 import { IDataConsumer } from "./Interfaces/IDataConsumer";
+import { IMeasurement } from "./Interfaces/IMeasurement";
 import { IMeasurements } from "./Interfaces/IMeasurements";
 import { ITimeMeasurementProvider } from "./Interfaces/ITimeMeasurementProvider";
-import { IDataRuntime } from "../Runtime/Interfaces/IDataRuntime";
 import { TimeMeasurementProvider } from "./TimeMeasurementProvider";
-import { Performer } from "../Performer";
-import { IArrayElementMeasurement } from "./Interfaces/IArrayElemetMeasurements";
-import { IMeasurement } from "./Interfaces/IMeasurement";
-import { ArrayMeasurement } from "./ArrayMeasurement";
 
-export class PefrormerMeasuremets {
+export class PefrormerMeasuremets
+{
 
     performer: Performer = new Performer();
+
+ 
 
     public getArrayMeasurements(array: IArrayElementMeasurement): IMeasurement[] {
         var n = array.getMeasurementNames().length;
         var mea: IMeasurement[] = [];
         for (var i = 0; i < n; i++) {
-            mea.push(new ArrayMeasurement(array, i);
+          //  mea.push(new ArrayMeasurement(array, i));
         }
         return mea;
     }
@@ -38,7 +42,8 @@ export class PefrormerMeasuremets {
             if (measurements.find(mea => true) === undefined) {
 
             }
-            else {
+            else
+            {
                 measurements.push(mea);
                 let dc = mea as unknown as IDataConsumer;
                 //     if (dc instanceof IDataConsumer)
@@ -48,9 +53,20 @@ export class PefrormerMeasuremets {
         
     }
 
-    
 
-    public peformFixedStepCalculation(runtime: IDataRuntime, start: number, step: number, steps: number, act: IAction): void {
+    public peformCondDCFixedStepCalculation(runtime: IDataRuntime, dataConsumer: IDataConsumer,
+        conditionName: string,  start: number,
+        step: number, steps: number, act: IAction): void
+    {
+        var cond = new DataConsumerBoolFunc(dataConsumer, conditionName);
+        this.peformCondFixedStepCalculation(runtime,cond, start, step, steps, act);
+    }
+
+
+
+    public peformCondFixedStepCalculation(runtime: IDataRuntime, condition: IFunc<boolean>, start: number,
+        step: number, steps: number, act: IAction): void
+    {
         var tm: ITimeMeasurementProvider = new TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         runtime.startRuntime(start);
@@ -58,6 +74,35 @@ export class PefrormerMeasuremets {
         for (var i = 0; i < steps; i++)
         {
             tm.setTime(st);
+            runtime.updateRuntime();
+            if (condition.func())
+            {
+                act.action();
+            }
+            let s = st + step;
+            if (i > 0)
+            {
+                runtime.stepRuntime(st, s);
+            }
+            st = s;
+        }
+    }
+
+    public performFixedStepCalculation(runtime: IDataRuntime, start: number, step: number, steps: number, act: IAction): void
+    {
+        let tm = new TimeMeasurementProvider();
+        runtime.setTimeProvider(tm);
+        runtime.startRuntime(start);
+        var st = start;
+        var curr = start;
+        for (var i = 0; i < steps; i++)
+        {
+            tm.setTime(st);
+            if (i > 0)
+            {
+                runtime.stepRuntime(curr, st);
+                curr = st;
+            }
             runtime.updateRuntime();
             act.action();
             st += step;

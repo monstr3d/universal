@@ -29,6 +29,22 @@
         {
             get;
         }
+
+        /// <summary>
+        /// Full name
+        /// </summary>
+        string FullName
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Get
+        /// </summary>
+        object Type
+        {
+            get;
+        }
             
     }
 }

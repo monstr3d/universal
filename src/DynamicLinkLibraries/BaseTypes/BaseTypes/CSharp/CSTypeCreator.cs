@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-
-
-using BaseTypes.Interfaces;
+using BaseTypes.CodeCreator.Interfaces;
 
 namespace BaseTypes.CSharp
 {
+    
     public class CSTypeCreator : ITypeCreator
     {
         #region Fields
@@ -146,6 +145,11 @@ namespace BaseTypes.CSharp
                 return "";
             }
             return s;
+        }
+
+        string ITypeCreator.GetStringValue(object o)
+        {
+            return (o is string) ? "\"" + o + "\"" : "" + o;
         }
 
         #endregion

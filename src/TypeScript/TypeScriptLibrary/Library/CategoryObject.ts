@@ -16,7 +16,7 @@ export class CategoryObject implements ICategoryObject, IObject
 
     protected variable !: any;
 
-    protected types: string[] = ["ICategoryObject", "CategoryObject"];
+    protected types: string[] = ["IObject", "ICategoryObject", "CategoryObject"];
 
     protected typeName: string = "CategoryObject";
 
@@ -28,9 +28,9 @@ export class CategoryObject implements ICategoryObject, IObject
         desktop.addCategoryObject(this);
         desktop.addObject(this);
         this.checker = desktop.getCheck();
-        this.types.push("IObject");
-        this.types.push("ICategoryObject");
-        this.types.push("CategoryObject");
+   }
+    getName(): string {
+        return this.name;
     }
 
     getClassName(): string {
@@ -54,7 +54,8 @@ export class CategoryObject implements ICategoryObject, IObject
     setObject(obj: Object): void {
         this.obj = obj;
     }
-    getName(): string {
+
+    getCategoryObjectName(): string {
         return this.name;
     }
 

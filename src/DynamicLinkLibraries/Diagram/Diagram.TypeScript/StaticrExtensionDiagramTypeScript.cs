@@ -1,6 +1,6 @@
 ﻿using AssemblyService.Attributes;
 
-namespace Diagram.TypeScript
+namespace Diagram.UI.TypeScript
 {
     [InitAssembly]
     public static class StaticrExtensionDiagramTypeScript

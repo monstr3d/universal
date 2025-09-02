@@ -232,13 +232,17 @@ namespace Gravity_36_36
                         P30 = PN0;
                     }      //1.3
                 } //1 CONTINUE
-                if (NK == 0) goto m5;
+                if (NK == 0)
+                {
+                    goto m5;
+                }
                 LOG = (NK >= 3);
                 A = CO[0] + CO[0];
                 CO[1] = A * CO[0] - 1;
                 SI[1] = A * SI[0];
                 TG = Z * R2;
                 if (LOG)
+                {
                     for (N = 2; N < NK; N++)
                     {          //2
                         N1 = N - 1;
@@ -246,7 +250,8 @@ namespace Gravity_36_36
                         CF[N] = CF[0] * CF[N1];
                         CO[N] = A * CO[N1] - CO[N2];
                         SI[N] = A * SI[N1] - SI[N2];
-                    }             //2
+                    }
+                }//2
                 CK1 = (C[35] * CO[0] + S[35] * SI[0]) * AR[1];
                 CK2 = (C[35] * SI[0] - S[35] * CO[0]) * AR[1];
                 A = PNK[0];
@@ -256,6 +261,7 @@ namespace Gravity_36_36
                 FL += CK2 * A;
                 J = 35;
                 if (LOG)
+                {
                     for (N = 2; N < NK; N++)    //commain
                     {                //3
                         J++;
@@ -273,7 +279,8 @@ namespace Gravity_36_36
                         FR += (N3 + 1) * CK1 * A;
                         FF += CK1 * (PNK[N1] */*SQ[N1]*/sqrt(N1 + 1) */*SQ[N+2]*/sqrt(N + 3) - TG * A);
                         FL += CK2 * A;
-                    } //ENDIF //3
+                    }
+                }//ENDIF //3
                 for (M = 1; M < NK; M++)
                 {                      // 4
                     J = (int)(ANAI[1 + M]) - 1;
@@ -289,8 +296,10 @@ namespace Gravity_36_36
                         CK1 = AR[N] * (C[J] * CO[M] + S[J] * SI[M]);
                         CK2 = AR[N] * (C[J] * SI[M] - S[J] * CO[M]);
                         if (N1 > 2)
+                        {
                             PNK[N1 - 1] = sqrt(N3 + 1) / (sqrt(N4 + 1) * sqrt(N2 + 2)) * (sqrt(N3 - 1) *
                                  SF * PNK[N4] - sqrt(N2 + 1) * sqrt(N5 + 1) / sqrt(N3 - 3) * PNK[N5]);
+                        }
                         else if (N1 == 0)
                         {                          //4.1.1
                             FR += HP[N] * CK1 * A;
@@ -299,15 +308,19 @@ namespace Gravity_36_36
                             goto m12;
                         }                          //4.1.1
                         else if (N1 == 1)
-
+                        {
                             PNK[0] = SK[N] * CF[N];
+                        }
                         else if (N1 == 2)
+                        {
                             PNK[1] = /*SQ[N3]*/sqrt(N3 + 1) * SF * PNK[0];
+                        }
                         FR += HP[N] * CK1 * A;
                         FF += CK1 * (PNK[N1 - 1] */*SQ[N1-1]*SQ[N2+1]*/sqrt(N1) * sqrt(N2 + 2) - TG * AN);
                         FL += CK2 * AN;
-                        m12: J++;
-                    }     //4.1
+                    m12: J++;
+                    }
+                    //               }     //4.1
                 }     //4
                 //    5
             } //0

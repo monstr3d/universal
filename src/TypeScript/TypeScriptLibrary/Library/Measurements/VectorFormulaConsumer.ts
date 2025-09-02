@@ -1,15 +1,13 @@
-import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { IDesktop } from "../Interfaces/IDesktop";
 import { IPostSetArrow } from "../Interfaces/IPostSetArrow";
-import { DataConsumerMeasurements } from "./DataConsumerMeasurements";
+import { DataConsumerVariableMeasurements } from "./DataConsumerVariableMeasurements";
 
-export class VectorFormulaConsumer extends DataConsumerMeasurements implements IPostSetArrow
+export class VectorFormulaConsumer extends DataConsumerVariableMeasurements implements IPostSetArrow
 {
-    protected feedback: Map<number, string> = new Map();
 
-    protected arguments: string[] = [];
+  //  protected arguments: string[] = [];
 
-    protected operationNames: Map<number, string> = new Map();
+ //   protected operationNames: Map<number, string> = new Map();
 
     constructor(desktop: IDesktop, name: string)
     {
@@ -19,23 +17,33 @@ export class VectorFormulaConsumer extends DataConsumerMeasurements implements I
         this.types.push("IPostSetArrow");
     }
 
-    updateMeasurements(): void {
+    updateMeasurements(): void
+    {
+        this.feedback.setFeedbacks();
         this.calculateTree();
+        this.save();
     }
 
-    calculateTree(): void {
+    calculateTree(): void
+    {
+    }
+
+    init(): void {
+
+    }
+
+    save(): void {
+
     }
 
 
 
-    postSetArrow(): void {
-        try {
-            throw new OwnNotImplemented();
-        }
-        catch (e: any) { }
+    postSetArrow(): void
+    {
+        this.init();
+        this.setFeedback();
     }
 
 
 }
 
-//export default VectorFormulaConsumer;

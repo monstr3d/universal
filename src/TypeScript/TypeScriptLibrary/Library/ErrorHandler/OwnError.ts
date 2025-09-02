@@ -14,7 +14,7 @@ export class OwnError implements Error
     message: string;
     stack?: string | undefined;
 
-    init(): void
+    protected init(): void
     {
 
     }

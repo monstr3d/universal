@@ -31,7 +31,7 @@ namespace ExtendedFormulaEditor
         /// <summary>
         /// Gets a formula object creator
         /// </summary>
-        /// <param name="detector">Detector of vatiables</param>
+        /// <param name="detector">Detector of variables</param>
         /// <returns>The creator</returns>
         public static IFormulaObjectCreator GetCreator(this IVariableDetector detector)
         {
@@ -44,7 +44,7 @@ namespace ExtendedFormulaEditor
         /// <summary>
         /// Gets a formula object creator
         /// </summary>
-        /// <param name="detector">Detector of vatiables</param>
+        /// <param name="detector">Detector of variables</param>
         /// <param name="binary">Binary detectors</param>
         /// <returns>The creator</returns>
         public static IFormulaObjectCreator GetCreator(this IVariableDetector detector,

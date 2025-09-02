@@ -124,10 +124,10 @@ namespace Diagram.UI.Factory
                         }
                         return of[kind];
                     }
-                    ConstructorInfo cons = t.GetConstructor(new Type[0]);
+                    ConstructorInfo cons = t.GetConstructor([]);
                     if (cons != null)
                     {
-                        ICategoryObject ob = cons.Invoke(null) as ICategoryObject;
+                        ICategoryObject ob = cons.Invoke([]) as ICategoryObject;
                         if (ob is ISeparatedAssemblyEditedObject)
                         {
                             ISeparatedAssemblyEditedObject sa = ob as ISeparatedAssemblyEditedObject;

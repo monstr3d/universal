@@ -8,17 +8,20 @@ using System.Xml.Linq;
 
 using AssemblyService;
 
+using BaseTypes.Attributes;
+
 using CategoryTheory;
 
-using Diagram.Attributes;
-using Diagram.Interfaces;
-using Diagram.UI.Attributes;
+using Diagram.UI.CodeCreators;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Attributes;
 using Diagram.UI.Labels;
 
 using ErrorHandler;
 
 using NamedTree;
+using BaseTypes.CodeCreator.Interfaces;
 
 
 namespace Diagram.UI
@@ -31,13 +34,23 @@ namespace Diagram.UI
 
         #region Fields
 
+        static Performer performer = new Performer();
+
 
         private static ExtensionObject extension = new ExtensionObject();
         
 
-        static Performer performer = new Performer();
 
-        static NamedTree.Performer namedPerformer = new NamedTree.Performer();
+        static public Dictionary<string, ITypeCreator> TypeCreators
+            { get;  } = new Dictionary<string, ITypeCreator>();
+
+       static public Dictionary<string, IAliasCodeCreator> AliasCreators
+        { get; } = new Dictionary<string, IAliasCodeCreator>();
+
+        static public Dictionary<string, IFeedbackCollectionCodeCreator> FeedBackCreators
+        { get; } = new Dictionary<string, IFeedbackCollectionCodeCreator>();
+
+
 
 
         static public Dictionary<string, CombinedCodeCreator> Creators
@@ -51,8 +64,6 @@ namespace Diagram.UI
             get;
         }
         = new Dictionary<string, IDesktopCodeCreator>();
-
-
 
 
         /// <summary>
@@ -77,11 +88,7 @@ namespace Diagram.UI
         /// </summary>
         public static readonly IComparer<object> ObjectComparer = new ObjectComparerClass();
 
-        /// <summary>
-        /// C# code creator
-        /// </summary>
-   //     private static IClassCodeCreator cSharpCodeCreator = new CombinedCodeCreator();
-
+  
         /// Standard header of calculation class
         /// </summary>
         private static readonly string StandardHeader = "using System;" + Environment.NewLine +
@@ -100,19 +107,64 @@ namespace Diagram.UI
 
         #region Public Memberes
 
+        static public void AddFeedbackCreator(this IFeedbackCollectionCodeCreator creator)
+        {
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            if (FeedBackCreators.ContainsKey(lang))
+            {
+                throw new OwnNotImplemented();
+            }
+            FeedBackCreators[lang] = creator;
+        }
+
+
+
+        static public void AddTypeCreator(this ITypeCreator creator)
+        {
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            if (TypeCreators.ContainsKey(lang))
+            {
+                throw new OwnNotImplemented();
+            }
+            TypeCreators[lang] = creator;
+        }
+
+        static public void AddAliasCreator(this IAliasCodeCreator creator)
+        {
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            if (AliasCreators.ContainsKey(lang))
+            {
+                throw new OwnNotImplemented();
+            }
+            AliasCreators[lang] = creator;
+        }
+
+
+
         /// <summary>
         /// Adds code creator
         /// </summary>
         /// <param name="creator"></param>
-        public static void AddCodeCreator(this IClassCodeCreator creator)
+        static public void AddClassCodeCreator(this IClassCodeCreator creator)
         {
-            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
-            if (att == null)
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
             {
-                throw new OwnNotImplemented("LanguageAttribute");
+                throw new OwnNotImplemented();
             }
-            var lang = att.Language;
-            CombinedCodeCreator c = null;
+            CombinedCodeCreator c;
             if (Creators.ContainsKey(lang))
             {
                 c = Creators[lang];
@@ -120,7 +172,7 @@ namespace Diagram.UI
             else
             {
                 c = new CombinedCodeCreator(lang);
-                Creators.Add(lang, c);
+                Creators[lang] = c;
             }
             c.Add(creator);
         }
@@ -129,14 +181,13 @@ namespace Diagram.UI
         /// Adds code creator
         /// </summary>
         /// <param name="creator"></param>
-        public static void AddCodeCreator(this IDesktopCodeCreator creator)
+        public static void AddDesktopCodeCreator(this IDesktopCodeCreator creator)
         {
-            var att = namedPerformer.GetAttribute<LanguageAttribute>(creator);
-            if (att == null)
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
             {
                 throw new OwnNotImplemented("LanguageAttribute");
             }
-            var lang = att.Language;
             DesktopCreators.Add(lang, creator);
         }
 
@@ -581,7 +632,7 @@ namespace Diagram.UI
                     l.Add("\t\t}");
                     l.Add("");
                     IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
+                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object, null);
                     l.Add("\t\tinternal class CategoryObject : " + lt[0]);
                     for (int j = 1; j < lt.Count; j++)
                     {
@@ -608,7 +659,7 @@ namespace Diagram.UI
                     l.Add("\t\t}");
                     l.Add("");
                     IClassCodeCreator cSharpCodeCreator = Creators["C#"];
-                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow);
+                    List<string> lt = cSharpCodeCreator.CreateCode(preffixFull, lab.Arrow, null);
                     l.Add("\t\tinternal class CategoryArrow : " + lt[0]);
                     for (int j = 1; j < lt.Count; j++)
                     {
@@ -637,7 +688,7 @@ namespace Diagram.UI
         /// <param name="className">Class name</param>
         /// <param name="staticClass">Flag of static class</param>
         /// <returns>The code</returns>
-        public static List<string> CreateInitDesktopCSharpCode(this IDesktop desktop, string namespacE, 
+        public static List<string> CreateInitDesktopCSharpCode(this IComponentCollection desktop, string namespacE, 
             string className, bool staticClass = true)
         {
             Exception ex;
@@ -2676,7 +2727,7 @@ namespace Diagram.UI
                 return null;
             }
             l.Add(obj);
-            UrlAttribute attr = namedPerformer.GetAttribute<UrlAttribute>(obj);
+            UrlAttribute attr = performer.GetAttribute<UrlAttribute>(obj);
             if (attr != null)
             {
                 return attr.Url;

@@ -18,10 +18,9 @@ namespace CategoryTheory
 
         #region Fields
 
-        public static Performer p = new Performer();
+        public static Performer performer = new Performer();
 
-        public static NamedTree.Performer performer = new NamedTree.Performer();
-
+  
         /// <summary>
         /// Exception message
         /// </summary>
@@ -206,7 +205,7 @@ namespace CategoryTheory
         /// <returns>True is base type and false otherwise</returns>
         static public bool IsBase(this object baseType, object type)
         {
-            return p.IsBase(baseType, type);
+            return performer.IsBase(baseType, type);
         }
 
 

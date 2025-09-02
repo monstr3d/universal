@@ -100,6 +100,7 @@ namespace PostgreSQLWarehouse
         {
             throw new OwnNotImplemented();
         }
+
         protected override IDirectory AddToDatabase(IDirectory directory)
         {
 

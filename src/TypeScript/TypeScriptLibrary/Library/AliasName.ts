@@ -1,11 +1,11 @@
+import { FictiveAlias } from "./Fiction/FictiveAlias";
 import { IAlias } from "./Interfaces/IAlias";
-import { IAliasBase } from "./Interfaces/IAliasBase";
 import { IAliasName } from "./Interfaces/IAliasName";
 
 export class AliasName implements IAliasName
 {
 
-    alias !: IAlias;
+    alias: IAlias = new FictiveAlias();
 
     name: string = "";
 
@@ -13,17 +13,23 @@ export class AliasName implements IAliasName
         this.alias = alias;
         this.name = name;
     }
+    getAlias(): IAlias {
+        return this.alias;
+    }
     getAliasNameValue(): any
     {
         return this.alias.getAliasValue(this.name);
     }
 
 
-    setAliasNameValue(value: any): void {
+    setAliasNameValue(value: any): void
+    {
+        if (value != undefined)
+        {
+            this.alias.setAliasValue(this.name, value);
+        }
     }
-    getAliasBase(): IAliasBase {
-        return this.alias;
-    }
+
     getNameOfAliasName(): string {
         return this.name;
     }

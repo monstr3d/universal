@@ -20,6 +20,10 @@ namespace DataPerformer.Portable.Helpers
 
         private object obj;
 
+        static int count = 0;
+
+        int n;
+
         #endregion
 
         #region Ctor
@@ -29,6 +33,8 @@ namespace DataPerformer.Portable.Helpers
         /// </summary>
         public TimeMeasurementProvider(object obj = null)
         {
+            n = count;
+            ++count;
             timeMeasurement = new TimeMeasurement(GetTime);
             this.obj = obj;
         }

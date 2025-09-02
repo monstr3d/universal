@@ -1,10 +1,11 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Collections.Generic;
+
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Filters;
-using Diagram.Interfaces;
+using Diagram.UI.Interfaces;
 using NamedTree;
-using System;
-using System.Collections.Generic;
 
 namespace DataPerformer.Portable
 {
@@ -26,13 +27,11 @@ namespace DataPerformer.Portable
 
         IMeasurement measurementOut;
 
-        bool isUpdated = false;
-
-        double? outval;
-
         bool isRunning = false;
 
         Action<IRunning, bool> running;
+
+        double? @double;
 
         #endregion
 
@@ -138,7 +137,7 @@ namespace DataPerformer.Portable
         void IMeasurements.UpdateMeasurements()
         {
             var a = measurement.ToNullable<double>();
-            outval = filter[a];
+            @double = filter[a];
         }
 
         #endregion
@@ -198,7 +197,7 @@ namespace DataPerformer.Portable
         #endregion
 
         object func()
-        { return outval; }
+        { return @double; }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {

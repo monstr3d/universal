@@ -1,9 +1,8 @@
 ﻿using Chart.DataPerformer.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using Chart.Drawing.Interfaces;
 using Diagram.UI;
-using Diagram.Interfaces;
+using Diagram.UI.Interfaces;
 
 
 namespace Chart.DataPerformer

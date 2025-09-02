@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading;
+using System.Windows.Forms;
 
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
@@ -6,8 +7,16 @@ using NamedTree;
 
 namespace DataWarehouse.Forms
 {
-    public class Performer
+    public class Performer : DataWarehouse.Performer
     {
+        public Performer() : base() { }
+
+        CancellationToken cancellationToken;
+
+        public Performer(CancellationToken cancellationToken)  : base(cancellationToken) 
+        {
+        }
+
         public async void BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             var node = e.Node;
@@ -19,9 +28,9 @@ namespace DataWarehouse.Forms
                 {
                     if (child is IDirectoryAsync Async)
                     {
-                        var t = Async.LoadChildren();
+                        var t = Async.LoadChildren(cancellationToken);
                         await t;
-                        var tl = Async.LoadLeaves();
+                        var tl = Async.LoadLeaves(cancellationToken);
                         await tl;
                     }
                 }

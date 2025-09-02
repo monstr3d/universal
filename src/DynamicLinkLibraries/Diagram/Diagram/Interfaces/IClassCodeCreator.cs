@@ -10,10 +10,12 @@ namespace Diagram.UI.Interfaces
         /// <summary>
         /// Creates code
         /// </summary>
-        /// <param name="preffix">Preffix</param>
+        /// <param name="prefix">Prefix</param>
         /// <param name="obj">Prototype object</param>
+        /// <param name="volume">Prototype object</param>
         /// <returns>Code</returns>
-        List<string> CreateCode(string preffix, object obj);
+        List<string> CreateCode(string prefix, object obj, string volume);
+
 
     }
 }

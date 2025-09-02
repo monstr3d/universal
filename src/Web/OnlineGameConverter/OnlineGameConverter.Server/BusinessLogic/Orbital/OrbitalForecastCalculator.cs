@@ -2641,7 +2641,7 @@ namespace OnlineGameConverter.Server.BusinessLogic.Orbital
 				internal CategoryObject()
 				{
 					proxyFactory = this;
-					aliasNames  = new Dictionary<object, object>()
+                    aliasNames = new Dictionary<object, object>()
 					{
 						{ 'v' ,"Vector.u" }
 			, 			{ 'u' ,"Vector.u" }
@@ -2672,7 +2672,7 @@ namespace OnlineGameConverter.Server.BusinessLogic.Orbital
 						,			{'c' , "G-transformation.Gz"}
 						,			{'b' , "G-transformation.Gy"}
 					};
-					aliases = new Dictionary<object, object>()
+                    aliasNames = new Dictionary<object, object>()
 					{
 									{"z" , (System.Double)(0)}
 						,			{"o" , (System.Double)(0.00014584231700000001)}

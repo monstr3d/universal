@@ -14,6 +14,7 @@ namespace DataPerformer.Interfaces
 
         #region Fields
 
+        static Performer performer = new Performer();
         /// <summary>
         /// Calculation
         /// </summary>
@@ -37,10 +38,25 @@ namespace DataPerformer.Interfaces
 
         #region Public Members
 
+        public static Dictionary<string, IVariablesCodeCreator> VariableCodeCreators
+        {
+            get;
+        } = new Dictionary<string, IVariablesCodeCreator>();
+
+        public static void AddVariableCodeCreator(this IVariablesCodeCreator variablesCodeCreator)
+        {
+            var lang = performer.GetLanguage(variablesCodeCreator);
+            if (VariableCodeCreators.ContainsKey(lang))
+            {
+                throw new ErrorHandler.OwnNotImplemented();
+            }
+            VariableCodeCreators.Add(lang, variablesCodeCreator);
+        }
+
         #region Database buffer Members
 
         /// <summary>
-        /// Adds conveter of type
+        /// Adds converter of type
         /// </summary>
         /// <param name="typeConverter"></param>
         public static void AddTypeConverter(this Func<object, object> typeConverter)

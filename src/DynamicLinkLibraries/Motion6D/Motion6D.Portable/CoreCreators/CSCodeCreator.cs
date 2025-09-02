@@ -1,26 +1,35 @@
-﻿using System.Collections.Generic;
-
-using Diagram.Attributes;
+﻿using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Aggregates;
+using System.Collections.Generic;
 
 namespace Motion6D.Portable.CoreCreators
 {
     [Language("C#")]
-
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+           this.AddClassCodeCreator();
         }
 
         #region IClassCodeCreator Members
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             List<string> l = new List<string>();
             string name = obj.GetType().FullName;

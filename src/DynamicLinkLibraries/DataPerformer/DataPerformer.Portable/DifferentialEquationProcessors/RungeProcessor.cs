@@ -31,7 +31,6 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// </summary>
         private double[] f;
 
-        CommonWrapper wrapper = new();
 
         /// <summary>
         /// Auxiliary buffer variable

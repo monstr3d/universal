@@ -10,6 +10,9 @@ class CategoryArrow {
         desktop.addCategoryArrow(this);
         desktop.addObject(this);
     }
+    getArrowName() {
+        return this.name;
+    }
     getClassName() {
         return this.typeName;
     }
@@ -25,7 +28,7 @@ class CategoryArrow {
     getSource() {
         return this.source;
     }
-    getTagret() {
+    getTarget() {
         return this.target;
     }
     setSource(source) {

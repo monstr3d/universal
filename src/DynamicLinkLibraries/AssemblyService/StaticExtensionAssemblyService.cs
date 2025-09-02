@@ -21,7 +21,12 @@ namespace AssemblyService
 
         static readonly object[] input = new object[] {null};
 
-        static string dir;
+        static string Directory
+        {
+            get;
+            set;
+        }
+
         
         static StaticExtensionAssemblyService()
         {
@@ -29,7 +34,7 @@ namespace AssemblyService
             {  
             
             };
-            dir = AppDomain.CurrentDomain.BaseDirectory;
+            Directory = AppDomain.CurrentDomain.BaseDirectory;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             AppDomain.CurrentDomain.AssemblyLoad += CurrentDomain_AssemblyLoadArgs;
             Assembly ass = typeof(StaticExtensionAssemblyService).Assembly;
@@ -315,7 +320,7 @@ namespace AssemblyService
                     yield return loc.GetFileBytes();
                 }
             }
-            string[] fn = Directory.GetFiles(directory, "*.dll");   // Dll files
+            string[] fn = System.IO.Directory.GetFiles(directory, "*.dll");   // Dll files
             foreach (string f in fn)
             {
                 if (l.Contains(f))
@@ -349,7 +354,7 @@ namespace AssemblyService
         /// <returns>Interface objects</returns>
         public static IEnumerable<T> GetInterfaces<T>(this string directory) where T : class
         {
-            string[] fn = Directory.GetFiles(directory, "*.dll");   // Dll files
+            string[] fn = System.IO.Directory.GetFiles(directory, "*.dll");   // Dll files
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies(); // Current domain assemblies
             foreach (Assembly a in ass) // Looking for objects in loaded assemblies
             {
@@ -510,7 +515,7 @@ namespace AssemblyService
                 string loc = Path.GetFileName(a.Location);
                 locations.AddLast(loc);
             }
-            string[] fn = Directory.GetFiles(dir, "*.dll");   // Dll files
+            string[] fn = System.IO.Directory.GetFiles(dir, "*.dll");   // Dll files
             locations.IteratedLoad(fn, exceptionHandler);
         }
 

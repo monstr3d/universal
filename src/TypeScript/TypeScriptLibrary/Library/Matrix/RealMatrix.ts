@@ -1,3 +1,3 @@
-class RealMatrix {
+export class RealMatrix {
     constructor() { }
 }

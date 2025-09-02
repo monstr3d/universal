@@ -19,6 +19,11 @@ namespace PostgreSQLWarehouse
 
         }
 
+        public void CreateRootsPublic()
+        {
+            CreateRoots();
+        }
+
         void CreateRoots()
         {
             var t = Insert(null);

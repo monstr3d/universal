@@ -38,13 +38,14 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
 
    
     
-    getTimeMeasutement(): ITimeMeasurementProvider {
+    getTimeMeasurement(): ITimeMeasurementProvider {
         return this.timeMeasurement;
     }
 
     setTimeMeasurement(measurement: ITimeMeasurementProvider): void {
         this.timeMeasurement = measurement;            ;
     }
+
     postSetArrow(): void {
 
     }

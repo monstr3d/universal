@@ -1,11 +1,14 @@
-﻿import { IAlias } from "../Interfaces/IAlias";
+﻿import { FictiveAlias } from "../Fiction/FictiveAlias";
+import { IAlias } from "../Interfaces/IAlias";
 import { IDesktop } from "../Interfaces/IDesktop";
 import { Performer } from "../Performer";
 import { DataConsumer } from "./DataConsumer";
 import { IMeasurement } from "./Interfaces/IMeasurement";
 import { IMeasurements } from "./Interfaces/IMeasurements";
 
-export class DataConsumerMeasurements extends DataConsumer implements IMeasurements, IAlias {
+export class DataConsumerMeasurements extends DataConsumer
+    implements IMeasurements, IAlias
+{
     constructor(desktop: IDesktop, name: string) {
         super(desktop, name);
         this.alias = this;
@@ -15,10 +18,12 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
         this.types.push("IAlias");
     }
 
+
     getAliasValue(name: string)
     {
         return this.aliasValues.get(name);
     }
+
     protected output: IMeasurement[] = [];
 
     protected aliasTypes: Map<string, any> = new Map();
@@ -31,7 +36,10 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
 
     protected variable: any;
 
-    protected alias !: IAlias;
+    protected alias: IAlias = new FictiveAlias();
+
+    protected external: Map<string, string> = new Map();
+
 
 
  
@@ -73,4 +81,9 @@ export class DataConsumerMeasurements extends DataConsumer implements IMeasureme
         this.aliasValues.set(name, value);
     }
 
+
+    setExternalAliases(map: Map<string, string>): void
+    {
+
+    }
 }

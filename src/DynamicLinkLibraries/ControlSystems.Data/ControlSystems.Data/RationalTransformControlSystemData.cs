@@ -13,6 +13,7 @@ using ErrorHandler;
 using NamedTree;
 using OrdinaryDifferentialEquations;
 using SerializationInterface;
+using ISetFeedback = DataPerformer.Portable.Interfaces.ISetFeedback;
 
 
 namespace ControlSystems.Data

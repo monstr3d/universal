@@ -10,6 +10,8 @@ namespace Abstract3DConverters.Creators
     {
         protected XmlDocument doc;
 
+        protected NamedTree.Performer p = new NamedTree.Performer();
+
         internal Dictionary<string, Image> InternalImages => Images;
 
 

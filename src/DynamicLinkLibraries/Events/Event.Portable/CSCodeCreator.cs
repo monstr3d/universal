@@ -1,4 +1,6 @@
-﻿using Diagram.UI;
+﻿using BaseTypes.Attributes;
+using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using Event.Interfaces;
 using Event.Portable.Arrows;
@@ -7,20 +9,31 @@ using System.Collections.Generic;
 
 namespace Event.Portable
 {
-    [Diagram.Attributes.Language("C#")]
+    [Language("C#")]
 
     class CSCodeCreator : IClassCodeCreator
     {
 
         internal CSCodeCreator()
         {
-            this.AddCodeCreator();
+           this.AddClassCodeCreator();
         }
 
 
         #region IClassCodeCreator Members
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+
+        protected virtual string BaseClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+
+
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             List<string> l = new List<string>();
             string str = null;

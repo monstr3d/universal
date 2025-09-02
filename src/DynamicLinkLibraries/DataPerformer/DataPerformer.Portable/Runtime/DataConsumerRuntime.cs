@@ -94,7 +94,11 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        protected ITimeMeasurementProvider provider;
+        protected virtual ITimeMeasurementProvider Provider
+        { 
+            get; 
+            set; 
+        }
 
         /// <summary>
         /// Data consumer
@@ -131,7 +135,7 @@ namespace DataPerformer.Portable.Runtime
         public DataConsumerRuntime(IDataRuntimeFactory factory, IDataConsumer consumer, string reason,
             int priority = 0)
         {
-            provider = new TimeMeasurementProvider(consumer);
+            Provider = new TimeMeasurementProvider(consumer);
             this.reason = reason;
             this.factory = factory;
             this.consumer = consumer;
@@ -172,19 +176,19 @@ namespace DataPerformer.Portable.Runtime
         {
             get
             {
-                return provider.Time;
+                return Provider.Time;
             }
             set
             {
-                provider.Time = value;
+                Provider.Time = value;
                 dynamical.ForEach((IDynamical dyn) => { dyn.Time = value; });
             }
         }
 
         ITimeMeasurementProvider IDataRuntime.TimeProvider
         {
-            get { return provider; }
-            set { provider = value; }
+            get => Provider;
+            set => Provider = value; 
         }
 
         IEnumerable<object> IDataRuntime.AllComponents
@@ -264,7 +268,7 @@ namespace DataPerformer.Portable.Runtime
         /// <param name="time">Start time</param>
         protected virtual void StartAll(double time)
         {
-            provider.Time = time;
+            Provider.Time = time;
             List<IStarted> ls = new List<IStarted>();
             collection.ForEach((IStarted s) => { ls.Add(s); s.Start(time); });
             IStep st = this;

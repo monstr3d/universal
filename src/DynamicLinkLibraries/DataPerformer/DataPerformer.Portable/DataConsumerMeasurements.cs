@@ -1,35 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
-using Diagram.UI.Aliases;
-
 using BaseTypes.Interfaces;
+
+using CategoryTheory;
 
 using DataPerformer.Interfaces;
 
-using Event.Interfaces;
+using Diagram.UI.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Aliases;
+using Diagram.UI.Labels;
 
 using ErrorHandler;
 
+using Event.Interfaces;
+
 using NamedTree;
+using System.Linq;
 
 namespace DataPerformer.Portable
 {
-
+ 
     /// <summary>
     /// Data consumer + measurements
     /// </summary>
     public abstract class DataConsumerMeasurements : DataConsumer,
-        IMeasurements, IAlias, ICheckCorrectness
-      {
+        IMeasurements, IAlias, IFeedbackCollectionHolder,  ICheckCorrectness
+    {
 
         #region Fields
 
+        protected IFeedbackCollection feedbackCollection;
+
+ 
+        protected Performer performer = new Performer();
+
+    
         /// <summary>
         /// String representation of formulas
         /// </summary>
@@ -56,6 +63,7 @@ namespace DataPerformer.Portable
         /// </summary>
         protected object[,] result;
 
+    
 
         /// <summary>
         /// Input parameter
@@ -118,11 +126,7 @@ namespace DataPerformer.Portable
         protected Dictionary<int, string> feedback = new Dictionary<int, string>();
 
 
-        /// <summary>
-        /// Feedback aliases
-        /// </summary>
-        protected Dictionary<int, AliasName> feedAliases = new Dictionary<int, AliasName>();
-
+     
        /// <summary>
         /// Update
         /// </summary>
@@ -173,17 +177,22 @@ namespace DataPerformer.Portable
 
         #region Ctor
 
+        protected virtual Dictionary<string, string> FeedBack
+        {
+            get;
+            set;
+        } = new Dictionary<string, string>();
+
         /// <summary>
         /// Constructor
         /// </summary>
         protected DataConsumerMeasurements()
                 : base(39)
         {
-            
         }
 
 
-  
+
         #endregion
 
         #region IAlias Members
@@ -191,8 +200,8 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Names of aliases
         /// </summary>
-        public virtual IList<string> AliasNames
-        {
+        public virtual IList<string> AliasNames => parameters.Keys.ToList();
+   /*     {
             get
             {
                 List<string> s = new List<string>();
@@ -202,7 +211,7 @@ namespace DataPerformer.Portable
                 }
                 return s;
             }
-        }
+        }*/
 
         /// <summary>
         /// Access to alias object
@@ -272,29 +281,12 @@ namespace DataPerformer.Portable
             }
         }
 
-        protected virtual IMeasurement GetMeasurement(int n)
-        {
-            if (measurements == null)
-            {
-                this.Throw(new OwnException("Undefined measurements"));
-            }
-            if (measurements.Length <= n)
-            {
-                this.Throw(new OwnException("Shortage of measuremens"));
-            }
-            IMeasurement measurement = measurements[n];
-            if (measurement == null)
-            {
-                this.Throw(new OwnException("Undefined measure"));
-            }
-            return measurement;
-
-        }
-
         /// <summary>
         /// Access to n - th measurement
         /// </summary>
         IMeasurement IMeasurements.this[int n] => GetMeasurement(n);
+
+        
 
         protected virtual void UpdateMeasurements()
         {
@@ -313,15 +305,7 @@ namespace DataPerformer.Portable
                     throw new OwnException("Formulas are not accepted");
                 }
                 update();
-                foreach (int i in feedAliases.Keys)
-                {
-                    IMeasurement m = measurements[i];
-                    object r = m.Parameter();
-                    if (r != null)
-                    {
-                        feedAliases[i].SetValue(r);
-                    }
-                }
+                feedbackCollection.Set();
                 isUpdated = true;
             }
             catch (Exception exception)
@@ -630,6 +614,24 @@ namespace DataPerformer.Portable
 
         #region Protected Members
 
+        protected virtual IMeasurement GetMeasurement(int n)
+        {
+            if (measurements == null)
+            {
+                this.Throw(new OwnException("Undefined measurements"));
+            }
+            if (measurements.Length <= n)
+            {
+                this.Throw(new OwnException("Shortage of measuremens"));
+            }
+            IMeasurement measurement = measurements[n];
+            if (measurement == null)
+            {
+                this.Throw(new OwnException("Undefined measure"));
+            }
+            return measurement;
+        }
+
         /// <summary>
         /// The count of measurements
         /// </summary>
@@ -642,23 +644,33 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => Children;
 
+        IFeedbackCollection IFeedbackCollectionHolder.Feedback => feedbackCollection;
+
         protected virtual void SetFeedback()
         {
-            feedAliases.Clear();
-            foreach (int i in feedback.Keys)
+            FeedBack.Clear();
+            var keys = feedback.Keys;
+            for (int i = 0; i < measurements.Length; i++)
             {
-                feedAliases[i] = this.FindAliasName(feedback[i], false);
+                if (keys.Contains(i))
+                {
+                    var m = measurements[i];
+                    FeedBack[m.Name] = feedback[i];
+                }
+
             }
+            feedbackCollection.Fill();
         }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new ErrorHandler.OwnException();
+            throw new OwnException();
 
         }
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
+            throw new OwnException();
         }
 
 
@@ -666,6 +678,7 @@ namespace DataPerformer.Portable
 
         #region Private Members
 
+        protected abstract void CreateFeedback();
 
 
         #endregion

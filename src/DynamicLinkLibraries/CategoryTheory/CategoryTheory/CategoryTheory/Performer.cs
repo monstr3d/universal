@@ -3,12 +3,8 @@
 
 namespace CategoryTheory
 {
-    public class Performer
+    public class Performer : NamedTree.Performer
     {
-        public Performer() 
-        { 
-        
-        }
 
         /// <summary>
         /// Checks whether the type is base type

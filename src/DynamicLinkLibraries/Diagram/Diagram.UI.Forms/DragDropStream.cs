@@ -1,9 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Common.UI;
+
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
+using Diagram.UI.Interfaces;
 
 namespace Diagram.UI
 {
@@ -11,6 +12,12 @@ namespace Diagram.UI
     {
         #region Fields
         string name;
+
+
+        CancellationToken cancellationToken;
+
+        internal
+
         PanelDesktop desktop;
 
         private Action<Stream> afterDrag = (Stream stream) => {};
@@ -74,9 +81,11 @@ namespace Diagram.UI
                 var async = cr.DataAsync;
                 if (async != null)
                 {
+                    ICancellation c = desktop;
+                    var ct = c.CreateCancellationToken();
                     var t = desktop.LoadAsync(async,
                         SerializationInterface.StaticExtensionSerializationInterface.Binder, 
-                        desktop.Extension, desktop.Extension);
+                        desktop.Extension, desktop.Extension, ct);
                     await t;
                     return;
                 }

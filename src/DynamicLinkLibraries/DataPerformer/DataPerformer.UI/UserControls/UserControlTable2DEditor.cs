@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
 
 using CategoryTheory;
 
-using Diagram.UI;
 using Diagram.UI.Utils;
 
+
 using DataPerformer.Portable;
+
 using ErrorHandler;
 
 namespace DataPerformer.UI.UserControls

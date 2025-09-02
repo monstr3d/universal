@@ -1,3 +1,4 @@
+import { OwnNotImplemented } from "./ErrorHandler/OwnNotImplemented";
 import { ICategoryArrow } from "./Interfaces/ICategoryArrow";
 import { ICategoryObject } from "./Interfaces/ICategoryObject";
 import { IDesktop } from "./Interfaces/IDesktop";
@@ -38,6 +39,16 @@ export class Desktop implements IDesktop
 
 
     protected target!: ICategoryObject;
+
+    getCategoryObject(name: string): ICategoryObject {
+        for (var o of this.categoryObjects) {
+            var n = o.getCategoryObjectName();
+            if (n == name) {
+                return o;
+            }
+        }
+        throw new OwnNotImplemented();
+    }
 
     getCategoryObjects(): ICategoryObject[] {
         return this.categoryObjects;

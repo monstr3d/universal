@@ -716,7 +716,7 @@ namespace GeneratedProject
 								internal CategoryObject()
 								{
 									proxyFactory = this;
-									aliasNames  = new Dictionary<object, object>()
+                                    aliasNames = new Dictionary<object, object>()
 									{
 									};
 							
@@ -734,7 +734,7 @@ namespace GeneratedProject
 										,			{'v' , "Meteo.Formula_1"}
 										,			{'b' , "Meteo.Formula_2"}
 									};
-									aliases = new Dictionary<object, object>()
+                                    aliasNames = new Dictionary<object, object>()
 									{
 													{"x" , (System.Double)(19000)}
 										,			{"h" , (System.Double)(205.59930691663146)}

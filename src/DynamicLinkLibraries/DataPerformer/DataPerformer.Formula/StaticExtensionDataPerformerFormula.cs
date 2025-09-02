@@ -1,20 +1,24 @@
-﻿using CategoryTheory;
+﻿using System.Collections.Generic;
 
 using BaseTypes.Interfaces;
 
 
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+
 using AssemblyService.Attributes;
 
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 
+using DataPerformer.Formula.CodeCreators;
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
-using System.Collections.Generic;
+
 using NamedTree;
+using ErrorHandler;
+using FormulaEditor.CodeCreators.Interfaces;
 
 namespace DataPerformer.Formula
 {
@@ -26,10 +30,24 @@ namespace DataPerformer.Formula
     {
         #region Fields
 
+        static Diagram.UI.Performer performer = new Diagram.UI.Performer();
+
         static readonly DataPerformerFormula dataPerformerFormula = new(null);
 
-        #endregion
+        public static Dictionary<string, ITreeCollectionCodeCreator> TreeCollectionCodeCreators
+        {
+            get; set;
+        } = new Dictionary<string, ITreeCollectionCodeCreator>();
 
+
+        public static Dictionary<string, ITreeCodeCreator> TreeCodeCreators
+        {
+            get; set;
+        } = new Dictionary<string, ITreeCodeCreator>();
+
+
+
+        #endregion
 
         #region Public Members
 
@@ -166,6 +184,37 @@ namespace DataPerformer.Formula
 
         #region Ctor
 
+        public static void AddTreeCollectionCodeCreator(this ITreeCollectionCodeCreator collection)
+        {
+            var lang = performer.GetLanguage(collection);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            if (TreeCollectionCodeCreators.ContainsKey(lang))
+            {
+                throw new OwnNotImplemented();
+            }
+            TreeCollectionCodeCreators[lang] = collection;
+        }
+
+
+        public static void AddTreeCodeCreator(this ITreeCodeCreator collection)
+        {
+            var lang = performer.GetLanguage(collection);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented();
+            }
+            if (TreeCodeCreators.ContainsKey(lang))
+            {
+                throw new OwnNotImplemented();
+            }
+            TreeCodeCreators[lang] = collection;
+        }
+
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -174,6 +223,7 @@ namespace DataPerformer.Formula
             new CSCodeCreator();
             (new DataPerformerSeparator()).Add();
         }
+        #endregion
 
         class DataPerformerSeparator : IOperationSeparator
         {
@@ -194,7 +244,6 @@ namespace DataPerformer.Formula
             }
         }
 
-        #endregion
-
+ 
     }
 }

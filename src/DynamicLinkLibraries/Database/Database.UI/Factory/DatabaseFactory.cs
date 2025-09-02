@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Windows.Forms;
 
 using System.Drawing;
 
@@ -17,10 +13,6 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
 using Database.UI.Labels;
-using Database.UI.Forms;
-
-
-using BasicEngineering.UI.Factory;
 
 
 namespace Database.UI.Factory

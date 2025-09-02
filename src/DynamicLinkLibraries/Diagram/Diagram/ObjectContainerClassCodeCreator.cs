@@ -1,24 +1,36 @@
-﻿using System.Collections.Generic;
-using Diagram.UI.Portable;
+﻿using BaseTypes.Attributes;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
-using Diagram.Attributes;
+using Diagram.UI.Portable;
+using System.Collections.Generic;
 
 
 namespace Diagram.UI
 {
     [Language("C#")]
-    class ObjectContainerClassCodeCreator : IClassCodeCreator
+    class ObjectContainerClassCodeCreator : Diagram.UI.Interfaces.IClassCodeCreator
     {
 
         internal ObjectContainerClassCodeCreator()
         {
-            this.AddCodeCreator(); ;
+            this.AddClassCodeCreator();
         }
+
+        protected IDesktopCodeCreator DesktopCodeCreator
+        { get; set; }
+
+ 
+        protected virtual string ClassString(string prefix, object obj)
+        {
+            return obj.GetType().Name;
+        }
+
+
 
 
         #region IClassCodeCreator Members
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
+        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {           
             List<string> l = new List<string>();
             string str = null;

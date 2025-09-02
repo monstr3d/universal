@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using CategoryTheory;
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
@@ -13,6 +14,7 @@ using Diagram.UI.Labels;
 using GeneralLinearMethod;
 
 using NamedTree;
+
 using ErrorHandler;
 
 
@@ -279,33 +281,42 @@ namespace Regression.Portable
         /// <param name="y">Output</param>
         public void Calculate(double[] x, IStructuredSelection selection, double?[] y)
 		{
-			double a = 0;
-			for (int i = 0; i < x.Length; i++)
+			try
 			{
-                aliases[i].Value = x[i];
-			}
-            runtime.UpdateAll();
-			int n = 0;
-			for (int i = 0; i < measurementsDitcionary.Count; i++)
-			{
-				IMeasurement m = measurementsDitcionary[i];
-				var parameter = m.Parameter;
-				object t = m.Type;
-				if (t.Equals(a))
+				double a = 0;
+				for (int i = 0; i < x.Length; i++)
 				{
-					y[n] = (double) parameter();
-					++n;
-					continue;
+					aliases[i].Value = x[i];
 				}
-				else
+				runtime.UpdateAll();
+				int n = 0;
+				for (int i = 0; i < measurementsDitcionary.Count; i++)
 				{
-					Array ar = parameter() as Array;
-					for (int j = 0; j < ar.GetLength(0); j++)
+					IMeasurement m = measurementsDitcionary[i];
+					var parameter = m.Parameter;
+					object t = m.Type;
+					if (t.Equals(a))
 					{
-                        y[n] = (double)ar.GetValue(j);
+						y[n] = (double)parameter();
 						++n;
+						continue;
+					}
+					else
+					{
+						var ret = parameter();
+						var  ar = parameter() as Array;
+						for (int j = 0; j < ar.GetLength(0); j++)
+						{
+							y[n] = (double)ar.GetValue(j);
+							++n;
+						}
 					}
 				}
+				return;
+			}
+			catch (Exception e)
+			{
+				throw IncludedException.Get(e);
 			}
 		}
 
@@ -656,63 +667,72 @@ namespace Regression.Portable
 		/// <returns>Sogma0</returns>
 		public double Iterate()
 		{
-			MeasuresNames = measurementsNames;
-			SelectionsNames = selectionNames;
-			Init();
-			int n = Dimension;
-			int l = selection.DataDimension;
-			if (x == null)
+			Exception ex;
+			try
 			{
-				x = new double[n];
-			}
-			else if (x.Length != n)
-			{
-				x = new double[n];
-			}
-			if (y == null)
-			{
-				y = new double?[l];
-				y1 = new double?[l];
-			}
-			else if (y.Length != l)
-			{
-				y = new double?[l];
-				y1 = new double?[l];
-			}
-			if (h == null)
-			{
-				h = new double?[n, l];
-			}
-			else if ((h.GetLength(0) != n) | (h.GetLength(1) != l))
-			{
-				h = new double?[n, l];
-			}
-			for (int i = 0; i < x.Length; i++)
-			{
-				IAliasName al = aliases[i];
-				x[i] = (double) al.Value;
+				MeasuresNames = measurementsNames;
+				SelectionsNames = selectionNames;
+				Init();
+				int n = Dimension;
+				int l = selection.DataDimension;
+				if (x == null)
+				{
+					x = new double[n];
+				}
+				else if (x.Length != n)
+				{
+					x = new double[n];
+				}
+				if (y == null)
+				{
+					y = new double?[l];
+					y1 = new double?[l];
+				}
+				else if (y.Length != l)
+				{
+					y = new double?[l];
+					y1 = new double?[l];
+				}
+				if (h == null)
+				{
+					h = new double?[n, l];
+				}
+				else if ((h.GetLength(0) != n) | (h.GetLength(1) != l))
+				{
+					h = new double?[n, l];
+				}
+				for (int i = 0; i < x.Length; i++)
+				{
+					IAliasName al = aliases[i];
+					x[i] = (double)al.Value;
 
-                /*!!! ====  Test of test ===========
-                x[i] = (double) al.Value + 0.000001;
-                //*/ //==============================
+					/*!!! ====  Test of test ===========
+					x[i] = (double) al.Value + 0.000001;
+					//*/ //==============================
 
-            }
-            if (delta.Length != x.Length)
-            {
-                double[] d = new double[x.Length];
-                for (int i = 0; (i < x.Length) & (i < delta.Length); i++)
-                {
-                    d[i] = delta[i];
-                }
-                delta = d;
-            }
-			method.Iterate(x, delta, dispersions, y, y1, h, Coefficient);
-			for (int i = 0; i < x.Length; i++)
-			{
-                IAliasName al = aliases[i];
-				al.Value = x[i];
+				}
+				if (delta.Length != x.Length)
+				{
+					double[] d = new double[x.Length];
+					for (int i = 0; (i < x.Length) & (i < delta.Length); i++)
+					{
+						d[i] = delta[i];
+					}
+					delta = d;
+				}
+				method.Iterate(x, delta, dispersions, y, y1, h, Coefficient);
+				for (int i = 0; i < x.Length; i++)
+				{
+					IAliasName al = aliases[i];
+					al.Value = x[i];
+				}
+				return standardDeviation;
 			}
-            return standardDeviation;
+			catch (Exception e)
+			{
+				ex = IncludedException.Get(e);
+			}
+			throw ex;
 		}
 		
 		/// <summary>
@@ -826,10 +846,19 @@ namespace Regression.Portable
         /// </summary>
         public double FullIterate()
 		{
-			UpdateSelections();
-			var a = Iterate();
-			SetAliases();
-			return a;
+			Exception exc = null;
+			try
+			{
+				UpdateSelections();
+				var a = Iterate();
+				SetAliases();
+				return a;
+			}
+			catch (Exception e)
+			{
+				exc = IncludedException.Get(e);
+			}
+			throw exc;
 		}
 
         /// <summary>

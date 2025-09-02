@@ -8,6 +8,7 @@ namespace Collada
     public class XmlHolder
     {
 
+
         public ICollada Collada
         {
             get;

@@ -58,7 +58,7 @@ namespace DataPerformer.Formula
             this.alias = alias;
             this.name = name;
             this.symbol = symbol;
-            tree = new ObjectFormulaTree(this, new List<ObjectFormulaTree>());
+            tree = new ObjectFormulaTree(this);
             aliasName = new AliasName(alias, name);
         }
 
@@ -71,6 +71,7 @@ namespace DataPerformer.Formula
         public AliasNameVariable(char symbol, IAlias alias, string name)
             : this(symbol + "", alias, name)
         {
+
         }
 
         /// <summary>
@@ -81,6 +82,7 @@ namespace DataPerformer.Formula
         public AliasNameVariable(char symbol, IAlias alias)
             : this(symbol + "", alias, symbol + "")
         {
+
         }
 
         #endregion

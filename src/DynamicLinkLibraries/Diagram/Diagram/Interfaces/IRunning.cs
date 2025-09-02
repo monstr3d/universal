@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Diagram.Interfaces
+namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Running object

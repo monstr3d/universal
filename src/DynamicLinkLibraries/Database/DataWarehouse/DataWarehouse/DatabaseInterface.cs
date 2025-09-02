@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
@@ -34,9 +35,9 @@ namespace DataWarehouse
             SupportsAsync = data_async != null;
         }
 
-        async public Task<IDirectoryAsync[]> GetRootsAsync(string[] ext)
+        async public Task<IDirectoryAsync[]> GetRootsAsync(string[] ext, CancellationToken cancellationToken)
         {
-            var t = data_async.GetRoots(ext);
+            var t = data_async.GetRoots(ext, cancellationToken);
             await t;
             return t.Result;
         }

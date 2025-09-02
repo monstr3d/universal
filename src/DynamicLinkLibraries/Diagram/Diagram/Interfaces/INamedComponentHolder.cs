@@ -1,6 +1,6 @@
 ﻿using Diagram.UI.Labels;
 
-namespace Diagram.Interfaces
+namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Holder of named component

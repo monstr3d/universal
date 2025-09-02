@@ -8,10 +8,10 @@ class Measurement {
         this.name = name;
         this.type = type;
     }
-    getName() {
+    getMeasurementName() {
         return this.name;
     }
-    getType() {
+    getMeasurementType() {
         return this.type;
     }
     getMeasurementValue() {
