@@ -1592,7 +1592,7 @@ It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $
 There is a natural surjective homomorphism of $A$-$A$ bimodules
 \be\label{fin_desc_eqn}
 \begin{split}
-\widetilde{A}\to{A},\\
+\desc:\widetilde{A}\to{A},\\
 	\widetilde a \mapsto \quad \lift^{-1}\left( \sum_{	g \in G}g \widetilde a \right).
 \end{split}
 \ee
@@ -1709,9 +1709,18 @@ If $\left(A, \widetilde{A}, G, \lift \right)$  is a {noncommutative finite-fold 
 \ee
 		of $\widetilde A$-$A$-bimodules.
 \end{definition}
-\begin{remark}
-Indeed the $\widetilde A$-$A$-bimodule $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ coincides with the $\widetilde A$ one. However later we consider infinite noncommutative coverings where  $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ differs from the $\widetilde A$  (cf. Definition \ref{infinite_hilb_mod_defn}). We use the common notation $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ for the unification of the theory.
+\begin{remark}\label{hilbert_product_rem}
+Indeed the $\widetilde A$-$A$-bimodule $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ coincides with the $\widetilde A$ one. However later we consider infinite noncommutative coverings where  $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ differs from the $\widetilde A$  (cf. Definition \ref{infinite_hilb_mod_defn}). We use the common notation $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ for the unification of the theory. 
 \end{remark}
+\begin{defn}\label{fin_h_desc_defn}
+The Remark \ref{hilbert_product_rem} and the Definition \ref{fin_desc_defn}	yield natural surjective homomorphism of $A$-$A$ bimodules
+	\be\label{fin_h_desc_eqn}
+	\begin{split}
+		\desc:	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A \to{A}.
+	\end{split}
+	\ee
+	We say that $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{descent} (cf. Definition \ref{fin_desc_defn}). 
+\end{defn}
 
 \begin{empt}\label{a_ppp_empt}
 Under the hypothesis of the Definition \ref{hilbert_product_defn} if
@@ -2485,26 +2494,649 @@ We say that $\left(A, \widetilde{A}'', G, \lift \right)$ is a \textit{compositio
 %	\end{enumerate}
 %Prove that $\left( A, \widetilde{A}, G, \lift \right)$    is a {noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
 %\end{exercise}
+ \section{Strong Morita equivalence of finite-fold coverings}
+
+\paragraph{}
+The following result about algebraic Morita equivalence of Galois extensions is in fact rephrasing of described in \cite{auslander:galois} constructions. 
+Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides with the Cartesian product $\widetilde{A} \times G$  and/or a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
+\begin{equation}\label{crossed_prod_eqn}
+	\begin{split}
+		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
+		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right)  \quad \forall a, b \in \widetilde{A} \rtimes G,~~ \forall g \in G,\\
+		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*\quad \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
+	\end{split}
+\end{equation}
+(cf. Equations \eqref{croosed_prod_eqn} and \eqref{discr_cr_prod_op_eqn})).  There are given by \eqref{morita_ta_act_eqn} left and right actions of $\widetilde{A} \rtimes G$ on $\widetilde A$ 
+\begin{equation}\label{morita_m_ta_act_eqn}
+	\begin{split}
+		\forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
+		\widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
+\end{equation}
+The left and right actions of $A$ on $\widetilde A$ come from the natural inclusion $A\subset \widetilde A$ of rings. Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Denote by $\varphi': \widetilde{A} \times  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi': \widetilde{A} \times \widetilde{A} \to A$ bilinear maps
+\begin{equation}\label{morp_pp_fin_eqn}
+	\begin{split}
+		\forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi' \left(\widetilde{a}, \widetilde{b} \right)\left( g\right) \bydef    \widetilde{a} \left(g\widetilde{b} \right) ,\\
+		\psi' \left(\widetilde{a}, \widetilde{b} \right) \bydef \sum_{g \in G} g\left(\widetilde{a}^* \widetilde{b} \right).
+	\end{split}
+\end{equation}
+If $c \in A$ then from $\varphi'\left(\widetilde{a}c, \widetilde{b} \right) = \varphi'\left(\widetilde{a},c \widetilde b \right)$ it follows that $\varphi'$ yields a bimodule homomorphism $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}\to \widetilde A\rtimes G$. If $\left( \widetilde c, g_1 \right)\in \widetilde A\rtimes G $ then from
+\bean
+\psi' \left(\widetilde{a} \left( \widetilde c, g_1 \right), \widetilde{b} \right)= \psi' \left(g_1^{-1}  \left( \widetilde{a}\widetilde{c} \right), \widetilde{b} \right)= \sum_{	g \in {G}}g\left( g_1^{-1}\left(  \widetilde{a}\widetilde{c}\right)\right)  \widetilde{b}= \sum_{	g \in {G}}g\left(  \widetilde{a}\widetilde{c}g_1  \widetilde{b}\right)= \\ \sum_{	g \in {G}}g\left(  \widetilde{a}\left( \widetilde{c}, g_1\right)   \widetilde{b}\right) = \psi' \left(\widetilde{a}, \left( \widetilde c, g_1 \right) \widetilde{b} \right)
+\eean
+it follows that $\psi'$ yields a bimodule homomorphism $\psi : \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A}\to A$.
+From above equations it follows that 
+\begin{equation}\label{morita_g_eqn}
+	\begin{split}
+		\forall \widetilde{a},\widetilde{b},\widetilde{c}\in \widetilde{A}\quad\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c} = \sum_{g \in G} \left( \varphi\left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right)\right)  g \widetilde{c} =\\
+		= \sum_{g \in G} \widetilde{a} \left( g \widetilde{b} \right) \left( g \widetilde{c}\right) =  \widetilde{a}\sum_{g \in G}  g\left(  \widetilde{b}  \widetilde{c}\right) = \widetilde{a} \psi\left(\widetilde{b}\otimes \widetilde{c} \right),\\
+		\widetilde{a}\varphi \left(\widetilde{b} \otimes \widetilde{c} \right) =
+		\sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} g \widetilde{c}\right) =
+		\\
+		= \left( \sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}= \left( \sum_{g \in G} g\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}=\psi\left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c},
+	\end{split}
+\end{equation}
+i.e. $\varphi, \psi$ satisfy conditions \eqref{morita_ctx_eqn}, so $\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right) $ is a Morita context.  According to the Remark  \ref{fin_cov_kasp_rem} it follows that $\widetilde A$ is a projective finitely generated $A$-module. From equation \eqref{a_ppp_eqn} it follows that $\widetilde A=\widetilde A^\parallel\oplus \widetilde A^\perp\cong  A\oplus \widetilde A^\perp$ and taking into account \eqref{progenerator_eqn} we conclude that $A$-module $\widetilde A$ is a progenerator (cf. Definition \ref{progenerator_defn}).
+\begin{lem}\label{morita_galois_lem}
+	If $\left(A, \widetilde{A}, G \right)$ is an unital noncommutative finite-fold  covering then  $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right)$$ is an algebraic Morita equivalence. 
+\end{lem}
+\begin{proof}
+	Follows from the Theorem \ref{progenerator_morita_thm}.
+\end{proof}
+
+
+\begin{cor}\label{unital_cov_cor}
+	Let $\left(A, \widetilde{A}, G, \lift \right)$ be an unital noncommutative finite-fold  covering. Let us define a structure of Hilbert $\widetilde{A} \rtimes G$-$A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by following products
+	\begin{equation}\label{hilb_gal_eqn}
+		\begin{split}
+			\left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\widetilde a \otimes  \widetilde b^* \right),\\ 
+			\left\langle \widetilde a,\widetilde b \right\rangle_A = \psi\left(\widetilde a^* \otimes \widetilde b\right).\\
+		\end{split}
+	\end{equation}
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)]
+		A bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn},
+		
+		\item[(ii)] 
+		\begin{equation*}
+			\begin{split}
+				\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\ 
+				\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A.\\
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}$-$A$  equivalence bimodule (cf. Definition \ref{strong_morita_defn}).
+\end{cor}
+\begin{proof}
+	(i) From \eqref{morita_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
+	(ii) From the Lemma  \ref{morita_galois_lem} and the Definition \ref{morita_ctx_defn} of algebraic Morita equivalence  it turns out
+	\begin{equation*}
+		\begin{split}
+			\varphi\left(  \widetilde{A} \otimes_{A}  \widetilde{A}\right)  =\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\
+			\psi\left( \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A}\right)=\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{A}  = A.
+		\end{split}
+	\end{equation*}
+\end{proof}
+Let us consider the situation of the Corollary \ref{unital_cov_cor}. Denote by $e \in G$ the neutral element. The unity $1_{\widetilde{A} \rtimes G}$ of $\widetilde{A} \rtimes G$ is given by
+\begin{equation}\nonumber
+	\begin{split}
+		1_{\widetilde{A} \rtimes G}\left(g \right) = \left\{\begin{array}{c l}
+			1_{\widetilde{A}}  & g = e \\
+			0 & g \neq e
+		\end{array}\right..
+	\end{split}
+\end{equation}
+From the Lemma \ref{morita_galois_lem} it follows that there are $\widetilde{a}_1,...,\widetilde{a}_n, \widetilde{b}_1,..., \widetilde{b}_n \in \widetilde{A}$ such that
+\begin{equation}\label{1_g_eqn}
+	\begin{split}
+		1_{\widetilde{A} \rtimes G} = \varphi\left( \sum_{j=1}^n \widetilde{a}_j \otimes\widetilde{ b}_j^*\right) = \sum_{j=1}^n \left\langle \widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G}.
+	\end{split}
+\end{equation}
+From the above equation it turns out that for any $g \in G$
+\begin{equation}\label{ga_eqn}
+	\varphi\left( \sum_{j=1}^n g\widetilde{a}_j \otimes \widetilde{b}_j^*\right)\left(g' \right) = \left(\sum_{j=1}^n \left\langle g\widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G} \right) \left(g' \right) \left\{\begin{array}{c l}
+		1_{\widetilde{A}}  & g' = g \\
+		0 & g' \neq g
+	\end{array}\right..
+\end{equation}
+
+
+\begin{cor}\label{unital_cov_k_cor}
+	If $\left(A, \widetilde{A}, G, \lift \right)$ is an unital noncommutative finite-fold  covering then there is the natural isomorphism
+	\be
+	K_0\left(A \right) \cong K^G_0\left(\widetilde{A} \right) 
+	\ee
+\end{cor}
+\begin{proof}
+	Follows from the Corollary \ref{unital_cov_cor} and the Theorem \ref{equiv_k_thm}.
+\end{proof}
+\begin{lem}\label{comp_cov_lem}
+	Let $\left(A, \widetilde{A}, G \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by  products \eqref{hilb_gal_eqn}.
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)]
+		A bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ satisfies associativity conditions (a) of the Definition \ref{strong_morita_defn}
+		\item[(ii)] 
+		\begin{equation*}
+			\begin{split}
+				\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A,\\
+				\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G.\\ 
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+\end{lem}
+\begin{proof}(i)
+	From the Definition \ref{fin_unitization_defn} it follows that there are  unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
+	$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$). Moreover  there is an unital  noncommutative finite-fold quasi-covering $\left(B ,\widetilde{B}, G \right)$. From the Corollary \ref{unital_cov_cor} it turns out that a bimodule  $_{\widetilde{B} \rtimes G}\widetilde{B}_B$ is a $\widetilde{B} \rtimes G-B$ equivalence bimodule. Both scalar products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ are restrictions of products $ \left\langle -, - \right\rangle_{\widetilde{B} \rtimes G}$, $~~\left\langle -, - \right\rangle_B$, so products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy to condition (a) of the Definition \ref{strong_morita_defn}.\\
+	(ii) From \eqref{1_g_eqn} it turns out that there are $\widetilde{a}_1,...,\widetilde{a}_n, \widetilde{b}_1,..., \widetilde{b}_n \in \widetilde{B}$ such that
+	\begin{equation*}
+		\begin{split}
+			1_{\widetilde{B} \rtimes G} = \varphi\left( \sum_{j=1}^n \widetilde{a}_j \otimes\widetilde{ b}_j^*\right) = \sum_{j=1}^n \left\langle \widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{B} \rtimes G}.
+		\end{split}
+	\end{equation*}
+	If $a \in A_+$ is a positive element then there is $x \in A \subset \widetilde{A}$ such that $a = x^*x$ it follows that
+	$$
+	a = \frac{1}{\left|G\right|}\left\langle x, x \right\rangle_A.
+	$$
+	Otherwise $A$ is the $\C$-linear span of positive elements it turns out
+	$$
+	\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A.
+	$$
+	For any positive  $\widetilde{a} \in \widetilde{A}_+$ and any $g \in G$ denote by
+	$y^{\widetilde{a}}_g \in \widetilde{A} \rtimes G $ given by
+	\begin{equation*}
+		y^{\widetilde{a}}_g\left(g' \right) \left\{\begin{array}{c l}
+			\widetilde{a}  & g' = g \\
+			0 & g' \neq g
+		\end{array}\right..
+	\end{equation*}
+	There is $\widetilde{x} \in \widetilde{A}$ such that $\widetilde{x}\widetilde{x}^*= \widetilde{a}$. Clearly $\widetilde{x}\left( g\widetilde{a}_j\right) , \widetilde{x}\widetilde{b}_j \in \widetilde{A}$ and from \eqref{ga_eqn} it follows that
+	$$
+	y^{\widetilde{a}}_g = \sum_{j=1}^n \left\langle \widetilde x \left( g\widetilde{a}_j\right)  , \widetilde x\widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G}
+	$$
+	The algebra $\widetilde{A} \rtimes G$ is the $\C$-linear span of elements $y^{\widetilde{a}}_g$, so one has $\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G$. 
+	
+\end{proof}
+
+\begin{thm}\label{finite_morita_main_theorem}
+	If $\left(A, \widetilde{A}, G \right)$ is a noncommutative finite-fold covering  then a Hilbert $ \widetilde{A} \rtimes G$-$A$  bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ is a $\widetilde{A} \rtimes G-A$ equivalence bimodule.
+\end{thm}
+\begin{proof}
+	From the Definition \ref{fin_defn} there is a family $\left\{\widetilde{A}_\la \subset \widetilde{A} \right\}_{\la \in \La}$ of  hereditary subalgebras of $\widetilde{A}$ such that a union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subspace of $\widetilde A$ and for any $\la \in \La$ there is a natural  noncommutative finite-fold covering with unitization $\left(\widetilde{A}_\la \bigcap A,   \widetilde{A}_\la, G \right)$. From the Lemma \ref{comp_cov_lem} it turns out that   $\widetilde{A}_\la$ is a $\widetilde{A}_\la \rtimes G-\widetilde{A}_\la\bigcap A$ equivalence bimodule and
+	\begin{equation}\label{ia_eqn}
+		\begin{split}
+			\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la \right\rangle_{ \widetilde{A}_\la \rtimes G} =  \widetilde{A}_\la \rtimes G,\\ 
+			\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la\right\rangle_{ \widetilde{A}_\la \bigcap A} =  \widetilde{A}_\la
+			\bigcap A.\\
+		\end{split}
+	\end{equation}
+	for any $\la\in \La$.
+	The union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{A}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{A}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{A_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) of the Definition \ref{strong_morita_defn} holds.
+\end{proof}
+
+
+
+
+
+\section{Noncommutative unique path lifting}\label{noncomutative_path_liftting}
+
+\paragraph*{}
+This section is rarely used and may be skipped on first reading.
+Here we generalize  the path-lifting property given by the Definition \ref{top_path_lifting_defn}. Because noncommutative geometry has no points it has no a direct generalization of paths, but there is an implicit generalization. Let $\widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering. The following diagram reflects the path lifting problem.
+\newline
+\hspace*{\fill}
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
+		& \widetilde{\mathcal{X}} \\
+		I = [0,1]  & \mathcal{X} \\};
+	\path[-stealth]
+	(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
+	(m-1-2) edge node [right] {$p$} (m-2-2)
+	(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
+\end{tikzpicture}
+\hspace{\fill}
+\newline
+However above diagram can be replaced with a having noncommutative  generalization diagram.
+\newline
+\hspace*{\fill}
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
+		& \mathrm{Homeo}(\widetilde{\mathcal{X}}) \\
+		I = [0,1]  & \mathrm{Homeo}(\mathcal{X}) \\};
+	\path[-stealth]
+	(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
+	(m-1-2) edge node [right] {$\al \mapsto \left.\a\right|_{\mathcal X}$} (m-2-2)
+	(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
+\end{tikzpicture}
+\hspace{\fill}
+\newline
+where $\mathrm{Homeo}$ means the group of homeomorphisms with {compact-open} topology (cf \ref{top_comp_open_empt}). Above diagram has the following noncommutative generalization   
+\newline
+\hspace*{\fill}
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
+		& \Aut(\widetilde{A}) \\
+		I = [0,1]  & \Aut(A) \\};
+	\path[-stealth]
+	(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
+	(m-1-2) edge node [right] {$\al \mapsto \left.\a\right|_{A}$} (m-2-2)
+	(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
+\end{tikzpicture}
+\hspace{\fill}
+\newline
+In the above diagram we require that $\al|_A \in \mathrm{Aut}\left(A\right)$ for any $\al \in \mathrm{Aut}\left(\widetilde{A}\right)$. The diagram means that $f'(t)|_{A} = f(t)$ for any $t \in [0,1]$. Noncommutative generalization of a locally compact space is a $C^*$-algebra, so  the generalization of $\mathrm{Homeo}(\mathcal{X})$ is the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries (at least) two different topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
+\begin{equation*}
+	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
+\end{equation*}
+The other topology is the {\it uniform norm-topology} based on the open sets
+\begin{equation}\label{aut_norm_eqn}
+	\left\{\alpha \in \mathrm{Aut}(A) \ \left| \ \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| < \varepsilon \right. \right\}, \quad \varepsilon > 0
+\end{equation}
+which corresponds to following "norm"
+\begin{equation}\label{uniform_norm_topology_formula_eqn}
+	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
+\end{equation}
+Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Henceforth the uniform norm-topology will be considered only.
+
+\begin{definition}\label{upl_f_defn}
+	Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$. If  there is a continuous map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that $\left.\widetilde{f}(t)\right|_A = f(t)$ for any $t \in \left[0,1\right]$ and $\widetilde{f}\left( 0\right)  = \Id_{\widetilde{A}}$ then we say that $\widetilde{f}$ is a $\lift$-\textit{lift} of $f$. If a lift $\widetilde{f}$ of $f$ is unique then  a map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is said to be the \textit{unique $\lift$-lift} of $f$. If $\widetilde{f}$ is the unique $\lift$-lift of $f$ then we denote by 
+	\be\label{upl_f_eqn}
+	\lift_f \stackrel{\text{def}}{=}\widetilde{f}\left(1 \right).
+	\ee
+\end{definition}
+%  \begin{definition}\label{upl_defn}
+	%		Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras.
+	%	We say that $\lift: A \hookto \widetilde{A}$   has the \textit{unique path lifting} if for any continuous $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that  $f\left( 0\right)= \Id_A$ there is the the unique $\lift$-lift of $f$. The property of unique path lifting will be denoted by $UPL$. The map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is said to be the \textit{lift} of $f$. 
+	%\end{definition}
+	\begin{empt}\label{lift_group_empt}
+		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let both $f_1: [0,1] \to  \mathrm{Aut}\left({A}\right)$, $f_2: [0,1] \to  \mathrm{Aut}\left({A}\right)$ have unique $\lift$-lifts $\widetilde{f}_1$ and  $\widetilde{f}_2$ respectively. If $f_1* f_2: [0,1] \to  \mathrm{Aut}\left({A}\right)$, $\widetilde{f}_1* \widetilde{f}_2: [0,1] \to  \mathrm{Aut}\left(\widetilde{{A}}\right)$ are given by
+		\bean
+		\left( f_1* f_2\right) \left(t \right) =\left\{
+		\begin{array}{c l}
+			f_2\left( 2t\right)  &0 \le t \le \frac{1}{2}  \\
+			\\
+			f_1\left(2\left(t - \frac{1}{2} \right)  \right) f_2\left(1\right) & \frac{1}{2} < t \le 1
+		\end{array}\right.,\\
+		\left( \widetilde{f}_1* \widetilde{f}_2\right) \left(t \right) =\left\{
+		\begin{array}{c l}
+			\widetilde{f}_2\left( 2t\right)  &0 \le t \le \frac{1}{2}  \\
+			\\ \\
+			\widetilde{f}_1\left(2\left(t - \frac{1}{2} \right)  \right) \widetilde{f}_2\left(1\right) & \frac{1}{2} < t \le 1
+		\end{array}\right.
+		\eean
+		then $\widetilde{f}_1* \widetilde{f}_2$ is the unique $\lift$-lift of $f_1*f_2$.
+		Hence one has $\lift_{f_1* f_2}= \lift_{f_1} \lift_{f_2}$.
+		It turns out that the set of elements $\lift_f$ is a subgroup of $\Aut\left(\widetilde{A}\right)$.
+	\end{empt}
+	
+	\begin{defn}\label{lift_group_defn}
+		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras then  the group of elements $\lift_f$ (cf. \ref{lift_group_empt}) is said to be the $\lift$-\textit{lift group}.
+	\end{defn}
+	\begin{lemma}\label{lift_commutes_lem}
+		Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$ and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is  the \textit{unique $\lift$-lift} of $f$. If $g \in G=\left\{\left. g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}$ then one has $g\widetilde{f}\left( 1\right) = \widetilde{f}\left( 1\right)g$, i.e. $G$ commutes with the $\lift$-lift group.
+	\end{lemma}
+	\begin{proof}
+		If $\widetilde{f}': [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is given by $\widetilde{f}'(t)= g\widetilde{f}(t)g^{-1}$ then $\widetilde{f}'(t)|_A = \widetilde{f}(t)|_A$. From the Definition \ref{upl_f_defn} it turns out $\widetilde{f}'= \widetilde{f}$. It turns out $g\widetilde{f}(1)g^{-1}=\widetilde{f}'(1)=\widetilde{f}(1)$, i.e. one has $\widetilde{f}(1) = g\widetilde{f}(1)g^{-1}$ and, consequently  $\widetilde{f}(1)g = g\widetilde{f}(1)$.
+	\end{proof}
+	%\begin{empt}\label{loop_element_empt}
+	%Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}.
+	%For any $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that $f\left( 0\right)= f\left(1\right)= \Id_A$ and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that  that $\widetilde{f}(t)|_A = f(t)$ then $\al = \widetilde{f}\left( 0\right)$ is such that  $\al|_A = \Id_A$, i.e. $\al \in G$. %Moreover  if $f': [0,1] \to  \mathrm{Aut}\left({A}\right)$, $f'': [0,1] \to  \mathrm{Aut}\left({A}\right)$ are such that 
+	%\end{empt}
+	%\begin{defn}\label{loop_element_defn}
+	%	Let us consider the situation \ref{loop_element_empt}.
+	%The element  $\al \in G$ given by \ref{loop_element_empt} is said to be a \textit{loop element}. We say that $\al$ \textit{corresponds} to $f$.
+	%Clearly a set $L$ of loop elements is a subgroup of $G$, which is said to be the \textit{loop subgroup}. 
+	%\end{defn}
+	%\begin{lem}\label{loop_normal_lem}
+	%	Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}. If  $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that $f\left( 0\right)= \Id_A$  and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that  that $\widetilde{f}(t)|_A = f(t)$ for any $t \in \left[0,1\right]$ and $\widetilde{f}\left( 0\right)  = \Id_{\widetilde{A}}$ then $g\widetilde{f}(t)g^{-1}= \widetilde{f}(t)$ for any $t \in  [0,1]$.
+	%\end{lem}
+	%\begin{proof}
+	%If $\widetilde{f}': [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is given by $\widetilde{f}'(t)= g\widetilde{f}(t)g^{-1}$ then $\widetilde{f}'(t)_A = \widetilde{f}(t)|_A$. From the Definition \ref{upl_defn} it turns out $\widetilde{f}'\cong \widetilde{f}$.
+	%\end{proof}
+	%\begin{cor}\label{loop_normal_cor}
+	%Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}. The loop subgroup $L \subset G$ is a normal subgroup of $G$.
+	%\end{cor}
+	%\begin{proof}
+	%Let $g \in G$ and $l \in L$ be any elements, and suppose that $l$ {corresponds} to $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$. If $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is such that $\widetilde{f}(t)|_A = f(t)$ then $ g\widetilde{f}\left( t\right)g^{-1} = \widetilde{f}\left( t\right)$ for all $t \in \left[0,1 \right]$ in particular one has $ g\widetilde{f}\left( 1\right)g^{-1}=\widetilde{f}\left( 1\right)$, or equivalently $glg^{-1}= l$.
+	%\end{proof}
+	
+	%\begin{remark}\label{lift_commute_g}
+	%From the Definition \ref{upl_defn} it turns out that path lift commutes with $G$ i.e. for any lift $\widetilde{f}: [0,1]\to \mathrm{Aut}\left(\widetilde{A}\right)$ and $g \in G$ the map $g\widetilde{f}: [0,1]\to \mathrm{Aut}\left(\widetilde{A}\right)$ is also a lift.
+	%\end{remark}
+	\begin{lemma}
+		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras.
+		$f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$. If  there are two different $\lift$-lifts of $f$ then there is a nontrivial continuous  map: $\widetilde{f}:[0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that $\widetilde{f}|_A\left( t\right)  = \id_A$ for every $t \in \left[0,1\right]$.
+	\end{lemma}
+	\begin{proof}
+		If $\widetilde{f}'$ and $\widetilde{f}''$ are different $\lift$-lifts of $f$ then the map $\widetilde{f}:[0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ given by $t \mapsto \widetilde{f}'\left( t\right)\left(  \widetilde{f}''\left( t\right) \right)^{-1}$ satisfies to conditions of this lemma.
+	\end{proof}
+	\begin{cor}\label{lift_unique_cor}
+		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras, such that the group 
+		\be\label{lift_group_eqn}
+		G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+		\ee
+		is finite,  and let   $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be such that  $f\left( 0\right)= \Id_A$. If $\widetilde{f}$ is a $\lift$-lift of $f$ then   $\widetilde{f}$ is the unique $\lift$-lift of $f$.
+	\end{cor}
+	\begin{proof}
+		If there are two different lifts $\widetilde f_1, \widetilde f_2: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ of  $f$  then there is a nontrivial continuous  map: $\widetilde{f}\bydef \widetilde{f}_1 \widetilde{f}^{-1}_2:[0,1] \to  G$ such that $\widetilde{f}|_A\left( t\right)  = \id_A$. But it is impossible because the group is $G$ discrete.
+	\end{proof}
+	\begin{empt}\label{lift_unique_empt}
+		Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ is such that  $f\left( 0\right)= f\left( 1\right)=\Id_A$, and   $\widetilde{f}$ is the unique $\lift$-lift of $f$, such that $\widetilde{f}\left(0 \right)= \Id_{\widetilde{{A}}}$ then $\widetilde{f}\left(1 \right)\in G$, where $G$ is given by the equation \eqref{lift_group_eqn} group.
+	\end{empt}
+	
+	%   \begin{thm}\label{comm_thm}
+		%   	Let $p: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a topological covering projection. Any path $\omega: I \to \mathrm{Homeo}(\mathcal{X})$ such that $\omega(0)=\mathrm{Id}_{\mathcal{X}}$ can be uniquely lifted to the path $\widetilde{\omega}: I \to \mathrm{Homeo}(\widetilde{\mathcal{X}})$ such that $\widetilde{\omega}(0)=\mathrm{Id}_{\widetilde{\mathcal{X}}}$ , i.e. $p(\widetilde{\omega}(t)(x)) = \omega(t)(p(x))$, $\forall t \in [0,1], \ \forall x \in \widetilde{\mathcal{X}}$. It means that the natural $*$-homomorphism $C_0\left({\mathcal{X}} \right) \hookto C_0\left( \widetilde{\mathcal{X}}\right) $ has the unique path lifting.
+		%   \end{thm}
+	%   \begin{proof}
+		%   	Follows from theorem \ref{spanier_thm_un}.
+		%   \end{proof}
+	
+	\section{Coverings of (local) operator spaces}
+	\paragraph*{}
+	Here we generalize the Section \ref{cov_fin_bas_sec}.
+	\begin{definition}\label{sub_unital_operator_space_defn}
+		Let $Y$ be an unital operator space (cf. Definition \ref{op_u_space_defn}), and let $C^*_e\left( Y\right)$ be the $C^*$-envelope (cf. Definition \ref{c_env_sp_defn}) of $Y$. 
+		A \textit{sub}-\textit{unital operator space} is a pair $\left(X, Y \right)$ where  $X$ is a subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
+	\end{definition}
+	
+	\begin{example}\label{sub_alg_exm} 
+		If $A$ is a $C^*$-algebra and $A^\sim$ is given by \eqref{unital_notation_eqn} then since $A$ is $C^*$-norm closed one has  {sub-unital} operator space $\left(A, A^\sim\right)$.
+	\end{example}
+	\begin{definition}\label{op_sum_space_defn}
+		If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} operator spaces then a \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
+		\be\label{op_sum_space_eqn}
+		\begin{split}
+			\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
+			\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
+		\end{split}
+		\ee	
+	\end{definition}
+	
+	\begin{definition}\label{operator_space_envelope_defn}
+		If a pair   $\left(X, Y \right)$ is a {sub-unital} operator space then the $C^*$-\textit{envelope} of $\left(X, Y \right)$ is the $C^*$-algebra given by
+		\be\label{op_su_env_eqn}
+		\begin{split}
+			C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\},
+		\end{split}
+		\ee
+		i.e. $C^*_e\left( X, Y\right)$ is the $C^*$-algebra, generated by $X$.
+	\end{definition}
+	\begin{remark}\label{op_su_env_rem}
+		If  a sub-unital  operator space $\left(A,A^\sim \right)$  is given by the  Example \ref{sub_alg_exm}
+		then the $C^*$-{envelope}  of $\left(A,A^\sim \right)$ is $A$, i.e. $C^*_e\left(A,A^\sim \right)\cong A$. It turns out from the following circumstances:
+		\begin{itemize}
+			\item   $C_e\left(A^\sim \right) = A^\sim$, \item $A$ is $C^*$-norm closed.
+		\end{itemize}
+	\end{remark}
+	%\begin{definition}\label{op_su_inc_defn}
+	%Let    $\left(X, Y \right)$ be {sub-unital} operator space, and let $A$ be $C^*$-algebra. If  $A^+$ is a minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}) then the complete isometry $j:Y\hookto A^+$ is said to be an \textit{inclusion} of $\left(X, Y \right)$ into $A$ if $j\left(X\right)\subset A$.
+	%\end{definition}
+	\begin{definition}\label{fin_op_defn}
+		Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$.
+		Suppose that  following conditions hold:
+		\begin{enumerate}
+			\item[(a)] There is a  finite-fold  noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ (cf. Definition \ref{fin_defn}) such that $\lift_Y = \left.\rho\right|_Y$ and $\lift_X = \left.\rho\right|_X$. 
+			\item[(b)] $\widetilde X\subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is the maximal among  $\C$-linear subspaces $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$  such that $X = \widetilde X' \cap  C^*_e\left( X,  Y \right)$ and $G\widetilde X'= \widetilde X'$.
+		\end{enumerate}
+		We  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering} of the {sub-unital} operator space $\left(X, Y\right)$.
+	\end{definition}
+	\begin{remark}\label{fin_op_g_rem}
+		The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\left(\widetilde X, \widetilde Y \right)$ is trivial on $C^*_e\left( X,  Y \right)$, so from (b) of the Definition \ref{fin_op_defn} it follows that there is the natural action $G\times \widetilde X \to \widetilde X$ which is trivial on $X$.
+	\end{remark}
+	\begin{definition}\label{op_su_r_space_defn}
+		Let $Y$ be a  real operator space (cf. Definitions \ref{real_os_defn}), and let $X\subset Y$ is its subspace. Let both $\C X$ and $\C Y$ are complexifications  (cf. \ref{complexification_empt}) of $X$ and $Y$ respectively.
+		We say that a pair 	$\left(X, Y \right)$ is a \textit{sub-unital real operator space} if the  pair $\left(\C X, \C Y \right)$  is a sub-unital operator space (cf. Definition \ref{sub_unital_operator_space_defn}).
+	\end{definition}
+	\begin{definition}\label{op_sum_r_space_defn}
+		If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
+		\be\label{op_sum_r_space_eqn}
+		\begin{split}
+			\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
+			\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
+		\end{split}
+		\ee	
+	\end{definition}
+	\begin{remark}\label{ros_iso_rem}
+		Let both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces, and let 	$\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a complete isometry.  If $\C X$, $\C Y$,  $\C \widetilde X$, $ \C \widetilde Y$ are complexifications of $X$, $Y$,  $\widetilde X$, $ \widetilde Y$ then from the Theorem \ref{ros_contr_iso_thm} it turns out that the map  $\left(\C\lift_X, \C\lift_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is a complete isometry.
+	\end{remark}
+	\begin{definition}\label{r_comp_defn}
+		Under the hypotheses of the Remark \ref{ros_iso_rem} we say that $\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is the complexification of  $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$.
+	\end{definition}
+	
+	\begin{definition}\label{fin_rop_defn}
+		Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} real operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$. Let  $\left(\C\lift_X, \C\lift_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is complexification of  $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$. We say that   $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering of the sub-unital real operator space} $\left(X, Y\right)$ if $$\left(\left(\C X, \C Y \right),\left(\C \widetilde X, \C \widetilde Y \right), G, \left(\C\lift_X, \C\lift_Y \right) \right)$$   is a  {noncommutative finite-fold covering} of the {sub-unital} operator space $\left(\C X, \C Y\right)$ (cf. Definition \ref{fin_op_defn}).
+	\end{definition}
+	
+	
+	%\begin{empt}
+	%Let $X, Y$ be operator spaces, and let $\phi: X \to Y$ be complete quotient map (cf. \ref{complete_maps_empt}). Let $C^*_e\left(X \right)$ and $C^*_e\left(Y \right)$ $C^*$-envelopes of $X$ and $Y$ respectively (cf. Definition \ref{c_env_sp_defn}). If $I\subset C^*_e\left(X \right)$ is the intersection of all closed containing $\ker \phi$ ideals then there is an inclusion $Y \to C^*_e\left(X \right)/I$. Otherwise there is a surjective $*$-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. It turns out that there is a surjective $*$-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. 
+	%\end{empt}
+	
+	\begin{empt}\label{loc_op_env_empt} 
+		%Let $X$ be a local operator space represented by an inverse limit $X = \varprojlim X_\a$ of the directed set $\left\{X_\a\right\}$ spaces. The inverse limit  $C^*_e\left(X\right)=\varprojlim C^*_e\left(X_\a\right)$ is said to be the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$.
+		Let $X$ be a local operator space (cf. Definition \ref{loc_op_sp_defn}) and let $\varphi : X \hookto B$ be a complete isometry into pro-$C^*$-algebra (cf. \ref{complete_loc_maps_empt} and the Remark \ref{loc_op_abs_conc_rem}). Let $b\left( X\right) \bydef b\left(B \right) \cap X$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective $*$- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
+		$$
+		I \bydef \bigcap_{\substack{ J \text{ is an ideal of } B\\ J\cap b\left(B \right)\supset b\left( I\right)}}J
+		$$
+		then $A \bydef B/I$ is a pro-$C^*$-algebra and there is the complete isometry $X \hookto A$.
+	\end{empt}
+	
+	\begin{definition}\label{loc_op_env_defn}
+		In the described in \ref{loc_op_env_empt} we say that $A$ is the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$. We denote it by $C^*_e\left( X\right)$. 
+	\end{definition}
+	\begin{remark} Under the hypotheses \ref{loc_op_env_empt},  \ref{loc_op_env_defn}  there is the natural surjective $*$-homomorphism $B\to C^*_e\left( X\right)$. So $C^*_e\left( X\right)$ is unique up to $*$-isomorphism.
+	\end{remark}
+	\begin{definition}\label{bounded_loc_op_el_defn}
+		An element $a$ of local operator space $X$ is said to be \textit{bounded} if $a \in X \cap b\left(C^*_e\left(X\right) \right)$.  Denote by $b\left( X\right)$ the $\C$-space of bounded elements.  
+	\end{definition}
+	
+	\begin{rem}\label{bounded_loc_op_el_rem}
+		For any local operator space $X$ the space $b\left( X\right)$ is an operator space and $ b\left(C^*_e\left(X\right)\right) $ is the $C^*$-envelope of $b\left(X\right)$. 
+	\end{rem}
+	
+	%\begin{definition}
+	%	Let $X, Y$ be local operator spaces and $\phi: X \hookto Y$ be an injective $\C$ linear homomorphism. We say that $\phi$ is a \textit{complete isometry} if following conditions hold:
+	%	\begin{itemize}
+		%		\item [(a)] Both spaces  $X$ and $Y$ are inverse limits $X = \varprojlim X_\a$, $Y = \varprojlim Y_\a$.
+		%		\item[(b)] $\phi$ comes from the family $\left\{\phi_\a: X_\a \hookto Y_\a\right\}$ of complete isometries.
+		%	\end{itemize}
+	%\end{definition}
+	\begin{remark}
+		Any complete isomerty $\phi: X \to Y$ of local operator spaces (cf. \ref{complete_loc_maps_empt}) induces an injective $*$-homomorphism $C^*_e\left(Y\right)\hookto C^*_e\left(X\right)$  of {envelope pro}-$C^*$-{algebras} (cf. Definition \ref{loc_op_env_defn}).
+	\end{remark}
+	
+	\begin{definition}\label{op_loc_su_space_defn}
+		Let $Y$ be an unital local operator space, and let $C^*_e\left( Y\right)$ be the envelope pro-$C^*$-algebra (cf. Definition \ref{loc_op_env_defn}) of $Y$. 
+		A \textit{sub-unital local operator space} is a pair $\left(X, Y \right)$ where  $X$ is a  subspace of $Y$ such that $Y = X \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
+	\end{definition}
+	\begin{definition}\label{op_loc_sum_space_defn}
+		If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} local operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ (cf. \ref{complete_loc_maps_empt}) such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
+		\be\label{op_loc_sum_space_eqn}
+		\begin{split}
+			\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
+			\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
+		\end{split}
+		\ee	
+	\end{definition}
+	\begin{definition}\label{op_loc_su_env_defn}
+		If a pair   $\left(X, Y \right)$ is {sub-unital} local operator space then the pro-$C^*$-\textit{envelope} of $\left(X, Y \right)$ is the pro-$C^*$-algebra given by
+		\be\label{op_loc_su_env_eqn}
+		\begin{split}
+			C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } \text{pro-}C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\}.
+		\end{split}
+		\ee
+	\end{definition}
+	
+	\begin{definition}\label{fin_loc_op_defn}
+		Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} local operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$.
+		If  the following conditions hold:
+		\begin{enumerate}
+			\item[(a)] There is a finite-fold  noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ of pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}) such that $\lift_Y = \left.\rho\right|_Y$ and $\lift_X = \left.\rho\right|_X$. 
+			\item[(b)] If $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is a $\C$-linear space  such that $X = \widetilde X' \cap  C^*_e\left( X,  Y \right)$ and $G\widetilde X'= \widetilde X'$  then $\widetilde X' \subseteq \widetilde X$.
+		\end{enumerate}
+		Then we  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering} of the {sub-unital} operator space $\left(X, Y\right)$.
+	\end{definition}
+	
+	\begin{definition}\label{loc_op_re_sp_defn}
+		The \textit{real local operator space}  is an complete  $\R$-space with seminorms which satisfy to conditions M1, M2 of the Definition \ref{loc_op_sp_defn}.
+	\end{definition}
+	\begin{remark}\label{loc_op_re_sp_rem}
+		Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local space $V$ is an inverse limit of real operator spaces.
+	\end{remark}
+	\begin{remark}
+		Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
+	\end{remark}
+	\begin{remark}\label{fin_cov_oa_sub_os_rem}
+		There is a generalization of the Definition \ref{fin_oa_defn} related to an intersection $\widetilde Y \bydef \widetilde A \cap \widetilde Y$ where $\widetilde Y \subset \widetilde B$ is a  sub-unital (maybe real) operator space (cf. Definition \ref{sub_unital_operator_space_defn}). In this case there is a {\it finite-fold covering of bounded operator spaces}.
+	\end{remark}
+	
+	
+	
+	
+	
+	\begin{definition}\label{fin_defn!}!!!
+		Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  pre-covering   (cf. Definition \ref{fin_pre_defn}). The triple $\left(A, \widetilde{A}, G, \lift \right)$ and/or the injective $*$-homomorphism $\lift: A\hookto \widetilde{A}$ is  a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of all  connected $\left(A, \widetilde{A}, G, \lift \right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}) hereditary $C^*$-subalgebras such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] 
+			$$
+			\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad A_\mu \subset A_\nu;
+			$$	
+			\item[(b)]
+			a union 
+			$
+			\bigcup_{\la\in\La} A_\la
+			$
+			is dense in $A$.
+			%\item[(c)] for all $\la\in\La$ every connected component of $A_\la$ is strictly proper  (cf. the Definition \ref{strictly_proper_defn}). 
+		\end{enumerate}
+		The group $G$ is said to be the \textit{finite covering transformation group} (of $\left(A, \widetilde{A},G, \lift\right)$ ) and we use the following notation
+		\begin{equation}\label{group_cov_eqn}
+			G\left(\left.\widetilde{A}~~\right|~A \right) \stackrel{\mathrm{def}}{=} G.
+		\end{equation}
+		
+		%We say that  $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{connected} if $\widetilde A$ is connected.
+	\end{definition}
+	
+	\section{Finite noncommutative coverings and flat connections}\label{flat_sec}
+	
+	\subsection{Basic construction}\label{nc_flat_sec}
+	\paragraph*{}
+	Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ be the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}). Let $V = \C^n$ and with left  action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over   $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Definition \ref{triv_conn_defn} and Remark \ref{triv_conn_rem}). 
+	From \eqref{dirac_om_fin_lift_eqn} it turns out that $\Om^1_{\widetilde{D}} = \widetilde{\A}\otimes_{\A}\Om^1_{D}$. therefore  the connection $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ can be regarded as a map $\nabla':\widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \widetilde{\A} \otimes_{\A} \Om^1_{\widetilde{D}}= \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$, i.e. one has a connection
+	\be\nonumber
+	\nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}.
+	\ee
+	From $\widetilde{\nabla} \circ \widetilde{\nabla} |_{\widetilde{\mathcal E}}=0$ it turns out that  $\nabla' \circ \nabla' |_{\widetilde{\mathcal E}}=0$, i.e. $\nabla'$ is flat. There is the action of $G$ on $\widetilde{\mathcal E}= \widetilde{\A} \otimes \C^n$ given by 
+	\be
+	g\left( \widetilde{a}\otimes  x\right)   = g \widetilde{a} \otimes g x; ~~ \forall g \in G,~ \widetilde{a} \in \widetilde{\A}, ~ x \in \C^n.
+	\ee
+	Denote by
+	\be
+	\mathcal E = \widetilde{\mathcal E}^G = \left\{\widetilde{\xi} \in  \widetilde{\mathcal E}~|~ G\widetilde{\xi} = \widetilde{\xi}\right\}
+	\ee
+	Clearly $\mathcal E$ is an $\A$-$\A$-bimodule. For any $\widetilde{\xi} \in \widetilde{\mathcal E}$ there is the unique decomposition
+	\be
+	\begin{split}
+		\widetilde{\xi} = \xi + \xi_\perp, \\
+		\xi = \frac{1}{\left|G\right|}\sum_{g \in G} g \widetilde{\xi},\\
+		\xi_\perp = \widetilde{\xi} - \xi. 
+	\end{split}
+	\ee
+	From the above decomposition it turns out the direct sum $\widetilde{\mathcal E} = \widetilde{\mathcal E}^G \bigoplus {\mathcal E}_\perp$ of $\A$-modules. So  $\mathcal E = \widetilde{\mathcal E}^G$ is a projective finitely generated $\A$-module, it follows that there is an idempotent $e \in \End_{\A}{\widetilde{\mathcal E}}$ such that $\mathcal E = e \widetilde{\mathcal E}$. The Proposition \ref{conn_prop} gives the canonical connection 
+	\be\label{nc_flat_conn}
+	\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^1_D
+	\ee
+	which is defined by the connection $\nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$ and the idempotent $e$.
+	
+	\begin{lemma}\label{flat_lem}
+		If $\nabla:  \mathcal E \to \mathcal E \otimes_{\A} \Om^1$ is the trivial connection and $e \in \End_{\A}\left( \E\right)$ is an idempotent then the given by \eqref{idem_conn} connection  
+		\bean
+		\nabla_e: e\mathcal E \to e\mathcal E \otimes \Om^1;\\
+		\xi \mapsto \left(e \otimes 1 \right) \nabla \xi	
+		\eean
+		is flat.
+	\end{lemma} 
+	\begin{proof}
+		
+		If we consider the given by the equation  \eqref{eop_into_eqn} map
+		\bean
+		\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\	\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
+		\eean
+		or equivalently 
+		\bean
+		\nabla \bydef \Id_{\mathcal E} \otimes d
+		\eean
+		then one has
+		$$
+		\nabla_e\bydef	\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right).
+		$$
+		From
+		$$
+		\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) \circ \left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) = e \otimes d^2 =e \otimes 0 = 0	
+		$$
+		it turns out that $\nabla_e \circ \nabla_e = 0$, i.e. $\nabla_e$ is flat.
+	\end{proof}
+	\begin{remark}
+		The notion of the trivial connection is an algebraic version of geometrical canonical connection explained in the Appendix \ref{geom_flat_subsec}.
+	\end{remark}
+	From the Lemma \ref{flat_lem} it turns out that the given by \eqref{nc_flat_conn} connection $\nabla$ is flat.
+	\begin{definition}
+		We say that  $\nabla$ is a \textit{flat connection induced by} noncommutative covering $\left(A, \widetilde{A}, G\right)$ and the	linear representation $\rho: G \to GL\left(\C,n\right)$, or we say the $\nabla$ \textit{comes from the representation} $\rho: G \to GL\left(\C,n\right)$.
+	\end{definition}
+	\break
+	
+	
+	\subsection{Mapping between geometric and algebraic constructions}
+	
+	\paragraph{}
+	The geometric (resp. algebraic) construction of flat connection is explained in the Appendix \ref{geom_flat_subsec} (resp. Section \ref{nc_flat_sec}). The following table gives a mapping between these constructions.
+	\newline
+	\begin {table}[H]
+	\caption {The mapping between geometric and algebraic notions} \label{geo_alg_table}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		&Geometry & Algebra\\
+		\hline
+		&	&\\
+		1&Riemannian manifold $M$.  & Spectral triple $\left(\Coo\left(M \right), L^2\left(M, \sS \right), \slashed D   \right)$. \\ & & \\
+		2&Topological covering $\widetilde{M} \to M$. & Noncommutative covering, \\ & & $\left(C\left(M \right), C\left(\widetilde{M} \right), G\left( \left.\widetilde{M}~\right|M\right)   \right),$  \\
+		& & given by the Theorem \ref{pavlov_troisky_thm}. \\ & & \\
+		3&Natural structure of Riemannian  & Triple $\left(\Coo\left(\widetilde{M} \right), L^2\left(\widetilde{M}, \widetilde{\sS} \right), \widetilde{\slashed D}   \right)$ is the\\
+		& manifold on the covering space $\widetilde{M}$.&  $\left(C\left(M \right), C\left(\widetilde{M} \right), G\left( \left.\widetilde{M}~\right|M\right)   \right)$ -lift
+		\\
+		&  & of $\left(\Coo\left(M \right), L^2\left(M, \sS \right), \slashed D   \right)$.\\ & & \\
+		4&Group homomorphism   & Action $ G\left( \left.\widetilde{M}~\right|M\right) \times \C^n \to \C^n$\\
+		&$ G\left( \left.\widetilde{M}~\right|M\right) \to GL\left(n, C \right)$ & \\ & & \\
+		5&Trivial bundle $\widetilde{M}\times \C^n$. & Free module $\Coo\left(\widetilde{M} \right) \otimes \C^n$. \\ & & \\
+		6&Canonical flat connection on $\widetilde{M}\times \C^n$ & Trivial flat connection on $\Coo\left(\widetilde{M} \right) \otimes \C^n$\\ & & \\
+		7&Action of $G\left( \left.\widetilde{M}~\right|M\right)$ on $\widetilde{M}\times \C^n$  & Action of $G\left( \left.\widetilde{M}~\right|M\right)$ on  $\Coo\left(\widetilde{M} \right) \otimes \C^n$\\ & & \\
+		8&Quotient space  & Invariant module    \\
+		& $P = \left( \widetilde{M}\times \C^n\right)/G\left( \left.\widetilde{M}~\right|M\right).$& $\mathcal E =  \left( \Coo\left( \widetilde{M}\right) \otimes \C^n\right)^{G\left( \left.\widetilde{M}~\right|M\right)}$ \\ & & \\
+		9&Geometric flat connection on $P$ & Algebraic flat connection on $\mathcal E$.\\ & & \\
+		\hline
+	\end{tabular}
+\end{table}
 
 \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_fin_defn}
-   	Let $\left(A, \widetilde{A}, G, \lift\right)$ be a finite-fold noncommutative quasi-covering (cf. Definition \ref{fin_quasi_defn}) such that $\widetilde{A}_A\bydef \widetilde A$ is of the $C^*$-Hilbert $A$-module with the given by the equation \eqref{finite_hilb_mod_prod_eqn} product. If $\rho: A \to B\left( \H\right)$ is a representation and  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{induced_representation_defn}) then we say that $\widetilde{\rho}$ \textit{is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \lift\right)  \right)$.  
+   	Let $\left(A, \widetilde{A}, G, \lift\right)$ be a finite-fold noncommutative quasi-covering (cf. Definition \ref{fin_quasi_defn}), and let  $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\bydef \widetilde A$ is the {$C^*$-Hilbert   associated with the noncommutative finite-fold  quasi-covering} $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{hilbert_product_defn}). If $\rho: A \to B\left( \H\right)$ is a representation and  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{induced_representation_defn}) then we say that $\widetilde{\rho}$ \textit{is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \lift\right)  \right)$.  
    \end{defn}
   \begin{empt}\label{induced_repr_constr_empt}
-	If $X=\widetilde{A}\otimes_A \H$ is the algebraic tensor product then according to \eqref{hilb_prod_eqn} there is a sesquilinear $\C$-valued product $\left(\cdot, \cdot\right)_{X}$ on $X$  given by
+	If $X\bydef~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H $ is the algebraic tensor product then according to \eqref{hilb_prod_eqn} there is a sesquilinear $\C$-valued product $\left(\cdot, \cdot\right)_{X}$ on $X$  given by
 	\begin{equation}\label{induced_prod_equ}
 	\left(\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \right)_{X}= %\frac{1}{\left|G\left(\widetilde{A}~|~A \right) \right| }
 	\left(\xi, \left\langle \widetilde{a}, \widetilde{b} \right\rangle_{{A}}	 \eta\right)_{\H}
 	\end{equation}
-	where $ \left(\cdot, \cdot\right)_{\H}$ means the Hilbert space product on $\H$, and $\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}$ is given by the Definition \ref{hilbert_product_defn}. So $X$ is a pre-Hilbert space. There is a natural map $\widetilde{A} \times \left( \widetilde{A}\otimes_A \H \right)\to \widetilde{A}\otimes_A \H$ given by
+	where $ \left(\cdot, \cdot\right)_{\H}$ means the Hilbert space product on $\H$, and $\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}$ is given by the Definition \ref{hilbert_product_defn}. So $X$ is a pre-Hilbert space. There is a natural mapping 
 	\be\label{ind_act_form_eqn}
 	\begin{split}
-		\widetilde{A} \times \left( \widetilde{A}\otimes_A \H \right)\to \widetilde{A}\otimes_A \H,\\
+	\widetilde{A} \times \left( ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H \right)\to ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H,\\
 		\left( \widetilde{a}, \widetilde{b} \otimes \xi\right)  \mapsto \widetilde{a}\widetilde{b}\otimes \xi.
 	\end{split}
 	\ee
-	The space $\widetilde{\H}$ of the representation  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right)$ (cf. \eqref{induced_representation_eqn}) is the Hilbert norm completion of the pre-Hilbert space $X=\widetilde{A}\otimes_A \H$ and the action of $\widetilde{A}$ on $\widetilde{   \H}$ is the completion of the action on $\widetilde{A}\otimes_A \H$ given by \eqref{ind_act_form_eqn}.
+	The space $\widetilde{\H}$ of the representation  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right)$ (cf. \eqref{induced_representation_eqn}) is the Hilbert norm completion of the pre-Hilbert space $X\bydef ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H $ and the action of $\widetilde{A}$ on $\widetilde{   \H}$ is the completion of the action on $\widetilde{A}\otimes_A \H$ given by \eqref{ind_act_form_eqn}.
 \end{empt}
 \begin{remark}
 	There is the natural inclusion $\widetilde{A}\otimes_A \H \to \widetilde \H$. If $\left\{\widetilde{a}_\la\right\}_{\la \in \La}$ is a net and 	$\widetilde a = s$-$\lim_{\la} \widetilde \rho\left( a_\la\right)$ is the limit with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\widetilde\H \right)$  then for every $ \xi\in \H$ one can uniquely define
@@ -2568,7 +3200,7 @@ The equations \eqref{nondeg5_eqn} and \eqref{nondeg6_eqn} are compatible if and 
    	Let $\left(A, \widetilde{A}, G, \lift\right)$ be a  noncommutative finite-fold covering, and let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerate representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \lift\right)  \right)$ (cf. Definition \ref{induced_repr_fin_defn}). There is the natural action of $G\times\widetilde{\H}\to \widetilde{\H}$ which comes from a map
   \be\label{induced_g_act_eqn}
   \begin{split}
-  	G\times \left( \widetilde A\otimes_A\H\right)\to\widetilde A\otimes_A\H ,\\ 
+  	G\times \left( ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H \right)\to  ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H ,\\ 
 \left( 	g,  \left( \widetilde{a} \otimes \xi\right)\right)  \mapsto \left( g\widetilde{a} \right) \otimes \xi; \quad \widetilde{a} \in \widetilde{A}, \quad g \in G, \quad \xi \in \H. 
   \end{split}
       \ee
@@ -2578,7 +3210,7 @@ The equations \eqref{nondeg5_eqn} and \eqref{nondeg6_eqn} are compatible if and 
    	\ee
    	 induced by inclusions
    	$$
-   	A \subset\widetilde{A}, ~~ A \otimes_A \H \subset\widetilde{A} \otimes_A \H.
+   	A \subset\widetilde{A}\cong  ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A, ~~ A \otimes_A \H \subset\widetilde{A} \otimes_A \H.
    	$$
    	The action $G \times \widetilde \H\to \widetilde \H$ is equivariant, i.e.
    	\be\label{induced_equiv_eqn}
@@ -3066,80 +3698,68 @@ Moreover   a natural representation
 \ee
 is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
+\begin{empt}
+For any $\widetilde \xi \in  ~_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\otimes_A \H$ such that
+\be\label{xi_sum_eqn} 
+\widetilde \xi = \widetilde a_1 \otimes \xi_1 + ... + \widetilde a_n \otimes \xi_n
+\ee
+One can define
+$$
+\xi \bydef \desc\left( \widetilde a_1\right)  \otimes \xi_1 + ... + \desc\left( \widetilde a_n\right) \otimes \xi_n
+$$
+where $\desc$ is the $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-{descent} (cf. Definition \ref{fin_h_desc_defn}).  On can prove that $\xi$  does not depend on the representation \eqref{xi_sum_eqn} of $\widetilde \xi$, i.e. there is a linear mapping
+ \be\label{xi_map_eqn} 
+ \widetilde \xi \mapsto \xi
+ \ee
+Application the Hilbert norm completion  to the mapping   \eqref{xi_sum_eqn}   yields the surjective mapping
+ \be\label{xi_mapc_eqn} 
+\desc : \widetilde \H \to \H.
+\ee
+\end{empt}
+\begin{defn}\label{fin_hilb_desc_defn}
+The mapping \ref{xi_mapc_eqn} is
+ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{descent} (cf. Definition \ref{fin_desc_defn}). 
+\end{defn}
 \section{Coverings of rigged Hilbert spaces}
 \paragraph{}
 Let ${\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}$ be 
 {a rigged Hilbert} space (cf. Appendix \ref{rhs_intro_sec}). 	Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  covering with unitization   (cf. Definition \ref{fin_defn}). 
 If  $\pi : A\to B\left( \H\right) $ is a faithful nondegenerate representation then there is an induced by the pair $\left(\pi, \left(A, \widetilde{A}, G, \lift \right) \right)$ representation  $\widetilde\pi : \widetilde A\to B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_fin_defn}).
 \begin{definition}\label{spec_fin_defn}
-	An element $\widetilde a \in \widetilde A$ is \textit{special} if $\left(g a \right)a^* = 0$ for every nontrivial $g \in G$. An element $\widetilde \xi \in \widetilde \H$ is \textit{special} is there $\widetilde \xi = \widetilde \pi\left( \widetilde a\right)\widetilde \eta $ where $\widetilde \eta \in \widetilde \H$ and the element $\widetilde a$ is special. 
+	An element $\widetilde a \in \widetilde A \cong 	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A  $ (cf. \eqref{hilbert_product_eqn})is \textit{special} if $\left(g a \right)a^* = 0$ for every nontrivial $g \in G$. An element $\widetilde \xi \in \widetilde \H$ is \textit{special} is there $\widetilde \xi = \widetilde \pi\left( \widetilde a\right)\widetilde \eta $ where $\widetilde \eta \in \widetilde \H$ and the element $\widetilde a$ is special. 
 \end{definition}
 \begin{empt}\label{spec_fin_empt}
-	Henceforth we suppose that the generated by special elements Abelian group is dense in $\widetilde A$. 
+ \textit{Assumption}.	Henceforth we suppose that the generated by special elements Abelian group is dense in $\widetilde A$. 
+\end{empt} 
+\begin{empt}
+Consider the following ingredients:
+\begin{enumerate}
+	\item [(a)] A special element $\widetilde a \in \widetilde A \cong 	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A  $.
+	\item[(b)] An element $\eta \in \H$ with $\desc\left(\widetilde a \right) \eta \in {\mathbf \Phi}$ where $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-descent (cf. Definition \ref{fin_desc_defn}). 
+\end{enumerate}
+Denote by $\widetilde{\mathbf{\Psi}}$ the generated by $\widetilde a\otimes \eta$ Abelian subgroup of $\widetilde \H$. Consider an Abelian group $\widetilde{\mathbf{\Psi}}^\times$ of continuous functionals on $\widetilde{\mathbf{\Psi}}$ such that: 
+\begin{itemize}
+	\item if $\widetilde{\xi}^\times \in \widetilde{\mathbf{\Psi}}^\times$ and $\widetilde{\xi} \in \widetilde{\mathbf{\Psi}}$ is special 
+	then 
+	\bean
+	\left\langle \widetilde{\xi}^\times, \widetilde{\xi} \right\rangle \neq 0 \quad \Rightarrow\quad \left\langle \widetilde{\xi}^\times, g \widetilde{\xi} \right\rangle = 0\quad \text{for any nontrivial } g \in G,
+	\eean
+	\item there is a unique $\xi^\times \in \Phi$ 
+	such that for any special element $\widetilde{\xi} \in \widetilde{\mathbf{\Psi}}$ one has
+	\bean
+\left\langle \widetilde{\xi}^\times, \widetilde{\xi} \right\rangle \neq 0 \quad \Rightarrow\quad \left\langle \widetilde{\xi}^\times, \widetilde{\xi} \right\rangle = \left\langle {\xi}^\times, \desc\left( \widetilde{\xi}\right)  \right\rangle .
+\eean
+\end{itemize}
+where $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{descent} (cf. Definition \ref{fin_hilb_desc_defn}). The group   $\widetilde{\mathbf{\Psi}}^\times$ yields a weak topology on $\widetilde{\mathbf{\Psi}}$ (cf. Definition \ref{f_topology_defn}). We denote by $\widetilde{\mathbf{\Phi}}$ the completion of $\widetilde{\mathbf{\Psi}}$ with respect to this weak topology. Similarly the space $\widetilde{\mathbf{\Phi}}$ yields a weak topology on $\widetilde{\mathbf{\Psi}}^\times$ and we denote by $\widetilde{\mathbf{\Phi}}^\times$ the completion of $\widetilde{\mathbf{\Psi}}^\times$. In result one has a rigged Hilbert space
+\be\label{rigged_lift_eqn} 
+\widetilde{\mathbf{\Phi}}\subset \widetilde \H\subset \widetilde{\mathbf{\Phi}}^\times
+\ee
 \end{empt}
- We suppose that $C^*$-algebra $M\left( \widetilde{   A}\right) $ is generated the set
-\be\label{f_a_fin_ern}
-\begin{split}
-	\mathscr A \bydef \left\{\left.\widetilde a\in M\left(\widetilde  A\right) _+\right| \forall \text{ nontrivial } g \in G \quad \left(g \widetilde a \right) \widetilde a = 0 \right\} 
-\end{split}
-\ee
-We define a mapping
-\be 
-\begin{split}
-	\phi_{\mathscr A}:\mathscr A \to M\left( A\right)_+,\\
-	\widetilde a \mapsto \desc\left( \widetilde{a}\right) .
-\end{split}
-\ee
-where $\desc$ is the $\left(M\left(A \right), M\left( \widetilde A, \right), G , M\left(\lift \right)   \right)$-descent (cf. Definition \ref{fin_desc_defn}).
-For any $\widetilde a\in  \mathscr A$ we denote a  projector $p_{\widetilde a}\in B\left( \widetilde \H\right)$ onto the image of  ${\widetilde a}$, i.e.
-$$
-p_{\widetilde a}= \sup \left\{\left.\widetilde{b}\in \widetilde{\pi}\left(M\left(\widetilde A\right)\right)_+  \right| \left\| \widetilde{b}\right\|\le 1 \quad \widetilde{b}\widetilde \H = \widetilde{\pi}\left( \widetilde{a} \right) \widetilde \H \right\}.
-$$
-From \eqref{f_a_fin_ern} it turns out that 
-\be 
-p^\Sigma_{\widetilde a} \bydef \sum_{g \in G} g p_{\widetilde a} 
-\ee
-is also a projector. There is an action $G\times \widetilde \H \to \widetilde \H$ such that $\H$ cong $\widetilde \H^G \bydef \left\{\left. \xi \in \widetilde \H\right| \forall g \in G \quad g\xi = \xi\right\}$. Using this fact and taking into account that 
-$$
-\forall g \in G \quad gp^\Sigma_{\widetilde a}= p^\Sigma_{\widetilde a}
-$$
-one can assume that $p^\Sigma_{\widetilde a}\in B\left(\H \right)$. 
-For any $\widetilde a\in \mathscr A$ we define 
-\be
-\begin{split}
-	\H_{\widetilde a } \bydef \left\{\xi \in \H \left|p^\Sigma_{\widetilde a} \xi = \xi \right.\right\},\\
-	\mathbf \Phi_{\widetilde a }\bydef  \H_{\widetilde a }\cap  \mathbf \Phi.
-\end{split}
-\ee 
-Suppose that $\mathbf \Phi$ is a topological vector space and its topology $\mathfrak T_{\mathbf \Phi}$ is such that the $\mathfrak T_{\mathbf \Phi}$-closure of $\mathbf \Phi$ in $\H$ equals to $\mathbf \Phi$. Suppose that the algebraical sum
-$$
-\sum_{\widetilde a\in \mathscr A} \mathbf \Phi_{\widetilde a } 
-$$
-is dense in $\mathbf \Phi$ with respect to $\mathfrak T_{\mathbf \Phi}$.
-For any $\widetilde a \in \mathscr A$ we define a map
-\bean
-\phi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\to \widetilde \H,\\
-\xi \mapsto p_{\widetilde a}\otimes \xi.
-\eean 
-(cf. the equation \eqref{tp_eqn}). If $\widetilde { \H}_{\widetilde a }\bydef \phi_{\widetilde a}\left({ \H}_{\widetilde a } \right) $ and $\widetilde {\mathbf \Phi}_{\widetilde a }\bydef \phi_{\widetilde a}\left({\mathbf \Phi}_{\widetilde a } \right) $ then there are isomorphisms
-\be
-\begin{split}
-	{ \H}_{\widetilde a }\cong \widetilde { \H}_{\widetilde a },\\
-	{\mathbf \Phi}_{\widetilde a }\cong \widetilde {\mathbf \Phi}_{\widetilde a }.
-\end{split}
-\ee 
-For any $\widetilde a\in \mathscr A$ the is a topology $\mathfrak T_{\mathbf \Phi_{\widetilde a}}$ on $\mathbf \Phi_{\widetilde a }$ which comes from $\mathfrak T_{\mathbf \Phi}$. If
-$$
-{\mathbf \Psi}\bydef \sum_{\widetilde a\in \mathscr A}\widetilde {\mathbf \Phi}_{\widetilde a }  \subset \widetilde \H
-$$
-is  an algebraic sum then for every $\widetilde a\in \mathscr A$ there is an inclusion
-$$
-\psi_{\widetilde a}: \mathbf \Phi_{\widetilde a }\hookto {\mathbf \Psi}.
-$$
-There is the {final} {with respect to the family of maps} $\left\{\psi_{\widetilde a}:\mathbf \Phi_{\widetilde a } \to \mathbf \Psi\right\}_{\widetilde a \in \mathscr A}$ topology $\mathfrak T_{\mathbf \Psi}$ on $\mathbf \Psi$ (cf. Definition \ref{top_final_defn}).  If $\widetilde {\bf \Phi}$ is the completion in $\widetilde \H$ of  $\bf \Psi$ then the topology  $\mathfrak T_{\mathbf \Psi}$ naturally defines  the topology $\mathfrak T_{\widetilde{ \mathbf \Phi}}$ on $\widetilde{\mathbf \Phi}$. One has a rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$
-\begin{definition}
-	Under the above hypothesis the  rigged Hilbert space $\widetilde{\mathbf \Phi} \subset \widetilde \H \subset \widetilde {\mathbf \Phi}^{\times}$ is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of ${\mathbf \Phi} \subset  \H \subset  {\mathbf \Phi}^{\times}$. 
+\begin{definition}\label{rigged_lift_defn} 
+	Under the hypothesis \ref{spec_fin_empt}
+the rigged Hilbert space \eqref{rigged_lift_eqn} is the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of ${\mathbf \Phi} \subset {\cal H} \subset {\mathbf \Phi}^{\times}$ one.
 \end{definition}
+
 \begin{remark}
 	The action $G \times \widetilde \H$ naturally yields actions   $G \times \widetilde {\mathbf \Phi}\to \widetilde {\mathbf \Phi}$  and  $G \times \widetilde {\mathbf \Phi}^{\times}\to \widetilde {\mathbf \Phi}^{\times}$
 \end{remark}
@@ -3167,6 +3787,8 @@ There is the {final} {with respect to the family of maps} $\left\{\psi_{\widetil
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering of $*$-algebras}. If both $A$ and $\widetilde{A}$ are topological $*$-algebras then we assume that the homomorphism $\lift$ is continuous.
 \end{definition}
+\subsection{Coverings of Fr\'echet *-algebras}
+!!!
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \begin{definition}\label{pro_fin_defn} 
 	Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a pre-covering (cf. Definition \ref{fin_pre*_defn}) of pro-$C^*$-algebras (cf. Definition \ref{pro_c_defn}) where $\lift$ is regarded as an inclusion. 
@@ -3477,629 +4099,6 @@ From our construction it follows that
 
 
 
- \section{Strong Morita equivalence of finite-fold coverings}
-
- \paragraph{}
- The following result about algebraic Morita equivalence of Galois extensions is in fact rephrasing of described in \cite{auslander:galois} constructions. 
- Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides with the Cartesian product $\widetilde{A} \times G$  and/or a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
- \begin{equation}\label{crossed_prod_eqn}
- \begin{split}
- \left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
- \left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right)  \quad \forall a, b \in \widetilde{A} \rtimes G,~~ \forall g \in G,\\
-  a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*\quad \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
- \end{split}
- \end{equation}
- (cf. Equations \eqref{croosed_prod_eqn} and \eqref{discr_cr_prod_op_eqn})).  There are given by \eqref{morita_ta_act_eqn} left and right actions of $\widetilde{A} \rtimes G$ on $\widetilde A$ 
- \begin{equation}\label{morita_m_ta_act_eqn}
- 	\begin{split}
- 		\forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
- 		\widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
- \end{equation}
- The left and right actions of $A$ on $\widetilde A$ come from the natural inclusion $A\subset \widetilde A$ of rings. Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Denote by $\varphi': \widetilde{A} \times  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi': \widetilde{A} \times \widetilde{A} \to A$ bilinear maps
- \begin{equation}\label{morp_pp_fin_eqn}
- 	\begin{split}
- 		\forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi' \left(\widetilde{a}, \widetilde{b} \right)\left( g\right) \bydef    \widetilde{a} \left(g\widetilde{b} \right) ,\\
- 		\psi' \left(\widetilde{a}, \widetilde{b} \right) \bydef \sum_{g \in G} g\left(\widetilde{a}^* \widetilde{b} \right).
- 	\end{split}
- \end{equation}
- If $c \in A$ then from $\varphi'\left(\widetilde{a}c, \widetilde{b} \right) = \varphi'\left(\widetilde{a},c \widetilde b \right)$ it follows that $\varphi'$ yields a bimodule homomorphism $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}\to \widetilde A\rtimes G$. If $\left( \widetilde c, g_1 \right)\in \widetilde A\rtimes G $ then from
-\bean
- 	\psi' \left(\widetilde{a} \left( \widetilde c, g_1 \right), \widetilde{b} \right)= \psi' \left(g_1^{-1}  \left( \widetilde{a}\widetilde{c} \right), \widetilde{b} \right)= \sum_{	g \in {G}}g\left( g_1^{-1}\left(  \widetilde{a}\widetilde{c}\right)\right)  \widetilde{b}= \sum_{	g \in {G}}g\left(  \widetilde{a}\widetilde{c}g_1  \widetilde{b}\right)= \\ \sum_{	g \in {G}}g\left(  \widetilde{a}\left( \widetilde{c}, g_1\right)   \widetilde{b}\right) = \psi' \left(\widetilde{a}, \left( \widetilde c, g_1 \right) \widetilde{b} \right)
-\eean
-it follows that $\psi'$ yields a bimodule homomorphism $\psi : \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A}\to A$.
- From above equations it follows that 
- \begin{equation}\label{morita_g_eqn}
- \begin{split}
- \forall \widetilde{a},\widetilde{b},\widetilde{c}\in \widetilde{A}\quad\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c} = \sum_{g \in G} \left( \varphi\left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right)\right)  g \widetilde{c} =\\
- = \sum_{g \in G} \widetilde{a} \left( g \widetilde{b} \right) \left( g \widetilde{c}\right) =  \widetilde{a}\sum_{g \in G}  g\left(  \widetilde{b}  \widetilde{c}\right) = \widetilde{a} \psi\left(\widetilde{b}\otimes \widetilde{c} \right),\\
- \widetilde{a}\varphi \left(\widetilde{b} \otimes \widetilde{c} \right) =
- \sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} g \widetilde{c}\right) =
- \\
- = \left( \sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}= \left( \sum_{g \in G} g\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}=\psi\left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c},
- \end{split}
- \end{equation}
- i.e. $\varphi, \psi$ satisfy conditions \eqref{morita_ctx_eqn}, so $\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right) $ is a Morita context.  According to the Remark  \ref{fin_cov_kasp_rem} it follows that $\widetilde A$ is a projective finitely generated $A$-module. From equation \eqref{a_ppp_eqn} it follows that $\widetilde A=\widetilde A^\parallel\oplus \widetilde A^\perp\cong  A\oplus \widetilde A^\perp$ and taking into account \eqref{progenerator_eqn} we conclude that $A$-module $\widetilde A$ is a progenerator (cf. Definition \ref{progenerator_defn}).
-  \begin{lem}\label{morita_galois_lem}
- 	If $\left(A, \widetilde{A}, G \right)$ is an unital noncommutative finite-fold  covering then  $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right)$$ is an algebraic Morita equivalence. 
- \end{lem}
- \begin{proof}
-Follows from the Theorem \ref{progenerator_morita_thm}.
- \end{proof}
-
- 
- \begin{cor}\label{unital_cov_cor}
- 	Let $\left(A, \widetilde{A}, G, \lift \right)$ be an unital noncommutative finite-fold  covering. Let us define a structure of Hilbert $\widetilde{A} \rtimes G$-$A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by following products
- 	\begin{equation}\label{hilb_gal_eqn}
- 	\begin{split}
- 	\left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\widetilde a \otimes  \widetilde b^* \right),\\ 
- 	\left\langle \widetilde a,\widetilde b \right\rangle_A = \psi\left(\widetilde a^* \otimes \widetilde b\right).\\
- 	\end{split}
- 	\end{equation}
- 	Following conditions hold:
- 	\begin{enumerate}
- 		\item [(i)]
- 		A bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn},
- 		
- 		\item[(ii)] 
- 		\begin{equation*}
- 		\begin{split}
- 		\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\ 
- 		\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A.\\
- 		\end{split}
- 		\end{equation*}
- 	\end{enumerate}
- 	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}$-$A$  equivalence bimodule (cf. Definition \ref{strong_morita_defn}).
- \end{cor}
- \begin{proof}
- 	(i) From \eqref{morita_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
- 	(ii) From the Lemma  \ref{morita_galois_lem} and the Definition \ref{morita_ctx_defn} of algebraic Morita equivalence  it turns out
- 	\begin{equation*}
- 	\begin{split}
- 	\varphi\left(  \widetilde{A} \otimes_{A}  \widetilde{A}\right)  =\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\
- 	\psi\left( \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A}\right)=\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{A}  = A.
- 	\end{split}
- 	\end{equation*}
- \end{proof}
- Let us consider the situation of the Corollary \ref{unital_cov_cor}. Denote by $e \in G$ the neutral element. The unity $1_{\widetilde{A} \rtimes G}$ of $\widetilde{A} \rtimes G$ is given by
- \begin{equation}\nonumber
- \begin{split}
- 1_{\widetilde{A} \rtimes G}\left(g \right) = \left\{\begin{array}{c l}
- 1_{\widetilde{A}}  & g = e \\
- 0 & g \neq e
- \end{array}\right..
- \end{split}
- \end{equation}
- From the Lemma \ref{morita_galois_lem} it follows that there are $\widetilde{a}_1,...,\widetilde{a}_n, \widetilde{b}_1,..., \widetilde{b}_n \in \widetilde{A}$ such that
- \begin{equation}\label{1_g_eqn}
- \begin{split}
- 1_{\widetilde{A} \rtimes G} = \varphi\left( \sum_{j=1}^n \widetilde{a}_j \otimes\widetilde{ b}_j^*\right) = \sum_{j=1}^n \left\langle \widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G}.
- \end{split}
- \end{equation}
- From the above equation it turns out that for any $g \in G$
- \begin{equation}\label{ga_eqn}
- \varphi\left( \sum_{j=1}^n g\widetilde{a}_j \otimes \widetilde{b}_j^*\right)\left(g' \right) = \left(\sum_{j=1}^n \left\langle g\widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G} \right) \left(g' \right) \left\{\begin{array}{c l}
- 1_{\widetilde{A}}  & g' = g \\
- 0 & g' \neq g
- \end{array}\right..
- \end{equation}
-
-
-\begin{cor}\label{unital_cov_k_cor}
-	If $\left(A, \widetilde{A}, G, \lift \right)$ is an unital noncommutative finite-fold  covering then there is the natural isomorphism
-	\be
-	K_0\left(A \right) \cong K^G_0\left(\widetilde{A} \right) 
-	\ee
-\end{cor}
-\begin{proof}
-Follows from the Corollary \ref{unital_cov_cor} and the Theorem \ref{equiv_k_thm}.
-\end{proof}
- \begin{lem}\label{comp_cov_lem}
- 	Let $\left(A, \widetilde{A}, G \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by  products \eqref{hilb_gal_eqn}.
- 	Following conditions hold:
- 	\begin{enumerate}
- 		\item [(i)]
- 		A bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ satisfies associativity conditions (a) of the Definition \ref{strong_morita_defn}
- 		\item[(ii)] 
- 		\begin{equation*}
- 		\begin{split}
- 		\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A,\\
- 		\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G.\\ 
- 		\end{split}
- 		\end{equation*}
- 	\end{enumerate}
- 	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
- \end{lem}
- \begin{proof}(i)
- 	From the Definition \ref{fin_unitization_defn} it follows that there are  unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
- 	$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$). Moreover  there is an unital  noncommutative finite-fold quasi-covering $\left(B ,\widetilde{B}, G \right)$. From the Corollary \ref{unital_cov_cor} it turns out that a bimodule  $_{\widetilde{B} \rtimes G}\widetilde{B}_B$ is a $\widetilde{B} \rtimes G-B$ equivalence bimodule. Both scalar products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ are restrictions of products $ \left\langle -, - \right\rangle_{\widetilde{B} \rtimes G}$, $~~\left\langle -, - \right\rangle_B$, so products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy to condition (a) of the Definition \ref{strong_morita_defn}.\\
- 	(ii) From \eqref{1_g_eqn} it turns out that there are $\widetilde{a}_1,...,\widetilde{a}_n, \widetilde{b}_1,..., \widetilde{b}_n \in \widetilde{B}$ such that
- 	\begin{equation*}
- 	\begin{split}
- 	1_{\widetilde{B} \rtimes G} = \varphi\left( \sum_{j=1}^n \widetilde{a}_j \otimes\widetilde{ b}_j^*\right) = \sum_{j=1}^n \left\langle \widetilde{a}_j , \widetilde{b}_j \right\rangle_{\widetilde{B} \rtimes G}.
- 	\end{split}
- 	\end{equation*}
- 	If $a \in A_+$ is a positive element then there is $x \in A \subset \widetilde{A}$ such that $a = x^*x$ it follows that
- 	$$
- 	a = \frac{1}{\left|G\right|}\left\langle x, x \right\rangle_A.
- 	$$
- 	Otherwise $A$ is the $\C$-linear span of positive elements it turns out
- 	$$
- 	\left\langle \widetilde{A} , \widetilde{A}  \right\rangle_A = A.
- 	$$
- 	For any positive  $\widetilde{a} \in \widetilde{A}_+$ and any $g \in G$ denote by
- 	$y^{\widetilde{a}}_g \in \widetilde{A} \rtimes G $ given by
- 	\begin{equation*}
- 	y^{\widetilde{a}}_g\left(g' \right) \left\{\begin{array}{c l}
- 	\widetilde{a}  & g' = g \\
- 	0 & g' \neq g
- 	\end{array}\right..
- 	\end{equation*}
- 	There is $\widetilde{x} \in \widetilde{A}$ such that $\widetilde{x}\widetilde{x}^*= \widetilde{a}$. Clearly $\widetilde{x}\left( g\widetilde{a}_j\right) , \widetilde{x}\widetilde{b}_j \in \widetilde{A}$ and from \eqref{ga_eqn} it follows that
- 	$$
- 	y^{\widetilde{a}}_g = \sum_{j=1}^n \left\langle \widetilde x \left( g\widetilde{a}_j\right)  , \widetilde x\widetilde{b}_j \right\rangle_{\widetilde{A} \rtimes G}
- 	$$
- 	The algebra $\widetilde{A} \rtimes G$ is the $\C$-linear span of elements $y^{\widetilde{a}}_g$, so one has $\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G$. 
- 	
- \end{proof}
- 
- \begin{thm}\label{finite_morita_main_theorem}
- 	If $\left(A, \widetilde{A}, G \right)$ is a noncommutative finite-fold covering  then a Hilbert $ \widetilde{A} \rtimes G$-$A$  bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ is a $\widetilde{A} \rtimes G-A$ equivalence bimodule.
- \end{thm}
- \begin{proof}
- 	From the Definition \ref{fin_defn} there is a family $\left\{\widetilde{A}_\la \subset \widetilde{A} \right\}_{\la \in \La}$ of  hereditary subalgebras of $\widetilde{A}$ such that a union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subspace of $\widetilde A$ and for any $\la \in \La$ there is a natural  noncommutative finite-fold covering with unitization $\left(\widetilde{A}_\la \bigcap A,   \widetilde{A}_\la, G \right)$. From the Lemma \ref{comp_cov_lem} it turns out that   $\widetilde{A}_\la$ is a $\widetilde{A}_\la \rtimes G-\widetilde{A}_\la\bigcap A$ equivalence bimodule and
- 	\begin{equation}\label{ia_eqn}
- 	\begin{split}
- 	\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la \right\rangle_{ \widetilde{A}_\la \rtimes G} =  \widetilde{A}_\la \rtimes G,\\ 
- 	\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la\right\rangle_{ \widetilde{A}_\la \bigcap A} =  \widetilde{A}_\la
- 	\bigcap A.\\
- 	\end{split}
- 	\end{equation}
- 	for any $\la\in \La$.
- 	The union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{A}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{A}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{A_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) of the Definition \ref{strong_morita_defn} holds.
- \end{proof}
-
-
-
-
-
-   \section{Noncommutative unique path lifting}\label{noncomutative_path_liftting}
-
-   \paragraph*{}
-   This section is rarely used and may be skipped on first reading.
-    Here we generalize  the path-lifting property given by the Definition \ref{top_path_lifting_defn}. Because noncommutative geometry has no points it has no a direct generalization of paths, but there is an implicit generalization. Let $\widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering. The following diagram reflects the path lifting problem.
-   \newline
-   \hspace*{\fill}
-   \begin{tikzpicture}
-   \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-   	& \widetilde{\mathcal{X}} \\
-   	I = [0,1]  & \mathcal{X} \\};
-   \path[-stealth]
-   (m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-   (m-1-2) edge node [right] {$p$} (m-2-2)
-   (m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-   \end{tikzpicture}
-   \hspace{\fill}
-   \newline
-   However above diagram can be replaced with a having noncommutative  generalization diagram.
-   \newline
-   \hspace*{\fill}
-   \begin{tikzpicture}
-   \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-   	& \mathrm{Homeo}(\widetilde{\mathcal{X}}) \\
-   	I = [0,1]  & \mathrm{Homeo}(\mathcal{X}) \\};
-   \path[-stealth]
-   (m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-   (m-1-2) edge node [right] {$\al \mapsto \left.\a\right|_{\mathcal X}$} (m-2-2)
-   (m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-   \end{tikzpicture}
-   \hspace{\fill}
-   \newline
-   where $\mathrm{Homeo}$ means the group of homeomorphisms with {compact-open} topology (cf \ref{top_comp_open_empt}). Above diagram has the following noncommutative generalization   
-  \newline
-  \hspace*{\fill}
-  \begin{tikzpicture}
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-  	& \Aut(\widetilde{A}) \\
-  	I = [0,1]  & \Aut(A) \\};
-  \path[-stealth]
-  (m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-  (m-1-2) edge node [right] {$\al \mapsto \left.\a\right|_{A}$} (m-2-2)
-  (m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-  \end{tikzpicture}
-  \hspace{\fill}
-  \newline
-   In the above diagram we require that $\al|_A \in \mathrm{Aut}\left(A\right)$ for any $\al \in \mathrm{Aut}\left(\widetilde{A}\right)$. The diagram means that $f'(t)|_{A} = f(t)$ for any $t \in [0,1]$. Noncommutative generalization of a locally compact space is a $C^*$-algebra, so  the generalization of $\mathrm{Homeo}(\mathcal{X})$ is the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries (at least) two different topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
-   \begin{equation*}
-   	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
-   \end{equation*}
-   The other topology is the {\it uniform norm-topology} based on the open sets
-   \begin{equation}\label{aut_norm_eqn}
-   	\left\{\alpha \in \mathrm{Aut}(A) \ \left| \ \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| < \varepsilon \right. \right\}, \quad \varepsilon > 0
-   \end{equation}
-   which corresponds to following "norm"
-   \begin{equation}\label{uniform_norm_topology_formula_eqn}
-   	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
-   \end{equation}
-   Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Henceforth the uniform norm-topology will be considered only.
-
-  \begin{definition}\label{upl_f_defn}
-	Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$. If  there is a continuous map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that $\left.\widetilde{f}(t)\right|_A = f(t)$ for any $t \in \left[0,1\right]$ and $\widetilde{f}\left( 0\right)  = \Id_{\widetilde{A}}$ then we say that $\widetilde{f}$ is a $\lift$-\textit{lift} of $f$. If a lift $\widetilde{f}$ of $f$ is unique then  a map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is said to be the \textit{unique $\lift$-lift} of $f$. If $\widetilde{f}$ is the unique $\lift$-lift of $f$ then we denote by 
-	\be\label{upl_f_eqn}
-	\lift_f \stackrel{\text{def}}{=}\widetilde{f}\left(1 \right).
-	\ee
-\end{definition}
- %  \begin{definition}\label{upl_defn}
-%		Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras.
-%	We say that $\lift: A \hookto \widetilde{A}$   has the \textit{unique path lifting} if for any continuous $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that  $f\left( 0\right)= \Id_A$ there is the the unique $\lift$-lift of $f$. The property of unique path lifting will be denoted by $UPL$. The map $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is said to be the \textit{lift} of $f$. 
-%\end{definition}
-\begin{empt}\label{lift_group_empt}
-	Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let both $f_1: [0,1] \to  \mathrm{Aut}\left({A}\right)$, $f_2: [0,1] \to  \mathrm{Aut}\left({A}\right)$ have unique $\lift$-lifts $\widetilde{f}_1$ and  $\widetilde{f}_2$ respectively. If $f_1* f_2: [0,1] \to  \mathrm{Aut}\left({A}\right)$, $\widetilde{f}_1* \widetilde{f}_2: [0,1] \to  \mathrm{Aut}\left(\widetilde{{A}}\right)$ are given by
-\bean
-\left( f_1* f_2\right) \left(t \right) =\left\{
-\begin{array}{c l}
-f_2\left( 2t\right)  &0 \le t \le \frac{1}{2}  \\
-\\
-f_1\left(2\left(t - \frac{1}{2} \right)  \right) f_2\left(1\right) & \frac{1}{2} < t \le 1
-\end{array}\right.,\\
-\left( \widetilde{f}_1* \widetilde{f}_2\right) \left(t \right) =\left\{
-\begin{array}{c l}
-	\widetilde{f}_2\left( 2t\right)  &0 \le t \le \frac{1}{2}  \\
-	\\ \\
-	\widetilde{f}_1\left(2\left(t - \frac{1}{2} \right)  \right) \widetilde{f}_2\left(1\right) & \frac{1}{2} < t \le 1
-\end{array}\right.
-\eean
-then $\widetilde{f}_1* \widetilde{f}_2$ is the unique $\lift$-lift of $f_1*f_2$.
-Hence one has $\lift_{f_1* f_2}= \lift_{f_1} \lift_{f_2}$.
-It turns out that the set of elements $\lift_f$ is a subgroup of $\Aut\left(\widetilde{A}\right)$.
-\end{empt}
-
-\begin{defn}\label{lift_group_defn}
-		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras then  the group of elements $\lift_f$ (cf. \ref{lift_group_empt}) is said to be the $\lift$-\textit{lift group}.
-\end{defn}
-\begin{lemma}\label{lift_commutes_lem}
-		Let $A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Let $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$ and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is  the \textit{unique $\lift$-lift} of $f$. If $g \in G=\left\{\left. g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}$ then one has $g\widetilde{f}\left( 1\right) = \widetilde{f}\left( 1\right)g$, i.e. $G$ commutes with the $\lift$-lift group.
-\end{lemma}
-\begin{proof}
-If $\widetilde{f}': [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is given by $\widetilde{f}'(t)= g\widetilde{f}(t)g^{-1}$ then $\widetilde{f}'(t)|_A = \widetilde{f}(t)|_A$. From the Definition \ref{upl_f_defn} it turns out $\widetilde{f}'= \widetilde{f}$. It turns out $g\widetilde{f}(1)g^{-1}=\widetilde{f}'(1)=\widetilde{f}(1)$, i.e. one has $\widetilde{f}(1) = g\widetilde{f}(1)g^{-1}$ and, consequently  $\widetilde{f}(1)g = g\widetilde{f}(1)$.
-\end{proof}
-%\begin{empt}\label{loop_element_empt}
-%Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}.
-%For any $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that $f\left( 0\right)= f\left(1\right)= \Id_A$ and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that  that $\widetilde{f}(t)|_A = f(t)$ then $\al = \widetilde{f}\left( 0\right)$ is such that  $\al|_A = \Id_A$, i.e. $\al \in G$. %Moreover  if $f': [0,1] \to  \mathrm{Aut}\left({A}\right)$, $f'': [0,1] \to  \mathrm{Aut}\left({A}\right)$ are such that 
-%\end{empt}
-%\begin{defn}\label{loop_element_defn}
-%	Let us consider the situation \ref{loop_element_empt}.
-%The element  $\al \in G$ given by \ref{loop_element_empt} is said to be a \textit{loop element}. We say that $\al$ \textit{corresponds} to $f$.
-%Clearly a set $L$ of loop elements is a subgroup of $G$, which is said to be the \textit{loop subgroup}. 
-%\end{defn}
-%\begin{lem}\label{loop_normal_lem}
-%	Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}. If  $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that $f\left( 0\right)= \Id_A$  and $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that  that $\widetilde{f}(t)|_A = f(t)$ for any $t \in \left[0,1\right]$ and $\widetilde{f}\left( 0\right)  = \Id_{\widetilde{A}}$ then $g\widetilde{f}(t)g^{-1}= \widetilde{f}(t)$ for any $t \in  [0,1]$.
-%\end{lem}
-%\begin{proof}
-%If $\widetilde{f}': [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is given by $\widetilde{f}'(t)= g\widetilde{f}(t)g^{-1}$ then $\widetilde{f}'(t)_A = \widetilde{f}(t)|_A$. From the Definition \ref{upl_defn} it turns out $\widetilde{f}'\cong \widetilde{f}$.
-%\end{proof}
-%\begin{cor}\label{loop_normal_cor}
-%Let	$\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutaive finite-fold quasi-covering which  has the {unique path lifting}. The loop subgroup $L \subset G$ is a normal subgroup of $G$.
-%\end{cor}
-%\begin{proof}
-%Let $g \in G$ and $l \in L$ be any elements, and suppose that $l$ {corresponds} to $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$. If $\widetilde{f}: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ is such that $\widetilde{f}(t)|_A = f(t)$ then $ g\widetilde{f}\left( t\right)g^{-1} = \widetilde{f}\left( t\right)$ for all $t \in \left[0,1 \right]$ in particular one has $ g\widetilde{f}\left( 1\right)g^{-1}=\widetilde{f}\left( 1\right)$, or equivalently $glg^{-1}= l$.
-%\end{proof}
-
-%\begin{remark}\label{lift_commute_g}
-%From the Definition \ref{upl_defn} it turns out that path lift commutes with $G$ i.e. for any lift $\widetilde{f}: [0,1]\to \mathrm{Aut}\left(\widetilde{A}\right)$ and $g \in G$ the map $g\widetilde{f}: [0,1]\to \mathrm{Aut}\left(\widetilde{A}\right)$ is also a lift.
-%\end{remark}
-\begin{lemma}
-		Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras.
-$f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that $f\left( 0\right)= \Id_A$. If  there are two different $\lift$-lifts of $f$ then there is a nontrivial continuous  map: $\widetilde{f}:[0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that $\widetilde{f}|_A\left( t\right)  = \id_A$ for every $t \in \left[0,1\right]$.
-\end{lemma}
-\begin{proof}
-	If $\widetilde{f}'$ and $\widetilde{f}''$ are different $\lift$-lifts of $f$ then the map $\widetilde{f}:[0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ given by $t \mapsto \widetilde{f}'\left( t\right)\left(  \widetilde{f}''\left( t\right) \right)^{-1}$ satisfies to conditions of this lemma.
-\end{proof}
-\begin{cor}\label{lift_unique_cor}
-	Let $\lift: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras, such that the group 
-				\be\label{lift_group_eqn}
-	G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
-	\ee
-	is finite,  and let   $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be such that  $f\left( 0\right)= \Id_A$. If $\widetilde{f}$ is a $\lift$-lift of $f$ then   $\widetilde{f}$ is the unique $\lift$-lift of $f$.
-\end{cor}
-\begin{proof}
-	If there are two different lifts $\widetilde f_1, \widetilde f_2: [0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ of  $f$  then there is a nontrivial continuous  map: $\widetilde{f}\bydef \widetilde{f}_1 \widetilde{f}^{-1}_2:[0,1] \to  G$ such that $\widetilde{f}|_A\left( t\right)  = \id_A$. But it is impossible because the group is $G$ discrete.
-\end{proof}
-\begin{empt}\label{lift_unique_empt}
-Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ is such that  $f\left( 0\right)= f\left( 1\right)=\Id_A$, and   $\widetilde{f}$ is the unique $\lift$-lift of $f$, such that $\widetilde{f}\left(0 \right)= \Id_{\widetilde{{A}}}$ then $\widetilde{f}\left(1 \right)\in G$, where $G$ is given by the equation \eqref{lift_group_eqn} group.
-\end{empt}
-
-%   \begin{thm}\label{comm_thm}
-%   	Let $p: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a topological covering projection. Any path $\omega: I \to \mathrm{Homeo}(\mathcal{X})$ such that $\omega(0)=\mathrm{Id}_{\mathcal{X}}$ can be uniquely lifted to the path $\widetilde{\omega}: I \to \mathrm{Homeo}(\widetilde{\mathcal{X}})$ such that $\widetilde{\omega}(0)=\mathrm{Id}_{\widetilde{\mathcal{X}}}$ , i.e. $p(\widetilde{\omega}(t)(x)) = \omega(t)(p(x))$, $\forall t \in [0,1], \ \forall x \in \widetilde{\mathcal{X}}$. It means that the natural $*$-homomorphism $C_0\left({\mathcal{X}} \right) \hookto C_0\left( \widetilde{\mathcal{X}}\right) $ has the unique path lifting.
-%   \end{thm}
-%   \begin{proof}
-%   	Follows from theorem \ref{spanier_thm_un}.
-%   \end{proof}
-
-   \section{Coverings of (local) operator spaces}
-   \paragraph*{}
-   Here we generalize the Section \ref{cov_fin_bas_sec}.
-   \begin{definition}\label{sub_unital_operator_space_defn}
-   	Let $Y$ be an unital operator space (cf. Definition \ref{op_u_space_defn}), and let $C^*_e\left( Y\right)$ be the $C^*$-envelope (cf. Definition \ref{c_env_sp_defn}) of $Y$. 
-   	A \textit{sub}-\textit{unital operator space} is a pair $\left(X, Y \right)$ where  $X$ is a subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
-   \end{definition}
-
-   \begin{example}\label{sub_alg_exm} 
-   	If $A$ is a $C^*$-algebra and $A^\sim$ is given by \eqref{unital_notation_eqn} then since $A$ is $C^*$-norm closed one has  {sub-unital} operator space $\left(A, A^\sim\right)$.
-   \end{example}
-   \begin{definition}\label{op_sum_space_defn}
-   	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} operator spaces then a \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
-   	\be\label{op_sum_space_eqn}
-   	\begin{split}
-   	\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
-   	\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
-   	\end{split}
-   	\ee	
-   \end{definition}
-
-\begin{definition}\label{operator_space_envelope_defn}
-   	If a pair   $\left(X, Y \right)$ is a {sub-unital} operator space then the $C^*$-\textit{envelope} of $\left(X, Y \right)$ is the $C^*$-algebra given by
-   \be\label{op_su_env_eqn}
-   \begin{split}
-   	C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\},
-   \end{split}
-   \ee
-   i.e. $C^*_e\left( X, Y\right)$ is the $C^*$-algebra, generated by $X$.
-   \end{definition}
-   \begin{remark}\label{op_su_env_rem}
-   If  a sub-unital  operator space $\left(A,A^\sim \right)$  is given by the  Example \ref{sub_alg_exm}
-then the $C^*$-{envelope}  of $\left(A,A^\sim \right)$ is $A$, i.e. $C^*_e\left(A,A^\sim \right)\cong A$. It turns out from the following circumstances:
-\begin{itemize}
-	\item   $C_e\left(A^\sim \right) = A^\sim$, \item $A$ is $C^*$-norm closed.
-\end{itemize}
-   \end{remark}
-%\begin{definition}\label{op_su_inc_defn}
-%Let    $\left(X, Y \right)$ be {sub-unital} operator space, and let $A$ be $C^*$-algebra. If  $A^+$ is a minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}) then the complete isometry $j:Y\hookto A^+$ is said to be an \textit{inclusion} of $\left(X, Y \right)$ into $A$ if $j\left(X\right)\subset A$.
-%\end{definition}
-   \begin{definition}\label{fin_op_defn}
-   Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$.
-  Suppose that  following conditions hold:
-   	\begin{enumerate}
- 	\item[(a)] There is a  finite-fold  noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ (cf. Definition \ref{fin_defn}) such that $\lift_Y = \left.\rho\right|_Y$ and $\lift_X = \left.\rho\right|_X$. 
- 	\item[(b)] $\widetilde X\subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is the maximal among  $\C$-linear subspaces $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$  such that $X = \widetilde X' \cap  C^*_e\left( X,  Y \right)$ and $G\widetilde X'= \widetilde X'$.
- 	\end{enumerate}
-We  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering} of the {sub-unital} operator space $\left(X, Y\right)$.
-\end{definition}
-\begin{remark}\label{fin_op_g_rem}
-The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\left(\widetilde X, \widetilde Y \right)$ is trivial on $C^*_e\left( X,  Y \right)$, so from (b) of the Definition \ref{fin_op_defn} it follows that there is the natural action $G\times \widetilde X \to \widetilde X$ which is trivial on $X$.
-\end{remark}
-\begin{definition}\label{op_su_r_space_defn}
-	Let $Y$ be a  real operator space (cf. Definitions \ref{real_os_defn}), and let $X\subset Y$ is its subspace. Let both $\C X$ and $\C Y$ are complexifications  (cf. \ref{complexification_empt}) of $X$ and $Y$ respectively.
-We say that a pair 	$\left(X, Y \right)$ is a \textit{sub-unital real operator space} if the  pair $\left(\C X, \C Y \right)$  is a sub-unital operator space (cf. Definition \ref{sub_unital_operator_space_defn}).
-\end{definition}
-   \begin{definition}\label{op_sum_r_space_defn}
-	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
-	\be\label{op_sum_r_space_eqn}
-	\begin{split}
-		\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
-		\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
-	\end{split}
-	\ee	
-\end{definition}
-\begin{remark}\label{ros_iso_rem}
-Let both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces, and let 	$\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a complete isometry.  If $\C X$, $\C Y$,  $\C \widetilde X$, $ \C \widetilde Y$ are complexifications of $X$, $Y$,  $\widetilde X$, $ \widetilde Y$ then from the Theorem \ref{ros_contr_iso_thm} it turns out that the map  $\left(\C\lift_X, \C\lift_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is a complete isometry.
-\end{remark}
-\begin{definition}\label{r_comp_defn}
-	Under the hypotheses of the Remark \ref{ros_iso_rem} we say that $\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is the complexification of  $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$.
-\end{definition}
-
-\begin{definition}\label{fin_rop_defn}
-	Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} real operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$. Let  $\left(\C\lift_X, \C\lift_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is complexification of  $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$. We say that   $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering of the sub-unital real operator space} $\left(X, Y\right)$ if $$\left(\left(\C X, \C Y \right),\left(\C \widetilde X, \C \widetilde Y \right), G, \left(\C\lift_X, \C\lift_Y \right) \right)$$   is a  {noncommutative finite-fold covering} of the {sub-unital} operator space $\left(\C X, \C Y\right)$ (cf. Definition \ref{fin_op_defn}).
-\end{definition}
-
-
-%\begin{empt}
-%Let $X, Y$ be operator spaces, and let $\phi: X \to Y$ be complete quotient map (cf. \ref{complete_maps_empt}). Let $C^*_e\left(X \right)$ and $C^*_e\left(Y \right)$ $C^*$-envelopes of $X$ and $Y$ respectively (cf. Definition \ref{c_env_sp_defn}). If $I\subset C^*_e\left(X \right)$ is the intersection of all closed containing $\ker \phi$ ideals then there is an inclusion $Y \to C^*_e\left(X \right)/I$. Otherwise there is a surjective $*$-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. It turns out that there is a surjective $*$-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. 
-%\end{empt}
-
-\begin{empt}\label{loc_op_env_empt} 
-%Let $X$ be a local operator space represented by an inverse limit $X = \varprojlim X_\a$ of the directed set $\left\{X_\a\right\}$ spaces. The inverse limit  $C^*_e\left(X\right)=\varprojlim C^*_e\left(X_\a\right)$ is said to be the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$.
-Let $X$ be a local operator space (cf. Definition \ref{loc_op_sp_defn}) and let $\varphi : X \hookto B$ be a complete isometry into pro-$C^*$-algebra (cf. \ref{complete_loc_maps_empt} and the Remark \ref{loc_op_abs_conc_rem}). Let $b\left( X\right) \bydef b\left(B \right) \cap X$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective $*$- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
-$$
-I \bydef \bigcap_{\substack{ J \text{ is an ideal of } B\\ J\cap b\left(B \right)\supset b\left( I\right)}}J
-$$
-then $A \bydef B/I$ is a pro-$C^*$-algebra and there is the complete isometry $X \hookto A$.
-\end{empt}
-
-\begin{definition}\label{loc_op_env_defn}
-In the described in \ref{loc_op_env_empt} we say that $A$ is the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$. We denote it by $C^*_e\left( X\right)$. 
-\end{definition}
-\begin{remark} Under the hypotheses \ref{loc_op_env_empt},  \ref{loc_op_env_defn}  there is the natural surjective $*$-homomorphism $B\to C^*_e\left( X\right)$. So $C^*_e\left( X\right)$ is unique up to $*$-isomorphism.
-\end{remark}
-\begin{definition}\label{bounded_loc_op_el_defn}
-An element $a$ of local operator space $X$ is said to be \textit{bounded} if $a \in X \cap b\left(C^*_e\left(X\right) \right)$.  Denote by $b\left( X\right)$ the $\C$-space of bounded elements.  
-\end{definition}
-
-\begin{rem}\label{bounded_loc_op_el_rem}
-For any local operator space $X$ the space $b\left( X\right)$ is an operator space and $ b\left(C^*_e\left(X\right)\right) $ is the $C^*$-envelope of $b\left(X\right)$. 
-\end{rem}
-
-%\begin{definition}
-%	Let $X, Y$ be local operator spaces and $\phi: X \hookto Y$ be an injective $\C$ linear homomorphism. We say that $\phi$ is a \textit{complete isometry} if following conditions hold:
-%	\begin{itemize}
-%		\item [(a)] Both spaces  $X$ and $Y$ are inverse limits $X = \varprojlim X_\a$, $Y = \varprojlim Y_\a$.
-%		\item[(b)] $\phi$ comes from the family $\left\{\phi_\a: X_\a \hookto Y_\a\right\}$ of complete isometries.
-%	\end{itemize}
-%\end{definition}
-\begin{remark}
-Any complete isomerty $\phi: X \to Y$ of local operator spaces (cf. \ref{complete_loc_maps_empt}) induces an injective $*$-homomorphism $C^*_e\left(Y\right)\hookto C^*_e\left(X\right)$  of {envelope pro}-$C^*$-{algebras} (cf. Definition \ref{loc_op_env_defn}).
-\end{remark}
-
-  \begin{definition}\label{op_loc_su_space_defn}
-	Let $Y$ be an unital local operator space, and let $C^*_e\left( Y\right)$ be the envelope pro-$C^*$-algebra (cf. Definition \ref{loc_op_env_defn}) of $Y$. 
-	A \textit{sub-unital local operator space} is a pair $\left(X, Y \right)$ where  $X$ is a  subspace of $Y$ such that $Y = X \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
-\end{definition}
- \begin{definition}\label{op_loc_sum_space_defn}
-	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} local operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\lift_Y: Y \hookto \widetilde Y$ (cf. \ref{complete_loc_maps_empt}) such that $\lift_Y\left(X \right) \subset \widetilde X$. We write
-	\be\label{op_loc_sum_space_eqn}
-	\begin{split}
-		\left( \lift_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\lift_Y\right|_X;\\
-		\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
-	\end{split}
-	\ee	
-\end{definition}
-\begin{definition}\label{op_loc_su_env_defn}
-	If a pair   $\left(X, Y \right)$ is {sub-unital} local operator space then the pro-$C^*$-\textit{envelope} of $\left(X, Y \right)$ is the pro-$C^*$-algebra given by
-	\be\label{op_loc_su_env_eqn}
-	\begin{split}
-		C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } \text{pro-}C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\}.
-	\end{split}
-	\ee
-\end{definition}
-
-   \begin{definition}\label{fin_loc_op_defn}
-	Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} local operator spaces and let $\left(\lift_X, \lift_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$.
-	If  the following conditions hold:
-	\begin{enumerate}
-		\item[(a)] There is a finite-fold  noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ of pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}) such that $\lift_Y = \left.\rho\right|_Y$ and $\lift_X = \left.\rho\right|_X$. 
-		\item[(b)] If $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is a $\C$-linear space  such that $X = \widetilde X' \cap  C^*_e\left( X,  Y \right)$ and $G\widetilde X'= \widetilde X'$  then $\widetilde X' \subseteq \widetilde X$.
-	\end{enumerate}
-	Then we  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\lift_X, \lift_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering} of the {sub-unital} operator space $\left(X, Y\right)$.
-\end{definition}
-
-\begin{definition}\label{loc_op_re_sp_defn}
-The \textit{real local operator space}  is an complete  $\R$-space with seminorms which satisfy to conditions M1, M2 of the Definition \ref{loc_op_sp_defn}.
-\end{definition}
-\begin{remark}\label{loc_op_re_sp_rem}
-Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local space $V$ is an inverse limit of real operator spaces.
-\end{remark}
-\begin{remark}
- Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
-\end{remark}
-\begin{remark}\label{fin_cov_oa_sub_os_rem}
-	There is a generalization of the Definition \ref{fin_oa_defn} related to an intersection $\widetilde Y \bydef \widetilde A \cap \widetilde Y$ where $\widetilde Y \subset \widetilde B$ is a  sub-unital (maybe real) operator space (cf. Definition \ref{sub_unital_operator_space_defn}). In this case there is a {\it finite-fold covering of bounded operator spaces}.
-\end{remark}
-
-
-
-
-
-\begin{definition}\label{fin_defn!}!!!
-	Let  $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold  pre-covering   (cf. Definition \ref{fin_pre_defn}). The triple $\left(A, \widetilde{A}, G, \lift \right)$ and/or the injective $*$-homomorphism $\lift: A\hookto \widetilde{A}$ is  a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of all  connected $\left(A, \widetilde{A}, G, \lift \right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}) hereditary $C^*$-subalgebras such that following conditions hold:
-	\begin{enumerate}
-		\item[(a)] 
-		$$
-		\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad A_\mu \subset A_\nu;
-		$$	
-		\item[(b)]
-		a union 
-		$
-		\bigcup_{\la\in\La} A_\la
-		$
-		is dense in $A$.
-		%\item[(c)] for all $\la\in\La$ every connected component of $A_\la$ is strictly proper  (cf. the Definition \ref{strictly_proper_defn}). 
-	\end{enumerate}
-	The group $G$ is said to be the \textit{finite covering transformation group} (of $\left(A, \widetilde{A},G, \lift\right)$ ) and we use the following notation
-	\begin{equation}\label{group_cov_eqn}
-		G\left(\left.\widetilde{A}~~\right|~A \right) \stackrel{\mathrm{def}}{=} G.
-	\end{equation}
-	
-	%We say that  $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{connected} if $\widetilde A$ is connected.
-\end{definition}
-
-\section{Finite noncommutative coverings and flat connections}\label{flat_sec}
-
- \subsection{Basic construction}\label{nc_flat_sec}
- \paragraph*{}
- Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ be the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}). Let $V = \C^n$ and with left  action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over   $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Definition \ref{triv_conn_defn} and Remark \ref{triv_conn_rem}). 
- From \eqref{dirac_om_fin_lift_eqn} it turns out that $\Om^1_{\widetilde{D}} = \widetilde{\A}\otimes_{\A}\Om^1_{D}$. therefore  the connection $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ can be regarded as a map $\nabla':\widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \widetilde{\A} \otimes_{\A} \Om^1_{\widetilde{D}}= \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$, i.e. one has a connection
- \be\nonumber
- \nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}.
- \ee
- From $\widetilde{\nabla} \circ \widetilde{\nabla} |_{\widetilde{\mathcal E}}=0$ it turns out that  $\nabla' \circ \nabla' |_{\widetilde{\mathcal E}}=0$, i.e. $\nabla'$ is flat. There is the action of $G$ on $\widetilde{\mathcal E}= \widetilde{\A} \otimes \C^n$ given by 
- \be
- g\left( \widetilde{a}\otimes  x\right)   = g \widetilde{a} \otimes g x; ~~ \forall g \in G,~ \widetilde{a} \in \widetilde{\A}, ~ x \in \C^n.
- \ee
- Denote by
- \be
- \mathcal E = \widetilde{\mathcal E}^G = \left\{\widetilde{\xi} \in  \widetilde{\mathcal E}~|~ G\widetilde{\xi} = \widetilde{\xi}\right\}
- \ee
- Clearly $\mathcal E$ is an $\A$-$\A$-bimodule. For any $\widetilde{\xi} \in \widetilde{\mathcal E}$ there is the unique decomposition
- \be
- \begin{split}
- 	\widetilde{\xi} = \xi + \xi_\perp, \\
- 	\xi = \frac{1}{\left|G\right|}\sum_{g \in G} g \widetilde{\xi},\\
- 	\xi_\perp = \widetilde{\xi} - \xi. 
- \end{split}
- \ee
- From the above decomposition it turns out the direct sum $\widetilde{\mathcal E} = \widetilde{\mathcal E}^G \bigoplus {\mathcal E}_\perp$ of $\A$-modules. So  $\mathcal E = \widetilde{\mathcal E}^G$ is a projective finitely generated $\A$-module, it follows that there is an idempotent $e \in \End_{\A}{\widetilde{\mathcal E}}$ such that $\mathcal E = e \widetilde{\mathcal E}$. The Proposition \ref{conn_prop} gives the canonical connection 
- \be\label{nc_flat_conn}
- \nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^1_D
- \ee
- which is defined by the connection $\nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$ and the idempotent $e$.
- 
- 	\begin{lemma}\label{flat_lem}
- 	If $\nabla:  \mathcal E \to \mathcal E \otimes_{\A} \Om^1$ is the trivial connection and $e \in \End_{\A}\left( \E\right)$ is an idempotent then the given by \eqref{idem_conn} connection  
- 	\bean
- 	\nabla_e: e\mathcal E \to e\mathcal E \otimes \Om^1;\\
- 	\xi \mapsto \left(e \otimes 1 \right) \nabla \xi	
- \eean
- is flat.
- \end{lemma} 
- \begin{proof}
- 	
- 	If we consider the given by the equation  \eqref{eop_into_eqn} map
- 	 		\bean
- 	\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\	\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
- 	\eean
- 	or equivalently 
- 	\bean
- 	\nabla \bydef \Id_{\mathcal E} \otimes d
- 	\eean
- 	then one has
- 	$$
- 	\nabla_e\bydef	\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right).
- 	$$
- 	From
- 	$$
- 	\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) \circ \left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) = e \otimes d^2 =e \otimes 0 = 0	
- 	$$
- 	it turns out that $\nabla_e \circ \nabla_e = 0$, i.e. $\nabla_e$ is flat.
- \end{proof}
- \begin{remark}
- 	The notion of the trivial connection is an algebraic version of geometrical canonical connection explained in the Appendix \ref{geom_flat_subsec}.
- \end{remark}
-   From the Lemma \ref{flat_lem} it turns out that the given by \eqref{nc_flat_conn} connection $\nabla$ is flat.
- \begin{definition}
- 	We say that  $\nabla$ is a \textit{flat connection induced by} noncommutative covering $\left(A, \widetilde{A}, G\right)$ and the	linear representation $\rho: G \to GL\left(\C,n\right)$, or we say the $\nabla$ \textit{comes from the representation} $\rho: G \to GL\left(\C,n\right)$.
- \end{definition}
- \break
-
-
- \subsection{Mapping between geometric and algebraic constructions}
- 
- \paragraph{}
- The geometric (resp. algebraic) construction of flat connection is explained in the Appendix \ref{geom_flat_subsec} (resp. Section \ref{nc_flat_sec}). The following table gives a mapping between these constructions.
- \newline
- 	\begin {table}[H]
- \caption {The mapping between geometric and algebraic notions} \label{geo_alg_table}
- \begin{tabular}{|c|c|c|}
- 	\hline
- 	&Geometry & Algebra\\
- 	\hline
- 	&	&\\
- 	1&Riemannian manifold $M$.  & Spectral triple $\left(\Coo\left(M \right), L^2\left(M, \sS \right), \slashed D   \right)$. \\ & & \\
- 	2&Topological covering $\widetilde{M} \to M$. & Noncommutative covering, \\ & & $\left(C\left(M \right), C\left(\widetilde{M} \right), G\left( \left.\widetilde{M}~\right|M\right)   \right),$  \\
- 	& & given by the Theorem \ref{pavlov_troisky_thm}. \\ & & \\
- 	3&Natural structure of Riemannian  & Triple $\left(\Coo\left(\widetilde{M} \right), L^2\left(\widetilde{M}, \widetilde{\sS} \right), \widetilde{\slashed D}   \right)$ is the\\
- 	& manifold on the covering space $\widetilde{M}$.&  $\left(C\left(M \right), C\left(\widetilde{M} \right), G\left( \left.\widetilde{M}~\right|M\right)   \right)$ -lift
- 	\\
- 	&  & of $\left(\Coo\left(M \right), L^2\left(M, \sS \right), \slashed D   \right)$.\\ & & \\
- 	4&Group homomorphism   & Action $ G\left( \left.\widetilde{M}~\right|M\right) \times \C^n \to \C^n$\\
- 	&$ G\left( \left.\widetilde{M}~\right|M\right) \to GL\left(n, C \right)$ & \\ & & \\
- 	5&Trivial bundle $\widetilde{M}\times \C^n$. & Free module $\Coo\left(\widetilde{M} \right) \otimes \C^n$. \\ & & \\
- 	6&Canonical flat connection on $\widetilde{M}\times \C^n$ & Trivial flat connection on $\Coo\left(\widetilde{M} \right) \otimes \C^n$\\ & & \\
- 	7&Action of $G\left( \left.\widetilde{M}~\right|M\right)$ on $\widetilde{M}\times \C^n$  & Action of $G\left( \left.\widetilde{M}~\right|M\right)$ on  $\Coo\left(\widetilde{M} \right) \otimes \C^n$\\ & & \\
- 	8&Quotient space  & Invariant module    \\
- 	& $P = \left( \widetilde{M}\times \C^n\right)/G\left( \left.\widetilde{M}~\right|M\right).$& $\mathcal E =  \left( \Coo\left( \widetilde{M}\right) \otimes \C^n\right)^{G\left( \left.\widetilde{M}~\right|M\right)}$ \\ & & \\
- 	9&Geometric flat connection on $P$ & Algebraic flat connection on $\mathcal E$.\\ & & \\
- 	\hline
- \end{tabular}
-\end{table}
 \section{Unoriented spectral triples}\label{unoti_defn_sec}
  \paragraph*{}
  Let $M$ be an unoriented connected Riemannian manifold, and let $\widetilde{M} \to M$ be a two-fold covering by an oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}). There is an action of $\Z_2 \times \widetilde{M} \to \widetilde{M}$ such that $M \cong \widetilde{M}/ \Z_2$. These 
