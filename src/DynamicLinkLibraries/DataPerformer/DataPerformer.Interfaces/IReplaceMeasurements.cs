@@ -6,7 +6,7 @@
     public interface IReplaceMeasurements
     {
         /// <summary>
-        /// Replaces measutements
+        /// Replaces measurements
         /// </summary>
         /// <param name="oldMeasurements">Old measurements</param>
         /// <param name="oldMeasure">Old measure</param>

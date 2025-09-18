@@ -45,6 +45,8 @@ namespace DataPerformer.Formula
 
         protected IInitialValueCollection initial;
 
+		protected Performer performer = new Performer();
+
 
         /// <summary>
         /// Ordered variables
@@ -275,6 +277,7 @@ namespace DataPerformer.Formula
 		}
 
 
+
 		void IMeasurements.UpdateMeasurements()
 		{
 			if (IsUpdated)
@@ -283,8 +286,8 @@ namespace DataPerformer.Formula
 			}
 			try
 			{
-                feedbackAliasCollection.Set();
-				UpdateChildrenData();
+				//performer.UpdateChildrenData(this, feedbackAliasCollection);
+
 				Update();
 				foreach (var x in output)
 				{
@@ -293,7 +296,8 @@ namespace DataPerformer.Formula
 						updateItself.UpdateItself();
 					}
 				}
-				isUpdated = true;
+                feedbackAliasCollection.Set();
+                isUpdated = true;
 			}
 			catch (Exception e)
 			{
@@ -1033,6 +1037,7 @@ namespace DataPerformer.Formula
 			if (stated)
 			{
 				initial.Set();
+				feedbackAliasCollection.Set();
 				return;
 
 				foreach (char c in varc)

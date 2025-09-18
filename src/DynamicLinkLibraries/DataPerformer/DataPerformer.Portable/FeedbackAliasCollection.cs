@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
 
@@ -58,6 +59,8 @@ namespace DataPerformer.Portable
         IEnumerable<IFeedback> IFeedbackCollection.Feedbacks => FeedbackAliases;
 
         Dictionary<IValue, IFeedbackAlias> IFeedbackAliasCollection.Measurements => Get();
+
+        bool IFeedbackCollection.IsEmpty => !FeedbackAliases.Any();
 
         void IFeedbackCollection.Add(IFeedback alias)
         {

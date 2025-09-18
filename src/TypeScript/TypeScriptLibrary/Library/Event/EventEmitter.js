@@ -1,5 +1,8 @@
 "use strict";
 // Simple Event Emitter (Minimal implementation)
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 class EventEmitter {
     constructor() {
         this.listeners = {};

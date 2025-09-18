@@ -1,17 +1,17 @@
-import { FictiveFeedbackCollection } from "../Fiction/FictiveFeedbackCollection";
-import { IAlias } from "../Interfaces/IAlias";
-import { IDesktop } from "../Interfaces/IDesktop";
-import { IFeedbackCollection } from "../Interfaces/IFeedbackCollection";
-import { ISetFeedback } from "../Interfaces/ISetFeedback";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IAlias } from "../Interfaces/IAlias";
+import type { IDesktop } from "../Interfaces/IDesktop";
 import { DataConsumer } from "./DataConsumer";
-import { IMeasurement } from "./Interfaces/IMeasurement";
-import { IMeasurements } from "./Interfaces/IMeasurements";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
+import type { IMeasurements } from "./Interfaces/IMeasurements";
 import { PefrormerMeasuremets } from "./PefrormerMeasuremets";
 import { Variable } from "./Variables/Variable";
 
 
 export class DataConsumerVariableMeasurements extends DataConsumer implements
-    IMeasurements, IAlias, ISetFeedback
+    IMeasurements, IAlias
 {
     constructor(desktop: IDesktop, name: string)
     {
@@ -42,7 +42,6 @@ export class DataConsumerVariableMeasurements extends DataConsumer implements
 
     protected pMeasurements : PefrormerMeasuremets = new PefrormerMeasuremets();
 
-    protected feedback: IFeedbackCollection = new FictiveFeedbackCollection();
 
 
 
@@ -108,8 +107,5 @@ export class DataConsumerVariableMeasurements extends DataConsumer implements
         this.output.push(variable);
         this.variables.set(variable.getMeasurementName(), variable);
     }
-
-    setFeedback(): void { }
-
 
 }

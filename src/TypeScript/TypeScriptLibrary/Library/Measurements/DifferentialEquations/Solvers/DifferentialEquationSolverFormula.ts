@@ -1,10 +1,13 @@
-import { IDesktop } from "../../../Interfaces/IDesktop";
-import { IPostSetArrow } from "../../../Interfaces/IPostSetArrow";
-import { IValue } from "../../../Interfaces/IValue";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IDesktop } from "../../../Interfaces/IDesktop";
+import type { IPostSetArrow } from "../../../Interfaces/IPostSetArrow";
+import type { IValue } from "../../../Interfaces/IValue";
 import { DataConsumerVariableMeasurementsStarted } from "../../DataConsumerVariableMeasurementsStarted";
-import { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
+import type { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
 import { Variable } from "../../Variables/Variable";
-import { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
+import type { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
 
 export class DifferentialEquationSolverFormula extends DataConsumerVariableMeasurementsStarted
     implements IDifferentialEquationSolver, IPostSetArrow {
@@ -18,10 +21,10 @@ export class DifferentialEquationSolverFormula extends DataConsumerVariableMeasu
         this.types.push("DifferentrialEquationSolverFormula");
     }
     setDifferentialEquationSolverTimeProvider(time: ITimeMeasurementProvider): void {
-        throw new Error("Method not implemented.");
+        this.time = time;
     }
     getDifferentialEquationSolverTimeProvider(): ITimeMeasurementProvider {
-        throw new Error("Method not implemented.");
+        return this.time;
     }
 
     startedStart(start: number): void
@@ -85,6 +88,8 @@ export class DifferentialEquationSolverFormula extends DataConsumerVariableMeasu
     protected derivations: Map<string, IValue> = new Map();
 
     protected deri: IValue[] = [];
+
+    time !: ITimeMeasurementProvider;
 
 
    

@@ -1,8 +1,14 @@
-import { IObject } from "../../Interfaces/IObject";
-import { IValue } from "../../Interfaces/IValue";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IObject } from "../../Interfaces/IObject";
+import type { IValue } from "../../Interfaces/IValue";
 import { Performer } from "../../Performer";
-import { IDerivation } from "../Interfaces/IDerivation";
-import { IMeasurement } from "../Interfaces/IMeasurement";
+import type { IDerivation } from "../Interfaces/IDerivation";
+import type { IMeasurement } from "../Interfaces/IMeasurement";
 
 
 export class Variable implements IMeasurement, IObject, IValue, IDerivation

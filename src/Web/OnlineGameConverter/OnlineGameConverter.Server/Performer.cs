@@ -7,7 +7,6 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 using OnlineGameConverter.Server.BusinessLogic.Orbital;
 using OnlineGameConverter.Server.Classes;
-using System;
 
 namespace OnlineGameConverter.Server
 {

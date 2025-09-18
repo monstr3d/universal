@@ -1,9 +1,13 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { OwnNotImplemented } from "./ErrorHandler/OwnNotImplemented";
-import { ICategoryArrow } from "./Interfaces/ICategoryArrow";
-import { ICategoryObject } from "./Interfaces/ICategoryObject";
-import { IDesktop } from "./Interfaces/IDesktop";
-import { IObject } from "./Interfaces/IObject";
-import { Check } from "./Types/Check";
+import type { ICategoryArrow } from "./Interfaces/ICategoryArrow";
+import type { ICategoryObject } from "./Interfaces/ICategoryObject";
+import type { ICheck } from "./Interfaces/ICheck";
+import type { IDesktop } from "./Interfaces/IDesktop";
+import type { IObject } from "./Interfaces/IObject";
 
 export class Desktop implements IDesktop
 {
@@ -13,16 +17,13 @@ export class Desktop implements IDesktop
     getObjects(): IObject[] {
         return this.objects;
     }
-    setCheck(check: Check): void {
+    setCheck(check: ICheck): void {
         this.check = check
     }
     getCheck() {
         return  this.check;
     }
 
-    protected check: Check = () => {
-        return false;
-    }
 
     protected categoryObjects: ICategoryObject[] = [];
 
@@ -39,6 +40,8 @@ export class Desktop implements IDesktop
 
 
     protected target!: ICategoryObject;
+
+    protected check !: ICheck;
 
     getCategoryObject(name: string): ICategoryObject {
         for (var o of this.categoryObjects) {

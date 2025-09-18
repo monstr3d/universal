@@ -1,17 +1,17 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FeedbackAlias } from "./FeedbackAlias";
 import { FeedbackCollection } from "./FeedbackCollection";
-import { FictiveDesktop } from "./Fiction/FictiveDesktop";
-import { FictiveMeasurements } from "./Fiction/FictiveMeasurements";
-import { ICategoryObject } from "./Interfaces/ICategoryObject";
-import { IDesktop } from "./Interfaces/IDesktop";
-import { IValue } from "./Interfaces/IValue";
-import { IMeasurements } from "./Measurements/Interfaces/IMeasurements";
+import type { ICategoryObject } from "./Interfaces/ICategoryObject";
+import type { IDesktop } from "./Interfaces/IDesktop";
+import type { IValue } from "./Interfaces/IValue";
+import type { IMeasurements } from "./Measurements/Interfaces/IMeasurements";
 
-export class FeedbackAliasCollection extends FeedbackCollection
-{
 
-    constructor(map: Map<string, string>, measurements: IMeasurements, obj: ICategoryObject) 
-    {
+export class FeedbackAliasCollection extends FeedbackCollection {
+
+    constructor(map: Map<string, string>, measurements: IMeasurements, obj: ICategoryObject) {
         super(map);
         this.desktop = obj.getDesktop();
         this.measurements = measurements;
@@ -19,8 +19,7 @@ export class FeedbackAliasCollection extends FeedbackCollection
     }
 
 
-    fillFeedBackAliases(): void
-    {
+    fillFeedBackAliases(): void {
         var measuremets = this.performer.getMeasurementsMap(this.measurements);
         for (const [key, val] of this.map.entries()) {
             var an = this.performer.getAliasName(this.desktop, val);
@@ -31,7 +30,7 @@ export class FeedbackAliasCollection extends FeedbackCollection
         }
     }
 
-    protected desktop: IDesktop = new FictiveDesktop();
+    protected desktop!: IDesktop;
 
-    protected measurements: IMeasurements = new FictiveMeasurements();
+    protected measurements!: IMeasurements;
 }

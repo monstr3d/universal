@@ -1,9 +1,6 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
 import { FeedbackAliasCollection } from "../Library/FeedbackAliasCollection";
-import { FictiveAliasName } from "../Library/Fiction/FictiveAliasName";
-import { FictiveMeasurement } from "../Library/Fiction/FictiveMeasurement";
-import { FictiveValue } from "../Library/Fiction/FictiveValue";
 import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
@@ -82,9 +79,9 @@ class Random_CategoryObject_2 extends VectorFormulaConsumer
 		this.aliasName10 = new AliasName(this.alias, "f");
 	}
 	
-	measurement0 : IMeasurement = new FictiveMeasurement();
-	measurement3 : IMeasurement = new FictiveMeasurement();
-	aliasName10 : IAliasName =  new FictiveAliasName();
+	measurement0 ! : IMeasurement;
+	measurement3 ! : IMeasurement;
+	aliasName10 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 2;
 	var_2 : number  = 0;
@@ -167,7 +164,6 @@ class Random_CategoryObject_2 extends VectorFormulaConsumer
 		let map = new Map<string, string>(
 		[
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 
@@ -207,8 +203,8 @@ class Random_CategoryObject_3 extends RecursiveFormula
 		this.measurement1 = all[0].getMeasurement(0);
 	}
 	
-	value0 : IValue = new FictiveValue();
-	measurement1 : IMeasurement = new FictiveMeasurement();
+	value0 ! : IValue;
+	measurement1 ! : IMeasurement;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -237,7 +233,6 @@ class Random_CategoryObject_3 extends RecursiveFormula
 		let map = new Map<string, string>(
 		[
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 

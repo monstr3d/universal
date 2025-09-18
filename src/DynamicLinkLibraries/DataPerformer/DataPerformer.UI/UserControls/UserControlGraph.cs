@@ -1737,7 +1737,7 @@ Func<bool> stop)
             }
         }
 
-        void StartChartClick()
+        async Task StartChartClick()
         {
             try
             {
@@ -1811,12 +1811,16 @@ Func<bool> stop)
                 ctx = new();
             }
             var t = new Task(DoWork);
+            t.Start();
+            await t;
+            WorkCompleted();
+            return;
             t.GetAwaiter().OnCompleted(WorkCompleted);
             t.Start();
        //     backgroundWorker.RunWorkerAsync();
         }
 
-        void StartTextClick()
+        async Task StartTextClick()
         {
 
             this.InvokeIfNeeded(() =>
@@ -1829,7 +1833,7 @@ Func<bool> stop)
             {
                 ctx = new();
             }
-            t.GetAwaiter().OnCompleted(Text_RunWorkerCompleted);
+                t.GetAwaiter().OnCompleted(Text_RunWorkerCompleted);
             t.Start();
         }
 

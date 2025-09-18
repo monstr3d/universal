@@ -1,11 +1,14 @@
-import { FictiveAlias } from "./Fiction/FictiveAlias";
-import { IAlias } from "./Interfaces/IAlias";
-import { IAliasName } from "./Interfaces/IAliasName";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import type { IAlias } from "./Interfaces/IAlias";
+import type { IAliasName } from "./Interfaces/IAliasName";
 
 export class AliasName implements IAliasName
 {
 
-    alias: IAlias = new FictiveAlias();
+    alias !: IAlias;
 
     name: string = "";
 

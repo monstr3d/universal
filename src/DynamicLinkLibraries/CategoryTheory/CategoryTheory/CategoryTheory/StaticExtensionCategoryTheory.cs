@@ -357,28 +357,7 @@ namespace CategoryTheory
         public static void SortPatriallyOrderedSet<T>(this List<T> list,
             IComparer<T> comparer)
         {
-            list.Sort(comparer);
-        label:
-            List<T> l = new List<T>(list);
-            for (int i = 0; i < l.Count; i++)
-            {
-                T x = l[i];
-                for (int j = i + 1; j < l.Count; j++)
-                {
-                    T y = l[j];
-                    int comp = comparer.Compare(x, y);
-                    int compa = comparer.Compare(y, x);
-                    if (comp > 0)
-                    {
-                        if (compa < 0 | true)
-                        {
-                            list.Remove(y);
-                            list.Insert(i, y);
-                            goto label;
-                        }
-                    }
-                }
-            }
+            performer.SortPatriallyOrderedSet(list, comparer);
         }
 
         /// <summary>

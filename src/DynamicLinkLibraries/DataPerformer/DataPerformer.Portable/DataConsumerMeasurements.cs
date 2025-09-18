@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using BaseTypes.Interfaces;
 
@@ -7,8 +8,8 @@ using CategoryTheory;
 
 using DataPerformer.Interfaces;
 
-using Diagram.UI.Interfaces;
 using Diagram.UI;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
 using Diagram.UI.Labels;
 
@@ -17,7 +18,6 @@ using ErrorHandler;
 using Event.Interfaces;
 
 using NamedTree;
-using System.Linq;
 
 namespace DataPerformer.Portable
 {
@@ -26,15 +26,12 @@ namespace DataPerformer.Portable
     /// Data consumer + measurements
     /// </summary>
     public abstract class DataConsumerMeasurements : DataConsumer,
-        IMeasurements, IAlias, IFeedbackCollectionHolder,  ICheckCorrectness
+        IMeasurements, IAlias,  ICheckCorrectness
     {
 
         #region Fields
 
         protected IFeedbackCollection feedbackCollection;
-
- 
-        protected Performer performer = new Performer();
 
     
         /// <summary>
@@ -285,8 +282,7 @@ namespace DataPerformer.Portable
         /// Access to n - th measurement
         /// </summary>
         IMeasurement IMeasurements.this[int n] => GetMeasurement(n);
-
-        
+       
 
         protected virtual void UpdateMeasurements()
         {
@@ -304,8 +300,8 @@ namespace DataPerformer.Portable
                 {
                     throw new OwnException("Formulas are not accepted");
                 }
+       //         performer.UpdateChildrenData(this, feedbackCollection);
                 update();
-                feedbackCollection.Set();
                 isUpdated = true;
             }
             catch (Exception exception)
@@ -644,8 +640,7 @@ namespace DataPerformer.Portable
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => Children;
 
-        IFeedbackCollection IFeedbackCollectionHolder.Feedback => feedbackCollection;
-
+    
         protected virtual void SetFeedback()
         {
             FeedBack.Clear();

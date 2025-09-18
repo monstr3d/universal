@@ -1,8 +1,10 @@
-import { FictiveMeasurement } from "../Fiction/FictiveMeasurement";
-import { IFunc } from "../Interfaces/IFunc";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IFunc } from "../Interfaces/IFunc";
 import { Performer } from "../Performer";
-import { IDataConsumer } from "./Interfaces/IDataConsumer";
-import { IMeasurement } from "./Interfaces/IMeasurement";
+import type { IDataConsumer } from "./Interfaces/IDataConsumer";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
 
 export class DataConsumerBoolFunc implements IFunc<boolean>
 {
@@ -23,7 +25,7 @@ export class DataConsumerBoolFunc implements IFunc<boolean>
     }
 
 
-    measurement: IMeasurement = new FictiveMeasurement();
+    measurement !: IMeasurement;
 
     performer: Performer = new Performer();
 

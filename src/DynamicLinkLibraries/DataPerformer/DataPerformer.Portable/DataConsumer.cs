@@ -119,6 +119,15 @@ namespace DataPerformer.Portable
         /// </summary>
         private IMeasurement timeMeasurement = null;
 
+        /// <summary>
+        /// Performer
+        /// </summary>
+        protected virtual Performer Performer
+        {
+            get;
+        } = new Performer();
+
+
         #endregion
 
         #region Ctor
@@ -282,9 +291,6 @@ namespace DataPerformer.Portable
             return e.Message.Equals(Interrupted);
         }
 
-
-
-
         /// <summary>
         /// Aliases of this object and all its children
         /// </summary>
@@ -299,12 +305,11 @@ namespace DataPerformer.Portable
             }
         }
 
-
-         /// <summary>
+        /// <summary>
         /// Adds measurements provider 
         /// </summary>
         /// <param name="measurements">Provider to add</param>
-        public void Add(IMeasurements measurements)
+        protected virtual void Add(IMeasurements measurements)
         {
             if (measurements is MeasurementsWrapper)
             {
@@ -315,7 +320,7 @@ namespace DataPerformer.Portable
                 this.Throw("Measurements aldeady exists");
             }
             measurementsData.Add(measurements);
-            measurementsData.GetDependent(list, Dependent);
+            Performer.GetDependent(measurementsData, list, Dependent);
             onChangeInput?.Invoke();
         }
 

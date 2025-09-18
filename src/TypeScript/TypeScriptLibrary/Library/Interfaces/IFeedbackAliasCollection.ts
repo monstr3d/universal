@@ -1,4 +1,7 @@
-import { IFeedbackAlias } from "./IFeedbackAlias";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IFeedbackAlias } from "./IFeedbackAlias";
 
 export interface IFeedbackAliasCollection
 {

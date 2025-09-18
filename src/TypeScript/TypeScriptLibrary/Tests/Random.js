@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Random = void 0;
 const AliasName_1 = require("../Library/AliasName");
 const Desktop_1 = require("../Library/Desktop");
-const FeedbackAliasCollection_1 = require("../Library/FeedbackAliasCollection");
-const FictiveAliasName_1 = require("../Library/Fiction/FictiveAliasName");
-const FictiveMeasurement_1 = require("../Library/Fiction/FictiveMeasurement");
-const FictiveValue_1 = require("../Library/Fiction/FictiveValue");
 const DataLink_1 = require("../Library/Measurements/Arrows/DataLink");
 const DataConsumer_1 = require("../Library/Measurements/DataConsumer");
 const RandomGenerator_1 = require("../Library/Measurements/RandomGenerator");
@@ -26,9 +22,6 @@ class Random_CategoryObject_1 extends RandomGenerator_1.RandomGenerator {
 class Random_CategoryObject_2 extends VectorFormulaConsumer_1.VectorFormulaConsumer {
     constructor(desktop, name) {
         super(desktop, name);
-        this.measurement0 = new FictiveMeasurement_1.FictiveMeasurement();
-        this.measurement3 = new FictiveMeasurement_1.FictiveMeasurement();
-        this.aliasName10 = new FictiveAliasName_1.FictiveAliasName();
         this.var_0 = 0;
         this.var_1 = 2;
         this.var_2 = 0;
@@ -147,14 +140,11 @@ class Random_CategoryObject_2 extends VectorFormulaConsumer_1.VectorFormulaConsu
     }
     setFeedback() {
         let map = new Map([]);
-        this.feedback = new FeedbackAliasCollection_1.FeedbackAliasCollection(map, this, this);
     }
 }
 class Random_CategoryObject_3 extends RecursiveFormula_1.RecursiveFormula {
     constructor(desktop, name) {
         super(desktop, name);
-        this.value0 = new FictiveValue_1.FictiveValue();
-        this.measurement1 = new FictiveMeasurement_1.FictiveMeasurement();
         this.var_0 = 0;
         this.var_1 = 0;
         this.var_2 = 0;
@@ -208,7 +198,6 @@ class Random_CategoryObject_3 extends RecursiveFormula_1.RecursiveFormula {
     }
     setFeedback() {
         let map = new Map([]);
-        this.feedback = new FeedbackAliasCollection_1.FeedbackAliasCollection(map, this, this);
     }
 }
 class Random_CategoryObject_4 extends DataConsumer_1.DataConsumer {

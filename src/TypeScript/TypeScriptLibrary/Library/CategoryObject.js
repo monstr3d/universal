@@ -38,7 +38,10 @@ class CategoryObject {
         return this.name;
     }
     check(x) {
-        return this.checker(x);
+        if (this.checker == undefined) {
+            return false;
+        }
+        return this.checker.check(x);
     }
 }
 exports.CategoryObject = CategoryObject;

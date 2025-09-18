@@ -1,8 +1,6 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
 import { FeedbackAliasCollection } from "../Library/FeedbackAliasCollection";
-import { FictiveAliasName } from "../Library/Fiction/FictiveAliasName";
-import { FictiveMeasurement } from "../Library/Fiction/FictiveMeasurement";
 import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
@@ -58,10 +56,10 @@ class SimpleFeed_CategoryObject_0 extends VectorFormulaConsumer
 		this.aliasName3 = new AliasName(this.alias, "b");
 		this.aliasName4 = new AliasName(this.alias, "c");
 	}
-	aliasName0 : IAliasName =  new FictiveAliasName();
-	aliasName1 : IAliasName =  new FictiveAliasName();
-	aliasName3 : IAliasName =  new FictiveAliasName();
-	aliasName4 : IAliasName =  new FictiveAliasName();
+	aliasName0 ! : IAliasName;
+	aliasName1 ! : IAliasName;
+	aliasName3 ! : IAliasName;
+	aliasName4 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -106,7 +104,6 @@ class SimpleFeed_CategoryObject_0 extends VectorFormulaConsumer
 		let map = new Map<string, string>(
 		[
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 
@@ -148,8 +145,8 @@ class SimpleFeed_CategoryObject_1 extends VectorFormulaConsumer
 		this.measurement4 = all[0].getMeasurement(0);
 		this.aliasName0 = new AliasName(this.alias, "k");
 	}
-	measurement4 : IMeasurement = new FictiveMeasurement();
-	aliasName0 : IAliasName =  new FictiveAliasName();
+	measurement4 ! : IMeasurement;
+	aliasName0 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -193,7 +190,6 @@ class SimpleFeed_CategoryObject_1 extends VectorFormulaConsumer
 		[
 			["Formula_1", "A.a" ]
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 

@@ -1,10 +1,11 @@
 "use strict";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AliasName = void 0;
-const FictiveAlias_1 = require("./Fiction/FictiveAlias");
 class AliasName {
     constructor(alias, name) {
-        this.alias = new FictiveAlias_1.FictiveAlias();
         this.name = "";
         this.alias = alias;
         this.name = name;

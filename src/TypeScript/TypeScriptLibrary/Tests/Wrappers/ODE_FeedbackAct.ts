@@ -1,5 +1,4 @@
 import { OwnNotImplemented } from "../../Library/ErrorHandler/OwnNotImplemented";
-import { FictiveDataConsumer } from "../../Library/Fiction/FictiveDataConsumer";
 import { RungeProcessor } from "../../Library/Measurements/DifferentialEquations/Processors/RungeProcessor";
 import { IDataConsumer } from "../../Library/Measurements/Interfaces/IDataConsumer";
 import { PefrormerMeasuremets } from "../../Library/Measurements/PefrormerMeasuremets";
@@ -8,7 +7,7 @@ import { ODE_Feedback } from "../ODE_Feedback";
 
 export class ODE_FeedbackAct extends ODE_Feedback
 {
-    dc: IDataConsumer = new FictiveDataConsumer();
+    dc! : IDataConsumer;
     constructor() {
         super();
         var o = this.getCategoryObjects();
@@ -22,13 +21,18 @@ export class ODE_FeedbackAct extends ODE_Feedback
         console.log(a, b);
     }
 
+    func(): boolean {
+        return false;
+    }
+
+
     public test(): void
     {
         try {
             let processor = new RungeProcessor();
             var runtime = new DataRuntimeConsumerODE(this.dc, processor);
             var p = new PefrormerMeasuremets();
-            p.performFixedStepCalculation(runtime, 0, 0.4, 45, this);
+            p.performFixedStepCalculation(runtime, 0, 0.4, 45, this, this);
         }
         catch (e: any)
         {

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 
 using Diagram.UI;
@@ -16,7 +15,6 @@ namespace DataPerformer
     [Serializable()]
     public class DifferentialEquationSolver : Formula.DifferentialEquationSolver,  ISerializable
     {
-
 
         #region Fields
 

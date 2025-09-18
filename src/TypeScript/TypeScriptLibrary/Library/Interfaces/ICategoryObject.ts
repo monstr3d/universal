@@ -1,4 +1,7 @@
-import { IDesktop } from "./IDesktop";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IDesktop } from "./IDesktop";
 
 export interface ICategoryObject 
 {

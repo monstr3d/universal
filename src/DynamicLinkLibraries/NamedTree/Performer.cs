@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Net.WebSockets;
+using System.Reflection;
 
 using System.Xml;
 
@@ -8,6 +9,45 @@ namespace NamedTree
 {
     public class Performer
     {
+
+        /// <summary>
+        /// Sorts partially ordered set
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="list">The set</param>
+        /// <param name="comparer">The comparer</param>
+        public  void SortPatriallyOrderedSet<T>(List<T> list,
+            IComparer<T> comparer)
+        {
+            list.Sort(comparer);
+            var b = true;
+            while (b)
+            {
+                List<T> l = new List<T>(list);
+                for (int i = 0; i < l.Count; i++)
+                {
+                    T x = l[i];
+                    for (int j = i + 1; j < l.Count; j++)
+                    {
+                        T y = l[j];
+                        int comp = comparer.Compare(x, y);
+                        int compa = comparer.Compare(y, x);
+                        if (comp > 0)
+                        {
+                            if (compa < 0 | true)
+                            {
+                                list.Remove(y);
+                                list.Insert(i, y);
+                                i = l.Count;
+                                break;
+                            }
+                        }
+                    }
+                }
+                b = false;
+            }
+        }
+
 
         /// <summary>
         /// Converts to string

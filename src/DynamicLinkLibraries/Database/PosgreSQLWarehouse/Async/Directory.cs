@@ -105,7 +105,7 @@ namespace PostgreSQLWarehouse.Async
 
         }
 
-        IDatabaseInterfaceAsync Async =>WarehouseInterface;
+        IDatabaseInterfaceAsync Async => WarehouseInterface;
 
         protected override async Task<ILeafAsync> AddAsync(ILeaf leaf, CancellationToken cancellationToken)
         {

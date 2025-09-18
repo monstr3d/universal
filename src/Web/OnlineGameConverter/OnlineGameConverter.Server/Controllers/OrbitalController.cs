@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGameConverter.Server.Classes;
 
@@ -18,21 +17,21 @@ namespace OnlineGameConverter.Server.Controllers
         }
 
         [HttpGet("initial")]
-        public async Task<OrbitalForecastItemNumberPure> GetInitialConditions()
+        public async Task<OrbitalForecastItemNumberPure> GetInitialConditions(CancellationToken token)
         {
             var result = await performer.GetInitialAsync();
             return result;
         }
 
         [HttpPost(Name = "forecastfromnumber")]
-        public async Task<OrbitalForecastItemNumber[]> PostForecastFromNumber([FromBody] OrbitalForecastConditionNumber condition)
+        public async Task<OrbitalForecastItemNumber[]> PostForecastFromNumber([FromBody] OrbitalForecastConditionNumber condition, CancellationToken token)
         {
 
             if (condition == null || condition.Begin >= condition.End)
             {
                 return Enumerable.Empty<OrbitalForecastItemNumber>().ToArray();
             }
-            var result = await performer.CalculateOrbitalForecastFromNubmerAsync(condition, HttpContext.RequestAborted);
+            var result = await performer.CalculateOrbitalForecastFromNubmerAsync(condition, token);
             if (result == null || !result.Any())
             {
                 return Enumerable.Empty<OrbitalForecastItemNumber>().ToArray();

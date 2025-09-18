@@ -189,7 +189,7 @@ namespace DataPerformer.Formula.TypeScript
                             lan.Add("if (this.check(this.variable)) { this.success = false; return; }");
                             if (!att.IsDerivation)
                             {
-                                var ss = "value" + num + " : IValue = new FictiveValue();";
+                                var ss = "value" + num + " ! : IValue;";
                                 variables.Add(ss);
                             }
                             lan.Add(tree.ToType(num));
@@ -214,7 +214,7 @@ namespace DataPerformer.Formula.TypeScript
                     "this." + anvn + " = new AliasName(this.alias, \"" + nam +"\");"
                 };
                 (initializers as List<string>).AddRange(init);
-                var vari = new List<string> { anvn + " : IAliasName =  new FictiveAliasName();" };
+                var vari = new List<string> { anvn + " ! : IAliasName;" };
                 (variables as List<string>).AddRange(vari);
                 return lan;
             }

@@ -198,7 +198,10 @@ namespace DataPerformer.Formula
         }
 
 
+
         #region Members
+
+        
 
         public override string ToString()
         {

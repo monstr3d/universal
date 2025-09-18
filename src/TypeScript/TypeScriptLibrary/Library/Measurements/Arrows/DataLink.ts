@@ -1,8 +1,11 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CategoryArrow } from "../../CategoryArrow";
-import { ICategoryObject } from "../../Interfaces/ICategoryObject";
-import { IDesktop } from "../../Interfaces/IDesktop";
-import { IDataConsumer } from "../Interfaces/IDataConsumer";
-import { IMeasurements } from "../Interfaces/IMeasurements";
+import type { ICategoryObject } from "../../Interfaces/ICategoryObject";
+import type { IDesktop } from "../../Interfaces/IDesktop";
+import type { IDataConsumer } from "../Interfaces/IDataConsumer";
+import type { IMeasurements } from "../Interfaces/IMeasurements";
 
 export class DataLink extends CategoryArrow 
 {

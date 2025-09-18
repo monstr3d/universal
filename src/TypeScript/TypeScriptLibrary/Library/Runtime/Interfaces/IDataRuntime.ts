@@ -1,7 +1,14 @@
-import { ICategoryArrow } from "../../Interfaces/ICategoryArrow";
-import { ICategoryObject } from "../../Interfaces/ICategoryObject";
-import { IStarted } from "../../Measurements/Interfaces/IStarted";
-import { ITimeMeasurementProvider } from "../../Measurements/Interfaces/ITimeMeasurementProvider";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ICategoryArrow } from "../../Interfaces/ICategoryArrow";
+import type { ICategoryObject } from "../../Interfaces/ICategoryObject";
+import type { IStarted } from "../../Measurements/Interfaces/IStarted";
+import type { ITimeMeasurementProvider } from "../../Measurements/Interfaces/ITimeMeasurementProvider";
 
 export interface IDataRuntime
 {

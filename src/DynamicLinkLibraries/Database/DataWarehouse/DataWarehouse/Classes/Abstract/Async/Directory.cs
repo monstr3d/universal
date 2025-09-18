@@ -408,7 +408,6 @@ namespace DataWarehouse.Classes.Abstract.Async
             var issue = new Issue(ss, ErrorType.None, OperationType.LoadDirectories);
             OnGetDirectoriesAct(issue);
 
-
         }
 
         async Task IDirectoryAsync.LoadLeaves(CancellationToken cancellationToken)

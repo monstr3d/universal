@@ -1,4 +1,7 @@
 "use strict";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VectorFormulaConsumer = void 0;
 const DataConsumerVariableMeasurements_1 = require("./DataConsumerVariableMeasurements");
@@ -12,7 +15,6 @@ class VectorFormulaConsumer extends DataConsumerVariableMeasurements_1.DataConsu
         this.types.push("IPostSetArrow");
     }
     updateMeasurements() {
-        this.feedback.setFeedbacks();
         this.calculateTree();
         this.save();
     }
@@ -24,7 +26,6 @@ class VectorFormulaConsumer extends DataConsumerVariableMeasurements_1.DataConsu
     }
     postSetArrow() {
         this.init();
-        this.setFeedback();
     }
 }
 exports.VectorFormulaConsumer = VectorFormulaConsumer;

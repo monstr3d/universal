@@ -15,10 +15,13 @@ class TwoAct extends Two_1.Two {
         var b = k.getMeasurement(1).getMeasurementValue();
         console.log(a, b);
     }
+    func() {
+        return false;
+    }
     test() {
         var runtime = new DataRuntimeConsumer_1.DataRuntimeConsumer(this.dc);
         var p = new PefrormerMeasuremets_1.PefrormerMeasuremets();
-        p.performFixedStepCalculation(runtime, 0, 1, 10, this);
+        p.performFixedStepCalculation(runtime, 0, 1, 10, this, this);
     }
 }
 exports.TwoAct = TwoAct;

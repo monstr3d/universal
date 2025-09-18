@@ -1,8 +1,11 @@
-import { ICategoryObject } from "./Interfaces/ICategoryObject";
-import { IDesktop } from "./Interfaces/IDesktop";
-import { IObject } from "./Interfaces/IObject";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ICategoryObject } from "./Interfaces/ICategoryObject";
+import type { ICheck } from "./Interfaces/ICheck";
+import type { IDesktop } from "./Interfaces/IDesktop";
+import type { IObject } from "./Interfaces/IObject";
 import { Performer } from "./Performer";
-import { Check } from "./Types/Check";
 
 export class CategoryObject implements ICategoryObject, IObject
 {
@@ -12,7 +15,7 @@ export class CategoryObject implements ICategoryObject, IObject
 
     protected name !: string;
 
-    protected checker !: Check;
+    protected checker !: ICheck;
 
     protected variable !: any;
 
@@ -60,7 +63,10 @@ export class CategoryObject implements ICategoryObject, IObject
     }
 
     protected check(x: any): boolean {
-        return this.checker(x);
+        if (this.checker == undefined) {
+            return false;
+        }
+        return this.checker.check(x);
     }
 }
 

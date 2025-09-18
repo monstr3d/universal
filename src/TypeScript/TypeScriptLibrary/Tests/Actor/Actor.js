@@ -32,6 +32,15 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Actor = void 0;
 const readline = __importStar(require("readline"));
@@ -45,6 +54,14 @@ const ODE_FeedbackAct_1 = require("../Wrappers/ODE_FeedbackAct");
 const TransformerRecursveAct_1 = require("../Wrappers/TransformerRecursveAct");
 const PIAct_1 = require("../Wrappers/PIAct");
 const OrbitalForecastAct_1 = require("../Wrappers/OrbitalForecastAct");
+const OrbitalForecastCalculation_1 = require("../../Algorithms/OrbitalForecastCalculation/OrbitalForecastCalculation");
+const FeedBackFormulaAct_1 = require("../Wrappers/FeedBackFormulaAct");
+const RecursvieFeedbackAct_1 = require("../Wrappers/RecursvieFeedbackAct");
+const RecursiveFeedbackSimpleAct_1 = require("../Wrappers/RecursiveFeedbackSimpleAct");
+const ODE_FeedAcs_1 = require("../Wrappers/ODE_FeedAcs");
+const DateTimeConverter_1 = require("../../Library/Utilities/DateTime/DateTimeConverter");
+const DenstyAct_1 = require("../Wrappers/DenstyAct");
+const PefrormerMeasuremets_1 = require("../../Library/Measurements/PefrormerMeasuremets");
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -66,6 +83,102 @@ function finish(e) {
     });
 }
 class Actor {
+    finish(e) {
+        rl.question('Is this example useful? [y/n] ', (answer) => {
+            switch (answer.toLowerCase()) {
+                case 'y':
+                    console.log('Super!');
+                    break;
+                case 'n':
+                    console.log('Sorry! :(');
+                    break;
+                default:
+                    console.log('Invalid answer!');
+            }
+            rl.close();
+        });
+    }
+    actOrbitCalculation(b) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var o = new OrbitalForecastCalculation_1.OrbitalForecastCalculation();
+            const cond = {
+                Begin: 1770457504, End: 18000, X: -5448.34815324, Y: -4463.93698421, Z: 0, Vx: -0.98539477743, Vy: 1.21681893834, Vz: 7.45047785592
+            };
+            o.set(cond);
+            if (b) {
+                var ab = new AbortController();
+                const t = yield o.calculate(cond, ab);
+                console.log(t);
+            }
+            else {
+                let dc = o.getCategoryObject("Chart");
+                let p = new PefrormerMeasuremets_1.PefrormerMeasuremets();
+                o.set(cond);
+                o.performFixedStepCalculation();
+                const list = o.getResult();
+                console.log(list);
+                //    let m = this.getCategoryObject("A-transformation") as unknown as IMeasurements;
+                //   this.measurement = m.getMeasurement(0);
+            }
+            console.log("finish");
+        });
+    }
+    actDensity() {
+        try {
+            var o = new DenstyAct_1.DensityAct();
+            o.test();
+        }
+        catch (e) {
+            finish(e);
+        }
+    }
+    actTime() {
+        console.log(new Date(0));
+        var x = new DateTimeConverter_1.DateTimeConverter();
+        console.log(x.fromOADate(0));
+        var t = 1770463387;
+        t = t / (24 * 60 * 60);
+        console.log(t);
+        var d = x.fromOADate(t);
+        console.log(d);
+        console.log(x.toOADate(d));
+    }
+    actFeedbackFormula() {
+        try {
+            var o = new FeedBackFormulaAct_1.FeedBackFormulaAct();
+            o.test();
+        }
+        catch (e) {
+            finish(e);
+        }
+    }
+    actODE_FeedAct() {
+        try {
+            var o = new ODE_FeedAcs_1.ODE_FeedAct();
+            o.test();
+        }
+        catch (e) {
+            finish(e);
+        }
+    }
+    actRecursiveFeedback() {
+        try {
+            var o = new RecursvieFeedbackAct_1.RecursvieFeedbackAct();
+            o.test();
+        }
+        catch (e) {
+            finish(e);
+        }
+    }
+    actRecursiveFeedbackSimplw() {
+        try {
+            var o = new RecursiveFeedbackSimpleAct_1.RecursiveFeedbackSimpleAct();
+            o.test();
+        }
+        catch (e) {
+            finish(e);
+        }
+    }
     actODEFeedback() {
         try {
             var o = new ODE_FeedbackAct_1.ODE_FeedbackAct();

@@ -76,7 +76,7 @@ namespace DataPerformer.Portable
         /// </summary>
         static StaticExtensionDataPerformerPortable()
         {
-            new CSCodeCreator();
+            new CodeCreators.CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
             Runtime.DataRuntimeFactory.Singleton.SetBase();
             Runtime.DataRuntimeFactory.Singleton.SetBaseAction();
@@ -515,24 +515,6 @@ namespace DataPerformer.Portable
         }
 
 
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="consumer">Data consumer</param>
-        /// <param name="collection">Components</param>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count</param>
-        /// <returns>Result</returns>
-/*  !!!      static public XmlDocument CreateXmlDocument(this IDataConsumer consumer,
-            XmlDocument input, double start, double step,
-            int count)
-        {
-            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
-            return wrapper.CreateXmlDocument(input, start, step, count);
-
-        }*/
 
         /// <summary>
         /// Creates Xml document
@@ -564,54 +546,7 @@ namespace DataPerformer.Portable
         }
 
 
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="desktop">Desktop</param>
-        /// <param name="consumer">Consumer name</param>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <returns>Document</returns>
-       /*!!! static public XmlDocument CreateXmlDocument(this IDesktop desktop, string consumer,
-            XmlDocument input, double start, double step, int count)
-        {
-            var wrapper = new ComponentCollectionWrapper(desktop);
-            return wrapper.CreateXmlDocument(consumer, input, start, step, count);
-        }
-       */
-
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="desktop">Desktop</param>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <returns>Document</returns>
-  /*!!!      static public XmlDocument CreateXmlDocument(this IDesktop desktop,
-            XmlDocument input, double start, double step, int count)
-        {
-            var wrapper = new ComponentCollectionWrapper(desktop);
-            string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
-            return wrapper.CreateXmlDocument(consumer, input, start, step, count);
-        }*/
-
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="desktop">Desktop</param>
-        /// <param name="input">Input</param>
-        /// <returns>Document</returns>
-   /*!!!     static public XmlDocument CreateXmlDocument(this IDesktop desktop, XmlDocument input)
-        {
-            var wrapper = new ComponentCollectionWrapper(desktop);
-            return wrapper.CreateXmlDocument(input);
-        }
-   */
-
+ 
 
 
 
@@ -876,6 +811,7 @@ namespace DataPerformer.Portable
         public static void GetDependent(this IEnumerable<IMeasurements> measurements,
             List<object> list, List<IMeasurements> dependent)
         {
+            performer.GetDependent(measurements, list, dependent);
             dependent.Clear();
             list.Clear();
             foreach (IMeasurements m in measurements)
@@ -1680,26 +1616,7 @@ namespace DataPerformer.Portable
         /// <param name="list">List of dependent objects</param>
         public static void GetDependentObjects(this IDataConsumer consumer, IList<object> list)
         {
-            for (int i = 0; i < consumer.Count; i++)
-            {
-                IMeasurements m = consumer[i];
-                if (m is IRuntimeUpdate)
-                {
-                    if (!(m as IRuntimeUpdate).ShouldRuntimeUpdate)
-                    {
-                        continue;
-                    }
-                }
-                if (!list.Contains(m))
-                {
-                    list.Insert(0, m);
-                }
-                if (m is IDataConsumer)
-                {
-                    IDataConsumer c = m as IDataConsumer;
-                    GetDependentObjects(c, list);
-                }
-            }
+            performer.GetDependentObjects(consumer, list);
         }
 
         /// <summary>

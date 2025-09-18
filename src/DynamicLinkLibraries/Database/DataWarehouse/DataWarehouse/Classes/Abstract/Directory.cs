@@ -382,11 +382,6 @@ namespace DataWarehouse.Classes.Abstract
         }
 
 
-
-
-
-
-
         protected virtual bool UpdateName(string name)
         {
 

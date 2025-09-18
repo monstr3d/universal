@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AliasInitialValue = void 0;
-const FictiveAliasName_1 = require("./Fiction/FictiveAliasName");
-const FictiveVariable_1 = require("./Measurements/Variables/FictiveVariable");
 class AliasInitialValue {
     getInitValue() {
         return this.value.getIValue();
@@ -14,8 +12,6 @@ class AliasInitialValue {
         }
     }
     constructor(alias, value) {
-        this.alias = new FictiveAliasName_1.FictiveAliasName();
-        this.value = new FictiveVariable_1.FictiveVariable();
         this.alias = alias;
         this.value = value;
     }

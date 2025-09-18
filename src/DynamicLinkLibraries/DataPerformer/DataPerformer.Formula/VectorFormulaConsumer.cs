@@ -27,8 +27,8 @@ namespace DataPerformer.Formula
     /// Vector formula data transformer
     /// </summary>
     public class VectorFormulaConsumer :
-       DataConsumerMeasurements,   IVariableDetector,
-       IStarted, IRuntimeUpdate, ITreeCollection, ITimeVariable, 
+       DataConsumerMeasurements, IStarted, IVariableDetector,
+       IRuntimeUpdate, ITreeCollection, ITimeVariable, 
         IReplaceMeasurements, IPostSetArrow
     {
 
@@ -87,13 +87,38 @@ namespace DataPerformer.Formula
             dataPerformerFormula = new (this);
             th = this;
             proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
-            feedbackCollection = new FeedbackAliasCollection(this, this, FeedBack);
         }
 
-    
+
         #endregion
 
         #region Overriden Members
+
+        protected override void UpdateMeasurements()
+        {
+            if (IsUpdated)
+            {
+                return;
+            }
+            try
+            {
+                if (par == null)
+                {
+                    throw new OwnException(DynamicalParameter.UndefinedParameters);
+                }
+                if (measurements == null)
+                {
+                    throw new OwnException("Formulas are not accepted");
+                }
+                //         performer.UpdateChildrenData(this, feedbackCollection);
+                update();
+                isUpdated = true;
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException(errorLevel);
+            }
+        }
 
         #endregion
 
@@ -132,15 +157,16 @@ namespace DataPerformer.Formula
             {
                 fm.Reset();
             }
+         //   performer.UpdateChildrenData(this, feedbackCollection);
             update();
             if (forward.Count > 0)
             {
                 isUpdated = false;
-                th.UpdateMeasurements();
-                foreach (IMeasurement m in forward.Keys)
-                {
-                    forward[m].Value = m.Parameter();
-                }
+                /*        th.UpdateMeasurements();
+                        foreach (IMeasurement m in forward.Keys)
+                        {
+                            forward[m].Value = m.Parameter();
+                        }*/
             }
         }
 
@@ -331,8 +357,8 @@ namespace DataPerformer.Formula
                 }
                 this.Throw(ex);
             }
-            SetFeedback();
-            SetForward();
+          //  SetFeedback();
+           // SetForward();
         }
 
         #endregion
@@ -565,7 +591,7 @@ namespace DataPerformer.Formula
                     me:
                         continue;
                     }
-                    SetFeedback();
+            //        SetFeedback();
                 }
                 catch (Exception ex)
                 {

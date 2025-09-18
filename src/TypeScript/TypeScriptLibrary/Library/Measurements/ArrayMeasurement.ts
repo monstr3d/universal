@@ -1,5 +1,8 @@
-import { IObject } from "../Interfaces/IObject";
-import { IMeasurement } from "./Interfaces/IMeasurement";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IObject } from "../Interfaces/IObject";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
 
 export class ArrayMeasurement implements IMeasurement, IObject
 {

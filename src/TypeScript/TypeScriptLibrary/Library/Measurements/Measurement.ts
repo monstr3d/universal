@@ -1,5 +1,8 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
-import { IMeasurement } from "./Interfaces/IMeasurement";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
 
 export class Measurement implements IMeasurement {
 

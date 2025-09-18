@@ -40,18 +40,16 @@ namespace DataPerformer.Portable.Comparation
             {
                 return 0;
             }
-            if (x is IDataConsumer)
+            if (x is IDataConsumer dcx)
             {
-                IDataConsumer dc = x as IDataConsumer;
-                if (IsSource(dc, y))
+                if (IsSource(dcx, y))
                 {
                     return 1;
                 }
             }
-            if (y is IDataConsumer)
+            if (y is IDataConsumer dcy)
             {
-                IDataConsumer dc = y as IDataConsumer;
-                if (IsSource(dc, x))
+                if (IsSource(dcy, x))
                 {
                     return -1;
                 }

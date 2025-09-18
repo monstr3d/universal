@@ -19,9 +19,14 @@ export class TwoAct extends Two implements IAction {
         console.log(a, b);
     }
 
+    func(): boolean {
+        return false;
+    }
+
+
     public test(): void {
         var runtime: IDataRuntime = new DataRuntimeConsumer(this.dc);
         var p: PefrormerMeasuremets = new PefrormerMeasuremets();
-        p.performFixedStepCalculation(runtime, 0, 1, 10, this);
+        p.performFixedStepCalculation(runtime, 0, 1, 10, this, this);
     }
 }

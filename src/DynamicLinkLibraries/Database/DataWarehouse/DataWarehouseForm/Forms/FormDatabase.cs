@@ -1,3 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
@@ -6,14 +13,7 @@ using Diagram.UI.Interfaces;
 using ErrorHandler;
 using NamedTree;
 using ResourceService;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsExtensions;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 namespace DataWarehouse.Forms
@@ -296,6 +296,22 @@ namespace DataWarehouse.Forms
             save(saveFileDialogData.FileName);
         }
 
+        private async Task ChangeNameAsync(IDirectoryAsync directory, NodeLabelEditEventArgs e)
+        {
+            ICancellation cl = this;
+            var t = cl.CreateCancellationToken();
+            var task = directory.UpdateNameAsync(e.Label, t);
+            await task;
+            var r = task.Result;
+            if (r == e.Label)
+            {
+                e.CancelEdit = true;
+            }
+            return;
+        }
+
+
+
         private void treeViewDir_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
             if (e.Label == null)
@@ -303,6 +319,11 @@ namespace DataWarehouse.Forms
                 return;
             }
             var n = SelectedNode.Name;
+            if (SelectedNode is IDirectoryAsync directoryAsync)
+            {
+                ChangeNameAsync(directoryAsync, e);
+                return;
+            }
             SelectedNode.Name = e.Label;
             if (n == SelectedNode.Name)
             {
@@ -534,7 +555,7 @@ namespace DataWarehouse.Forms
 
                if (l == null)
                 {
-                    WindowsExtensions.ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
+                    ControlExtensions.ShowMessageBoxModal("Illegal name \"" + nm + "\"");
                     return;
                 }
           //      Close();
@@ -545,6 +566,31 @@ namespace DataWarehouse.Forms
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
         }
+
+        bool dirdeleted = false;
+
+        private async Task<bool> Delete(IDirectoryAsync directory)
+        {
+            ICancellation cl = this;
+            var t = cl.CreateCancellationToken();
+            var task = directory.RemoveItselfAsync(t);
+            await task;
+            dirdeleted = task.Result;
+            return dirdeleted;
+        }
+
+        bool leafdeleleted = false;
+
+        private async Task Delete(ILeafAsync leaf)
+        {
+            ICancellation cancellation = this;
+            var t = cancellation.CreateCancellationToken();
+            var task = leaf.RemoveItselfAsync(t);
+            await  task;
+            var leafdeleted = task.Result;
+        }
+
+
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -564,9 +610,22 @@ namespace DataWarehouse.Forms
                 {
                     return;
                 }
+                dirdeleted = false;
+                if (Selected is IDirectoryAsync directory)
+                {
+                    Delete(directory);
+                    return;
+
+                }
+                if (Selected is ILeafAsync leaf)
+                {
+                    Delete(leaf);
+                    return;
+
+                }
                 Selected.RemoveItself();
                 //selectedNode.Remove(selected);
-            //    RefreshTable();
+                //    RefreshTable();
             }
             catch (Exception ex)
             {

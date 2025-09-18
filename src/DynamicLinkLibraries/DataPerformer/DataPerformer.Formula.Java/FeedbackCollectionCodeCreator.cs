@@ -4,7 +4,6 @@ using Diagram.UI;
 using Diagram.UI.CodeCreators.Interfaces;
 using CategoryTheory;
 using DataPerformer.Interfaces;
-using DataPerformer.Portable;
 
 namespace DataPerformer.Formula.Java
 {

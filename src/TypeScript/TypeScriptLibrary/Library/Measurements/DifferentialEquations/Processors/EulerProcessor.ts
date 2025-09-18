@@ -1,5 +1,8 @@
-import { IMeasurements } from "../../Interfaces/IMeasurements";
-import { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IMeasurements } from "../../Interfaces/IMeasurements";
+import type { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
 import { DifferentialEquationProcessor } from "./DifferentialEquationProcessor";
 
 export class EulerProcessor extends DifferentialEquationProcessor

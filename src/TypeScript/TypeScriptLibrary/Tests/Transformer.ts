@@ -1,8 +1,5 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
-import { FictiveAliasName } from "../Library/Fiction/FictiveAliasName";
-import { FictiveMeasurement } from "../Library/Fiction/FictiveMeasurement";
-import { FictiveValue } from "../Library/Fiction/FictiveValue";
 import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
@@ -55,8 +52,8 @@ class Transformer_CategoryObject_0 extends VectorFormulaConsumer
 		this.aliasName1 = new AliasName(this.alias, "b");
 	}
 	
-	aliasName0 : IAliasName =  new FictiveAliasName();
-	aliasName1 : IAliasName =  new FictiveAliasName();
+	aliasName0 ! : IAliasName;
+	aliasName1 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -155,10 +152,10 @@ class Transformer_CategoryObject_1 extends DifferentialEquationSolverFormula
 		this.aliasName0 = new AliasName(this.alias, "a");
 	}
 	
-	value2 : IValue = new FictiveValue();
-	value4 : IValue = new FictiveValue();
-	measurement6 : IMeasurement = new FictiveMeasurement();
-	aliasName0 : IAliasName =  new FictiveAliasName();
+	value2 ! : IValue;
+	value4 ! : IValue;
+	measurement6 ! : IMeasurement;
+	aliasName0 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;

@@ -1,4 +1,3 @@
-import { FictiveDataConsumer } from "../../Library/Fiction/FictiveDataConsumer";
 import { IDataConsumer } from "../../Library/Measurements/Interfaces/IDataConsumer";
 import { PefrormerMeasuremets } from "../../Library/Measurements/PefrormerMeasuremets";
 import { DataRuntimeConsumer } from "../../Library/Runtime/DataRuntimeConsumer";
@@ -7,7 +6,7 @@ import { PI } from "../PI";
 
 export class PIAct extends PI {
 
-    dc: IDataConsumer = new FictiveDataConsumer();
+    dc! : IDataConsumer;
     constructor() {
         super();
         var co = this.getCategoryObject("Chart");
@@ -21,10 +20,15 @@ export class PIAct extends PI {
         console.log(a);
     }
 
+    func(): boolean {
+        return false;
+    }
+
+
     public test(): void {
         var runtime: IDataRuntime = new DataRuntimeConsumer(this.dc);
         var p: PefrormerMeasuremets = new PefrormerMeasuremets();
-        p.performFixedStepCalculation(runtime, 0, 0.001, 1000, this);
+        p.performFixedStepCalculation(runtime, 0, 0.001, 1000, this, this);
     }
 
 

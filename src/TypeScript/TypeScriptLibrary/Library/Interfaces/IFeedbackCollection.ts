@@ -1,4 +1,10 @@
-import { IFeedback } from "./IFeedback";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IFeedback } from "./IFeedback";
 
 export interface IFeedbackCollection
 {
@@ -10,4 +16,6 @@ export interface IFeedbackCollection
     getFeedbacks(): IFeedback[];
 
     setFeedbacks(): void;
+
+    isEmpty(): boolean;
 }

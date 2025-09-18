@@ -1,5 +1,9 @@
-import { IInitialValue } from "./Interfaces/IInitialValue";
-import { IInitialValueCollection } from "./Interfaces/IInitialValueCollection";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import type { IInitialValue } from "./Interfaces/IInitialValue";
+import type { IInitialValueCollection } from "./Interfaces/IInitialValueCollection";
 
 export class InitialValueCollection implements IInitialValueCollection
 {

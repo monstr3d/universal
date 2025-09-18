@@ -36,16 +36,18 @@ class PefrormerMeasuremets {
             }
         }
     }
-    peformCondDCFixedStepCalculation(runtime, dataConsumer, conditionName, start, step, steps, act) {
+    peformCondDCFixedStepCalculation(runtime, dataConsumer, conditionName, stop, start, step, steps, act) {
         var cond = new DataConsumerBoolFunc_1.DataConsumerBoolFunc(dataConsumer, conditionName);
-        this.peformCondFixedStepCalculation(runtime, cond, start, step, steps, act);
+        this.peformCondFixedStepCalculation(runtime, cond, stop, start, step, steps, act);
     }
-    peformCondFixedStepCalculation(runtime, condition, start, step, steps, act) {
+    peformCondFixedStepCalculation(runtime, condition, stop, start, step, steps, act) {
         var tm = new TimeMeasurementProvider_1.TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         runtime.startRuntime(start);
         var st = start;
         for (var i = 0; i < steps; i++) {
+            if (stop.func())
+                return;
             tm.setTime(st);
             runtime.updateRuntime();
             if (condition.func()) {
@@ -58,13 +60,15 @@ class PefrormerMeasuremets {
             st = s;
         }
     }
-    performFixedStepCalculation(runtime, start, step, steps, act) {
+    performFixedStepCalculation(runtime, start, step, steps, stop, act) {
         let tm = new TimeMeasurementProvider_1.TimeMeasurementProvider();
         runtime.setTimeProvider(tm);
         runtime.startRuntime(start);
         var st = start;
         var curr = start;
         for (var i = 0; i < steps; i++) {
+            if (stop.func())
+                return;
             tm.setTime(st);
             if (i > 0) {
                 runtime.stepRuntime(curr, st);

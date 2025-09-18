@@ -1,7 +1,13 @@
-import { Check } from "../Types/Check";
-import { ICategoryArrow } from "./ICategoryArrow";
-import { ICategoryObject } from "./ICategoryObject";
-import { IObject } from "./IObject";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ICategoryArrow } from "./ICategoryArrow";
+import type { ICategoryObject } from "./ICategoryObject";
+import type { ICheck } from "./ICheck";
+import type { IObject } from "./IObject";
 
 export interface IDesktop
 {
@@ -18,9 +24,9 @@ export interface IDesktop
     getObjects(): IObject[];
 
 
-    getCheck(): Check;
+    getCheck(): ICheck;
 
-    setCheck(check: Check): void;
+    setCheck(check: ICheck): void;
 
     getCategoryObject(name: string): ICategoryObject;
 

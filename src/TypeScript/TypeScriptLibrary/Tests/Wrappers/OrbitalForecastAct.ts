@@ -1,15 +1,14 @@
 import { OwnNotImplemented } from "../../Library/ErrorHandler/OwnNotImplemented";
-import { FictiveDataConsumer } from "../../Library/Fiction/FictiveDataConsumer";
 import { IAction } from "../../Library/Interfaces/IAction";
 import { RungeProcessor } from "../../Library/Measurements/DifferentialEquations/Processors/RungeProcessor";
 import { IDataConsumer } from "../../Library/Measurements/Interfaces/IDataConsumer";
 import { PefrormerMeasuremets } from "../../Library/Measurements/PefrormerMeasuremets";
 import { DataRuntimeConsumerODE } from "../../Library/Runtime/DataRuntimeConsumerODE";
-import { OrbitalForecast } from "../OrbitalForecast";
+import { OrbitalForecast } from "../../Algorithms/OrbitalForecastCalculation/OrbitalForecast";
 
 export class OrbitaForecasAct extends OrbitalForecast implements IAction {
 
-    dc: IDataConsumer = new FictiveDataConsumer();
+    dc !: IDataConsumer;
     constructor() {
         super();
         var o = this.getCategoryObjects();
@@ -23,12 +22,17 @@ export class OrbitaForecasAct extends OrbitalForecast implements IAction {
         console.log(a, b);
     }
 
+    func(): boolean {
+        return false;
+    }
+
+
     public test(): void {
         try {
             let processor = new RungeProcessor();
             var runtime = new DataRuntimeConsumerODE(this.dc, processor);
             var p = new PefrormerMeasuremets();
-            p.peformCondDCFixedStepCalculation(runtime, this.dc, "Recursive.y", 0, 1, 18000, this);
+            p.peformCondDCFixedStepCalculation(runtime, this.dc, "Recursive.y", this, 0, 1, 18000, this);
         }
         catch (e: any)
         {

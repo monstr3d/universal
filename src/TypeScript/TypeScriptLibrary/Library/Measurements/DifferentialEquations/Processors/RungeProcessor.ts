@@ -1,6 +1,9 @@
-import { IMeasurements } from "../../Interfaces/IMeasurements";
-import { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
-import { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IMeasurements } from "../../Interfaces/IMeasurements";
+import type { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
+import type { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
 import { DifferentialEquationProcessor } from "./DifferentialEquationProcessor";
 
 export class RungeProcessor extends DifferentialEquationProcessor

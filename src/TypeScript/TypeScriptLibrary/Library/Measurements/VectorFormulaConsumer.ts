@@ -1,5 +1,12 @@
-import { IDesktop } from "../Interfaces/IDesktop";
-import { IPostSetArrow } from "../Interfaces/IPostSetArrow";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IDesktop } from "../Interfaces/IDesktop";
+import type { IPostSetArrow } from "../Interfaces/IPostSetArrow";
 import { DataConsumerVariableMeasurements } from "./DataConsumerVariableMeasurements";
 
 export class VectorFormulaConsumer extends DataConsumerVariableMeasurements implements IPostSetArrow
@@ -17,9 +24,7 @@ export class VectorFormulaConsumer extends DataConsumerVariableMeasurements impl
         this.types.push("IPostSetArrow");
     }
 
-    updateMeasurements(): void
-    {
-        this.feedback.setFeedbacks();
+    updateMeasurements(): void {
         this.calculateTree();
         this.save();
     }
@@ -41,7 +46,6 @@ export class VectorFormulaConsumer extends DataConsumerVariableMeasurements impl
     postSetArrow(): void
     {
         this.init();
-        this.setFeedback();
     }
 
 

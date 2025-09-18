@@ -1,16 +1,44 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Performer = void 0;
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const AliasName_1 = require("./AliasName");
+const ConsolePrinter_1 = require("./ConsolePrinter");
 const OwnError_1 = require("./ErrorHandler/OwnError");
-const FictiveAlias_1 = require("./Fiction/FictiveAlias");
-const FictiveMeasurement_1 = require("./Fiction/FictiveMeasurement");
-const FictiveMeasurements_1 = require("./Fiction/FictiveMeasurements");
+const MeasurementsComparator_1 = require("./Measurements/MeasurementsComparator");
 class Performer {
     constructor() {
         this.a = 0;
         this.b = false;
         this.s = "";
+        this.printer = new ConsolePrinter_1.ConsolePrinter();
+        this.mCompatator = new MeasurementsComparator_1.MeasurementsComparator(this);
+    }
+    ;
+    setPrinter(printer) {
+        this.printer = printer;
+    }
+    setCheker(desktop, check) {
+        const objects = desktop.getCategoryObjects();
+        for (let object of objects) {
+            if (this.implementsType(object, "ICheckHolder")) {
+                var ch = object;
+                ch.setCheck(check);
+            }
+        }
+    }
+    getPrinter() {
+        return this.printer;
+    }
+    print(object) {
+        if (this.implementsType(object, "IPrintedObject")) {
+            var pr = object;
+            pr.print(this.printer);
+            return;
+        }
+        this.printer.print(object);
     }
     convertTS(s, type) {
         if (this.implementsType(s, type)) {
@@ -18,20 +46,96 @@ class Performer {
         }
         return s;
     }
+    getByInterface(desktop, type) {
+        let co = desktop.getCategoryObjects();
+        let objects = [];
+        for (var a of co) {
+            if (this.implementsType(a, type)) {
+                objects.push(a);
+            }
+        }
+        return objects;
+    }
+    sortMeasurements(measurements) {
+        return this.mergesort(measurements, this.mCompatator);
+    }
+    mergesort(unsorted, comparator) {
+        if (unsorted.length <= 1) {
+            return unsorted;
+        }
+        var left = [];
+        var right = [];
+        var middle = Math.floor(unsorted.length / 2);
+        for (var i = 0; i < middle; i++) //Dividing the unsorted list
+         {
+            left.push(unsorted[i]);
+        }
+        for (var j = middle; j < unsorted.length; j++) {
+            right.push(unsorted[j]);
+        }
+        left = this.mergesort(left, comparator);
+        right = this.mergesort(right, comparator);
+        return this.merge(left, right, comparator);
+    }
+    merge(left, right, comparator) {
+        var result = [];
+        while (left.length > 0 || right.length > 0) {
+            if (left.length > 0 && right.length > 0) {
+                if (comparator.compare(left[0], right[0]) <= 0) //Comparing First two elements to see which is smaller
+                 {
+                    result.push(left[0]);
+                    left.shift();
+                    //Rest of the list minus the first element
+                }
+                else {
+                    result.push(right[0]);
+                    right.shift();
+                }
+            }
+            else if (left.length > 0) {
+                result.push(left[0]);
+                left.shift();
+            }
+            else if (right.length > 0) {
+                result.push(right[0]);
+                right.shift();
+            }
+        }
+        return result;
+    }
+    getByType(desktop, type) {
+        let co = desktop.getCategoryObjects();
+        let objects = [];
+        for (var a of co) {
+            if (this.implementsType(a, type)) {
+                var ob = a;
+                if (ob.getClassName() == type) {
+                    objects.push(a);
+                }
+            }
+        }
+        return objects;
+    }
+    updateFeedbackData(dataConsumer, feedback) {
+        if (feedback.isEmpty())
+            return;
+        feedback.setFeedbacks();
+        this.updateChildrenData(dataConsumer);
+    }
     updateChildrenData(dataConsumer) {
-        var children = dataConsumer.getAllMeasurements();
+        let children = dataConsumer.getAllMeasurements();
         for (var child of children) {
-            var o = child;
+            let o = child;
             if (this.implementsType(o, "IDataConsumer")) {
-                var dc = child;
+                let dc = child;
                 this.updateChildrenData(dc);
             }
             child.updateMeasurements();
         }
     }
     convertArray(objects, type) {
-        let s = [];
-        for (var i = 0; i < objects.length; i++) {
+        const s = [];
+        for (let i = 0; i < objects.length; i++) {
             let o = objects[i];
             if (o.imlplementsType(type)) {
                 s.push(o);
@@ -207,7 +311,15 @@ class Performer {
                 }
             }
         }
-        return new FictiveMeasurement_1.FictiveMeasurement();
+        return this.measurement;
+    }
+    getMeasurementsMMap(measurements, map) {
+        var n = measurements.getMeasurementsCount();
+        for (let i = 0; i < n; i++) {
+            var m = measurements.getMeasurement(i);
+            var name = m.getMeasurementName();
+            map.set(name, m);
+        }
     }
     getMeasurementsDCMap(consumer) {
         var map = new Map();
@@ -231,7 +343,7 @@ class Performer {
             var al = a;
             return al;
         }
-        return new FictiveMeasurements_1.FictiveMeasurements();
+        return this.measurements;
     }
     getAlias(desktop, name) {
         var a = desktop.getCategoryObject(name);
@@ -239,7 +351,7 @@ class Performer {
             var al = a;
             return al;
         }
-        return new FictiveAlias_1.FictiveAlias();
+        return this.alias;
     }
     getAliasName(desktop, name) {
         var l = name.length;

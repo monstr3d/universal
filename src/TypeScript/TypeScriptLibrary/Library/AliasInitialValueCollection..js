@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AliasInitialValueCollection = void 0;
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const AliasInitialValue_1 = require("./AliasInitialValue");
 const AliasName_1 = require("./AliasName");
 const InitialValueCollection_1 = require("./InitialValueCollection");

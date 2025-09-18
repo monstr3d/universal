@@ -14,10 +14,10 @@ class DifferentialEquationSolverFormula extends DataConsumerVariableMeasurements
         this.types.push("DifferentrialEquationSolverFormula");
     }
     setDifferentialEquationSolverTimeProvider(time) {
-        throw new Error("Method not implemented.");
+        this.time = time;
     }
     getDifferentialEquationSolverTimeProvider() {
-        throw new Error("Method not implemented.");
+        return this.time;
     }
     startedStart(start) {
         this.initial.resetInitialValues();

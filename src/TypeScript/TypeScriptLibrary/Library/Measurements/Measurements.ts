@@ -1,7 +1,10 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CategoryObject } from "../CategoryObject";
-import { IDesktop } from "../Interfaces/IDesktop";
-import { IMeasurement } from "./Interfaces/IMeasurement";
-import { IMeasurements } from "./Interfaces/IMeasurements";
+import type { IDesktop } from "../Interfaces/IDesktop";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
+import type { IMeasurements } from "./Interfaces/IMeasurements";
 
 export class Measurements extends CategoryObject  implements IMeasurements
 {

@@ -1,10 +1,7 @@
-import { TestObjectTransformer } from "../ExternalObjects/Test_Obects/TestObjectTransformer";
+import { TestObjectTransformer } from "../Test_Obects/TestObjectTransformer";
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
 import { FeedbackAliasCollection } from "../Library/FeedbackAliasCollection";
-import { FictiveAliasName } from "../Library/Fiction/FictiveAliasName";
-import { FictiveMeasurement } from "../Library/Fiction/FictiveMeasurement";
-import { FictiveValue } from "../Library/Fiction/FictiveValue";
 import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
@@ -62,10 +59,10 @@ class TransformerRecursive_CategoryObject_0 extends VectorFormulaConsumer
 		this.aliasName3 = new AliasName(this.alias, "d");
 	}
 	
-	aliasName0 : IAliasName =  new FictiveAliasName();
-	aliasName1 : IAliasName =  new FictiveAliasName();
-	aliasName2 : IAliasName =  new FictiveAliasName();
-	aliasName3 : IAliasName =  new FictiveAliasName();
+	aliasName0 ! : IAliasName;
+	aliasName1 ! : IAliasName;
+	aliasName2 ! : IAliasName;
+	aliasName3 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -219,14 +216,14 @@ class TransformerRecursive_CategoryObject_3 extends RecursiveFormula
 		this.aliasName14 = new AliasName(this.alias, "l");
 	}
 	
-	measurement1 : IMeasurement = new FictiveMeasurement();
-	measurement5 : IMeasurement = new FictiveMeasurement();
-	measurement9 : IMeasurement = new FictiveMeasurement();
-	aliasName0 : IAliasName =  new FictiveAliasName();
-	value2 : IValue = new FictiveValue();
-	value6 : IValue = new FictiveValue();
-	value10 : IValue = new FictiveValue();
-	aliasName14 : IAliasName =  new FictiveAliasName();
+	measurement1 ! : IMeasurement;
+	measurement5 ! : IMeasurement;
+	measurement9 ! : IMeasurement;
+	aliasName0 ! : IAliasName;
+	value2 ! : IValue;
+	value6 ! : IValue;
+	value10 ! : IValue;
+	aliasName14 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : number  = 0;
@@ -350,7 +347,6 @@ class TransformerRecursive_CategoryObject_3 extends RecursiveFormula
 			["c", "Vector.c" ],
 			["b", "Vector.b" ]
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 

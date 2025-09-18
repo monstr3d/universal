@@ -1,13 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransformerRecursive = void 0;
-const TestObjectTransformer_1 = require("../ExternalObjects/Test_Obects/TestObjectTransformer");
+const TestObjectTransformer_1 = require("../Test_Obects/TestObjectTransformer");
 const AliasName_1 = require("../Library/AliasName");
 const Desktop_1 = require("../Library/Desktop");
-const FeedbackAliasCollection_1 = require("../Library/FeedbackAliasCollection");
-const FictiveAliasName_1 = require("../Library/Fiction/FictiveAliasName");
-const FictiveMeasurement_1 = require("../Library/Fiction/FictiveMeasurement");
-const FictiveValue_1 = require("../Library/Fiction/FictiveValue");
 const DataLink_1 = require("../Library/Measurements/Arrows/DataLink");
 const ObjectTransformerLink_1 = require("../Library/Measurements/Arrows/ObjectTransformerLink");
 const DataConsumer_1 = require("../Library/Measurements/DataConsumer");
@@ -17,10 +13,6 @@ const VectorFormulaConsumer_1 = require("../Library/Measurements/VectorFormulaCo
 class TransformerRecursive_CategoryObject_0 extends VectorFormulaConsumer_1.VectorFormulaConsumer {
     constructor(desktop, name) {
         super(desktop, name);
-        this.aliasName0 = new FictiveAliasName_1.FictiveAliasName();
-        this.aliasName1 = new FictiveAliasName_1.FictiveAliasName();
-        this.aliasName2 = new FictiveAliasName_1.FictiveAliasName();
-        this.aliasName3 = new FictiveAliasName_1.FictiveAliasName();
         this.var_0 = 0;
         this.var_1 = 0;
         this.var_2 = 0;
@@ -116,14 +108,6 @@ class TransformerRecursive_CategoryObject_2 extends ObjectTransformer_1.ObjectTr
 class TransformerRecursive_CategoryObject_3 extends RecursiveFormula_1.RecursiveFormula {
     constructor(desktop, name) {
         super(desktop, name);
-        this.measurement1 = new FictiveMeasurement_1.FictiveMeasurement();
-        this.measurement5 = new FictiveMeasurement_1.FictiveMeasurement();
-        this.measurement9 = new FictiveMeasurement_1.FictiveMeasurement();
-        this.aliasName0 = new FictiveAliasName_1.FictiveAliasName();
-        this.value2 = new FictiveValue_1.FictiveValue();
-        this.value6 = new FictiveValue_1.FictiveValue();
-        this.value10 = new FictiveValue_1.FictiveValue();
-        this.aliasName14 = new FictiveAliasName_1.FictiveAliasName();
         this.var_0 = 0;
         this.var_1 = 0;
         this.var_2 = 0;
@@ -338,7 +322,6 @@ class TransformerRecursive_CategoryObject_3 extends RecursiveFormula_1.Recursive
             ["c", "Vector.c"],
             ["b", "Vector.b"]
         ]);
-        this.feedback = new FeedbackAliasCollection_1.FeedbackAliasCollection(map, this, this);
     }
 }
 class TransformerRecursive_CategoryObject_4 extends DataConsumer_1.DataConsumer {

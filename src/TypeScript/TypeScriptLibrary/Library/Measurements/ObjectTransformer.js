@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectTransformer = void 0;
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const CategoryObject_1 = require("../CategoryObject");
 const OwnError_1 = require("../ErrorHandler/OwnError");
-const FictiveDataConsumer_1 = require("../Fiction/FictiveDataConsumer");
 const Performer_1 = require("../Performer");
 class ObjectTransformer extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
@@ -56,7 +58,6 @@ class ObjectTransformer extends CategoryObject_1.CategoryObject {
         /// Providers of measurements
         /// </summary>
         this.providers = [];
-        this.cons = new FictiveDataConsumer_1.FictiveDataConsumer();
         this.transformers = [];
         this.typeName = "ObjectTransformer";
         this.types.push("ObjectTransformer");

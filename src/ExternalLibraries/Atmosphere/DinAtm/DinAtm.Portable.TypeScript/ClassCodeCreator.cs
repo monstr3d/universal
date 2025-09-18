@@ -1,11 +1,6 @@
 ﻿using BaseTypes.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DinAtm.Portable.TypeScript
 {
@@ -46,8 +41,10 @@ namespace DinAtm.Portable.TypeScript
             var s = performer.ClassString(preffix, "AtmosphereCategoryObject");
             l.Add(s);
             l.Add("{");
+            var iff = atmosphere.If;
             performer.AddObjectConstructor(l);
-            //          l.Add("\t\tthis.coefficient = " + ot.Coefficient + ";");
+            s = "let iff : number[] =  [" + iff[0] + "," + iff[1] + "," + iff[2] + "];\n this.setIf(iff);";
+            l.Add(s);
             l.Add("\t}");
             l.Add("}");
             return l;

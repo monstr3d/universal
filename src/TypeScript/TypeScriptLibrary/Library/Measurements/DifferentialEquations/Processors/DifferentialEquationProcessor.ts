@@ -1,11 +1,14 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { OwnNotImplemented } from "../../../ErrorHandler/OwnNotImplemented";
-import { FictiveTimeMeasurementProvider } from "../../../Fiction/FictiveTimeMeasurementProvider";
+
 import { Performer } from "../../../Performer";
-import { IMeasurements } from "../../Interfaces/IMeasurements";
-import { INormalizable } from "../../Interfaces/INormalizable";
-import { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
-import { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
-import { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
+import type { IMeasurements } from "../../Interfaces/IMeasurements";
+import type { INormalizable } from "../../Interfaces/INormalizable";
+import type { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
+import type { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
+import type { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
 
 
 export class DifferentialEquationProcessor implements IDifferentialEquationProcessor
@@ -80,6 +83,6 @@ export class DifferentialEquationProcessor implements IDifferentialEquationProce
 
     protected measurements: IMeasurements[] = [];
 
-    protected timeProvider: ITimeMeasurementProvider = new FictiveTimeMeasurementProvider();
+    protected timeProvider !: ITimeMeasurementProvider;
 
 }

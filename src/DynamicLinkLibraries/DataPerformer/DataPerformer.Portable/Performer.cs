@@ -48,6 +48,15 @@ namespace DataPerformer.Portable
         }
 
 
+        public void UpdateChildrenData(IDataConsumer dataConsumer, IFeedbackCollection feedbackCollection)
+        {
+            if (feedbackCollection.IsEmpty)
+            {
+                return;
+            }
+            feedbackCollection.Set();
+            dataConsumer.UpdateChildrenData();
+        }
 
         public int GetNumber(IDataConsumer dataConsumer, IMeasurements measurements)
         {
@@ -80,6 +89,77 @@ namespace DataPerformer.Portable
             }
             return null; 
         }
+
+        /// <summary>
+        /// Gets dependent objects of data consumer
+        /// </summary>
+        /// <param name="consumer">The data consumer</param>
+        /// <param name="list">List of dependent objects</param>
+        public void GetDependentObjects(IDataConsumer consumer, IList<object> list)
+        {
+            for (int i = 0; i < consumer.Count; i++)
+            {
+                IMeasurements m = consumer[i];
+                if (m is IRuntimeUpdate)
+                {
+                    if (!(m as IRuntimeUpdate).ShouldRuntimeUpdate)
+                    {
+                        continue;
+                    }
+                }
+                if (!list.Contains(m))
+                {
+                    list.Insert(0, m);
+                }
+                if (m is IDataConsumer)
+                {
+                    IDataConsumer c = m as IDataConsumer;
+                    GetDependentObjects(c, list);
+                }
+            }
+        }
+       
+        
+        /// <summary>
+        /// Gets dependent measurements
+        /// </summary>
+        /// <param name="measurements">Source</param>
+        /// <param name="list">Dependent objects</param>
+        /// <param name="dependent">Dependent measurements</param>
+        public  void GetDependent(IEnumerable<IMeasurements> measurements,
+            List<object> list, List<IMeasurements> dependent)
+        {
+            dependent.Clear();
+            list.Clear();
+            foreach (IMeasurements m in measurements)
+            {
+                if (m is IRuntimeUpdate)
+                {
+                    if (!(m as IRuntimeUpdate).ShouldRuntimeUpdate)
+                    {
+                        continue;
+                    }
+                }
+                dependent.Insert(0, m);
+                if (m is IDataConsumer dc)
+                {
+                    GetDependentObjects(dc, list);
+                    foreach (object o in list)
+                    {
+                        if (o is IMeasurements)
+                        {
+                            IMeasurements mm = o as IMeasurements;
+                            if (!dependent.Contains(mm))
+                            {
+                                dependent.Insert(0, mm);
+                            }
+                        }
+                    }
+                }
+            }
+            dependent.SortMeasurements();
+        }
+
 
 
 

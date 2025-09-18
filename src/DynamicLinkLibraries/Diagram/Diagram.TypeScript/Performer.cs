@@ -105,16 +105,6 @@ namespace Diagram.UI.TypeScript
             }
             return l;
         }
-/* !!! DELETE AFTER !!!
-        public List<string> CreateFeedback(Dictionary<string, string> dictionary)
-        {
-            var l = new List<string>();
-            l.Add("setFeedback(): void {");
-            var ll = CreateStringDictionary("map", dictionary);
-            return l;
-        }
-*/
-
         
         public List<string> CreateStringDictionary(string id, Dictionary<string, string> dictionary)
         {

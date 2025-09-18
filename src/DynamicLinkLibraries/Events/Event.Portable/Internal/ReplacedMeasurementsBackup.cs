@@ -8,7 +8,7 @@ using Event.Portable.Interfaces;
 namespace Event.Portable.Internal
 {
     /// <summary>
-    /// Replaced backup of measutements
+    /// Replaced backup of measurements
     /// </summary>
     class ReplacedMeasurementsBackup : IDisposable
     {

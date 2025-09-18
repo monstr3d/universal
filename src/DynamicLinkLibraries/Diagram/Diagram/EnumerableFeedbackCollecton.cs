@@ -9,6 +9,8 @@ namespace Diagram.UI
     {
         NamedTree.Performer performer = new NamedTree.Performer();
 
+        protected virtual bool IsEmpty { get; set; } = true;
+
 
         protected IEnumerable<T> Feedback { get; set; }
 
@@ -18,11 +20,14 @@ namespace Diagram.UI
         {  
             Feedback = feedback; 
             Holder = holder;
+            IsEmpty = !feedback.Any();
         }
 
         IEnumerable<IFeedback> IFeedbackCollection.Feedbacks => [];
 
         IFeedbackCollectionHolder IFeedbackCollection.Holder => Holder;
+
+        bool IFeedbackCollection.IsEmpty => IsEmpty;
 
         void IFeedbackCollection.Add(IFeedback feedback)
         {

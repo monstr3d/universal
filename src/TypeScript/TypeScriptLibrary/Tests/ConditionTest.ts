@@ -1,8 +1,6 @@
 import { AliasName } from "../Library/AliasName";
 import { Desktop } from "../Library/Desktop";
 import { FeedbackAliasCollection } from "../Library/FeedbackAliasCollection";
-import { FictiveAliasName } from "../Library/Fiction/FictiveAliasName";
-import { FictiveMeasurement } from "../Library/Fiction/FictiveMeasurement";
 import { IAliasName } from "../Library/Interfaces/IAliasName";
 import { IDesktop } from "../Library/Interfaces/IDesktop";
 import { IPostSetArrow } from "../Library/Interfaces/IPostSetArrow";
@@ -60,7 +58,6 @@ class ConditionTest_CategoryObject_0 extends VectorFormulaConsumer
 		let map = new Map<string, string>(
 		[
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 
@@ -98,8 +95,8 @@ class ConditionTest_CategoryObject_1 extends VectorFormulaConsumer
 		this.aliasName1 = new AliasName(this.alias, "a");
 	}
 	
-	measurement0 : IMeasurement = new FictiveMeasurement();
-	aliasName1 : IAliasName =  new FictiveAliasName();
+	measurement0 ! : IMeasurement;
+	aliasName1 ! : IAliasName;
 	var_0 : number  = 0;
 	var_1 : number  = 0;
 	var_2 : boolean  = false;
@@ -128,7 +125,6 @@ class ConditionTest_CategoryObject_1 extends VectorFormulaConsumer
 		let map = new Map<string, string>(
 		[
 		]);
-		this.feedback = new FeedbackAliasCollection(map, this, this);
 	}
 }
 

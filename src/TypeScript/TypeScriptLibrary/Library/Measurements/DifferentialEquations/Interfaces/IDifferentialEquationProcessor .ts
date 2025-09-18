@@ -1,5 +1,8 @@
-import { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
-import { IDifferentialEquationSolver } from "./IDifferentialEquationSolver";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
+import type { IDifferentialEquationSolver } from "./IDifferentialEquationSolver";
 
 export interface IDifferentialEquationProcessor
 {

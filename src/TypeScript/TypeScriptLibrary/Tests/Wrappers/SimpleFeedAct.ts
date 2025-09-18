@@ -1,4 +1,4 @@
-import { FictiveDataConsumer } from "../../Library/Fiction/FictiveDataConsumer";
+
 import { IAction } from "../../Library/Interfaces/IAction";
 import { IDataConsumer } from "../../Library/Measurements/Interfaces/IDataConsumer";
 import { PefrormerMeasuremets } from "../../Library/Measurements/PefrormerMeasuremets";
@@ -8,7 +8,7 @@ import { SimpleFeed } from "../SimpleFeed";
 
 export class SimpleFeedAct extends SimpleFeed implements IAction
 {
-    dc: IDataConsumer = new FictiveDataConsumer();
+    dc! : IDataConsumer;
     constructor() {
         super();
         var co = this.getCategoryObject("Chart");
@@ -23,11 +23,14 @@ export class SimpleFeedAct extends SimpleFeed implements IAction
 
         console.log(a, b);;
     }
+    func(): boolean {
+        return false;
+    }
 
     public test(): void {
         var runtime: IDataRuntime = new DataRuntimeConsumer(this.dc);
         var p: PefrormerMeasuremets = new PefrormerMeasuremets();
-        p.performFixedStepCalculation(runtime, 0, 0.001, 1000, this);
+        p.performFixedStepCalculation(runtime, 0, 0.001, 1000, this, this);
     }
 
 

@@ -1,4 +1,4 @@
-import { FictiveDataConsumer } from "../../Library/Fiction/FictiveDataConsumer";
+
 import { IAction } from "../../Library/Interfaces/IAction";
 import { IDataConsumer } from "../../Library/Measurements/Interfaces/IDataConsumer";
 import { PefrormerMeasuremets } from "../../Library/Measurements/PefrormerMeasuremets";
@@ -7,7 +7,7 @@ import { IDataRuntime } from "../../Library/Runtime/Interfaces/IDataRuntime";
 
 export class TestObjectTransformerSimpleAct { /*extends TestObjectTransformerSimple implements IAction
 {
-    dc: IDataConsumer = new FictiveDataConsumer();
+    dc! : IDataConsumer;
     constructor() {
         super();
         var co = this.getCategoryObject("Chart");

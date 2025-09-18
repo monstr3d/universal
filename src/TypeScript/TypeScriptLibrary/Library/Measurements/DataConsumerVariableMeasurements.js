@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataConsumerVariableMeasurements = void 0;
-const FictiveFeedbackCollection_1 = require("../Fiction/FictiveFeedbackCollection");
 const DataConsumer_1 = require("./DataConsumer");
 const PefrormerMeasuremets_1 = require("./PefrormerMeasuremets");
 const Variable_1 = require("./Variables/Variable");
@@ -14,7 +13,6 @@ class DataConsumerVariableMeasurements extends DataConsumer_1.DataConsumer {
         this.aliasValues = new Map();
         this.aliasNames = [];
         this.pMeasurements = new PefrormerMeasuremets_1.PefrormerMeasuremets();
-        this.feedback = new FictiveFeedbackCollection_1.FictiveFeedbackCollection();
         this.alias = this;
         this.typeName = "DataConsumerVariadbleMeasurements";
         this.types.push("DataConsumerVariadbleMeasurements");
@@ -58,7 +56,6 @@ class DataConsumerVariableMeasurements extends DataConsumer_1.DataConsumer {
         this.output.push(variable);
         this.variables.set(variable.getMeasurementName(), variable);
     }
-    setFeedback() { }
 }
 exports.DataConsumerVariableMeasurements = DataConsumerVariableMeasurements;
 //# sourceMappingURL=DataConsumerVariableMeasurements.js.map

@@ -1,4 +1,10 @@
 "use strict";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FeedbackCollection = void 0;
 const Performer_1 = require("./Performer");
@@ -22,6 +28,9 @@ class FeedbackCollection {
     }
     addFeedback(feedback) {
         this.feedbacks.push(feedback);
+    }
+    isEmpty() {
+        return this.feedbacks.length === 0;
     }
 }
 exports.FeedbackCollection = FeedbackCollection;

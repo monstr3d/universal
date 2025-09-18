@@ -1,5 +1,12 @@
-import { ICategoryObject } from "./ICategoryObject";
-import { IDesktop } from "./IDesktop";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ICategoryObject } from "./ICategoryObject";
+import type { IDesktop } from "./IDesktop";
 
 export interface ICategoryArrow
 {

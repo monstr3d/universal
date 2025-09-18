@@ -1,6 +1,6 @@
-﻿using BaseTypes.Interfaces;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
+﻿using System.Collections.Generic;
+
+using BaseTypes.Interfaces;
 
 namespace Diagram.UI.Interfaces
 {
@@ -31,6 +31,11 @@ namespace Diagram.UI.Interfaces
         /// Sets itself
         /// </summary>
         void Set();
+
+        /// <summary>
+        /// The "is empty" sign
+        /// </summary>
+        bool IsEmpty { get; }
 
     }
 

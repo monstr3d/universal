@@ -1,9 +1,14 @@
-import { FictiveAliasName } from "./Fiction/FictiveAliasName";
-import { FictiveValue } from "./Fiction/FictiveValue";
-import { IAliasName } from "./Interfaces/IAliasName";
-import { IFeedback } from "./Interfaces/IFeedback";
-import { IFeedbackAlias } from "./Interfaces/IFeedbackAlias";
-import { IValue } from "./Interfaces/IValue";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IAliasName } from "./Interfaces/IAliasName";
+import type { IFeedback } from "./Interfaces/IFeedback";
+import type { IFeedbackAlias } from "./Interfaces/IFeedbackAlias";
+import type { IValue } from "./Interfaces/IValue";
 
 export class FeedbackAlias implements IFeedback, IFeedbackAlias
 {
@@ -27,8 +32,8 @@ export class FeedbackAlias implements IFeedback, IFeedbackAlias
         return this.alias;
     }
 
-    protected value: IValue = new FictiveValue();
+    protected value !: IValue;
 
-    protected alias: IAliasName = new FictiveAliasName();
+    protected alias !: IAliasName;
 
 }

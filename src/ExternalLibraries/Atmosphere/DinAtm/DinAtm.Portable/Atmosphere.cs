@@ -115,10 +115,7 @@ namespace DinAtm.Portable
             output[0] = rho;
         }
 
-
-
         #endregion
-
 
     }
 

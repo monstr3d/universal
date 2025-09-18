@@ -1,4 +1,7 @@
 "use strict";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataRuntimeConsumer = void 0;
 const OwnNotImplemented_1 = require("../ErrorHandler/OwnNotImplemented");
@@ -26,6 +29,7 @@ class DataRuntimeConsumer {
         if (this.performer.implementsType(dataConsumer, "IMeasurements")) {
             this.measurements.push(dataConsumer);
         }
+        this.measurements = this.performer.sortMeasurements(this.measurements);
     }
     addCategoryObjectToRuntime(object) {
         this.categoryObjects.push(object);
@@ -55,6 +59,7 @@ class DataRuntimeConsumer {
         }
     }
     setTimeProvider(timeProvider) {
+        this.timeProvider = timeProvider;
         for (let m of this.measurements) {
             if (this.performer.implementsType(m, "ITimeMeasurementConsumer")) {
                 let tm = m;

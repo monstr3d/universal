@@ -1,14 +1,16 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CategoryObject } from "../CategoryObject";
 import { OwnError } from "../ErrorHandler/OwnError";
-import { FictiveDataConsumer } from "../Fiction/FictiveDataConsumer";
-import { IDesktop } from "../Interfaces/IDesktop";
-import { IPostSetArrow } from "../Interfaces/IPostSetArrow";
+import type { IDesktop } from "../Interfaces/IDesktop";
+import type { IPostSetArrow } from "../Interfaces/IPostSetArrow";
 import { Performer } from "../Performer";
-import { IDataConsumer } from "./Interfaces/IDataConsumer";
-import { IMeasurement } from "./Interfaces/IMeasurement";
-import { IMeasurements } from "./Interfaces/IMeasurements";
-import { IObjectTransformer } from "./Interfaces/IObjectTransformer";
-import { IObjectTransformerConsumer } from "./Interfaces/IObjectTransformerConsumer";
+import type { IDataConsumer } from "./Interfaces/IDataConsumer";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
+import type { IMeasurements } from "./Interfaces/IMeasurements";
+import type { IObjectTransformer } from "./Interfaces/IObjectTransformer";
+import type { IObjectTransformerConsumer } from "./Interfaces/IObjectTransformerConsumer";
 
 export class ObjectTransformer extends CategoryObject implements IObjectTransformerConsumer,
     IDataConsumer, IMeasurements, IPostSetArrow
@@ -86,7 +88,7 @@ export class ObjectTransformer extends CategoryObject implements IObjectTransfor
     /// </summary>
     providers: IMeasurements[] = [];
 
-    cons: IDataConsumer = new FictiveDataConsumer();
+    cons! : IDataConsumer;
 
     transformers: IObjectTransformer[] = [];
 

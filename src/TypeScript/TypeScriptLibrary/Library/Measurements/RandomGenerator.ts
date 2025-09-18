@@ -1,5 +1,9 @@
-import { IDesktop } from "../Interfaces/IDesktop";
-import { IMeasurement } from "./Interfaces/IMeasurement";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import type { IDesktop } from "../Interfaces/IDesktop";
+import type { IMeasurement } from "./Interfaces/IMeasurement";
 import { Measurements } from "./Measurements";
 
 export class RandomGenerator extends Measurements implements IMeasurement

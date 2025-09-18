@@ -1,6 +1,7 @@
 ﻿using System;
-
+using System.ComponentModel.DataAnnotations;
 using RealMatrixProcessor;
+using SunPosition;
 
 namespace DinAtm.Pure
 {
@@ -13,6 +14,8 @@ namespace DinAtm.Pure
     {
 
         #region Fields
+
+        Calculator calculator = new ();
 
         protected RealMatrix realMatrix = new();
 
@@ -82,7 +85,22 @@ namespace DinAtm.Pure
         private ushort[] dd = new ushort[4];
         protected double[] xout = new double[3];
 
-          #endregion
+        double da = 0;
+        double ra = 0;
+
+        double ed = 0;
+        double eh = 0;
+
+
+        private cLocation cLocation = new cLocation();
+
+        /// <summary>
+        /// Coordinates of Sun
+        /// </summary>
+        private cSunCoordinates cSunCoordinates = new cSunCoordinates();
+
+
+        #endregion
 
         #region Ctor
 
@@ -93,39 +111,35 @@ namespace DinAtm.Pure
         }
 
         #endregion
- 
+
         #region Public Members
+
+      //  DateTime d1900 = new DateTime(1900, 1, 1);
 
         public double Atm(double t, double[] x)
         {
-            double ttt = t / 86400;
-            //           ushort ho, mi, ss, sss;
-            DateTime dt = DateTime.FromOADate(ttt);
+            var r2 = x[0] * x[0] + x[1] * x[1];
+            var lat = Math.Atan2(x[2], Math.Sqrt(r2));
+            var lon = Math.Atan2(x[1], x[0]);
+            cLocation.dLatitude = lat;
+            cLocation.dLongitude = lon;
+            double tday = t / 86400;
+            DateTime dt = DateTime.FromOADate(tday);
+            var hh = realMatrix.Normalize(x, y, 0);
             int ho = dt.Hour;
             int mi = dt.Minute;
             int ss = dt.Second;
             long it = (long)t;
-            //DateTime dt1 = DateTime.F
             double sss = 1000 * (t - (double)(it));
-            //sss *= 1000;
-            //dt.DecodeTime(&ho, &mi, &ss, &sss);
             double tt = (ho * 60 + mi) * 60 + ss + .001 * sss;
-            double days = days1900(dt) + 1;
-            double ASoL = 0;
-            double    DSoL = 0;//,ASoL1,DSoL1;
-            //AngleSun(tt-10800.,days-1,ASoL,DSoL);
-            AngleSun(tt - 10800.0, days, ref ASoL, ref DSoL);
-            double alphastar = zvvr(days);
-            double cosdS = Math.Cos(DSoL);
-            //double startime=zvvr(days);
-            //double startime1=zvvr(days-1);
-            //double al=startime;
-            double ca = Math.Cos(alphastar), sa = Math.Sin(alphastar);
+            calculator.GetPosition(dt, cLocation, ref cSunCoordinates, out da, out ra, out ed, out eh);
+            var alphastar = SunTime.CalculateGreenwichSiderealTime(dt);
+       //     double ca = Math.Cos(alphastar), sa = Math.Sin(alphastar);
             double h = 0;
             date[0] = dt.Day;
             date[1] = dt.Month;
             date[2] = dt.Year;
-            double rho = atm(x, tt, ASoL, DSoL, ref alphastar, ref h, date);
+            double rho = atm(x, tt, ra, da, alphastar, ref h, date);
             return rho;
         }
 
@@ -185,7 +199,7 @@ namespace DinAtm.Pure
             }
         }
 
-        double atm(double[] x, double t, double alf, double del, ref double s0, ref double h, int[] it)
+        double atm(double[] x, double t, double alf, double del, double s0, ref double h, int[] it)
         {
             double hh = realMatrix.Normalize(x, y, 0);
 
@@ -228,95 +242,6 @@ namespace DinAtm.Pure
             double roh = Math.Exp(f1[0] - f1[1] * Math.Sqrt(h - f1[2]));
             return roh * xk1 * xk2 * xk3 * xk4;
         }
-
-
- 
-        void AngleSun(double T, double D, ref double ASoL, ref double DSoL)
-        {
-            DSoL = D + T / 86400.0;
-            double TC = DSoL / 36525.0;
-            double TC2 = TC * TC;
-            double TC3 = TC2 * TC;
-            double AL0 = 0.01675104 - 0.0000418 * TC - 0.000000126 * TC2;
-            double aLAM = 4.881627933 + 628.3319507 * TC + 5.279620987e-6 * TC2;
-            double H = 4.908229468 + 3.000526417e-2 * TC + 7.902463001e-6 * TC2 +
-            5.817764173e-8 * TC3;
-            double R = 4.523601515 - 33.75714624 * TC + 3.626406333e-5 * TC2 +
-            3.87850945e-8 * TC3;
-            double E0 = 0.4093197551 - 2.271109689e-4 * TC - 2.86040072e-8 * TC2 +
-            8.77513e-9 * TC3 + 4.465134e-5 * Math.Cos(R);
-            double DLH = aLAM - H;
-            double DLH2 = 2.0 * DLH;
-            double aLA0 = aLAM + 2.0 * AL0 * Math.Sin(DLH) + 1.25 * AL0 * AL0 * Math.Sin(DLH2);
-            double DPSI = -17.23 * Math.Sin(R);
-            double SL = Math.Sin(aLA0);
-            double CL = Math.Cos(aLA0);
-            double CE = Math.Cos(E0);
-            double SE = Math.Sin(E0);
-            double S1 = SL * CE / CL;
-            double AL = Math.Atan(S1);
-            if (CL < 0.0) AL += 3.141592654;
-            if (AL < 0.0) AL += 6.283185308;
-            ASoL = AL + (0.061164 * 15.0 * DPSI - 20.496) * 4.84813681e-6;
-            DSoL = Math.Atan(SL * SE / Math.Sqrt(CL * CL + SL * SL * CE * CE)) - 9.936741207e-5 *
-            SE * Math.Cos(ASoL);
-        }
-
-
-
-
-        static double days1900(DateTime dat)
-        {
-            //int y1975=1975;
-            //      double a=1;
-            //      a+=1;
-            long db = shiftdat(dat);
-            double d = 27393.5;
-            int ii = 3;
-            for (int i = 1975; i < dat.Year; i++)
-            {
-                d += 365.0;
-                if (ii == 4)
-                {
-                    ii = 0;
-                    d += 1.0;
-                }
-                ii++;
-            }
-            var x = d + db;
-            return x;
-        }
-
-        static long shiftdat(DateTime dat)
-        {
-
-            KDNEY[1] = 28;
-            double a = .25 * ((double)1999);
-            a = .25 * (double)dat.Year;
-            int k = 4 * (int)(0.25 * (double)dat.Year);
-            if (((int)(.25 * (double)dat.Year)) * 4 == dat.Year)
-                KDNEY[1] = 29;
-            int data = dat.Day - 1;
-            if (dat.Month == 1) return data;
-            for (int i = 1; i < dat.Month; i++) data += KDNEY[i];
-            return data;
-        }
-
-        static double zvvr(double D)
-        {
-            double T1 = D / 36525.0;
-            double T2 = T1 * T1;
-            double R = 4.52360151 - 0.0009242202 * D + 0.00003626794 * T2;
-            double FF = 0.196365056 + 0.230895722 * D - 0.00005604252 * T2;
-            double DD = 6.12152393 + 0.212768711 * D - 0.00002504547 * T2;
-            double SZV0 = 1.7399358945 + 0.0172027912737 * D +
-            0.675587865e-5 * T2 +
-            Math.Cos(0.409319754) * (-0.835464852e-4 * Math.Sin(R) -
-            0.617119333e-5 * Math.Sin(2.0 * (R + FF + DD)));
-            int SZ1 = (int)(SZV0 / 6.283185308);
-            return SZV0 - SZ1 * 6.283185308;
-        }
-
 
 
         #endregion

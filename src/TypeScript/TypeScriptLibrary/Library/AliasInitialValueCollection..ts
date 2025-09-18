@@ -1,10 +1,13 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AliasInitialValue } from "./AliasInitialValue";
 import { AliasName } from "./AliasName";
 import { InitialValueCollection } from "./InitialValueCollection";
-import { IAlias } from "./Interfaces/IAlias";
-import { IValue } from "./Interfaces/IValue";
-import { IMeasurement } from "./Measurements/Interfaces/IMeasurement";
-import { IMeasurements } from "./Measurements/Interfaces/IMeasurements";
+import type { IAlias } from "./Interfaces/IAlias";
+import type { IValue } from "./Interfaces/IValue";
+import type { IMeasurement } from "./Measurements/Interfaces/IMeasurement";
+import type { IMeasurements } from "./Measurements/Interfaces/IMeasurements";
 import { Performer } from "./Performer";
 
 export class AliasInitialValueCollection extends InitialValueCollection

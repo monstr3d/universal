@@ -1,8 +1,12 @@
-import { FictiveAliasName } from "./Fiction/FictiveAliasName";
-import { IAliasName } from "./Interfaces/IAliasName";
-import { IInitialValue } from "./Interfaces/IInitialValue";
-import { IValue } from "./Interfaces/IValue";
-import { FictiveVariable } from "./Measurements/Variables/FictiveVariable";
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IAliasName } from "./Interfaces/IAliasName";
+import type { IInitialValue } from "./Interfaces/IInitialValue";
+import type { IValue } from "./Interfaces/IValue";
 
 
 export class AliasInitialValue implements IInitialValue
@@ -27,7 +31,7 @@ export class AliasInitialValue implements IInitialValue
         this.value = value;
     }
 
-    protected alias: IAliasName = new FictiveAliasName();
+    protected alias !: IAliasName;
 
-    protected value: IValue = new FictiveVariable();
+    protected value !: IValue;
 }
