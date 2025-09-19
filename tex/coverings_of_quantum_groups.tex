@@ -1,0 +1,3368 @@
+% !TeX spellcheck = en_US
+\documentclass[10]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+\usepackage{graphicx}
+
+%% \usepackage[T1]{fontenc}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amsmath,amssymb,amsthm, hyperref, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+%\usepackage{mathtools}
+
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+%\usepackage{graphicx}
+\usepackage[toc,page]{appendix}
+\usepackage{nicefrac}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amssymb, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{rotating}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{cd}
+
+\usepackage{siunitx}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true]{microtype}
+
+
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+
+\usepackage[sc]{mathpazo}
+\usepackage{environ}
+
+
+\usetikzlibrary{matrix}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[T1]{fontenc}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+	\newcommand{\bs}{\begin{split}}
+	\newcommand{\es}{\end{split}}
+
+\newcommand{\bea}{\begin{eqnarray}}
+	\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bean}{\begin{eqnarray*}}
+	\newcommand{\eean}{\end{eqnarray*}}
+	
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+
+%\usepackage[usenames]{color}
+
+
+
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+% the command for it is \mathpzc
+
+\textwidth=140mm
+
+
+% % % % % % % % % % % % % % % % % % % %
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{prdf}[prop]{Proposition and Definition}
+\newtheorem{lem}[prop]{Lemma}%[section]
+\newtheorem{cor}[prop]{Corollary}%[section]
+\newtheorem{thm}[prop]{Theorem}%[section]
+\newtheorem{theorem}[prop]{Theorem}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{proposition}[prop]{Proposition}
+\newtheorem{corollary}[prop]{Corollary}
+\newtheorem{statement}[prop]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}%[section]
+\newtheorem{cordefn}[prop]{Corollary and Definition}%[section]
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{exm}[prop]{Example}%[section]
+\newtheorem{rem}[prop]{Remark}%[section]
+\newtheorem{prob}[prop]{Problem}
+\newtheorem{conj}{Conjecture}       %% Hypothesis 1
+\newtheorem{cond}{Condition}        %% Condition 1
+%\newtheorem{axiom}[thm]{Axiom}           %% Axiom 1 modified
+\newtheorem{fact}[prop]{Fact}
+\newtheorem{ques}{Question}         %% Question 1
+\newtheorem{answ}{Answer}           %% Answer 1
+\newtheorem{notn}{Notation}        %% Notations are not numbered
+
+\theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
+\newtheorem{definition}[prop]{Definition}
+\newtheorem{example}[prop]{Example}
+\newtheorem{exercise}[prop]{Exercise}
+\newtheorem{conclusion}[prop]{Conclusion}
+\newtheorem{conjecture}[prop]{Conjecture}
+\newtheorem{criterion}[prop]{Criterion}
+\newtheorem{summary}[prop]{Summary}
+\newtheorem{axiom}[prop]{Axiom}
+\newtheorem{problem}[prop]{Problem}
+%\theoremstyle{remark}
+\newtheorem{remark}[prop]{Remark}
+\DeclareMathOperator{\Dom}{\mathrm{Dom}}              %% domain of an operator
+\newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
+
+\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\Ga}{\Gamma}                     %% short for  \Gamma
+\newcommand{\Coo}{C^\infty}                  %% smooth functions
+% % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+    to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+    to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
+
+\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
+           {\copy\ncinttbox}{\copy\ncinttbox}%
+           {\copy\ncinttbox}}\nolimits}  %% NC integral
+           
+%%% Repeated relations:
+\newcommand{\xyx}{\times\cdots\times}      %% repeated product
+\newcommand{\opyop}{\oplus\cdots\oplus}    %% repeated direct sum
+\newcommand{\oxyox}{\otimes\cdots\otimes}  %% repeated tensor product
+\newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
+\newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
+\newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+
+%%% Roman letters:
+\newcommand{\id}{\mathrm{id}}                %% identity map
+\newcommand{\Id}{\mathrm{Id}}                %% identity map
+\newcommand{\pt}{\mathrm{pt}}                %% a point
+\newcommand{\const}{\mathrm{const}}          %% a constant
+\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
+\renewcommand{\d}{\mathrm{d}}       %% commutative differential
+\newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
+\newcommand{\proj}{\mathrm{proj}}                %% a projection
+\newcommand{\lb}{\label}
+
+           
+\newcommand{\A}{\mathcal{A}}                 %% an algebra
+\renewcommand{\a}{\alpha}                    %% short for  \alphapha
+\DeclareMathOperator{\ad}{ad}                %% infml adjoint repn
+\newcommand{\as}{\quad\mbox{as}\enspace}     %% `as' with spacing
+\newcommand{\Aun}{\widetilde{\mathcal{A}}}   %% unital algebra
+\newcommand{\B}{\mathcal{B}}                 %% space of distributions
+\newcommand{\E}{\mathcal{E}}                 %% space of distributions
+\renewcommand{\b}{\beta}                     %% short for \beta
+\newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
+\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+\newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\CC}{\mathcal{C}}                %% space of distributions
+\newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
+\DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
+\newcommand{\F}{\mathcal{F}}                 %% space of test functions
+\newcommand{\G}{\mathcal{G}}                 %% Moyal L^2-filtration
+\renewcommand{\H}{\mathcal{H}}               %% Hilbert space
+\newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
+\newcommand{\hh}{\mathcal{H}}                %% Hilbert space
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+\newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
+\newcommand{\I}{\mathcal{I}}                 %% tracelike functions
+\DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
+\newcommand{\K}{\mathcal{K}}                 %% compact operators
+\newcommand{\ket}[1]{|#1\rangle}             %% ket vector
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|} %% rank one operator
+\renewcommand{\L}{\mathcal{L}}               %% operator algebra
+\newcommand{\La}{\Lambda}                    %% short for \Lambda
+\newcommand{\la}{\lambda}                    %% short for \lambda
+\newcommand{\lf}{L_f^\theta}                 %% left mult operator
+\newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\mm}{\mathcal{M}^\theta}
+\newcommand{\mop}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
+            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
+            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
+\newcommand{\N}{\mathbb{N}}                  %% nonnegative integers
+\newcommand{\NN}{\mathcal{N}}                %% a Moyal algebra
+\newcommand{\nb}{\nabla}                     %% gradient
+\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
+\newcommand{\om}{\omega}                     %% short for \omega
+\newcommand{\opp}{{\mathrm{op}}}             %% opposite algebra
+\newcommand{\ox}{\otimes}                    %% tensor product
+\newcommand{\eps}{\varepsilon}                    %% tensor product
+\newcommand{\otimesyox}{\otimes\cdots\otimes}    %% repeated tensor product
+\newcommand{\pa}{\partial}                   %% short for \partial
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
+\newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
+\newcommand{\PsiDO}{\Psi\mathrm{DO}}         %% pseudodiffl operators
+\newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
+\newcommand{\R}{\mathbb{R}}                  %% real numbers
+\newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
+\newcommand{\roundbraket}[2]{(#1\mathbin|#2)} %% (w|z)
+\newcommand{\row}[3]{{#1}_{#2},\dots,{#1}_{#3}} %% list: a_1,...,a_n
+\newcommand{\sepword}[1]{\quad\mbox{#1}\quad} %% well-spaced words
+\newcommand{\set}[1]{\{\,#1\,\}}             %% set notation
+\newcommand{\Sf}{\mathbb{S}}                 %% sphere
+\newcommand{\uhor}[1]{\Omega^1_{hor}#1}
+\newcommand{\sco}[1]{{\sp{(#1)}}}
+\newcommand{\sw}[1]{{\sb{(#1)}}}
+\DeclareMathOperator{\spec}{sp}              %% spectrum
+\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
+\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
+\DeclareMathOperator{\supp}{\mathfrak{supp}}         %% support
+\DeclareMathOperator{\cl}{\mathfrak{cl}}         %% support
+\newcommand{\T}{\mathbb{T}}                  %% circle as a group
+\renewcommand{\th}{\theta}                   %% short for \theta
+\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
+\newcommand{\tihalf}{\tfrac{i}{2}}           %% small* fraction i/2
+\newcommand{\tpi}{{\tilde\pi}}               %% extended representation
+\DeclareMathOperator{\Tr}{Tr}                %% trace of operator
+\DeclareMathOperator{\tr}{tr}                %% trace of matrix
+\newcommand{\del}{\partial}                  %% short for  \partial
+\DeclareMathOperator{\tsum}{{\textstyle\sum}} %% small sum in display
+\newcommand{\V}{\mathcal{V}}                 %% test function space
+\newcommand{\W}{\mathcal{W}}                 %% test function space
+\newcommand{\vac}{\ket{0}}                   %% vacuum ket vector
+\newcommand{\vf}{\varphi}                    %% scalar field
+\newcommand{\w}{\wedge}                      %% exterior product
+\DeclareMathOperator{\wres}{wres}            %% density of Wresidue
+\newcommand{\x}{\times}                      %% cross
+\newcommand{\Z}{\mathbb{Z}}                  %% integers
+\newcommand{\7}{\dagger}                     %% short for + symbol
+\newcommand{\8}{\bullet}                     %% anonymous degree
+\renewcommand{\.}{\cdot}                     %% anonymous variable
+\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
+
+\newcommand{\sA}{\mathcal{A}}       %%
+\newcommand{\sB}{\mathcal{B}}       %%
+\newcommand{\sC}{\mathcal{C}}       %%
+\newcommand{\sD}{\mathcal{D}}       %%
+\newcommand{\sE}{\mathcal{E}}       %%
+\newcommand{\sF}{\mathcal{F}}       %%
+\newcommand{\sG}{\mathcal{G}}       %%
+\newcommand{\sH}{\mathcal{H}}       %%
+\newcommand{\sI}{\mathcal{I}}       %%
+\newcommand{\sJ}{\mathcal{J}}       %%
+\newcommand{\sK}{\mathcal{K}}       %%
+\newcommand{\sL}{\mathcal{L}}       %%
+\newcommand{\sM}{\mathcal{M}}       %%
+\newcommand{\sN}{\mathcal{N}}       %%
+\newcommand{\sO}{\mathcal{O}}       %%
+\newcommand{\sP}{\mathcal{P}}       %%
+\newcommand{\sQ}{\mathcal{Q}}       %%
+\newcommand{\sR}{\mathcal{R}}       %%
+\newcommand{\sS}{\mathcal{S}}       %%
+\newcommand{\sT}{\mathcal{T}}       %%
+\newcommand{\sU}{\mathcal{U}}       %%
+\newcommand{\sV}{\mathcal{V}}       %%
+\newcommand{\sX}{\mathcal{X}}       %%
+\newcommand{\sZ}{\mathcal{Z}}       %%
+
+\newcommand{\Om}{\Omega}       %%
+
+
+\DeclareMathOperator{\ptr}{ptr}     %% Poisson trace
+\DeclareMathOperator{\Trw}{Tr_\omega} %% Dixmier trace
+\DeclareMathOperator{\vol}{Vol}     %% total volume
+\DeclareMathOperator{\Vol}{Vol}     %% total volume
+\DeclareMathOperator{\Area}{Area}   %% area of a surface
+\DeclareMathOperator{\Wres}{Wres}   %% (Wodzicki) residue
+
+\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
+\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
+\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
+\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
+
+\newcommand{\bA}{\mathbb{A}}       %%
+\newcommand{\bB}{\mathbb{B}}       %%
+\newcommand{\bC}{\mathbb{C}}       %%
+\newcommand{\bCP}{\mathbb{C}P}     %%
+\newcommand{\bD}{\mathbb{D}}       %%
+\newcommand{\bE}{\mathbb{E}}       %%
+\newcommand{\bF}{\mathbb{F}}       %%
+\newcommand{\bG}{\mathbb{G}}       %%
+\newcommand{\bH}{\mathbb{H}}       %%
+\newcommand{\bHP}{\mathbb{H}P}     %%
+\newcommand{\bI}{\mathbb{I}}       %%
+\newcommand{\bJ}{\mathbb{J}}       %%
+\newcommand{\bK}{\mathbb{K}}       %%
+\newcommand{\bL}{\mathbb{L}}       %%
+\newcommand{\bM}{\mathbb{M}}       %%
+\newcommand{\bN}{\mathbb{N}}       %%
+\newcommand{\bO}{\mathbb{O}}       %%
+\newcommand{\bOP}{\mathbb{O}P}     %%
+\newcommand{\bP}{\mathbb{P}}       %%
+\newcommand{\bQ}{\mathbb{Q}}       %%
+\newcommand{\bR}{\mathbb{R}}       %%
+\newcommand{\bRP}{\mathbb{R}P}     %%
+\newcommand{\bS}{\mathbb{S}}       %%
+\newcommand{\bT}{\mathbb{T}}       %%
+\newcommand{\bU}{\mathbb{U}}       %%
+\newcommand{\bV}{\mathbb{V}}       %%
+\newcommand{\bX}{\mathbb{X}}       %%
+\newcommand{\bY}{\mathbb{Y}}       %%
+\newcommand{\bZ}{\mathbb{Z}}       %%
+
+
+
+\newcommand{\al}{\alpha}          %% short for  \alpha
+\newcommand{\bt}{\beta}           %% short for  \beta
+\newcommand{\Dl}{\Delta}          %% short for  \Delta
+\newcommand{\dl}{\delta}          %% short for  \delta
+\newcommand{\ga}{\gamma}          %% short for  \gamma
+\newcommand{\ka}{\kappa}          %% short for  \kappa
+\newcommand{\sg}{\sigma}          %% short for  \sigma
+\newcommand{\Sg}{\Sigma}          %% short for  \Sigma
+\newcommand{\Th}{\Theta}          %% short for  \Theta
+\renewcommand{\th}{\theta}        %% short for  \theta
+\newcommand{\vth}{\vartheta}      %% short for  \vartheta
+\newcommand{\ze}{\zeta}           %% short for  \zeta
+
+\DeclareMathOperator{\ord}{ord}     %% order of a PsiDO
+\DeclareMathOperator{\rank}{rank}   %% rank of a vector bundle
+\DeclareMathOperator{\sign}{sign}   %%
+\DeclareMathOperator{\sgn}{sgn}   %%
+\DeclareMathOperator{\chr}{char}   %%
+\DeclareMathOperator{\ev}{ev}       %% evaluation
+	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}   
+
+
+
+\newcommand{\Op}{\mathbf{Op}}
+\newcommand{\As}{\mathbf{As}}
+\newcommand{\Com}{\mathbf{Com}}
+\newcommand{\LLie}{\mathbf{Lie}}
+\newcommand{\Leib}{\mathbf{Leib}}
+\newcommand{\Zinb}{\mathbf{Zinb}}
+\newcommand{\Poiss}{\mathbf{Poiss}}
+
+\newcommand{\gX}{\mathfrak{X}}      %% vector fields
+\newcommand{\sol}{\mathfrak{so}}    %% special orthogonal Lie algebra
+\newcommand{\gm}{\mathfrak{m}}      %% maximal ideal
+
+
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\NCRes}{NCRes}
+\DeclareMathOperator{\Ind}{Ind}
+%% co/homology theories
+\DeclareMathOperator{\rH}{H}        %% any co/homology
+\DeclareMathOperator{\rC}{C}        %%  any co/chains
+\DeclareMathOperator{\rZ}{Z}        %% cycles
+\DeclareMathOperator{\rB}{B}        %% boundaries
+\DeclareMathOperator{\rF}{F}        %% filtration
+\DeclareMathOperator{\Gr}{gr}        %% associated graded object
+\DeclareMathOperator{\rHc}{H_{\mathrm{c}}}   %% co/homology with compact support
+\DeclareMathOperator{\drH}{H_{\mathrm{dR}}}  %% de Rham co/homology
+\DeclareMathOperator{\cechH}{\check{H}}    %% Cech co/homology
+\DeclareMathOperator{\rK}{K}        %% K-groups
+\DeclareMathOperator{\rKO}{KO}        %% real K-groups
+\DeclareMathOperator{\rKU}{KU}        %% unitary K-groups
+\DeclareMathOperator{\rKSp}{KSp}        %% symplectic K-groups
+\DeclareMathOperator{\rR}{R}        %% representation ring
+\DeclareMathOperator{\rI}{I}        %% augmentation ideal
+\DeclareMathOperator{\HH}{HH}       %% Hochschild co/homology
+\DeclareMathOperator{\HC}{HC}       %% cyclic co/homology
+\DeclareMathOperator{\HP}{HP}       %% periodic cyclic co/homology
+\DeclareMathOperator{\HN}{HN}       %% negative cyclic co/homology
+\DeclareMathOperator{\HL}{HL}       %% Leibniz co/homology
+\DeclareMathOperator{\KK}{KK}       %% KK-theory
+\DeclareMathOperator{\KKK}{\mathbf{KK}}       %% KK-theory as a category
+\DeclareMathOperator{\Ell}{Ell}       %% Abstract elliptic operators
+\DeclareMathOperator{\cd}{cd}       %% cohomological dimension
+\DeclareMathOperator{\spn}{span}       %% span
+\DeclareMathOperator{\linspan}{span} %% linear span (can't use \span!)
+
+
+
+\newcommand{\twobytwo}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+\newcommand{\CGq}[6]{C_q\!\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+                                    %% q-Clebsch--Gordan coefficients
+\newcommand{\cz}{{\bullet}}         %% anonymous degree
+\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
+\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
+\newcommand{\downto}{\downarrow}    %% right hand limit
+\newcommand{\isom}{\cong}          %% isomorphism
+\newcommand{\lt}{\triangleright}    %% a left action
+\newcommand{\otto}{\leftrightarrow} %% bijection
+\newcommand{\rt}{\triangleleft}     %% a right action
+\newcommand{\semi}{\rtimes}         %% crossed product
+\newcommand{\tensor}{\otimes}       %% tensor product
+\newcommand{\cotensor}{\square}       %% cotensor product
+\newcommand{\trans}{\pitchfork}     %% transverse
+\newcommand{\ul}{\underline}        %% for sheaves
+\newcommand{\upto}{\uparrow}        %% left hand limit
+\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+\newcommand{\blt}{\ast}
+\newcommand{\Co}{C_{\bullet}}
+\newcommand{\cCo}{C^{\bullet}}
+\newcommand{\nbs}{\nabla^S}         %% spin connection
+\newcommand{\up}{{\mathord{\uparrow}}} %% `up' spinors
+\newcommand{\dn}{{\mathord{\downarrow}}} %% `down' spinors
+\newcommand{\updn}{{\mathord{\updownarrow}}} %% up or down
+
+%%% Bilinear enclosures:
+
+\newcommand{\bbraket}[2]{\langle\!\langle#1\stroke#2\rangle\!\rangle}
+   %% <<w|z>>
+\newcommand{\bracket}[2]{\langle#1,\, #2\rangle} %% <w,z>
+\newcommand{\scalar}[2]{\langle#1,\,#2\rangle} %% <w,z>
+\newcommand{\poiss}[2]{\{#1,\,#2\}} %% {w,z}
+\newcommand{\dst}[2]{\langle#1,#2\rangle} %% distributions <u,\phi>
+\newcommand{\pairing}[2]{(#1\stroke #2)} %% right-linear pairing
+\def\<#1|#2>{\langle#1\stroke#2\rangle} %% \braket (Dirac notation)
+\def\?#1|#2?{\{#1\stroke#2\}}        %% left-linear pairing
+
+%%% Accent-like macros:
+
+\renewcommand{\Bar}[1]{\overline{#1}} %% closure operator
+\renewcommand{\Hat}[1]{\widehat{#1}}  %% short for \widehat
+\renewcommand{\Tilde}[1]{\widetilde{#1}} %% short for \widetilde
+
+
+\DeclareMathOperator{\bCl}{\bC l}   %% complex Clifford algebra
+
+%%% Small fractions in displays:
+
+\newcommand{\ihalf}{\tfrac{i}{2}}   %% small fraction  i/2
+\newcommand{\quarter}{\tfrac{1}{4}} %% small fraction  1/4
+\newcommand{\shalf}{{\scriptstyle\frac{1}{2}}}  %% tiny fraction  1/2
+\newcommand{\third}{\tfrac{1}{3}}   %% small fraction  1/3
+\newcommand{\ssesq}{{\scriptstyle\frac{3}{2}}} %% tiny fraction  3/2
+\newcommand{\sesq}{{\mathchoice{\tsesq}{\tsesq}{\ssesq}{\ssesq}}} %% 3/2
+\newcommand{\tsesq}{\tfrac{3}{2}}   %% small fraction  3/2
+
+
+%\newcommand\eqdef{\overset{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand\eqdef{\overset{\mathrm{def}}{=}}
+
+
+%+++++++++++++++++++++++++++++++++++
+
+\newcommand{\word}[1]{\quad\text{#1}\enspace} %% well-spaced words
+\newcommand{\words}[1]{\quad\text{#1}\quad} %% better-spaced words
+\newcommand{\su}[1]{{\sp{[#1]}}}
+
+
+\newcommand{\opname}[1]{\mathop{\mathrm{#1}}\nolimits}
+
+\newcommand{\hideqed}{\renewcommand{\qed}{}} %% to suppress `\qed'
+
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2. Some internal machinery
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$}
+\setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+           to \wd2{\box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$}
+\setbox\ncinttbox=\hbox{\rlap{\hbox
+           to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
+
+\newcommand{\disp}{\displaystyle} %% short for  \displaystyle
+
+%\newcommand{\hideqed}{\renewcommand{\qed}{}} %% no `\qed' at end-proof
+
+\newcommand{\stroke}{\mathbin|}   %% (for `\bbraket' and such)
+\newcommand{\tribar}{|\mkern-2mu|\mkern-2mu|} %% norm bars: |||
+
+%%% Enclose one argument with delimiters:
+
+\newcommand{\bra}[1]{\langle{#1}\rvert} %% bra vector <w|
+\newcommand{\kett}[1]{\lvert#1\rangle\!\rangle} %% ket 2-vector |y>>
+\newcommand{\snorm}[1]{\mathopen{\tribar}{#1}%
+\mathclose{\tribar}}                 %% norm |||x|||
+
+
+\newcommand{\End}{\mathrm{End}}       %%
+\newcommand{\Hom}{\mathrm{Hom}}       %%
+\newcommand{\Mrt}{\mathrm{Mrt}}       %%
+\newcommand{\grad}{\mathrm{grad}}       %%
+\newcommand{\Spin}{\mathrm{Spin}}       %%
+\newcommand{\Ad}{\mathrm{Ad}}       %%
+\newcommand{\Pic}{\mathrm{Pic}}       %%
+\newcommand{\Aut}{\mathrm{Aut}}       %%
+\newcommand{\Inn}{\mathrm{Inn}}       %%
+\newcommand{\Out}{\mathrm{Out}}       %%
+\newcommand{\Homeo}{\mathrm{Homeo}}       %%
+\newcommand{\Diff}{\mathrm{Diff}}       %%
+\newcommand{\im}{\mathrm{im}}       %%
+
+
+\newcommand{\SO}{\mathrm{SO}}       %%
+\newcommand{\SU}{SU}       %%
+\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
+\newcommand{\gero}{\mathfrak{o}}    %% orthogonal Lie algebra
+\newcommand{\gspin}{\mathfrak{spin}} %% spin Lie algebra
+\newcommand{\gu}{\mathfrak{u}}      %% unitary Lie algebra
+\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
+\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
+\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+
+
+
+\title{Coverings of Quantum Groups}
+\begin{document}
+\maketitle  \setlength{\parindent}{0pt}
+\begin{center}
+\author{
+{\textbf{Petr R. Ivankov*}\\
+e-mail: * monster.ivankov@gmail.com \\
+}
+}
+\end{center}
+
+%\vspace{1 in}
+
+%\begin{abstract}
+%\noindent
+
+\paragraph{}
+It is known that any covering space of a topological group has the natural structure of a topological group. This article discusses a noncommutative generalization of this fact. A noncommutative generalization of the topological group is a quantum group. Also there is a noncommutative generalization of a covering. The combination of these algebraic constructions yields a motive to research the generalization of coverings of topological groups. In contrary to a topological group a covering space of a quantum group does not have the natural structure of the quantum group. However a covering space of a quantum group satisfies to a condition which is weaker than the condition of a covering space of a topological group.
+
+%\end{abstract}
+%\tableofcontents
+\section{Motivation. Preliminaries}
+
+
+\paragraph{}  
+In this article we discuss a noncommutative analog of the following proposition.
+\begin{prop}\label{cov_top_prop}\cite{mimuta_toda_lie} If $G$ is a topological group and $\pi:\widetilde{G} \to G$ is a covering, then for a covering space $\widetilde{G}$ one can introduce uniquely the structure of a topological group on $\widetilde{G}$ such that $\pi$ is a homomorphism and an arbitrary point $\widetilde{e}$ of the fibre over the unit $e$ of $G$ is the unit.
+\end{prop}
+For this purpose we need noncommutative generalizations of following objects:
+\begin{itemize}
+	\item Topological spaces,
+	\item Coverings,
+	\item Topological groups. 
+\end{itemize}
+\subsection{Generalization of topological objects}
+\subsubsection{Noncommutative topological spaces}
+  \paragraph*{} Gelfand-Na\u{\i}mark theorem \cite{arveson:c_alg_invt} states the correspondence between  locally compact Hausdorff topological spaces and commutative $C^*$-algebras. 
+
+
+\begin{thm}\label{gelfand-naimark}\cite{arveson:c_alg_invt} (Gelfand-Na\u{\i}mark). 
+Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \to C_0(\mathcal{X})$.
+\end{thm}
+
+\paragraph*{}So any (noncommutative) $C^*$-algebra may be regarded as a generalized (noncommutative)  locally compact Hausdorff topological space. 
+\subsubsection{Generalization of coverings}
+\paragraph*{} Following theorem gives a pure algebraic description of finite-fold coverings of compact spaces.
+\begin{thm}\label{pavlov_troisky_thm}\cite{pavlov_troisky:cov}
+	Suppose $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
+	is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
+	$C(\mathcal X)$ with respect to the action
+	\begin{equation*}
+	(f\xi)(y) = f(y)\xi(p(y)), ~ f \in  C(\mathcal Y ), ~ \xi \in  C(\mathcal X),
+	\end{equation*}
+	then $p$ is a finite-fold  covering.
+\end{thm}
+\begin{defn}
+	If $A$ is a $C^*$- algebra then an action of a group $H$ is said to be {\it involutive } if $ga^* = \left(ga\right)^*$ for any $a \in A$ and $g\in H$. Action is said to be \textit{non-degenerated} if for any nontrivial $g \in H$ there is $a \in A$ such that $ga\neq a$. 
+\end{defn}
+Following definition is motivated by the Theorem \ref{pavlov_troisky_thm}.
+\begin{defn}\cite{ivankov:qnc}\label{fin_def_uni}
+	Let $A \hookto \widetilde{A}$ be an injective *-homomorphism of unital $C^*$-algebras. Suppose that there is a non-degenerated involutive action $H \times \widetilde{A} \to \widetilde{A}$ of finite group, such that $A = \widetilde{A}^H\stackrel{\text{def}}{=}\left\{a\in \widetilde{A}~|~ a = g a;~ \forall g \in H\right\}$. There is an $A$-valued product on $\widetilde{A}$ given by
+	\begin{equation*}\label{finite_hilb_mod_prod_eqn}
+	\left\langle a, b \right\rangle_{\widetilde{A}}=\sum_{g \in H} g\left( a^*, b\right) 
+	\end{equation*}
+	and $\widetilde{A}$ is an $A$-Hilbert module. We say that $\left(A, \widetilde{A}, H \right)$ is an \textit{unital noncommutative finite-fold  covering} if $\widetilde{A}$ is a finitely generated projective $A$-Hilbert module.
+\end{defn}
+\subsubsection{Generalization of topological groups}
+\paragraph*{} A compact quantum group can be regarded as a noncommutative analog of a compact topological group.
+\begin{defn}\cite{neshveyev_tuset_qg}
+(Woronowicz) A \textit{compact quantum group} is a pair $\left( A, \Delta\right) $, where $A$
+is an unital $C^*$ -algebra and $\Delta: A \to A\otimes A $  is an unital *-homomorphism, called \textit{comultiplication}, such that
+\begin{enumerate}
+	\item [(a)] $\left( \Delta \otimes \Id_A\right) \Delta = \left( \Id_A \otimes \Delta \right) \Delta$ as homomorphisms $A \to A \otimes A  \otimes A$, (\textit{coassociativity});
+\item[(b)] The spaces $\left(A \otimes 1 \right) \Delta A = \mathrm{span}\left\{\left(a \otimes 1\right)  \Delta \left( b \right)~|~a,b \in A \right\}$   and $\left(1 \otimes A\right) \Delta A$  are dense in $A\otimes A$  (\textit{cancellation property}).
+\end{enumerate}
+In this definition by the tensor product of $C^*$ -algebras we  mean the minimal tensor product.
+\end{defn}
+Following example shows that a compact topological group is a special case of a quantum group.
+
+\begin{exm}\label{comm_exm}\cite{neshveyev_tuset_qg}
+	Let $G$ be a compact group. Take $A$ to be the $C^*$-algebra $C\left(G\right)$ of continuous functions on $G$. Then $A \otimes A = C\left(G \times G\right)$, so we can define $\Delta$ by
+	$$
+	\Delta\left(f\right)\left(g,h\right) = f\left(gh\right) \text{ for all } g, h \in G
+	$$
+	Coassociativity of $\Delta$ follows from associativity of the product in $G$. To see that the cancellation property holds, note that $\left(A \otimes 1 \right) \Delta A$ is the unital $C^*$-subalgebra of $C\left(G\times G\right)$	spanned by all functions of the form $\left(g, h\right) \mapsto  f_1\left(g\right)f_2\left(gh\right)$. Since such functions separate points of $G\times G$, the $C^*$-algebra $\left(A \otimes 1 \right) \Delta A$ is dense in $C\left(G\times G\right)$ by the Stone-Weierstrass
+	theorem.
+	Any compact quantum group $\left(A, \Delta\right)$ with abelian $A$ is of this form. Indeed, by the Gelfand theorem, $A = C\left(G\right)$ for a compact space $G$. Then, since $A\otimes A = C\left(G\times G\right)$, the
+	unital *-homomorphism $\Delta$  is defined by a continuous map $G\times G \to G$. Coassociativity
+	means that
+	$$
+	f\left(\left(gh\right)k\right) = f\left(g\left(hk\right)\right) \text{ for all } f \in C\left(G\right),
+	$$
+	whence $\left(gh\right)k = g\left(hk\right)$, so $G$ is a compact semigroup. If $gh = gk$, then $f_1\left(g\right)f_2\left(gh\right) =
+	f_1\left(g\right)f_2\left(gk\right)$ for all $f_1; f_2 \in C\left(G\right)$. By the cancellation property the functions of the
+	form $\left(g',h'\right) \mapsto f_1\left(g'\right)f_2\left(g'h'\right)$ span a dense subspace of $C\left(G \times G\right)$. It follows that
+	$f\left(g, h\right) = f\left(g, k \right)$ for all $f \in   C\left(G\times G\right)$, whence $h = k$. Similarly, if $hg = kg$, then $h = k$.
+	Thus $G$ is a semigroup with cancellation.
+	In \cite{neshveyev_tuset_qg} it is proven that that any compact semigroup with cancellation is a group.
+\end{exm}
+
+
+\subsection{Finite Galois coverings}\label{fin_gal_cov_sec}
+\paragraph*{} Here I follow to \cite{auslander:galois}. Let $A \hookto \widetilde{A}$ be an injective homomorphism of unital algebras, such that
+\begin{itemize}
+	\item $\widetilde{A}$ is a projective finitely generated $A$-module,
+	\item There is an action $G \times \widetilde{A} \to \widetilde{A}$ of a finite group $G$ such that $$A = \widetilde{A}^G=\left\{\widetilde{a}\in \widetilde{A}~|~g\widetilde{a}=\widetilde{a}; ~\forall g \in G\right\}.$$
+\end{itemize}
+Let us consider the category $\mathscr{M}^G_{\widetilde{A}}$ of $G-\widetilde{A}$ modules, i.e.  any object $M \in \mathscr{M}^G_{\widetilde{A}}$ is a $\widetilde{A}$-module with equivariant action of $G$, i.e. for any $m \in M$ a following condition holds
+$$
+g\left(\widetilde{a}m \right)=  \left(g\widetilde{a} \right) \left(gm \right) \text{ for any } \widetilde{a} \in \widetilde{A}, ~ g \in G.
+$$
+Any morphism $\varphi: M \to N$ in the category $\mathscr{M}^G_{\widetilde{A}}$ is $G$- equivariant, i.e.
+$$
+\varphi\left( g m\right)= g \varphi\left( m\right)   \text{ for any } m \in M, ~ g \in G.
+$$
+Let $\widetilde{A}\left[ G\right]$ be an algebra such that $\widetilde{A}\left[ G\right] \approx \widetilde{A}\times G$ as an Abelian group and a multiplication law is given by
+$$
+\left( a, g\right)\left( b, h\right) =\left(a\left(gb \right), gh  \right).
+$$
+The category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ of $\widetilde{A}\left[ G\right]$ modules. Otherwise in \cite{auslander:galois} it is proven the equivalence between a category $\mathscr{M}_{A}$ of $A$-modules and the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$. It turns out that the category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{A}$.
+
+\section{Main result}
+\paragraph*{} 
+From the Proposition \ref{cov_top_prop}, Theorem \ref{pavlov_troisky_thm} and Example \ref{comm_exm} it turns out the following lemma
+
+\begin{lem}\label{comm_lem}
+	Let $\left(A, \Delta \right)$ be a commutative compact quantum group, and let   $\left(A, \widetilde{A},  H \right)$ be a noncommutative finite-fold covering such that $\widetilde{A}$ is a commutative algebra. Following condition holds:
+	\begin{enumerate}
+		\item[(i)] There is the natural structure   $\left(\widetilde{A}, \widetilde{\Delta} \right)$ of the compact quantum group, such that
+		$$
+		\widetilde{\Delta}\left( a\right) = \Delta\left(a \right) \text{ for any } a \in A.
+		$$
+		\item[(ii)] Operation $\Delta$ is $H$-equivariant, i.e. from
+		\begin{equation*}
+		\widetilde{\Delta}\left(\widetilde{a} \right)= \sum_{\iota \in I}\widetilde{b}_\iota \otimes \widetilde{c}_\iota
+		\end{equation*}
+		it turns out that for any $g \in H$ following condition holds
+		\begin{equation*}
+		\begin{split}
+		\widetilde{\Delta}\left(g\widetilde{a} \right) =\sum_{\iota \in I}g\widetilde{b}_\iota \otimes g\widetilde{c}_\iota.
+		\end{split}
+		\end{equation*}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+Indeed this lemma is an algebraic interpretation of the topological Proposition \ref{cov_top_prop}. 
+\end{proof}
+\paragraph*{}
+The Lemma \ref{comm_lem} is not true in general, there is a counterexample described in the Section \ref{counter_sec}. However any quantum group satisfies to a following theorem.
+
+\begin{thm}\label{main_thm}
+Let $\left(A, \Delta \right)$ be a  quantum group. Let
+$\left(A, \widetilde{A},  H \right)$ be a noncommutative finite-fold covering projection. There are natural $A$-bimodule morphisms
+\begin{equation*}
+\begin{split}
+\Delta_L : \widetilde{A} \to \widetilde{A} \otimes A, \\
+\Delta_R : \widetilde{A} \to A \otimes \widetilde{A}.
+\end{split}
+\end{equation*}
+such that following conditions hold:
+\begin{enumerate}
+
+
+\item[(i)] Above morphisms are $H$-equivariant, i.e. for any $g \in H$ from
+\begin{equation*}
+\begin{split}
+\Delta_L \left( \widetilde{a}\right) = \sum_{\iota \in I}\widetilde{b}_\iota \otimes c_\iota,\\
+\Delta_R \left( \widetilde{a}\right) = \sum_{\iota \in I}c_\iota \otimes\widetilde{d}_\iota
+\end{split}
+\end{equation*}
+it turns out that
+\begin{equation*}
+\begin{split}
+\Delta_L \left(g \widetilde{a}\right) = \sum_{\iota \in I}g\widetilde{b}_\iota \otimes c_\iota,\\
+\Delta_R \left(g \widetilde{a}\right) = \sum_{\iota \in I}c_\iota \otimes g\widetilde{d}_\iota.
+\end{split}
+\end{equation*}
+	\item [(ii)] If $a \in A$ then
+\begin{equation*}
+\begin{split}
+\Delta_L \left(a\right) = \Delta\left( a\right) ,\\
+\Delta_R \left(a\right) = \Delta\left( a\right).
+\end{split}
+\end{equation*}
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(i) If we apply to $\Delta: A \to A\otimes A$ a functor $ \widetilde{A}\otimes_A-$ then we have
+$$
+\Delta_L: \widetilde{A} \to \widetilde{A} \otimes A
+$$
+From the Section \ref{fin_gal_cov_sec} it follows that $\Delta_L$  is left $H$-equivariant. Similarly one can construct $\Delta_R$.
+\newline
+(ii) Follows from the definition of functors $ \widetilde{A}\otimes_A-$ and $ -\otimes_A \widetilde{A}$ and from that the *-homomorphism $A \hookto \widetilde{A}$ is injective.
+\end{proof} 
+\begin{rem}
+	The statement of Theorem \ref{main_thm} is weaker than the statement of the Lemma \ref{comm_lem}. In fact the Theorem \ref{main_thm} describes a left and right action of the group $G$ on the quotient group $\widetilde{G}/H \approx G$.
+\end{rem}
+%\begin{rem}
+%From \ref{fin_gal_cov_sec} it follows that both functors $\widetilde{A}\otimes_A-$ and $ -\otimes_A \widetilde{A}$ are equivalences between $\mathscr{M}_{A}$ and $\mathscr{M}^G_{\widetilde{A}}$.
+%\end{rem}
+
+\section{Hopf Algebras}\label{hopf}
+
+%This section of the review is mostly based on the Refs. \cite{11}-\cite{17}.
+
+\subsection{\bf \em Coalgebras\label{hopf1}}
+\setcounter{equation}0
+
+We consider an associative unital algebra ${\cal A}$ (over the field of complex numbers
+$\mathbb{C}$;
+in what follows, all algebras that are introduced will also be understood to be over the
+field of complex numbers). Each element of ${\cal A}$
+can be expressed as a linear combination of
+basis elements $e_{i} \in {\cal A}$, where $i = 1,2,3, \dots$, and
+the identity element $I$ is given by the formula
+$$
+I = E^{i}\, e_{i} \;\;\;\;\;\; (E^{i} \in \mathbb{C}) \; ,
+$$
+(we imply summation over repeated indices).
+Then for any two elements
+$e_{i}$ and $e_{j}$ we define their multiplication in the form
+\be
+\lb{2.1}
+{\cal A} \otimes {\cal A} \stackrel{m}{\longrightarrow} {\cal A}
+\;\;\;\; \Rightarrow \;\;\;\;
+e_{i} \cdot e_{j} = m^{k}_{ij} e_{k} \, ,
+\ee
+where $m^{k}_{ij}$ is a certain set of complex numbers that satisfy the condition
+\be
+\lb{2.2}
+E^{i}m^{k}_{ij} = m^{k}_{ji}E^{i} =  \delta^{k}_{j}
+\ee
+for the identity element, and also the condition
+\be
+\lb{2.3}
+m^{l}_{ij} m^{n}_{lk} = m^{n}_{il} m^{l}_{jk} \equiv m^{n}_{ijk} \; ,
+\ee
+that is equivalent to the condition of associativity
+for the algebra ${\cal A}$:
+\be
+\lb{2.4}
+(e_{i} e_{j}) e_{k} = e_{i} (e_{j} e_{k}).
+\ee
+The condition of associativity (\ref{2.4}) for the multiplication (\ref{2.1}) can obviously be
+represented in the form of the commutativity of the diagram:
+
+\unitlength=0.7cm
+\begin{picture}(15,4.5)(-3,-1)
+	\put(3.3,2.5){${\cal A} \otimes {\cal A} \otimes {\cal A}$}
+	\put(6.5,2.7){\vector(1,0){2.2}}
+	\put(6.8,3){\footnotesize $id \otimes m$}
+	\put(4.2,0.5){${\cal A} \otimes {\cal A}$}
+	\put(5,2.2){\vector(0,-1){1.2}}
+	\put(3,1.5){\footnotesize $m \otimes id$}
+	\put(6,0.7){\vector(1,0){3.2}}
+	\put(7.3,1){\footnotesize $m$}
+	\put(9,2.5){${\cal A} \otimes {\cal A}$}
+	\put(9.8,2.2){\vector(0,-1){1.2}}
+	\put(10,1.5){\footnotesize $m$}
+	\put(9.5,0.5){${\cal A}$}
+	
+	\put(4,-0.7){Fig. 1. Associativity axiom.}
+	
+\end{picture}
+%\begin{center}
+%Fig. 1. Associativity axiom.
+%\end{center}
+
+
+In Fig.1 the map $m$ represents multiplication:
+${\cal A} \otimes {\cal A} \stackrel{m}{\longrightarrow} {\cal A}$, and $id$ denotes the
+identity mapping. The existence of the unit element $I$ means that one can define a mapping i:
+$\mathbb{C} \to {\cal A}$ (embedding of $\mathbb{C}$ in ${\cal A}$)
+\be
+\lb{2.5}
+k \stackrel{\bf i}{\longrightarrow} k \cdot I \; , \;\;
+k \in \mathbb{C}
+\ee
+For $I$ we have the condition (\ref{2.2}), which is visualized
+as the diagram in Fig.2:
+
+\unitlength=0.8cm
+\begin{picture}(15,5)(-3,0)
+	\put(4.2,2.5){$\mathbb{C} \otimes {\cal A}$}
+	\put(5,2.2){\vector(2,-1){1.5}}
+	\put(5,2.2){\vector(-2,1){0.1}}
+	\put(5,3){\vector(1,1){1}}
+	\put(4.3,3.5){{\bf i}$ \otimes id$}
+	\put(6.5,4.2){${\cal A} \otimes {\cal A}$}
+	\put(9,3){\vector(-1,1){1}}
+	\put(8.7,3.5){$id \otimes ${\bf i}}
+	\put(8.5,2.5){${\cal A} \otimes \mathbb{C}$}
+	\put(9,2.2){\vector(-2,-1){1.5}}
+	\put(9,2.2){\vector(2,1){0.1}}
+	\put(6.8,1.2){${\cal A}$}
+	\put(7,4){\vector(0,-1){2.2}}
+	\put(7.2,3){$m$}
+	\put(3.5,0.5){Fig. 2. \it Axioms for the identity.}
+\end{picture}
+
+\noindent
+where the mappings
+\be
+\lb{natis}
+\mathbb{C} \otimes {\cal A} \leftrightarrow {\cal A} \;\;
+{\rm  and} \;\;
+{\cal A} \otimes \mathbb{C} \leftrightarrow {\cal A}
+\ee
+are natural isomorphisms.
+One of the advantages of the diagrammatic language used here is that it leads
+directly to the definition of a new fundamental object -- the coalgebra -- if we
+reverse all the arrows in the diagrams of Fig.1 and Fig.2.
+
+%{\bf Definition 1.}
+
+\newtheorem{def1}{Definition}%[section]
+\begin{def1} \label{def1}
+	{\it A coalgebra ${\cal C}$ is a vector space
+		(with the basis $\{ e_{i} \}$) equipped with the
+		mapping
+		$\Delta : {\cal C} \rightarrow {\cal C} \otimes {\cal C}$
+		\be
+		\lb{2.6}
+		\Delta (e_{i}) = \Delta^{kj}_{i} e_{k} \otimes e_{j} \; ,
+		\ee
+		which is called comultiplication, and also equipped with the mapping
+		$\epsilon : {\cal C} \rightarrow \mathbb{C}$,
+		which is called the coidentity. The coalgebra ${\cal C}$ is called coassociative if the mapping
+		$\Delta$ satisfies the condition of coassociativity
+		(cf. the diagram in Fig.1 with the arrows reversed and
+		the symbol $m$ changed to $\Delta$)
+		\be
+		\lb{2.7}
+		(id \otimes \Delta) \Delta = (\Delta \otimes id) \Delta
+		\;\;\;\;  \Rightarrow  \;\;\;\;
+		\Delta^{nl}_{i}\Delta^{kj}_{l} =
+		\Delta^{lj}_{i}\Delta^{nk}_{l} \equiv \Delta^{nkj}_{i} \; .
+		\ee
+		The coidentity $\epsilon$ must satisfy the following conditions (cf. the diagram in Fig.2 with arrows reversed and
+		symbols $m,{\bf i}$ changed to $\Delta,\epsilon$)
+		\be
+		\lb{2.8}
+		m \bigl((\epsilon \otimes id) \Delta ({\cal C})\bigr) =
+		m \bigl((id \otimes \epsilon) \Delta ({\cal C})\bigr) = {\cal C}
+		\;\;\;\; \Rightarrow \;\;\;\;
+		\epsilon_{i}\Delta^{ij}_{k} = \Delta^{ji}_{k} \epsilon_{i} =
+		\delta^{j}_{k} \; .
+		\ee
+		Here $m$ realizes the natural isomorphisms (\ref{natis})
+		as a multiplication map:
+		$m(c \otimes e_{i}) =  m(e_{i} \otimes c) = c \cdot e_{i}$
+		($\forall c \in \mathbb{C}$),
+		and the complex numbers $\epsilon_{i}$ are determined from the relations $\epsilon(e_{i}) = \epsilon_{i}$.}
+	%Below to simplify formulas we often omit the symbol
+	%${\bf i}$, where it will not lead to a misunderstanding.}
+	\end{def1}
+	
+	
+	
+	For algebras and coalgebras, the concepts of modules and comodules can be introduced.
+	Thus, if ${\cal A}$ is an algebra, the left ${\cal A}$-module
+	can be defined as a vector space $N$
+	and a mapping $\psi: \;\; {\cal A} \otimes N \rightarrow N$
+	(action of ${\cal A}$ on $N$) such that the diagrams on Fig.3
+	are commutative.
+	
+	\unitlength=0.7cm
+	\begin{picture}(15,5)(-4,-1)
+\put(0.4,2.5){${\cal A} \otimes {\cal A} \otimes N$}
+\put(3.5,2.7){\vector(1,0){2.2}}
+\put(4,3){\footnotesize  $id \otimes \psi$}
+\put(1.1,0.5){${\cal A} \otimes  N$}
+\put(2,2.2){\vector(0,-1){1.2}}
+\put(0.3,1.5){\footnotesize $m \otimes id$}
+\put(3,0.7){\vector(1,0){3.2}}
+\put(4.3,1){\footnotesize $\psi$}
+\put(6,2.5){${\cal A} \otimes N$}
+\put(6.8,2.2){\vector(0,-1){1.2}}
+\put(7,1.5){\footnotesize $\psi$}
+\put(6.5,0.5){$N$}
+%\end{picture}
+\put(9,1.5){$\mathbb{C} \otimes N$}
+\put(10,1.2){\vector(2,-1){1.5}}
+\put(10,1.2){\vector(-2,1){0.1}}
+\put(10,2){\vector(1,1){1}}
+\put(9.3,2.5){\footnotesize {\bf i}$ \otimes id$}
+\put(11.1,3.2){${\cal A} \otimes N$}
+%\put(14,2){\vector(-1,1){1}}
+%\put(13.7,2.5){$id \otimes ${\bf i}}
+%\put(13.5,1.5){${\cal A} \otimes \mathbb{C}$}
+%\put(14,1.2){\vector(-2,-1){1.5}}
+%\put(14,1.2){\vector(2,1){0.1}}
+\put(11.7,0.2){$N$}
+\put(12,3){\vector(0,-1){2.2}}
+\put(12.2,2){\footnotesize $\psi$}
+\put(1.2,-0.8){Fig. 3. Axioms for left ${\cal A}$-module.}
+\end{picture}
+
+\noindent
+In other words, the space $N$ is the representation
+space of the algebra ${\cal A}$.
+
+If $N$ is a (co)algebra and the mapping $\psi$ preserves the (co)algebraic structure
+of $N$ (see below), then $N$ is called the
+{\it left ${\cal A}$-module (co)algebra}. The concepts of
+{\it right module (co)algebra} is introduced similarly. If $N$ is
+simultaneously the left and the right ${\cal A}$-module,
+then $N$ is called the
+{\it two-sided ${\cal A}$-module}.
+It is obvious that the algebra ${\cal A}$ itself
+is a two-sided ${\cal A}$-module for which the
+left and right actions are given by the left and
+right multiplications in the algebra.
+
+Now suppose that ${\cal C}$ is a coalgebra; then a left
+${\cal C}$-comodule can be defined as a
+space $M$ together with a mapping
+$\Delta_{L}$: $M \rightarrow {\cal C} \otimes M$
+(coaction of ${\cal C}$ on $M$)
+satisfying the axioms in Fig.4 (in the diagrams of Fig.3, where the modules
+were defined, it is necessary to reverse all the arrows):
+
+\unitlength=0.7cm
+\begin{picture}(15,4.5)(-4,-1)
+\put(0.5,2.5){${\cal C} \otimes {\cal C} \otimes M$}
+\put(5.5,2.7){\vector(-1,0){2}}
+\put(4,3){\footnotesize $id \otimes \Delta_{L}$}
+\put(1.3,0.5){${\cal C} \otimes  M$}
+\put(2,1){\vector(0,1){1.2}}
+\put(0.3,1.5){\footnotesize $\Delta \otimes id$}
+\put(6.2,0.7){\vector(-1,0){3}}
+\put(4.3,0.9){\footnotesize $\Delta_{L}$}
+\put(6,2.5){${\cal C} \otimes M$}
+\put(6.8,1){\vector(0,1){1.2}}
+\put(7,1.5){\footnotesize $\Delta_{L}$}
+\put(6.5,0.5){$M$}
+%\end{picture}
+
+\put(10,1.5){$\mathbb{C} \otimes M$}
+\put(11,1.2){\vector(2,-1){1.5}}
+\put(11,1.2){\vector(-2,1){0.1}}
+\put(12,3){\vector(-1,-1){1}}
+\put(10,2.5){\footnotesize $\epsilon \otimes id$}
+\put(12,3.2){${\cal C} \otimes M$}
+%\put(14,2){\vector(-1,1){1}}
+%\put(13.7,2.5){$id \otimes i$}
+%\put(13.5,1.5){${\cal C} \otimes \mathbb{C}$}
+%\put(14,1.2){\vector(-2,-1){1.5}}
+%\put(14,1.2){\vector(2,1){0.1}}
+\put(12.8,0.2){$M$}
+\put(13,0.8){\vector(0,1){2.2}}
+\put(13.2,1.9){\footnotesize $\Delta_{L}$}
+
+\put(3,-0.7){Fig. 4. Axioms for left ${\cal A}$-comodule.}
+\end{picture}
+%\begin{center}
+%Fig. 4. Axioms for left ${\cal A}$-comodule.
+%\end{center}
+
+If $M$ is a (co)algebra and the mapping $\Delta_L$ preserves the (co)algebraic
+structure (for example, is a homomorphism; see below), then $M$ is called
+a left ${\cal C}$-comodule (co)algebra. Right comodules are introduced
+similarly, after which two-sided comodules are defined in the natural manner.
+It is obvious that the coalgebra ${\cal C}$ is a two-sided ${\cal C}$-comodule.
+
+Let ${\cal V}, \; \tilde{{\cal V}}$ be two vector spaces with bases
+$\{ e_{i} \}, \; \{ \tilde{e}_{i} \}$.
+We denote by ${\cal V}^{*}, \; \tilde{{\cal V}}^{*}$
+the corresponding dual linear spaces whose
+basis elements are linear functionals
+$\{ e^{i} \}: \; {\cal V} \rightarrow \mathbb{C}$,
+$\{ \tilde{e}^{i} \}: \tilde{{\cal V}} \rightarrow \mathbb{C}$.
+For the values of these functionals, we use the expressions
+$ \langle e^{i}\,|e_{j}\rangle $ and
+$\langle \tilde{e}^{i}\,|\tilde{e}_{j}\rangle $.
+For every mapping $L: \;\; {\cal V} \rightarrow \tilde{\cal V}$ it is possible to define a
+unique mapping $L^{*}: \;\; \tilde{\cal V}^{*} \rightarrow {\cal V}^{*}$
+induced by the equations
+\be
+\lb{2.9}
+\langle \tilde{e}^{i} \, | L(e_{j}) \rangle  =
+\langle  L^{*}(\tilde{e}^{i}) \, | e_{j} \rangle  ,
+\ee
+if the matrix $\langle e^{i}\, |e_{j}\rangle $ is invertible.
+In addition, for the dual objects there exists the linear injection
+$$
+\rho: \;\; {\cal V}^{*} \otimes \tilde{\cal V}^{*} \rightarrow
+( {\cal V} \otimes \tilde{\cal V} )^{*} \; ,
+$$
+which is given by the equations
+$$
+\langle \rho(e^{i} \otimes \tilde{e}^{j}) \,
+| e_{k} \otimes \tilde{e}_{l} \rangle  =
+\langle e^{i} \,| e_{k}\rangle \; \langle \tilde{e}^{j}\,
+| \tilde{e}_{l} \rangle  \; .
+$$
+A consequence of these facts is that for every coalgebra
+$({\cal C}, \; \Delta, \; \epsilon)$
+it is possible to define an algebra ${\cal C}^{*}=
+{\cal A}$ (as dual object to ${\cal C}$) with
+multiplication $m =  \Delta^{*} \cdot \rho$ and
+the unit element $I$ that satisfy the relations
+($\forall a,a' \in {\cal A}$, $\forall c \in {\cal C}$):
+$$
+\langle a|c_{(1)}\rangle \langle a'|c_{(2)}\rangle  =
+\langle \rho( a \otimes a')| \Delta(c)\rangle
+= \langle \Delta^* \cdot \rho( a \otimes a')| c \rangle  =
+\langle a \cdot a' \, | \, c \rangle \; ,
+\;\;\;\;\;\;\; \langle  I | c \rangle  = \epsilon(c) \; .
+$$
+Here we denote $a \cdot a' := \Delta^* \cdot \rho( a \otimes a')$
+and use the convenient Sweedler notation of Ref. [11] for comultiplication
+in ${\cal C}$ (cf. eq. (\ref{2.6})):
+\be
+\lb{sweed}
+\Delta(c) = \sum_{c} c_{(1)} \otimes c_{(2)} \; .
+\ee
+The summation symbol $\sum_{c}$ will usually be
+omitted in the equations. We also use the Sweedler notation
+for left and right coactions
+$\Delta_L(v) = \bar{v}^{(-1)} \otimes v^{(0)}$ and
+$\Delta_R(v) = v^{(0)} \otimes \bar{v}^{(1)}$,
+where index $(0)$ is
+reserved for the comodule elements and summation symbols $\sum_{v}$ are also omitted.
+
+Thus, duality in the diagrammatic definitions of the algebras and coalgebras
+(reversal of the arrows) has in particular the consequence that the algebras
+and coalgebras are indeed duals to each other.
+
+It is natural to expect that an analogous duality can also be traced for
+modules and comodules. Let ${\cal V}$ be a left comodule
+for ${\cal C}$. Then the left
+coaction of ${\cal C}$ on ${\cal V}$:
+$v \mapsto \sum_{v} \; \bar{v}^{(-1)} \otimes v^{(0)} \;\;
+(\bar{v}^{(-1)}\in {\cal C}, \;\; v^{(0)} \in {\cal V})$
+induces a right action of ${\cal C}^{*}={\cal A}$ on
+${\cal V}$:
+$$
+(v,a) \;\;\; \mapsto \;\;\;
+v \triangleleft a =
+\langle a\, |\bar{v}^{(-1)}\rangle  \; v^{(0)} \; ,
+\;\;\;\;\;\; a \in {\cal A} \; ,
+$$
+%(here and in what follows, we omit the
+%summation sign $\sum_{v}$)
+and therefore ${\cal V}$ is a right module for ${\cal A}$.
+Conversely, the right coaction of
+${\cal C}$ on ${\cal V}$:
+$v \mapsto v^{(0)} \otimes \bar{v}^{(1)}$ induces the left action of
+${\cal A} = {\cal C}^{*}$ on ${\cal V}$:
+$$
+(a,v) \;\;\; \mapsto \;\;\; a \triangleright v
+= v^{(0)} \langle a|\bar{v}^{(1)}\rangle   \; .
+$$
+From this we immediately conclude that the coassociative
+coalgebra ${\cal C}$ (which coacts on itself by the coproduct) is
+a natural module for its dual algebra ${\cal A}={\cal C}^{*}$. Indeed, the right
+action ${\cal C} \otimes {\cal A} \rightarrow {\cal C}$ is determined by the equations
+\be
+\lb{2.10}
+(c,a) \;\;\; \mapsto \;\;\; c \triangleleft a = \langle a|c_{(1)}\rangle  c_{(2)}
+\ee
+whereas for the left action ${\cal A} \otimes {\cal C} \rightarrow {\cal C}$ we have
+\be
+\lb{2.11}
+(a,c) \;\;\; \mapsto \;\;\; a \triangleright c = c_{(1)} \langle a|c_{(2)}\rangle  \; .
+\ee
+Here $a \in {\cal A} \;\; c \in {\cal C}$.
+The module axioms (shown as the diagrams in Fig. 3)
+hold by virtue of the coassociativity of ${\cal C}$.
+
+Finally, we note that the action of a certain algebra
+$H$ on ${\cal C}$ from the
+left (from the right) induces an action of
+$H$ on ${\cal A} = {\cal C}^{*}$ from the right
+(from the left). This obviously follows from relations of the type (\ref{2.9}).
+
+\subsection{\bf \em Bialgebras\label{hopf2}}
+\setcounter{equation}0
+
+So-called bialgebras are the next important objects that are used in the theory of quantum groups.
+
+%{\bf Definition 2.}
+
+\newtheorem{def2}[def1]{Definition}%[section]
+\begin{def2} \label{def2}
+{\it An associative algebra
+	${\cal A}$ with identity that is
+	simultaneously a coassociative coalgebra with coidentity is called
+	a bialgebra if the algebraic and coalgebraic structures are self-consistent.
+	Namely, the comultiplication and coidentity must be homomorphisms of the algebras:
+	\be
+	\lb{2.12}
+	\Delta(e_{i})\, \Delta(e_{j}) = m_{ij}^{k} \Delta(e_{k}) \Rightarrow
+	\Delta^{i'i''}_{i} \Delta^{j'j''}_{j} m^{k'}_{i'j'} m^{k''}_{i''j''} =
+	m_{ij}^{k}\, \Delta^{k'k''}_{k} \; , \;\;
+	\ee
+	$$
+	\Delta(I) = I \otimes I \; , \;\;
+	\epsilon(e_{i}\cdot e_{j}) = \epsilon(e_{i})\,
+	\epsilon(e_{j}) \; , \;\;
+	\epsilon(I) = E^i \, \epsilon_i = 1 \; .
+	$$
+}
+\end{def2}
+Note that for every bialgebra we have a certain freedom in
+the definition of the multiplication (\ref{2.1}) and the comultiplication (\ref{2.6}).
+Indeed, all the axioms (\ref{2.3}), (\ref{2.7}), and
+(\ref{2.12}) are satisfied if instead of (\ref{2.1})  we take
+$$
+e_{i} \cdot e_{j} = m^{k}_{ji} \; e_{k},
+$$
+or instead of (\ref{2.6}) choose
+\be
+\lb{2.13}
+%\Delta' (e_{i}) =
+\Delta^{\sf op}(e_{i}) =
+\Delta^{jk}_{i} \, e_{k} \otimes e_{j} \; ,
+\ee
+(such algebras are denoted as ${\cal A}^{op}$ and ${\cal A}^{cop}$, respectively).
+Then the algebra ${\cal A}$ is called noncommutative if
+$m^{k}_{ij} \neq m^{k}_{ji}$, and noncocommutative if $\Delta^{ij}_{k} \neq
+\Delta^{ji}_{k}$.
+
+In quantum physics, it is usually assumed that all algebras
+of observables are bialgebras. Indeed, a coalgebraic structure is
+needed to define the action of the algebra ${\cal A}$ of observables on the
+state $|\psi_{1}\rangle \otimes |\psi_{2}\rangle$ of the system that is the
+composite system formed
+from two independent systems with wave functions
+$|\psi_{1} \rangle$ and $|\psi_{2} \rangle$
+\be
+\lb{phys}
+a \triangleright (|\psi_{1}\rangle \otimes |\psi_{2}\rangle) =
+\Delta(a) \, (|\psi_{1}\rangle \otimes |\psi_{2}\rangle) =
+a_{(1)} \, |\psi_{1}\rangle \otimes a_{(2)} \, |\psi_{2}\rangle \;\;
+(\forall a \in {\cal A}) \; .
+\ee
+In other words, for bialgebras it is possible to
+formulate a theory of representations in which new representations
+can be constructed by direct multiplication of old ones.
+
+A classical example of a bialgebra is the universal enveloping algebra of a Lie algebra $\mathfrak{g}$,
+in particular, the spin algebra $\mathfrak{su}(2)$
+in three-dimensional space.
+To demonstrate this, we consider the Lie algebra
+$\mathfrak{g}$
+with generators $J_{\alpha} \;\;
+(\alpha = 1,2,3, \dots)$, that satisfy the antisymmetric multiplication rule
+(defining relations)
+\be
+\lb{lie}
+[J_{\alpha}, \, J_{\beta} ] =
+t_{\alpha\beta}^{\gamma} J_{\gamma} .
+\ee
+Here $t^{\gamma}_{\alpha\beta} = - t^{\gamma}_{\beta\alpha}$ are structure
+constants which satisfy Jacoby identity. The enveloping algebra of this
+algebra is the algebra $U(\mathfrak{g})$ with basis elements consisting of the
+identity $I$ and the elements
+$e_{i} = J_{\alpha_{1}} \cdots J_{\alpha_{n}}
+\; \forall n \geq 1$, where the products of the
+generators $J$ are ordered lexicographically, i.e.,
+$\alpha_1 \leq \alpha_2 \leq \dots \leq \alpha_n$.
+The coalgebraic structure for the algebra $U(\mathfrak{g})$ is specified by means of the mappings
+\be
+\lb{2.14}
+\Delta(J_{\alpha})
+=J_{\alpha} \otimes I  + I \otimes J_{\alpha} \; , \;\;
+\epsilon(J_{\alpha}) = 0 \; , \;\;
+\epsilon(I) = 1 \; ,
+\ee
+which satisfy all the axioms of a bialgebra. The mapping $\Delta$ in (\ref{2.14})
+is none other than the rule for addition of spins. In fact one can
+quantize the coalgebraic structure (\ref{2.14}) for universal enveloping algebra $U(\mathfrak{g})$
+and consider the noncocommutative comultiplications $\Delta$. Such quantizations
+will be considered below in Section {\bf \ref{semicl}}
+and leads to the definition of
+Lie bialgebras.
+
+Considering exponentials of elements of a Lie algebra, one can arrive
+at the definition of a group bialgebra of the group $G$ with structure mappings
+\be
+\lb{2.15}
+\Delta(h) = h \otimes h \; , \;\; \epsilon(h) =1 \;\;\;\;
+(\forall \; h \in G),
+\ee
+which obviously follow from (\ref{2.14}). The next important example
+of a bialgebra is the algebra ${\cal A}(G)$ of functions
+$f$ on a group
+($f: G \rightarrow \mathbb{C}$).
+This algebra is dual to the group algebra of the group $G$, and its structure
+mappings have the form ($f,f' \in {\cal A}(G); \;\; h,h' \in G$):
+\be
+\lb{2.15b}
+(f \cdot f')(h) = f(h)f'(h) \, , \;\;\;\;
+f(h \cdot h') = (\Delta(f)) (h,h') = f_{(1)}(h)\; f_{(2)}(h') \, , \;\;\;\;
+\epsilon(f) = f(I) \; ,
+\ee
+where $I_G$ is the identity element in the group $G$.
+In particular, if the functions $T^{i}_{j}$ realize a matrix representation of the
+group $G$, then we have
+\be
+\lb{2.15a}
+T^{i}_{j}(hh') = T^{i}_{k}(h)T^{k}_{j}(h') \;\; \Rightarrow
+\;\; \Delta(T^{i}_{j}) =  T^{i}_{k}  \otimes T^{k}_{j} \; ,
+\ee
+(the functions $T^{i}_{j}$ can be regarded as generators
+of a subalgebra in the algebra ${\cal A}(G)$).
+Note that if $\mathfrak{g}$ is non-Abelian, then
+$U(\mathfrak{g})$ and $G$ are noncommutative but
+cocommutative bialgebras, whereas ${\cal A}(G)$ is a commutative but noncocommutative bialgebra.
+Anticipating, we mention that the most
+interesting quantum groups are
+associated with noncommutative and noncocommutative bialgebras.
+
+It is obvious that for a bialgebra ${\cal H}$ it is also possible to introduce
+the concepts of left (co)modules and (co)module (co)algebras
+(right (co)modules and (co)module (co)algebras are
+introduced in exactly
+the same way). Moreover, for the bialgebra ${\cal H}$ it is possible to introduce the
+concept of a left (right) bimodule $B$, i.e., a left (right) ${\cal H}$-module that is
+simultaneously a left (right) ${\cal H}$-comodule; at the same time, the module and
+comodule structures must be self-consistent:
+$$
+\Delta_{L} ({\cal H} \triangleright B) =
+\Delta({\cal H}) \triangleright \Delta_{L}(B) \; ,
+$$
+$$
+(\epsilon \otimes id) \Delta_{L} (b) = b \; , \;\; b \in B \; ,
+$$
+where $\Delta_{L} (b) = \bar{b}^{(-1)} \otimes b^{(0)}$
+and $\bar{b}^{(-1)} \in {\cal H}$, $b^{(0)} \in B$.
+On the other hand, in the case of bialgebras the conditions of conserving
+of the (co)algebraic structure of (co)modules can be represented in a
+more explicit form. For example, for the left ${\cal H}$-module algebra
+${\cal A}$ we have
+$(a,b \in {\cal A}; \;\; h \in {\cal H})$:
+$$
+h \triangleright (ab) =
+(h_{(1)} \triangleright a)
+(h_{(2)} \triangleright b) \; , \;\; h \triangleright I_{A} =
+\epsilon(h) I_{A} \; .
+$$
+In addition, for the left ${\cal H}$-module coalgebra ${\cal A}$ we must have
+$$
+\Delta(h \triangleright a) = \Delta(h) \triangleright \Delta(a) =
+(h_{(1)} \triangleright a_{(1)}) \otimes
+(h_{(2)} \triangleright a_{(2)}) \; , \;\;
+\epsilon(h \triangleright a) = \epsilon(h)\epsilon(a) \; .
+$$
+Similarly, the algebra ${\cal A}$ is a left ${\cal H}$-comodule algebra if
+$$
+\Delta_{L}(ab) = \Delta_{L}(a)\, \Delta_{L}(b) \; , \;\;
+\Delta_{L}(I_{A}) = I_{\cal H} \otimes I_{A} \; ,
+$$
+and, finally, the coalgebra ${\cal A}$ is a left  ${\cal H}$-comodule coalgebra if
+\be
+\lb{2.16}
+(id \otimes \Delta)\Delta_{L}(a) =
+m_{\cal H}(\Delta_{L} \otimes \Delta_{L})\Delta(a) \; , \;\;
+(id \otimes \epsilon_{A})\Delta_{L}(a) =
+I_{\cal H}\epsilon_{A}(a) \; ,
+\ee
+where
+$$
+m_{\cal H}(\Delta_{L}\otimes\Delta_{L})(a \otimes b) =
+\bar{a}^{(-1)} \bar{b}^{(-1)}\otimes a^{(0)} \otimes b^{(0)} \; .
+$$
+
+We now consider the bialgebra ${\cal H}$, which acts on a certain module algebra ${\cal A}$. One
+further important property of bialgebras is that we can define a new associative algebra ${\cal A}
+\sharp {\cal H}$ as the cross product (smash product) of ${\cal A}$ and ${\cal H}$. Namely:
+
+%{\bf Definition 3.}
+
+\newtheorem{def3}[def1]{Definition}%[section]
+\begin{def3} \label{def3}
+{\it The left smash product ${\cal A} \sharp {\cal H}$ of the bialgebra ${\cal H}$ and its left
+	module algebra ${\cal A}$ is an associative
+	algebra such that: \\
+	1) As a vector space,
+	${\cal A} \sharp {\cal H}$ is identical to ${\cal A} \otimes {\cal H}$ \\
+	2) The product is defined in the sense ($h,g \in {\cal H}$; $a,b \in {\cal A}$)
+	\be
+	\lb{2.17}
+	(a \sharp g)\, (b \sharp h) = \sum_{g} a(g_{(1)} \triangleright b) \sharp
+	(g_{(2)} h) \equiv (a \sharp I)\;
+	(\Delta(g) \triangleright ( b \sharp h)) \; ;
+	\ee
+	3) The identity element is $I \sharp I$.}
+	\end{def3}
+	If the algebra ${\cal A}$ is the bialgebra dual to the bialgebra ${\cal H}$, then the relations
+	(\ref{2.17}) and (\ref{2.11}) define the rules for interchanging the elements $(I \sharp g)$ and
+	$(a \sharp I)$:
+	\be
+	\lb{2.18}
+	(I \sharp g) \, (a \sharp I) =
+	(a_{(1)} \sharp I) \, \langle g_{(1)}|a_{(2)}\rangle \,
+	(I \sharp g_{(2)}) \; .
+	\ee
+	Thus, the subalgebras ${\cal A}$ and ${\cal H}$ in
+	${\cal A} \, \sharp \, {\cal H}$ do not commute with each other.
+	The smash product depends on which action
+	(left or right) of the algebra ${\cal H}$ on ${\cal A}$ we choose.
+	In addition, the smash product generalizes the concept of the semidirect product.
+	In particular, if we take as bialgebra ${\cal H}$
+	the Lorentz group algebra
+	(see (\ref{2.15})),
+	and as module ${\cal A}$ the group of translations in Minkowski space,
+	then the smash product ${\cal A} \, \sharp \, {\cal H}$ defines the structure of the Poincare group.
+	
+	The coanalog of the smash product, the smash coproduct
+	${\cal A} \, \underline{\sharp} \, {\cal H}$, can also be defined.
+	For this, we consider the bialgebra
+	${\cal H}$ and its comodule coalgebra ${\cal A}$.
+	Then on the space ${\cal A} \otimes {\cal H}$ it is
+	possible to define the structure of a coassociative coalgebra:
+	\be
+	\lb{2.19}
+	\Delta (a \, \underline{\sharp} \, h) =
+	(a_{(1)} \, \underline{\sharp} \,
+	{ \bar{a}_{(2)} }^{\;\;(-1)} h_{(1)}) \otimes
+	(a_{(2)}^{\;\;(0)} \, \underline{\sharp} \,  h_{(2)}) \; , \;\;
+	\epsilon(a \, \underline{\sharp} \,  h) =
+	\epsilon(a)\epsilon(h) \; .
+	\ee
+	The proof of the coassociativity reduces to verification of the identity
+	$$
+	(m_{\cal H}( \Delta_{L}\otimes \Delta_{\cal H}) \otimes id)
+	(id \otimes \Delta_{L})\Delta_{\cal A}(a) =
+	(id \otimes id \otimes \Delta_{L})
+	(id \otimes \Delta_{\cal A} )\Delta_{L}(a) \; ,
+	$$
+	which is satisfied if we take into account the axiom (\ref{2.16}) and the comodule axiom
+	\be
+	\lb{2.20}
+	(id \otimes \Delta_{L})\Delta_{L}(a) =
+	(\Delta_{\cal H} \otimes id)\Delta_{L}(a) \; .
+	\ee
+	
+	Note that from the two bialgebras ${\cal A}$ and ${\cal H}$, which act and coact
+	on each other in a special manner, it is possible to organize a
+	new bialgebra that is simultaneously the smash product and smash
+	coproduct of ${\cal A}$ and ${\cal H}$ (bicross product; see Ref. \cite{14}).
+	
+	\subsection{\bf \em Hopf algebras. Universal ${\cal R}$-matrices\label{hopf3}}
+	\setcounter{equation}0
+	
+	We can now introduce the main concept in the theory of quantum groups,
+	namely, the concept of the Hopf algebra.
+	
+	%{\bf Definition 4.}
+	
+	\newtheorem{def4}[def1]{Definition}
+	\begin{def4} \label{def4}
+{\it A bialgebra ${\cal A}$ equipped with an additional mapping $S: \;\; {\cal A} \rightarrow {\cal
+		A}$ such that
+	\be
+	\lb{2.21}
+	\begin{array}{c}
+		m(S \otimes id) \Delta = m(id \otimes S) \Delta =
+		\hbox{\bf i} \cdot \epsilon  \Rightarrow  \\
+		S(a_{(1)}) \, a_{(2)}  =
+		a_{(1)} \, S(a_{(2)}) = \epsilon(a) \cdot I \;\; (\forall a \in {\cal A})
+	\end{array}
+	\ee
+	is called a Hopf algebra. The mapping $S$ is called the antipode and is an
+	antihomomorphism with respect to both multiplication and comultiplication:
+	\be
+	\lb{2.22}
+	S(ab) = S(b)S(a) \; , \;\; (S \otimes S)\Delta(a) = \sigma \cdot
+	\Delta(S(a)) \; ,
+	\ee
+	where $a,b \in {\cal A}$ and $\sigma$ denotes the operator of transposition, $\sigma (a \otimes b)
+	= (b \otimes a)$.}
+	\end{def4}
+	If we set
+	\be
+	\lb{2.23}
+	S(e_{i}) = S^{j}_{i}e_{j} \; ,
+	\ee
+	then the axiom (\ref{2.21}) can be rewritten in the form
+	\be
+	\lb{2.24}
+	\Delta^{ij}_{k}S^{n}_{i}m^{l}_{nj} =
+	\Delta^{ij}_{k}S^{n}_{j}m^{l}_{in} = \epsilon_{k} E^{l} \; .
+	\ee
+	From the axioms for the structure mappings of a Hopf algebra,
+	it is possible to obtain the useful equations
+	\be
+	\lb{2.25}
+	\begin{array}{c}
+S^{i}_{j}\epsilon_{i} = \epsilon_{j} \; , \;\;
+S^{i}_{j}E^{j} = E^{i} \; , \\  \\
+\Delta^{ji}_{k}(S^{-1})^{n}_{i}m^{l}_{nj} =
+\Delta^{ji}_{k}(S^{-1})^{n}_{j}m^{l}_{in} = \epsilon_{k} E^{l} \; ,
+\end{array}
+\ee
+which we shall use in what follows. Note that, in general, the antipode $S$
+is not necessarily invertible. An invertible antipode is called bijective.
+
+In quantum physics the existence of the antipode $S$ is needed to define a space of
+contragredient states $\langle \psi |$ (contragredient module of ${\cal A}$)
+with pairing $\langle \psi | \phi \rangle$:
+$\langle \psi | \otimes | \phi \rangle \to \mathbb{C}$.
+Left actions of the Hopf algebra ${\cal A}$
+of observables to the contragredient states are (cf. the actions (\ref{phys}) of ${\cal A}$ to the
+states $| \psi_1 \rangle \otimes | \psi_2 \rangle$):
+\be
+\lb{contg}
+a \triangleright \langle \psi | : =
+\langle \psi | \, S(a) \;\; (a \in {\cal A}) \; ,
+\ee
+$$
+a \triangleright (\langle \psi_1 | \otimes \langle \psi_2 |) : =
+(\langle \psi_1 | \otimes \langle \psi_2 |) \Delta(S(a)) =
+\langle \psi_1 | \, S(a_{(2)}) \otimes \langle \psi_2 | \, S(a_{(1)}) \; .
+$$
+The states $\langle \psi |$ are called left dual to the states
+$| \phi \rangle$; the right dual ones are introduced with the help of the inverse
+antipode $S^{-1}$ (see e.g. \cite{17}).
+Then, the covariance of the pairing $\langle \psi | \phi \rangle$
+under the left action of ${\cal A}$ can be established:
+$$
+\begin{array}{c}
+a \triangleright \langle \psi | \phi \rangle \equiv
+(a_{(1)} \triangleright \langle \psi |)\; (a_{(2)}
+\triangleright |\phi \rangle) =
+\langle \psi | S(a_{(1)}) \, a_{(2)} | \phi \rangle = \epsilon(a) \langle \psi | \phi \rangle
+\; , \\ [0.2cm]
+a \triangleright \langle \psi_1 | \phi_1 \rangle \;
+\langle \psi_2 | \phi_2 \rangle = a \triangleright
+(\langle \psi_1 | \otimes \langle \psi_2 |)
+(| \phi_1 \rangle \otimes | \phi_2 \rangle) = \\ [0.2cm]
+= \langle \psi_1 | S(a_{(2)})a_{(3)}| \phi_1 \rangle
+\langle \psi_1 | S(a_{(1)})a_{(4)}| \phi_1 \rangle =
+\epsilon(a) \, \langle \psi_1 | \phi_1 \rangle \;
+\langle \psi_2 | \phi_2 \rangle \; .
+\end{array}
+$$
+
+The universal enveloping algebra $U(\mathfrak{g})$
+and the group bialgebra of the group $G$
+that we considered above can again serve as examples of cocommutative
+Hopf algebras. An example of a commutative
+(but noncocommutative)
+Hopf algebra is the bialgebra ${\cal A}(G)$,
+which we also considered above. The antipodes for these algebras have the form
+\begin{equation}
+\label{2.25a}
+\begin{array}{c}
+	U(\mathfrak{g}): \;\; S(J_{\alpha}) = - J_{\alpha} \; , \;\;
+	S(I) = I \; ,
+	\\ \\
+	G: \;\; S(h) = h^{-1} \; ,
+	\\ \\
+	{\cal A}(G): \;\; S(f)(h) = f(h^{-1}) \; ,
+\end{array}
+\end{equation}
+and satisfy the relation $S^{2} =id$,
+which holds for all commutative or cocommutative Hopf algebras.
+
+From the point of view of the axiom (\ref{2.21}), $S(a)$ looks like the
+inverse of the element $a$, although in the general case $S^{2} \neq id$.
+We recall that if a set ${\cal G}$
+of elements with associative
+multiplication ${\cal G} \otimes {\cal G} \rightarrow {\cal G}$
+and with identity (semigroup) also contains all the
+inverse elements, then such a set ${\cal G}$ becomes a group. Thus, from the point of
+view of the presence of the mapping $S$, a Hopf algebra  generalizes the notion
+of the group algebra (for which $S(h) = h^{-1}$), although by itself it obviously need
+not be a group algebra. In accordance with Drinfeld's definition [13] the concepts
+of a Hopf algebra and a quantum group are more or less equivalent. Of course, the most
+interesting examples of quantum groups arise when one considers
+noncommutative and noncocommutative Hopf algebras.
+\vspace{0.2cm}
+
+Consider a noncommutative Hopf algebra ${\cal A}$ which is also noncocommutative
+$\Delta \neq \Delta^{\sf op} \equiv \sigma \Delta$,
+where $\sigma$ is the transposition operator
+$\sigma(a \otimes b) = b \otimes a$ ($\forall a,b \in {\cal A}$).
+%{\bf Definition 5.}
+\newtheorem{def5}[def1]{Definition}
+\begin{def5} \label{def5}
+{\it A Hopf algebra ${\cal A}$ for which there exists an invertible element
+	${\cal R} \in {\cal A} \otimes
+	{\cal A}$ such that
+	\be
+	\lb{2.26}
+	\Delta^{\sf op}(a) = {\cal R} \Delta(a) {\cal R}^{-1} \; ,
+	\;\;\;\;\; \forall a \in {\cal A} \; ,
+	\ee
+	\be
+	\lb{2.27}
+	(\Delta \otimes id) ({\cal R}) = {\cal R}_{13} {\cal R}_{23} \; , \; \;
+	(id \otimes \Delta) ({\cal R}) = {\cal R}_{13} {\cal R}_{12}
+	\ee
+	is called quasitriangular. Here the element
+	\be
+	\lb{2.28}
+	{\cal R}=\sum_{ij} R^{(ij)} e_{i} \otimes e_{j}
+	\ee
+	is called the universal ${\cal R}$ matrix,
+	$R^{(ij)} \in \mathbb{C}$ are
+	the constants and the symbols ${\cal R}_{12}, {\cal R}_{13},
+	{\cal R}_{23}$ have the meaning
+	\be
+	\lb{2.30a}
+	{\cal R}_{12} = \sum_{ij} R^{(ij)} e_{i} \otimes e_{j}
+	\otimes I \; , \;\;
+	{\cal R}_{13} = \sum_{ij} R^{(ij)} e_{i} \otimes I \otimes e_{j}  \; , \;\;
+	{\cal R}_{23} =
+	\sum_{ij} R^{(ij)} I \otimes e_{i} \otimes e_{j} \; .
+	\ee}
+	\end{def5}
+	The relation (\ref{2.26}) shows that the noncocommutativity in a quasitriangular
+	Hopf algebra is kept "under control." It can be shown \cite{13'} that for such
+	a Hopf algebra the universal ${\cal R}$ matrix (\ref{2.28}) satisfies
+	the Yang-Baxter equation
+	\be
+	\lb{2.30}
+	{\cal R}_{12}{\cal R}_{13}{\cal R}_{23} = {\cal R}_{23}{\cal R}_{13}{\cal R}_{12} \; ,
+	\ee
+	(to which a considerable part of the review will be devoted)
+	and the relations
+	\be
+	\lb{2.29}
+	(id \otimes \epsilon){\cal R} = (\epsilon \otimes id){\cal R} = I \; ,\;\;
+	\ee
+	\be
+	\lb{2.29a}
+	\begin{array}{c}
+(S \otimes id){\cal R} = {\cal R}^{-1} \;\; \Leftrightarrow \;\;
+(S^{-1} \otimes id){\cal R}^{-1} = {\cal R} \; , \\ [0.2cm]
+(id \otimes S){\cal R}^{-1} = {\cal R}
+\;\; \Leftrightarrow \;\;
+(id \otimes S^{-1}){\cal R} = {\cal R}^{-1}  \; .
+\end{array}
+\ee
+The Yang-Baxter eq. (\ref{2.30}) follows from
+(\ref{2.26}) and (\ref{2.27}):
+\be
+\lb{2.31}
+{\cal R}_{12} \, {\cal R}_{13} \, {\cal R}_{23} =
+{\cal R}_{12} \; (\Delta \otimes id)({\cal R}) =
+(\Delta^{\sf op} \otimes id)({\cal R})\; {\cal R}_{12} =
+{\cal R}_{23} \, {\cal R}_{13} \, {\cal R}_{12} \; .
+\ee
+It is easy to derive the relations (\ref{2.29}) by applying $(\epsilon \otimes id \otimes id)$
+and
+$(id \otimes id \otimes \epsilon)$ respectively to
+the first and second relation in (\ref{2.27}),
+and then taking into account (\ref{2.8}).
+Next, we prove the equalities in (\ref{2.29a}).
+We consider expressions
+${\cal R} \cdot (S \otimes id) \, {\cal R}$ and
+${\cal R} \cdot (id \otimes S^{-1}) \, {\cal R}$
+and make use of the
+Hopf algebra axioms (\ref{2.21})
+and equations (\ref{2.27}), (\ref{2.29}):
+$$
+\begin{array}{c}
+{\cal R}_{23} \cdot (id \otimes S \otimes id) \, {\cal R}_{23} =
+(m_{12} \otimes id_3) \bigl( {\cal R}_{13} \,
+(id \otimes S \otimes id) {\cal R}_{23} \bigr) = \\ [0.1cm]
+= (m_{12} \otimes id_3)\,
+(id \otimes S \otimes id) {\cal R}_{13} \, {\cal R}_{23} =
+(m_{12} \otimes id_3)\,
+\bigl( (id \otimes S)\Delta \otimes id \bigr){\cal R} =
+(\hbox{\bf i} \cdot \epsilon \otimes id) \, {\cal R} = I \; ,
+\end{array}
+$$
+$$
+\begin{array}{c}
+{\cal R}_{12} \, (id \otimes S^{-1}) \, {\cal R}_{12} =
+(id_1  \otimes   m_{23})\,
+(id \otimes id \otimes S^{-1} ) {\cal R}_{12} \, {\cal R}_{13} =
+\\ [0.2cm]
+= (id_1  \otimes   m_{23})\,
+\bigl(id \otimes  (id \otimes S^{-1})\Delta^{\sf op} \bigr){\cal R} =
+(id \otimes \hbox{\bf i} \cdot \epsilon) \, {\cal R} = I \; ,
+\end{array}
+$$
+where the ultimate equality follows from (\ref{2.21})
+which is written in the form
+$a_{(2)} S^{-1}(a_{(1)}) = \epsilon(a) I$.
+
+
+The next important concept that we shall need in what follows
+is the concept of the Hopf algebra ${\cal A}^{*}$ that is the dual of the
+Hopf algebra ${\cal A}$.
+We choose in ${\cal A}^{*}$ basis elements $\{ e^{i} \}$ and define multiplication, the identity,
+comultiplication, the coidentity, and the antipode for ${\cal A}^{*}$ in the form
+\be
+\lb{2.33}
+e^{i} e^{j}  = m^{ij}_{k} e^{k} \; , \;\; I = \bar{E}_{i}e^{i} \; , \;\;
+\Delta(e^{i}) = \Delta^{i}_{jk} e^{j} \otimes e^{k} \; , \;\;
+\epsilon(e^{i}) = \bar{\epsilon}^{i} \; , \;\;
+S(e^{i}) = \bar{S}^{i}_{j} e^{j} \; .
+\ee
+
+%{\bf Definition 6.}
+
+\newtheorem{def6}[def1]{Definition}
+\begin{def6} \label{def6}
+{\it Two Hopf algebras ${\cal A}$ and ${\cal A}^{*}$ with corresponding bases
+	$\{e_{i} \}$ and $\{e^{i} \}$ are
+	said to be dual to each other if there exists a
+	nondegenerate pairing $\langle  . | . \rangle $:
+	${\cal A}^{*} \otimes {\cal A} \rightarrow \mathbb{C}$ such that
+	\be
+	\lb{2.34}
+	\begin{array}{c}
+		\langle  e^{i}e^{j} | e_{k}\rangle  \equiv \langle  e^{i} \otimes e^{j} | \Delta(e_{k})\rangle  =
+		\langle  e^{i} | e_{k'}\rangle  \Delta_{k}^{k'k''} \langle  e^{j} | e_{k''}\rangle  \\ \\
+		\langle  e^{i} | e_{j} e_{k}\rangle  \equiv \langle  \Delta(e^{i})| e_{j} \otimes e_{k}\rangle  =
+		\langle  e^{i'} | e_{j}\rangle  \Delta^{i}_{i'i''} \langle  e^{i''} | e_{k}\rangle  \\ \\
+		\langle S(e^{i}) | e_{j} \rangle  = \langle e^{i} | S(e_{j}) \rangle  \; , \;\;
+		\langle  e^{i} | I \rangle  = \epsilon (e^{i}) \; , \;\;
+		\langle  I | e_{i} \rangle  = \epsilon (e_{i}) \; .
+	\end{array}
+	\ee}
+	\end{def6}
+	Since the pairing $\langle .|.\rangle $ (\ref{2.34}) is nondegenerate,
+	we can always choose basis elements $\{ e^{i} \}$ such that
+	\be
+	\lb{2.35}
+	\langle  e^{i} | e_{j} \rangle  = \delta^{i}_{j} \; .
+	\ee
+	Then from the axioms for the pairing (\ref{2.34}) and from the
+	definitions of the structure maps (\ref{2.1}), (\ref{2.23}), and (\ref{2.33}) in
+	${\cal A}$ and ${\cal A}^{*}$ we readily deduce
+	\be
+	\lb{2.36}
+	m^{ij}_{k} = \Delta^{ij}_{k} \; , \;\;
+	m_{ij}^{k} = \Delta_{ij}^{k} \; , \;\;
+	\bar{S}^{i}_{j} = S^{i}_{j} \; , \;\;
+	\bar{\epsilon}^{i} = E^{i} \; , \;\;
+	\bar{E}_{i} = \epsilon_{i} \; .
+	\ee
+	Thus, the multiplication, identity, comultiplication, coidentity,
+	and antipode in a Hopf algebra define, respectively, comultiplication,
+	coidentity, multiplication, identity, and antipode in the dual Hopf algebra.
+	
+	%\newpage
+	\vspace{0.3cm}
+	
+	%\subsection{Example: the group algebra of finite
+%group and its algebra of functions}\setcounter{equation}0
+
+\noindent
+{\bf Remark.} In \cite{Pontr} L.S. Pontryagin showed that the set of characters of an abelian locally compact
+group $G$ is an abelian group, called the dual group $G^*$ of $G$. The group $G^*$ is also locally
+compact. Moreover, the dual group of $G^*$ is isomorphic to $G$. This beautiful theory becomes
+wrong if $G$ is a noncommutative group, even if it is finite. To restore the duality principle one
+can replace the set of characters for a finite noncommutative group $G$ by the category of its
+irreducible representations (irreducible representations for the commutative groups are exactly
+characters). Indeed, T. Tannaka and M. Krein showed that the compact group $G$ can be recovered
+from the set of its irreducible unitary representations. They proved a duality theorem for compact
+groups, involving irreducible representations of $G$ (although no group-like structure is to be put
+on that class, since the tensor product of two irreducible representation may no longer be
+irreducible). However, the tensor product of two irreducible representations of the compact group
+$G$ can be expanded as a
+sum of irreducible representations and, thus, the dual object has the structure of an algebra. Recall (see (\ref{2.15a})) that
+matrix representations of group $G$ are realized by the sets
+of special functions $T^i_{\; k}$.
+One can consider the group algebra ${\cal G}$ of finite group $G$
+and the algebra ${\cal A}(G) \equiv {\cal G}^\star$ of functions on the
+group $G$ as simplest
+examples of the Hopf algebras. The structure mappings for these algebras
+have been defined in (\ref{2.15}), (\ref{2.15b}) and (\ref{2.25a}).
+Note that the algebras ${\cal G}$ and ${\cal G}^\star$
+are Hopf dual to each other.
+The detailed structure of ${\cal G}^\star$ follows
+from the representation theory of finite groups
+(see e.g. \cite{Sierre}).
+
+
+
+\subsection{\bf \em Heisenberg and Quantum doubles.
+Yetter--Drinfeld modules\label{hopf4}}
+\setcounter{equation}0
+
+In Subsection 2.2 we have defined (see Definition \ref{def3}) the notion of the smash
+(cross) product of the bialgebra and its module algebra.
+Since the Hopf dual algebra ${\cal A}^*$ is the natural right and left module
+algebra for the Hopf algebra ${\cal A}$ (\ref{2.10}), (\ref{2.11}),
+one can immediately define the right
+${\cal A}^* \sharp {\cal A}$ and the left ${\cal A} \sharp {\cal A}^*$
+cross products of the algebra ${\cal A}$ on ${\cal A}^*$.
+These cross-product algebras are called
+Heisenberg doubles of ${\cal A}$
+and they are the associative algebras with
+nontrivial cross-multiplication rules (cf. eq. (\ref{2.18})):
+\begin{equation}
+\label{25d}
+a \, \bar{a} = (a_{(1)} \triangleright \bar{a}) \,
+a_{(2)} = \bar{a}_{(1)} \, \langle a_{(1)} \, | \, \bar{a}_{(2)} \rangle \, a_{(2)}  \; ,
+\end{equation}
+\begin{equation}
+\label{25dd}
+\bar{a} \, a = a_{(1)} (\bar{a} \triangleleft a_{(2)}) \,
+= a_{(1)} \, \langle \bar{a}_{(1)} \, | \, a_{(2)} \rangle \, \bar{a}_{(2)}  \; ,
+\end{equation}
+where $a \in {\cal A}$ and $\bar{a} \in {\cal A}^*$.
+Here we discuss only the left cross product algebra ${\cal A} \sharp {\cal A}^*$
+(\ref{25d}) (the other one (\ref{25dd})
+is considered analogously).
+
+As in the previous subsection, we denote $\{ e^{i} \}$ and $\{ e_{i} \}$
+the dual basis elements of ${\cal A}^*$ and ${\cal A}$, respectively.
+In terms of this basis we rewrite (\ref{25d}) in the form
+\begin{equation}
+\label{25f}
+e_r \, e^n =  e^i \, \Delta^n_{if} \langle e_j | e^f \rangle  \, \Delta^{jk}_r  \, e_k
+= m^n_{ij} \,  e^i \, e_k \, \Delta^{jk}_r  \; .
+\end{equation}
+Let us define a right ${\cal A}^*$ - coaction and
+a left ${\cal A}$ - coaction
+on the algebra ${\cal A} \sharp {\cal A}^*$, such that these coactions
+respect the algebra structure of ${\cal A} \sharp {\cal A}^*$:
+\begin{equation}
+\label{26} \Delta_R( z) = C \, (z \otimes 1) \, C^{-1} \; , \;\;\;
+\Delta_L( z) = C^{-1} \, (1 \otimes z) \, C \; , \;\;\;
+C \equiv e_{i} \otimes e^{i} \; .
+\end{equation}
+The inverse of the canonical element $C$ is
+$$
+C^{-1} = S(e_{i}) \otimes e^{i} = e_{i} \otimes S(e^{i}) \; ,
+$$
+and $\Delta_R$, $\Delta_L$ (\ref{26}) are represented in the form
+\begin{equation}
+\label{27}
+\Delta_R( z) =
+(e_{k(1)} \, z \, S(e_{k(2)})) \otimes e^{k} \; , \;\;\;
+\Delta_L( z) =
+e_{k} \otimes  S(e^k_{(1)}) \, z \, e^k_{(2)}
+\; .
+\end{equation}
+Note that $\Delta_R(\bar{z}) = \Delta(\bar{z})$ $\forall \bar{z} \in {\cal A}^*$
+and $\Delta_L(z) = \Delta(z)$ $\forall z \in {\cal A}$
+(here ${\cal A}$ and ${\cal A}^*$ are understood as the Hopf subalgebras
+in ${\cal A} \sharp {\cal A}^*$ and $\Delta$ are corresponding
+comultiplications). Indeed, for $z \in {\cal A}$ we have
+$$
+\Delta_L(z) = e_{k} \otimes  S(e^k_{(1)}) \, z \, e^k_{(2)} =
+e_{k} \otimes  S(e^k_{(1)}) \, e^k_{(2)} \, \langle z_{(1)} \, | \, e^k_{(3)} \rangle
+z_{(2)} =
+$$
+$$
+= e_{k} \,  \langle z_{(1)} \, | \, e^k \rangle \otimes
+z_{(2)} = z_{(1)} \otimes  z_{(2)} \; ,
+$$
+(the proof of $\Delta_R(\bar{z}) = \Delta(\bar{z})$ is similar).
+The axioms
+$$
+(id \otimes \Delta)\Delta_R = (\Delta_R \otimes id)\Delta_R
+\;\; , \;\;\;
+(id \otimes \Delta_L)\Delta_L = (\Delta \otimes id)\Delta_L \; ,
+$$
+$$
+(id \otimes \Delta_R)\Delta_L(z) = C^{-1}_{13} \,
+(\Delta_L \otimes id)\Delta_R(z) \, C_{13} \; ,
+$$
+can be verified directly by using relations (cf. (\ref{2.27}))
+$$
+(id \otimes \Delta) C_{12} = C_{13} \, C_{23} \; , \;\;\;
+(\Delta \otimes id) C_{12} = C_{13} \, C_{23} \; ,
+$$
+and the pentagon identity \cite{BSk} for $C$
+\be
+\lb{c5}
+C_{12} \, C_{13} \, C_{23} = C_{23} \, C_{12} \; .
+\ee
+The proof of (\ref{c5}) is straightforward (see (\ref{25f})):
+$$
+C_{12} \, C_{13} \, C_{23} = e_i \, e_j \otimes e^i \, e_k \otimes e^j \, e^k =
+e_n \otimes  m^n_{ij} \,  e^i \, e_k \, \Delta^{jk}_r \otimes e^r =
+$$
+$$
+= e_n \otimes  e_r \, e^n  \otimes e^r = C_{23} \, C_{12} \; .
+$$
+The pentagon identity (\ref{c5}) is used for the construction
+of the explicit solutions of the tetrahedron equations
+(3D generalizations of the Yang-Baxter equations).
+
+Although ${\cal A}$ and ${\cal A}^*$ are Hopf algebras, their Heisenberg
+doubles  ${\cal A} \sharp {\cal A}^*$, ${\cal A}^* \sharp {\cal A}$ are not Hopf algebras. But
+as we have seen just before the algebra ${\cal A} \sharp {\cal A}^*$
+(as well as ${\cal A}^* \sharp {\cal A}$) still possesses some
+covariance properties, since the coactions (\ref{26}) are
+covariant transformations (homomorphisms) of the algebra
+${\cal A} \sharp {\cal A}^*$.
+
+The natural question is the following: is it possible to invent such
+a cross-product of the Hopf algebra and its dual Hopf algebra to
+obtain a new Hopf algebra?
+Drinfeld \cite{13} showed that there exists a quasitriangular
+Hopf algebra ${\cal D}({\cal A})$ that is a special smash product of the Hopf
+algebras ${\cal A}$ and ${\cal A}^{o}$:
+${\cal D}({\cal A}) = {\cal A} \Join {\cal A}^{o}$, which is called the quantum double.
+Here we denote by ${\cal A}^{o}$ the algebra ${\cal A}^{*}$ with opposite
+comultiplication: $\Delta(e^{i}) = m^{i}_{kj} e^{j} \otimes e^{k}$,
+${\cal A}^o = ({\cal A}^*)^{cop}$.
+It follows
+from (\ref{2.25}) that the antipode for ${\cal A}^{o}$ will be not $S$ but
+the skew antipode $S^{-1}$. Thus, the structure mappings for ${\cal A}^{o}$ have the form
+\be
+\lb{2.37}
+e^{i}e^{j} = \Delta^{ij}_{k} e^{k} \; , \; \;
+\Delta(e^{i}) = m^{i}_{kj} e^{j} \otimes e^{k} \; , \; \;
+S(e^{i}) = (S^{-1})^{i}_{j} e^{j} \; .
+\ee
+The algebras ${\cal A}$ and ${\cal A}^{o}$ are said to be antidual,
+and for them we can introduce the antidual
+pairing $\langle \langle .|.\rangle \rangle $:
+${\cal A}^{o} \otimes {\cal A} \rightarrow \mathbb{C}$, which satisfies the conditions
+\be
+\lb{2.38}
+\begin{array}{c}
+\langle \langle  e^{i}e^{j} | e_{k}\rangle \rangle  \equiv \langle \langle  e^{i} \otimes e^{j} | \Delta(e_{k})\rangle \rangle  =
+\Delta_{k}^{ij}  \; , \\ \\
+\langle \langle  e^{i} | e_{k} e_{j}\rangle \rangle  \equiv \langle \langle  \Delta(e^{i})| e_{j} \otimes e_{k}\rangle \rangle  =
+m^{i}_{kj}  \; , \\ \\
+\langle \langle S(e^{i}) | e_{j} \rangle \rangle  = \langle \langle e^{i} | S^{-1}(e_{j}) \rangle \rangle
+= (S^{-1})^{i}_{j} \; , \;\; \\ \\
+\langle \langle e^{i} | S(e_{j}) \rangle \rangle  = \langle \langle S^{-1}(e^{i}) | e_{j}\rangle \rangle  = S^{i}_{j}
+\; , \;\; \\ \\
+\langle \langle  e^{i} | I \rangle \rangle  = E^{i} \; , \;\;
+\langle \langle  I | e_{i} \rangle \rangle  = \epsilon_{i} \; .
+\end{array}
+\ee
+The universal $R$-matrix can be expressed in the form
+of the canonical element
+\be
+\lb{2.39}
+{\cal R} = (e_{i} \Join I) \otimes (I \Join e^{i}) \; ,
+\ee
+and the multiplication in ${\cal D}({\cal A})$
+is defined in accordance with (the summation signs are omitted)
+\be
+\lb{2.40}
+(a \Join \alpha)(b \Join \beta) =
+a \left( (\alpha_{(3)} \triangleright b) \triangleleft
+S(\alpha_{(1)}) \right) \Join \alpha_{(2)} \beta \; ,
+\ee
+where $\alpha, \beta \in {\cal A}^{o}$,
+$a,b \in {\cal A}$, $\Delta^{2}(\alpha) =
+\alpha_{(1)} \otimes \alpha_{(2)} \otimes \alpha_{(3)}$ and
+\be
+\lb{2.41}
+\alpha \triangleright b = b_{(1)} \langle \langle \alpha | b_{(2)} \rangle \rangle  \; , \;\;
+b \triangleleft \alpha = \langle \langle \alpha | b_{(1)} \rangle \rangle  b_{(2)}\; .
+\ee
+
+The coalgebraic structure on the quantum double is defined by
+the direct product of the coalgebraic structures on the Hopf algebras
+${\cal A}$ and ${\cal A}^{o}$:
+\be
+\lb{2.42}
+\Delta(e_{i} \Join e^{j}) =
+\Delta(e_{i} \Join I) \Delta(I \Join e^{j}) =
+\Delta^{nk}_{i} m^{j}_{lp}(e_{n} \Join e^{p})
+\otimes (e_{k} \Join e^{l}) \; .
+\ee
+Finally, the antipode and coidentity for ${\cal D}({\cal A})$ have the form
+\be
+\lb{2.43}
+S(a \Join \alpha) = S(a) \Join S(\alpha) \; , \;\;
+\epsilon(a \Join \alpha) = \epsilon(a) \epsilon(\alpha)  \; .
+\ee
+
+All the axioms of a Hopf algebra can be verified for ${\cal D}({\cal A})$
+by direct calculation. A simple proof of the associativity of the
+multiplication (\ref{2.40}) and the coassociativity of the
+comultiplication (\ref{2.42}) can be found in Ref. \cite{15}.
+
+Taking into account (\ref{2.41}), we can rewrite (\ref{2.40}) as the
+commutator for the elements $(I \Join \alpha)$ and $(b \Join I)$:
+\be
+\lb{2.44a}
+(I \Join \alpha)(b \Join I) = \langle \langle  S( \alpha_{(1)}) | b_{(1)} \rangle \rangle
+(b_{(2)} \Join I) (I \Join \alpha_{(2)})
+\langle \langle   \alpha_{(3)} | b_{(3)} \rangle \rangle
+\ee
+or, in terms of the basis elements
+$\alpha = e^{t}$ and
+$b = e_{s}$ we have \cite{13}
+\be
+\lb{2.44}
+\begin{array}{c}
+(I \Join e^{t})(e_{s} \Join I) =  m^{t}_{klp} \Delta_{s}^{njk}
+(S^{-1})^{p}_{n} (e_{j} \Join I)(I \Join e^{l}) \equiv \\ \\
+\left( m^{t}_{ip}(S^{-1})^{p}_{n} \Delta^{nr}_{s} \right)
+\left( m^{i}_{kl} \Delta^{jk}_{r} \right)
+(e_{j} \Join I)(I \Join e^{l}) \; ,
+\end{array}
+\ee
+where $m^{t}_{klp}$ and $\Delta^{njk}_{s}$ are defined in (\ref{2.3}) and (\ref{2.7}),
+and $(S^{-1})^{p}_{n}$  is the matrix of the skew antipode.
+
+The consistence of definitions of left and right bimodules over the quantum double ${\cal D}({\cal A})$
+should be clarified in view of the nontrivial
+structure of the cross-multiplication rule (\ref{2.44a}), (\ref{2.44})
+for subalgebras ${\cal A}$ and ${\cal A}^o$. It can be done (see, e.g. \cite{Rosso2}) if one considers
+left or right coinvariant bimodules (Hopf modules): $M^L =  \{ m: \;\; \Delta_L(m) = 1 \otimes m  \}$ or
+$M^R =  \{ m: \;\; \Delta_R(m) = m \otimes 1 \}$. E.g., for $M^R$ one can define the left ${\cal A}$
+and left ${\cal A}^o$-module actions as
+\be
+\lb{2.44b}
+a \triangleright m = a_{(1)} \, m \, S(a_{(2)}) \; ,
+\ee
+\be
+\lb{2.44bb}
+\alpha \triangleright m = \langle \langle S(\alpha) , m_{(-1)} \rangle \rangle \, m_{(0)} \; ,
+\ee
+where  $\Delta_L(m) = m_{(-1)} \otimes m_{(0)}$ is the left  ${\cal A}$-coaction on $M^R$
+and $a \in {\cal A}$, $\alpha \in {\cal A}^o$.
+Note that  left ${\cal A}$-module action (\ref{2.44b}) respects the right coinvariance of $M^R$.
+The compatibility condition for the left ${\cal A}$-action (\ref{2.44b})
+and left ${\cal A}$-coaction  $\Delta_L$
+is written in the form (we represent $\Delta_L(a \triangleright m)$ in two different ways):
+\be
+\lb{2.44c}
+(a \triangleright m)_{(-1)} \otimes (a \triangleright m)_{(0)} =
+a_{(1)} \, m_{(-1)} \, S(a_{(3)})
+\otimes a_{(2)} \triangleright m_{(0)} \; .
+\ee
+A module with the property (\ref{2.44c}) is called Yetter-Drinfeld module. Then,
+using (\ref{2.44b}), (\ref{2.44c}) and opposite coproduct for ${\cal A}^o$, we obtain
+\be
+\lb{2.44d}
+\begin{array}{c}
+\alpha \triangleright (a \triangleright m) = \alpha \triangleright (a_{(1)} \, m \, S(a_{(2)})) =
+\langle \langle S(\alpha) , a_{(1)} \, m_{(-1)} \, S(a_{(3)})  \rangle \rangle \,
+a_{(2)} \triangleright  m_{(0)} = \\ \\
+=  \langle \langle S(\alpha_{(1)}) , \, a_{(1)} \rangle \rangle
+\,\langle \langle \alpha_{(3)}, \,   a_{(3)}  \rangle \rangle \,
+a_{(2)} \triangleright  (\alpha_{(2)} \triangleright m ) \; ,
+\end{array}
+\ee
+and one can recognize in eq. (\ref{2.44d}) the quantum double multiplication
+formula (\ref{2.44a}).
+
+It follows from Eqs. (\ref{2.3}), (\ref{2.7}) and from the identities for the skew antipode
+(\ref{2.25}) that
+\be
+\lb{2.45}
+\left( m^{q}_{tk} \Delta^{ks}_{m} \right)
+\left( m^{t}_{ip}(S^{-1})^{p}_{n} \Delta^{nr}_{s} \right) =
+\delta^{q}_{i}\delta^{r}_{m} \; ,
+\ee
+and this enables us to rewrite (\ref{2.44}) in the form
+$$
+\left( m^{q}_{tk} \Delta^{ks}_{m} \right)
+(I \Join e^{t})(e_{s} \Join I) =  ( m^{q}_{kl} \Delta_{m}^{jk} )
+(e_{j} \Join I)(I \Join e^{l}) \; .
+$$
+This equation is equivalent to the axiom (\ref{2.26}) for the universal matrix ${\cal R}$ (\ref{2.39}).
+The relations (\ref{2.27}) for ${\cal R}$ (\ref{2.39}) are readily verified.
+Thus, ${\cal D}({\cal A})$ is indeed a quasitriangular Hopf algebra with universal
+${\cal R}$ matrix represented by (\ref{2.39}).
+
+In conclusion, we note that many relations for the structure constants
+of Hopf algebras [for example, the relation (2.45)] can be obtained
+and represented in a transparent form by means of the following diagrammatic technique: \\
+\unitlength=1cm
+\begin{picture}(15,4)
+\put(0,2){$\Delta_{k}^{ij}=$}
+\put(2,2.1){\line(-1,-1){0.6}}
+\put(1.7,1.8){\vector(-1,-1){0.1}}
+\put(1,1.2){$i$}
+\put(2,2.1){\line(0,1){0.8}}
+\put(2,2.5){\vector(0,-1){0.1}}
+\put(2,3){$k$}
+\put(2,2.1){\line(1,-1){0.6}}
+\put(2.3,1.8){\vector(1,-1){0.1}}
+\put(2.7,1.2){$j$}
+\put(3.5,2){$m^{k}_{ij}=$}
+\put(5.5,2.2){\line(1,1){0.6}}
+\put(5.8,2.5){\vector(-1,-1){0.1}}
+\put(6.2,2.9){$j$}
+\put(5.5,2.2){\line(0,-1){0.8}}
+\put(5.5,1.8){\vector(0,-1){0.1}}
+\put(5.45,1){$k$}
+\put(5.5,2.2){\line(-1,1){0.6}}
+\put(5.2,2.5){\vector(1,-1){0.1}}
+\put(4.9,2.9){$i$}
+\put(7.5,2){$\epsilon_{i} =$}
+\put(8.8,1.9){\line(0,1){0.7}}
+\put(8.8,2.3){\vector(0,-1){0.1}}
+\put(8.8,1.7){\circle{0.4}}
+\put(8.75,1.6){$\epsilon$}
+\put(8.8,2.7){$i$}
+\put(10,2){$E^{i} =$}
+\put(11.3,2.3){\line(0,-1){0.7}}
+\put(11.3,2){\vector(0,-1){0.1}}
+\put(11.3,2.5){\circle{0.4}}
+\put(11.3,1.2){$i$}
+\put(12.5,2){$S^{i}_{j} =$}
+\put(13.8,2.4){\line(0,1){0.6}}
+\put(13.8,2.75){\vector(0,-1){0.1}}
+\put(13.8,3.2){$j$}
+\put(13.8,2.2){\circle{0.4}}
+\put(13.8,2){\line(0,-1){0.6}}
+\put(13.8,1.75){\vector(0,-1){0.1}}
+\put(13.7,2.1){$s$}
+\put(13.8,1){$i$}
+\end{picture}
+
+For example, the axioms of associativity (2.3) and coassociativity
+(\ref{2.7}) and the axioms for the antipode (\ref{2.24}) can be
+represented in the form
+
+\unitlength=0.7cm
+\begin{picture}(20,5)
+\put(1,2.1){\line(-1,-1){0.6}}
+\put(0.7,1.8){\vector(-1,-1){0.1}}
+\put(0,1.2){$n$}
+\put(1,2.1){\line(0,1){0.8}}
+\put(1,2.5){\vector(0,-1){0.1}}
+\put(1.2,2.3){$l$}
+\put(1,2.1){\line(1,-1){0.6}}
+\put(1.3,1.8){\vector(-1,1){0.1}}
+\put(1.7,1.2){$k$}
+\put(1,2.9){\line(1,1){0.6}}
+\put(1.3,3.2){\vector(-1,-1){0.1}}
+\put(1.7,3.6){$j$}
+\put(1,2.9){\line(-1,1){0.6}}
+\put(0.7,3.2){\vector(1,-1){0.1}}
+\put(0.4,3.6){$i$}
+\put(2.2,2.3){$=$}
+\put(3.7,2.4){\line(-1,-1){0.6}}
+\put(3.4,2.1){\vector(-1,-1){0.1}}
+\put(2.8,1.5){$n$}
+\put(3.7,2.4){\line(1,0){0.8}}
+\put(4.1,2.4){\vector(-1,0){0.1}}
+\put(4,2.6){$l$}
+\put(4.5,2.4){\line(1,-1){0.6}}
+\put(4.8,2.1){\vector(-1,1){0.1}}
+\put(5.1,1.5){$k$}
+\put(4.5,2.4){\line(1,1){0.6}}
+\put(4.8,2.7){\vector(-1,-1){0.1}}
+\put(5.1,3.3){$j$}
+\put(3.7,2.4){\line(-1,1){0.6}}
+\put(3.4,2.7){\vector(1,-1){0.1}}
+\put(2.8,3.3){$i$}
+
+\put(7.5,2.1){\line(-1,-1){0.6}}
+\put(7.2,1.8){\vector(-1,-1){0.1}}
+\put(6.5,1.2){$n$}
+\put(7.5,2.1){\line(0,1){0.8}}
+\put(7.5,2.5){\vector(0,-1){0.1}}
+\put(7.7,2.3){$l$}
+\put(7.5,2.1){\line(1,-1){0.6}}
+\put(7.8,1.8){\vector(1,-1){0.1}}
+\put(8.2,1.2){$k$}
+\put(7.5,2.9){\line(1,1){0.6}}
+\put(7.8,3.2){\vector(1,1){0.1}}
+\put(8.2,3.6){$j$}
+\put(7.5,2.9){\line(-1,1){0.6}}
+\put(7.2,3.2){\vector(1,-1){0.1}}
+\put(6.9,3.6){$i$}
+\put(8.7,2.3){$=$}
+\put(10.2,2.4){\line(-1,-1){0.6}}
+\put(9.9,2.1){\vector(-1,-1){0.1}}
+\put(9.3,1.5){$n$}
+\put(10.2,2.4){\line(1,0){0.8}}
+\put(10.6,2.4){\vector(1,0){0.1}}
+\put(10.5,2.6){$l$}
+\put(11,2.4){\line(1,-1){0.6}}
+\put(11.3,2.1){\vector(1,-1){0.1}}
+\put(11.6,1.5){$k$}
+\put(11,2.4){\line(1,1){0.6}}
+\put(11.3,2.7){\vector(1,1){0.1}}
+\put(11.6,3.3){$j$}
+\put(10.2,2.4){\line(-1,1){0.6}}
+\put(9.9,2.7){\vector(1,-1){0.1}}
+\put(9.3,3.3){$i$}
+
+\put(13.8,2.5){\line(0,1){1.3}}
+\put(13.8,2.8){\vector(0,-1){0.1}}
+\put(13.8,3.5){\vector(0,-1){0.1}}
+\put(13.8,4){$k$}
+\put(13.8,2.2){\circle{0.6}}
+\put(13.8,1.9){\line(0,-1){1.3}}
+\put(13.7,2.1){$s$}
+\put(13.8,0.1){$l$}
+\put(13.8,2.2){\oval(1.5,2)[l]}
+\put(13.05,2.2){\vector(0,-1){0.1}}
+\put(13.8,1.5){\vector(0,-1){0.1}}
+\put(13.8,0.9){\vector(0,-1){0.1}}
+
+\put(14.5,2.1){$=$}
+\put(15.7,2.5){\line(0,1){1.3}}
+\put(15.7,2.8){\vector(0,-1){0.1}}
+\put(15.7,3.5){\vector(0,-1){0.1}}
+\put(15.7,4){$k$}
+\put(15.7,2.2){\circle{0.6}}
+\put(15.7,1.9){\line(0,-1){1.3}}
+\put(15.6,2.1){$s$}
+\put(15.7,0.1){$l$}
+\put(15.7,2.2){\oval(1.5,2)[r]}
+\put(16.45,2.2){\vector(0,-1){0.1}}
+\put(15.7,1.5){\vector(0,-1){0.1}}
+\put(15.7,0.9){\vector(0,-1){0.1}}
+
+\put(17,2.1){$=$}
+\put(18.2,2.95){\line(0,1){0.9}}
+\put(18.2,3.4){\vector(0,-1){0.1}}
+\put(18.2,2.7){\circle{0.5}}
+\put(18.1,2.6){$\epsilon$}
+\put(18.2,4){$k$}
+
+\put(18.2,1.65){\line(0,-1){1}}
+\put(18.2,1.15){\vector(0,-1){0.1}}
+\put(18.2,1.9){\circle{0.5}}
+\put(18.2,0.2){$l$}
+\end{picture}
+
+
+Now we make three important remarks relating to the further
+development of the theory of Hopf algebras.
+
+\subsection{\bf \em Twisted, ribbon and quasi-Hopf
+algebras\label{trqH}}
+\setcounter{equation}0
+
+\noindent
+{\bf Remark 1.}{\it Twisted Hopf algebras.} \\
+Consider a Hopf algebra
+${\cal A}$ $(\Delta, \, \epsilon, \, S)$.
+Let ${\cal F}$
+be an invertible element of ${\cal A} \otimes {\cal A}$ such that:
+\be
+\lb{ef}
+(\epsilon \otimes id) {\cal F} = 1 = (id \otimes \epsilon ) {\cal F} \;  ,
+\ee
+and we denote ${\cal F} = \sum_i \alpha_i \otimes \beta_i$,
+${\cal F}^{-1} = \sum_i \, \gamma_i \otimes \delta_i$,
+$I \equiv 1$.
+Following the twisting procedure \cite{17}
+one can define a new Hopf algebra
+${\cal A}^{(F)}$
+$(\Delta^{(F)}, \, \epsilon^{(F)}, \, S^{(F)})$ (twisted Hopf algebra)
+with the new structure mappings
+\be
+\lb{2}
+\Delta^{(F)}(a) = {\cal F} \, \Delta(a) \, {\cal F}^{-1} \; ,
+\ee
+\be
+\lb{222}
+\epsilon^{(F)}(a) = \epsilon (a) \; , \;\;\;  S^{(F)}(a) = U \, S(a) \, U^{-1}  \;\;\;
+(\forall a \in {\cal A}) \; ,
+\ee
+where the twisting element ${\cal F}$ satisfies the cocycle equation
+\be
+\lb{cocycl}
+{\cal F}_{12} \, (\Delta \otimes id) {\cal F} =
+{\cal F}_{23} \, (id \otimes \Delta) {\cal F} \; ,
+\ee
+and the element $U =  \alpha_i \, S(\beta_i)$ is invertible and obeys
+\be
+\lb{U}
+U^{-1} =  S(\gamma_i) \, \delta_i
+\; , \;\;\;
+S(\alpha_i) \, U^{-1} \, \beta_i = 1 \; ,
+\ee
+(the summation over $i$ is assumed). First of all we show
+that the algebra ${\cal A}^{(F)}$
+$(\Delta^{(F)}, \, \epsilon)$ is a bialgebra. Indeed,
+the cocycle equation (\ref{cocycl})
+guarantees the coassociativity condition (\ref{2.7})
+for the new coproduct $\Delta^{(F)}$ (\ref{2}).
+Then the axioms for counit $\epsilon$ (\ref{2.8}) are easily deduced from
+(\ref{ef}). Considering the identity
+$$
+m(id \otimes S \otimes id) \left( {\cal F}^{-1}_{23} \, {\cal F}_{12} \,
+(\Delta \otimes id) {\cal F} \right) = m(id \otimes S \otimes id)
+(id \otimes \Delta ) {\cal F}
+$$
+we obtain the form for $U^{-1}$ (\ref{U}).
+The second relation in (\ref{U}) is obtained from the identity:
+$m(S \otimes id) {\cal F}^{-1}{\cal F} = 1$.
+
+Now the new antipode $S^{(F)}$ (\ref{222}) follows from equation
+$$
+m (id \otimes S) \, (\Delta^{(F)}(a) \, {\cal F}) =
+m (id \otimes S) \, ({\cal F} \, \Delta(a) ) \; ,
+$$
+which is rewritten in the form $\tilde{a}_{(1)} U S(\tilde{a}_{(2)}) = \epsilon(a) \, U$,
+where $\Delta^{(F)}(a) = \tilde{a}_{(1)} \otimes \tilde{a}_{(2)}$.
+
+If the algebra ${\cal A}$ is a quasitriangular Hopf algebra with the universal
+${\cal R}$ matrix
+(\ref{2.26}), then the new Hopf algebra ${\cal A}^{(F)}$ is also quasitriangular
+and a new universal ${\cal R}$-matrix is
+\be
+\lb{2a}
+{\cal R}^{(F)} = {\cal F}_{21} \, {\cal R} \, {\cal F}^{-1} \; ,
+\ee
+since we have
+$$
+{\Delta^{(F)}}' = {\cal F}_{21} \, \Delta^{\sf op} \, {\cal F}_{21}^{-1} =
+{\cal F}_{21} \, {\cal R} \, \Delta \, {\cal R}^{-1} \, {\cal F}_{21}^{-1} =
+\left( {\cal F}_{21} \, {\cal R} \, {\cal F}^{-1} \right) \Delta^{(F)} \left( {\cal F} \,
+{\cal R}^{-1} \, {\cal F}_{21}^{-1} \right) \; .
+$$
+The Yang - Baxter eq. (\ref{2.30}) for $R$-matrix (\ref{2a}) can be
+directly checked with the help of (\ref{2.26}) and (\ref{cocycl}).
+
+Impose additional relations on ${\cal F}$
+\be
+\lb{4}
+(\Delta \otimes id) {\cal F} =
+{\cal F}_{13} \, {\cal F}_{23} \;\; , \;\;\;
+(id \otimes \Delta) {\cal F} =
+{\cal F}_{13} \, {\cal F}_{12} \; ,
+\ee
+which, together with (\ref{cocycl}), implies the Yang-Baxter equation for
+${\cal F}$.
+Using (\ref{2.26}) one deduces from (\ref{4}) equations
+\be
+\lb{5aa}
+{\cal R}_{12} \, {\cal F}_{13} \, {\cal F}_{23} =
+{\cal F}_{23} \, {\cal F}_{13} \, {\cal R}_{12} \;\; , \;\;\;
+{\cal F}_{12} \, {\cal F}_{13} \, {\cal R}_{23} =
+{\cal R}_{23} \, {\cal F}_{13} \, {\cal F}_{12} \; .
+\ee
+Eqs. (\ref{5aa}) and the Yang-Baxter relations for universal elements ${\cal R}$, ${\cal F}$
+define the twist which is proposed in
+\cite{16} (the additional condition
+${\cal F}^{21}{\cal F} = 1 \otimes 1$ is assumed in \cite{16}).
+
+Note that if ${\cal A}$ is the Hopf algebra
+of functions on the group algebra of group $G$ (\ref{2.15b}),
+then eq. (\ref{cocycl})
+can be written in the form of 2-cocycle equation:
+$$
+{\cal F}(a,b) \, {\cal F}(ab,c) = {\cal F}(b,c){\cal F}(a,bc) \; ,
+\;\;\; (\forall a,b,c \in G) \; ,
+$$
+for the projective representation $\rho$ of $G$:
+$\rho(a) \rho(b) = {\cal F}(a,b) \, \rho(a \, b)$.
+That is why  eq. (\ref{cocycl}) is called cocycle equation.
+
+Many explicit solutions
+of the cocycle equation (\ref{cocycl}) are known (see e.g.
+\cite{tw1}--\cite{tw3} and references therein).
+
+\noindent
+{\bf Remark 2.}{\it Ribbon Hopf algebras.} \\
+Here we explain the notion of the ribbon Hopf algebras \cite{16'}.
+Consider quasitriangular Hopf algebra ${\cal A}$ and represent the universal
+${\cal R}$-matrix in the form
+\be
+\lb{unrab}
+{\cal R}= \sum_{\mu} \alpha_{\mu} \otimes \beta_{\mu} \; ,
+\;\;\;\; {\cal R}^{-1} =
+\sum_{\mu} \, \gamma_{\mu} \otimes \delta_{\mu} \; ,
+\ee
+where $\alpha_{\mu}, \, \beta_{\mu}, \, \gamma_{\mu}, \, \delta_{\mu} \in {\cal A}$.
+By using the right equalities in
+(\ref{2.29a}) we represent the identities
+$(id \otimes S)\bigl( {\cal R}{\cal R}^{-1} \bigr)= I
+= (id \otimes S)\bigl({\cal R}^{-1}{\cal R}\bigr)$ as
+\be
+\lb{close}
+\alpha_{\mu} \, \alpha_\nu \otimes \beta_{\nu} \, S(\beta_\mu)
+=I = \alpha_{\mu} \, \alpha_\nu \otimes
+S(\beta_{\nu}) \, \beta_\mu \; .
+\ee
+(the summation over repeated
+indices $\mu$ and $\nu$ is assumed
+and we write $I$ instead of $(I \otimes I)$)
+while for $(S \otimes id){\cal R}{\cal R}^{-1} = I =
+(S \otimes id){\cal R}^{-1}{\cal R}$
+we have
+\be
+\lb{close1}
+S(\gamma_{\mu}) \, \gamma_\nu \otimes \delta_{\nu} \, \delta_\mu
+= I =
+\gamma_{\mu} \, S(\gamma_\nu) \otimes \delta_{\nu} \, \delta_\mu \; .
+\ee
+We use identities (\ref{close}) and (\ref{close1})
+below in Subsection {\bf \ref{qtrace}}
+(Remark 1).
+
+Consider the element
+$u=\sum_{\mu} \, S(\beta_{\mu}) \, \alpha_{\mu}$ for which
+the following proposition holds
+
+
+%\\{\bf Proposition 1.}
+\begin{proposition}\label{prop1}
+{\it (see \cite{13'}). \\
+	1.) For any $a \in {\cal A}$ we have
+	\be
+	\lb{0.2}
+	S^{2}(a) \, u = u \, a \; .
+	\ee
+	2.) the element $u$ is invertible, with
+	\be
+	\lb{u-inv}
+	u^{-1} =  S^{-1}(\delta_{\mu}) \, \gamma_{\mu} \; .
+	\ee
+}
+\end{proposition}
+{\bf Proof.}
+1.) From the relation (\ref{2.26}) it follows that
+$\forall a \in {\cal A}$ (the summation signs are omitted):
+$$
+\alpha_{\mu} \, a_{(1)} \otimes \beta_{\mu} \, a_{(2)} \otimes a_{(3)} =
+a_{(2)} \, \alpha_{\mu} \otimes a_{(1)} \, \beta_{\mu} \otimes a_{(3)} \; ,
+$$
+where $a_{(1)} \otimes  a_{(2)} \otimes a_{(3)} =
+(\Delta \otimes id)\Delta(a)$.
+From this we obtain
+$$
+S^{2}( a_{(3)} ) \, S( \beta_{\mu} \, a_{(2)}) \, \alpha_{\mu} a_{(1)} =
+S^{2}( a_{(3)} ) \, S( a_{(1)} \, \beta_{\mu} ) \, a_{(2)} \alpha_{\mu} \; ,
+$$
+or
+$$
+S^{2}( a_{(3)} ) \, S( a_{(2)}) \, u \, a_{(1)} =
+S^{2}( a_{(3)} ) \, S(\beta_{\mu}) \, S( a_{(1)} ) \, a_{(2)} \alpha_{\mu} \; .
+$$
+Applying to this equation the axioms (\ref{2.21}),
+%and taking into account the fact that
+%$\epsilon(a_{(2)}) a_{(1)} = \epsilon(a)I$,
+we obtain (\ref{0.2}). \\
+2.) Putting $w =  S^{-1}(\delta_{\mu}) \, \gamma_{\mu}$, we have
+$$
+u \, w =  u \, S^{-1}(\delta_{\mu}) \, \gamma_{\mu} =
+S(\delta_{\mu})\, u  \, \gamma_{\mu} =
+S(\beta_{\nu} \, \delta_{\mu})\, \alpha_{\nu}
+\, \gamma_{\mu} \; .
+$$
+Since ${\cal R} \cdot {\cal R}^{-1}
+= \alpha_{\nu} \gamma_{\mu} \otimes
+\beta_{\nu} \delta_{\mu} = I$, we have $u \, w = I$.
+It follows from last equation and from (\ref{0.2}) that $S^{2}(w) \, u =1$,
+and therefore the element $u$ has both a right and left inverse
+(\ref{u-inv}). \hfill \qed
+
+\noindent
+Thus, the element $u$ is invertible and we can rewrite (\ref{0.2}) in the form
+\be
+\lb{0.3}
+S^{2}(a) = u \, a \, u^{-1} \; .
+\ee
+This relation shows, in particular, that the operation of taking
+the antipode is not involutive.
+
+\begin{proposition}\label{prop1b}
+{\it (see \cite{13'}). \\
+	Define the following elements:
+	\be
+	\lb{u1234}
+	u_{1} \equiv u =  S(\beta_{\mu}) \, \alpha_{\mu}
+	\; , \;\;\;
+	u_{2} =  S(\gamma_{\mu}) \, \delta_{\mu} \; , \;\;\;
+	u_{3} =  \beta_{\mu} \, S^{-1}(\alpha_{\mu})  \; , \;\;\;
+	u_{4} = \gamma_{\mu} \, S^{-1}(\delta_{\mu})  \; .
+	\ee
+	The relations (\ref{0.3})
+	are satisfied if we take any of the elements
+	$u_i$ from (\ref{u1234}):
+	\be
+	\lb{0.3b}
+	S^{2}(a) = u_i \, a \, u_i^{-1} \; , \;\;\;\;\;
+	\forall a \in {\cal A} \; .
+	\ee
+	In addition we have
+	$S(u_1)^{-1} = u_{2}$, $S(u_{3})^{-1} = u_{4}$,
+	and it turns out
+	that all $u_{i}$ commute with each other,
+	while the elements
+	$u_{i}u_{j}^{-1} = u_{j}^{-1}u_{i}$ are central in ${\cal A}$.
+	Consequently, the element $u \, S(u)= u_{1} \, u^{-1}_{2}$ is also central.} \end{proposition}
+	{\bf Proof.} In view of relation (\ref{u-inv}) we have
+	$S(u_1)^{-1} = S(u^{-1}) = S(\gamma_\mu) \delta_\mu = u_2$
+	and $u_2^{-1} = S(u) = S^{-1}(u)=
+	S^{-1}(\alpha_{\mu}) \, \beta_{\mu}$, where we use
+	the identity $S^{2}(u)=u$ which follows from (\ref{0.3}).
+	Applying the map $S$ to both parts of (\ref{0.3}), we deduce
+	$S^3(a) = u_2 S(a) u_2^{-1}$ which is equivalent to
+	(\ref{0.3b}) for $i=2$.
+	Note that from (\ref{2.29a}) we have
+	${\cal R}^{\pm} = (S^{-1} \otimes S^{-1}){\cal R}^{\pm}$.
+	Thus,
+	one can make in all formulas above the
+	substitution $\alpha_\mu \to S^{-1}(\alpha_\mu )$,
+	$\beta_\mu \to S^{-1}(\beta_\mu )$ and
+	$\gamma_\mu \to S^{-1}(\gamma_\mu )$,
+	$\delta_\mu \to S^{-1}(\delta_\mu )$
+	to exchange the elements $u_1$ and $u_2$
+	respectively to the elements $u_3$ and $u_4$. It means that
+	equations (\ref{0.3b}) are valid for $i=3,4$ and we have
+	$u_4 = S(u_3)^{-1}$. Relations (\ref{0.3b})
+	yields $S^2(u_j)=u_j$ $(\forall j)$ and substitution
+	$a=u_j$ to (\ref{0.3b})
+	gives $u_i u_j = u_j u_i$ $(\forall i,j=1,...,4)$.
+	Finally, for any $a \in {\cal A}$, we have
+	$u_{j}^{-1}u_{i} \, a \, u_{i}^{-1}u_{j} =
+	u_{j}^{-1}\, S^2(a) \, u_{j} = a$, which means that
+	elements $u_{j}^{-1}u_{i} = u_{i} u_{j}^{-1}$
+	are central. \hfill \qed
+	
+	\vspace{0.2cm}
+	\noindent
+	In Ref. \cite{13'} it was noted that
+	$$
+	\Delta(u) = ({\cal R}_{21}{\cal R}_{12})^{-1}(u \otimes u) =
+	(u \otimes u) ({\cal R}_{21}{\cal R}_{12})^{-1} \; .
+	$$
+	\vspace{0.2cm}
+	
+	On the basis of all these propositions, we introduce the important concept of a ribbon Hopf algebra
+	(see \cite{16'}):
+	
+	%{\bf Definition 7.}
+	
+	\newtheorem{def7}[def1]{Definition}
+	\begin{def7} \label{def7}
+{\it Consider a quasitriangular Hopf algebra $({\cal A}, \; {\cal R})$. Then the triplet
+	$({\cal A}, \; {\cal R}, \; v)$ is called a ribbon Hopf algebra if
+	$v$ is a central element in ${\cal A}$ and
+	$$
+	v^{2} = u \, S(u) \; , \;\; S(v) = v \; , \;\; \epsilon(v) =1 \; ,
+	$$
+	$$
+	\Delta(v) = ({\cal R}_{21} \, {\cal R}_{12})^{-1} \, (v \otimes v) \; .
+	$$}
+	\end{def7}
+	For each quasitriangular Hopf algebra ${\cal A}$, we can define
+	${\cal A}$-colored ribbon graphs \cite{16'}. If, moreover, ${\cal A}$
+	is a ribbon Hopf algebra, then for each
+	${\cal A}$-colored ribbon graph we can associate the central element of
+	${\cal A}$ that generalizes the
+	Jones polynomial being an invariant of a knot in
+	$\mathbb{R}^3$
+	(see \cite{16'}, \cite{18}).
+	
+	\noindent
+	{\bf Remark 3.}{\it Quasi-Hopf algebras.} \\
+	One can introduce a generalization of a Hopf algebra, called
+	a quasi-Hopf algebra, \cite{17} which is defined as an associative unital algebra ${\cal A}$
+	with homomorphism $\Delta: \;\;
+	{\cal A} \rightarrow {\cal A} \otimes {\cal A}$, homomorphism
+	$\epsilon: \;\; {\cal A} \rightarrow \mathbb{C}$,
+	antiautomorphism $S: \;\; {\cal A} \rightarrow {\cal A}$
+	and invertible element $\Phi \in
+	{\cal A}\otimes {\cal A}\otimes {\cal A}$. At the same time $\Delta$, $\epsilon$, $\Phi$
+	and $S$ satisfy the axioms
+	\be
+	\lb{2.47}
+	(id \otimes \Delta) \Delta(a) =
+	\Phi \cdot (\Delta \otimes id) \Delta(a) \cdot \Phi^{-1} , \;\;
+	a \in {\cal A},
+	\ee
+	\be
+	\lb{2.48}
+	(id \otimes id \otimes \Delta)(\Phi )
+	\cdot (\Delta \otimes id\otimes id) (\Phi) =
+	(I \otimes \Phi) \cdot (id \otimes \Delta \otimes id)(\Phi ) \cdot
+	(\Phi \otimes I),
+	\ee
+	\be
+	\lb{2.48a}
+	(\epsilon \otimes id) \Delta = id = (id \otimes \epsilon) \Delta \; ,\;\;
+	(id \otimes \epsilon \otimes id)\Phi = I \otimes I
+	\ee
+	\be
+	\lb{2.49}
+	S(a_{(1)}) \, \alpha \,  a_{(2)} = \epsilon(a) \, \alpha \; , \;\;
+	a_{(1)} \, \beta \, S(a_{(2)}) = \epsilon(a) \, \beta \; ,
+	\ee
+	$$
+	\phi_i \, \beta \,  S(\phi'_i) \, \alpha \, \phi''_i = I \; , \;\;
+	S(\bar{\phi}_i) \, \alpha \,  \bar{\phi}'_i \, \beta \, S(\bar{\phi}''_i) = I \; ,
+	$$
+	where $\alpha$   and  $\beta$   are   certain   fixed   elements   of
+	${\cal A}$, $\Delta(a) = a_{(1)} \otimes a_{(2)}$, and
+	$$
+	\Phi : = \phi_i \otimes \phi'_i \otimes \phi''_i \; , \;\;
+	\Phi^{-1} : = \bar{\phi}_i \otimes \bar{\phi}'_i
+	\otimes \bar{\phi}''_i \; ,
+	$$
+	(summation over $i$ is assumed).
+	Thus, a quasi-Hopf algebra differs from an ordinary Hopf algebra in
+	that the axiom of coassociativity is replaced by the weaker condition (\ref{2.47}).
+	In other words, a quasi-Hopf algebra is noncoassociative, but this
+	noncoassociativity is kept under control by means of the element $\Phi$.
+	The axioms (\ref{2.49}) (which looks like different definitions
+	of the left and right antipodes) generalize the axioms (\ref{2.21}) for usual Hopf algebras
+	and consequently the elements $\alpha$ and $\beta$ involve into the play with
+	the contragredient representations of the quasi-Hopf algebras.
+	
+	To make the pentagonal condition (\ref{2.48}) more transparent, let us consider
+	(following Ref. \cite{17}) the algebra ${\cal A}$ as the algebra of functions on
+	a "noncommutative" space $X$ equipped with a $*$ product: $X \times X \rightarrow X$.
+	Then, elements $a \in {\cal A}$, $b \in {\cal A} \otimes {\cal A}, \dots$
+	are written in the form $a(x)$, $b(x,y)$ $\dots$ and $\Delta(a)$ is represented as
+	$a(x * y)$. The homomorphism $\epsilon$ defines the point in $X$, which we denote $1$ and
+	instead of $\epsilon(a)$ we write $a(1)$. Then, equations (\ref{2.47}) -- (\ref{2.48a})
+	are represented in the form \cite{17}:
+	$$
+	a(x *(y*z)) = \Phi(x,y,z) \, a((x *y )*z) \, \Phi(x,y,z)^{-1} \; ,
+	$$
+	\be
+	\label{5phi}
+	\Phi(x,y,z*u) \, \Phi(x*y,z,u) = \Phi(y,z,u)  \, \Phi(x,y*z,u) \, \Phi(x,y,z) \; ,
+	\ee
+	$$
+	a(1 * x) = a(x) = a(x *1) \; , \;\;\; \Phi(x,1,z) = 1 \; .
+	$$
+	Now it is clear that (\ref{5phi}) (and respectively (\ref{2.48}))
+	is the sufficient condition for the commutativity of the diagram:
+	
+	\unitlength=0.7cm
+	\begin{picture}(20,5)
+\put(1,3){$a\left(((x *y)*z)*u \right)$}
+\put(6.5,3){$\longrightarrow$}
+\put(8,3){$a((x *y)*(z*u))$}
+\put(13.5,3){$\longrightarrow$}
+\put(15,3){$a(x *(y*(z*u)))$}
+\put(4,2.5){\vector(0,-1){1}}
+\put(1,0.8){$a((x *(y*z))*u)$}
+\put(9,0.955){\line(1,0){3}}
+\put(11.5,0.8){$\rightarrow$}
+\put(17,2.5){\vector(0,-1){1}}
+\put(15,0.8){$a(x *((y*z)*u))$}
+
+\end{picture}
+
+\noindent
+{\bf Remark.} Applications of the theory of quasi-Hopf algebras to the solutions of the
+Knizhnik-Zamolodchikov equations are discussed in Ref. \cite{17}. On the other hand, one can
+suppose that, by virtue of the occurrence of the pentagonal relation (\ref{2.48}) for the element
+$\Phi$, quasi-Hopf algebras will be associated with multidimensional generalizations of Yang-Baxter
+equations.
+
+\
+
+\section{The double covering of the quantum group $SO_q(3)$}
+\paragraph*{} 
+
+The covering of the quantum $SO\left(3 \right)$ is described in  \cite{dijkhuizen:so_doublecov,podles:so_su}. Here we would like to prove that the covering complies with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. Moreover  we prove that the covering gives an unoriented unoriented spectral triple (cf. Definition \ref{unoriented_defn}  and \ref{unoriented_empt}).
+
+\subsection{Basic constructions}
+\paragraph*{}
+Denote by 
+\be\label{su_q_2_G_eqn}
+G = \left\{\left. g \in \Aut\left(C\left( SU_q\left(2 \right)\right)  \right)~\right|~ ga = a;~~\forall a \in C\left(SO_q\left(3 \right)\right) \right\}
+\ee
+Denote by
+\be\label{su_q_2_gr_eqn}
+C\left(SU_q\left(2 \right)\right)_N \bydef \left\{ \left.\widetilde{a} \in C\left(SU_q\left(2 \right)\right)~\right|~ \widetilde{a}\bt\bt^* = q^{2N}\bt\bt^*\widetilde{a} \right\}; \quad \forall N \in \Z
+\ee
+and let us prove that the equation \eqref{su_q_2_gr_eqn} yields the $\Z$-grading of $C\left(SU_q\left(2 \right)\right)$. Really following conditions hold:
+\begin{itemize}
+	\item 
+	\be\label{su_q_2_N_eqn}
+	\begin{split} 
+		\widetilde{a} \in C\left(SU_q\left(2 \right)\right)_N \Leftrightarrow	 \widetilde{a} =
+		\left\{
+		\begin{array}{c l}
+			\al^N	\sum_{\substack{ j = 0\\ k = 0}}^\infty  b_{jk}\bt^j\bt^{*k} & N \ge 0 \\
+			& \\
+			\left( \al^{*}\right)^{-N}  	\sum_{\substack{ j = 0\\ k = 0}}^\infty  b_{jk}\bt^j\bt^{*k} & N < 0
+		\end{array}\right.
+	\end{split}	
+	\ee
+	\item From the Theorem \ref{su_q_2_bas_thm} it follows that the linear span of given by the equation \eqref{su_q_2_fin_eqn} elements is dense in $C\left( SU_q(2)\right)$, hence $C\left( SU_q(2)\right)$ is the $C^*$-norm completion of the following direct sum
+	\be\label{su_q_2_nsum_eqn}
+	\bigoplus_{N \in \Z}  C\left(SU_q\left(2 \right)\right)_N.
+	\ee
+\end{itemize}
+From  $\bt\bt^*\in C\left(SO_q\left(3 \right)\right)$ it follows that the grading is $G$-invariant, i.e.
+\be\label{su_q_2_ginv_eqn}
+\begin{split}
+	g C\left(SU_q\left(2 \right)\right)_N = C\left(SU_q\left(2 \right)\right)_N; \quad \forall g \in G, \quad \forall N \in \N.
+\end{split}	
+\ee	
+$C\left(SU_q\left(2 \right)\right)_0$ is a commutative $C^*$-algebra generated generated by $\bt$ and $\bt^*$ i.e.
+$$
+\widetilde{a} \in C\left(SU_q\left(2 \right)\right)_0 \Rightarrow \widetilde{a} = \sum_{\substack{j = 0\\ k = 0}}^\infty c_{jk}\bt^j\bt^{*k}; \quad c_{jk}\in \C.
+$$
+It follows that $g\bt \in  C\left(SU_q\left(2 \right)\right)_0$, i.e.  
+$
+g\bt = \sum_{\substack{j = 0\\ k = 0}}^\infty c_{jk}\bt^j\bt^{*k},
+$
+and taking into account $\bt^2\in C\left( SO_q(3)\right)\Rightarrow\left(g\bt \right)^2 = \bt^2$ one concludes
+\be\label{su_q_2_bpm_eqn}
+g\bt = \pm \bt.
+\ee
+From $\al \in C\left(SU_q\left(2 \right)\right)_1$ and the equations \eqref{su_q_2_N_eqn}, \eqref{su_q_2_ginv_eqn}  it turns out that for any $g \in G$ one has
+\be\label{su_q_2_gal_eqn}
+g \al\in  C\left(SU_q\left(2 \right)\right)_1 \Rightarrow g\al=\al\sum_{\substack{ j = 0\\ k = 0}}^\infty b_{jk}\bt^j\bt^{*k};\quad b_{jk}\in \C
+\ee
+Otherwise from $\al^2 \in SO_q\left(3 \right)$ it turns out 
+\be\label{su_q_2_al_eqn}
+\begin{split}
+	\al^2 = g\al^2 = (g\al)^2 = \left(\al\sum_{\substack{ j = 0\\ k = 0}}^\infty b_{jk}\bt^j\bt^{*k} \right)^2 =
+	\\
+	= \al^2\sum_{\substack{j = 0\\ k = 0}}^\infty\sum_{\substack{l = 0\\m = 0}}^\infty q^{k+m}b_{jk}b_{lm} \bt^{j+l}\left( \bt^*\right)^{k+m}= \al^2\sum_{\substack{ j = 0\\ k = 0}}^\infty c_{rs}\bt^r\bt^{*s}; \\
+	\text{where} \quad c_{rs} = \sum_{l = 0}^r \sum_{m = 0}^s q^{k+m}b_{r-l, s-m}b_{lm}
+\end{split}
+\ee
+It turns out that $c_{0,0}= 1$ and $c_{rs}=0$ for each $\left(r,s \right) \neq \left( 0,0\right)$. Otherwise $c_{0,0}=b_{0,0}^2$ it turns out that $b_{0,0}= \epsilon = \pm1$. Suppose that there are $j, k \in \N^0$ such that $b_{jk}\neq 0$ and $j + k > 0$. If $j$ and $k$ are such that 
+\bean
+b_{jk}\neq 0,\\
+j+k =\min_{\substack{b_{mn}\neq 0\\ m+n>0}} m+n
+\eean
+then $c_{jk} = \epsilon b_{jk}\left(1+q^{j+k} \right) \neq 0$. There is a contradiction with $c_{rs}=0$ for each $r+s > 0$. It follows that if $j+k > 0$ then $b_{jk}= 0$, hence one has
+$$
+g \al = \eps\al = \pm\al.
+$$
+In result we have 
+\bean
+g \al = \pm \al,
+g \bt = \pm \bt
+\eean
+If $g\al = \al$ and $g \bt = -\bt$ then $g\left(\al\bt \right) = - \al\bt$, it is impossible because $\al\bt \in SO_q\left(3 \right)$. It turns out that $G=\Z_2$ and if $g \in G$ is not trivial then $g\al = -\al$ and $g\bt = -\bt$.
+So we proved the following lemma
+\begin{lem}\label{su_q_2_group_lem}
+	If $G = \left\{ g \in \Aut\left(C\left( SU_q\left(2 \right)\right)  \right)~|~ ga = a;~~\forall a \in C\left(SO_q\left(3 \right)\right) \right\}$ then $G \approx \Z_2$. Moreover  if $g \in G$ is the nontrivial element then
+	\bean
+	g\left( \al^k\bt^n\bt^{*m}\right) = \left( -1\right)^{k+m+n}  \al^k\bt^n\bt^{*m}, \\ g\left( \al^{*k}\bt^n\bt^{*m}\right) = \left( -1\right)^{k+m+n}  \al^{*k}\bt^n\bt^{*m}.
+	\eean 
+	
+\end{lem}
+\subsection{Covering of $C^*$-algebra}
+
+\begin{lem}\label{su_q_2_fin_lem}
+	$C\left( SU_q\left(2\right)\right)$ is a finitely generated projective $C\left( 	SO_q\left(3 \right) \right)$ module.
+\end{lem}
+\begin{proof}
+	Let $A_f$ be given by the Theorem \ref{su_q_2_bas_thm}. 
+	If $A_f^{\Z_2}= A_f\bigcap C\left( 	SO_q\left(3 \right) \right) $ then from \eqref{su_q_2_z2_ncomm_eqn} and the Theorem \ref{su_q_2_bas_thm} it turns out that given by \eqref{su_q_2_fin_eqn} elements
+	\be\nonumber
+	\al^k\bt^n\bt^{*m}~~ \text{ and }~~ \al^{*k'}\bt^n\bt^{*m}
+	\ee 
+	with even $k+m+n$ or $k'+m+n$ is the basis of $A_f^{\Z_2}$.	If 
+	$$
+	\widetilde{a} = \al^k\bt^n\bt^{*m} \notin A_f^{\Z_2}
+	$$
+	then $k+m+n$ is odd. If $m > 0$ then
+	$$
+	\widetilde{a} = \al^k\bt^n\bt^{*m-1} \bt^* = a \bt^* \text{ where } a \in A_f^{\Z_2}.
+	$$
+	If $m = 0$ and $n > 0$ then
+	$$
+	\widetilde{a} = \al^k\bt^{n-1} \bt = a \bt \text{ where } a \in A_f^{\Z_2}
+	$$
+	If $m = 0$ and $n= 0$ then $k > 0$ and
+	$$
+	\widetilde{a} = \al^{k-1}\al = a \al \text{ where } a \in A_f^{\Z_2}.
+	$$
+	From 
+	$$
+	\widetilde{a} = \al^{*k'}\bt^n\bt^{*m} \notin A_f^{\Z_2}
+	$$
+	it follows that  $k'+m+n$ is odd. Similarly to the above proof one has
+	$$
+	\widetilde{a} = a \al\text{ or } \widetilde{a} = a \al^* \text{ or } \widetilde{a} = a \bt \text{ or } \widetilde{a} = a \bt^*   \text{ where } a \in A_f^{\Z_2}.
+	$$
+	From the above equations it turns out that $A_f$ is a left  $A_f^{\Z_2}$-module generated by $\al, \al^*, \bt, \bt^*$. Algebra $A_f^{\Z_2}$ (resp. $A_f$) is dense in $ C\left( 	SO_q\left(3 \right) \right) $ (resp.  $C\left( 	SU_q\left(2 \right) \right)$ ) it follows that  $C\left( 	SU_q\left(2 \right) \right)$ is a left  $C\left( 	SO_q\left(3 \right) \right)$-module generated by $\al, \al^*, \bt, \bt^*$. From the Corollary \ref{fin_hpro_cor} it turns out that $C\left( SU_q\left(2\right)\right)$ is a finitely generated projective $C\left( 	SO_q\left(3 \right) \right)$ module.
+	
+\end{proof}
+\begin{corollary}
+	The	triple $\left(C\left( 	SO_q\left(3 \right) \right), C\left( 	SU_q\left(2 \right) \right), \Z_2 \right)$ is an unital noncommutative finite-fold  covering.
+\end{corollary}
+\begin{proof}
+	Follows from $C\left( 	SO_q\left(3 \right) \right)=C\left( SU_q\left(2 \right) \right)^{\Z_2}$ and Lemmas \ref{su_q_2_group_lem}, \ref{su_q_2_fin_lem}.
+\end{proof}
+
+\begin{corollary}
+	The	triple $\left(C\left( 	SO_q\left(3 \right) \right), C\left( 	SU_q\left(2 \right) \right), \Z_2\times \Z_2, \pi\right)$ is an unital noncommutative finite-fold  covering.
+\end{corollary}
+
+\begin{problem}
+	%Example 6.3.2.
+	It is known that there is an unitary element $u \in C\left(  SU_q\left(2 \right)\right)$ (cf. \cite{chakraborty_pal:quantum_su_2}) such that $\left[u\right]\in \K_1\left(C\left( \left( SU_q\left(2 \right)\right) \right)\right) $ is not trivial and has infinite period.
+	\\ Question. Does an $\left(u, n\right)$-covering   $\left(C\left(  SU_q\left(2 \right)\right)\otimes\K, \widetilde A, \Z_{n}\right)$ (cf. Definition \ref{hurewicz_u_n_defn}) exist?  
+\end{problem}
+
+
+\subsection{$SO_q\left( 3\right)$ as an unoriented  spectral triple }
+Let  $h: C\left( SU_q\left(2\right)\right)$ be a given by the equation \eqref{su_q_2_haar_eqn} state, and $L^2\left( C\left( SU_q\left(2\right)\right), h\right)$ is the Hilbert space of the corresponding GNS representation  (cf. Section \ref{gns_constr_sec}). The state $h$ is  $\Z_2$-invariant, hence there is an action of $\Z_2$ on $L^2\left( C\left( SU_q\left(2\right)\right), h\right)$ which is naturally induced by the action  $\Z_2$ on $\Coo\left( SU_q\left(2\right)\right) $. From the above construction it follows that the unital orientable spectral triple
+\be\nonumber
+\left(\Coo\left( SU_q\left(2\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right), \widetilde{D} \right).
+\ee
+\begin{exercise}
+	Using an unital noncommutative finite-fold covering  $$\left(C\left( 	SO_q\left(3 \right) \right), C\left( 	SU_q\left(2 \right) \right), \Z_2 \right)$$
+	(cf. Definition \ref{fin_unital_defn})
+	rove that there is is an unoriented  spectral triple (cf. Definition \ref{unoriented_defn}) given by
+	$$
+	\left(\Coo\left( SO_q\left(3\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2},D \right) 
+	$$ where $\Coo\left( SO_q\left(3\right)\right)\bydef C\left( SO_q\left(3\right)\right)\bigcap \Coo\left( SU_q\left(2\right)\right)$ and $D\bydef \widetilde{ D}|_{L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2}}$.
+	
+\end{exercise}
+
+\section{Counterexample}\label{counter_sec}
+\paragraph*{}
+The counterexample of the Lemma \ref{comm_lem} is discussed here. 
+\subsection{Noncommutative quantum $SU(2)$ group}
+
+\paragraph{} Let $q$ be a real number such that $0<q<1$. 
+A quantum group $C\left( \SU_q(2)\right) $ is an universal $C^*$-algebra algebra generated by two elements $\al$ and $\beta$ satisfying following relations:
+\begin{equation}\label{su_q_2_rel_eqn}
+\begin{split}
+\al^*\al + \beta^*\beta = 1, ~~ \al\al^* + q^2\beta\beta^* =1,
+\\
+\al\bt - q \bt\al = 0, ~~\al\bt^*-q\bt^*\al = 0,
+\\
+\bt^*\bt = \bt\bt^*.
+\end{split}
+\end{equation}
+\paragraph*{} The structure of the quantum group on $C\left( SU_q\left( 2\right)\right) $ is given by
+\begin{equation}\label{su_2_qgr_eqn}
+\begin{split}
+\Delta(\alpha)=\alpha\otimes\alpha-q\beta^*\otimes\beta,\\
+\Delta(\beta)=\beta\otimes\alpha+\alpha^*\otimes\beta.
+\end{split}
+\end{equation}
+
+From  $C\left( SU_1\left(2 \right)\right) \approx C\left(SU\left(2 \right)  \right)$ it follows that  $C\left( \SU_q(2)\right) $ can be regarded as a noncommutative deformation of $SU(2)$. It is proven in \cite{woronowicz:su2} that the spectrum of $\bt\bt^*$ is the discrete set
+$$
+\left\{1, q^2, q^4, q^6, ..., 0\right\} \subset \C.
+$$
+If $n \in \N^0$ and  $f_n: \R \to \R$ is a continuous function such that 
+$$
+f_n(t)=\left\{
+\begin{array}{c l}
+0 & t \le q^{2n + 1} \\
+0 & t \ge q^{2n - 1} \\
+1 & t = q^{2n}
+\end{array}\right..
+$$
+then $p^\al_n = f_n\left(\bt\bt^* \right) \in C\left( \SU_q(2)\right)$ is a projection.  
+Let $Q, S \in B\left( \ell_2\left(\N^0 \right)\right) $ be given by 
+\begin{equation*}
+\begin{split}
+Qe_k= q^ke_k, \\
+Se_k = \left\{
+\begin{array}{c l}
+e_{k-1} & k > 0 \\
+0 & k = 0
+\end{array}\right.,
+\end{split}
+\end{equation*}
+and let $R \in B\left( \ell_2\left(\Z \right)\right) $ be given by $e_k \mapsto e_{k+1}$.
+There is  a faithful representation   $C\left(\SU_q\left( 2\right) \right) \to B\left(\ell_2\left(\N^0 \right) \otimes \ell_2\left(\Z \right) \right)  $ \cite{woronowicz:su2} given by
+
+\begin{equation}\label{su_2_q_repr_eqn}
+\begin{split}
+\al \mapsto S\sqrt{1 - Q^2} \otimes 1_{B\left(\ell_2\left(\Z \right) \right) }, \\
+\bt \mapsto Q \otimes R.
+\end{split}
+\end{equation}
+
+If $R_\R \in B\left(  L^2\left(\R \right)\right) $ is given by
+$$
+R_\R\left(  \xi\right)  = e^{2\pi ix}\xi; \text{ where } e^{2 \pi ix} \in C_b\left(\R \right) 
+$$
+then similarly to \eqref{su_2_q_repr_eqn} one has a representation $C\left(\SU_q\left( 2\right) \right) \to B\left(\ell^2\left(\N^0 \right) \otimes L^2\left(\R\right) \right)$ given by
+
+\begin{equation}\label{s_2_q_repr_eqn}
+\begin{split}
+\al \mapsto S\sqrt{1 - Q^2} \otimes 1_{B\left(L^2\left(\R\right) \right) }, \\
+\bt \mapsto Q \otimes R_\R.
+\end{split}
+\end{equation}
+
+\subsection{Finite-fold coverings}
+
+\paragraph*{}
+If $R^{\frac{1}{n}}_\R \in B\left(  L^2\left(\R \right)\right) $ is given by
+$$
+R^{\frac{1}{n}}_\R\left(  \xi\right)  = e^{\frac{2\pi ix}{n}}\xi.
+$$ 
+then $\left(R^{\frac{1}{n}}_\R \right)^n =  R_\R$. If $\widetilde{q} = \sqrt[n]{q}$ and 
+$$
+\widetilde{\bt} = \sum_{k = 0}^{\infty} \widetilde{q}^k p^\al_k\otimes R^{\frac{1}{n}}_\R\in B\left(\ell^2\left(\N^0 \right) \otimes L^2\left(\R\right) \right)  
+$$
+then $\widetilde{\bt}^n = \bt$. Denote by $C\left(\SU_q\left( 2\right) \right) \left[\widetilde{\bt} \right]$ a $C^*$-subalgebra of  $B\left(\ell^2\left(\N^0 \right) \otimes L^2\left(\R\right) \right)$ generated by $C\left(\SU_q\left( 2\right) \right) \bigsqcup \left\{\widetilde{\bt}\right\}$. Denote by $M\left[\widetilde{\bt} \right] \subset C\left(\SU_q\left( 2\right) \right) \left[\widetilde{\bt} \right]$ a free module left  $C\left(\SU_q\left( 2\right) \right)$ module given by
+$$
+M\left[\widetilde{\bt} \right] = \bigoplus_{j = 0}^{n-1} C\left(\SU_q\left( 2\right) \right) \widetilde{\bt}^j.
+$$
+If $j \in \{0,..., n-1\}$, $j \in \N^0$ then from $p^\al_k \in  C\left(\SU_q\left( 2\right) \right)$ it follows that $p^\al_k \widetilde{\bt}^j= p^\al_k \widetilde{q}^{-k}\left(R^{\frac{1}{n}}_\R \right)^j \in M\left[\widetilde{\bt} \right]$, hence $p^\al_k\left(R^{\frac{1}{n}}_\R \right)^j \in M\left[\widetilde{\bt} \right]$. Moreover if $\left\{z_k \in \C\right\}_{k \in \N^0}$ then from $\lim_{k \to \infty}z_k = 0$ it turns out
+$$
+\sum_{k = 0}^{\infty} z_kp^\al_k\left(R^{\frac{1}{n}}_\R \right)^k \in M\left[\widetilde{\bt} \right].
+$$
+
+
+
+Following conditions hold:
+
+
+\begin{equation*}
+\begin{split}
+\widetilde{\bt}^j \al = \left( \sum_{k=0}^{\infty}\widetilde{q}^{jk} p^\al_k\otimes \left(R^{\frac{1}{n}}_\R \right)^j\right)\left(  S \sqrt{1 - Q^2} \otimes 1 \right) = \left(  S \sqrt{1 - Q^2} \otimes 1 \right) \left( \sum_{k=0}^{\infty}\widetilde{q}^{j\left( k+1\right) } p^\al_k\otimes \left(R^{\frac{1}{n}}_\R \right)^j\right)
+\end{split}
+\end{equation*}
+From $\lim_{k \to \infty}\widetilde{q}^{j\left( k+1\right) } = 0$ it turns out $\widetilde{\bt}^j \al$ lies in $M\left[\widetilde{\bt} \right]$. Similarly we have $\widetilde{\bt}^j \al^*\in \left[\widetilde{\bt} \right]$ it follows that
+$$
+M\left[\widetilde{\bt} \right] =C\left(\SU_q\left( 2\right) \right) \left[\widetilde{\bt} \right],
+$$
+i.e. $C\left(\SU_q\left( 2\right) \right) \left[\widetilde{\bt} \right]$ is a  finitely generated free  $C\left(\SU_q\left( 2\right) \right)$-module 
+\begin{equation}\label{su_q_2_dir_sum_eqn}
+C\left( \SU_q\left(2\right) \right) \left[\widetilde{\bt} \right] = \bigoplus_{j = 0}^{n-1} C\left(\SU_q\left( 2\right) \right) \widetilde{\bt}^j= C\left(\SU_q\left( 2\right) \right)^n
+\end{equation}
+There is the action of $\Z_n$ on $C\left(\SU_q\left( 2\right) \right) \left[\widetilde{\bt} \right]$ given by
+\begin{equation*}
+\begin{split}
+\overline{m} a \widetilde{\bt}^k = e^{\frac{2 \pi i mk}{n}} a \widetilde{\bt}^k; \text{ where } a \in C\left(\SU_q\left( 2\right) \right), ~\overline{m} \in \Z_n, ~m \in \Z \text{ is representative of } \overline{m}.
+\end{split}
+\end{equation*}
+
+
+
+
+The above construction gives a following result.
+\begin{thm}\cite{ivankov:qnc}
+	The triple $\left( C\left( \SU_q\left( 2\right)\right), C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right], \Z_n\right)$ is an unital noncommutative finite-fold covering.
+\end{thm}
+
+
+
+
+\subsection{The structure of the covering algebra}\label{cov_alg_str_sec}
+\paragraph*{}
+From the above construction it follows that
+$$
+\widetilde{\widetilde{\bt}}= \sum_{j = 0}^{\infty} q^j p^\al_j \otimes R^{\frac{1}{n}}_\R \in C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right].
+$$
+Direct calculations shows that
+\begin{equation*}
+\begin{split}
+\al^*\al + \widetilde{\widetilde{\bt}}^*\widetilde{\widetilde{\bt}} = 1, ~~ \al\al^* + q^2\widetilde{\widetilde{\bt}}\widetilde{\widetilde{\bt}}^* =1,
+\\
+\al\widetilde{\widetilde{\bt}} - q \widetilde{\widetilde{\bt}}\al = 0, ~~\al\widetilde{\widetilde{\bt}}^*-q\widetilde{\widetilde{\bt}}^*\al = 0,
+\\
+\widetilde{\widetilde{\bt}}^*\widetilde{\widetilde{\bt}} = \bt\widetilde{\widetilde{\bt}}^*.
+\end{split}
+\end{equation*}
+Above relations coincide with \eqref{s_2_q_repr_eqn} it follows that there is a $*$-isomorphism given by
+\begin{equation*}
+\begin{split}
+C\left( \SU_q\left( 2\right)\right)\xrightarrow{\approx}C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right],\\
+\al \mapsto \al,~~
+\bt\mapsto \widetilde{\widetilde{\bt}},
+\end{split}
+\end{equation*}
+i.e. the covering algebra $C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$ is *-isomorphic to the base algebra $C\left( \SU_q\left( 2\right)\right)$.
+
+
+\subsection{Symmetry and grading}
+\paragraph*{}
+Let $\A\subset SU_q\left( 2\right)$ is a dense subalgebra which is generated by $\al, \al^*, \bt, \bt^*$ as an abstract algebra.
+\begin{thm}\cite{woronowicz:su2}
+The set of all elements of the form
+\begin{equation}\label{su_q_2_basis_eqn}
+\al^k\bt^n\bt^{*m} \text{ and } \al^{*k'}\bt^n\bt^{*m}
+\end{equation}
+where $k, m, n = 0, 1, 2, \dots,~k'=1,2, \dots$ forms a basis in $\A$: any element of $\A$ can be written in the unique way as a finite linear combination of elements \eqref{su_q_2_basis_eqn}.
+\end{thm}
+From the above theorem there is an action  of $U\left( 1\right)$ on $\A$ given by
+$$
+g \left( \al^k\bt^n\bt^{*m} \right)  = \varphi(g)_{\C^\times}^{n - m}\al^{*k'}\bt^n\bt^{*m} \text{ and } g \left( \al^{*k'}\bt^n\bt^{*m}\right)   = \varphi_{\C^\times}\left(g \right) ^{n - m}\al^{*k'} \al^{*k'}\bt^n\bt^{*m}
+$$
+where $g \in U\left(1 \right)$ and $ \varphi_{\C^\times}: U\left( 1\right) \to \C^\times$ the natural homomorphism from $U\left(1 \right)$ to the multiplicative group of complex numbers. There is a $\Z$-grading 
+$$
+\A = \bigoplus_{j \in \Z} \A_j
+$$
+such that $a \in \A_j$ is equivalent to
+$$
+ga = \varphi(g)^j_{\C^\times}a \text { for any } g \in U\left( 1\right).
+$$  
+It turns out
+$$
+\al^k\bt^n\bt^{*m} \text{ and } \al^{*k'}\bt^n\bt^{*m} \text{ lie in }  \A_{n - m}.
+$$
+Let $\left( C\left( \SU_q\left( 2\right)\right), C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right], \Z_n\right)$ be a covering projection. From $\widetilde{\beta}^n = \beta$ and \eqref{su_q_2_dir_sum_eqn} it follows that there is the natural $\Z$-grading on $C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$
+given by
+$$
+a \beta^j \in \left( C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]\right)_{nk + j} \text{ where } a \in C\left( \SU_q\left( 2\right)\right)_k
+$$ 
+where subscripts mean the grading.
+
+\subsection{Contradiction}
+\paragraph*{}
+Suppose that there is a structure of quantum group $\left( C\left(\SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right], \widetilde{\Delta} \right)$ which satisfies to the Lemma \ref{comm_lem}.  From $\bt = \widetilde{\bt}^n$,  \eqref{su_2_qgr_eqn}, and the condition (i) of the Lemma \ref{comm_lem} it turns out 
+\begin{equation}\label{bt_n_eqn}
+\left(\widetilde{\Delta}\left(\widetilde{\bt} \right)  \right)^n = \Delta\left( \bt\right)  = \beta\otimes\alpha+\alpha^*\otimes\beta = \widetilde{\bt}^n\otimes\alpha+\alpha^*\otimes\widetilde{\bt}^n. 
+\end{equation}
+Denote by $$
+D \stackrel{\text{def}}{=} C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right] \otimes C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right].
+$$
+The $\Z$-grading on $C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$ induces  the natural $\Z\times\Z$ grading on  $D = C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right] \otimes C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$.
+Clearly 
+\begin{equation*}
+\begin{split}
+\widetilde{\bt}^n\otimes\alpha \in D_{(n,0)},\\
+\alpha^*\otimes\widetilde{\bt}^n \in D_{(0,n)}
+\end{split}
+\end{equation*}
+where subscripts $(n, 0)$ and $(0, n)$ mean grading.
+Suppose that
+$$
+\widetilde{\Delta}\left(\widetilde{\bt} \right) = \sum_{\left( j, k\right)  \in \Z\times \Z} a_{jk}
+$$
+where
+$$
+a_{jk} \in D_{(j,k)}.
+$$
+Let $j_{\text{max}} \in \Z$ be a maximal number such that there is $k \in \Z$ which satisfy to the condition $a_{j_{\text{max}}, k} \neq 0$. The inequality $j_{\text{max}} > 1$ contradicts with \eqref{bt_n_eqn} because right part of \eqref{bt_n_eqn} does not contain summands in
+	$
+	D_{\left( nj_{\text{max}},k\right) }
+	$.
+	Similarly one can prove that the minimal value $j_{\text{min}}$ of $j$ such that $a_{j_{\text{min}}, k} \neq 0$ satisfies to an inequality $j_{\text{min}} \ge 0$. Using the same arguments one can prove that if $a_{jk} \neq 0$ then $0 \ge k \ge 1$. In result one has
+		$$
+	\widetilde{\Delta}\left(\widetilde{\bt} \right) = a_{00} + a_{01} + a_{10} + a_{11}.
+		$$
+		If $a_{00} \neq 0$ then $\left(	\widetilde{\Delta}\left(\widetilde{\bt} \right) \right)^n \bigcap D^{(0,0)} \neq 0$ and from this contradiction it turns out
+		$a_{00}=0$. Similarly $a_{11} = 0$.
+		Following condition holds
+\begin{equation*}
+\begin{split}
+	\widetilde{\Delta}\left(\widetilde{\bt} \right)^n=\left(a_{01}+a_{10} \right)^n = a_{01}^n + a_{10}^n + r,\\
+ a_{01}^n \in D^{0,n},\\
+ a_{10}^n \in D^{n, 0},\\
+ r \notin   D^{0,n} \bigoplus  D^{n,0},
+\end{split}
+\end{equation*}
+hence $a_{01}^n= \alpha^*\otimes\widetilde{\bt}^n$, $a_{01}^n= \alpha^*\otimes\widetilde{\bt}^n$. Otherwise
+\begin{equation*}
+\begin{split}
+r = n a_{10} a_{01}^{n-1} + r'
+\end{split}
+\end{equation*}
+where $n a_{10} a_{01}^{n-1} \in D^{(1,n-1)}$, $r' \notin D^{(1,n-1)}$. From $a_{10}^n a_{01}^{n}\neq 0$ it turns out $a_{10} a_{01}^{n-1}\neq 0$ hence $r \neq 0$.
+It follows that
+$$
+\widetilde{\Delta}\left(\widetilde{\bt} \right)^n=\left(a_{01}+a_{10} \right)^n  \neq \widetilde{\bt}^n\otimes\alpha+\alpha^*\otimes\widetilde{\bt}^n.
+$$
+This contradiction proves that the quantum group $\left( C\left( \SU_q\left( 2\right)\right), \Delta\right) $ and the finite-fold noncommutative covering $\left( C\left( \SU_q\left( 2\right)\right), C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right], \Z_n\right)$ projection do not satisfy to the Lemma \ref{comm_lem}.
+\begin{rem}
+	From \ref{cov_alg_str_sec} it follows the *-isomorphism $C\left( \SU_q\left( 2\right)\right) \xrightarrow{\approx}C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$, hence there is a structure of quantum group on $C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right]$. However in contrary to the commutative case this structure does not naturally follow from the structure of the quantum group $\left( C\left( \SU_q\left( 2\right)\right), \Delta\right)$ and the noncommutative finite-fold covering projection $$\left( C\left( \SU_q\left( 2\right)\right), C\left( \SU_q\left( 2\right)\right)\left[\widetilde{\bt}\right], \Z_n\right).$$
+\end{rem}
+
+
+ 
+\section{Conclusion}
+\paragraph{} There is a set of geometrical statements which have noncommutaive generalizations, e.g. in \cite{ivankov:qncstr} it is proven a noncommutative analog of the theorem about a covering projection of a Riemannian manifold.
+The  described in the Section  \ref{counter_sec} counterexample proves that the  analogy between coverings of topological groups and quantum groups is not full. However coverings of quantum groups satisfy to the Theorem \ref{main_thm} which is weaker than the Lemma \ref{comm_lem} about coverings of commutative quantum groups. 
+
+
+\begin{thebibliography}{10}
+	
+	
+\bibitem{auslander:galois} M. Auslander; I. Reiten; S.O. Smal\o{}. \textit{Galois actions on rings and finite Galois coverings}. Mathematica Scandinavica (1989), Volume: 65, Issue: 1, page 5-32, ISSN: 0025-5521; 1903-1807/e , 1989.
+
+%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{R}/\mathbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
+
+\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+
+%\bibitem{bezandry_diagana:bound_unbound}Paul H. Bezandry, Toka Diagana {\it Bounded and Unbounded Linear Operators}, in {\it Almost Periodic Stochastic Processes}, Springer, 2011.
+
+%\bibitem{ballentine:qm} Leslie E Ballentine. {\it Quantum Mechanics: A Modern Development.} World Scientific Publishing Co. Pte. Ltd. 2000.
+
+%\bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press 1998.
+
+%\bibitem{blackadar:kocalg_neumann} B. Blackadar {\it Operator Algebras Theory of C* - Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006.
+
+%\bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
+
+%\bibitem{blecher:hilb_gen} D.P. Blecher. {\it A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
+
+%\bibitem{bost:oka}J.-B. Bost, {\it Principe d’Oka, $K$-th\'eorie et syst$\grave{e}$mes dynamiques non commutatifs}. Invent. Math. 101 (1990), 261–333. 1990.
+
+%\bibitem{bogachev_measure_v1}V. I. Bogachev. {\it Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
+%\bibitem{bogachev_measure_v2}V. I. Bogachev. {\it Measure Theory}. (volume 2). Springer-Verlag, Berlin, 2007.
+
+
+
+%\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it General Topology}, Chapters 1-4, Springer, Sep 18, 1998.
+
+%\bibitem{bratteli_robinson:oa_qsm}O. Bratteli and D. W. Robinson, {\it Operator Algebras and Quantum Statistical Mechanics 1}. Springer, New York. 1987.
+
+
+
+
+%\bibitem{bruckler:tensor} Franka Miriam Br\"uckler. {\it Tensor products of $C^*$-algebras, operator spaces and Hilbert $C^*$-modules}. Mathematical Communications 4(1999), 1999.
+\bibitem{chakraborty_pal:quantum_su_2} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{Equivariant spectral triples on the quantum $SU(2)$ group}. arXiv:math/0201004v3, 2002.
+
+
+%\bibitem{chang:fermionic} Ee Chang-Young, Hiroaki Nakajima, Hyeonjoon Shin. {\it Fermionic $T$-duality and Morita Equivalence}, arXiv:1101.0473, 2011.
+
+%\bibitem{morita_hopf_galois}S. Caenepeel, S. Crivei, A. Marcus, M. Takeuchi. {\it Morita equivalences induced by bimodules over Hopf-Galois extensions.} arXiv:math/0608572, 2007.
+
+%\bibitem{cheng_li:gauge} Cheng, T.-P.; Li, L.-F. {\it Gauge Theory of Elementary Particle Physics}. Oxford University Press. ISBN 0-19-851961-3. 1983.
+
+%\bibitem{chavel:riemann} Isaac Chavel. {\it Riemannian Geometry: A Modern Introduction} (Cambridge Studies in Advanced Mathematics) Paperback – July 6, 2006.
+
+%\bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012 This paper is available online at http://journal.taiwanmathsoc.org.tw, 2012.
+
+%\bibitem{cohn_measure} Donald L. Cohn \textit{Measure Theory}. Basel: Birkh\"auser,  — 457 p. Second edition. ISBN 978-1-4614-6955-1. 2013.
+
+
+%\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
+
+%\bibitem{clare_crisp_higson:adj_hilb} Pierre Clare, Tyrone Crisp, Nigel Higson {\it Adjoint functors between categories of Hilbert modules}.  arXiv:1409.8656, 2014.
+
+%\bibitem{connes:grav}A. Connes. {\it Gravity coupled with matter and foundation of noncommutative geometry}. Commun. Math. Phys. 182 (1996), 155–176. 1996.
+
+%\bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
+
+%\bibitem{connes_landi:isospectral} Alain Connes, Giovanni Landi. {\it Noncommutative Manifolds the Instanton Algebra and Isospectral Deformations}, arXiv:math/0011194, 2001.
+
+%\bibitem{connes_marcolli:motives}
+%Alain Connes, Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives},  American Mathematical Society, Colloquium Publications, 2008.
+
+% \bibitem{connes_moscovici:local_index} A. Connes and H. Moscovici, {\it The local index theorem in noncommutative geometry"}. Geom. and Funct. Anal., 1996.
+
+
+%\bibitem{cuntz_quillen:alg_ext} Joachim Cuntz, Daniel Quillen.  {\it Algebra extensions and nonsingularity}, J. Amer. Math. Soc. 8 251-289, 1995
+
+%\bibitem{davis_kirk_at}James F. Davis. Paul Kirk. {\it Lecture Notes in Algebraic Topology}. Department of Mathematics, Indiana University, Blooming- ton, IN 47405, 2001.
+%\bibitem{dixmier_tr}J.Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963.
+
+
+%\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
+
+
+%\bibitem{spectral_action_nt}Driss Essouabri, Bruno Iochum, Cyril Levy, and Andrzej Sitarz. \textit{Spectral action on noncommutative torus.} Journal of Noncommutative Geometry, 2 (2008), 53–123, 2008. 
+
+
+%\bibitem{frank:frames} Michael Frank , David R. Larson, {\it Frames in Hilbert $C^*$-modules and $C^*$-algebras}, arXiv:math/0010189, 2000.
+
+
+%\bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
+
+%\bibitem{gilkey:odd_space}P.B. Gilkey. {\it The eta invariant and the $K$-theory of odd dimensional spherical space forms}.Inventiones mathematicae, Springer-Verlag, 1984.
+
+%\bibitem{varilly_bondia:phobos}Jos\'e M. Gracia-Bondia, Joseph C. Varilly.  \textit{Algebras of Distributions suitable for phase-space quantum mechanics. I}. Escuela de Matem\'{a}atica, Universidad de Costa Rica,San Jos\'e, Costa Rica J. Math. Phys 29 (1988), 869-879, 1988.
+
+
+%\bibitem{elliot:an} Elliott H. Lieb, Michael Loss. \textit{Analysis}, American Mathematical Soc., 2001.
+
+
+
+%\bibitem{nicolas_ginoux:dirac_spectrum}Nicolas Ginoux. {\it The Dirac Spectrum.} Springer, Jun 11, 2009.
+
+%\bibitem{varilly_bondia} Jos\'e M. Gracia-Bondia, Joseph C. Varilly, Hector Figueroa, {\it Elements of Noncommutative Geometry}, Springer, 2001.   92  96    142
+
+%\bibitem{green_schwarz_witten:superstring} {\it Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics)  by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
+
+
+%\bibitem{gross_gauge}David J. Gross. {\it Gauge Theory-Past, Present, and Future?} Joseph Henry Luborutoties, Ainceton University, Princeton, NJ 08544, USA. (Received November 3,1992).
+
+%\bibitem{ful:gr_repr} Fulton William, Harris Joe. {\it Representation theory. A first course} Graduate Texts in Mathematics, Readings in Mathematics 129, New York: Springer-Verlag. 1991.
+
+%\bibitem{halmos:set} Paul R.  Halmos {\it Naive Set Theory.} D. Van Nostrand Company, Inc., Prineston, N.J., 1960.
+
+
+%\bibitem{helemsky:qfa} A. Ya. Helemsky. {\it Quantum Functional Analysis. Non-Coordinate Approach.} Providence, R.I. : American Mathematical Society, 2010.
+
+%\bibitem{ivankov:infinite_cov_pr} Petr Ivankov.  {\it Infinite Noncommutative Covering Projections}.  arXiv:1405.1859, 2014.
+ 
+% \bibitem{ivankov:inv_lim}  Petr R. Ivankov. {\it Inverse Limits of Noncommutative Covering Projections},  arXiv:1412.3431, 2014.
+ 
+
+% \bibitem{ivankov:nc_cov_k_hom}Petr Ivankov. {\it Noncommutative covering projections and $K$-homology}, 	arXiv:1402.0775, 2014.
+ 
+
+ %\bibitem{ivankov:nc_wilson_lines} Petr Ivankov.  {\it Noncommutative Generalization of Wilson Lines}. arXiv:1408.4101, 2014.
+
+%\bibitem{hajac:toknotes}{\it Lecture notes on noncommutative geometry and quantum groups}, Edited by Piotr M. Hajac.
+
+
+%\bibitem{ivankov:nc_cov_k_hom}Petr Ivankov. {\it Noncommutative covering projections and $K$-homology}, 	arXiv:1402.0775, 2014.
+
+%\bibitem{ivankov:uni_nc_cov}
+%Petr R. Ivankov. {\it Universal covering space of the noncommutative torus},
+%arXiv:1401.6748, 2014.
+
+%\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
+
+%\bibitem{kaku:loc}Kaku, M. {\it Locality in the gauge-covariant field theory of strings}. Phys. Lett. 162B, 97. Kaku, M. 1986.
+
+%\bibitem{karaali:ha} Gizem Karaali {\it On Hopf Algebras and Their Generalizations}, arXiv:math/0703441, 2007.
+
+%\bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag 1978.
+
+%\bibitem{kastler:connes_lott} Daniel Kastler, Thomas Schucker, {\it The Standard Model a la Connes-Lott}, arXiv:hep-th/9412185, 1994.
+
+
+%\bibitem{koba_nomi:fgd} S. Kobayashi, K. Nomizu. {\it Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
+
+%\bibitem{lee:smooth} John M. Lee. {\it Introduction to Smooth Manifolds}. University of Washington. Department of Mathematics. Version 3.0, December 31, 2000.
+
+%\bibitem{demeyer:genreal_galois}DeMeyer, F. R. \textit{Some notes on the general Galois theory of rings}. Osaka J. Math.2 (1965), 117-127, 1965.
+
+%\bibitem{mitchener:c_cat}Paul D. Mitchener. \textit{$C^*$-categories}. Odense University,  September 13, 2001.
+
+
+
+%\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press  1980.
+
+%\bibitem{miyashita_fin_outer_gal} Y\^oichi Miyashita, {\it Finite outer Galois theory of noncommutative rings}. Department of Mathematics, Hokkaido, University, 1966.
+
+%\bibitem{bram:atricle} Bram Mesland. {\it Unbounded bivariant $K$-theory and correspondences in noncommutative geometry} arXiv:0904.4383, 2009.
+
+
+%\bibitem{miyashita_fin_outer_gal} Y\^oichi Miyashita, {\it Finite outer Galois theory of noncommutative rings}. Department of Mathematics, Hokkaido, University, 1966.
+
+%\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, {\it Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
+
+%\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. {\it Continuous trace groupoid $C^*$-algebras.}, Math. Scand. 1990
+
+\bibitem{ivankov:qncstr} Petr Ivankov. \textit{Coverings of Spectral Triples}, arXiv:1705.08651, 2017.
+
+\bibitem{ivankov:qnc} Petr Ivankov. \textit{Quantization of noncompact coverings}, arXiv:1702.07918, 2017.
+
+
+\bibitem{mimuta_toda_lie}Mamoru Mimura, Hiroshi Toda, \textit{Topology of Lie Groups, I and II}, American Mathematical Soc., 1991.
+
+%\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
+
+
+%\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.}Academic Press 1990.
+
+%\bibitem{Pa1} {W.~L.~Paschke}, Inner product modules over B*-algebras,  {\it Trans.~Amer.~Math.~Soc.} {\bf 182}(1973), 443-468.
+  
+  \bibitem{neshveyev_tuset_qg} Sergey Neshveyev, Lars Tuset,	\textit{Compact Quantum Groups and Their Representation Categories}. 	Collection SMF.: Cours sp\'{e}cialis\'{e}s (V 20), ISSN 1284-6090, Cours Specialises, 	Cours Sp\'{e}cialis\'{e}s Collection SMF (V 20), Documents mathématiques, ISSN 1629-4939, Amer Mathematical Society, 2013.
+  
+  
+ 	\bibitem{pavlov_troisky:cov} Alexander Pavlov, Evgenij Troitsky. {\it Quantization of branched coverings.}   Russ. J. Math. Phys. (2011) 18: 338. doi:10.1134/S1061920811030071, 2011.
+ 
+
+%\bibitem{pedersen:ca_aut}Pedersen G.K. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+
+%\bibitem{ros_scho:kt_uct} Jonathan Rosenberg, Claude Schochet, {\it The K\"unneth theorem and the universal coefficient theorem for Kasparov's generalized K -functor}, Duke Math. J. Volume 55, Number 2 1987.
+
+%\bibitem{phillips:inv_lim_app} N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} University of California at Los Angeles, Los Angeles, CA 90024, 1991
+
+%\bibitem{reed_simon:mp_1}Michael Reed, Barry Simon. {\it Methods of modern mathematical physics 1: Functional Analysis}. Academic Press, 1972.
+
+%\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology},
+%Springer. 2002
+
+
+
+%\bibitem{adams:infinite_loop_spaces} J. F. Adams. {\it Infinite loop spaces}. Ann. of Math. Studies no. 90, Princeton Univ. Press, Princeton, N. J., 1978
+
+%\bibitem{phillips:c_infty_loop} N. Christopher Philllips. {\it $C^{\infty}$ Loop Algebras and Noncommutative Bott Periodicity}. Transactions of the American Matematical Society, Volume 325, Number 2, June 1991
+
+%\bibitem{sitarz:equiv} Andrzej Sitarz {\it Equivariant spectral triples}, Noncommutative Geometry and Quantum Groups (Piotr M. Hajac and Wieslaw Pusz, eds.), Banach Center Publ., vol 61, Polish Acad. Sci., pp. 231-268,  Warsaw 2003
+
+
+
+%\bibitem{cuntz:o_n} J. Cuntz, {\it Simple $C^*$ - algebras generated by isometries}, Comm. Math. Phys. 57:2, 1977
+
+%\bibitem{cuntz:k_o_n} J. Cuntz, {\it$K$ - theory of certain $C^*$ - algebras}, Ann. of Math. (2), 113:1 1981
+
+
+%\bibitem{Cohn:68} Paul~Moritz Cohn. {\it {M}orita equivalence and duality}, Queen Mary College   Mathematics Notes, Dillon's Q.M.C.\ Bookshop, London, 1968.
+
+
+%\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it General Topology}. Chapters 1-4, Springer, Sep 18, 1998
+
+%\bibitem{williams_sp:morita_cont_trace_alg} Iain Raeburn, Dana P. Williams. {\it Morita Equivalence and Continuous-Trace $C^*$-Algebras}. American Mathematical Soc., 1998
+
+%\bibitem{dixmier_tr}J.Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963
+
+%\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. {\it On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007
+
+%\bibitem{meyer:morita} Ralf Meyer. {\it Morita Equivalence In Algebra And Geometry.} math.berkeley.edu/~alanw/277papers/meyer.tex, 1997
+
+
+
+%\bibitem{rumynin_hopf_galois_ci} Dmitriy Rumynin  {\it Hopf-Galois extensions with central invariants.}  arXiv:q-alg/9707021 1997
+
+%\bibitem{dixmier_a_r} Jacques Dixmier {\it Les C*-alg\`{e}bres et leurs repr\'esentations} 2e \'ed. Gauthier-Villars in Paris 1969
+
+
+
+%\bibitem{rieffel_finite_g} Marc A. Reiffel, {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
+
+%\bibitem{rieffel_morita}Marc A. Reiffel, {\it Morita equivalence for $C^*$-algebras and $W^*$-algebras }, Journal of Pure and Applied Algebra 5 (1974), 51-96. 1974.
+
+%\bibitem{dixmier_douady_d} Claude Schochet, {\it Dixmier-Douady for Dummies}. 	arXiv:0902.2025 2009.
+
+
+%\bibitem{rennie:smooth_nonunital} A. Rennie, {\it Smoothness and locality for nonunital spectral triples}, $K$-Theory 28 (2003), 127–165. 2003.
+
+%\bibitem{schweitzer:m_local_frechet} L. B. Schweitzer. {\it  A short proof that $M_n(A)$ is local if $A$ is local and Fr\'echet}, Internat. J. Math. 3 (1992), 581-589. MR 93i:46082. 1992.
+
+
+%\bibitem{spanier:at}E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York 1966.
+
+\bibitem{woronowicz:su2} S.L. Woronowicz. \textit{Twisted SU(2) Group. An Example of a Non-Commutative Differential Calculus}	PubL RIMS, Kyoto Univ. 23 (1987), 117-181, 1987.
+
+
+%	\bibitem{takeda:inductive} Zir\^{o} Takeda. \textit{Inductive limit and infinite direct product of operator algebras.} Tohoku Math. J. (2) 	Volume 7, Number 1-2 (1955), 67-86. 1955.
+
+%\bibitem{takesaki:oa_ii} Takesaki, Masamichi. {\it Theory of Operator Algebras II } Encyclopaedia of Mathematical Sciences, 2003. 
+
+%\bibitem{thomsen:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
+
+
+%\bibitem{takeuchi:inf_out_cov}Takeuchi, Yasuji {\it Infinite outer Galois theory of non commutative rings} Osaka J. Math. Volume 3, Number 2, 1966.
+
+%\bibitem{inikolaev:c_bundles} Igor Nikolaev, {\it Topology of the $C^*$ algebra bundles}. Centre interuniversitaire de recherche en g\'eom\'etrie diff\'erentielle et topologie UQAM Montr\'eal H3C 3P8 Canada 1999.
+
+
+
+
+%\bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968.
+
+%\bibitem{thompsen:homtop}Klaus Thompsen. {\it Homotopy classes of * - homomorphisms between stable $C^*$ - algebras and their muliplier algebras.} Duke Matematical Journal (C) August 1990.
+
+
+
+
+%\bibitem{blackadar:oa}
+%B. Blackadar. {\it Operator Algebras Theory of $C^*$ Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006
+
+
+
+
+%\bibitem{murre:fund}
+%J.P. Murre. {\it Lectures on An Introduction to Grothendieck's  Theory of the Fundamental Group.} Notes by S. Anantharaman, Tata Institute of Fundamental Research, Bombay, 1967.
+
+
+%\bibitem{connes_marcolli::motives} Alain Connes Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives.} Preliminatry version. www.alainconnes.org/docs/bookwebfinal.pdf
+
+%\bibitem{mesland::unbounded_biviariant} Bram Mesland. {\it Unbounded biviariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383. 2009.
+
+
+
+%\bibitem{connes:ng} A. Connes. {\it Noncommutative Geometry.} Academic Press, London, 1994.
+
+%\bibitem{brown_green_rieffel:morita_stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel.  {\it Stable isomorphism and strong Morita equivalence of $C^‚àó$  -algebras.} Source: Pacific J. Math. Volume 71, Number 2 , 349-363, 1977
+
+
+%\bibitem{faith:I} C. Faith. Algebra: {\it Rings, Modules and Cathegories I}. Springer-Verlag 1973
+
+
+
+
+%\bibitem{varilly:noncom} J.C. V\'arilly. {\it An Introduction to Noncommutative Geometry}. EMS 2006.
+
+%\bibitem{Wegge-Olsen} {N.~E.~Wegge-Olsen}, {\it K-theory and C*-algebras -- a Friendly Approach}, Oxford University Press, Oxford, England,   1993.
+   
+%\bibitem{weil:basic_number_theory}Andre Weil {\it Basic Number Theory}. Springer 1995
+
+%\bibitem{Partha_quantum_su} Partha Sarathi Chakraborty, Arupkumar Pal. {\it Equivariant spectral triples on the quantum $SU(2)$ group.} arXiv:math.KT/0201004, 2003.
+
+%\bibitem{geom_anal_k_homology} Paul Baum, Nigel Higson, and Thomas Schick {\it On the Equivalence of Geometric and Analytic K-Homology} arXiv:math/0701484, 2009.
+
+
+
+
+
+
+%\bibitem{connesdebois:3dsphere}
+%A. Connes, M. Dubois-Violette. Moduli space and structure of
+%noncommutative 3-spheres.  LPT-ORSAY 03-34 ; IHES/M/03/56.
+%Lett.Math.Phys. 66 91-121. 2003.
+
+%\bibitem{conneslandi:isospectal}
+%A. Connes, G. Landi. Noncommutative Manifolds the Instanton Algebra
+%and Isospectral Deformations, math.QA/0011194, 2000.
+
+%\bibitem{suprsym:qt}
+%J. Fr\"ohlich, O. Grandjean, A. Recknagel. Supersymmetric Quantum
+%Theory and (Non-Commutative) Differential Geometry, ETH-TH/96-45
+%1996.
+
+%\bibitem{ivankov:fund}
+%P.R. Ivankov, N.P. Ivankov. The Noncommutative Geometry
+%Generalization of Fundamental Group. arXiv:math.KT/0604508, 2006
+
+%\bibitem{johnstone:topos}
+%P.T. Johnstone. Topos Theory, L. M. S. Monographs no. 10, Academic
+%Press 1977.
+
+%\bibitem{lang}
+%S. Lang. Algebra. Addison-Wesley Publishing Company, Reading, Mass
+%1965.
+
+%\bibitem{reconstr}
+%A. Rennie, J.C. V\'arilly. Reconstruction of Manifolds in
+%Noncommutative Geomery. \newline arXiv:math/0610418v3 [math.OA] 24
+%Mar 2007.
+
+
+%\bibitem{varilly:lecture}
+%J.C. V\'arilly. Dirac operators and Spectral Geometry. Lecture notes
+%by Pave{\l} Witkowsky from Warshaw Noncommutative Geometry, January
+%2006.%http://ncg.mimuw.edu.pl/index.php?option=com_docman&task=doc_download&gid=10&Itemid=58
+
+%\bibitem{wolf:const_curv} Wolf, J. {\it Spaces of constant curvature}. New York: McGraw-Hill, 1967.
+
+%\bibitem{raimar_wulkenhaar:nc_spectral_triple}
+%Raimar Wulkenhaar.{\it Non-compact spectral triples with finite volume}. 	arXiv:0907.1351, 2009.
+
+
+\bibitem{dijkhuizen:so_doublecov} Dijkhuizen, Mathijs S. \textit{The double covering of the quantum group $SO_q(3)$}. Rend. Circ. Mat. Palermo (2) Suppl. (1994), 47-57. MR1344000, Zbl 0833.17019. 1994.
+
+\bibitem{podles:so_su} Piotr Podle\'{s}. \textit{Symmetries of quantum spaces. Subgroups and quotient spaces of quantum SU(2) and SO(3) groups.} Comm. Math. Phys. Volume 170, Number 1 (1995), 1-20. 1995.
+
+\end{thebibliography}
+
+\end{document}
+\endinput
+
