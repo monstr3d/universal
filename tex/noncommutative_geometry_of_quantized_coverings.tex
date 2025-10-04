@@ -6057,11 +6057,11 @@ is $\left(A, \widetilde{A}, G, \lift \right)$- \textit{semilocally proper} if on
 	\item[(ii)]
 	the natural restriction $\lift|_B: B \hookto 	\widetilde B$ yields the natural $*$-isomorphism
 \be\label{weakly_semi1_eqn}
-\mathrm{pr} \circ	\lift|_B: B \cong 	\widetilde B
+\mathrm{pr}_{\widetilde B} \circ	\lift|_B: B \cong 	\widetilde B
 \ee
 where 
 $$
-\mathrm{pr} : \sum_{	g \in {G}} g \widetilde B \to \widetilde B
+\mathrm{pr}_{\widetilde B} : \sum_{	g \in {G}} g \widetilde B \to \widetilde B
 $$
 is the natural projection onto the component of the direct sum. A connected, simply connected,   hereditary $C^*$-subalgebra $B \subset A$ is \textit{semilocally proper} if it is {semilocally proper} for every noncommutative finite-fold covering.
 \end{enumerate}
@@ -24799,47 +24799,29 @@ For any $j \in \left\{1, ..., n\right\}$ there is a hereditary $C^*$-subalgebra 
 Let $\widetilde{a} \in \widetilde{A}_j$. According to the Definition \ref{compact_quantum_group_defn}
  one has
 \be
- \Delta ~\desc\left(  \widetilde a\right)  = \sum_{k=1}^\infty a'_k \otimes a''_k
+ \Delta ~\desc\left(  \widetilde a\right)  = \sum_{k=1}^l a'_k \otimes a''_k
 \ee
- where $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-{descent} (cf. Definition \ref{fin_desc_defn}) the series is convergent with respect to the minimal topology of $A\otimes A$ Suppose that there is $j \in \left\{1, ..., n\right\}$ with $a \in A_j$. Assume that for any $k \in \left\{1, ..., \infty\right\}$ there are $j'_k, j''_k \in \left\{1, ..., n\right\}$ with $a'_k \in A_{j'_K}$ and $a''_k \in A_{j''_k}$.  Let $\mathfrak p \bydef \left( A_{j'_k},...,  A_{j''_k}  \right)$ be a path such that the composition
+ where $\desc$ is the $\left(A, \widetilde{A}, G, \lift \right)$-{descent} (cf. Definition \ref{fin_desc_defn}) the series is convergent !!! CONVERGENT DELETE !!!! with respect to the minimal topology of $A\otimes A$ Suppose that there is $j \in \left\{1, ..., n\right\}$ with $a \in A_j$. Assume that for any $k \in \left\{1, ..., \infty\right\}$ there are $j'_k, j''_k \in \left\{1, ..., n\right\}$ with $a'_k \in A_{j'_K}$ and $a''_k \in A_{j''_k}$.  Let $\mathfrak p \bydef \left( A_{j'_k},...,  A_{j''_k}  \right)$ be a path such that the composition
  $$
 \desc\left( \widetilde{\mathfrak p}_{j j'_k}\right) \circ  \mathfrak p\circ  \desc\left( \widetilde{\mathfrak p}_{j j''_k}\right)^*
  $$
  is contractible.
  If  $\widetilde{\mathfrak p} = \left( \widetilde{A}_{j'_{_k}} , ...,  \widetilde{A};_{j''_k}\right) $ is the
-is contractible (cf. Definition ) !!!
+is  $\left(A, \widetilde{A}, G, \lift \right)$ - contractible (cf. Definition \ref{contactible_path_defn}). If 
+$$
+\widetilde {\mathfrak p} = \left(\widetilde A_{j'_k}, ..., \widetilde A'_{j''_k} \right) 
+$$
+is the $\left(A, \widetilde{A}, G, \lift \right)$-$\widetilde A_{j''_k}$-{lift} of $\mathfrak p$ (cf, Definition \ref{path_lift_defn}) then there the equation \eqref{weakly_semi1_eqn} yields the natural $*$-isomorphisms 
 
-
-\begin{definition}\label{path_lift_defn}
-	The given by the Lemma  \ref{path_lift_lem} path $\widetilde{\mathfrak p}$ is said to be the $\left(A, \widetilde{A}, G, \lift \right)$-\textit{lift} of $\mathfrak p$. We write
-	\be\label{path_lift_eqn}
-	\lift_p\left( ~\mathfrak p\right) \bydef\widetilde{\mathfrak p}.
-	\ee 
-	or the $\left(A, \widetilde{A}, G, \lift \right)$-$\widetilde A_1$-\textit{lift}.
-\end{definition}
-
-
-\begin{definition}\label{contactible_path_defn}
-	Let $A$ be a $C^*$-algebra and $\left(A, \widetilde{A}, G, \lift \right)$ is a finite-noncommutative covering .  A closed   path $\left(A_1, ..., A_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{closed_path_defn}) is said to be $\left(A, \widetilde{A}, G, \lift \right)$-\textit{contractible}  if $\left(A, \widetilde{A}, G, \lift \right)$  -{lift}  of $\mathfrak p$  is closed (cf. Definitions \ref{closed_path_defn} and \ref{top_path_lift_defn}). A path is \textit{contractible} if it is $\left(A, \widetilde{A}', G', \lift' \right)$-{contractible}  for every finite-noncommutative covering  $\left(A, \widetilde{A}', G', \lift' \right)$.
-\end{definition}
-
-
-	(cf. the equation \eqref{weakly_semi1_eqn}). Let us consider the  groupoid $\G$ which is a groupoid of paths $\left(\mathcal C'_1 \bydef \mathcal C_1, \mathcal C'_2, ..., \mathcal C'_k \right)$ with
-	$$
-	\forall j \in \left\{1,..., k\right\} \mathcal C'_j \in \left\{ \mathcal C_1, ...,  \mathcal C_n\right\}
-	$$
-	modulo $\left( \mathcal C, \widetilde{\mathcal C}, G, \lift\right)$- homotopy equivalence (cf. \ref{path_homotopy_defn}. Let  $\G_{\mathcal C_1}$ is given by the Definition \ref{groupoid_isotropy_defn} then for any $\ga \in \G_{\mathcal C_1}$ there can be represented by a path $\left(\mathcal C'_1 = \mathcal C_1, \mathcal C'_2, ..., \mathcal C'_k \right)$. If  $\left(\widetilde{\mathcal C}'_1 = \widetilde{\mathcal C}_1, \widetilde{\mathcal C}'_2, ...,\widetilde{\mathcal C}'_k\right)$ is the $\left( \mathcal C, \widetilde{\mathcal C}, G, \lift\right)$-lift (cf. Definition \ref{path_lift_defn}) then $\widetilde{\mathcal C}'_k$ does not depend on the choice of representative of $\ga$.
-	
-	
-	 we will construct a hereditary $C^*$-subalgebra of $\widetilde{\mathcal C}_1$. Firstly take a representative $\left(\mathcal C'_1  \mathcal C_1, \mathcal C'_2, ..., \mathcal C'_k \right)$ of $\ga$. Then we find the  $\left(A, \widetilde{A}, G, \lift \right)$-$\widetilde A_1$-{lift} (cf. Definition \ref{path_lift_defn}),
-	 Denote by
-	 \be
-	 \widetilde{\mathcal C}_\ga \bydef \widetilde{\mathcal C}'_k.
-	 \ee
-	From our construction it follows that 
-	\be 
-	\widetilde{\mathcal C} = \sum_{\ga \in \G_{\mathcal C_1}} \widetilde{\mathcal C}_\ga.
-	\ee
+\bean
+\mathrm{pr}_{\widetilde A_{j'_k}} \circ	\lift|_{A{j'_k}}: A_{j'_k} \cong 	 \widetilde A_{j'_k},\\
+\mathrm{pr}_{\widetilde A'_{j''_k}} \circ	\lift|_{A{j''_k}}: A_{j]'_k} \cong 	 \widetilde A'_{j''_k},\\
+\eean
+If for any $\widetilde a'_k \bydef \mathrm{pr}_{\widetilde A_{j'_k}} \circ	\lift|_{A{j'_k}}: A_{j'_k}\left(a'_k \right)$ and $\widetilde a''_k \bydef \mathrm{pr}_{\widetilde A'_{j''_k}} \circ	\lift|_{A{j'_k}}\left(a''_k \right)$ for every $k \in \left\{1,..., l\right\}$  then we define
+$$
+\forall g\in G \quad  \Delta g \widetilde a \bydef \sum_{	h \in {G}}\sum_{k=1}^l gh \widetilde a'_k \otimes h^{-1} \widetilde a''_k 
+$$
+Using the Definition \ref{weakly_semi_one_conn_defn} one can deduce that one can define  $\Delta g \widetilde a$ for all $\widetilde a \in \widetilde A$.
 
 \section{The double covering of the quantum group $SO_q(3)$}
 \paragraph*{} 
