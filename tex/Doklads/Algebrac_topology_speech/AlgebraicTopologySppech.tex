@@ -1,0 +1,259 @@
+\documentclass{beamer}
+\usepackage{amsmath,amssymb,amsthm,slashed, euscript}
+\usepackage{graphicx}
+
+
+\textwidth=110mm
+
+
+\title{Algebraic topology of $C^*$-algebras}
+\institute
+{
+Algebras in analysis
+}
+
+\author{Petr R. Ivankov  }
+
+
+
+\theoremstyle{plain}
+\newtheorem{defn}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{exm}{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{prop}{Proposition}
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{lem}{Lemma}%[section]
+\newtheorem{thm}{Theorem}%[section]
+
+
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+	\newcommand{\eean}{\end{eqnarray*}}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Ef}{\mathbb{E}}
+\newcommand{\desc}{\mathfrak{desc}}
+
+
+%Uppercase Gothic characters
+\newcommand{\gtA}{\mathfrak{A}}
+\newcommand{\gtB}{\mathfrak{B}}
+\newcommand{\gtM}{\mathfrak{M}}
+\newcommand{\gtN}{\mathfrak{N}}
+\newcommand{\gtP}{\mathfrak{P}}
+\newcommand{\gtS}{\mathfrak{S}}
+
+%Lowercase Gothic characters
+\newcommand{\gtf}{\mathfrak{f}}
+\newcommand{\gtg}{\mathfrak{g}}
+
+%Bold Characters
+\newcommand{\Cb}{\mathbb{C}}
+\newcommand{\Nb}{\mathbb{N}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Zb}{\mathbb{Z}}
+
+%Uppercase Greek characters
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Te}{\Theta}
+\newcommand{\Om}{\Omega}
+\newcommand{\s}{ }
+
+%Lowercase Greek characters
+\newcommand{\al}{\alpha}
+\newcommand{\gm}{\gamma}
+\newcommand{\dl}{\delta}
+\newcommand{\sg}{\sigma}
+\newcommand{\ph}{\varphi}
+\newcommand{\te}{\theta}
+\newcommand{\ze}{\zeta}
+\newcommand{\lift}{\mathfrak{lift}}
+
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Coo}{{\mathrm{C}}^\infty}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\spinc}{\textbf{$spin^c$}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Ccl}{\mathbf{C}l}
+\newcommand{\xto}{\xrightarrow}
+
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\ox}{\otimes}
+\newcommand{\nb}{\nabla}
+\newcommand{\sS}{\mathcal{S}}
+\newcommand{\Dn}{D\!\!\!\!/}
+%\newcommand{\ij}{{i,j}}
+\newcommand{\aC}{\ensuremath{\underline{\Cb}} }
+\newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\op}[1]{J{#1}J^\dag}
+\newcommand{\sA}{\mathcal{A}} 
+\newcommand{\sB}{\mathcal{B}}       %%
+\newcommand{\sC}{\mathcal{C}}       %%
+\newcommand{\sD}{\mathcal{D}}       %%
+\newcommand{\sE}{\mathcal{E}}       %%
+\newcommand{\sF}{\mathcal{F}}       %%
+\newcommand{\sG}{\mathcal{G}}       %%
+\newcommand{\sH}{\mathcal{H}}       %%
+\newcommand{\sI}{\mathcal{I}}       %%
+\newcommand{\sJ}{\mathcal{J}}       %%
+\newcommand{\sK}{\mathcal{K}}       %%
+\newcommand{\sL}{\mathcal{L}}       %%
+\newcommand{\sM}{\mathcal{M}}       %%
+\newcommand{\sN}{\mathcal{N}}       %%
+\newcommand{\sO}{\mathcal{O}}       %%
+\newcommand{\sP}{\mathcal{P}}       %%
+\newcommand{\sQ}{\mathcal{Q}}       %%
+\newcommand{\sR}{\mathcal{R}}       %%
+\newcommand{\sT}{\mathcal{T}}       %%
+\newcommand{\sU}{\mathcal{U}}       %%
+\newcommand{\sV}{\mathcal{V}}       %%
+\newcommand{\sX}{\mathcal{X}}       %%
+\newcommand{\sY}{\mathcal{Y}}       %%
+\newcommand{\sZ}{\mathcal{Z}}       %%
+\newcommand{\N}{\mathbb{N}}                  %% 
+
+\renewcommand{\a}{\alpha}     
+\newcommand{\la}{\lambda}     
+\newcommand{\La}{\Lambda}
+\newcommand{\bt}{\beta}           %% short for  \beta
+ 
+    
+\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}  
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+  
+\begin{document}
+%\titlepage
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+		\begin{definition}\label{lattice_defn}\cite{johnstone:stone_spaces} 
+	
+	A \alert{join-semilattice} is a poset which supports for any finite set both  least upper bounds. Similarly we define 	\alert{meet-semilattice},	 A \alert{lattice} is a poset which supports for any finite set both  least upper bounds and greatest lower  bounds. 
+\end{definition}
+\begin{definition}\label{ideal_defn}\cite{johnstone:stone_spaces} 
+	A subset $I$ of a join-semilattice $A$ is said to be an {\it ideal} if
+	\begin{enumerate}
+		\item [(a)] $I$ is a sub-join-semilattice of $A$; i.e. $0\in A$, and $a, b \in I$ imply  	$a \vee b \in I$; and
+		\item [(b)] $I$ is a lower set; i.e. $a \in I$ and $b \le a$ imply $b \in I$.  
+	\end{enumerate}
+\end{definition}
+\begin{definition}\label{filter_defn}\cite{johnstone:stone_spaces} 
+	A subset $\mathfrak F$ of a meet-semilattice $A$ is said to be an {\it filter} if
+	\begin{enumerate}
+		\item [(a)] $\mathfrak F$ is a sub-meet-semilattice of $A$; i.e. $1\in A$, and $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
+		\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
+	\end{enumerate}
+\end{definition}
+\end{frame}
+\begin{frame}
+		\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
+	A maximal filter is an \alert{ultrafilter}.
+\end{definition}
+
+\begin{lemma}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
+	One has:
+	\begin{enumerate}
+		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
+		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
+	\end{enumerate} 
+	
+\end{lemma}
+\begin{empt}
+	From the Zorn's lemma (cf. Theorem \ref{zorn_thm}) it follows that any filter is a subset of an ultrafilter.
+	\end{empt}
+
+\end{frame}
+\begin{frame}
+	
+	If $A$ is $C^*$-algebra then from the Lemma \ref{hered_ideal_lem} it follows that the a meet-semilattices (cf. Definition \ref{lattice_defn}) or closed left, right ideals and hereditary $C^*$-subalgebras are isomorphic.
+If  $\mathfrak{Gelfand}\left(A \right)$  is a set of ultrafilters of these the meet-semilattices then denote by
+\be\label{gelfand_eqn}
+\begin{split}
+	\mathfrak{Gelfand}\left(A \right)_{I} \bydef \left\{\left. x \in \mathfrak{Gelfand}\left(A \right)\right| I \in x\right\},\\
+	\mathfrak{Gelfand}\left(A \right)_{B} \bydef \left\{\left. x \in \mathfrak{Gelfand}\left(A \right)\right| B \in x\right\}
+\end{split}
+\ee
+where $I$ is a one-sided ideal, $B$ is a hereditary $C^*$-algebra.	
+\begin{lemma}
+	There is the natural topology on  $\mathfrak{Gelfand}\left(A \right)$ generated by the sets \eqref{gelfand_eqn}
+\end{lemma}
+	\begin{definition}\label{gelfand_space_defn}\alert{Ivankov}
+	Under the above hypothesis $\mathfrak{Gelfand}\left(A \right)$ is the \alert{Gelfand's space} of $A$.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\begin{theorem}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
+	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
+\end{theorem}
+
+
+\begin{lemma} (Generalized commutative Gelfand theorem).
+	If $\sX$ is a compact Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
+\end{lemma}
+\end{frame}
+\begin{frame}
+\begin{definition}\label{hereditary_extension_defn}
+	If both be $A$ and $\widetilde{A}$ be $C^*$-algebras then  a *-homomorphism
+	\bean
+	\varphi: A \hookto M\left(\widetilde A\right)
+	\eean
+	is  \alert{hereditary full} if a set $\varphi\left( A\right) \widetilde{A} \varphi\left(A \right)$ is dense in  $\widetilde A$. Equivalently a left ideal $\widetilde{A} \varphi\left(A \right)$  of $\widetilde{A}$ is dense in $\widetilde{A}$.
+\end{definition}
+
+
+
+\begin{lemma}\label{lolale_lem}
+	Any hereditary full  *-homomorphism 	
+	\bean
+	\varphi: A \hookto M\left(\widetilde A\right)
+	\eean
+	naturally yields a continuous mapping 
+	\bean
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)
+	\eean
+\end{lemma}
+
+\end{frame}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
