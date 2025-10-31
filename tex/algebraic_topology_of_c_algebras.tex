@@ -50,6 +50,7 @@
 \DeclareFontFamily{T1}{pzc}{}
 \DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
 \DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+	\DeclareMathOperator{\cosupp}{\mathfrak{cosupp}}            %% 
 % the command for it is \mathpzc
 
 \textwidth=140mm
@@ -967,7 +968,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
   \begin{definition}\label{fin_quasi_defn}
 	Let both  $A$ and  $\widetilde{A}$ be  connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto \widetilde{A}$ be an injective $*$-homomorphism of % connected	  
 	$C^*$-algebras. Let $G$ be a finite  group of $*$-automorphisms of $\widetilde{A}$ such that 	$\lift\left(A\right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
-	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
+	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative  quasi-covering}. We write
 	\be\label{fin_cov_gr_eqn}
 	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
 	\ee
@@ -984,26 +985,26 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		is discrete
 		\item[(b)] 	$A = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
-	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
 
-\begin{defn}\label{evenly_defn}
+\begin{definition}\label{evenly_defn}
 	
-Let $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn})
+Let $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative  pre-covering (cf. Definition \ref{fin_pre_defn})
 	A connected hereditary $C^*$-subalgebra $B \subset A$ 
 	is $\left(A, \widetilde{A}, G, \lift \right)$- \textit{evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ if there is a hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ with a $*$-isomorphism $\lift^{\widetilde B}: B \cong \widetilde B$ such that
 	\be\label{evenly_eqn}
 	\forall b \in B \quad \lift\left( b\right) = \bt \text{-}\sum_{g\in G} g \lift^{\widetilde B}\left( b\right) 
 	\ee
 where $\bt \text{-}\sum$ means the convergence with respect to the strict topology of $M\left( \widetilde A\right)$ (cf. Definition \ref{strict_topology_defn}) 	
-\end{defn}
+\end{definition}
 
-\begin{defn}\label{cov_unital_defn}
+\begin{definition}\label{cov_unital_defn}
 	
 A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn}) with unital $A$ is a {\it unital noncommutative covering} if for any $x \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in x$
-\end{defn}
+\end{definition}
 
-\begin{defn}\label{cov__defn}
+\begin{definition}\label{cov__defn}
 	
 	A  noncommutative finite-fold pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn})  {\it noncommutative  covering} if there is 
 	if there is an unital noncommutative covering $\left(B, \widetilde{B}, G, \widetilde\lift \right)$  with inclusions $A \subset B$ and $\widetilde A \subset \widetilde B$ such that:
@@ -1012,7 +1013,7 @@ A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. 
 	\item[(b)] $\lift \bydef \left.\widetilde\lift\right|_A$,
 	\item[(c)] the action $G \times \widetilde B \to \widetilde B$ naturally comes from the $G \times \widetilde A \to \widetilde A$
 \end{enumerate}	
-\end{defn}
+\end{definition}
 
 
 
@@ -1098,16 +1099,20 @@ $$
 	$$
 	Equivalence classes of representatives a said to be  $A$-\textit{points}. An $A$ point represented by  $\left( j,y,  C_0\left( \sY\right)\right)$   will be denoted by $\left[\left( j, y,  C_0\left( \sY\right)\right)\right]$.  We denote by $\mathfrak{Points}\left(A \right)$ a set of $A$-points.  
 \end{definition}
-\begin{lemma}
+\begin{lemma}\label{pgelfand_eqn}
 	For any 	$\left[\left( j, y,  C_0\left( \sY\right)\right)\right]\in \mathfrak{Points}\left(B \right)$ the set of hereditary subalgebras
-	$$
-x \bydef \left\{B \subset A \left| B \cap j\left( C_0\left( \sU\right)\right) \neq \{0\}\quad \mathrm{for~any~open~neighborhood~} \sU \mathrm{~of~} y \right.\right\}	
-	$$
+	\be
+x \bydef \left\{B \subset A \left|\exists \mathrm{~open~neighborhood~} \sU \mathrm{~of~} y~ B \cap j\left( C_0\left( \sU\right)\right) = j\left( C_0\left( \sU\right)\right) \right.\right\}	
+\ee
 	is an ultrafilter.
 \end{lemma}
 \begin{proof}
+	If $B_1\in x$ and $B_1 \subset B_2$ then from \eqref{pgelfand_eqn} it turns out that 
 	If $B \notin x$ then there is an 
-	if $f \in C_0\left( \sU\right)$ with $f\left(y \right) = 1$ then there is a ~open~neighborhood~ $\sU$ {~of~} $y$ with  $ B \cap j\left( C_0\left( \sU\right)\right) = \{0\}$. Otherwise $j\left( C_0\left( \sU\right)\right)\in x$ it follows that $B\notin x$. So $x$ is an ultrafilter.
+	if $f \in C_0\left( \sU\right)$ with $f\left(y \right) = 1$ and  $B \cap j\left( C_0\left( \sU\right)\right) = \{0\}$
+	
+	
+	 then there is a ~open~neighborhood~ $\sU$ {~of~} $y$ with  $ B \cap j\left( C_0\left( \sU\right)\right) = \{0\}$. Otherwise $j\left( C_0\left( \sU\right)\right)\in x$ it follows that $B\notin x$. So $x$ is an ultrafilter.
 \end{proof}	
 
 
@@ -1418,133 +1423,716 @@ Here an analog of the Dixmier-Douady theory of $C^*$-algebras having continuous 
 	The Exercise   \ref{ring_homo_exer} yields a ring homomorphism $\check{H}^\bullet \left(\sX, F  \right)\to	\check{H}^\bullet\left(\mathscr X^A, F \right)$. Now this lemma follows from the equations  \eqref{hom_eqn}, \eqref{chech_hom_eqn}.
 \end{proof}
 
+\section{Topoi of continuous trace  $C^*$-algebras}
 
-\section{Topoi of continuous trace $C^*$-algebras}
 \paragraph{}
-Here we consider stable separable continuous trace  $C^*$-algebras $CT\left(\sX, \dl \right)$ (cf. Notation \ref{ctr_not}).
-\subsection{Grothendieck spaces}
-
-\begin{lemma}
-	There is the {Grothendieck} $CT\left(\sX, \dl \right)$-{space} $\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)$ (cf. Definition \ref{grothendieck_ca_t_defn}) with the surjective local homeomorphism $\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\to \mathrm{Sp\acute{e}}\left(\Om_\sX \right)$. 
-\end{lemma}
-\begin{proof}
-	From the Remark \ref{ctr_gen_rem} it follows that $CT\left(\sX, \dl \right)$ is of type $I_0$ (cf. Definition \ref{type_i0_defn}).
-	From the Theorem \ref{dauns_hofmann_thm} it follows that there is  Hausdorff blowing-up $C_0\left( \sX\right)\hookto CT\left(\sX, \dl \right)$. From the Theorem \ref{grot_type_I_thm} it follows that there is the Grothendieck $CT\left(\sX, \dl \right)$-space\\ $\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right) =\mathscr X^{CT\left(\sX, \dl \right)}$.
-\end{proof}
-\begin{lemma}\label{gen_lem}
-	If $C \subset  CT\left(\sX, \dl \right)$ is a commutative hereditary subalgebra  then there is a positive $a_C \in CT\left(\sX, \dl \right)_+$ such that $C$ is generated by $\left\{a_C\right\}$ hereditary $C^*$-subalgebra.
-\end{lemma}
-\begin{proof}
-	Consider an open set $\sU\subset\sX$ having  an Abelian element  $a_\sU \in C|_\sU$ such that $C|_\sU$ is the generated by $a_\sU$ hereditary $C^*$-algebra.
-	If $x \not\in \sU$ is such that $\pi_{x}\left(C \right) \neq \{0\}$ then from the Definition \ref{continuous_trace_c_alt_defn} it follows that there there is an open neighborhood $\sU'$ of $x$ such that there is $a_{\sU'} \in C|_{\sU'}$ and $ C|_{\sU'}$ is generated by $a_{\sU'}$. In this case 
-	$C|_{\sU \cup \sU'}$ is generated by an Abelian element  $a = a_\sU + a_{\sU'}$.  Using the Zorn's lemma \ref{zorn_thm} we conclude that if  $\sV$ is  the maximal open subset such that there is $a_\sV\in C$ which generates  $C|_\sV$  then $\sV = \sX$.
-\end{proof}
-\subsection{Dixmier-Douady theory}
-\begin{lemma}\label{ctr_local_prod_lem}
-	If $\dl, \rho \in \check{H}^3\left(\sX \right)$  then $CT\left(\sX, \dl + \rho \right)$ is the $\sX$-product of $CT\left(\sX, \dl \right)$ and $CT\left(\sX, \rho \right)$ (cf. Definition \ref{local_prod_defn}).
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{local_prod_defn} and the Theorem \ref{grot_type_I_thm} it follows that one should find a homeomorphism $\phi: \mathscr X^{CT\left(\sX, \dl \right)}\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathscr X^{CT\left(\sX, \dl \right)}\to \mathscr X^{CT\left(\sX, \dl+\rho \right)}$.
-	Any element of $\mathscr X^{CT\left(\sX, \dl \right)}\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathscr X^{CT\left(\sX, \dl \right)}$ can be represented 
-	by $s^\dl \in \mathscr X^{CT\left(\sX, \dl \right)}$ and $s^\rho \in \mathscr X^{CT\left(\sX, \rho \right)}$ such that $P_{CT\left(\sX, \dl \right)}\left( s^\dl\right) = P_{CT\left(\sX, \rho \right)}\left( s^\rho\right)$ where the notation \eqref{pa_eqn} is used. If $x \bydef p_{CT\left(\sX, \dl \right)}\left(s^\dl \right)= p_{CT\left(\sX, \rho \right)}\left(s^\rho \right)\in \sX$  (cf. equation \eqref{loical_hom_eqn}) then there are commutative hereditary subalgebras $C^\dl \subset {CT\left(\sX, \dl \right)}$ and $C^\rho \subset {CT\left(\sX, \rho \right)}$
-	such that
-	\begin{itemize}
-		\item $s^\dl = C^\dl_x$ and $s^\rho = C^\rho_x$,
-		\item both $\supp C^\dl$ and $\supp C^\rho$ are representatives of $$P_{CT\left(\sX, \dl \right)}\left( s^\dl\right) = P_{CT\left(\sX, \rho \right)}\left( s^\rho\right)\in \mathrm{Sp\acute{e}}\left(\Om_\sX \right).$$
-	\end{itemize}
-	If $\sU \bydef  \supp C^\dl \cap \supp C^\rho$ then both $s^\dl$ and $s^\rho$ can be represented by $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$  respectively (cf. the equation \eqref{c_res_eqn} and the Lemma \ref{section_lem}).
-	For the Lemma \ref{gen_lem} it follows that there are Abelian elements $a^\dl \in  {CT\left(\sX, \dl \right)}$ and $a^\rho \in {CT\left(\sX, \rho \right)}$ such that both $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$ (cf. a generated by $\left\{a^\dl\right\}$ and $\left\{a^\rho\right\}$ hereditary $C^*$-algebras (cf. Definition \ref{hered_generated_defn}). If $\varphi_{\dl\rho}$ is given by the equation \eqref{bundle_prod_iso}	then an element
-	$$
-	a \bydef \varphi_{\dl\rho}\left(a^\dl, a^\rho \right)\in CT\left(\sX, \dl + \rho \right)
-	$$
-	is Abelian. If $C$ is a generated by $\left\{a\right\}$  hereditary $C^*$-algebra then we define
-	$$
-	\phi \left(s^\dl, s^\rho \right) 	\bydef C_x\in \mathscr X^{CT\left(\sX, \dl + \rho \right)}.
-	$$
-	We leave to the reader a proof of following statements.
-	\begin{itemize}
-		\item $\phi \left(s^\dl, s^\rho \right)$ is uniquely depends on both $s^\dl$ and $s^\rho$, i.e. it  does not depend on a choice of $C^\dl$ and $C^\rho$ etc.
-		\item The map  $\phi: \mathscr X^{CT\left(\sX, \dl \right)}\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathscr X^{CT\left(\sX, \dl \right)}\cong \mathscr X^{CT\left(\sX, \dl +\rho\right)}$ is a homeomorphism.
-	\end{itemize}
-	
-\end{proof}
-From the Lemma \ref{ctr_local_prod_lem}   one can obtain a homeomorphism
-\bean%\label{space_homeo_eqn}
-\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Space}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Space}\left(CT\left(\sX, \dl + \rho\right)\right).
+Let $CT\left(\sX, \dl \right)$ the stable
+continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}).  If $B \subset  CT\left(\sX, \dl \right)$ is a hereditary subalgebra then from  \ref{ctr_rep_eq_lem} it follows that for any $a \in CT\left(\sX, \dl \right)$ a subset 
+$$
+\sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
+$$
+is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
+\begin{definition}\label{ctr_supp_defn}
+	If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
+	\be\label{ctr_supp_eqn}
+	\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
+	\ee
+	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
+\end{definition}
+From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion $\varphi: C\left( \sX \right) \subset M\left( CT\left(\sX, \dl \right)\right)$ which satisfies to the Definition \ref{hereditary_full_defn}, so the Lemma \ref{geometric_morphism_thm} yields  a  morphism of sites 
+\bean
+\mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\mathfrak{Site}\left( C\left( \sX \right)\right) 
 \eean
-If $F$ is an Abelian group such that $F\ox_\Z F \cong F$  then there are following maps
-\bean%\label{hom1_homeo_eqn}
-\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left( \sX,F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right),\\
-\label{hom2_homeo_eqn}
-\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
+(cf. Definition \ref{morphism_of_sites_defn}) and a natural geometric morphism
+\bean
+\mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left(C\left( \sX \right)\right) 
 \eean
-(cf. Remark \ref{local_prod_rem}). These homeomorphism and  maps are analogs of the Dixmier-Douady theory (cf. the equations  \eqref{bundle_prod_iso} and \eqref{ka_eqn}).
-
-
-\subsection{Cohomology}
-\paragraph{}
-From the Proposition \ref{ctr_d_prop} it follows that
-$CT\left(\sX, 0 \right) \cong C_0\left(\sX, \K \right)$. So there is a positive $a \in  C_0\left(\sX, \K \right)_+$ such that $\rank \pi_x \left(a\right)= 1$ 
-for all $x \in \sX$. A generated by $a$ hereditary commutative  subalgebra $C^a$ (cf. Definition \ref{hered_generated_defn}) is commutative, so it defines a global section $s^a\in \mathscr{P}^{CT\left(\sX, 0 \right)} \left(\sX\right)$ of the given by the  equation \eqref{comm_alg_sheaf} sheaf $\mathscr{P}^{CT\left(\sX, 0 \right)}$, such that $s^a_x \in \mathscr X^{CT\left(\sX, 0 \right)}$ (cf. equation \eqref{xa_eqn}) for all $x \in \sX$.
-There is a continuous map
-\be\label{j_eqn}
-\begin{split}
-	j : \sX \to \mathscr X^{CT\left(\sX, 0 \right)};\\
-	x \mapsto s^a_x
-\end{split}
-\ee 
-where $s^a_x$ is a represented by $s^a$ stalk at $x$ (cf. Definition \ref{stalk_defn}). Clearly one has
-\be\label{blowing_p_j_eqn}
-p_{CT\left(\sX, 0 \right)} \circ j = \Id_{\sX}.
+(cf. Definition \ref{geometric_morphism_defn}). From the equation \eqref{top_closed_site_eqn} it turns out that the above morphism of sites and geometric morphism are equivalent to following morphisms 
+\bea\label{ctr_site_morphism_eqn} 
+\mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right),\\ 
+\label{ctr_geometric_morphism_eqn} 
+\mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right). 
+\eea
+From the Proposition \ref{ctr_bundle_prop}
+it follows that  there is a locally
+trivial bundle $\pi_\dl: \F^\dl\to \sX$ with a fibre $\K(\H)$ and a structure group $\Aut \left( \K(\H)\right)$ such that $CT\left(\sX, \dl \right)$ is $C_0\left( \sX\right)$-isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F^\dl$ as a set equals to a union 
+$$
+\F^\dl = \bigcup_{x\in\sX}\K\left(\H_x \right) 
+$$
+where $\H_x$ is a space of an irreducible representation $\pi_x: A \to B\left(\H_x\right)$ which corresponds to $x \in \sX$. There is a sheaf $\mathscr F^\dl$ of stalks of local sections of $\F^\dl$.
+If
+$$
+\E^\dl  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\H_x \right)| ~ e\quad\text{is a rank-one projector}\right\}\subset \F^\dl
+$$
+and a topology of $\E^\dl$ is induced by the natural inclusion $\E^\dl\subset \F^\dl$ then one has a locally trivial subbundle $\pi_\dl|_{\E^\dl} \E^\dl\to  \sX$, 
+with the structure group $\Aut \left( \K(\H)\right)$.  Any rank one projector $e\in  \K\left(\H_x \right)$ uniquely defines an element of a projective space $P\left(\H_x \right)$ such that 
+$$
+P\left(\H_x \right)\bydef \C P^\om \bydef \begin{cases}
+	\C P^n & \dim \H_x = n\\
+	\C P^\infty & \dim \H_x = \infty
+\end{cases}
+$$
+The the natural projection $\E^\dl\to \sX$ is a continuous map, so it gives a morphism of sites (cf. Definition \ref{morphism_of_sites_defn})
+$$
+\varphi_\E : \left(\mathfrak{Closed}\left( \E\right), J_\E\right)\to \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
+$$
+Let us construct morphism of sites $\varphi_A : \left(\mathfrak{Closed}\left( \E\right), J_\E\right)\to \mathfrak{Site}\left( CT\left(\sX, \dl \right) \right)$ such that $\varphi_\E = \varphi \circ \varphi_A$. We need the following lemma for this purpose.
+\begin{lemma}\label{compact_hered_lem}
+	If $B \subset \K$ is a hereditary $C^*$-subalgebra then $B \cong \K\left(\H_B\right)$ where $\H_B \bydef \pi\left(B \right)  \H$. 
+\end{lemma}
+\begin{proof}
+	The $C^*$-algebra $\K$ has the single irreducible representation $\pi : A \to B\left(\H\right)$. The *-homomorphism $\pi$ is injective so  $B\not\subset \ker \pi$, so from the Lemma \ref{hered_irred_lem} it follows that $\pi|_B : B \to B\left(\H_B\right)$  is an irreducible representation of $B$. From the condition (iv) of the Theorem  \ref{irred_thm} it follows that for any two vectors $\xi, \eta \in \H_B$ with $\xi \neq 0$ there is $b \in B$ such that $\pi\left(b \right)\xi = \eta$. From this fact and taking into account that $b \in B$ is compact one concludes that $B = \K\left( \H_B\right)$. 
+\end{proof}
+From the Lemma \ref{compact_hered_lem} it follows that for any hereditary subalgebra $B$ of $ CT\left(\sX, \dl \right)$ and any $x \in \sX$ there is a subspace $\H^B_x\subset \H_x$ such that $\rep_x\left(B \right)  = \K\left( \H^B_x\right)$. If  $e_x \in \K\left(  \H_x\right) $ is a rank-one operator  such that $e_x \H \not \perp  \H^B_x$ then there is $a \in B$ such that $\rep_x\left(  e_x b\right) \neq \{0\}$. So there is open neighborhood $U_{e_x}\subset \E$ of $e_x$ such that for all $e \in U_{e_x} \quad e \not\perp \H^B_x$. It turns out that a set
+\be
+\E_B \bydef \left\{e_x \in \H_x | e_x \H_x \perp \H^B_x\right\}
 \ee
-where $p_{CT\left(\sX, 0 \right)}: \mathscr X^{CT\left(\sX, 0 \right)}\to \sX$  is the given by \eqref{loical_hom_eqn} natural surjective local homeomorphism.
-\begin{lemma}\label{blowing_grothendiek_lem} 	
-	If $F$ is an Abelian group then for all $r \ge 0$ there are isomorphisms
+is a closed subset of $\E$. For any closed subset $\sU_\E \subset \E$ we denote by $CT\left(\sX, \dl \right)\left(\sU_\E \right)$ a generated by 
+\bean
+\left\{a \in  CT\left(\sX, \dl \right)| \forall x \in \sX \quad \forall e \in  \sU_\E\quad  \rho_x\left(a e \right) = 0 \right\}
+\eean 
+hereditary subalgebra of $CT\left(\sX, \dl \right)$.
+\begin{exercise}
+	Prove following statements:
+	\begin{enumerate}
+		\item the morphism of sites \eqref{ctr_site_morphism_eqn} is given by
+		$$
+		B \mapsto \supp B,
+		$$
+		\item a functor 
+		\bean
+		\mathfrak{Closed}\left(\E \right) \xrightarrow{\varphi_\E }\mathbf{Hered} /CT\left(\sX, \dl \right),\\
+		\sU_\E\mapsto CT\left(\sX, \dl \right)\left(\sU_\E \right)
+		\eean
+		is a morphism of sites,
+		\item  $\varphi_\E = \varphi \circ \varphi_A$.
+	\end{enumerate}
+\end{exercise}
+
+If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
+subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\pi_x\left(C \right) \H_x$ then one has a surjective map
+\bean
+\begin{split}
+	\psi_\dl : \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'\to \E^\dl,\\
+	s_x \mapsto p_x.
+\end{split}
+\eean
+Consider a presheaf $C^\sX$ on the category $\mathfrak{Closed}\left(\sX\right)$ (cf. Section \ref{top_closed_sec}) such that for any $\mathfrak{Closed}\left(\sX\right)$-object $\sU$ one has
+\be\label{top_cx_eqn}
+C^\sX\left(\sU  \right) \bydef CT\left(\sX, \dl \right)|^\sU
+\ee
+where the notation \ref{closed_ideal_eqn} is used.
+\begin{lemma}\label{ctr_sh_lem}
+	The given by \eqref{top_cx_eqn} presheaf is a $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ sheaf  (cf. \eqref{top_closed_site_eqn}).
+\end{lemma}
+\begin{proof}
+	!!!	
+\end{proof}
+If $U' \bydef UM\left( CT\left(\sX, \dl \right)\right)$ and  $A' \bydef\Aut_{C\left(\sX\right)}\left( CT\left(\sX, \dl \right)\right)$ then for any $\sU \in \mathfrak{Closed}\left( \sX\right)$ there are equivalence relations
+\bean
+\forall u', u'' \in U' \quad u' \sim_\sU u'' \quad \Leftrightarrow \quad \forall x \in ( CT\left(\sX, \dl \right)\quad \left(u'- u'' \right)x \in CT\left(\sX, \dl \right)|_{\sX \setminus\sU},\\
+\forall a', a'' \in A' \quad a' \sim_\sU a'' \quad \Leftrightarrow \quad \forall x \in ( CT\left(\sX, \dl \right)\quad \left(a'- a'' \right)x \in CT\left(\sX, \dl \right)|_{\sX \setminus\sU}
+\eean
+where  $CT\left(\sX, \dl \right)|_{\sX \setminus\sU}$ is given by \eqref{open_ideal_eqn}. One can define presheaves $U^\sX, \A^\sX \in \mathbf{PreSh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ of groups such that for any $\mathfrak{Closed}\left( \sX\right)$-object $\sU$ one has
+\bean
+U^\sX \left(\sU  \right)\bydef U' /\sim_\sU,\\ 
+A^\sX \left(\sU  \right)\bydef A' /\sim_\sU,\\ 
+\eean
+Similarly to the Lemma \ref{ctr_sh_lem} one can proof that both $U^\sX$ and $A^\sX$ are sheaves.  If $S^\sX$ is a sheaf of germs of continuous maps $\sX \to \T$ then one has
+$$
+A^\sX = U^\sX / S^\sX
+$$
+(cf. !!!).
+Denote by
+\bea\label{ctr_u_eqn}
+U^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+\label{ctr_a_eqn}
+A^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+\label{ctr_s_eqn}
+S^A \bydef \mathfrak{Topos}(\varphi)^* S^\sX
+\eea
+where $\mathfrak{Topos}(\varphi)^*$ is the inverse image (cf. Definition \ref{geometric_morphism_defn}) of the given by \eqref{ctr_geometric_morphism_eqn} geometric morphism. 
+If   $\dl^2 \in \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right)$
+is the preimage of $\dl \in H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right)$
+then there is a finite set $\mathscr U = \left\lbrace \sU_1, ..., \sU_n \right\rbrace\subset \mathfrak{Closed}\left(\sX\right)$ such that:
+\begin{enumerate}
+	\item for all $\sU_\iota\in \mathscr U\quad     CT\left(\sX, \dl \right)|^{\sU_\iota} \cong C\left( \sU_\iota\right) \otimes \K$,
+	\item $\dl^2$ is represented by $c^S_\sX = \left\{\nu_{\iota, j, k}\right\}\in \Z^2\left( \mathscr U, \T\right)$.
+\end{enumerate}
+From the Proposition \ref{ctr_dd_prop} it follows that if $CT\left(\sX, \dl \right)$ is a space $\G_0\left(E \right)$ of sections o 
+trivial bundle $E \to \sX$ with fibre $\K(\H)$  with transition functions $\a_{\iota, j}$ then 
+$\dl^2 =\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right)$. For any pair $\iota, j$ there is $\mu_{\iota, j}\in U^\sX\left(\sU_\iota \cap \sU_j \right)$ such that $\a_{\iota j}= \mathrm{Ad} \mu_{\iota, j}$ (cf. equation \eqref{ctr_ad_eqn}).   On the other hand  according to \eqref{ctr_vijk_eqn} one has
+\be\label{ctr_vijk_p_eqn}
+\forall z \in \sU_{\iota, j, k}= \sU_\iota \cap \sU_j \cap \sU_k \quad \nu_{\iota, j,k}(z)  =   \mu_{\iota, j}(z)\mu_{j, k}(z)\mu_{k,\iota}\left(z \right) .
+\ee
+
+
+\be\label{ctr_ad_eqn}
+!!! DOWN!!!\quad 
+\mathrm{Ad} u \bydef x \mapsto u^* x u.
+\ee
+If we consider a map \eqref{ctr_site_morphism_eqn} then 
+$$
+\mathfrak{Site}(\varphi)^{-1}\left(\sU_\iota \right) =  CT\left(\sX, \dl \right)|_{\sX \setminus \sU_\iota}
+$$
+where the ideal $CT\left(\sX, \dl \right)|_{\sX \setminus \sU_\iota}$ is given by the equation \eqref{open_ideal_eqn}.
+A family $$
+\mathscr U^A\bydef \left\{CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}, ..., CT\left(\sX, \dl \right)|_{\sX \setminus \sU_n}\right\}
+$$ is a covering of $\{0\} \in \mathbf{Hered}/CT\left(\sX, \dl \right)$, i.e.
+$$
+CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}\cap ...\cap CT\left(\sX, \dl \right)_{\sX \setminus \sU_n} = \{0\}
+$$
+Let $A^A \in \mathbf{Sh}\left(\mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)  \right)$ be the given by \eqref{ctr_a_eqn} sheaf of groups and let $\left\{\a^A_\iota \right\}\in C^0\left( \mathscr U^A, A^A\right)$ be a 0-chain (cf. the Definition \ref{nonab_coh_defn} and the Remark \ref{nonab_coh_rem}). If $\left\{1_{\sU_{\iota, j}}\right\}\in Z^1\left( \mathscr U^A, A^A\right)$ is a trivial cocycle then 
+$$
+\left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}
+\bydef  \a^A_\iota \left(a^A_j \right)^{-1}
+$$
+(cf. equation \eqref{nonab_perm_eqn}). Note that the given by \eqref{ctr_ad_eqn} homomorphism depends on the trivialization $CT\left(\sX, \dl \right)|^\sU \cong C\left( \sU\right) \otimes \K$. We suppose that for any $\sU_\iota \in \mathscr U$ element $\a^A_\iota = \mathrm{Ad} u_\iota$ where a trivialization $CT\left(\sX, \dl \right)|^{\sU_\iota} \cong C\left( \sU_\iota\right) \otimes \K$ is implied. An element $\a^A_{\iota, j}\bydef \left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}$ corresponds to a map
+$$
+u_\iota  \mu_{\iota j} u^{-1}_j \in U\left(C\left( \sU_j\right) \otimes \K\to  C\left( \sU_\iota\right) \otimes \K \right)|_{\sU_\iota \cap \sU_j} 
+$$
+\\
+!!!
+With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
+\be\label{nonab_coh_q_eqn!}
+H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
+\ee
+!!!
+\paragraph{INSERT}
+\begin{empt}\cite{rae:ctr_morita}\label{ctr_trans_empt}
+	PAGE 95.
+	We now want to relate bundles over $\sZ$ to sheaf cohomology. We fix a bundle
+	$p : \sX \to \sZ$ with fibre $F$ and structure group $G$, and choose an open cover $\left\{\sU_\iota\right\}$ of
+	$\sZ$ for which there are local trivializations $h_\iota: p^{-1}\left(\sU_\iota  \right)\to \sU_\iota \times F$ . For each pair $\iota, j$
+	there is a continuous map $s_{\iota j} \to G$ such that
+	$$
+	h_\iota \circ h_j^{-1}\left(z, f \right) = \left(z, s_{\iota, j}\left(f \right)  \right) \quad \text{for} \left(z, f \right) \in \sU_{\iota, j}\times F.
+	$$
+	Then for $(z, f)\in \sU_{\iota, j, k}$ we have
+	$$
+	h_\iota \circ h_k^{-1}\left(z, f \right) = \left(h_\iota \circ h_j^{-1} \right)\circ  \left(h_j \circ h_k^{-1} \right) = \left(z, s_{\iota, j}\left( z\right)\left( s_{\iota, j}\left( z\right)\left(f \right)\right)   \right)
+	$$
+	so that
+	$$
+	s_{\iota, k}\left(z \right) = s_{\iota, j}\left(z \right)\circ s_{j,k}\left(z \right)
+	$$
+	as homeomorphisms of $F$; in other words, $\left\{s_{\iota, j}\right\}$ is a 1-cocycle with values in $G$ (cf. \eqref{nonab_coh_eqn})
+	The functions $\left\{s_{\iota, j}\right\}$ are called \textit{transition} functions for the bundle $p : \sX \to \sZ$.
+\end{empt}
+\paragraph{INSERT}
+
+(cf. Definition \ref{pullback_covering_ca_defn}).
+The cycle $c^A_\sX= \left[ \a_{\iota j}  \right] \in Z^1\left( \mathscr U, A\right)$ naturally defines a cycle $c^A_A= \left[ \a^A_{\iota j}  \right] \in \Z^1\left( \mathscr U^A, A^A\right)$. However the cycle $\left[ \a^A_{\iota j}  \right]$ yields global section $1_{CT\left(\sX, \dl \right)}\in A^A\left(\{0\} \right) $ of $A^A$, so one has $\left[ \a^A_{\iota j}  \right]\in D^0\left(  \mathscr U^A, A^A\right)$ (cf. \eqref{nonab_perm_eqn}, \eqref{nonab_coh_q_eqn}), i.e. $c^A_A$ is a trivial cycle in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+!!!
+TRIVIAL 
+!!!
+Consider a cycle 
+\paragraph{!!!BEGIN!!!}
+
+Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct an isomorphism
+\be\label{ctr_p12_eqn}
+\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), A^A\right)\xrightarrow[\cong]{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
+\ee
+and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $\check H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+From the Lemma \ref{cech_geom_lem} it follows that there are natural homomorphisms
+\bea\label{ctr_h2_eqn}
+\check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right),\\
+\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
+\eea
+and taking into account  $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ one has $\check{H}^2\left(\T \right)\left(\dl^2 \right) = 0$.
+\begin{lem}\label{ctr_main_lem}
+	Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$. If  $\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) then 
+	\bea\label{ctr_h20_eqn}
+	\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right) = 0,\\\label{ctr_h30_eqn}
+	\check{H}^3\left(\Z \right)\left(\dl \right)  = 0.
+	\eea
+	where $\check{H}^2\left(\T \right)$ and $\check{H}^3\left(\Z \right)$ are given by the equations \eqref{ctr_h2_eqn} and \eqref{ctr_h3_eqn} respectively.
+\end{lem}
+\begin{proof}
+	The equation \eqref{ctr_h20_eqn} is already proven.
+	!!! EXACT SEQUENCE !!!	
+	
+	Since $\check{H}^3\left(\Z \right)\left(\dl \right)$ is an image of $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$  one has $\check{H}^3\left(\Z \right)\left(\dl \right)= 0$.
+	
+	
+	!!!!
+	
+	The equation \eqref{ctr_vijk_eqn}
 	\bean
-	{H}^r\left(CT\left( \sX,0\right), F \right)	\cong {H}^r\left(\sX, F  \right)	\oplus {X}^r,\\
-	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
+	\forall z \in \sU_{\iota ,j ,k}\quad  \nu_{\iota, j,k}(z)=  \mu_{\iota, j}(z)\mu_{j, k}(z) \mu_{\iota k, \iota}(z)
 	\eean
-	where both $X^r$ and $\check{X}^r$ are Abelian groups and the notation  \eqref{etale_hom_a_eqn} is  used.
+	
+	\bean
+	u_\iota  \mu_{\iota, j} u^{-1}_j u_j \mu_{j, k}u^{-1}_k u_k \mu_{ k, \iota}  u^{-1}_\iota = u_\iota \nu_{\iota, j,k}  u_\iota^{-1}=  \nu_{\iota, j,k}.
+	\eean
+\end{proof}
+\begin{lemma} !!! MAY BE DELETE !!!
+	If $\mathscr U\bydef \left\{B_1,..., B_n\right\}$ is a covering of $ CT\left(\sX, \dl \right)$ is a covering of $B$ (cf. Definition \ref{hered_cat_defn}) and $\left\{B_{\iota_1},..., B_{\iota_m}\right\}$ is a connected component (cf. Definition  \ref{conn_comp_defn}) then one has
+	$$
+	\supp B_{\iota_1} \cup ... \cup \supp B_{\iota_m}= \sX.		
+	$$
+	
 \end{lemma}
 
 \begin{proof}
-	If both $F_\sX$ and $F_{\mathscr X^{CT\left(\sX, 0 \right)}}$ are constant presheaves arising from $F$ then from the Proposition n \ref{spectral_sequence_prop} if follows that for all $r\ge 0$ there are homomorphisms
-	\be\label{x_seq_eqn}
+	!!!! PROOF
+\end{proof}
+\begin{theorem}\label{ctr_main_thm}
+	Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota, j}$. If  $\dl^2 \bydef \Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}), and $\check{H}^2\left(\T \right)$ is given by \eqref{ctr_h2_eqn} then
+	\bea\label{ctr_h20_ker_eqn}
+	\ker \check{H}^2\left(\T \right) = 	\Z \dl^2,\\
+	\label{ctr_h30_ker_eqn}
+	\ker \check{H}^3\left(\Z \right) = 	\Z \dl.
+	\eea
+\end{theorem}
+\begin{proof}
+	From the isomorphism \eqref{ctr_p12_eqn} it follows that a cocycle $c \in Z^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right)$ satisfies to  $\left[c\right]= 0 \in Z^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right)$ if it equals to $\Dl\left(\left\{\a'_{\iota j}\right\} \right)$ such that  $\left[\a'_{\iota j}\right]$ is a trivial element of $\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)$. If follows that there is a finite set $\mathscr U \bydef \left\{B_1, ..., B_n\right\}$ of hereditary subalgebras of  $CT\left(\sX, \dl \right)$ such that $B_1\cap  ...\cap B_n = \{0\}$ and sections $g_\iota \in A^A\left( B_\iota\right)$  such that $\a'_{\iota j}= g_\iota g_j^{-1}$ (cf. \eqref{nonab_perm_eqn}). Using refinement of the covering $\mathscr U$ we can suppose that fol each $\iota = 1,..., n$ the bundle $E$ is trivial on $\supp B_\iota$ i.e. $CT\left(\sX, \dl \right)$
+	
+	
+	!!!
+	i.e. $\left[\a'_{\iota j}\right]\in D\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), A^A\right)$ (cf. \eqref{nonab_perm_eqn})
+	!!!
+	
+	!!!
+\end{proof}
+
+
+
+\paragraph{!!! DELETE} 
+is a group of unitary elements of the multiplies of  $CT\left(\sX, \dl \right)$ then for any $\mathfrak{Closed}\left( \sX\right)$ there is an equivalence 
+
+
+So one can deduce that is $B$ is a hereditary $C^*$-subalgebra and $S'(B)$ is a group of continuous maps from $\supp B \to \T$ then there is a natural injective homomorphism of groups $S'\left(B\right) \to U^A\left( B\right)$. One has a presheaf $B \mapsto S'\left( B\right)$. If
+\be\label{ctr_sa_eqn}
+S^A \bydef \mathfrak{Ass}\left( B \mapsto S'\left(B\right)\right) 
+\ee 
+where $\mathfrak{Ass}$ means an associated sheaf (cf. Definition \ref{associated_sheaf_defn}).
+From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\sX, \dl \right)\right)$ and the  On the other hand from  \eqref{top_closed_site_eqn} it follows that there is a natural isomorphism of sites $\mathfrak{Site}\left( C\left( \sX \right)\right)\cong \mathfrak{Closed}\left( \sX\right)$. If $S \in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right)$ is a sheaf of germs of continuous maps from $\sX$ to $\T$ then one can proof that
+\be\label{ctr_t_ii_eqn}
+S^A = \mathfrak{Topos}(\varphi)^* (S)
+\ee
+where $\mathfrak{Topos}(\varphi)^*$ is the inverse image of $\mathfrak{Topos}(\varphi)$ (cf. Definition \ref{geometric_morphism_defn}) $S^A  \in \mathbf{Ab}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right)$ is given by the equation \eqref{ctr_sa_eqn}.
+
+From \eqref{const_sheaf_morphism_eqn} and the Lemma \ref{cech_geom_lem} it follows that there is a homomorphism
+\be\label{ctr_h3_eqn}
+\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
+\ee
+where the notation \eqref{chech_hom_eqn} is used.
+
+Let $CT\left(\sX, \dl \right)$ the stable
+continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}). Suppose that the space $\sX$ is compact. 	For any hereditary $C^*$-subalgebra of $CT\left(\sX, \dl \right)$ there is a given by the equation \ref{left_ideal_eqn} left ideal $L\left(B\right)$.
+From the Theorem \ref{left_ideal_thm} it follows that  	
+there is 	 an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+$L\left(B\right)$ such that
+\be\label{ctr_ul_eqn}
+\forall a \in L\left(B\right) \quad a = \lim_{\la\in \La}au_\la. 
+\ee
+Let  $\pi: CT\left(\sX, \dl \right) \to B\left( \H\right)$ be the atomic representation  (cf. Definition \ref{atomic_repr_defn}). From the Lemma \ref{increasing_convergent_w_lem} it follows that there is  the limit $p'_B \bydef s$-$\lim_{\la\in \La} \pi\left(  u_\la\right) \in B\left(\H \right)$ with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H\right)$. From  $L\left(B\right)M\left(CT\left(\sX, \dl \right) \right)= L\left(B\right)$ and \eqref{ctr_ul_eqn} it follows that $  \forall a \in  M\left(CT\left(\sX, \dl \right) \right)\quad a p'_B = p'_B a$, so one has
+\be\label{ctr_pb_c_eqn}
+p_B \bydef 1_{B\left(\H\right)}-p'_B\quad \Rightarrow \quad \forall a \in  M\left(CT\left(\sX, \dl \right) \right)\quad a p_B = p_B a
+\ee
+Denote by
+\be\label{ctr_sh_of_alg}
+A^A\left( B\right)  \bydef p_B CT\left(\sX, \dl \right) p_B \subset B\left( \H\right). 
+\ee
+It is clear that $A^A\left(B \right)$ is a $C^*$-algebra and there is a surjective *-homomorphism $A^A_B:CT\left(\sX, \dl \right) \to A^A\left( B\right)$.  Given $B', B'' \in  \mathbf{Hered}/CT\left(\sX, \dl \right)$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/CT\left(\sX, \dl \right)$-morphism $B'' \to B'$) there is   the natural surjective  *-homomorphism
+\be\label{ctr_psh_of_alg}
+C^A_{B'B''}:C^A\left( B'\right) \to C^A\left( B''\right).
+\ee 
+It turns out that a map
+\be\label{ctr_psh_defn}
+B \mapsto C^A\left( B\right) 
+\ee
+is a $\mathbf{Hered}/CT\left(\sX, \dl \right)$-presheaf of $C^*$-algebras (cf. Definitions \ref{presheaf_defn} and \ref{hered_cat_defn}).
+
+\begin{lemma}\label{ctr_psh_sh_defn}
+	A given by \eqref{ctr_psh_defn} presheaf is a sheaf with respect to Gelfand $CT\left(\sX, \dl \right)$-topology (cf. Definition \ref{gelfand-naimark_thm}).
+\end{lemma}
+\begin{proof}
+	If $B$ is a   $\mathbf{Hered}/CT\left(\sX, \dl \right)$-object then a covering of $B$ is a finite family $\left\{B_1, ..., B_n\right\}$ of  $\mathbf{Hered}/CT\left(\sX, \dl \right)$-objects such that  $B = \bigcap_{\iota=1}^n B_\iota$. It follows that $p_B$ is the maximal among the projectors $p \in B\left( \H\right)$ such  that $p < p_{B_\iota}$ for all $\iota = 1,..., n$.
+	\begin{enumerate}
+		\item [(i)] the presheaf is separated (cf. Definition \ref{sheaf_defn}), i.e. the given by \eqref{sheaf_eqn} morphism $\eps$ is a monomorphism,
+		\item [(ii)] the  morphism $\eps$ is an epimorphism.
+	\end{enumerate}
+	(i) Any $a \in C^A\left( B\right)$ is given by $p_B \widetilde a p_B$  where $\widetilde a \in CT\left(\sX, \dl \right)$. However if  $p_{B_\iota}\widetilde a p_{B_\iota}= 0$ for every $\iota = 1,..., n$ then $p_B \widetilde a p_B = 0$.\\
+	(ii)  Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $\mathbf{Hered}/CT\left(\sX, \dl \right)$. It follows that $\im p_{B_\iota}\cap \im p_{B_j}\neq \{0\}$ for any $a \in A\left( B\right)$ then there is $\widetilde a \in CT\left(\sX, \dl \right)$ such that $a = p_B \widetilde a p_B$. If $a_\iota \bydef C^A_{BB_\iota} \left(a \right)$ then $a_\iota =  p_{B_\iota} \widetilde a   p_{B_{\iota}}$. 
+	One should prove that $C^A_{B_\iota B_{\iota j}}\left( a_\iota \right) = C^A_{B_jB_{\iota j}}\left( a_j \right)$. This fact follows from the following equation
+	\bean
+	C^A_{B_\iota B_{\iota j}}\left( a_\iota \right)= C^A_{B_\iota B_{\iota j}}\left( a_j \right)= p_{B_\iota j} \widetilde a   p_{B_{\iota j}}
+	\eean 
+\end{proof}
+From \eqref{ctr_pb_c_eqn} it follows that $p_B u = u p_B$ for all $u\in U$, so $U$ there is a natural action $U \times C^A\left(B\right)\to C^A\left( B\right)$. If $U_B$ is a kernel of this action then $U_B$ is a normal subgroup.  
+\begin{exercise}
+	Prove that the map
+	\be\label{ctr_u_sh_eqn}
+	U^A : B \mapsto U^A\left(B\right) \bydef U / U_B
+	\ee
+	is a sheaf of groups, i.e. $U_A \in \mathbf{Sh}\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right)\right)$ (cf. \eqref{sheaf_notation_eqn}).
+\end{exercise}
+\begin{remark}
+	For any closed subset $F \subset \sX$ there is a hereditary $C^*$-subalgebra
+	\be\label{ctr_cosupp_eqn}
+	CT\left(\sX, \dl \right)\left(F  \right) \bydef  \text{ the } C^*\text{-norm completion of }  C_0\left(\sX \setminus F \right)CT\left(\sX, \dl \right)C_0\left(\sX \setminus F \right), 
+	\ee
+	such that $\supp  CT\left(\sX, \dl \right)\left(F  \right) = F$. If $\left\{\F_\iota\right\}$ is a family of closed  sets such that $\bigcup F_\iota = \sX$ then $\bigcap CT\left(\sX, \dl \right)\left(F_\iota  \right)= 0$.
+\end{remark}
+
+\paragraph{!!! ESSENTIAL}
+
+
+
+\begin{empt}
+	PAGE 72 !!! Example 4.15. Let $\sR$ and S be the sheaves, respectively, of germs of continuous
+	$\R$- and $\T$-valued functions on $\sX$, and $\Z_\sX$ the constant sheaf (cf. Definition \ref{constant_presheaf_defn}). Then
+	$$
+	0 \to \Z_\sX \xrightarrow{j}\sR \xrightarrow{e}\sS\to 1
+	$$
+	is a short exact sequence of sheaves when $e$ is the exponential map and $j$ is the
+	inclusion map:
+	$$
+	j_\sU : \Z_\sX(\sU)\bydef C(\sU,\Z)\hookto \sR(U) \bydef  C(\sU,\sR).
+	$$
+	Properties (a) and (b) are immediate from the exactness of the underlying short
+	exact sequence
+	$$
+	0 \to \Z \to \R \xrightarrow{e^{2\pi(\cdot)}}\T \to 1.
+	$$
+	of topological groups. 
+	%For (c), fix U and x ? U. If f ? S(U), then there is an open neighborhood V of x in U such that |f(y) ? f(x)| < 2 for y ? V . Therefore there is a continuous branch of log on T \ {?f(x) }, g := 1 $2\pi i log ?f|_\sV$ is in R(V ), and eV (g) = f|V As our first motivation for looking at cohomology, recall that a short exact sequence of sheaves0 w Q w R w ?S w 0induces, for each U, an exact sequence0 w Q(U) w R(U) w ?U S(U),and in particular an exact sequence 0 w Q(X) w R(X) w ?X S(X) of the groups of global sections. It is natural to ask when the final map ?X is onto,and one answer is given by cohomology: there is a cohomology group H1(X,Q)such that0 w Q(X) w R(X) w S(X) w H1(X,Q) w · · · (4.3)is exact. Then triviality of H1(X,Q) will imply that ?X is onto; an importantgoal of cohomology theory is to compute cohomology groups like H1(X,Q), and inparticular to decide when they are trivial.
+\end{empt}
+\begin{theorem}
+	Theorem 4.37. PAGE 85. Suppose that $\sS$ and $\mathcal R$ are, respectively, the sheaves of germs
+	of continuous $\T$- and $\R$-valued functions on a paracompact space $\sX$. Then for
+	all $n \ge1$, the connecting homomorphism $\Dl^n$ is an isomorphism of $H^n\left( \sX, \sS\right)$ 
+	onto $H^{n+1}(\sX,\Z)$. The connecting homomorphism $\Dl^0$ induces an isomorphism
+	of $ C(\sX,\T)/e(C(\sX,\R))$ onto $H^1\left( \sX, \Z\right)$ . (Here, $e$ denotes the exponential map of
+	Example 4.12.)
+\end{theorem}
+\begin{proposition}
+	Proposition 4.76.  !!! PAGE 104 Let $G$ be a contractible topological group, and $Z$ a paracompact
+	space. Then the cohomology set $H^1(\sZ, G)$ (cf. Definition \ref{nonab_coh_den}) consists of just one class, that of the
+	constant cocycle $\la_{\iota j}=e$.
+\end{proposition}
+\begin{corollary}
+	PAGE 106 !!	Corollary 4.79. Let $\sH$ be an infinite-dimensional Hilbert space, and suppose $p :
+	\sX\to \sZ$ is a (locally trivial) bundle over a paracompact space $\sZ$ with fibre $\H$ and
+	structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bundle $\sZ \times \sH$.
+\end{corollary}
+\begin{empt}\label{ctr_cycle_map_empt}\cite{rae:ctr_morita}
+	PAGE 106 !!!
+	We now turn to the Dixmier-Douady classification of bundles with fibre $\K\left( \H\right)$ 
+	and structure group $\Aut~ \K(\H)$ over a paracompact space $\sZ$. From Remark 4.54,
+	such a bundle is determined up to isomorphism by the class $\left[\a_{\iota j}\right]$ of its transition
+	functions in the cohomology set $H^1\left( \sZ, A\right)$ , where $A$ is the sheaf of germs of continuous $\Aut ~\K\left(\H\right)$-valued functions. Proposition 1.6 says that the conjugation map
+	$\Ad$ of $U(\H)$ onto $\Aut\K(\H)$ induces a short exact sequence
+	\be\label{ctr_exact_eqn}
+	1 \to S \to U \xrightarrow{\text{Ad}} A\quad (4.26)
+	\ee
+	of sheaves, relating the sheaf $A$ to the sheaves $S$ and $U$ of $\T$- and $U(\H)$-valued functions. If these were all sheaves of Abelian groups, this would induce a long exact
+	sequence of sheaf cohomology, giving a connecting homomorphism $\Delta  : H^1(\sZ,\A)\to  H^2(\sZ, S)$, which should be injective because $H^1\left( \sZ, U\right)$  is trivial (Proposition 4.76).
+	Indeed, because $U$  is soft, one could further anticipate that $H^2(\sZ, \sU)$ might vanish (Remark 4.75), in which case $\Dl$ should be surjective. This reasoning is purely
+	speculative: we have not even defined $H^2(\sZ, U)$, and Theorem 4.30 applies only
+	to sheaves of Abelian groups. However, because $\T$ is central in $U(\H)$, there is just
+	enough commutativity around to make the arguments in Section 4.1 work: we can
+	directly construct a map $\Dl$ of $H^1(\sZ,A)$ into $H^2(\sZ, S)$, and prove that it is a bijection. We can then apply the isomorphism $H^2(\sZ, \S) \cong H^3(\sZ;\Z)$ of Theorem 4.42 to
+	$\Dl\left(\left[\a_{\iota j}\right] \right)$  to get a class in the topological cohomology group  $H^3(\sZ;\Z)$ which classifies
+	the original bundle up to isomorphism.
+	We now make all this precise. We shall not assume until we have to that the
+	Hilbert space $\H$ is infinite-dimensional.
+	To construct $\Dl : H^1(\sZ,A) \to H^2(\sZ, S)$, we follow the procedure of Lemma 4.31.
+	Given a cover $\mathscr U$ of $\sZ$, and $\left\{\la_{\iota, j}\right\}\in Z^1(\mathscr U,A)$, we can apply Lemma 4.33 to the
+	short exact sequence (4.26); this allows us to assume by passing to a refinement of $\mathscr U$ that there are continuous maps $\mu_{\iota j}: U_{\iota j} \to  U(\H)$ with $\la_{\iota j}(z) = \text{Ad} \mu_{\iota j}(z)$ for
+	$z \in \sU_{\iota j}$. Since $\left\{\la_{\iota j}\right\}$ is a cocycle, we have
+	$$
+	\forall z \in \sU_{\iota j k}\quad  \text{Ad}\left(  \mu_{\iota j}(z)\mu_{j k}(z)\right) = \text{Ad}\left(  \mu_{\iota k}(z)\right)
+	$$
+	and since $\ker \text{Ad} = \T$ (Lemma 1.5), there are continuous functions $\nu_{\iota jk} : \sU_{\iota jk} \to \T$
+	satisfying
+	\be\label{ctr_vijk_eqn}
+	\forall z \in \sU_{\iota j k}\quad   \mu_{\iota j}(z)\mu_{j k}(z) = \nu_{\iota jk}(z)  \mu_{\iota k}(z)(4.27)
+	\ee
+	It is a simple matter to check that $\left[\nu_{\iota jk}\right]$ is a 2-cocycle in $Z^2\left(\mathscr U, S \right)$ :
+	\be
+	\nu_{\iota jk}\nu_{\iota kl} = \mu_{\iota j}\mu_{jk}\mu^{-1}_{\iota k}\mu_{\iota k}\mu_{kl}\mu_{\iota l}^{-1}= \mu_{\iota j}\mu_{jk}\mu_{kl}\mu_{\iota l}^{-1},
+	\ee
+	whereas
+	\be
+	\nu_{\iota jk}\nu_{\iota kl} = \mu_{\iota j}\mu_{jl}\mu_{\iota l}^{-1}\nu_{jkl} = \mu_{\iota j}\nu_{jkl}\mu_{jl}\mu_{\iota l}^{-1}
+	= \mu_{\iota j}\mu_{jk}\mu_{kl}\mu_{jl}^{-1}\mu_{jl}\mu_{\iota l}^{-1}
+	\ee
+	!!!
+	\be
+	\la_{\iota j} = \Id_{C\left(B_{\iota j} \right) }
+	\ee
+	!!!
+\end{empt}
+\begin{lemma}\label{ctr_cycle_map_lem}\cite{rae:ctr_morita}
+	PAGE 107 !!! Lemma 4.81. Let $\H$ be a Hilbert space, $\sZ$ a paracompact space, and $\left\{\la_{\iota j} \right\} \in Z^1(\mathscr U,A)$ a cocycle with coefficients in the sheaf $A$ of germs of continuous
+	$\Aut~\K(\H)$-valued functions on $\sZ$. Then the above procedure gives a class
+	$\Dl\left( \left[\la_{\iota j}\right]\right) \bydef \left[\nu_{\iota j k}\right]$ in $H^2(\sZ, S)$ which depends only on the class of $\left\{\la_{\iota j} \right\}$ in
+	$H^1(\sZ,A)$, and which vanishes if and only if, possibly after refining the cover, there
+	is a cocycle $\left\{\la_{\iota j} \right\}\in Z^1(\mathscr U,U)$ satisfying  $\la_{\iota j}= \mathrm{Ad} \circ \mu_{\iota j} $ for all $\iota$, $j$.
+\end{lemma}
+\begin{proof}
+	We first note that the class $\left[\nu_{\iota j k}\right]$ does not depend on the choice of liftings
+	$\mu_{\iota j}$: Lemma 1.5 implies that any other liftings could, apart from the possible need to
+	refine the cover, only differ from $\mu_{\iota j}$ by scalar functions $\rho_{\iota j}: \sU_{\iota j} \to \T$, and then the
+	corresponding 2-cocycle would be $\left( d\rho^{-1}\right)\nu$ . If we replace $\left\{ \la_{\iota j} \right\}$ by the equivalent
+	cocycle $\left\{\eta_\iota \la_{\iota j} \eta_\iota^{-1}\right\}$, we can by refining the cover $\left\{\sU_\iota\right\}$ assume that $\eta_\iota = \mathrm{Ad}\zeta_\iota$ for
+	some continuous maps $\zeta_\iota : \sU_\iota \to U\left(\H \right)$ , and then $\mathrm{Ad} \circ\left(\zeta_\iota \mu_{\iota j} \zeta_\iota^{-1}\right)=\eta_\iota \la_{\iota j} \eta_\iota^{-1}$. With
+	this choice of liftings, we obtain exactly the same cocycle $\left\{\nu_{\iota jk}\right\}$. So we have a well-
+	defined map $\Dl$ of $H^1(Z,A)$ into $H^2(Z, S)$, which clearly vanishes on the image of
+	$H^1(Z, U)$ — that is, if we could have found $\mu_{\iota j}$ which formed a cocycle. Conversely,
+	if $\Dl\left(\left[\la_{\iota j}\right]\right)=0$, then again after refining the cover, $\nu_{\iota jk}$ has the form $d\left( \rho_{\iota j}\right)$  for some $\rho_{\iota j}\in C^1\left( \mathscr U, S\right)$, and then $\left\{\rho^{-1}_{\iota j}\mu_{\iota j}\right\}$ is a cocycle with $\mathrm{Ad}\circ \left(\rho^{-1}_{\iota j}\mu_{\iota j} \right) = \la_{\iota j}$
+\end{proof}
+
+\begin{proposition}\label{ctr_dd_prop}
+	Proposition 5.36. PAGE 135 !!! Suppose $\H$ is a Hilbert space, and $p: E\to T$ is a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over a paracompact
+	locally compact space $T$, with transition functions $\a_{\iota, j}$. Then
+	$\Ga_0\left( E\right)$ is a continuous-trace $C^*$-algebra with spectrum $T$ and Dixmier-Douady class
+	$\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right) \cong H^3\left( \sX,\Z \right)$. 
+\end{proposition}
+\begin{lemma}
+	PAGE 141. !!! Lemma 5.47. Suppose $A$ is a continuous-trace $C^*$-algebra with spectrum $T$, $\a \in \Aut_{C_0\left( T\right) }~ A$, and $t \in T$. Then there are a compact neighborhood $F$ of $T$ and a
+	unitary multiplier $u \in UM\left(A|^F \right)$  such that $\a^F = \mathrm{Ad}u$.
+\end{lemma}
+\begin{theorem}
+	PAGE 140
+	Theorem 5.42. Suppose that $A$ is a continuous-trace $C^*$-algebra with spectrum $T$.
+	Then there is a homomorphism $\zeta :\Aut_{C_0\left( T \right)}A\to H^2\left( T, \Z\right)$  such that
+	$$
+	0 \to \mathrm{Inn}~ A \to \Aut_{C_0\left( T \right)} A\xrightarrow{\zeta} H^2\left( T, \Z\right)
+	$$
+	
+	is an exact sequence of groups. If $A$ is stable, then $\zeta$ is surjective.
+\end{theorem}
+\begin{proof}
+	!!!
+	We define ?(?) to be the image under
+	¢1 : H1(T, S) ?= H2(T;Z) of a class in H1(T, S). We choose compact sets $\left\{F_\iota\right\}_{\iota \in I}$
+	whose interiors $\mathscr U \bydef \left\{\sU_\iota\right\}$ cover $T$ such that there are unitaries $u_\iota \in  UM\left(A|^{F_\iota} \right)$
+	with $\a|^{F_\iota} =\mathrm{Ad} u_\iota$. Passing from $F_\iota$ to $F_{\iota j}$ involves taking a quotient of $A|^{F_\iota}$ , so there
+	is a canonical map $m \mapsto m^{F_{\iota j}}$ of $M\left(A|^{F_\iota}\right)$ onto $M\left(A|^{F_{\iota j}}\right)$. Since  $\left( \a^{F_{\iota }}\right)^{F_{\iota j}} = \a^{F_{\iota j}}$,
+	we have Ad(ui)Fij = Ad(uj)Fij ; thus
+	¡
+	(ui)Fij
+	¢?
+	(uj)Fij is in the center of M(AFij ),
+	and is therefore given by a continuous function ?ij : Fij ? T. We can compute
+	pointwise (see Lemma 5.2), so ?ij is characterized by
+	uj(t) = ?ij(t)ui(t) for t ? Fij .
+	If t ? Fijk, then
+	uk(t) = ?jk(t)uj(t) = ?jk(t)?ij(t)ui(t),
+	so ?ij?jk = ?ik, and { ?ij } is a cocycle in Z1(U, S). It should be clear that the class
+	[?ij ] does not depend on the choice of cover. If we had chosen different unitaries vi
+	with Ad vi = ?Fi , then Ad u?i vi = id, so u?i vi ? UZM(AFi ) is given by a continuous
+	function ? ? C(Fi,T). Thus the cocycle corresponding to the vi is { ??1
+		j ?ij?i },
+	which differs from { ?ij } by the coboundary { ??1
+		j ?i } and hence defines the same
+	class in H1(T, S). We can therefore define ?(?) = ¢1([?ij ]) ? H2(T;Z).
+	If ? is inner, say ? = Ad u, then we can choose ui to be the image uFi of u
+	under the canonical map M(A) ? M(AFi ), and the corresponding cocycle { ?ij } is identically 1, so ?(?) = ¢1(1) = 0. Conversely, if ?(?) = 0, then by refining
+	U we can assume that { ?ij } is a coboundary { ??1
+		j ?i }, and we could have chosen
+	??1
+	i ui instead of ui; thus we may as well assume that (ui)Fij = (uj)Fij for all i, j.
+	We use these to define a multiplier u of A. Let a ? A. Then we have elements
+	uiaFi of AFi ; choose ai ? A such that aFi
+	i = uiaFi . If { ?i } is a partition of unity
+	subordinate to U, then Lemma 5.4 gives us an element ua :=
+	P
+	?i · ai of A, which
+	is characterized by
+	(ua)(t) =
+	X
+	i
+	?i(t)ai(t) =
+	X
+	i
+	?i(t)ui(t)a(t).
+	5.5 Classification up to Stable Isomorphism 143
+	Notice that a 7? ua is certainly A-linear on the right. If t ? Fi, then ui(t) = uj(t)
+	whenever t ? Fij , and hence for any j such that ?j(t) 6= 0; thus we can further
+	deduce that (ua)(t) = ui(t)a(t) for t ? Fi. It follows that the corresponding map
+	a 7? u?a defined using the u?i is an adjoint for a 7? ua such that u?u = u?u = 1.
+	Thus u is a unitary element of L(AA) = M(A). Finally, we compute pointwise
+	(ua)(t) = ui(t)a(t) = ?(t)
+	¡
+	a(t)
+	¢
+	ui(t) = ?(a)(t)ui(t) = (?(a)u)(t)
+	to see that ?(a) = uau? and ? = Ad u.
+\end{proof}
+\paragraph{!!!DOWN}
+
+Example 4.25. If $n = 0$ (and $\sS$ is a sheaf), then $H^0\left(\mathscr U, \sS \right)$ coincides with
+$Z^0\left(\mathscr U, \sS \right)$. Since $f = \left\{f_\iota\right\}$ satisfies $d\left( f\right)= 0$  if and only if there exists F ? S(X)
+such that F|Ui = fi, we can identify H0(U, S) with the group S(X) of global
+sections. Note that this is independent of the cover U.
+Example 4.26. If $n = 1$ , $Z^1\left(\mathscr U, \sS \right)$ consists of sections $\la_{\iota j}$ satisfying
+$d^1\la_{\iota j k} = \la_{jk} + \la_{\iota k} + \la_{\iota j} = 0$ in $\S\left( \sU_{\iota j k}\right)$. When the sheaf $\S$ is the sheaf of $\T$-
+valued functions, we write everything multiplicatively, and the family $\la_{\iota j}: \sU_{\iota j} \to \T$ is a cocycle when
+\be
+\la_{\iota k} =\la_{\iota j} + \la_{ jk} \text{ on } U_{\iota jk} (4.6)
+\ee
+The cocycle $\left\{\la_{\iota j}\right\}$ is a coboundary when there are continuous functions $\mu_\iota : \sU_\iota \to \T$
+such that
+\be
+\la_{\iota j}= \mu_\iota^{-1}\mu_j \quad \text{on} \quad \sU_{\iota j}
+\ee
+
+Before we launch into a detailed analysis of these cohomology groups, we pause
+to show why they might be of interest to operator algebraists. Recall from Chapter 1
+that every automorphism of the algebra K(H) of compact operators has the form
+Ad u for some u ? U(H). For the algebra C0(T,K(H)), one might ask whether
+an automorphism has the form Ad u for some continuous map u : T ? U(H).
+Certainly not all will: each Ad u commutes with the natural action of C0(T) by
+pointwise scalar multiplication, and not all automorphisms do this. (For example,
+the automorphism f 7? f ? h induced by a nontrivial homeomorphism h of T does
+not.) So we consider only automorphisms ? which preserve this C0(T)-module
+structure: we write $\a \in \Aut_{C_0\left( T\right) }\left(T, \K\left( \H\right)  \right)$ . Now the question becomes really
+interesting: there is a cohomology class $\zeta\left(\a \right)$  which is a \textit{complete
+	obstruction} to writing $\a = \mathrm{Ad}u$. This result will be substantially generalized in 
+Theorem 5.42, where we will also prove that every class in H1(U, S) arises as some
+?(?).
+\begin{proposition}
+	PAGE 75
+	Proposition 4.27. Suppose $T$ is a paracompact locally compact space, and $\a \in \Aut_{C_0\left( T\right) }\left(T, \K\left( \H\right)  \right)$. Let $\S$ denote the sheaf of germs of continuous $\T$-valued
+	functions on $T$. Then there is an open cover $\mathscr U$ of $T$ and a cocycle $\left\{\la_{\iota j}\right\} \in Z^1\left(\mathscr U, \S\right)$ whose class $\zeta\left(\a\right) = \left[\la_{\iota j}\right] \in Z^1\left(\mathscr U, \S\right)$ vanishes if and only if there is a
+	continuous function $u : T \to U\left(\H \right)$  satisfying
+	\bean
+	\forall t \in T \quad \forall f \in C_0\left( T, \K\left(\H \right) \right)\quad \a\left( f\right) \left( t\right) = u\left( t\right) f\left( t\right)u^* \left( t\right).
+	\eean 
+	
+\end{proposition}
+
+
+\paragraph{BUNDLE}
+If  $A = CT\left( \sX,\dl\right)$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ (cf. Notation \ref{ctr_not}) then 
+One can prove that the map $\psi_\dl$ is continuous. From the equation  \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there are  natural homomorphisms
+\bean
+\check{H}_r\left(\psi_\dl \right) :	\check{H}^r\left(\E^\dl, F \right)	\to	\check{H}^r\left(CT\left( \sX,\dl\right), F \right).
+\eean
+\begin{empt}
+	If $\sU\subset\sX$ is an open subset then there is an equivalence relation $\sim_\sU$ on $\Ga_0\left( \sX, \sF^\dl\right)$ such that 
+	$$
+	\forall s', s'' \in \Ga_0\left( \sX, \sF^\dl\right)\quad s'\sim_\sU s''\quad \Leftrightarrow \quad \forall x \in \sU\quad\pi_x\left( s'\right)=\pi_x\left( s''\right)  
+	$$
+	where $\pi_x: CT\left(\sX, \dl \right)\to B\left( \H_x\right)$ is a corresponding  to $x$ irreducible representation. Clearly a map 
+	$$
+	\sU \mapsto \Ga_0\left( \sX, \sF^\dl\right)/\sim_\sU
+	$$
+	is a presheaf of $*$-algebras, denote by $\mathscr F^\delta$ the associated sheaf (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}).
+	From the isomorphism \eqref{bundle_prod_iso} one has an isomorphism
+	\be\label{big_iso_eqn}
+	\mathscr F^\delta\otimes \mathscr F^\rho \cong \mathscr F^{\dl+\rho}
+	\ee
+	of sheaves. Consider a sheaf $\mathscr G^\delta$ associated with a presheaf
+	$$
+	\sU \mapsto \left\{\left.s \in \mathscr F^\delta\left(\sU \right) \right| \forall x \in \sU\quad  \pi_x\left(s \right) \text { is a rank-one projector} \right\}. 
+	$$
+	From \eqref{big_iso_eqn} one can deduce an isomorphism of sheaves
+	\be\label{litle_iso_eqn}
+	\mathscr G^\delta\times_\sX \mathscr G^\rho \cong \mathscr G^{\dl+\rho}.
+	\ee
+	From the above equation it follows that there are continuous maps:
+	\bean 
+	\mathrm{pr}_1: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right),\\
+	\mathrm{pr}_2: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right),\\
+	\mathrm{pr}_1^\sX : \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right)\to \sX,\\
+	\mathrm{pr}_2^\sX : \mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right)\to \sX
+	\eean
+	such that $\mathrm{pr}_1^\sX \circ \mathrm{pr}_1=\mathrm{pr}_2^\sX \circ \mathrm{pr}_2$.
+	If $F$ is an Abelian group with isomorphism $F\ox_\Z F \cong F$ then ane can define a pairing
+	\be\label{cross_eqn}
 	\begin{split}
-		{H}^r\left(\sX, \mathfrak{Ass}\left( F_\sX\right)  \right)\xrightarrow{H^r\left(p_{CT\left(\sX, 0 \right)} \right) } {H}^r\left(\mathscr X^{CT\left(\sX, 0 \right)}, p_{CT\left(\sX, 0 \right)}^*\mathfrak{Ass}\left( F_\sX\right) \right) \xrightarrow{H^r\left(j \right) }\\\xrightarrow{H^r\left(j \right) } {H}^r\left(\sX, j^*p_{CT\left(\sX, 0 \right)}^*\mathfrak{Ass}\left( F_\sX\right) \right)
+		\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right) \times  \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl+ \rho} \right) , F \right)\\
+		(\a, \bt) \mapsto \check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\right) \smile \check{H}^\bullet\left( \mathrm{pr}_2\right) \left( \bt\right)
 	\end{split}
 	\ee
-	where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}), $p_{CT\left(\sX, 0 \right)}^*$ and $j^*$ mean inverse images (cf. Definition \ref{sheaf_inv_im_defn}).
-	From $p_{CT\left(\sX, 0 \right)}\circ j = \Id_\sX$ it follows that $j^*p_{CT\left(\sX, 0 \right)}^*\mathfrak{Ass}\left( F_\sX\right)\cong \mathfrak{Ass}\left( F_\sX\right)$ and the composition $H^r\left(j \right)\circ H^r\left(p_{CT\left(\sX, 0 \right)} \right)$ can be regarded as 
-	$\Id_{	{H}^r\left(\sX, \mathfrak{Ass}\left( F_\sX\right)\right) }$. Otherwise the map $p_{CT\left(\sX, 0 \right)}$ is a local homeomorphism (cf. Exercise \ref{sheaf_etale_open_exer}), it follows that 
-	$$
-	p_{CT\left(\sX, 0 \right)}^*\mathfrak{Ass}\left( F_\sX\right)\cong 	\mathfrak{Ass}\left( F_{\mathscr X^{CT\left(\sX, 0 \right)}}\right)
-	$$
-	(cf. the equation \eqref{inv_image_eqn}). In result the equation \eqref{x_seq_eqn} becomes equivalent to the following one
-	\bean
-	\begin{split}
-		{H}^r\left(\sX, \mathfrak{Ass}\left( F_\sX\right)  \right)\xrightarrow{H^r\left(p_{CT\left(\sX, 0 \right)} \right) } {H}^r\left(\mathscr X^{CT\left(\sX, 0 \right)}, \mathfrak{Ass}\left( F_{\mathscr X^{CT\left(\sX, 0 \right)}}\right) \right) \xrightarrow{H^r\left(j \right) }\\\xrightarrow{H^r\left(j \right) } {H}^r\left(\sX, \mathfrak{Ass}\left( F_\sX\right) \right).
-	\end{split}
-	\eean
-	From the above homomorphisms and the equation \eqref{hom_eqn} one has homomorphisms
-	$$
-	{H}^r\left(\sX, F  \right)	\xrightarrow{\overline p_{CT\left(\sX, 0 \right)}}	{H}^r\left(CT\left( \sX,0\right), F \right)	\xrightarrow{\overline j} {H}^r\left(\sX, F  \right)
-	$$
-	such that $\overline p_{CT\left(\sX, 0 \right)}\circ \overline j = \Id_ {{H}^r\left(\sX, F  \right)}$.
-	If ${X}^r \bydef \ker \overline j$ then from the above construction it follows that ${H}^r\left(CT\left( \sX,0\right), F \right)	\cong {H}^r\left(\sX, F  \right)	\oplus {X}^r$.
-	
-	From the equations  \eqref{j_eqn}, \eqref{blowing_p_j_eqn} and \eqref{cech_hom_eqn}  it follows that for all $r\ge 0$ there are following homomorphisms:
-	\bean
-	\check{H}^r\left( j\right) 	: 	\check{H}^r\left(\mathscr X^{CT\left(\sX, 0 \right)}, F \right)\to \check{H}^r\left(\sX, F \right),\\
-	\check{H}^r\left(p_{CT\left(\sX, 0 \right)}\right) 	:\check{H}^r\left(\sX, F \right)\to \check{H}^r\left(\mathscr X^{CT\left(\sX, 0 \right)}, F\right).
+	where $\smile$ is a cup product (cf. \ref{tens_prop_c_empt}). Both maps \bean
+	\check{H}^\bullet\left( \mathrm{pr}^\sX_1\right): \check{H}^\bullet\left(\sX, F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right),\\
+	\check{H}^\bullet\left( \mathrm{pr}^\sX_2\right): \check{H}^\bullet\left(\sX, F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right) , F\right)
 	\eean 
-	From the equations \eqref{blowing_p_j_eqn} and \eqref{cech_hom_comp_eqn} it turns out that
+	are homomorphisms of rings (cf. Exercise \ref{ring_homo_exer}), so both $\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right)$ and $  \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right)$ are $\check{H}^\bullet\left(\sX, F \right)$- bimodules. From $\mathrm{pr}_1^\sX \circ \mathrm{pr}_1=\mathrm{pr}_2^\sX \circ \mathrm{pr}_2$,  the equation \eqref{cech_hom_comp_eqn}  and the Proposition \ref{cup_ass_prop} it follows that
+	\be\label{cross_r_eqn}
+	\begin{split}
+		\check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\right)\smile \check{H}^\bullet\left( \mathrm{pr}_2\right)\left(  \check{H}^\bullet\left(\mathrm{pr}^\sX_2\right) \left( \ga\right)\smile   \bt\right)=\\=
+		\check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\smile \check{H}^\bullet\left(\mathrm{pr}^\sX_1\right) \left( \ga\right)\right)\smile \check{H}^\bullet\left( \mathrm{pr}_2\right)\left(     \bt\right)\end{split}
+	\ee
+	where $\a \in \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl } \right), F\right) $, $\bt \in \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right), F\right) $ and $\ga\in \check{H}^\bullet(\sX, F)$. From \eqref{cross_r_eqn} it follows that the pairing \eqref{cross_eqn} yields a homomorphism
+	\be\label{hh_p_eqn}
+	\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right) \otimes_{\check{H}^\bullet\left(\sX, F \right)} \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl+ \rho} \right) , F \right)
+	\ee
+	of $\check{H}^\bullet\left(\sX, F \right)$- bimodules.
+\end{empt}
+
+\begin{theorem} If $CT\left( \sX, \delta\right)$ is given by the Notation \ref{ctr_not} $C^*$-algebra then  one has a following homomorphism
+	\bea
+	\check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, F\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)
+	\eea
+	of $\check{H}^\bullet\left(\sX, F \right)$- bimodules.
+\end{theorem}
+\begin{proof}
+	Firstly construct a map $\phi: \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)\to \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Any $y \in \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)$ can be represented by an open set $\sU\subset\sX$ and an element $a \in CT\left( \sX, \delta\right)$ such that
 	$$
-	\check{H}^r\left( j\right)\circ \check{H}^r\left( p^0\right)= \Id_{ \check{H}^r\left(\sX, F \right)}.
+	\forall x \in \sU\quad  \pi_x\left(a \right) \text { is a rank-one projector}
 	$$
-	So if $\check{X}^r \bydef \ker \check{H}^r\left( j\right)$ then $\check{H}^r\left(\mathscr X^{CT\left(\sX, 0 \right)}, F \right)\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r$. Now the equation $\check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r$ follows from the isomorphism \eqref{chech_hom_eqn}.
+	If $A^a$ is a generated by $a$ hereditary subalgebra then $C \bydef A^a \cap CT\left( \sX, \delta\right)|_\sU$ is a commutative $C^*$-algebra. The map $\phi$ we define by the following way
+	$$
+	y \mapsto C_x 
+	$$
+	where $C_x \in \mathscr P^\delta_x$ is a stalk represented by $C$.
+	
+	Secondly we define a map $\psi: \mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\to \mathrm{Sp\acute{e}}\left(\mathscr G^\dl \right)$. Any $z\in \mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'$ can be represented by a commutative $C^*$-subalgebra $C \subset CT\left( \sX, \delta\right)$ such that $\pi_{p_\dl\left(z \right) }\left(C  \right) \neq \{0\}$. There is a positive element $a \in C_+$ such that $\pi_{p_\dl\left(z \right) }\left(a \right) \neq 0$. We leave to the reader a prove of following statement: there is $f \in C_0\left(\sX\right)_+$ and an open neighborhood $\sU$ of $p_\dl\left(z \right)$ such that for all $x\in \sU$ an operator $\pi_x\left(fa \right)$ is a rank-one projector. The element $fa$ represents a section $r \in \mathscr G^\delta\left( \sU\right)$.  The map $\psi$ we define by the following way
+	$$
+	z\mapsto r_x.
+	$$
+	
+	We leave to the reader a proof of following statements:
+	\begin{itemize}
+		\item both maps $\phi$ and $\psi$ are continuous,
+		\item  the maps are mutually inverse.
+	\end{itemize}
+	So there is a homeomorphism $\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\cong \mathrm{Sp\acute{e}}\left(\mathscr G^\dl \right)$. This theorem follows from the equations \ref{chech_hom_eqn} and \eqref{hh_p_eqn}.
+	
 \end{proof}
 
+\paragraph{BUNDLE}
+
+\paragraph{Dixmier DEFINITION !!!}
+\begin{empt} PAGE 109 !!!
+	We are now ready to define the Dixmier-Douady invariant of a bundle p : X ? Z
+	with fibre K(H) and structure group AutK(H) over a paracompact space Z. Choose
+	a family of local trivializations of p : X ? Z, and let ?ij : Uij ? AutK(H) be
+	the corresponding transition functions, which form a cocycle with coefficients in
+	the sheaf A of continuous AutK(H)-valued functions. By Remark 4.54, the bundle
+	is determined up to isomorphism by the class [?ij ] in H1(Z,A). By Lemma 4.83,
+	there is a class ¢([?ij ]) in H2(Z, S) which vanishes if and only if, after refinement
+	of the cover {Ui }, { ?ij } has the form Ad ??ij for some cocycle { ?ij } with values
+	in the sheaf U of continuous U(H)-valued functions. The Dixmier-Douady class
+	of the bundle p : X ? Z is the image ?(X) in H3(Z;Z) of ¢([?ij ]) under the
+	isomorphism H2(Z, S) ?= H3(Z;Z) of Theorem 4.42. We have essentially proved
+	the following version of the Dixmier-Douady Classification Theorem:
+	
+\end{empt}
+\begin{theorem}
+	Theorem 4.85. !!! PAGE 109. Let H be a Hilbert space, and let p : X ? Z be a bundle over a
+	paracompact space Z with fibre K(H) and structure group AutK(H).
+	(a) The Dixmier-Douady class ?(X) vanishes if and only if the bundle has tran-
+	sition functions of the form Ad ??ij , for some open cover {Ui } of Z and
+	continuous functions ?ij : Uij ? U(H) satisfying ?ij?jk = ?ik on Uijk.
+	(b) If H is infinite-dimensional, the Dixmier-Douady class ?(X) determines p :
+	X ? Z up to isomorphism, and all classes in H3(Z;Z) arise as the Dixmier-
+	Douady class of some such bundle.
+\end{theorem}
+\paragraph{END DIXMIER !!!}
+
+\
 \section{Topoi of  $C^*$-algebras of foliations}
 \	
 \begin{appendices}
@@ -5857,16 +6445,16 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 \begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
 	%Definition 5.13. 
 	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
-	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $t$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
+	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
 \end{definition}
-\begin{defn}\label{abelian_element_defn}\cite{pedersen:ca_aut}
+\begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
 	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
-\end{defn}
-\begin{defn}\label{type_I_defn}\cite{pedersen:ca_aut}
+\end{definition}
+\begin{definition}\label{type_I_defn}\cite{pedersen:ca_aut}
 	We say that a $C^*$-algebra $A$ is \textit{of type} $I$ if each non-zero quotient of $A$ contains a non-zero
 	Abelian element. If $A$ is even generated (as $C^*$-algebra) by its Abelian elements we say
 	that it is \textit{of type} $I_0$.
-\end{defn}
+\end{definition}
 \begin{lemma}\label{typeI_lem}\cite{pedersen:ca_aut}
 	%6.1.4	
 	If $A$ is a $C^*$-algebra of operators acting irreducibly on a Hilbert space $\H$ such that $A\cap \K\left( \H\right) \neq \{0\}$ then $\K\left( \H\right)\subset A$ and each faithful representation is unitary equivalent with the identity representation.
@@ -9355,7 +9943,13 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
 	
 \end{exercise}
-
+	\begin{empt}\label{open_sheaf_empt}
+	For any topological space $\sX$ there is a \textit{sheaf of stalks of open sets} $\Om_\sX$ on $\sX$ (cf. \cite{goldblatt:topoi})		such that
+	\bean
+	\Om_\sX \left(\sU \right)  \bydef  \text{the family of all open subsets of }\sU;\\
+	\rho_{\sU \sV}: \Om_\sX\left(\sU \right) \to \Om_\sX\left(\sV \right), \quad \mathcal W \mapsto \mathcal W \cap \sV.
+	\eean
+\end{empt}
 \begin{exercise}\label{sheaf_etale_open_exer}
 Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corresponds to a continuous map $\phi:\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G \right)$ such that
 \begin{itemize}
@@ -9367,7 +9961,21 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 \begin{remark}\label{sheaf_rem}
 	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
-
+\begin{empt}
+	For any sheaf $\F$ on $\sX$ and open set $\sU \subset \sX$ we let $C^0\left(\sU, \sF \right)$  be the
+	collection of all functions (not necessarily continuous) $f: \sU \to \F$ such
+	that $\pi\circ f$ is the identity on $\sU$, $\pi \sF \to \sX$ being the canonical projection.
+	Such possibly discontinuous sections are called serrations, a terminology
+	introduced by Bourgin [10]. That is,
+	$$
+	C^0\left(\sU, \sF \right) = \prod_{x \in \sU} \F_x
+	$$
+	Under pointwise operations, this is a group, and the functor $\sU \mapsto 	C^0\left(\sU, \sF \right)$,
+	is a conjunctive monopresheaf on $\sX$. Hence this presheaf is a sheaf, which
+	will be denoted by 	$\mathscr C^0\left(\sU, \sF \right)$. Note that if $\sX_d$ denotes the point set of $\sX$
+	with the discrete topology and if $f : \sX_d \to \sX$ is the canonical map, then
+	$\mathscr C^0\left(\sU, \sF \right)\cong ff^*\F$.
+\end{empt}
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
@@ -9427,6 +10035,12 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 			%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(7) is a 
 			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf  \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf  \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
 		\end{definition}
+		
+	
+		
+		
+		
+	
 \section{Flasque (flabby) and soft  sheaves}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
 	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 

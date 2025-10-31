@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage{amsmath,amssymb,amsthm,slashed, euscript}
 \usepackage{graphicx}
-
+\usepackage{mathrsfs}  
 
 \textwidth=110mm
 
@@ -47,6 +47,7 @@ Algebras in analysis
 \newcommand{\rar}{\rightarrow}
 \newcommand{\Ef}{\mathbb{E}}
 \newcommand{\desc}{\mathfrak{desc}}
+\newcommand{\rep}{\mathfrak{rep}}
 
 
 %Uppercase Gothic characters
@@ -103,6 +104,9 @@ Algebras in analysis
 \newcommand{\aC}{\ensuremath{\underline{\Cb}} }
 \newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
 \newcommand{\op}[1]{J{#1}J^\dag}
+\newcommand{\K}{\mathcal{K}} 
+\newcommand{\F}{\mathcal{F}} 
+\newcommand{\E}{\mathcal{E}} 
 \newcommand{\sA}{\mathcal{A}} 
 \newcommand{\sB}{\mathcal{B}}       %%
 \newcommand{\sC}{\mathcal{C}}       %%
@@ -139,36 +143,68 @@ Algebras in analysis
 \newcommand{\hookto}{\hookrightarrow}        %% abbreviation
   
 \begin{document}
-%\titlepage
+
 \begin{frame}
   \titlepage
 \end{frame}
+\section{Hereditary $C^*$-algebras}
+
 \begin{frame}
-		\begin{definition}\label{lattice_defn}\cite{johnstone:stone_spaces} 
+\begin{theorem}\alert{Pavlov, Troisky}
+	Suppose $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
+	is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
+	$C(\mathcal X)$ with respect to the action
+	\begin{equation*}
+		(f\xi)(y) = f(y)\xi(p(y)),\quad  f \in  C(\mathcal Y ), \quad  \xi \in  C(\mathcal X),
+	\end{equation*}
+	then $p$ is a finite-fold  covering.
+\end{theorem}
+	There is a counterexample  to the Theorem. Alexandru Chirvasitu. {\it Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
 	
+
+\end{frame}
+\begin{frame}
+	\begin{lemma}\label{hered_ideal_lem}
+	Let $A$ be a $C^*$-algebra.
+	\begin{enumerate}
+		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+		$$
+		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
+		$$
+		is the unique closed left ideal of $A$ corresponding to $B$.
+	\end{enumerate}
+\end{lemma}
+
+\end{frame}
+\section{Gelfand space}
+\begin{frame}
+		\begin{definition}\label{lattice_defn}	
 	A \alert{join-semilattice} is a poset which supports for any finite set both  least upper bounds. Similarly we define 	\alert{meet-semilattice},	 A \alert{lattice} is a poset which supports for any finite set both  least upper bounds and greatest lower  bounds. 
 \end{definition}
-\begin{definition}\label{ideal_defn}\cite{johnstone:stone_spaces} 
+\begin{definition}\label{ideal_defn}
 	A subset $I$ of a join-semilattice $A$ is said to be an {\it ideal} if
 	\begin{enumerate}
 		\item [(a)] $I$ is a sub-join-semilattice of $A$; i.e. $0\in A$, and $a, b \in I$ imply  	$a \vee b \in I$; and
 		\item [(b)] $I$ is a lower set; i.e. $a \in I$ and $b \le a$ imply $b \in I$.  
 	\end{enumerate}
 \end{definition}
-\begin{definition}\label{filter_defn}\cite{johnstone:stone_spaces} 
+\begin{definition}\label{filter_defn}
 	A subset $\mathfrak F$ of a meet-semilattice $A$ is said to be an {\it filter} if
 	\begin{enumerate}
 		\item [(a)] $\mathfrak F$ is a sub-meet-semilattice of $A$; i.e. $1\in A$, and $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
 		\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
+		\item[(c)] $0\notin n \mathfrak F$,
 	\end{enumerate}
 \end{definition}
 \end{frame}
 \begin{frame}
-		\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
+		\begin{definition}\label{ultra_filter_defn}
 	A maximal filter is an \alert{ultrafilter}.
 \end{definition}
 
-\begin{lemma}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
+\begin{lemma}\label{top_ultra_thm}
 	One has:
 	\begin{enumerate}
 		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
@@ -177,13 +213,13 @@ Algebras in analysis
 	
 \end{lemma}
 \begin{empt}
-	From the Zorn's lemma (cf. Theorem \ref{zorn_thm}) it follows that any filter is a subset of an ultrafilter.
+	From the Zorn's lemma  it follows that any filter is a subset of an ultrafilter.
 	\end{empt}
 
 \end{frame}
 \begin{frame}
 	
-	If $A$ is $C^*$-algebra then from the Lemma \ref{hered_ideal_lem} it follows that the a meet-semilattices (cf. Definition \ref{lattice_defn}) or closed left, right ideals and hereditary $C^*$-subalgebras are isomorphic.
+	If $A$ is $C^*$-algebra then  that the a meet-semilattices  or closed left, right ideals and hereditary $C^*$-subalgebras are isomorphic.
 If  $\mathfrak{Gelfand}\left(A \right)$  is a set of ultrafilters of these the meet-semilattices then denote by
 \be\label{gelfand_eqn}
 \begin{split}
@@ -192,7 +228,7 @@ If  $\mathfrak{Gelfand}\left(A \right)$  is a set of ultrafilters of these the m
 \end{split}
 \ee
 where $I$ is a one-sided ideal, $B$ is a hereditary $C^*$-algebra.	
-\begin{lemma}
+\begin{lemma}\alert{Ivankov}
 	There is the natural topology on  $\mathfrak{Gelfand}\left(A \right)$ generated by the sets \eqref{gelfand_eqn}
 \end{lemma}
 	\begin{definition}\label{gelfand_space_defn}\alert{Ivankov}
@@ -200,18 +236,34 @@ where $I$ is a one-sided ideal, $B$ is a hereditary $C^*$-algebra.
 \end{definition}
 
 \end{frame}
+
 \begin{frame}
-\begin{theorem}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
-	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
-\end{theorem}
 
+	For any $x \in 	\mathfrak{Gelfand}\left( \widetilde A\right)$ consider a set of left ideals 
+	$$
+	X_x \bydef \left\{ I \subset A \left| I \text{ is left a ideal AND } \exists I' \in x \quad I'\cap I =\{0\} \right.\right\}
+	$$
 
-\begin{lemma} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a compact Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
-\end{lemma}
+\begin{definition}\label{orthogonal_defn}\label{Ivankov}
+	The $C^*$-norm closure $I^\perp_x$ of the generated by the set $X_x$ left ideal  is the \alert{orthogonal to} $x$ \textit{ideal}.
+	The hereditary $C^*$subalgebra $A^\perp_x \bydef I^\perp_x\cap \left( I^\perp_x\right)^*$	is  the \alert{orthogonal to} $x$ \textit{subalgebra}.
+	\end{definition}
+	The following Lemma is a consequence of the above definition.
+		\begin{lemma}\alert{Ivankov} (Generalized commutative Gelfand theorem). 
+		If $\sX$ is a compact Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
+	\end{lemma}
 \end{frame}
 \begin{frame}
-\begin{definition}\label{hereditary_extension_defn}
+	\begin{theorem}\label{gelfand-naimark_thm} (Commutative Gelfand-Na\u{\i}mark theorem). 
+		Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
+	\end{theorem}
+	
+	
+
+\end{frame}
+\section{Morphisms}
+\begin{frame}
+\begin{definition}\label{hereditary_extension_defn}\alert{Ivankov}
 	If both be $A$ and $\widetilde{A}$ be $C^*$-algebras then  a *-homomorphism
 	\bean
 	\varphi: A \hookto M\left(\widetilde A\right)
@@ -221,7 +273,7 @@ where $I$ is a one-sided ideal, $B$ is a hereditary $C^*$-algebra.
 
 
 
-\begin{lemma}\label{lolale_lem}
+\begin{lemma}\label{lolale_lem}\alert{Ivankov}
 	Any hereditary full  *-homomorphism 	
 	\bean
 	\varphi: A \hookto M\left(\widetilde A\right)
@@ -231,6 +283,388 @@ where $I$ is a one-sided ideal, $B$ is a hereditary $C^*$-algebra.
 	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)
 	\eean
 \end{lemma}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}\label{presheaf_defn}
+		Let $\sX$ be a topological space. A \alert{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
+		\begin{itemize}
+			\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+			\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+			subject to conditions
+			\begin{itemize}
+				\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+				\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+				\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+			\end{itemize}
+		\end{itemize}
+	\end{definition}
+\end{frame}
+\begin{frame}
+	
+	\begin{definition}\label{sheaf_defn}
+		A {presheaf} $\mathscr F$ on  
+		a topological space $\sX$ is a \alert{sheaf}  if it satisfies the following supplementary conditions:
+		\begin{itemize}
+			\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+			\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+		\end{itemize}
+		(Note condition (3) implies that $s$ is unique.)
+	\end{definition}
+\end{frame}
+\begin{frame}
+\begin{lemma}\label{sheaf_prdf}
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\theta: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \theta$. Furthermore the pair $\left(\mathscr F^+, \theta\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. We write $\mathfrak{Ass}\left(\mathscr F \right)\bydef \mathscr F^+$ 
+\end{lemma}
+	\begin{definition}\label{constant_presheaf_defn}
+	For any space $\sX$       and any Abelian group $F$ there is a \alert{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all inclusion  $f: \sU \subset \sV$. We denote it by 
+	We use a following notation
+	\be\label{constant_presheaf_eqn}
+\mathscr P\left(\sX, F \right)  \bydef \mathscr P.
+	\ee
+	A sheaf
+	\be\label{constant_sheaf_eqn}
+\mathscr S\left(\sX, F \right) \bydef \mathfrak{Ass}\left(\mathscr P\left(\sX, F \right) \right).
+	\ee
+is  the \alert{constant} $F$\alert{-sheaf}.
+\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}\label{sheaf_inv_im_defn}
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \alert{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \alert{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$. A pair $\left(f_*, f^{-1} \right)$ is \alert{geometric morphism}.
+\end{definition}
+\begin{empt}\label{sheaf_inv_im_rem} If $f: \sX\to \sY$ be a continuous map  
+	of topological spaces and sheaves $\mathscr F$ and $\mathscr G$ on $\sX$ and $\sY$ then there are natural morphisms of sheaves $f^{-1}f_* \mathscr F \to \mathscr F$ and $\mathscr G \to f_*f^{-1}\mathscr G$. 
+\end{empt}
+\end{frame}
+\begin{frame}
+
+\begin{lemma}
+	%8.17 
+	Let $\sX \xrightarrow{f} \sY$ be a continuous map. Then
+	\begin{enumerate}		\item [(i)] 
+		if $\mathscr A$ is a sheaf of Abelian groups over $\sY$  then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^{-1}\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+		\item [(ii)] If $\mathscr B$ is sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $\mathscr B$.
+	\end{enumerate}
+\end{lemma}
+\begin{definition}
+If $F$ is an Abelian group we will use the following notation
+$$
+H^q \left(\sX, F  \right) \bydef H^q \left(\sX, \mathscr S\left(\sX, F \right)   \right)
+$$
+where $\mathscr S_F$ is the constant $F$ sheaf.
+\end{definition}
+\end{frame}
+\begin{frame}
+\begin{lemma}\alert{Ivankov}
+	%8.17 
+	If 	
+	\bean
+	\varphi: A \hookto M\left(\widetilde A\right)
+	\eean
+	is hereditary full  *-homomorphism  and $F$ is an Abelian group then one has following objects:
+	\begin{enumerate}		\item [(i)] 
+	 the natural homomorphism $$H^q\left(\mathfrak{Gelfand}\left( A\right) , F \right) \xrightarrow{} H^q \left((\mathfrak{Gelfand}\left( \widetilde A\right), F\right)$$ for each $q$ which is functorial in $\varphi$ and  $F$.
+		\item [(ii)] the functorial in $F$  (Leray spectral sequence)
+		\bean H^p\left(\mathfrak{Gelfand}\left( A\right), R^qf_*\left(\left(\mathfrak{Gelfand}\left( \widetilde A\right), F \right) \right) \right)\Rightarrow \\ H^{p + q}\left(\mathfrak{Gelfand}\left( \widetilde A\right), F \right)
+		\eean
+	\end{enumerate}
+\end{lemma}
+\end{frame}
+\section{Hausdorff blowing-up}
+\begin{frame}
+	\begin{definition}\label{blowing_up_defn}
+		For any $C^*$-algebra $A$ 
+		an inclusion $C_0\left( \sX\right) \hookto M\left(A \right)$ into multiplier $C^*$-algebra  such that
+		$$
+		C_0\left( \sX\right)AC_0\left( \sX\right)
+		$$
+		is dense in $A$ is \alert{Hausdorff blowing-up}
+	\end{definition}
+	The "blowing-up" word is inspired by following reasons.
+	\begin{itemize}
+		\item Sometimes there is  the natural partially defined  surjective  map from  Hausdorff blowing-up to the spectrum.
+		\item  In the algebraic geometry   "blowing-up" means  excluding of singular points.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\begin{lemma}
+If $C_0\left( \sX\right) \hookto M\left(A \right)$ and $F$ is an Abelian group then one has following objects:
+	\begin{enumerate}		\item [(i)] 
+	the natural homomorphism $$H^q\left(\sX , F \right) \xrightarrow{} H^q \left((\mathfrak{Gelfand}\left( \widetilde A\right), F\right)$$ for each $q$ which is functorial in $\varphi$ and  $F$.
+	\item [(ii)] the functorial in $F$  (Leray spectral sequence)
+	\bean H^p\left(\sX, R^qf_*\left(\left(\sX, F \right) \right) \right)\Rightarrow \\ H^{p + q}\left(\mathfrak{Gelfand}\left( \widetilde A\right), F \right)
+	\eean
+\end{enumerate}
+	\end{lemma}
+\end{frame}
+
+\begin{frame}
+There are following examples.
+\begin{enumerate}
+	\item [(i)] If $A$ is a $C^*$-algebra of with Hausdorff spectrum $\sX$ then there is Hausdorff blowing-up $C_0\left(\sX \right) \to M\left( A\right)$. 
+	\item[(ii)] If $C^*_r\left(M, \F, \sigma \right)$ is a twisted $C^*$-algebra of foliation then there is Hausdorff blowing-up $C_0\left(M \right) \to M\left( C^*_r\left(M, \F, \sigma \right)\right)$
+	
+\end{enumerate}
+The spectrum of $C^*_r\left(M, \F, \sigma \right)$ can have two open sets only. It would be interesting to find $C^*_r\left(M, \F, \sigma \right)$ with
+$$
+H^q\left(\sX , F \right) \neq \{0\}\quad q > 1.
+$$
+\end{frame}
+
+\section{Coverings}
+\begin{frame}
+	\begin{definition}\label{top_covering_defn} 
+	Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be \alert{ evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a \alert{covering} if each point $x \in \mathcal{X}$ has an open neighbourhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
+		\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+	Let $A$ be a $C^*$-algebra. The group $\mathrm{Aut}\left(\widetilde{A}\right)$ of *-automorphisms carries (at least) two different topologies making it into a topological group  The most important is \alert{the topology of pointwise norm-convergence} based on the open sets
+\begin{equation*}
+	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
+\end{equation*}
+The other topology is the \alert{uniform norm-topology} based on the open sets
+\begin{equation}\label{aut_norm_eqn}
+	\left\{\alpha \in \mathrm{Aut}(A) \ \left| \ \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| < \varepsilon \right. \right\}, \quad \varepsilon > 0
+\end{equation}
+which corresponds to following "norm"
+\begin{equation}\label{uniform_norm_topology_formula_eqn}
+	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
+\end{equation}
+Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Henceforth the uniform norm-topology will be considered only.
+\end{frame}
+\begin{frame}
+
+  \begin{definition}\label{connected_c_a_defn}
+	We say that a $C^*$-algebra $A$ is \alert{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
+	
+	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
+\end{definition}
+\end{frame}
+\begin{frame}
+
+\begin{definition}\label{fin_pre_defn}\alert{Ivankov}
+	Let   $A$ be an  connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra , and let $\lift: A \hookto M\left( \widetilde{A}\right) $ be an injective  $*$-homomorphism of % connected
+	$C^*$-algebras such that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
+		\be\nonumber
+		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left( A\right) \quad ga = a\right\}
+		\ee
+		is discrete
+		\item[(b)] 	$A = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
+	\end{enumerate}
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \alert{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
+\end{definition}
+\end{frame}
+\begin{frame}
+
+\begin{definition}\label{evenly_defn}\alert{Ivankov}
+	
+	Let $\left(A, \widetilde{A}, G, \lift \right)$ be a noncommutative  pre-covering.	A connected hereditary $C^*$-subalgebra $B \subset A$ 
+	is $\left(A, \widetilde{A}, G, \lift \right)$- \alert{evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ if there is a hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ with a $*$-isomorphism $\lift^{\widetilde B}: B \cong \widetilde B$ such that
+	\be\label{evenly_eqn}
+	\forall b \in B \quad \lift\left( b\right) = \bt \text{-}\sum_{g\in G} g \lift^{\widetilde B}\left( b\right) 
+	\ee
+	where $\bt \text{-}\sum$ means the convergence with respect to the strict topology of $M\left( \widetilde A\right)$
+\end{definition}
+\end{frame}
+\begin{frame}
+\begin{definition}\label{cov_unital_defn}\alert{Ivankov}
+	
+	A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$  with unital $A$ is a \alert{unital noncommutative covering} if for any $x \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in x$
+\end{definition}
+
+
+
+
+\begin{definition}\label{cov__defn}\alert{Ivankov}
+	
+	A  noncommutative finite-fold pre-covering $\left(A, \widetilde{A}, G, \lift \right)$  \alert{noncommutative  covering} if there is 
+	if there is an unital noncommutative covering $\left(B, \widetilde{B}, G, \widetilde\lift \right)$  with inclusions $A \subset B$ and $\widetilde A \subset \widetilde B$ such that:
+	\begin{enumerate}
+		\item [(a)] both $A$ and $B$ are essential ideals of $B$ and $\widetilde B$,
+		\item[(b)] $\lift \bydef \left.\widetilde\lift\right|_A$,
+		\item[(c)] the action $G \times \widetilde B \to \widetilde B$ naturally comes from the $G \times \widetilde A \to \widetilde A$
+	\end{enumerate}	
+	\end{definition}
+\end{frame}
+\section{Hausdorff blowing=up}
+\begin{frame}
+\begin{definition}\label{blowing_up_defn}
+	For any $C^*$-algebra $A$ 
+	an inclusion $C_0\left( \sX\right) \hookto M\left(A \right)$ into multiplier $C^*$-algebra  such that
+	$$
+	C_0\left( \sX\right)AC_0\left( \sX\right)
+	$$
+	is dense in $A$.
+\end{definition}
+The "blowing-up" word is inspired by following reasons.
+\begin{itemize}
+	\item Sometimes there is  the natural partially defined  surjective  map from  Hausdorff blowing-up to the spectrum.
+	\item  In the algebraic geometry   "blowing-up" means  excluding of singular points.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{empt}\label{c_i0_rem}
+	If $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{Hausdorff blowing-up of } $A$ then form the Lemma \ref{lolale_lem} it follows that there is a geometric morphism $\mathfrak{Topos}\left( A\right)\xrightarrow{f}\mathfrak{Topos}\left(C_0(\sX)\right)$.  If $F$ is an Abelian group then from the  Proposition \ref{spectral_sequence_prop} for any $r\ge 0$ there is a homomorphism
+	\bean
+	H^r\left(\mathfrak{Topos}\left( C_0\left( \sX\right)\right) , F \right) \xrightarrow{} H^r \left(\mathfrak{Topos}\left( A\right), f^*\mathfrak{Ass} \left( F_A\right)\right).
+	\eean
+	From the Remark \ref{c_0_x_rem} it follows that $\mathfrak{Space}\left(C_0\left( \sX\right)  \right) = \sX$, and tahing into account \eqref{hom_eqn} one has a homomorphism
+	\be\label{hom_to_x_eqn}
+	H^r\left(\sX, F \right) \xrightarrow{} H^r \left(A, f^*\mathfrak{Ass} \left( F_A\right)\right).
+	\ee
+	
+\end{empt}
+
+\end{frame}
+\section{Gelfand space of continuous-trace $C^*$-algebras}
+
+\begin{frame}
+	\begin{definition}\label{continuous_trace_c_alt_defn}
+		A \alert{continuous-trace algebra} is a $C^*$-algebra $A$ with Hausdorff
+		spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_o$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$, where $\rep_{ x}\left( a\right) $ is the operator which corresponds to $a$ and related to $x$ irreducible representation.
+	\end{definition}
+\begin{definition}\alert{Ivankov}
+ An $A$-\alert{representative} is a pair $\left(x_0, C \right)$ where $x \in \sX$ and $C\subset A$ is a hereditary subalgebra such that there is an open neighborhood $\sU$ of $x_0$ such that
+ $$
+ \forall x \in \sU \quad \dim \rep_{ x}\left( a\right) = 1.
+ $$
+ Two representatives $\left(x_0, C' \right)$ and $\left(x_0, C'' \right)$ are equivalent if there is $f \in C_0\left( \sX\right)$ with
+ \bean
+ f\left( x_0\right) = 1, \quad  fC' = f C''
+ \eean 
+Equivalence class is an $A$-\alert{point} is denoted by $\left[x_0, C \right]$
+\end{definition}	
+\end{frame}
+\begin{frame}
+	\begin{lemma}\alert{Ivankov}
+For any $A$-point $\left[x_0, C \right]$ the given by
+$$
+\xi \bydef\left\{B \subset A\left| \exists f \in C_0\left( \sX\right) ~ f\left( x_0\right) = 1 ~ \mathrm{AND}~ fC \subset B \right.\right\}
+$$
+set of hereditary subalgebras is an ultrafilter.
+\end{lemma}
+\begin{proof}
+	It is easy prove that $\xi$ is a filter.
+One can proof that 
+$$
+B \in \xi \quad \Leftrightarrow x_0 \in\sU \bydef \left\{x \in \sX \left|  \rep_x\left(B\cap C \right) \right.\right\}
+$$
+the intersection $B\cap C$ is a hereditary subalgebra, so the set $\sU$ is open. !!!!
+\end{proof}
+
+\end{frame}
+\begin{frame}
+	\begin{definition}\alert{Ivankov}
+			
+		Let $A$ be a $C^*$-algebra of type $I_0$. An $A$-\alert{representative}  is a triple $\left( j, y, C_0\left( \sY\right) \right)$ where 
+		\begin{enumerate}
+			\item[(a)]  $j: C_0\left(\sY \right) \hookto A$ is an inclusion of $C^*$-algebras.
+			\item[(b)] $j\left( C_0\left(\sY \right)\right) $ is a hereditary $C^*$-subalgebra.
+			\item[(c)] $y \in \sY$ is a point.
+		\end{enumerate}
+		For any open subset $\sU\subset \sY$ there is an inclusion $C_0\left(\sU\right)\subset C_0\left(\sY\right)$.
+	Two $A$-{representatives} $\left( j', y',  C_0\left( \sY'\right)\right)$ and  $\left( j'', y'',  C_0\left( \sY''\right)\right)$ are \alert{equivalent} if there are open neighborhoods $\sU'$ and $\sU''$ of $y'$ and $y''$ respectively such that
+$$
+j'\left(C_0\left( 
+\sU'\right) \right) = j''\left(C_0\left( 
+\sU''\right) \right).
+$$
+Equivalence classes of representatives a said to be  $A$-\alert{points}. An $A$ point represented by  $\left( j,y,  C_0\left( \sY\right)\right)$   will be denoted by $\left[\left( j, y,  C_0\left( \sY\right)\right)\right]$.  We denote by $\mathfrak{Points}\left(A \right)$ a set of $A$-points.  
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\begin{lemma}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
+	%Proposition 5.59. 
+%	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\sH)$ and structure group $\Aut \left( \K(\sH)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(X \right)$ (cf. equation \eqref{top_ub_eqn}).
+	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+	\end{lemma}
+		From the Proposition \ref{ctr_bundle_prop}
+	it follows that  there is a locally
+	trivial bundle $\pi_\dl: \F^\dl\to \sX$ with a fibre $\K(\sH)$ and a structure group $\Aut \left( \K(\sH)\right)$ such that $CT\left(\sX, \dl \right)$ is $C_0\left( \sX\right)$-isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F^\dl$ as a set equals to a union 
+	$$
+	\F^\dl = \bigcup_{x\in\sX}\K\left(\sH_x \right) 
+	$$
+	where $\sH_x$ is a space of an irreducible representation $\pi_x: A \to B\left(\sH_x\right)$ which corresponds to $x \in \sX$. There is a sheaf $\mathscr F^\dl$ of stalks of local sections of $\F^\dl$.
+	If
+	$$
+	\E^\dl  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\sH_x \right)| ~ e\quad\text{is a rank-one projector}\right\}\subset \F^\dl
+	$$
+	and a topology of $\E^\dl$ is induced by the natural inclusion $\E^\dl\subset \F^\dl$ then one has a locally trivial subbundle $\pi_\dl|_{\E^\dl} \E^\dl\to  \sX$
+\end{frame}
+\begin{frame}
+Any rank one projector $e\in  \K\left(\sH_x \right)$ uniquely defines an element of a projective space $P\left(\sH_x \right)$ such that 
+$$
+P\left(\sH_x \right)\bydef \C P^\infty \bydef \begin{cases}
+	\C P^n & \dim \sH_x = n\\
+	\C P^\infty & \dim \sH_x = \infty
+\end{cases}
+$$
+The the natural projection $\E^\dl\to \sX$ is a continuous map, so it gives a morphism of sites (cf. Definition \ref{morphism_of_sites_defn})
+$$
+\varphi_\E : \left(\mathfrak{Closed}\left( \E\right), J_\E\right)\to \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
+$$
+Let us construct morphism of sites $\varphi_A : \left(\mathfrak{Closed}\left( \E\right), J_\E\right)\to \mathfrak{Site}\left( CT\left(\sX, \dl \right) \right)$ such that $\varphi_\E = \varphi \circ \varphi_A$. We need the following lemma for this purpose.
+\end{frame}
+\begin{frame}
+	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
+		For any sheaf $\F$ on $\sX$ and open set $\sU \subset \sX$ we let $C^0\left(\sU, \sF \right)$  be the
+	collection of all functions (not necessarily continuous) $f: \sU \to \F$ such
+	that $\pi\circ f$ is the identity on $\sU$, $\pi \sF \to \sX$ being the canonical projection.
+	Such possibly discontinuous sections are called serrations, a terminology
+	introduced by Bourgin [10]. That is,
+	$$
+	C^0\left(\sU, \sF \right) = \prod_{x \in \sU} \F_x
+	$$
+	Under pointwise operations, this is a group, and the functor $\sU \mapsto 	C^0\left(\sU, \sF \right)$,
+	is a conjunctive monopresheaf on $\sX$. Hence this presheaf is a sheaf, which
+	will be denoted by 	$\mathscr C^0\left(\sU, \sF \right)$. Note that if $\sX_d$ denotes the point set of $\sX$
+	with the discrete topology and if $f : \sX_d \to \sX$ is the canonical map, then
+	$\mathscr C^0\left(\sU, \sF \right)\cong ff^*\F$.
+\end{frame}
+\begin{frame}
+\begin{definition}\label{nh_csoft_gc_defn}\cite{cra_moe:nhaus}
+	Let $\mathscr{F}$ be a soft sheaf  and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
+	\be\label{sheaf_inc_eqn}
+	\Ga_c\left(\mathcal W, \mathscr{F} \right) \hookto \Ga_c\left(\mathcal U, \mathscr{F} \right)\subset \Ga_c\left(\mathcal U, \mathscr{F}' \right).
+	\ee
+	For any (not necessary Hausdorff) open set $\sU \subset \sX$ we define $\Ga_c \left(\sU, \mathscr{F} \right)$ to be the image of the map:
+	$$
+	\bigoplus_{\mathcal W} \Ga_c\left(\mathcal W, \mathscr{F}' \right) \hookto \Ga\left(\mathcal U, \mathscr{F}' \right),
+	$$ 
+	where $\mathcal W$ ranges over  all open subsets $\mathcal W \subset \mathcal U$. %An alternative definition follows by choosing open cover   in Propositions \ref{nh_csoft_gc_prop} below.
+\end{definition}
+\end{frame}
+\begin{frame}
+\begin{lemma}\alert{Ivankov}
+	For any 	$\left[\left( j, y,  C_0\left( \sY\right)\right)\right]\in \mathfrak{Points}\left(B \right)$ the set of hereditary subalgebras
+	$$
+	x \bydef \left\{B \subset A \left| B \cap j\left( C_0\left( \sU\right)\right) \neq \{0\}\quad \mathrm{for~any~open~neighborhood~} \sU \mathrm{~of~} y \right.\right\}	
+	$$
+	is an ultrafilter.
+\end{lemma}
+	\begin{proof}
+	If $B \notin x$ then there is an 
+if $f \in C_0\left( \sU\right)$ with $f\left(y \right) = 1$ then there is a ~open~neighborhood~ $\sU$ {~of~} $y$ with  $ B \cap j\left( C_0\left( \sU\right)\right) = \{0\}$. Otherwise $j\left( C_0\left( \sU\right)\right)\in x$ it follows that $B\notin x$. So $x$ is an ultrafilter.
+	\end{proof}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		A positive element $x$ in $C^*$ - algebra $A$ is \alert{Abelian} if subalgebra $xAx \subset A$ is commutative.
+	\end{definition}
+	\begin{definition}\label{type_I_defn}
+		We say that a $C^*$-algebra $A$ is \alert{of type} $I_0$ if $A$ is generated (as $C^*$-algebra) by its Abelian elements.
+	\end{definition}
 
 \end{frame}
 \end{document}
