@@ -707,21 +707,7 @@
 \subsection{Coverings and fundamental group}
 \subsubsection{Topologies of *-automorphisms groups}
 
-where $\mathrm{Homeo}$ means the group of homeomorphisms with {compact-open} topology (cf \ref{top_comp_open_empt}). Above diagram has the following noncommutative generalization   
-\newline
-\hspace*{\fill}
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-		& \Aut(\widetilde{A}) \\
-		I = [0,1]  & \Aut(A) \\};
-	\path[-stealth]
-	(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-	(m-1-2) edge node [right] {$\al \mapsto \left.\a\right|_{A}$} (m-2-2)
-	(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-\end{tikzpicture}
-\hspace{\fill}
-\newline
-In the above diagram we require that $\al|_A \in \mathrm{Aut}\left(A\right)$ for any $\al \in \mathrm{Aut}\left(\widetilde{A}\right)$. The diagram means that $f'(t)|_{A} = f(t)$ for any $t \in [0,1]$. Noncommutative generalization of a locally compact space is a $C^*$-algebra, so  the generalization of $\mathrm{Homeo}(\mathcal{X})$ is the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries (at least) two different topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
+If $A$ is a $C^*$-algebra then the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries several topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
 \begin{equation*}
 	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
 \end{equation*}
@@ -733,7 +719,7 @@ which corresponds to following "norm"
 \begin{equation}\label{uniform_norm_topology_formula_eqn}
 	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
 \end{equation}
-Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Henceforth the uniform norm-topology will be considered only.
+Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Both of them can be used for our purposes.
 \subsubsection{Basic definitions}
 \begin{definition}\label{connected_c_a_defn}
 	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
@@ -804,14 +790,131 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 where $a \in \K\left( A\right)_+$ is a positive element of Pedersen's ideal.
 Both these sets are  
 where $I$ and $B$ satisfy to the equations \eqref{lideal_eqn}.
+
+\section{Applications}
+\subsection{Fundamental group of commutative $C^*$-algebras}
+
+\subsection{Cohomology of continuous trace $C^*$-algebra}
+
+!!!!!
+\subsubsection{Gelfand space}
+\begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
+	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
+	\begin{itemize}
+		\item [(a)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
+		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
+	\end{itemize}
+\end{lemma}
+
+If $A$ is a continuous trace $C^*$-algebra  and $I\subsetneqq A$ is a closed  left ideal then from the Lemma \ref{hausdorff_spectrum_lem} it follows that  there are $\eps > 0$,  $~a \in A$ and an irreducible representation $\rho: A \to B\left( \H\right)$ with
+\be\label{abelian_ineq_eqn}
+\forall a' \in S \quad \left\|\rho\left(a - a' \right)  \right\| > \eps.
+\ee
+On the other hand $A$ is a $C^*$-algebra of type $I_0$. From this fact one can deduce that there is a satisfying to \eqref{abelian_ineq_eqn}  Abelian element. There is $\xi \in \H$ such that $\rho\left(a \right)= \xi \left\rangle \right\langle \xi$. From (v) of the Theorem \ref{irred_thm} it follows that $\H = \rho\left(A \right) \xi$. If $\xi \in \rho\left(I\right) \xi$ then $a \in I$. It is impossible so $\C\xi \cap \rho\left(I\right) \xi = \{0\}$. There are $\xi^\parallel \in  \rho\left(I\right) \xi$ such that if $\xi^\perp \bydef \xi - \xi^\parallel$ then $\xi^\perp\perp  \rho\left(I\right) \xi$. So for any closed left ideal there is one irreducible representation with $\rho\left( I\right)\xi \neq \H$. The spectrum $\sX$ of $A$ is  Hausdorff. If there are $x', x'' \in \sX$ with $x' \neq x''$ and $ \rho_{x'}\left(I\right)\xi' \neq \H'$, $\rho_{x''}\left(I\right)\xi'' \neq \H''$ then there is $f \in C_0\left( \sX\right)$ such that $f\left(x' \right)  = 0$ and  $f\left(x'' \right)  = 0$. If $I'\bydef I' + Af$ then $I'$ is a closed left ideal such that $I \subsetneqq I' \subsetneqq A$. So if $I$ is a maximal left ideal then there is a single point with $\rho\left(I\right) \xi\neq \H$. If codimension of $\rho\left(I\right) \xi\neq \H$ exceds 1 then there if an Abelian element $a'' \in A$ with
+$$
+\rho\left(I \right) \xi \subsetneqq \rho\left(I \right) \xi + \rho\left(a'' \right) \xi \subsetneqq \H.
+$$
+\begin{lemma}\label{ctr_gelfand_lem}
+	If $A$ is a continuous trace $C^*$-algebra then any $x \in \mathfrak{Gelfand}\left(A \right) $ is given by a pair $\left(x, \xi \right)$ where
+	\begin{enumerate}
+		\item[(i)] $x$ is a point of the spectrum $\sX$ of $A$ which corresponds to the representation $\rep_x: A \to B\left( \H_x\right) $,
+		\item[(ii)] $\xi \in \C P\left( \H_x\right)$ where $ \C P\left( \H_x\right)$ is a complex projective space.
+	\end{enumerate} 
+	
+\end{lemma}
+\begin{proof}
+	There is the natural one-to-one correspondence between codimension one planes of any Hilbert space $\H$ and points of   $ \C P\left( \H\right)$.
+\end{proof}
+Suppose that $A$ is given by a locally trivial  fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It givers a bundle $\C P\left(\E \right)$ with fibre $\C P\left( \H\right)$. From the Lemma \ref{ctr_gelfand_lem}  it turns out that there is the natural set theoretic bijective map $\mathfrak{Gelfand}\left(A \right)\cong  \C P\left(\E \right)$.
+If $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is $\C P\left(\E \right)$ supplied with Gelfand topology then there is a bijective continuous map
+\be\label{pe_c_eqn}
+\phi_{\E} : \C P\left(\E \right)_{\mathfrak{Classic}}\to \C P\left(\E \right)_{\mathfrak{Gelfand}}
+\ee
+where $\C P\left(\E \right)_{\mathfrak{Classic}}$ is supplied with the classic topology.
+In particular if $\sX = \{x\}$ then $A = \K\left(\H \right)$ and $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The subbase of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus L$ where $L$ is a linear subspace of  $\C P\left(\H \right)$. Similarly to \eqref{pe_c_eqn} there is a continuous map 
+$$
+\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Classic}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
+$$
+Moreover if $\dim \H = n$ then there is a composition
+$$
+\C P^n_{\mathfrak{Classic}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
+$$
+where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one spaces then
+$$
+\C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
+$$
+Similarly 
+$$
+\C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right) 
+$$
+If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Classic}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
+$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+all $\sigma \in K\left(\mathscr W\right)$ where n $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). From the Theorem \ref{top_nerve_thm} it turns out that
+$$
+H^*\left(\C P^n_{\mathfrak{Classic}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right)
+$$
+Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
+$$
+H^*\left(\C P\left(\H \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+$$
+The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
+The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hausdorff and non Hausdorff topology. The following Lemma is a consequence of the Theorem \ref{top_nerve_thm}.
+\begin{lemma}
+	Let $F$ is an Abelian group.
+	Let $\pi :  \C P\left(\E \right)_{\mathfrak{Classic}}\to \sX$ be the natural surjective mapping 
+	If $\sX = \bigcup_{\mathcal W \in \mathscr W}  \mathcal W$ where: 
+	\begin{itemize}
+		\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \sH\right)_{\mathfrak{Classic}}$,
+		\item $H^*\left( \sU,\mathscr F_{\mathfrak{Classic}} \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ 
+	\end{itemize}	
+	then there is the natural isomorphism
+	$$
+	H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) 
+	$$ 
+	where both $\mathscr F_{\mathfrak{Classic}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
+\end{lemma}
+
+
+\begin{definition}\label{nerve_defn}\cite{spanier:at}
+	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
+\end{definition}
+\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
+	%PAGE 193 !!! DOWN !!!
+	%4.13. Theorem. 
+	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
+	\be
+	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
+	\ee
+\end{theorem}
+
+\begin{proposition}\label{ctr_bundle_prop1}\cite{rae:ctr_morita}
+	%Proposition 5.59. 
+	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(X \right)$ (cf. equation \eqref{top_ub_eqn}).
+	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\end{proposition}
+
+
+
+\subsection{Gelfand space of $\K\left( \H\right)$ and its cohomology}.
+\paragraph{} According to the Lemma \ref{ctr_gelfand_lem} the Gelfand  space $\mathfrak{Gelfand}\left(\K\left( \H\right) \right)$ coincides with $\C P\left( \H\right)$ as a set. If we select $\xi \in \H$ then any  closed left  ideal $I \subset \K\left( \H\right)$ yields a linear subspace $I \xi \subset \H$. If uniquely defines a linear subspace   $ l\in  \C P\left( \H\right)$. From the Definition \ref{gelfand_space_defn} the $\mathfrak{Gelfand}\left(\K\left( \H\right) \right)$ is the minimal topology such that for any linear subspace $l\xi  \subset  \C P\left( \H\right)$ the set $\C P\left( \H\right) \setminus l$ is open we use the following notation
+$$
+\mathfrak{Gelfand}\left(\K\left( \H\right) \right) \cong \C P\left( \H\right)_{\mathfrak{Gelfand}}
+$$
+where the "$\cong$" symbol means a homeomorphism. If $\H = \C^{n + 1}$ then there is the Zariski topology on $\C P^n \bydef \C P\left( C^{n+1}\right)$ and the notion $\C P^n_{\mathfrak{Zariski}}
+$ will be used. The  Zariski topology
+
+\
  \section*{Acknowledgment}
 
 
 \paragraph*{}
-I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
-for advising me on the properties of Moyal planes and equivariant spectral triples respectively. Author would like to acknowledge members of the Moscow State University Seminars
+ Author would like to acknowledge members of the Moscow State University Seminars
 "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
-of this work. I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work during the quarantine.
+of this work. 
 
 
 
