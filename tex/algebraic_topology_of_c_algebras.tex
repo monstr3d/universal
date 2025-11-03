@@ -818,36 +818,41 @@ The Chapter \ref{wl_chap} is devoted to Wilson lines over  noncommutative spaces
 	From the Lemma \ref{hered_ideal_lem} there is a one-to-one correspondence between hereditary $C^*$-subalgebras and closed left ideals. However every closed left ideal is a closed two-sided ideal and vice versa. The  meet-semilattice of  hereditary $C^*$-subalgebras is naturally isomorphic to  the  meet-semilattice of closed two sided ideals. From the theorem \ref{gelfand-naimark_thm} it follows that these both semi-lattices are naturally isomorphic to the semilattice of open sets of $\sX$. Now this lemma is a consequence of the Lemma \ref{top_ultra_thm}.
 \end{proof}
 \subsection{Morphisms}
-\begin{definition}\label{hereditary_extension_defn}
-	If both be $A$ and $\widetilde{A}$ be $C^*$-algebras then  an injective *-homomorphism
-	\bean
-	\varphi: A \hookto M\left(\widetilde A\right)
-	\eean
-	is said to be a \textit{hereditary injective} if a set $\varphi\left( A\right) \widetilde{A} \varphi\left(A \right)$ is dense in  $\widetilde A$. Equivalently a left ideal $\widetilde{A} \varphi\left(A \right)$  of $\widetilde{A}$ is dense in $\widetilde{A}$.
+	\begin{definition}\label{lrc_defn}\cite{matro:hcm}
+	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} if
+	\be
+	\la\left(ab\right)= 	\la\left(a\right) b \quad \forall a, b \in A.
+	\ee
+	Similarly one defines a \textit{right} centralizer. Denote the spaces of left and right centralizers by $\mathbf{LC}(A)$ and  $\mathbf{RC}(A)$.
 \end{definition}
 
 
 
+
 \begin{lemma}\label{lolale_lem}
-	Any hereditary injective  *-homomorphism 	
+	Any injective homomorphism 	
 	\bean
-	\varphi: A \hookto M\left(\widetilde A\right)
-	\eean
-	naturally yields a continuous mapping 
+\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)	\eean
+of $\C$-algebras	naturally yields a continuous mapping 
 	\be\label{gelfand_map_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right)
 	\ee
 \end{lemma}
 \begin{proof}
-	For any $\widetilde x \in  \mathfrak{Gelfand}\left(\widetilde A \right)$ we define the ideal $I \in A$ as a closure of the union 
+	For any $\widetilde x \in  \mathfrak{Gelfand}\left(\widetilde A \right)$ we define the ideal $I \in A$ as the closure of the union 
 	$$
-\left\{I' \subsetneqq  A\left| I \in A \quad \widetilde AI' \subset \widetilde x \right.\right\}
+\bigcup \left\{I' \subsetneqq  A\left|  \quad \widetilde A\varphi_R\left(I' \right)  \subset \widetilde x \right.\right\}
 	$$
-If $I$ is not maximal maximal nontrivial ideal then 	
-If $I \in A$ is a closed left ideal and $\widetilde I$ is the closure of $\widetilde A \varphi \left( I\right) $ then from $\widetilde x$ also is not maximal ideal. So one has a mapping \eqref{gelfand_map_eqn}. From the equation 
+If $I$ is not a maximal nontrivial ideal  and $\widetilde I$ is the closure of $\widetilde A \varphi \left( I\right) $ then from $\widetilde x$ also is not maximal ideal. So the mapping $x \mapsto I$ yields the natural map \eqref{gelfand_map_eqn}. From the equation 
  \eqref{gelfand_space_egn} it turns out that the mapping $\mathfrak{Gelfand}\left(\varphi \right)$ is continuous.
 \end{proof}
-
+\begin{remark}
+	Similarly to the Lemma \ref{lolale_lem} a homomorphism $\varphi_L: A \hookto \mathbf{LC}\left(\widetilde A\right)$ yields a continuous mapping
+	\bean
+\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_L \right)}\mathfrak{Gelfand}\left(A \right)
+\eean
+	
+\end{remark}
 \begin{empt}
 For any $x \in 	\mathfrak{Gelfand}\left( \widetilde A\right)$ consider a set of left ideals 
 $$
@@ -987,7 +992,7 @@ $$
 	If $A$ is a continuous trace $C^*$-algebra then any $x \in \mathfrak{Gelfand}\left(A \right) $ is given by a pair $\left(x, \xi \right)$ where
 	\begin{enumerate}
 		\item[(i)] $x$ is a point of the spectrum $\sX$ of $A$ which corresponds to the representation $\rep_x: A \to B\left( \H_x\right) $,
-		\item[(ii)] $\xi \in \C P\left( \H\right)$ where $ \C P\left( \H\right)$ is a complex projective space.
+		\item[(ii)] $\xi \in \C P\left( \H_x\right)$ where $ \C P\left( \H_x\right)$ is a complex projective space.
 	\end{enumerate} 
 	
 \end{lemma}
@@ -1009,7 +1014,7 @@ $$
 \C P^n_{\mathfrak{Classic}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
-If  $\dim \H = \infty$ and $\left\{L_0, L_0, ...\right\}$ is a set of mutually orthogonal codimension one spaces then
+If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one spaces then
 $$
 \C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
 $$
@@ -1025,30 +1030,33 @@ H^*\left(\C P^n_{\mathfrak{Classic}}, \mathscr A \right) \cong \check H^*\left( 
 $$
 Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
 $$
-H^*\left(\C P\left(\H \right) _{\mathfrak{Classic}}, \mathscr A \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr A \right)
+H^*\left(\C P\left(\H \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
 $$
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
 The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hausdorff and non Hausdorff topology. The following Lemma is a consequence of the Theorem \ref{top_nerve_thm}.
 \begin{lemma}
-	Let $\pi :  \C P\left(\E \right)_{\mathfrak{Classic}}\to \sX$ be the natural surjective mapping 
+	Let $F$ is an Abelian group.
+Let $\pi :  \C P\left(\E \right)_{\mathfrak{Classic}}\to \sX$ be the natural surjective mapping 
 If $\sX = \bigcup_{\mathcal W \in \mathscr W}  \mathcal W$ where: 
 \begin{itemize}
-	\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \H\right)$,
-	\item $H^*\left( \sU,\mathscr A \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ 
+	\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \sH\right)_{\mathfrak{Classic}}$,
+	\item $H^*\left( \sU,\mathscr F_{\mathfrak{Classic}} \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ 
 \end{itemize}	
-then
+then there is the natural isomorphism
 $$
-H^*\left(\mathfrak{Gelfand}\left(A \right)  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Classic}}, \mathscr A \right) 
+H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) 
 $$ 
+where both $\mathscr F_{\mathfrak{Classic}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
 \end{lemma}
  
 
 	\begin{definition}\label{nerve_defn}\cite{spanier:at}
 	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
 \end{definition}
-\begin{theorem}\label{top_nerve_thm}
-PAGE 193 !!! DOWN !!!
-4.13. Theorem. Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
+%PAGE 193 !!! DOWN !!!
+%4.13. Theorem. 
+Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
 \be
 H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
