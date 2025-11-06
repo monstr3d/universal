@@ -620,13 +620,26 @@
 	\noindent
 \paragraph{}	Any $C^*$-algebra can be regarded as a generalization of locally compact Hausdorff topological space. Here we consider a generalization of fundamental group and (co)homology theory. In result one has invariants  of $C^*$-algebras such that: 
 	\begin{itemize}
-		\item for any commutative $C^*$-algebra $C_0\left(\sX \right)$ the invariants  coincide with the  $\sX$ ones,
+		\item for any commutative $C^*$-algebra $A = C_0\left(\sX \right)$ the invariants of $A$ coincide with the  $\sX$ ones,
 		\item the theory is not trivial even for algebras having bad spectrum, e.g. containing two open sets only.
 	\end{itemize}
 	
 \end{abstract}
 \section{General Theory}
 \subsection{The Gelfand space of $C^*$-algebra}
+
+\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
+	% THEOREM 5.6.1
+	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
+	which is minimal among dense ideals.
+	
+\end{thm}
+	\begin{defn}\label{pedersen_ideal_defn}\cite{blackadar:ko}
+	The ideal $K\left( A\right) $ from the theorem \ref{pedersen_ideal_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
+\end{defn}
+\begin{definition}
+	A closed right ideal $I\subset A$ of $C^*$ algebra is \textit{compact} if there is $a \in K\left(A \right)$ such that $I \subset Aa$.
+\end{definition}
 
 \begin{definition}\label{gelfand_space_defn}
 	If $A$ is $C^*$-algebra then  the   \textit{Gelfand space} of $A$ is a set $\mathfrak{Gelfand}\left(A \right)$ of maximal left ideals of $A$ having the minimal topology  such that for any closed left ideal $I\subset A$ the set
@@ -636,7 +649,65 @@
 	is open.
 \end{definition}
 
+		\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
+	Let $A$ be a poset, $S$ a subset of $A$ We say an element $a \in A$
+	is a {\it join} (or {\it least upper bound}) for $S$, and write $a = \vee S$, if 
+	\begin{enumerate}
+		\item [(a)] a is an upper bound for $S$, i.e. $s \la a$ for all $s \in S$, and 
+		\item [(b)] if $b$ satisfies $\forall \in S\quad  s \le b$, then $a \le b$. 
+	\end{enumerate}
+	The antisymmetry axiom  ensures that the join of $S$, if it exists, is 
+	unique. If $S$ is a two-element set $\{s, t\}$, we write $s \vee t$ for $\vee  \{s, t\}$ and if $S$	is the empty set $\emptyset$, we write $0$ for  $\vee \emptyset$.
+	Similarly we define a  {\it meet} (or {\it greatest lower  bound}) and we use the symbol $\wedge$ for it.
+\end{definition}
 
+\begin{definition}\label{lattice_defn}\cite{johnstone:stone_spaces}
+	A \textit{join-semilattice} is a poset which supports for any finite set both  least upper bounds. Similarly we define 	\textit{meet-semilattice},	 A \textit{lattice} is a poset which supports for any finite set both  least upper bounds and greatest lower  bounds. 
+\end{definition}
+\begin{definition}\label{ideal_defn}\cite{johnstone:stone_spaces} 
+	A subset $I$ of a join-semilattice $A$ is said to be an {\it ideal} if
+	\begin{enumerate}
+		\item [(a)] $I$ is a sub-join-semilattice of $A$; i.e. $0\in A$, and $a, b \in I$ imply  	$a \vee b \in I$; and
+		\item [(b)] $I$ is a lower set; i.e. $a \in I$ and $b \le a$ imply $b \in I$.  
+	\end{enumerate}
+\end{definition}
+\begin{definition}\label{filter_defn}\cite{johnstone:stone_spaces} 
+	A subset $\mathfrak F$ of a meet-semilattice $A$ is said to be an {\it filter} if
+	\begin{enumerate}
+		\item [(a)] $\mathfrak F$ is a sub-meet-semilattice of $A$; i.e. $1\in A$, and $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
+		\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
+	\end{enumerate}
+\end{definition}
+\begin{empt}\label{filter_empt}
+	Similarly to \cite{bourbaki_sp:gt} we require
+	\begin{enumerate}
+		\item [(c)] $0 \notin \mathfrak F$.
+		
+	\end{enumerate}	
+\end{empt}
+\begin{defn}\label{princ_f_defn}\cite{johnstone:stone_spaces}
+	If $a$ is an element of  meet-semilattice then the filter
+	$
+	\left\{I \left| \forall b \in I \quad b \ge a \right.\right\}
+	$
+	is \textit{principal}.
+\end{defn}
+
+\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
+	A maximal filter is an \textit{ultrafilter}.
+\end{definition}
+\begin{remark}\label{ultra_filter_rem}
+	From the Zorn’s lemma it follows that any filter is a subset of an	ultrafilter.
+\end{remark}
+\begin{empt}
+	If $A$ is a $C^*$-algebra then there is a meet-semilattice of left compact ideals. If $\mathfrak{Gelfand}\left(A \right)$ is a set of ultrafilters of this meet-semilattice then for any closed left ideal $I \subset A$ denote by
+	\be\label{gelfand_eqn}
+\mathfrak{Gelfand}\left(A \right)_I	\bydef \left\{\left. x \in \mathfrak{Gelfand}\left(A \right) \right| x \notin I\right\}
+	\ee
+\end{empt}
+\begin{definition}\label{gelfand_defn}
+	The \textit{Gelfand space} of $C^*$-algebra $A$ is a set of $\mathfrak{Gelfand}\left(A \right)$ with the minimal topology such that any given by \eqref{gelfand_eqn} set is minimal.
+\end{definition}
 
 	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
 	Let $A$ be a $C^*$-algebra.
@@ -650,18 +721,27 @@
 		is the unique closed left ideal of $A$ corresponding to $B$.
 	\end{enumerate}
 \end{lemma}
+
+
 \begin{remark}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras.
 \end{remark}
+\begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
+	One has:
+	\begin{enumerate}
+		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
+		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
+	\end{enumerate} 
+\end{proposition}
 \begin{thm}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
 	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
 \end{thm}
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a  Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
+	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
 \end{lemma}
 \begin{proof}
-The set of left ideals of $C_0(\mathcal{X})$ naturally coincides with the set of two-sided ones.
+The set of left ideals of $C_0(\mathcal{X})$ naturally coincides with the set of two-sided ones. Any two sided ideal !!!
 \end{proof}
 \subsection{Morphisms}
 
@@ -673,24 +753,36 @@ The set of left ideals of $C_0(\mathcal{X})$ naturally coincides with the set of
 	Similarly one defines a \textit{right centralizer}. Denote the spaces of left and right centralizers by $\mathbf{LC}(A)$ and  $\mathbf{RC}(A)$.
 \end{definition}
 
-
+\begin{defn}\label{lolale_defn}
+If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective homomorphism 	
+\bean
+\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)	
+\eean
+of $\C$-algebras is \textit{good} if for any  ideal $\widetilde I \subsetneqq \widetilde A$ there is a  ideal $I \subsetneqq A$ such that
+$ \widetilde I\subset \widetilde A \varphi_R\left(I \right)$. 	
+\end{defn}
 
 \begin{lemma}\label{lolale_lem}
-	Any injective homomorphism 	
+	Any good homomorphism 	
 	\bean
 	\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)	\eean
-	of $\C$-algebras	naturally yields a continuous mapping 
+yields a continuous mapping 
 	\be\label{gelfand_map_eqn}
 	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right)
 	\ee
 \end{lemma}
 \begin{proof}
-	For any $\widetilde x \in  \mathfrak{Gelfand}\left(\widetilde A \right)$ we define the ideal $x \subsetneqq A$ as the closure of the union 
+	For any $\widetilde x \in  \mathfrak{Gelfand}\left(\widetilde A \right)$ we define a filter $x$ of compact ideals $I\subset A$ such that
+	\bean
+	x = \left\{ I \subset A \left| \exists \widetilde I \in \widetilde x \quad  \widetilde I\subset \widetilde A \varphi_R\left(I \right)\right.\right\}
+	\eean 
+	If $I' \notin x$ then from the Definition \ref{lolale_defn} one can deduce 
 	$$
-	\bigcup \left\{I' \subsetneqq  A\left|  \quad \widetilde A\varphi_R\left(I' \right)  \subset \widetilde x \right.\right\}
+	\forall I \in x \quad \varphi_R\left(I' \cap I \right) = \{0\}\quad \Rightarrow \quad I' \cap I' = \{0\}.
 	$$
-	If $x$ is not a maximal nontrivial ideal  and $\widetilde x$ is the closure of $\widetilde A \varphi \left( I\right) $ then from $\widetilde x$ also is not maximal ideal. So the mapping $\widetilde x \mapsto x$ yields the natural map \eqref{gelfand_map_eqn}. From the equation 
-	\eqref{gelfand_space_egn} it turns out that the mapping $\mathfrak{Gelfand}\left(\varphi_R \right)$ is continuous.
+	So $x$ is an ultrafilter and the mapping \eqref{gelfand_map_eqn} is defined as $\widetilde x \mapsto x$.
+From the equation 
+	\eqref{gelfand_space_egn} it turns out that the mapping \eqref{gelfand_map_eqn} is continuous.
 \end{proof}
 \begin{remark}
 	Similarly to the Lemma \ref{lolale_lem} a homomorphism $\varphi_L: A \hookto \mathbf{LC}\left(\widetilde A\right)$ yields a continuous mapping
@@ -724,22 +816,13 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
 
-\begin{definition}\label{fin_quasi_defn}
-	Let both  $A$ and  $\widetilde{A}$ be  connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto \widetilde{A}$ be an injective $*$-homomorphism of % connected	  
-	$C^*$-algebras. Let $G$ be a finite  group of $*$-automorphisms of $\widetilde{A}$ such that 	$\lift\left(A\right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
-	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative  quasi-covering}. We write
-	\be\label{fin_cov_gr_eqn}
-	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
-	\ee
-\end{definition}
-
 \begin{definition}\label{fin_pre_defn}
 	Let   $A$ be an unital connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto M\left( \widetilde{A}\right) $ be an injective  $*$-homomorphism of % connected
 	$C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
 		\item[(a)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
 		\be\nonumber
-		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left( A\right) \quad ga = a\right\}
+		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left(M\left(  A\right) \right) \quad ga = a\right\}
 		\ee
 		is discrete
 		\item[(b)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
@@ -970,11 +1053,16 @@ of this work.
 
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+		
+\bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
 	
 		\bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
+\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
 	
 	\bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 	
+	 	
+	\bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
 		
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
