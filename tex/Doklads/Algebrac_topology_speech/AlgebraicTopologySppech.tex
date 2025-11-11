@@ -1,7 +1,9 @@
 \documentclass{beamer}
 \usepackage{amsmath,amssymb,amsthm,slashed, euscript}
-\usepackage{graphicx}
-\usepackage{mathrsfs}  
+\usepackage{mathrsfs} 
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
 
 \textwidth=110mm
 
@@ -158,7 +160,7 @@ Noncommutative geometry and topology
 	\end{equation*}
 	then $p$ is a finite-fold  covering.
 \end{theorem}
-	There is a counterexample  to the Theorem. Alexandru Chirvasitu. {\it Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
+	There is a counterexample  to the Theorem. Alexandru Chirvasitu. \alert{ Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
 	
 
 \end{frame}
@@ -166,30 +168,11 @@ Noncommutative geometry and topology
 Development of the (co)homology theory of $C^*$-algebras such that: 
 \begin{itemize}
 	\item for any commutative $C^*$-algebra $C\left(\sX \right)$ it coincides with  (co)homology theory of $\sX$.
-	\item the theory is not trivial even for algebras having bag spectrum, e.g. containing two open sets only.
+	\item the theory is not trivial even for algebras having one-point  spectrum.
 \end{itemize}
 \end{frame}
 \section{Gelfand space}
-\begin{frame}
 
-\begin{definition}\label{gelfand_space_defn}\alert{Ivankov}.
-	If $A$ is $C^*$-algebra then  the   \alert{Gelfand space} of $A$ is a set $\mathfrak{Gelfand}\left(A \right)$ of maximal left ideals of $A$ having the minimal topology  such that for any left ideal $I\subset A$ the set
-	\be\label{gelfand_space_egn}
-	\left\{\left.x \in \mathfrak{Gelfand}\left(A \right)\right| I \subsetneqq x\right\}	
-	\ee
-	is open.
-\end{definition}
-
-
-\begin{theorem}\label{gelfand-naimark_thm} (Commutative Gelfand-Na\u{\i}mark theorem). 
-	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
-\end{theorem}
-
-
-\begin{lemma}\alert{Ivankov}. (Generalized commutative Gelfand theorem) 
-	If $\sX$ is a compact Hausdorff space then  is a natural  homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$.
-\end{lemma}
-\end{frame}
 \begin{frame}
 	
 	\begin{figure}
@@ -198,6 +181,30 @@ Development of the (co)homology theory of $C^*$-algebras such that:
 %		\label{fig:boat1}
 	\end{figure}
 Irrational rotation $C^*$-algebra $C^*_r\left( M, \mathcal F\right)$ and its one-sided ideal.
+\end{frame}
+\begin{frame}
+		\begin{definition}\label{upper_defn}
+	Let $A$ be a poset, $S$ a subset of $A$. We say an element $a \in A$
+	is a \alert{ join} (or \alert{ least upper bound}) for $S$, and write $a = \vee S$, if 
+	\begin{enumerate}
+		\item [(a)] a is an upper bound for $S$, i.e. $s \le a$ for all $s \in S$, and 
+		\item [(b)] if $b$ satisfies $\forall \in S\quad  s \le b$, then $a \le b$. 
+	\end{enumerate}
+	The antisymmetry axiom  ensures that the join of $S$, if it exists, is 
+	unique. If $S$ is a two-element set $\{s, t\}$, we write $s \vee t$ for $\vee  \{s, t\}$ and if $S$	is the empty set $\emptyset$, we write $0$ for  $\vee \emptyset$.
+	Similarly we define a  \alert{ meet} (or \alert{ greatest lower  bound}) and we use the symbol $\wedge$ for it.
+\end{definition}
+
+\begin{definition}\label{lattice_defn}
+	A \textit{join-semilattice} is a poset which supports for any finite set both  least upper bounds. Similarly we define 	\textit{meet-semilattice},	 A \textit{lattice} is a poset which supports for any finite set both  least upper bounds and greatest lower  bounds. 
+\end{definition}
+\begin{definition}\label{ideal_defn} 
+	A subset $I$ of a join-semilattice $A$ is said to be an \alert{ ideal} if
+	\begin{enumerate}
+		\item [(a)] $I$ is a sub-join-semilattice of $A$; i.e. $0\in A$, and $a, b \in I$ imply  	$a \vee b \in I$; and
+		\item [(b)] $I$ is a lower set; i.e. $a \in I$ and $b \le a$ imply $b \in I$.  
+	\end{enumerate}
+\end{definition}
 \end{frame}
 \section{Morphisms}
 \begin{frame}
@@ -349,7 +356,7 @@ The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hau
 \begin{frame}
 	\begin{definition}\label{top_covering_defn} 
 	Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be \alert{ evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a \alert{covering} if each point $x \in \mathcal{X}$ has an open neighbourhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
-		\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
+		\it covering space} and $\mathcal{X}$ the \alert{ base space} of the covering.
 \end{definition}
 \end{frame}
 
@@ -434,22 +441,22 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 \begin{thebibliography}{10}
 	\bibitem{johnstone:topos}P.T. Johnstone. \textit{Topos Theory}, L. M. S. Monographs no. 10, Academic Press, 1977.
 	
-	\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+	\bibitem{arveson:c_alg_invt} W. Arveson. \alert{ An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
 	
 	
 	\bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
 	
-	\bibitem{counter_ex} 	Alexandru Chirvasitu. {\it Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
+	\bibitem{counter_ex} 	Alexandru Chirvasitu. \alert{ Non-commutative branched covers and bundle unitarizability}, arXiv:2409.03531v1, 2024.
 	
 	%\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 	
 	%I. I en, M. G rsoy, A.  zcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207   218. 	c T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
-	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, {\it 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
+	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, \alert{ 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
 	
 	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973.
 	
 	
-	\bibitem{Ambjorn:2000cs}  J.~Ambjorn, Y.~M.~Makeenko, J.~Nishimura and R.~J.~Szabo,  {\it Lattice gauge fields and discrete noncommutative Yang-Mills theory}.  JHEP {\bf 0005}, 023 hep-th/0004147, 2000.
+	\bibitem{Ambjorn:2000cs}  J.~Ambjorn, Y.~M.~Makeenko, J.~Nishimura and R.~J.~Szabo,  \alert{ Lattice gauge fields and discrete noncommutative Yang-Mills theory}.  JHEP {\bf 0005}, 023 hep-th/0004147, 2000.
 	
 	\bibitem{af:rings_cat_mod} Anderson F.W., Fuller K.R. \textit{Rings and categories of modules}, Graduate Text in Mathematics, Springer Verlag, N.Y. 1974.
 	%\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover  Publications, New York, 1961, 1963.
@@ -460,7 +467,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	\bibitem{antoine:part_s} J.-P. Antoine, F. Mathot, \textit{Partial $*$-algebras of closed operators and their commutants. I. General
 		structure}. Ann. Inst. H. Poincar  46, 299 324 (1987), 1987.
 	
-	\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+	\bibitem{arveson:c_alg_invt} W. Arveson. \alert{ An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
 	
 	
 	\bibitem{atiyah_b_s}
@@ -473,7 +480,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	Work for these note is was partially supported by NSF Grant GP-1217
 	
 	
-	%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{M}hbb{R}/\mathbb{M}hbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
+	%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis \alert{ Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{M}hbb{R}/\mathbb{M}hbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
 	
 	\bibitem{auslander:galois} M. Auslander; I. Reiten; S.O. Smal\o{}. \textit{Galois actions on rings and finite Galois coverings}. Mathematica Scandinavica (1989), Volume: 65, Issue: 1, page 5-32, ISSN: 0025-5521; 1903-1807/e , 1989.
 	
@@ -488,32 +495,32 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	
 	
-	%\bibitem{bezandry_diagana:bound_unbound}Paul H. Bezandry, Toka Diagana {\it Bounded and Unbounded Linear Operators}, in {\it Almost Periodic Stochastic Processes}, Springer, 2011.
+	%\bibitem{bezandry_diagana:bound_unbound}Paul H. Bezandry, Toka Diagana \alert{ Bounded and Unbounded Linear Operators}, in \alert{ Almost Periodic Stochastic Processes}, Springer, 2011.
 	
-	%\bibitem{ballentine:qm} Leslie E Ballentine. {\it Quantum Mechanics: A Modern Development.} World Scientific Publishing Co. Pte. Ltd. 2000.
-	\bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
+	%\bibitem{ballentine:qm} Leslie E Ballentine. \alert{ Quantum Mechanics: A Modern Development.} World Scientific Publishing Co. Pte. Ltd. 2000.
+	\bibitem{bass} H. Bass. \alert{ Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
 	
 	
 	\bibitem{becker:sting_m}Katrin Becker, Melanie Becker, John H. Schwarz. \textit{String Theory and M-Theory: A Modern Introduction}. Cambridge University Press. 2007.
 	
-	\bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
+	\bibitem{blackadar:ko} B. Blackadar. \alert{ K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
 	
 	\bibitem{blackadar:oa} B. Blackadar. \textit{Operator Algebras: Theory of C$*$-Algebras and von Neumann Algebras}, (Encyclopaedia of Mathematical Sciences), Springer,  2006.
 	
-	\bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
+	\bibitem{blackadar:shape_theory} B. Blackadar, \alert{ Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
 	
 	\bibitem{blecher_merdy} David P. Blecher, Christian Le Merdy. \textit{Operator algebras and their modules - an operator space approach}, CLARENDON PRESS - OXFORD, 2004.
 	
-	%\bibitem{blecher:hilb_gen} D.P. Blecher. {\it A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
+	%\bibitem{blecher:hilb_gen} D.P. Blecher. \alert{ A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
 	
-	\bibitem{bogachev_measure_v1}V. I. Bogachev. {\it Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
+	\bibitem{bogachev_measure_v1}V. I. Bogachev. \alert{ Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
 	
-	\bibitem{bogachev_measure_v2}V. I. Bogachev. {\it Measure Theory}. (volume 2). Springer-Verlag, Berlin, 2007.
+	\bibitem{bogachev_measure_v2}V. I. Bogachev. \alert{ Measure Theory}. (volume 2). Springer-Verlag, Berlin, 2007.
 	
 	\bibitem{bogopolsky:group_theory}Oleg Bogopolski. \textit{Introduction to Group Theory}. European Mathematical Society. 2008.
 	
 	
-	\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
+	\bibitem{bourbaki_sp:gt} N. Bourbaki, \alert{ Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
 	
 	\bibitem{bredon:topology_geometry} Bredon, Glen E. \textit{Topology and geometry} (Graduate texts in mathematics) Corr. 2nd print Edition, 1993
 	
@@ -522,7 +529,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	
 	\bibitem{brickell_clark:diff_m} F. Brickell and R. S. Clark.
-	{\it Differentiable manifolds; An introduction.} London; New York: V. N. Reinhold Co., 1970.
+	\alert{ Differentiable manifolds; An introduction.} London; New York: V. N. Reinhold Co., 1970.
 	
 	
 	
@@ -544,7 +551,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	\bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 	
-	\bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012. This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
+	\bibitem{chun-yen:separability} Chun-Yen Chou. \alert{ Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012. This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
 	
 	%\bibitem{mont:hopf-morita} M. Cohen, D. Fischman, S. Montgomery. \textit{Hopf Galois extensions, smash products, and Morita equivalence}. Journal of Algebra Volume 133, Issue 2, September 1990, Pages 351-372, 1990.
 	
@@ -553,15 +560,15 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	\bibitem{connes:foli_survey} A. Connes. \textit{A survey of foliations and operator algebras}. Operator algebras and applications, Part 1, pp. 521-628, Proc. Sympos. Pure Math., 38, Amer. Math. Soc, Providence, R.I., 1982; MR 84m:58140. 1982.
 	
 	%	\bibitem{cds} A. Connes, M.R. Douglas and A. Schwarz, J. High Energy Phys.{\bf 9802}(1998) 003 [{\tt hep-th/9711162}].
-	\bibitem{matrix_tori} Alain Connes,   Michael R. Douglas and Albert Schwarz {\it Noncommutative Geometry and Matrix Theory: Compactification on Tori}, arXiv:hep-th/9711162, 1998.
+	\bibitem{matrix_tori} Alain Connes,   Michael R. Douglas and Albert Schwarz \alert{ Noncommutative Geometry and Matrix Theory: Compactification on Tori}, arXiv:hep-th/9711162, 1998.
 	
-	\bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
+	\bibitem{connes:ncg94} Alain Connes. \alert{ Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
 	
-	\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
+	\bibitem{connes:c_alg_dg} Alain Connes. \alert{ $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
 	
 	
 	
-	\bibitem{connes_landi:isospectral} Alain Connes, Giovanni Landi. {\it Noncommutative Manifolds the Instanton Algebra and Isospectral Deformations}, arXiv:math/0011194, 2001.
+	\bibitem{connes_landi:isospectral} Alain Connes, Giovanni Landi. \alert{ Noncommutative Manifolds the Instanton Algebra and Isospectral Deformations}, arXiv:math/0011194, 2001.
 	
 	\bibitem{connes_lott:particle} Connes, Alain, Lott, John. \textit{Particle models and noncommutative geometry}, Nuclear Physics B - Proceedings Supplements (1991/01) 18(2): 29-47, 1991
 	
@@ -583,7 +590,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	\bibitem{dimca:sheaves} Alexandru Dimca. \textit{Sheaves in Topology} Springer Science \& Business Media, Mar 12, 2004. 
 	
-	\bibitem{Driver} B.~Driver {\it Classifications of bundle connection pairs by parallel translation and lassos}.
+	\bibitem{Driver} B.~Driver \alert{ Classifications of bundle connection pairs by parallel translation and lassos}.
 	J.\ Funct.\ Anal.\ {\bf 83}, no.\ 1, (1989).
 	\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
 	
@@ -593,48 +600,48 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	%\bibitem{hajac:s_conn}	P. M. Hajac, \textit{Strong connections on quantum principal bundles},Commun. Math. Phys. {\bf 182} (1996), 579--617. 1996.	
 	
-	%\bibitem{bruckler:tensor} Franka Miriam Br\"uckler. {\it Tensor products of $C^*$-algebras, operator spaces and Hilbert $C^*$-modules}. Mathematical Communications 4(1999), 1999.
+	%\bibitem{bruckler:tensor} Franka Miriam Br\"uckler. \alert{ Tensor products of $C^*$-algebras, operator spaces and Hilbert $C^*$-modules}. Mathematical Communications 4(1999), 1999.
 	
-	\bibitem{do_carmo:rg} Manfredo P. do Carmo. {\it Riemannian Geometry.} Birkh\"auser, 1992.
+	\bibitem{do_carmo:rg} Manfredo P. do Carmo. \alert{ Riemannian Geometry.} Birkh\"auser, 1992.
 	
 	
 	\bibitem{chakraborty_pal:quantum_su_2} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{Equivariant spectral triples on the quantum $SU(2)$ group}. arXiv:math/0201004v3, 2002.
 	
 	\bibitem{chakraborty_pal:inv_hom} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{An invariant for homogeneous spaces of compact quantum groups}. Advances in Mathematics. 301 (2016) 258  2016.
 	
-	%\bibitem{chang:fermionic} Ee Chang-Young, Hiroaki Nakajima, Hyeonjoon Shin. {\it Fermionic $T$-duality and Morita Equivalence}, arXiv:1101.0473, 2011.
+	%\bibitem{chang:fermionic} Ee Chang-Young, Hiroaki Nakajima, Hyeonjoon Shin. \alert{ Fermionic $T$-duality and Morita Equivalence}, arXiv:1101.0473, 2011.
 	
-	%\bibitem{morita_hopf_galois}S. Caenepeel, S. Crivei, A. Marcus, M. Takeuchi. {\it Morita equivalences induced by bimodules over   Hopf-Galois extensions.}arXiv:math/0608572, 2007.
+	%\bibitem{morita_hopf_galois}S. Caenepeel, S. Crivei, A. Marcus, M. Takeuchi. \alert{ Morita equivalences induced by bimodules over   Hopf-Galois extensions.}arXiv:math/0608572, 2007.
 	
 	
 	
-	%\bibitem{cheng_li:gauge}Cheng, T.-P.; Li, L.-F. {\it Gauge Theory of Elementary Particle Physics}. Oxford University Press. ISBN 0-19-851961-3. 1983.
+	%\bibitem{cheng_li:gauge}Cheng, T.-P.; Li, L.-F. \alert{ Gauge Theory of Elementary Particle Physics}. Oxford University Press. ISBN 0-19-851961-3. 1983.
 	
-	%\bibitem{connes:gravity}A. Connes. {\it Gravity coupled with matter and foundation of noncommutative geometry \}, Commun. Math. Phys. 182 (1996), 155 176. 1996.
+	%\bibitem{connes:gravity}A. Connes. \alert{ Gravity coupled with matter and foundation of noncommutative geometry \}, Commun. Math. Phys. 182 (1996), 155 176. 1996.
 		
-		%\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
+		%\bibitem{connes:c_alg_dg} Alain Connes. \alert{ $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
 		
 		
 		
 		%\bibitem{connes_marcolli:motives}
-		%Alain Connes, Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives},  American Mathematical Society, Colloquium Publications, 2008.
+		%Alain Connes, Matilde Marcolli. \alert{ Noncommutative Geometry, Quantum Fields and Motives},  American Mathematical Society, Colloquium Publications, 2008.
 		
-		% \bibitem{connes_moscovici:local_index} A. Connes and H. Moscovici, {\it The local index theorem in noncommutative geometry"}. Geom. and Funct. Anal., 1996.
+		% \bibitem{connes_moscovici:local_index} A. Connes and H. Moscovici, \alert{ The local index theorem in noncommutative geometry"}. Geom. and Funct. Anal., 1996.
 		
 		
-		%\bibitem{cuntz_quillen:alg_ext} Joachim Cuntz, Daniel Quillen.  {\it Algebra extensions and nonsingularity}, J. Amer. Math. Soc. 8 251-289, 1995
+		%\bibitem{cuntz_quillen:alg_ext} Joachim Cuntz, Daniel Quillen.  \alert{ Algebra extensions and nonsingularity}, J. Amer. Math. Soc. 8 251-289, 1995
 		
-		%\bibitem{davis_kirk_at}James F. Davis. Paul Kirk. {\it Lecture Notes in Algebraic Topology}. Department of Mathematics, Indiana University, Blooming- ton, IN 47405, 2001.
+		%\bibitem{davis_kirk_at}James F. Davis. Paul Kirk. \alert{ Lecture Notes in Algebraic Topology}. Department of Mathematics, Indiana University, Blooming- ton, IN 47405, 2001.
 		
 		\bibitem{dijkhuizen:so_doublecov} Dijkhuizen, Mathijs S. \textit{The double covering of the quantum group $SO_q(3)$}. Rend. Circ. Mat. Palermo (2) Suppl. (1994), 47-57. MR1344000, Zbl 0833.17019. 1994.
 		
-		\bibitem{dixmier_a_r} Jacques Dixmier {\it Les C$*$-alg\`{e}bres et leurs repr\'esentations} 2e \'ed. Gauthier-Villars in Paris 1969.
+		\bibitem{dixmier_a_r} Jacques Dixmier \alert{ Les C$*$-alg\`{e}bres et leurs repr\'esentations} 2e \'ed. Gauthier-Villars in Paris 1969.
 		
 		
 		
 		\bibitem{dixmier_ca}Jacques Dixmier. \textit{$C^*$-Algebras}. University of Paris VI, North-Holland Publishing Company, 1977.
 		
-		\bibitem{dixmier_tr}J. Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963.
+		\bibitem{dixmier_tr}J. Dixmier. \alert{ Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963.
 		
 		\bibitem{dosi:multi} Anar Dosi. \textit{Local operator spaces, unbounded operators and multinormed $C^*$-algebras}.      Journal of Functional Analysis 255(7):1724-1760. October 2008.
 		
@@ -651,7 +658,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\bibitem{quasi_star} Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi $*$-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
 		
 		
-		\bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
+		\bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. \alert{ Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
 		
 		\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Alg brique et Th orie des Faisceaux}. Actualit s Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 		
@@ -659,37 +666,37 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		%\bibitem{gilkey:odd_space}P.B. Gilkey. {\it The eta invariant and the $K$-theory of odd dimensional spherical space forms}.Inventiones mathematicae, Springer-Verlag, 1984.
+		%\bibitem{gilkey:odd_space}P.B. Gilkey. \alert{ The eta invariant and the $K$-theory of odd dimensional spherical space forms}.Inventiones mathematicae, Springer-Verlag, 1984.
 		
 		
-		%\bibitem{nicolas_ginoux:dirac_spectrum}Nicolas Ginoux. {\it The Dirac Spectrum.}Springer, Jun 11, 2009.
+		%\bibitem{nicolas_ginoux:dirac_spectrum}Nicolas Ginoux. \alert{ The Dirac Spectrum.}Springer, Jun 11, 2009.
 		
 		\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
 		
-		\bibitem{varilly_bondia} Jos\'e M. Gracia-Bondia, Joseph C. Varilly, Hector Figueroa, {\it Elements of Noncommutative Geometry}, Springer, 2001.
+		\bibitem{varilly_bondia} Jos\'e M. Gracia-Bondia, Joseph C. Varilly, Hector Figueroa, \alert{ Elements of Noncommutative Geometry}, Springer, 2001.
 		
-		\bibitem{green_schwarz_witten:superstring} {\it Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics) by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
+		\bibitem{green_schwarz_witten:superstring} \alert{ Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics) by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
 		
 		
-		%\bibitem{gross_gauge}David J. Gross. {\it Gauge Theory-Past, Present, and Future} Joseph Henry Luborutoties, Ainceton University, Princeton, NJ 08544, USA. (Received November 3,1992).
+		%\bibitem{gross_gauge}David J. Gross. \alert{ Gauge Theory-Past, Present, and Future} Joseph Henry Luborutoties, Ainceton University, Princeton, NJ 08544, USA. (Received November 3,1992).
 		
-		%\bibitem{ful:gr_repr} Fulton William, Harris Joe. {\it Representation theory. A first course} Graduate Texts in Mathematics, Readings in Mathematics 129, New York: Springer-Verlag. 1991.
+		%\bibitem{ful:gr_repr} Fulton William, Harris Joe. \alert{ Representation theory. A first course} Graduate Texts in Mathematics, Readings in Mathematics 129, New York: Springer-Verlag. 1991.
 		
 		\bibitem{had:ntk} Tom Hadfield. \textit{K-homology of the rotation algebras} $A_\th$. arXiv:math/0112235, 2001.
 		
 		
-		\bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
+		\bibitem{hartshorne:ag} Robin Hartshorne. \alert{ Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 		
 		
 		
-		%\bibitem{halmos:set} Paul R.  Halmos {\it Naive Set Theory.} D. Van Nostrand Company, Inc., Prineston, N.J., 1960.
+		%\bibitem{halmos:set} Paul R.  Halmos \alert{ Naive Set Theory.} D. Van Nostrand Company, Inc., Prineston, N.J., 1960.
 		
 		
-		%\bibitem{helemsky:qfa} A. Ya. Helemsky. {\it Quantum Functional Analysis. Non-Coordinate Approach.} Providence, R.I. : American Mathematical Society, 2010.
+		%\bibitem{helemsky:qfa} A. Ya. Helemsky. \alert{ Quantum Functional Analysis. Non-Coordinate Approach.} Providence, R.I. : American Mathematical Society, 2010.
 		
 		
 		\bibitem{hajac:toknotes}
-		{\it Lecture notes on noncommutative geometry and quantum groups}, Edited by Piotr M. Hajac.
+		\alert{ Lecture notes on noncommutative geometry and quantum groups}, Edited by Piotr M. Hajac.
 		
 		\bibitem{hamermesh:group} M. Hamermesh. \textit{Group Theory and its Applications to Physical Problems}, Addison-Wesley, 1962.
 		
@@ -725,11 +732,11 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		%\bibitem{johnstone:topos}P.T. Johnstone. Topos Theory, L. M. S. Monographs no. 10, Academic Press 1977.
 		
-		%\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
+		%\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, \alert{ Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 		
 		\bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}.  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
 		
-		\bibitem{new_matrix} Giovanni Landi, Fedele Lizzi and Richard J. Szabo. {\it A New Matrix Model for Noncommutative Field Theory}.  arXiv:hep-th/0309031v1, 2003.
+		\bibitem{new_matrix} Giovanni Landi, Fedele Lizzi and Richard J. Szabo. \alert{ A New Matrix Model for Noncommutative Field Theory}.  arXiv:hep-th/0309031v1, 2003.
 		
 		\bibitem{kahn:glo_an} Donald W. Kahn. \textit{Introduction to Global Analysis}.  ACADEMIC PRESS
 		A Subsidiary of Harcourt Brace Jovanovich, Publishers
@@ -742,13 +749,13 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		%\bibitem{kaku:loc}Kaku, M. {\it Locality in the gauge-covariant field theory of strings}. Phys. Lett. 162B, 97. Kaku, M. 1986.
+		%\bibitem{kaku:loc}Kaku, M. \alert{ Locality in the gauge-covariant field theory of strings}. Phys. Lett. 162B, 97. Kaku, M. 1986.
 		
-		%\bibitem{karaali:ha} Gizem Karaali {\it On Hopf Algebras and Their Generalizations}, arXiv:math/0703441, 2007.
+		%\bibitem{karaali:ha} Gizem Karaali \alert{ On Hopf Algebras and Their Generalizations}, arXiv:math/0703441, 2007.
 		
-		\bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978.
+		\bibitem{karoubi:k} M. Karoubi. \alert{ K-theory, An Introduction.} Springer-Verlag. 1978.
 		
-		\bibitem{kelley:gt} John L. Kelley. {\it General Topology
+		\bibitem{kelley:gt} John L. Kelley. \alert{ General Topology
 		}. Springer, 1975. 
 		
 		
@@ -756,11 +763,11 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		%\bibitem{kastler:connes_lott} Daniel Kastler, Thomas Schucker, {\it The Standard Model a la Connes-Lott}, arXiv:hep-th/9412185, 1994.
+		%\bibitem{kastler:connes_lott} Daniel Kastler, Thomas Schucker, \alert{ The Standard Model a la Connes-Lott}, arXiv:hep-th/9412185, 1994.
 		
 		
 		
-		\bibitem{kobayashi_nomizu:diff_geom} S. Kobayashi, K. Nomizu. {\it Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
+		\bibitem{kobayashi_nomizu:diff_geom} S. Kobayashi, K. Nomizu. \alert{ Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
 		
 		
 		
@@ -789,7 +796,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		\bibitem{lawson_m}
-		H. B. Lawson, Jr. and M.-L. Michelsohn, {\it Spin Geometry}, Princeton
+		H. B. Lawson, Jr. and M.-L. Michelsohn, \alert{ Spin Geometry}, Princeton
 		Univ. Press, Princeton, NJ, 1989. 
 		\bibitem{lee:smooth_manifolds} John M. Lee: \textit{Introduction to Smooth Manifolds} Published 2003, Springer: Graduate Texts in Mathematics ISBN 0-387-95495-3. 2003.
 		
@@ -799,18 +806,18 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		\bibitem{bram:atricle}Bram Mesland. {\it Unbounded bivariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383, 2009.
+		\bibitem{bram:atricle}Bram Mesland. \alert{ Unbounded bivariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383, 2009.
 		
 		\bibitem{meyer:unb_repr} Ralf Meyer, \textit{Representations of $*$-algebras by unbounded operators: $C^*$-hulls, local-global principle, and induction} arXiv:1607.04472, 2017.
 		
-		\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press.  1980.
+		\bibitem{milne:etale}J.S. Milne. \alert{ \'Etale cohomology.} Princeton Univ. Press.  1980.
 		
 		\bibitem{milne:lec} J.S. Milne \textit{Lectures on \'Etale Cohomology} Version 2.21 March 22, 2013.
-		%\bibitem{miyashita_fin_outer_gal} Y\^oichi Miyashita, {\it Finite outer Galois theory of noncommutative rings}. Department of Mathematics, Hokkaido, University, 1966.
+		%\bibitem{miyashita_fin_outer_gal} Y\^oichi Miyashita, \alert{ Finite outer Galois theory of noncommutative rings}. Department of Mathematics, Hokkaido, University, 1966.
 		
-		%\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, {\it Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
+		%\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, \alert{ Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
 		
-		%\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. {\it continuous trace  groupoid $C^*$-algebras.}, Math. Scand. 1990
+		%\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. \alert{ continuous trace  groupoid $C^*$-algebras.}, Math. Scand. 1990
 		\bibitem{renault:gropoid_equiv}P. S. Muhly, Jean Renault, Dana P. Williams, \emph{Equivalence and isomorphism for groupoid $C^*$ - algebras} Journal of operator theory. January 1987
 		
 		
@@ -818,11 +825,11 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\bibitem{MW08}
 		Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products}, New York Journal of Mathematics \textbf{3} (2008), 1--87. 2008;
 		
-		\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
+		\bibitem{munkres:topology} James R. Munkres. \alert{ Topology.} Prentice Hall, Incorporated, 2000.
 		
 		\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left  cancellative monoids}. M\"unster J. of Math. 16 (2023), 147 175, 2023.
 		
-		\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
+		\bibitem{murphy}G.J. Murphy. \alert{ $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 		\bibitem{Paschke:73}
 		William~L. Paschke. \emph{Inner product modules over {B}{$^\ast$}-algebras},
 		Transactions of the American Mathematical Society \textbf{182} (1973),
@@ -833,16 +840,16 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		\bibitem{pavlov_troisky:cov} Alexander Pavlov, Evgenij Troitsky. {\it Quantization of branched coverings.}   Russ. J. Math. Phys. (2011) 18: 338. doi:10.1134/S1061920811030071, 2011.
+		\bibitem{pavlov_troisky:cov} Alexander Pavlov, Evgenij Troitsky. \alert{ Quantization of branched coverings.}   Russ. J. Math. Phys. (2011) 18: 338. doi:10.1134/S1061920811030071, 2011.
 		
 		%\bibitem{pedersen:semi}Gert  Kj rg rd  Pedersen.	\textit{Applications of weak* semicontinuity in $C^*$-algebra theory}. Duke Math. J. Volume 39, Number 3 (1972), 431-450. 1972.
 		\bibitem{parta:two_approaches_ym}
-		Partha Sarathi Chakraborty, Satyajit Guin. {\it Equivalence of Two Approaches to Yang-Mills on Non-commutative Torus }.
+		Partha Sarathi Chakraborty, Satyajit Guin. \alert{ Equivalence of Two Approaches to Yang-Mills on Non-commutative Torus }.
 		arXiv:1304.7616v1, 2013.
 		
 		
 		
-		\bibitem{pedersen:ca_aut}Gert Kj rg rd Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+		\bibitem{pedersen:ca_aut}Gert Kj rg rd Pedersen. \alert{ $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
 		
 		%\bibitem{pierce:ass} Richard S. Pierce. \textit{Associative algebras}. Springer-Verlag, 1982.
 		
@@ -850,7 +857,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		ISSN: 0025-5521; 1903-1807/e, 1966.
 		
 		\bibitem{phillips:inv_lim_app}
-		N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} 
+		N. Christopher Phillips \alert{ Inverse Limits of $C^*$ - algebras and Applications.} 
 		University of California at Los Angeles, Los Angeles,  CA 90024
 		Edited by David E. Evans, Masamichi Takesaki
 		Publisher: Cambridge University Press
@@ -860,7 +867,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{phillips:ped_id}N. C. Phillips. \textit{A new approach to the multipliers of Pedersen's ideal}. Proc. American Mathematical Society, Volume 104, Number 3, November 1988.
 		
-		\bibitem{phillips:inv_lim} N. Christopher Phillips. {\it Inverse Limits of $C^*$ - algebras.} Journal of Operator Theory Vol. 19, No. 1 (Winter 1988), pp. 159-195. 1988.
+		\bibitem{phillips:inv_lim} N. Christopher Phillips. \alert{ Inverse Limits of $C^*$ - algebras.} Journal of Operator Theory Vol. 19, No. 1 (Winter 1988), pp. 159-195. 1988.
 		
 		
 		\bibitem{phillips:nt_at}  \textit{Every simple higher dimensional noncommutative torus is an AT algebra}. arXiv:math/0609783, 2006.
@@ -874,7 +881,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
 		
-		\bibitem{reed_simon:mp_1}Michael Reed, Barry Simon. {\it Methods of modern mathematical physics 1: Functional Analysis}. Academic Press, 1972.
+		\bibitem{reed_simon:mp_1}Michael Reed, Barry Simon. \alert{ Methods of modern mathematical physics 1: Functional Analysis}. Academic Press, 1972.
 		
 		\bibitem{Rieffel:74a}
 		Marc~A. Rieffel, \emph{Induced representations of {C}{$^\ast$}-algebras},
@@ -886,34 +893,34 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		%\bibitem{Rieffel:74b}Marc~A. Rieffel. \emph{{M}orita equivalence for {C}{$^\ast$}-algebras and	{W}{$^\ast$}-algebras}, Journal of Pure and Applied Algebra \textbf{5}(1974), 51--96. 1974.
 		
-		%\bibitem{adams:infinite_loop_spaces} J. F. Adams. {\it Infinite loop spaces}. Ann. of Math. Studies no. 90, Princeton Univ. Press, Princeton, N. J., 1978
+		%\bibitem{adams:infinite_loop_spaces} J. F. Adams. \alert{ Infinite loop spaces}. Ann. of Math. Studies no. 90, Princeton Univ. Press, Princeton, N. J., 1978
 		
-		%\bibitem{phillips:c_infty_loop} N. Christopher Philllips. {\it $C^{\infty}$ Loop Algebras and Noncommutative Bott Periodicity}. Transactions of the American Matematical Society, Volume 325, Number 2, June 1991
+		%\bibitem{phillips:c_infty_loop} N. Christopher Philllips. \alert{ $C^{\infty}$ Loop Algebras and Noncommutative Bott Periodicity}. Transactions of the American Matematical Society, Volume 325, Number 2, June 1991
 		
-		%\bibitem{sitarz:equiv} Andrzej Sitarz {\it Equivariant spectral triples}, Noncommutative Geometry and Quantum Groups (Piotr M. Hajac and Wieslaw Pusz, eds.), Banach Center Publ., vol 61, Polish Acad. Sci., pp. 231-268,  Warsaw 2003
+		%\bibitem{sitarz:equiv} Andrzej Sitarz \alert{ Equivariant spectral triples}, Noncommutative Geometry and Quantum Groups (Piotr M. Hajac and Wieslaw Pusz, eds.), Banach Center Publ., vol 61, Polish Acad. Sci., pp. 231-268,  Warsaw 2003
 		
-		%\bibitem{cuntz:o_n} J. Cuntz, {\it Simple $C^*$ - algebras generated by isometries}, Comm. Math. Phys. 57:2, 1977
+		%\bibitem{cuntz:o_n} J. Cuntz, \alert{ Simple $C^*$ - algebras generated by isometries}, Comm. Math. Phys. 57:2, 1977
 		
-		%\bibitem{cuntz:k_o_n} J. Cuntz, {\it$K$ - theory of certain $C^*$ - algebras}, Ann. of Math. (2), 113:1 1981
+		%\bibitem{cuntz:k_o_n} J. Cuntz, \alert{$K$ - theory of certain $C^*$ - algebras}, Ann. of Math. (2), 113:1 1981
 		
-		%\bibitem{Cohn:68} Paul~Moritz Cohn. {\it {M}orita equivalence and duality}, Queen Mary College   Mathematics Notes, Dillon's Q.M.C.\ Bookshop, London, 1968.
+		%\bibitem{Cohn:68} Paul~Moritz Cohn. \alert{ {M}orita equivalence and duality}, Queen Mary College   Mathematics Notes, Dillon's Q.M.C.\ Bookshop, London, 1968.
 		
-		%\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it General Topology}. Chapters 1-4, Springer, Sep 18, 1998
+		%\bibitem{bourbaki_sp:gt} N. Bourbaki, \alert{ General Topology}. Chapters 1-4, Springer, Sep 18, 1998
 		
-		%\bibitem{williams_sp:morita_cont_trace_alg} Iain Raeburn, Dana P. Williams. {\it Morita Equivalence and Continuous-Trace $C^*$-Algebras}. American Mathematical Soc., 1998
+		%\bibitem{williams_sp:morita_cont_trace_alg} Iain Raeburn, Dana P. Williams. \alert{ Morita Equivalence and Continuous-Trace $C^*$-Algebras}. American Mathematical Soc., 1998
 		
-		%\bibitem{dixmier_tr}J.Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963
+		%\bibitem{dixmier_tr}J.Dixmier. \alert{ Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963
 		
-		\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. {\it On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007.
+		\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. \alert{ On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007.
 		
-		%\bibitem{meyer:morita} Ralf Meyer. {\it Morita Equivalence In Algebra And Geometry.} math.berkeley.edu/~alanw/277papers/meyer.tex, 1997
+		%\bibitem{meyer:morita} Ralf Meyer. \alert{ Morita Equivalence In Algebra And Geometry.} math.berkeley.edu/~alanw/277papers/meyer.tex, 1997
 		
-		%\bibitem{rumynin_hopf_galois_ci} Dmitriy Rumynin  {\it Hopf-Galois extensions with central invariants.}  arXiv:q-alg/9707021 1997
+		%\bibitem{rumynin_hopf_galois_ci} Dmitriy Rumynin  \alert{ Hopf-Galois extensions with central invariants.}  arXiv:q-alg/9707021 1997
 		
-		%\bibitem{rieffel_finite_g} Marc A. Reiffel, {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
+		%\bibitem{rieffel_finite_g} Marc A. Reiffel, \alert{ Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
 		
 		
-		\bibitem{rieffel_morita} Marc A. Reiffel, {\it Morita equivalence for $C^*$-algebras and $W^*$-algebras }, Journal of Pure and Applied Algebra 5 (1974), 51-96. 1974.
+		\bibitem{rieffel_morita} Marc A. Reiffel, \alert{ Morita equivalence for $C^*$-algebras and $W^*$-algebras }, Journal of Pure and Applied Algebra 5 (1974), 51-96. 1974.
 		
 		\bibitem{Rieffel:76}
 		Marc A. Reiffel, \emph{Strong {M}orita equivalence of certain transformation group
@@ -924,7 +931,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\textit{$C^*$-algebras associated with irrational rotations}.
 		Pacific J. Math. 93(2): 415-429 (1981). 1981.
 		
-		%\bibitem{dixmier_douady_d} Claude Schochet, {\it Dixmier-Douady for Dummies}. 	arXiv:0902.2025 2009.
+		%\bibitem{dixmier_douady_d} Claude Schochet, \alert{ Dixmier-Douady for Dummies}. 	arXiv:0902.2025 2009.
 		
 		
 		%\bibitem{rieffel:fin_act} Marc A. Rieffel. \textit{ Actions of finite groups on $C^*$-algebras.} Mathematica Scandinavica, Vol. 47, No. 1 (December 12, 1980), pp. 157-176, 1980.
@@ -934,7 +941,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{rotman:ag} Rotman, Joseph , \textit{ An Introduction to Algebraic Topology}. Part of the Graduate Texts in Mathematics book series (GTM, volume 119), 1988.
 		
-		%\bibitem{rieffel_finite_g} Marc A. Reiffel. {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
+		%\bibitem{rieffel_finite_g} Marc A. Reiffel. \alert{ Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
 		
 		
 		%\bibitem{Rieffel74} M.~A. Rieffel. \textit{ Morita equivalence for {$C\sp{\ast} $}-algebras and {$W\sp{\ast}	$}-algebras}. \newblock { J. Pure Appl. Algebra} {\bf 5} (1974), 51--96. 1974.
@@ -955,10 +962,10 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{rudin:pa} Rudin, Walter. \textit{ Principles of mathematical analysis}. (3rd. ed.), McGraw-Hill, ISBN 978-0-07-054235-8. 1976.
 		
-		%\bibitem{ros_scho:kt_uct} Jonathan Rosenberg, Claude Schochet, {\it The K\"unneth theorem and the universal coefficient theorem for Kasparov's generalized K -functor}, Duke Math. J. Volume 55, Number 2 1987.
+		%\bibitem{ros_scho:kt_uct} Jonathan Rosenberg, Claude Schochet, \alert{ The K\"unneth theorem and the universal coefficient theorem for Kasparov's generalized K -functor}, Duke Math. J. Volume 55, Number 2 1987.
 		
 		\bibitem{schenkel:nc_parallel}
-		Alexander Schenkel. {\it Module parallel transports in fuzzy gauge theory.},  arXiv:1201.4785, 2013.
+		Alexander Schenkel. \alert{ Module parallel transports in fuzzy gauge theory.},  arXiv:1201.4785, 2013.
 		
 		
 		\bibitem{schwieger:nt_cov}
@@ -974,7 +981,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		
-		\bibitem{Sengupta} A.~Sengupta. {\it Gauge invariant functions of connections}.  Proc.\ Am.\ Math.\ Soc.\ {\bf 121}, 897-905 (1994).
+		\bibitem{Sengupta} A.~Sengupta. \alert{ Gauge invariant functions of connections}.  Proc.\ Am.\ Math.\ Soc.\ {\bf 121}, 897-905 (1994).
 		
 		\bibitem{discrete_crossed}Adam Sierakowski. \textit{Discrete Crossed product $C^*$-algebras}. Ph.D. Thesis. University of Copenhagen   Department of Mathematical Sciences   2009.
 		
@@ -983,30 +990,30 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		%\bibitem{drag:ineq}  Silvestru Sever Dragomir. \textit{Inequalities for Functions of Selfadjoint Operators on Hilbert Spaces}.  arXiv:1203.166, 2012,
 		
 		\bibitem{spanier:at}
-		E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+		E.H. Spanier. \alert{ Algebraic Topology.} McGraw-Hill. New York. 1966.
 		
 		\bibitem{sudo:ntk} Takahiro Sudo. \textit{K-Homology of Continuous Fields of Noncommutative Tori}. Nihonkai Math. J. Vol.19(2008), 1-19, 2008.
 		
 		\bibitem{sudo:k_ctr} Takahiro Sudo. \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
 		
 		
-		\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
+		\bibitem{switzer:at} Switzer R M, \alert{ Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 		
 		
 		\bibitem{takeda:inductive} Zir\^{o} Takeda. \textit{Inductive limit and infinite direct product of operator algebras.} Tohoku Math. J. (2) 	Volume 7, Number 1-2 (1955), 67-86. 1955.
 		
-		%\bibitem{takesaki:oa_ii} Takesaki, Masamichi. {\it Theory of Operator Algebras II}. Encyclopaedia of Mathematical Sciences, 2003.
+		%\bibitem{takesaki:oa_ii} Takesaki, Masamichi. \alert{ Theory of Operator Algebras II}. Encyclopaedia of Mathematical Sciences, 2003.
 		
 		
-		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
+		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. \alert{ The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
 		
 		\bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.
 		
 		
 		
-		%\bibitem{takeuchi:inf_out_cov}Takeuchi, Yasuji {\it Infinite outer Galois theory of non commutative rings} Osaka J. Math. Volume 3, Number 2, 1966.
+		%\bibitem{takeuchi:inf_out_cov}Takeuchi, Yasuji \alert{ Infinite outer Galois theory of non commutative rings} Osaka J. Math. Volume 3, Number 2, 1966.
 		
-		%\bibitem{inikolaev:c_bundles} Igor Nikolaev, {\it Topology of the $C^*$ algebra bundles}. Centre interuniversitaire de recherche en g\'eom\'etrie diff\'erentielle et topologie UQAM Montr\'eal H3C 3P8 Canada 1999.
+		%\bibitem{inikolaev:c_bundles} Igor Nikolaev, \alert{ Topology of the $C^*$ algebra bundles}. Centre interuniversitaire de recherche en g\'eom\'etrie diff\'erentielle et topologie UQAM Montr\'eal H3C 3P8 Canada 1999.
 		
 		
 		
@@ -1014,36 +1021,36 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		
 		%\bibitem{thompsen:homtop}
-		%Klaus Thompsen. {\it Homotopy classes of * - homomorphisms between stable $C^*$ - algebras and their multiplier algebras.} Duke Matematical Journal (C) August 1990.
+		%Klaus Thompsen. \alert{ Homotopy classes of * - homomorphisms between stable $C^*$ - algebras and their multiplier algebras.} Duke Matematical Journal (C) August 1990.
 		
 		
 		
 		
 		%\bibitem{blackadar:oa}
-		%B. Blackadar. {\it Operator Algebras Theory of $C^*$ Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006
+		%B. Blackadar. \alert{ Operator Algebras Theory of $C^*$ Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006
 		
 		
 		
 		
 		%\bibitem{murre:fund}
-		%J.P. Murre. {\it Lectures on An Introduction to Grothendieck's  Theory of the Fundamental Group.} Notes by S. Anantharaman, Tata Institute of Fundamental Research, Bombay, 1967.
+		%J.P. Murre. \alert{ Lectures on An Introduction to Grothendieck's  Theory of the Fundamental Group.} Notes by S. Anantharaman, Tata Institute of Fundamental Research, Bombay, 1967.
 		
 		
 		
-		%\bibitem{connes_marcolli::motives} Alain Connes Matilde Marcolli. {\it Noncommutative Geometry, Quantum Fields and Motives.} Preliminatry version. www.alainconnes.org/docs/bookwebfinal.pdf
+		%\bibitem{connes_marcolli::motives} Alain Connes Matilde Marcolli. \alert{ Noncommutative Geometry, Quantum Fields and Motives.} Preliminatry version. www.alainconnes.org/docs/bookwebfinal.pdf
 		
-		%\bibitem{mesland::unbounded_biviariant} Bram Mesland. {\it Unbounded biviariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383. 2009.
-		
-		
-		
-		%\bibitem{connes:ng} A. Connes. {\it Noncommutative Geometry.} Academic Press, London, 1994.
-		
-		%\bibitem{faith:I} C. Faith. Algebra: {\it Rings, Modules and Cathegories I}. Springer-Verlag 1973
+		%\bibitem{mesland::unbounded_biviariant} Bram Mesland. \alert{ Unbounded biviariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383. 2009.
 		
 		
 		
+		%\bibitem{connes:ng} A. Connes. \alert{ Noncommutative Geometry.} Academic Press, London, 1994.
 		
-		\bibitem{varilly:noncom} J.C. V\'arilly. {\it An Introduction to Noncommutative Geometry}. EMS. 2006.
+		%\bibitem{faith:I} C. Faith. Algebra: \alert{ Rings, Modules and Cathegories I}. Springer-Verlag 1973
+		
+		
+		
+		
+		\bibitem{varilly:noncom} J.C. V\'arilly. \alert{ An Introduction to Noncommutative Geometry}. EMS. 2006.
 		
 		%\bibitem{voic:dual} D. V. Voiculescu. \textit{Dual algebraic structures on operator algebras related to free products}. J. Operator Theory 17 (1987) 85-98. | MR 873463 | Zbl 0656.46058, 1987.
 		
@@ -1064,13 +1071,13 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		Oxford, England, 1993.
 		
 		
-		\bibitem{weil:basic_number_theory}Andre Weil. {\it Basic Number Theory}. Springer 1995.
+		\bibitem{weil:basic_number_theory}Andre Weil. \alert{ Basic Number Theory}. Springer 1995.
 		
-		%\bibitem{Partha_quantum_su} Partha Sarathi Chakraborty, Arupkumar Pal. {\it Equivariant spectral triples on the quantum $SU(2)$ group.} arXiv:math.KT/0201004, 2003.
+		%\bibitem{Partha_quantum_su} Partha Sarathi Chakraborty, Arupkumar Pal. \alert{ Equivariant spectral triples on the quantum $SU(2)$ group.} arXiv:math.KT/0201004, 2003.
 		
-		%\bibitem{geom_anal_k_homology} Paul Baum, Nigel Higson, and Thomas Schick {\it On the Equivalence of Geometric and Analytic K-Homology} arXiv:math/0701484, 2009.
+		%\bibitem{geom_anal_k_homology} Paul Baum, Nigel Higson, and Thomas Schick \alert{ On the Equivalence of Geometric and Analytic K-Homology} arXiv:math/0701484, 2009.
 		
-		%\bibitem{blackadar:kocalg_neumann} B. Blackadar {\it Operator Algebras Theory of C* - Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006.
+		%\bibitem{blackadar:kocalg_neumann} B. Blackadar \alert{ Operator Algebras Theory of C* - Algebras and von Neumann Algebras}. Springer-Verlag Berlin Heidelberg 2006.
 		
 		
 		
@@ -1111,7 +1118,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		Mathematical Surveys and Monographs, vol. 134, American Mathematical Society, Providence, RI, 2007. MR2288954 (2007m:46003), 2007.
 		
 		
-		%\bibitem{wolf:const_curv} Wolf, J. {\it Spaces of constant curvature}. New York: McGraw-Hill, 1967.
+		%\bibitem{wolf:const_curv} Wolf, J. \alert{ Spaces of constant curvature}. New York: McGraw-Hill, 1967.
 		
 		
 		
@@ -1119,15 +1126,15 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\bibitem{woronowicz:unb_affil} S.L. Woronowicz. \textit{Unbounded elements affiliated with C$*$-algebras and non-compact quantum groups
 		}. Communications in mathematical physics, 1991 - Springer, 1991.
 		
-		\bibitem{basic_algebraic_quantum} J. E. Roberts and G. Roepstorff {\it Some Basic Concepts of Algebraic Quantum Theory}, Commun. math. Phys. 11, 321‚Äî338 (1969), 1969.
+		\bibitem{basic_algebraic_quantum} J. E. Roberts and G. Roepstorff \alert{ Some Basic Concepts of Algebraic Quantum Theory}, Commun. math. Phys. 11, 321‚Äî338 (1969), 1969.
 		
-		\bibitem{isumaru}	Isumaru, A. {\it Wave propagation and scattering in random	media} A. Isumaru. ‚Äì New York: John Wiley \& Sons, 1999.
+		\bibitem{isumaru}	Isumaru, A. \alert{ Wave propagation and scattering in random	media} A. Isumaru. ‚Äì New York: John Wiley \& Sons, 1999.
 		
 		
 		\bibitem{marmat} K.B. Marathe and G. Martucci. \textit{The Mathematical Foundations of Gauge Theories.} North-Holland, 1992.
 		
 		\bibitem{gauge_princilpal}Matthijs V\'{a}k\'{a}r.
-		{\it Principal Bundles and Gauge
+		\alert{ Principal Bundles and Gauge
 			Theories}
 		Bachelor‚Äôs Thesis. Student number 3367428
 		Universiteit Utrecht
@@ -1135,11 +1142,11 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		arXiv:2110.06334, 2011.
 		
 		\bibitem{sheaf_gauge} Grigorios Giotopoulos.
-		{\it Sheaf Topos Theory:
+		\alert{ Sheaf Topos Theory:
 			A powerful setting for Lagrangian Field Theory} arXiv:2504.08095v1, 2025.
 		
 		
-		\bibitem{nistor:lie_alg}Victor Nistor {\it Groupoids and the integration of Lie algebroids}.	J. Math. Soc. Japan	Vol. 52, No. 4, 2000.
+		\bibitem{nistor:lie_alg}Victor Nistor \alert{ Groupoids and the integration of Lie algebroids}.	J. Math. Soc. Japan	Vol. 52, No. 4, 2000.
 		\bibitem{ATKINSON} D.~Atkinson, P.~W.~Johnson, \emph{Quantum Field 
 			Theory -- a Self-Contained Introduction},
 		Rinton Press, Princeton (2002).
@@ -1154,7 +1161,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\bibitem{BOHM} A.~Bohm, \emph{Quantum Mechanics: Foundations 
 			and Applications}, Springer-Verlag, New York (1994). 
 		
-		\bibitem{BG} A.~Bohm and M.~Gadella, {\it Dirac kets, Gamow 
+		\bibitem{BG} A.~Bohm and M.~Gadella, \alert{ Dirac kets, Gamow 
 			Vectors, and Gelfand Triplets}, Springer Lectures Notes in Physics Vol.~348,
 		Springer, Berlin (1989).
 		
@@ -1181,22 +1188,22 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{VON} J.~von Neumann, \emph{Mathematische Grundlagen der 
 			Quantentheorie}, Springer, Berlin (1931); English translation by R.~T.~Beyer, 
-		{\it Mathematical Foundations of Quantum Mechanics}, Princeton University 
+		\alert{ Mathematical Foundations of Quantum Mechanics}, Princeton University 
 		Press, Princeton (1955).
 		
 		\bibitem{QUOTEVONDIRAC} In Ref.~\cite{DIRAC}, page~40, Dirac states 
-		that ``{\it the bra and ket vectors that we now use form 
+		that ``\alert{ the bra and ket vectors that we now use form 
 			a more general space than a Hilbert space}.'' 
 		
-		In Ref.~\cite{VON}, page~viii, von Neumann states that ``{\it Dirac
+		In Ref.~\cite{VON}, page~viii, von Neumann states that ``\alert{ Dirac
 			has given a representation of quantum mechanics which is scarcely to be
 			surpassed in brevity and elegance,} [...].'' On pages~viii-ix, von Neumann
-		says that ``{\it The method of Dirac, mentioned above, (and this is overlooked
+		says that ``\alert{ The method of Dirac, mentioned above, (and this is overlooked
 			today in a great part of quantum mechanical literature, because of the clarity
 			and elegance of the theory) in no way satisfies the 
 			requirements of mathematical rigor -- not even if these are reduced in a 
 			natural and proper fashion to the extent common elsewhere in theoretical 
-			physics.}'' On page~ix, von Neumann says that ``[...],{\it this requires 
+			physics.}'' On page~ix, von Neumann says that ``[...],\alert{ this requires 
 			the introduction of `improper' functions with self-contradictory 
 			properties. The insertion of such mathematical `fiction' is frequently
 			necessary in Dirac's approach,}[...].'' Thus, essentially, although von
@@ -1216,7 +1223,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		Publishers, Warsaw (1968). 
 		
 		\bibitem{CITEMAURIN} In Ref.~\cite{MAURIN}, page~7, Maurin states that
-		``{\it It seems to us that this is the formulation 
+		``\alert{ It seems to us that this is the formulation 
 			which was anticipated by Dirac in his classic 
 			monograph.''}
 		
@@ -1233,7 +1240,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		
 		\bibitem{QUOTEBALLENTINE} The following quotation, extracted from
 		Ref.~\cite{BALLENTINE}, page~19, gives a clear idea of the status
-		the RHS is achieving: {\it ``...rigged Hilbert space seems to 
+		the RHS is achieving: \alert{ ``...rigged Hilbert space seems to 
 			be a more natural mathematical setting for quantum mechanics than Hilbert 
 			space.''}
 		
@@ -1329,7 +1336,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		simply the eigenfunctions of the differential operators.
 		
 		\bibitem{COHEN} C.~Cohen-Tannoudji, B.~Diu, and F.~Lalo\"e, 
-		{\it Quantum Mechanics}, Wiley, New York (1977). 
+		\alert{ Quantum Mechanics}, Wiley, New York (1977). 
 		
 		\bibitem{USEFULNESSPW} This is one of the major reasons why plane waves 
 		are so useful in practical calculations.

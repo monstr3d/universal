@@ -621,7 +621,7 @@
 \paragraph{}	Any $C^*$-algebra can be regarded as a generalization of locally compact Hausdorff topological space. Here we consider a generalization of fundamental group and (co)homology theory. In result one has invariants  of $C^*$-algebras such that: 
 	\begin{itemize}
 		\item for any commutative $C^*$-algebra $A = C_0\left(\sX \right)$ the invariants of $A$ coincide with the  $\sX$ ones,
-		\item the theory is not trivial even for algebras having bad spectrum, e.g. containing two open sets only.
+		\item the theory is not trivial even for algebras having bad spectrum, e.g. containing  one point only.
 	\end{itemize}
 	
 \end{abstract}
@@ -632,7 +632,7 @@
 
 
 		\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
-	Let $A$ be a poset, $S$ a subset of $A$. We say an element $a \in A$
+	Let $A$ be a partially ordered set (poset), and let $S$ be a subset of $A$. We say an element $a \in A$
 	is a {\it join} (or {\it least upper bound}) for $S$, and write $a = \vee S$, if 
 	\begin{enumerate}
 		\item [(a)] a is an upper bound for $S$, i.e. $s \le a$ for all $s \in S$, and 
@@ -691,13 +691,7 @@
 \end{split}
 \ee
 \end{example}
-\begin{defn}\label{princ_f_defn}\cite{johnstone:stone_spaces}
-	If $a$ is an element of  meet-semilattice then the filter
-	$
-	\left\{I \left| \forall b \in I \quad b \ge a \right.\right\}
-	$
-	is \textit{principal}.
-\end{defn}
+
 
 \begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
 	A maximal filter is an \textit{ultrafilter}.
@@ -712,7 +706,7 @@ If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is a meet-semi
 \begin{split}
 L' \wedge L''\bydef L' \cap L'',\\
 L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
-0 \bydef A.
+0 \bydef \{0\}\subset A
 \end{split}
 \ee
 We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$ a set of filers.
@@ -733,14 +727,24 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by 
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{empt}\label{ultrafilters_empt}
+\begin{defn}\label{ultrafilters_space_defn}
  If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
 	\be\label{gelfand_eqn}
 \mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in x\quad L'\cap L = \{0\} \right\}
 	\ee
-	Consider the smallest topology on $\mathfrak{Ultrafilters}\left(A \right)$ such that all sets $\mathfrak{Ultrafilters}\left(A \right)_L$ are open.
+	The \textit{space of} $A$-\textit{ultrafilters} is a set $\mathfrak{Ultrafilters}\left(A \right)$ with a  the smallest topology o such that all sets $\mathfrak{Ultrafilters}\left(A \right)_L$ are open.
 	
-\end{empt}
+\end{defn}
+\begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
+	One has:
+	\begin{enumerate}
+		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
+		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
+	\end{enumerate} 
+\end{proposition}
+\begin{remark}
+From (b) of the Presupposition \ref{top_ultra_thm} it follows that the notion of ultrafilter is not adequate analog of the point of Hausdorff, locally compact space. One needs the finer notion.
+\end{remark} 
 	\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
 	% THEOREM 5.6.1
 	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
@@ -765,17 +769,16 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 \begin{defn}\label{pedersen_ideal_defn}\cite{blackadar:ko}
 	The ideal $K\left( A\right) $ from the theorem \ref{pedersen_ideal_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
 \end{defn}
-\begin{remark}\label{pedersen_ideal_rem}
-	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
-	\be\label{pedersen_ideal_eqn}
-	\begin{split}
-		K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
-		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
-	\end{split}
-	\ee
-	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
-	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
-\end{remark}
+%\begin{remark}\label{pedersen_ideal_rem}
+%	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
+%	\be\label{pedersen_ideal_eqn}
+%	\begin{split}
+%		K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+%		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
+%	\end{split}
+%	\ee
+%	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
+%\end{remark}
 \begin{remark}\cite{pedersen:ca_aut} 
 	One has
 	\bea\label{peder_k_eqn}
@@ -792,38 +795,12 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	$$
   Aa \in x.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the described in \ref{ultrafilters_empt} space $\mathfrak{Ultrafilters}\left(A \right)$ of ultrafilters such that 
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} (cf. Definition \ref{ultrafilters_space_defn})
 	$$
 	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in x \quad L \text{ is a finite point}\right\}.
 	$$
 \end{definition}
-	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
-	Let $A$ be a $C^*$-algebra.
-	\begin{enumerate}
-		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
-		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
-		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
-		$$
-		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
-		$$
-		is the unique closed left ideal of $A$ corresponding to $B$.
-	\end{enumerate}
-\end{lemma}
 
-
-\begin{remark}\label{hered_ideal_rem}
-	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. So we use following notation
-	\be\label{hered_ideal_eqn}
-	L \in x \quad \Leftrightarrow \quad B \bydef L \cap L^* \in x.
-	\ee
-\end{remark}
-\begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
-	One has:
-	\begin{enumerate}
-		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
-		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
-	\end{enumerate} 
-\end{proposition}
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
@@ -860,10 +837,31 @@ x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters
 	then  from the Proposition \ref{top_ultra_thm} it turns out that $x_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( x\right)$.
 
 \end{proof}
+	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
+	Let $A$ be a $C^*$-algebra.
+	\begin{enumerate}
+		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+		$$
+		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
+		$$
+		is the unique closed left ideal of $A$ corresponding to $B$.
+	\end{enumerate}
+\end{lemma}
+
+
+\begin{remark}\label{hered_ideal_rem}
+	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. So we use a following notation
+	\be\label{hered_ideal_eqn}
+	L \in x \quad \Leftrightarrow \quad B \bydef L \cap L^* \in x\quad \Leftrightarrow \quad L^* \in x.
+	\ee
+\end{remark}
+
 \subsection{Morphisms}
 
 \begin{definition}\label{lrc_defn}\cite{matro:hcm}
-	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} i
+	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} if one has
 	\be
 	\la\left(ab\right)= 	\la\left(a\right) b \quad \forall a, b \in A.
 	\ee
@@ -878,7 +876,7 @@ of $\C$-algebras yields a homomorphism of lattices
 \be\label{lat_mor_eqn}
 \begin{split}
 	\mathfrak{Lattice}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi_R \right)}\mathfrak{Lattice} \left( A\right),\\
-		\widetilde{I} \mapsto \bigcap \left\{L \subset A \left| \widetilde{L}\subset \widetilde{A}\varphi_R\left( L\right) \right.\right\}.
+		\widetilde{L} \mapsto \bigcap \left\{L \subset A \left| \widetilde{L}\subset \widetilde{A}\varphi_R\left( L\right) \right.\right\}.
 	\end{split}
 	\ee
 	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi_R \right)$ yields a mapping of filters
@@ -900,31 +898,28 @@ If the homomorphism is injective then the map \eqref{fil_mor_eqn}  induces a con
 \ee
 \end{lemma}
 \begin{proof}
-If $\widetilde x \in \mathfrak{Ultrafilters}\left( \widetilde  A\right) $ and $\mathfrak{Filters}\left(\varphi_R  \right)\left(\widetilde x \right)\notin \mathfrak{Ultrafilters}\left(A\right)$ then there is an ideal $J \subset A$ such that
+If $\widetilde x \in \mathfrak{Ultrafilters}\left( \widetilde  A\right) $ and $\mathfrak{Filters}\left(\varphi_R  \right)\left(\widetilde x \right)\notin \mathfrak{Ultrafilters}\left(A\right)$ then there is an ideal $L' \subset A$ such that
 \bean
-J \notin x,\\
-\forall L \in x \quad J\cap L \neq \{0\}
+L' \notin x,\\
+\forall L \in x \quad L'\cap L \neq \{0\}
 \eean 
-If $\widetilde{J}$ is the closure of 
+If $\widetilde{L}'$ is the closure of 
 $$
-	\widetilde{J}\bydef \widetilde A \varphi_R\left( J\right) 
+	 \widetilde A \varphi_R\left( L'\right) 
 $$
 then
 \bean 
-\widetilde J \notin \widetilde x,\\
-\forall \widetilde L \in \widetilde x \quad \widetilde J \cap \widetilde L \neq \{0\}.
+\widetilde L' \notin \widetilde x,\\
+\forall \widetilde L \in \widetilde x \quad \widetilde L' \cap \widetilde L \neq \{0\}.
 \eean
-From the above equations it turns out that $\widetilde x$ is not an ultrafilter.
-
-
+From the above equations it turns out that $\widetilde x$ is not an ultrafilter, i.e, there is a contradiction with the hypothesis of this lemma. From the equation \eqref{gelfand_eqn} one can deduce that $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ is a continuous map.
 \end{proof}
 
 \begin{defn}\label{good_defn}
-The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} mapping $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural  map
+The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} mapping $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural continuous  map
 	\be\label{gelfand_map_eqn}
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
-From \eqref{gelfand_eqn} it turns out that the map is continuous.
 \end{defn}
 
 
@@ -945,7 +940,7 @@ which corresponds to following "norm"
 	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
 \end{equation}
 Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Both of them can be used for our purposes.
-\subsubsection{Basic definitions}
+\subsubsection{Basic construction}
 \begin{definition}\label{connected_c_a_defn}
 	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
 	
@@ -955,14 +950,15 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	Let   $A$ be an unital connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto M\left( \widetilde{A}\right) $ be an injective  $*$-homomorphism of % connected
 	$C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
-		\item[(a)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
+		\item[(a)] $\lift\left( 1_A\right) = 1_{ M\left( \widetilde{A}\right)}$,
+		\item[(b)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
 		\be\nonumber
 		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left(M\left(  A\right) \right) \quad ga = a\right\}
 		\ee
 		is discrete
-		\item[(b)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
+		\item[(c)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
-	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto \widetilde{A}$   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto M\left( \widetilde{A}\right) $   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
 	\begin{defn}\label{strict_topology_defn}\cite{pedersen:ca_aut}
 	Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms 
@@ -1070,13 +1066,19 @@ $$
 	$$
 	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$. 
 	\subsection{$C^*$-algebras of compact operators}
-\paragraph{} if $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then there is a set theoretic bijection $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The subbase of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus L$ where $L$ is a linear subspace of  $\C P\left(\H \right)$. Similarly to \eqref{pe_c_eqn} there is a continuous map 
+\paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset $ there is a closed $\C$-linear subspace $V_L \subset \K\left(\H \right)$ such that
+\bean
+L = \left\{\left.a \in \K\left(\H \right)\right| a V_L = \{0\}\right\}.
+\eean
+If $L$ is maximal then $V_L$ is a one dimensional space. Any ultrafilter is principal, generated by maximal ideal. The set of one-dimensional subspaces of $\H$ is a complex projective space  $\C P\left(\H \right)$, i.e. there is the natural set theoretic bijective map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
 $$
-\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Classic}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
+\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
 $$
-Moreover if $\dim \H = n$ then there is a composition
+where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  with the given by Definition  \eqref{ultrafilters_space_defn} topology.
+If $\dim \H = n < \infty$  then $\C P\left(\H \right)= \C P^n$ and there is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
+There is a composition of continuous maps
 $$
-\C P^n_{\mathfrak{Classic}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
+\C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one spaces then
@@ -1088,18 +1090,6 @@ $$
 \C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right). 
 $$
 where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one spaces.
-\begin{definition}\label{nerve_defn}\cite{spanier:at}
-	Given a topological space $\sX$ and a collection $\mathscr W = \left\{\mathcal W\right\}$ of subsets of $\sX$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
-\end{definition}
-\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
-	%PAGE 193 !!! DOWN !!!
-	%4.13. Theorem. 
-	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
-	\be
-	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
-	\ee
-\end{theorem}
 If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Classic}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
 \be\label{nerve_eqn}
 \begin{split}
@@ -1108,32 +1098,17 @@ If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on
 \end{split}
 \ee
 From the equation \eqref{nerve_eqn} one can deduce if  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn})  then for each $\sigma \in K\left(\mathscr W\right)$ one has
-\bean H^0\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= F, \\H^p\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= 0
+\bean H^0\left( \sU^{\mathfrak{Hausdorff}}_{\sigma};\mathscr F_{\mathfrak{Hausdorff}} \right)= F, \\H^p\left( \sU^{\mathfrak{Hausdorff}}_{\sigma};\mathscr F_{\mathfrak{Hausdorff}} \right)= 0
 \eean
 From the Theorem \ref{top_nerve_thm} it turns out that
 $$
-H^*\left(\C P^n_{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong \check H^*\left( \mathscr W; \mathscr F_{\mathfrak{Classic}}\right)
+H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong \check H^*\left( \mathscr W; \mathscr F_{\mathfrak{Hausdorff}}\right)
 $$
 Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
 $$
-H^*\left(\C P\left(\H \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
 $$
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
-The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hausdorff and non Hausdorff topology. The following Lemma is a consequence of the Theorem \ref{top_nerve_thm}.
-\begin{lemma}
-	Let $F$ is an Abelian group.
-	Let $\pi :  \C P\left(\E \right)_{\mathfrak{Classic}}\to \sX$ be the natural surjective mapping 
-	If $\sX = \bigcup_{\mathcal W \in \mathscr W}  \mathcal W$ where: 
-	\begin{itemize}
-		\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \sH\right)_{\mathfrak{Classic}}$,
-		\item $H^p\left( \sU,\mathscr F_{\mathfrak{Classic}} \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ and $p> 0$.
-	\end{itemize}	
-	then there is the natural isomorphism
-	$$
-	H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) 
-	$$ 
-	where both $\mathscr F_{\mathfrak{Classic}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
-\end{lemma}
 
 	\subsection{Hausdorff blowing-up}
 	\subsubsection{Basic construction}
@@ -1466,8 +1441,8 @@ from the Remark \ref{blow_rem} it follows that
 	\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathfrak{Gelfand}\left( A\right) , R^q\left(\phi_A \right) _*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
 \end{enumerate}
 
-\subsection{Gelfand space continuous trace $C^*$-algebra}
-\paragraph{}
+\subsection{Gelfand space of continuous trace $C^*$-algebras}
+\subsubsection{Basic constriction}
 	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
 	\begin{enumerate}
@@ -1524,7 +1499,7 @@ where both $_\sU A_{\sU}$ and $_\sV A_{\sV}$ are given by \eqref{blowing_compact
 	
 \end{exercise}
 \begin{lemma}
-	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural homeomorphism $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
+	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural bijective set theoretic map $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 	\newline
 	\begin{tikzcd}
 	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)	 \arrow[rr, "\cong"]\arrow[rd]  & ~ & \mathfrak{Gelfand}\left( A\right) \arrow[ld]\\
@@ -1580,7 +1555,15 @@ is an ultrafilter. If $y_x$ contains more then one elements then $x \le x'$ and 
 
 
 
-\subsubsection{Gelfand space}
+\subsubsection{Comparison with the bundle space} 
+
+\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
+	%Proposition 5.59. 
+	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(X \right)$.% (cf. equation \eqref{top_ub_eqn}).
+	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\end{proposition}
 \begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
 	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
 	\begin{itemize}
@@ -1588,41 +1571,90 @@ is an ultrafilter. If $y_x$ contains more then one elements then $x \le x'$ and 
 		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
 	\end{itemize}
 \end{lemma}
-\begin{lemma}
-	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural homeomorphism $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
-\newline
-\begin{tikzcd}
-	\mathfrak{Gelfand}\left( A\right) \arrow[rr, "\cong"]\arrow[rd]  & ~ & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\arrow[ld]\\
-& \sX &
-\end{tikzcd}
+Suppose that $A$ is given by a locally trivial  fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\to \sX$. On the other hand any  $\xi \in 	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ can be represented by a commutative $C^*$-subalgebra $C \subset A$. On the the other hand if 
+	\bean
+y \bydef p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}\left(\xi \right) 
+\eean
+(cf. \eqref{pf_eqn}) and $\rho_y : A \to B\left(\H_y \right)$ is the corresponding to $y$ irreducible representation then $\rho_y\left(C \right)$ yields an element of $\C P\left(\H_y \right)\subset  \C P\left(\E \right)$. In result there is a commutative diagram\\
+    	\newline
+  \begin{tikzcd}
+ \mathfrak{Gelfand}\left( A\right)\cong  	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)	 \arrow[rr]\arrow[rd]  & ~ & \C P\left(\E \right) \arrow[ld]\\
+  	& \sX &
+  \end{tikzcd}
 
-\end{lemma}
-If $A$ is a continuous trace $C^*$-algebra  and $I\subsetneqq A$ is a closed  left ideal then from the Lemma \ref{hausdorff_spectrum_lem} it follows that  there are $\eps > 0$,  $~a \in A$ and an irreducible representation $\rho: A \to B\left( \H\right)$ with
-\be\label{abelian_ineq_eqn}
-\forall a' \in I \quad \left\|\rho\left(a - a' \right)  \right\| > \eps.
-\ee
-On the other hand $A$ is a $C^*$-algebra of type $I_0$. From this fact one can deduce that there is a satisfying to \eqref{abelian_ineq_eqn}  Abelian element. There is $\xi \in \H$ such that $\rho\left(a \right)= \xi \left\rangle \right\langle \xi$. From (v) of the Theorem \ref{irred_thm} it follows that $\H = \rho\left(A \right) \xi$. If $\xi \in \rho\left(I\right) \xi$ then $a \in I$. It is impossible so $\C\xi \cap \rho\left(I\right) \xi = \{0\}$. There are $\xi^\parallel \in  \rho\left(I\right) \xi$ such that if $\xi^\perp \bydef \xi - \xi^\parallel$ then $\xi^\perp\perp  \rho\left(I\right) \xi$. So for any closed left ideal there is one irreducible representation with $\rho\left( I\right)\xi \neq \H$. The spectrum $\sX$ of $A$ is  Hausdorff. If there are $x', x'' \in \sX$ with $x' \neq x''$ and $ \rho_{x'}\left(I\right)\xi' \neq \H'$, $\rho_{x''}\left(I\right)\xi'' \neq \H''$ then there is $f \in C_0\left( \sX\right)$ such that $f\left(x' \right)  = 0$ and  $f\left(x'' \right)  = 0$. If $I'\bydef I' + Af$ then $I'$ is a closed left ideal such that $I \subsetneqq I' \subsetneqq A$. So if $I$ is a maximal left ideal then there is a single point with $\rho\left(I\right) \xi\neq \H$. If codimension of $\rho\left(I\right) \xi\neq \H$ exceds 1 then there if an Abelian element $a'' \in A$ with
-$$
-\rho\left(I \right) \xi \subsetneqq \rho\left(I \right) \xi + \rho\left(a'' \right) \xi \subsetneqq \H.
-$$
-\begin{lemma}\label{ctr_gelfand_lem}
-	If $A$ is a continuous trace $C^*$-algebra then any element of  $\mathfrak{Gelfand}\left(A \right) $ is given by a pair $\left(x, \xi \right)$ where
-	\begin{enumerate}
-		\item[(i)] $x$ is a point of the spectrum $\sX$ of $A$ which corresponds to the irreducible representation $\rep_x: A \to B\left( \H_x\right) $,
-		\item[(ii)] $\xi \in \C P\left( \H_x\right)$ where $ \C P\left( \H_x\right)$ is a complex projective space.
-	\end{enumerate} 
-	
-\end{lemma}
-\begin{proof}
-	There is the natural one-to-one correspondence between codimension one planes of any Hilbert space $\H$ and points of   $ \C P\left( \H\right)$.
-\end{proof}
-Suppose that $A$ is given by a locally trivial  fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It givers a bundle $\C P\left(\E \right)$ with fibre $\C P\left( \H\right)$. From the Lemma \ref{ctr_gelfand_lem}  it turns out that there is the natural set theoretic bijective map $\mathfrak{Gelfand}\left(A \right)\cong  \C P\left(\E \right)$.
+
+
+ with fibre $\C P\left( \H\right)$. From the Lemma \ref{ctr_gelfand_lem}  it turns out that there is the natural set theoretic bijective map $\mathfrak{Gelfand}\left(A \right)\cong  \C P\left(\E \right)$.
 If $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is $\C P\left(\E \right)$ supplied with Gelfand topology then there is a bijective continuous map
 \be\label{pe_c_eqn}
 \phi_{\E} : \C P\left(\E \right)_{\mathfrak{Classic}}\to \C P\left(\E \right)_{\mathfrak{Gelfand}}
 \ee
 where $\C P\left(\E \right)_{\mathfrak{Classic}}$ is supplied with the classic topology.
-In particular if $\sX = \{x\}$ then !!!
+In particular if $\sX = \{x\}$ then $A = \K\left(\H \right)$ and $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The subbase of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus L$ where $L$ is a linear subspace of  $\C P\left(\H \right)$. Similarly to \eqref{pe_c_eqn} there is a continuous map 
+$$
+\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Classic}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
+$$
+Moreover if $\dim \H = n$ then there is a composition
+$$
+\C P^n_{\mathfrak{Classic}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
+$$
+where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one spaces then
+$$
+\C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
+$$
+Similarly 
+$$
+\C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right) 
+$$
+If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Classic}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
+$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+all $\sigma \in K\left(\mathscr W\right)$ where n $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). From the Theorem \ref{top_nerve_thm} it turns out that
+$$
+H^*\left(\C P^n_{\mathfrak{Classic}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right)
+$$
+Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
+$$
+H^*\left(\C P\left(\H \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+$$
+The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
+The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hausdorff and non Hausdorff topology. The following Lemma is a consequence of the Theorem \ref{top_nerve_thm}.
+\begin{lemma}
+	Let $F$ is an Abelian group.
+	Let $\pi :  \C P\left(\E \right)_{\mathfrak{Classic}}\to \sX$ be the natural surjective mapping 
+	If $\sX = \bigcup_{\mathcal W \in \mathscr W}  \mathcal W$ where: 
+	\begin{itemize}
+		\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \sH\right)_{\mathfrak{Classic}}$,
+		\item $H^*\left( \sU,\mathscr F_{\mathfrak{Classic}} \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ 
+	\end{itemize}	
+	then there is the natural isomorphism
+	$$
+	H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) 
+	$$ 
+	where both $\mathscr F_{\mathfrak{Classic}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
+\end{lemma}
+
+
+\begin{definition}\label{nerve_defn}\cite{spanier:at}
+	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
+\end{definition}
+\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
+	%PAGE 193 !!! DOWN !!!
+	%4.13. Theorem. 
+	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
+	\be
+	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
+	\ee
+\end{theorem}
+
+\begin{proposition}\label{ctr_bundle_prop1}\cite{rae:ctr_morita}
+	%Proposition 5.59. 
+	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(X \right)$ (cf. equation \eqref{top_ub_eqn}).
+	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\end{proposition}
 
 
 \section*{Acknowledgment}
