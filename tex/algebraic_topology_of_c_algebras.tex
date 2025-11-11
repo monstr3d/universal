@@ -710,8 +710,8 @@
 If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is a meet-semilattice of closed left ideals such that 
 \be\label{meet_eqn}
 \begin{split}
-I' \wedge I''\bydef I' \cap I'',\\
-I' \le I'' \quad \Leftrightarrow\quad I' \subset I'',\\
+L' \wedge L''\bydef L' \cap L'',\\
+L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
 0 \bydef A.
 \end{split}
 \ee
@@ -726,19 +726,19 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by 
 \be
 \begin{split}
 	\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
-%	I \mapsto\sX \setminus \left\{x \in \sX | \forall a \in I \quad a(x) = 0\right\}.
+%	L \mapsto\sX \setminus \left\{x \in \sX | \forall a \in L \quad a(x) = 0\right\}.
 \end{split}
 \ee	
 \end{lemma}
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{empt}
- If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $I \subset A$ denote by
+\begin{empt}\label{ultrafilters_empt}
+ If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
 	\be\label{gelfand_eqn}
-\mathfrak{Ultrafilters}\left(A \right)_I	\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right) \right| I \in x \right\}
+\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in x\quad L'\cap L = \{0\} \right\}
 	\ee
-	Consider a minimal topology on $\mathfrak{Ultrafilters}\left(A \right)$ such that all sets $\mathfrak{Ultrafilters}\left(A \right)_I$ are open.
+	Consider the smallest topology on $\mathfrak{Ultrafilters}\left(A \right)$ such that all sets $\mathfrak{Ultrafilters}\left(A \right)_L$ are open.
 	
 \end{empt}
 	\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
@@ -788,13 +788,13 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 
 
 \begin{definition}\label{gelfand_space_defn}
-	An element $x \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
+	An ultrafilter  $x \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
 	$$
-\forall I \in x \quad a \not\subset I.	
+  Aa \in x.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the $\mathfrak{Ultrafilters}\left(A \right)$ of ultrafilters such that 
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the described in \ref{ultrafilters_empt} space $\mathfrak{Ultrafilters}\left(A \right)$ of ultrafilters such that 
 	$$
-	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists I \in x \quad I \text{ is a finite point}\right\}.
+	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in x \quad L \text{ is a finite point}\right\}.
 	$$
 \end{definition}
 	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
@@ -811,8 +811,11 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 \end{lemma}
 
 
-\begin{remark}
-	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras.
+\begin{remark}\label{hered_ideal_rem}
+	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. So we use following notation
+	\be\label{hered_ideal_eqn}
+	L \in x \quad \Leftrightarrow \quad B \bydef L \cap L^* \in x.
+	\ee
 \end{remark}
 \begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
 	One has:
@@ -840,18 +843,21 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	$$
 \mathfrak{Ultrafilters}_\sX : \mathfrak{Ultrafilters}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Ultrafilters}\left(\sX \right)
 	$$ 	
-	of spaces of ultrafilters. If $f \in \mathfrak{Gelfand}\left( C_0\left(  \sX\right)\right)$ then there if $a \in K\left( C_0\left( \sX\right) \right) \cong C_c\left( \sX\right)$ such that
+	of spaces of ultrafilters. If $x \in \mathfrak{Ultrafilters}\left( C_0\left(  \sX\right)\right)$ then  denote by 
 	$$
-	\forall I \in f \quad a \notin I.
+\sV_x\bydef 	\bigcap_{\sU \in \mathfrak{Ultrafilters}_\sX\left( x\right) }\sU
 	$$
-	It follows that 
+	
+	If $x \in \mathfrak{Gelfand}\left( C_0\left(  \sX\right)\right)$ then there if $a \in K\left( C_0\left( \sX\right) \right) \cong C_c\left( \sX\right)$ such that
 	$$
-	\forall I  \in f \quad \supp a \not\subset  \mathfrak{Lattice}_\sX\left( I\right). 
+aA \in x
 	$$
-	One has $f_a \in \mathfrak{Ultrafilter}_{\supp a}$ given by
-	$
-	\left\{ I \cap \supp a \left| I \in f\right.\right\}
-	$. From the Proposition \ref{top_ultra_thm} it turns out that $\mathfrak{Ultrafilter}_{\supp a}$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( x\right)$.
+or equivalently $\sV_x\subset  \supp a$.
+	If 
+	$$
+x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters}_\sX\left(  x\right) \right\}\in \mathfrak{Ultrafilter}_{\supp a}
+	$$
+	then  from the Proposition \ref{top_ultra_thm} it turns out that $x_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( x\right)$.
 
 \end{proof}
 \subsection{Morphisms}
@@ -872,14 +878,14 @@ of $\C$-algebras yields a homomorphism of lattices
 \be\label{lat_mor_eqn}
 \begin{split}
 	\mathfrak{Lattice}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi_R \right)}\mathfrak{Lattice} \left( A\right),\\
-		\widetilde{I} \mapsto \bigcap \left\{I \subset A \left| \widetilde{I}\subset \widetilde{A}\varphi_R\left( I\right) \right.\right\}.
+		\widetilde{I} \mapsto \bigcap \left\{L \subset A \left| \widetilde{L}\subset \widetilde{A}\varphi_R\left( L\right) \right.\right\}.
 	\end{split}
 	\ee
 	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi_R \right)$ yields a mapping of filters
 \be\label{fil_mor_eqn}
 \begin{split}
 	\mathfrak{Filters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi_R \right)}\mathfrak{Filters} \left( A\right),\\
-	\widetilde{x} \mapsto \text{ the filter generated by }\left\{\mathfrak{Lattice}\left(\varphi_R \right)\left(\widetilde I \right)  \left| \widetilde{I}\in \widetilde{ x} \right.\right\}.
+	\widetilde{x} \mapsto \text{ the filter generated by }\left\{\mathfrak{Lattice}\left(\varphi_R \right)\left(\widetilde L \right)  \left| \widetilde{L}\in \widetilde{ x} \right.\right\}.
 \end{split}
 \ee
 	
@@ -887,7 +893,7 @@ of $\C$-algebras yields a homomorphism of lattices
 \end{empt}
 \begin{lemma}\label{good_lem}
 If the homomorphism is injective then the map \eqref{fil_mor_eqn}  induces a continuous mapping
-\be\label{goood_mor_eqn}
+\be\label{ultra_mor_eqn}
 \begin{split}
 	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_R \right)}\mathfrak{Ultrafilters} \left( A\right)
 \end{split}
@@ -897,7 +903,7 @@ If the homomorphism is injective then the map \eqref{fil_mor_eqn}  induces a con
 If $\widetilde x \in \mathfrak{Ultrafilters}\left( \widetilde  A\right) $ and $\mathfrak{Filters}\left(\varphi_R  \right)\left(\widetilde x \right)\notin \mathfrak{Ultrafilters}\left(A\right)$ then there is an ideal $J \subset A$ such that
 \bean
 J \notin x,\\
-\forall I \in x \quad J\cap I \neq \{0\}
+\forall L \in x \quad J\cap L \neq \{0\}
 \eean 
 If $\widetilde{J}$ is the closure of 
 $$
@@ -906,15 +912,15 @@ $$
 then
 \bean 
 \widetilde J \notin \widetilde x,\\
-\forall \widetilde I \in \widetilde x \quad \widetilde J \cap \widetilde I \neq \{0\}.
+\forall \widetilde L \in \widetilde x \quad \widetilde J \cap \widetilde L \neq \{0\}.
 \eean
 From the above equations it turns out that $\widetilde x$ is not an ultrafilter.
 
 
 \end{proof}
 
-\begin{defn}!!!\label{good_defn}
-The homomorphism \eqref{lat_mor_eqn} is \textit{good} if the mapping $\mathfrak{Filters}\left(\varphi_R \right)$ yields the natural  map
+\begin{defn}\label{good_defn}
+The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} mapping $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural  map
 	\be\label{gelfand_map_eqn}
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
@@ -945,8 +951,6 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
-\begin{empt}
-\end{empt}
 \begin{definition}\label{fin_pre_defn}
 	Let   $A$ be an unital connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto M\left( \widetilde{A}\right) $ be an injective  $*$-homomorphism of % connected
 	$C^*$-algebras such that following conditions hold:
@@ -1028,36 +1032,34 @@ $$
 \end{proposition}
 
 
-\begin{theorem}\label{ideal_spectrum_thm}\cite{pedersen:ca_aut}
+%\begin{theorem}\label{ideal_spectrum_thm}\cite{pedersen:ca_aut}
 	%4.1.11. THEOREM. 
-	Let $I$ be a closed ideal of $A$.
-	\begin{enumerate}
-		\item [(i)] The maps $\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi|_I: I \to B\left(\H \right)\right)$ and \\$\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi: A/I \to B\left(\H \right)\right)$ from 
-		$\mathrm{Irr} A \setminus \mathrm{hull}\left( I\right)$  to $\mathrm{Irr} I$ and from $\mathrm{hull}\left( I\right)$ to $\mathrm{Irr} A/I$, respectively, induce 
-		isomorphisms 	$\hat A \setminus \mathrm{hull}\left( I\right)$  onto $\hat I$ and from $\mathrm{hull}\left( I\right)$ onto $\left( A/I\right)\hat~ $ 
-		\item[(ii)] The maps $t \mapsto t\cap I$ and $t \mapsto t/I$ are homeomorphisms from $\check{A}\setminus \mathrm{hull}\left(I \right)$  onto $\check{I}$ and from $\mathrm{hull}\left( I\right)$ onto $\left( A/I\right)\check~$.
-		\item[(iii)] The resulting diagrams, below, are commutative:
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				\hat I   & \hat A\setminus \mathrm{hull}\left( I\right),  &\mathrm{hull}\left( I\right) &	\left( A/I\right)\hat~ \\ 
-				\check I  &  \check A\setminus \mathrm{hull}\left( I\right), & \mathrm{hull}\left( I\right) & 	\left( A/I\right)\check~\\};
-			\path[-stealth]
-			(m-1-2) edge node [above] {$\approx $} (m-1-1)
-			(m-1-3) edge node [above] {$\approx$} (m-1-4)
-			(m-2-2) edge node [above] {$\approx$} (m-2-1)
-			(m-2-3) edge node [above] {$\approx$} (m-2-4)
-			(m-1-1) edge node [right]  {} (m-2-1)
-			(m-1-2) edge node [right]  {} (m-2-2)
-			(m-1-3) edge node [right] {} (m-2-3)
-			(m-1-4) edge node [right] {} (m-2-4);
-		\end{tikzpicture}
-		\\ 	
+%	Let $I$ be a closed ideal of $A$.
+%	\begin{enumerate}
+%		\item [(i)] The maps $\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi|_L: L \to B\left(\H \right)\right)$ and \\$\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi: A/L \to B\left(\H \right)\right)$ from 		$\mathrm{Lrr} A \setminus \mathrm{hull}\left( L\right)$  to $\mathrm{Lrr} L$ and from $\mathrm{hull}\left( L\right)$ to $\mathrm{Lrr} A/L$, respectively, induce 		isomorphisms 	$\hat A \setminus \mathrm{hull}\left( L\right)$  onto $\hat L$ and from $\mathrm{hull}\left( L\right)$ onto $\left( A/L\right)\hat~ $ 
+%		\item[(ii)] The maps $t \mapsto t\cap L$ and $t \mapsto t/L$ are homeomorphisms from $\check{A}\setminus \mathrm{hull}\left(L \right)$  onto $\check{L}$ and from $\mathrm{hull}\left( L\right)$ onto $\left( A/L\right)\check~$.
+	%	\item[(iii)] The resulting diagrams, below, are commutative:
+%		\newline
+%		\begin{tikzpicture}
+%			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+%			{
+%				\hat I   & \hat A\setminus \mathrm{hull}\left( I\right),  &\mathrm{hull}\left( I\right) &	\left( A/I\right)\hat~ \\ 
+%				\check I  &  \check A\setminus \mathrm{hull}\left( I\right), & \mathrm{hull}\left( I\right) & 	\left( A/I\right)\check~\\};
+%			\path[-stealth]
+%			(m-1-2) edge node [above] {$\approx $} (m-1-1)
+%			(m-1-3) edge node [above] {$\approx$} (m-1-4)
+%			(m-2-2) edge node [above] {$\approx$} (m-2-1)
+%			(m-2-3) edge node [above] {$\approx$} (m-2-4)
+%			(m-1-1) edge node [right]  {} (m-2-1)
+%			(m-1-2) edge node [right]  {} (m-2-2)
+%			(m-1-3) edge node [right] {} (m-2-3)
+%			(m-1-4) edge node [right] {} (m-2-4);
+%		\end{tikzpicture}
+%		\\ 	
 		
-	\end{enumerate}
+%	\end{enumerate}
 	
-\end{theorem}
+%\end{theorem}
 
 	If $B\subset A$  is a hereditary $C^*$-subalgebra evenly covered by $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{evenly_defn}) then there is a connected open subset $\sU \subset \sX$ with $B \cong \sU$. From the Definition \ref{evenly_defn} it follows that $\mathfrak{Gelfand}\left(\lift \right)^{-1}\left(\sU\right)$ is the disjoint union of homeomorphic to $\sU$ connected open subsets of  $\mathfrak{Gelfand}\left(\widetilde A \right)$, i.e. the map $\mathfrak{Gelfand}\left(\lift \right)$ is a covering. If $\widetilde A$ is not commutative then there is $\widetilde x \in \mathfrak{Gelfand}\left(\lift \right)$ with
 	$$
@@ -1067,67 +1069,8 @@ $$
 \dim C_0\left( \sX\right) / \mathfrak{Gelfand}\left(\lift \right)\left( \widetilde x\right) > 1.	
 	$$
 	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$. 
-\subsection{Cohomology of continuous trace $C^*$-algebra}
-
-
-\subsubsection{Gelfand space}
-\begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
-	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
-	\begin{itemize}
-		\item [(a)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
-		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
-	\end{itemize}
-\end{lemma}
-	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
-	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
-	\begin{enumerate}
-		\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
-		\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
-		\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
-		\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
-		\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
-		\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
-	\end{enumerate} 
-\end{theorem}
-\begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
-	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
-\end{definition}
-\begin{definition}\label{type_I_defn}\cite{pedersen:ca_aut}
-	We say that a $C^*$-algebra $A$ is \textit{of type} $I$ if each non-zero quotient of $A$ contains a non-zero
-	Abelian element. If $A$ is even generated (as $C^*$-algebra) by its Abelian elements we say
-	that it is \textit{of type} $I_0$.
-\end{definition}
-\begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
-	%Definition 5.13. 
-	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
-	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
-\end{definition}
-If $A$ is a continuous trace $C^*$-algebra  and $I\subsetneqq A$ is a closed  left ideal then from the Lemma \ref{hausdorff_spectrum_lem} it follows that  there are $\eps > 0$,  $~a \in A$ and an irreducible representation $\rho: A \to B\left( \H\right)$ with
-\be\label{abelian_ineq_eqn}
-\forall a' \in I \quad \left\|\rho\left(a - a' \right)  \right\| > \eps.
-\ee
-On the other hand $A$ is a $C^*$-algebra of type $I_0$. From this fact one can deduce that there is a satisfying to \eqref{abelian_ineq_eqn}  Abelian element. There is $\xi \in \H$ such that $\rho\left(a \right)= \xi \left\rangle \right\langle \xi$. From (v) of the Theorem \ref{irred_thm} it follows that $\H = \rho\left(A \right) \xi$. If $\xi \in \rho\left(I\right) \xi$ then $a \in I$. It is impossible so $\C\xi \cap \rho\left(I\right) \xi = \{0\}$. There are $\xi^\parallel \in  \rho\left(I\right) \xi$ such that if $\xi^\perp \bydef \xi - \xi^\parallel$ then $\xi^\perp\perp  \rho\left(I\right) \xi$. So for any closed left ideal there is one irreducible representation with $\rho\left( I\right)\xi \neq \H$. The spectrum $\sX$ of $A$ is  Hausdorff. If there are $x', x'' \in \sX$ with $x' \neq x''$ and $ \rho_{x'}\left(I\right)\xi' \neq \H'$, $\rho_{x''}\left(I\right)\xi'' \neq \H''$ then there is $f \in C_0\left( \sX\right)$ such that $f\left(x' \right)  = 0$ and  $f\left(x'' \right)  = 0$. If $I'\bydef I' + Af$ then $I'$ is a closed left ideal such that $I \subsetneqq I' \subsetneqq A$. So if $I$ is a maximal left ideal then there is a single point with $\rho\left(I\right) \xi\neq \H$. If codimension of $\rho\left(I\right) \xi\neq \H$ exceds 1 then there if an Abelian element $a'' \in A$ with
-$$
-\rho\left(I \right) \xi \subsetneqq \rho\left(I \right) \xi + \rho\left(a'' \right) \xi \subsetneqq \H.
-$$
-\begin{lemma}\label{ctr_gelfand_lem}
-	If $A$ is a continuous trace $C^*$-algebra then any element of  $\mathfrak{Gelfand}\left(A \right) $ is given by a pair $\left(x, \xi \right)$ where
-	\begin{enumerate}
-		\item[(i)] $x$ is a point of the spectrum $\sX$ of $A$ which corresponds to the irreducible representation $\rep_x: A \to B\left( \H_x\right) $,
-		\item[(ii)] $\xi \in \C P\left( \H_x\right)$ where $ \C P\left( \H_x\right)$ is a complex projective space.
-	\end{enumerate} 
-	
-\end{lemma}
-\begin{proof}
-	There is the natural one-to-one correspondence between codimension one planes of any Hilbert space $\H$ and points of   $ \C P\left( \H\right)$.
-\end{proof}
-Suppose that $A$ is given by a locally trivial  fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It givers a bundle $\C P\left(\E \right)$ with fibre $\C P\left( \H\right)$. From the Lemma \ref{ctr_gelfand_lem}  it turns out that there is the natural set theoretic bijective map $\mathfrak{Gelfand}\left(A \right)\cong  \C P\left(\E \right)$.
-If $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is $\C P\left(\E \right)$ supplied with Gelfand topology then there is a bijective continuous map
-\be\label{pe_c_eqn}
-\phi_{\E} : \C P\left(\E \right)_{\mathfrak{Classic}}\to \C P\left(\E \right)_{\mathfrak{Gelfand}}
-\ee
-where $\C P\left(\E \right)_{\mathfrak{Classic}}$ is supplied with the classic topology.
-In particular if $\sX = \{x\}$ then $A = \K\left(\H \right)$ and $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The subbase of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus L$ where $L$ is a linear subspace of  $\C P\left(\H \right)$. Similarly to \eqref{pe_c_eqn} there is a continuous map 
+	\subsection{$C^*$-algebras of compact operators}
+\paragraph{} if $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then there is a set theoretic bijection $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The subbase of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus L$ where $L$ is a linear subspace of  $\C P\left(\H \right)$. Similarly to \eqref{pe_c_eqn} there is a continuous map 
 $$
 \phi_{\H} : \C P\left(\H \right)_{\mathfrak{Classic}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
 $$
@@ -1160,14 +1103,14 @@ where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimensio
 If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Classic}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
 \be\label{nerve_eqn}
 \begin{split}
-\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
-\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
+	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
+	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
 \end{split}
 \ee
- From the equation \eqref{nerve_eqn} one can deduce if  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn})  then for each $\sigma \in K\left(\mathscr W\right)$ one has
- \bean H^0\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= F, \\H^p\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= 0
- \eean
- From the Theorem \ref{top_nerve_thm} it turns out that
+From the equation \eqref{nerve_eqn} one can deduce if  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn})  then for each $\sigma \in K\left(\mathscr W\right)$ one has
+\bean H^0\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= F, \\H^p\left( \sU^{\mathfrak{Classic}}_{\sigma};\mathscr F_{\mathfrak{Classic}} \right)= 0
+\eean
+From the Theorem \ref{top_nerve_thm} it turns out that
 $$
 H^*\left(\C P^n_{\mathfrak{Classic}}, \mathscr F_{\mathfrak{Classic}} \right) \cong \check H^*\left( \mathscr W; \mathscr F_{\mathfrak{Classic}}\right)
 $$
@@ -1192,260 +1135,495 @@ The topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is the hybrid of Hau
 	where both $\mathscr F_{\mathfrak{Classic}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
 \end{lemma}
 
-\subsection{Hausdorff blowing-up}
-\subsubsection{Basic construction}
-
-\begin{definition}\label{blowing_defn}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if  both sets
-	\be\label{blowing_eqn}
-	\begin{split}
-		C_c\left( \sY\right)A \bydef \left\{fa| f \in C_c\left( \sY\right)\quad a \in A \right\},\\
-		AC_c\left( \sY\right) \bydef \left\{af| f \in C_c\left( \sY\right)\quad a \in A \right\}
-	\end{split}
-	\ee
-	are dense in $A$.
-\end{definition}
-
-\begin{remark}\label{blowing_rem}
-	$C_c\left( \sY\right)A$ is dense in $A$ if and only if $AC_c\left( \sY\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations ]\eqref{blowing_eqn} are equivalent.
-\end{remark}
-
-%\begin{empt}\label{blowing_k_theory_empt}
-%	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
-%	\bean
-%	C_0\left(\sY \right)\times  \left(A\otimes \K \right)\to A\otimes \K
-%	% \left(\K\otimes A\right)\times C_0\left(\sY \right)\to A\otimes \K 
-%	\eean 
-%	Using it one can one can construct an  injective $*$-homomorphism  !!!
-%	$$
-%	\left(C_0\left(\sY \right) \otimes \K \right) \to A
-%	$$
-%	This homomorphism yields homomorphisms of $K$-theory
-%	\bea\label{blowing_k0_eqn}
-%	K^0\left(\sY \right)\cong K_0\left(C_0\left( \sY\right)  \right) \to K_0\left( A\right),\\\label{blowing_k1_eqn}
-%	K^1\left(\sY \right)\cong K_1\left(C_0\left( \sY\right)  \right) \to K_1\left( A\right).
-%	\eea 
-%	If $A$ is an  irrational rotation algebra of torus then the map $K_1\left(C_0\left( \sY\right)  \right) \to K_1\left( A\right)$ is an isomorphism.
-%\end{empt}
-%\begin{example}\label{blowing_hausdorff_exm}	If $A$ is a  given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$, which is Hausdorff blowing-up.
-%\end{example}
-
-\begin{definition}\label{blowing_ideals_au_ua_defn}
-	Let  $ C_0\left( \sY\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$ (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sY$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \textit{left} $\sU$-\textit{ideal} and the \textit{right} $\sU$-\textit{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
-	\be\label{blowing_hereditary_u_eqn} 
-	\begin{split}
-		_\sU A_\sU \bydef	~	_\sU A\cap  A_\sU = A^*	_\sU \cap  A_\sU\\ %(\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_bab_lem}}).
-	\end{split}
-	\ee	
-	is the $ \sU$-\textit{subalgebra}.
+	\subsection{Hausdorff blowing-up}
+	\subsubsection{Basic construction}
 	
-\end{definition}
-
-
-\begin{lemma}\label{blowing_compact_lem}
-	If $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}	for any $a \in A$ and $\eps > 0$ following conditions hold:
-	\begin{enumerate}
-		\item[(i)] there is a positive $f \in C_c\left( \sY\right)_+$ with 
-		\be\label{blowing_compact_eqn}
+	\begin{definition}\label{blowing_defn}
+		Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if  both sets
+		\be\label{blowing_eqn}
+		\begin{split}
+			C_c\left( \sY\right)A \bydef \left\{fa| f \in C_c\left( \sY\right)\quad a \in A \right\},\\
+			AC_c\left( \sY\right) \bydef \left\{af| f \in C_c\left( \sY\right)\quad a \in A \right\}
+		\end{split}
+		\ee
+		are dense in $A$.
+	\end{definition}
+	
+	\begin{remark}\label{blowing_rem}
+		$C_c\left( \sY\right)A$ is dense in $A$ if and only if $AC_c\left( \sY\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations ]\eqref{blowing_eqn} are equivalent.
+	\end{remark}
+	
+	%\begin{empt}\label{blowing_k_theory_empt}
+	%	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
+	%	\bean
+	%	C_0\left(\sY \right)\times  \left(A\otimes \K \right)\to A\otimes \K
+	%	% \left(\K\otimes A\right)\times C_0\left(\sY \right)\to A\otimes \K 
+	%	\eean 
+	%	Using it one can one can construct an  injective $*$-homomorphism  !!!
+	%	$$
+	%	\left(C_0\left(\sY \right) \otimes \K \right) \to A
+	%	$$
+	%	This homomorphism yields homomorphisms of $K$-theory
+	%	\bea\label{blowing_k0_eqn}
+	%	K^0\left(\sY \right)\cong K_0\left(C_0\left( \sY\right)  \right) \to K_0\left( A\right),\\\label{blowing_k1_eqn}
+	%	K^1\left(\sY \right)\cong K_1\left(C_0\left( \sY\right)  \right) \to K_1\left( A\right).
+	%	\eea 
+	%	If $A$ is an  irrational rotation algebra of torus then the map $K_1\left(C_0\left( \sY\right)  \right) \to K_1\left( A\right)$ is an isomorphism.
+	%\end{empt}
+	%\begin{example}\label{blowing_hausdorff_exm}	If $A$ is a  given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$, which is Hausdorff blowing-up.
+	%\end{example}
+	
+	\begin{definition}\label{blowing_ideals_au_ua_defn}
+		Let  $ C_0\left( \sY\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$ (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sY$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \textit{left} $\sU$-\textit{ideal} and the \textit{right} $\sU$-\textit{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
+		\be\label{blowing_hereditary_u_eqn} 
+		\begin{split}
+			_\sU A_\sU \bydef	~	_\sU A\cap  A_\sU = A^*	_\sU \cap  A_\sU\\ %(\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_bab_lem}}).
+		\end{split}
+		\ee	
+		is the $ \sU$-\textit{subalgebra}.
+		
+	\end{definition}
+	
+	
+	\begin{lemma}\label{blowing_compact_lem}
+		If $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}	for any $a \in A$ and $\eps > 0$ following conditions hold:
+		\begin{enumerate}
+			\item[(i)] there is a positive $f \in C_c\left( \sY\right)_+$ with 
+			\be\label{blowing_compact_eqn}
+			\begin{split}
+				\left\| f  \right\| \le 1,\\
+				\left\| a - af  \right\|< \eps,\\
+				\left\| a - fa \right\|< \eps,\\
+				\left\| a - faf  \right\|< \eps,
+			\end{split}
+			\ee
+			\item[(ii)] there are an open subset $\sU \subset \sY$ with compact closure and $b \in ~_\sU A_\sU$ such that
+			\be\label{blowing_compact_b_eqn}
+			\begin{split}
+				b \in  ~_\sU A_\sU,\\
+				\left\| a - b \right\|< \eps.
+			\end{split}
+			\ee
+		\end{enumerate}
+	\end{lemma}
+	\begin{proof}(i)
+		If $g \in C_c\left( \sY\right)$ then $g = fg = gf$ for any positive $f \in C_c\left( \sY\right)_+$ such that
+		\bean
+		\left\| f \right\|= 1,\\
+		f\left(\supp g \right) = 1.
+		\eean 
+		If $f' \in C_c\left( \sY\right)$ and $c' \in A$ such that
+		$\left\|a-f'c' \right\| < \eps/4$ (cf. equation \eqref{blowing_eqn}) then there for any positive $f_1$ such that $\left\| f_1 \right\|= 1$, $~f_1\left(\supp f' \right) = 1$ one has
+		\bean
+		\left\|f_1\left( a-f'c \right) \right\|\le \left\|f_1 \right\|\left\|a-f'c \right\|\le \frac{\eps}{4},\\
+		\left\|a-f_1a \right\| < \left\|f_1a - f_1f'c\right\|+ \left\|a - f_1f'c\right\|\le \frac{\eps}{2}
+		\eean
+		Similarly 	If $f'' \in C_c\left( \sY\right)$ and $c''/ \in A$ such that
+		$\left\|a-f'c'' \right\| < \eps/4$ then for any positive for any positive $f_2$ such that $\left\| f_2 \right\|= 1$, $~f_1\left(\supp f' \right) = 1$ one has
+		\bean
+		\left\|a-a f_2 \right\| <  \frac{\eps}{2}
+		\eean
+		If $f = \max\left(f_1, f_2 \right)$ then $f\left(\supp f' \cup \supp f'' \right)= \{1\}$ 
+		and
+		\bean
 		\begin{split}
 			\left\| f  \right\| \le 1,\\
-			\left\| a - af  \right\|< \eps,\\
-			\left\| a - fa \right\|< \eps,\\
-			\left\| a - faf  \right\|< \eps,
+			\left\| a - af  \right\|< \frac{\eps}{2},\\
+			\left\| a - fa \right\|< \frac{\eps}{2},\\
 		\end{split}
-		\ee
-		\item[(ii)] there are an open subset $\sU \subset \sY$ with compact closure and $b \in ~_\sU A_\sU$ such that
-		\be\label{blowing_compact_b_eqn}
+		\eean
+		On the other hand
+		\bean
+		\left\| a - faf \right\|\le \left\| a - fa \right\|+ \left\| fa - faf \right\|< \frac{\eps}{2}+ 	\left\| f\right\|\left\|a - fa\right\|< \eps.
+		\eean
+		(ii) The set $\sU \bydef \left\{y \in \sY | f\left(y\right)\neq 0\right\}\subset \sY$ is open and closure of $\sU$ is the compact set $\supp f$. Moreover  $f a f \in ~_\sU A_\sU$ and  $\left\|a - faf\right\|< \eps$.
+		
+	\end{proof}
+	%\begin{empt}\label{blowing_compact_supp_empt}
+	%	If $\left\{\sU_\la\right\}_{\la\in\La}$ is a given by the Corollary	\ref{top_connected_union_cor} family of open subsets of $\sY$ with compact closures then $\sY = \cup_{\la \in \La} \sU_\la$. Since the family is directed the union $A_c \bydef \cup_{\la \in \La} \sU_\la$ is a $*$-subalgebra of $A$. From the Lemma \ref{blowing_compact_lem} it follows that $A_c$ is dense in $A$.
+	%\end{empt}
+	%\begin{definition}\label{blowing_compact_supp_defn}
+	%	The given by \ref{blowing_compact_supp_empt} dense $*$-subalgebra $A_c \subset A$ is said to be the \textit{algebra of compactly supported elements}.
+	%\end{definition}
+	
+	
+	\begin{empt} 
+		
+		We leave to the reader a proof of following equations:
+		\be\label{blowing_su_eqn}
 		\begin{split}
-			b \in  ~_\sU A_\sU,\\
-			\left\| a - b \right\|< \eps.
+			_\sU A \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad f\left(\sU \right)= \{0\}  \quad \Rightarrow \quad fa = 0\right\} ,\\
+			A_\sU \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad  f\left(\sU \right)= \{0\} \quad \Rightarrow \quad af = 0\right\}
 		\end{split}
 		\ee
-	\end{enumerate}
-\end{lemma}
-\begin{proof}(i)
-	If $g \in C_c\left( \sY\right)$ then $g = fg = gf$ for any positive $f \in C_c\left( \sY\right)_+$ such that
-	\bean
-	\left\| f \right\|= 1,\\
-	f\left(\supp g \right) = 1.
-	\eean 
-	If $f' \in C_c\left( \sY\right)$ and $c' \in A$ such that
-	$\left\|a-f'c' \right\| < \eps/4$ (cf. equation \eqref{blowing_eqn}) then there for any positive $f_1$ such that $\left\| f_1 \right\|= 1$, $~f_1\left(\supp f' \right) = 1$ one has
-	\bean
-	\left\|f_1\left( a-f'c \right) \right\|\le \left\|f_1 \right\|\left\|a-f'c \right\|\le \frac{\eps}{4},\\
-	\left\|a-f_1a \right\| < \left\|f_1a - f_1f'c\right\|+ \left\|a - f_1f'c\right\|\le \frac{\eps}{2}
-	\eean
-	Similarly 	If $f'' \in C_c\left( \sY\right)$ and $c''/ \in A$ such that
-	$\left\|a-f'c'' \right\| < \eps/4$ then for any positive for any positive $f_2$ such that $\left\| f_2 \right\|= 1$, $~f_1\left(\supp f' \right) = 1$ one has
-	\bean
-	\left\|a-a f_2 \right\| <  \frac{\eps}{2}
-	\eean
-	If $f = \max\left(f_1, f_2 \right)$ then $f\left(\supp f' \cup \supp f'' \right)= \{1\}$ 
-	and
-	\bean
-	\begin{split}
-		\left\| f  \right\| \le 1,\\
-		\left\| a - af  \right\|< \frac{\eps}{2},\\
-		\left\| a - fa \right\|< \frac{\eps}{2},\\
-	\end{split}
-	\eean
-	On the other hand
-	\bean
-	\left\| a - faf \right\|\le \left\| a - fa \right\|+ \left\| fa - faf \right\|< \frac{\eps}{2}+ 	\left\| f\right\|\left\|a - fa\right\|< \eps.
-	\eean
-	(ii) The set $\sU \bydef \left\{y \in \sY | f\left(y\right)\neq 0\right\}\subset \sY$ is open and closure of $\sU$ is the compact set $\supp f$. Moreover  $f a f \in ~_\sU A_\sU$ and  $\left\|a - faf\right\|< \eps$.
+		
+		
+		\bea\label{blowing_sue1_eqn}
+		\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\}.
+		\eea
+		
+		From \eqref{blowing_su_eqn} it follows that
+		\be\label{blowing_su_inc_eqn}
+		\sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
+		\ee
+	\end{empt}
 	
-\end{proof}
-%\begin{empt}\label{blowing_compact_supp_empt}
-%	If $\left\{\sU_\la\right\}_{\la\in\La}$ is a given by the Corollary	\ref{top_connected_union_cor} family of open subsets of $\sY$ with compact closures then $\sY = \cup_{\la \in \La} \sU_\la$. Since the family is directed the union $A_c \bydef \cup_{\la \in \La} \sU_\la$ is a $*$-subalgebra of $A$. From the Lemma \ref{blowing_compact_lem} it follows that $A_c$ is dense in $A$.
-%\end{empt}
-%\begin{definition}\label{blowing_compact_supp_defn}
-%	The given by \ref{blowing_compact_supp_empt} dense $*$-subalgebra $A_c \subset A$ is said to be the \textit{algebra of compactly supported elements}.
-%\end{definition}
-
-
-\begin{empt} 
+	\begin{definition}\label{blowing_support_defn}
+		If $C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}),  $a \in A$ and
+		$
+		\sU_a \bydef\bigcap 
+		\left\{\left.{\sU} \subset \sX\right| a\in~_\sU A_{\sU} \right\}
+		$
+		then the  closure $\sV_a$  of $\sU_a$ is said to be the \textit{support} of $a$. We write $\supp a \bydef \sV_a$.
+	\end{definition}
 	
-	We leave to the reader a proof of following equations:
-	\be\label{blowing_su_eqn}
-	\begin{split}
-		_\sU A \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad f\left(\sU \right)= \{0\}  \quad \Rightarrow \quad fa = 0\right\} ,\\
-		A_\sU \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad  f\left(\sU \right)= \{0\} \quad \Rightarrow \quad af = 0\right\}
-	\end{split}
-	\ee
-	
-	
-	\bea\label{blowing_sue1_eqn}
-	\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\}.
-	\eea
-	
-	From \eqref{blowing_su_eqn} it follows that
-	\be\label{blowing_su_inc_eqn}
-	\sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
-	\ee
-\end{empt}
-
-\begin{definition}\label{blowing_support_defn}
-	If $C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}),  $a \in A$ and
-	$
-	\sU_a \bydef\bigcap 
-	\left\{\left.{\sU} \subset \sX\right| a\in~_\sU A_{\sU} \right\}
-	$
-	then the  closure $\sV_a$  of $\sU_a$ is said to be the \textit{support} of $a$. We write $\supp a \bydef \sV_a$.
-\end{definition}
-
-\begin{lemma}\label{pedersen_eps_lem}
-	Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
-	\begin{equation}\label{f_eps_eqn}
-		f_\eps\left( x\right)  \bydef\left\{
+	\begin{lemma}\label{pedersen_eps_lem}
+		Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
+		\begin{equation}\label{f_eps_eqn}
+			f_\eps\left( x\right)  \bydef\left\{
+			\begin{array}{c l}
+				0 &x \le \eps \\
+				x - \eps & x > \eps
+			\end{array}\right.
+		\end{equation}
+		If $A$ is a $C^*$-algebra 
+		then one has
+		\bea\label{k0_ped_e_eqn}
+		K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|~a \in A_+, \quad \eps > 0 \right.\right\},~~~\\
+		\label{kp_ped_e_eqn}
+		K\left( A \right)_+ = \left\{a \in A_+ \left|a \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\quad j=1,...,n\right.\right\}~~
+		\eea
+		where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{pedersen_k0_eqn} and \eqref{pedersen_k_plus_eqn} respectively
+	\end{lemma}
+	\begin{proof}
+		If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi_\eps \in K(]0, \infty [$ is given by 
+		\bean
+		\phi_\eps\left( x\right)  =\left\{
 		\begin{array}{c l}
 			0 &x \le \eps \\
-			x - \eps & x > \eps
+			x - \eps &  \eps \le x \le \left\| a\right\|\\
+			2	\left\| a\right\| - \eps - x & \left\| a\right\| \le x \le 2\left\| a\right\|-\eps\\
+			0 & x \ge 2 \left\| a\right\| -\eps\\
 		\end{array}\right.
-	\end{equation}
-	If $A$ is a $C^*$-algebra 
-	then one has
-	\bea\label{k0_ped_e_eqn}
-	K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|~a \in A_+, \quad \eps > 0 \right.\right\},~~~\\
-	\label{kp_ped_e_eqn}
-	K\left( A \right)_+ = \left\{a \in A_+ \left|a \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\quad j=1,...,n\right.\right\}~~
-	\eea
-	where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{pedersen_k0_eqn} and \eqref{pedersen_k_plus_eqn} respectively
-\end{lemma}
-\begin{proof}
-	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi_\eps \in K(]0, \infty [$ is given by 
-	\bean
-	\phi_\eps\left( x\right)  =\left\{
-	\begin{array}{c l}
-		0 &x \le \eps \\
-		x - \eps &  \eps \le x \le \left\| a\right\|\\
-		2	\left\| a\right\| - \eps - x & \left\| a\right\| \le x \le 2\left\| a\right\|-\eps\\
-		0 & x \ge 2 \left\| a\right\| -\eps\\
-	\end{array}\right.
-	\eean
-	It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $a \in	K\left( A \right)_0$ then from \eqref{pedersen_k0_eqn} it turns out that there is $b \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
-	\bean
-	\psi\left( x\right)  =\left\{
-	\begin{array}{c l}
-		0 &x \le 0 \\
-		x &0 \le x \le \eps \\
-		\varphi\left(x\right) + \eps &\eps \le x \le c \\
-		\eps + c - x&  c \le x \le c+ \eps\\
-		0 & x \ge c + \eps
-	\end{array}\right.
-	\eean
-	then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b' \right)$ where $b' \bydef \psi\left(b\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{pedersen_k_plus_eqn} ones.
+		\eean
+		It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $a \in	K\left( A \right)_0$ then from \eqref{pedersen_k0_eqn} it turns out that there is $b \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
+		\bean
+		\psi\left( x\right)  =\left\{
+		\begin{array}{c l}
+			0 &x \le 0 \\
+			x &0 \le x \le \eps \\
+			\varphi\left(x\right) + \eps &\eps \le x \le c \\
+			\eps + c - x&  c \le x \le c+ \eps\\
+			0 & x \ge c + \eps
+		\end{array}\right.
+		\eean
+		then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b' \right)$ where $b' \bydef \psi\left(b\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{pedersen_k_plus_eqn} ones.
+		
+	\end{proof}
 	
-\end{proof}
-
-
-
-
-
-\begin{lemma}\label{blowing_pedersen_compact_lem}
-	If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact
-\end{lemma}
-\begin{proof}
-	If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element !!!!  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
-	If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation  then there is $\xi \in \H$ such that
-	\bean\label{blowing_ac_eqn}
-	\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
-	\eean
-	From $\left\|c - b \right\|  < \eps/2$ if follows that
-	\be\label{blowing_acc_eqn}
-	\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
+	
+	
+	
+	
+	\begin{lemma}\label{blowing_pedersen_compact_lem}
+		If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
+	\end{lemma}
+	\begin{proof}
+		If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element !!!!  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
+		If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation  then there is $\xi \in \H$ such that
+		\bean\label{blowing_ac_eqn}
+		\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
+		\eean
+		From $\left\|c - b \right\|  < \eps/2$ if follows that
+		\be\label{blowing_acc_eqn}
+		\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
+		\ee
+		On the other hand from $a =f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
+		\bean
+		\left\| \xi \right\| = 1,\\
+		\rho\left(a \right) \xi = \la \xi,\\
+		\rho\left(b \right)\xi = \left( \la+\eps \right) \xi,\\
+		\rho\left(a \right)\xi = \la  \xi,\\
+		\left( \xi, \rho\left( b \right) \xi\right) - \left( \xi, \rho\left( a \right) \xi\right)= \eps
+		\eean
+		and taking into account \eqref{blowing_acc_eqn} one has
+		$$
+		\left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
+		$$
+		Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$.
+		If $\supp a \subsetneqq \supp c$ then there is a nonempty  open set  $\sU \subset \supp a\setminus \supp c$. For any $f \in C_0\left(\sU \right)\setminus \{0\}$ one has
+		\bean
+		faf^* > 0,\\
+		fcf^* = 0.
+		\eean
+		However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
+	\end{proof}
+	\begin{remark}
+		The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
+	\end{remark}
+		\begin{remark}\label{blow_rem}
+	From the equation  \eqref{peder_c0_eqn} it follows that the injective homomorphism $\varphi_\sX : C_0\left(\sX \right) \hookto M\left(A \right)$ is good (cf. Definition \ref{good_defn}). So there is the natural surjective continuous map
+	\be\label{phi_a_eqn}
+	\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sX.
 	\ee
-	On the other hand from $a =f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
-	\bean
-	\left\| \xi \right\| = 1,\\
-	\rho\left(a \right) \xi = \la \xi,\\
-	\rho\left(b \right)\xi = \left( \la+\eps \right) \xi,\\
-	\rho\left(a \right)\xi = \la  \xi,\\
-	\left( \xi, \rho\left( b \right) \xi\right) - \left( \xi, \rho\left( a \right) \xi\right)= \eps
-	\eean
-	and taking into account \eqref{blowing_acc_eqn} one has
+	\end{remark}
+\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
+	\begin{itemize}
+		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+		subject to conditions
+		\begin{itemize}
+			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
+
+\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	A \textit{presheaf} $\mathscr F$ on  
+	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
+	\begin{itemize}
+		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+	\end{itemize}
+	(Note condition (3) implies that $s$ is unique.)
+\end{definition}
+%\begin{definition}
+%	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%\end{definition}
+\begin{definition}\label{sheaf_stalk_defn}\cite{hartshorne:ag}%{stalk_defn}
+	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ 
+	\textit{of} $\mathscr F$ \textit{at} $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+\begin{definition}\label{pap_dern}
+	If we consider the equation \eqref{phi_a_eqn} then the map
 	$$
-	\left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
+\sU \mapsto \phi^{-1}\left(\sU \right) 	
 	$$
-	Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$.
-	If $\supp a \subsetneqq \supp c$ then there is a nonempty  open set  $\sU \subset \supp a\setminus \supp c$. For any $f \in C_0\left(\sU \right)\setminus \{0\}$ one has
-	\bean
-	faf^* > 0,\\
-	fcf^* = 0.
-	\eean
-	However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
-\end{proof}
+yields the $A$-$\sX$-\textit{presheaf} denoted by $\mathscr P_{A-\sX}$,
+\end{definition}
+
+\begin{definition}\label{sheaf_mor_defn}\cite{hartshorne:ag}
+	If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
+	of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
+	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
+			\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
+		};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\rho_{\sU\sV}$} (m-1-2)
+		(m-1-1) edge node [right] {$\varphi_\sU$} (m-2-1)
+		(m-1-2) edge node [right] {$\varphi_\sV$} (m-2-2)
+		(m-2-1) edge node [above] {$\rho'_{\sU\sV}$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
+	of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
+\end{definition}
+
+\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
+\end{prdf}
+
+\begin{empt}\label{sheaf_empt}
+	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
+	\begin{itemize}
+		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
+		\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
+	\end{itemize}
+\end{empt}
+\begin{definition}\label{pas_defn}
+	If $\mathscr P_{A-\sX}$ is a $A$-$\sX$-{presheaf} (cf. Definition \ref{pap_dern})  then $A$-$\sX$-\textit{sheaf} is associated to $\mathscr P_{A-\sX}$. We denote  by $\mathscr S_{A-\sX}$ the $A$-$\sX$-{sheaf}.
+\end{definition}
+
+
+
+\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+\end{definition}
+
+\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+	%8.17 
+	Let $\sX \xrightarrow{f} \sY$ be a continuous map then
+	\begin{enumerate}		\item [(i)] 
+		if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+		\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr \sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
+	\end{enumerate}
+\end{proposition}
 \begin{remark}
-	The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
+	The above formulation of the Proposition \ref{spectral_sequence_prop} differs from the described in \cite{johnstone:topos} more general one.
 \end{remark}
-\subsubsection{Properties of Gelfand space}
-\paragraph{} The basic example of Hausdorff blowing-up is a $C^*$-algebra of groupoid. These  $C^*$-algebras are described in \cite{candel:foliII,renault:gropoid_ca}. Here we need following facts about them:
-\begin{enumerate}
-	\item[(i)] there are $C^*$-algebras $C^*(\G, \sigma )$ of groupoids $\G$, each of which has Hausdorff blowing $C_0\left( \G^0\right) \to M\left( C(\G, \sigma )\right)$ where $\G^0$ is the Hausdorff locally compact space of unities (cf \cite{renault:gropoid_ca}),
-	\item[(ii)] there are foliated spaces $\left(M, \F \right)$ which yield groupoids $\G\left(M, F \right)$.
-	\item[(iii)] For any irreducible representation $\rho : C^*\left( \G\left(M, \F \right), \sigma\right)\to B\left( \H\right) $ one has $\rho\left( C^*\left( \G\left(M, \F \right), \sigma\right)\right) = \K\left( \H\right)$.
-	
+If $C_0\left(\sY \right) \xrightarrow{f} M\left(A \right)$ is Hausdorff blowing-up then 
+from the Remark \ref{blow_rem} it follows that
+\begin{enumerate}		\item [(i)] 
+	if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\mathfrak{Gelfand}\left(A \right) , \phi_A^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+	\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathfrak{Gelfand}\left( A\right) , R^q\left(\phi_A \right) _*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
 \end{enumerate}
-From the Lemma \ref{lem_g_lem} it follows that one has a homeomorphism $\mathfrak{Gelfand}\left(C\left( \sX\right)  \right)\cong \sX$. Otherwise from \eqref{fil_mor_eqn} one has a map 
-\bean
-	\mathfrak{Filters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi_M \right)}\mathfrak{Filters} \left( C_0\left( M\right) \right),\\
+
+\subsection{Gelfand space continuous trace $C^*$-algebra}
+\paragraph{}
+	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
+	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
+	\begin{enumerate}
+		\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
+		\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
+		\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
+		\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
+		\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
+		\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
+	\end{enumerate} 
+\end{theorem}
+\begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
+	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
+\end{definition}
+\begin{definition}\label{type_I_defn}\cite{pedersen:ca_aut}
+	We say that a $C^*$-algebra $A$ is \textit{of type} $I$ if each non-zero quotient of $A$ contains a non-zero
+	Abelian element. If $A$ is even generated (as $C^*$-algebra) by its Abelian elements we say
+	that it is \textit{of type} $I_0$.
+\end{definition}
+\begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
+	%Definition 5.13. 
+	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
+	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
+\end{definition}
+
+If $A$  is a continuous trace  $C^*$-algebra then the spectrum $\sX$ of $A$ is a Hausdorff, locally compact space  $\sX$. There is Hausdorff blowing-up $C_0\left(\sX \right) \to M\left( A\right)$ and the given by \eqref{phi_a_eqn} natural continuous map  	\bean
+\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sX.
 \eean
-For any  $x \in M$ yields a principal ultrafilter $\mathfrak F_x$  generated by the ideal 
+
+For any pair  $\sU\subset\sV$ of open subsets of $\sX$ one has a presheaf
+\bean
+\mathscr{P}\left( \sU\right) \bydef \text{ a set of all commutative hereditary subalgebras of } ~_\sU A_{\sU};\\
+\rho_{\sU \sV}: \mathscr{P} \left(\sU\right)\to  \mathscr{P} \left(\sV\right), \quad C \mapsto C \cap ~_\sV A_{\sV}.
+\eean
+where both $_\sU A_{\sU}$ and $_\sV A_{\sV}$ are given by \eqref{blowing_compact_b_eqn}.
+\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
+	%1.13. 
+	\textit{
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
+	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
+		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
+	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$. We define a projection map 
+	\be\label{pf_eqn}
+	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}: \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX
+	\ee
+	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
+	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
+	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
+	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
+	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
+	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
+	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
+	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
+	
+\end{exercise}
+\begin{lemma}
+	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural homeomorphism $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
+	\newline
+	\begin{tikzcd}
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)	 \arrow[rr, "\cong"]\arrow[rd]  & ~ & \mathfrak{Gelfand}\left( A\right) \arrow[ld]\\
+		& \sX &
+	\end{tikzcd}
+\end{lemma}	
+\begin{proof} 
+		If $x \in 	\mathfrak{Gelfand}\left( A\right)$ then from 	
+	Lemma \ref{hered_ideal_lem} it follows that any $L \in x$ uniquely defines a hereditary $C^*$-subalgebra $B \bydef L\cap L^*$ and vice versa.  So the notation \eqref{hered_ideal_eqn} will be used.  For any hereditary $C^*$-subalgebra $B \subset A$ and any $\xi \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ we write $\xi \in B$ if there is a commutative hereditary $C^*$ subalgebra $C \subset A$ such that
+	\begin{itemize}
+		\item $C \subset B$,
+		\item $C$ is a representative of $\xi$.
+	\end{itemize}
+If
+	$$
+x \bydef \left\{B \text{ is a hereditary $C^*$ subalgebra of } A | \xi \in B\right\}	
+	$$
+and $B', B'' \in x$ then there are representatives $C', C''$ of $\xi$ such that $C\subset B'$, $C''\subset B''$. From $C'\cap C'' \neq \{0\}$ it follows that $B'\cap B'' \neq \{0\}$, i.e. $x$ a filter. If $x$ is not ultrafilter then there is a hereditary $C^*$-subalgebra $B'''$ such that
+\bean
+B''' \notin x,
+\forall B \in x \quad B \cap B''' \neq \{0\}
+\eean
+However from $\xi \notin B'''$ it follows that there is a representative $C$ of $\xi$ with $C	\cap B''' = \{0\}$. From $C \in x$ it follows that $x'$ is not a filter. So $x$ is an ultrafilter. 
+	Hausdorff blowing-up $C_0\left(\sX \right) \to M\left( A\right)$ yields the given by \eqref{phi_a_eqn} natural continuous map  	\bean
+	\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sX.
+	\eean
+For any hereditary  $B\subset A$ (cf. \eqref{hered_ideal_eqn})	  there is a set
+	\bean
+y_B \bydef	\left\{\left.\xi \in p^{-1}_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)}\circ \phi_A\left(x \right)  \right| \xi \in B \right\}\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)
+\eean
+where  $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)}$ is given by the equation \eqref{pf_eqn}
+Let $c$ be the minimal cardinality among the  sets $y_B$ where $B \in x$. If $c = 0$ then there is $B \in x$ with $y_B = \emptyset$. So there is an open neighborhood of $\phi_A\left( x\right)$ with
 $$
-I_x \bydef \left\{
-\left.a \in C_0\left( M\right)\right| a\left(x \right)= 0  \right\}
+\forall y \in \sU \quad \rho_y\left(B \right) = 0.
+$$ 
+where $\rho_y$ is the corresponding to $y$ irreducible representation. There is $f \in C_0\left(\sX \right)_+$ such that $f\phi_A\left(x \right)\neq 0$ and $f\phi_A\left(\sX \setminus\sU \right)=\{0\}$. Otherwise there is a hereditary $C^*$-subalgebra $fB'f\neq \{0\}$ such that
+\bean
+fB'f \in x,\\
+fB'f \cap B = \{0\}.
+\eean 
+ From $fB'f \cap B =\{0\}$ it follows that $x$ is not an ultrafilter. It is contradiction. From the contradiction  it follows that the 
+ $$
+y_x = \bigcap \left\{\left.\xi \in p^{-1}_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)}\circ \phi_A\left(x \right)  \right| \exists B \in x \quad  \xi \in B \right\}\neq \{0\}
+ $$
+If $\xi \in y_x$ then it is already proven that the set
 $$
-However $\mathfrak F_x\notin \im \varphi_M$ since one can prove that the closure of  $\widetilde  A \varphi_M\left(I_x \right) = \widetilde  A$. If $\left\{\sU_\la\right\}_{\la\in \La}$ the the set of open neighborhoods of $x$ and $I_\la$ is the closure of the  set $\left\{
-\left.a \in C_0\left( M\right)\right| a\left(\sU_\la \right)= 0  \right\}$ then $\mathfrak F'_x=\left\{I_\la\right\}_{\la\in \La}$ is a filter with $\mathfrak F'_x \le \mathfrak F_x$. If $\widetilde I_\la$ is the closure of  $\widetilde{A}\varphi_M\left(I_\la \right)$ then the there is a filter  $\widetilde {\mathfrak F}_x$ generated by the set $\left\{\widetilde I_\la\right\}_{\la\in \La}$. Denote by $\widetilde{\mathfrak U}_x$ the set of ultrafilters such that 
+x'\bydef  \left\{B \subset A | \xi \in B\right\}
 $$
-\forall \widetilde{\mathfrak U} \in \widetilde{\mathfrak U}_x \quad  \widetilde {\mathfrak F}_x \le \widetilde{\mathfrak U}.
+is an ultrafilter. If $y_x$ contains more then one elements then $x \le x'$ and $x\neq x'$ i.e. $x$ is not ultrafilter.
+
+\end{proof}
+
+
+
+
+\subsubsection{Gelfand space}
+\begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
+	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
+	\begin{itemize}
+		\item [(a)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
+		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
+	\end{itemize}
+\end{lemma}
+\begin{lemma}
+	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural homeomorphism $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
+\newline
+\begin{tikzcd}
+	\mathfrak{Gelfand}\left( A\right) \arrow[rr, "\cong"]\arrow[rd]  & ~ & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\arrow[ld]\\
+& \sX &
+\end{tikzcd}
+
+\end{lemma}
+If $A$ is a continuous trace $C^*$-algebra  and $I\subsetneqq A$ is a closed  left ideal then from the Lemma \ref{hausdorff_spectrum_lem} it follows that  there are $\eps > 0$,  $~a \in A$ and an irreducible representation $\rho: A \to B\left( \H\right)$ with
+\be\label{abelian_ineq_eqn}
+\forall a' \in I \quad \left\|\rho\left(a - a' \right)  \right\| > \eps.
+\ee
+On the other hand $A$ is a $C^*$-algebra of type $I_0$. From this fact one can deduce that there is a satisfying to \eqref{abelian_ineq_eqn}  Abelian element. There is $\xi \in \H$ such that $\rho\left(a \right)= \xi \left\rangle \right\langle \xi$. From (v) of the Theorem \ref{irred_thm} it follows that $\H = \rho\left(A \right) \xi$. If $\xi \in \rho\left(I\right) \xi$ then $a \in I$. It is impossible so $\C\xi \cap \rho\left(I\right) \xi = \{0\}$. There are $\xi^\parallel \in  \rho\left(I\right) \xi$ such that if $\xi^\perp \bydef \xi - \xi^\parallel$ then $\xi^\perp\perp  \rho\left(I\right) \xi$. So for any closed left ideal there is one irreducible representation with $\rho\left( I\right)\xi \neq \H$. The spectrum $\sX$ of $A$ is  Hausdorff. If there are $x', x'' \in \sX$ with $x' \neq x''$ and $ \rho_{x'}\left(I\right)\xi' \neq \H'$, $\rho_{x''}\left(I\right)\xi'' \neq \H''$ then there is $f \in C_0\left( \sX\right)$ such that $f\left(x' \right)  = 0$ and  $f\left(x'' \right)  = 0$. If $I'\bydef I' + Af$ then $I'$ is a closed left ideal such that $I \subsetneqq I' \subsetneqq A$. So if $I$ is a maximal left ideal then there is a single point with $\rho\left(I\right) \xi\neq \H$. If codimension of $\rho\left(I\right) \xi\neq \H$ exceds 1 then there if an Abelian element $a'' \in A$ with
 $$
-From the above equation it turns out that there is a map from a subset of $\mathfrak {Gelfand}\left( \widetilde A\right)$ onto $M$. 
-If $\rho : C^*\left( \G\left(M, \F \right), \sigma\right)\to B\left( \H\right) $ is an  irreducible representation and $p\in K\left( \H\right) $ is a rank one projection then there is a closed left ideal
+\rho\left(I \right) \xi \subsetneqq \rho\left(I \right) \xi + \rho\left(a'' \right) \xi \subsetneqq \H.
 $$
-\widetilde I_{\rho, \xi }\bydef \left\{\left.\widetilde a \in C^*\left( \G\left(M, \F \right), \sigma \right) \right| \widetilde \rho \left(\widetilde a \right)p = \{0\} \right\}
-$$
-The generated by $\widetilde I_{\rho, \xi }$ filter is an ultrafilter.
+\begin{lemma}\label{ctr_gelfand_lem}
+	If $A$ is a continuous trace $C^*$-algebra then any element of  $\mathfrak{Gelfand}\left(A \right) $ is given by a pair $\left(x, \xi \right)$ where
+	\begin{enumerate}
+		\item[(i)] $x$ is a point of the spectrum $\sX$ of $A$ which corresponds to the irreducible representation $\rep_x: A \to B\left( \H_x\right) $,
+		\item[(ii)] $\xi \in \C P\left( \H_x\right)$ where $ \C P\left( \H_x\right)$ is a complex projective space.
+	\end{enumerate} 
+	
+\end{lemma}
+\begin{proof}
+	There is the natural one-to-one correspondence between codimension one planes of any Hilbert space $\H$ and points of   $ \C P\left( \H\right)$.
+\end{proof}
+Suppose that $A$ is given by a locally trivial  fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It givers a bundle $\C P\left(\E \right)$ with fibre $\C P\left( \H\right)$. From the Lemma \ref{ctr_gelfand_lem}  it turns out that there is the natural set theoretic bijective map $\mathfrak{Gelfand}\left(A \right)\cong  \C P\left(\E \right)$.
+If $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is $\C P\left(\E \right)$ supplied with Gelfand topology then there is a bijective continuous map
+\be\label{pe_c_eqn}
+\phi_{\E} : \C P\left(\E \right)_{\mathfrak{Classic}}\to \C P\left(\E \right)_{\mathfrak{Gelfand}}
+\ee
+where $\C P\left(\E \right)_{\mathfrak{Classic}}$ is supplied with the classic topology.
+In particular if $\sX = \{x\}$ then !!!
+
 
 \section*{Acknowledgment}
 
