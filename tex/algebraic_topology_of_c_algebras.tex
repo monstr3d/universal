@@ -1143,6 +1143,13 @@ where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 		\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
 	\end{itemize}
 \end{empt}
+\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
+	If $F$ is a set and $\sX$ is a topological space then the $F$-\textit{constant presheaf} is given by
+	\bean
+	\sU \mapsto F.
+	\eean
+The $F$-\textit{constant sheaf} is the sheaf associated with the $F$-{constant presheaf}
+\end{definition}
 
 
 
@@ -1171,6 +1178,80 @@ Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarro
 $$
 \Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}.
 $$
+
+ The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
+$$
+\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
+$$
+where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  with the given by Definition  \eqref{ultrafilters_space_defn} topology.
+If $\dim \H = n < \infty$  then $\C P\left(\H \right)= \C P^n$ and there is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
+There is a composition of continuous maps
+$$
+\C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
+$$
+where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P\left(\H \right)$ then
+$$
+\C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
+$$
+Similarly 
+$$
+\C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right). 
+$$
+where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P^n$.
+\begin{definition}\label{nerve_defn}\cite{spanier:at}
+	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
+\end{definition}
+\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
+	%PAGE 193 !!! DOWN !!!
+	%4.13. Theorem. 
+	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
+	\be
+	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
+	\ee
+\end{theorem}
+If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
+\be\label{nerve_eqn}
+\begin{split}
+	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
+	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
+\end{split}
+\ee
+From the equation \eqref{nerve_eqn} it follows that 
+\be\label{nerve_0_eqn}
+\begin{split}
+	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
+	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
+\end{split}
+\ee
+where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion 
+$\sU_{\sigma}\subset \sH'$.
+If  $\mathscr F$ is a corresponding to $F$ constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
+$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
+
+\begin{theorem}
+There is the natural isomorphism
+$$
+H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+$$
+
+\end{theorem}
+\begin{proof}
+ From the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
+$$
+H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right).
+$$
+
+Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$.
+\be\label{proj_h_eqn}
+H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+\ee\end{proof}
+\begin{remark}
+The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
+\end{remark}
+
 
 
 \begin{definition}\label{phi_supp_defn}\cite{bredon:sheaf,godement:sheaf}.
@@ -1206,6 +1287,10 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 		\item[(d)] $\Phi$ paracompactifying, $A$ closed.
 		\item[(a)]($\Phi - cld$, $A$ compact and relatively Hausdorff in $\sX$, e.g., a point.
 	\end{enumerate}
+	
+	\begin{definition}
+	Let $\Phi$ be a family of supports on $\sX$. A continuous map $\sX \to \sY$ is $\Phi$-\textit{closed} meaning $f\left( K\right)$ is closed for any $K \in \Phi$.
+	\end{definition}
 	
 \end{definition}
 \begin{empt}
@@ -1336,7 +1421,7 @@ are isomorphisms.
 %	induced by restriction, is an isomorphism for every sheaf $\mathscr A$ on $\sX$.
 %\end{theorem}
 %Let $A \subset \sX$, let $\Phi$ be a family of supports on $\sX$, let $\mathscr A$ be a sheaf on $\sX$,
-and let $f: \sX \to \sY$ be a map.
+%and let $f: \sX \to \sY$ be a map.
 %If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P\left(\H \right)$ then
 %$$
 %\C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
@@ -1376,16 +1461,14 @@ and let $f: \sX \to \sY$ be a map.
 %H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right)
 %$$
 %Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
-
+The following theorem can be deduced from the \ref{leray_thm} one.
 \begin{theorem}
-If $F$ is an Abelian group and both $\mathscr F_{\mathfrak{Hausdorff}}$ and $\mathscr F_{\mathfrak{Gelfand}}$ are corresponding to $F$ constant sheaves on $\C P\left(\H \right) _{\mathfrak{Hausdorff}}$ and $\C P\left(\H \right) _{\mathfrak{Hausdorff}}$ respectively then the continuous map yields the natural isomorphism
-\be\label{proj_h_eqn}
-H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
-\ee
+	There is the natural isomorphism
+	$$
+	H^*_c\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*_c\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+	$$
+	
 \end{theorem}
-\begin{remark}
-The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
-\end{remark}
 	\subsection{Hausdorff blowing-up}
 	
 	\begin{definition}\label{blowing_defn}
@@ -1688,7 +1771,7 @@ $$
 $$
 i.e. $\xi$ is not an ultrafilter. It follows that the space $V$ is one dimensional.
 \end{empt}
-\begin{definition}
+\begin{definition}\label{pre_gelfand_defn}
 	Let us consider a set of triples $\left(x, y, V \right)$ such that:
 	\begin{itemize}
 		\item $x \in \sX$,
@@ -1702,19 +1785,30 @@ i.e. $\xi$ is not an ultrafilter. It follows that the space $V$ is one dimension
 		L_{\left(x, y, V \right)}\bydef \left\{ a \in A| V \subset \rho_y\left( a\right) \right\}
 		\eean 
 	\end{itemize} 
-	The space of generated by such ideals principal filters is the \textit{pre}-\textit{Gelfand space of} $A$ denoted by $\mathfrak{Pre-Gelfand} \left(A \right)$. 
+	The set of generated by such ideals principal filters is the \textit{pre}-\textit{Gelfand space of} $A$ denoted by $\mathfrak{pre-Gelfand} \left(A \right)$. 
+	For every $x \in \mathfrak{Pre-Gelfand}\left(A \right) $ denote by 
+	$$
+	\mathfrak{pre-Gelfand}^{-1}\left(x \right) \bydef \left\{ \widetilde x \in \mathfrak{Gelfand}\left(A \right)\quad \widetilde x\right\}.
+	$$
+	There is a natural surjective map
+\be\label{pre_gelfand_eqn}
+	\mathfrak{Gelfand}\left(A \right)\xrightarrow{	\mathfrak{pre-Gelfand}_A }\mathfrak{pre-Gelfand}\left(A \right).
+\ee
+	We define on the {pre}-{Gelfand space} the smallest topology such that the map 		
 \end{definition}
-For every $x \in \mathfrak{Pre-Gelfand}\left(A \right) $ denote by 
-$$
-\mathfrak{Pre-Gelfand}^{-1}\left(x \right) \bydef \left\{ \widetilde x \in \mathfrak{Gelfand}\left(A \right)\quad \widetilde x\right\}.
-$$
-There is a natural surjective map
-$$
-\mathfrak{Gelfand}\left(A \right)\to \mathfrak{Pre-Gelfand}\left(A \right)
-$$
+\begin{remark}
+There is the natural continuous surjective map
+\be\label{pre_g_map_eqn}
+\begin{split}
+\mathfrak{pre-Gelfand}\left(A \right)\xrightarrow{\mathfrak{pre-Gelfand}}\to \sX,\\
+\left(x, y, V \right) \mapsto x.
+\end{split}
+\ee
+\end{remark}
+
 
 \subsection{Gelfand space of continuous trace $C^*$-algebras}
-
+\subsubsection{Basic construction}
 \begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
 	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
 	\begin{itemize}
@@ -1814,6 +1908,10 @@ $$
 	is an ultrafilter. If $y_x$ contains more then one elements then $x \le x'$ and $x\neq x'$ i.e. $x$ is not ultrafilter.
 	
 \end{proof}
+Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
+
+
+
 \subsubsection{Comparison with the bundle space} 
 
 \begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
@@ -1823,22 +1921,76 @@ $$
 	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX \right)$.% (cf. equation \eqref{top_ub_eqn}).
 	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
 \end{proposition}
-Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop} a locally   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\to \sX$ and the Cartesian square
+
+	\begin{thm}(Dauns Hofmann)\label{dauns_hofmann_thm}\cite{pedersen:ca_aut}
+	For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
+\end{thm}
+If $A$ is given by the Proposition \ref{ctr_bundle_prop} then from the Theorem \ref{dauns_hofmann_thm} it follows that there is Hausdorff blowing-up
+$$
+C_0\left( \sX\right) \to M\left( A\right). 
+$$
+From the equations \eqref{pre_gelfand_eqn} and \eqref{pre_g_map_eqn} it turns out that there are natural surjective continuous maps
+\bean
+\mathfrak{Gelfand}\left(A \right)\xrightarrow{	\mathfrak{pre-Gelfand}_A} \mathfrak{pre-Gelfand}\left(A \right)\xrightarrow{\mathfrak{pre-Gelfand}_\sX} \sX
+\eean 
+
+
+Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop} a locally   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\E \right)$. Any element of $\xi \in \C P\left(\E \right)$ yields a triple  $\left(x, x, V\right)$ such that
+	\begin{itemize}
+	\item $x \in \sX$ where $\sX$ is a space of Hausdorff blowing-up,
+	\item $x \in \sX$ where $\sX$ is the spectrum of $A$,
+	\item $V\subset \rho_x \left( A\right)$ a one dimensional subspace.
+\end{itemize} 
+One can proof that the set of described above triples satisfies to the Definition \ref{pre_gelfand_defn}, i.e. there is the natural bijective map
+\be\label{gtop_map_eqn}
+\C P\left(\E \right)\cong \mathfrak{pre}- \mathfrak{Gelfand}\left(A \right)
+\ee
+There is the natural Gelfand  topology on $\C P\left(\E \right)$ such that the map \eqref{gtop_map_eqn} is continuous. 
+If we consider well known Hausdorff topology on $\C P\left(\E \right)$ the  map \eqref{gtop_map_eqn}  yields a continuous bijective map
+\bean
+\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}
+\eean 
+Let $F$ be an Abelian group, and let $\mathscr F_{\mathfrak{Gelfand}}$ be a corresponding to $F$ constant sheaf on $\C P\left(\E \right)_{\mathfrak{Gelfand}}$.
+
+\begin{lemma}
+	Let $F$ is an Abelian group.
+	Let $\pi :  \C P\left(\E \right)_{\mathfrak{Hausdorff}}\to \sX$ be the natural surjective mapping 
+	If $\sX = \bigcup_{\mathcal W \in \mathscr W}  \mathcal W$ where: 
+	\begin{itemize}
+		\item for any $\mathcal W \in \mathscr W$ one has $\pi^{-1}\left(\mathcal W \right) \cong \mathcal W\times \C P\left( \sH\right)_{\mathfrak{Hausdorff}}$,
+		\item $H^p\left( \sU,\mathscr F_{\mathfrak{Hausdorff}} \right)= {0}$  for all $\sU \in K\left(\mathscr W \right)$ and $p> 0$.
+	\end{itemize}	
+	then there is the natural isomorphism
+	$$
+	H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) 
+	$$ 
+	where both $\mathscr F_{\mathfrak{Hausdorff}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
+\end{lemma}
+\begin{proof}
+	The proof of this Lemma is similar to the proof of the equation \eqref{proj_h_eqn}.
+\end{proof}
+There is the following commutative diagram.
 \\
 \newline
 \begin{tikzcd}
-	\sY'	 \arrow[r, "\phi'"] \arrow[d, "\phi''"] &  \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\arrow[d]\\
-	C P\left(\E \right) \arrow[r]  &  \sX	
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}}	 \arrow[r, "\phi'"] \arrow[d, "\phi''"] &  \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\arrow[d]\\
+	C P\left(\E \right)_{\mathfrak{Gelfand}} \arrow[r]  &  \sX	
 \end{tikzcd}
 \\
 
 	On the other hand there is the natural map $\phi''': \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\to C P\left(\E \right)$. If
 	\be
-	\sY \bydef \left\{y \in \sY' | \phi''\left( y\right) = \phi''\circ \phi\left(y \right)  \right\}
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}} \bydef \left\{y \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}} | \phi''\left( y\right) = \phi''\circ \phi\left(y \right)  \right\}
 	\ee
 
 
-
+\begin{lemma}
+	The natural continuous map
+	$$
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\to \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}
+	$$
+	is a homeomorphism.
+\end{lemma}!!!
 
 
 
