@@ -676,7 +676,7 @@ unique. If $S$ is a two-element set $\{s, t\}$, we write $s \wedge t$ for $\wedg
 \end{remark}
 
 \begin{example}\label{space_semi_exm}
-	If $\sX$ is a topological space then the $\sX$-\textit{semi}-\textit{lattice} is  a  meet-semilattice $\mathfrak{Lattice}\left( \sX\right)$ such that elements of $\mathfrak{Lattice}\left( \sX\right)$ are open subsets of $\sX$ and one has
+	If $\sX$ is a topological space then the $\sX$-\textit{semi}-\textit{lattice} is  a  meet-semilattice $\mathfrak{Lattices}\left( \sX\right)$ such that elements of $\mathfrak{Lattices}\left( \sX\right)$ are open subsets of $\sX$ and one has
 	\be\label{x_lat_eqn}
 \begin{split}
 	\sU' \wedge \sU''\bydef \sU' \cap \sU'',\\
@@ -706,7 +706,7 @@ L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
 0 \bydef \{0\}\subset A
 \end{split}
 \ee
-We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$ a set of filers.
+We denote this semilattice by $\mathfrak{Lattices}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$ a set of filers.
 \end{definition}
 \begin{thm}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
 	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
@@ -716,7 +716,7 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by 
  
 \be
 \begin{split}
-	\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
+	\mathfrak{Lattices}_\sX : \mathfrak{Lattices}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattices}\left(\sX \right).
 %	L \mapsto\sX \setminus \left\{x \in \sX | \forall a \in L \quad a(x) = 0\right\}.
 \end{split}
 \ee	
@@ -725,7 +725,7 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by 
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
 \begin{defn}\label{ultrafilters_space_defn}
- If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
+ If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattices}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
 	\be\label{gelfand_eqn}
 \mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in x\quad L'\cap L = \{0\} \right\}
 	\ee
@@ -809,7 +809,7 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	
 	\bean
 	\begin{split}
-		\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
+		\mathfrak{Lattices}_\sX : \mathfrak{Lattices}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattices}\left(\sX \right).
 		%	I \mapsto\sX \setminus \left\{x \in \sX | \forall a \in I \quad a(x) = 0\right\}.
 	\end{split}
 	\eean  
@@ -861,6 +861,70 @@ x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
 	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
+\begin{empt}
+Let $A$ be a $C^*$-algebra, and let $\sX$ be the spectrum of $A$. For any closed left ideal there is a set
+\bean
+\sX_L \bydef \left\{x \in \sX | \rho_x\left(L \right) \neq 0\right\}.
+\eean
+where $\rho_x$ is the corresponding to 
+There is the natural equivalence relation $\sim_{\mathfrak{Lattices}}$ on the $\mathfrak{Lattices}\left( A\right)$  such that
+\be\label{lat_eqn}
+L' \sim_{\mathfrak{Lattices}} L''\quad \Leftrightarrow \quad  \sX_{L'} = \sX_{L''}.
+\ee
+\end{empt}
+\begin{definition}
+Two filters $\xi', \xi'' \in \mathfrak{Filters} \left(A \right) $  are \textit{spectrally equivalent} (write $\xi'\sim_{\mathfrak{Filters}} \xi''$ ) if one has
+\be
+\begin{split}
+\forall L'_1 \in \xi' \quad \exists L''_1\in \xi'' \quad \sX_{L''_1} \subset \sX_{L'_1},\\
+\forall L''_2 \in \xi'' \quad \exists L'_2\in \xi' \quad \sX_{L'_2} \subset \sX_{L''_2}
+\end{split}
+\ee
+\end{definition}
+\begin{definition}\label{bicommutant_defn}
+Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
+$$
+L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
+$$
+is the \textit{commutant} of $L$ (read $L'$ or $L^\perp$),
+For any element $\xi \in  \mathfrak{Filters} \left(A \right)$ the \textit{bicommutant} (written $\xi^{\perp\perp}$ or $L'$) is the closure of the union
+$$
+\bigcup_{L \in \xi} L^\perp.
+$$
+The set of bicommutants which are proper ideals (write $\mathfrak{Filters} \left(A \right)^{\perp\perp}$ $\mathfrak{Filters} \left(A \right)''$ is the \textit{bicommutant} of $\textit{bicommutant}$. The set of bicommutants of the Gelfand space  (write $\mathfrak{Gelfand} \left(A \right)^{\perp\perp}$ $\mathfrak{Gelfand} \left(A \right)''$. Is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$. There is the natural surjective  map from the subset 
+\be\label{bicommutant_to_eqn}
+ S \to  \mathfrak{Gelfand} \left(A \right)''
+\ee
+ the subset of $S \subset \mathfrak{Gelfand} \left(A \right)$ onto $\mathfrak{Gelfand} \left(A \right)''$. This map yields the initial topology (cf. Definition \ref{top_init_defn}), so the set $\mathfrak{Gelfand} \left(A \right)''$ is a topological space.
+\end{definition}
+
+\begin{example}
+From the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism $\mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$. If $x = \mathfrak{Gelfand}_\sX\left( \xi\right)$ then for any $P \in \xi$ there is an open neighborhood such that 
+\bean
+\forall a \in P \quad a\left(\sX \setminus \sU \right) = \{0\}
+\eean  
+so one has
+\bean
+\forall a \in P^\perp \quad a\left(\sU \right) = \{0\}
+\eean
+
+If $L_x \bydef \left\{a \in C_0\left(\sX \right) | a\left(x \right)= 0  \right\}$ 
+the for any positive   $a'\in L_x$ one has
+\bean
+\left\|a' - f_{\eps/2}\left(a \right)  \right\| < \eps,
+\exists P \in \xi \quad a' \in P'.
+\eean 
+where $f_\eps$ is given by \eqref{f_eps_eqn}.
+If $A$ is a $C^*$-algebra then one has
+\be\label{four_decompositon_eqn}
+\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4.
+\ee
+From \eqref{four_decompositon_eqn} it follows that the $L_x \subset x''$. On the other hand if $a' \notin L_x$ then $\left\|a' \right\| > 0$ and
+\bean
+\forall L \in \xi \quad \forall a'' \in L^\perp \quad \left\|a' - a''\right\| \ge  \left\|a' - a''\right\|.
+\eean 
+So one has $\xi'' = L_x$. From this fact it turns out that the given by \eqref{bicommutant_to_eqn} is a  homeomorphism from  $\mathfrak{Gelfand} \left(A \right)$ onto $ \mathfrak{Gelfand} \left(A \right)''$.
+\end{example}
 
 \subsection{Morphisms}
 
@@ -879,15 +943,19 @@ If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphi
 of $\C$-algebras yields an injective homomorphism  
 \be\label{lat_mor_eqn}
 \begin{split}
-	\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi_R \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
+	\mathfrak{Lattices}\left(  A\right) \xrightarrow{\mathfrak{Lattices}\left(\varphi_R \right)}\mathfrak{Lattices} \left( \widetilde A\right),\\
 	L \mapsto \text{ the closure of } \widetilde A \varphi_R\left(L \right) 
 	\end{split}
 	\ee
-	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi_R \right)$ yields a mapping of filters
+	We suppose that 
+	\be\label{closed_p_eqn}
+	\widetilde{ A }\quad \text{is the closure of} \quad \widetilde A \varphi_R\left( A\right).
+	\ee
+	On the other hand the homomorphism $\mathfrak{Lattices}\left(\varphi_R \right)$ yields a mapping of filters
 \be\label{fil_mor_eqn}
 \begin{split}
 	\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi_R \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
-	\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi_R \right)\left( L_\la\right) \right\}_{\la \in \La}
+	\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattices}\left(\varphi_R \right)\left( L_\la\right) \right\}_{\la \in \La}
 \end{split}
 \ee
 If $x \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
@@ -920,9 +988,43 @@ The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by 
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
 \end{defn}
-
-
-
+\begin{empt}\label{bicommutant_empt}
+	Let $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
+  $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}$ end $\eps > 0$ such that
+  \be\label{b_neq_eqn}
+  \forall a_1, ..., a_n \in A \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a_1,\right\| > \eps.
+  \ee
+ If $\xi = \mathfrak{Gelfand}\left(\varphi_R \right) \left(\widetilde \xi \right)$ then 
+ \bean
+ \forall L \in \xi \quad \text{the closure of } \widetilde A \varphi_R\left( L\right) \in \widetilde \xi.
+ \eean 
+ It follows that 
+ \bean
+ \forall L \in \xi \quad \exists \widetilde L \in \widetilde \xi \quad \widetilde A   \varphi\left(L^\perp \right) \subset \widetilde L^\perp.
+ \eean 
+ If the closure $L'$ of the union 
+ $$
+ \bigcap_{L \in \xi} L^\perp 
+ $$
+ is not proper ideal the for any $a \in A$ and $\dl > 0$ there is $a' \in L'$  such that $\left\| a - a' \right\|< \dl$. If  $a'_1, ..., a'_n \in L'$ such that
+ \bean
+ \left\| a_j - a'_j \right\| < \frac{\eps}{n \left\|\widetilde  a_j  \right\|}
+ \eean 
+ then
+ $$
+ \left\| \sum_{j =1}^n \widetilde a_j a;_j - \widetilde a_1,\right\| > \eps
+ $$
+ Above equation contradicts with \eqref{b_neq_eqn} one.
+\end{empt}
+\begin{lemma}\label{bicommutant_lem}
+Any good morphism $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ yields a continuous map
+\be\label{bicommutant_eqn} 
+\mathfrak{Gelfand}\left(\widetilde A \right)''\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)''}\mathfrak{Gelfand}\left(A \right)''.
+\ee
+\end{lemma}
+\begin{proof}
+The existence of the map follows from \ref{bicommutant_empt}. The continuity can be deduced from the continuity of $\mathfrak{Gelfand}\left(\varphi_R \right)''$.
+\end{proof}
 \subsection{Coverings and fundamental group}
 \subsubsection{Topologies of *-automorphisms groups}
 
@@ -1064,11 +1166,13 @@ $$
 	$$
 	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$. 
 	\subsection{$C^*$-algebras of compact operators}
+
+	
 \paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset A$ there is a closed $\C$-linear subspace $V_L \subset \H$ such that
 \bean
 L = \left\{\left.a \in \K\left(\H \right)\right| a \H  \subset V_L\right\}.
 \eean
-If $L$ is maximal then $V_L$ is a one dimensional space. Any ultrafilter of the $\mathfrak{Lattice}\left(\K\left(\H \right) \right)$ is principal, generated by rank-one element minimal ideal. The set of one-dimensional subspaces of $\H$ is a complex projective space  $\C P\left(\H \right)$, i.e. there is the natural set theoretic bijective map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
+If $L$ is maximal then $V_L$ is a one dimensional space. Any ultrafilter of the $\mathfrak{Lattices}\left(\K\left(\H \right) \right)$ is principal, generated by rank-one element minimal ideal. The set of one-dimensional subspaces of $\H$ is a complex projective space  $\C P\left(\H \right)$, i.e. there is the natural set theoretic bijective map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
 $$
 \phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
 $$
@@ -1079,6 +1183,9 @@ $$
 \C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+\begin{exercise}
+Prove that  the given by \eqref{bicommutant_to_eqn} is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
+\end{exercise}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
 	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
 	\begin{itemize}
@@ -1148,7 +1255,10 @@ where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 	\bean
 	\sU \mapsto F.
 	\eean
-The $F$-\textit{constant sheaf} is the sheaf associated with the $F$-{constant presheaf}
+The $F$-\textit{constant sheaf} is the sheaf associated with the $F$-{constant presheaf}. We denote it by
+\be
+\overline{F} \bydef \text{ the sheaf associated with } F-\text{constant sheaf}.
+\ee
 \end{definition}
 
 
@@ -1172,12 +1282,7 @@ A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathsc
 	denotes the \textit{support} of the section $s$.
 \end{definition}	
 
-Now  $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
-$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
-Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}=0$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
-$$
-\Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}.
-$$
+
 
  The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
 $$
@@ -1211,7 +1316,7 @@ where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimensio
 	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
 	\ee
 \end{theorem}
-If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
+If $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
 \be\label{nerve_eqn}
 \begin{split}
 	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
@@ -1221,255 +1326,43 @@ If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on
 From the equation \eqref{nerve_eqn} it follows that 
 \be\label{nerve_0_eqn}
 \begin{split}
-	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
+	\mathfrak{Lattices}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattices}\left(\H' \right),\\
 	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
 \end{split}
 \ee
 where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion 
 $\sU_{\sigma}\subset \sH'$.
-If  $\mathscr F$ is a corresponding to $F$ constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
+If  $F$ is an Abelian group and  $\overline F$ is  $F$-constant sheaf  (cf, Definition \ref{constant_presheaf_defn}) on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$ (cf, Definition  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
 $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
 
 \begin{theorem}
 There is the natural isomorphism
 $$
-H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F\right)
 $$
 
 \end{theorem}
 \begin{proof}
  From the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
 $$
-H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right).
+H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \overline F \right) \cong \check H^*\left( \mathscr W; \overline F\right).
 $$
 
 Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$.
 \be\label{proj_h_eqn}
-H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
+H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}},\overline F\right)
 \ee\end{proof}
 \begin{remark}
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
 \end{remark}
-
-
-
-\begin{definition}\label{phi_supp_defn}\cite{bredon:sheaf,godement:sheaf}.
-	Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
-	subsets of $\sX$  such that:
-	\begin{enumerate}
-		\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
-		\item $\Phi$ is closed under finite unions.
-	\end{enumerate}
-	
-	$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
-	\begin{enumerate}
-		\item  each element of $\Phi$ is paracompact;
-		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
-	\end{enumerate}
-\end{definition}\label{sheaf_soft_defn}
-The family of all compact subsets of $\sX$ is denoted by $c$.
-\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
-	A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
-	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
-\end{definition}
-\begin{definition}\cite{bredon:sheaf}
-	%10.5. Definition. 
-	Let $\Phi$ be a family of supports on $\sX$. Then a subspace
-	$A \subset \sX$ is said to be $\Phi$-\textit{taut} if for every flabby sheaf $\mathscr F$ on $\sX$, the restriction
-	$\Ga_\Phi \to \Ga_{\Phi\cap A}$ is surjective and $\mathscr F|A$ is $\Phi\cap A$-acyclic.
-	The following five cases are examples of -b-taut subspaces A of X:
-	\begin{enumerate}
-		\item[(a)] $\Phi$ arbitrary, $A$ open.
-		\item[(b)] $\Phi$ paracompactifying for the pair $\left(\sX, A \right)$ .
-		\item[(c)] $\Phi$ paracompactifying, $\sX$ hereditarily paracompact (e.g., metric), $A$
-		arbitrary.
-		\item[(d)] $\Phi$ paracompactifying, $A$ closed.
-		\item[(a)]($\Phi - cld$, $A$ compact and relatively Hausdorff in $\sX$, e.g., a point.
-	\end{enumerate}
-	
-	\begin{definition}
-	Let $\Phi$ be a family of supports on $\sX$. A continuous map $\sX \to \sY$ is $\Phi$-\textit{closed} meaning $f\left( K\right)$ is closed for any $K \in \Phi$.
-	\end{definition}
-	
-\end{definition}
-\begin{empt}
-	Let $\mathscr L^*$ be a differential sheaf on $\sX$. We are concerned with two cases:
-	\begin{enumerate}
-		\item [(a)] $\mathscr L^*=0$ for $q < q_0$,
-		\item[(b)] $\dim_{\Psi, L}\sX < \infty$ \textit{for a given ground ring $L$ and family $\Psi$ of supports}.
-	\end{enumerate}
-	If we are in case (b) with $\dim_{\Psi, L}\sX < \infty$ , then
-	\bean
-	0 \to \mathscr A \to \mathscr C^0\left(\sX, \mathscr A \right) \to ... \to C^{m-1}\left(\sX, \mathscr A \right)\to \mathscr Z^b\left(\sX, \mathscr A \right)
-	\eean
-	is a resolution of $\Psi$ by $\Psi$-acyclic sheaves and is an exact functor of $\mathscr A$. In
-	the discussion below, $C^*_\Phi\left(\sX, \mathscr A \right)$  should be replaced by $\Ga_\Phi$ of this resolution
-	when we are in case (b).
-	Let
-	\bean
-	L^{p,q}\bydef C^p_\Phi \left( \sX; \mathscr L^q\right) 
-	\eean
-	We take $d': L^{p, q} \to L^{p+1, q}$ to be the differential of the complex $C^p_\Phi \left( \sX; \mathscr L^q\right)$
-	and $\left(-1 \right)^p  : L^{p,q} \to  L^{p,q+l}$ to be the differential induced by the coefficient
-	homomorphism $\mathscr L^q \to \mathscr L^{q+1}$ Let $d = d' + d''$ be the total differential and
-	$L^*$ the total complex, where
-	\bean
-	L^n = \bigoplus_{q + p = n} L^{p, q}
-	\eean 
-	There are two spectral sequences, $'E^{p,q}_r$ and  $''E^{p,q}_r$, of the double complex
-	$L^{*,*}$ converging' to graded groups associated with filtrations on $H^{p+q}_r\left( L^*\right)$.
-	We abbreviate this statement by the notation $E^{p,q}\Rightarrow H^{p+q} (L^*)$; 
-In the first spectral sequence we have $'E^{p,q}_r= 'H^p\left(''H^q\left( L^*, L^*\right)  \right)$  and in
-the second $''E^{p,q}_r= ''H^p\left('H^q\left( L^*, L^*\right)  \right)$, where $'H$ and $''H$ are computed using
-$d'$ and $d''$ respectively.
-Now
-$$
-''H^q\left(L^{*,*} \right) = C^*_\Phi\left(\sX, \mathscr K^q\left(\mathscr L^* \right)  \right) 
-$$
-since $ C^*_\Phi\left(\sX, \bullet  \right)$ is an exact functor. 
-Thus
-$$
-''H^{p, q} = H_\Phi^p\left(\sX, \mathscr K^q\left(\mathscr L \right)  \right) 
-$$
-\end{empt}
-\begin{definition}
-%4.1. Definition.	
-The \textit{Leray sheaf of the map } $f ~\mathrm {mod} f |A$ is the sheaf
-	\bean
-	\mathscr H^*_\Psi\left(f, f|A, \mathscr A \right)  \bydef \mathfrak{Sheaf}\left(\left.\sU \mapsto H^*_{\Psi\cap \sU^\bullet}\left( \sU^\bullet, \sU^\bullet \cap A, \mathscr A \right| \sU^\bullet \right)  \right) 
-	\eean 
-	on $\sY$.
-	For $A = \emptyset$, $\mathscr H^*_\Psi\left(f; \mathscr A \right)\bydef   \mathfrak{Sheaf}\left(\sU \mapsto \Ga_{\Psi\left( \sU\right) }\left(\mathscr A | \sU^\bullet \right) = \left(f_\Psi\mathscr A \right)\left(\sU \right)  \right)$,  and so
-	\bean
-		\mathscr H^0_\Psi\left(f; \mathscr A \right)= f_\Psi\left( \mathscr A\right) 
-	\eean 
-
-\end{definition}
-\begin{proposition}
-	%4.2. Proposition. 
-	If $f$ is $\Phi$-closed and $y^\bullet \bydef f^{-1}\left(y \right)$  is $\Phi$-taut in $\sX$ (e.g.,
-	if $\Phi$ is paracompactifying or if $\Phi$ contains a neighborhood of $\sY\bullet$ and $y^\bullet$ is
-	compact and relatively Hausdorff in $\sX$), then
-	$$
-	r^*_y : \mathscr H_\Psi \left(f, \mathscr A \right) \to H^*_{\Psi \cap y^\bullet}\left(y^\bullet; \mathscr A \right) 
-	$$
-	is an isomorphism for all $\mathscr A$. %(Also see Section 7.)
-\end{proposition}
-
-\begin{defn}
-Let $f : \sX \to \sY$ with $\Psi$ and $\Phi$ being families of supports on $\sX$ and $\sY$
-respectively.
-%5.1. Definition.
- Let the \textit{extension $\Phi\left( \Psi\right)$  of $\Psi$ by $\Psi$} be the family of
-supports on $\sX$ defined by
-\bean
-\Phi\left( \Psi\right) \bydef \left\{K \in \Phi\left( \sY\right)\left| \overline {f\left(K \right)}\in \Phi \right. \right\} = \Psi\left( \sY\right) \cap f^{-1}\left(\Phi \right).
-\eean
-
-Intuitively, $\Phi\left( \Psi\right)$ is the result of "spreading $\Psi$ out over $\Phi$" The reason
-for considering this construction is the following:
-\end{defn}
-\begin{proposition}
-%5.2. Proposition. 
-For any sheaf $\mathscr A$ on $\sX$ we have
-\bean
-\Ga_\Phi\left(f_\Phi \mathscr A\right) = \Ga_{\Psi\left(\sY \right) }\left(\mathscr A \right) \subset \mathscr A\left(\sX \right). 
-\eean
-under the defining equality $\left( f_\Psi \mathscr A\right) = \Ga_{\Phi\left(\Psi \right) }\left(\mathscr A\right)$.
-\end{proposition}
-\begin{empt}
-	%PAGE 213
-For $A = \emptyset$, the Leray sheaf is denoted by $\mathscr H^*_\Psi \left(f: \mathscr A \right)$, and by the preceding
-remarks, it is the derived sheaf
-\bean
-\mathscr H^*_\Psi \left(f: \mathscr A \right)\cong \mathscr H^* \left(f_\Psi \mathscr A \right)
-\eean
-for any flabby (e.g., injective) resolution $\mathscr A^*$ of $\mathscr A$. Therefore $\mathscr H^* \left(f_\Psi \mathscr A \right)$ is
-just the $p-$th right derived functor of the left exact functor $f_\Psi$,.
-\end{empt}
-\begin{empt}\label{leray_empt}
-Let $A \subset \sX$, let $f : \sX \to \sY$, and let $\Psi$ and $\Phi$ be families of supports on $\sX$
-and $\sY$ respectively. In this section we shall assume that at least one of the
-following two conditions holds:
-\begin{enumerate}
-	\item[(A)] $\Psi = cld$,
-	\item[(B)] $\Phi$ is paracompactifying
-\end{enumerate}
-\end{empt}
-\begin{theorem}\label{leray_thm}
-%6.1. Theorem. 
-If (A) or (B) of \ref{leray_empt} holds, then there is a spectral sequence (the
-Leray spectral sequence) in which
-\bean
-E^{p,q} = H^p_\Phi\left(\sY; \mathscr H^q_\Psi\left(f, f|A; \mathscr A \right)  \right) \Rightarrow H^{p + q}_{\Phi\left(\Psi \right) }\left( \sX, A,  \mathscr A\right) 
-\eean 
-Moreover, if $f$ is $\Psi$-closed and $\Psi \cap A$-closed and if each $y^\bullet \bydef f^{-1}\left( y\right)$  is $\Psi$-taut
-and each $y^\bullet\cap A$ is $\Psi\cap A$-taut in $\sX$, then the canonical homomorphisms
-\bean
-r^*_y: \mathscr H^*_\Psi\left(f, f|A; \mathscr A \right)_y \to H^*_{\Psi \cap y^\bullet}\left( y^\bullet, y^\bullet \cap A; \mathscr A\right) 
-\eean
-are isomorphisms.
-\end{theorem}
-%\begin{theorem}\cite{bredon:sheaf}
-	%10.6. 
-%	Theorem. Let $\Phi$ be a family of supports on $\sX$ and let $A$ be a subspace	of $\sX$. Let  $\mathscr N$  be a collection of $\Phi$-taut subspaces of $\sX$ containing $A$ 	and directed downwards by inclusion. Assume that for each $K \in \Phi|K \setminus A$	there is an $N \in \mathscr N$ with $N \in \sX \setminus K$. Then $A$ is $\Phi$-taut $\Leftrightarrow$ the map
-%	$$
-%	\th: \lim_{N \in \mathscr N} H^*_{\Phi \cap N} \left( N, \mathscr A|N\right) \to H^*_{\Phi \cap A} \left( A, \mathscr A|A\right)
-%	$$
-	
-%	induced by restriction, is an isomorphism for every sheaf $\mathscr A$ on $\sX$.
-%\end{theorem}
-%Let $A \subset \sX$, let $\Phi$ be a family of supports on $\sX$, let $\mathscr A$ be a sheaf on $\sX$,
-%and let $f: \sX \to \sY$ be a map.
-%If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P\left(\H \right)$ then
-%$$
-%\C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
-%$$
-%Similarly 
-%$$
-% \C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right). 
-%$$
-%where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P^n$.
-%\begin{definition}\label{nerve_defn}\cite{spanier:at}
-%	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
-%\end{definition}
-%\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
-	%PAGE 193 !!! DOWN !!!
-	%4.13. Theorem. 
-%	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
-%	\be
-%	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
-%	\ee
-%\end{theorem}
-%If $F$ is an Abelian group and $\mathscr F$ is a corresponding constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
-%\be\label{nerve_eqn}
-%\begin{split}
-%	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
-%	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
-%\end{split}
-%\ee
-%From the equation \eqref{nerve_eqn} it follows that 
-%\be\label{nerve_0_eqn}
-%\begin{split}
-%	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
-%	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
-%\end{split}
-%\ee
-%where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion $\sU_{\sigma}\subset \sH'$.If  $\mathscr F$ is a corresponding to $F$ constant sheaf on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). From the Theorem \ref{top_nerve_thm} it turns out that
-%$$
-%H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \mathscr A \right) \cong \check H^*\left( \mathscr W; \mathscr A\right)
-%$$
-%Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
-The following theorem can be deduced from the \ref{leray_thm} one.
-\begin{theorem}
-	There is the natural isomorphism
-	$$
-	H^*_c\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) \cong H^*_c\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \mathscr F_{\mathfrak{Gelfand}}\right)
-	$$
-	
-\end{theorem}
-	\subsection{Hausdorff blowing-up}
+\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
+	A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
+\end{definition}	
+	\begin{lemma}\label{cw_p_lem}\cite{miyazaki_cw}
+	Any $CW$-complex is paracompact.
+\end{lemma}
+\subsection{Hausdorff blowing-up}
 	
 	\begin{definition}\label{blowing_defn}
 	If $A$ is a $C^*$-algebra then an inclusion $C_0\left( \sY\right) \subset M\left(A \right)$  is \textit{Hausdorff blowing-up} of $A$ if  both sets
@@ -1743,7 +1636,43 @@ from the Remark \ref{blow_rem} and the Proposition \ref{spectral_sequence_prop} 
 	\bean
 	\forall a \in A\quad \left\|a \right\| = \sup_{y \in \sY} \left\| \rho_y\left(a \right) \right\| 
 	\eean
-where $\rho_y: A \to B\left(\H_y \right)$ is the corresponding to $y$ irreducible representation. Let $\xi \in \mathfrak{Gelfand}\left(A \right)$, $x \bydef \phi_A\left( \xi\right)$ and $L_\xi \in \xi$ be a left ideal.  
+where $\rho_y: A \to B\left(\H_y \right)$ is the corresponding to $y$ irreducible representation. If $S\subsetneqq A$ is a closed subset then there is $a \in A\setminus S$ and $\eps > 0$ such that
+$$
+\forall a' \in S\quad  \left\| a - a' \right\| > 2\eps
+$$
+It turns out that there is $y \in \sY$ such that
+$$
+\forall a' \in S\quad  \left\| \rho_y\left(a - a' \right) \right\| > \eps
+$$
+If $L\subset A$ is a proper closed left ideal then there is $y \in \sY$ such that
+\be\label{to_sp_eqn}
+\rho_y\left( L\right) \H_y \neq \H_y.
+\ee
+If for all  $\xi \in \mathfrak{Gelfand}\left(A \right)$  such that there is a bicommutant (cf, Definition \ref{bicommutant_defn}) $\xi'' \subset A$ then there is the unique $y \in \sY$ such that $\rho_y\left( L\right) \H_y \neq \H_y$. It turns out that there are following maps
+\be
+\begin{split}
+\mathfrak{Gelfand}\left(A \right) \to \mathfrak{Gelfand}\left(A \right)'' \to \sY.
+\end{split}
+\ee
+If there is a map $\sX \xrightarrow{\mathfrak{Blowing}} \sY$ such that the following diagram commutative 
+	\newline
+\begin{tikzcd}
+	\mathfrak{Gelfand}\left( A\right)''	 \arrow[rr]\arrow[rd]  & ~ & \sY = \mathfrak{Gelfand}\left(C_0\left( \sY\right)  \right)'' \arrow[ld, , "\mathfrak{Blowing}"]\\
+	& \sX &
+\end{tikzcd}
+\\
+then we say that $\mathfrak{Blowing}$ is the Hausdorff blowing-up of the spectrum.
+The "blowing-up" word is inspired by following reasons:
+\begin{itemize}
+	\item the existence  of the  surjective  map $\mathfrak{Blowing}$ from the  Hausdorff space  to the spectrum, %(cf. Definition \ref{blowing_spectral_defn}),
+	\item  in the algebraic geometry   "blowing-up" means  from a map $\sX \to \sY$ such that the variety $\sX$ has no singular points (cf. \cite{hartshorne:ag}).
+\end{itemize}
+
+
+
+
+
+$x \bydef \phi_A\left( \xi\right)$ and $L_\xi \in \xi$ be a left ideal such that there is a bicommutant (cf, Definition \ref{bicommutant_defn}) $\xi'' \subset A$
 
 
 For any $x \in \sX$ there closure $L_x$ of the union
@@ -1835,6 +1764,19 @@ There is the natural continuous surjective map
 	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
 	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
 \end{definition}
+	\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
+	Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of topological spaces, and for each $\iota\in I$ let $f_\iota$ be a mapping of $\sY_\iota$ into $\sX$. Let $\mathfrak{D}$ be a set of subsets $\sU$ of $\sX$ such that $f_\iota^{-1} \left(\sU \right)$ is open in $\sY_\iota$ for each $\iota \in I$; then  $\mathfrak{D}$ is a set of open sets in a topology $\mathfrak{T}$. In particular $\mathfrak{T}$ is the finest topology for which the mappings $f_\iota$ are continuous. In other words, if $g$ is mapping on $\sX$ into a topological space $\sZ$, then $g$ is continuous ($\sX$ carrying the topology $\mathfrak{T}$) if and only if each of the mappings $g\circ f_\iota$ is continuous.
+\end{proposition}
+\begin{definition}\label{top_final_defn}
+	Under the hypotheses of Proposition \ref{top_final_prop} we say that the topology $\mathfrak{T}$ is \textit{final} (\textit{with respect to the family of maps} $\left\{f_\iota:\sY_\iota \to \sX\right\}_{\iota\in I}$).
+\end{definition}
+
+	\begin{proposition}\label{top_init_prop}\cite{bourbaki_sp:gt}
+	Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota \in I}$ be a family of topological spaces, and for each $\iota \in I$ let $f_\iota$ be a mapping of $\sX$ into $\sY_\iota$.  Let $\mathfrak{S}$ be the set of subsets of $\sX$ of the form $f^{-1}_\iota\left(\sU_\iota \right)$ where $\iota \in I$, $\sU_\iota$ is open in $\sY_\iota$. Let $\mathfrak B$ be the set of finite intersections of sets of $\mathfrak S$. Then $\mathfrak B$ is a base of a topology $\mathfrak T$ and in particular is the coarsest topology on $\sX$ for which the mappings $f_\iota$ are continuous. More precisely of $g$ is a mapping of topological space into $\sY$, then is continuous at a point  $z \in \sZ$ ($\sX$ carrying the topology $\mathfrak T$) if and only if for each of the functions $f_\iota\circ g$ is continuous at $z$.
+\end{proposition}
+\begin{definition}\label{top_init_defn}\cite{bourbaki_sp:gt}
+	Under the hypotheses of Proposition \ref{top_init_prop} we say that the topology $\mathfrak{T}$ is \textit{initial} (\textit{with respect to the family of maps} $\left\{f_\iota:\sX \to \sY_\iota\right\}_{\iota\in I}$).
+\end{definition}
 \begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
 	%1.13. 
 	\textit{
@@ -1845,15 +1787,7 @@ There is the natural continuous surjective map
 	\be\label{pf_eqn}
 	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}: \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX
 	\ee
-	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
-	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
-	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
-	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
-	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
-	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
-	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
-	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
-	
+	by sending $s_x\in \mathscr F_x$ to $x$. Consider the initial with respect to the map $	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}$ topology (cf. Definition \ref{top_init_defn} and denote by $\mathrm{Sp\acute{e}}\left(\mathscr F \right)_{\mathfrak{Etale}}$ the corresponding topological space.
 \end{exercise}
 \begin{lemma}\label{ctr_gelfand_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural bijective set theoretic map $\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
@@ -1943,14 +1877,44 @@ Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop} a locally
 \end{itemize} 
 One can proof that the set of described above triples satisfies to the Definition \ref{pre_gelfand_defn}, i.e. there is the natural bijective map
 \be\label{gtop_map_eqn}
-\C P\left(\E \right)\cong \mathfrak{pre}- \mathfrak{Gelfand}\left(A \right)
+\C P\left(\E \right)\cong \mathfrak{pre-Gelfand}\left(A \right)
 \ee
-There is the natural Gelfand  topology on $\C P\left(\E \right)$ such that the map \eqref{gtop_map_eqn} is continuous. 
+There is the topology on $\C P\left(\E \right)$ such that the bijective map \eqref{gtop_map_eqn} is a homeomorphism, we denote by $\C P\left(\E \right)_{\mathfrak{Gelfand}}$  the corresponding topological space.
+ Indeed the topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is final (cf. Definition \ref{top_final_defn}) with respect to the surjective  map 
+\bean
+\phi_C : \mathfrak{Gelfand}\left(A \right)\to \C P\left(\E \right).
+\eean
+There is the well known Hausdorff topology on  $\C P\left(\E \right)$. denote by  $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ the corresponding
+\begin{lemma}
+The topology of $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is finer than the $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ one.
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+
+\begin{lemma}
+There is a final with respect to map $\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \C P\left(\E \right)_{\mathfrak{Hausdorff}}$ topology, let $\mathrm{Sp\acute{e}}\left(\mathscr F \right)_{\mathfrak{Hausdorff}}$ be the corresponding topological space. THe isomotphism of co.
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+\begin{empt}
+There is a space 
+\end{empt}
+
+the set $C P\left(\E \right)$ with Gelfand topology. From the Lemma \ref{ctr_gelfand_lem} it follows that there are 
+are  following  set theoretic maps
+\bean
+\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \xrightarrow{\phi'}\C P\left(\E \right)\xrightarrow{\phi''}\sX
+\eean 
+The described in the Exercise \ref{sheaf_etale_exer} topology is the smallest among 
 If we consider well known Hausdorff topology on $\C P\left(\E \right)$ the  map \eqref{gtop_map_eqn}  yields a continuous bijective map
 \bean
-\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}
+\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
 \eean 
 Let $F$ be an Abelian group, and let $\mathscr F_{\mathfrak{Gelfand}}$ be a corresponding to $F$ constant sheaf on $\C P\left(\E \right)_{\mathfrak{Gelfand}}$.
+ 
+ 
 
 \begin{lemma}
 	Let $F$ is an Abelian group.
@@ -1962,21 +1926,34 @@ Let $F$ be an Abelian group, and let $\mathscr F_{\mathfrak{Gelfand}}$ be a corr
 	\end{itemize}	
 	then there is the natural isomorphism
 	$$
-	H^*\left(\mathfrak{Gelfand}\left(A \right),\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) 
+	H^*\left(\C P\left(\E \right) _{\mathfrak{Gelfand}},\mathscr F_{\mathfrak{Gelfand}}  \right) \cong H^*\left(\C P\left(\E \right) _{\mathfrak{Hausdorff}}, \mathscr F_{\mathfrak{Hausdorff}} \right) 
 	$$ 
 	where both $\mathscr F_{\mathfrak{Hausdorff}}$ and $\mathscr F_{\mathfrak{Gelfang}}$ are corresponding to $F$ locally constant sheaves.
 \end{lemma}
 \begin{proof}
 	The proof of this Lemma is similar to the proof of the equation \eqref{proj_h_eqn}.
 \end{proof}
-There is the following commutative diagram.
+If  $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ is a set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous then there are the following commutative diagrams.
 \\
 \newline
 \begin{tikzcd}
-	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}}	 \arrow[r, "\phi'"] \arrow[d, "\phi''"] &  \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\arrow[d]\\
-	C P\left(\E \right)_{\mathfrak{Gelfand}} \arrow[r]  &  \sX	
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}}_{\mathfrak{Etale}}	 \arrow[rr, "\phi'_{\mathfrak{Hausdorff}} "] \arrow[d, "\phi''_{\mathfrak{Hausdorff}}"] &  & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\arrow[d]\arrow[lld, "p"]\\
+	C P\left(\E \right)_{\mathfrak{Hausdorff}} \arrow[rr]  & &  \sX	
 \end{tikzcd}
 \\
+\\
+\newline
+\begin{tikzcd}
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}}_{\mathfrak{Gelfand}}	 \arrow[rr, "\phi'_{\mathfrak{Gelfand}} "] \arrow[d, "\phi_{\mathfrak{Gellfand}}"] & & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\arrow[d]\\
+	C P\left(\E \right)_{\mathfrak{Gelfand}} \arrow[rr]  & & \sX	
+\end{tikzcd}
+\\
+\\
+One can proof that 
+\bean
+	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}} \cong \left\{y \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)^{\text{ext}}_{\mathfrak{Etale}}  | \phi''\left( y\right) = \phi''\circ \phi\left(y \right)  \right\}
+\eean 
+
 
 	On the other hand there is the natural map $\phi''': \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\to C P\left(\E \right)$. If
 	\be
@@ -2030,12 +2007,13 @@ of this work.
 	\bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
 	
 	\bibitem{johnstone:topos}Peter Johnstone. \textit{Topos Theory}, L. M. S. Monographs no. 10, Academic Press 1977.
-		
+	
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
-	
-%\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
+\bibitem{miyazaki_cw} Hiroshi Miyazaki, {The paracompactness of CW-complexes}, Tohoku Math. J. (2) Volume 4, Number 3 (1952), 309-313. 1952 	
+	
+\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 	
 	\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.	
 		\bibitem{pedersen:ca_aut}Gert K Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
