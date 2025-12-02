@@ -29,6 +29,41 @@
 \usepackage[T1]{fontenc}
 \usepackage[babel=true]{microtype}
 
+\newcommand{\Wedgem}{\Wedge^{\mathrm{max}}}
+\DeclareMathOperator{\inv}{inv}
+
+
+\newcommand{\cs}{\mbox{\upshape C}\ensuremath{{}^*}} 
+\newcommand{\csr}{{\mathrm C}^*_{\mathrm r}}
+\newcommand{\csm}{\cs_{\mathrm{max}}}
+\newcommand{\co}{\mathbb{C}}
+\newcommand{\Grp}{\mathsf{G}}
+\newcommand{\Sig}{{\sf\Sigma}}
+\newcommand{\PI}{{\sf\Pi}}
+\DeclareMathOperator{\Pair}{Pair}
+\DeclareMathOperator{\Tw}{Tw}
+\newcommand{\BS}{\text{B-S}}
+
+
+\newcommand{\Alg}{\mathsf{A}}
+\newcommand{\p}{\mathfrak{P}}
+
+
+\DeclareMathOperator{\curv}{curv}
+
+\def\bean#1\eean{\begin{equation}#1\end{equation}}
+\newcommand{\s}{\mathsf{s}}
+\renewcommand{\t}{\mathsf{t}}
+\newcommand{\m}{\mathsf{m}}
+
+ \newcommand{\fchoice}[2]{#2}
+\DeclareMathSymbol{\onto}{\mathrel}{AMSa}{"10}
+\renewcommand{\hbar}{{\mathchar'26\mkern-9muh}}
+\newcommand{\Wedge}{\mathsf{\Lambda}}
+\newcommand{\espace}{}
+
+\DeclareMathOperator{\pr}{pr}
+
 
 \usepackage{amsfonts,cite}
 \usepackage{graphicx}
@@ -217,6 +252,7 @@
 \newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
 \newcommand{\hh}{\mathcal{H}}                %% Hilbert space
 \newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+\newcommand{\into}{\hookrightarrow}        %% abbreviation
 \newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
 \newcommand{\I}{\mathcal{I}}                 %% tracelike functions
 \DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
@@ -320,7 +356,6 @@
 	
 	\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
 	\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
-	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
 	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
 	
 	\newcommand\VD{{\mathcal D}}
@@ -575,8 +610,6 @@
 		\renewcommand{\ee}{\end{equation}}
 	\newcommand{\bea}{\begin{eqnarray}}
 		\newcommand{\eea}{\end{eqnarray}}
-	\newcommand{\bean}{\begin{eqnarray*}}
-		\newcommand{\eean}{\end{eqnarray*}}
 	\newcommand{\brray}{\begin{array}}
 		\newcommand{\erray}{\end{array}}
 	\newenvironment{equations}
@@ -618,7 +651,7 @@
 
 \begin{abstract}
 	\noindent
-\paragraph{}	Any $C^*$-algebra can be regarded as a generalization of locally compact Hausdorff topological space. Here we consider a generalization of fundamental group and (co)homology theory. In result one has invariants  of $C^*$-algebras such that: 
+\paragraph{}	Any $C^*$-algebra can be regarded as a generalization of locally compact Hausdorff topological space $\mathcal X$. Here we consider a generalization of fundamental group and (co)homology theory. In result one has invariants  of $C^*$-algebras such that: 
 	\begin{itemize}
 		\item for any commutative $C^*$-algebra $A = C_0\left(\sX \right)$ the invariants of $A$ coincide with the  $\sX$ ones,
 		\item the theory is not trivial even for algebras having bad spectrum, e.g. containing  one point only.
@@ -640,7 +673,7 @@ is a \textit{ meet} (or \textit{ greatest lower bound}) for $S$, and write $a = 
 	\item [(b)] if $\forall s \in S\quad  b \le s$, then $b \le a$. 
 \end{enumerate}
 \paragraph{}
-The antisymmetry axiom  ensures that the join of $S$, if it exists, is 
+The antisymmetry axiom of the  partially ordered set $A$ ensures that the join of $S$, if it exists, is 
 unique. If $S$ is a two-element set $\{s, t\}$, we write $s \wedge t$ for $\wedge \{s, t\}$ and if $S$	is the empty set $\emptyset$, we write $0$ for  $\wedge \emptyset$.
 \end{definition}
 
@@ -827,14 +860,14 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	
 	If $x \in \mathfrak{Gelfand}\left( C_0\left(  \sX\right)\right)$ then there if $a \in K\left( C_0\left( \sX\right) \right) \cong C_c\left( \sX\right)$ such that
 	$$
-aA \in x
+aA \in \xi
 	$$
-or equivalently $\sV_x\subset  \supp a$.
+or equivalently $\sV_\xi\subset  \supp a$.
 	If 
 	$$
-x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters}_\sX\left(  x\right) \right\}\in \mathfrak{Ultrafilter}_{\supp a}
+\xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in\in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
 	$$
-	then  from the Proposition \ref{top_ultra_thm} it turns out that $x_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( x\right)$.
+	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$.
 
 \end{proof}
 	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
@@ -864,6 +897,55 @@ x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
 	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
+
+
+\begin{definition}\label{bicommutant_defn}
+Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
+$$
+L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
+$$
+is the \textit{commutant} of $L$ (write $L^\perp$),
+For any element $\xi \in  \mathfrak{Filters} \left(A \right)$ the \textit{bicommutant} (written $\xi^{\perp\perp}$ or $\xi''$) is the closure of the union
+$$
+\bigcup_{L \in \xi} L^\perp.
+$$
+The set of bicommutants which are proper ideals (write $\mathfrak{Filters} \left(A \right)^{\perp\perp}$ $\mathfrak{Filters} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Filters} \left(A \right)$. The set of proper ideals which are bicommutants of the Gelfand space  (write $\mathfrak{Gelfand} \left(A \right)^{\perp\perp}$ $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$. There is the natural surjective  map 
+\be\label{bicommutant_to_eqn}
+ S \xrightarrow{\phi''}  \mathfrak{Gelfand} \left(A \right)''
+\ee
+from  the subset of $S \subset \mathfrak{Gelfand} \left(A \right)$ onto $\mathfrak{Gelfand} \left(A \right)''$. This map yields the initial topology (cf. Definition \ref{top_init_defn}), so the set $\mathfrak{Gelfand} \left(A \right)''$ is a topological space.
+\end{definition}
+
+\begin{example}
+From the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism $\mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$. If $x = \mathfrak{Gelfand}_\sX\left( \xi\right)$ then for any $L \in \xi$ there is an open neighborhood of $x$ such that 
+\bean
+\forall a \in L \quad a\left(\sX \setminus \sU \right) = \{0\}
+\eean  
+so one has
+\bean
+\forall a \in L^\perp \quad a\left(\sU \right) = \{0\}
+\eean
+
+If $L_x \bydef \left\{a \in C_0\left(\sX \right) | a\left(x \right)= 0  \right\}$ 
+the for any positive   $a'\in L_x$ one has
+\be\label{pden_eqn}
+\begin{split}
+\left\|a' - f_{\eps/2}\left(a' \right)  \right\| < \eps,\\
+\exists L \in \xi \quad a' \in L^\perp.\
+\end{split}
+\ee 
+where $f_\eps$ is given by \eqref{f_eps_eqn}. From the equation \eqref{pden_eqn} it turns out that the subset of positive elements of the union $\cup  L^\perp$ is dense  in  the subset of positive elements of $L_x$.
+If $A$ is a $C^*$-algebra then one has
+\be\label{four_decompositon_eqn}
+\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4 \quad  a_1, a_2, a_3, a_4 \ge 0.
+\ee
+From \eqref{four_decompositon_eqn} it follows that the the union $\cup  L^\perp$ is dense in $L_x$, so one has $L_x \subset \xi'' \bydef \phi''\left( \xi\right) $ (cf. Definition \ref{bicommutant_defn}). On the other hand if $a \notin L_x$ then $\left\|a\left(x \right)  \right\| > 0$ and
+\bean
+\forall L \in \xi \quad \exists a' \in L \quad a'\left(x \right)\neq 0 \quad  \Rightarrow \quad a'\left( x\right) a^*\left( x\right) \neq 0\quad  \Rightarrow \quad a'a^* \neq 0.
+\eean 
+So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out that the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(A \right)$ onto $ \mathfrak{Gelfand} \left(A \right)''$.
+\end{example}
+
 \begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
 	\begin{enumerate}
@@ -878,7 +960,7 @@ x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters
 \begin{definition}\label{irred_defn}\cite{pedersen:ca_aut}
 	Let $A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The representation is said to be \textit{irreducible} if it satisfies to the Theorem \ref{irred_thm}.
 \end{definition}
-	\begin{definition}\label{spectrum_prime_primtive_defn}\cite{pedersen:ca_aut}
+\begin{definition}\label{spectrum_prime_primtive_defn}\cite{pedersen:ca_aut}
 	An ideal $I$ in a $C^*$-algebra $A$ is \textit{prime}  if $xAy \subset I$  implies $x\in I$  or $y\in I$
 	for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
 	$I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
@@ -887,88 +969,25 @@ x_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \mathfrak{Ultrafilters
 \end{definition}
 
 
-\begin{empt}
-Let $A$ be a $C^*$-algebra, and let $\sY= \hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). For any closed left ideal there is a set
-\bean
-\sY_L \bydef \left\{y \in \sY | \rho_y\left(L \right) \neq 0\right\}.
-\eean
-where $\rho_y$ is the corresponding to irreducible representation.
-There is the natural equivalence relation $\sim_{\mathfrak{Lattice}}$ on the $\mathfrak{Lattice}\left( A\right)$  such that
-\be\label{lat_eqn}
-L' \sim_{\mathfrak{Lattice}} L''\quad \Leftrightarrow \quad  \sX_{L'} = \sX_{L''}.
-\ee
-\end{empt}
-\begin{definition}
-Two filters $\xi', \xi'' \in \mathfrak{Filters} \left(A \right) $  are \textit{spectrally equivalent} (write $\xi'\sim_{\mathfrak{Filters}} \xi''$ ) if one has
-\be
-\begin{split}
-\forall L'_1 \in \xi' \quad \exists L''_1\in \xi'' \quad \sX_{L''_1} \subset \sX_{L'_1},\\
-\forall L''_2 \in \xi'' \quad \exists L'_2\in \xi' \quad \sX_{L'_2} \subset \sX_{L''_2}
-\end{split}
-\ee
-\end{definition}
-\begin{definition}\label{bicommutant_defn}
-Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
-$$
-L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
-$$
-is the \textit{commutant} of $L$ (read $L'$ or $L^\perp$),
-For any element $\xi \in  \mathfrak{Filters} \left(A \right)$ the \textit{bicommutant} (written $\xi^{\perp\perp}$ or $\xi''$) is the closure of the union
-$$
-\bigcup_{L \in \xi} L^\perp.
-$$
-The set of bicommutants which are proper ideals (write $\mathfrak{Filters} \left(A \right)^{\perp\perp}$ $\mathfrak{Filters} \left(A \right)''$ is the \textit{bicommutant} of $\textit{bicommutant}$. The set of bicommutants of the Gelfand space  (write $\mathfrak{Gelfand} \left(A \right)^{\perp\perp}$ $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$. There is the natural surjective  map from the subset 
-\be\label{bicommutant_to_eqn}
- S \to  \mathfrak{Gelfand} \left(A \right)''
-\ee
- the subset of $S \subset \mathfrak{Gelfand} \left(A \right)$ onto $\mathfrak{Gelfand} \left(A \right)''$. This map yields the initial topology (cf. Definition \ref{top_init_defn}), so the set $\mathfrak{Gelfand} \left(A \right)''$ is a topological space.
-\end{definition}
 
-\begin{example}
-From the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism $\mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$. If $x = \mathfrak{Gelfand}_\sX\left( \xi\right)$ then for any $P \in \xi$ there is an open neighborhood such that 
-\bean
-\forall a \in P \quad a\left(\sX \setminus \sU \right) = \{0\}
-\eean  
-so one has
-\bean
-\forall a \in P^\perp \quad a\left(\sU \right) = \{0\}
-\eean
-
-If $L_x \bydef \left\{a \in C_0\left(\sX \right) | a\left(x \right)= 0  \right\}$ 
-the for any positive   $a'\in L_x$ one has
-\bean
-\left\|a' - f_{\eps/2}\left(a \right)  \right\| < \eps,
-\exists P \in \xi \quad a' \in P'.
-\eean 
-where $f_\eps$ is given by \eqref{f_eps_eqn}.
-If $A$ is a $C^*$-algebra then one has
-\be\label{four_decompositon_eqn}
-\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4.
-\ee
-From \eqref{four_decompositon_eqn} it follows that the $L_x \subset x''$. On the other hand if $a' \notin L_x$ then $\left\|a' \right\| > 0$ and
-\bean
-\forall L \in \xi \quad \forall a'' \in L^\perp \quad \left\|a' - a''\right\| \ge  \left\|a' - a''\right\|.
-\eean 
-So one has $\xi'' = L_x$. From this fact it turns out that the given by \eqref{bicommutant_to_eqn} is a  homeomorphism from  $\mathfrak{Gelfand} \left(A \right)$ onto $ \mathfrak{Gelfand} \left(A \right)''$.
-\end{example}
 \begin{definition}\label{belongs_defn}
-Let $A$ be a $C^*$ -algebra and let $\sY$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to } $y \in \sY$ if one has
-\bean
-\forall L \in \xi \quad \rho_y\left(L \right) \neq \rho_y\left(A \right) 
-\eean
-where $\rho_y : A \to B\left(\H_y \right)$ is an irreducible representation (cf. Definition  \ref{irred_defn}).  Similarly the bicommutant $\xi''$ \textit{belongs to} $y$ if $\rho_y\left(\xi'' \right) \neq \rho_y\left(A \right)$.
-
+	Let $A$ be a $C^*$ -algebra and let $\sY$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to } $y \in \sY$ if one has
+	\bean
+	\forall L \in \xi \quad \rep_y\left(L^\perp \right) \neq \rep_y\left(A \right) 
+	\eean
+	where $\rep_y : A \to B\left(\H_y \right)$ is an irreducible representation (cf. Definition  \ref{irred_defn}).  Similarly the bicommutant $\xi''$ \textit{belongs to} $y$ if $\rep_y\left(\xi'' \right) \neq \rep_y\left(A \right)$.
+	
 \end{definition}
 \begin{remark}
-Under the hypothesis of the Definition \ref{belongs_defn}  if $y', y'' \in \sY$ with $y' \neq y''$ and $\xi\in \mathfrak{Gelfand}\left(A \right)$ belongs to both $y'$, and $y''$ then the generated by the set $\left\{ L \cap \ker_{y'}\right\}$ filter exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter.
-So there are natural maps:
-\be\label{to_spec_eqn}
-\begin{split}
-S \to \sY,\\
-S'' \to \sY,
-\end{split}
-\ee
-where $S\subset \mathfrak{Gelfand}\left(A \right)$ and $S''\subset \mathfrak{Gelfand}\left(A \right)''$ are subsets.
+	Under the hypothesis of the Definition \ref{belongs_defn}  if $y', y'' \in \sY$ with $y' \neq y''$ and $\xi\in \mathfrak{Gelfand}\left(A \right)$ belongs to both $y'$, and $y''$ then the generated by the set $\left\{ L \cap \ker_{y'}\right\}$ filter exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter.
+	So there are natural maps:
+	\be\label{to_spec_eqn}
+	\begin{split}
+		S \to \sY,\\
+		S'' \to \sY,
+	\end{split}
+	\ee
+	where $S\subset \mathfrak{Gelfand}\left(A \right)$ and $S''\subset \mathfrak{Gelfand}\left(A \right)''$ are subsets.
 \end{remark}
 
 \subsection{Morphisms}
@@ -1028,22 +1047,22 @@ The equation \eqref{fil_mor_eqn}  induces a continuous map.
  From the equation \eqref{gelfand_eqn} one can deduce any closed set on  that $\mathfrak{Ultrafilters}\left(A\right)$ corresponds to a closed set on $\mathfrak{Ultrafilters}\left(\widetilde A\right)$ 
 \end{proof}.
 \begin{defn}\label{good_defn}
-The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} mapping $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural continuous  map
+The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural continuous  map
 	\be\label{gelfand_map_eqn}
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
 \end{defn}
 \begin{empt}\label{bicommutant_empt}
 	Let $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
-  $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}$ end $\eps > 0$ such that
+  $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
   \be\label{b_neq_eqn}
-  \forall a_1, ..., a_n \in A \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a_1,\right\| > \eps.
+  \forall a_1, ..., a_n \in \xi'' \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a,\right\| > \eps.
   \ee
- If $\xi = \mathfrak{Gelfand}\left(\varphi_R \right) \left(\widetilde \xi \right)$ then 
+ where $\xi''$ is the bicommutant of  $\xi = \mathfrak{Gelfand}\left(\varphi_R \right) \left(\widetilde \xi \right)$. From
  \bean
  \forall L \in \xi \quad \text{the closure of } \widetilde A \varphi_R\left( L\right) \in \widetilde \xi.
  \eean 
- It follows that 
+it follows that 
  \bean
  \forall L \in \xi \quad \exists \widetilde L \in \widetilde \xi \quad \widetilde A   \varphi\left(L^\perp \right) \subset \widetilde L^\perp.
  \eean 
@@ -1057,7 +1076,7 @@ The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by 
  \eean 
  then
  $$
- \left\| \sum_{j =1}^n \widetilde a_j a;_j - \widetilde a_1,\right\| > \eps
+ \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a,\right\| < \eps
  $$
  Above equation contradicts with \eqref{b_neq_eqn} one.
 \end{empt}
@@ -1101,7 +1120,7 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\be\nonumber
 		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left(M\left(  A\right) \right) \quad ga = a\right\}
 		\ee
-		is discrete
+		is discrete,
 		\item[(c)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto M\left( \widetilde{A}\right) $   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
@@ -1139,15 +1158,16 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	\begin{enumerate}
 		\item [(a)] both $A$ and $\widetilde A$ are essential ideals of $B$ and $\widetilde B$,
 		\item[(b)] $\lift \bydef \left.\widetilde\lift\right|_A$,
-		\item[(c)] the action $G \times \widetilde B \to \widetilde B$ naturally comes from the $G \times \widetilde A \to \widetilde A$
+		\item[(c)] the action $G \times \widetilde B \to \widetilde B$ naturally comes from the $G \times \widetilde A \to \widetilde A$.
 	\end{enumerate}	
+	then $\left(A, \widetilde{A}, G, \lift \right)$ is a \textit{noncommutative covering}.
 \end{definition}
 
 	
 
 
 \begin{definition}\label{fund_den}
-	If $A$ is a $C^*$ -algebra then a noncommutative covering $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{universal}, if for any noncommutative covering $\left(A, \widetilde{A}', G', \lift' \right)$ there is natural noncommutative covering $\left(\widetilde{A}', \widetilde{A}, G'', \lift'' \right)$. If the universal covering exists then $G$ is said to be the \textit{fundamental group} of $A$.
+	If $A$ is a $C^*$ -algebra then a noncommutative covering $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{universal}, if for any noncommutative covering $\left(A, \widetilde{A}', G', \lift' \right)$ there is natural noncommutative covering $\left(\widetilde{A}', \widetilde{A}, G'', \lift'' \right)$ with $\lift = \lift''\circ \lift'$. If the universal covering exists then $G$ is said to be the \textit{fundamental group} of $A$.
 \end{definition}
 	
 
@@ -1221,7 +1241,7 @@ If $L$ is minimal then $V_L$ is a one dimensional space. Any ultrafilter of the 
 $$
 \phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
 $$
-where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   well known Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  with the given by Definition  \eqref{ultrafilters_space_defn} topology.
+where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   well known Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  having the final with respect to the map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$ topology (cf. Definition \ref{top_final_defn}).
 If $\dim \H = n < \infty$  then $\C P\left(\H \right)= \C P^n$ and there is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
 There is a composition of continuous maps
 $$
@@ -1229,7 +1249,7 @@ $$
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 \begin{exercise}
-Prove that  the given by \eqref{bicommutant_to_eqn} is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
+Prove that  the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto the bicommutant  $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
 \end{exercise}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
 	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
@@ -1327,19 +1347,6 @@ The $F$-\textit{locally constant sheaf} is the sheaf associated with the $F$-{co
 	denotes the \textit{support} of the section $s$.
 \end{definition}	
 
-
-
- The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
-$$
-\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
-$$
-where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  with the given by Definition  \eqref{ultrafilters_space_defn} topology.
-If $\dim \H = n < \infty$  then $\C P\left(\H \right)= \C P^n$ and there is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
-There is a composition of continuous maps
-$$
-\C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
-$$
-where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P\left(\H \right)$ then
 $$
 \C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
@@ -1382,10 +1389,11 @@ $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
 
 \begin{theorem}\label{compact_thm}
-There is the natural isomorphism
+For any Abelian group $F$ the map $\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
 $$
-H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F\right)
+\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
 $$
+where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
 
 \end{theorem}
 \begin{proof}
@@ -1394,10 +1402,11 @@ $$
 H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \overline F \right) \cong \check H^*\left( \mathscr W; \overline F\right).
 $$
 
-Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$.
+Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
 \be\label{proj_h_eqn}
-H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}},\overline F\right)
-\ee\end{proof}
+H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
+\ee
+\end{proof}
 \begin{remark}
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
 \end{remark}
@@ -1410,18 +1419,18 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 \subsection{Hausdorff blowing-up}
 	
 	\begin{definition}\label{blowing_defn}
-	If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sY-A }:C_0\left( \sY\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sY\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up} of $A$ if  both sets
+	If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up} of $A$ if  both sets
 		\be\label{blowing_eqn}
 		\begin{split}
-			C_c\left( \sY\right)A \bydef \left\{fa| f \in C_c\left( \sY\right)\quad a \in A \right\},\\
-			AC_c\left( \sY\right) \bydef \left\{af| f \in C_c\left( \sY\right)\quad a \in A \right\}
+			C_c\left( \sX\right)A \bydef \left\{fa| f \in C_c\left( \sX\right)\quad a \in A \right\},\\
+			AC_c\left( \sX\right) \bydef \left\{af| f \in C_c\left( \sX\right)\quad a \in A \right\}
 		\end{split}
 		\ee
 		are dense in $A$.
 	\end{definition}
 	
 	\begin{remark}\label{blowing_rem}
-		$C_c\left( \sY\right)A$ is dense in $A$ if and only if $AC_c\left( \sY\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations \eqref{blowing_eqn} are equivalent.
+		$C_c\left( \sX\right)A$ is dense in $A$ if and only if $AC_c\left( \sX\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations \eqref{blowing_eqn} are equivalent.
 	\end{remark}
 	
 	
@@ -1447,7 +1456,7 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 	%\end{example}
 	
 	\begin{definition}\label{blowing_ideals_au_ua_defn}
-		Let  $ C_0\left( \sY\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$ (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sY$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \textit{left} $\sU$-\textit{ideal} and the \textit{right} $\sU$-\textit{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
+		Let  $ C_0\left( \sX\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$ (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \textit{left} $\sU$-\textit{ideal} and the \textit{right} $\sU$-\textit{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
 		\be\label{blowing_hereditary_u_eqn} 
 		\begin{split}
 			_\sU A_\sU \bydef	~	_\sU A\cap  A_\sU = A^*	_\sU \cap  A_\sU\\ %(\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_bab_lem}}).
@@ -1542,7 +1551,7 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 	\end{empt}
 	
 	\begin{definition}\label{blowing_support_defn}
-		If $C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}),  $a \in A$ and
+		If $C_0\left( \sX\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}),  $a \in A$ and
 		$
 		\sU_a \bydef\bigcap 
 		\left\{\left.{\sU} \subset \sX\right| a\in~_\sU A_{\sU} \right\}
@@ -1599,7 +1608,7 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 	
 	
 	\begin{lemma}\label{blowing_pedersen_compact_lem}
-		If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
+		If  $C_0\left( \sX\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
 	\end{lemma}
 	\begin{proof}
 		If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element   $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
@@ -1701,7 +1710,7 @@ where $\rho_y: A \to B\left(\H_y \right)$ is the corresponding to $y$ irreducibl
 \end{remark}
 \begin{empt}
 
-If $C^*$-algebra $A$ satisfies to \eqref{norm_eqn} and $S\subsetneqq A$ is a closed subset then there is $a \in A\setminus S$ and $\eps > 0$ such that
+If $C^*$-algebra $A$ satisfies to \eqref{norm_eqn}, $\sY$ is the spectrum of $A$ and $S\subsetneqq A$ is a closed subset then there is $a \in A\setminus S$ and $\eps > 0$ such that
 $$
 \forall a' \in S\quad  \left\| a - a' \right\| > 2\eps
 $$
@@ -1727,6 +1736,7 @@ If there is a map $\sX \xrightarrow{\mathfrak{Blowing}} \sY$ such that the follo
 	& \sY &
 \end{tikzcd}
 \\
+then $\mathfrak{Blowing}$ is said to be \textit{blowing - up}.
 \end{empt}
 \begin{example}\label{foli_exm}
 The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
@@ -1746,9 +1756,7 @@ It is proven that the spectrum of the explained in \cite{candel:foliII} reduced 
 \\
   
 \end{example}
-\begin{remark}
-In the example \ref{foli_exm} the $C^*$-algebra the Gelfand space and the map $\mathfrak{Blowing}$ enable us define the $C^*$-algebra $C^*_r\left(M, \F \right)$.
-\end{remark}
+
 \begin{remark}
 then we say that $\mathfrak{Blowing}$ is the Hausdorff blowing-up of the spectrum.
 The "blowing-up" word is inspired by following reasons:
@@ -1779,7 +1787,7 @@ The "blowing-up" word is inspired by following reasons:
 \end{thm}
 
 \begin{lemma}\label{ctr_g_lem}
-	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rho_x: A \to B\left(\H_x \right)$.
+	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rep_x: A \to B\left(\H_x \right)$.
 \end{lemma}
 \begin{proof}
 From the Theorem \ref{dauns_hofmann_thm} and the Lemma \ref{hausdorff_spectrum_lem} it follows that there is Hausdorff blowing-up 
@@ -1793,9 +1801,9 @@ where $\sX$ is the spectrum of $A$.  So there are following maps
 	\mathfrak{Gelfand}\left(A \right) \xrightarrow{\phi} \mathfrak{Gelfand}\left(A \right)'' \xrightarrow{\phi''} \sX.
 \end{split}
 \ee
-If $\xi \in \mathfrak{Gelfand}\left(A \right)$,  $\xi'' \bydef \phi\left(\xi \right)  \in \mathfrak{Gelfand}\left(A \right)''$ and $x_\xi = \phi''\left( \xi''\right)$ then for any $x \neq x_\xi$ there and an open neighborhood  $\sU$ of $x$ such that $f \in C_0\left(\sX \right)$ with $ f\left(\sU \right)= {0}$ and $L \bydef f A \in \xi$. If $L^\perp$ is a commutant of $L$ (cf. Definition \ref{bicommutant_defn}) then $\rho_{x'} \left(L^\perp \right) = \rho_{x'}\left( A\right)$ where $\rho_{x}: A \to B\left( H_{x'}\right) $ is the corresponding to $x$ irreducible representation. It follows that $x_\xi$ is the unique point such that $\rho_{x_\xi} \left( \xi''\right) \neq \rho_x \left( A\right)$. Since $\rho_{x_\xi} \left( \xi''\right)\subset \rho_{x_\xi} \left( A\right)$ is a left ideal there is a vector subspace $V_\xi\subset \H$ such that $\rho_{x_\xi} \left( \xi''\right)V_\xi = \{0\}$. If dimension of $V_\xi$ exceeds 1 and $\eta \in V_\xi$ then the set
+If $\xi \in \mathfrak{Gelfand}\left(A \right)$,  $\xi'' \bydef \phi\left(\xi \right)  \in \mathfrak{Gelfand}\left(A \right)''$ and $x_\xi = \phi''\left( \xi''\right)$ then for any $x \neq x_\xi$ there and an open neighborhood  $\sU$ of $x$ such that $f \in C_0\left(\sX \right)$ with $ f\left(\sU \right)= {0}$ and $L \bydef f A \in \xi$. If $L^\perp$ is a commutant of $L$ (cf. Definition \ref{bicommutant_defn}) then $\rep_{x'} \left(L^\perp \right) = \rep_{x'}\left( A\right)$ where $\rep_{x}: A \to B\left( H_{x'}\right) $ is the corresponding to $x$ irreducible representation. It follows that $x_\xi$ is the unique point such that $\rep_{x_\xi} \left( \xi''\right) \neq \rep_x \left( A\right)$. Since $\rep_{x_\xi} \left( \xi''\right)\subset \rep_{x_\xi} \left( A\right)$ is a left ideal there is a vector subspace $V_\xi\subset \H$ such that $\rep_{x_\xi} \left( \xi''\right)V_\xi = \{0\}$. If dimension of $V_\xi$ exceeds 1 and $\eta \in V_\xi$ then the set
 $$
-\left\{ L \in \xi | \rho_x \left(L \right)\eta = \{0\} \right\} \subset \mathfrak{Lattuce}\left(A \right)
+\left\{ L \in \xi | \rep_x \left(L \right)\eta = \{0\} \right\} \subset \mathfrak{Lattuce}\left(A \right)
 $$
 generates a filter which exceeds $\xi$. It is impossible since the filter $\xi$ is an ultrafilter.
 
@@ -1847,11 +1855,11 @@ C \mapsto C \cap ~_\sV A _\sV.
 	\end{tikzcd}
 \end{lemma}	
 \begin{proof} 
-If $\xi \in 	\mathfrak{Gelfand}\left( A\right)$ and $x = \/ \phi\left( \xi\right)\in  \sX$ (cf. the equation \eqref{ctr_g_eqn}) then from the the Lemma  \ref{ctr_g_lem} it follows that there is a pair $\left(x_\xi, V_\xi \right)$ such that
+If $\xi \in 	\mathfrak{Gelfand}\left( A\right)$, $\xi'' \bydef \phi\left(\xi \right)$  and $x = \/ \phi''\left( \xi''\right)\in  \sX$ (cf. the equation \eqref{ctr_g_eqn}) then from the the Lemma  \ref{ctr_g_lem} it follows that there is a pair $\left(x_\xi, V_\xi \right)$ such that
 $$
-\xi'' = \left\{ b \in A \left| \rho_{x_\xi} \left(b^* \right)V_\xi = \{0\} \right.\right\}
+\xi'' = \left\{ b \in A \left| \rep_{x_\xi} \left(b^* \right)V_\xi = \{0\} \right.\right\}
 $$ 
-It follows that for any $L \in \xi$  one has $\rho_{x_\xi}\left(L \right) \H_{x_\xi}= V_\xi$. Let 
+It follows that for any $L \in \xi$  one has $\rep_{x_\xi}\left(L \right) \H_{x_\xi}= V_\xi$. Let 
 \bean
 \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x \bydef \left\{\left.\eta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right| 	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}\left(\eta \right) = x\right\},\\
 \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi =  \left\{\left.\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x\right| \forall L \in \xi \quad  \exists  C \subset L^*L \quad \zeta = C_x  \right\}
@@ -1883,23 +1891,22 @@ Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfra
 	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX \right)$.% (cf. equation \eqref{top_ub_eqn}).
 	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
 \end{proposition}
-
+\begin{empt}\label{ctr_bundle_empt}
 Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\H \right)$. From the Lemma \ref{ctr_g_lem} it follows that there is a set theoretic bijective map
-\be\label{gtop_map_eqn}
-\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)
-\ee
-There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote corresponding space by $\C P\left(\E \right)_{\mathfrak{Gelfand}}$. There is a continuous map 
 \bean
-\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
-\eean  where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. Indeed the topology of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ is final (cf. Definition \ref{top_final_defn}) with respect to the surjective  map 
-\bean
-\phi_C : \mathfrak{Gelfand}\left(A \right)\to \C P\left(\E \right).
+\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)''.
 \eean
+There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote corresponding space by $\C P\left(\E \right)_{\mathfrak{Gelfand}}$. There is a continuous map 
+\be\label{ctr_bundle_eqn}
+\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
+\ee
+  where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. 
 If  $F$ be an Abelian group then from the Proposition \ref{spectral_sequence_prop} it follows that there is the natural homomorphism
 \be\label{h_ctr_eqn}
 H^*\left(\phi_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, \overline F \right) \to H^* \left( \C P\left(\E \right)_{\mathfrak{Gelfand}}, \overline F\right).
 \ee
 where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{connected_c_a_defn}).
+\end{empt}
 \begin{theorem}\label{singular_thm}\cite{bredon:sheaf}
 %1.1. Theorem. 
 There exist the natural multiplicative transformations of functors (of $\sX$ as well as of $\mathscr A$)
@@ -1930,9 +1937,14 @@ If $A$ is a stable separable continuous-trace $C^*$-algebra that the spectrum $\
 
 
 \begin{theorem}\label{ctr_thm}
-Under the hypothesis \ref{ctr_coh_empt} the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
+Under the hypothesis  \ref{ctr_coh_empt} if $F$ is an Abelian group there is the natural isomorphism
+$$
+H^*\left( \mathfrak{Gelfand}\left(A \right)'', \overline F\right) \cong    H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, \overline F \right) 
+$$
+where $\overline F$ is the $F$-constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
 \end{theorem}\label{ctr_coh_thm}
 \begin{proof}
+	According to the construction \ref{ctr_bundle_empt} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
 One has
 \be
 \C P\left( \E\right) = \bigcup_{\substack{\sU\in K\left( \mathfrak U\right) \\ \mathcal W \in  K\left( \mathscr W\right)  }} \sU \times \mathcal W
@@ -1949,8 +1961,378 @@ Any product $\sU \times \mathcal W\subset \C P\left( \E\right)$ is open in both 
 
 \end{proof}
 \begin{remark}
-Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism. So $A$ defines a Gelfand space and vice-versa.
+Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism (cf. \cite{rae:ctr_morita}). So $A$ defines the bicommutant  $\mathfrak{Gelfand}\left(A \right)''$  of the Gelfand space (cf. Definition \ref{bicommutant_defn}) and vice-versa.
 \end{remark}
+\begin{empt}\label{canonical_resolution_empt}\cite{bredon:sheaf, godement:sheaf}					
+	For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
+	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
+	Such possibly discontinuous sections are called \textit{serrations}. That is
+	\be
+	C^0(\left(\sU, \mathscr F \right)\bydef \prod_{x \in \sX} \mathscr F_x
+	\ee
+	!!! WHERE $F_x$ !!!
+	Under point-wise operations, this is an Abelian group, and the functor $\sU \mapsto 	C^0(\left(\sU, \mathscr F \right)$, $\sX$. Indeed it is a sheaf (cf. \cite{bredon:sheaf}) which will be denoted by $\mathscr C^0(\left(\sU, \mathscr F \right)$. Note that if $\sX_d$ denotes the point set of $\sX$ 
+	with the discrete topology and if $\phi : \sX_d \to \sX$ is the canonical map, then $\mathscr C^0(\left(\sU, \mathscr F \right)\cong f_*f^* \mathscr F$.
+	Inclusion of the collection of sections of $\mathscr F$ in the collection of all serrations
+	gives an inclusion $\mathscr F\left(\sU \right)\mapsto   C^0(\left(\sU, \mathscr F \right)= \mathscr C^0(\left(\sU, \mathscr F \right)\left(\sU \right)$  and hence
+	provides a natural monomorphism
+	\be\label{sheaf_can_res}
+	\eps : \mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)
+	\ee
+	(For $\phi : \sX_d \to \sX$ as above, this inclusion coincides with the monomorphism
+	$\bt :\mathscr F \hookto f_*f^*\mathscr F$). 
+	Let $\mathscr{Z}^{1}\left(\sX, \mathscr F \right) \bydef \coker\left\{\mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)\right\}$. so that the sequence
+	$$
+	\{0\}\to \mathscr F \to \mathscr{C}^{0}\left(\sX, \mathscr F \right) \to \mathscr{Z}^{1}\left(\sX, \mathscr F \right)\to {0}
+	$$
+	is exact. We also define, inductively,
+	\bean
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \bydef \mathscr{C}^{0}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right),\\
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right) \bydef \mathscr{Z}^{1}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right)  
+	\eean
+	so that
+	\bean
+	\mathscr{Z}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\eps} \mathscr{C}^{n}\left(\sX, \mathscr F \right)\xrightarrow{\partial}
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right)
+	\eean
+	
+	is exact. Let $d \bydef \eps \circ \partial$ be the composition
+	$$
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
+	$$
+	
+	Then the sequence 
+	\be\label{canonical_resolution_eqn}
+	0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d}\dots
+	\ee
+	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
+		resolution} of $\mathscr F$.
+\end{empt}
+\subsubsection{Abelian categories and cohomology}
+\begin{definition}\cite{hartshorne:ag}
+	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
+	epimorphism is the cokernel of its kernel; and finally, every morphism 
+	can be factored into an epimorphism followed by a monomorphism.
+\end{definition}
+\begin{empt}\label{derived_funct_empt}\cite{hartshorne:ag}
+	A complex $A^\bullet$ in an 
+	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
+	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
+	If the objects $A^\bullet$ are specified 
+	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
+	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
+	each $n$, which commute with the coboundary maps $d^n$. 
+	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
+	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
+	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
+	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
+	giving rise to a long exact sequence
+	$$ 
+	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
+	$$
+	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
+	if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
+	not commute with the $d^n$ such that $f „ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
+	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
+	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
+	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
+	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
+	additive and for every short exact sequence 
+	$$
+	0 \to A' \to A \to A'' \to 0 
+	$$
+	in $\mathfrak A$
+	the sequence 
+	$$
+	0 \to FA' \to FA \to FA''
+	$$
+	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
+	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
+	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
+	For a contravariant functor we make analogous definitions. For example, 
+	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
+	above, the sequence 
+	$$
+	0 \to F A'' \to F A \to F A'
+	$$ 
+	is exact in $\mathfrak B$.
+	An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
+	$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
+	$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
+	that the sequence 
+	$$
+	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
+	$$
+	is exact. 
+	If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
+	$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
+	object has an injective resolution. Furthermore, a well-known lemma states 
+	that any two injective resolutions are homotopy equivalent. 
+	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
+	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
+\end{empt}
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
+	%			Theorem 1.1 A. 
+	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
+	Then 
+	\begin{enumerate}
+		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+		of the choices of injective resolutions made.
+		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		obtain a long exact sequence 
+		$$
+		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+		$$
+		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+			(m-1-1) edge node [right]  {} (m-2-1)
+			(m-1-2) edge node [right] {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		\	
+		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+		
+	\end{enumerate}
+\end{theorem}
+
+
+
+
+\subsection{Algebras of foliations}
+
+\subsubsection{Groupoid Preliminaries}
+I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
+
+A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
+
+Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
+
+The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
+\[
+\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
+\]
+and for $\omega\in\Omega^\bullet(\G)$,
+\begin{subequations}
+	\bean
+	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
+	\eean
+	
+	\begin{definition}
+		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
+		\bean
+		\partial^*\omega = 0 .
+		\eean
+		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
+	\end{definition}
+	\label{multiplicative.form}
+\end{subequations}
+
+It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
+\[
+\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
+\]
+is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
+\bean
+\label{L_coboundary}
+\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
+\eean
+is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
+\[
+\curv \partial^*L = \partial^*(\curv L) .
+\]
+A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
+
+It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
+
+I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
+
+I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
+
+
+
+%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
+%\[
+%\t^*\{f,g\} = \{\t^*f,\t^*g\}
+%\]
+%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
+
+%\subsection{Standard Constructions}
+I denote by $\Alg$ the Lie functor from the category of Lie groupoids (and smooth homomorphisms) to the category of Lie algebroids, see \cite{mac3}. This restricts to the classical Lie functor from Lie groups to Lie algebras.
+
+I denote by $\Grp$ the inverse of $\Alg$ (see \cite{c-f1}). The domain is the full subcategory of integrable Lie algebroids (i.e., the image of $\Alg$). If $A$ is an integrable Lie algebroid, then $\Grp(A)$ is the unique (up to isomorphism) $\s$-connected and $\s$-simply connected groupoid such that $A\cong \Alg\Grp(A)$. I call $\Grp(A)$ \emph{the} integration of $A$, but I will say that any $\s$-connected groupoid $\G$ with $\Alg(\G)\cong A$ \emph{integrates} $A$.
+
+If $M$ is a Poisson manifold, then the cotangent bundle $T^*M$ with the Koszul bracket is a Lie algebroid. I will say that a symplectic groupoid over $M$ integrates $M$ if $\t$ is a Poisson map; $\Sigma$ is a symplectic integration of $M$ if and only if it is a groupoid integration of $T^*M$.
+Any Lie groupoid integrating this has a natural symplectic groupoid structure. I will denote \emph{the} symplectic integration by $\Sig(M):=\Grp(T^*M)$ (see \cite{c-f2}).
+
+Any manifold can be regarded as a groupoid, with every point a unit. Given a manifold, we can also construct the pair groupoid $\Pair(M):=M\times M$; note that this integrates $TM$. If $M$ happens to be a symplectic manifold, then the pair groupoid is a symplectic groupoid if we give it the symplectic structure of $M\times M^-$, where $M^-$ is $M$ with the symplectic form reversed. In this case $\Pair(M)$ is a symplectic integration of $M$.
+
+For an arbitrary manifold, there is also the fundamental groupoid $\PI(M)$. This is the $\s$-simply connected cover of $\Pair(M)$, hence $\PI(M)=\Grp(TM)$. If $M$ is symplectic, then $\PI(M)$ inherits a symplectic groupoid structure from $\Pair(M)$, and $\Sig(M)=\PI(M)$.
+
+Given a Lie groupoid $\G$ over $M$, we can construct another Lie groupoid simply by applying the tangent functor. The unit manifold of $T\G$ is $TM$, the source map is $T\s:T\G\to TM$, the multiplication is $T\m: T\G_2\to T\G$, \emph{et cetera}.  The complexified tangent bundle $T_\co\G$ is a groupoid in the same way. This tangent groupoid is very important for my definition of polarization, but it should not be confused with Connes' tangent groupoid \cite{con1}, which is also used in an example of quantization.
+
+The cotangent bundle $T^*\G$ is a groupoid as well, but in a very different way. This is a symplectic groupoid over $\Alg^*(\G)$, the dual vector bundle of the Lie algebroid. This is an important example in Section~\ref{Linear}.
+
+\subsubsection{Convolution}
+There are two standard ways of constructing the convolution algebra of a Lie groupoid: using either a Haar system \cite{ren} or half-densities \cite{con1}. I favour the latter approach, because it is closer to the Hilbert space construction in geometric quantization. However, there is still an important discrepancy between half-forms and half-densities.
+
+With this in mind, let's try to modify the definition of the convolution algebra by substituting half-forms for half-densities. This means using a bundle,
+\bean
+\label{half_form1}
+\Omega^{1/2} := \sqrt{\Wedgem (T^{\t*}_\co\G\oplus T^{\s*}_\co\G)} .
+\eean
+If the bundle $T^\t\G\oplus T^\s\G$ is orientable, then there exists a preferred ``positive'' choice of square root, and with this choice, half-forms are equivalent to half-densities. This orientability condition is frequently satisfied; it is true if the Lie algebroid $\Alg(\G)$ is an orientable bundle or if $\G$ is $\s$-simply connected.
+
+If some other choice of square root is chosen, then it may still define a convolution algebra. However, it will not generally be possible to complete this to a \cs-algebra. The potential problem is exemplified by the $*$-algebra of matrices on an indefinite inner product space; that is not a \cs-algebra.
+
+The convolution product of $a,b\in\Gamma_{\mathrm c}(\G,\Omega^{1/2})$ is defined by integrating $\pr_1^*a \pr_2^*b$ over the fibers of $\m$. For $\gamma\in\G$, the fiber $\m^{-1}(\gamma)$ is explicitly parametrized as
+\bean
+\label{m_fiber}
+\m^{-1}(\gamma) = \{(\eta,\eta^{-1}\gamma) \mid \eta \in \t^{-1}(\t \gamma)\} .
+\eean
+This gives the standard expression for the convolution product (see \cite{con1})
+\bean
+\label{convolution}
+(a*b)(\gamma) := \int_{\eta\in\t^{-1}(\t\gamma)}  a(\eta) b(\eta^{-1}\gamma) .
+\eean
+To make sense of this expression, note that \eqref{m_fiber} implies isomorphisms
+\[
+T^\m\G_2 \cong \pr_1^* T^\t\G \cong \pr_2^* T^\s\G .
+\]
+Using these, the coboundary bundle (see \eqref{L_coboundary}) is
+\[
+\partial^*\Omega^{1/2} \cong \Wedgem T^{\m*}_\co\G_2 \cong \pr_1^*\Wedgem T^{\t*}_\co\G
+\]
+the bundle of volume forms along the fibers of $\m$ in $\G_2$. With this isomorphism, the product $\pr_1^* a \pr_2^* b$ is a section of 
+\[
+\m^* \Omega^{1/2} \otimes  \pr_1^*\Wedgem T^{\t*}_\co\G .
+\]
+So, integrating this over $\t^{-1}(\t\gamma)$ in \eqref{convolution} does give another section of $\Omega^{1/2}$.
+
+The other important property of $\Omega^{1/2}$ is the canonical isomorphism
+\[
+\inv^*\Omega^{1/2} \cong \overline{\Omega^{1/2}} .
+\]
+This defines the involution on the convolution algebra.
+
+\subsubsection{Twisted Convolution}
+\label{Twisted}
+The concept of twisted \cs-algebras of a groupoid is fairly standard. Let $L$ be a line bundle over $\G$ and $\sigma$ a cocycle with coefficients in $L$. In \cite{ren}, Renault mainly discusses the case where $L$ is trivial, but he gives a more general definition: $\cs(\G,\sigma)$ is the quotient of $\cs(\G^\sigma)$ induced by the fundamental representation of $\T$, where $\G^\sigma$ is the extended groupoid in \eqref{extension}. In order to generalize this to the polarized case, it is better to work with sections of  $L\otimes \Omega^{1/2}$, and this is easy enough.
+
+For $a,b\in \Gamma_{\mathrm c}(\G,L\otimes \Omega^{1/2})$, the twisted convolution product is defined by modifying \eqref{convolution} to
+\[
+(a*b)(\gamma) := \int_{\eta\in\t^{-1}(\t\gamma)} \sigma(\eta,\eta^{-1}\gamma)\, a(\eta)\, b(\eta^{-1}\gamma) .
+\]
+
+Although this is constructed with a cocycle $\sigma$, the algebra only depends upon the cohomology class of $[\sigma]\in \Tw(\G)$. 
+
+
+\begin{definition}
+	% PAGE 11 (15)
+	Suppose that $\mathscr C$ is some category. A map $p$ from a set $A$ onto a set $A^0$ such that
+	each fiber $p^{-1} ( u )$ is an object of  $\mathscr C$ will be called a  $\mathscr C$-\textit{bundle} map and $A$ will be called  $\mathscr C$-bundle.  Let $A$ be
+	a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p^{-1} ( u )$.
+	$$
+	\text{Iso}(A) = \left\{\text{isomorphisms }\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
+	$$	
+	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v  #v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
+\end{definition}
+\begin{definition}
+	% Definition 1.11.
+	Let $\G$ be a groupoid. A $\G$-\textit{bundle} $(A,L)$ is a $\mathscr C$ - bundle $A$ together
+	with a homomorphism $L : G \to \text{Iso} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  is the category of Abelian groups, one speaks of a
+	$\G$-\textit{module bundle}.
+\end{definition}
+\begin{empt}\label{groupoig_gn_empt}
+	Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
+	us first define $\G^n$ for any $n\in\N$. The sets $\H^0$ , $\G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
+	j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left  neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+	\begin{enumerate}
+		\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = d(x_0)$ and
+		\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
+	\end{enumerate}
+	The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
+	sequence 
+	\bean
+	0 \to C^0\left( \G, A\right)\to C^0\left( \G, A\right)\to C^1\left( \G, A\right)\to...\to  C^n\left( \G, A\right) \xrightarrow{\delta^n} C^{n + 1}\left( \G, A\right)\to ...
+	\eean
+	where 
+	\be\label{groupoid_b_eqn}
+	\begin{split}
+		\delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
+		\delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
+		f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+	\end{split}
+	\ee
+	
+	is a cochain complex.
+\end{empt}	
+\begin{definition}\label{groupoid_cocycle_defn}
+	The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
+	the group of $n$-coboundaries will be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
+	$Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
+\end{definition}
+\paragraph{}
+Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
+\be\label{groupoid_*_c_eqn}
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef \overline{f ( x^{ -1})}~\overline{\sigma\left(x, x^{-1} \right)}, 	
+\end{split}
+\ee	
+In particular is $\sigma$ is trivial then one has a $*$-algebra
+\be\label{groupoid_*_eqn}
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+\end{split}
+\ee	
+which is a specialization of \eqref{groupoid_*_c_eqn}
+
+\begin{empt} % ??? DEFINE NORM ???
+	Let $\G$ be a locally compact groupoid with left  Haar system $\left\{\la^u\right\}$ (cf. Definition \ref{groupoid_haar_defn}).  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+	\be\label{groupoid_*__defn}
+	\begin{split}
+		f * g \left(x\right)\bydef 
+		\int  f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
+		f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+	\end{split}
+	\ee
+	It is proven in \cite{renault:gropoid_ca} that the equations yield a $*$-algebra. 
+\end{empt}
+\begin{definition}\label{groupoid_representation_defn}\cite{renault:gropoid_ca}
+	%1.3. D e f i n i t i o n : 
+	A \textit{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
+	topology (cf. Definition \ref{top_ind_lim_defn}) and $B\left(\H \right)$  the weak operator topology (cf. Definition \ref{weak_topology_defn}), and is such that the linear  span of
+	$$
+	L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
+	$$
+	is dense in $\H$.
+\end{definition}
+\begin{lemma}\label{groupoid_mult_repr_lem}\cite{renault:gropoid_ca}
+	%1.13. Lemma : 
+	If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
+	$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
+	$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
+\end{lemma}
+\begin{definition}\label{groupoid_red_defn}	\cite{renault:gropoid_ca}%2.8. Definition : 
+	The \textit{reduced $C^*$ -algebra} $C^*_r\left(\G, \sigma \right)$ of $\G$ is the completion of
+	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
+\end{definition}
 
 \section*{Acknowledgment}
 
@@ -2005,7 +2387,7 @@ of this work.
 	\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
 
 
-%\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
 %\bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
 
