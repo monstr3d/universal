@@ -51,7 +51,8 @@
 
 \DeclareMathOperator{\curv}{curv}
 
-\def\bean#1\eean{\begin{equation}#1\end{equation}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+	\newcommand{\eean}{\end{eqnarray*}}
 \newcommand{\s}{\mathsf{s}}
 \renewcommand{\t}{\mathsf{t}}
 \newcommand{\m}{\mathsf{m}}
@@ -665,74 +666,7 @@
 
 
 
-		\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
-	Let $A$ be a partially ordered set, $S$ a subset of $A$. We say an element $a \in A$
-is a \textit{ meet} (or \textit{ greatest lower bound}) for $S$, and write $a = \wedge S$, if 
-\begin{enumerate}
-	\item [(a)] $a$ is an lower bound for $S$, i.e. $a \le s$ for all $s \in S$ and, 
-	\item [(b)] if $\forall s \in S\quad  b \le s$, then $b \le a$. 
-\end{enumerate}
-\paragraph{}
-The antisymmetry axiom of the  partially ordered set $A$ ensures that the join of $S$, if it exists, is 
-unique. If $S$ is a two-element set $\{s, t\}$, we write $s \wedge t$ for $\wedge \{s, t\}$ and if $S$	is the empty set $\emptyset$, we write $0$ for  $\wedge \emptyset$.
-\end{definition}
 
-\begin{definition}\label{lattice_defn}\cite{johnstone:stone_spaces}
-	A \textit{meet-semilattice} is a partially ordered set which supports for any finite set the  greatest lower bound.
-\end{definition}
-\begin{definition}\label{filter_defn}\cite{johnstone:stone_spaces} 
-	A subset $\mathfrak F$ of a meet-semilattice $A$ is said to be an {\it filter} if
-	\begin{enumerate}
-		\item [(a)] $\mathfrak F$ is a sub-meet-semilattice of $A$; i.e. $1\notin \mathfrak F$, and $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
-		\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
-	\end{enumerate}
-\end{definition}
-\begin{empt}\label{filter_empt}
-	Similarly to \cite{bourbaki_sp:gt} one has
-	\begin{enumerate}
-		\item [(c)] $0 \notin \mathfrak F$.
-		
-	\end{enumerate}	
-	\begin{definition}
-		A filter  $\mathfrak F$ is \textit{principal} if there is $b \in A$ such that 
-		$$
-		\mathfrak F = \left\{a \in A \left|~ b \le a\right.\right\}.
-		$$
-		
-	\end{definition}
-\end{empt}
-\begin{remark}\label{fil_hom_rem}
-	Any homomorphism $\phi : L' \to L''$ of {semi}-{lattices} yields a map
-	of filers
-\be\label{filtermap_eqn}
-\left\{I_\la\right\}_{\la \in \La}	\mapsto \text{ minimal filter containing } \left\{\phi\left( I_\la\right) \right\}_{\la \in \La}
-	\ee
-\end{remark}
-
-\begin{example}\label{space_semi_exm}
-	If $\sX$ is a topological space then the $\sX$-\textit{semi}-\textit{lattice} is  a  meet-semilattice $\mathfrak{Lattice}\left( \sX\right)$ such that elements of $\mathfrak{Lattice}\left( \sX\right)$ are open subsets of $\sX$ and one has
-	\be\label{x_lat_eqn}
-\begin{split}
-	\sU' \wedge \sU''\bydef \sU' \cap \sU'',\\
-	\sU' \le \sU'' \quad \Leftrightarrow\quad \sU'' \subset \sU',\\
-	0 \bydef \emptyset.
-\end{split}
-\ee
-\end{example}
-
-
-\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
-	A maximal filter is an \textit{ultrafilter}.
-\end{definition}
-\begin{remark}
-			A set of neighborhoods of a point of Hausdorff space is an ultrafilter.
-\end{remark}
-\begin{thm}\label{zorn_thm}\cite{spanier:at} (Zorn's lemma). A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
-\end{thm}
-
-\begin{remark}\label{ultra_filter_rem}
-	From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
-\end{remark}
 
 \begin{definition}\label{lattice_a_defn}
 If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is a meet-semilattice of closed left ideals such that 
@@ -745,9 +679,6 @@ L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
 \ee
 We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$ a set of filers.
 \end{definition}
-\begin{thm}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
-	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
-\end{thm}
 \begin{lemma}\label{top_lattices_iso_lem}
 	For any locally compact space $\sX$ there is an isomorphism of  meet-semilattices
  
@@ -769,59 +700,6 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	The \textit{space of} $A$-\textit{ultrafilters} is a set $\mathfrak{Ultrafilters}\left(A \right)$ with a  the smallest topology o such that any given by \eqref{gelfand_eqn} set is open.
 	
 \end{defn}
-\begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
-	One has:
-	\begin{enumerate}
-		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
-		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
-	\end{enumerate} 
-\end{proposition}
-\begin{remark}
-From (b) of the Proposition \ref{top_ultra_thm} it follows that the notion of ultrafilter is not adequate analog of the point of Hausdorff, locally compact space. One needs the finer notion.
-\end{remark} 
-	\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
-	% THEOREM 5.6.1
-	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
-	which is minimal among dense ideals.
-	
-\end{thm}
-\begin{proof}
-	Let $K(]0, \infty [)$ denote the set of continuous functions on $]0, \infty [$ with 
-	compact support and define 
-	\be\label{pedersen_k0_eqn}
-	K\left( A \right)_0 \bydef \left\{f\left(x\right) \left|x \in A_+, \quad f \in K(]0, \infty [) \right.\right\}.
-	\ee
-	Let 
-	\be\label{pedersen_k_plus_eqn}
-	K\left( A \right)_+ \bydef \left\{x \in A_+ \left|x \le \sum_{j = 1}^nx_j, \quad x_j \in  	K\left( A \right)_0\right.\right\}, 	
-	\ee
-	so that $	K\left( A \right)_+$ is the smallest hereditary cone  containing $K\left( A \right)_0$. If $K(A)$ 
-	is  the algebraic  $\C$-linear span of $K(A)_+$ then $K(A)$,
-	which is minimal among dense ideals. The full  proof is  described in \cite{pedersen:ca_aut}.
-\end{proof}
-
-\begin{defn}\label{pedersen_ideal_defn}\cite{blackadar:ko}
-	The ideal $K\left( A\right) $ from the theorem \ref{pedersen_ideal_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
-\end{defn}
-%\begin{remark}\label{pedersen_ideal_rem}
-%	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
-%	\be\label{pedersen_ideal_eqn}
-%	\begin{split}
-%		K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
-%		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
-%	\end{split}
-%	\ee
-%	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
-%\end{remark}
-\begin{remark}\cite{pedersen:ca_aut} 
-	One has
-	\bea\label{peder_k_eqn}
-	K\left( \K\right) = \left\{\left. a \in \K\right| a  \text{ is a finite rank operator}\right\},\\
-	\label{peder_c0_eqn}
-	K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
-	\eea
-	
-\end{remark}	
 
 
 \begin{definition}\label{gelfand_space_defn}
@@ -834,7 +712,12 @@ If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\
 	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in x \quad L \text{ is a finite point}\right\}.
 	$$
 \end{definition}
-
+\begin{remark}\label{hered_ideal_rem}
+	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$7 we use a following notation
+	\be\label{hered_ideal_eqn}
+	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
+	\ee
+\end{remark}
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
@@ -870,33 +753,6 @@ or equivalently $\sV_\xi\subset  \supp a$.
 	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$.
 
 \end{proof}
-	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
-	Let $A$ be a $C^*$-algebra.
-	\begin{enumerate}
-		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
-		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
-		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
-		$$
-		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
-		$$
-		is the unique closed left ideal of $A$ corresponding to $B$.
-	\end{enumerate}
-\end{lemma}
-
-
-\begin{remark}\label{hered_ideal_rem}
-	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$7 we use a following notation
-	\be\label{hered_ideal_eqn}
-	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
-	\ee
-\end{remark}
-
-\begin{theorem}\label{left_ideal_thm}\cite{murphy}
-	%3.1.2. Theorem.
-	If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
-	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
-	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
-\end{theorem}
 
 
 \begin{definition}\label{bicommutant_defn}
@@ -946,28 +802,6 @@ From \eqref{four_decompositon_eqn} it follows that the the union $\cup  L^\perp$
 So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out that the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(A \right)$ onto $ \mathfrak{Gelfand} \left(A \right)''$.
 \end{example}
 
-\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
-	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
-	\begin{enumerate}
-		\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
-		\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
-		\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
-		\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
-		\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
-		\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
-	\end{enumerate} 
-\end{theorem}
-\begin{definition}\label{irred_defn}\cite{pedersen:ca_aut}
-	Let $A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The representation is said to be \textit{irreducible} if it satisfies to the Theorem \ref{irred_thm}.
-\end{definition}
-\begin{definition}\label{spectrum_prime_primtive_defn}\cite{pedersen:ca_aut}
-	An ideal $I$ in a $C^*$-algebra $A$ is \textit{prime}  if $xAy \subset I$  implies $x\in I$  or $y\in I$
-	for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
-	$I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
-	We say that $I$ is a \textit{primitive} ideal if $I= \ker\pi$ for some irreducible 
-	representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. 
-\end{definition}
-
 
 
 \begin{definition}\label{belongs_defn}
@@ -991,14 +825,6 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 \end{remark}
 
 \subsection{Morphisms}
-
-\begin{definition}\label{lrc_defn}\cite{matro:hcm}
-	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} if one has
-	\be
-	\la\left(ab\right)= 	\la\left(a\right) b \quad \forall a, b \in A.
-	\ee
-	Similarly one defines a \textit{right centralizer}. Denote the spaces of left and right centralizers by $\mathbf{LC}(A)$ and  $\mathbf{RC}(A)$.
-\end{definition}
 \begin{empt}
 If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphism 	
 \be\label{phi_r_eqn}
@@ -1090,22 +916,7 @@ Any good morphism $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ yi
 The existence of the map follows from \ref{bicommutant_empt}. The continuity can be deduced from the continuity of $\mathfrak{Gelfand}\left(\varphi_R \right)$.
 \end{proof}
 \subsection{Coverings and fundamental group}
-\subsubsection{Topologies of *-automorphisms groups}
 
-If $A$ is a $C^*$-algebra then the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries several topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
-\begin{equation*}
-	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
-\end{equation*}
-The other topology is the {\it uniform norm-topology} based on the open sets
-\begin{equation}\label{aut_norm_eqn}
-	\left\{\alpha \in \mathrm{Aut}(A) \ \left| \ \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| < \varepsilon \right. \right\}, \quad \varepsilon > 0
-\end{equation}
-which corresponds to following "norm"
-\begin{equation}\label{uniform_norm_topology_formula_eqn}
-	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
-\end{equation}
-Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Both of them can be used for our purposes.
-\subsubsection{Basic construction}
 \begin{definition}\label{connected_c_a_defn}
 	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
 	
@@ -1120,22 +931,11 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 		\be\nonumber
 		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left(M\left(  A\right) \right) \quad ga = a\right\}
 		\ee
-		is discrete,
+		is discrete with respect to the described in the Section \ref{op_top_sec} topologies,
 		\item[(c)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto M\left( \widetilde{A}\right) $   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
-	\begin{defn}\label{strict_topology_defn}\cite{pedersen:ca_aut}
-	Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms 
-	\be\label{strict_topology_norm_eqn}
-	\vertiii{x}_a\bydef \|ax\| + \|xa\|,\quad a\in A.
-	\ee
-	If $\La$ is a directed set and $\left\{a_\la\in M\left( A\right) \right\}_{\la\in \La}$ is a net the we denote by $\bt\text{-}\lim_{\la\in\La }a_\la$ the limit of $\left\{a_\la \right\}$ with respect to the strict topology.
-	If $x \in M(A)$  and a sequence of partial sums $\sum_{i=1}^{n}a_i$ ($n = 1,2, ...$), ($a_i \in A$) tends to $x$ in the strict topology then we shall write
-	\begin{equation}\label{strict_topology_eqn}
-		x = \bt\text{-}\sum_{i=1}^{\infty}a_i.
-	\end{equation}
-\end{defn}
 
 \begin{definition}\label{evenly_defn}
 	
@@ -1178,49 +978,6 @@ $$
 \mathfrak{Gelfand}\left(\lift \right): \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX.
 $$
 	
-\begin{proposition}\label{hered_spectrum_prop}\cite{pedersen:ca_aut}
-	If $B$ is a hereditary $C^*$-subalgebra of $A$ then the map $t \mapsto t\cap B$ is a homeomorphism between $\check A\setminus \mathrm{hull}\left( B\right)$ and $\check B$, where 
-	$$
-	\mathrm{hull}\left( B\right) = \left\{\left. x \in \hat A~\right|~ \rep_x\left(B \right)= \{0\} \right\} .
-	$$ 
-	Moreover  we have a commutative diagram:
-	\\
-	\begin{tikzcd}
-		\hat A \setminus \mathrm{hull}\left(B \right)\arrow[d]\arrow[r, "\approx"] & \hat B\arrow[d]\\
-		\check A \setminus \mathrm{hull}\left(B \right)\arrow[r, "\approx"] & \check B
-	\end{tikzcd}
-	\\ 	
-\end{proposition}
-
-
-%\begin{theorem}\label{ideal_spectrum_thm}\cite{pedersen:ca_aut}
-	%4.1.11. THEOREM. 
-%	Let $I$ be a closed ideal of $A$.
-%	\begin{enumerate}
-%		\item [(i)] The maps $\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi|_L: L \to B\left(\H \right)\right)$ and \\$\left(\pi: A \to B\left(\H \right)\right)   \mapsto \left(\pi: A/L \to B\left(\H \right)\right)$ from 		$\mathrm{Lrr} A \setminus \mathrm{hull}\left( L\right)$  to $\mathrm{Lrr} L$ and from $\mathrm{hull}\left( L\right)$ to $\mathrm{Lrr} A/L$, respectively, induce 		isomorphisms 	$\hat A \setminus \mathrm{hull}\left( L\right)$  onto $\hat L$ and from $\mathrm{hull}\left( L\right)$ onto $\left( A/L\right)\hat~ $ 
-%		\item[(ii)] The maps $t \mapsto t\cap L$ and $t \mapsto t/L$ are homeomorphisms from $\check{A}\setminus \mathrm{hull}\left(L \right)$  onto $\check{L}$ and from $\mathrm{hull}\left( L\right)$ onto $\left( A/L\right)\check~$.
-	%	\item[(iii)] The resulting diagrams, below, are commutative:
-%		\newline
-%		\begin{tikzpicture}
-%			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-%			{
-%				\hat I   & \hat A\setminus \mathrm{hull}\left( I\right),  &\mathrm{hull}\left( I\right) &	\left( A/I\right)\hat~ \\ 
-%				\check I  &  \check A\setminus \mathrm{hull}\left( I\right), & \mathrm{hull}\left( I\right) & 	\left( A/I\right)\check~\\};
-%			\path[-stealth]
-%			(m-1-2) edge node [above] {$\approx $} (m-1-1)
-%			(m-1-3) edge node [above] {$\approx$} (m-1-4)
-%			(m-2-2) edge node [above] {$\approx$} (m-2-1)
-%			(m-2-3) edge node [above] {$\approx$} (m-2-4)
-%			(m-1-1) edge node [right]  {} (m-2-1)
-%			(m-1-2) edge node [right]  {} (m-2-2)
-%			(m-1-3) edge node [right] {} (m-2-3)
-%			(m-1-4) edge node [right] {} (m-2-4);
-%		\end{tikzpicture}
-%		\\ 	
-		
-%	\end{enumerate}
-	
-%\end{theorem}
 
 	If $B\subset A$  is a hereditary $C^*$-subalgebra evenly covered by $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{evenly_defn}) then there is a connected open subset $\sU \subset \sX$ with $B \cong \sU$. From the Definition \ref{evenly_defn} it follows that $\mathfrak{Gelfand}\left(\lift \right)^{-1}\left(\sU\right)$ is the disjoint union of homeomorphic to $\sU$ connected open subsets of  $\mathfrak{Gelfand}\left(\widetilde A \right)$, i.e. the map $\mathfrak{Gelfand}\left(\lift \right)$ is a covering. If $\widetilde A$ is not commutative then there is $\widetilde x \in \mathfrak{Gelfand}\left(\lift \right)$ with
 	$$
@@ -1251,102 +1008,7 @@ where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 \begin{exercise}
 Prove that  the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto the bicommutant  $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
 \end{exercise}
-\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
-	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
-	\begin{itemize}
-		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
-		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
-		subject to conditions
-		\begin{itemize}
-			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
-			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
-			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
-		\end{itemize}
-	\end{itemize}
-\end{definition}
-
-\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
-	A \textit{presheaf} $\mathscr F$ on  
-	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
-	\begin{itemize}
-		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
-		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
-	\end{itemize}
-	(Note condition (3) implies that $s$ is unique.)
-\end{definition}
-\begin{definition}
-	A presheaf \ref{presheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
-\end{definition}
-\begin{definition}\label{sheaf_stalk_defn}\cite{hartshorne:ag}
-	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ 
-	\textit{of} $\mathscr F$ \textit{at} $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
-\end{definition}
-
-\begin{definition}\label{sheaf_mor_defn}\cite{hartshorne:ag}
-	If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
-	of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
-	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
-			\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
-		};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$\varphi_\sU$} (m-1-2)
-		(m-1-1) edge node [right] {$\rho_{\sU\sV}$} (m-2-1)
-		(m-1-2) edge node [right] {$\rho'_{\sU\sV}$} (m-2-2)
-		(m-2-1) edge node [above] {$\varphi_\sV$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
-	of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
-\end{definition}
-
-\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
-	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
-\end{prdf}
-
-\begin{empt}\label{sheaf_empt}
-	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
-	\begin{itemize}
-		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
-		\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
-	\end{itemize}
-\end{empt}
-\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
-	If $F$ is a set and $\sX$ is a topological space then the $F$-\textit{constant presheaf} is given by
-	\bean
-	\sU \mapsto F.
-	\eean
-The $F$-\textit{locally constant sheaf} is the sheaf associated with the $F$-{constant presheaf}. We denote it by
-\be
-\overline{F} \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
-\ee
-\end{definition}
-
-
-
-\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
-\end{definition}
-%\begin{definition}\label{flabby_sheaf_defn}\label{bredon:sheaf}
-%5.1. Definition. 
-%A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathscr A\left( \sX\right) \to \mathscr A\left( \sU\right)$ is surjective for every open set  $\sU \subset \sX$
-%\end{definition}
-\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
-	%Proposition 2.5. // 
-	If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
-\end{proposition}
-\begin{definition}\label{sheaf_support_defn}
-	For $s \in \mathscr{F}\left(\sX \right)$, 
-	\be\label{sheaf_supp_eqn}
-	\left|  s\right| = \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
-	\ee
-	denotes the \textit{support} of the section $s$.
-\end{definition}	
-
+\begin{empt}
 If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P\left(\H \right)$ then
 $$
 \C P\left( \H\right) = \bigcup_{j=0}^\infty \left( \C P\left(\H \right) \setminus L_j\right) 
@@ -1356,18 +1018,7 @@ $$
 \C P^n = \bigcup_{j=0}^{n} \left( \C P^n \setminus L_j\right). 
 $$
 where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P^n$.
-\begin{definition}\label{nerve_defn}\cite{spanier:at}
-	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
-\end{definition}
-\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
-	%PAGE 193 !!! DOWN !!!
-	%4.13. Theorem. 
-	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
-	\be
-	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
-	\ee
-\end{theorem}
+
 If $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
 \be\label{nerve_eqn}
 \begin{split}
@@ -1387,7 +1038,7 @@ $\sU_{\sigma}\subset \sH'$.
 If  $F$ is an Abelian group and  $\overline F$ is  $F$-locally constant sheaf  (cf, Definition \ref{constant_presheaf_defn}) on $\C P\left(\H \right)_{\mathfrak{Hausdorff}}$ (cf, Definition  and $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then 
 $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
-
+\end{empt}
 \begin{theorem}\label{compact_thm}
 For any Abelian group $F$ the map $\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
 $$
@@ -1410,12 +1061,6 @@ H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F \right) \cong H
 \begin{remark}
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
 \end{remark}
-%\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
-%	A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
-%\end{definition}	
-%	\begin{lemma}\label{cw_p_lem}\cite{miyazaki_cw}
-%	Any $CW$-complex is paracompact.
-%\end{lemma}
 \subsection{Hausdorff blowing-up}
 	
 	\begin{definition}\label{blowing_defn}
@@ -1644,18 +1289,7 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 		The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
 	\end{remark}
 	
-	\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
-		%8.17 
-		Let $\sX \xrightarrow{f} \sY$ be a continuous map then
-		\begin{enumerate}		\item [(i)] 
-			if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
-			\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr \sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
-		\end{enumerate}
-	\end{proposition}
-	\begin{remark}
-		The above formulation of the Proposition \ref{spectral_sequence_prop} differs from the described in \cite{johnstone:topos} more general one.
-	\end{remark}
-		\begin{remark}\label{blow_rem}
+	\begin{remark}\label{blow_rem}
 	From the equation  \eqref{peder_c0_eqn} it follows that the injective homomorphism $\varphi_\sX : C_0\left(\sX \right) \hookto M\left(A \right)$ is good (cf. Definition \ref{good_defn}). So there is the natural surjective continuous map
 	\be\label{phi_a_eqn}
 	\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sX.
@@ -1663,20 +1297,6 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 	\end{remark}
 	\begin{empt}
 
-%\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
-	%ThŽor?me 1.3.1.Ñ? 
-%	Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 	fermŽ localement fini de $\sX$. Supposons donnŽes des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 	$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s \in \mathscr F\left(\sX \right)$ qui 	co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
-%\end{theorem}
-%Following theorem is an English translation of the \ref{loc_fin_french_thm} one.
-%\begin{theorem}\label{loc_fin_eng_thm}\cite{godement:sheaf}
-%	Let $\sX$ is a topological space, and let $\mathscr F \in \mathbf{Sh}\left( \sX\right)$. Let $\left\{M_\iota\right\}$ is a locally finite closed covering of $\sX$, and let $s_\iota \in \mathscr F\left( M_\iota \right)$ be such that $s_\iota = s_j$ on $M_\iota \cap M_j$ for all $\iota$ and $j$. Then there is $s \in \mathscr F\left( \sX\right)$ 
-%\end{theorem}
-%\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
-%	Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
-%	$$
-%	H^0\left(\mathscr U; \mathscr A \right) \cong \Ga\left(\mathscr A \right)\cong H^0\left(\sX; \mathscr A \right).
-%	$$
-%\end{theorem}	
 	If $C_0\left(\sY \right) \xrightarrow{f} M\left(A \right)$ is Hausdorff blowing-up then 
 from the Remark \ref{blow_rem} and the Proposition \ref{spectral_sequence_prop} it follows that
 \begin{enumerate}	
@@ -1692,22 +1312,6 @@ from the Remark \ref{blow_rem} and the Proposition \ref{spectral_sequence_prop} 
 	\ee
 where $\rho_y: A \to B\left(\H_y \right)$ is the corresponding to $y$ irreducible representation. 
 \end{empt}
-
-\begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
-	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
-	\begin{itemize}
-		\item [(a)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
-		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
-	\end{itemize}
-\end{lemma}
-
-\begin{remark}
-	It is known that following $C^*$-algebra satisfy to the condition \eqref{norm_eqn}.
-	\begin{itemize}
-		\item Any $C^*$-algebra  with Hausdorff spectrum (cf. Lemma \ref{hausdorff_spectrum_lem}).
-		\item Any reduced $C^*$-algebra of foliation (cf, \cite{candel:foliII}).
-	\end{itemize}
-\end{remark}
 \begin{empt}
 
 If $C^*$-algebra $A$ satisfies to \eqref{norm_eqn}, $\sY$ is the spectrum of $A$ and $S\subsetneqq A$ is a closed subset then there is $a \in A\setminus S$ and $\eps > 0$ such that
@@ -1738,25 +1342,6 @@ If there is a map $\sX \xrightarrow{\mathfrak{Blowing}} \sY$ such that the follo
 \\
 then $\mathfrak{Blowing}$ is said to be \textit{blowing - up}.
 \end{empt}
-\begin{example}\label{foli_exm}
-The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
-$$
-M = \bigsqcup_{\la \in \La} \L_\la
-$$
-where $\L_\la$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
-$$
-x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
-$$ 
-It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$. In result one has the following diagram
-	\newline
-\begin{tikzcd}
-	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
-	& M/\sim &
-\end{tikzcd}
-\\
-  
-\end{example}
-
 \begin{remark}
 then we say that $\mathfrak{Blowing}$ is the Hausdorff blowing-up of the spectrum.
 The "blowing-up" word is inspired by following reasons:
@@ -1774,17 +1359,6 @@ The "blowing-up" word is inspired by following reasons:
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic construction}
 
-\begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
-	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
-\end{definition}
-\begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
-	%Definition 5.13. 
-	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
-	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
-\end{definition}
-	\begin{thm}(Dauns Hofmann)\label{dauns_hofmann_thm}\cite{pedersen:ca_aut}
-	For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
-\end{thm}
 
 \begin{lemma}\label{ctr_g_lem}
 	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rep_x: A \to B\left(\H_x \right)$.
@@ -1811,19 +1385,6 @@ generates a filter which exceeds $\xi$. It is impossible since the filter $\xi$ 
 \end{proof}
 
 
-	\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
-	Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of topological spaces, and for each $\iota\in I$ let $f_\iota$ be a mapping of $\sY_\iota$ into $\sX$. Let $\mathfrak{D}$ be a set of subsets $\sU$ of $\sX$ such that $f_\iota^{-1} \left(\sU \right)$ is open in $\sY_\iota$ for each $\iota \in I$; then  $\mathfrak{D}$ is a set of open sets in a topology $\mathfrak{T}$. In particular $\mathfrak{T}$ is the finest topology for which the mappings $f_\iota$ are continuous. In other words, if $g$ is mapping on $\sX$ into a topological space $\sZ$, then $g$ is continuous ($\sX$ carrying the topology $\mathfrak{T}$) if and only if each of the mappings $g\circ f_\iota$ is continuous.
-\end{proposition}
-\begin{definition}\label{top_final_defn}
-	Under the hypotheses of Proposition \ref{top_final_prop} we say that the topology $\mathfrak{T}$ is \textit{final} (\textit{with respect to the family of maps} $\left\{f_\iota:\sY_\iota \to \sX\right\}_{\iota\in I}$).
-\end{definition}
-
-	\begin{proposition}\label{top_init_prop}\cite{bourbaki_sp:gt}
-	Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota \in I}$ be a family of topological spaces, and for each $\iota \in I$ let $f_\iota$ be a mapping of $\sX$ into $\sY_\iota$.  Let $\mathfrak{S}$ be the set of subsets of $\sX$ of the form $f^{-1}_\iota\left(\sU_\iota \right)$ where $\iota \in I$, $\sU_\iota$ is open in $\sY_\iota$. Let $\mathfrak B$ be the set of finite intersections of sets of $\mathfrak S$. Then $\mathfrak B$ is a base of a topology $\mathfrak T$ and in particular is the coarsest topology on $\sX$ for which the mappings $f_\iota$ are continuous. More precisely of $g$ is a mapping of topological space into $\sY$, then is continuous at a point  $z \in \sZ$ ($\sX$ carrying the topology $\mathfrak T$) if and only if for each of the functions $f_\iota\circ g$ is continuous at $z$.
-\end{proposition}
-\begin{definition}\label{top_init_defn}\cite{bourbaki_sp:gt}
-	Under the hypotheses of Proposition \ref{top_init_prop} we say that the topology $\mathfrak{T}$ is \textit{initial} (\textit{with respect to the family of maps} $\left\{f_\iota:\sX \to \sY_\iota\right\}_{\iota\in I}$).
-\end{definition}
 \begin{empt}
 		If   $A$  is a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$ then there is a presheaf  $\mathscr P_{\sX\text{-}A}$ of sets such that for any open $\sU \subset \sX$  one has
 		\be\label{presh_eqn}
@@ -1834,18 +1395,6 @@ C \mapsto C \cap ~_\sV A _\sV.
 		\end{split}
 		\ee
 \end{empt}
-\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
-	%1.13. 
-	\textit{
-		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
-	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
-		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
-	follows. As a set it is the union $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$ of sets of germs (cf. Definition \ref{sheaf_stalk_defn}). We define a projection map 
-	\be\label{pf_eqn}
-	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}: \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX
-	\ee
-	by sending $s_x\in \mathscr F_x$ to $x$. Consider the initial with respect to the map $	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}$ topology (cf. Definition \ref{top_init_defn} and denote by $\mathrm{Sp\acute{e}}\left(\mathscr F \right)_{\mathfrak{Etale}}$ the corresponding topological space.
-\end{exercise}
 \begin{lemma}\label{ctr_gelfand_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 	\newline
@@ -1884,13 +1433,6 @@ Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfra
 
 \subsubsection{Comparison with the bundle space} 
 
-\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
-	%Proposition 5.59. 
-	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
-	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
-	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX \right)$.% (cf. equation \eqref{top_ub_eqn}).
-	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
-\end{proposition}
 \begin{empt}\label{ctr_bundle_empt}
 Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\H \right)$. From the Lemma \ref{ctr_g_lem} it follows that there is a set theoretic bijective map
 \bean
@@ -1907,44 +1449,82 @@ H^*\left(\phi_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{
 \ee
 where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{connected_c_a_defn}).
 \end{empt}
-\begin{theorem}\label{singular_thm}\cite{bredon:sheaf}
-%1.1. Theorem. 
-There exist the natural multiplicative transformations of functors (of $\sX$ as well as of $\mathscr A$)
+\begin{lemma}\label{zero_product_lem}
+	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
+	\bean
+	H^p\left(\sX, F_\sX \right) \cong 	H^p\left(\sY, F_\sY \right) \cong  \begin{cases}
+	F & p = 0\\
+	\{0\} & p > 0
+	\end{cases}
+	\eean 
+	then
+	\bean
+H^p\left(\sX \times \sY, F_{\sX \times \sY} \right) \cong \begin{cases}
+	F & p = 0\\
+	\{0\} & p > 0
+\end{cases}
+\eean	
+\end{lemma}
+\begin{proof}
+If $c \in \check H^p\left(\sX \times \sY, F_{\sX \times \sY} \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
 \bean
-H_\Phi^*\left( \sX, \mathscr A\right) \xrightarrow{\th}~ _SH^*_\Phi\left(\sX; \mathscr A \right) \xleftarrow{\mu^*} ~_\Delta H^*_\Phi \left(\sX, \mathscr A \right) 
+\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
+\sY = \bigcup_{\bt \in \mathscr B} \sU_\bt,\\
 \eean
-in which the groups $_\Delta H^*_\Phi \left(\sX, \mathscr A \right)$, and hence $\mu^*$, are defined only for locally constant $\mathscr A$ and are the classical singular cohomology groups when $\Phi$ 
-paracompactifying. The map $\mu^*$ is an isomorphism when $\mathscr A$ has finitely
-generated stalks. Both $\th$ and  $\mu^*$ are isomorphisms when $\sX$ is $HLC$ and $\Phi$
-is paracompactifying. Both natural transformations extend to closed pairs
-of spaces with the same conclusions.
-\end{theorem}
-The notion of $CW$-complex is described in \cite{hatcher:at}
-\begin{proposition}\label{cw_contract_prop} \cite{hatcher:at}
-%Proposition A.4. 
-Each point in a $CW$ complex has arbitrarily small contractible open
-neighborhoods, so $CW$ complexes are locally contractible.
-\end{proposition}
-\begin{empt}\label{ctr_coh_empt}
-If $A$ is a stable separable continuous-trace $C^*$-algebra that the spectrum $\sX$ of $A$ is a $CW$-complex then from the Propositions \ref{ctr_bundle_prop} and \ref{cw_contract_prop} it follows that there is a family $\mathfrak U \bydef \left\{\sU_\la\in \sX\right\}_{\la \in \La}$ of open contractible sets, such  such that
-\begin{itemize}
-	\item For all $\la \in \La$ one has $_{\sU_\la} A _{\sU_\la}\cong C_0\left(\sU_\la \right)\widehat\otimes \K\left( \H\right)$ where  $_{\sU_\la} A _{\sU_\la}$ is given by \eqref{blowing_hereditary_u_eqn} and $\widehat\otimes$ is the unique $C^*$-norm completion of the algebraic tensor product (cf. \cite{blackadar:ko}).
-	\item $\sU_\la$ contractible for any $\la\in \La$.
-	\item $\sX = \bigcup_{\la\in\La} \sU_\la$.
-	\item  any $\sU_\sigma \in K\left(\mathfrak U \right) $ is contractible where $ K\left(\mathfrak U \right)$ is the nerve (cf. Definition \ref{nerve_defn})
-\end{itemize}
-\end{empt}
-
+such that
+\bean
+c \in H^p\left( \mathscr U \times \mathscr V, F\otimes_\Z F \right)  
+\eean
+Similarly to \eqref{cup_prod_eqn} $c$ is represented by
+$$
+\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p_j}}\otimes  \bt^j_{\iota_{p_j},..., \iota_{p}}.
+$$
+Similarly to \eqref{cech_tau_eqn} there are maps
+\bean
+\rho: \mathscr A \onto \left\{\sX\right\},\\
+\sigma :\mathscr B \onto \left\{\sY\right\}
+\eean
+with
+\bean
+	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F_\sX\right)\to \check C^\bullet\left( \mathscr U, F_\sX\right),\\
+\left( \rho^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\right) \bydef \a^j_{\iota_0,...,\iota_{p_j}},\\
+	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F_\sY\right)\to \check C^\bullet\left( \mathscr V, F_\sY\right),\\
+\left( \sigma^{p-p_j} \dl^j_{\iota_{p_j},...,\iota_{p}}\right) \bydef \bt^j_{\iota_{p_j},...,\iota_{p}},\\
+\eean 
+where $\ga^j_{\iota_0,...,\iota_{p_j}}$ and $\dl^j_{\iota_{p_j},...,\iota_{p}}$ correspond to $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p_j = \text{times}}$ and $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p-p_j = \text{times}}$ respectively (cf. equation \ref{tau_c_eqn}). However from the Theorem \ref{top_nerve_thm} it follows that $c$ can be represented by 
+$$
+\sum_{j = 1} ^n\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}}.
+$$
+Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ such that
+\bean
+\ga^j_{\iota_0,...,\iota_{p_j}} = d_{p_j - 1} \mu^j,\\
+ \dl^j_{\iota_{p_j},...,\iota_{p}}= = d_{p - p_j - 1} \nu^j,
+\eean 
+and taking into account \eqref{cup_product_comm_eqn} one has
+\bean
+\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right) 
+\eean
+From the above equation it follows that $c = 0$.
+\end{proof}
 
 \begin{theorem}\label{ctr_thm}
-Under the hypothesis  \ref{ctr_coh_empt} if $F$ is an Abelian group there is the natural isomorphism
-$$
-H^*\left( \mathfrak{Gelfand}\left(A \right)'', \overline F\right) \cong    H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, \overline F \right) 
-$$
+!!!		Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$. Under the hypothesis \ref{ctr_bundle_empt} assume that  there is a 		
+		family $\left\{\sV_\bt \subset \sX\right\}_{\bt \in \mathscr B}$ such that
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		
+		
+		satisfying to the Theorem \ref{top_nerve_thm}  open subsets of $\sX$ then there are the natural isomorphisms
+\bean
+H^*\left( \mathfrak{Gelfand}\left(A \right)'',  F_{\mathfrak{Gelfand}\left(A \right)''}\right) \cong    H^*\left( \C P\left(\E \right)_{\mathfrak{Gelfand}}, F_{\C P\left(\E \right)_{\mathfrak{Gerlfand}}} \right) \cong \\ \cong  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, F_{\C P\left(\E \right)_{\mathfrak{Hausdorff}}} \right)
+\eean
 where $\overline F$ is the $F$-constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
 \end{theorem}\label{ctr_coh_thm}
 \begin{proof}
-	According to the construction \ref{ctr_bundle_empt} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
+	One has
+	
+	According to the Lemma  \ref{zero_product_lem} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
 One has
 \be
 \C P\left( \E\right) = \bigcup_{\substack{\sU\in K\left( \mathfrak U\right) \\ \mathcal W \in  K\left( \mathscr W\right)  }} \sU \times \mathcal W
@@ -1963,213 +1543,8 @@ Any product $\sU \times \mathcal W\subset \C P\left( \E\right)$ is open in both 
 \begin{remark}
 Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism (cf. \cite{rae:ctr_morita}). So $A$ defines the bicommutant  $\mathfrak{Gelfand}\left(A \right)''$  of the Gelfand space (cf. Definition \ref{bicommutant_defn}) and vice-versa.
 \end{remark}
-\begin{empt}\label{canonical_resolution_empt}\cite{bredon:sheaf, godement:sheaf}					
-	For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
-	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
-	Such possibly discontinuous sections are called \textit{serrations}. That is
-	\be
-	C^0(\left(\sU, \mathscr F \right)\bydef \prod_{x \in \sX} \mathscr F_x
-	\ee
-	!!! WHERE $F_x$ !!!
-	Under point-wise operations, this is an Abelian group, and the functor $\sU \mapsto 	C^0(\left(\sU, \mathscr F \right)$, $\sX$. Indeed it is a sheaf (cf. \cite{bredon:sheaf}) which will be denoted by $\mathscr C^0(\left(\sU, \mathscr F \right)$. Note that if $\sX_d$ denotes the point set of $\sX$ 
-	with the discrete topology and if $\phi : \sX_d \to \sX$ is the canonical map, then $\mathscr C^0(\left(\sU, \mathscr F \right)\cong f_*f^* \mathscr F$.
-	Inclusion of the collection of sections of $\mathscr F$ in the collection of all serrations
-	gives an inclusion $\mathscr F\left(\sU \right)\mapsto   C^0(\left(\sU, \mathscr F \right)= \mathscr C^0(\left(\sU, \mathscr F \right)\left(\sU \right)$  and hence
-	provides a natural monomorphism
-	\be\label{sheaf_can_res}
-	\eps : \mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)
-	\ee
-	(For $\phi : \sX_d \to \sX$ as above, this inclusion coincides with the monomorphism
-	$\bt :\mathscr F \hookto f_*f^*\mathscr F$). 
-	Let $\mathscr{Z}^{1}\left(\sX, \mathscr F \right) \bydef \coker\left\{\mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)\right\}$. so that the sequence
-	$$
-	\{0\}\to \mathscr F \to \mathscr{C}^{0}\left(\sX, \mathscr F \right) \to \mathscr{Z}^{1}\left(\sX, \mathscr F \right)\to {0}
-	$$
-	is exact. We also define, inductively,
-	\bean
-	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \bydef \mathscr{C}^{0}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right),\\
-	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right) \bydef \mathscr{Z}^{1}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right)  
-	\eean
-	so that
-	\bean
-	\mathscr{Z}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\eps} \mathscr{C}^{n}\left(\sX, \mathscr F \right)\xrightarrow{\partial}
-	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right)
-	\eean
-	
-	is exact. Let $d \bydef \eps \circ \partial$ be the composition
-	$$
-	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
-	$$
-	
-	Then the sequence 
-	\be\label{canonical_resolution_eqn}
-	0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d}\dots
-	\ee
-	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
-		resolution} of $\mathscr F$.
-\end{empt}
-\subsubsection{Abelian categories and cohomology}
-\begin{definition}\cite{hartshorne:ag}
-	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
-	epimorphism is the cokernel of its kernel; and finally, every morphism 
-	can be factored into an epimorphism followed by a monomorphism.
-\end{definition}
-\begin{empt}\label{derived_funct_empt}\cite{hartshorne:ag}
-	A complex $A^\bullet$ in an 
-	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
-	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
-	If the objects $A^\bullet$ are specified 
-	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
-	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
-	each $n$, which commute with the coboundary maps $d^n$. 
-	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
-	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
-	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
-	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
-	giving rise to a long exact sequence
-	$$ 
-	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
-	$$
-	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
-	if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
-	not commute with the $d^n$ such that $f „ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
-	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
-	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
-	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
-	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
-	additive and for every short exact sequence 
-	$$
-	0 \to A' \to A \to A'' \to 0 
-	$$
-	in $\mathfrak A$
-	the sequence 
-	$$
-	0 \to FA' \to FA \to FA''
-	$$
-	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
-	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
-	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
-	For a contravariant functor we make analogous definitions. For example, 
-	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
-	above, the sequence 
-	$$
-	0 \to F A'' \to F A \to F A'
-	$$ 
-	is exact in $\mathfrak B$.
-	An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
-	$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
-	$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
-	that the sequence 
-	$$
-	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
-	$$
-	is exact. 
-	If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
-	$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
-	object has an injective resolution. Furthermore, a well-known lemma states 
-	that any two injective resolutions are homotopy equivalent. 
-	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
-	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
-	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
-\end{empt}
-\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
-	%			Theorem 1.1 A. 
-	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
-	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
-	Then 
-	\begin{enumerate}
-		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
-		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
-		of the choices of injective resolutions made.
-		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
-		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
-		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
-		obtain a long exact sequence 
-		$$
-		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
-		$$
-		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
-				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
-			\path[-stealth]
-			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
-			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
-			(m-1-1) edge node [right]  {} (m-2-1)
-			(m-1-2) edge node [right] {} (m-2-2);
-		\end{tikzpicture}
-		\\
-		\	
-		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
-		
-	\end{enumerate}
-\end{theorem}
+\subsection{$C^*$-algebras of foliations}
 
-
-
-
-\subsection{Algebras of foliations}
-
-\subsubsection{Groupoid Preliminaries}
-I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
-
-A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
-
-Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
-
-The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
-\[
-\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
-\]
-and for $\omega\in\Omega^\bullet(\G)$,
-\begin{subequations}
-	\bean
-	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
-	\eean
-	
-	\begin{definition}
-		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
-		\bean
-		\partial^*\omega = 0 .
-		\eean
-		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
-	\end{definition}
-	\label{multiplicative.form}
-\end{subequations}
-
-It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
-\[
-\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
-\]
-is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
-\bean
-\label{L_coboundary}
-\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
-\eean
-is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
-\[
-\curv \partial^*L = \partial^*(\curv L) .
-\]
-A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
-
-It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
-
-I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
-
-I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
-
-
-
-%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
-%\[
-%\t^*\{f,g\} = \{\t^*f,\t^*g\}
-%\]
-%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
-
-%\subsection{Standard Constructions}
 I denote by $\Alg$ the Lie functor from the category of Lie groupoids (and smooth homomorphisms) to the category of Lie algebroids, see \cite{mac3}. This restricts to the classical Lie functor from Lie groups to Lie algebras.
 
 I denote by $\Grp$ the inverse of $\Alg$ (see \cite{c-f1}). The domain is the full subcategory of integrable Lie algebroids (i.e., the image of $\Alg$). If $A$ is an integrable Lie algebroid, then $\Grp(A)$ is the unique (up to isomorphism) $\s$-connected and $\s$-simply connected groupoid such that $A\cong \Alg\Grp(A)$. I call $\Grp(A)$ \emph{the} integration of $A$, but I will say that any $\s$-connected groupoid $\G$ with $\Alg(\G)\cong A$ \emph{integrates} $A$.
@@ -2334,6 +1709,1094 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
 \end{definition}
 
+
+\begin{appendices}
+	\section{Topology}
+		\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
+		Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of topological spaces, and for each $\iota\in I$ let $f_\iota$ be a mapping of $\sY_\iota$ into $\sX$. Let $\mathfrak{D}$ be a set of subsets $\sU$ of $\sX$ such that $f_\iota^{-1} \left(\sU \right)$ is open in $\sY_\iota$ for each $\iota \in I$; then  $\mathfrak{D}$ is a set of open sets in a topology $\mathfrak{T}$. In particular $\mathfrak{T}$ is the finest topology for which the mappings $f_\iota$ are continuous. In other words, if $g$ is mapping on $\sX$ into a topological space $\sZ$, then $g$ is continuous ($\sX$ carrying the topology $\mathfrak{T}$) if and only if each of the mappings $g\circ f_\iota$ is continuous.
+	\end{proposition}
+	%\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
+	%	A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
+	%\end{definition}	
+	%	\begin{lemma}\label{cw_p_lem}\cite{miyazaki_cw}
+		%	Any $CW$-complex is paracompact.
+		%\end{lemma}
+		
+	\begin{definition}\label{top_final_defn}
+		Under the hypotheses of Proposition \ref{top_final_prop} we say that the topology $\mathfrak{T}$ is \textit{final} (\textit{with respect to the family of maps} $\left\{f_\iota:\sY_\iota \to \sX\right\}_{\iota\in I}$).
+	\end{definition}
+	
+	\begin{proposition}\label{top_init_prop}\cite{bourbaki_sp:gt}
+		Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota \in I}$ be a family of topological spaces, and for each $\iota \in I$ let $f_\iota$ be a mapping of $\sX$ into $\sY_\iota$.  Let $\mathfrak{S}$ be the set of subsets of $\sX$ of the form $f^{-1}_\iota\left(\sU_\iota \right)$ where $\iota \in I$, $\sU_\iota$ is open in $\sY_\iota$. Let $\mathfrak B$ be the set of finite intersections of sets of $\mathfrak S$. Then $\mathfrak B$ is a base of a topology $\mathfrak T$ and in particular is the coarsest topology on $\sX$ for which the mappings $f_\iota$ are continuous. More precisely of $g$ is a mapping of topological space into $\sY$, then is continuous at a point  $z \in \sZ$ ($\sX$ carrying the topology $\mathfrak T$) if and only if for each of the functions $f_\iota\circ g$ is continuous at $z$.
+	\end{proposition}
+	\begin{definition}\label{top_init_defn}\cite{bourbaki_sp:gt}
+		Under the hypotheses of Proposition \ref{top_init_prop} we say that the topology $\mathfrak{T}$ is \textit{initial} (\textit{with respect to the family of maps} $\left\{f_\iota:\sX \to \sY_\iota\right\}_{\iota\in I}$).
+	\end{definition}
+	\
+	\section{Lattices and filters}
+			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
+		Let $A$ be a partially ordered set, $S$ a subset of $A$. We say an element $a \in A$
+		is a \textit{ meet} (or \textit{ greatest lower bound}) for $S$, and write $a = \wedge S$, if 
+		\begin{enumerate}
+			\item [(a)] $a$ is an lower bound for $S$, i.e. $a \le s$ for all $s \in S$ and, 
+			\item [(b)] if $\forall s \in S\quad  b \le s$, then $b \le a$. 
+		\end{enumerate}
+		\paragraph{}
+		The antisymmetry axiom of the  partially ordered set $A$ ensures that the join of $S$, if it exists, is 
+		unique. If $S$ is a two-element set $\{s, t\}$, we write $s \wedge t$ for $\wedge \{s, t\}$ and if $S$	is the empty set $\emptyset$, we write $0$ for  $\wedge \emptyset$.
+	\end{definition}
+	
+	\begin{definition}\label{lattice_defn}\cite{johnstone:stone_spaces}
+		A \textit{meet-semilattice} is a partially ordered set which supports for any finite set the  greatest lower bound.
+	\end{definition}
+	\begin{definition}\label{filter_defn}\cite{johnstone:stone_spaces} 
+		A subset $\mathfrak F$ of a meet-semilattice $A$ is said to be an {\it filter} if
+		\begin{enumerate}
+			\item [(a)] $\mathfrak F$ is a sub-meet-semilattice of $A$; i.e. $1\notin \mathfrak F$, and $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
+			\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
+		\end{enumerate}
+	\end{definition}
+	\begin{empt}\label{filter_empt}
+		Similarly to \cite{bourbaki_sp:gt} one has
+		\begin{enumerate}
+			\item [(c)] $0 \notin \mathfrak F$.
+			
+		\end{enumerate}	
+		\begin{definition}
+			A filter  $\mathfrak F$ is \textit{principal} if there is $b \in A$ such that 
+			$$
+			\mathfrak F = \left\{a \in A \left|~ b \le a\right.\right\}.
+			$$
+			
+		\end{definition}
+	\end{empt}
+	\begin{remark}\label{fil_hom_rem}
+		Any homomorphism $\phi : L' \to L''$ of {semi}-{lattices} yields a map
+		of filers
+		\be\label{filtermap_eqn}
+		\left\{I_\la\right\}_{\la \in \La}	\mapsto \text{ minimal filter containing } \left\{\phi\left( I_\la\right) \right\}_{\la \in \La}
+		\ee
+	\end{remark}
+	
+	\begin{example}\label{space_semi_exm}
+		If $\sX$ is a topological space then the $\sX$-\textit{semi}-\textit{lattice} is  a  meet-semilattice $\mathfrak{Lattice}\left( \sX\right)$ such that elements of $\mathfrak{Lattice}\left( \sX\right)$ are open subsets of $\sX$ and one has
+		\be\label{x_lat_eqn}
+		\begin{split}
+			\sU' \wedge \sU''\bydef \sU' \cap \sU'',\\
+			\sU' \le \sU'' \quad \Leftrightarrow\quad \sU'' \subset \sU',\\
+			0 \bydef \emptyset.
+		\end{split}
+		\ee
+	\end{example}
+	
+	\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
+		A maximal filter is an \textit{ultrafilter}.
+	\end{definition}
+	\begin{remark}
+		A set of neighborhoods of a point of Hausdorff space is an ultrafilter.
+	\end{remark}
+	\begin{thm}\label{zorn_thm}\cite{spanier:at} (Zorn's lemma). A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
+	\end{thm}
+	
+	\begin{remark}\label{ultra_filter_rem}
+		From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
+	\end{remark}
+	\begin{proposition}\label{top_ultra_thm}\cite{johnstone:stone_spaces}
+		One has:
+		\begin{enumerate}
+			\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
+			\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
+		\end{enumerate} 
+	\end{proposition}
+	\begin{remark}
+		From (b) of the Proposition \ref{top_ultra_thm} it follows that the notion of ultrafilter is not adequate analog of the point of Hausdorff, locally compact space. One needs the finer notion.
+	\end{remark} 
+	
+	
+\section{$C^*$-algebras}
+
+\begin{definition}\label{lrc_defn}\cite{matro:hcm}
+	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} if one has
+	\be
+	\la\left(ab\right)= 	\la\left(a\right) b \quad \forall a, b \in A.
+	\ee
+	Similarly one defines a \textit{right centralizer}. Denote the spaces of left and right centralizers by $\mathbf{LC}(A)$ and  $\mathbf{RC}(A)$.
+\end{definition}
+
+	\begin{defn}\label{strict_topology_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms 
+	\be\label{strict_topology_norm_eqn}
+	\vertiii{x}_a\bydef \|ax\| + \|xa\|,\quad a\in A.
+	\ee
+	If $\La$ is a directed set and $\left\{a_\la\in M\left( A\right) \right\}_{\la\in \La}$ is a net the we denote by $\bt\text{-}\lim_{\la\in\La }a_\la$ the limit of $\left\{a_\la \right\}$ with respect to the strict topology.
+	If $x \in M(A)$  and a sequence of partial sums $\sum_{i=1}^{n}a_i$ ($n = 1,2, ...$), ($a_i \in A$) tends to $x$ in the strict topology then we shall write
+	\begin{equation}\label{strict_topology_eqn}
+		x = \bt\text{-}\sum_{i=1}^{\infty}a_i.
+	\end{equation}
+\end{defn}
+
+\begin{thm}\label{gelfand-naimark_thm}\cite{arveson:c_alg_invt} (Commutative Gelfand-Na\u{\i}mark theorem). 
+	Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
+\end{thm}
+
+	\begin{thm}\label{pedersen_ideal_thm}  \cite{pedersen:ca_aut} 
+	% THEOREM 5.6.1
+	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
+	which is minimal among dense ideals.
+	
+\end{thm}
+\begin{proof}
+	Let $K(]0, \infty [)$ denote the set of continuous functions on $]0, \infty [$ with 
+	compact support and define 
+	\be\label{pedersen_k0_eqn}
+	K\left( A \right)_0 \bydef \left\{f\left(x\right) \left|x \in A_+, \quad f \in K(]0, \infty [) \right.\right\}.
+	\ee
+	Let 
+	\be\label{pedersen_k_plus_eqn}
+	K\left( A \right)_+ \bydef \left\{x \in A_+ \left|x \le \sum_{j = 1}^nx_j, \quad x_j \in  	K\left( A \right)_0\right.\right\}, 	
+	\ee
+	so that $	K\left( A \right)_+$ is the smallest hereditary cone  containing $K\left( A \right)_0$. If $K(A)$ 
+	is  the algebraic  $\C$-linear span of $K(A)_+$ then $K(A)$,
+	which is minimal among dense ideals. The full  proof is  described in \cite{pedersen:ca_aut}.
+\end{proof}
+
+\begin{defn}\label{pedersen_ideal_defn}\cite{blackadar:ko}
+	The ideal $K\left( A\right) $ from the theorem \ref{pedersen_ideal_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
+\end{defn}
+
+\begin{remark}\cite{pedersen:ca_aut} 
+	One has
+	\bea\label{peder_k_eqn}
+	K\left( \K\right) = \left\{\left. a \in \K\right| a  \text{ is a finite rank operator}\right\},\\
+	\label{peder_c0_eqn}
+	K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
+	\eea
+	
+\end{remark}	
+
+	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
+	Let $A$ be a $C^*$-algebra.
+	\begin{enumerate}
+		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left deals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+		$$
+		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
+		$$
+		is the unique closed left ideal of $A$ corresponding to $B$.
+	\end{enumerate}
+\end{lemma}
+\begin{proposition}\label{hered_spectrum_prop}\cite{pedersen:ca_aut}
+	If $B$ is a hereditary $C^*$-subalgebra of $A$ then the map $t \mapsto t\cap B$ is a homeomorphism between $\check A\setminus \mathrm{hull}\left( B\right)$ and $\check B$, where 
+	$$
+	\mathrm{hull}\left( B\right) = \left\{\left. x \in \hat A~\right|~ \rep_x\left(B \right)= \{0\} \right\} .
+	$$ 
+	Moreover  we have a commutative diagram:
+	\\
+	\begin{tikzcd}
+		\hat A \setminus \mathrm{hull}\left(B \right)\arrow[d]\arrow[r, "\approx"] & \hat B\arrow[d]\\
+		\check A \setminus \mathrm{hull}\left(B \right)\arrow[r, "\approx"] & \check B
+	\end{tikzcd}
+	\\ 	
+\end{proposition}
+
+%\begin{remark}\label{pedersen_ideal_rem}
+%	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
+%	\be\label{pedersen_ideal_eqn}
+%	\begin{split}
+	%		K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+	%		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
+	%	\end{split}
+%	\ee
+%	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
+%\end{remark}
+
+\subsection{Continuous trace $C^*$-algebras}
+
+
+\begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
+	A positive element in $C^*$ - algebra $A$ is {\it Abelian} if subalgebra $xAx \subset A$ is commutative.
+\end{definition}
+\begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
+	%Definition 5.13. 
+	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
+	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
+\end{definition}
+\begin{thm}(Dauns Hofmann)\label{dauns_hofmann_thm}\cite{pedersen:ca_aut}
+	For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
+\end{thm}
+\begin{lemma}\label{hausdorff_spectrum_lem}\cite{rae:ctr_morita}
+	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
+	\begin{itemize}
+		\item [(a)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
+		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
+	\end{itemize}
+\end{lemma}
+
+
+\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
+	%Proposition 5.59. 
+	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX \right)$.% (cf. equation \eqref{top_ub_eqn}).
+	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\end{proposition}
+\subsection{Topologies of *-automorphisms groups}\label{op_top_sec}
+
+If $A$ is a $C^*$-algebra then the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries several topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
+\begin{equation*}
+	\left\{\left.\alpha \in \mathrm{Aut}(A) \ \right| \ \|\alpha(a)-a\| < 1 \right\}, \quad a \in A.
+\end{equation*}
+The other topology is the {\it uniform norm-topology} based on the open sets
+\begin{equation}\label{aut_norm_eqn}
+	\left\{\alpha \in \mathrm{Aut}(A) \ \left| \ \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| < \varepsilon \right. \right\}, \quad \varepsilon > 0
+\end{equation}
+which corresponds to following "norm"
+\begin{equation}\label{uniform_norm_topology_formula_eqn}
+	\|\alpha\|_{\text{Aut}} = \sup_{a \neq 0}\ \|a\|^{-1} \|\alpha(a)-a\| = \sup_{\|a\| =1}\  \|\alpha(a)-a\|.
+\end{equation}
+Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ is not a vector space. Both of them can be used for our purposes.
+
+\begin{theorem}\label{left_ideal_thm}\cite{murphy}
+	%3.1.2. Theorem.
+	If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
+	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
+\end{theorem}
+\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
+	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
+	\begin{enumerate}
+		\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
+		\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
+		\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
+		\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
+		\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
+		\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
+	\end{enumerate} 
+\end{theorem}
+\begin{definition}\label{irred_defn}\cite{pedersen:ca_aut}
+	Let $A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The representation is said to be \textit{irreducible} if it satisfies to the Theorem \ref{irred_thm}.
+\end{definition}
+\begin{definition}\label{spectrum_prime_primtive_defn}\cite{pedersen:ca_aut}
+	An ideal $I$ in a $C^*$-algebra $A$ is \textit{prime}  if $xAy \subset I$  implies $x\in I$  or $y\in I$
+	for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
+	$I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
+	We say that $I$ is a \textit{primitive} ideal if $I= \ker\pi$ for some irreducible 
+	representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. 
+\end{definition}
+
+\subsubsection{Abelian categories and cohomology}
+\begin{definition}\cite{hartshorne:ag}
+	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
+	epimorphism is the cokernel of its kernel; and finally, every morphism 
+	can be factored into an epimorphism followed by a monomorphism.
+\end{definition}
+\begin{empt}\label{derived_funct_empt}\cite{hartshorne:ag}
+	A complex $A^\bullet$ in an 
+	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
+	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
+	If the objects $A^\bullet$ are specified 
+	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
+	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
+	each $n$, which commute with the coboundary maps $d^n$. 
+	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
+	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
+	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
+	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
+	giving rise to a long exact sequence
+	$$ 
+	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
+	$$
+	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
+	if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
+	not commute with the $d^n$ such that $f „ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
+	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
+	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
+	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
+	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
+	additive and for every short exact sequence 
+	$$
+	0 \to A' \to A \to A'' \to 0 
+	$$
+	in $\mathfrak A$
+	the sequence 
+	$$
+	0 \to FA' \to FA \to FA''
+	$$
+	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
+	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
+	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
+	For a contravariant functor we make analogous definitions. For example, 
+	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
+	above, the sequence 
+	$$
+	0 \to F A'' \to F A \to F A'
+	$$ 
+	is exact in $\mathfrak B$.
+	An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
+	$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
+	$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
+	that the sequence 
+	$$
+	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
+	$$
+	is exact. 
+	If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
+	$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
+	object has an injective resolution. Furthermore, a well-known lemma states 
+	that any two injective resolutions are homotopy equivalent. 
+	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
+	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
+\end{empt}
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
+	%			Theorem 1.1 A. 
+	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
+	Then 
+	\begin{enumerate}
+		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+		of the choices of injective resolutions made.
+		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		obtain a long exact sequence 
+		$$
+		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+		$$
+		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+			(m-1-1) edge node [right]  {} (m-2-1)
+			(m-1-2) edge node [right] {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		\	
+		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+		
+	\end{enumerate}
+\end{theorem}
+
+
+
+
+\subsection{Algebras of foliations}
+
+\subsubsection{Groupoid Preliminaries}
+I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
+
+A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
+
+Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
+
+The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
+\[
+\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
+\]
+and for $\omega\in\Omega^\bullet(\G)$,
+\begin{subequations}
+	\bean
+	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
+	\eean
+	
+	\begin{definition}
+		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
+		\bean
+		\partial^*\omega = 0 .
+		\eean
+		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
+	\end{definition}
+	\label{multiplicative.form}
+\end{subequations}
+
+It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
+\[
+\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
+\]
+is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
+\bean
+\label{L_coboundary}
+\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
+\eean
+is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
+\[
+\curv \partial^*L = \partial^*(\curv L) .
+\]
+A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
+
+It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
+
+I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
+
+I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
+
+
+
+%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
+%\[
+%\t^*\{f,g\} = \{\t^*f,\t^*g\}
+%\]
+%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
+
+%\subsection{Standard Constructions}
+\section{Sheaves}
+\subsection{Basic definitions}
+\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
+	\begin{itemize}
+		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+		subject to conditions
+		\begin{itemize}
+			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
+
+\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	A \textit{presheaf} $\mathscr F$ on  
+	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
+	\begin{itemize}
+		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+	\end{itemize}
+	(Note condition (3) implies that $s$ is unique.)
+\end{definition}
+\begin{definition}
+	A presheaf \ref{presheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+\end{definition}
+\begin{definition}\label{sheaf_stalk_defn}\cite{hartshorne:ag}
+	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ 
+	\textit{of} $\mathscr F$ \textit{at} $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+
+\begin{definition}\label{sheaf_mor_defn}\cite{hartshorne:ag}
+	If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
+	of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
+	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
+			\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
+		};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\varphi_\sU$} (m-1-2)
+		(m-1-1) edge node [right] {$\rho_{\sU\sV}$} (m-2-1)
+		(m-1-2) edge node [right] {$\rho'_{\sU\sV}$} (m-2-2)
+		(m-2-1) edge node [above] {$\varphi_\sV$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
+	of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
+\end{definition}
+
+\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
+\end{prdf}
+
+\begin{empt}\label{sheaf_empt}
+	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
+	\begin{itemize}
+		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
+		\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
+	\end{itemize}
+\end{empt}
+\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
+	If $F$ is a set and $\sX$ is a topological space then the $F$-\textit{constant presheaf} is given by
+	\bean
+	\sU \mapsto F.
+	\eean
+	The $F$-\textit{locally constant sheaf} is the sheaf associated with the $F$-{constant presheaf}. We denote it by
+	\be
+	\overline{F} \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
+	\ee
+\end{definition}
+
+
+
+\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+\end{definition}
+%\begin{definition}\label{flabby_sheaf_defn}\label{bredon:sheaf}
+%5.1. Definition. 
+%A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathscr A\left( \sX\right) \to \mathscr A\left( \sU\right)$ is surjective for every open set  $\sU \subset \sX$
+%\end{definition}
+\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
+	%Proposition 2.5. // 
+	If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
+\end{proposition}
+\begin{definition}\label{sheaf_support_defn}\cite{hartshorne:ag}
+	For $s \in \mathscr{F}\left(\sX \right)$, 
+	\be\label{sheaf_supp_eqn}
+	\left|  s\right| = \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
+	\ee
+	denotes the \textit{support} of the section $s$.
+\end{definition}
+
+\begin{example}\label{foli_exm}
+	The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
+	$$
+	M = \bigsqcup_{\la \in \La} \L_\la
+	$$
+	where $\L_\la$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
+	$$
+	x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
+	$$ 
+	It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$. In result one has the following diagram
+	\newline
+	\begin{tikzcd}
+		\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
+		& M/\sim &
+	\end{tikzcd}
+	\\
+	
+\end{example}
+\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
+	%1.13. 
+	\textit{
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
+	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
+		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
+	follows. As a set it is the union $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$ of sets of germs (cf. Definition \ref{sheaf_stalk_defn}). We define a projection map 
+	\be\label{pf_eqn}
+	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}: \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX
+	\ee
+	by sending $s_x\in \mathscr F_x$ to $x$. Consider the initial with respect to the map $	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}$ topology (cf. Definition \ref{top_init_defn} and denote by $\mathrm{Sp\acute{e}}\left(\mathscr F \right)_{\mathfrak{Etale}}$ the corresponding topological space.
+\end{exercise}
+
+%\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
+%ThŽor?me 1.3.1.Ñ? 
+%	Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 	fermŽ localement fini de $\sX$. Supposons donnŽes des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 	$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s \in \mathscr F\left(\sX \right)$ qui 	co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
+%\end{theorem}
+%Following theorem is an English translation of the \ref{loc_fin_french_thm} one.
+%\begin{theorem}\label{loc_fin_eng_thm}\cite{godement:sheaf}
+%	Let $\sX$ is a topological space, and let $\mathscr F \in \mathbf{Sh}\left( \sX\right)$. Let $\left\{M_\iota\right\}$ is a locally finite closed covering of $\sX$, and let $s_\iota \in \mathscr F\left( M_\iota \right)$ be such that $s_\iota = s_j$ on $M_\iota \cap M_j$ for all $\iota$ and $j$. Then there is $s \in \mathscr F\left( \sX\right)$ 
+%\end{theorem}
+%\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
+%	Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
+%	$$
+%	H^0\left(\mathscr U; \mathscr A \right) \cong \Ga\left(\mathscr A \right)\cong H^0\left(\sX; \mathscr A \right).
+%	$$
+%\end{theorem}	
+
+%\begin{theorem}\label{singular_thm}\cite{bredon:sheaf}
+	%1.1. Theorem. 
+%	There exist the natural multiplicative transformations of functors (of $\sX$ as well as of $\mathscr A$)
+%	\bean
+%	H_\Phi^*\left( \sX, \mathscr A\right) \xrightarrow{\th}~ _SH^*_\Phi\left(\sX; \mathscr A \right) \xleftarrow{\mu^*} ~_\Delta H^*_\Phi \left(\sX, \mathscr A \right) 
+%	\eean
+%	in which the groups $_\Delta H^*_\Phi \left(\sX, \mathscr A \right)$, and hence $\mu^*$, are defined only for locally constant $\mathscr A$ and are the classical singular cohomology groups when $\Phi$ 	paracompactifying. The map $\mu^*$ is an isomorphism when $\mathscr A$ has finitely	generated stalks. Both $\th$ and  $\mu^*$ are isomorphisms when $\sX$ is $HLC$ and $\Phi$	is paracompactifying. Both natural transformations extend to closed pairs	of spaces with the same conclusions.
+%\end{theorem}
+
+\subsection{Cohomology}
+\subsection{Abelian categories and cohomology}
+\begin{definition}\cite{hartshorne:ag}
+	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
+	epimorphism is the cokernel of its kernel; and finally, every morphism 
+	can be factored into an epimorphism followed by a monomorphism.
+\end{definition}
+\begin{empt}\label{derived_funct_empt}\cite{hartshorne:ag}
+	A complex $A^\bullet$ in an 
+	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
+	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
+	If the objects $A^\bullet$ are specified 
+	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
+	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
+	each $n$, which commute with the coboundary maps $d^n$. 
+	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
+	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
+	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
+	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
+	giving rise to a long exact sequence
+	$$ 
+	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
+	$$
+	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
+	if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
+	not commute with the $d^n$ such that $f „ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
+	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
+	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
+	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
+	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
+	additive and for every short exact sequence 
+	$$
+	0 \to A' \to A \to A'' \to 0 
+	$$
+	in $\mathfrak A$
+	the sequence 
+	$$
+	0 \to FA' \to FA \to FA''
+	$$
+	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
+	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
+	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
+	For a contravariant functor we make analogous definitions. For example, 
+	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
+	above, the sequence 
+	$$
+	0 \to F A'' \to F A \to F A'
+	$$ 
+	is exact in $\mathfrak B$.
+	An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
+	$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
+	$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
+	that the sequence 
+	$$
+	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
+	$$
+	is exact. 
+	If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
+	$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
+	object has an injective resolution. Furthermore, a well-known lemma states 
+	that any two injective resolutions are homotopy equivalent. 
+	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
+	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
+\end{empt}
+\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+	%8.17 
+	Let $\sX \xrightarrow{f} \sY$ be a continuous map then
+	\begin{enumerate}		\item [(i)] 
+		if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+		\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr \sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	The above formulation of the Proposition \ref{spectral_sequence_prop} differs from the described in \cite{johnstone:topos} more general one.
+\end{remark}
+
+	
+\subsection{Canonical resolution}\label{canonical_resolution_empt}
+Here I follow to \cite{bredon:sheaf, godement:sheaf}.					
+	For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
+	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
+	Such possibly discontinuous sections are called \textit{serrations}. That is
+	\be
+	C^0(\left(\sU, \mathscr F \right)\bydef \prod_{x \in \sX} \mathscr F_x
+	\ee
+	$\mathscr F_x$ is the space of stalks (cf. Definition \ref{sheaf_stalk_defn})
+	Under point-wise operations, this is an Abelian group, and the functor $\sU \mapsto 	C^0(\left(\sU, \mathscr F \right)$, $\sX$. Indeed it is a sheaf (cf. \cite{bredon:sheaf}) which will be denoted by $\mathscr C^0(\left(\sU, \mathscr F \right)$. Note that if $\sX_d$ denotes the point set of $\sX$ 
+	with the discrete topology and if $\phi : \sX_d \to \sX$ is the canonical map, then $\mathscr C^0(\left(\sU, \mathscr F \right)\cong f_*f^* \mathscr F$.
+	Inclusion of the collection of sections of $\mathscr F$ in the collection of all serrations
+	gives an inclusion $\mathscr F\left(\sU \right)\mapsto   C^0(\left(\sU, \mathscr F \right)= \mathscr C^0(\left(\sU, \mathscr F \right)\left(\sU \right)$  and hence
+	provides a natural monomorphism
+	\be\label{sheaf_can_res}
+	\eps : \mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)
+	\ee
+	(For $\phi : \sX_d \to \sX$ as above, this inclusion coincides with the monomorphism
+	$\bt :\mathscr F \hookto f_*f^*\mathscr F$). 
+	Let $\mathscr{Z}^{1}\left(\sX, \mathscr F \right) \bydef \coker\left\{\mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)\right\}$. so that the sequence
+	$$
+	\{0\}\to \mathscr F \to \mathscr{C}^{0}\left(\sX, \mathscr F \right) \to \mathscr{Z}^{1}\left(\sX, \mathscr F \right)\to {0}
+	$$
+	is exact. We also define, inductively,
+	\bean
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \bydef \mathscr{C}^{0}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right),\\
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right) \bydef \mathscr{Z}^{1}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right)  
+	\eean
+	so that
+	\bean
+	\mathscr{Z}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\eps} \mathscr{C}^{n}\left(\sX, \mathscr F \right)\xrightarrow{\partial}
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right)
+	\eean
+	
+	is exact. Let $d \bydef \eps \circ \partial$ be the composition
+	$$
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
+	$$
+	
+	Then the sequence 
+	\be\label{canonical_resolution_eqn}
+	0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d}\dots
+	\ee
+	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
+		resolution} of $\mathscr F$.
+\subsection{\v{C}ech cohomology}
+\begin{empt}
+	Here I follow to \cite{milne:lec}. Let $\sX$ be a topological space  Let $\mathscr U \bydef \left\{\sU_\iota \to \sX\right\}_{\iota \in I}$ be  covering of $\sX$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
+	\be\label{cech_eqn}
+	\check C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\times_\sX...\times_\sX\sU_{\iota_r}. 
+	\ee
+	For $s \in \check C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in \check C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
+	\be\label{cech_differential_eqn}
+	d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},\iota_{j+1},..., \iota_{r + 1}} \right)  
+	\ee
+	$\mathrm{res}_j$ is the restriction map corresponding to the projection map
+	$$
+	\sU_{\iota_0,..., \iota_{r + 1}}\mapsto \sU_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}.
+	$$
+	As in the classical case, one verifies by a straightforward calculation that
+	\be\label{chech_res_eqn}
+	\check C^\bullet\left( \mathscr U, \mathscr P\right) \bydef \check C^0\left( \mathscr U, \mathscr P\right) \to...\to \check C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} \check C^{r+1}\left( \mathscr U, \mathscr P\right)\to ...
+	\ee
+	is a complex. Define
+	\be\label{cech_coh_eqn}
+	\check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(\check C^\bullet\left( \mathscr U, \mathscr P\right)   \right)= \begin{cases}
+		\ker d_0 & r = 0\\
+		\ker d_r / \im d_{r-1} & r > 0
+	\end{cases}. 
+	\ee
+	It is called the $r^{\text{th}}$ \textit{\v{C}ech cohomology group} of $\mathscr P$ relative to the covering $\mathscr U$.
+	Note that
+	$$
+	\check{H}^0\left( \mathscr U, \mathscr P\right)= \ker\left(\prod \mathscr P_\iota \rightrightarrows \prod \mathscr P_{\iota,j} \right) 
+	$$
+	Therefore, for a sheaf $\mathscr F$ one has
+	$$
+	\check{H}^0\left( \mathscr U, \mathscr F\right)=\Ga\left( \mathscr U, \mathscr F\right).
+	$$
+	A second covering $\mathscr V \bydef \left\{\sV_j\to \sX \right\}_{j \in J}$ of $\sX$ is called a \textit{refinement} of $\mathscr U$ if there is a
+	map
+	\be\label{cech_tau_eqn}
+	 \tau : J\to I
+	 \ee
+	  such that $\sV_j \to \sX$ factors through $\sU_{\tau_j}\to \sX$ for all $j \in J$ . The choice of
+	a $\tau$ and $\sX$-morphisms $\varphi_{j}: \sV_j \to \sU_{\tau_j}$ for each $j$ determines a map of complexes
+	\be\label{tau_c_eqn}
+	\begin{split}
+	\tau^\bullet: \check C^\bullet\left( \mathscr U, \mathscr P\right)\to \check C^\bullet\left( \mathscr V, \mathscr P\right),\\
+	\left( \tau^r s_{j_0,..., j_{r}} \right) \bydef s_{\tau j_0,..., \tau j_{r}}.
+	\end{split}
+	\ee
+	As in the classical case, one verifies that the map on cohomology groups
+	$$
+	\rho \left(\mathscr U, \mathscr V \right): \check{H}^r\left( \mathscr U, \mathscr P\right)\to \check{H}^r \left( \mathscr V, \mathscr P\right)
+	$$
+	is independent of all choices. We may pass to the limit over all coverings, and so obtain limits
+	\be\label{chech_eqn}
+	\check{H}^r\left(\sX, \mathscr P\right)\bydef \varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, \mathscr P\right).
+	\ee
+\end{empt}
+\begin{defn}\label{chech_defn}\cite{bryl:loop,milne:lec}
+	The  \textit{\v{C}ech cohomology groups} are given by equation \eqref{chech_eqn}.
+\end{defn}
+These groups  have the following properties:
+\begin{enumerate}
+	\item [(a)] $\check{H}^0\left(\sX, \mathscr F\right)= \Ga\left( \sX, \mathscr F\right)$ for any sheaf $\mathscr F$ on $\sX$;
+	\item[(b)] $\check{H}^r\left(\sX, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$
+\end{enumerate}
+(cf \cite{milne:lec} for details).
+\begin{empt}
+	For any Abelian group $F$ one can define a constant presheaf $F_\sX$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
+	We use a following notation
+	\be\label{etale_hom_a_eqn}
+	\check{H}^r\left(\sX, F\right)\bydef \check{H}^r\left(\sX, F_\sX\right).
+	\ee
+\end{empt}
+\begin{proposition}\cite{bredon:sheaf}
+	%	PAGE 191 4.7. Proposition. 
+	If $\mathscr A$ is a sheaf, then for any open covering $\mathscr U$ of $\s\sX$,
+	the presheaf 
+	\be
+	\begin{split}
+		\sV \mapsto \check C\left(\mathscr U\cap \sV; \mathscr A \right)
+	\end{split}
+	\ee is a sheaf. If $\mathscr A$ is flabby, then so are the $\check C\left(\mathscr U\cap \bullet; \mathscr A \right)$
+	
+\end{proposition}
+\begin{theorem}\label{top_cech_ree_thm}\cite{bredon:sheaf}
+	%4.9. Theorem. 192
+	If $\mathscr A$ is a sheaf on $\sX$  and $\mathscr U$ is any open
+	covering of , then $\check{ \mathscr C}\left( \mathscr U, \mathscr A\right)$ is a resolution of $\mathscr A$.
+\end{theorem}
+\begin{definition}\label{nerve_defn}\cite{spanier:at}
+	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
+\end{definition}
+
+\begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
+	%PAGE 193 !!! DOWN !!!
+	%4.13. Theorem. 
+	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\s\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \s\sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
+	\be\label{h_lim_eqn}
+	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
+	\ee
+\end{theorem}
+\begin{proof}
+	Let $\mathscr A^q \bydef  \mathscr{ { C}}^q\left(\sX,\mathscr A^* \right)$ (cf. \eqref{canonical_resolution_eqn}) and consider the complex% $\check {C}^p\left( \mathscr U,\mathscr A^*\right)$  for $p$
+	fixed. Since $\check {C}^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
+	\bean
+	H^q\left(\check  C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U; H^q\left( \Ga \mathscr A^*|\bullet\right)\right)  = \check C^p\left( \mathscr U; H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
+	\begin{cases}
+		\check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
+		0 & q \neq 0
+	\end{cases}
+	\eean
+	by the hypothesis that $H^q\left( \sU_{\sigma^n};\mathscr A \right)= 0$ for $q > 0$.
+	Consider the diagram
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			& 0  & 0 & 0 & 0 &	\\ 
+			0 & \Ga\left(\mathscr A \right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
+			0 & \check C^0\left(\mathscr U, \mathscr A \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, \mathscr A \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U, \mathscr A \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
+			\\};
+		\path[-stealth]
+		(m-1-2) edge node [right]  {} (m-2-2)
+		(m-1-3) edge node [right]  {} (m-2-3)
+		(m-1-4) edge node [right]  {} (m-2-4)
+		(m-1-5) edge node [right]  {} (m-2-5)
+		
+		(m-2-1) edge node [right]  {} (m-2-2)
+		(m-2-2) edge node [right]  {} (m-2-3)
+		(m-2-3) edge node [right]  {} (m-2-4)
+		(m-2-4) edge node [right]  {} (m-2-5)
+		(m-2-5) edge node [right]  {} (m-2-6)
+		(m-2-2) edge node [right]  {} (m-3-2)
+		(m-2-3) edge node [right]  {} (m-3-3)
+		(m-2-4) edge node [right]  {} (m-3-4)
+		(m-2-5) edge node [right]  {} (m-3-5)
+		
+		(m-2-2) edge node [right]  {} (m-3-2)
+		(m-2-3) edge node [right]  {} (m-2-3)
+		(m-2-4) edge node [right]  {} (m-3-4)
+		(m-2-5) edge node [right]  {} (m-3-5)
+		
+		(m-3-1) edge node [right]  {} (m-3-2)
+		(m-3-2) edge node [right]  {} (m-3-3)
+		(m-3-3) edge node [right]  {} (m-3-4)
+		(m-3-4) edge node [right]  {} (m-3-5)
+		(m-3-5) edge node [right]  {} (m-3-6)
+		
+		(m-3-2) edge node [right]  {} (m-4-2)
+		(m-3-3) edge node [right]  {} (m-4-3)
+		(m-3-4) edge node [right]  {} (m-4-4)
+		(m-3-5) edge node [right]  {} (m-4-5)
+		
+		(m-4-1) edge node [right]  {} (m-4-2)
+		(m-4-2) edge node [right]  {} (m-4-3)
+		(m-4-3) edge node [right]  {} (m-4-4)
+		(m-4-4) edge node [right]  {} (m-4-5)
+		(m-4-5) edge node [right]  {} (m-4-6)
+		
+		(m-4-2) edge node [right]  {} (m-5-2)
+		(m-4-3) edge node [right]  {} (m-5-3)
+		(m-4-4) edge node [right]  {} (m-5-4)
+		(m-4-5) edge node [right]  {} (m-5-5)
+		
+		(m-5-1) edge node [right]  {} (m-5-2)
+		(m-5-2) edge node [right]  {} (m-5-3)
+		(m-5-3) edge node [right]  {} (m-5-4)
+		(m-5-4) edge node [right]  {} (m-5-5)
+		(m-5-5) edge node [right]  {} (m-5-6)
+		
+		(m-5-2) edge node [right]  {} (m-6-2)
+		(m-5-3) edge node [right]  {} (m-6-3)
+		(m-5-4) edge node [right]  {} (m-6-4)
+		(m-5-5) edge node [right]  {} (m-6-5)
+		;
+	\end{tikzpicture}
+	\\
+	in which the rows are exact, excepting the first, as just shown and the
+	columns are exact, excepting the first, by \ref{top_cech_ree_thm}. A diagram chase
+	shows that the homology of the first (nontrivial) row is isomorphic to that
+	of the first column.
+\end{proof}	
+	\begin{empt}
+	If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sY$ (cf. Definition \ref{pretopology_defn}    and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sX$. Let $F$ be a Abelian group, and let $F_\sX$, $F_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
+	\be\label{top_cech_eqn}
+	C^r\left( \mathscr U,  F_\sY\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}}  F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
+	\ee
+	is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}). For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
+	$$
+	F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\cong F_\sX\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong F.
+	$$
+	Above isomorphisms yield an isomorphism
+	$$
+	C^r\left( \mathscr U, F_\sY\right)\xrightarrow{\approx} C^r\left( f^{-1}\left( \mathscr U\right) , F_\sX\right)
+	$$
+	So there is an isomorphism
+	$$
+	\varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, F_\sY\right)\xrightarrow{\approx}\varinjlim_{\mathscr U}\check{H}^r\left(f^{-1}\left(  \mathscr U\right) , F_\sX\right).
+	$$
+	On the other hand from   \eqref{chech_eqn}  it follows that there are homomorphisms
+	\bean
+	\check{H}^r\left(f^{-1}\left(  \mathscr U\right) , F_\sX\right)\to \check{H}^r\left(\sX , F_\sX\right),\\
+	\varinjlim_{\mathscr U} \check{H}^r\left(f^{-1}\left(  \mathscr U\right), F_\sX\right)\to \check{H}^r\left(\sX , F_\sX\right)
+	\eean
+	so one has a homomorphism
+	$$
+	\varinjlim_{\mathscr U} \check{H}^r\left(  \mathscr U, F_\sY\right)\to \check{H}^r\left(\sX , F_\sX\right)
+	$$
+	and applying \eqref{chech_eqn} one can obtain a natural homomorphism
+	$$
+	\check{H}^r\left(f\right):\check{H}^r\left(\sY, F_\sY \right)\to \check{H}^r\left(\sX, F_\sX \right)\quad r \ge 0.
+	$$
+	The details of the construction of the homomorphism $\check{H}^r\left(f\right)$  are explained in \cite{eust}. Using the Notation \ref{constant_presheaf_defn} one has homomorphisms
+	\be\label{cech_hom_eqn}
+	\begin{split}
+		\check{H}^r\left(f\right):\check{H}^r\left(\sY, F \right)\to \check{H}^r\left(\sX, F \right)\quad r \ge 0,\\
+		\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right).
+	\end{split}
+	\ee
+	If both $\sX \xrightarrow{f}\sY$ and $\sY \xrightarrow{g}\sZ$ are continuous maps then from this construction it turns out that
+	\be\label{cech_hom_comp_eqn}
+	\begin{split}
+		\check{H}^\bullet\left(g\circ f\right)= \check{H}^\bullet\left( f\right)\circ \check{H}^\bullet\left(g\right):\check{H}^\bullet\left(\sZ, F \right)\to \check{H}^\bullet\left(\sX, F \right)
+	\end{split}
+	\ee
+	
+\end{empt}
+
+
+\subsection{Products}
+
+	
+\begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
+	\v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
+	$$
+	\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right).
+	$$
+	Here $\mathscr F$ and $\mathscr G$ are sheaves of Abelian groups on $\sX$, and the \textit{tensor product}-\textit{sheaf}
+	$\mathscr F\otimes \mathscr G$ is the sheaf associated to the presheaf $\sU \mapsto \mathscr F(\sU)\otimes \mathscr G(\sU)$. The 
+	stalk (cf. Definition \ref{stalk_defn}) at $x$ of $\mathscr F\otimes \mathscr G$ is $\mathscr F_x\otimes \mathscr G_x$. The cup-product will be defined from a 
+	morphism of complexes. We first need the notion of tensor product $A^\bullet \otimes  B^\bullet$
+	of two complexes; this is the total complex of the double complex $A^\bullet \otimes  B^\bullet$. 
+	So the degree $n$-term of $A^\bullet \otimes  B^\bullet$ is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$  
+	is 
+\be\label{cup_product_comm_eqn}
+	d \left(a \otimes b\right)	\bydef \left(da\right)\otimes b + \left(-1\right)^p a \otimes db
+\ee
+	
+	for $a\in A^p$, $b \in B^q$. We have the obvious 
+	map 
+	$$
+	\otimes :H^p\left(A^\bullet\right)\otimes H^q\left(B^\bullet\right)\to H^q\left(A^\bullet\ox B^\bullet\right).	
+	$$	
+	We now return to the sheaves $\mathscr F$ and $\mathscr G$ of Abelian groups on $\sX$. We 
+	have the complexes $C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $C^\bullet\left(\mathscr U,  \mathscr G\right)$.  The interesting part is the 
+	construction of a morphism of complexes 
+	$$
+	\phi: C^\bullet\left(\mathscr U,  \mathscr F\right)\otimes C^\bullet\left(\mathscr U,  \mathscr G\right)\mapsto C^\bullet\left(\mathscr U,  \mathscr F\otimes  \mathscr G\right).
+	$$
+	For $\a \in C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $\bt \in C^\bullet\left(\mathscr U,  \mathscr G\right)$, we put 
+	$$
+	\phi:\left( \a \otimes \bt \right)_{\iota_0,..., \iota_{p + q}} \bydef \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+	$$
+	One checks easily that $\phi$ is indeed a morphism of complexes. The induced map on cohomology gives the cup-product on \v{C}ech 
+	cohomology. For $\a$ degree $p$ \v{C}ech cocycle with coefficients in $\mathscr F$ and $\bt$
+	degree $q$ \v{C}ech cocycle with coefficients in $\mathscr G$, we have 
+	\be\label{cup_prod_eqn}
+	\left(\a \smile\bt \right)_{\iota_0,..., \iota_{p + q}}\bydef  \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+	\ee
+	The cup-product has the following properties. 
+\end{empt}
+\begin{proposition}\label{cup_ass_prop}\cite{bryl:loop} Following conditions hold.
+	%	1.3.7. Proposition. 
+	\begin{enumerate}
+		\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
+		we have 
+		\be\label{cup_ass_eqn}
+		\a \smile \left( \bt \smile \ga\right) 	= \left( \a \smile \bt\right) \smile \ga. 
+		\ee
+		\item[(ii)]	 The \textit{cup}-\textit{product} is \textit{graded}-\textit{commutative}. If $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, we have 
+		$$
+		\a \smile \bt =\left( -1\right)^p  \bt \smile \a.
+		$$			
+		
+	\end{enumerate}
+	
+\end{proposition}
+\begin{empt}
+	Let $\sX$ be a topological space. If $R$ be an ring then there is, a corresponding constant presheaf  $R_\sX$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. 
+	Using the cup product and homomorphism $\phi$ one has a map
+	$$
+	\check{H}^\bullet\left(\sX, R_\sX \right)\times \check{H}^\bullet\left(\sX, R_\sX \right) \to \check{H}^\bullet\left(\sX, R_\sX \right).
+	$$
+	So we have proved the following.	
+\end{empt}
+
+\begin{lem}\label{gr_ring_lem}
+	Let $\sX$ be a topological space. If $F$ is an Abelian group then any isomorphism $F \otimes_\Z F \cong  F$ yields a product
+	\bean
+	\smile: \check{H}^\bullet\left(\sX, F \right)\otimes \check{H}^\bullet\left(\sX,F \right) \to \check{H}^\bullet\left(\sX,F \right)
+	\eean
+	where the notation \eqref{etale_hom_a_eqn} is used. So $\check{H}^\bullet\left(\sX, F\right)$ becomes an associative and graded-commutative ring.
+\end{lem}
+
+\begin{exercise}\label{ring_homo_exer}
+	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
+\end{exercise}
+
+
+
+
+
+\section{Algebras of foliations}
+
+\subsection{Groupoid Preliminaries}
+I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
+
+A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
+
+Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
+
+The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
+\[
+\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
+\]
+and for $\omega\in\Omega^\bullet(\G)$,
+\begin{subequations}
+	\bean
+	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
+	\eean
+	
+	\begin{definition}
+		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
+		\bean
+		\partial^*\omega = 0 .
+		\eean
+		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
+	\end{definition}
+	\label{multiplicative.form}
+\end{subequations}
+
+It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
+\[
+\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
+\]
+is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
+\bean
+\label{L_coboundary}
+\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
+\eean
+is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
+\[
+\curv \partial^*L = \partial^*(\curv L) .
+\]
+A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
+
+It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
+
+I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
+
+I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
+
+
+
+%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
+%\[
+%\t^*\{f,g\} = \{\t^*f,\t^*g\}
+%\]
+%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
+
+%\subsection{Standard Constructions}
+	
+\end{appendices}
+
 \section*{Acknowledgment}
 
 
@@ -2351,6 +2814,10 @@ of this work.
 		\bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
 		
 \bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
+
+
+\bibitem{bryl:loop}Jean-Luc Brylinski. \textit{Loop Spaces, Characteristic Classes and Geometric Quantization}. Springer Science \& Business Media, Nov 15, 2007.
+
 
 \bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
 
@@ -2373,6 +2840,8 @@ of this work.
 	
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
+
+\bibitem{milne:lec} J.S. Milne. \textit{Lectures on \'Etale Cohomology}. Version 2.21 March 22, 2013.
 
 \bibitem{miyazaki_cw} Hiroshi Miyazaki, {The paracompactness of CW-complexes}, Tohoku Math. J. (2) Volume 4, Number 3 (1952), 309-313. 1952 	
 	
