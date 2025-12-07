@@ -693,7 +693,7 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\m
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{defn}\label{strong_topogy__defn}
+\begin{defn}\label{strong_defn}
  If $\mathfrak{Ultrafilters}\left(A \right)$ 
   is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
  
@@ -703,23 +703,13 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
  set is open.
 	
 \end{defn}
-\begin{defn}\label{ultrafilters_space_defn}
-	The set of ultrafilters of 
-	If $\mathfrak{Ultrafilters}\left(A \right)$ 
-	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
-	
-	\be\label{strong_eqn}
-	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\cap L = \{0\} \right\}
-	\ee
-	set is open.
-	
-\end{defn}
+\
 
-\begin{defn}\label{weak_topogy__defn}
+\begin{defn}\label{weak_defn}
 	If $\mathfrak{Ultrafilters}\left(A \right)$ 
 	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any element $a \in \K\left( A\right)$ of Pedersen's ideal the set
 		\be\label{weak_eqn}
-	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad La = \{0\} \right\}
+	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L \in \xi\quad L \cap Aa =\{0\} \right\}
 	\ee
 is open.
 	
@@ -729,11 +719,21 @@ If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\
 	$$
   Aa \in \xi.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} (cf. Definition \ref{ultrafilters_space_defn})
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} 
 	$$
-	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in x \quad L \text{ is a finite point}\right\}.
+	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in \xi \quad L \text{ is a finite point}\right\}.
 	$$
+	supplied with the strong or the weak topology (cf.Definitions 
+	\ref{strong_defn} and
+\ref{weak_defn}).
 \end{definition}
+\begin{remark}\label{strong_weak_map_rem}
+For any $C^*$-algebra there is the natural bijective continuous map 
+\be\label{strong_weak_map_eqn}
+\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}   \to \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}
+\ee
+between Gelfand spaces supplied with strong and weak topology.
+\end{remark}
 \begin{remark}\label{hered_ideal_rem}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$7 we use a following notation
 	\be\label{hered_ideal_eqn}
@@ -743,7 +743,7 @@ If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$.
+	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)_{\mathfrak{strong}}  \right)\cong \sX$, where $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{strong}}$ is the Gelfand space supplied with the strong topology (cf. Definition \ref{strong_defn}).
 \end{lemma}
 \begin{proof}
 	From the Lemma \ref{top_lattices_iso_lem}  it turns out that for any locally compact space $\sX$ there is an isomorphism of  meet-semilattices
@@ -890,11 +890,11 @@ Using the above map one can construct the natural map
 \ee
 \end{empt}
 \begin{lemma}\label{good_lem}
-The equation \eqref{fil_mor_eqn}  induces a continuous map.
+The equation \eqref{fil_mor_eqn}  induces a continuous map with respect to the strong topology (cf. Definition \ref{strong_defn}).
 
 \end{lemma}
 \begin{proof}
- From the equation \eqref{gelfand_eqn} one can deduce any closed set on  that $\mathfrak{Ultrafilters}\left(A\right)$ corresponds to a closed set on $\mathfrak{Ultrafilters}\left(\widetilde A\right)$ 
+ From the equation \eqref{strong_eqn} one can deduce any closed set on  that $\mathfrak{Ultrafilters}\left(A\right)$ corresponds to a closed set on $\mathfrak{Ultrafilters}\left(\widetilde A\right)$ 
 \end{proof}.
 \begin{defn}\label{good_defn}
 The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural continuous  map
@@ -1010,7 +1010,19 @@ $$
 	$$
 \dim C_0\left( \sX\right) / \mathfrak{Gelfand}\left(\lift \right)\left( \widetilde x\right) > 1.	
 	$$
-	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$. 
+	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$.
+	 \subsection{Cohomology of commutative $C^*$-algebras}
+	 \paragraph{}
+	 If $\sX$ is a locally compact, Hausdorff  space then from 
+	the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)_{\mathfrak{strong}}\cong \sX$, where $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{strong}}$. If we consider the weak topology (cf. Definition \ref{weak_defn}) then the corresponding space $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{weak}}$ is not in general  locally compact. If $\sX$ is compact then given the equation \eqref{strong_weak_map_eqn} map is a homeomorphism. However there is a set of relations between invariants $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{weak}}$ and $\sX$. Using results of 
+\cite{bredon:sheaf} one can prove that $\sX$ is $n$-manifold then there is the natural isomorphism
+$$
+H_*\left(
+\sX \right) \cong H_*\left(
+\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}  \right)
+$$
+where $H_*$ is the group of singular homology;
+	 
 	\subsection{$C^*$-algebras of compact operators}\label{compact_sec}
 
 	
@@ -1018,17 +1030,12 @@ $$
 \bean
 L = \left\{\left.a \in \K\left(\H \right)\right| a \H  \subset V_L\right\}.
 \eean
-If $L$ is minimal then $V_L$ is a one dimensional space. Any ultrafilter of the $\mathfrak{Lattice}\left(\K\left(\H \right) \right)$ is principal, generated by rank-one element minimal ideal. The set of one-dimensional subspaces of $\H$ is a complex projective space  $\C P\left(\H \right)$, i.e. there is the natural set theoretic bijective map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The topology  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$ subspace of  $\C P\left(\H \right)$. There identity map yields the  continuous map 
+If $L$ is minimal then $V_L$ is a one dimensional space. Any ultrafilter of the $\mathfrak{Lattice}\left(\K\left(\H \right) \right)$ is principal, generated by rank-one element minimal ideal. The set of one-dimensional subspaces of $\H$ is a complex projective space  $\C P\left(\H \right)$, i.e. there is the natural set theoretic bijective map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$. The weak topology (cf. Definition \ref{weak_defn})  of $\mathfrak{Gelfand}\left(\K\left(\H \right)\right) $ contains all sets $\C P\left(\H \right) \setminus V$ where $V$ is a linear projective  $\C$-subspace of  $\C P\left(\H \right)$ having finite codimension. There identity map yields the  continuous map 
 $$
-\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}
+\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{weak}}\cong \mathfrak{Gelfand}\left(\K\left(\H \right)\right))_{\mathfrak{weak}}
 $$
-where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   well known Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  having the final with respect to the map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \C P\left(\H \right)$ topology (cf. Definition \ref{top_final_defn}).
-If $\dim \H = n < \infty$  then $\C P\left(\H \right)= \C P^n$ and there is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
-There is a composition of continuous maps
-$$
-\C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{Gelfand}}
-$$
-where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+where $\C P_{\mathfrak{Hausdorff}}\left(\H \right) $ is the projective  space with   well known Hausdorff  topology and  $\C P\left(\H \right)_{\mathfrak{weak}}$ is the same set  having the final with respect to the map  $\mathfrak{Gelfand}\left(\K\left(\H \right)_{\mathfrak{weak}} \right)\cong  \C P\left(\H \right)$ topology (cf. Definition \ref{top_final_defn}).
+
 \begin{exercise}
 Prove that  the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto the bicommutant  $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
 \end{exercise}
@@ -1066,7 +1073,7 @@ all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is t
 \begin{theorem}\label{compact_thm}
 For any Abelian group $F$ the map $\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
 $$
-\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
+\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong H^*\left(\C P\left(\H \right) _{\mathfrak{weak}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
 $$
 where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
 
@@ -1077,14 +1084,26 @@ $$
 H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \overline F \right) \cong \check H^*\left( \mathscr W; \overline F\right).
 $$
 
-Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
+Taking into account that $\C P^n \setminus L_j$ is open in $\C P\left(\H \right)_{\mathfrak{weak}}$ for any $j$ one has
 \be\label{proj_h_eqn}
-H^*\left(\C P\left(\H \right) _{\mathfrak{Gelfand}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
+H^*\left(\C P\left(\H \right) _{\mathfrak{weak}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
 \ee
 \end{proof}
 \begin{remark}
-The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)$ are not trivial. 
+The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)_{\mathfrak{weak}}$ are not trivial. 
 \end{remark}
+If
+$\dim \H = n < \infty$  then $A = M_n\left(\C \right)$ and  $\C P\left(\H \right)= \C P^n$. One can prove that the given by \eqref{strong_weak_map_eqn}  map 
+$$
+\mathfrak{Gelfand}\left(M_n\left(\C \right)\right)_{\mathfrak{strong}}\cong\mathfrak{Gelfand}\left(M_n\left(\C \right)\right)_{\mathfrak{weak}}
+$$
+is a homeomorphism. There is the Zariski topology on $ \C P^n$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
+There is a composition of continuous maps
+$$
+\C P^n_{\mathfrak{Hausdorff}}\to \C P^n_{\mathfrak{Zariski}}\to \C P^n_{\mathfrak{weak}}\cong \C P^n_{\mathfrak{strong}}
+$$
+where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+
 \subsection{Hausdorff blowing-up}
 	
 	\begin{definition}\label{blowing_defn}
@@ -1101,8 +1120,6 @@ The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\ma
 	\begin{remark}\label{blowing_rem}
 		$C_c\left( \sX\right)A$ is dense in $A$ if and only if $AC_c\left( \sX\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations \eqref{blowing_eqn} are equivalent.
 	\end{remark}
-	
-	
 	
 	%\begin{empt}\label{blowing_k_theory_empt}
 	%	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
@@ -1466,6 +1483,65 @@ There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \rig
 \C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
 \ee
 where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. 
+\begin{lemma}\label{zero_product_lem}
+	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
+	\bean
+	H^p\left(\sX, F_\sX \right) \cong 	H^p\left(\sY, F_\sY \right) \cong  \begin{cases}
+		F & p = 0\\
+		\{0\} & p > 0
+	\end{cases}
+	\eean 
+	then
+	\bean
+	H^p\left(\sX \times \sY, F_{\sX \times \sY} \right) \cong \begin{cases}
+		F & p = 0\\
+		\{0\} & p > 0
+	\end{cases}
+	\eean	
+\end{lemma}
+\begin{proof}
+	If $c \in \check H^p\left(\sX \times \sY, F_{\sX \times \sY} \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
+	\bean
+	\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
+	\sY = \bigcup_{\bt \in \mathscr B} \sU_\bt,\\
+	\eean
+	such that
+	\bean
+	c \in H^p\left( \mathscr U \times \mathscr V, F\otimes_\Z F \right)  
+	\eean
+	Similarly to \eqref{cup_prod_eqn} $c$ is represented by
+	$$
+	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p_j}}\otimes  \bt^j_{\iota_{p_j},..., \iota_{p}}.
+	$$
+	Similarly to \eqref{cech_tau_eqn} there are maps
+	\bean
+	\rho: \mathscr A \onto \left\{\sX\right\},\\
+	\sigma :\mathscr B \onto \left\{\sY\right\}
+	\eean
+	with
+	\bean
+	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F_\sX\right)\to \check C^\bullet\left( \mathscr U, F_\sX\right),\\
+	\left( \rho^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\right) \bydef \a^j_{\iota_0,...,\iota_{p_j}},\\
+	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F_\sY\right)\to \check C^\bullet\left( \mathscr V, F_\sY\right),\\
+	\left( \sigma^{p-p_j} \dl^j_{\iota_{p_j},...,\iota_{p}}\right) \bydef \bt^j_{\iota_{p_j},...,\iota_{p}},\\
+	\eean 
+	where $\ga^j_{\iota_0,...,\iota_{p_j}}$ and $\dl^j_{\iota_{p_j},...,\iota_{p}}$ correspond to $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p_j = \text{times}}$ and $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p-p_j = \text{times}}$ respectively (cf. equation \ref{tau_c_eqn}). However from the Theorem \ref{top_nerve_thm} it follows that $c$ can be represented by 
+	$$
+	\sum_{j = 1} ^n\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}}.
+	$$
+	Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ such that
+	\bean
+	\ga^j_{\iota_0,...,\iota_{p_j}} = d_{p_j - 1} \mu^j,\\
+	\dl^j_{\iota_{p_j},...,\iota_{p}}= = d_{p - p_j - 1} \nu^j,
+	\eean 
+	and taking into account \eqref{cup_product_comm_eqn} one has
+	\bean
+	\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right) 
+	\eean
+	From the above equation it follows that $c = 0$.
+\end{proof}
+
+
 \begin{lemma}
 If the bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$  is trivial and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is explained in the Section \ref{compact_sec} then the n   atural set theoretic map $\phi:\C P\left(\E \right)_{\mathfrak{Gelfand}}\cong \C P\left(\H \right)_{\mathfrak{Gelfand}}\times\sX$ is a homeomorphism.
 \end{lemma}
