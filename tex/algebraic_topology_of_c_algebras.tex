@@ -669,7 +669,7 @@
 
 
 \begin{definition}\label{lattice_a_defn}
-If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is a meet-semilattice of closed left ideals such that 
+If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-semilattice (cf. Definition \ref{lattice_defn}) of closed left ideals such that 
 \be\label{meet_eqn}
 \begin{split}
 L' \wedge L''\bydef L' \cap L'',\\
@@ -677,7 +677,8 @@ L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
 0 \bydef \{0\}\subset A
 \end{split}
 \ee
-We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$ a set of filers.
+A filter (resp, an ultrafilter) of $A$-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).
+We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$  (resp.  $\mathfrak{Ultrafilters}\left( A\right)$) the  set of $A$-filters  (resp. $A$-ultrafilters).
 \end{definition}
 \begin{lemma}\label{top_lattices_iso_lem}
 	For any locally compact space $\sX$ there is an isomorphism of  meet-semilattices
@@ -692,16 +693,37 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by 
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{defn}\label{ultrafilters_space_defn}
- If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
-	\be\label{gelfand_eqn}
+\begin{defn}\label{strong_topogy__defn}
+ If $\mathfrak{Ultrafilters}\left(A \right)$ 
+  is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
+ 
+	\be\label{strong_eqn}
 \mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\cap L = \{0\} \right\}
 	\ee
-	The \textit{space of} $A$-\textit{ultrafilters} is a set $\mathfrak{Ultrafilters}\left(A \right)$ with a  the smallest topology o such that any given by \eqref{gelfand_eqn} set is open.
+ set is open.
+	
+\end{defn}
+\begin{defn}\label{ultrafilters_space_defn}
+	The set of ultrafilters of 
+	If $\mathfrak{Ultrafilters}\left(A \right)$ 
+	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
+	
+	\be\label{strong_eqn}
+	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\cap L = \{0\} \right\}
+	\ee
+	set is open.
 	
 \end{defn}
 
-
+\begin{defn}\label{weak_topogy__defn}
+	If $\mathfrak{Ultrafilters}\left(A \right)$ 
+	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any element $a \in \K\left( A\right)$ of Pedersen's ideal the set
+		\be\label{weak_eqn}
+	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad La = \{0\} \right\}
+	\ee
+is open.
+	
+\end{defn}
 \begin{definition}\label{gelfand_space_defn}
 If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
 	$$
@@ -754,13 +776,15 @@ or equivalently $\sV_\xi\subset  \supp a$.
 
 \end{proof}
 
+\begin{definition}\label{commutant_defn}
+	Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
+	$$
+	L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
+	$$
+	is the \textit{commutant} of $L$ (write $L^\perp$));
+\end{definition}
 
 \begin{definition}\label{bicommutant_defn}
-Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
-$$
-L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
-$$
-is the \textit{commutant} of $L$ (write $L^\perp$),
 For any element $\xi \in  \mathfrak{Filters} \left(A \right)$ the \textit{bicommutant} (written $\xi^{\perp\perp}$ or $\xi''$) is the closure of the union
 $$
 \bigcup_{L \in \xi} L^\perp.
