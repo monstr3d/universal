@@ -663,11 +663,6 @@
 \section{General Theory}
 \subsection{The Gelfand space of $C^*$-algebra}
 
-
-
-
-
-
 \begin{definition}\label{lattice_a_defn}
 If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-semilattice (cf. Definition \ref{lattice_defn}) of closed left ideals such that 
 \be\label{meet_eqn}
@@ -707,9 +702,9 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 
 \begin{defn}\label{weak_defn}
 	If $\mathfrak{Ultrafilters}\left(A \right)$ 
-	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any element $a \in \K\left( A\right)$ of Pedersen's ideal the set
+	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{weak topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any element $a \in \K\left( A\right)$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) the set
 		\be\label{weak_eqn}
-	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L \in \xi\quad L \cap Aa =\{0\} \right\}
+	\mathfrak{Ultrafilters}\left(A \right)_a	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L \in \xi\quad L \cap Aa =\{0\} \right\}
 	\ee
 is open.
 	
@@ -743,9 +738,10 @@ between Gelfand spaces supplied with strong and weak topology.
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)_{\mathfrak{strong}}  \right)\cong \sX$, where $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{strong}}$ is the Gelfand space supplied with the strong topology (cf. Definition \ref{strong_defn}).
+	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space supplied with the strong or weak  topology (cf. Definitions \ref{strong_defn} and \ref{weak_defn}).
 \end{lemma}
 \begin{proof}
+	
 	From the Lemma \ref{top_lattices_iso_lem}  it turns out that for any locally compact space $\sX$ there is an isomorphism of  meet-semilattices
 	
 	\bean
@@ -772,9 +768,15 @@ or equivalently $\sV_\xi\subset  \supp a$.
 	$$
 \xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in\in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
 	$$
-	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$.
-
-\end{proof}
+	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{strong_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{strong}}$ with respect to the strong topology correspond to an open subset of $\sX$ and vice versa.  From the equations \eqref{weak_eqn} \eqref{peder_c0_eqn} it follows that for any compact set $K 
+	\subset \sX$ the difference $\sV \bydef \sX \setminus K$ is an open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$. So any compact set $K 
+	\subset \sX$ is closed in $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$. Similarly if $\partial \sV$ is a boundary of the closure of $\sV$ then  $\partial \sV$ is closed. If a set  $\sU \bydef 
+	\sX \setminus \left( \sV \cup \partial \sV\right) $ is closed in $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ then there is $x \in \sX$ and $\mathcal W \cap \left( \sV \cup \partial \sV\right) \neq \emptyset$ for every open with respect to the weak topology neighborhood $\mathcal W$ of $x$. On the hand $\mathcal W$ is open with respect to the topology of $\sX$ since the topology of $\sX$ is finer then the weak topology. It turns out that $\mathcal W \cap \sV\neq \emptyset$. The family $\left\{\mathcal W \cap \sV\right\}$ is an ultrafilter which exceeds the ultrafilter of all neighborhoods of $x$. It is possible if and only of the family convergent to $x$. It is possible only if $x 	\in \sV \cup \partial \sV$. This fact contradicts with
+	$$
+	x \in \sU = 	\sX \setminus \left( \sV \cup \partial \sV\right) 
+	$$
+	From this fact it follows that the set $\sU$ is open with respect to the weak topology. Using this fact one can prove that the weak topology of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ contains all open subsets of compact sets of $\sX$. Since the $\sX$ is locally compact the weak topology of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ equals to $\sX$ one.
+	\end{proof}
 
 \begin{definition}\label{commutant_defn}
 	Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
@@ -889,19 +891,20 @@ Using the above map one can construct the natural map
 \end{split}
 \ee
 \end{empt}
-\begin{lemma}\label{good_lem}
-The equation \eqref{fil_mor_eqn}  induces a continuous map with respect to the strong topology (cf. Definition \ref{strong_defn}).
 
-\end{lemma}
-\begin{proof}
- From the equation \eqref{strong_eqn} one can deduce any closed set on  that $\mathfrak{Ultrafilters}\left(A\right)$ corresponds to a closed set on $\mathfrak{Ultrafilters}\left(\widetilde A\right)$ 
-\end{proof}.
 \begin{defn}\label{good_defn}
-The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural continuous  map
+The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural   map
 	\be\label{gelfand_map_eqn}
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
 \end{defn}
+\begin{lemma}\label{good_lem}
+If the  homomorphism \eqref{lat_mor_eqn} is good and we consider strong or weak topology on both $\mathfrak{Gelfand}\left(\widetilde A \right)$ and $\mathfrak{Gelfand}\left( A \right)$ (cf. Definitions 
+\ref{weak_defn} and \ref{strong_defn})	  then the map \eqref{gelfand_map_eqn} is continuous.
+\end{lemma}
+\begin{proof}
+	From the equations \eqref{strong_eqn} and \eqref{weak_defn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  with respect to strong or weak topology corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$ with respect to strong or weak topology.
+\end{proof}.
 \begin{empt}\label{bicommutant_empt}
 	Let $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
   $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
@@ -1483,6 +1486,41 @@ There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \rig
 \C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
 \ee
 where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. 
+\begin{lemma}\label{trivial_cech_lem}
+If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
+\be
+\forall p > 0 \quad H^p\left(\sX, F_\sX  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F_\sY  \right) = 0
+\ee
+where both $F_\sX$ and $F_\sY$ are locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}). 
+\end{lemma}
+\begin{proof}
+Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
+\sU_\iota \right\}_{\iota \in \mathscr I}$ of $\sY$ is a covering of $\sX$. For any $\left[c_\sY\right] \in \check  H^p\left(\sY, F_\sY  \right)$ there is a covering $\mathscr U$ such that $c_y$ is represented by the cycle 
+\bean
+c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F_\sY\right) 
+\eean
+This cycle can be regarded as the cycle in $\check c_\sX\in  C^p\left( \mathscr U, F_\sX\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
+\bean
+\begin{split}
+c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F_\sX\right).
+\end{split}
+\eean
+(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
+\bean
+c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F_\sY\right)
+\eean  
+From $\left[c'_\sX\right]= 0\in H^p\left(\sX, F_\sX  \right)$ it follows that there is $b_\sX \in  C^p\left( \left\{\sX\right\}, F_\sX\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in  C^p\left( \left\{\sY\right\}, F_\sY\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $ H^p\left(\sY, F_\sY  \right) = 0$.
+\end{proof}
+\begin{lemma}\label{iso_cech_lem}
+	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following is
+	\be
+\check H^\bullet\left(\mathscr U, F_\sX \right) \cong \check H^\bullet\left(\mathscr U, F_\sY \right)\cong \check H^\bullet\left( \sX, F_\sX \right) \cong \check H^\bullet\left(\sY, F_\sY \right) \cong  H^\bullet\left( \sX, F_\sX \right) \cong  H^\bullet\left(\sY, F_\sY \right)
+	\ee
+	where both $F_\sX$ and $F_\sY$ are locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}). 
+\end{lemma}
+\begin{proof}
+	From the Lemma \ref{trivial_cech_lem} it turns out that $\mathscr U$ can be regarded as satisfying to the Theorem \ref{top_nerve_thm} covering of $\sX$. Now this lemma directly follows from the Theorem \ref{top_nerve_thm}.
+\end{proof}
 \begin{lemma}\label{zero_product_lem}
 	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
 	\bean
@@ -1562,63 +1600,6 @@ H^*\left(\phi_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{
 \ee
 where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{connected_c_a_defn}).
 \end{empt}
-\begin{lemma}\label{zero_product_lem}
-	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
-	\bean
-	H^p\left(\sX, F_\sX \right) \cong 	H^p\left(\sY, F_\sY \right) \cong  \begin{cases}
-	F & p = 0\\
-	\{0\} & p > 0
-	\end{cases}
-	\eean 
-	then
-	\bean
-H^p\left(\sX \times \sY, F_{\sX \times \sY} \right) \cong \begin{cases}
-	F & p = 0\\
-	\{0\} & p > 0
-\end{cases}
-\eean	
-\end{lemma}
-\begin{proof}
-If $c \in \check H^p\left(\sX \times \sY, F_{\sX \times \sY} \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
-\bean
-\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
-\sY = \bigcup_{\bt \in \mathscr B} \sU_\bt,\\
-\eean
-such that
-\bean
-c \in H^p\left( \mathscr U \times \mathscr V, F\otimes_\Z F \right)  
-\eean
-Similarly to \eqref{cup_prod_eqn} $c$ is represented by
-$$
-\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p_j}}\otimes  \bt^j_{\iota_{p_j},..., \iota_{p}}.
-$$
-Similarly to \eqref{cech_tau_eqn} there are maps
-\bean
-\rho: \mathscr A \onto \left\{\sX\right\},\\
-\sigma :\mathscr B \onto \left\{\sY\right\}
-\eean
-with
-\bean
-	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F_\sX\right)\to \check C^\bullet\left( \mathscr U, F_\sX\right),\\
-\left( \rho^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\right) \bydef \a^j_{\iota_0,...,\iota_{p_j}},\\
-	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F_\sY\right)\to \check C^\bullet\left( \mathscr V, F_\sY\right),\\
-\left( \sigma^{p-p_j} \dl^j_{\iota_{p_j},...,\iota_{p}}\right) \bydef \bt^j_{\iota_{p_j},...,\iota_{p}},\\
-\eean 
-where $\ga^j_{\iota_0,...,\iota_{p_j}}$ and $\dl^j_{\iota_{p_j},...,\iota_{p}}$ correspond to $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p_j = \text{times}}$ and $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p-p_j = \text{times}}$ respectively (cf. equation \ref{tau_c_eqn}). However from the Theorem \ref{top_nerve_thm} it follows that $c$ can be represented by 
-$$
-\sum_{j = 1} ^n\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}}.
-$$
-Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ such that
-\bean
-\ga^j_{\iota_0,...,\iota_{p_j}} = d_{p_j - 1} \mu^j,\\
- \dl^j_{\iota_{p_j},...,\iota_{p}}= = d_{p - p_j - 1} \nu^j,
-\eean 
-and taking into account \eqref{cup_product_comm_eqn} one has
-\bean
-\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right) 
-\eean
-From the above equation it follows that $c = 0$.
-\end{proof}
 
 \begin{theorem}\label{ctr_thm}
 !!!		Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$. Under the hypothesis \ref{ctr_bundle_empt} assume that  there is a 		
@@ -2098,109 +2079,6 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. 
 \end{definition}
 
-\subsubsection{Abelian categories and cohomology}
-\begin{definition}\cite{hartshorne:ag}
-	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
-	epimorphism is the cokernel of its kernel; and finally, every morphism 
-	can be factored into an epimorphism followed by a monomorphism.
-\end{definition}
-\begin{empt}\label{derived_funct_empt}\cite{hartshorne:ag}
-	A complex $A^\bullet$ in an 
-	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
-	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
-	If the objects $A^\bullet$ are specified 
-	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
-	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
-	each $n$, which commute with the coboundary maps $d^n$. 
-	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
-	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
-	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
-	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
-	giving rise to a long exact sequence
-	$$ 
-	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
-	$$
-	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
-	if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
-	not commute with the $d^n$ such that $f „ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
-	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
-	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
-	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
-	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
-	additive and for every short exact sequence 
-	$$
-	0 \to A' \to A \to A'' \to 0 
-	$$
-	in $\mathfrak A$
-	the sequence 
-	$$
-	0 \to FA' \to FA \to FA''
-	$$
-	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
-	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
-	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
-	For a contravariant functor we make analogous definitions. For example, 
-	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
-	above, the sequence 
-	$$
-	0 \to F A'' \to F A \to F A'
-	$$ 
-	is exact in $\mathfrak B$.
-	An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
-	$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
-	$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
-	that the sequence 
-	$$
-	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
-	$$
-	is exact. 
-	If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
-	$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
-	object has an injective resolution. Furthermore, a well-known lemma states 
-	that any two injective resolutions are homotopy equivalent. 
-	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
-	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
-	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
-\end{empt}
-\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
-	%			Theorem 1.1 A. 
-	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
-	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
-	Then 
-	\begin{enumerate}
-		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
-		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
-		of the choices of injective resolutions made.
-		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
-		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
-		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
-		obtain a long exact sequence 
-		$$
-		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
-		$$
-		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
-				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
-			\path[-stealth]
-			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
-			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
-			(m-1-1) edge node [right]  {} (m-2-1)
-			(m-1-2) edge node [right] {} (m-2-2);
-		\end{tikzpicture}
-		\\
-		\	
-		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
-		
-	\end{enumerate}
-\end{theorem}
-
-
-
-
 \subsection{Algebras of foliations}
 
 \subsubsection{Groupoid Preliminaries}
@@ -2414,6 +2292,10 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 %\end{theorem}
 
 \subsection{Cohomology}
+\subsubsection{Abelian categories and cohomology}
+
+
+
 \subsection{Abelian categories and cohomology}
 \begin{definition}\cite{hartshorne:ag}
 	Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
@@ -2478,6 +2360,45 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
 	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
 \end{empt}
+
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
+	%			Theorem 1.1 A. 
+	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
+	Then 
+	\begin{enumerate}
+		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+		of the choices of injective resolutions made.
+		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		obtain a long exact sequence 
+		$$
+		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+		$$
+		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+			(m-1-1) edge node [right]  {} (m-2-1)
+			(m-1-2) edge node [right] {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		\	
+		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+		
+	\end{enumerate}
+\end{theorem}
+
+
+
 \begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
 	%8.17 
 	Let $\sX \xrightarrow{f} \sY$ be a continuous map then
@@ -2631,7 +2552,7 @@ These groups  have the following properties:
 \begin{theorem}\label{top_nerve_thm}\cite{bredon:sheaf}
 	%PAGE 193 !!! DOWN !!!
 	%4.13. Theorem. 
-	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\s\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \s\sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
 	\be\label{h_lim_eqn}
 	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
