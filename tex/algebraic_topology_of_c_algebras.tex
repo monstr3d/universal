@@ -849,7 +849,24 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 	\ee
 	where $S\subset \mathfrak{Gelfand}\left(A \right)$ and $S''\subset \mathfrak{Gelfand}\left(A \right)''$ are subsets.
 \end{remark}
-
+\begin{definition}\label{red_geland_defn}
+Let $A$ be a $C^*$-algebra,  let both $\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}$ and  $\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}$ are Gelfand spaces supplied with strong and weak topology. Consider the equivalence relations 
+\bean
+\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}} \quad   \xi'\sim_{\mathfrak{strong}}\xi''\quad \Leftrightarrow \quad\\ \left(
+\forall \text{ open set }\quad  \sU_{\mathfrak{strong}} \subset  \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}\quad 
+\xi' \in \sU_{\mathfrak{strong}}
+\quad \Leftrightarrow \quad \xi'' \in \sU_{\mathfrak{strong}}  \right),\\\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}} \quad   \xi'\sim_{\mathfrak{weak}}\xi''\quad \Leftrightarrow \quad\\ \left(
+\forall \text{ open set }\quad  \sU_{\mathfrak{weak}} \subset  \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}\quad 
+\xi' \in \sU_{\mathfrak{weak}}
+\quad \Leftrightarrow \quad \xi'' \in \sU_{\mathfrak{weak}}  \right).
+\eean 
+The quotient spaces 
+\bean
+\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{strong}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}/\sim_{\mathfrak{strong}},\\
+\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{weak}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}/\sim_{\mathfrak{weak}}
+\eean
+are \textit{reduced strong} and \textit{reduced weak Gelfand space of} $A$.
+\end{definition}
 \subsection{Morphisms}
 \begin{empt}
 If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphism 	
@@ -886,8 +903,8 @@ For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq 
 Using the above map one can construct the natural map
 \be\label{ultra_mor_eqn}
 \begin{split}
-	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_R \right)}\mathfrak{Ultrafilters} \left( A\right),\\
-	\mathfrak{Ultrafilters}\left(\varphi_R \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi \right).
+	\mathfrak{Ultrafilters}\left(\varphi_R \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi \right),\\
+	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_R \right)}\mathfrak{Ultrafilters} \left( A\right).
 \end{split}
 \ee
 \end{empt}
@@ -1014,19 +1031,7 @@ $$
 \dim C_0\left( \sX\right) / \mathfrak{Gelfand}\left(\lift \right)\left( \widetilde x\right) > 1.	
 	$$
 	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$.
-	 \subsection{Cohomology of commutative $C^*$-algebras}
-	 \paragraph{}
-	 If $\sX$ is a locally compact, Hausdorff  space then from 
-	the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)_{\mathfrak{strong}}\cong \sX$, where $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{strong}}$. If we consider the weak topology (cf. Definition \ref{weak_defn}) then the corresponding space $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{weak}}$ is not in general  locally compact. If $\sX$ is compact then given the equation \eqref{strong_weak_map_eqn} map is a homeomorphism. However there is a set of relations between invariants $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right) _{\mathfrak{weak}}$ and $\sX$. Using results of 
-\cite{bredon:sheaf} one can prove that $\sX$ is $n$-manifold then there is the natural isomorphism
-$$
-H_*\left(
-\sX \right) \cong H_*\left(
-\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}  \right)
-$$
-where $H_*$ is the group of singular homology;
-	 
-	\subsection{$C^*$-algebras of compact operators}\label{compact_sec}
+	 \subsection{$C^*$-algebras of compact operators}\label{compact_sec}
 
 	
 \paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset A$ there is a closed $\C$-linear subspace $V_L \subset \H$ such that
@@ -1054,13 +1059,13 @@ $$
 where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\C P^n$.
 
 If $\mathscr W= \left\{ \C P\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \C P^n\setminus L_j\right\}_{j = 0,..., n }$ then
-\be\label{nerve_eqn}
+\be\label{cp_nerve_eqn}
 \begin{split}
 	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
 	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
 \end{split}
 \ee
-From the equation \eqref{nerve_eqn} it follows that 
+From the equation \eqref{cp_nerve_eqn} it follows that 
 \be\label{nerve_0_eqn}
 \begin{split}
 	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
@@ -1074,15 +1079,15 @@ $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
 all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
 \end{empt}
 \begin{theorem}\label{compact_thm}
-For any Abelian group $F$ the map $\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
+For any Abelian group $F$ the map $\phi_{\H} : \C P\left(\H \right)_{\mathfrak{Hausdorff}}\to \C P\left(\H \right)_{\mathfrak{weak}}$ yields  the natural isomorphism
 $$
-\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong H^*\left(\C P\left(\H \right) _{\mathfrak{weak}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
+\mathfrak{Gelfand}\left(\K\left(\H \right) _{\mathfrak{weak}} \right)\cong H^*\left(\C P\left(\H \right) _{\mathfrak{weak}}, \overline F \right) \cong H^*\left(\C P\left(\H \right) _{\mathfrak{Hausdorff}}, \overline F\right)
 $$
 where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
 
 \end{theorem}
 \begin{proof}
-	If $\mathscr W$ is given by \eqref{nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
+	If $\mathscr W$ is given by \eqref{cp_nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
 $$
 H^*\left(\C P^n_{\mathfrak{Hausdorff}}, \overline F \right) \cong \check H^*\left( \mathscr W; \overline F\right).
 $$
@@ -1483,9 +1488,12 @@ Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally 
 \eean     
 There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote                                                   corresponding space by $\C P\left(\E \right)_{\mathfrak{Gelfand}}$. The bijective map $\phi_C$ we denote by 
 \be\label{ctr_bundle_eqn}
-\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
+\begin{split}
+\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi)^{\mathfrak{weak}}_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{weak}},\\
+\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi)^{\mathfrak{strong}}_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{strong}}.
+\end{split}
 \ee
-where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. 
+where $\C P\left(\E \right)_{\mathfrak{weak}}$, $\C P\left(\E \right)_{\mathfrak{strong}}$ and $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$, is the set $\C P\left(\E \right)$ having weak, strong and well known Hausdorff topology. 
 \begin{lemma}\label{trivial_cech_lem}
 If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
 \be
@@ -1495,24 +1503,24 @@ where both $F_\sX$ and $F_\sY$ are locally constant sheaves (cf. Definition \ref
 \end{lemma}
 \begin{proof}
 Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
-\sU_\iota \right\}_{\iota \in \mathscr I}$ of $\sY$ is a covering of $\sX$. For any $\left[c_\sY\right] \in \check  H^p\left(\sY, F_\sY  \right)$ there is a covering $\mathscr U$ such that $c_y$ is represented by the cycle 
+\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F_\sY  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
 \bean
-c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F_\sY\right) 
+c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F_\sY\right).
 \eean
-This cycle can be regarded as the cycle in $\check c_\sX\in  C^p\left( \mathscr U, F_\sX\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
+This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F_\sX\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
 \bean
 \begin{split}
 c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F_\sX\right).
 \end{split}
 \eean
-(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
+(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton covering (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
 \bean
 c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F_\sY\right)
 \eean  
-From $\left[c'_\sX\right]= 0\in H^p\left(\sX, F_\sX  \right)$ it follows that there is $b_\sX \in  C^p\left( \left\{\sX\right\}, F_\sX\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in  C^p\left( \left\{\sY\right\}, F_\sY\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $ H^p\left(\sY, F_\sY  \right) = 0$.
+From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F_\sX  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F_\sX\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F_\sY\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F_\sY  \right)=H^p\left(\sY, F_\sY  \right) = 0$.
 \end{proof}
 \begin{lemma}\label{iso_cech_lem}
-	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following is
+	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following isomorphisms
 	\be
 \check H^\bullet\left(\mathscr U, F_\sX \right) \cong \check H^\bullet\left(\mathscr U, F_\sY \right)\cong \check H^\bullet\left( \sX, F_\sX \right) \cong \check H^\bullet\left(\sY, F_\sY \right) \cong  H^\bullet\left( \sX, F_\sX \right) \cong  H^\bullet\left(\sY, F_\sY \right)
 	\ee
@@ -1524,21 +1532,22 @@ From $\left[c'_\sX\right]= 0\in H^p\left(\sX, F_\sX  \right)$ it follows that th
 \begin{lemma}\label{zero_product_lem}
 	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
 	\bean
-	H^p\left(\sX, F_\sX \right) \cong 	H^p\left(\sY, F_\sY \right) \cong  \begin{cases}
+	H^p\left(\sX, F \right) \cong 	H^p\left(\sY, F \right) \cong  \begin{cases}
 		F & p = 0\\
 		\{0\} & p > 0
 	\end{cases}
 	\eean 
 	then
 	\bean
-	H^p\left(\sX \times \sY, F_{\sX \times \sY} \right) \cong \begin{cases}
+	H^p\left(\sX \times \sY, F \right) \cong \begin{cases}
 		F & p = 0\\
 		\{0\} & p > 0
 	\end{cases}
 	\eean	
+	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 \end{lemma}
 \begin{proof}
-	If $c \in \check H^p\left(\sX \times \sY, F_{\sX \times \sY} \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
+	If $c \in \check H^p\left(\sX \times \sY, F \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
 	\bean
 	\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
 	\sY = \bigcup_{\bt \in \mathscr B} \sU_\bt,\\
@@ -1558,9 +1567,9 @@ From $\left[c'_\sX\right]= 0\in H^p\left(\sX, F_\sX  \right)$ it follows that th
 	\eean
 	with
 	\bean
-	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F_\sX\right)\to \check C^\bullet\left( \mathscr U, F_\sX\right),\\
+	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F\right)\to \check C^\bullet\left( \mathscr U, F\right),\\
 	\left( \rho^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\right) \bydef \a^j_{\iota_0,...,\iota_{p_j}},\\
-	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F_\sY\right)\to \check C^\bullet\left( \mathscr V, F_\sY\right),\\
+	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F\right)\to \check C^\bullet\left( \mathscr V, F\right),\\
 	\left( \sigma^{p-p_j} \dl^j_{\iota_{p_j},...,\iota_{p}}\right) \bydef \bt^j_{\iota_{p_j},...,\iota_{p}},\\
 	\eean 
 	where $\ga^j_{\iota_0,...,\iota_{p_j}}$ and $\dl^j_{\iota_{p_j},...,\iota_{p}}$ correspond to $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p_j = \text{times}}$ and $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p-p_j = \text{times}}$ respectively (cf. equation \ref{tau_c_eqn}). However from the Theorem \ref{top_nerve_thm} it follows that $c$ can be represented by 
@@ -1574,35 +1583,26 @@ From $\left[c'_\sX\right]= 0\in H^p\left(\sX, F_\sX  \right)$ it follows that th
 	\eean 
 	and taking into account \eqref{cup_product_comm_eqn} one has
 	\bean
-	\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right) 
+	\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right). 
 	\eean
 	From the above equation it follows that $c = 0$.
 \end{proof}
 
 
-\begin{lemma}
-If the bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$  is trivial and  $\C P\left(\H \right)_{\mathfrak{Gelfand}}$ is explained in the Section \ref{compact_sec} then the n   atural set theoretic map $\phi:\C P\left(\E \right)_{\mathfrak{Gelfand}}\cong \C P\left(\H \right)_{\mathfrak{Gelfand}}\times\sX$ is a homeomorphism.
-\end{lemma}
-\begin{proof}   	If $\xi'' \in \mathfrak{Gelfand  }\left(A \right)''$ then from the Lemma \ref{ctr_g_lem} it                                 torms                 
-Let  both $L_\sX \subset C_0\left(\sX \right)$ and $L_{\C P\left(\H \right)}\subset \K\left( \H\right) $ be closed left ideals and let $L_{\sX\times \C P\left(\H \right)}$ be the $C^*$-norm closure of the $\C$-sp ace
-	\bean
-	\left\{a = b c\left| b \in L_\sX \quad c \i n L_{\C P\left(\H \right)} \right.\right\}.
-	\eean
-                          s the corresponding to the ideal ${L_{\sX\times \C P\left(\H        \right)}}$ closed subset of $\mathfrak{Gelfand}\left(A \right)''$
-\end{proof}
-
-
 \begin{empt}\label{ctr_bundle_empt}
 
-If  $F$ be an Abelian group then from the Proposition \ref{spectral_sequence_prop} it follows that there is the natural homomorphism
+If  $F$ be an Abelian group then from the Proposition \ref{spectral_sequence_prop} it follows that there are the natural homomorphisms
 \be\label{h_ctr_eqn}
-H^*\left(\phi_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, \overline F \right) \to H^* \left( \C P\left(\E \right)_{\mathfrak{Gelfand}}, \overline F\right).
+\begin{split}
+H^*\left(\phi)^{\mathfrak{weak}}_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, F \right) \cong  H^* \left( \C P\left(\E \right)_{\mathfrak{weak}},  F\right),\\
+H^*\left(\phi)^{\mathfrak{strong}}_{\C P\left( \E\right)} \right) :  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, F \right) \cong  H^* \left( \C P\left(\E \right)_{\mathfrak{strong}},  F\right).
+\end{split}
 \ee
-where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{connected_c_a_defn}).
+where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 \end{empt}
 
 \begin{theorem}\label{ctr_thm}
-!!!		Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$. Under the hypothesis \ref{ctr_bundle_empt} assume that  there is a 		
+	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$. Under the hypothesis \ref{ctr_bundle_empt} assume that  there is a 		
 		family $\left\{\sV_\bt \subset \sX\right\}_{\bt \in \mathscr B}$ such that
 		\begin{itemize}
 			\item 
@@ -1611,9 +1611,9 @@ where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{conne
 		
 		satisfying to the Theorem \ref{top_nerve_thm}  open subsets of $\sX$ then there are the natural isomorphisms
 \bean
-H^*\left( \mathfrak{Gelfand}\left(A \right)'',  F_{\mathfrak{Gelfand}\left(A \right)''}\right) \cong    H^*\left( \C P\left(\E \right)_{\mathfrak{Gelfand}}, F_{\C P\left(\E \right)_{\mathfrak{Gerlfand}}} \right) \cong \\ \cong  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, F_{\C P\left(\E \right)_{\mathfrak{Hausdorff}}} \right)
+H^*\left( \mathfrak{Gelfand}\left(A \right)''_{ _{\mathfrak{weak}}},  F_{\mathfrak{Gelfand}\left(A \right)''_{ _{\mathfrak{weak}}}}\right) \cong    H^*\left( \C P\left(\E \right)_{\mathfrak{weak}}, F_{\C P\left(\E \right)_{\mathfrak{weak}}} \right) \cong \\ \cong  H^*\left( \C P\left(\E \right)_{\mathfrak{Hausdorff}}, F_{\C P\left(\E \right)_{\mathfrak{Hausdorff}}} \right)
 \eean
-where $\overline F$ is the $F$-constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
+where the notation \eqref{constant_presheaf_eqn} of locally constant sheaves is used.
 \end{theorem}\label{ctr_coh_thm}
 \begin{proof}
 	One has
@@ -1891,7 +1891,13 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 	\end{remark}
 	\begin{thm}\label{zorn_thm}\cite{spanier:at} (Zorn's lemma). A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
 	\end{thm}
-	
+	\begin{theorem}\label{haus_max_thm}\cite{munkres:topology}
+%	Theorem 
+(The maximum principle). Let A be a set; let $<$ be a strict partial order
+	on $A$. Then there exists a maximal simply ordered subset B of A.
+	Said differently, there exists a subset $B$ of $B$ such that $B$ is simply ordered by $<$
+	and such that no subset of $A$ that properly contains $B$ is simply ordered by $<$.
+	\end{theorem}
 	\begin{remark}\label{ultra_filter_rem}
 		From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
 	\end{remark}
@@ -2210,11 +2216,17 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 	\sU \mapsto F.
 	\eean
 	The $F$-\textit{locally constant sheaf} is the sheaf associated with the $F$-{constant presheaf}. We denote it by
-	\be
-	\overline{F} \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
+	\be\label{constant_presheaf_eqn}
+	{F}_\sX \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
 	\ee
 \end{definition}
-
+\begin{empt}
+	For any Abelian group $F$ one can define a locally  constant presheaf $F_\sX$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
+	We use a following notation
+	\be\label{locally_const_not_eqn}
+	\check{H}^r\left(\sX, F\right)\bydef \check{H}^r\left(\sX, F_\sX\right).
+	\ee
+\end{empt}
 
 
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
@@ -2522,13 +2534,7 @@ These groups  have the following properties:
 	\item[(b)] $\check{H}^r\left(\sX, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$
 \end{enumerate}
 (cf \cite{milne:lec} for details).
-\begin{empt}
-	For any Abelian group $F$ one can define a constant presheaf $F_\sX$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
-	We use a following notation
-	\be\label{etale_hom_a_eqn}
-	\check{H}^r\left(\sX, F\right)\bydef \check{H}^r\left(\sX, F_\sX\right).
-	\ee
-\end{empt}
+
 \begin{proposition}\cite{bredon:sheaf}
 	%	PAGE 191 4.7. Proposition. 
 	If $\mathscr A$ is a sheaf, then for any open covering $\mathscr U$ of $\s\sX$,
@@ -2644,7 +2650,7 @@ These groups  have the following properties:
 	\be\label{top_cech_eqn}
 	C^r\left( \mathscr U,  F_\sY\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}}  F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
 	\ee
-	is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}). For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
+	is a specialization of \eqref{cech_eqn} one (cf. Example ???? \ref{top_gro_exm}). For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
 	$$
 	F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\cong F_\sX\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong F.
 	$$
@@ -2758,7 +2764,7 @@ These groups  have the following properties:
 	\bean
 	\smile: \check{H}^\bullet\left(\sX, F \right)\otimes \check{H}^\bullet\left(\sX,F \right) \to \check{H}^\bullet\left(\sX,F \right)
 	\eean
-	where the notation \eqref{etale_hom_a_eqn} is used. So $\check{H}^\bullet\left(\sX, F\right)$ becomes an associative and graded-commutative ring.
+	where the notation \eqref{locally_const_not_eqn} is used. So $\check{H}^\bullet\left(\sX, F\right)$ becomes an associative and graded-commutative ring.
 \end{lem}
 
 \begin{exercise}\label{ring_homo_exer}
@@ -2857,6 +2863,8 @@ of this work.
 
 
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
+
+\bibitem{eust} Samuel Eilenberg, Norman E. Steenrod. \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952. 
 
 \bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
