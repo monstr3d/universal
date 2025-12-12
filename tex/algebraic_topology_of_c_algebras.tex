@@ -688,56 +688,35 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\m
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{defn}\label{strong_defn}
+\begin{empt}\label{topology_empt}
  If $\mathfrak{Ultrafilters}\left(A \right)$ 
-  is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{strong topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
+  is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then there is a topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
  
-	\be\label{strong_eqn}
+	\be\label{topology_eqn}
 \mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\cap L = \{0\} \right\}
 	\ee
  set is open.
 	
-\end{defn}
-\
+\end{empt}
+\begin{definition}\label{gelfand_space_defn}
+	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
+	$$
+	Aa \in \xi.
+	$$
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} (cf. Definition \ref{lattice_a_defn}) supplied with the described in \ref{topology_empt} topology.
+\end{definition}
 
-\begin{defn}\label{weak_defn}
-	If $\mathfrak{Ultrafilters}\left(A \right)$ 
-	is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then the \textit{weak topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any element $a \in \K\left( A\right)$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) the set
-		\be\label{weak_eqn}
-	\mathfrak{Ultrafilters}\left(A \right)_a	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L \in \xi\quad L \cap Aa =\{0\} \right\}
-	\ee
-is open.
-	
-\end{defn}
+
 \begin{definition}\label{open_ideal_defn}
 	If both \bean
-	\sU_{\mathfrak{strong}} \bydef \mathfrak{Gelfand}\left( A\right) \bigcap \left(  \bigcap_{j = 1}^n \mathfrak{Ultrafilters}\left(A \right)_{L_j}\right) \subset \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}},\\ \sU_{\mathfrak{weak}} \bydef \mathfrak{Gelfand}\left( A\right) \bigcap\left(  \bigcap_{j = 1}^n \mathfrak{Ultrafilters}\left(A \right)_{a_j}\right) \subset \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}\eean are open subsets then the closures of the unions 
+	\sU \bydef \mathfrak{Gelfand}\left( A\right) \bigcap \left(  \bigcap_{j = 1}^n \mathfrak{Ultrafilters}\left(A \right)_{L_j}\right) \subset \mathfrak{Gelfand}\left(A\right)
+	\eean is an open subsets then the closure of the union
 	\bean
-	\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\},\\
-		\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\}
+	\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\}
 		\eean 
-		are $\sU_{\mathfrak{strong}}$-\textit{ideal} and $\sU_{\mathfrak{waek}}$-\textit{ideal} respectively.
+		is the  $\sU$-\textit{ideal}.
 \end{definition}
-\begin{definition}\label{gelfand_space_defn}
-If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
-	$$
-  Aa \in \xi.
-	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} 
-	$$
-	\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in \xi \quad L \text{ is a finite point}\right\}.
-	$$
-	supplied with the strong or the weak topology (cf.Definitions 
-	\ref{strong_defn} and
-\ref{weak_defn}).
-\end{definition}
-\begin{remark}\label{strong_weak_map_rem}
-For any $C^*$-algebra there is the natural bijective continuous map 
-\be\label{strong_weak_map_eqn}
-\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}   \to \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}
-\ee
-between Gelfand spaces supplied with strong and weak topology.
-\end{remark}
+
 \begin{remark}\label{hered_ideal_rem}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$7 we use a following notation
 	\be\label{hered_ideal_eqn}
@@ -747,7 +726,7 @@ between Gelfand spaces supplied with strong and weak topology.
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space supplied with the strong or weak  topology (cf. Definitions \ref{strong_defn} and \ref{weak_defn}).
+	If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
 \end{lemma}
 \begin{proof}
 	
@@ -777,14 +756,7 @@ or equivalently $\sV_\xi\subset  \supp a$.
 	$$
 \xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in\in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
 	$$
-	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{strong_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{strong}}$ with respect to the strong topology correspond to an open subset of $\sX$ and vice versa.  From the equations \eqref{weak_eqn} \eqref{peder_c0_eqn} it follows that for any compact set $K 
-	\subset \sX$ the difference $\sV \bydef \sX \setminus K$ is an open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$. So any compact set $K 
-	\subset \sX$ is closed in $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$. Similarly if $\partial \sV$ is a boundary of the closure of $\sV$ then  $\partial \sV$ is closed. If a set  $\sU \bydef 
-	\sX \setminus \left( \sV \cup \partial \sV\right) $ is closed in $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ then there is $x \in \sX$ and $\mathcal W \cap \left( \sV \cup \partial \sV\right) \neq \emptyset$ for every open with respect to the weak topology neighborhood $\mathcal W$ of $x$. On the hand $\mathcal W$ is open with respect to the topology of $\sX$ since the topology of $\sX$ is finer then the weak topology. It turns out that $\mathcal W \cap \sV\neq \emptyset$. The family $\left\{\mathcal W \cap \sV\right\}$ is an ultrafilter which exceeds the ultrafilter of all neighborhoods of $x$. It is possible if and only of the family convergent to $x$. It is possible only if $x 	\in \sV \cup \partial \sV$. This fact contradicts with
-	$$
-	x \in \sU = 	\sX \setminus \left( \sV \cup \partial \sV\right) 
-	$$
-	From this fact it follows that the set $\sU$ is open with respect to the weak topology. Using this fact one can prove that the weak topology of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ contains all open subsets of compact sets of $\sX$. Since the $\sX$ is locally compact the weak topology of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)_{\mathfrak{weak}}$ equals to $\sX$ one.
+	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 	\end{proof}
 
 \begin{definition}\label{commutant_defn}
@@ -858,29 +830,26 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 	\ee
 	where $S\subset \mathfrak{Gelfand}\left(A \right)$ and $S''\subset \mathfrak{Gelfand}\left(A \right)''$ are subsets.
 \end{remark}
-\begin{definition}\label{red_geland_defn}
-Let $A$ be a $C^*$-algebra,  let both $\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}$ and  $\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}$ are Gelfand spaces supplied with strong and weak topology. Consider the equivalence relations 
-\bean
-\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}} \quad   \xi'\sim_{\mathfrak{strong}}\xi''\quad \Leftrightarrow \quad\\ \left(
-\forall \text{ open set }\quad  \sU_{\mathfrak{strong}} \subset  \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}\quad 
-\xi' \in \sU_{\mathfrak{strong}}
-\quad \Leftrightarrow \quad \xi'' \in \sU_{\mathfrak{strong}}  \right),\\\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}} \quad   \xi'\sim_{\mathfrak{weak}}\xi''\quad \Leftrightarrow \quad\\ \left(
-\forall \text{ open set }\quad  \sU_{\mathfrak{weak}} \subset  \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}\quad 
-\xi' \in \sU_{\mathfrak{weak}}
-\quad \Leftrightarrow \quad \xi'' \in \sU_{\mathfrak{weak}}  \right).
-\eean 
-The quotient spaces 
-\bean
-\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{strong}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}/\sim_{\mathfrak{strong}},\\
-\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{weak}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}/\sim_{\mathfrak{weak}}
-\eean
-are \textit{reduced strong} and \textit{reduced weak Gelfand space of} $A$.
-\end{definition}
+%\begin{definition}\label{red_geland_defn}
+%Let $A$ be a $C^*$-algebra, and  let both $\mathfrak{Gelfand}\left(A\right$ be its Gelfand space. Consider the equivalence relations 
+%\bean
+%\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right) \quad   \xi'\sim\xi''\quad \Leftrightarrow \quad\\ \left(
+%\forall \text{ open set }\quad  \sU \subset  \mathfrak{Gelfand}\left(A\right\quad 
+%\xi' \in \sU
+%\quad \Leftrightarrow \quad \xi'' \in \sU \right).
+%\eean 
+%The quotient spaces 
+%\bean
+%\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{strong}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}/\sim_{\mathfrak{strong}},\\
+%\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{weak}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}/\sim_{\mathfrak{weak}}
+%\eean
+%are \textit{reduced strong} and \textit{reduced weak Gelfand space of} $A$.
+%\end{definition}
 \subsection{Morphisms}
 \begin{empt}
 If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphism 	
 \be\label{phi_r_eqn}
-\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)	
+\varphi_R: A \hookto M\left(\widetilde A\right)	
 \ee
 of $\C$-algebras such that
 \be\label{closed_p_eqn}
@@ -925,14 +894,13 @@ The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by 
 \ee
 \end{defn}
 \begin{lemma}\label{good_lem}
-If the  homomorphism \eqref{lat_mor_eqn} is good and we consider strong or weak topology on both $\mathfrak{Gelfand}\left(\widetilde A \right)$ and $\mathfrak{Gelfand}\left( A \right)$ (cf. Definitions 
-\ref{weak_defn} and \ref{strong_defn})	  then the map \eqref{gelfand_map_eqn} is continuous.
+If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous.
 \end{lemma}
 \begin{proof}
-	From the equations \eqref{strong_eqn} and \eqref{weak_defn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  with respect to strong or weak topology corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$ with respect to strong or weak topology.
+	From the equation \eqref{topology_eqn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$.
 \end{proof}.
 \begin{empt}\label{bicommutant_empt}
-	Let $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
+	Let $\varphi_R: A \hookto M\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
   $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
   \be\label{b_neq_eqn}
   \forall a_1, ..., a_n \in \xi'' \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a,\right\| > \eps.
@@ -960,7 +928,7 @@ it follows that
  Above equation contradicts with \eqref{b_neq_eqn} one.
 \end{empt}
 \begin{lemma}\label{bicommutant_lem}
-Any good morphism $\varphi_R: A \hookto \mathbf{RC}\left(\widetilde A\right)$ yields a continuous map
+Any good morphism $\varphi_R: A \hookto M\left(\widetilde A\right)$ yields a continuous map
 \be\label{bicommutant_eqn} 
 \mathfrak{Gelfand}\left(\widetilde A \right)''\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)''}\mathfrak{Gelfand}\left(A \right)''.
 \ee
@@ -1310,7 +1278,8 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 			\item  in the algebraic geometry   "blowing-up" means  from a map $\sX \to \sY$ such that the variety $\sX$ has no singular points (cf. \cite{hartshorne:ag}).
 		\end{itemize}
 	\end{remark}
-	
+	\subsubsection{Homomorphisms of $K$-theory}
+	\paragraph*{}
 	\subsubsection{Universal Hausdorff blowing-up}
 
 \begin{definition}\label{hausdorff_defn}
@@ -1355,6 +1324,29 @@ Consider the hypothesis \ref{upper_defn}. Hausdorff blowing-up $C_0\left(\sY  \r
 \forall f \in C_0\left( \sY_{\mathfrak{weak}}\right) \quad f\left( \sU_{\mathfrak{weak}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{weak}}} \quad af = a.
 \eean 
 \end{definition}
+	
+	\subsubsection{Inversion of geometric quotient}
+\paragraph{}
+Let $\sX$ be a Hausdorff, locally compact space and let $\sim$ the equivalence relation. Suppose that  $A$ is $C^*$-algebra such that 
+
+		\subsubsection{$K$-theory}
+	
+		If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
+	$
+	C_0\left(\sY \right)\times  \left(\K\otimes A \right)\to \K\otimes A 
+	% \left(A\otimes \K \right)\times C_0\left(\sY \right)\to A\otimes \K 
+	$.
+	Using it one can one can construct an  injective $*$-homomorphism !!!!
+	$
+	\left(C_0\left(\sY \right) \otimes \K \right) \xrightarrow{\varphi} A
+	$.
+	This homomorphism yields homomorphisms of $K$-theory
+	\bean
+	K^0\left(\sY \right)\cong K_0\left(C_0\left( \sY\right)  \right) \xrightarrow{\varphi_0} K_0\left( A\right),\\
+	K^1\left(\sY \right)\cong K_1\left(C_0\left( \sY\right)  \right)\xrightarrow{\varphi_1} K_1\left( A\right).
+	\eean
+	%	\end{empt}
+	
 	
 
 
@@ -1852,7 +1844,6 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 	The \textit{reduced $C^*$ -algebra} $C^*_r\left(\G, \sigma \right)$ of $\G$ is the completion of
 	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
 \end{definition}
-\subsection{Inversion of geometric quotient}
 
 \begin{appendices}
 			\section{Categories theory}
@@ -2285,40 +2276,6 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 %\end{remark}
 
 
-\subsection{Algebraic counterpart of geometric quotient}
-\paragraph{}
-Here I follow to \cite{{connes:ncg94}}
-We shall formulate the algebraic counterpart of the geometric operation of forming the
-quotient of a space by an equivalence relation, and show how to handle non-Hausdorff quotients by using noncommutative $C^*$-algebras. 
-
-
-Let $\sY \bydef \left\{a, b\right\}$ be a set consisting in two elements $a$ and $b$, so that the algebra $C\left(\sY \right)$ 
-of (complex-valued) functions on $\sY$ is the commutative algebra $\C \bigoplus 
-\C$ of $2 \times 2$ diagonal
-matrices. There are two ways of declaring that the two points a and b of Y are identical,
-i.e. of quotienting $\sY$ by the equivalence relation $a \sim b$.
-\begin{enumerate}
-	\item The first is to consider the subalgebra $A \subset C\left( \sY\right)$  of functions $f$ on $\sY$ which take the
-	same values at $a$ and $b: f(a) = f(b)$.
-	\item The second is to consider the larger algebra $B \supset C\left(\sY \right)$ of all $2 \times 2$ matrices:
-	\bean
-	f = \begin{pmatrix}
-	f_{aa} & f_{ab}\\
-	f_{ba} & f_{bb}
-	\end{pmatrix}.
-	\eean
-\end{enumerate}
-The relation between the two algebras is the notion of strong Morita equivalence of
-$C^*$-algebras. This relation preserves many
-invariants of $C^*$-algebras, such as $K$-theory and the topology of the space of irreducible
-representations. Thus, in our example the pure states $\om_a$ and $\om_b$ of $B$ which come
-directly from the points $a$ and $b$ of $\sY$ by the formula
-\bean
-\om_a\left( f\right) = f_{aa}, \quad \om_a\left( f\right) = f_{bb}\quad \forall a \in B
-\eean
-yield equivalent irreducible representations of $B = \mathbb{M}_n\left(\C \right)$, which corresponds to the
-identification $a \sim b$ in the spectrum of $B$.
-
 \subsection{Continuous trace $C^*$-algebras}
 
 
@@ -2452,6 +2409,43 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 %where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
 
 %\subsection{Standard Constructions}
+\subsection{Algebraic counterpart of geometric quotient}
+\paragraph{}
+Here I follow to \cite{{connes:ncg94}}
+We shall formulate the algebraic counterpart of the geometric operation of forming the
+quotient of a space by an equivalence relation, and show how to handle non-Hausdorff quotients by using noncommutative $C^*$-algebras. 
+
+\subsubsection{Quotient of two elements}
+Let $\sY \bydef \left\{a, b\right\}$ be a set consisting in two elements $a$ and $b$, so that the algebra $C\left(\sY \right)$ 
+of (complex-valued) functions on $\sY$ is the commutative algebra $\C \bigoplus 
+\C$ of $2 \times 2$ diagonal
+matrices. There are two ways of declaring that the two points a and b of Y are identical,
+i.e. of quotienting $\sY$ by the equivalence relation $a \sim b$.
+\begin{enumerate}
+	\item The first is to consider the subalgebra $A \subset C\left( \sY\right)$  of functions $f$ on $\sY$ which take the
+	same values at $a$ and $b: f(a) = f(b)$.
+	\item The second is to consider the larger algebra $B \supset C\left(\sY \right)$ of all $2 \times 2$ matrices:
+	\bean
+	f = \begin{pmatrix}
+		f_{aa} & f_{ab}\\
+		f_{ba} & f_{bb}
+	\end{pmatrix}.
+	\eean
+\end{enumerate}
+The relation between the two algebras is the notion of strong Morita equivalence of
+$C^*$-algebras. This relation preserves many
+invariants of $C^*$-algebras, such as $K$-theory and the topology of the space of irreducible
+representations. Thus, in our example the pure states $\om_a$ and $\om_b$ of $B$ which come
+directly from the points $a$ and $b$ of $\sY$ by the formula
+\bean
+\om_a\left( f\right) = f_{aa}, \quad \om_a\left( f\right) = f_{bb}\quad \forall a \in B
+\eean
+yield equivalent irreducible representations of $B = \mathbb{M}_n\left(\C \right)$, which corresponds to the
+identification $a \sim b$ in the spectrum of $B$.
+\subsubsection{Quotients of foliated manifolds}
+\paragraph*{}
+
+
 \section{Sheaves}
 \subsection{Basic definitions}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -3078,10 +3072,565 @@ These groups  have the following properties:
 \begin{exercise}\label{ring_homo_exer}
 	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 \end{exercise}
+		\subsubsection{Groupoids}
+\paragraph*{}
+A groupoid is a small category with inverses, or more explicitly:
+\begin{definition}\label{groupoid_defn}\cite{connes:ncg94}
+	A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^{(0)}\subset\G$, two maps
+	$r, s : \G\to \G^{(0)}$ and a law of composition
+	$$
+	\circ: \G^{(2)}\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
+	$$
+	such that
+	\begin{enumerate}
+		\item $s\left(\ga_1\circ\ga_2\right)=s\left(\ga_2\right), \quad r\left(\ga_1\circ\ga_2\right)=r\left(\ga_1\right)\quad \forall\left(\ga_1, \ga_2 \right) \in \G$
+		\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^{(0)}$
+		\item $\ga\circ s\left(\ga\right)= r\left(\ga\right)\circ\ga = \ga\quad \forall\ga\in\G$
+		\item $\left( \ga_1\circ\ga_2\right) \circ\ga_3=\ga_1\circ\left( \ga_2\circ\ga_3\right) $
+		\item Each $\ga \in\G$ has a two-sided inverse $\ga^{-1}$, with $\ga\circ\ga^{-1}=r\left(\ga\right)$, $\ga^{-1}\circ\ga=r\left(\ga\right)$.
+	\end{enumerate}
+	The maps $r$, $s$ are called the \textit{range} and \textit{source} maps.
+\end{definition} 
+\begin{empt}
+	Let $\G$ be a groupoid. 
+	Consider an involutive algebra $\C\left[\G \right]$ over $\C$ generated by $\G$ which satisfies to the following relations
+	\be
+	\begin{split}
+		\left(a\cdot b\right)\left(\ga\right)= \sum_{\ga_1\circ\ga_2=\ga}a\left( \ga_1\right)a\left( \ga_1\right),\\
+		a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)} 
+	\end{split}
+	\ee
+\end{empt}
+
+
+\begin{definition}\label{foli_groupoid_red_defn}
+	If $\Pi$ is the set of irreducible representations of $\C\left[\G \right]$ then the completion of $\C\left[\G \right]$ with respect to $C^*$-norm
+	$$
+	\left\| a\right\| = \sup_{\pi\in \Pi}\left\|\pi\left( a\right)\right\| 
+	$$
+	is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
+\end{definition}
+
+
+
+\subsubsection{Foliations and pseudogroups}
+%\paragraph{}
+% Here I follow to \cite{connes:ncg94}
+\begin{definition}\cite{connes:ncg94}		
+	Let $M$ be a smooth manifold and $TM$ its tangent bundle, so that
+	for each $x \in M$, $T_x M$ is the tangent space of $M$ at $x$. A
+	smooth subbundle $\mathcal{F}$ of $TM$ is called {\it integrable} if and only if one of
+	the following equivalent conditions is satisfied:
+	
+	\smallskip
+	
+	\begin{enumerate}
+		
+		\item[(a)] Every $x \in M$ is contained in a submanifold $W$ of $M$ such that
+		$$
+		T_y (W) = \mathcal{F}_y \qquad \forall \, y \in W \, ,
+		$$
+		
+		\smallskip
+		
+		\item[(b)] Every $x \in M$ is in the domain $U \subset M$ of a
+		submersion $p : U \to {\mathbb R}^q$ ($q = {\rm codim} \, \mathcal{F}$) with
+		$$
+		\mathcal{F}_y = {\rm Ker} (p_*)_y \qquad \forall \, y \in U \, ,
+		$$
+		
+		\smallskip
+		\item[(c)] $C^{\infty} \left( \mathcal{F}\right)  = \{ X \in C^{\infty} \left(TM\right) \, , \ X_x \in
+		\mathcal{F}_x \quad \forall \, x \in M \}$ is a Lie algebra,
+		
+		\smallskip
+		
+		\item[(d)] The ideal $J\left( \mathcal{F}\right) $ of smooth exterior differential forms which
+		vanish on $\mathcal{F}$ is stable by exterior differentiation.
+	\end{enumerate}
+	
+\end{definition}
+
+\begin{empt}\cite{connes:ncg94}
+	A foliation of $M$ is given by an integrable subbundle $\mathcal{F}$ of $TM$.
+	The leaves of the foliation $\left(M , \mathcal F\right)$ are the maximal connected
+	submanifolds $L$ of $M$ with $T_x (L) = \mathcal{F}_x $, $\forall \, x \in L$,
+	and the partition of $M$ in leaves $$M = \cup
+	L_{\alpha}\,,\quad\alpha \in X$$ is characterized geometrically by
+	its ``local triviality'': every point $x \in M$ has a neighborhood
+	$\mathcal U$ and a system of local coordinates
+	$(x^j)_{j = 1 , \ldots , \dim V}$ called
+	{\it foliation charts}, so
+	that the partition of $\mathcal U$ in connected components of
+	leaves corresponds to the partition of 
+	\begin{equation*}
+		{\mathbb
+			R}^{\dim M} = {\mathbb R}^{\dim \mathcal F} \times {\mathbb R}^{\text{codim}
+			\, \mathcal F}
+	\end{equation*}
+	in the parallel affine subspaces 
+	$
+	{\mathbb R}^{\dim \mathcal F}
+	\times {\rm pt}$.
+	The corresponding foliation will be denoted by
+	\begin{equation}\label{fol_chart_eqn}
+		\left(\R^n, \mathcal{F}_p \right) 
+	\end{equation}
+	where $p = \dim   \mathcal{F}_p$.
+	To each foliation $\left(M, \mathcal{F}\right)$ is canonically associated a $C^*$- algebra
+	$C^*_r (M, ~\mathcal{F})$ which encodes the topology of the space of leaves.  To
+	take this into account one first constructs a manifold $\mathcal G$, $\dim
+	\, \mathcal G = \dim \,M + \dim \,\mathcal F$. 
+\end{empt}
+\begin{definition}\label{foli_trans_defn}\cite{candel:foliI}
+	Let $N \subset M$ be a smooth submanifold. We say that $\sF$ is \textit{transverse} to $N$ (and write $\sF\pitchfork N$) if, for each leaf $L$ of $\sF$ and each point $x \in L\cap N$, $T_x\left(L \right)$ ans $T_x\left(N \right)$ together span $T_x\left( M\right)$. At the other extreme At the other extreme, we say that $\sF$ is tangent to $N$ if, for each leaf $L$ of $\sF$, either $L \cap N = \emptyset$ or $L \subset N$.
+\end{definition}
+The symbol $\mathbb{F}^p$ denotes either the full Euclidean space $\R^p$ or Euclidean half space $\mathbb{H}^p = \left\{\left.\left(x_1,..., x_n \right) \in \mathbb{R}^p\right| x_1 \le 0 \right\}$.
+\begin{definition}\label{foli_rect_defn}\cite{candel:foliI}
+	A rectangular neighborhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allowing the possibility of manifolds with boundary and (convex) COI'Ile1'S.
+\end{definition}
+\begin{definition}\label{foli_chart_defn}\cite{candel:foliI}
+	% 	Definition 1.1.17 \\
+	Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighborhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighborhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
+\end{definition}
+
+\begin{definition}\label{foli_defn}
+	Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
+\end{definition}
+\begin{definition}\label{fol_res_defn}
+	If $\left(M,\mathcal F \right)$ is a foliation and $\mathcal{U} \subset M$ be an open subset $\mathcal F|_{\mathcal{U}}$ is the restriction of $\mathcal F$ on ${\mathcal{U}}$ then we say that  $\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right) $ is the \textit{restriction}   of $\left(M,\mathcal F \right)$ \textit{to}  $\mathcal{U}$. (cf. \cite{connes:ncg94})
+\end{definition}
+\begin{definition}\label{foli_atlas_defn}
+	A \textit{foliated atlas} of codimension $q$ and class $C^r$ on the $n$-manifold $M$ is a $C^r$-atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$  of foliated charts of codimension $q$ which are \textit{coherently foliated} in the sense that, whenever $P$ and $Q$ are plaques in distinct charts of $\mathfrak{A}$, then $P\cap Q$ is open both in $P$ and $Q$. 
+\end{definition}
+\begin{definition}\label{foli_coh_atlas_defn}
+	Two foliated atlases lt and $\mathfrak{A}$ on $\mathfrak{A}'$ of the same codimension and smoothness class $C^r$ are coherent ($\mathfrak{A}\approx\mathfrak{A}'$) if $\mathfrak{A}\cup\mathfrak{A}'$ is a foliated $C^*$-atlas.
+\end{definition}
+\begin{lemma}\label{foli_coh_atlas_eq_lem}
+	Coherence of foliated atlases is an equivalence relation.
+\end{lemma}
+\begin{lemma}\label{foli_coh_atlas_ass_lem}
+	Let  $\mathfrak{A}$ and $\mathfrak{A}'$ be foliated atlases on $M$ and suppose that $\mathfrak{A}$ is associated to a foliation $\sF$. Then $\mathfrak{A}$ and $\mathfrak{A}'$ are coherent if and only if $\mathfrak{A}'$ is also associated to $\sF$.
+\end{lemma}
+\begin{definition}\label{foli_reg_atlas_defn}
+	A foliated atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$ of class $C^r$ is said to be \textit{regular} if
+	\begin{enumerate}
+		\item [(a)] For each $\al \in \mathscr A$, the closure $\overline{\sU}_\al$ of $\sU_\al$ is a compact subset of a foliated chart  $\left\{\sV_\a \right\}$ and $\varphi_\a = \psi|_{\sU_\a }$.
+		\item[(b)] The cover $\left\{\sU_\a \right\}$ is locally finite.
+		\item[(c)] if $\sU_\a$ and $\sU_\bt$ are elements of $\mathfrak{A}$, then the interior of each closed plaque $P \in \overline \sU_\a$ meets at most one plaque in $\overline \sU_\bt$.
+	\end{enumerate}
+\end{definition}
+\begin{lemma}\label{foli_reg_atlas_ref_lem}
+	Every foliated atlas has a coherent refinement that is regular.
+\end{lemma}
+\begin{thm}\label{foli_thm}
+	The correspondence between foliations on $M$ and their associated foliated atlases induces a one-to-one correspondence between the set of foliations on $M$.
+\end{thm}
+
+We now have an alternative definition of the term "foliation". 
+\begin{defn}\label{foli_alt_defn}
+	A \textit{foliation} $\sF$ of codimension $q$ and class $C^r$ on $M$ is a coherence class of foliated atlases of codimension q and class $C^r$ on $M$.
+\end{defn}
+By Zorn's lemma, it is obvious that every coherence class of foliated atlases contains a unique maximal foliated atlas. 
+\begin{defn}\label{foli_max_defn}
+	A \textit{foliation of codimension} $q$ and class $C^r$ on $M$ is a maximal foliated $C^r$-atlas of codimension $q$ on $M$.
+\end{defn}
+
+\begin{empt}\label{foli_graph_empt}
+	Let  $\Pi\left( M,\sF\right)$ be the space of paths on leaves, that is, maps $\a : [0,1] \to M$ that are continuous with respect to the leaf topology on $M$. For such a path  let $s\left(\a \right) = \a\left( 0\right)$  be its source or initial point and let  $r\left(\a \right) = \a\left( 1\right)$ be its range or terminal point. The space $\Pi\left( M,\sF\right)$ has a partially defined multiplication: the product $\a\cdot \bt$ of two elements $\a$ and $\bt$ is defined if the terminal point of $\bt$ is the initial point of $\a$, and the result is the path $\bt$ followed by the path $\a$. (Note that this is the opposite to the usual composition of paths  $\al\#\bt = \bt \cdot \a$ used in defining the fundamental group of a space.)
+\end{empt}
+\begin{definition}\label{foli_path_space_defn}
+	In the situation of \ref{foli_graph_empt} we say that the topological space $\Pi\left( M,\sF\right)$ is the \textit{space of path on leaves}.
+\end{definition}
+\begin{definition}\label{foli_groupoid_defn}\cite{candel:foliI}
+	%Definition 2.3.3.
+	A groupoid $\G$ on a set $\sX$ is a category with inverses, having $\sX$ as its set of objects. For $y,z \in \sX$ the set of morphisms of $\G$ from $y$ to $z$ is denoted by $\G^z_y$.
+\end{definition}
+\begin{defn}\label{foli_graph_defn}\cite{candel:foliII}
+	%	Definition 1.3.1
+	The \textit{graph}, or \textit{my groupoid}, of the foliated space $\left( M,\sF\right)$  is the quotient space of $\Pi\left( M,\sF\right)$ by the equivalence relation that identifies two paths $\a$ and $\bt$ if they have the same initial and terminal points, and the loop $\a \cdot \bt$ has trivial germinal my.
+	The graph of $\left( M,\sF\right)$ will be denoted by $\G\left(M, \sF\right)$, or simply by  $\G\left( M\right)$ or by $\G$ when all other variables are understood.
+\end{defn}
+\begin{remark}
+	There is the natural surjective continuous map
+	\be\label{foli_cov_map_eqn}
+	\Phi : \Pi\left( M,\sF\right)\to \G\left( M,\sF\right)
+	\ee
+	from the space of path on leaves to the foliation graph.
+\end{remark}
+\begin{proposition}\label{foli_chart_prop}
+	%	Proposition 1.3.14. \\
+	Let $\mathfrak{A}= \left\{\sU_\iota\right\}$ be a regular foliated atlas of $M$. For each finite sequence of indices $\left\{\a_0 ,...,\a_k\right\}$, the product
+	\be	\label{foli_chart_eqn}
+	\sV_{   \a} =	 \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right) \in \G\left(M, \sF\right) \quad \a = \left({\iota_0},...,{\iota_k}\right)
+	\ee
+	is either empty or a foliated chart for the graph $\G$. The collection of all such finite products is a covering of $\G$ by foliated charts. 
+\end{proposition}
+\begin{theorem}\label{foli_graph_thm}
+	The graph $\G$ of $\left( M,\sF\right)$ is a groupoid with unit space $\G_0 = M$, and this algebraic structure is compatible with a foliated structure on $\G$ and $M$. Furthermore, the following properties hold.
+	\begin{enumerate}
+		\item [(i)] The range and source maps $r, s : \G \to M$ are topological submersions. 
+		\item[(ii)] The inclusion of the unit space $M \to\G$ is a smooth map. 
+		\item[(iii)] The product map $\G\times_M \G \to G$, given by $\left( \ga_1 , \ga_2\right) \mapsto\ga_1 \cdot \ga_2$, is smooth.
+		\item[(iv)]  There is an involution $j: \G \to \G$, given by $j\left( \ga\right) = \ga^{-1}$, which is a diffeomorphism of $\G$, sends each leaf to itself, and exchanges the foliations given by the range. 
+	\end{enumerate}
+	
+\end{theorem}
+
+Above definitions refines the equivalence relation coming from
+the partition of $M$ in leaves $M = \cup L_{\alpha}$. 
+An element $\gamma$ of $\mathcal G$ is given by two points $x = s(\gamma)$,
+$y = r(\gamma)$ of $M$ together with an equivalence class of smooth
+paths: $\gamma (t)\in M$, $t \in [0,1]$; $\gamma (0) = x$, $\gamma
+(1) = y$, tangent to the bundle $\mathcal{F}$ ( i.e. with $\dot\gamma (t)
+\in \mathcal{F}_{\gamma (t)}$, $\forall \, t \in {\mathbb R}$) up to the
+following equivalence: $\gamma_1$ and $\gamma_2$ are equivalent if and only if
+the {\it my} of the path $\gamma_2 \circ \gamma_1^{-1}$ at the
+point $x$ is the {\it identity}. The graph $\mathcal G$ has an obvious
+composition law. For $\gamma , \gamma' \in G$, the composition
+$\gamma \circ \gamma'$ makes sense if $s(\gamma) = r(\gamma')$. If
+the leaf $L$ which contains both $x$ and $y$ has no my, then
+the class in $\mathcal G$ of the path $\gamma (t)$ only depends on the pair
+$(y,x)$. In general, if one fixes $x = s(\gamma)$, the map from $\mathcal G_x
+= \{ \gamma , s(\gamma) = x \}$ to the leaf $L$ through $x$, given
+by $\gamma \in \mathcal G_x \mapsto y = r(\gamma)$, is the my covering
+of $L$.
+Both maps $r$ and $s$ from the manifold $\mathcal G$ to $M$ are smooth
+submersions and the map $(r,s)$ to $M \times M$ is an immersion
+whose image in $M \times M$ is the (often singular) subset
+\begin{equation*}\label{subset}
+	\{ (y,x)\in M \times M: \, \text{ $y$ and $x$ are on the same leaf}\}.
+\end{equation*}
+% We assume, for notational convenience, that the manifold $\mathcal G$ is Hausdorff, but as this fails to be the case in very interesting examples I shall refer to \cite{connes:foli_survey} for the removal of this hypothesis.  
+For
+$x\in M$ one lets $\Omega_x^{1/2}$ be the one dimensional complex
+vector space of maps from the exterior power $\wedge^k \,  \mathcal{F}_x$, $k =
+\dim F$, to ${\mathbb C}$ such that
+$$
+\rho \, (\lambda \, v) = \vert \lambda \vert^{1/2} \, \rho \, (v)
+\qquad \forall \, v \in \wedge^k \,  \mathcal{F}_x \, , \quad \forall \,
+\lambda \in {\mathbb R} \, .
+$$
+Then, for $\gamma \in\mathcal G$, one can identify $\Omega_{\gamma}^{1/2}$ with the one
+dimensional complex vector space $\Omega_y^{1/2} \otimes
+\Omega_x^{1/2}$, where $\gamma : x \to y$. In other words
+\be\label{foli_om_g_eqn}
+\Omega_{\mathcal G}^{1/2}=\, r^*(\Omega_M^{1/2})\otimes s^*(\Omega_M^{1/2})\,.
+\ee
+
+%\begin{empt}\cite{candel:foliI}
+%	Page 57.
+%The fact that the regular foliated atlas $\mathfrak A$ is locally finite, together with the 2nd countability of $M$, implies that $\mathfrak A$ is at most countably infinite. Thus, the disjoint union 
+%\be
+%S = \bigsqcup_{\iota \in \I} S_\iota
+%\ee	
+%is a q-manifold that imbeds as a submanifold $S \hookto M$ is  transverse to $\sF$.
+%\end{empt}
+%\begin{prdf}\label{foli_preudo_grp_prdf} \cite{candel:foliI}
+%	Proposition 2.2.6. I \\
+%	Let $\mathfrak{A}$ be a regular foliated atlas of class $C^r$ and let $\ga = \left\{\ga_{\a, \b}\right\}_{\a, \b \in \mathfrak{A}}$ be its my cocycle. Then the set $\Ga_{\mathfrak{A}}$ of my transformations is the $C^r$ pseudogroup on $S$ generated by $\ga$, called the $\mathrm{my~pseudogroup}$ of $\mathfrak{A}$.
+%\end{prdf}
+
+\begin{empt}\label{foli_sc_haus_empt}\cite{candel:foliII}
+	The  groupoid of a foliated space all leaves of which are simply connected is Hausdorff.
+\end{empt}
+
+\begin{exercise}\label{foli_haus_exer}\cite{candel:foliII}
+	%: Exercise 1.3.8. 
+	Prove or decide the following.
+	\begin{enumerate}
+		\item The graph of a foliated space all leaves of which are simply connected is Hausdorff.
+		\item The graph of a foliated space all leaves of which have trivial holo nomy is Hausdorff.
+	\end{enumerate}	
+	%	 (1) The graph of a foliated space all leaves of which are simply connected is Hausdorff. (2) The graph of a foliated space all leaves of which have trivial holo nomy is Hausdorff. (3) The graph of the Reeb foliation of the three-sphere is not Hausdorff. (4) True or false: The graph of a codimension one foliated three manifold containing a Reeb component is not Hausdorff.
+\end{exercise}
+
+
+
+%	\begin{definition}\label{foli_graph_defn1}
+	%		The  manifold $\mathcal G$ called the \textit{graph} (or \textit{my groupoid})
+	%		of the foliation  $\left(M, \mathcal{F}\right)$  Denote by $\mathcal G\left(M, \mathcal{F}\right)$ the graph of  $\left(M, \mathcal{F}\right)$.
+	%	\end{definition}
+\begin{definition}\label{foli_pseudo_defn}\cite{candel:foliI}.
+	%	Definition 2.2.4. I \\
+	Let $N$ be a $q$-manifold. A $C^r$ pseudogroup $\Ga$ on $N$ is a collection of $C^r$ diffeomorphisms $h : D(h) \xrightarrow{\approx} R(h)$ between open subsets of $N$ satisfying the following axioms. 
+	\begin{enumerate}
+		\item  If $g, h \in \Ga$  and $R(h) \subset G(g)$, then $g \circ h \in \Ga$
+		\item	 If $h \in \Ga$, then $h^{-1} \in \Ga$. 
+		\item $\Id_N \in \Ga$. 
+		\item If $h \in \Ga$ and $W \subset  D(h)$ is an open subset, then $\left.h\right|_W \in \Ga$. 
+		\item If $h:D(h) \xrightarrow{\approx} R(h)$ is a $C^r$ diffeomorphism between open subsets of $N$ and if, for each $w \in  D(h)$, there is a neighborhood $W$ of $w\in  D(h)$ such that $\left.h\right|_W \in \Ga$, then $h \in \Ga$. 
+	\end{enumerate}
+	If $\Ga' \subset \Ga$ is also a pseudogroup, it is called a subpseudogroup of $\Ga$.
+\end{definition}
+
+\begin{remark}
+	Any pseudogroup is a groupoid (cf. Definition \ref{groupoid_defn}).
+\end{remark}
+\begin{remark}\cite{candel:foliI}\label{foli_pseudo_rem}
+	In the case of general foliations, the total my group of a foliated bun dle must be replaced by a local analogue called the \textit{my pseudogroup}.
+\end{remark}
+\begin{remark}\label{foli_groupoid_n_red_defn}
+	If $\left(M, \sF\right)$ is a foliated manifold and $N$ is a tranversal then
+	\be\label{foli_gnn_eqn}
+	\G^N_N \bydef \left\{\left. \ga \in \G\left(M, \sF\right)\right| s\left(\ga\right), r\left(\ga\right)\in N\right\}
+	\ee
+	is	a pseudogroup. 
+	
+	
+\end{remark}
+
+\subsubsection{Operator algebras of foliations}\label{foli_alg_subsec}
+\paragraph*{}
+Here I follow to \cite{candel:foliII,connes:ncg94}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
+The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section de scribes it. (That paper develops an extended sheaf  theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
+Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf  of the foliated space $\sX$, that is, the sheaf  of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf  of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
+\be\label{foli_incc_eqn}
+\Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
+\ee
+Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_M^{1/2}$ is trivial on $M$, and we
+could choose once and for all  a trivialisation $\nu$ turning
+elements of $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ into functions.
+Let us
+however stress that the usage of half densities makes all the
+construction completely canonical.
+For $f,g \in \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
+product $f * g$ is defined by the equality
+\be\label{foli_prod_eqn}
+(f * g) (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
+f(\gamma_1) \, g(\gamma_2) \, .
+\ee
+This makes sense because, for fixed $\gamma : x \to y$ and fixing $v_x
+\in \wedge^k \,  \mathcal{F}_x$ and $v_y \in \wedge^k \,  \mathcal{F}_y$, the product
+$f(\gamma_1) \, g(\gamma_1^{-1} \gamma)$ defines a $1$-density on
+$G^y = \{ \gamma_1 \in G , \, r (\gamma_1) = y \}$, which is smooth
+with compact support (it vanishes if $\gamma_1 \notin\supp f$),
+and hence can be integrated over $G^y$ to give a scalar, namely $(f * g)
+(\gamma)$ evaluated on $v_x , v_y$.
+The $*$ operation is defined by $f^* (\gamma) =
+\overline{f(\gamma^{-1})}$,  i.e. if $\gamma : x \to y$ and
+$v_x \in \wedge^k \, \mathcal{F}_x$, $v_y \in \wedge^k \, \mathcal{F}_y$ then $f^*
+(\gamma)$ evaluated on $v_x , v_y$ is equal to
+$\overline{f(\gamma^{-1})}$ evaluated on $v_y , v_x$. We thus get a
+$*$-algebra $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$. 
+where $\xi$ is a square integrable half density on $\mathcal G_x$. 
+For each leaf $L$ of
+$\left(M, \mathcal{F}\right)$ one has a natural representation of this $*$-algebra on the
+$L^2$ space of the my covering $\tilde L$ of $L$. Fixing a
+base point $x \in L$, one identifies $\tilde L$ with $\mathcal G_x = \{
+\gamma , s(\gamma) = x \}$ and defines
+\begin{equation}\label{foli_repr_eqn}
+	(\rho_x (f) \, \xi) \, (\gamma) = \int_{\gamma_1 \circ \gamma_2 =
+		\gamma} f(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
+	(\mathcal G_x),\
+\end{equation}
+
+
+Given
+$\gamma : x \to y$ one has a natural isometry of $L^2 (\mathcal G_x)$ on $L^2
+(G_y)$ which transforms the representation $\rho_x$ in $\rho_y$.
+\begin{lemma}
+	%	Lemma 1.4.1. \\
+	If $f_1 \in \Ga_c\left(\sU_{   \a_1},\Om^{1/2} \right)$ and $f_2 \in \Ga_c\left(\sU_{   \a_2},\Om^{1/2} \right)$ then their convolution is a well-defined element $f_1*f_2 \in \Ga_c\left(\sU_{   \a_1}\cdot\sU_{   \a_2},\Om^{1/2} \right)$
+\end{lemma}
+%page 24.
+%Let $\Ga_c\left( \G,\Om^{1/2}\right)$  be the space of compactly supported smooth sections of $\Om^{1/2}$ over $\G$; its elements are the compactly supported half-densities on G. When G is not Hausdorff, the meaning of ?c (G,D1/2) is that which was described in Section 1.2. This space will now be given the structure of an algebra with involution. This structure is first described when G is Hausdorff, and the details will then be given when G is arbitrary.
+
+\begin{proposition}\label{foli_repr_prop}
+	%Proposition 1.4.5. \\
+	If $\sV \subset \G$ is a foliated chart for the graph of $\left(M, \sF\right)$ and $f \in \Ga_c\left(\sV, \Om^{1/2}\right)$ , then $\rho_x\left( f\right)$, given by \eqref{foli_repr_eqn}, is a bounded integral operator on $L^2\left(\G_x \right)$.
+\end{proposition}
+\begin{empt}
+	The space of compactly supported half-densities on $\G$ is taken as given by the exact sequence 
+	\be\label{foli_ga_p_eqn}
+	\bigoplus_{\a_0\a_1}\Ga_c\left(\sU_{   \a_0\a_1}, \Om^{1/2} \right) \to \bigoplus_{\a_0}\Ga_c\left(\sU_{   \a_0},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga_c\left(\G,\Om^{1/2}\right) 
+	\ee
+	associated to a regular cover for $\left((M, \sF)\right)$ as above. The first step for defining a convolution is to do it at the level of $\bigoplus_{\a_0}\Ga_c\left(\sU_{   \a_0}\Om^{1/2} \right)$, as the following lemma indicates. 
+\end{empt}
 
 
 
 
+\begin{defn}\label{foli_red_defn}
+	% 	Definition 1.4.7.\\
+	The \textit{reduced} $C^*$-algebra of the foliated space $\left(M,\sF\right)$ is the completion of $\Ga_c\left( \G,\Om^{1/2}\right)$ with respect to the pseudonorm \be\label{foli_pseudo_norm_eqn}
+	\left\|f \right\| =\sup_{x \in M}\left\|  \rho_x\left(f\right)\right\|
+	\ee where $\rho_x$ is given by  \eqref{foli_repr_eqn}.
+	This $C^*$-algebra is denoted by $C^*_r\left(M,\sF\right)$.
+\end{defn} 
+An obvious consequence of the construction of 
+$C^*_r\left(M,\sF\right)$ is the following. 
+
+\begin{cor}\label{foli_cov_alg_cor}
+	%	Corollary 1.4.8.
+	Let $M$ be a foliated space and let $\mathfrak{A}$ be a regular cover by foliated charts. Then the algebra generated by the convolution algebras $\Ga_c\left( \G\left(\sU \right), \Om^{1/2}\right)$, $~\sU\in\mathfrak{A}$ is dense in  $C^*_r\left(M,\sF\right)$.
+\end{cor}
+\begin{empt}\label{foli_res_inc_empt}
+	%	page 29-30.
+	Let $\left(M,\sF\right)$ be an arbitrary foliated space and let $\sU\subset  M$ be an open subset.  Then $\left(\sU,\sF|_\sU\right)$ is a foliated space and the inclusion  $\sU\hookto  M$ induces a homomorphism of groupoids $\G\left(\sU \right)\hookto \G$ , hence a mapping
+	\be\label{foli_inc_gc_eqn}
+	j_\sU : \Ga_c\left(  \G\left(\sU \right) ,\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( M\right) ,\Om^{1/2}\right)
+	\ee
+	that is an injective homomorphism of involutive algebras. 
+	%	It is proven in \cite{candel:foliII,connes:foli_survey} that any restriction of foliation induces an injective *-homomorphism 
+	%	\begin{equation}\label{fol_res_hom_eqn}
+		%	C^*_r\left(\mathcal{U},\mathcal F|_{\mathcal{U}} \right)\hookto C^*_r\left(M,\mathcal F \right).
+		%	\end{equation}
+\end{empt}
+\begin{prop}\label{foli_res_inc_prop} %	Proposition 1.5.5. 
+	Let $\sU$ be an open subset of the foliated space $M$. Then the inclusion $\sU \hookto M$ induces an isometry of $C^*_r\left(\sU,\sF|_\sU\right)$  into $C^*_r\left(M,\sF\right)$.
+\end{prop}
+\begin{lemma}\label{foli_leaf_lem}
+	%Lemma 1.4.9. 
+	Each element $\ga \in \G$ induces a unitary operator $\rho_\ga : L^2\left(s\left( \ga\right)\right)   \xrightarrow{\approx}  L^2\left(r\left( \ga\right)\right) $   that conjugates the operators $\rho_{s\left(\ga \right)} \left(f \right) $ and $\rho_{r\left(\ga \right)} \left(f \right)$. In particular, the norm of $\rho_x\left(f \right)$  is independent of the point in the leaf through $x$.
+\end{lemma}
+
+\begin{lem}\label{foli_point_lem}
+	%Lemma 1.4.10. 
+	If $f \in \Ga_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
+\end{lem}
+%\begin{defn} \label{foli_full_defn} NECESSARY
+%  Definition 1.4.12. The full $C^*$-algebra of the foliated space $\left(M, \sF\right)$ denoted by $C^*_r\left(M, \sF\right)$, is the completion of %?c(G,D1/2) with respect to the pseudonorm f=f= supœ(f), where runs through all the involutive representations of ?c (G,D1/2) on a separable Hilbert space whose restrictions to the graph G(U) of each foliated chart U for (M,F) are weakly continuous for the inductive limit ... Because each Rx, x ? M, is an involutive representation of the convolution 
+%\end{defn}
+\begin{definition}\label{foli_fibration_defn}\cite{candel:foliI}
+	A foliated space $\left(M, \sF\right)$ is a \textit{fibration} if for any $x$ there is an open transversal $N$ such that $x\in N$ and for every  leaf $L$ of $\left(M, \sF\right)$ the intersection $L\cap  N$ contains no more then one point.
+\end{definition}
+\begin{prop}\label{foli_one_leaf_prop}
+	% Proposition 1.5.1. 
+	The reduced $C^*$-algebra of a foliated space $M$ consisting of exactly one leaf is the algebra $\K\left( L^2\left(M \right) \right)$  of compact operators on $L^2\left(M \right)$.
+\end{prop}
+
+
+\begin{prop}\label{foli_tens_comp_prop}\cite{candel:foliII}
+	% Proposition 1.5.4. \\
+	The reduced  $C^*$-algebra $C^*_r\left(\mathcal N\times Z \right)$ of the trivial foliated space $\mathcal N \times \mathcal Z$ is the tensor product $\K\otimes C_0\left(\mathcal Z\right)$, where $\K$ is the algebra of compact operators on $L^2\left(\mathcal N \right)$  and $ C_0\left(\mathcal Z\right)$ is the space of continuous functions on $\mathcal Z$ that vanish at infinity.
+\end{prop}
+\begin{thm}\label{foli_tens_comp_thm}\cite{candel:foliII}
+	%	Theorem 1.5.12. 
+	Assume that $\left(M, \sF\right)$ is given by the fibers of a fibration $p : M \to B$ with fiber $F$. Then $\left(M, \sF\right)$ is isomorphic to $C_0\left(B\right)\otimes \K\left(L^2\left(N\right)\right)$.
+\end{thm}
+\begin{remark}\label{foli_x_state_rem}
+	It is proven in \cite{candel:foliII} (See Claim 2, page 56) that for any $x \in M$ the given by \eqref{foli_repr_eqn} representation $\rho_x: C^*_r\left(M, \sF \right)\to B\left( L^2\left(\G_x \right)\right)$   corresponds to a state $\tau_x : C^*_r\left(M, \sF \right)\to \C$.
+\end{remark}
+
+
+
+%\begin{definition}\label{foli_pseudo_a_defn}\cite{candel:foliII}
+%Definition 1.3.6.\\ 
+%The my pseudogroup of a foliated space is \textit{pseudo analytic} if the following holds. If $h: Z\to Z'$ is a my transformation between two transversals $Z$ and $Z'$, with $Z\subset Z'$, and $W \subset Z$ is an open subset such that $\left.h\right|_W = \Id$, and if $x \in \overline{W}$ is such that $h(x) = x$, then $h = \Id$ on a neighborhood of x. 
+%\end{definition}
+
+%\begin{proposition}\label{foli_pseudo_a_prop}\cite{candel:foliII}
+%Proposition 1.3.7. \\
+%Let M be a foliated space. Then the graph of M is Hausdorff if and only if the my pseudogroup of M is pseudo-analytic.
+%\end{proposition}
+\begin{theorem}\label{foli_irred_hol_thm}\cite{candel:foliII}
+	%Theorem 1.4.11. 
+	Let $(M,\sF)$ be a foliated space and let $x \in M$. Then the representation $\rho_x$ is irreducible if and only if the leaf through $x$ has no holonomy.
+\end{theorem}
+\begin{empt}\label{foli_pseudo_empt}
+	Let $\G^N_N$ be a  given by \eqref{foli_gnn_eqn} pseudogroup
+	\be\label{foli_pseudo_eqn}
+	\begin{split}
+		\left(a\cdot b\right)\left(\ga\right)= \sum_{\ga_1\circ\ga_2=\ga}a\left( \ga_1\right)a\left( \ga_1\right),\\
+		a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)} 
+	\end{split}
+	\ee
+	Denote by $C^*_r\left(	\G^N_N \right)$ the reduced algebra of $\G^N_N$ (cf. Definition \ref{foli_groupoid_red_defn}).  
+\end{empt} 	
+
+\begin{theorem}\label{foli_mor_thm}\cite{candel:foliII}
+	%Theorem 1.5.16. 
+	Let $(M,\F)$ be a foliated space and let $(Z, \mathscr H)$ be the holonomy pseudogroup associated to a complete transversal $Z$. Then the foliation $C^*$-algebra is Morita equivalent to the pseudogroup $C^*$-algebra.
+\end{theorem}
+\begin{remark}\label{foli_comp_trans_rem}
+	A transversal is \textit{complete} if it meets any leaf.
+\end{remark}
+\begin{remark}\label{foli_pseudo_alg_rem}
+	A pseudogroup $C^*$-algebra is $C^*_r\left(	\G^N_N \right)$.
+\end{remark}
+
+
+%\begin{lemma}
+%	Il existe un recouvrement distingué  localement  	fini de $V$ par des ouverts trivialisants $\Om_j$, $j \in \left\{1, 2,. . . , n, . . .\right\}$ et  	des transversales $T_j$, dans $\Om_j$ tels que les adhérences $\overline T_j$, dans $V$ des  	$T_j$ soient deux à deux disjointes. 
+%	\end{lemma}
+The following  lemma is a more strong version of the Theorem \ref{foli_mor_thm}.
+\begin{lemma}\label{foli_stab_lem}\cite{hilsum_scandalis:stab}
+Si $N$ est une transversale fidèle de $M$
+on a: $C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K$.
+\end{lemma}
+\begin{remark}\label{foli_stab_rem}
+The English translation of the Theorem \ref{foli_stab_lem} is "if $N$ is a complete transversal then $C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K$".
+\end{remark}
+\begin{empt}\label{foli_stab_empt}
+Besides the Lemma \ref{foli_stab_lem} we need some details of its proof. If $N$ is a complete transversal and
+$$
+E^M_N \bydef \Ga_c\left(r^{-1}\left(M \right), s^*\left(\Om^{1/2} \right)   \right) 
+$$
+then there is a $\Ga_c\left(\G, \Om \right)$-valued product  on $E^M_N$ given by
+$$
+\left\langle \xi, \eta \right\rangle\left( \ga\right) = \sum_{\substack{ s\left(\ga\right)=s\left(\ga'\right)\\r\left(\ga'\right)\in N}}\overline\xi\left(\ga'\circ\ga^{-1}\right)\eta\left(\ga'\right), \quad %\forall \xi,\eta\in \Ga_c\left(r^{-1}\left(M \right), s^*\left(\Om^{1/2} \right).
+$$
+If $\E^M_N$ is a completion of $E^M_N$ with respect to the norm $\left\| \xi\right|  \bydef \sqrt{\left\langle \xi, \xi \right\rangle}$ then $\E^M_N$ is $C^*_r\left(M,\sF\right)$-$C^*_r\left(\G^N_N\right)$-imprimitivity bimodule. (cf. Definition \ref{strong_morita_defn}). It follows that
+\be\label{foli_k1_eqn}
+C^*_r\left(M,\sF\right)\cong \K\left(\E^M_N\right).
+\ee
+On the other hand in \cite{hilsum_scandalis:stab} it is proven that there is an isomorphism 
+\be\label{foli_k2_eqn}
+\E^M_N\cong\ell^2\left(C^*_r\left(\G^N_N\right) \right)\cong C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right).  
+\ee
+The combination of equations \eqref{foli_k1_eqn}, \eqref{foli_k2_eqn} yields the Lemma  \ref{foli_stab_lem}.
+Below we briefly remind  the idea described in \cite{hilsum_scandalis:stab} proof of the equation  \ref{foli_k2_eqn}. There is a tubular neighborhood $V_N$ of $N$ which is homeomorphic to $N \times [0,1]^q$. This neighborhood yields the isomorphism
+\be\label{foli_e_sum_eqn}
+\E^M_N\cong C^*_r\left(\G^N_N\right)\otimes L^2\left( [0,1]^q\right) \oplus  \E^W_N
+\ee
+where $\E^W_N$ is a countably generated Hilbert $C^*_r\left(\G^N_N\right)$-module.
+From $ L^2\left( [0,1]^q\right)\cong\ell^2\left(\N\right)$ and the Kasparov stabilization theorem \ref{kasparov_stab_thm}, it follows that\\ $\E^M_N\cong\ell^2\left(C^*_r\left(\G^N_N\right) \right)$. If we  select any
+\be\label{foli_vec_eqn}
+\xi \in L^2\left( [0,1]^q\right)
+\ee
+such that $\left\|\xi\right\|= 1$ then  is an orthogonal basis
+\be\label{foli_basis_eqn}
+\left\{\eta_j\right\}_{j\in \N}\subset \ell^2\left(\N \right), \quad\eta_1\bydef\xi
+\ee
+In this basis the element  $a\otimes \xi\left\rangle \right\langle \xi\in C^*_r\left(\G^N_N\right)\otimes \K$ is represented by the following matrix
+\be\label{foli_mat_eqn}
+a\otimes \xi\left\rangle \right\langle \xi  =  	\begin{pmatrix}
+	a& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+\end{pmatrix}.
+\ee
+
+\end{empt}
+
+
+
+
+
+\subsubsection{Restriction of foliation}
+
+
+\begin{lemma}\label{fol_res_lem}\cite{connes:ncg94}
+If $\sU \subset M$ is an open set and  $\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right) $ is the {restriction}   of $\left(M,\mathcal F \right)$ {to}  $\mathcal{U}$ then the graph 
+$\G\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)$ is an open set in the graph $\G\left(M,\mathcal F \right)$, and the inclusion
+$$
+\Coo\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)\hookto\Coo\left(M,\mathcal F \right)
+$$
+extends to an isometric *-homomorphism of $C^*$-algebras
+$$
+C^*_r\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)\hookto C^*_r\left(M,\mathcal F \right).
+$$
+\end{lemma}
+
+\begin{remark}\label{fol_res_rem}\cite{connes:ncg94}
+This lemma, which is still valid in the non-Hausdorff case \cite{connes:foli_survey}, allows one to reflect
+algebraically the local triviality of the foliation.
+Thus one can cover the manifold $M$ by
+open sets $\sU_\la$ such that $\sF$ restricted to $\sU_\la$ has a Hausdorff space of leaves, $\sV_{\la} = \sU_\la/\sF$. and hence such that the C*-algebras $C^*_r\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$  are strongly Morita equivalent to the commutative $C^*$-algebras $C_0\left( B_\la\right)$. These subalgebras $C^*$-algebras $C^*_r\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$ generate $ C^*_r\left(M,\mathcal F \right)$. 
+but of course they fit together in a very complicated way which is related to the global
+properties of the foliation.
+\end{remark}
 
 \section{Algebras of foliations}
 
