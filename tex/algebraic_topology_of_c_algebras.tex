@@ -840,10 +840,7 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 %\eean 
 %The quotient spaces 
 %\bean
-%\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{strong}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}/\sim_{\mathfrak{strong}},\\
-%\mathfrak{Gelfand}\left(A\right)^{\mathfrak{red}}_{\mathfrak{weak}}\bydef \mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}/\sim_{\mathfrak{weak}}
-%\eean
-%are \textit{reduced strong} and \textit{reduced weak Gelfand space of} $A$.
+
 %\end{definition}
 \subsection{Morphisms}
 \begin{empt}
@@ -1007,6 +1004,58 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	\begin{remark}\label{blowing_rem}
 		$C_c\left( \sX\right)A$ is dense in $A$ if and only if $AC_c\left( \sX\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations \eqref{blowing_eqn} are equivalent.
 	\end{remark}
+
+	\begin{definition}\label{hausdorff_defn}
+		Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
+		
+		\begin{itemize}
+			\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact space, 
+			\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
+			\newline
+			\begin{tikzcd}
+				&\sX \arrow[ld] \arrow[rd] & \\
+				\sY' \arrow[rr]	&& \sY''
+			\end{tikzcd}
+			\\
+			is commutative.
+		\end{itemize}
+		
+	\end{definition}
+	\begin{lemma}
+		For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
+	\end{lemma}
+	\begin{proof}
+		Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
+		$$
+		I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
+		$$
+		From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
+		\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
+		
+	\end{proof}
+	\begin{definition}
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff space}.
+	\end{definition}
+	
+	\begin{empt}
+Let	$A$ be a $C^*$-algebra and let 
+	\end{empt}
+	
+\begin{lemma}
+	If $A$ is a $C^*$-algebra and  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  Hausdorff bowing-up then $\sX$ is the $\mathfrak{Gelfand}\left(A \right)$-universal Hausdorff apace.
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+	
+	\begin{definition}
+		Consider the hypothesis \ref{upper_defn}. Hausdorff blowing-up $C_0\left(\sY  \right) \hookto M\left( A\right)$  is \textit{universal} if for any open sets $\sU_{\mathfrak{strong}}$ if one has
+		\bean
+		\forall f \in C_0\left( \sY_{\mathfrak{strong}}\right) \quad f\left( \sU_{\mathfrak{strong}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{strong}}} \quad af = a, \\
+		\forall f \in C_0\left( \sY_{\mathfrak{weak}}\right) \quad f\left( \sU_{\mathfrak{weak}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{weak}}} \quad af = a.
+		\eean 
+	\end{definition}
+	
 	
 	%\begin{empt}\label{blowing_k_theory_empt}
 	%	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
@@ -1280,52 +1329,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	\end{remark}
 	\subsubsection{Homomorphisms of $K$-theory}
 	\paragraph*{}
-	\subsubsection{Universal Hausdorff blowing-up}
-
-\begin{definition}\label{hausdorff_defn}
-	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
-
-\begin{itemize}
-	\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact space, 
-	\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
-			\newline
-	\begin{tikzcd}
-	  &\sX \arrow[ld] \arrow[rd] & \\
-	\sY' \arrow[rr]	&& \sY''
-	\end{tikzcd}
-	\\
-	is commutative.
-	\end{itemize}
-
-\end{definition}
-\begin{lemma}
-For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}
-\end{lemma}
-\begin{proof}
-Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-$$
-I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-$$
-From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
-
-\end{proof}
-\begin{empt}\label{universal_bl_empt}
-If $A$ is a $C^*$-algebra, both $\sY_{\mathfrak{strong}}$ , $\sY_{\mathfrak{weak}}$ are universal objects of both 
-$\mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}$-Hausdorff category and $\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}$-Hausdorff category then any open subset $\sU_{\mathfrak{strong}}\subset \sY_{\mathfrak{strong}}$, $~\sU_{\mathfrak{weak}}\subset \sY_{\mathfrak{weak}}$ yield an open subset $\sV_{\mathfrak{strong}}\subset \mathfrak{Gelfand}\left(A\right)_{\mathfrak{strong}}$, $~\sV_{\mathfrak{weak}}\subset\mathfrak{Gelfand}\left(A\right)_{\mathfrak{weak}}$. Denote by $L_{\sU_{\mathfrak{strong}}}$ and  $L_{\sU_{\mathfrak{strong}}}$ the $\sV_{\mathfrak{strong}}$ and the $\sV_{\mathfrak{weak}}$-deal (cf. Definition \ref{open_ideal_defn}).
- $\sU_{\mathfrak{waek}}$-\textit{ideal} respectively 
-
-\end{empt}
-
-\begin{definition}
-Consider the hypothesis \ref{upper_defn}. Hausdorff blowing-up $C_0\left(\sY  \right) \hookto M\left( A\right)$  is \textit{universal} if for any open sets $\sU_{\mathfrak{strong}}$ if one has
-\bean
-\forall f \in C_0\left( \sY_{\mathfrak{strong}}\right) \quad f\left( \sU_{\mathfrak{strong}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{strong}}} \quad af = a, \\
-\forall f \in C_0\left( \sY_{\mathfrak{weak}}\right) \quad f\left( \sU_{\mathfrak{weak}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{weak}}} \quad af = a.
-\eean 
-\end{definition}
-	
-	\subsubsection{Inversion of geometric quotient}
+\subsubsection{Inversion of geometric quotient}
 \paragraph{}
 Let $\sX$ be a Hausdorff, locally compact space and let $\sim$ the equivalence relation. Suppose that  $A$ is $C^*$-algebra such that 
 
