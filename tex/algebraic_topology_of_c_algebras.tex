@@ -754,7 +754,7 @@ aA \in \xi
 or equivalently $\sV_\xi\subset  \supp a$.
 	If 
 	$$
-\xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in\in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
+\xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
 	$$
 	then  from the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 	\end{proof}
@@ -1006,14 +1006,6 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	\end{remark}
 
 	
-	\begin{definition}
-		Consider the hypothesis \ref{upper_defn}. Hausdorff blowing-up $C_0\left(\sY  \right) \hookto M\left( A\right)$  is \textit{universal} if for any open sets $\sU_{\mathfrak{strong}}$ if one has
-		\bean
-		\forall f \in C_0\left( \sY_{\mathfrak{strong}}\right) \quad f\left( \sU_{\mathfrak{strong}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{strong}}} \quad af = a, \\
-		\forall f \in C_0\left( \sY_{\mathfrak{weak}}\right) \quad f\left( \sU_{\mathfrak{weak}}\right) = \{1\} \quad \forall a \in L_{\sU_{\mathfrak{weak}}} \quad af = a.
-		\eean 
-	\end{definition}
-	
 	
 	%\begin{empt}\label{blowing_k_theory_empt}
 	%	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
@@ -1227,7 +1219,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	\begin{remark}\label{blow_rem}
 		From the equation  \eqref{peder_c0_eqn} it follows that the injective homomorphism $\varphi_\sX : C_0\left(\sX \right) \hookto M\left(A \right)$ is good (cf. Definition \ref{good_defn}). So there is the natural surjective continuous map
 		\be\label{phi_a_eqn}
-		\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sX.
+		\phi_A : \mathfrak{Gelfand}\left(A \right) \onto \sX.
 		\ee
 	\end{remark}
 	\begin{empt}
@@ -1277,7 +1269,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 		\\
 		then $\mathfrak{Blowing}$ is said to be \textit{blowing - up}.
 	\end{empt}
-	\begin{remark}
+		\begin{remark}
 		then we say that $\mathfrak{Blowing}$ is the Hausdorff blowing-up of the spectrum.
 		The "blowing-up" word is inspired by following reasons:
 		\begin{itemize}
@@ -1285,6 +1277,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 			\item  in the algebraic geometry   "blowing-up" means  from a map $\sX \to \sY$ such that the variety $\sX$ has no singular points (cf. \cite{hartshorne:ag}).
 		\end{itemize}
 	\end{remark}
+	
 	\subsubsection{Universal blowing-up}	
 
 \paragraph*{}
@@ -1299,7 +1292,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 \ee
 
 
-\begin{definition}
+\begin{definition}\label{blowing_uni_defn}
 	Let $A$ be a $C^*$-algebra. Consider a category $\mathfrak{Hausdorff}\left(A\right)$ such that 
 	\begin{enumerate}
 		\item[(a)] any object of $\mathfrak{Hausdorff}\left(A\right)$ is Hausdorff blowing-up, 
@@ -1314,8 +1307,21 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 		\\
 		is commutative (cf the equation \eqref{blowing_b_eqn}).
 	\end{enumerate}
-		The final object (cf. Definition \ref{terminal_ob_defn})of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{universal Blowing-up of $A$}.
+		The final object (cf. Definition \ref{terminal_ob_defn})of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{universal Blowing-up of $A$}.  Hausdorff blowing-up $C\left(\sX \right)   \to M\left( A\right)$ is {\it maximal}  if for any Hausdorff blowing-up $C_0\left(\sX' \right)   \to M\left( A\right)$ with the commutative diagram
+			\newline
+		\begin{tikzcd}
+			&M\left(A \right)   & \\
+			C_0\left(\sX' \right)  \arrow[rr, "
+			\cong "]\arrow[ru]	&& 	C_b\left(\sX \right)
+			\arrow[lu]
+		\end{tikzcd}
+		\\
+		the $*$-homomorphism $C_0\left(\sX' \right)\hookto C_0\left(\sX\right)$ is an isomorphism.
+		
 \end{definition}	
+\begin{remark}
+From the Theorem \ref{zorn_thm} it follows that a maximal Hausdorff blowing-up always exists.
+\end{remark}
 
 \begin{definition}\label{hausdorff_defn}
 	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
@@ -1333,6 +1339,30 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	\end{itemize}
 	
 \end{definition}
+
+	\begin{lemma}
+	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
+\end{lemma}
+\begin{proof}
+	Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
+	$$
+	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
+	$$
+	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
+	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
+	
+\end{proof}
+\begin{definition}\label{blowing_uni_h_defn}
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space}.
+\end{definition}
+\begin{lemma}
+If $A$ is a $C^*$-algebra and $C_0\left( \sX\right) \hookto M\left(A \right)$ is maximal Blowing-up (cf. Definition \ref{blowing_uni_defn}) then $\sX$ is naturally isomorphic to the universal Hausdorff quotient space $\sY$ (cf. Definition \ref{blowing_uni_h_defn}) of the Gelfand space $\mathfrak{Gelfand}\left( \sX\right)$ (cf. Definition \ref{gelfand_space_defn}) of $A$.
+\end{lemma}
+\begin{proof}
+	According to the Definition \ref{blowing_uni_h_defn} and the equation \ref{phi_a_eqn} it follows that there is a continuous surjective map $\phi : \sY \onto \sX$. If phi is mot homeomorphism then there are tho points $y', y'' \in \sY$ such that $y' \neq y''$ and $\phi\left(y' \right) = \phi\left(y'' \right)$. There are open neighborhoods  $\sU$, $\sV'$ and $\sV''$ of $x$, $y'$ and $y''$ such that $\sV'\cap \sV'' = \emptyset$ and $\sU \subset \phi\left(\sV' \right)$,  $~~\sU \subset \phi\left(\sV'' \right)$. If both $L'
+	\subset A$ and $L''\subset A$ are $\sV'$- and $\sV''$- ideal (cf. Definition \ref{open_ideal_defn} respectively then from $\sV'\cap \sV'' = \emptyset$ it follows that $L' \cap L'' = \{0\}$. Any $f\in C_0\left(\sU \right)$ 
+	
+\end{proof}
 \subsubsection{Algebraic counterpart of geometric quotient and its inversion}
 \paragraph*{} If $\sX$ is a Hausdorff, locally compact space and $\sim$ is an equivalence equation on $\sX$  then there is the described by algebraic counterpart of geometric quotient (cf. Appendix \ref{quotions_a_sec}). Suppose that $A$ is a $C^*$-algebra such that the spectrum $
 \sY$ of $A$ is homeomorphic to the quotient i.e. there is a map 
@@ -1350,25 +1380,6 @@ In several cases this it satisfies to the following definition.
 \end{definition}
 
 
-\begin{lemma}
-	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
-\end{lemma}
-\begin{proof}
-	Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-	$$
-	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-	$$
-	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
-	
-\end{proof}
-\begin{definition}
-	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff space}.
-\end{definition}
-
-\begin{empt}
-	Let	$A$ be a $C^*$-algebra and let 
-\end{empt}
 
 Let $\sX$ be a Hausdorff, locally compact space and let $\sim$ the equivalence relation. Suppose that  $A$ is $C^*$-algebra such that 
 \begin{lemma}
