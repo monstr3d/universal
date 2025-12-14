@@ -1005,48 +1005,6 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 		$C_c\left( \sX\right)A$ is dense in $A$ if and only if $AC_c\left( \sX\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations \eqref{blowing_eqn} are equivalent.
 	\end{remark}
 
-	\begin{definition}\label{hausdorff_defn}
-		Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
-		
-		\begin{itemize}
-			\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact space, 
-			\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
-			\newline
-			\begin{tikzcd}
-				&\sX \arrow[ld] \arrow[rd] & \\
-				\sY' \arrow[rr]	&& \sY''
-			\end{tikzcd}
-			\\
-			is commutative.
-		\end{itemize}
-		
-	\end{definition}
-	\begin{lemma}
-		For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
-	\end{lemma}
-	\begin{proof}
-		Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-		$$
-		I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-		$$
-		From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-		\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
-		
-	\end{proof}
-	\begin{definition}
-	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff space}.
-	\end{definition}
-	
-	\begin{empt}
-Let	$A$ be a $C^*$-algebra and let 
-	\end{empt}
-	
-\begin{lemma}
-	If $A$ is a $C^*$-algebra and  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  Hausdorff bowing-up then $\sX$ is the $\mathfrak{Gelfand}\left(A \right)$-universal Hausdorff apace.
-\end{lemma}
-\begin{proof}
-!!!!
-\end{proof}
 	
 	\begin{definition}
 		Consider the hypothesis \ref{upper_defn}. Hausdorff blowing-up $C_0\left(\sY  \right) \hookto M\left( A\right)$  is \textit{universal} if for any open sets $\sU_{\mathfrak{strong}}$ if one has
@@ -1327,14 +1285,102 @@ Let	$A$ be a $C^*$-algebra and let
 			\item  in the algebraic geometry   "blowing-up" means  from a map $\sX \to \sY$ such that the variety $\sX$ has no singular points (cf. \cite{hartshorne:ag}).
 		\end{itemize}
 	\end{remark}
-	\subsubsection{Homomorphisms of $K$-theory}
-	\paragraph*{}
-\subsubsection{Inversion of geometric quotient}
-\paragraph{}
-Let $\sX$ be a Hausdorff, locally compact space and let $\sim$ the equivalence relation. Suppose that  $A$ is $C^*$-algebra such that 
+	\subsubsection{Universal blowing-up}	
 
-		\subsubsection{$K$-theory}
+\paragraph*{}
+	If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right) \to M\left(A \right)$ is Hausdorff blowing-up then the action $C_b\left(
+	\sX \right) \times C_c\left(\sX \right)\to  C_c\left(\sX \right)$ yields  the action $C_b\left(
+	\sX \right) \times\left(  C_c\left(\sX \right) A\right) \to  C_c\left(\sX \right)A$. Since $  C_c\left(\sX \right)A$ is dense in $A$ one the action $C_b\left(
+	\sX \right) \times\left(  C_c\left(\sX \right) A\right) \to  C_c\left(\sX \right)A$ can be naturally extended up to the action $C_b\left(
+	\sX \right) \times A \to  A$. Similarly one has the natural right action $A \times C_b\left(
+	\sX \right) \to  A$. One can prove that both these actions yield an inclusion
+	\be\label{blowing_b_eqn} 
+	C_b\left(\sX \right)\to M\left(A \right).  
+\ee
+
+
+\begin{definition}
+	Let $A$ be a $C^*$-algebra. Consider a category $\mathfrak{Hausdorff}\left(A\right)$ such that 
+	\begin{enumerate}
+		\item[(a)] any object of $\mathfrak{Hausdorff}\left(A\right)$ is Hausdorff blowing-up, 
+		\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homeomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
+		such that the diagram 
+		\newline
+		\begin{tikzcd}
+			&M\left(A \right)   & \\
+			C_b\left(\sX' \right)  \arrow[rr]\arrow[ru]	&& 	C_b\left(\sX'' \right)
+			\arrow[lu]
+		\end{tikzcd}
+		\\
+		is commutative (cf the equation \eqref{blowing_b_eqn}).
+	\end{enumerate}
+		The final object (cf. Definition \ref{terminal_ob_defn})of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{universal Blowing-up of $A$}.
+\end{definition}	
+
+\begin{definition}\label{hausdorff_defn}
+	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
 	
+	\begin{itemize}
+		\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact space, 
+		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
+		\newline
+		\begin{tikzcd}
+			&\sX \arrow[ld] \arrow[rd] & \\
+			\sY' \arrow[rr]	&& \sY''
+		\end{tikzcd}
+		\\
+		is commutative.
+	\end{itemize}
+	
+\end{definition}
+\subsubsection{Algebraic counterpart of geometric quotient and its inversion}
+\paragraph*{} If $\sX$ is a Hausdorff, locally compact space and $\sim$ is an equivalence equation on $\sX$  then there is the described by algebraic counterpart of geometric quotient (cf. Appendix \ref{quotions_a_sec}). Suppose that $A$ is a $C^*$-algebra such that the spectrum $
+\sY$ of $A$ is homeomorphic to the quotient i.e. there is a map 
+\be\label{sp_homeo_eqn} 
+\begin{split}
+\phi_{\sX\text{-} A} : \sX \to \sY,\\
+\forall x', x'' \quad  x' 
+\sim x'' \quad \Leftrightarrow  \quad \phi_{\sX\text{-} A}\left( x'\right) = \phi_{\sX\text{-} A}\left( x'\right) 
+\end{split}
+\ee
+In several cases this it satisfies to the following definition.
+\begin{definition}
+ If $\sX$ is a Hausdorff, locally compact space and $\sim$ is an equivalence equation on $\sX$ then  $C^*$-
+{\it algebraic representative of} $\sX/\sim$ is a $C^*$-algebra $A$ with  Hausdorff bowing-up $C_0\left(\sX \right)\to M\left( A\right) $ such that if $\sY$ is the spectrum of $A$ then there is a given by \eqref{sp_homeo_eqn} map.
+\end{definition}
+
+
+\begin{lemma}
+	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
+\end{lemma}
+\begin{proof}
+	Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
+	$$
+	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
+	$$
+	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi"\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact and Hausdorff. One can prove that the map $\phi$ is continuous. If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
+	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
+	
+\end{proof}
+\begin{definition}
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff space}.
+\end{definition}
+
+\begin{empt}
+	Let	$A$ be a $C^*$-algebra and let 
+\end{empt}
+
+Let $\sX$ be a Hausdorff, locally compact space and let $\sim$ the equivalence relation. Suppose that  $A$ is $C^*$-algebra such that 
+\begin{lemma}
+	
+	If $A$ is a $C^*$-algebra and  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  Hausdorff bowing-up then $\sX$ is the $\mathfrak{Gelfand}\left(A \right)$-universal Hausdorff apace.
+\end{lemma}
+\begin{proof}
+	!!!!
+\end{proof}
+
+	\subsubsection{Homomorphisms of $K$-theory}
+\paragraph*{}	
 		If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up then one has a  natural action 
 	$
 	C_0\left(\sY \right)\times  \left(\K\otimes A \right)\to \K\otimes A 
@@ -2060,7 +2106,7 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 			
 			\begin{definition}\label{terminal_ob_defn}\cite{goldblatt:topoi}
 	%			PAGE 44
-				An object $1_{\mathscr C}$ is \textit{terminal} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
+				An object $1_{\mathscr C}$ is \textit{terminal} or \textit{final} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
 				there is one and only one arrow to $0_{\mathscr C}$ to $a$ in ${\mathscr C}$. 
 			\end{definition}
 			
@@ -2413,7 +2459,7 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 %where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
 
 %\subsection{Standard Constructions}
-\subsection{Algebraic counterpart of geometric quotient}
+\subsection{Algebraic counterpart of geometric quotient}\label{quotions_a_sec}
 \paragraph{}
 Here I follow to \cite{{connes:ncg94}}
 We shall formulate the algebraic counterpart of the geometric operation of forming the
@@ -2448,8 +2494,8 @@ yield equivalent irreducible representations of $B = \mathbb{M}_n\left(\C \right
 identification $a \sim b$ in the spectrum of $B$.
 \subsubsection{Quotients of foliated manifolds}
 \paragraph*{}
-
-
+!!!!
+\subsection{Dixmier Douady theory}
 \section{Sheaves}
 \subsection{Basic definitions}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
