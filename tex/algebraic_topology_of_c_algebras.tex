@@ -3370,56 +3370,6 @@ Here I follow to \cite{bredon:sheaf, godement:sheaf}.
 	\ee
 	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
 		resolution} of $\mathscr F$.
-			\subsection{Nonabelian cohomology}
-		\paragraph{} Here I follow to \cite{grothendieck:sheaf_noabelian}.  Let $\sX$ be a topological space, and let $\G$ be a sheaf of groups (not necessary Abelian) on $\sX$. Let $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ be an open covering of $\sX$/ We write
-		$
-		\sU_{\iota_0, ..., \iota_{p}}\bydef \sU_{\iota_0} \cap ...\cap \sU_{\iota_p}	
-		$ for any $\left(\iota_0, ..., \iota_p\right)\in I^{p+1}$.
-		\begin{definition}\label{nonab_coh_defn}
-			We define the \textit{group of }$p$-\textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
-			$$
-			C^p\left(\mathscr U , \G \right) \bydef	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
-			$$ A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
-			\be\label{nonab_coh_eqn}
-			\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota, k} = g_{\iota, j}g_{j,k}.
-			\ee
-			(We recall that for any open $\sU\subset \sX$,  $~H^0\left(\sU, \G \right)$ is the group of sections of $\G$ on $\sU$). Thus an element of $C^P\left( \mathscr U, \G\right)$ is an arbitrary family $\left\{g_{\iota_0}, ..., g_{\iota_p}\right\} $ of sections of $\G$ on the intersection $\sU_{\iota_0, ..., \iota_{p}}$.
-			The set of 1-cocycles in $C^1\left( \mathscr U, \G\right)$ (which set in general is not a subgroup) however is denoted by  $Z^1\left( \mathscr U, \G\right)$,
-		\end{definition}
-		Let $g^0 = \left\{g_\iota\right\}\in C^0\left( \mathscr U, \G\right)$, $~g^1 = \left\{g_{\iota, j}\right\}\in C^1\left( \mathscr U, \G\right)$, we define an element $D\left( g^0\right).g^1 \in Z^1\left( \mathscr U, \G\right)$ by
-		\be\label{nonab_perm_eqn}
-		\left( D\left( g^0\right).g^1\right)_{\iota, j}
-		\bydef  g_\iota g_{\iota, j} g^{-1}_j.
-		\ee  
-		With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
-		\be\label{nonab_coh_q_eqn}
-		H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
-		\ee
-		If $\mathscr V$ is a refinement of the covering $\mathscr U$ then similarly to \eqref{cech_refi_eqn} for any $p$ there is a natural homomorphism
-		$$
-		C^p\left( \mathscr U, \G\right) \to C^p\left( \mathscr V, \G\right) .
-		$$
-		It is proven in \cite{grothendieck:sheaf_noabelian} that the homomorphism of chains yields a map  $C^p\left( \mathscr U, \G\right) \to C^p\left( \mathscr V, \G\right)$.
-		
-		\begin{definition}\label{nonab_coh_den}\cite{grothendieck:sheaf_noabelian}
-			Let $\G$ be a bundle of groups. We denote by 
-			\be
-			H^1\left( \sX, \G\right)\bydef \varinjlim_{\mathscr U}H^1\left( \mathscr U, \G\right)
-			\ee
-			and call the \textit{first cohomology set of } $\sX$ \textit{ with coefficients in } $\G$.
-			An element of this inductive limit is class of elements in the union of sets $H^1\left( \mathscr U, \G\right)$, an element in $H^1\left( \mathscr U, \G\right)$ being equivalent to an element in $H^1\left( \mathscr V, \G\right)$ if and only if for a suitable common refinement $\mathscr W$ of $\mathscr U$ and $\mathscr V$, the canonical image of these elements in  $H^1\left( \mathscr U, \G\right)$ are same.
-		\end{definition}
-		\begin{remark}\label{nonab_coh_rem}
-			There are  generalizations of the Definitions \ref{nonab_coh_defn} and \ref{nonab_coh_den}  for Grothendieck topology (cf. \cite{topos:intro})
-		\end{remark}
-		
-		\begin{proposition}\cite{bryl:loop}
-%4.1.2. Proposition. 
-Let $G$ be a Lie group, and let $\underline{G}$ be the sheaf of germs 
-of continuous $G$-valued functions. Then $H^1\left(M,  \underline{G}\right) $  identifies naturally, as a 
-	pointed set, with the set of isomorphism classes of principal $G$-bundles over 
-$M$.
-	\end{proposition}
 \subsection{\v{C}ech cohomology}
 \begin{empt}
 	Here I follow to \cite{milne:lec}. Let $\sX$ be a topological space  Let $\mathscr U \bydef \left\{\sU_\iota \to \sX\right\}_{\iota \in I}$ be  covering of $\sX$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
@@ -3641,8 +3591,79 @@ These groups  have the following properties:
 	\ee
 	
 \end{empt}
+			\subsection{Nonabelian cohomology}
+\paragraph{} Here I follow to \cite{grothendieck:sheaf_noabelian}.  Let $\sX$ be a topological space, and let $\G$ be a sheaf of groups (not necessary Abelian) on $\sX$. Let $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ be an open covering of $\sX$/ We write
+$
+\sU_{\iota_0, ..., \iota_{p}}\bydef \sU_{\iota_0} \cap ...\cap \sU_{\iota_p}	
+$ for any $\left(\iota_0, ..., \iota_p\right)\in I^{p+1}$.
+\begin{definition}\label{nonab_coh_defn}
+	We define the \textit{group of }$p$-\textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
+	$$
+	C^p\left(\mathscr U , \G \right) \bydef	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
+	$$ A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
+	\be\label{nonab_coh_eqn}
+	\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota, k} = g_{\iota, j}g_{j,k}.
+	\ee
+	(We recall that for any open $\sU\subset \sX$,  $~H^0\left(\sU, \G \right)$ is the group of sections of $\G$ on $\sU$). Thus an element of $C^P\left( \mathscr U, \G\right)$ is an arbitrary family $\left\{g_{\iota_0}, ..., g_{\iota_p}\right\} $ of sections of $\G$ on the intersection $\sU_{\iota_0, ..., \iota_{p}}$.
+	The set of 1-cocycles in $C^1\left( \mathscr U, \G\right)$ (which set in general is not a subgroup) however is denoted by  $Z^1\left( \mathscr U, \G\right)$,
+\end{definition}
+Let $g^0 = \left\{g_\iota\right\}\in C^0\left( \mathscr U, \G\right)$, $~g^1 = \left\{g_{\iota, j}\right\}\in C^1\left( \mathscr U, \G\right)$, we define an element $D\left( g^0\right).g^1 \in Z^1\left( \mathscr U, \G\right)$ by
+\be\label{nonab_perm_eqn}
+\left( D\left( g^0\right).g^1\right)_{\iota, j}
+\bydef  g_\iota g_{\iota, j} g^{-1}_j.
+\ee  
+With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
+\be\label{nonab_coh_q_eqn}
+H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
+\ee
+If $\mathscr V$ is a refinement of the covering $\mathscr U$ then similarly to \eqref{cech_refi_eqn} for any $p$ there is a natural homomorphism
+$$
+C^p\left( \mathscr U, \G\right) \to C^p\left( \mathscr V, \G\right) .
+$$
+It is proven in \cite{grothendieck:sheaf_noabelian} that the homomorphism of chains yields a map  $C^p\left( \mathscr U, \G\right) \to C^p\left( \mathscr V, \G\right)$.
 
+\begin{definition}\label{nonab_coh_den}\cite{grothendieck:sheaf_noabelian}
+	Let $\G$ be a bundle of groups. We denote by 
+	\be
+	H^1\left( \sX, \G\right)\bydef \varinjlim_{\mathscr U}H^1\left( \mathscr U, \G\right)
+	\ee
+	and call the \textit{first cohomology set of } $\sX$ \textit{ with coefficients in } $\G$.
+	An element of this inductive limit is class of elements in the union of sets $H^1\left( \mathscr U, \G\right)$, an element in $H^1\left( \mathscr U, \G\right)$ being equivalent to an element in $H^1\left( \mathscr V, \G\right)$ if and only if for a suitable common refinement $\mathscr W$ of $\mathscr U$ and $\mathscr V$, the canonical image of these elements in  $H^1\left( \mathscr U, \G\right)$ are same.
+\end{definition}
 
+\begin{proposition}\cite{bryl:loop}
+	%4.1.2. Proposition. 
+	Let $G$ be a Lie group, and let $\underline{G}$ be the sheaf of germs 
+	of continuous $G$-valued functions. Then $H^1\left(M,  \underline{G}\right) $  identifies naturally, as a 
+	pointed set, with the set of isomorphism classes of principal $G$-bundles over 
+	$M$.
+\end{proposition}
+\begin{theorem}\label{nc_coh_exact_thm}\cite{bryl:loop}
+%4.1.3. Theorem. [Grl] [Gr2]
+If $1\hookto A \hookto B\onto C \onto 1$ is an exact 
+sequence of sheaves of groups on a space $M$, there is an exact sequence of 
+pointed sets 
+\be
+\begin{split}
+1 \hookto H^0\left(M, A \right) \hookto H^0\left(M, B \right) \to H^0\left(M, C \right) \xrightarrow{\dl_0}  H^1\left(M, A \right) \to\\ \to H^1\left(M, B \right) \to H^1\left(M, C \right).
+\end{split}
+\ee
+\end{theorem}
+\begin{theorem}\label{nc_coh_exact_central_thm}\cite{bryl:loop}
+	%4.1.4 Theorem. [Grl] [Gr2]
+	In the situation of Theorem \ref{nc_coh_exact_thm}, assume furthermore 
+	that $A$ is central in $B$. Then one has the exact sequence of pointed sets 
+\be
+\begin{split}
+	1 \hookto H^0\left(M, A \right) \hookto H^0\left(M, B \right) \to H^0\left(M, C \right) \xrightarrow{\dl_0}  H^1\left(M, A \right) \to\\ \to H^1\left(M, B \right) \to H^1\left(M, C \right) \xrightarrow{\dl_1}  H^2\left(M, A \right).
+\end{split}
+\ee
+Here $H^1\left(M, C \right) \xrightarrow{\dl_1}  H^2\left(M, A \right)$ is defined as follows. Let $c_{jk}$ be a \v{C}ech	1-cocycle of the open covering $\left\{\sU_j \right\}$ with values in $C$,such that $c_{jk}= p\left(b_{jk} \right)$ 
+	for $b_{jk} \in \Ga \left(\sU_{jk}, B\right)$ . Then $a_{jkl} \bydef b_{jl}^{-1}b_{jk}b_{kl}$ gives a \v{C}ech 2-cocycle $\underline{a}$ with 
+	values in $A$. $\dl_1$ then maps the cohomology class of $\underline{c}$ to that of $\underline{a}$. 
+
+\end{theorem}
+Note that since $A$ is sheaf of Abelian groups, $ H^2\left(M, A \right)$ is defined.
 \subsection{Products}
 
 	
