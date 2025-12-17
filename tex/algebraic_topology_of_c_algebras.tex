@@ -3649,11 +3649,23 @@ pointed sets
 \end{split}
 \ee
 \end{theorem}
+\begin{empt}
+An important case of an exact sequence $1\hookto A \hookto B\onto C \onto 1$ of 
+sheaves of groups is obtained from a sheaf of $\C$-algebras $R$ over $M$. Then 
+one has the exact sequence 
+\be\label{z_spec_eqn}
+1 \hookto Z(R)^* \hookto R^* \onto R^*/Z(R)^* \onto 1, 
+\ee
+where $Z(R)$ is the center of $R$, and $R^*$ denotes the sheaf of groups of invertible elements in $R$. A special feature of the exact sequence \eqref{z_spec_eqn} is that the 
+first sheaf of groups is central in the middle one. Such an exact sequence is 
+called {\it central}. In that case, one can continue the exact sequence of Theorem 
+\ref{nc_coh_exact_thm} one step to the right.
+\end{empt}
 \begin{theorem}\label{nc_coh_exact_central_thm}\cite{bryl:loop}
 	%4.1.4 Theorem. [Grl] [Gr2]
 	In the situation of Theorem \ref{nc_coh_exact_thm}, assume furthermore 
 	that $A$ is central in $B$. Then one has the exact sequence of pointed sets 
-\be
+\be\label{nc_coh_exact_central_eqn}
 \begin{split}
 	1 \hookto H^0\left(M, A \right) \hookto H^0\left(M, B \right) \to H^0\left(M, C \right) \xrightarrow{\dl_0}  H^1\left(M, A \right) \to\\ \to H^1\left(M, B \right) \to H^1\left(M, C \right) \xrightarrow{\dl_1}  H^2\left(M, A \right).
 \end{split}
@@ -4368,17 +4380,84 @@ I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor 
 	represent classes in $H^3\left(M, \Z \right)$  Actually it is more convenient to work with 
 	the isomorphic group $H^3\left(M, \Z \left( 1\right) \right)$, where $\Z\left( 1\right)\bydef 2\pi\sqrt{-1} \cdot \Z$. First, let us 	use the exponential exact sequence of sheaves $0\to\Z\left(1 \right)\to \underline{\C}_M\xrightarrow{\exp}\underline{\C}^*_M\to 0$. Using the exact sequence of cohomology one can identify $H^3\left( M,\Z\left(1\right)\right) $  and  $H^2\left( M,\underline{\C}^*_M\right) $ 
 Here we  $\underline{\C}^*_M$ is used to denote the sheaf of continuous $\C^*$-valued functions on open sets of $M$. We will 
-	need degree 1 \v{C}ech cohomology with values in a sheaf of nonabelian groups, 
-	which was introduced by Grothendieck, Dedecker and Frenkel [Grl] [Gr2] 
-	[Ded] [Fr]. Degree 1 cohomology is only a pointed set in general, not a 
-	group. For an exact sequence of sheaves of nonabelian groups, one obtains 
-	a short exact sequence of cohomology for cohomology in degrees 0 and 1. 
-	The study of principal bundles naturally leads to such a "nonabelian 
-	cohomology", which makes this the starting point. Let M be a manifold and 
-	let G be a Lie group; let us consider the set of isomorphism classes of principal 
-	G-bundles q : P ях M. Given an open covering (E/i)igj and a continuous 
-	section Si of q over Ui, we have a continuous function <7y : C/y я> G such 
-	that Sj = si ╔ gtj (recall that G acts on the right on P)
+	need degree 1 \v{C}ech cohomology with values in a sheaf of nonabelian groups
+	We wish to apply the Theorem \ref{nc_coh_exact_central_eqn}  to the exact sequence \eqref{nc_coh_exact_central_eqn} in the case 
+	of a suitable sheaf of algebras $R$. As we are interested in the cohomology 
+	group $H^2\left(M, \underline{\C}^*_M \right)$, we want the center of $R$ to be the sheaf $\underline{\C}^*_M$. Let us 
+	take the sheaf of algebras R to be the sheaf LM of continuous functions 
+	with values in some Banach algebra L, with center equal to C. The best 
+	choice will turn out to be the algebra L = ?(E) of bounded operators in a 
+	separable Hilbert space E; the norm is the sup-norm of an operator. It is 
+	well-known (and easy to see) that the center of L is equal to C. The quotient 
+	Lie group L*/C* identifies with the Lie group G = Aut(IC) of continuous 
+	algebra automorphisms of the Banach algebra K of compact operators of E. 
+	In other words, one has an exact sequence of Lie groups 
+	\be\label{ctr_seq_eqn}
+1 \hookto C^* \hookto L^* \cong Aut\left(E \right)\onto G = Aut\left(\K \right) \onto 1.  
+\ee
+			Since the mapping $Aut\left(E \right)\onto G$  is a principal $\C^*$-fibration, one has an exact 
+			sequence of sheaves of continuous functions with values in \eqref{ctr_seq_eqn}, to wit: 
+			D-7) 
+			The following result is the basic reason behind the choice of this Banach 
+			algebra L. 
+			\begin{proposition}\cite{bryl:loop}
+%4.1.5. Proposition. [D-D, Lemme 3] 
+The Lie group $L^*$ of invertible 
+continuous operators in $E$ is contractible. 
+			\end{proposition}
+	
+\begin{corollary}\cite{bryl:loop}
+%4.1.6. Corollary. [D-D, Lemme 4] 
+The sheaf l?M of continuous L*-valued 
+functions is soft. !!! SOFT !!!
+\end{corollary}
+\begin{proposition}\cite{bryl:loop}
+%4.1.7. Proposition. 
+Let B be a soft sheaf of groups on M. Then 
+$H^1\left( M, B\right) = \{1\}$.
+\end{proposition}
+\begin{proposition}\cite{bryl:loop}
+%4.1.8. Proposition. [D-D, Lemme 22] 
+Let 1 -> 4 -> B -> C -> 1 6e 
+a central exact sequence of sheaves of groups over M. If B is a soft sheaf, 
+then <5i : ffH-W.C) я H2(M,A) is a bijection. 
+\end{proposition}
+\begin{theorem}\cite{bryl:loop}
+%4.1.9. Theorem. 
+( Dixmier-Douady) For the Lie group G of algebra 
+automorphisms of the Banach algebra K of compact operators on a separable 
+Hilbert space E, we have natural bijections
+\be 
+H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)\cong H^3\left(M,\Z\left(1 \right) \right).
+\ee
+\end{theorem}
+\begin{proposition}\cite{bryl:loop}
+%4.1.10. Proposition. 
+The operation $\otimes$ on $H^1\left(M, \underline{G}_M \right)$ gives   $H^1\left(M, \underline{G}_M \right)$
+structure of an Abelian group. The bijection $\dl_1: H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)$
+is a group isomorphism. 
+\end{proposition}
+\begin{lemma}\cite{bryl:loop}
+%Lemma. 
+$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles A-> M with fiber K. 
+\end{lemma}
+\begin{definition}\cite{bryl:loop}
+The {\it projective space 
+bundle} is a trivial fiber bundle $p : P -* M$ with 
+fiber the projective space $\mathbb{P} \left( E\right) \bydef  (E\setminus \{0\})/\C^*$ of lines in $E$.
+\end{definition}
+\begin{lemma}\cite{bryl:loop}
+%4.1.12. Lemma. 
+The group of projective automorphisms of  $\mathbb{P} \left( E\right)$, equipped 
+with the topology of uniform convergence on bounded subsets of P(.E), is 
+homeomorphic to G. 
+\end{lemma}
+\begin{proposition}\cite{bryl:loop}
+%4.1.13. Proposition. 
+There is a natural bijection between the set of iso- 
+morphism classes of separable projective space bundles over M and the set 
+$H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
+\end{proposition}
 \end{appendices}
 
 \section*{Acknowledgment}
