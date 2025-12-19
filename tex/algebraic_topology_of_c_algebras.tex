@@ -1416,26 +1416,25 @@ where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological space
 \paragraph*{}	
 
 Let $A$ be a $C^*$-algebra and  let $C_0\left( \sX\right)\subset M\left(A \right)$ be natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}). Suppose that the equation \eqref{to_spec_eqn} yields the following diagram of commutative maps
-\newline
-\newline
+\be\label{gen_foli_eqn}
 \begin{tikzcd}
 	\mathfrak{Gelfand}\left(A\right) \arrow[rr] \arrow[rd]&& \sX\arrow[ld, "\phi"]\\
 	& \hat A &
 \end{tikzcd}
-\\
-\\
+\ee
 
 
-\begin{definition}
+\begin{definition}\label{generalized_foliation_defn}
 	Under the above hypothesis there is the equivalence relation $\sim$ on $\sX$ such that
 	\bean
-	\forall x', x'' \in \sX \quad x'\sim x'' \quad \Leftrightarrow \quad \phi\left(x' \right) \phi\left(x'' \right),\\
+	\forall x', x'' \in \sX \quad x'\sim x'' \quad \Leftrightarrow \quad \phi\left(x' \right)= \phi\left(x'' \right),\\
 	\hat{A}\cong \sX/\sim
 	\eean 
 The decomposition 
 $$
 \sX = \bigsqcup_{x \in \hat{A}} \phi^{-1}\left(x \right) 
 $$
+and the diagram \eqref{generalized_foliation_defn}
 is a {\it generalized foliation}.
 \end{definition}
 \begin{remark}
@@ -1775,171 +1774,81 @@ Any product $\sU \times \mathcal W\subset \C P\left( \E\right)$ is open in both 
 \begin{remark}
 Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism (cf. \cite{rae:ctr_morita}). So $A$ defines the bicommutant  $\mathfrak{Gelfand}\left(A \right)''$  of the Gelfand space (cf. Definition \ref{bicommutant_defn}) and vice-versa.
 \end{remark}
-\subsection{$C^*$-algebras of foliations}
 
-I denote by $\Alg$ the Lie functor from the category of Lie groupoids (and smooth homomorphisms) to the category of Lie algebroids, see \cite{mac3}. This restricts to the classical Lie functor from Lie groups to Lie algebras.
+\subsection{Gelfand space of $C^*$-algebras of groupoids}
 
-I denote by $\Grp$ the inverse of $\Alg$ (see \cite{c-f1}). The domain is the full subcategory of integrable Lie algebroids (i.e., the image of $\Alg$). If $A$ is an integrable Lie algebroid, then $\Grp(A)$ is the unique (up to isomorphism) $\s$-connected and $\s$-simply connected groupoid such that $A\cong \Alg\Grp(A)$. I call $\Grp(A)$ \emph{the} integration of $A$, but I will say that any $\s$-connected groupoid $\G$ with $\Alg(\G)\cong A$ \emph{integrates} $A$.
-
-If $M$ is a Poisson manifold, then the cotangent bundle $T^*M$ with the Koszul bracket is a Lie algebroid. I will say that a symplectic groupoid over $M$ integrates $M$ if $\t$ is a Poisson map; $\Sigma$ is a symplectic integration of $M$ if and only if it is a groupoid integration of $T^*M$.
-Any Lie groupoid integrating this has a natural symplectic groupoid structure. I will denote \emph{the} symplectic integration by $\Sig(M):=\Grp(T^*M)$ (see \cite{c-f2}).
-
-Any manifold can be regarded as a groupoid, with every point a unit. Given a manifold, we can also construct the pair groupoid $\Pair(M):=M\times M$; note that this integrates $TM$. If $M$ happens to be a symplectic manifold, then the pair groupoid is a symplectic groupoid if we give it the symplectic structure of $M\times M^-$, where $M^-$ is $M$ with the symplectic form reversed. In this case $\Pair(M)$ is a symplectic integration of $M$.
-
-For an arbitrary manifold, there is also the fundamental groupoid $\PI(M)$. This is the $\s$-simply connected cover of $\Pair(M)$, hence $\PI(M)=\Grp(TM)$. If $M$ is symplectic, then $\PI(M)$ inherits a symplectic groupoid structure from $\Pair(M)$, and $\Sig(M)=\PI(M)$.
-
-Given a Lie groupoid $\G$ over $M$, we can construct another Lie groupoid simply by applying the tangent functor. The unit manifold of $T\G$ is $TM$, the source map is $T\s:T\G\to TM$, the multiplication is $T\m: T\G_2\to T\G$, \emph{et cetera}.  The complexified tangent bundle $T_\co\G$ is a groupoid in the same way. This tangent groupoid is very important for my definition of polarization, but it should not be confused with Connes' tangent groupoid \cite{con1}, which is also used in an example of quantization.
-
-The cotangent bundle $T^*\G$ is a groupoid as well, but in a very different way. This is a symplectic groupoid over $\Alg^*(\G)$, the dual vector bundle of the Lie algebroid. This is an important example in Section~\ref{Linear}.
-
-\subsubsection{Convolution}
-There are two standard ways of constructing the convolution algebra of a Lie groupoid: using either a Haar system \cite{ren} or half-densities \cite{con1}. I favour the latter approach, because it is closer to the Hilbert space construction in geometric quantization. However, there is still an important discrepancy between half-forms and half-densities.
-
-With this in mind, let's try to modify the definition of the convolution algebra by substituting half-forms for half-densities. This means using a bundle,
-\bean
-\label{half_form1}
-\Omega^{1/2} := \sqrt{\Wedgem (T^{\t*}_\co\G\oplus T^{\s*}_\co\G)} .
-\eean
-If the bundle $T^\t\G\oplus T^\s\G$ is orientable, then there exists a preferred ``positive'' choice of square root, and with this choice, half-forms are equivalent to half-densities. This orientability condition is frequently satisfied; it is true if the Lie algebroid $\Alg(\G)$ is an orientable bundle or if $\G$ is $\s$-simply connected.
-
-If some other choice of square root is chosen, then it may still define a convolution algebra. However, it will not generally be possible to complete this to a \cs-algebra. The potential problem is exemplified by the $*$-algebra of matrices on an indefinite inner product space; that is not a \cs-algebra.
-
-The convolution product of $a,b\in\Gamma_{\mathrm c}(\G,\Omega^{1/2})$ is defined by integrating $\pr_1^*a \pr_2^*b$ over the fibers of $\m$. For $\gamma\in\G$, the fiber $\m^{-1}(\gamma)$ is explicitly parametrized as
-\bean
-\label{m_fiber}
-\m^{-1}(\gamma) = \{(\eta,\eta^{-1}\gamma) \mid \eta \in \t^{-1}(\t \gamma)\} .
-\eean
-This gives the standard expression for the convolution product (see \cite{con1})
-\bean
-\label{convolution}
-(a*b)(\gamma) := \int_{\eta\in\t^{-1}(\t\gamma)}  a(\eta) b(\eta^{-1}\gamma) .
-\eean
-To make sense of this expression, note that \eqref{m_fiber} implies isomorphisms
-\[
-T^\m\G_2 \cong \pr_1^* T^\t\G \cong \pr_2^* T^\s\G .
-\]
-Using these, the coboundary bundle (see \eqref{L_coboundary}) is
-\[
-\partial^*\Omega^{1/2} \cong \Wedgem T^{\m*}_\co\G_2 \cong \pr_1^*\Wedgem T^{\t*}_\co\G
-\]
-the bundle of volume forms along the fibers of $\m$ in $\G_2$. With this isomorphism, the product $\pr_1^* a \pr_2^* b$ is a section of 
-\[
-\m^* \Omega^{1/2} \otimes  \pr_1^*\Wedgem T^{\t*}_\co\G .
-\]
-So, integrating this over $\t^{-1}(\t\gamma)$ in \eqref{convolution} does give another section of $\Omega^{1/2}$.
-
-The other important property of $\Omega^{1/2}$ is the canonical isomorphism
-\[
-\inv^*\Omega^{1/2} \cong \overline{\Omega^{1/2}} .
-\]
-This defines the involution on the convolution algebra.
-
-\subsubsection{Twisted Convolution}
-\label{Twisted}
-The concept of twisted \cs-algebras of a groupoid is fairly standard. Let $L$ be a line bundle over $\G$ and $\sigma$ a cocycle with coefficients in $L$. In \cite{ren}, Renault mainly discusses the case where $L$ is trivial, but he gives a more general definition: $\cs(\G,\sigma)$ is the quotient of $\cs(\G^\sigma)$ induced by the fundamental representation of $\T$, where $\G^\sigma$ is the extended groupoid in \eqref{extension}. In order to generalize this to the polarized case, it is better to work with sections of  $L\otimes \Omega^{1/2}$, and this is easy enough.
-
-For $a,b\in \Gamma_{\mathrm c}(\G,L\otimes \Omega^{1/2})$, the twisted convolution product is defined by modifying \eqref{convolution} to
-\[
-(a*b)(\gamma) := \int_{\eta\in\t^{-1}(\t\gamma)} \sigma(\eta,\eta^{-1}\gamma)\, a(\eta)\, b(\eta^{-1}\gamma) .
-\]
-
-Although this is constructed with a cocycle $\sigma$, the algebra only depends upon the cohomology class of $[\sigma]\in \Tw(\G)$. 
-
-
-\begin{definition}
-	% PAGE 11 (15)
-	Suppose that $\mathscr C$ is some category. A map $p$ from a set $A$ onto a set $A^0$ such that
-	each fiber $p^{-1} ( u )$ is an object of  $\mathscr C$ will be called a  $\mathscr C$-\textit{bundle} map and $A$ will be called  $\mathscr C$-bundle.  Let $A$ be
-	a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p^{-1} ( u )$.
-	$$
-	\text{Iso}(A) = \left\{\text{isomorphisms }\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
-	$$	
-	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v  #v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
-\end{definition}
-\begin{definition}
-	% Definition 1.11.
-	Let $\G$ be a groupoid. A $\G$-\textit{bundle} $(A,L)$ is a $\mathscr C$ - bundle $A$ together
-	with a homomorphism $L : G \to \text{Iso} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  is the category of Abelian groups, one speaks of a
-	$\G$-\textit{module bundle}.
-\end{definition}
-\begin{empt}\label{groupoig_gn_empt}
-	Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
-	us first define $\G^n$ for any $n\in\N$. The sets $\H^0$ , $\G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
-	j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left  neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
-	\begin{enumerate}
-		\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = d(x_0)$ and
-		\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
-	\end{enumerate}
-	The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
-	sequence 
-	\bean
-	0 \to C^0\left( \G, A\right)\to C^0\left( \G, A\right)\to C^1\left( \G, A\right)\to...\to  C^n\left( \G, A\right) \xrightarrow{\delta^n} C^{n + 1}\left( \G, A\right)\to ...
-	\eean
-	where 
-	\be\label{groupoid_b_eqn}
+\subsubsection{Algebraic construction}
+\paragraph*{}
+	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) and a left  Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition \ref{groupoid_haar_defn}) then there is a $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations.
+	If  $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ is a representation in the sense of the Definition \ref{groupoid_representation_defn} then there is a $C^*$-seminorm 
+	\be\label{groupoid_semin_eqn}
 	\begin{split}
-		\delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
-		\delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
-		f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+		\left\|\cdot  \right\|_\rho :   	C_c\left(\G , \sigma \right)\to \R,\\
+		a \mapsto \left\|\rho\left( a \right)  \right\|
 	\end{split}
 	\ee
-	
-	is a cochain complex.
-\end{empt}	
-\begin{definition}\label{groupoid_cocycle_defn}
-	The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
-	the group of $n$-coboundaries will be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
-	$Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
-\end{definition}
-\paragraph{}
-Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
-\be\label{groupoid_*_c_eqn}
-\begin{split}
-	f * g \left(x\right)\bydef 
-	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
-	f^* ( x ) \bydef \overline{f ( x^{ -1})}~\overline{\sigma\left(x, x^{-1} \right)}, 	
-\end{split}
-\ee	
-In particular is $\sigma$ is trivial then one has a $*$-algebra
-\be\label{groupoid_*_eqn}
-\begin{split}
-	f * g \left(x\right)\bydef 
-	\int f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
-	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
-\end{split}
-\ee	
-which is a specialization of \eqref{groupoid_*_c_eqn}
+	We suppose that $\rho$ is \textit{faithful}, i.e. $a \neq 0\quad \Rightarrow \quad \rho_c\left(a \right) \neq 0$. The completion of  $C_c\left(\G , \sigma \right)$ with respect to 	$\left\|\cdot  \right\|_\rho$ is a $C^*$-algebra denoted by $C^*_\rho\left(\G , \sigma \right)$
 
-\begin{empt} % ??? DEFINE NORM ???
-	Let $\G$ be a locally compact groupoid with left  Haar system $\left\{\la^u\right\}$ (cf. Definition \ref{groupoid_haar_defn}).  For $f$ and $g\in C_c\left(\G\right)$, let  us define
-	\be\label{groupoid_*__defn}
-	\begin{split}
-		f * g \left(x\right)\bydef 
-		\int  f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
-		f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
-	\end{split}
-	\ee
-	It is proven in \cite{renault:gropoid_ca} that the equations yield a $*$-algebra. 
-\end{empt}
-\begin{definition}\label{groupoid_representation_defn}\cite{renault:gropoid_ca}
-	%1.3. D e f i n i t i o n : 
-	A \textit{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
-	topology (cf. Definition \ref{top_ind_lim_defn}) and $B\left(\H \right)$  the weak operator topology (cf. Definition \ref{weak_topology_defn}), and is such that the linear  span of
-	$$
-	L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
-	$$
-	is dense in $\H$.
+\begin{definition}\label{groupoid_rho_defn}
+	Under the above hypotheses  we say that the $C^*$-algebra $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-\textit{completion} of  $C_c\left(\G , \sigma \right)$.
 \end{definition}
-\begin{lemma}\label{groupoid_mult_repr_lem}\cite{renault:gropoid_ca}
-	%1.13. Lemma : 
-	If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
-	$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
-	$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
+\begin{remark}\label{groupoid_blowing_rem}
+	From the Lemma \ref{groupoid_mult_repr_lem} it follows that there is  natural Hausdorff blowing-up (cf. Definition \ref{blowing_defn})
+	\be\label{groupoid_blowing_eqn}
+	C_0\left(\G^0 \right)\hookto M\left( C^*_\rho\left(\G , \sigma \right)\right)  
+	\ee
+\end{remark}
+
+\subsubsection{Gelfand spaces of $C^*$-algebras of foliations}
+\paragraph*{} Let $\left(M, \F\right)$  be a foliated manifold (cf. Definition 
+\ref{foli_defn}) such that any leaf correspond to a irreducible representation of the reduced $C^*$-algebra of foliation  $C_r^*\left( M, \F\right)$ (cf. Definition \ref{foli_groupoid_red_defn}). The necessary and sufficient conditions of this hypothesis are explained in   \cite{candel:foliII}. In particular if any leaf of  $\left(M, \F\right)$ is simply connected then the hypothesis hold. One has
+$$
+	M = \bigsqcup_{\la \in \La} \L_\la
+	$$
+	where $\L_\la$ is a set of leaves.  There is an equivalence relation on $M$ such that
+	$$
+	x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
+	$$ 
+	It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$ (cf. the equation \eqref{groupoid_blowing_eqn}). In result from the equations \eqref{to_spec_eqn} \eqref{phi_a_eqn}.
+		one has the following commutative diagram
+	\begin{equation}\label{f_dia_eqn}
+	\begin{tikzcd}
+		\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
+		& M/\sim &
+	\end{tikzcd}
+\end{equation}
+\begin{lemma}
+The diagram \eqref{f_dia_eqn} is a specialization of generalized foliation (cf. Definition \ref{generalized_foliation_defn})
 \end{lemma}
-\begin{definition}\label{groupoid_red_defn}	\cite{renault:gropoid_ca}%2.8. Definition : 
-	The \textit{reduced $C^*$ -algebra} $C^*_r\left(\G, \sigma \right)$ of $\G$ is the completion of
-	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
-\end{definition}
+\begin{proof}
+	One should prove that Hausdorff blowing-up $C_0\left(M \right) \hookto (C^*_r\left(M, \F \right)$ is natural (cf. Definition \ref{blowing_natural_defn}). If not then there is a diagram 
+		\begin{equation}\label{f_diam_eqn}
+		\begin{tikzcd}
+			& \sX  \arrow[rd, "\phi" ] &\\
+			\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	\arrow[ru, "\psi"] \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"] \\
+			& M/\sim &
+		\end{tikzcd}
+	\end{equation}
+	with Hausdorff $\sX$ and continuous map $\phi$ with $x', x'' \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. If $\xi', \xi'' \in  	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)$ then there are neighborhoods $\sV'$ and $\sV''$ of $x'$ and $x''$ such that $\sV'\cap \sV'' = \emptyset$. Suppose that $\sV'$ and $\sV''$ correspond to the unions $\bigcup_{j=1}^m L'_j$ and $\bigcup_{j=1}^n L''_j$ of closed left ideals of $C^*_r\left(M, \F \right)$. From the Definition \ref{gelfand_space_defn} it follows that there are $L' \in \xi'$ and  $L'' \in \xi''$ such that
+	\bean
+	L' \cap \left( \bigcup_{j=1}^mL'_j\right)  = \{0\},\\
+	L'' \cap \left( \bigcup_{j=1}^n L''_j\right)  = \{0\}
+	\eean 
+(cf. the equation \eqref{topology_eqn}). There is an open neighborhood  $\mathcal W \subset M$ of $y$ and elements $a'\in L'$, $~a'' \in L''$ such that $\mathcal W\subset \supp a'\cap \supp a''$ where $\supp$ means the support  (cf. Definition \ref{blowing_support_defn}). The equation $\sV'\cap \sV'' = \emptyset$ means that there is no a nontrivial closed left ideal $L$ such that]
+$$
+L \cap\left(  \left( \bigcup_{j=1}^mL'_j\right) \cap \left( \bigcup_{j=1}^nL''_j\right)\right)  = \{0\}
+$$
+ One can select 
+
+
+
+
+\end{proof}
+
+\begin{prop}\label{foli_tens_comp_prop!}!!! DELETE !!!\cite{candel:foliII}
+	% Proposition 1.5.4. \\
+	The reduced  $C^*$-algebra $C^*_r\left(\mathcal N\times Z \right)$ of the trivial foliated space $\mathcal N \times \mathcal Z$ is the tensor product $\K\otimes C_0\left(\mathcal Z\right)$, where $\K$ is the algebra of compact operators on $L^2\left(\mathcal N \right)$  and $ C_0\left(\mathcal Z\right)$ is the space of continuous functions on $\mathcal Z$ that vanish at infinity.
+\end{prop}
 
 \begin{appendices}
 			\section{Categories theory}
@@ -2949,65 +2858,6 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
 	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
-\subsection{Algebras of foliations}
-
-\subsubsection{Groupoid Preliminaries}
-I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
-
-A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
-
-Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
-
-The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
-\[
-\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
-\]
-and for $\omega\in\Omega^\bullet(\G)$,
-\begin{subequations}
-	\bean
-	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
-	\eean
-	
-	\begin{definition}
-		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
-		\bean
-		\partial^*\omega = 0 .
-		\eean
-		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
-	\end{definition}
-	\label{multiplicative.form}
-\end{subequations}
-
-It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
-\[
-\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
-\]
-is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
-\bean
-\label{L_coboundary}
-\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
-\eean
-is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
-\[
-\curv \partial^*L = \partial^*(\curv L) .
-\]
-A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
-
-It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
-
-I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
-
-I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
-
-
-
-%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
-%\[
-%\t^*\{f,g\} = \{\t^*f,\t^*g\}
-%\]
-%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
-
-%\subsection{Standard Constructions}
 \subsection{Algebraic counterpart of geometric quotient}\label{quotions_a_sec}
 \paragraph{}
 Here I follow to \cite{{connes:ncg94}}
@@ -3151,24 +3001,6 @@ identification $a \sim b$ in the spectrum of $B$.
 	denotes the \textit{support} of the section $s$.
 \end{definition}
 
-\begin{example}\label{foli_exm}
-	The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
-	$$
-	M = \bigsqcup_{\la \in \La} \L_\la
-	$$
-	where $\L_\la$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
-	$$
-	x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
-	$$ 
-	It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$. In result one has the following diagram
-	\newline
-	\begin{tikzcd}
-		\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
-		& M/\sim &
-	\end{tikzcd}
-	\\
-	
-\end{example}
 \begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
 	%1.13. 
 	\textit{
@@ -3754,46 +3586,441 @@ Note that since $A$ is sheaf of Abelian groups, $ H^2\left(M, A \right)$ is defi
 \begin{exercise}\label{ring_homo_exer}
 	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 \end{exercise}
-		\subsubsection{Groupoids}
+
+\section{Dixmier Douady theory}
+	\paragraph*{} Here I follow to \cite{bryl:loop}
+	If $M$ is a manifold then $H^2\left(M, \Z \right)$ is the group of isomorphism  classes of line bundles over $M$
+	Given a paracompact space $M$, we wish to describe bundles over $M$ which 
+	represent classes in $H^3\left(M, \Z \right)$  Actually it is more convenient to work with 
+	the isomorphic group $H^3\left(M, \Z \left( 1\right) \right)$, where $\Z\left( 1\right)\bydef 2\pi\sqrt{-1} \cdot \Z$. First, let us 	use the exponential exact sequence of sheaves $0\to\Z\left(1 \right)\to \underline{\C}_M\xrightarrow{\exp}\underline{\C}^*_M\to 0$. Using the exact sequence of cohomology one can identify $H^3\left( M,\Z\left(1\right)\right) $  and  $H^2\left( M,\underline{\C}^*_M\right) $ 
+Here we  $\underline{\C}^*_M$ is used to denote the sheaf of continuous $\C^*$-valued functions on open sets of $M$. We will 
+	need degree 1 \v{C}ech cohomology with values in a sheaf of nonabelian groups
+	We wish to apply the Theorem \ref{nc_coh_exact_central_eqn}  to the exact sequence \eqref{nc_coh_exact_central_eqn} in the case 
+	of a suitable sheaf of algebras $R$. As we are interested in the cohomology 
+	group $H^2\left(M, \underline{\C}^*_M \right)$, we want the center of $R$ to be the sheaf $\underline{\C}^*_M$. Let us 
+	take the sheaf of algebras R to be the sheaf LM of continuous functions 
+	with values in some Banach algebra L, with center equal to C. The best 
+	choice will turn out to be the algebra L = ?(E) of bounded operators in a 
+	separable Hilbert space E; the norm is the sup-norm of an operator. It is 
+	well-known (and easy to see) that the center of L is equal to C. The quotient 
+	Lie group L*/C* identifies with the Lie group G = Aut(IC) of continuous 
+	algebra automorphisms of the Banach algebra K of compact operators of E. 
+	In other words, one has an exact sequence of Lie groups 
+	\be\label{ctr_seq_eqn}
+1 \hookto C^* \hookto L^* \cong Aut\left(E \right)\onto G = Aut\left(\K \right) \onto 1.  
+\ee
+			Since the mapping $Aut\left(E \right)\onto G$  is a principal $\C^*$-fibration, one has an exact 
+			sequence of sheaves of continuous functions with values in \eqref{ctr_seq_eqn}, to wit: 
+			D-7) 
+			The following result is the basic reason behind the choice of this Banach 
+			algebra L. 
+			\begin{proposition}\cite{bryl:loop}
+%4.1.5. Proposition. [D-D, Lemme 3] 
+The Lie group $L^*$ of invertible 
+continuous operators in $E$ is contractible. 
+			\end{proposition}
+	
+\begin{corollary}\cite{bryl:loop}
+%4.1.6. Corollary. [D-D, Lemme 4] 
+The sheaf l?M of continuous L*-valued 
+functions is soft. !!! SOFT !!!
+\end{corollary}
+\begin{proposition}\cite{bryl:loop}
+%4.1.7. Proposition. 
+Let B be a soft sheaf of groups on M. Then 
+$H^1\left( M, B\right) = \{1\}$.
+\end{proposition}
+\begin{proposition}\cite{bryl:loop}
+%4.1.8. Proposition. [D-D, Lemme 22] 
+Let 1 -> 4 -> B -> C -> 1 6e 
+a central exact sequence of sheaves of groups over M. If B is a soft sheaf, 
+then <5i : ffH-W.C) Ñ H2(M,A) is a bijection. 
+\end{proposition}
+\begin{theorem}\cite{bryl:loop}
+%4.1.9. Theorem. 
+( Dixmier-Douady) For the Lie group G of algebra 
+automorphisms of the Banach algebra K of compact operators on a separable 
+Hilbert space E, we have natural bijections
+\be 
+H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)\cong H^3\left(M,\Z\left(1 \right) \right).
+\ee
+\end{theorem}
+\begin{proposition}\cite{bryl:loop}
+%4.1.10. Proposition. 
+The operation $\otimes$ on $H^1\left(M, \underline{G}_M \right)$ gives   $H^1\left(M, \underline{G}_M \right)$
+structure of an Abelian group. The bijection $\dl_1: H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)$
+is a group isomorphism. 
+\end{proposition}
+\begin{lemma}\cite{bryl:loop}
+%Lemma. 
+$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles A-> M with fiber K. 
+\end{lemma}
+\begin{definition}\cite{bryl:loop}
+The {\it projective space 
+bundle} is a trivial fiber bundle $p : P -* M$ with 
+fiber the projective space $\mathbb{P} \left( E\right) \bydef  (E\setminus \{0\})/\C^*$ of lines in $E$.
+\end{definition}
+\begin{lemma}\cite{bryl:loop}
+%4.1.12. Lemma. 
+The group of projective automorphisms of  $\mathbb{P} \left( E\right)$, equipped 
+with the topology of uniform convergence on bounded subsets of P(.E), is 
+homeomorphic to G. 
+\end{lemma}
+\begin{proposition}\cite{bryl:loop}
+%4.1.13. Proposition. 
+There is a natural bijection between the set of iso- 
+morphism classes of separable projective space bundles over M and the set 
+$H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
+\end{proposition}
+\section{$C^*$-algebras of groupoids and foliations}
+		\subsection{Groupoids}
 \paragraph*{}
 A groupoid is a small category with inverses, or more explicitly:
 \begin{definition}\label{groupoid_defn}\cite{connes:ncg94}
-	A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^{(0)}\subset\G$, two maps
-	$r, s : \G\to \G^{(0)}$ and a law of composition
+	% 104
+	A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^0\subset\G$, two maps
+	$r, s : \G\to \G^0$ and a law of composition
 	$$
-	\circ: \G^{(2)}\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
+	\circ: \G^2\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
 	$$
 	such that
 	\begin{enumerate}
 		\item $s\left(\ga_1\circ\ga_2\right)=s\left(\ga_2\right), \quad r\left(\ga_1\circ\ga_2\right)=r\left(\ga_1\right)\quad \forall\left(\ga_1, \ga_2 \right) \in \G$
-		\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^{(0)}$
+		\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^0$
 		\item $\ga\circ s\left(\ga\right)= r\left(\ga\right)\circ\ga = \ga\quad \forall\ga\in\G$
 		\item $\left( \ga_1\circ\ga_2\right) \circ\ga_3=\ga_1\circ\left( \ga_2\circ\ga_3\right) $
 		\item Each $\ga \in\G$ has a two-sided inverse $\ga^{-1}$, with $\ga\circ\ga^{-1}=r\left(\ga\right)$, $\ga^{-1}\circ\ga=r\left(\ga\right)$.
 	\end{enumerate}
 	The maps $r$, $s$ are called the \textit{range} and \textit{source} maps.
+\end{definition}
+\begin{definition}\label{groupoid_sets_defn}
+	If $A$ and $B$ are subsets of $\G$, one may form the following subsets o f $\G$ :
+	\bean
+	A^{-1} \bydef \left\{x \in \G \left| x^{-1}\in A\right.\right\},\\
+	AB \bydef \left\{z \in \G | x \in A, ~y \in B \quad  z = x y \right\}.
+	\eean
+	A groupoid $\G$ is said to be \textit{principal} if the map $( r , s )$ from $\G$ into $\G^0\times \G^0$ is one-to-one, it is said to be \textit{principal !!! \ref{top_principal_defn} !!!}  the map ( r , d ) is onto.
+	For $u, v, \in \G^0$ , $G^u \bydef r^{-1}(u),\quad G_v \bydef s^{-1}(v), \quad G^u_v \bydef G^u\cap G_v $ and
+	$G(u) = G^u_u$ which is a group, is called  the \textit{isotropy group} at $u$.
+	The relation  $u \sim v$ if and only if $G^u\cap G_v \neq \emptyset$ is an equivalence relation on the unit space $\G^0$. its equivalence classes are called \textit{orbits} and the \textit{orbit} of  $u$ is denoted $[ u ]$ . 
+	$G^0/G$
+	denotes the \textit{orbit space}. A groupoid is principal  \ref{top_principal_defn}  if and only if it has a single orbit.	
 \end{definition} 
-\begin{empt}
-	Let $\G$ be a groupoid. 
-	Consider an involutive algebra $\C\left[\G \right]$ over $\C$ generated by $\G$ which satisfies to the following relations
-	\be
-	\begin{split}
-		\left(a\cdot b\right)\left(\ga\right)= \sum_{\ga_1\circ\ga_2=\ga}a\left( \ga_1\right)a\left( \ga_1\right),\\
-		a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)} 
-	\end{split}
-	\ee
-\end{empt}
+\begin{example}
+	The set $\G^2$ of composable elements may be given the following groupoid structure:
+	$( x , y )$ and $( y ' , z )$ are composable if and only if  $y' = xy, ~ ( x , y ) ( x y , z ) = ( x , y z )$, and $( x , y )^{-1} =( x y , y ^{-1} )$.
+	Then $r^2 ( x , y ) = ( x , r ( y ) ) = ( x , d ( x ) )$ and $d^2 ( x , y ) = ( x y , d ( x y ) )$. The map
+	$x\mapsto ( x , d ( x ) )$ identified the unit space of $G^2$ with $G$. The groupoid $G^2$ is principal.
+	One may notice that it  comes from the action of $\G$ G on itself. It is principal  \ref{top_principal_defn}  if and only if $\G$  is a group.
+\end{example}
 
+\begin{definition}\label{groupoid_hom_defn}\cite{renault:gropoid_ca}
+	Let $\G$ and $\mathcal H$ be groupoids a map $\phi: \G \to \H$ is \textit{homomorphism} if one has:
+	\begin{itemize}
+		\item
+		\bean
+		\left(x, y \right) \in \G^2 \quad \Rightarrow \quad \left(\phi\left( x\right), \phi\left(y\right)  \right) \in \H^2,\\
+		\phi\left(\G^0 \right) \subset \H^0, 
+		\eean
+		\item the  map
+		\bean
+		\phi^2 : \G^2 \to \H^2,\\
+		\left(x, y\right)\mapsto \left(\phi(x), \phi(y) \right) 
+		\eean 
+		is a homeomorphism. 
+	\end{itemize}
+	Two homomorphism are \textit{similar} (write $\phi\sim \psi$) if there exists a function $\th: \G^0 \to \H$ such that $\left(\th\circ r\right)(x)\phi\left(x\right)= \psi\left(x\right)\left( \th\circ s\right)(x)$. Groupoids $\G$ and $\H$ are called \textit{similar} (write $\G\sim \H$) if there exists homomorphisms $\phi: \G \to \H$ and $\psi : \H\to \G$  such that $\phi \circ \psi$ and $\psi \circ \phi$ are similar to identity isomorphisms. 
+\end{definition}
+\begin{definition}\label{groupoid_reduction_defn}\cite{renault:gropoid_ca}
+	Let $\G$ be a groupoid, and let $E$ be a subset of $\G^0$.
+	A subgroupoid 
+	$$
+	\G^E_E \bydef \left\{x \in G | r(x), s(x)\in E\right\}
+	$$
+	with unit space $E$ is said to be  the \textit{reduction} 
+	of $\G$ by $E$.
+\end{definition}
+\begin{defn}\label{groupoid_isotropy_defn}\cite{renault:gropoid_ca}
+	For $u, v\in \G^0$, $~\G^u\bydef r^{-1}\left( u\right)$,  $~\G_v\bydef s^{-1}\left( v\right)$  $~\G^u_v\bydef \G^u\cap \G_v$ and
+	$\G(u) = G^u_u$ which is a group, is called  the \textit{isotropy  group} at $u$.
+\end{defn}
+\begin{prop}\label{groupoid_reduction_prop}\cite{renault:gropoid_ca}
+	Let $\G$ be a groupoid, $E$ a subset of $\G^0$ which meets each orbit in $\G$; then  	$\G^E_E$ and $\G$ are similar (cf. Definition \ref{groupoid_hom_defn}).
+\end{prop}
+\begin{definition}\cite{renault:gropoid_ca}
+	%1.6. D e f i n i t i o n : 
+	Let $\G$ be a groupoid, $A$ a group and $c: \G\to A$ a homomorphism, the
+	\textit{skew-product} $\G(c)$ is the groupoid $\G\times A$ where : $( x , a )$ and $(y,b)$ are composable if and only if  $x$ and $y$ are composable and $b = a c ( x )$, $( x , a ) ( y , a c ( x ) )\bydef ( x y , a )$, and $( x , a )^{-1} =
+	\left(  x^{-1}  , a c ( x )\right)$; $\quad ( x , a )  \bydef( r ( x ) , a )$ , $\quad s ( x , a )\bydef ( d ( x ) , a c ( x ) )$ . Its unit space is $\G^0\times A$.
+\end{definition}
 
-\begin{definition}\label{foli_groupoid_red_defn}
-	If $\Pi$ is the set of irreducible representations of $\C\left[\G \right]$ then the completion of $\C\left[\G \right]$ with respect to $C^*$-norm
-	$$
-	\left\| a\right\| = \sup_{\pi\in \Pi}\left\|\pi\left( a\right)\right\| 
-	$$
-	is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
+\begin{definition}\cite{renault:gropoid_ca}
+	%1.7. D e f i n i t i o n :
+	Let $\G$ be a groupoid, let $A$ be a group and let $\a: A \to \Aut\left(\G\right)$ be a
+	homomorphism. We write $x*a \bydef \left[\a\left(a^{-1}\right)\right]$ for $a\in A$ and $x\in \G$. The \textit{semi-direct product} $G\rtimes_\a A$ is the groupoid $G\times A$ where $( x , a )$ and $( z , b )$ are composable if and only if $z = y*a$ with  $x$ and $y$ composable,$ ( x , a ) ( y * a,b) = ( x y , a b )$ , and $(x,a)^{ -1}\bydef \left( x ^{-1} * a, a^{ - l} \right)$ .
+	Then, $r ( x , a ) = ( r ( x ) , e )$ and $s ( x , a ) = (d(x)   a , e )$ . The unit  space may be identified 
+	with $\G^0$.
+\end{definition}
+
+\begin{proposition}
+	%1.8. P r o p o s i t i o n : 
+	With above notation,
+	\begin{enumerate}
+		\item[(i)] $\G(c) \rtimes_\a A$  is similar to $\G$ and
+		\item[(ii)] $\left( \G\rtimes_a A\right) (c)$ is similar to $\G$.
+	\end{enumerate}
+	
+	.\end{proposition}
+\begin{definition}
+	%1.9. D e f i n i t i o n :
+	An \textit{inverse semi}-\textit{group} is a set $\mathscr G$  endowed with an associative binary operation , noted multiplication, and an inverse map
+	\bean
+	\mathscr G\to  \mathscr G,\\
+	s \mapsto s^{-1}
+	\eean
+	such that the following relations  are satisfied  $ss^{-1}s = s$ and $s^{-1}ss^{-1}=s^{-1}$ .
+\end{definition}
+\begin{definition}
+	%1 . 1 0 . D e f i n i t i o n : 
+	Let $\G$ be a groupoid. A subset $s$ of $\G$ will be called a $\G$-\textit{set} if 
+	the restriction of $r$ and $s$ to it are one-to-one . Equivalently, $s$ is a $\G$-set if and only is $s^{-1}s$
+	and $ss^{-1}$  are contained in $\G^0$.
+	
 \end{definition}
 
 
+\begin{definition}
+	% PAGE 11 (15)
+	Suppose that $\mathscr C$ is some category. A map $p$ from a set $A$ onto a set $A^0$ such that
+	each fiber $p^{-1} ( u )$ is an object of  $\mathscr C$ will be called a  $\mathscr C$-\textit{bundle} map and $A$ will be called  $\mathscr C$-bundle.  Let $A$ be
+	a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p^{-1} ( u )$.
+	$$
+	\text{Iso}(A) = \left\{\text{isomorphisms }\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
+	$$	
+	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v  #v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
+\end{definition}
+\begin{definition}
+	% Definition 1.11.
+	Let $\G$ be a groupoid. A $\G$-\textit{bundle} $(A,L)$ is a $\mathscr C$ - bundle $A$ together
+	with a homomorphism $L : G \to \text{Iso} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  is the category of Abelian groups, one speaks of a
+	$\G$-\textit{module bundle}.
+\end{definition}
+\begin{empt}\label{groupoig_gn_empt}
+	Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
+	us first define $\G^n$ for any $n\in\N$. The sets $\H^0$ , $\G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
+	j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left  neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+	\begin{enumerate}
+		\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = d(x_0)$ and
+		\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
+	\end{enumerate}
+	The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
+	sequence 
+	\bean
+	0 \to C^0\left( \G, A\right)\to C^0\left( \G, A\right)\to C^1\left( \G, A\right)\to...\to  C^n\left( \G, A\right) \xrightarrow{\delta^n} C^{n + 1}\left( \G, A\right)\to ...
+	\eean
+	where 
+	\be\label{groupoid_b_eqn}
+	\begin{split}
+		\delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
+		\delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
+		f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+	\end{split}
+	\ee
+	
+	is a cochain complex.
+\end{empt}	
+\begin{definition}\label{groupoid_cocycle_defn}
+	The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
+	the group of $n$-coboundaries will be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
+	$Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
+\end{definition}
+
+\begin{definition}\label{groupoid_topological_defn}\cite{renault:gropoid_ca}
+	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
+	\begin{enumerate}
+		\item [(a)] $\G \to \G \quad x \mapsto x^{-1}$ is continuous,
+		\item [(b)] $\G^2\to \G\quad \left(x,y\right)\mapsto xy$ is continuous where $\G^2$ has the induced topology from $\G \times \G$.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}\cite{renault:gropoid_ca}
+	One has:
+	\begin{itemize}
+		\item the map $x \mapsto x^{-1}$ is a homeomorphism,
+		\item if $\G$ is Hausdorff then $\G^0$ is closed in $\G$,
+		\item if $\G^0$ is Hausdorff then  $\G^2$ is closed in $\G \times \G$, $\G^0$ is both a subspace of $\G$ and a quotient of $\G$ (by the map $r$), the induced and the quotient topology coincide.
+	\end{itemize}
+\end{remark}
+\begin{definition}\label{groupoid_haar_defn}\cite{renault:gropoid_ca}
+	Let $\G$ be a locally compact groupoid. A \textit{left  Haar system} for $\G$
+	consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ such that
+	\begin{enumerate}
+		\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $\G^u$,
+		\item [(b)]  (continuity) for any $f \in C_c\left(\G\right)$, $u \mapsto \la(f)(u) = \int f d\la^u$ is continuous, and
+		\item [(c)]  (left invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
+		\int f(y)d\la^{r(x)}(y)$.
+		
+	\end{enumerate}
+\end{definition}
+\subsection{Covering groupoids}\label{covering_groupoid_sec}
+\paragraph{}
+The theory of covering groupoids is explained in \cite{zhi:cov_group}. Given $u \in \G^0$, a \textit{sieve} on $\G$ is a set $S\subset G^u$ (cf. Definition \ref{groupoid_sets_defn}) $\G$ such that
+\bean
+f \in S \text{ and the composite } fh \text{ is defined implies} fh \in S.
+\eean
+Since $x \in \G$ is invertible, then every nonempty sieve on $\G$ coincides with $\G^u$.
+%We call the maximal sieve t(G) as a neighbourhood of G in the groupoid G.
+\begin{definition}\label{groupoid_covering_defn}\cite{zhi:cov_group}
+	Let $p : \widetilde{\G}\to G$ be a morphism of groupoids. An ordered pair
+	$\left( \widetilde{\G}, p\right)$ is a \text{covering groupoid} if for each object $\widetilde u \in \widetilde{\G}^0$ the restriction of $p$
+	$$
+	\widetilde{\G}^{\widetilde{u}}\to {\G}^u
+	$$
+	is bijection where both $\widetilde{\G}^{\widetilde{u}}$ and ${\G}^u$ are given by the Definition \ref{groupoid_isotropy_defn}. The morphism $p$ is called the \textit{covering}. 
+\end{definition}
+
+\begin{theorem}\label{covering_groupoid_thm}\cite{zhi:cov_group}
+	%Theorem 2.3 (Unique lifting theorem). 
+	Let $\left(\widetilde \G, p \right) $ be a covering groupoid of $\G$
+	with $p\left(\widetilde{u} \right) = u$  where $\widetilde u \in \widetilde \G$ and $u \in \G$, and $f:  \F \to \G$ a groupoid
+	morphism with $f\left( v\right)= u$  such that$\F$ is connected. Then $f$ lifts
+	to a morphism $\widetilde f:  \F \to \widetilde\G$ with $\widetilde f\left(v \right)  =\widetilde u$ if and only if $f^*\F^v_v \subset p^*\widetilde\G^{\widetilde u}_{\widetilde u}$
+	and if this lifting exists, then it is unique.
+	%For every subgroup ? of the fundamental group  (G,G) of G at G, Higgins [2]and Brown (Theorem 9.4.3 [1])also prove the following covering-groupoid existence
+	%theorem:
+\end{theorem}
+%For every subgroup ? of the fundamental group  (G,G) of G at G, Higgins [2]
+%and Brown (Theorem 9.4.3 [1]) also prove the following covering-groupoid existence
+%theorem:
+%\begin{theorem}
+%Let $u \in \G^0$ with  the connected groupoid $\G$, and let $\Ga \subset \G^u_u$ 
+%then there is a covering groupoid
+%$\left(\widetilde \G, p\right)$ of $\G$ with $p\left(\widetilde \G \right)= \G$  where  $p^* = ?.
+%\end{theorem}
+%Theorem 2.4 (Existence). Let G be an object of the connected groupoid G, and let
+%be a subgroup of the fundamental group , then there is a covering groupoid
+%(  G, p) of G with p( G) = G where  G ? Ob(  G) and p? ( G,   G) = ?.
+
+There are following motivations this definition:
+\begin{itemize}
+	\item analog of unique lifting theorem,
+	\item  analog of fundamental group,
+	\item analog of Galois theory.
+\end{itemize} 
+
+
+\subsection{Groupoid $C^*$-algebras}
+\paragraph{}
+Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
+\be\label{groupoid_*_c_eqn}
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef \overline{f ( x^{ -1})}~\overline{\sigma\left(x, x^{-1} \right)}, 	
+\end{split}
+\ee	
+In particular is $\sigma$ is trivial then one has a $*$-algebra
+\be\label{groupoid_*_eqn}
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+\end{split}
+\ee	
+which is a specialization of \eqref{groupoid_*_c_eqn}
+
+\begin{empt} % ??? DEFINE NORM ???
+	Let $\G$ be a locally compact groupoid with left  Haar system $\left\{\la^u\right\}$ (cf. Definition \ref{groupoid_haar_defn}).  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+	\be\label{groupoid_*__defn}
+	\begin{split}
+		f * g \left(x\right)\bydef 
+		\int  f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
+		f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+	\end{split}
+	\ee
+	It is proven in \cite{renault:gropoid_ca} that the equations yield a $*$-algebra. 
+\end{empt}
+\begin{definition}\label{groupoid_representation_defn}\cite{renault:gropoid_ca}
+	%1.3. D e f i n i t i o n : 
+	A \textit{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
+	topology (cf. Definition \ref{top_ind_lim_defn}) and $B\left(\H \right)$  the weak operator topology (cf. Definition \ref{weak_topology_defn}), and is such that the linear  span of
+	$$
+	L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
+	$$
+	is dense in $\H$.
+\end{definition}
+\begin{lemma}\label{groupoid_mult_repr_lem}\cite{renault:gropoid_ca}
+	%1.13. Lemma : 
+	If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
+	$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
+	$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
+\end{lemma}
+
+
+\begin{definition}\label{foli_groupoid_red_defn}\cite{renault:gropoid_ca}
+	If $\Pi$ is the set of irreducible representations of $\C\left[\G \right]$ then the completion of $\C\left[\G \right]$ with respect to $C^*$-norm
+	\be\label{groupoid_red_norm}
+	\left\| a\right\|_r = \sup_{\pi\in \Pi}\left\|\pi\left( a\right)\right\| 
+	\ee
+	is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
+\end{definition}
+\begin{empt}\label{groupoid_reg_empt}\cite{renault:gropoid_ca}
+	Let $\sigma$ be a 2-cocycle and $\mu$ a quasi-invariant measure. Consider the measurable
+	field of Hilbert space $\left\{L^2\left(\G, \la^u \right) \right\}_{u \in \G^0}$ with square integrable sections
+	$\int^\oplus L^2\left(\G, \la^u \right) d\mu\left( u\right)= L^2\left(u \right)$. For $x\in \G$, define $L_u\left( x\right)$  mapping $L^2\left( \G, \la^{d\left( x\right) }\right)$  to
+	$L^2\left( \G, \la^{r\left( x\right) }\right)$ by $L_u\left( x\right)\xi\left( y\right) \bydef \sigma\left( x, x^{-1}\right) \xi\left( x^{-1}y\right)$. This yields a given by 
+	\be\label{groupoid_reg_eqn}
+	L_u :  C_c\left(\G, \sigma\right)\to B\left(L^2\left(u \right)  \right) 
+	\ee
+	$\sigma$-representation of $\G$,
+\end{empt}
+\begin{definition}\label{groupoid_reg_defn}\cite{renault:gropoid_ca} % 1.8
+	The above $\sigma$-representation of $\G$ will be called the $\sigma$-\textit{regular representation
+		of $\G$ on $\mu$}. Its integrated form is the \textit{regular representation on $\mu$ of
+		$C_c\left(\G, \sigma \right)$}. 
+\end{definition}
+\begin{proposition}\label{groupoid_reg_prop}\cite{renault:gropoid_ca}%1.11. Proposition :
+	$C_c\left(\G, \sigma \right)$ has a faithful family of bounded representations, consisting
+	of regular representations.
+\end{proposition}
+It results from Proposition \ref{groupoid_reg_prop} that the function defined by 
+\be\label{groupoid_red_norm_eqn}
+\begin{split}
+	\left\|\cdot  \right\|_r : C_c\left(\G, \sigma \right)\to \R,\\
+	f \mapsto \sup_{u \in \G^0} \left\|L_u\left( f\right)   \right\|,
+\end{split}
+\ee
+where $L_u$ ranges over all representations induced from the unit space, is
+a $C^*$ -norm on $ C_c\left(\G, \sigma \right)$ dominated by the $C^*$ -norm $\left\|f  \right\|$.
+\begin{definition}\label{groupoid_red_defn}	\cite{renault:gropoid_ca}%2.8. Definition : 
+	The \textit{reduced $C^*$ -algebra} $C^*_r\left(\G, \sigma \right)$ of $\G$ is the completion of
+	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
+\end{definition}
+\subsection{$C^*$-algebras of non-Hausdorff \'etale groupoids}
+\paragraph{} Here I follow to \cite{neshv:non_haudorff}. 
+\begin{definition}
+	Assume $\G$ is a locally compact, not necessarily Hausdorff, \'etale groupoid.
+	By this, we mean that $\G$ is a groupoid endowed with a locally compact topology
+	such that
+	\begin{itemize}
+		\item  the groupoid operations are continuous;
+		\item the unit space $\G^0$ is a locally compact Hausdorff space in the relative
+		topology;
+		\item the range map $r : \G \to \G^0$ and the source map $r : \G \to \G^0$ are local
+		homeomorphisms.
+	\end{itemize}
+\end{definition}
+
+
+For an open Hausdorff subset $\sV \subset \G$, consider the usual space $C_c\left( \sV\right)$  of continuous
+compactly supported functions on $\sV$ . Every such function can be extended
+by zero to $\G$; in general, this extension is not a continuous function on $\G$.
+This way, we can view  $C_c\left( \sV\right)$ as a subspace of the space of functions $\text{Func}\left(\G \right)$ 
+on $\G$. For arbitrary open subsets $\sU\subset G$ we denote by $C_c\left( \sU\right)$  the
+linear span of the subspaces $C_c\left( \sV\right) \subset \text{Func}\left(\G \right)$ for all open Hausdorff subsets
+$\sV \subset \sU$ Instead of all possible $\sV$ , it suffices to take a collection of open bisections
+covering $\sU$. 
+\subsection{$C^*$-algebras of groupoids}
 
 \subsubsection{Foliations and pseudogroups}
 %\paragraph{}
@@ -4290,7 +4517,7 @@ a\otimes \xi\left\rangle \right\langle \xi  =  	\begin{pmatrix}
 
 
 
-\subsubsection{Restriction of foliation}
+\subsubsection{Restriction of foliation !!! NAY BE DELETE!!!}
 
 
 \begin{lemma}\label{fol_res_lem}\cite{connes:ncg94}
@@ -4314,150 +4541,6 @@ but of course they fit together in a very complicated way which is related to th
 properties of the foliation.
 \end{remark}
 
-\section{Algebras of foliations}
-
-\subsection{Groupoid Preliminaries}
-I will assume that the reader is familiar with the basic definitions of Lie groupoids. For this background, see \cite{mac3,cds-w,m-m,lan2}. I use the term ``Lie groupoid'', but the terms ``smooth groupoid'' and ``differential groupoid'' are also used synonymously in the literature. All groupoids here are Lie groupoids.
-
-A Lie groupoid \emph{homomorphism} is a smooth map between Lie groupoids that is a functor if the groupoids are viewed as categories.
-
-Given a groupoid $\G$, I denote by $\G_k\subset\G^k$ the $k$-nerve; that is, the set of composable chains of $k$ elements. The $0$-nerve $\G_0$ is the base manifold of $\G$, which I usually call $M$. I use the following notations for the structure maps of a generic groupoid. The unit is $\unit: M\into \G$, but I usually treat $M$ as a submanifold, unless I need to refer to the inclusion explicitly. The source and target maps are $\s,\t:\G\onto M$. The multiplication map is $\m:\G_2\onto\G$, but for a composable pair $(\gamma,\eta)\in\G_2$ I denote multiplication by apposition or a dot as $\gamma\eta=\gamma\cdot\eta=\m(\gamma,\eta)$. The inverse map is $\inv:\G\to\G$, but for $\gamma\in\G$ I denote its inverse as $\gamma^{-1}=\inv(\gamma)$. I also denote the Cartesian projections to the first and second factors of $\G^2$ as $\pr_1,\pr_2:\G_2\subset \G^2\onto\G$.
-
-The nerve of a groupoid has a natural structure as a simplicial manifold. The maps $\s$, $\t$, $\m$, $\pr_1$, and $\pr_2$ are face maps.  This structure gives a simplicial coboundary operator $\partial^*$ on differential forms on the nerve, $\Omega^\bullet(\G_\bullet)$. In particular, for $\theta\in\Omega^\bullet(M)$,
-\[
-\partial^*\theta := \t^*\theta - \s^*\theta \in \Omega^\bullet(\G)
-\]
-and for $\omega\in\Omega^\bullet(\G)$,
-\begin{subequations}
-	\bean
-	\partial^*\omega := \pr_1^*\omega - \m^*\omega + \pr_2^*\omega \in\Omega^\bullet(\G_2) .
-	\eean
-	
-	\begin{definition}
-		A differential form $\omega\in\Omega^\bullet(\G)$ is \emph{multiplicative} if
-		\bean
-		\partial^*\omega = 0 .
-		\eean
-		A \emph{symplectic groupoid} is a groupoid $\Sigma$ with a multiplicative symplectic form $\omega\in\Omega^2(\Sigma)$. (I usually denote a symplectic groupoid as $\Sigma$.)
-	\end{definition}
-	\label{multiplicative.form}
-\end{subequations}
-
-It will also be useful to extend the simplicial coboundary to line bundles, in a multiplicative sense. If $\Lambda$ is a line bundle over $M$ and $\G$ is a groupoid over $M$, then
-\[
-\partial^* \Lambda := \t^*\Lambda \otimes \s^*\Lambda^*
-\]
-is a line bundle over $\G$. If $L$ is a line bundle over $\G$, then 
-\bean
-\label{L_coboundary}
-\partial^* L := \pr_1^* L \otimes \m^* L^* \otimes \pr_2^* L
-\eean
-is a line bundle over $\G_2$. This continues so that the coboundary of a line bundle over $\G_k$ is a line bundle over $\G_{k+1}$. The coboundary of a coboundary, $\partial^*\partial^* L$, is a canonically trivial line bundle. If $L$ is equipped with a connection, then $\partial^*L$ inherits a connection, and 
-\[
-\curv \partial^*L = \partial^*(\curv L) .
-\]
-A section of a line bundle $\sigma \in \Gamma(\G_k,L)$ has a multiplicative coboundary $\partial^*\sigma \in \Gamma(\G_{k+1},\partial^* L)$. 
-
-It is standard terminology to use $\s$ as a prefix to describe a property of the fibers of $\s:\G\to M$. Hence $\G$ is \emph{$\s$-connected} if the fibers are connected, \emph{$\s$-simply connected} if they are simply connected, and \emph{$\s$-locally trivial} if they form a bundle. These properties are exactly the same as ``$\t$-connected'' \emph{et cetera}, but it is just conventional to refer to $\s$.
-
-I also use a superscript to denote certain subbundles of the tangent bundle, namely $T^\s\G := \ker T\s \subset T\G$ and likewise $T^\t\G$ and $T^\m\G_2$.
-
-I denote an arbitrary Lie algebroid over $M$ as $A$. Every Lie algebroid anchor map is denoted as $\#:A\to TM$. This includes the anchor map given by a Poisson structure $\#:T^*M\to TM$ and even the map given by the symplectic structure on a symplectic groupoid, $\# : T^*\Sigma \to T\Sigma$. When there is a real danger of confusion, I will use a subscript to indicate which anchor map it is.
-
-
-
-%If $\Sigma$ is a symplectic groupoid with base manifold $M$, then $\omega$ induces a Poisson structure on $M$. For $f,g\in\C^\infty(M)$, the Poisson brackets are related by 
-%\[
-%\t^*\{f,g\} = \{\t^*f,\t^*g\}
-%\]
-%where $\t:\G\to M$ is the target map. Conversely, if $\G$ source connected, it is said to integrate the Poisson manifold $M$. 
-
-%\subsection{Standard Constructions}
-	\section{Dixmier Douady theory}
-	\paragraph*{} Here I follow to \cite{bryl:loop}
-	If $M$ is a manifold then $H^2\left(M, \Z \right)$ is the group of isomorphism  classes of line bundles over $M$
-	Given a paracompact space $M$, we wish to describe bundles over $M$ which 
-	represent classes in $H^3\left(M, \Z \right)$  Actually it is more convenient to work with 
-	the isomorphic group $H^3\left(M, \Z \left( 1\right) \right)$, where $\Z\left( 1\right)\bydef 2\pi\sqrt{-1} \cdot \Z$. First, let us 	use the exponential exact sequence of sheaves $0\to\Z\left(1 \right)\to \underline{\C}_M\xrightarrow{\exp}\underline{\C}^*_M\to 0$. Using the exact sequence of cohomology one can identify $H^3\left( M,\Z\left(1\right)\right) $  and  $H^2\left( M,\underline{\C}^*_M\right) $ 
-Here we  $\underline{\C}^*_M$ is used to denote the sheaf of continuous $\C^*$-valued functions on open sets of $M$. We will 
-	need degree 1 \v{C}ech cohomology with values in a sheaf of nonabelian groups
-	We wish to apply the Theorem \ref{nc_coh_exact_central_eqn}  to the exact sequence \eqref{nc_coh_exact_central_eqn} in the case 
-	of a suitable sheaf of algebras $R$. As we are interested in the cohomology 
-	group $H^2\left(M, \underline{\C}^*_M \right)$, we want the center of $R$ to be the sheaf $\underline{\C}^*_M$. Let us 
-	take the sheaf of algebras R to be the sheaf LM of continuous functions 
-	with values in some Banach algebra L, with center equal to C. The best 
-	choice will turn out to be the algebra L = ?(E) of bounded operators in a 
-	separable Hilbert space E; the norm is the sup-norm of an operator. It is 
-	well-known (and easy to see) that the center of L is equal to C. The quotient 
-	Lie group L*/C* identifies with the Lie group G = Aut(IC) of continuous 
-	algebra automorphisms of the Banach algebra K of compact operators of E. 
-	In other words, one has an exact sequence of Lie groups 
-	\be\label{ctr_seq_eqn}
-1 \hookto C^* \hookto L^* \cong Aut\left(E \right)\onto G = Aut\left(\K \right) \onto 1.  
-\ee
-			Since the mapping $Aut\left(E \right)\onto G$  is a principal $\C^*$-fibration, one has an exact 
-			sequence of sheaves of continuous functions with values in \eqref{ctr_seq_eqn}, to wit: 
-			D-7) 
-			The following result is the basic reason behind the choice of this Banach 
-			algebra L. 
-			\begin{proposition}\cite{bryl:loop}
-%4.1.5. Proposition. [D-D, Lemme 3] 
-The Lie group $L^*$ of invertible 
-continuous operators in $E$ is contractible. 
-			\end{proposition}
-	
-\begin{corollary}\cite{bryl:loop}
-%4.1.6. Corollary. [D-D, Lemme 4] 
-The sheaf l?M of continuous L*-valued 
-functions is soft. !!! SOFT !!!
-\end{corollary}
-\begin{proposition}\cite{bryl:loop}
-%4.1.7. Proposition. 
-Let B be a soft sheaf of groups on M. Then 
-$H^1\left( M, B\right) = \{1\}$.
-\end{proposition}
-\begin{proposition}\cite{bryl:loop}
-%4.1.8. Proposition. [D-D, Lemme 22] 
-Let 1 -> 4 -> B -> C -> 1 6e 
-a central exact sequence of sheaves of groups over M. If B is a soft sheaf, 
-then <5i : ffH-W.C) Ñ H2(M,A) is a bijection. 
-\end{proposition}
-\begin{theorem}\cite{bryl:loop}
-%4.1.9. Theorem. 
-( Dixmier-Douady) For the Lie group G of algebra 
-automorphisms of the Banach algebra K of compact operators on a separable 
-Hilbert space E, we have natural bijections
-\be 
-H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)\cong H^3\left(M,\Z\left(1 \right) \right).
-\ee
-\end{theorem}
-\begin{proposition}\cite{bryl:loop}
-%4.1.10. Proposition. 
-The operation $\otimes$ on $H^1\left(M, \underline{G}_M \right)$ gives   $H^1\left(M, \underline{G}_M \right)$
-structure of an Abelian group. The bijection $\dl_1: H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)$
-is a group isomorphism. 
-\end{proposition}
-\begin{lemma}\cite{bryl:loop}
-%Lemma. 
-$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles A-> M with fiber K. 
-\end{lemma}
-\begin{definition}\cite{bryl:loop}
-The {\it projective space 
-bundle} is a trivial fiber bundle $p : P -* M$ with 
-fiber the projective space $\mathbb{P} \left( E\right) \bydef  (E\setminus \{0\})/\C^*$ of lines in $E$.
-\end{definition}
-\begin{lemma}\cite{bryl:loop}
-%4.1.12. Lemma. 
-The group of projective automorphisms of  $\mathbb{P} \left( E\right)$, equipped 
-with the topology of uniform convergence on bounded subsets of P(.E), is 
-homeomorphic to G. 
-\end{lemma}
-\begin{proposition}\cite{bryl:loop}
-%4.1.13. Proposition. 
-There is a natural bijection between the set of iso- 
-morphism classes of separable projective space bundles over M and the set 
-$H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
-\end{proposition}
 \end{appendices}
 
 \section*{Acknowledgment}
