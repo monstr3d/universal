@@ -2603,6 +2603,11 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 	and place the order topology on $I^2_o$. It is proven in  \cite{counter_topology,munkres:topology} $I^2_o$ is connected but it is not path connected.
 	The space $I^2_o$ is said to be the \textit{the ordered square} (cf. \cite{munkres:topology}).
 	\end{empt} 
+	
+	\begin{definition}\label{local_homeo_defn}\cite{bryl:loop}
+%5.1.1. Definition. 
+A mapping $f: \sX \to \sY$ is said to be a {\it local homeomorphism} if every $y \in \sY$ has an open neighborhood $\sU$ such that $f\left( \sU\right)$  is open. 
+	\end{definition}
 
 	\section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
@@ -3063,6 +3068,12 @@ identification $a \sim b$ in the spectrum of $B$.
 	\ee
 	by sending $s_x\in \mathscr F_x$ to $x$. Consider the initial with respect to the map $	p_{\mathrm{Sp\acute{e}}\left(\mathscr F \right)}$ topology (cf. Definition \ref{top_init_defn} and denote by $\mathrm{Sp\acute{e}}\left(\mathscr F \right)_{\mathfrak{Etale}}$ the corresponding topological space.
 \end{exercise}
+\begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
+	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms
+	$\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. 
+	It is a sheaf  (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
+\end{definition}
+
 
 %\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
 %Théor?me 1.3.1.—? 
@@ -3560,6 +3571,7 @@ Here $H^1\left(M, C \right) \xrightarrow{\dl_1}  H^2\left(M, A \right)$ is defin
 Note that since $A$ is sheaf of Abelian groups, $ H^2\left(M, A \right)$ is defined.
 \subsection{Products}
 
+\paragraph*{}
 	
 \begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
 	\v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
@@ -3636,6 +3648,79 @@ Note that since $A$ is sheaf of Abelian groups, $ H^2\left(M, A \right)$ is defi
 \begin{exercise}\label{ring_homo_exer}
 	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 \end{exercise}
+\subsection{Descent of sheaves}
+\paragraph*{} Here I follow to \cite{bryl:loop}. There is an alternative description of sheaves based on the notion of local homeomorphisms (cf. Definition \ref{local_homeo_defn}). Instead of an 
+open subset of $\sX$, we will more generally consider a continuous mapping 
+$f: \sX \to \sY$ of some space $\sX$ into $\sY$ (in the terminology of Grothendieck, this 
+is called a "space over $\sX$"). If $\mathscr A$ is sheaf over $\sX$ them there is an inverse image sheaf $f^{-1}\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) over $\sY$. Then we can define a 
+set $\mathscr A\left(\sY \to \sX \right)$  (or simply $A\left( \sY\right)$ ) to be the set $\Ga\left(\sY, f^{-1} \mathscr A\right)$  of global sections 
+of the pull-back sheaf over $\sY$. Now let $g : \sZ \to \sX$ be another continuous 
+mapping. Assume there exists a, continuous mapping $h : \sZ \to \sY$ such that 
+$g = f\circ h$. Then we have a pull-back map $h^*:  \mathscr A\left(\sY \xrightarrow{f} \sX \right)\to \mathscr A\left(\sX \xrightarrow{g} \sX \right)$.
+
+Note that, given an open covering $\left\{\sU_j\right\}$ of the open set $\sV \subset \sX$ as above, we have a continuous mapping $f: \sY \bydef \coprod_j \to \sX$, where the restriction of $f$ to each $\sU_j$ is the inclusion map, yielding $\mathscr A\left(\sY \xrightarrow{f} \sX \right)\bydef \prod_{j \in J} \mathscr A\left( \sU_j\right)$. The glueing condition involves all the intersections $\sU{jk}$, which are all open subsets of the space $\sY \times_\sX \sY$, the fiber product of $f: \sY \to \sX$ with itself. The 
+fiber product is the set of $\left(y_1, y_2 \right)\in \sY \times \sY$  such that $f\left( y_1\right)=f\left( y_2\right)$ There 
+are two projection maps $p_1, p_2: \sY \times_\sX  \sY$ such that $p_j\left(y_1, y_2 \right)= y_j$ . However there is only one mapping $\sY \times_\sX \times \sY\to \sX$, given by $g\left(y1, y2 \right) = f\left(y_1 \right)= f\left(y_2 \right)$. When $\sY = \coprod_j \sU_j$ is the disjoint union of 
+the $\sU_j$ and $f : \sY \to \sX$ is the (local) inclusion, then $\sY \times_\sX  \sY$ is the disjoint union of the $\sU_j \times_\sX  \sU_k=\sU_{jk}$. The restriction of $p_1$ to $\sU_{jk}$ is the inclusion 
+of $\sU{jk}$ into the component $\sU_j$ of $\sY$, and the restriction of $p_2$ to $\sU_{jk}$ is the inclusion of $\sU{jk}$ into $\sU_k$. 
+
+The glueing property therefore means that the following sequence
+\be\label{f_ex_eqn} 
+F\left(\sV \right)\xrightarrow{f^{-1}} F \left( \sY\right) \substack{ \xrightarrow{p_1^{-1}}\\\xrightarrow[p_2^{-1}]{}} F\left(\sY\times_\sX \sY \right) 
+\ee 
+is an exact sequence of sets, whenever $\sV$ is an open subset of $\sX$, and $\sY = \coprod_j \sU_j$, for $\left\{\sU_j\right\}$ an open covering of $\sV$. What this means is that $f^{-1}$ induces a bijection between $F\left(\sV \right)$ and the kernel $\ker\left( p_1, p_2\right)$  of the pair $\left( p_1, p_2\right)$, 
+i.e., the set of elements $s\in F\left(\sY \right)$  such that $p_1^{-1}\left( s\right) = p_2^{-1}\left( s\right)$  Of course $f^{-1}$ induces a mapping from $f\left(\sY \right)$  to this kernel; surjectivity of the map implies 	the existence of a "glued together" section, and injectivity means that the glued together section is unique. Such a formulation of the glueing property 	is more elegant and compact, and it can be generalized to mappings other 	than the inclusion of a disjoint union of open sets. 
+	
+Note that the composition of two local homeomorphisms (cf. Definition \ref{local_homeo_defn}) is again one, that the inclusion of a disjoint union of open sets is a local homeomorphism, and that a covering map is also a local homeomorphism (in fact, a very special one). If $f: \sY \to \sX$ is a local homeomorphism, and $g : \sZ \to \sX$ is any continuous map, the map $\sZ \times_\sX \to \sZ$ is again a local homeomorphism. Given a local homeomorphism $f: \sY \to \sX$, with $\sX$ is a smooth manifold, $\sY$ acquires the structure of a smooth manifold, with respect to which $f$ is a local diffeomorphism. 
+\begin{proposition}\cite{bryl:loop}
+%5.1.2. Proposition. 
+If $\mathscr A$ is a sheaf on $\sX$, for every open set $\sV$ of $\sV$ and 
+any surjective local homeomorphism $f: \sY \to \sV$, the sequence of sets \eqref{f_ex_eqn} 
+is exact. 
+\end{proposition}
+Thus we get a new definition of a sheaf of sets $\mathscr A$ on $\sX$. In the 
+new definition, such a sheaf $\mathscr A$ will associate to any local homeomorphism 
+$f: \sY \to \sX$  a set $\mathscr A\left( \sY \to \sX\right) $, and to a diagram $\sZ \xrightarrow{g}\sY \xrightarrow{f}\sX$ of local homeomorphisms, a pull-back map $g^{-1} : \mathscr A\left(\sY \to \sX \right)$. The pull-back map should be compatible with the composition of such diagrams, so that if we have local homeomorphisms $\mathcal W \xrightarrow[]{h}\sZ \xrightarrow[]{g}\sY\xrightarrow[]{p}\sX$, the 	pull-back map $\left( gh\right)^{-1}: \mathscr A\left(\sY \xrightarrow{f} \sX \right)\to \mathscr A\left(\mathcal W \xrightarrow{fgh} \sX \right)$ is the composite of $g^{-1} : \mathscr A\left(\sY \xrightarrow{f} \sX \right)$ and of $h^{-1}:\mathscr A\left(\sY \xrightarrow{f} \sX \right)$. 					Then $\mathscr A$ is a sheaf if and only if, for any open set $\sV$ of $\sX$ and every surjective 	local homeomorphism $f: \sY \to \sV$, the sequence of sets \eqref{f_ex_eqn} is exact. 
+
+Note that, given a space $\sX$, we have a category $\mathscr C_\sX$, whose objects are the local homeomorphisms $\sX$, and such that a morphism from  $\sZ \to \sX$ 
+to $\sY \to \sX$ is a commutative diagram 
+\be\label{f_sheaf_eqn}
+		\begin{tikzcd}
+\sZ	 \arrow[rr, "g"]\arrow[rd, "h"]  & ~ & \sY \arrow[ld, , "f"]\\
+	& \sX &
+\end{tikzcd}
+\ee
+where $g$ is a local homeomorphism. A sheaf of sets $\mathscr F$ on $\sX$ gives rise to a contravariant functor from $\mathscr C_\sX$ to the category $Sets$ of sets. The category $\mathscr C_\sX$ % gives a nice interpretation of the notion of a refinement $\left\{\sV_j\right\}_{j \in J}$ of an open covering $\left\{\sU_\iota right\}_{\iota \in I}$ of $\sX$. It means that there 
+	exists a mapping $f " J \to I$ such that $\sV_j \subset \sU_{f\left( j\right) }$  for all $j \in J$. Observe that such a mapping gives rise to a local homeomorphism $h : \coprod_{j\in J}\sV_j\to  \coprod_{\iota\in I}\sU_\iota$.
+	which makes the following diagram commute 
+\be\label{f_sheaf_ij_eqn}
+\begin{tikzcd}
+	\coprod_{j\in J}\sV_j	 \arrow[rr, "g"]\arrow[rd, "h"]  & ~ & 	\coprod_{\iota\in I}\sU_\iota \arrow[ld, , "f"]\\
+	& \sX &
+\end{tikzcd}
+\ee	
+
+We now come to the glueing property. If $f: \sY \to \sX$ is a surjective local 
+	homeomorphism, one can obtain a section of a sheaf $\mathscr A$ over $\sX$ from a section $s$ of $\mathscr A$ over $f: \sY \to \sX$ satisfying the glueing condition $p_1^{-1}\left(s \right) = p_2^{-1}\left(s \right)$ in 
+	$\mathscr A\left(\sY \times_\sX \sY \right)$. We apply this to morphisms of sheaves. Given 	sheaves $\mathscr A$ and $\mathscr B$ over $\sX$, a morphism of sheaves $\phi: \mathscr A\to \mathscr B$ consists of 	mappings $\mathscr A\left(\sU \right)\to \mathscr B\left(\sU \right) $  for every open set $\sU$ such that, for $\sV \subset \sU$, we have a commutative diagram 
+
+\bean
+\begin{tikzcd}
+	\mathscr A\left(\sU \right)\arrow[d, "\rho_{\sV, \sU}"] \arrow[r, "\phi_\sU"]& \mathscr B\left(\sU \right)\arrow[d, "\rho_{\sV, \sU}"]\\
+	\mathscr A\left(\sV \right) \arrow[r, "\phi_\sU"]& \mathscr B\left(\sV \right)
+\end{tikzcd}
+\eean
+Similarly we have the notion of morphism of sheaves of groups. If $\mathscr A$ and 
+$\mathscr A$ are two sheaves of groups over $\sX$, the set of morphisms from $\mathscr A$ to $\mathscr B$ is denoted by $\Hom_\sX(A, B)$. For every open set $\sU$ of $\sX$, there is a natural restriction map $\Hom_\sX (A,B) \to \Hom_\sU\left(A|_\sU, B_\sU \right)$. Thus we have a presheaf $\sU \mapsto Hom_\sU\left(A|_\sU, B_\sU \right)$ 
+, which is denoted by $\mathcal{Hom}\left(\mathscr A. \mathscr B \right)$. It is easy to see that this is a sheaf on $\sX$. Given a local homeomorphism $f: \sY \to \sX$, the value of the sheaf $\mathcal{Hom}\left(\mathscr A, \mathscr B \right)$ on $f$ is $\mathcal{Hom}_\sY\left(f^{-1}\mathscr A, f^{-1}\mathscr B \right)$. The fact that 	Hom(A, B) is a sheaf means that, given an open set $\sV$ and a surjective 
+	local homeomorphism $f: \sY \to \sV$, a morphism $\phi: \mathscr A|_\sV \to B|_{\sV}$ of sheaves of 	groups over $\sX$ is the same as a morphism $\psi : f^{-1} \mathscr A \to f^{-1} \mathscr B$ of the pull-back 	sheaves on $\sY$ such that we have $p_1^{-1}\left( \psi\right) = p_2^{-1}\left( \psi\right)$ as morphisms of sheaves on $\sY \times_\sX \sY$.
+	\begin{remark}\label{sheaf_desc_rem}\cite{bryl:loop}
+The above situation  is usually phrased by saying that morphisms of sheaves 
+satisfy {\it descent} with respect to local homeomorphisms. 
+	\end{remark}
+
+
+
 
 \section{Dixmier Douady theory}
 	\paragraph*{} Here I follow to \cite{bryl:loop}
@@ -3723,6 +3808,7 @@ There is a natural bijection between the set of iso-
 morphism classes of separable projective space bundles over M and the set 
 $H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
 \end{proposition}
+
 \section{$C^*$-algebras of groupoids and foliations}
 		\subsection{Groupoids}
 \paragraph*{}
