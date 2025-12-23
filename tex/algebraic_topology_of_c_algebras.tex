@@ -657,7 +657,7 @@
 		\item for any commutative $C^*$-algebra $A = C_0\left(\sX \right)$ the invariants of $A$ coincide with the  $\sX$ ones,
 		\item the theory is not trivial even for algebras having bad spectrum, e.g. containing  one point only.
 	\end{itemize}
-	Instead of $\sX$ we consider the space $\sY$ which should not be Hausdorff. However a noncommutative $C^*$-algebra $A$ defines $\sY$ and vice-versa.
+	Instead of $\sX$ we consider the space $\sY$ which should not be Hausdorff. However a noncommutative $C^*$-algebra $A$ defines $\sY$ and sometimes vice-versa.
 	
 \end{abstract}
 \section{General Theory}
@@ -669,7 +669,7 @@ If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-se
 \begin{split}
 L' \wedge L''\bydef L' \cap L'',\\
 L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
-0 \bydef \{0\}\subset A
+0 \bydef \{0\}\subset A.
 \end{split}
 \ee
 A filter (resp, an ultrafilter) of $A$-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).
@@ -684,6 +684,7 @@ We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\m
 %	L \mapsto\sX \setminus \left\{x \in \sX | \forall a \in L \quad a(x) = 0\right\}.
 \end{split}
 \ee	
+where  $\mathfrak{Lattice}\left(\sX \right)$ is the lattice of open subsets of $\sX$.
 \end{lemma}
 \begin{proof}
 Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
@@ -699,11 +700,11 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	
 \end{empt}
 \begin{definition}\label{gelfand_space_defn}
-	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is a \textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
+	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
 	$$
 	Aa \in \xi.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} (cf. Definition \ref{lattice_a_defn}) supplied with the described in \ref{topology_empt} topology.
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
 \begin{remark}
 	The given by  	\eqref{topology_eqn} sets yield a subbase (cf. Definition \ref{top_subbase_defn})  of the topology of the Gelfand space  $\mathfrak{Gelfand}\left(A \right)$. The base (cf. Definition \ref{top_base_defn}) of $\mathfrak{Gelfand}\left(A \right)$ is given by the sets
@@ -715,13 +716,17 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 
 
 \begin{definition}\label{open_ideal_defn}
-	If both \bean
+	If $L_1,..., L_n\subset A$ are closed left ideals and
+	\bean
 	\sU \bydef \mathfrak{Gelfand}\left( A\right) \bigcap \left(  \bigcap_{j = 1}^n \mathfrak{Ultrafilters}\left(A \right)_{L_j}\right) \subset \mathfrak{Gelfand}\left(A\right)
-	\eean is an open subsets then the closure of the union
+	\eean 
+	is an element of basis (cf. Definition \ref{top_base_defn}) then the closure of the union
 	\bean
 	\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\}
 		\eean 
-		is the  $\sU$-\textit{ideal}.
+		is the  $\sU$-\textit{space}
+		If $\sU \bydef \bigcup_\iota \sU_\iota$ is any union of belonging to a basis open subsets $\sU_\iota$ then the $\sU$-\textit{space} is the closure of $L_{\sU_\iota}$ where  $L_{\sU_\iota}$ is the $\sU_\iota$
+		
 \end{definition}
 
 \begin{remark}\label{topology_base_herd_rem}
@@ -866,51 +871,51 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 
 %\end{definition}
 \subsection{Morphisms}
-\begin{empt}
+\paragraph*{}
 If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphism 	
 \be\label{phi_r_eqn}
-\varphi_R: A \hookto M\left(\widetilde A\right)	
+\varphi_M: A \hookto M\left(\widetilde A\right)	
 \ee
 of $\C$-algebras such that
 \be\label{closed_p_eqn}
-\widetilde{ A }\quad \text{is the closure of} \quad \widetilde A \varphi_R\left( A\right).
+\widetilde{ A }\quad \text{is the closure of} \quad \widetilde A \varphi_M\left( A\right).
 \ee
 yields an injective homomorphism  
 \be\label{lat_mor_eqn}
 \begin{split}
-	\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi_R \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
-	L \mapsto \text{ the closure of } \widetilde A \varphi_R\left(L \right).
+	\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi_M \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
+	L \mapsto \text{ the closure of } \widetilde A \varphi_M\left(L \right).
 	\end{split}
 	\ee
-	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi_R \right)$ yields a mapping of filters
+	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi_M \right)$ yields a mapping of filters
 \be\label{fil_mor_eqn}
 \begin{split}
-	\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi_R \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
-	\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi_R \right)\left( L_\la\right) \right\}_{\la \in \La}
+	\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi_M \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
+	\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi_M \right)\left( L_\la\right) \right\}_{\la \in \La}
 \end{split}
 \ee
 If $\xi \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
 \bean
-\mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi_R \right)\left( \xi\right)\subset \widetilde \xi \right\}
+\mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi_M \right)\left( \xi\right)\subset \widetilde \xi \right\}
 \eean
 For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $L' \in \xi'$ and $L'' \in \xi''$ such that $L'\cap L'' = \{0\}$. It turns out that
 \bean
 \xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)\quad \xi' \neq \xi'' \quad \Rightarrow\\
-\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi ''\right)= \emptyset
+\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi ''\right)= \emptyset
 \eean 
 Using the above map one can construct the natural map
 \be\label{ultra_mor_eqn}
 \begin{split}
-	\mathfrak{Ultrafilters}\left(\varphi_R \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_R \right)^{-1}\left(\xi \right),\\
-	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_R \right)}\mathfrak{Ultrafilters} \left( A\right).
+	\mathfrak{Ultrafilters}\left(\varphi_M \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
+	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_M \right)}\mathfrak{Ultrafilters} \left( A\right).
 \end{split}
 \ee
-\end{empt}
+
 
 \begin{defn}\label{good_defn}
-The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_R \right)$ yields the natural   map
+The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_M \right)$ yields the natural   map
 	\be\label{gelfand_map_eqn}
-\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)}\mathfrak{Gelfand}\left(A \right).
+\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
 \end{defn}
 \begin{lemma}\label{good_lem}
@@ -920,14 +925,14 @@ If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_
 	From the equation \eqref{topology_eqn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$.
 \end{proof}.
 \begin{empt}\label{bicommutant_empt}
-	Let $\varphi_R: A \hookto M\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
+	Let $\varphi_M: A \hookto M\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
   $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
   \be\label{b_neq_eqn}
   \forall a_1, ..., a_n \in \xi'' \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a,\right\| > \eps.
   \ee
- where $\xi''$ is the bicommutant of  $\xi = \mathfrak{Gelfand}\left(\varphi_R \right) \left(\widetilde \xi \right)$. From
+ where $\xi''$ is the bicommutant of  $\xi = \mathfrak{Gelfand}\left(\varphi_M \right) \left(\widetilde \xi \right)$. From
  \bean
- \forall L \in \xi \quad \text{the closure of } \widetilde A \varphi_R\left( L\right) \in \widetilde \xi.
+ \forall L \in \xi \quad \text{the closure of } \widetilde A \varphi_M\left( L\right) \in \widetilde \xi.
  \eean 
 it follows that 
  \bean
@@ -948,13 +953,13 @@ it follows that
  Above equation contradicts with \eqref{b_neq_eqn} one.
 \end{empt}
 \begin{lemma}\label{bicommutant_lem}
-Any good morphism $\varphi_R: A \hookto M\left(\widetilde A\right)$ yields a continuous map
+Any good morphism $\varphi_M: A \hookto M\left(\widetilde A\right)$ yields a continuous map
 \be\label{bicommutant_eqn} 
-\mathfrak{Gelfand}\left(\widetilde A \right)''\xrightarrow{\mathfrak{Gelfand}\left(\varphi_R \right)''}\mathfrak{Gelfand}\left(A \right)''.
+\mathfrak{Gelfand}\left(\widetilde A \right)''\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)''}\mathfrak{Gelfand}\left(A \right)''.
 \ee
 \end{lemma}
 \begin{proof}
-The existence of the map follows from \ref{bicommutant_empt}. The continuity can be deduced from the continuity of $\mathfrak{Gelfand}\left(\varphi_R \right)$.
+The existence of the map follows from \ref{bicommutant_empt}. The continuity can be deduced from the continuity of $\mathfrak{Gelfand}\left(\varphi_M \right)$.
 \end{proof}
 \subsection{Coverings and fundamental group}
 
@@ -990,8 +995,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 \end{definition}
 
 \begin{definition}\label{cov_unital_defn}
-	
-	A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn}) with unital $A$ is a {\it unital noncommutative covering} if for any $x \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in x$
+	A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn}) with unital $A$ is a {\it unital noncommutative covering} if for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in \xi$
 \end{definition}
 
 \begin{definition}\label{cov_defn}
@@ -1807,7 +1811,7 @@ Any product $\sU \times \mathcal W\subset \mathbb{P}\left( \E\right)$ is open in
 Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism (cf. \cite{rae:ctr_morita}). So $A$ defines the bicommutant  $\mathfrak{Gelfand}\left(A \right)''$  of the Gelfand space (cf. Definition \ref{bicommutant_defn}) and vice-versa.
 \end{remark}
 
-\subsection{Gelfand space of $C^*$-algebras of groupoids}
+\textit{title}\subsection{Gelfand space of $C^*$-algebras of groupoids}
 
 \subsubsection{Algebraic construction}
 \paragraph*{}
@@ -3723,6 +3727,7 @@ satisfy {\it descent} with respect to local homeomorphisms.
 
 
 \section{Dixmier Douady theory}
+\subsection{Dixmier Douady theory of spaces}
 	\paragraph*{} Here I follow to \cite{bryl:loop}
 	If $M$ is a manifold then $H^2\left(M, \Z \right)$ is the group of isomorphism  classes of line bundles over $M$
 	Given a paracompact space $M$, we wish to describe bundles over $M$ which 
