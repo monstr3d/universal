@@ -1040,8 +1040,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	%	C_0\left(\sY \right)\times  \left(A\otimes \K \right)\to A\otimes \K
 	%	% \left(\K\otimes A\right)\times C_0\left(\sY \right)\to A\otimes \K 
 	%	\eean 
-	%	Using it one can one can construct an  injective $*$-homomorphism  !!!
-	%	$$
+	%	Using it one can one can construct an  injective $*$-homomorphism  	%	$$
 	%	\left(C_0\left(\sY \right) \otimes \K \right) \to A
 	%	$$
 	%	This homomorphism yields homomorphisms of $K$-theory
@@ -1255,10 +1254,11 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 		from the Remark \ref{blow_rem} and the Proposition \ref{spectral_sequence_prop} it follows that
 		\begin{enumerate}	
 			\item [(i)] 
-			if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\mathfrak{Gelfand}\left(A \right) , \phi_A^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+			if $\mathscr A$ is sheaf of  Abelian groups in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\mathfrak{Gelfand}\left(A \right) , \phi_A^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
 			\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathfrak{Gelfand}\left( A\right) , R^q\left(\phi_A \right) _*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
 		\end{enumerate}
 	\end{empt}
+	!!!
 	\begin{empt}\label{blowing_empt}
 		Let $A$ be a $C^*$-algebra with the spectrum $\sY$ such that
 		\be\label{norm_eqn}
@@ -1545,7 +1545,7 @@ all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is t
 	\be
 	\forall p > 0 \quad H^p\left(\sX, F_\sX  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F_\sY  \right) = 0
 	\ee
-	where both $F_\sX$ and $F_\sY$ are locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}). 
+	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 \end{lemma}
 \begin{proof}
 	Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
@@ -1581,7 +1581,7 @@ For any Abelian group $F$ the map $\phi_{\H} : \mathbb{P}\left(\H \right)_{\math
 $$
 H^*\left( \mathfrak{Gelfand}\left(\K\left(\H \right), F\right)  \right)\cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
 $$
-!!!! notatiio!!!where $\overline F$ is the $F$-locally constant sheaf (cf. Definition \ref{constant_presheaf_defn}).
+	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 
 \end{theorem}
 \begin{proof}!!!!
@@ -2411,21 +2411,7 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 	
 	
 	There are two equivalent definitions of $C_0\left(\mathcal{X}\right)$ and both of them are used in this book.
-	\begin{defn}\label{c_c_closure_defn}\cite{murphy}
-		An algebra $C_0\left(\mathcal{X}\right)$ is the $C^*$-norm closure of the algebra $C_c\left(\mathcal{X}\right)$ of compactly supported continuous complex-valued functions.
-	\end{defn}
-	\begin{defn}
-		\label{c_c_compact_defn}\cite{blackadar:ko,murphy}
-		A $C^*$-algebra $C_0\left(\mathcal{X}\right)$ is given by the following equation
-		\bean
-		C_0\left(\mathcal{X}\right) \ \left\{\varphi \in C_b\left(\mathcal{X}\right) \ | \ \forall \varepsilon > 0 \ \ \exists K \subset \mathcal{X} \ ( K \text{ is compact}) \ \& \ \forall x \in \mathcal X \setminus K \ \left|\varphi\left(x\right)\right| < \varepsilon  \right\},
-		\eean
-		i.e.
-		\begin{equation*}
-			\left\|\varphi|_{\mathcal X \setminus K}\right\| < \varepsilon.
-		\end{equation*}
-	\end{defn}
-	\begin{definition}\label{top_ind_lim_defn}\cite{candel:foliII,MW08}
+\begin{definition}\label{top_ind_lim_defn}\cite{candel:foliII,MW08}
 		
 		Let $\sX$ be a locally compact Hausdorff space, and let $C_c\left(\sX\right)$ denote the	space of continuous, compactly supported functions on $\sX$. The natural	topology on $C_c\left(\sX\right)$ is the \textit{inductive limit topology}, defined as follows. A net	$\left\{f_\a\right\}$ in $C_c\left(\sX\right)$ converges to $f$ if there is a compact set $K\subset\sX$ containing	the supports of all $f_\a$ and $f$, and such that $f_\a$ converges uniformly to $f$ on$K$.
 	\end{definition}
@@ -2612,6 +2598,453 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 %5.1.1. Definition. 
 A mapping $f: \sX \to \sY$ is said to be a {\it local homeomorphism} if every $y \in \sY$ has an open neighborhood $\sU$ such that $f\left( \sU\right)$  is open. 
 	\end{definition}
+\subsection{Fibre bundles}
+	\begin{definition}\label{top_proncipal_bu_defn}\cite{bryl:loop}
+	%11.4
+Let $G$ be a topological group. A (locally trivial) principal $G$-bundle is a fibre bundle $\xi \bydef \left( B, p, E, G \right)$ with a right $G$-action  $E \times G \to E$ of $G$ on $E$ such that there an open covering $\left\{\sU_\la\right\}_{\la\in \La}$ !!!!
+	\end{definition}
+	
+\begin{empt}\label{associated_fibte_dedn}\cite{switzer:at}
+	11.21 !!!
+	\end{empt}
+	
+	\subsection{Algebraic topology}
+	\subsubsection{$H$-groups}
+	\paragraph{}
+	Here I follow to \cite{spanier:at}. If both $\sX$ and $\sY$ are topological spaces then we denote by $\left[\sX; \sY\right]$ the set of homotopy classes of continuous maps from $\sX$ to $\sY$. One method of obtaining a group structure on  $\left[\sX; \sY\right]$ is to start with a 
+	group structure on $\sY$. Thus, let $\sY$ be a topological group with identity element as base point. There is a law of composition in the set of all base-point-preserving continuous maps from $\sX$ to $\sY$ defined by point-wise multiplication 
+	of functions. That is, if $g_1, g_2: \sX \to\sY$, then $g_1g_2: \sX \to\sY$ is defined by $g_1g_2\left(x\right)\bydef g_1\left(x\right)g_2\left(x\right)$, where the right-hand side is the group product in $\sY$. With 
+	this law of composition, the set of base-point-preserving continuous maps 
+	from $\sX$ to $\sY$ is a group (which is Abelian if $\sY$ is Abelian). The law of  
+	composition carries over to give an operation on homotopy classes such that $\left[g_1\right]\left[g_2\right]\bydef \left[g_1g_2\right]$, and we have the following theorem. 
+	\begin{theorem}\label{top_hgr_thm}\cite{spanier:at}
+		If $\sY$ is a topological group, there is a contravariant functor from 
+		the homotopy category of  pointed  topological spaces to the category of groups 
+		and homomorphisms. 
+	\end{theorem}
+	\begin{remark}\label{top_hgr_rem}
+		For any topological group $\sY$ we denote by $\left[~\cdot~;\sY\right]$ the given by the Theorem \ref{top_hgr_thm} functor.
+	\end{remark}
+	
+	\subsubsection{Loop space and suspension in topology}
+	
+	%	\begin{defn}\label{cov_proj_cov_grp}\cite{spanier:at}
+		%		Let $p: \tilde{X} \to X$ covering projection.  It is clear that there is a {\it group of self-equivalences} of $p$ (a self-equivalence is a homeomorphism $f:\tilde{X}\to\tilde{X}$ such that $p \circ f = p$). We denote this group by $G(\tilde{X}| X)$. This group is also called the {\it group of covering transformations} of $p$.
+		%	\end{defn}
+	
+	
+	\begin{empt}\label{top_comp_open_empt} {\it Function spaces.}\cite{switzer:at} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a sub-base for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset \sU\}$, $K\subset \sU$ compact, $\sU \subset \sX$ open. 
+	\end{empt}
+	\begin{empt}\label{base_points}\cite{switzer:at} {\it Base points.} \cite{switzer:at} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with a distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it  pointed space} (one also speaks of  pointed sets). When we are concerned with  pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a  pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are  pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a  pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
+	\end{empt}
+	\begin{empt}\label{smash_pointed_sp}
+		If both $(\sX, x_0)$, $\left( \sY, y_0\right) $ are  pointed spaces then we define the {\it smash product} $(\sX \wedge \sY, *)$ to be the quotient 
+		\begin{equation}\nonumber
+			\sX \wedge \sY = \sX \times \sY / \sX \vee \sY
+		\end{equation}
+		with the point $* = p(\sX\vee \sY)$ as base point. Here $p: \sX \times \sY \to X \vee Y$ is the projection. For any $(x,y)\in \sX \times \sY$ we denote $p(x,y)\in \sX \wedge \sY$ by $[x,y]$.
+	\end{empt}
+	\begin{thm}\cite{switzer:at}
+		If $(\sX, x_0), (\sY, y_0), (\sZ, z_0)$ are  pointed spaces, $\sX, \sZ$ Hausdorff and $\sZ$ locally compact, then there is a natural equivalence
+		\begin{equation}
+			A: [\sZ \wedge \sX, *; \sY, y_0] \to [\sX, x_0, (\sY, y_0)^{(\sZ, z_0)}, f_0]
+		\end{equation}
+		defined by $A[f]=[\hat f]$, where if $f: \sZ \wedge \sX \to \sY$ is a map then $\hat f: \sZ \wedge \sX \to \sY$ is a map given by $(\hat f(x)(z)=f[z,x]$.
+	\end{thm}
+	\begin{empt}\label{topological_loop_spaces} \cite{switzer:at} If $(\sY, y_0)$ is a  pointed space, we define the {\it loop space} $(\Omega \sY, \omega_0)$ of $\sY$ to be function space 
+		\begin{equation}\nonumber
+			(\Omega \sY, \omega_0) = (\sY, y_0)^{(S^1, s_0)}
+		\end{equation}
+		with constant loop $\omega_0$ $(\omega_0(s))= y_0, \ \forall s \in S^1$ as base point.
+	\end{empt}
+	\begin{empt}\label{topological_suspension}\cite{switzer:at}
+		If $(\sX, x_0)$ we define {\it suspension} $(\Sigma \sX, *)$ to be the smash product $(S^1 \wedge \sX, *)$ of $\sX$ with the 1-sphere.
+	\end{empt}
+	\begin{cor}\label{loop_susp_adj_cor}\cite{switzer:at}		If both $(\sX, x_0), (\sY, y_0)$ are  pointed spaces and $\sX$ is Hausdorff, then there is a natural equivalence
+		\begin{equation}\nonumber
+			A:[\Sigma \sX,*;\sY,y_0]\cong [\sX, x_0, \Omega \sY, y_0].
+		\end{equation}
+	\end{cor}
+	\begin{prop}\label{loop_susp_adj_prop}\cite{switzer:at}
+		The adjoint correspondence
+		\begin{equation}\nonumber
+			A:[\Sigma \sX,*;\sY, y_0]\cong [\sX,x_0, \Omega \sY, \omega_0]
+		\end{equation}
+		is an isomorphism of groups.
+	\end{prop}
+	\begin{remark}\cite{switzer:at}
+		Both sets $[\Sigma \sX,*;\sY, y_0]$ and $[\sX,x_0, \Omega \sY, \omega_0]$ posses the natural group structure.
+	\end{remark}
+	
+	\begin{definition}\label{top_hn_bas_defn}\cite{switzer:at}
+		% 2.60 page 34
+		For $n\ge1$  we define  $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$ of $\left(\sX, x_0 \right)$ as 
+		$$
+		\pi_n\left( \sX, x_0\right) \bydef \pi_0\left( \Om^n\sX, \om_0\right) \cong \pi_1\left( \Om^{n -1}\sX, \om'_0\right).
+		$$
+		where $\pi_0\left( \Om^n\sX\right) $ is a set of connected components of $\Om^n\sX$,
+	\end{definition}
+	\begin{remark}\label{top_homotopy_group_rem}\cite{switzer:at}
+		The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$. We say that $\pi_1\left(\sX, x_0 \right)$ is the \textit{fundamental group} of the  pointed space $\left(\sX, x_0 \right)$. 
+	\end{remark}
+	
+	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
+		A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
+	\end{defn} 
+	
+	\begin{remark}\cite{switzer:at}
+		For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
+	\end{remark}
+	\begin{remark}\label{top_ho_fund_rem}\cite{switzer:at}
+		From the Corollary \ref{loop_susp_adj_cor} and the Proposition \ref{loop_susp_adj_prop} it follows that there is the natural isomorphism of Abelian groups
+		\be\label{top_ho_fund_eqn}
+		\pi_{n+m} (\sX, x_0) = \pi_n(\Omega^m(\sX, \om_m)). 
+		\ee
+	\end{remark}
+	
+	\subsubsection{Coverings and fundamental groups}
+	\paragraph*{}
+	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
+	
+	\begin{defn}\label{top_covering_defn}\cite{spanier:at}
+		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighborhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
+			\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
+	\end{defn}
+	%\begin{defn}\label{one_one_cov_defn}
+	%	Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering. A connected open subset $\widetilde{\mathcal{U}} \subset \widetilde{\mathcal{X}}$ is said to be a {\it one-to-one subset} with respect to $\widetilde{\pi}$ if the restriction $\widetilde{\pi}_{\widetilde{\mathcal{U}}}: \widetilde{\mathcal{U}} \to \widetilde{\pi}\left(\widetilde{\mathcal{U}}\right)$ is a homeomorphism. The family $\left\{\widetilde{\mathcal{U}}_\iota\right\}_{\iota \in I}$ of one-to-one subsets with respect to $\widetilde{\pi}$ such that $\widetilde{\mathcal{X}} = \bigcap_{\iota \in I}\widetilde{\mathcal{U}}_\iota$ is said to be a {\it one-to-one covering}  with respect to $\widetilde{\pi}$.
+	%\end{defn}
+	\begin{defn}\cite{spanier:at}
+		A topological space $\mathcal X$ is said to be \textit{locally path-connected} if the path components of open sets are open.
+	\end{defn}
+	%\paragraph{} It follows from Lemma \ref{lem_3_spanier_lem} that if $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting then for any two objects $\widetilde{x}_1$ and $\widetilde{x}_2$ in the fundamental groupoid of $\widetilde{X}$
+	\subsubsection{Group of covering transformations}
+	\begin{defn}\label{top_group_of_covering_transformations_defn}\cite{spanier:at}
+		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \left.\mathcal{\widetilde{X}}~\right|~\mathcal{X}\right)$ this group.
+	\end{defn}
+	\begin{definition}\label{top_properly_disc_group_defn}\cite{spanier:at} 
+		A group $G$ of homeomorphisms of a topological space $\sY$  is said to be  
+		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
+		that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts without fixed points} if the only element of G having fixed points is the identity element.	
+	\end{definition}
+	\begin{theorem}\label{top_group_of_covering_transformations_thm}\cite{spanier:at}
+		Let $G$ a properly discontinuous group of homeomorphisms 
+		of a space $\sY$. Then the projection of $\sY$ to the orbit space $\sY/G$ is a covering projection. If $\sY$ is connected, this covering projection is regular and $G$  is its	group of covering transformations. 
+	\end{theorem}
+	
+		\subsubsection{Group of covering transformations}
+	\begin{defn}\label{top_group_of_covering_transformations_defn}\cite{spanier:at}
+		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \left.\mathcal{\widetilde{X}}~\right|~\mathcal{X}\right)$ this group.
+	\end{defn}
+	\begin{definition}\label{top_properly_disc_group_defn}\cite{spanier:at} 
+		A group $G$ of homeomorphisms of a topological space $\sY$  is said to be  
+		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
+		that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts without fixed points} if the only element of G having fixed points is the identity element.	
+	\end{definition}
+	\begin{theorem}\label{top_group_of_covering_transformations_thm}\cite{spanier:at}
+		Let $G$ a properly discontinuous group of homeomorphisms 
+		of a space $\sY$. Then the projection of $\sY$ to the orbit space $\sY/G$ is a covering projection. If $\sY$ is connected, this covering projection is regular and $G$  is its	group of covering transformations. 
+	\end{theorem}
+	\subsubsection{Unique path lifting}
+	\begin{theorem}\label{top_fundamental_group_mor_thm}\cite{spanier:at}
+		%2 theoeem 
+		Let $p: \widetilde{\sX}\to \sX$ a fibration with unique path lifting. Let $\sX$ be path connected and let $x_0\in \sX$. Then  there is  a monomorphism $\psi$ of $G\left( \left.\widetilde{\sX} \right|\sX\right) $ to 
+		the quotient group $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)   /\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ where $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)$ is a maximal among subgroups $G\subset \pi_1\left(\sX, x_0 \right)$ such that $\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ is a normal subgroup of $G$.	If $\sX$ is also locally path connected, 
+		$\psi$ is an isomorphism. 
+	\end{theorem}
+	
+	
+	%\begin{thm}\label{g_cov_thm}\cite{spanier:at}
+	%Let $G$ be a properly discontinuous group of homeomorphisms of a space $\mathcal X$. Then the projection $\mathcal X \to \mathcal X/G$ of $\mathcal X$ to the orbit space $\mathcal X/G$ is a covering. If $\mathcal X$ is connected then this covering is regular and $G$ is its group of covering transformations.
+	%\end{thm}
+	%\begin{empt}\label{fin_prop_disc_empt}
+	%	\cite{spanier:at} A finite group action without fixed points on a Hausdorff space is properly discontinuous.
+	%\end{empt}
+	%\begin{prop}\cite{spanier:at}
+	%	If $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ is a regular covering and $\mathcal{\widetilde{X}}$ is connected and locally path connected, then $\mathcal{X}$ is homeomorphic to space of orbits of $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$, i.e. $\mathcal{X} \approx \mathcal{\widetilde{X}}/G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right) $. So $p$ is a principal bundle.
+	%\end{prop}
+	
+	\begin{theorem}\label{top_path_lift_thm}\cite{spanier:at}
+		A fibration has unique path lifting if and only is every fiber has no nonconstant paths. 
+	\end{theorem}
+	
+	
+	\begin{theorem}\label{top_locally_conn_cov_thm}\cite{spanier:at}
+		If $\mathcal{ X}$ is locally connected , a continuous map  $p: \widetilde{\mathcal X}\to {\mathcal X}$ is a covering projection if and only if for each component $\mathcal Y$ of $\mathcal X$ the map
+		$$
+		p|_{p^{-1}\left(\mathcal Y \right) }:p^{-1}\left(\mathcal Y \right) \to \mathcal Y
+		$$
+		is a covering projection.
+	\end{theorem}	
+	%\begin{definition}\label{top_cov_cat_defn}
+	%	Let $\sX$ be a connected space. The \textit{category of connected covering spaces} of $\sX$ has objects which are covering projections $p: \widetilde{\sX} \to \sX$, where $\widetilde{\sX}$ is connected, and morphisms which are commutative triangles
+	%		\newline
+	%	\begin{tikzpicture}
+		%	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		%	{
+			%		\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+			%		& {\mathcal X}\\};
+		%	\path[-stealth]
+		%	(m-1-1) edge node [above] {$f$} (m-1-3)
+		%	(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+		%	(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+		%	\end{tikzpicture}
+	%	\\
+	%	
+	%\end{definition}
+	\begin{corollary}\label{top_cov_cat_cor}\cite{spanier:at}
+		Consider a commutative triangle
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+				& {\mathcal X}\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$p$} (m-1-3)
+			(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+			(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+		\end{tikzpicture}
+		\\
+		where $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) and $p_1$, $p_2$ are covering projections. If $p$ is a surjection then $p$ is a covering projection.
+	\end{corollary}
+	\begin{theorem}\label{top_locally_conn_cov_com_thm}\cite{spanier:at}
+		If   $p: \widetilde{\mathcal X}\to {\mathcal X}$ is a covering projection onto locally connected base space, then for any component  $\widetilde{\mathcal Y}$ of $\widetilde{\mathcal X}$ the map
+		$$
+		p|_{\widetilde{\mathcal Y}}:\widetilde{\mathcal Y} \to p\left(\widetilde{\mathcal Y} \right) 
+		$$
+		is a covering projection onto some component of $\widetilde{\mathcal X}$.
+	\end{theorem}
+	%\begin{lemma}\label{top_covp_cat_lem}  	\ref{top_covp_cat_thm}
+	%In the {category of connected covering spaces} of a connected locally path-connected space every morphism is itself a covering projection.
+	%\end{lemma}
+	\begin{theorem}\label{top_conjugate_thm}\cite{spanier:at}
+		Let $p_1: 	\widetilde{\sX}_1 \to \sX$, $p_2: 	\widetilde{\sX}_2 \to \sX$ be objects  in the category of connected covering spaces of a connected locally path-connected space $\sX$. The following are equivalent
+		\begin{enumerate}
+			\item [(a)] There is a coveting projection $f:\widetilde{\sX}_1 \to \widetilde{\sX}_2$ such that $p_2 \circ f = p_1$.
+			\item[(b)] For all $\widetilde{x}_1\in \widetilde{\sX}_1$ and  $\widetilde{x}_2\in \widetilde{\sX}_2$ such that $p_1\left(\widetilde{x}_1 \right) = p_2\left(\widetilde{x}_2 \right)$, $\pi_1\left(p_1\right)\left( \pi_1 \left( \widetilde{\sX}_1, \widetilde{x}_1\right)  \right)$ is conjugate to a subgroup of  $\pi_1\left(p_2\right)\left( \pi_1 \left( \widetilde{\sX}_2, \widetilde{x}_2\right)  \right)$.
+			\item[(c)] There exist $\widetilde{x}_1\in \widetilde{\sX}_1$ and  $\widetilde{x}_2\in \widetilde{\sX}_2$ such that $\pi_1\left(p_1\right)\left( \pi_1 \left( \widetilde{\sX}_1, \widetilde{x}_1\right)  \right)$ is conjugate to a subgroup of  $\pi_1\left(p_2\right)\left( \pi_1 \left( \widetilde{\sX}_2, \widetilde{x}_2\right)  \right)$.
+		\end{enumerate} 
+	\end{theorem}
+	\begin{definition}\cite{spanier:at}
+		A continuous map $f: \sX \to \sY$ is called a \textit{local homeomorphism} if each 
+		point $y \in \sY$ has an open neighborhood mapped homeomorphically by $f$ onto 
+		an open subset of $\sX$
+	\end{definition}
+	\begin{lemma}\label{top_cov_lem}\cite{spanier:at}
+		A covering projection is a local homeomorphism.
+	\end{lemma}
+	
+	\begin{lemma}\label{top_om_lem}\cite{spanier:at}
+		A local homeomorphism is an open map (cf. Definition \ref{top_onen_map_defn}).
+	\end{lemma}
+	
+	
+	\begin{remark}\label{top_cov_bicont_rem}
+		From the Lemmas \ref{top_om_lem} and \ref{top_om_lem} it follows that any covering is a bicontinuous map (cf. Definition \ref{top_bicont_defn}).
+	\end{remark}
+	
+	
+	
+	\begin{defn}\label{top_path_lifting_defn}\cite{spanier:at}
+		A continuous map $p:\mathcal{E} \to \mathcal{B}$ is said to have the {\it unique path lifting} if, given paths $\omega$ and $\omega'$ in $E$ such that $p \circ \omega = p \circ \omega'$ and $\omega(0)=\omega'(0)$, then $\omega=\omega'$.
+	\end{defn}
+	\begin{thm}\cite{spanier:at}\label{spanier_thm_un}
+		Let $p: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering projection and let $f, g: \mathcal{Y} \to \widetilde{\mathcal{X}}$ be liftings of the same map (that is, $p \circ f = p \circ g$). If $\mathcal{Y}$ is connected and $f$ agrees with g for some point of $\mathcal{Y}$ then $f=g$.
+	\end{thm}
+	\begin{rem}
+		From theorem \ref{spanier_thm_un} it follows that a covering projection has unique path lifting.
+	\end{rem}
+	
+	\subsubsection{Regular and universal coverings}
+	\begin{defn}\label{top_regular_defn}\cite{spanier:at}
+		A fibration $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ with unique path lifting is said to be  {\it regular} if, given any closed path $\omega$ in $\mathcal{X}$, either every lifting of $\omega$ is closed or none is closed.
+	\end{defn}
+	\begin{thm}\label{locally_path_thm}\cite{spanier:at}
+		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting and assume that a nonempty $\widetilde{\mathcal X}$ is a locally path-connected space. Then $p$ is regular if and only if for some $\widetilde{x}_0 \in  \widetilde{\mathcal X}$, $\pi_1\left(p\right)\pi_1\left(\widetilde{\mathcal X}, \widetilde{x}_0\right)$ is a normal subgroup of $\pi_1\left(\mathcal X, p\left(\widetilde{x}_0\right)\right)$.
+	\end{thm}
+	\begin{definition}\label{top_properly_disc_defn}\cite{spanier:at}
+		A group $G$ of homeomorphisms of a topological space $\sY$ is said to be  
+		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly 
+			discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
+		that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ acts \textit{ without fixed points} 
+		if the only element of $G$ having fixed points is the identity element. The 
+		following are clear. 
+		A properly discontinuous group of homeomorphisms is discontinuous 
+		and acts without fixed points. 
+	\end{definition}
+	\begin{remark}\label{top_properly_disc_rem}\cite{spanier:at}
+		A finite group of homeomorphisms acting without fixed points on a 
+		Hausdorff space is properly discontinuous.
+	\end{remark}
+	\begin{theorem}\label{top_cov_fact_thm}\cite{spanier:at}
+		Let $G$ be a properly discontinuous group of homeomorphisms of space $\mathcal Y$. Then the projection of $\mathcal Y$ to the orbit space $\mathcal Y/G$ is a covering projection. If $\mathcal Y$ is connected, this covering is regular and $G$ is its group of covering transformations, i.e. $G = G\left(\mathcal Y~|~\mathcal Y/G \right)$. 
+	\end{theorem}
+	\begin{lem}\label{top_cov_from_pi1_cor}\cite{spanier:at}
+		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with a unique path lifting. If $ \widetilde{\mathcal X}$ is connected and locally path-connected and $\widetilde{x}_0 \in \widetilde{\mathcal X}$ then $p$ is regular if and only if $G\left(\widetilde{\mathcal X}~|~{\mathcal X} \right)$ transitively acts on each fiber of $p$, in which case 
+		$$
+		\psi: G\left(\widetilde{\mathcal X}~|~{\mathcal X} \right) \approx \pi_1\left(\mathcal X, p\left( \widetilde{x}_0\right)  \right) / \pi_1\left( p\right)\pi_1\left(\widetilde{\mathcal X}, \widetilde{x}_0 \right)  
+		$$
+		where $\pi_1$ denotes fundamental groups (cf. Remark \ref{top_homotopy_group_rem}).
+	\end{lem}
+	\begin{remark}\label{top_sim_con_reg_rem}\cite{spanier:at}
+		If $\widetilde{   \sX}$ is simply connected, any fibration $p: \widetilde{   \sX} \to \sX$ is regular, and we also have the next result.
+	\end{remark}
+	\begin{cor}\label{top_cov_pi1_cor}\cite{spanier:at}
+		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with a unique path lifting where $ \widetilde{\mathcal X}$ is simply connected locally path-connected and nonempty.  Then the group of self-equivalences of $p$ is isomorphic to the fundamental group of ${\mathcal X}$ (cf. Remark \ref{top_homotopy_group_rem}), i.e. $\pi_1\left( {\mathcal X}\right)\approx G\left(\left.\widetilde{\sX}~\right|\sX\right)$.  
+	\end{cor}
+	\begin{definition}\label{top_universal_covering_defn}\cite{spanier:at}
+		A \textit{universal covering space} of a connected space $\sX$ is an object $p: \widetilde{\sX}\to \sX$ of the category of connected covering spaces of $\sX$ such that for any object $p': \widetilde{\sX}'\to \sX$ of this category there is a morphism 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				\widetilde{\sX}  &  & \widetilde{\sX}'\\
+				& \sX & \\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$f$} (m-1-3)
+			(m-1-1) edge node [left]  {$p~~$} (m-2-2)
+			(m-1-3) edge node [right] {$~~p'$} (m-2-2);
+			%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+		\end{tikzpicture}
+		\\
+		in the category.
+	\end{definition}
+	
+	\begin{lem}\label{top_simply_con_cov_lem}\cite{spanier:at}
+		A connected locally path-connected space $\mathcal X$ has a simply connected covering space if and only if  $\mathcal X$ is semilocally 1-connected (cf. Definition \ref{top_semi1_defn}).
+	\end{lem}
+	%\begin{lem}\label{top_simply_con_uni_cor}\cite{spanier:at}
+	%	Any universal covering space of a connected locally path connected semilocally 1-connected space is simply connected.
+	% \end{lem}
+	%\begin{lem}\label{top_uni_spa_lem}\cite{spanier:at}
+	% 	Two universal covering spaces of a connected locally path-connected space are equivalent.
+	% \end{lem}
+
+\begin{lem}\label{top_uni_exist_spa_lem}\cite{spanier:at}
+A simply connected covering space of a connected locally path-connected space $\sX$ is an universal covering space of $\sX$.
+\end{lem}
+
+
+
+
+\begin{definition}\label{top_sus_defn}\cite{hatcher:at}
+For a space $\sX$, the (unreduced) suspension $\Sigma\sX$ is the quotient of $\sX\times [0,1]$ obtained by collapsing $\sX\times\{0\}$ to one point and  $\sX\times\{1\}$ to another.
+point.
+\end{definition}
+
+\begin{prop}\cite{switzer:at} \label{top_pi1_pi1_prop}
+(cf. Proposition 3.30).
+If $\sX$ is a topological space then there is an action of $\pi_1\left(\sX\right)\times \pi_1\left(\sX\right)\to \pi_1\left(\sX\right)$ given conjugation; i.e. such that for $\ga, \a \in \pi_1\left(\sX\right)$ one has $\ga \cdot \a = \ga \a\ga^{-1}$.
+\end{prop}
+!!!\ref{pedersen_ideal_defn}
+
+\subsubsection{Homology theory and Hurewicz homomorphism}
+
+%\begin{definition}\label{top_unred_defn}\cite{switzer:at}
+%	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We still  have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
+
+%	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
+%	\begin{enumerate}
+%		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
+%		\bean
+%		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{hurewicz_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{hurewicz_n\left[j\right]}\\
+%		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
+%		\eean
+%		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
+%		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
+%	\end{enumerate}
+%\end{definition}
+Let $\mathscr {PT}$ be a category of  pointed spaces and let $\mathscr {PT}'$ be a homotopy category, i.e. objects are as in $\mathscr {PT}$, morphisms are homotopy classes of maps. On $\mathscr {PT}'$ we have a suspension functor $S\left(\sX, x_0 \right)\bydef\left( S\sX, *\right)$ and $S\left[f \right]\bydef\left[Sf \right]   \bydef \left[1_{S^1} \wedge f\right]$ 
+\begin{definition}\label{top_red_homol_defn}
+A \textit{reduced homology theory} $k_*$ on $\mathscr {PT}'$ is a collection of functors $k_n: \mathscr {PT}'\to \mathscr A$ to the category of Abelian groups and natural equivalences $\sigma_n: k_n \to k_{n+1}\circ S$, satisfying
+\begin{enumerate}
+\item [(a)] \textit{Exactness}: for every  pointed pair $\left(\sX, \A, x_0\right)$ with inclusions $\iota:\left( \sX, x_0\right) \to \left( \sX_0\right)$ and $j : \left( \sX\cup C\A, *\right)$ the sequence 
+\bean
+k_n\left(\A, x_0\right)\xrightarrow{k_n\left[\iota\right]} k_n\left( \sX, x_0\right)\xrightarrow{k_n\left[j\right]} \left( \sX\cup C\A, *\right)	
+\eean
+is exact.
+\end{enumerate}
+
+\end{definition}
+
+\begin{proposition}
+There are natural transformations $\hat \partial_n $ and for each  pointed pair $\left(\sX, \A, x_0\right)$ a long exact sequence
+\bean
+k_n\left(\A, x_0\right)\xrightarrow{k_n\left[\iota\right]} k_n\left( \sX, x_0\right)\xrightarrow{k_n\left[j\right]} \left( \sX\cup C\A, *\right)	
+\xrightarrow{\hat \partial_n\left(\sX, \A, x_0\right)}\\	\xrightarrow{\hat \partial_n\left(\sX, \A, x_0\right)}	k_{n-1}\left(\A, x_0\right)\xrightarrow{k_{n-1}\left[\iota\right]}...
+\eean
+\end{proposition}  
+\begin{definition}\label{top_hurewitz_defn}\cite{switzer:at}
+% 7.39
+Let $k_*$ be a reduced homology theory. We define the \textit{Hurewicz homomorphism} 	$h:\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
+\be
+\begin{split}
+\pi_n\left(\sY, y_0 \right)\cong \left[S^n, s_0; \sY, y_0\right]\xrightarrow{k_n}\Hom\left(k_n\left(S^n \right),  k_n\left(\sY \right)\right) \xrightarrow{\Hom\left(\sigma^n, 1 \right) }\\
+\Hom\left(k_n\left(S^0 \right),  k_n\left(\sY \right)\right)\cong k_n\left(\sY \right).
+\end{split}
+\ee
+\end{definition}
+
+Any homology theory defines a cohomology theory. In particular it satisfies to the following exactness axiom
+\be\label{top_c_exact_eqn}
+...\xrightarrow{\delta} k^n\left(\sX, \A \right) \xrightarrow{k^n\left[j\right]} k^n\left(\sX \right) \xrightarrow{k^n\left[i\right]} k^n\left(\A \right) \xrightarrow{\delta} k^{n+1}\left(\sX, \A \right)\to ...
+\ee
+\begin{theorem}\cite{rotman:ag}
+%Theorem 4.29 (Hurewicz 7 Theorem).
+If $\sX$ is path connected, then the Hurewicz
+map $\varphi: \pi_1\left(\sX, x_0 \right) \to H_1\left( \sX\right)$  is a surjection with kernel $\pi_1\left(\sX, x_0 \right)'$, the commutator
+subgroup of $\pi_1\left(\sX, x_0 \right)$. Hence
+$$
+\pi_1\left(\sX, x_0 \right)/\pi_1\left(\sX, x_0 \right)'\cong H_1\left( \sX\right).
+$$
+\end{theorem}
+We shall use the following equivalent formulation of the above theorem.
+\begin{theorem}\label{hurewicz_iso_thm}
+If $H_*$ is the theory of singular homology then the following Hurewicz homomorphism
+$$
+h_{\mathrm{sing}}:\pi_1\left( \sX\right) / \left[\pi_1\left( \sX\right), \pi_1\left( \sX\right)\right]\to H_1\left(\sX \right) 
+$$
+is an isomorphism.
+\end{theorem}
+\begin{theorem}\label{top_h_to_k_thm}\cite{switzer:at}
+For every topological pair $\left(\sX, \A\right)$ and Abelian group $G$ there is a natural exact sequence
+\bean
+0 \to \mathrm{\Ext}\left(H_{n-1}\left(\sX, \A\right),G \right)\to H^{n}\left(\sX, \A;G \right)\xrightarrow{\mu^*}\\\mathrm{Hom}\left(H_{n}\left(\sX, \A \right), G\right) \to 0
+\eean
+and unnatural splitting
+$$
+H^{n}\left(\sX, \A;G \right)\cong \mathrm{\Ext}\left(H_{n-1}\left(\sX, \A \right),G \right)\oplus\mathrm{Hom}\left(H_{n}\left(\sX, \A\right) ,G \right).
+$$
+\end{theorem}
+
+
+\subsubsection{Obstruction theory}
+\begin{definition}\label{top_char_defn}\cite{spanier:at}
+Let $\pi$ an Abelian group and $\sY$ is a path-connected  pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
+$$
+\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
+$$ 
+is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at}).
+\end{definition}
+\begin{definition}\label{top_pi_n_defn}\cite{spanier:at}
+Let $\pi$ be a group and let $n$ be an integer $\ge 1$. A space of type $\left(\pi, n\right)$ is a path-connected  pointed space $\sY$ such that $\pi_q\left(\sY \right)= 0$  for $q\neq n$ and 
+$\pi_n\left(\sY \right)= 0$ is isomorphic to $\pi$.
+\end{definition}
+\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
+%12 theorem 
+Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $\sY$. If $(\sX,\A)$ is a relative $CW$-complex, a map $f: \A\to \sY$ 
+can be extended over $\sX$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
+\end{theorem}
+\begin{remark}\label{top_obstr_rem}
+A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:at}.
+\end{remark}
+\begin{remark}
+The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
+\bean
+...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
+\eean
+and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+\end{remark}
 
 	\section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
@@ -2775,7 +3208,7 @@ A mapping $f: \sX \to \sY$ is said to be a {\it local homeomorphism} if every $y
 	\end{tikzcd}
 	\\ 	
 \end{proposition}
-
+\subsection{Commutative $C^*$-algebras}
 %\begin{remark}\label{pedersen_ideal_rem}
 %	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
 %	\be\label{pedersen_ideal_eqn}
@@ -3048,15 +3481,11 @@ identification $a \sim b$ in the spectrum of $B$.
 %5.1. Definition. 
 %A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathscr A\left( \sX\right) \to \mathscr A\left( \sU\right)$ is surjective for every open set  $\sU \subset \sX$
 %\end{definition}
-\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
-	%Proposition 2.5. // 
-	If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
-\end{proposition}
 \begin{definition}\label{sheaf_support_defn}\cite{hartshorne:ag}
 	For $s \in \mathscr{F}\left(\sX \right)$, 
 	\be\label{sheaf_supp_eqn}
 	\left|  s\right| = \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
-	\ee
+\ee
 	denotes the \textit{support} of the section $s$.
 \end{definition}
 
@@ -3220,8 +3649,447 @@ identification $a \sim b$ in the spectrum of $B$.
 \begin{remark}
 	The above formulation of the Proposition \ref{spectral_sequence_prop} differs from the described in \cite{johnstone:topos} more general one.
 \end{remark}
+\subsection{Cohomology}
+\paragraph*{}
+The described below theories are specializations of described in sections \ref{grothendieck_cohomology_section} and \ref{cech_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
+%\begin{lemma}\cite{hartshorne:ag}
+%	Let $\sX$ be a topological space, and $\mathscr U$ an open covering of $\sX$. Then for any sheaf $\mathscr U$ on $\sX$ and	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
+%	$$
+%	\check{H}^r\left(\mathscr U, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+%	$$
+%	where both $\check{H}^r$ and $H^r$ are given by the equations \eqref{cech_coh_eqn} and \eqref{etale_coh_eqn} respectively.
+%\end{lemma}
+%\begin{remark}
+%From the above lemma and the equation  \ref{chech_eqn} for each $r\ge 0$ one has a homomorphism
+%$$
+%\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right).
+%$$
+%\end{remark}
+\begin{empt}
+	If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sY$ (cf. Definition \ref{pretopology_defn}    and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sX$. Let $F$ be a Abelian group, and let $F_\sX$, $F_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
+	\be\label{top_cech_eqn}
+	C^r\left( \mathscr U,  F_\sY\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}}  F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
+	\ee
+	is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}). For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
+	$$
+	F_\sY\left(\sU_{\iota_0,.... \iota_r} \right)\cong F_\sX\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong F.
+	$$
+	Above isomorphisms yield an isomorphism
+	$$
+	C^r\left( \mathscr U, F_\sY\right)\xrightarrow{\approx} C^r\left( f^{-1}\left( \mathscr U\right) , F_\sX\right)
+	$$
+	So there is an isomorphism
+	$$
+	\varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, F_\sY\right)\xrightarrow{\approx}\varinjlim_{\mathscr U}\check{H}^r\left(f^{-1}\left(  \mathscr U\right) , F_\sX\right).
+	$$
+	On the other hand from   \eqref{chech_eqn}  it follows that there are homomorphisms
+	\bean
+	\check{H}^r\left(f^{-1}\left(  \mathscr U\right) , F_\sX\right)\to \check{H}^r\left(\sX , F_\sX\right),\\
+	\varinjlim_{\mathscr U} \check{H}^r\left(f^{-1}\left(  \mathscr U\right), F_\sX\right)\to \check{H}^r\left(\sX , F_\sX\right)
+	\eean
+	so one has a homomorphism
+	$$
+	\varinjlim_{\mathscr U} \check{H}^r\left(  \mathscr U, F_\sY\right)\to \check{H}^r\left(\sX , F_\sX\right)
+	$$
+	and applying \eqref{chech_eqn} one can obtain a natural homomorphism
+	$$
+	\check{H}^r\left(f\right):\check{H}^r\left(\sY, F_\sY \right)\to \check{H}^r\left(\sX, F_\sX \right)\quad r \ge 0.
+	$$
+	The details of the construction of the homomorphism $\check{H}^r\left(f\right)$  are explained in \cite{eust}. Using the Notation \ref{constant_presheaf_defn} one has homomorphisms
+	\be\label{cech_hom_eqn}
+	\begin{split}
+		\check{H}^r\left(f\right):\check{H}^r\left(\sY, F \right)\to \check{H}^r\left(\sX, F \right)\quad r \ge 0,\\
+		\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right).
+	\end{split}
+	\ee
+	If both $\sX \xrightarrow{f}\sY$ and $\sY \xrightarrow{g}\sZ$ are continuous maps then from this construction it turns out that
+	\be\label{cech_hom_comp_eqn}
+	\begin{split}
+		\check{H}^\bullet\left(g\circ f\right)= \check{H}^\bullet\left( f\right)\circ \check{H}^\bullet\left(g\right):\check{H}^\bullet\left(\sZ, F \right)\to \check{H}^\bullet\left(\sX, F \right)
+	\end{split}
+	\ee
+	
+\end{empt}
+
+\begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
+	\v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
+	$$
+	\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right).
+	$$
+	Here $\mathscr F$ and $\mathscr G$ are sheaves of Abelian groups on $\sX$, and the \textit{tensor product}-\textit{sheaf}
+	$\mathscr F\otimes \mathscr G$ is the sheaf associated to the presheaf $\sU \mapsto \mathscr F(\sU)\otimes \mathscr G(\sU)$. The 
+	stalk (cf. Definition \ref{stalk_defn}) at $x$ of $\mathscr F\otimes \mathscr G$ is $\mathscr F_x\otimes \mathscr G_x$. The cup-product will be defined from a 
+	morphism of complexes. We first need the notion of tensor product $A^\bullet \otimes  B^\bullet$
+	of two complexes; this is the total complex of the double complex $A^\bullet \otimes  B^\bullet$. 
+	So the degree $n$-term of $A^\bullet \otimes  B^\bullet$ is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$  
+	is 
+	$$
+	d \left(a \otimes b\right)	\bydef \left(da\right)\otimes b + \left(-1\right)^p a \otimes db
+	$$
+	
+	for $a\in A^p$, $b \in B^q$. We have the obvious 
+	map 
+	$$
+	\otimes :H^p\left(A^\bullet\right)\otimes H^q\left(B^\bullet\right)\to H^q\left(A^\bullet\ox B^\bullet\right).	
+	$$	
+	We now return to the sheaves $\mathscr F$ and $\mathscr G$ of Abelian groups on $\sX$. We 
+	have the complexes $C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $C^\bullet\left(\mathscr U,  \mathscr G\right)$.  The interesting part is the 
+	construction of a morphism of complexes 
+	$$
+	\phi: C^\bullet\left(\mathscr U,  \mathscr F\right)\otimes C^\bullet\left(\mathscr U,  \mathscr G\right)\mapsto C^\bullet\left(\mathscr U,  \mathscr F\otimes  \mathscr G\right).
+	$$
+	For $\a \in C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $\bt \in C^\bullet\left(\mathscr U,  \mathscr G\right)$, we put 
+	$$
+	\phi:\left( \a \otimes \bt \right)_{\iota_0,..., \iota_{p + q}} \bydef \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+	$$
+	One checks easily that $\phi$ is indeed a morphism of complexes. The induced map on cohomology gives the cup-product on \v{C}ech 
+	cohomology. For $\a$ degree $p$ \v{C}ech cocycle with coefficients in $\mathscr F$ and $\bt$
+	degree $q$ \v{C}ech cocycle with coefficients in $\mathscr G$, we have 
+	\be\label{cup_prod_eqn}
+	\left(\a \smile\bt \right)_{\iota_0,..., \iota_{p + q}}\bydef  \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+	\ee
+	The cup-product has the following properties. 
+\end{empt}
+\begin{proposition}\label{cup_ass_prop}\cite{bryl:loop} Following conditions hold.
+	%	1.3.7. Proposition. 
+	\begin{enumerate}
+		\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
+		we have 
+		\be\label{cup_ass_eqn}
+		\a \smile \left( \bt \smile \ga\right) 	= \left( \a \smile \bt\right) \smile \ga. 
+		\ee
+		\item[(ii)]	 The \textit{cup}-\textit{product} is \textit{graded}-\textit{commutative}. If $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, we have 
+		$$
+		\a \smile \bt =\left( -1\right)^p  \bt \smile \a.
+		$$			
+		
+	\end{enumerate}
+	
+\end{proposition}
+\begin{empt}
+	Let $\sX$ be a topological space. If $R$ be an ring then there is, a corresponding constant presheaf  $R_\sX$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. 
+	Using the cup product and homomorphism $\phi$ one has a map
+	$$
+	\check{H}^\bullet\left(\sX, R_\sX \right)\times \check{H}^\bullet\left(\sX, R_\sX \right) \to \check{H}^\bullet\left(\sX, R_\sX \right).
+	$$
+	So we have proved the following.	
+\end{empt}
+
+\begin{lem}\label{gr_ring_lem}
+	Let $\sX$ be a topological space. If $F$ is an Abelian group then any isomorphism $F \otimes_\Z F \cong  F$ yields a product
+	\bean
+	\smile: \check{H}^\bullet\left(\sX, F \right)\otimes \check{H}^\bullet\left(\sX,F \right) \to \check{H}^\bullet\left(\sX,F \right)
+	\eean
+	where the notation \eqref{etale_hom_a_eqn} is used. So $\check{H}^\bullet\left(\sX, F\right)$ becomes an associative and graded-commutative ring.
+\end{lem}
+
+\begin{exercise}\label{ring_homo_exer}
+	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
+\end{exercise}
+
+\begin{remark}\label{ring_homo_rem} 
+	In \cite{milne:lec,swan:cup} it is explained that the homomorphism \eqref{cech_hom_eqn} Lemma \ref{gr_ring_lem} and the Exercise  \ref{ring_homo_exer} can by applied to any Grothendieck topology.
+\end{remark}
+\begin{corollary}
+	%Corollary. 
+	For $\Phi$ paracompactifying and sheaves $\mathscr F$ on $\sX$ there as
+	a natural isomorphism
+	$$
+	\check{H}_\Phi^\bullet\left(\sX, \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX, \mathscr F \right) 
+	$$
+\end{corollary}
+
+
+
 
 	
+			\subsection{Flasque (flabby) and soft sheaves}
+\begin{remark}\label{sheaf_locale_flasque} !!!! DELETE !!!
+	If $X$ ia a locale then one can define flasque sheaves in the category $\mathbf{Sh}\left(X \right)$. 
+\end{remark}
+\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
+	%Proposition 2.5. // 
+	If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
+\end{proposition}
+\begin{exercise}\label{sheaf_flasque_my_exer}
+	Similarly to the described in \cite{hartshorne:ag} theory of flasque shaves prove that
+	for any locale $X$ and for every flasque sheaf in the category $\mathbf{Ab}\left(X \right)$ one has  $H^p\left(X, \mathscr F \right)  = 0$ for all $p > 0$ 
+\end{exercise}
+\begin{remark}\label{sheaf_flasque_rem}
+	If $X$ is   a locale, $\mathscr F \in \mathbf{Ab}\left(X \right)$ and 
+	$$
+	0 \to \mathscr F \xrightarrow{\dl_0} \sJ^0 \xrightarrow{\dl_1}\sJ^1 \to \dots
+	$$
+	is an exact sequence where each $\sJ^p$ is flasque then from the Exercise \ref{sheaf_flasque_my_exer} it follows that $\sJ^p$ is acyclic for any $p\ge 0$. Taking into account the Proposition \ref{acyc_prop} one has
+	\be\label{etale_cohf_eqn}
+	\begin{split}
+		H^p\left(X, \mathscr F \right)\bydef\begin{cases}
+			\ker \Ga\left( \dl^0 \right) & p = 0\\
+			\ker~ \Ga\left(  \dl_{p} \right) / \im~ \Ga\left(  \dl_{p-1}\right)   & p > 0
+		\end{cases}
+	\end{split}
+	\ee
+\end{remark}
+\begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
+	Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
+	subsets of $\sX$  such that:
+	\begin{enumerate}
+		\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
+		\item $\Phi$ is closed under finite unions.
+	\end{enumerate}
+	
+	$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
+	\begin{enumerate}
+		\item  each element of $\Phi$ is paracompact;
+		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
+	\end{enumerate}
+\end{definition}\label{sheaf_soft_defn}
+The family of all compact subsets of $\sX$ is denoted by $c$.
+\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
+	A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
+\end{definition}
+Now  $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
+$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
+Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}=0$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
+$$
+\Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}.
+$$
+
+
+For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
+\begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+\end{lemma}
+
+\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
+	%Théor?me 1.3.1.—? 
+	Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 
+	fermé localement fini de $\sX$. Supposons données des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 
+	$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s \in \mathscr F\left(\sX \right)$ qui 
+	co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
+\end{theorem}
+Following theorem is an English translation of the \ref{loc_fin_french_thm} one.
+\begin{theorem}\label{loc_fin_eng_thm}\cite{godement:sheaf}
+	Let $\sX$ is a topological space, and let $\mathscr F \in \mathbf{Sh}\left( \sX\right)$. Let $\left\{M_\iota\right\}$ is a locally finite closed covering of $\sX$, and let $s_\iota \in \mathscr F\left( M_\iota \right)$ be such that $s_\iota = s_j$ on $M_\iota \cap M_j$ for all $\iota$ and $j$. Then there is $s \in \mathscr F\left( \sX\right)$ 
+\end{theorem}
+\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
+	Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
+	$$
+	H^0\left(\mathscr U; \mathscr A \right) \cong \Ga\left(\mathscr A \right)\cong H^0\left(\sX; \mathscr A \right).
+	$$
+\end{theorem}	
+%\begin{theorem}\cite{bredon:sheaf}
+%	6.2.\\
+%	Theorem. Let $\mathscr P$ be a presheaf  DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
+%	$$
+%	0 \to \mathscr P_0\left( \right) \to  \mathscr{P}_\Phi\left(\sX \right) \xrightarrow{\th}\Ga_\Phi\left(\mathscr{P}^+ \right) 
+%	$$
+%	is exact.
+%\end{theorem}
+\begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
+	%	3.3.1\\
+	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+\end{theorem}
+\begin{theorem}\label{sheaf_neigh_en_thm}\cite{godement:sheaf}
+	!!!		ENGLISH !!!
+\end{theorem}
+
+\begin{theorem}
+	%Thorme 3.4.1- — 
+	Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que 
+	tout point de $\sX$ possède un  voisinage $\sU$ vérifiant la condition suivante : toute section de $\mathscr F$
+	au-dessus d'un sous-ensemble fermé de $\sX$ contenu dans $\sU$, se prolonge à $\sU$. Alors $\mathscr F$ est mou.
+\end{theorem}
+Following text is an English translation of the above theorem
+\begin{theorem}
+	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+\end{theorem}
+\begin{definition}\label{phi_supp_defn}\cite{bredon:sheaf,godement:sheaf}.
+	Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
+	subsets of $\sX$  such that:
+	\begin{enumerate}
+		\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
+		\item $\Phi$ is closed under finite unions.
+	\end{enumerate}
+	
+	$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
+	\begin{enumerate}
+		\item  each element of $\Phi$ is paracompact;
+		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
+	\end{enumerate}
+\end{definition}\label{sheaf_soft_defn}
+The family of all compact subsets of $\sX$ is denoted by $c$.
+\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
+	A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
+\end{definition}
+\begin{definition}\cite{bredon:sheaf}
+	%10.5. Definition. 
+	Let $\Phi$ be a family of supports on $\sX$. Then a subspace
+	$A \subset \sX$ is said to be $\Phi$-\textit{taut} if for every flabby sheaf $\mathscr F$ on $\sX$, the restriction
+	$\Ga_\Phi \to \Ga_{\Phi\cap A}$ is surjective and $\mathscr F|A$ is $\Phi\cap A$-acyclic.
+	The following five cases are examples of -b-taut subspaces A of X:
+	\begin{enumerate}
+		\item[(a)] $\Phi$ arbitrary, $A$ open.
+		\item[(b)] $\Phi$ paracompactifying for the pair $\left(\sX, A \right)$ .
+		\item[(c)] $\Phi$ paracompactifying, $\sX$ hereditarily paracompact (e.g., metric), $A$
+		arbitrary.
+		\item[(d)] $\Phi$ paracompactifying, $A$ closed.
+		\item[(a)]($\Phi - cld$, $A$ compact and relatively Hausdorff in $\sX$, e.g., a point.
+	\end{enumerate}
+	
+	\begin{definition}
+		Let $\Phi$ be a family of supports on $\sX$. A continuous map $\sX \to \sY$ is $\Phi$-\textit{closed} meaning $f\left( K\right)$ is closed for any $K \in \Phi$.
+	\end{definition}
+	
+\end{definition}
+\begin{empt}
+	Let $\mathscr L^*$ be a differential sheaf on $\sX$. We are concerned with two cases:
+	\begin{enumerate}
+		\item [(a)] $\mathscr L^*=0$ for $q < q_0$,
+		\item[(b)] $\dim_{\Psi, L}\sX < \infty$ \textit{for a given ground ring $L$ and family $\Psi$ of supports}.
+	\end{enumerate}
+	If we are in case (b) with $\dim_{\Psi, L}\sX < \infty$ , then
+	\bean
+	0 \to \mathscr A \to \mathscr C^0\left(\sX, \mathscr A \right) \to ... \to C^{m-1}\left(\sX, \mathscr A \right)\to \mathscr Z^b\left(\sX, \mathscr A \right)
+	\eean
+	is a resolution of $\Psi$ by $\Psi$-acyclic sheaves and is an exact functor of $\mathscr A$. In
+	the discussion below, $C^*_\Phi\left(\sX, \mathscr A \right)$  should be replaced by $\Ga_\Phi$ of this resolution
+	when we are in case (b).
+	Let
+	\bean
+	L^{p,q}\bydef C^p_\Phi \left( \sX; \mathscr L^q\right) 
+	\eean
+	We take $d': L^{p, q} \to L^{p+1, q}$ to be the differential of the complex $C^p_\Phi \left( \sX; \mathscr L^q\right)$
+	and $\left(-1 \right)^p  : L^{p,q} \to  L^{p,q+l}$ to be the differential induced by the coefficient
+	homomorphism $\mathscr L^q \to \mathscr L^{q+1}$ Let $d = d' + d''$ be the total differential and
+	$L^*$ the total complex, where
+	\bean
+	L^n = \bigoplus_{q + p = n} L^{p, q}
+	\eean 
+	There are two spectral sequences, $'E^{p,q}_r$ and  $''E^{p,q}_r$, of the double complex
+	$L^{*,*}$ converging' to graded groups associated with filtrations on $H^{p+q}_r\left( L^*\right)$.
+	We abbreviate this statement by the notation $E^{p,q}\Rightarrow H^{p+q} (L^*)$; 
+	In the first spectral sequence we have $'E^{p,q}_r= 'H^p\left(''H^q\left( L^*, L^*\right)  \right)$  and in
+	the second $''E^{p,q}_r= ''H^p\left('H^q\left( L^*, L^*\right)  \right)$, where $'H$ and $''H$ are computed using
+	$d'$ and $d''$ respectively.
+	Now
+	$$
+	''H^q\left(L^{*,*} \right) = C^*_\Phi\left(\sX, \mathscr K^q\left(\mathscr L^* \right)  \right) 
+	$$
+	since $ C^*_\Phi\left(\sX, \bullet  \right)$ is an exact functor. 
+	Thus
+	$$
+	''H^{p, q} = H_\Phi^p\left(\sX, \mathscr K^q\left(\mathscr L \right)  \right) 
+	$$
+\end{empt}
+\begin{definition}
+	%4.1. Definition.	
+	The \textit{Leray sheaf of the map } $f ~\mathrm {mod} f |A$ is the sheaf
+	\bean
+	\mathscr H^*_\Psi\left(f, f|A, \mathscr A \right)  \bydef \mathfrak{Sheaf}\left(\left.\sU \mapsto H^*_{\Psi\cap \sU^\bullet}\left( \sU^\bullet, \sU^\bullet \cap A, \mathscr A \right| \sU^\bullet \right)  \right) 
+	\eean 
+	on $\sY$.
+	For $A = \emptyset$, $\mathscr H^*_\Psi\left(f; \mathscr A \right)\bydef   \mathfrak{Sheaf}\left(\sU \mapsto \Ga_{\Psi\left( \sU\right) }\left(\mathscr A | \sU^\bullet \right) = \left(f_\Psi\mathscr A \right)\left(\sU \right)  \right)$,  and so
+	\bean
+	\mathscr H^0_\Psi\left(f; \mathscr A \right)= f_\Psi\left( \mathscr A\right) 
+	\eean 
+	
+\end{definition}
+\begin{proposition}
+	%4.2. Proposition. 
+	If $f$ is $\Phi$-closed and $y^\bullet \bydef f^{-1}\left(y \right)$  is $\Phi$-taut in $\sX$ (e.g.,
+	if $\Phi$ is paracompactifying or if $\Phi$ contains a neighborhood of $\sY\bullet$ and $y^\bullet$ is
+	compact and relatively Hausdorff in $\sX$), then
+	$$
+	r^*_y : \mathscr H_\Psi \left(f, \mathscr A \right) \to H^*_{\Psi \cap y^\bullet}\left(y^\bullet; \mathscr A \right) 
+	$$
+	is an isomorphism for all $\mathscr A$. %(Also see Section 7.)
+\end{proposition}
+
+\begin{defn}
+	Let $f : \sX \to \sY$ with $\Psi$ and $\Phi$ being families of supports on $\sX$ and $\sY$
+	respectively.
+	%5.1. Definition.
+	Let the \textit{extension $\Phi\left( \Psi\right)$  of $\Psi$ by $\Psi$} be the family of
+	supports on $\sX$ defined by
+	\bean
+	\Phi\left( \Psi\right) \bydef \left\{K \in \Phi\left( \sY\right)\left| \overline {f\left(K \right)}\in \Phi \right. \right\} = \Psi\left( \sY\right) \cap f^{-1}\left(\Phi \right).
+	\eean
+	
+	Intuitively, $\Phi\left( \Psi\right)$ is the result of "spreading $\Psi$ out over $\Phi$" The reason
+	for considering this construction is the following:
+\end{defn}
+\begin{proposition}
+	%5.2. Proposition. 
+	For any sheaf $\mathscr A$ on $\sX$ we have
+	\bean
+	\Ga_\Phi\left(f_\Phi \mathscr A\right) = \Ga_{\Psi\left(\sY \right) }\left(\mathscr A \right) \subset \mathscr A\left(\sX \right). 
+	\eean
+	under the defining equality $\left( f_\Psi \mathscr A\right) = \Ga_{\Phi\left(\Psi \right) }\left(\mathscr A\right)$.
+\end{proposition}
+\begin{empt}
+	%PAGE 213
+	For $A = \emptyset$, the Leray sheaf is denoted by $\mathscr H^*_\Psi \left(f: \mathscr A \right)$, and by the preceding
+	remarks, it is the derived sheaf
+	\bean
+	\mathscr H^*_\Psi \left(f: \mathscr A \right)\cong \mathscr H^* \left(f_\Psi \mathscr A \right)
+	\eean
+	for any flabby (e.g., injective) resolution $\mathscr A^*$ of $\mathscr A$. Therefore $\mathscr H^* \left(f_\Psi \mathscr A \right)$ is
+	just the $p-$th right derived functor of the left exact functor $f_\Psi$,.
+\end{empt}
+\begin{empt}\label{leray_empt}
+	Let $A \subset \sX$, let $f : \sX \to \sY$, and let $\Psi$ and $\Phi$ be families of supports on $\sX$
+	and $\sY$ respectively. In this section we shall assume that at least one of the
+	following two conditions holds:
+	\begin{enumerate}
+		\item[(A)] $\Psi = cld$,
+		\item[(B)] $\Phi$ is paracompactifying
+	\end{enumerate}
+\end{empt}
+\begin{theorem}\label{leray_thm}
+	%6.1. Theorem. 
+	If (A) or (B) of \ref{leray_empt} holds, then there is a spectral sequence (the
+	Leray spectral sequence) in which
+	\bean
+	E^{p,q} = H^p_\Phi\left(\sY; \mathscr H^q_\Psi\left(f, f|A; \mathscr A \right)  \right) \Rightarrow H^{p + q}_{\Phi\left(\Psi \right) }\left( \sX, A,  \mathscr A\right) 
+	\eean 
+	Moreover, if $f$ is $\Psi$-closed and $\Psi \cap A$-closed and if each $y^\bullet \bydef f^{-1}\left( y\right)$  is $\Psi$-taut
+	and each $y^\bullet\cap A$ is $\Psi\cap A$-taut in $\sX$, then the canonical homomorphisms
+	\bean
+	r^*_y: \mathscr H^*_\Psi\left(f, f|A; \mathscr A \right)_y \to H^*_{\Psi \cap y^\bullet}\left( y^\bullet, y^\bullet \cap A; \mathscr A\right) 
+	\eean
+	are isomorphisms.
+\end{theorem}
+\begin{theorem}\label{kun_thm}\cite{bredon:sheaf}!!!
+	%15.2. Theorem. 
+	If $\sX$ and $\sY$ are locally compact Hausdorff
+	spaces and if $\mathscr A$ and  $\mathscr B$ are sheaves on $\sX$ and $\sY$ respectively with = 0,
+	then there is a natural exact sequence (over the principal ideal domain L
+	as base ring)
+\end{theorem}
+%
+\begin{thm}\cite{godement:sheaf}
+	%Thorme 3-7-2. — 
+	Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
+\end{thm}
+Following text is an English translation of the above theorem.
+\begin{theorem}\label{sheaf_a_soft_thm}
+	Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
+	\bean
+	S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
+	\eean
+\end{theorem}
+
+\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
+	%	9.22. Proposition. \\
+	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
+	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf  $\mathscr{F}$ on $\sX$.
+\end{proposition}
+
+
+
 \subsection{Canonical resolution}\label{canonical_resolution_empt}
 Here I follow to \cite{bredon:sheaf, godement:sheaf}.					
 	For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
@@ -3573,6 +4441,39 @@ Here $H^1\left(M, C \right) \xrightarrow{\dl_1}  H^2\left(M, A \right)$ is defin
 
 \end{theorem}
 Note that since $A$ is sheaf of Abelian groups, $ H^2\left(M, A \right)$ is defined.
+
+\subsection{Relative cohomology}
+\paragraph*{} Here I follow to \cite{bredon:sheaf}
+Let $j : \hookto \sX$ and let $\Phi$ be a family of supports on $\sX$. For any sheaf $\mathscr A$ on $\sX$ we have the natural $j$-cohomomorphism %(see Section 8)
+\bean
+\mathscr C^*\left(\sX; \mathscr A\right) \to C^*\left(A; \mathscr A|A\right)
+\eean
+Equivalently, we have the homomorphism
+\bean
+\mathscr C\left(\sX; \mathscr A\right) 
+j^*: \mathscr C^*\left(\sX; \mathscr A\right) \to j^*C^*\left(A; \mathscr A|A\right)
+\eean
+of sheaves on $\sX$.
+In order to define relative cohomology, we shall show that $j^*$ is surjective
+and has a flabby kernel. We introduce the notation
+\bean
+\ker j^* \bydef  \mathscr C^*\left(\sX, A ;\mathscr A\right),\\
+C^*_\Phi\left(\sX, A; \mathscr A\right)\bydef \Ga_\Phi\left( C^*\left(\sX; A \mathscr A\right)\right) 
+\eean
+and
+\bean
+H^*_\Phi \left(\sX, A; \mathscr A\right) \bydef H^*\left( C^*_\Phi\left(\sX, A; \mathscr A\right)\right) 
+\eean 
+Since $\ker j^*$ is flabby and since $\G_\Phi\left(j \mathscr B \right) = \Ga_{\Phi \cap A}\left(\mathscr B \right)$  % by I-Exercise 8, we will
+obtain the induced short exact sequence
+\bean
+0 \hookto C^*_\Phi\left(\sX, A;\mathscr A  \right) \hookto C^*_\Phi\left(\sX;\mathscr A  \right)\onto C^*_\Phi\left(A;\mathscr A | A \right)\onto 0
+\eean
+and hence the long exact cohomology sequence
+\be 
+... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(A;\mathscr A  \right)\to  H^{p+1}_\Phi\left(A;\mathscr A | A \right)\to ...
+\ee
+
 \subsection{Products}
 
 \paragraph*{}
@@ -3738,22 +4639,24 @@ Here we  $\underline{\C}^*_M$ is used to denote the sheaf of continuous $\C^*$-v
 	We wish to apply the Theorem \ref{nc_coh_exact_central_eqn}  to the exact sequence \eqref{nc_coh_exact_central_eqn} in the case 
 	of a suitable sheaf of algebras $R$. As we are interested in the cohomology 
 	group $H^2\left(M, \underline{\C}^*_M \right)$, we want the center of $R$ to be the sheaf $\underline{\C}^*_M$. Let us 
-	take the sheaf of algebras R to be the sheaf LM of continuous functions 
-	with values in some Banach algebra L, with center equal to C. The best 
-	choice will turn out to be the algebra L = ?(E) of bounded operators in a 
-	separable Hilbert space E; the norm is the sup-norm of an operator. It is 
-	well-known (and easy to see) that the center of L is equal to C. The quotient 
-	Lie group L*/C* identifies with the Lie group G = Aut(IC) of continuous 
-	algebra automorphisms of the Banach algebra K of compact operators of E. 
+	take the sheaf of algebras $R$ to be the sheaf $\underline L_M$ of continuous functions 
+	with values in some Banach algebra $L$, with center equal to $\C$. The best 
+	choice will turn out to be the algebra $L = \L\left(E \right)$ of bounded operators in a 
+	separable Hilbert space $E$; the norm is the sup-norm of an operator. It is 
+	well-known (and easy to see) that the center of $L$ is equal to $\C$. The quotient 
+	Lie group $L^*/\C^*$ identifies with the Lie group $G = Aut\left( \K\right)$  of continuous 
+	algebra automorphisms of the Banach algebra K of compact operators of $E$. 
 	In other words, one has an exact sequence of Lie groups 
 	\be\label{ctr_seq_eqn}
 1 \hookto C^* \hookto L^* \cong Aut\left(E \right)\onto G = Aut\left(\K \right) \onto 1.  
 \ee
 			Since the mapping $Aut\left(E \right)\onto G$  is a principal $\C^*$-fibration, one has an exact 
 			sequence of sheaves of continuous functions with values in \eqref{ctr_seq_eqn}, to wit: 
-			D-7) 
+	\be
+	\{1\} \hookto \underline{C}^*_M \hookto\underline{L}^*_M \onto\underline{G}_M\onto \{1\}.
+	\ee
 			The following result is the basic reason behind the choice of this Banach 
-			algebra L. 
+			algebra $L$. 
 			\begin{proposition}\cite{bryl:loop}
 %4.1.5. Proposition. [D-D, Lemme 3] 
 The Lie group $L^*$ of invertible 
@@ -3762,8 +4665,8 @@ continuous operators in $E$ is contractible.
 	
 \begin{corollary}\cite{bryl:loop}
 %4.1.6. Corollary. [D-D, Lemme 4] 
-The sheaf l?M of continuous L*-valued 
-functions is soft. !!! SOFT !!!
+The sheaf $\underline{L}^*_M$ of continuous $L^*$-valued 
+functions is soft (cf. \cite{bredon:sheaf})
 \end{corollary}
 \begin{proposition}\cite{bryl:loop}
 %4.1.7. Proposition. 
@@ -3772,9 +4675,8 @@ $H^1\left( M, B\right) = \{1\}$.
 \end{proposition}
 \begin{proposition}\cite{bryl:loop}
 %4.1.8. Proposition. [D-D, Lemme 22] 
-Let 1 -> 4 -> B -> C -> 1 6e 
-a central exact sequence of sheaves of groups over M. If B is a soft sheaf, 
-then <5i : ffH-W.C) — H2(M,A) is a bijection. 
+Let $\{1 \}\hookto A \hookto B  \onto C \onto \{1\}$ be
+a central exact sequence of sheaves of groups over $M$. If $B$ is a soft sheaf, then $\dl_1 : H^1\left(M,C \right) \cong H^2\left(M, A \right)$ is a bijection. 
 \end{proposition}
 \begin{theorem}\cite{bryl:loop}
 %4.1.9. Theorem. 
@@ -3793,8 +4695,16 @@ is a group isomorphism.
 \end{proposition}
 \begin{lemma}\cite{bryl:loop}
 %Lemma. 
-$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles A-> M with fiber K. 
+$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles $A\to]M$ with fiber $\K$. 
 \end{lemma}
+\begin{empt}\label{projective_bundle_empt}\cite{bryl:loop}
+For a separable Hilbert space $E$, the projective space $\mathbb{P}$ of $E$ is a manifold 
+modeled on $E/ \C$. For $\left\{e_n\right\}$ an orthonormal basis of $E$, $E\setminus 0$ is covered by the 
+open sets $\sV_j \bydef  = \left\{\left.\sum_{n=1}^\infty x_n e^n\right| x_j \neq 0 \right\}$. $\mathbb{P}$ is covered by the open sets $\sU_j$
+The open set $\sV_j$ identifies with the subspace $\left( \C \cdot e_j\right)^\perp$  of $E$; to $v \in \left( \C \cdot e_j\right)^\perp$
+corresponds the line spanned by $v + e_j$. Again $p: E\setminus 0 \to  \mathbb{P}$ is  principal 
+$C^*$-bundle. 
+\end{empt}
 \begin{definition}\label{projective_bundle_defn}\cite{bryl:loop}
 The {\it projective space 
 bundle} is a trivial fiber bundle $p : P -* M$ with 
@@ -3812,6 +4722,59 @@ homeomorphic to G.
 There is a natural bijection between the set of iso- 
 morphism classes of separable projective space bundles over M and the set 
 $H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
+\end{proposition}
+%	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 9.3. 
+	%		Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of		compact operators on $\H$. Then every irreducible *-representation of $\K$ is unitary		equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism		of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism		group of $\K$ can be identified with the topological group $PU\bydef U/\T$ the		projective unitary group of $\H$, with the quotient topology from the strong operator		topology on $U\left(\H\right)$.
+	%	\end{proposition}
+
+\begin{proposition}\label{ctr_bundle_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 5.59. 
+	%Theorem 9.9 
+	(Dixmier–Douady). 
+	Any stable separable algebra A of continuous
+	trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
+	$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
+	over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
+	such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
+	The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
+	algebra A is called its Dixmier–Douady class.
+\end{proposition}
+\begin{proof}
+	Principal $PU$-bundles over $\sU$ are thus classified by
+	$\left[\sX, BPU\right] = \left[\sX, K\left( \Z, 3\right) \right] = H^3\left(\sX, \Z \right)$. 
+	The details of the proof are presented in \cite{cuntz_meyer_ros:bivariant}.
+\end{proof}
+
+\begin{proposition}\label{ctr_d_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 9.11 (P. Green [51,96,104]). 
+	Let $\sX$ be a second-countable locally compact
+	Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over $\sX$.
+	Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
+	$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
+\end{proposition}
+\begin{proof}
+	Here a fragment of the proof is presented.
+	From the proposition it follows that that if $A =\Ga_0\left( \sX, \A\right)$ and $B = \Ga_0\left( \sX, \B\right)$, where $\A$ and B are locally trivial bundles of $C^*$-algebras over $\sX$ with fibres isomorphic	to $\K$ then $A\times_\sX B = \Ga_0\left( \sX, \A\otimes B\right)$ where $\A\otimes \B$, where  is the locally trivial bundle with
+	fibre $\A_x\widehat \otimes \B_x$ over $x\in \sX$.  It is proven in \ref{ctr_d_prop} that $\dl \left(A \otimes_\sX B \right)= \dl  \left(A  \right)+\left(B \right)$.
+	
+\end{proof}
+\begin{notation}\label{ctr_not}
+	If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
+	continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$. From the Proposition \ref{ctr_d_prop} it follows that
+	\be\label{bundle_prod_iso}
+	\varphi_{\dl \rho}	:CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+	\ee
+\end{notation}
+\begin{proposition}\label{ctr_cup_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 9.17.
+	There are natural homomorphisms
+	\bea\label{ka_eqn}
+	K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right),\\
+	\label{kx_eqn}
+	K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right),
+	\eea
+	where $K_\bullet\left( CT\left(\sX, \dl \right)\right)$ means $K$-theoretic groups of $C^*$-algebra $ CT\left(\sX, \dl \right)$ and $K^\bullet\left( \sX\right)$ means $K$-theoretic groups of the space $\sX$.
 \end{proposition}
 
 \section{$C^*$-algebras of groupoids and foliations}
@@ -4729,6 +5692,9 @@ of this work.
 	
 	\bibitem{hatcher:at}Allen Hatcher, \textit{Algebraic topology}. Cambridge University Presses, Cambridge, 2002. 
 	 	
+	 	
+	 \bibitem{hermann:obstruction}  Robert Hermann {\it Obstruction theory for fibre spaces}.	 Illinois J. Math. 4(1): 9-27 (March 1960). DOI: 10.1215/ijm/1255455733. 1960;
+	
 	\bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
 	
 	\bibitem{johnstone:topos}Peter Johnstone. \textit{Topos Theory}, L. M. S. Monographs no. 10, Academic Press 1977.
