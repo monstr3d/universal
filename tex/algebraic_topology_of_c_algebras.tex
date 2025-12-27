@@ -3041,14 +3041,14 @@ A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:
 \end{remark}
 \begin{remark}
 The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
-\bean
+\be\label{top_ext_o_eqn}
 ...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
-\eean
+\ee
 and a homomorphism $H^n\left[f\right]: H^n\left(\sX; \pi \right) \to H^n\left(\A; \pi \right)$.
 \end{remark}
 
-\paragraph{Obstructions  theory for  lifting problem}.
-Here I follow to 
+\paragraph{Obstructions  theory for  lifting problem}
+Here I follow to \cite{spanier:at}
 Let us consider  fibrations whose fiber is an Eilenberg-MacLane 
 space. We shall develop an obstruction theory for the lifting problem of maps 
 of relative $CW$ complexes to such fibrations. In the next section we shall show 
@@ -3060,7 +3060,7 @@ For any pointed space $B'$ there is the path fibration $PB' \onto B'$, where $PB
 exponential correspondence there is a one-to-one correspondence between homotopies $H: \sX \times I \to B'$ such that $H(x,0) = b'_0$ and maps $H': \sX \to  PB'$, the  
 correspondence defined by $H'(x)(t) \bydef H(x,t)$. This easily implies the following result 
 %(which is dual to lemma 7.1.1);
-\begin{lemma}\cite{spanier;at}
+\begin{lemma}\cite{spanier:at}
 	% PAGE 433	
 	A map $\sX \to B$ is null homotopic if and only if it can be lifted 
 	to the path fibration $PB'\onto B'$.
@@ -3070,10 +3070,10 @@ induced from the path fibration $PB'\onto B'$. This induced fibration is called 
 {\it principal fibration induced by} $\th$  and has fiber $p_\th^{-1}- b_0\times \Th B'$. A 
 straightforward verification shows that there is a covariant functor from the 
 category of base-point-preserving maps between pointed spaces to the  
-subcategory of fibrations which assigns to 6 the principal fibration induced by $\th$. 
+subcategory of fibrations which assigns to $\th$ the principal fibration induced by $\th$. 
 Let $\left(\sX, A \right)$  be a pair and let $j: A \subset \sX$ be the inclusion map. Let $p_\th: E_\th \to B$
-be the principal fibration induced by $\th : B \to B/$. A map pair 
-$f: j \to p_\th$ is a commutative square;
+be the principal fibration induced by $\th : B \to B'$. A map pair 
+$f: j \to p_\th$ is a commutative square
 \bean
 	\begin{tikzcd}
 	A\arrow[d, "j"]\arrow[r, "f''"] & E_\th\arrow[d, "p_\th"]\\
@@ -3093,32 +3093,39 @@ $f_1 : \mathcal W \to B$, there is a one-to-one correspondence between h
 liftings $f:\mathcal W \to E_\th$ if  $f_1$ and homotopies $F: \mathcal W \times  I \to B'$ from the constant map to $\th\circ f_1$. Let $(\sX,A)$ be a pair with inclusion map $j: A \subset \sX$ and let $f b: j \to p_\th$ be a 
 a map pair consisting of maps $f'': A \to E_\th$ and $f': \sX \to B$ such that $p_\th \circ f'' = f' \circ j$. We define a map 
 \bean
-\th\left(f \right) : \left( A \times L \cup X \times \dot I, \sX \times 0 \right) \to \left(B', b'_0 \right)  
+\th\left(f \right) : \left( A \times I \cup X \times \dot I, \sX \times 0 \right) \to \left(B', b'_0 \right)  
 \eean
 by the conditions $\th\left(f \right) \left(x, 0 \right)= b'_0$,  $\th\left(f \right) \left(x, 1 \right)= \th f'\left(x \right) $
-!!! %$\th \left( f\right)_{A \times I}$ is the homotopy from the constant map $A \to b'_0$ the map 
+$\th \left( f\right)_{A \times I}$ is the homotopy from the constant map $A \to b'_0$ the map 
 $\th \circ f'\circ j$ corresponding to the lifting $f''$ of $f'\circ j$ There is then a one-to-one 
-correspondence between liftings of $f$ and extensions of !!! !!! %$\th\left(f\right)$ over $\sX \times I$.
-%	
+correspondence between liftings of $f$ and extensions of  $\th\left(f\right)$ over $\sX \times I$.
+
+
 We now specialize to the case where $B'$ is a space of type $K\left( \pi, n\right)$ , with 
 $n \ge 1$ and $\pi$ Abelian, and we let $\iota \in H^n\left(B', b'_0, \pi \right)$  be $n$-characteristic for $B'$.
 In this case, if $\th: B\to B'$ is a base-point-preserving map, the induced fibration 
-!!!! %	$p_\th : E_\th \to B$ is called a {\it principal fibration of type} $K\left( \pi, n\right)$. If $(\sX,A)$ is a relative 
+$p_\th : E_\th \to B$ is called a {\it principal fibration of type} $K\left( \pi, n\right)$. If $(\sX,A)$ is a relative 
 $CW$ complex, then $(\sX,A) \times  (I,\dot I)$ is also a relative $CW$ complex, and given a 
-!!! %	i map  $g: A \times I \cup \left(I, \dot I \right)\to B'$  it follows from Theorem \ref{top_obstr_thm} that $g$ can be 
-!!! %	 extended over $\sX \times I$ if and only if $\dl g^*\left( \iota\right)= 0$  in $H^{n+1}\left(\left(\sX ,A \right) \left(I \dot I \right) ; \pi \right)$ 
-In particular, given a map pair $f: j \to p_\th$, there is a lifting of $f$ !!!%if and only if $\dl \th \left(f \right) \left( \.\iota\right)$ .
-!!!
-% \begin{defn}\cite{spanier:at}
-	%  The obstruction to lifting f denoted by c(f) ? Hn(X,A; w), 
-	%( is defined by 
-	%| Ç?(/)*(0 = (-i)Mc(/)) 
-	!!!%where t: Hn(X,A; 7r) ^ HÇ+1((X,A) X (IJ); w) is the map t(Ç) = u X I,  
-	%defined in Sec. 8.1 [I ? W{lj; Z) is the generator such that if 0 ? H¡({0}; Z) 
-		%	and 1 ? H¡({1); Z) are the respective unit integral cohomology classes, then, 
-			!!!%		identifying H¡(jf;Z) =; H¡({0};Z) 0 JF({1};Z), we have Si = J = -SO]. 
-			a!!!		
-			%\end{defn}
+ map  $g: A \times I \cup \left(I, \dot I \right)\to B'$  it follows from Theorem \ref{top_obstr_thm} that $g$ can be 
+	 extended over $\sX \times I$ if and only if $\dl g^*\left( \iota\right)= 0$  in $H^{n+1}\left(\left(\sX ,A \right) \left(I, \dot I \right) ; \pi \right)$ 
+In particular, given a map pair $f: j \to p_\th$, there is a lifting of $f$ if and only if $\dl \th \left(f \right) \left( \iota\right)$. Similarly to \eqref{top_ext_o_eqn} there is a homomorphism 
+\be\label{top_lift_o_eqn}
+ H^n\left( A \times I \cup X \times \dot I; \pi \right) \xrightarrow{\delta}  H^{n+1}\left( \left( \sX,A\right) \times \left( I, \dot I\right) ; \pi\right)
+\ee
+ \begin{definition}\cite{spanier:at}
+	 The {\it obstruction to lifting} $f$ denoted by $c(f) \in H^n(\sX,A; \pi)$, 
+	 is defined by 
+	 \be
+	 \dl \th\left(f \right)^*\left(\iota \right) =\left(-1 \right)^n\tau\left( c\left(f \right) \right)   
+	 \ee
+	where
+	\bean
+	\tau :  H^n\left( \sX,A; \pi\right)  \cong  H^{n+1}\left( \left( \sX,A\right) \times \left( I, \dot I\right) ; \pi\right) ,\\
+	u \mapsto u \smile \overline I
+	\eean
+and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that if $\overline 0 \in H^0\left( \{0\}, \Z\right)$ $\overline 1 \in H^0\left( \{1\}, \Z\right)$ and $\overline 1 \in H^0\left( \{0\}, \Z\right)$ are respective unit integral cohomology classes then identifying $H^0\left(\dot I, \Z \right) \cong H^0\left(\{0\} ; \Z\right)\oplus  H^0\left(\{1\} ; \Z\right)$, we have $\dl \overline 1 = \dot I = - \dl \overline 0$. 
+		
+		\end{definition}
 
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
