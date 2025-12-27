@@ -3019,6 +3019,7 @@ $$
 
 
 \subsubsection{Obstruction theory}
+\paragraph{Obstructions of extensions of maps}
 \begin{definition}\label{top_char_defn}\cite{spanier:at}
 Let $\pi$ an Abelian group and $\sY$ is a path-connected  pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
 $$
@@ -3043,10 +3044,83 @@ The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{to
 \bean
 ...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
 \eean
-and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+and a homomorphism $H^n\left[f\right]: H^n\left(\sX; \pi \right) \to H^n\left(\A; \pi \right)$.
 \end{remark}
 
-	\section{Lattices and filters}
+\paragraph{Obstructions  theory for  lifting problem}.
+Here I follow to 
+Let us consider  fibrations whose fiber is an Eilenberg-MacLane 
+space. We shall develop an obstruction theory for the lifting problem of maps 
+of relative $CW$ complexes to such fibrations. In the next section we shall show 
+that many maps can be factored up to weak homotopy type as infinite  
+composites of such fibrations. In this way the obstruction theory for these special 
+fibrations leads to an obstruction theory for arbitrary maps.
+
+For any pointed space $B'$ there is the path fibration $PB' \onto B'$, where $PB'$ is the space of paths in $B'$ beginning at the base point $b'_0$. Under the  
+exponential correspondence there is a one-to-one correspondence between homotopies $H: \sX \times I \to B'$ such that $H(x,0) = b'_0$ and maps $H': \sX \to  PB'$, the  
+correspondence defined by $H'(x)(t) \bydef H(x,t)$. This easily implies the following result 
+%(which is dual to lemma 7.1.1);
+\begin{lemma}\cite{spanier;at}
+	% PAGE 433	
+	A map $\sX \to B$ is null homotopic if and only if it can be lifted 
+	to the path fibration $PB'\onto B'$.
+\end{lemma}
+If $\th: B \onto B'$ is a base-point-preserving map, there is a fibration $p_\th: E_\th \to B$.
+induced from the path fibration $PB'\onto B'$. This induced fibration is called the 
+{\it principal fibration induced by} $\th$  and has fiber $p_\th^{-1}- b_0\times \Th B'$. A 
+straightforward verification shows that there is a covariant functor from the 
+category of base-point-preserving maps between pointed spaces to the  
+subcategory of fibrations which assigns to 6 the principal fibration induced by $\th$. 
+Let $\left(\sX, A \right)$  be a pair and let $j: A \subset \sX$ be the inclusion map. Let $p_\th: E_\th \to B$
+be the principal fibration induced by $\th : B \to B/$. A map pair 
+$f: j \to p_\th$ is a commutative square;
+\bean
+	\begin{tikzcd}
+	A\arrow[d, "j"]\arrow[r, "f''"] & E_\th\arrow[d, "p_\th"]\\
+	\sX\arrow[r, "f'"] & B
+\end{tikzcd}
+\eean
+The set of homotopy classes $\left[j; p_\th\right]$ of map pairs from $j$ to $p_\th$ is the object function 
+of a functor of two variables contravariant in pairs $(\sX,A)$ and covariant in base- 
+point-preserving maps $\th$. We are interested in studying in more detail the 
+relative-lifting problem (that is, the map $\rho: \left[\sX; E_\th\right]\to \left[j; p_\th\right]$ for this situation. 
+Because $p_\th$ is an induced fibration, the relative-lifting problem is equivalent 
+to an extension problem, as shown below. 
+
+Let $p_\th : E_\th \to B$ be induced by $\th : B\to B'$. For any space $\mathcal W$ a map $f: \mathcal W \to E_\th$ consists of a pair $f_1:\mathcal W\to B$ and $f_2: \mathcal W\to PB'$ such that $p'\circ f_2 = \th \circ f_1$. By the exponential correspondence, $f_2$ corresponds to a 
+homotopy $F: \mathcal W\times I \to B'$ from the constant map to $\th \circ f_1$. Thus, given a map 
+$f_1 : \mathcal W \to B$, there is a one-to-one correspondence between h
+liftings $f:\mathcal W \to E_\th$ if  $f_1$ and homotopies $F: \mathcal W \times  I \to B'$ from the constant map to $\th\circ f_1$. Let $(\sX,A)$ be a pair with inclusion map $j: A \subset \sX$ and let $f b: j \to p_\th$ be a 
+a map pair consisting of maps $f'': A \to E_\th$ and $f': \sX \to B$ such that $p_\th \circ f'' = f' \circ j$. We define a map 
+\bean
+\th\left(f \right) : \left( A \times L \cup X \times \dot I, \sX \times 0 \right) \to \left(B', b'_0 \right)  
+\eean
+by the conditions $\th\left(f \right) \left(x, 0 \right)= b'_0$,  $\th\left(f \right) \left(x, 1 \right)= \th f'\left(x \right) $
+!!! %$\th \left( f\right)_{A \times I}$ is the homotopy from the constant map $A \to b'_0$ the map 
+$\th \circ f'\circ j$ corresponding to the lifting $f''$ of $f'\circ j$ There is then a one-to-one 
+correspondence between liftings of $f$ and extensions of !!! !!! %$\th\left(f\right)$ over $\sX \times I$.
+%	
+We now specialize to the case where $B'$ is a space of type $K\left( \pi, n\right)$ , with 
+$n \ge 1$ and $\pi$ Abelian, and we let $\iota \in H^n\left(B', b'_0, \pi \right)$  be $n$-characteristic for $B'$.
+In this case, if $\th: B\to B'$ is a base-point-preserving map, the induced fibration 
+!!!! %	$p_\th : E_\th \to B$ is called a {\it principal fibration of type} $K\left( \pi, n\right)$. If $(\sX,A)$ is a relative 
+$CW$ complex, then $(\sX,A) \times  (I,\dot I)$ is also a relative $CW$ complex, and given a 
+!!! %	i map  $g: A \times I \cup \left(I, \dot I \right)\to B'$  it follows from Theorem \ref{top_obstr_thm} that $g$ can be 
+!!! %	 extended over $\sX \times I$ if and only if $\dl g^*\left( \iota\right)= 0$  in $H^{n+1}\left(\left(\sX ,A \right) \left(I \dot I \right) ; \pi \right)$ 
+In particular, given a map pair $f: j \to p_\th$, there is a lifting of $f$ !!!%if and only if $\dl \th \left(f \right) \left( \.\iota\right)$ .
+!!!
+% \begin{defn}\cite{spanier:at}
+	%  The obstruction to lifting f denoted by c(f) ? Hn(X,A; w), 
+	%( is defined by 
+	%| Ç?(/)*(0 = (-i)Mc(/)) 
+	!!!%where t: Hn(X,A; 7r) ^ HÇ+1((X,A) X (IJ); w) is the map t(Ç) = u X I,  
+	%defined in Sec. 8.1 [I ? W{lj; Z) is the generator such that if 0 ? H¡({0}; Z) 
+		%	and 1 ? H¡({1); Z) are the respective unit integral cohomology classes, then, 
+			!!!%		identifying H¡(jf;Z) =; H¡({0};Z) 0 JF({1};Z), we have Si = J = -SO]. 
+			a!!!		
+			%\end{defn}
+
+\section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
 		Let $A$ be a partially ordered set, $S$ a subset of $A$. We say an element $a \in A$
 		is a \textit{ meet} (or \textit{ greatest lower bound}) for $S$, and write $a = \wedge S$, if 
@@ -5725,8 +5799,9 @@ of this work.
 
 
 	
-		\bibitem{spanier:at}
-E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+		\bibitem{spanier:at} E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+
+\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 
 		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
 
