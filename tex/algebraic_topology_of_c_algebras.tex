@@ -1497,9 +1497,9 @@ $$
 $$
 where $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}} $ is the projective  space with   well known Hausdorff  topology and  $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  having the final with respect to the map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \mathbb{P}\left(\H \right)$ topology (cf. Definition \ref{top_final_defn}).
 \begin{remark}
-Any open subset of $\sU = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
+Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
 \be\label{open_g_eqn}
-\sU = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
+\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
 \ee
 where $V_1, ..., V_n \subset 
 \mathbb{P}\left(\H \right)$ are linear subspaces. \end{remark}
@@ -1519,14 +1519,17 @@ $$
 \mathbb{P}\left( \C^n\right) = \bigcup_{j=0}^{n} \left( \mathbb{P}\left( \C^n\right) \setminus L_j\right). 
 $$
 where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left( \C^n\right)$.
-
-If $\mathscr W= \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }$ then
+If 
+\be\label{comp_cov_eqn}
+\mathscr W\bydef \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... } \quad \text{or} \quad \mathscr W\bydef \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }
+\ee then
 \be\label{cp_nerve_eqn}
 \begin{split}
 	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
-	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
+	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of the Hilbert space } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
 \end{split}
 \ee
+where the inclusion $\sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j$ follows from the Definition \ref{projective_bundle_defn};
 From the equation \eqref{cp_nerve_eqn} it follows that 
 \be\label{nerve_0_eqn}
 \begin{split}
@@ -1543,27 +1546,27 @@ all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is t
 \begin{lemma}\label{trivial_cech_lem}
 	If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
 	\be
-	\forall p > 0 \quad H^p\left(\sX, F_\sX  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F_\sY  \right) = 0
+	\forall p > 0 \quad H^p\left(\sX, F  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F  \right) = 0
 	\ee
 	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 \end{lemma}
 \begin{proof}
 	Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
-	\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F_\sY  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
+	\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
 	\bean
-	c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F_\sY\right).
+	c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F\right).
 	\eean
-	This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F_\sX\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
+	This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
 	\bean
 	\begin{split}
-		c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F_\sX\right).
+		c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F\right).
 	\end{split}
 	\eean
 	(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton covering (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
 	\bean
-	c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F_\sY\right)
+	c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F\right)
 	\eean  
-	From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F_\sX  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F_\sX\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F_\sY\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F_\sY  \right)=H^p\left(\sY, F_\sY  \right) = 0$.
+	From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F  \right)=H^p\left(\sY, F  \right) = 0$.
 \end{proof}
 \begin{lemma}\label{iso_cech_lem}
 	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following isomorphisms
@@ -1584,7 +1587,7 @@ $$
 	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
 
 \end{theorem}
-\begin{proof}!!!!
+\begin{proof}
 	If $\mathscr W$ is given by \eqref{cp_nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
 $$
 H^*\left(\mathbb{P}\left( \C^n\right)_{\mathfrak{Hausdorff}},  F \right) \cong \check H^*\left( \mathscr W;  F\right).
@@ -1599,27 +1602,29 @@ H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\
 The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)_{\mathfrak{Gelfand}}$ are not trivial. 
 \end{remark}
 If
-$\dim \H = n < \infty$  then $A = M_n\left(\C \right)$ and  $\mathbb{P}\left(\H \right)= \mathbb{P}\left( \C^n\right)$. There is the Zariski topology on $ \mathbb{P}\left( \C^n\right)$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
+$\dim \H = n < \infty$  then $\H \cong \C^n$, $~A = M_n\left(\C \right)$ and  $\mathbb{P}\left(\H \right)= \mathbb{P}\left( \C^n\right)$. There is the Zariski topology on $ \mathbb{P}\left( \C^n\right)$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
 There is a composition of continuous maps
 $$
 \mathbb{P}\left( \C^n\right)_{\mathfrak{Hausdorff}}\to \mathbb{P}\left( \C^n\right)_{\mathfrak{Zariski}}\to \mathbb{P}\left( \C^n\right)_{\mathfrak{Gelfand}}
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
+\subsection{Formal fibre bundles}
+\paragraph{} The notion of fibre bundle (cf. Definition \ref{top_bundle_defn}) is a powerful tool of calculation in the Algebraic topology. In many cases the fibre bundles can be replaced with 
 
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic construction}
 
 
 \begin{lemma}\label{ctr_g_lem}
-	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rep_x: A \to B\left(\H_x \right)$.
+	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant $\mathfrak{Gelfand}\left(A \right)''$
+	 of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rep_x: A \to B\left(\H_x \right)$.
 \end{lemma}
 \begin{proof}
-From the Theorem \ref{dauns_hofmann_thm} and the Lemma \ref{hausdorff_spectrum_lem} it follows that there is Hausdorff blowing-up 
+From the Theorem \ref{dauns_hofmann_thm} and the Lemma \ref{hausdorff_spectrum_lem} it follows that there is Hausdorff blowing-up (cf. Definition \ref{blowing_defn})
 \be 
-\mathfrak {Blowing}_{\sX-A }:C_0\left( \sY\right) \hookto M\left(A \right)
+\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)
 \ee
-
-where $\sX$ is the spectrum of $A$.  So there are following maps 
+!!!! CORRECT !!!where $\sX$ is the spectrum of $A$.  So there are following maps 
 \be\label{ctr_g_eqn}
 \begin{split}
 	\mathfrak{Gelfand}\left(A \right) \xrightarrow{\phi} \mathfrak{Gelfand}\left(A \right)'' \xrightarrow{\phi''} \sX.
@@ -1715,7 +1720,7 @@ where $\mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}$ and $\mathbb{P}\left(\E 
 	If $c \in \check H^p\left(\sX \times \sY, F \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
 	\bean
 	\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
-	\sY = \bigcup_{\bt \in \mathscr B} \sU_\bt,\\
+	\sY = \bigcup_{\bt \in \mathscr B} \sV_\bt,\\
 	\eean
 	such that
 	\bean
@@ -1741,7 +1746,7 @@ where $\mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}$ and $\mathbb{P}\left(\E 
 	$$
 	\sum_{j = 1} ^n\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}}.
 	$$
-	Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F_\sX\right)$ such that
+	Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F\right)$ such that
 	\bean
 	\ga^j_{\iota_0,...,\iota_{p_j}} = d_{p_j - 1} \mu^j,\\
 	\dl^j_{\iota_{p_j},...,\iota_{p}}= = d_{p - p_j - 1} \nu^j,
@@ -1775,26 +1780,11 @@ H^*\left( \mathfrak{Gelfand}\left(A \right)'',  F\right) \cong    H^*\left( \mat
 \eean
 where the notation \eqref{constant_presheaf_eqn} of locally constant sheaves is used.
 \end{theorem}\label{ctr_coh_thm}
-\begin{lemma}\label{trivial_cech_lem!}!!!
-	If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
-	\be
-	\forall p > 0 \quad H^p\left(\sX, F_\sX  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F_\sY  \right) = 0
-	\ee
-	where both $F_\sX$ and $F_\sY$ are locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}). 
-\end{lemma}
-\begin{lemma}\label{iso_cech_lem!}!!!
-	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following isomorphisms
-	\be
-	\check H^\bullet\left(\mathscr U, F \right) \cong \check H^\bullet\left(\mathscr U, F \right)\cong \check H^\bullet\left( \sX, F \right) \cong \check H^\bullet\left(\sY, F \right) \cong  H^\bullet\left( \sX, F\right) \cong  H^\bullet\left(\sY, F \right)
-	\ee
-	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{lemma}
-
 \begin{proof}
 	According to the Lemma  \ref{zero_product_lem} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
 One has
-\be
-\mathbb{P}\left( \E\right) = \bigcup_{\substack{\sU\in K\left( \mathscr{U}\right) \\ \mathcal W \in  K\left( \mathscr W\right)  }} \sU \times \mathcal W
+\be\label{projective_union_eqn}
+\mathbb{P}\left( \E\right) = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W \in   \mathscr W }} \sU \times \mathcal W
 \ee
 where $\mathscr W$ is given by the equation \eqref{nerve_0_eqn}. $\mathscr U$ satisfies  to the Theorem \ref{top_nerve_thm}, so any $\sU \in  K\left( \mathscr U\right) $ one has 
 $$
@@ -1807,11 +1797,45 @@ and taking into account the Lemma  \eqref{zero_product_lem} one has
 Any product $\sU \times \mathcal W\subset \mathbb{P}\left( \E\right)$ is open in both $\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}}$ and $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}}$. This lemma follows from the Theorem \ref{top_nerve_thm} the proof is similar to the \ref{compact_thm} one.
 
 \end{proof}
-\begin{remark}
-Using the Theorem \ref{ctr_thm} one can calculate  the Dixmier Douady class of $A$ which defines $A$ up to isomorphism (cf. \cite{rae:ctr_morita}). So $A$ defines the bicommutant  $\mathfrak{Gelfand}\left(A \right)''$  of the Gelfand space (cf. Definition \ref{bicommutant_defn}) and vice-versa.
-\end{remark}
+\begin{empt}
+According to the equation \eqref{projective_union_eqn} one has
+\bean
+\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}} = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}=  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}/\sim,\\
+\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}} = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfand}}=  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfand}}/\sim
+\eean 
+where $\mathscr W$ is given by the equation \eqref{comp_cov_eqn}, $\mathcal W_{\mathfrak{Hausdorff}}$ and $\mathcal W_{\mathfrak{Gelfand}}$ are the same sets having the Hausdorff and Gelfand topology respectively. Any $\mathcal W_{\mathfrak{Gelfand}}\in \mathscr W$ naturally defines $\mathcal W_{\mathfrak{Hausdorff}}$. Using this fact one obtain the space $\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}} =  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}/\sim$ from the $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}} =  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfabd}}/\sim$ one; In result one has the following lemma.
+\end{empt}
+\begin{lemma}
+	Any stable separable algebra $A$ of continuous
+trace over a second-countable locally compact Hausdorff space $\sX$ naturally depends on the bicommutant of Gelfand space 
+\end{lemma}
+\begin{proof}
+One can proof that the given by the Proposition \ref{ctr_bundle_prop} bundle with fibers $\K$ naturally depends from the $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}}$ one. The details of the proof are leaved to the reader.
+\end{proof}
+\begin{empt}
+Let $A$ be any stable separable algebra $A$ of continuous
+trace over a second-countable locally compact Hausdorff $CW$ complex $\sX$. Similarly to the equation \eqref{top_lift_obstr_eqn} one has a homomorphisms
+\bean
+H^3\left( \{x_0\} \times I \cup \sX \times \dot I; \Z \right) \xrightarrow{\delta}  H^{4}\left( \left( \sX,\{x_0\}\right) \times \left( I, \dot I\right) ; \Z\right)
+\eean
+ \begin{definition}\label{top_lift_obstr_defn!!}!!!!\cite{spanier:at}
+	The {\it obstruction to lifting} $f$ denoted by $c(f) \in H^n(\sX,\A; \pi)$, 
+	is defined by 
+	\be
+	\dl \th\left(f \right)^*\left(\iota \right) =\left(-1 \right)^n\tau\left( c\left(f \right) \right)   
+	\ee
+	where
+	\bean
+	\tau :  H^n\left( \sX,\A; \pi\right)  \cong  H^{n+1}\left( \left( \sX,\A\right) \times \left( I, \dot I\right) ; \pi\right) ,\\
+	u \mapsto u \smile \overline I
+	\eean
+	and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that if $\overline 0 \in H^0\left( \{0\}, \Z\right)$ $\overline 1 \in H^0\left( \{1\}, \Z\right)$ and $\overline 1 \in H^0\left( \{0\}, \Z\right)$ are respective unit integral cohomology classes then identifying $H^0\left(\dot I, \Z \right) \cong H^0\left(\{0\} ; \Z\right)\oplus  H^0\left(\{1\} ; \Z\right)$, we have $\dl \overline 1 = \dot I = - \dl \overline 0$. 
+	
+\end{definition}
 
-\textit{title}\subsection{Gelfand space of $C^*$-algebras of groupoids}
+
+\end{empt}
+\subsection{Gelfand space of $C^*$-algebras of groupoids}
 
 \subsubsection{Algebraic construction}
 \paragraph*{}
@@ -2598,7 +2622,19 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 %5.1.1. Definition. 
 A mapping $f: \sX \to \sY$ is said to be a {\it local homeomorphism} if every $y \in \sY$ has an open neighborhood $\sU$ such that $f\left( \sU\right)$  is open. 
 	\end{definition}
-\subsection{Fibre bundles}
+\subsection{Fiber bundles}
+\begin{definition}\label{top_bundle_defn}\cite{spanier:at}
+A {\it fiber bundle} $\xi = \left(E, B, F, p \right)$  consists of a total space $E$, a base space $B$, 
+a fiber $F$, and a bundle projection $p: E \onto B$ such that there exists an open 
+covering $\left\{\sU\right\}$ of $B$ and, for each $\sU \in  \left\{\sU\right\}$, a homeomorphism $\varphi_\sU: \sU \times F \to p^{-1}\left( \sU\right)$ such that the composite 
+\be\label{top_bundle_eqn}
+\sU\times F \xrightarrow{\varphi_\sU} p^{-1}\left(\sU \right) \xrightarrow{p}\sU
+\ee
+is the projection to the first factor. The {\it fiber over} $b \in B$ is  
+defined to equal $p^{1}\left(b \right)$ , and we note that $F$ is homeomorphic to $p^{1}\left(b \right)$ for every 
+$b \in B$. Usually there is also given a {\it structure group} $G$ for the bundle consisting 
+of homeomorphisms of $F$,
+\end{definition}
 	\begin{definition}\label{top_proncipal_bu_defn}\cite{bryl:loop}
 	%11.4
 Let $G$ be a topological group. A (locally trivial) principal $G$-bundle is a fibre bundle $\xi \bydef \left( B, p, E, G \right)$ with a right $G$-action  $E \times G \to E$ of $G$ on $E$ such that there an open covering $\left\{\sU_\la\right\}_{\la\in \La}$ !!!!
@@ -3071,17 +3107,17 @@ induced from the path fibration $PB'\onto B'$. This induced fibration is called 
 straightforward verification shows that there is a covariant functor from the 
 category of base-point-preserving maps between pointed spaces to the  
 subcategory of fibrations which assigns to $\th$ the principal fibration induced by $\th$. 
-Let $\left(\sX, A \right)$  be a pair and let $j: A \subset \sX$ be the inclusion map. Let $p_\th: E_\th \to B$
+Let $\left(\sX, \A \right)$  be a pair and let $j: \A \subset \sX$ be the inclusion map. Let $p_\th: E_\th \to B$
 be the principal fibration induced by $\th : B \to B'$. A map pair 
 $f: j \to p_\th$ is a commutative square
 \bean
 	\begin{tikzcd}
-	A\arrow[d, "j"]\arrow[r, "f''"] & E_\th\arrow[d, "p_\th"]\\
+	\A\arrow[d, "j"]\arrow[r, "f''"] & E_\th\arrow[d, "p_\th"]\\
 	\sX\arrow[r, "f'"] & B
 \end{tikzcd}
 \eean
 The set of homotopy classes $\left[j; p_\th\right]$ of map pairs from $j$ to $p_\th$ is the object function 
-of a functor of two variables contravariant in pairs $(\sX,A)$ and covariant in base- 
+of a functor of two variables contravariant in pairs $(\sX,\A)$ and covariant in base- 
 point-preserving maps $\th$. We are interested in studying in more detail the 
 relative-lifting problem (that is, the map $\rho: \left[\sX; E_\th\right]\to \left[j; p_\th\right]$ for this situation. 
 Because $p_\th$ is an induced fibration, the relative-lifting problem is equivalent 
@@ -3090,13 +3126,13 @@ to an extension problem, as shown below.
 Let $p_\th : E_\th \to B$ be induced by $\th : B\to B'$. For any space $\mathcal W$ a map $f: \mathcal W \to E_\th$ consists of a pair $f_1:\mathcal W\to B$ and $f_2: \mathcal W\to PB'$ such that $p'\circ f_2 = \th \circ f_1$. By the exponential correspondence, $f_2$ corresponds to a 
 homotopy $F: \mathcal W\times I \to B'$ from the constant map to $\th \circ f_1$. Thus, given a map 
 $f_1 : \mathcal W \to B$, there is a one-to-one correspondence between h
-liftings $f:\mathcal W \to E_\th$ if  $f_1$ and homotopies $F: \mathcal W \times  I \to B'$ from the constant map to $\th\circ f_1$. Let $(\sX,A)$ be a pair with inclusion map $j: A \subset \sX$ and let $f b: j \to p_\th$ be a 
-a map pair consisting of maps $f'': A \to E_\th$ and $f': \sX \to B$ such that $p_\th \circ f'' = f' \circ j$. We define a map 
+liftings $f:\mathcal W \to E_\th$ if  $f_1$ and homotopies $F: \mathcal W \times  I \to B'$ from the constant map to $\th\circ f_1$. Let $(\sX,\A)$ be a pair with inclusion map $j: A \subset \sX$ and let $f b: j \to p_\th$ be a 
+a map pair consisting of maps $f'': \A \to E_\th$ and $f': \sX \to B$ such that $p_\th \circ f'' = f' \circ j$. We define a map 
 \bean
-\th\left(f \right) : \left( A \times I \cup X \times \dot I, \sX \times 0 \right) \to \left(B', b'_0 \right)  
+\th\left(f \right) : \left( \A \times I \cup X \times \dot I, \sX \times 0 \right) \to \left(B', b'_0 \right)  
 \eean
 by the conditions $\th\left(f \right) \left(x, 0 \right)= b'_0$,  $\th\left(f \right) \left(x, 1 \right)= \th f'\left(x \right) $
-$\th \left( f\right)_{A \times I}$ is the homotopy from the constant map $A \to b'_0$ the map 
+$\th \left( f\right)_{\A \times I}$ is the homotopy from the constant map $\A \to b'_0$ the map 
 $\th \circ f'\circ j$ corresponding to the lifting $f''$ of $f'\circ j$ There is then a one-to-one 
 correspondence between liftings of $f$ and extensions of  $\th\left(f\right)$ over $\sX \times I$.
 
@@ -3104,23 +3140,23 @@ correspondence between liftings of $f$ and extensions of  $\th\left(f\right)$ ov
 We now specialize to the case where $B'$ is a space of type $K\left( \pi, n\right)$ , with 
 $n \ge 1$ and $\pi$ Abelian, and we let $\iota \in H^n\left(B', b'_0, \pi \right)$  be $n$-characteristic for $B'$.
 In this case, if $\th: B\to B'$ is a base-point-preserving map, the induced fibration 
-$p_\th : E_\th \to B$ is called a {\it principal fibration of type} $K\left( \pi, n\right)$. If $(\sX,A)$ is a relative 
-$CW$ complex, then $(\sX,A) \times  (I,\dot I)$ is also a relative $CW$ complex, and given a 
- map  $g: A \times I \cup \left(I, \dot I \right)\to B'$  it follows from Theorem \ref{top_obstr_thm} that $g$ can be 
-	 extended over $\sX \times I$ if and only if $\dl g^*\left( \iota\right)= 0$  in $H^{n+1}\left(\left(\sX ,A \right) \left(I, \dot I \right) ; \pi \right)$ 
+$p_\th : E_\th \to B$ is called a {\it principal fibration of type} $K\left( \pi, n\right)$. If $(\sX,\A)$ is a relative 
+$CW$ complex, then $(\sX,\A) \times  (I,\dot I)$ is also a relative $CW$ complex, and given a 
+ map  $g: \A \times I \cup \left(I, \dot I \right)\to B'$  it follows from Theorem \ref{top_obstr_thm} that $g$ can be 
+	 extended over $\sX \times I$ if and only if $\dl g^*\left( \iota\right)= 0$  in $H^{n+1}\left(\left(\sX ,\A \right) \left(I, \dot I \right) ; \pi \right)$ 
 In particular, given a map pair $f: j \to p_\th$, there is a lifting of $f$ if and only if $\dl \th \left(f \right) \left( \iota\right)$. Similarly to \eqref{top_ext_o_eqn} there is a homomorphism 
-\be\label{top_lift_o_eqn}
- H^n\left( A \times I \cup X \times \dot I; \pi \right) \xrightarrow{\delta}  H^{n+1}\left( \left( \sX,A\right) \times \left( I, \dot I\right) ; \pi\right)
+\be\label{top_lift_obstr_eqn}
+ H^n\left( \A \times I \cup\sX \times \dot I; \pi \right) \xrightarrow{\delta}  H^{n+1}\left( \left( \sX,\A\right) \times \left( I, \dot I\right) ; \pi\right)
 \ee
- \begin{definition}\cite{spanier:at}
-	 The {\it obstruction to lifting} $f$ denoted by $c(f) \in H^n(\sX,A; \pi)$, 
+ \begin{definition}\label{top_lift_obstr_defn}\cite{spanier:at}
+	 The {\it obstruction to lifting} $f$ denoted by $c(f) \in H^n(\sX,\A; \pi)$, 
 	 is defined by 
 	 \be
 	 \dl \th\left(f \right)^*\left(\iota \right) =\left(-1 \right)^n\tau\left( c\left(f \right) \right)   
 	 \ee
 	where
 	\bean
-	\tau :  H^n\left( \sX,A; \pi\right)  \cong  H^{n+1}\left( \left( \sX,A\right) \times \left( I, \dot I\right) ; \pi\right) ,\\
+	\tau :  H^n\left( \sX,\A; \pi\right)  \cong  H^{n+1}\left( \left( \sX,\A\right) \times \left( I, \dot I\right) ; \pi\right) ,\\
 	u \mapsto u \smile \overline I
 	\eean
 and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that if $\overline 0 \in H^0\left( \{0\}, \Z\right)$ $\overline 1 \in H^0\left( \{1\}, \Z\right)$ and $\overline 1 \in H^0\left( \{0\}, \Z\right)$ are respective unit integral cohomology classes then identifying $H^0\left(\dot I, \Z \right) \cong H^0\left(\{0\} ; \Z\right)\oplus  H^0\left(\{1\} ; \Z\right)$, we have $\dl \overline 1 = \dot I = - \dl \overline 0$. 
@@ -3129,7 +3165,7 @@ and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that i
 
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
-		Let $A$ be a partially ordered set, $S$ a subset of $A$. We say an element $a \in A$
+		Let $\A$ be a partially ordered set, $S$ a subset of $\A$. We say an element $a \in A$
 		is a \textit{ meet} (or \textit{ greatest lower bound}) for $S$, and write $a = \wedge S$, if 
 		\begin{enumerate}
 			\item [(a)] $a$ is an lower bound for $S$, i.e. $a \le s$ for all $s \in S$ and, 
@@ -3402,13 +3438,6 @@ and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that i
 \end{lemma}
 
 
-\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
-	%Proposition 5.59. 
-	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
-	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
-	trivial bundle $\left( X, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX \right)$.% (cf. equation \eqref{top_ub_eqn}).
-	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
-\end{proposition}
 \subsection{Topologies of *-automorphisms groups}\label{op_top_sec}
 
 If $A$ is a $C^*$-algebra then the group  $\mathrm{Aut}(A)$ of $*$-automorphisms carries several topologies making it into a topological group \cite{thomsem:ho_type_uhf}. The most important is {\it the topology of pointwise norm-convergence} based on the open sets
@@ -4555,85 +4584,6 @@ and hence the long exact cohomology sequence
 ... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(A;\mathscr A  \right)\to  H^{p+1}_\Phi\left(A;\mathscr A | A \right)\to ...
 \ee
 
-\subsection{Products}
-
-\paragraph*{}
-	
-\begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
-	\v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
-	$$
-	\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right).
-	$$
-	Here $\mathscr F$ and $\mathscr G$ are sheaves of Abelian groups on $\sX$, and the \textit{tensor product}-\textit{sheaf}
-	$\mathscr F\otimes \mathscr G$ is the sheaf associated to the presheaf $\sU \mapsto \mathscr F(\sU)\otimes \mathscr G(\sU)$. The 
-	stalk (cf. Definition \ref{stalk_defn}) at $x$ of $\mathscr F\otimes \mathscr G$ is $\mathscr F_x\otimes \mathscr G_x$. The cup-product will be defined from a 
-	morphism of complexes. We first need the notion of tensor product $A^\bullet \otimes  B^\bullet$
-	of two complexes; this is the total complex of the double complex $A^\bullet \otimes  B^\bullet$. 
-	So the degree $n$-term of $A^\bullet \otimes  B^\bullet$ is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$  
-	is 
-\be\label{cup_product_comm_eqn}
-	d \left(a \otimes b\right)	\bydef \left(da\right)\otimes b + \left(-1\right)^p a \otimes db
-\ee
-	
-	for $a\in A^p$, $b \in B^q$. We have the obvious 
-	map 
-	$$
-	\otimes :H^p\left(A^\bullet\right)\otimes H^q\left(B^\bullet\right)\to H^q\left(A^\bullet\ox B^\bullet\right).	
-	$$	
-	We now return to the sheaves $\mathscr F$ and $\mathscr G$ of Abelian groups on $\sX$. We 
-	have the complexes $C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $C^\bullet\left(\mathscr U,  \mathscr G\right)$.  The interesting part is the 
-	construction of a morphism of complexes 
-	$$
-	\phi: C^\bullet\left(\mathscr U,  \mathscr F\right)\otimes C^\bullet\left(\mathscr U,  \mathscr G\right)\mapsto C^\bullet\left(\mathscr U,  \mathscr F\otimes  \mathscr G\right).
-	$$
-	For $\a \in C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $\bt \in C^\bullet\left(\mathscr U,  \mathscr G\right)$, we put 
-	$$
-	\phi:\left( \a \otimes \bt \right)_{\iota_0,..., \iota_{p + q}} \bydef \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
-	$$
-	One checks easily that $\phi$ is indeed a morphism of complexes. The induced map on cohomology gives the cup-product on \v{C}ech 
-	cohomology. For $\a$ degree $p$ \v{C}ech cocycle with coefficients in $\mathscr F$ and $\bt$
-	degree $q$ \v{C}ech cocycle with coefficients in $\mathscr G$, we have 
-	\be\label{cup_prod_eqn}
-	\left(\a \smile\bt \right)_{\iota_0,..., \iota_{p + q}}\bydef  \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
-	\ee
-	The cup-product has the following properties. 
-\end{empt}
-\begin{proposition}\label{cup_ass_prop}\cite{bryl:loop} Following conditions hold.
-	%	1.3.7. Proposition. 
-	\begin{enumerate}
-		\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
-		we have 
-		\be\label{cup_ass_eqn}
-		\a \smile \left( \bt \smile \ga\right) 	= \left( \a \smile \bt\right) \smile \ga. 
-		\ee
-		\item[(ii)]	 The \textit{cup}-\textit{product} is \textit{graded}-\textit{commutative}. If $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, we have 
-		$$
-		\a \smile \bt =\left( -1\right)^p  \bt \smile \a.
-		$$			
-		
-	\end{enumerate}
-	
-\end{proposition}
-\begin{empt}
-	Let $\sX$ be a topological space. If $R$ be an ring then there is, a corresponding constant presheaf  $R_\sX$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. 
-	Using the cup product and homomorphism $\phi$ one has a map
-	$$
-	\check{H}^\bullet\left(\sX, R_\sX \right)\times \check{H}^\bullet\left(\sX, R_\sX \right) \to \check{H}^\bullet\left(\sX, R_\sX \right).
-	$$
-	So we have proved the following.	
-\end{empt}
-
-\begin{lem}\label{gr_ring_lem}
-	Let $\sX$ be a topological space. If $F$ is an Abelian group then any isomorphism $F \otimes_\Z F \cong  F$ yields a product
-	\bean
-	\smile: \check{H}^\bullet\left(\sX, F \right)\otimes \check{H}^\bullet\left(\sX,F \right) \to \check{H}^\bullet\left(\sX,F \right)
-	\eean
-	where the notation \eqref{locally_const_not_eqn} is used. So $\check{H}^\bullet\left(\sX, F\right)$ becomes an associative and graded-commutative ring.
-\end{lem}
-
-\begin{exercise}\label{ring_homo_exer}
-	Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
-\end{exercise}
 \subsection{Descent of sheaves}
 \paragraph*{} Here I follow to \cite{bryl:loop}. There is an alternative description of sheaves based on the notion of local homeomorphisms (cf. Definition \ref{local_homeo_defn}). Instead of an 
 open subset of $\sX$, we will more generally consider a continuous mapping 
@@ -4813,7 +4763,7 @@ $H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $
 	%Proposition 5.59. 
 	%Theorem 9.9 
 	(Dixmier–Douady). 
-	Any stable separable algebra A of continuous
+	Any stable separable algebra $A$ of continuous
 	trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
 	$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
 	over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
@@ -5755,6 +5705,9 @@ of this work.
 
 
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
+
+\bibitem{cuntz_meyer_ros:bivariant} Joachim Cuntz, Ralf Meyer, Jonathan M. Rosenberg.
+\textit{Topological and Bivariant K-Theory}. (Oberwolfach Seminars, 36, Band 36) 2010.
 
 \bibitem{eust} Samuel Eilenberg, Norman E. Steenrod. \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952. 
 
