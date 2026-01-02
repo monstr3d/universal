@@ -786,7 +786,7 @@ or equivalently $\sV_\xi\subset  \supp a$.
 	$$
 	L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
 	$$
-	is the \textit{commutant} of $L$ (write $L^\perp$));
+	is the \textit{commutant} of $L$ (write $L^\perp$).;
 \end{definition}
 
 \begin{definition}\label{bicommutant_defn}
@@ -1730,72 +1730,1011 @@ $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
-\subsubsection{Basic constructions}
+\subsubsection{Continuity structures lift and descent}\label{top_lift_desc_sec}
 
-\begin{lemma}\label{ctr_g_lem}
-	If  $A$ is a {continuous-trace} $C^*$-{algebra} then for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ (cf. Definition \ref{gelfand_space_defn}) there is the natural  pair $\left(x_\xi, y_\xi \right)$ such that $x_\xi \in \sX \bydef  \hat A$ and $y_\xi \in \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$ (cf. the equation \eqref{gefand_projective_eqn}) where $\rep_x: A \to B\left(\sH_x \right)$ is the corresponding to $x$ irreducible representation  (cf. Definitions \ref{irred_defn} and \ref{spectrum_prime_primtive_defn}).
+\paragraph*{}
+Let $\sX$ be a locally compact, Hausdorff space; and  for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}). Consider a $\C$-space given by
+\be\label{top_c_sec_eqn}
+C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right\}_{x \in \sX}\in \prod_{x \in \sX} A_x\right|\left\{a_x\right\} \text{ is a continuous field} \right\}
+\ee 
+(cf. Definition \ref{op_cont_fields_defn}).
+\begin{remark}\label{top_c_mod_rem}
+	From the Lemma \ref{op_cont_module_lem} it follows that $C\left(\sX, \left\{A_x\right\}, \sF \right)$ is $C_0\left(\sX\right)$-module.
+\end{remark}
+
+\begin{lemma}\label{top_c_cont_str_lem}
+	Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}), then $C\left(\sX, \left\{A_x\right\}, \sF \right)$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$.
+		\item[(ii)]
+		\be
+		C\left(\sX, \left\{A_x\right\}, \sF \right)= C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right) \right).
+		\ee
+	\end{enumerate}
+\end{lemma} 
+\begin{proof}
+	(i) One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.
+	\begin{enumerate}
+		\item [(a)] Follows from the Lemma \ref{op_cont_con_lem}.
+		\item[(b)] Follows from the inclusion $\sF \subset C\left(\sX, \left\{A_x\right\}, \sF \right)$.
+		\item[(c)] If $A_x$ is a $C^*$-algebra for all $x \in \sX$ then from (c) of the Definition \ref{operator_fields_continuity_defn} it turns out that $\sF$ is closed under multiplication and involution. Select $x_0 \in \sX$ and $\eps > 0$. For all $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is an open neighbourhood $\sU$ of $x_0$ and a family $\left\{a'_x\right\}\in \sF$ such that $\left\| a_x- a'_x\right\| < \eps$ for all $x \in \sU$. It follows that $\left\| a^*_x- a'^*_x\right\| < \eps$ for all $x \in \sU$, and taking into account $ a'^*_x \in \sF$ we conclude that $a^* \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. If    $a, b \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. There is $\dl > 0$ such that $\delta^2+\delta\left( \left\| a\right\|+ \left\| b\right\|\right) < \eps$  there are open neighbourhoods $\sU', \sU''$ of $x_0$ and families $ \left\{a'_x\right\}\in \sF$  such that $\left\| a_x- a'_x\right\| < \delta$ for all $x \in \sU'$ and $\left\| b_x- b'_x\right\| < \delta$ for all $x \in \sU''$. It turns out that $\left\|a_x b_x- a'_xb'_x\right\| < \eps$ for all $x \in \sU' \cap \sU''$. It follows that the family $\left\{a_xb_x\right\}$ lies in 	$C\left(\sX, \left\{A_x\right\}, \sF \right)$.
+	\end{enumerate}
+	(ii) From $\sF \subset C\left(\sX, \left\{A_x\right\}, \sF \right)$ it follows that $$C\left(\sX, \left\{A_x\right\}, \sF \right)\subset C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right).$$
+	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighbourhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighbourhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
+	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
+\end{proof} 
+\begin{remark}
+	The Lemma \ref{top_c_cont_str_lem} is a generalization of the Lemma \ref{top_full_oaf_lem}.
+\end{remark}
+Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
+For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ denote by 
+\bea
+\label{top_norm_a_eqn}
+\text{norm}_a:  \sX \to \R, \quad x \mapsto \left\|a_x \right\|.
+\eea
+Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\to \left[0, \infty\right)$ given by
+\be\label{top_norm_eqn}
+\left\|a\right\|\bydef \left\|\text{norm}_a\right\|.
+\ee
+
+\begin{definition}\label{top_s_bounded_defn} 
+	The space $C_b\left(\sX, \left\{A_x\right\},\sF\right)$ given by
+	\be\label{top_s_bounded_eqn}
+	C_b\left(\sX, \left\{A_x\right\},\sF\right)\bydef \left\{\left.a \in C\left(\sX, \left\{A_x\right\},\sF\right)\right|\left\|a\right\| < \infty\right\}.
+	\ee
+	is said to be the \textit{space of bounded continuous fields}.
+\end{definition}
+
+
+\begin{lemma}\label{top_bounded_norm_lem}
+	One has
+	\be\nonumber
+	a \in C_b\left(\sX, \left\{A_x\right\},\sF\right) \Leftrightarrow  \mathrm{norm}_a \in C_b\left(\sX \right). 
+	\ee
 \end{lemma}
 \begin{proof}
-From the Theorem \ref{dauns_hofmann_thm} and the Lemma \ref{hausdorff_spectrum_lem} it follows that there is Hausdorff blowing-up (cf. Definition \ref{blowing_defn})
-\be 
-\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)
-\ee
-where $\sX\bydef \hat A$ is the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). So from the equation \eqref{phi_a_eqn} and the Lemma  \ref{lem_g_lem} it follows that there is the natural surjective continuous  map
-
-\be\label{ctr_g_eqn}
-\begin{split}
-\phi_{A-\sX}:	\mathfrak{Gelfand}\left(A \right) \onto \sX.
-\end{split}
-\ee
-We define $x 
-\bydef \phi_{A-\sX}\left(\xi \right)$ then for any $L \in \xi $ one has $\rep_x\left( L\right) \neq \{0\}$  If
-$
-\bigcap_{L \in \xi} \rep_x\left(L \right) = \{0\}
-$ then there are $L', L'' \in \xi$ with $\rep_x\left(L' \right)\cap \rep_x\left(L'' \right)= \{0\}$ and the generated by the set
-\be\label{int_d_eqn}
-\left\{L \in \xi\quad  \left| \quad \rep_x\left(L \right) \cap \rep_x\left(L' \right)\neq  \{0\}\quad  \rep_x\left(L \right) \cap \rep_x\left(L'' \right)= \{0\}\right. \right\}.
-\ee
-The generated by \eqref{int_d_eqn} filter exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. From the equation \eqref{gefand_projective_eqn} it follows that  $\bigcap_{L \in \xi} \rep_x\left(L \right)$ corresponds to the subset of $\mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$ . If $y', y'' \in \bigcap_{L \in \xi} \rep_x\left(L \right)$ are such that $y' \neq y''$ then $\bigcap_{L \in \xi} \rep_x\left(L \right)\setminus \{y''\}$ is an open subset of $\bigcap_{L \in \xi} \rep_x\left(L \right)$ and a generated by the set
-\bean
-\left\{L \in \xi\quad  \left| \quad \bigcap_{L \in \xi} \rep_x\left(L \right)\setminus \{y''\}\right. \right\}.
-\eean
-exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. So there is $y_\xi \in \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$ with
-\be\label{int_yd_eqn}
-\bigcap_{L \in \xi} \rep_x\left(L \right)= \{y_\xi\} \subset \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}
-\ee
-A given by
- $$
- \eta \bydef \left\{ a \in A \left|\rep_x\left(a \right)\perp y  \right.\right\}
- $$
- left ideal is proper and maximal/
-
+	From the Lemma 	\ref{op_cont_con_lem} it follows that the map $x \mapsto \left\|a_x \right\|$ is continuous, from the equation \eqref{top_s_bounded_eqn} it follows that $x \mapsto \left\|a_x \right\|$ is bounded.
 \end{proof}
-\begin{lemma}\label{ctr_g_lem!}!!!
-	If  $A$ is a {continuous-trace} $C^*$-{algebra} then the  bicommutant $\mathfrak{Gelfand}\left(A \right)''$
-	 of Gelfand space (cf. Definition \ref{bicommutant_defn}) is equivalent to the  a set of pairs $\left(x_\xi, V_\xi \right)$ where $x_\xi \in \sX$ is an element of the spectrum $\sX$ of $A$ and $V$ is a one dimensional subspace of the corresponding to $x$ Hilbert space $\H_x$ of irreducible representation $\rep_x: A \to B\left(\H_x \right)$.
+
+\begin{definition}\label{top_cc_supp_defn}
+	If $a\in  C\left(\sX, \left\{A_x\right\}, \sF \right)$ is presented by the family
+	$\left\{a_x \in A_x\right\}$ then the closure of $\left\{\left. x \in \sX~\right|\left\| a_x\right\| > 0\right\}$ is said to be the \textit{support} of $a$. The support of $a$ coincides with the support of the $\mathrm{norm}_a$,  hence we write
+	\be\label{top_support_eqn}
+	\supp a  \stackrel{\text{def}}{=} \supp \mathrm{norm}_a.
+	\ee
+\end{definition}
+\begin{definition}\label{top_cc_c0_defn}
+	The $C_b\left({\sX}\right) $-module 
+	\be
+	C_c\left(\sX, \left\{A_x\right\}, \sF \right) = \left\{\left.a \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)~\right| \supp a \text{ is compact } \right\}
+	\ee
+	is said to be the \textit{compactly supported submodule}. The norm completion of $C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ is said to be \textit{converging to zero submodule} and we denote it by $C_0\left(\sX, \left\{A_x\right\}, \sF \right)$. We also use the following notation
+	\bea
+	\label{top_cc_eqn}
+	C_c\left(A \right) \bydef C_c\left(\sX, \left\{A_x\right\}, A \right),\\
+	\label{top_c0_eqn}
+	C_0\left(A \right) \bydef C_0\left(\sX, \left\{A_x\right\}, A \right),\\
+	\label{top_cb_eqn}
+	C_b\left(A \right) \bydef C_b\left(\sX, \left\{A_x\right\}, A \right),\\
+	\label{top_c_eqn}
+	C\left(A \right) \bydef C\left(\sX, \left\{A_x\right\}, A \right),\\
+	\label{top_res_eqn}
+	\left.C_0\left(\sX, \left\{A_x\right\}, \sF  \right) \right|_{\sU}\stackrel{\text{def}}{=}\left\{\left.a \in C_0\left(\sX, \left\{A_x\right\}, \sF  \right)~\right|~ \supp a \subset \sU \right\}.
+	\eea
+	
+\end{definition}
+
+
+\begin{remark}\label{top_cc0_mod_rem}
+	Both 	$C_c\left(\sX, \left\{A_x\right\}, A \right)$ and $ C\left(\sX, \left\{A_x\right\}, A \right)$ are $C\left(\sX\right)$-modules (cf. Remark \ref{top_c_mod_rem}). All spaces  $C_c\left(\sX, \left\{A_x\right\}, A \right)$, $C_0\left(\sX, \left\{A_x\right\}, A \right)$, $C_b\left(\sX, \left\{A_x\right\}, A \right)$ and $C\left(\sX, \left\{A_x\right\}, A \right)$ are $C_b\left(\sX\right)$-modules
+\end{remark}
+\begin{remark}
+	The equation \eqref{top_c0_eqn} complies with the explained in \ref{top_cs_not_empt} notation.
+\end{remark}
+
+\begin{remark}
+	If $C_0\left(\sX, \left\{A_x\right\}, \sF  \right)$ is a $C^*$-algebra with Hausdorff spectrum then the notation \eqref{top_res_eqn} complies  with \eqref{open_ideal_eqn} one.
+\end{remark}
+
+\begin{lemma}\label{top_norm_c0cc_lem}
+	Following conditions hold
+	\bea
+	\label{top_ccn_eqn}
+	C_c\left(\sX, \left\{A_x\right\}, A \right)= \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_c\left(\sX\right)\right\},\\
+	\label{top_cc0_eqn}
+	C_0\left(\sX, \left\{A_x\right\}, A \right) = \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_0\left(\sX\right)\right\}
+	\eea
+	(cf. equations \eqref{top_norm_a_eqn}, \eqref{top_c0_eqn},  \eqref{top_cb_eqn}).
 \end{lemma}
 \begin{proof}
-From the Theorem \ref{dauns_hofmann_thm} and the Lemma \ref{hausdorff_spectrum_lem} it follows that there is Hausdorff blowing-up (cf. Definition \ref{blowing_defn})
-\be 
-\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)
-\ee
-where $\sX$ is the spectrum of $A$.  So there are following maps 
-\be\label{ctr_g_eqn1}
-\begin{split}
-!!! PROOF !!!	\mathfrak{Gelfand}\left(A \right) \xrightarrow{\phi''} \mathfrak{Gelfand}\left(A \right)'' \xrightarrow{\hat \phi''} \sX.
-\end{split}
-\ee
-which are  consequences of the  Diagram \eqref{not_c_bel}. If $\xi \in \mathfrak{Gelfand}\left(A \right)$,  $\xi'' \bydef \phi\left(\xi \right)  \in \mathfrak{Gelfand}\left(A \right)''$ and $x_\xi = \phi''\left( \xi''\right)$ then for any $x \neq x_\xi$ there and an open neighborhood  $\sU$ of $x$ such that $f \in C_0\left(\sX \right)$ with $ f\left(\sU \right)= {0}$ and $L \bydef f A \in \xi$. If $L^\perp$ is a commutant of $L$ (cf. Definition \ref{bicommutant_defn}) then $\rep_{x'} \left(L^\perp \right) = \rep_{x'}\left( A\right)$ where $\rep_{x}: A \to B\left( H_{x'}\right) $ is the corresponding to $x$ irreducible representation. It follows that $x_\xi$ is the unique point such that $\rep_{x_\xi} \left( \xi''\right) \neq \rep_x \left( A\right)$. Since $\rep_{x_\xi} \left( \xi''\right)\subset \rep_{x_\xi} \left( A\right)$ is a left ideal there is a vector subspace $V_\xi\subset \H$ such that $\rep_{x_\xi} \left( \xi''\right)V_\xi = \{0\}$. If dimension of $V_\xi$ exceeds 1 and $\eta \in V_\xi$ then the set
-$$
-\left\{ L \in \xi \left| \rep_x \left(L \right)\eta = \{0\} \right.\right\} \subset \mathfrak{Lattuce}\left(A \right)
-$$
-generates a filter which exceeds $\xi$. It is impossible since the filter $\xi$ is an ultrafilter.
-
-
+	The equation \eqref{top_ccn_eqn} is evident. If $a \in C_0\left( A\right)$ then there is a $C^*$-norm convergent net $\left\{a_\a \in 	C_c\left(A \right)\right\}_{\a \in \mathscr A}$ such that $a = \lim a_\a$. For any $\a, \bt \in \mathscr A$ one has
+	\be\label{top_ab_norm_eqn}
+	\left\|\text{norm}_{a_\a} - \text{norm}_{a_\bt} \right\|\le \left\|{a_\a} - {a_\bt} \right\|.
+	\ee
+	From \eqref{top_ab_norm_eqn} it turns out that the net $\left\{\text{norm}_{a_\a}\right\}$ is uniformly convergent. From $\text{norm}_{a_\a} \in C_c\left( \sX\right)$ and the Definition \ref{top_cc_c0_defn} it turns out $\lim_\a \text{norm}_{a_\a} \in C_0\left(\sX \right)$. Conversely let $a \in C_0\left( A\right)_+$ be a positive element such that $\mathrm{norm}_a \in 	C_0\left(\sX\right)$. If $f_\eps$ is given by \eqref{f_eps_eqn} then one has
+	\bean
+	\left\|f_{\eps/2}\left(a \right)  - a\right\| < \eps,\\
+	\mathrm{norm}_{f_{\eps/2}\left(a \right)}= f_{\eps/2}\left(\mathrm{norm}_a \right),	
+	\eean 
+	so $a = \lim_{\eps\to 0}  f_{\eps/2}\left(a \right)$. On the other hand
+	from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{norm}_a \right)\in K\left(C_0\left(\sX \right)  \right)= C_c\left(\sX \right)$.	
 \end{proof}
+\begin{corollary}\label{top_c0_cont_str_cor}
+	One has
+	\be\label{top_c0_cont_strc_eqn}
+	\sX \mathrm{~is~compact~} \Rightarrow	C_c\left(A \right)= 	C_0\left(A \right)= 	C_b\left(A \right)= 	C\left(A \right).
+	\ee	
+\end{corollary}
+
+\begin{lemma}\label{top_bundle_cs_ex_lem}
+	If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{top_vb_defn}) then following conditions hold.
+	\begin{enumerate}
+		\item [(i)] The space 	$\Ga\left( E, \pi, \mathcal X\right)$ of continuous sections (cf. \ref{top_bundle_sec_empt}) 
+		is a continuity structure  for $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}).
+		\item[(ii)] There are isomorphisms
+		\bea\label{top_cg_eqn}
+		C\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga\left( E, \pi, \mathcal X\right),\\
+		\label{top_cgc_eqn}
+		C_c\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_c\left( E, \pi, \mathcal X\right),\\
+		\label{top_cg0_eqn}
+		C_0\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_0\left( E, \pi, \mathcal X\right),\\
+		\label{top_cgb_eqn}
+		C_b\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_b\left( E, \pi, \mathcal X\right)
+		\eea
+		of are isomorphisms of $C_0\left(\sX \right)$-modules (cf. equation \eqref{top_f_eqn}).
+	\end{enumerate}
+	
+\end{lemma}
+\begin{proof} (i)
+	One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.
+	\begin{enumerate}
+		\item [(a)]	
+		Let $x_0 \in \sX$ be any point, and select an open neighbourhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
+		\bean
+		s|_\sU : \sU \to \sU\times E_{x_0},\\
+		x \mapsto\left(x, u\left(x \right) \right)
+		\eean 
+		where $u: \sU \to E_{x_0}$ is a continuous map. It turns out that the map
+		\bean
+		\sU \to \R,\\
+		x \mapsto \left\| u\left(x \right)\right\| 
+		\eean 
+		is also continuous. Since a point $x_0$ is arbitrary and $$\forall x \in \sU \quad \left\| s\left(x \right)\right\|=\left\| u\left(x \right)\right\|$$ the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
+		\item[(b)] If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that there is an open neighbourhood $\sU$ of $x_0$ with $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
+		\bean
+		s|_\sU : \sU \to \sU\times E_{x_0},\\
+		x \mapsto\left(x, e_{x_0} \right),
+		\eean 
+		i.e. there is a continuous map $s: \sX\to E$ such that $s\left( x_0\right) = e_{x_0}$.\\
+		\item	[(c)] A proof of this property we leave to the reader.
+	\end{enumerate}
+	
+	(ii)  A proof  we leave to the reader.
+\end{proof}
+
+
+\begin{lemma}\label{top_c0_cont_str_lem}
+	Following conditions hold.
+	\begin{enumerate}
+		\item[(i)] If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}), then   $C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, $~~C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ are  continuity structures  for $\sX$ {and the} $\left\{A_x\right\}$.
+		\item[(ii)]
+		\be\label{top_c0_cont_str_eqn}
+		\begin{split}
+			C\left(\sX, \left\{A_x\right\}, \sF \right)= C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)=\\
+			C\left(\sX, \left\{A_x\right\}, C_0\left(\sX, \left\{A_x\right\}, \sF \right) \right)= C\left(\sX, \left\{A_x\right\}, C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right).
+		\end{split}
+		\ee
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	(i) One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.
+	\begin{enumerate}
+		\item [(a)] Follows from the Lemma \ref{op_cont_con_lem}.
+		\item[(b)] 	Let $x\in \sX$, and let $f_{x}\in C_c\left( \sX\right)$ be a $x$-stump (cf. Definition \ref{top_stump_defn}).
+		For any $a \in \sF$ one has $f_{x} a \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, and from $f_{x}\left( x\right) =1$ it turns out
+		\bean
+		A\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in \sF \quad a_x = a'_x  \right\}\subset \\ \subset A_c\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in C_c\left(\sX, \left\{A_x\right\}, \sF \right) \quad a_x = a'_x  \right\}.
+		\eean
+		If
+		\bean
+		A_0\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in C_0\left(\sX, \left\{A_x\right\}, \sF \right) \quad a_x = a'_x   \right\},\\
+		A_b\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in C_b\left(\sX, \left\{A_x\right\}, \sF \right) \quad a_x = a'_x   \right\}
+		\eean 
+		then from
+		$$
+		A \subset A_c \subset A_0 \subset A_b \subset A_x
+		$$
+		and taking into account that $A$ is dense in $A_x$,
+		it turns out that $A_c$, $A_0$ and $A_b$ are dense in $A_x$.
+		\item[(c)] The proof is similar to the proof of (i) (c)  of the Lemma \ref{top_c_cont_str_lem}.
+	\end{enumerate}
+	(ii) From the inclusions
+	$$
+	C_c\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_b\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, \sF \right).
+	$$
+	it follows that 
+	\be\label{top_c0_cont_str_j_lem}
+	\begin{split}
+		C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)\subset 	C\left(\sX, \left\{A_x\right\}, C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset \\ \subset  
+		C\left(\sX, \left\{A_x\right\}, C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right)\subset 	C\left(\sX, \left\{A_x\right\}, \sF \right).
+	\end{split}
+	\ee 
+	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighbourhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \eps$ for all $x \in \sU'$. Otherwise if $f_{x_0}\in C_c\left(\sX\right)$ is an $x_0$-stump  (cf. Definition \ref{top_stump_defn}) then there is an open neighbourhood $\sU''$ of $x_0$ such that $f_{x_0} \left( \sU''\right)= \{1\}$. If  and $a''\bydef f_{x_0}a' \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then  $\left\|a_x - a''_x\right\| < \eps$ for all $x \in \sU' \cap\sU''$. It follows that $a \in 	C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)$, so one has
+	$$
+	C\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right),
+	$$
+	and taking into account \eqref{top_c0_cont_str_j_lem} one  obtains \eqref{top_c0_cont_str_eqn}.
+\end{proof} 
+
 
 
 \begin{empt}
+	If	$\sF$ is  a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ then from the Lemma \ref{op_cont_module_lem} it follows that $C_0\left(\sX \right)\sF \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right)$.
+\end{empt}
+
+\begin{lemma}\label{top_cs_nc_lem}
+	If $\sF$ is a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$
+	then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
+\end{lemma}
+\begin{proof}
+	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighbourhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x   \right\| \le \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
+	$
+	\sum_{j=1}^n f_{x_j}
+	$
+	for $\sU$ (cf. Definition \ref{top_covering_sum_defn}), such that  $\sum_{j=1}^n f_{x_j}\left(x \right) = 1$ for each $x \in \sU$. From  $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$ it turns out  that
+	$$
+	\forall x \in \sU \quad	\left\| \sum_{j=1}^n f_{x_j}\left( x\right)  a^{x_j}_x - a_x\right\|<  \eps  .
+	$$
+	and taking into account 
+	\bean
+	x \in \sX \setminus \sU\quad  \Rightarrow \quad 0\le \sum_{j=1}^n f_{x_j}\left( x\right)\le 1 \quad \text{ AND } \\\
+	\text{ AND }\quad  \left\| a_x  \right\|< \eps \quad \text{ AND } \quad  \left\|a_x - a^{x'}_x \right\|< \eps  \quad  \Rightarrow\\
+	\Rightarrow		\left\| \sum_{j=1}^n f_{x_j}\left( x\right)  a^{x_j}_x - a_x\right\|< \eps
+	\eean
+	one has
+	$$
+	\left\| \sum_{j=1}^n f_{x_j}\left( x\right)  a^{x_j}_x - a_x\right\|< \eps \quad \forall x \in \sX \quad \Leftrightarrow \quad \left\|  \sum_{j=1}^n f_{x_j}  a^{x_j} - a\right\|< \eps.
+	$$	
+	From $\sum_{j=1}^n f_{x_j}  a^{x_j}\in C_0\left(\sX \right)\sF$ it turns out that the space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right).$	
+\end{proof}
+\begin{remark}
+	The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
+\end{remark}
+\begin{corollary}\label{top_cl_cc_iso_cor}
+	Let $\sF$ be a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$.
+	If  $C_0\left(\sX \right)\sF\subset \sF$  and $\sF$ is norm closed then the the natural inclusion $\sF \hookto C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is the $C_0\left(\sX \right)$-isomorphism
+	$
+	\sF \cong C_0\left(\sX, \left\{A_x\right\}, \sF \right)
+	$. 
+\end{corollary}
+\begin{remark}\label{top_cl_cc_iso_rem}
+	From the Lemma \ref{top_cs_nc_lem} it follows that $C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is a minimal norm closed subspace of $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ which contains all products $fa$ where $a \in \sF$ and $f \in C_0\left(\sX\right)$.
+\end{remark}
+
+
+
+
+
+
+%\begin{empt}\label{top_cy_eqn}
+%	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$. If $\sX \subset \sY$ is a commodification  then $C_0\left( \sX\right)$  is an inclusion of $C\left( \sY\right)\subset C_b\left(\sX \right)$ of $C^*$-algebras. Denote by
+%	\be
+%\sF_\sY	C_\sY \left(\sX, \left\{A_x\right\}, \sF  \right)\bydef \left\{\left.a \in 	C_b \left(\sX, \left\{A_x\right\}, \sF  \right)\right|\mathrm{norm}_a \in C\left( \sY\right)\right\}
+%	\ee
+%	For any $y\in C\left( \sY\right)$ there is an ideal $I_y\subset C\left( \sY\right)$. Similarly to \eqref{top_cx_eqn} for all $y\in \sY$ one can define a normed space
+%		\be\label{top_cyx_eqn}
+%	C_y = C_\sY\left(\sX, \left\{A_x\right\}, \sF \right)/I_y C_\sY\left(\sX, \left\{A_x\right\}, \sF \right)
+%	\ee 
+%If $A_y$ is the norm completion of $C_y$ then $\sF_\sY$ is a continuity structure for $\sY$ 
+%\end{empt}
+
+\begin{definition}\label{top_total_defn}
+	For any family of Banach spaces $\left\{A_x\right\}_{x \in \sX}$ a union $\widehat{\left\{A_x\right\}}\bydef \cup_{x \in \sX} A_x$ is said to be a \textit{total set} of $\left\{A_x\right\}_{x \in \sX}$. The natural map 
+	\bean
+	\widehat{\left\{A_x\right\}} \to\sX,\\
+	a_x \mapsto x
+	\eean
+	is said to be the \textit{total projection}.
+\end{definition}
+\begin{empt} Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}).
+	Let $\sU \subset \sX$ be an open subset, and let $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. For any $\eps > 0$ denote by
+	\be\label{top_cs_neigh_eqn}
+	\mathfrak{O}\left(\sU, s, \eps \right) \bydef \left\{\left.a_x \in \widehat{\left\{A_x\right\}}\right| x\in \sU  \quad\left\|a_x - s_x \right\|< \eps \right\}.
+	\ee
+\end{empt}
+
+\begin{lemma}
+	A collection of given by the equation \eqref{top_cs_neigh_eqn} subsets satisfies to (a) and (b) of the Definition \ref{top_base_defn}.
+\end{lemma}
+\begin{proof}
+	Condition (a) is evident, let us proof (b). If $a^0_{x_0} \in \widehat{\left\{A_x\right\}}$, and  
+	$$\mathfrak{O}\left(\sU', s', \eps' \right), \mathfrak{O}\left(\sU'', s'', \eps'' \right)\subset \widehat{\left\{A_x\right\}}$$ 
+	are given by \eqref{top_cs_neigh_eqn} sets such that $a^0_{x_0}\in \mathfrak{O}\left(\sU', s', \eps' \right)\cap\mathfrak{O}\left(\sU'', s'', \eps'' \right)$ then one has
+	\bean
+	\delta ' \bydef\eps'-\left\|s'_{x_0}-a^0_{x_0} \right\|>0,\\
+	\delta '' \bydef\eps''-\left\|s''_{x_0}-a^0_{x_0} \right\|> 0.
+	\eean 
+	If $\eps< \min\left(\delta',\delta''\right)$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it turns out that there is $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that  $\left\|a^0_{x_0}-s_{x_0} \right\|<\eps/3$, and one has
+	
+	\bean
+	\left\|s'_{x_0}-s_{x_0} \right\|<\eps'- \frac{\eps}{3},\\
+	\left\|s''_{x_0}-s_{x_0} \right\|<\eps''-\frac{\eps}{3}.
+	\eean 
+	From the above equations it follows that
+	\bean
+	\forall b_{x_0}\in A_{x_0}\quad \left\|b_{x_0}-s_{x_0} \right\|< \frac{\eps}{3} \quad\Rightarrow\quad \left\|b_{x_0}-s'_{x_0} \right\|<\eps'-\frac{\eps}{3},\quad \left\|b_{x_0}-s''_{x_0} \right\|<\eps''-\frac{\eps}{3},
+	\eean 
+	it turns out that there are open neighbourhoods 	$\sV', \quad \sV''$ of $x_0$ which satisfy to following conditions
+	\be\label{top_o_eqn}
+	\begin{split}
+		x \in \sV' \quad\Rightarrow\quad\left(\left\|b_{x}-s_{x} \right\|< \frac{\eps}{3}\quad\Rightarrow\quad \left\|b_{x}-s'_{x} \right\|<\eps'\right),\\
+		x \in \sV'' \quad\Rightarrow\quad\left(\left\|b_{x}-s_{x} \right\|< \frac{\eps}{3}\quad\Rightarrow\quad \left\|b_{x}-s''_{x} \right\|<\eps''\right). 
+	\end{split}
+	\ee
+	From the equation \eqref{top_o_eqn} it turns out that
+	$$
+	\mathfrak{O}\left(\sU\bydef\sV'\cap\sV''\cap\sU'\cap\sU'', s, \eps/3 \right)\subset \mathfrak{O}\left(\sU', s', \eps' \right)\cap \mathfrak{O}\left(\sU'', s'', \eps'' \right).
+	$$
+\end{proof}
+\begin{definition}\label{top_total_sp_defn}
+	A topological $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ space such that:
+	\begin{itemize}
+		\item the space  $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ which coincides with the total set $ \widehat{\left\{A_x\right\}}\bydef \cup_{x \in \sX} A_x$ as a set;
+		\item the topology of $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is generated by given by \eqref{top_cs_neigh_eqn} sets (cf. Definition \ref{top_base_defn}).
+	\end{itemize}
+	is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \right)$.
+\end{definition}
+\begin{remark}
+	The total projection $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$ (cf. Definition \ref{top_total_defn}) is a continuous map.
+\end{remark}
+\begin{lemma}\label{top_js_lem} Following conditions hold:
+	\begin{enumerate}
+		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection  (cf. Definition \ref{top_total_defn}) and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous with respect to $\sF$ (cf. Definition \ref{op_cont_fields_defn}).
+		\item[(ii)] 	 Conversely any continuous with respect to $\sF$ family $\left\{a_x\right\}$  corresponds to a continuous map 
+		\be\label{top_js_eqn}
+		\begin{split}
+			j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right),\\
+			x \mapsto a_x.
+		\end{split}
+		\ee
+	\end{enumerate}
+	
+\end{lemma}
+
+\begin{proof}
+	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighbourhood of $x_0$ then 
+	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
+	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighbourhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+\end{proof}
+\begin{definition}\label{ctr_restr_defn}
+	For any subset $\sV\subset \sX$ 
+	denote by  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ the $\C$-space of continuous maps $j:\sV\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ such that if $p$ is the total projection then $p\circ j= \Id_\sV$. The space  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the $\sV$-\textit{restriction} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. The natural $\C$-linear map $C\left(\sX, \left\{A_x\right\}, \sF \right)\to C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the \textit{restriction map}.
+\end{definition}
+\begin{empt}
+	Similarly to the equation \eqref{top_norm_a_eqn} any $a\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ yields a continuous map 
+	\be\label{top_rn_eqn}
+	\text{norm}_a:  \sV \to \R, \quad x \mapsto \left\|a_x \right\|.
+	\ee
+	Similarly to \eqref{top_norm_eqn} define $\left\|\cdot\right\|: C\left(\sV, \left\{A_x\right\},\sF\right)\to \left[0, \infty\right)$ given by
+	\be\label{top_r_n_eqn}
+	\left\|a\right\|\bydef \left\|\text{norm}_a\right\|.
+	\ee
+	Denote by
+	\be\label{top_r_b0_eqn}
+	\begin{split}
+		C_b\left(\sV, \left\{A_x\right\},\sF\right) \bydef \left\{\left.a \in C\left(\sV, \left\{A_x\right\},\sF\right)\right|\text{norm}_a \in C_b\left( \sV\right) \right\},\\
+		C_0\left(\sV, \left\{A_x\right\},\sF\right) \bydef \left\{\left.a \in C\left(\sV, \left\{A_x\right\},\sF\right)\right|\text{norm}_a \in C_0\left( \sV\right) \right\}.
+	\end{split}
+	\ee
+\end{empt}
+\begin{remark}\label{top_cv_nc_rem}
+	Both given by the equations \eqref{top_r_b0_eqn} spaces are  closed with respect to the given by \eqref{top_r_n_eqn} norm.
+\end{remark}
+\begin{remark}
+	If $\sV$ is compact then one has $	C\left(\sV, \left\{A_x\right\},\sF\right)=	C_b\left(\sV, \left\{A_x\right\},\sF\right)=	C_0\left(\sV, \left\{A_x\right\},\sF\right)$.
+\end{remark}
+
+\begin{lemma}\label{top_ax_k_lem}
+	Let $\sX$ be a locally compact,  Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{ctr_restr_defn}) is surjective.
+\end{lemma}
+\begin{proof}
+	One needs prove that for any $a\in C\left(\sY, \left\{A_x\right\}, \sF \right)$ there is $b\in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+	\be\label{top_ak_eqn}
+	a = \left. b\right|_\sY.
+	\ee
+	Our proof has two parts:
+	\begin{enumerate}
+		\item [(i)] For all $a\in C\left(\sY, \left\{A_x\right\}, \sF \right)$ and $\eps > 0$ there is $b\in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+		\be\label{top_abk_eqn}
+		\begin{split}
+			\left\|a - \left.b\right|_\sY \right\| < \eps,\\
+			\left\| b\right\| <  \left\|a \right\|+  \eps.
+		\end{split}
+		\ee
+		\item[(ii)] Looking for $b$ which satisfies to \eqref{top_ak_eqn}.
+	\end{enumerate}
+	(i) For any $x \in \sY$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< {\eps}/{2}$. There is an open neighbourhood $\sU'_x\subset\sX$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
+	\left\|s^x_{x'} \right\| < \eps+ \left\|a \right\|\quad \forall x' \in \sU'_x.
+	\ee
+	On the other hand there is an open  neighbourhood $\sU''_x\subset\sX$ of $x$ such that
+	\be\label{ctr_b_eqn}
+	\left\|s^x_y- a_y \right\| < \eps\quad \forall y \in \sY\cap\sU''_x.
+	\ee
+	If $\sU_x \bydef \sU'_x \cap\sU''_x$ then $\sY \subset \bigcup_{x \in \sY} \sU_x$.
+	Let $\sum_{j = 1}^n f_j$ be a covering sum for $\sY$ dominated by the family 
+	$\left\{\sU_x\right\}_{x\in\sX}$ (cf. Definition \ref{top_covering_sum_defn}), such that $\supp f_j \subset \sU_{x_j}$ and $\sU_{x_j}\in \left\{\sU_x\right\}_{x\in\sX}$. If $b \bydef \sum_{j=1}^n f_js^{x_j}\in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ then from the equations \eqref{ctr_up_eqn}, \eqref{ctr_b_eqn} and the Definition \ref{top_covering_sum_defn} it turns out that $b$ satisfies to conditions \eqref{top_abk_eqn}.\\
+	(ii)
+	Let $\eps > 0$. Using induction we will construct sequences $\left\{a_n\right\}_{n\in \N} \subset  C\left(\sY, \left\{A_x\right\}, \sF \right)$ and $\left\{b_n\right\}_{n\in \N} \subset  C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ such that 
+	\be\label{top_abn_eqn}
+	\begin{split}
+		\left\|a_n\right\|< \frac{\eps}{2^{n-1}} ,\\ 
+		n > 1 \quad\Rightarrow \quad	\left\|b_n\right\|< \frac{3\eps}{2^{n-1}},\\
+		\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}}.
+	\end{split}
+	\ee
+	From \eqref{top_abk_eqn}  it follows that there is  $b_1\bydef b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+	\bean
+	\begin{split}
+		\left\|a - \left.b_1\right|_\sY \right\| < \eps,\\
+		\left\| b_1\right\| <  \left\|a \right\|+  \eps.
+	\end{split}
+	\eean
+	If  $a_1 \bydef a - \left.b_1\right|_\sY\in   C\left(\sY, \left\{A_x\right\}, \sF \right)$  then one has $\left\|a_1 \right\|< \eps$. Applying \eqref{top_abk_eqn} once again (replacing $\eps$ with $\eps/2$) one can obtain  $b_2\in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+	\bean
+	\begin{split}
+		\left\|a_1 - \left.b_2\right|_\sV \right\| < \frac{\eps}{2},\\
+		\left\| b_2\right\| <  \left\|a_1 \right\|+ \frac{\eps}{2} < \frac{3\eps}{2},\\
+		\left\| a -	(b_1 + b_2)|_\sV\right\|  = \left\| a_1 - b_2|_\sV\right\|< \frac{\eps}{2}. 
+	\end{split}
+	\eean
+	If  $a_2\bydef a_1 - \left.b_2\right|_\sV$ then  $a_1, a_2, b_1, b_2$ satisfy to the equations \eqref{top_abn_eqn}. If $a_n$ and $b_n$ are known then using \eqref{top_abk_eqn} one can find $b_{n+1}$ such that
+	\be\label{top_abnp_eqn}
+	\begin{split}
+		\left\|a_n - \left.b_{n+1}\right|_\sY \right\| < \frac{\eps}{2^n},\\
+		\left\| b_{n+1}\right\| <  \left\|a_n \right\|+ \frac{\eps}{2^{n}} <   \frac{3\eps}{2^{n}},\\
+		\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}}.
+	\end{split}
+	\ee
+	From $	\left\| b_{n+1}\right\|<    \frac{3\eps}{2^{n}}$ it follows that the series $b\bydef \sum_{n = 1}^\infty b_n$ is norm convergent. Otherwise from \eqref{top_abn_eqn}, \eqref{top_abnp_eqn} it follows that
+	$$
+	\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}},
+	$$
+	hence one has $a = \left.b\right|_\sY$.
+	
+\end{proof}
+
+\begin{remark}
+	The Lemma \ref{top_ax_k_lem} is an analog of the Tietze extension theorem \ref{tietze_ext_thm}. The method of proof of the Lemma \ref{top_ax_k_lem} is similar to the explained in \cite{munkres:topology} one.
+\end{remark}
+\begin{empt}\label{top_bt_empt} 	Let $\sF$ be a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$
+	Select $x \in \sX$. From (b) of the Definition \ref{operator_fields_continuity_defn} it turns out that the $\C$-space
+	$$
+	\left\{\left. a_x \in A_x~\right| \exists a' \in C_b\left(\sX, \left\{A_x\right\}, \sF \right) \quad a_x = a'_x  \right\}
+	$$
+	is dense in $A_x$. So there is the map
+	\be\label{top_vp_map!} !!!
+	\varphi_x:C_b\left(\sX, \left\{A_x\right\}, \sF \right) \to A_x.
+	\ee
+	Denote by $I_x = \left\{\left.f \in C_b\left(\sX \right)\right|  f\left( x\right)=0  \right\}$, and let $I_x C\left(\sX, \left\{A_x\right\}, \sF \right)$ be a submodule such that 
+	$$
+	\varphi_x\left( I_x C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right) = 0.
+	$$
+	If
+	\be\label{top_cx_eqn!} !!!
+	C_x = C_b\left(\sX, \left\{A_x\right\}, \sF \right)/I_x C_b\left(\sX, \left\{A_x\right\}, \sF \right)
+	\ee 
+	then there is a $\C$-linear map
+	$$
+	\phi_x:C_x \to A_x.
+	$$
+	Let us define a norm on $C_x$ given by
+	\be\label{top_cx_norm_eqn}
+	\left\|c \right\|_{C_x} = \inf_{\substack{a \in C\left(\sX, \left\{A_x\right\}, \sF \right)  \\ c = a + I_x C\left(\sX, \left\{A_x\right\}, \sF \right)}}\left\|a \right\|
+	\ee
+	Clearly $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$. If $a' \in :C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ is a representative of $c$ given by the family $\left\{a'_x \in A_x\right\}$ then for all $\eps > 0$ there is an open neighborhood $\sU$ of $x$ such that $\left\|a'_x\right\| -\left\|  a'_{x'} \right\| < \eps$ for all $x' \in \sU$. If $f: \sX \to \left[0,1\right]$ is such that $\supp f \subset \sU$ and $f\left(x\right)= 1$ then $fa'$ is a representative of $c$ and $\left\|fa' \right\|< \left\|\phi_x\left(c\right) \right\|+ \eps$. It follows that $\left\|c \right\|_{C_x} < \left\|\phi_x\left(c \right)  \right\| + \eps$ and taking into account  $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$  one has $\left\|c \right\|_{C_x} = \left\|\phi_x\left(c \right)  \right\|$,
+	i.e. $\phi_x:C_x \to A_x$ is an isometry, hence 
+	$A_x$ can be defined as the norm completion of $C_x$.
+	If $\bt\sX$ is the Stone-\v{C}ech compactification of $\sX$ one can define $A_{\bt x}$ for any $\bt x \in \bt\sX$. For any $\bt x \in \bt\sX$ there is an ideal $I_{\bt x} \subset C\left(\bt\sX \right)= C_b\left( \sX\right)$ and similarly to above construction there is the normed space $C_{\bt x}= C_b\left(\sX, \left\{A_x\right\}, \sF \right)/I_{\bt x } C_b\left(\sX, \left\{A_x\right\}, \sF \right)$. 
+\end{empt}
+\begin{definition}\label{top_beta_ext_defn}
+	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$. A family $\left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}$ such that $\bt A_{\bt x}$ is a completion of $C_{ \bt x}$ is said to be the \textit{Stone-\v{C}ech extension} or the $\bt$-\textit{extension} of $\left\{A_x\right\}_{x\in\sX}$.
+\end{definition}
+If $x \in \sX$ then clearly $A_x \cong \bt A_{ x}$. For any $a \in  C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ on can define a family
+$
+\bt\left( a\right) =\left\{ a_{\bt x} \in \bt A_{\bt x}\right\}
+$
+such that 
+\be\label{top_beta_fam_eqn}
+a_{\bt x}= \phi_{\bt x}\left(a + I_{{\bt x}} C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right).
+\ee
+From $\text{norm}_a \in C_b\left(\sX \right)$ one has $\text{norm}_{\bt\left( a\right) } \in C\left( \bt\sX\right)$, so the space $\bt\sF$ of families \ref{top_beta_fam_eqn}  is  a continuity structure  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$. Since $\bt\sF$ is norm closed and $\bt\sF$ is compact one has
+\be\label{top_bt_f_eqn}
+\begin{split}
+	\bt\sF = C_c\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= C_0\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= \\=C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= C\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right).
+\end{split}
+\ee
+From the equation \eqref{top_beta_fam_eqn} it turns out that for all $\bt x \in \bt\sX$ there is the $\C$-linear map
+\be\label{top_vpb_map}
+\phi_{ \bt x}:  C_b\left(\sX, \left\{A_x\right\}, \sF \right) \to \bt A_{\bt x}
+\ee
+such that $\phi_{ \bt x}\left(  C_b\left(\sX, \left\{A_x\right\}, \sF \right)\right) $ is dense in $A_{\bt x}$.
+\begin{definition}\label{top_stone_c_defn}
+	The continuity structure $\bt\sF$  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$ given by \eqref{top_beta_fam_eqn} is said to be  the \textit{Stone-\v{C}ech extension} or the $\bt$-\textit{extension} of $\sF$.
+\end{definition}
+\begin{remark}
+	From the the construction the family $\bt\left( a\right) =\left\{ a_{\bt x} \in \bt A_{\bt x}\right\}$  uniquely depends on $a \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)$. It turns out that there is the natural $C_b\left(\sX \right)$-isomorphism
+	\be\label{top_sf_bt_iso_eqn}
+	\bt\sF \cong C_b\left(\sX, \left\{A_x\right\}, \sF \right)
+	\ee  
+	
+\end{remark}
+
+
+\begin{lemma}\label{top_cb_lem}
+	Let $\bt\sF$ be the given by families $\left\{a_{\bt x}\right\}$ (cf.\eqref{top_beta_fam_eqn}) continuity structure  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$. If $A \subset \bt\sF$ the norm bounded and norm closed  $C\left(\bt\sX \right)$-submodule which is a continuity structure for   $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$ then there is the natural isomorphism
+	\be\label{top_cb_lem_eqn}
+	A \cong C_b\left(\sX, \left\{A_x\right\}, \sF  \right). 
+	\ee
+\end{lemma}
+\begin{proof}
+	The inclusion $A \subset \bt\sF$ induces the inclusion $A \subset C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$. From the Corollaries \ref{top_c0_cont_str_cor} and \ref{top_cl_cc_iso_cor} it follows that  $A = C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$, and taking into account $C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)\cong C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ one has \ref{top_cb_lem_eqn}.
+\end{proof}
+
+Below in this section we assume that all topological spaces are  connected and locally connected (cf. Definition \ref{top_locally_connected_defn}).
+
+\begin{empt}\label{top_lift_empt}
+	If $p: \widetilde{\sX} \to \sX$ is a covering then the family $\left\{A_x\right\}$ naturally induces the family $\left\{\widetilde{A}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$ such that for any ${\widetilde{x}}\in {\widetilde{\sX}}$ there is the isomorphism 
+	\be\label{top_ct_iso_eqn}
+	c_{\widetilde{x}}:\widetilde{A}_{\widetilde{x}} \cong {A}_{\left( p\left( \widetilde{x}\right) \right) }.
+	\ee
+\end{empt}
+\begin{definition}\label{top_lift_defn}
+	Let $\sF$  be a	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX} \to \sX$ be a covering. For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ we define 
+	the family 
+	\be\label{comm_lift_eqn}
+	\left\{\widetilde{a}_{\widetilde{x}}=c^{-1}_{\widetilde{x}}\left(a_{p\left( \widetilde{x}\right) } \right)\in\widetilde{A}_{\widetilde{x}} \right\}_{\widetilde{x}\in\widetilde{\sX}}
+	\ee
+	is said to be the  $p$-\textit{lift} of $a$ and we write 
+	\be\label{comm_lift_d_eqn}
+	\left\{\widetilde{a}_{\widetilde{x}}\right\}\bydef \lift_p\left( a\right) .
+	\ee
+\end{definition}
+\begin{lemma}\label{top_lift_lem}
+	Let $\sF$ be a	continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to \sX$ be a covering. The space
+	\be\label{top_lift_eqn}
+	\widetilde{   \sF} = \left\{\left.\lift_p\left( a\right)~\right|~a \in C\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)\right\} 
+	\ee
+	is continuity structure  for $\widetilde{   \sX}$ {and the} $\left\{\widetilde{   A}_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{   \sX}}$.	
+\end{lemma}
+\begin{proof}
+	
+	Check (a) - (c) of the Definition \ref{operator_fields_continuity_defn}. \\
+	(a) If $\widetilde a \bydef \lift_p\left( a\right)$ then
+	$$
+	\forall \widetilde x \in \widetilde\sX \quad \text{norm}_{\widetilde a }\left( \widetilde x  \right)=	\text{norm}_{a }\left( p\left( \widetilde x\right) \right),
+	$$
+	i.e. $\text{norm}_{\widetilde a }= \text{norm}_{ a }\circ p$. So the map $\text{norm}_{\widetilde a }$ is continuous since it is the composition of continuous maps.\\
+	(b) The subspace 
+	$$
+	\left\{\left. a_{x_0} \in A_{x_0}~\right|~ a \in C\left(\sX, \left\{A_x\right\}, \sF  \right) \right\}
+	$$
+	is dense in $A_{x_0}$ so the space 
+	$$
+	\left\{\left. \lift_p\left( a\right)_{\widetilde{x}_0} \in \widetilde{A}_{\widetilde{x}_0}~\right|~ a \in C\left(\sX, \left\{A_x\right\}, \sF  \right) \right\}
+	$$
+	is dense in $\widetilde{A}_{\widetilde{x}_0}$.\\
+	(c) If $A_x$ is a $C^*$-algebra for all $x \in \sX$ then from the condition (c) of the Definition \ref{operator_fields_continuity_defn} it follows that $\sF$ is  closed under pointwise multiplication and involution, i.e. for any $a, b \in \sF$ represented by families $\left\{a_x\right\}$ and $\left\{b_x\right\}$ respectively the families $\left\{a^*_x\right\}$ and $\left\{a_xb_x\right\}$ lie in $\sF$. If $\left\{\widetilde{a}^*_{\widetilde{x}}\right\}= \lift_p\left( a^*\right)$ and $\left\{\widetilde{a}_{\widetilde{x}}\widetilde{b}_{\widetilde{x}}\right\}= \lift_p\left( ab\right)$ then from \eqref{comm_lift_eqn} it turns out that $\lift_p\left( a^*\right), \lift_p\left(ab\right) \in \widetilde\sF$.
+\end{proof}
+\begin{definition}\label{top_lift_main_defn}
+	Let $\widetilde{   \sF}$ be given by \eqref{top_lift_eqn} continuity structure. The space of continuous fields (with respect to) $\widetilde{\sF}$ vector fields is said to be $p$-\textit{lift} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. We write
+	\bea\label{top_cont_lift_eqn}
+	\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right]  \stackrel{\text{def}}{=}	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right),\\
+	\label{top_cont_s_lift_eqn}
+	\lift_p\left[  \sF\right]  \stackrel{\text{def}}{=}	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)
+	\eea
+\end{definition}
+Following lemma is a direct consequence of the Lemma \ref{top_lift_lem} and the Definition \ref{top_lift_main_defn}.
+\begin{lemma}\label{top_lift_composition_lem}.
+	If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ then one has:
+	\begin{enumerate}
+		\item [(i)] For any covering  $p :\widetilde{\sX} \to \sX$ there is the natural injective $C_b\left(\sX \right)$-linear  map
+		\be\label{top_glo_lift_h_eqn}
+		\lift_p: C\left(\sX, \left\{A_x\right\}, \sF \right) \hookto \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]. 
+		\ee
+		\item[(ii)] 	 If $p' :\sX' \to \sX$ and $p'' :\sX'' \to \sX'$ are coverings then one has
+		\bea
+		\label{top_lift_composition_eqn}
+		\lift_{p' \circ p''}\left[ C\left(\sX, \left\{A_x\right\}, \sF\right)  \right] = 	\lift_{p'}\left[	\lift_{p''}\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]  \right],\\
+		\label{top_lift_composition_a_eqn} 	\forall a \in  C\left(\sX, \left\{A_x\right\}, \sF \right) \quad \lift_{p' \circ p''}\left(a\right) = 	\lift_{p'}\circ	\lift_{p''}\left(a\right).
+		\eea
+	\end{enumerate}
+	
+\end{lemma}
+\begin{remark}\label{top_top_lift_rem}
+	Sometimes we write $\lift_p^{\text{top}}$ instead of $\lift_p$ for distinguishing  this lift with the given by the sheaf theory one (cf. the equation  \eqref{comm_sh_lift_desc_l_eqn} below).
+\end{remark}
+The following Lemma is evident.
+\begin{lemma}\label{top_lift_bounded_lem}
+	For any $a \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ one has
+	\be\label{top_lift_bounded_eqn}
+	\left\|a\right\|= \left\|\lift_p\left( a\right) \right\|,
+	\ee
+	hence the map \eqref{top_glo_lift_h_eqn} induces the norm preserving map
+	\be\nonumber
+	\lift_p:  C_b\left(\sX, \left\{A_x\right\}, \sF \right)\hookto C_b\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right),
+	\ee 
+	i.e. one has the isometry
+	\be\label{top_glo_lift_bh_eqn}
+	\lift_p:  C_b\left(\sX, \left\{A_x\right\}, \sF \right)\hookto C_b\left(\lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right).
+	\ee 
+\end{lemma}
+
+
+\begin{lemma}\label{top_compact_c0_lem}
+	If $p: \widetilde{\sX} \to \sX$ is a finite-fold covering then one has
+	\be\label{top_compact_c0_eqn}
+	\begin{split}
+		\lift_p\left( C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right)  \subset C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_c\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right), \\
+		\lift_p\left( 	C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right)  \subset C_0\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right). \\
+	\end{split}
+	\ee
+\end{lemma}
+\begin{proof}
+	If $a \in C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then $\supp a$ is compact. Since $p$ is a finite-fold covering $\supp \lift_p\left( a\right)= p^{-1}\left( \supp a\right) \subset \widetilde{\sX}$ is compact (cf. Lemma \ref{top_compact_preimage_lem}), hence $\lift_p\left( a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \sF \right)$. For any $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a net $\left\{a_\a\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right\}_{\a \in \mathscr A}$ such that there is a norm limit $\lim_{\a}a_\a = a$. Otherwise for any $\al, \bt\in \mathscr A$ one has $\left\|a_\a - a_\bt\right\|= \left\|\lift_p\left( a_\a\right)  - \lift_p\left( a_\bt\right) \right\|$ it follows that the net $\left\{\lift_p\left( a_\a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde\sF \right)\right\}$ is convergent and $\lim_{\a} \lift_p\left( a_\a\right) = \lift_p\left( a\right)$.
+\end{proof}
+
+\begin{remark}\label{top_compact_c0_rem}
+	Similarly to the Remark \ref{top_cl_cc_iso_rem} $C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$
+	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $\widetilde f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde f \in C_0\left(\widetilde\sX\right)$.
+\end{remark}
+
+\begin{empt}\label{top_norm_sub_empt} 
+	If $B \subset 	C_0\left(A \right) = C_0\left(\sX, \left\{A_x\right\}, A \right)$  is a norm closed $\C$-space then for any $x \in \sX$ there is a normed $\C$-subspace
+	\be
+	\mathring{B}_x = \left\{\left. b_x \in A_x\right|~ \exists b' \in B \quad b_x = b'_x  \right\}
+	\ee
+	Denote by $B_x$ the norm closure of $\mathring{B}_x$ and suppose $B_x \neq \{0\}$ for any $x \in \sX$.  
+\end{empt}
+\begin{lemma}\label{top_norm_sub_lem} 
+	Under the hypotheses \ref{top_norm_sub_empt} the $\C$-space $B$ satisfies to the conditions  (a),(b) of the Definition \ref{operator_fields_continuity_defn}.
+\end{lemma}
+\begin{proof}
+	
+	
+	\begin{enumerate}
+		\item[(a)] If $b \in B$ then $b \in C_0\left(\sX, \left\{A_x\right\}, A \right)$, so from (a) the Definition \ref{operator_fields_continuity_defn} it follows that the map  $x \mapsto \left\| b_x\right\|$  is continuous on $\sX$.
+		\item[(b)] $B_x$ the norm closure of $\mathring{B}_x$, so $\mathring{B}_x$ is dense in $B_x$. 
+		
+		
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}\label{top_norm_sub_cc_defn}
+	Under the hypotheses \ref{top_norm_sub_empt} the family $\left\{B_x\right\}_{x \in \sX}$ is the $B$-\textit{restriction} of  $\left\{A_x\right\}_{x \in \sX}$.
+\end{definition}
+
+\begin{empt}\label{top_cstr_res_empt}
+	From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natural isomorphism
+	\be\label{top_cstr_res_eqn}
+	B \cong C_0\left(\sX, \left\{B_x\right\}, B \right).
+	\ee
+	
+\end{empt}
+
+
+\begin{definition}\label{top_norm_sub_defn}
+	Under the hypotheses \ref{top_cstr_res_empt} we define
+	\bea
+	\label{top_sub_ccn_eqn}
+	C_c\left(B \right) = B \cap C_c\left( A\right)= \left\{\left.b \in 	B~\right| ~\mathrm{norm}_b \in 	C_c\left(\sX\right)\right\}\\
+	\label{top__subcc0_eqn}
+	C_0\left(B \right) = B \cap C_0\left( A\right)= \left\{\left.b \in 	B~\right| ~\mathrm{norm}_b \in 	C_0\left(\sX\right)\right\}
+	\eea
+	There are following inclusions
+	\be
+	C_c\left(B \right) \subset C_0\left(B \right) = B
+	\ee
+	such that $C_c\left(B \right)$ is dense in $C_0\left(B \right)$.
+\end{definition}
+\begin{lemma}\label{top_sub_eq_lem}
+	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ are norm closed $\C$-subspaces. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
+	\be\nonumber
+	\forall x \in \sX \quad B''_x \subset B'_x \quad \Rightarrow \quad B'' \subset B'.
+	\ee
+\end{lemma}
+\begin{proof}
+	From the Corollary \ref{top_cl_cc_iso_cor} it follows that
+	\bean
+	B' = C_0\left(\sX, \left\{B'_x\right\}, B' \right).
+	\eean
+	Select $b'' \in B''$ and $x_0 \in \sX$. For any $\eps > 0$ there is $b' = \left\{b'_x\right\} \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)$ such that $\left\|b'_{x_0} - b''_{x_0} \right\| < \frac{\eps}{2}$. The map $x \mapsto \left\|b'_{x} - b''_{x} \right\|$ is continuous (cf. Lemma \ref{op_cont_con_lem}), it turns out that there is an open neighbourhood $\sU$ of $x_0$ such that $\left\|b'_{x} - b''_{x} \right\| < \eps$ for every $x \in \sU$. If follows that $b''$ is continuous with respect to $B'$ (cf. Definition \ref{op_cont_fields_defn}). Taking into account  that  $\text{norm}_{b''} \in C_0\left(\sX\right)$ it turns out that $b'' \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)= B'$, hence $B'' \subset B'$ (cf. Corollary \ref{top_cl_cc_iso_cor}).
+\end{proof}
+\begin{corollary}\label{top_sub_eq_cor}
+	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ be  norm closed subspaces. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
+	\be\nonumber
+	\forall x \in \sX \quad B''_x = B'_x \quad \Rightarrow \quad B'' = B'.
+	\ee
+\end{corollary}
+
+\begin{empt}
+	Let $\sF$ be a	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to \sX$ be a covering. Let $B \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is a norm closed $C_0\left(\widetilde{\sX} \right)$-module such that there is  the $B$-{restriction} $\left\{B_x\right\}_{x \in \sX}$ of  $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{top_norm_sub_cc_defn}). If $p: \widetilde{\sX}\to \sX$ is a finite-fold covering then there are  $p$-lifts  $\left\{\widetilde{A}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$ and  $\left\{\widetilde{B}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$  of both $\left\{A_x\right\}_{x \in \sX}$ and $\left\{B_x\right\}_{x \in \sX}$ respectively (cf. \ref{top_lift_defn}). For any $x \in \sX$ there is the natural inclusion $B_x \subset A_x$, which yields the inclusion
+	\be\label{top_bx_ax_eqn}
+	\widetilde{B}_{\widetilde{x}} = c^{-1}_{\widetilde x}\left(B_x \right) \subset \widetilde{A}_{\widetilde{x}} \quad \forall \widetilde{x}\in {\widetilde{\sX}}\quad c_{\widetilde x}\text{ is given by }\eqref{top_ct_iso_eqn}.
+	\ee
+	From \eqref{top_bx_ax_eqn} and $B \subset  C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ for any $b \in B$ one has
+	$$
+	\lift_p\left(b \right) \in \lift_p\left[ C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]. 
+	$$
+	Taking into account the Definition \ref{top_lift_main_defn}  and equations 
+	\eqref{top_ccn_eqn}, \eqref{top_cc0_eqn}, \eqref{top_lift_bounded_eqn}
+	one has 
+	\be\label{top_lift_inc_eqn}
+	\begin{split}
+		\lift_p\left[C_0\left(\sX, \left\{B_x\right\}, B \right)\right] \subset \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right],\\
+		C_c\left( \lift_p\left[C_0\left(\sX, \left\{B_x\right\}, B \right)\right]\right)  \subset C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right) ,\\
+		C_0\left( \lift_p\left[C_0\left(\sX, \left\{B_x\right\}, B \right)\right]\right)  \subset C_0\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right) ,\\
+		C_b\left( \lift_p\left[C_0\left(\sX, \left\{B_x\right\}, B \right)\right]\right)  \subset C_b\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right) .\\
+	\end{split}
+	\ee	 
+	The space $	\lift_p\left(B\right)$ is a {continuity structure for} $\widetilde\sX$ {and the} $\left\{\widetilde B_{\widetilde x}\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}).	
+\end{empt}
+
+
+
+\begin{definition}\label{top_lift_sub_defn}
+	In the above situation the space $\widetilde B$ of {continuous (with respect to $\lift_p\left(B\right)$)} vector fields $\left\{b_{\widetilde x}\in \widetilde B_{\widetilde x}\right\}_{{\widetilde x} \in \widetilde{\sX}}$ (cf. Definition \ref{op_cont_fields_defn}) is said to be the $p$-\textit{lift} of $B$. We write
+	\be\label{top_lift_sub_eqn}
+	\lift_{p}\left[B\right]\bydef \widetilde B.
+	\ee
+\end{definition}
+
+\begin{remark}
+	From the Definition \ref{top_lift_sub_defn} it turns out that there are injective $C_b\left(\sX \right)$-linear maps
+	\be\label{top_lift_sub_inc_eqn}
+	\begin{split}
+		\lift_p: B \hookto \lift_p\left[B \right], \\
+		\lift_p:	C_b\left(B \right)  \hookto C_b\left( \lift_p\left[B \right]\right).
+	\end{split}
+	\ee 
+	Moreover  if $p$ is a finite-fold covering there are following inclusions
+	\be\label{top_lift_sub_ff_eqn}
+	\begin{split}
+		\lift_p: C_c\left( B\right) \hookto C_c\left(\lift_p\left[ B\right]  \right);\\
+		\lift_p: C_0\left( B\right) \hookto C_0\left(\lift_p\left[ B\right]  \right)
+	\end{split}
+	\ee
+	(cf. Definition \ref{top_norm_sub_defn}).
+\end{remark}
+
+\begin{remark}
+	Similarly to \eqref{top_lift_composition_eqn} one has
+	\bea
+	\label{top_lift_composition_sub_eqn}
+	\lift_{p' \circ p''}\left[ B\right] = 	\lift_{p'}\left[	\lift_{p''}\left[B \right]\right] .
+	\eea
+\end{remark}
+
+\begin{definition}\label{top_lift_desc_defn}
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_support_defn}) and $\widetilde{a}'= \lift_p\left( a\right)$ then 
+	the family 
+	\be\label{comm_lift_desc_eqn}
+	\widetilde{a}_{\widetilde{x}}=\left\{\begin{array}{c l}
+		\widetilde{a}'_{\widetilde{x}}=	c^{-1}_{\widetilde x}\left( {a}_{p\left( \widetilde{x} \right) }\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
+		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
+	\end{array}\right. \quad c_{\widetilde x}\text{ is given by }\eqref{top_ct_iso_eqn}
+	\ee 
+	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $a$. Otherwise we say that $a$ is the $p$-\textit{descent} of $ \widetilde{a}$. We write
+	\be\label{top_lift_desc_eqn}
+	\begin{split}
+		\widetilde{a}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(a \right)  \text{ or simply } \widetilde{a}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(a \right), \\
+		a \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
+	\end{split}
+	\ee
+	If $\widetilde{\sV}$ is the closure of $\widetilde{\sU}$ then we define  the \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}   of $a$ by the following way
+	\be\label{top_lift_desc_closed_eqn}
+	\begin{split}
+		\lift^p_{\widetilde{\sV}}\left(a \right)  \bydef \lift^p_{\widetilde{\sU}}\left(a \right).
+	\end{split}
+	\ee
+	
+\end{definition}
+\begin{remark}
+	if $a = \desc_{p} \left(\widetilde{a}  \right)$ then $a$ is represented by the family $\left\{a_x\right\}_{x \in \sX}$ such that
+	\be\label{top_desc_eqn}
+	a_x = \begin{cases}
+		c_{\widetilde x}\left( 	\widetilde{a}_{\widetilde{x}}\right)  & x \in \sU ~\text{AND} ~ \widetilde x \in \widetilde\sU~\text{AND} ~p\left( \widetilde{x}\right) = x \\
+		0 &  x \notin \sU
+	\end{cases}	\quad 
+	\ee 
+	where	$c_{\widetilde x}$ \text{ is given by }\eqref{top_ct_iso_eqn}.
+\end{remark}
+\begin{remark}\label{comm_lift_desc_l_rem}
+	From the equation \eqref{comm_lift_eqn} it turns out 
+	\begin{equation}\label{comm_lift_desc_l_eqn}
+		\begin{split}
+			a = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a \right)\right) ,\\
+			\widetilde{a} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{a} \right)\right). 
+		\end{split}
+	\end{equation}	
+\end{remark}
+
+\begin{theorem}\label{top_compact_thm} 
+	Let $\overline \sX$ be a Hausdorff, locally compact topological space with an action $\widehat  G\times \overline \sX\to \overline\sX$ (cf. Definition \ref{residually_finite_defn}) of properly discontinuous  group $\widehat  G$ of homeomorphisms (cf. Definition \ref{top_properly_disc_group_defn}). Assume that the group $\widehat  G$ is  residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX \cong \overline \sX/\widehat G$ and   $p: \overline \sX \to \sX$ is  a natural principal  \ref{top_principal_defn}  covering (cf. Theorem \ref{top_group_of_covering_transformations_thm}).  For any compact subset  $\overline \sY \subset \overline \sX$ there are both a finite-fold principal  \ref{top_principal_defn}  covering $\widetilde p: \widetilde \sX\to \sX$ and a principal  \ref{top_principal_defn}  covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	\begin{itemize}
+		\item $p = \widetilde p \circ \overline p$,
+		\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
+	\end{itemize}	
+\end{theorem}
+
+\begin{proof}
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighbourhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ i.e. ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Let  $J$ be a maximal subset of  $\left\{ 1,..., n\right\}^2$ such that for all $\left(j,k\right) \in J$ one has
+	\be\label{top_compact_eqn}
+	\begin{split}
+		j > k,\\
+		\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
+		{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
+	\end{split}
+	\ee	
+	Then for every $\left(j,k\right) \in J$  there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is principal  \ref{top_principal_defn}  (cf. Definition \ref{top_principal_defn}) there is a nontrivial $g_{jk} \in \overline G$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $\overline G$ is residually finite (cf. Definition \ref{residually_finite_defn}) there is a homomorphism $h_{jk}:\overline G\to G_{jk}$ such that:
+	\begin{itemize}
+		\item $G_{jk}$ is a finite group,
+		\item $h_{jk}\left(g_{jk} \right)\in G_{jk}$ is not trivial.
+	\end{itemize}
+	If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to  \sX_{jk}$ and $\widetilde p_{jk}:  \sX_{jk}\to \sX$
+	such that
+	\be\label{top_compactp_eqn}
+	\begin{split}
+		G\left(\left. \sX_{jk}\right| \sX  \right)\cong G_{jk},\\
+		\widetilde p_{jk}\circ \overline p_{jk} = p,\\
+		\overline p_{jk}\left( \overline{\sU}_j\right) \cap  h_{jk}\left(g_{jk} \right)	\overline p_{jk}\left( \overline{\sU}_k\right)= \overline p_{jk}\left(  \overline{\sU}_j \cap g_{jk}  \overline{\sU}_k\right)  \neq \emptyset
+	\end{split}
+	\ee
+	Using  the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} and taking into account the Theorem \ref{top_bicont_thm} one can prove that natural maps 
+	\bean
+	%g_{ik}\overline{\sU}_k \xrightarrow{\cong} 	\overline  h_{jk}\left(g_{jk} \right) p_{jk}\left(\overline{\sU}_k \right),\\ 
+	%\overline  h_{jk}\left(g_{jk}\right) \overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right),\\ 
+	\overline{\sU}_j \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_j \right),\\ 
+	\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right), \\
+	\overline{\sU}_k \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_k \right),\\ 
+	\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right), 
+	\eean
+	are homeomorphisms. Assume that  $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ and $\widetilde x \in \overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)$. Then one has
+	\bean
+	h_{jk}\left( g^{-1}_{jk}\right)\left(\widetilde x \right)\in \overline p_{jk}\left( \overline{\sU}_k\right),\\
+	h_{jk}\left( g^{-1}_{jk}\right)\widetilde x  \neq \widetilde x,\\	
+	\widetilde p_{jk}\left(  h_{jk}\left( g^{-1}_{jk}\right)\widetilde x \right) = 	\widetilde p_{jk} \left( \widetilde x \right),
+	\eean
+	i.e.  the map $\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right)$ is not bijective, so there is a contradiction. From this contradiction one concludes that the assumption $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true, i.e. one has
+	\be\label{top_uiniu_eqn}
+	\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)=\emptyset.
+	\ee
+	If we assume   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ then there is $\widetilde x \in \overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)$	 and
+	\bean
+	\widetilde p_{jk}\left(\widetilde x \right) \in \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk}\circ 	\overline p_{jk}\left( \overline{\sU}_k\right)= \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk} \left( 	\overline p_{jk}\left( g_{jk} \overline{\sU}_k\right)\right) =\\
+	=  \widetilde p_{jk}\left( 	\overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)\right) .
+	\eean
+	From the above equation it follows that there is $\widetilde x' \in \overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)$ such that $\widetilde p_{jk}\left( \widetilde x'\right) = \widetilde p_{jk}\left( \widetilde x\right)$. Taking into account \eqref{top_uiniu_eqn} one has $\widetilde x' \neq \widetilde x$, however it is impossible because the map $\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right)$ is bijective, i.e. there is a contradiction. So the assumption   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true and  
+	\be\label{top_compactppp_eqn}	\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset.\ee  The group	$H_{jk}$ is a normal subgroup of $\overline G$ for any pair $\left(j, k\right)\in J$,
+	The index   $\left( \overline G : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). The set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ is finite. If
+	$$
+	H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
+	$$
+	then index   $\left( \overline G: H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there  are principal  \ref{top_principal_defn}   coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( \overline G: H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
+	\be\label{top_compactpp_eqn}
+	\overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
+	\ee
+	Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\left(\overline y'\right)= \overline p\left(\overline y''\right)= \widetilde y$.
+	If $\overline y' \in \overline \sU_j$ and $\overline y'' \in \overline \sU_k$  then from \eqref{top_compactpp_eqn} it follows that $\overline y',\overline y''\in \overline \sU_j\cap \overline \sU_k$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
+	$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
+\end{proof}
+
+\begin{lemma}\label{top_compact_la_lem}
+	Let $\overline p:\overline\sX \to \sX$ be a principal  \ref{top_principal_defn}  covering, and let $\left(\overline \sU, \overline \sV, \overline s\right)$ is a {covering triple for} $\overline p$ (cf. Definition \ref{top_coveing_triple_defn})
+	Under the hypotheses of the Theorem \ref{top_compact_thm} there is $\la_{\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)} \in \La$ such that for any  $\la \ge \la_{\left(\overline \sU, \overline \sV, \overline s\right)} \in \La$ such that  the closure of  $\overline \sV$ is mapped homeomorphically onto  its image in $\sX_\la$.
+\end{lemma}
+\begin{proof}
+	The proof of this lemma can be obtained from the Theorem \ref{top_compact_thm}.
+\end{proof}
+
+
+
+\begin{defn}\label{top_compactly_supported_descent_defn}
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a principal  \ref{top_principal_defn}  covering such that the group  of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_geoup_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
+	Theorem  \ref{top_compact_thm} 	it follows that there is a finite-fold principal  \ref{top_principal_defn}  covering $p': \widetilde \sX' \to \sX$ and  a principal  \ref{top_principal_defn}  covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
+	\be\label{top_desc_compact_eqn}
+	\desc^c_p\left(\widetilde a \right) \bydef \sum_{	g \in G\left( \left. \widetilde \sX'\right| \sX\right) } g \desc_{\widetilde p'} \left(\widetilde a \right)\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)
+	\ee
+	then we say that $\desc^c_p$ is \textit{compactly supported} $p$-\textit{descent}.
+\end{defn}
+\begin{remark}\label{top_desc_compact_rem}
+	Under the hypotheses of the Definition \ref{top_compactly_supported_descent_defn} the  map  \eqref{top_desc_compact_eqn} induces a homomorphism 
+	$$
+	\desc^c_p : C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)\to  C_0\left(\sX, \left\{A_x\right\}, \sF \right)
+	$$
+	of $C_0\left(\sX \right)$-modules. 
+\end{remark}
+
+\begin{empt}
+	Let $\sX$ be a locally compact Hausdorff space and 	there is a positive functional 
+	\be\label{top_tau_eqn}
+	\begin{split}
+		\tau : C_c\left( \sX\right) \to \C,\\
+		a \mapsto  \int_{\sX} a~ d\mu.
+	\end{split}
+	\ee
+	(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$. If $p: \widetilde \sX\to \sX$ is a covering then one can define a functional
+	
+	\be\label{top_tau_l_eqn}
+	\begin{split}
+		\lift_p\tau: C_c\left( \widetilde\sX\right) \to \C,\\
+		\widetilde a \mapsto\tau\left(\desc^c_p\left(\widetilde a \right) \right)
+	\end{split}
+	\ee
+	such that $\widetilde a > 0 \quad \Rightarrow \quad \lift_p\tau\left(\widetilde a \right) > 0$.	
+	From the Theorem \ref{meafunc_thm} one has a measure $\lift_p\mu$ such that
+	\be
+	\lift_p\tau \left( \widetilde a\right)=  \int_{\widetilde\sX} \widetilde a~ d~\lift_p\mu
+	\ee
+\end{empt}
+\begin{definition}\label{top_lift_measure_defn}
+	In the described above situation we say:
+	\begin{itemize}
+		\item the functional $\lift_p\tau$ is the $p$-\textit{lift of the functional}  $\tau$,
+		\item the measure $\lift_p\mu$ is the $p$-\textit{lift of the measure}  $\mu$.
+	\end{itemize}
+\end{definition}
+
+
+\begin{lemma}\label{top_lift_bundle_lem}
+	Let  $\left( E, \pi, \mathcal X\right)$ be a  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$ and let $\Ga\left( E, \pi, \mathcal X\right)$ be a space of sections which is a continuous structure for $\sX$ and $\left\{E_x\right\}_{x \in \sX}$ (cf. Lemma \ref{top_bundle_cs_ex_lem}). If $p: \widetilde{\sX} \to \sX$ is a covering and $\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ is the {inverse image} of $\left( E, \pi, \mathcal X\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is the natural $\C$-isomorphism
+	$$
+	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).
+	$$
+\end{lemma}
+\begin{proof}
+	From the  equations \eqref{top_uba_eqn} and \eqref{top_cg_eqn} it follows that there is the natural inclusion
+	$$
+	\lift_p\left(C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right)\subset \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).
+	$$
+	From the Definition \ref{top_lift_main_defn} it turns out that
+	$$
+	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right] \subset C\left(\widetilde\sX, \left\{\left(E\times_\sX\widetilde\sX\right)_{\widetilde x}\right\}_{\widetilde{x}\in \widetilde\sX}, \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right) \right). 	
+	$$
+	However from \eqref{top_cg_eqn} it follows that 
+	$$
+	C\left(\widetilde\sX, \left\{\left(E\times_\sX\widetilde\sX\right)_{\widetilde x}\right\}_{\widetilde{x}\in \widetilde\sX}, \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right) \right)\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right),
+	$$
+	so one has
+	$$
+	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\subset \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).	
+	$$
+	Let $\widetilde s \in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ and let $\widetilde x_0 \in \widetilde \sX$. If   $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-{stump} (cf. Definition \ref{top_stump_cov_defn}) then there is an open subset $\widetilde \sU$ such that $\supp \widetilde{f}_{\widetilde{x}_0}\subset \widetilde\sU$ and $\widetilde\sU$ is mapped homeomorphically onto $\sU \subset p\left(\widetilde\sU\right)$. There is a natural isomorphism
+	$$
+	\phi :	\Ga\left( E|_\sU, \pi|_{E|_\sU}, \sU \right)\xrightarrow{\approx} 	\Ga\left( \left.\left( E\times_\sX\widetilde\sX\right)\right|_{\widetilde\sU}, \rho|_{E|\left( E\times_\sX\widetilde\sX\right) |_{\widetilde\sU}}, \widetilde\sU\right)
+	$$
+	If $\widetilde s' = \widetilde{f}_{\widetilde{x}_0}\widetilde s$ and $\widetilde s'=\phi\left( s\right)$ then $s$ can be extended to the global section
+	\bean
+	s \in \Ga\left( E, \pi, \mathcal X\right),\\
+	s\left(x\right)= \begin{cases}
+		s'\left(x\right)& x \in \sU\\
+		0 & x\notin \sU
+	\end{cases}.
+	\eean
+	If $\widetilde \sV$ is an open neighbourhood of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde \sV\right)= \{1\}$ then
+	$$
+	\forall \widetilde x \in \widetilde{\sV}\quad \lift_p\left( s\right) \left(\widetilde x \right) = \widetilde s\left( \widetilde x\right). 
+	$$
+	It follows that $\widetilde s$ is {continuous (with respect to $\lift_p\left( C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)\right) $)} at $\widetilde x_0$ (cf. Definition \ref{op_cont_fields_defn}). A point $\widetilde x_0$ is arbitrary so  $\widetilde s$ is {continuous} on $\widetilde \sX$, and taking into account Definition \ref{top_lift_main_defn} one has $\widetilde s \in \lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]$, it turns out that
+	$$
+	\Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)\subset \lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right].
+	$$
+\end{proof}
+
+\subsubsection{Basic constructions}
+
+\paragraph{}
+
 		If   $A$  is a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$ then there is a presheaf  $\mathscr P_{\sX\text{-}A}$ of sets such that for any open $\sU \subset \sX$  one has
 		\be\label{presh_eqn}
 		\begin{split}
@@ -1805,7 +2744,7 @@ C \mapsto C \cap ~_\sV A _\sV.
 		\end{split}
 		\ee
 		and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ (cf. Exercise \ref{sheaf_etale_exer}) with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$.
-\end{empt}
+
 \begin{lemma}\label{ctr_gelfand_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 	\newline
@@ -1815,35 +2754,82 @@ C \mapsto C \cap ~_\sV A _\sV.
 	\end{tikzcd}
 \end{lemma}	
 \begin{proof}
-	Here we use the  construction \ref{topology_base_herd_empt}.
-If $\xi \in \mathfrak{Gelfand}\left( A\right)$ then there 
-from the  Lemma  \ref{ctr_g_lem} it follows that there is a pair $\left(x_\xi, y_\xi \right)$ such that for any $B \in \xi$ the one-dimensional subspace
-$$
- \rep_{x_\xi} \left(L\right)\sH_{x_\xi}\subset  \sH_{x_\xi}
-$$ 
-corresponds to $y_\xi \in \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$.
  Let 
 \bean
 \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x \bydef \left\{\left.\eta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right| 	p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)}\left(\eta \right) = x\right\},\\
-\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi =  \left\{\left.\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x\right| \forall L \in \xi \quad  \exists  C \subset L^*L \quad \zeta = C_x  \right\}
+\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi =  \left\{\left.\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x\right| \forall B \in \xi \quad  \exists  C \subset B\quad \zeta = C_x  \right\}
 \eean
-where $C$ is a commutative $C^*$-subalgebra which represents $\zeta$ and $C_x$ is the germ of $C$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}). If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ contains more than one element and $\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ then the  filter
+where $C$ is a commutative $C^*$-subalgebra which represents $\zeta$ and $C_x$ is the germ of $C$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}). If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ contains more than one element and $\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ then the  filter of hereditary $C^*$-subalgebras
 \bean
-\left\{L \subset A \left| \exists  C \subset L^*L \quad \zeta = C_x \right.\right\}
+\left\{B \subset A \left| \exists  C \subset B \quad \zeta = C_x \right.\right\}
 \eean 
-exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. If $C', C''$ are two commutative $C^*$-algebras which correspond two elements $L', L'' \in \xi$ then one has
+exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. If $C', C''\subset \xi$ are two commutative $C^*$-algebras  then one has
 $$
 \forall f \in C_0\left(\sX \right) \quad f\left(x \right)\neq 0 \quad\left(  \mathfrak {Blowing}_{\sX-A }(f) C'\right) \cap \left( \mathfrak {Blowing}_{\sX-A }(f) C''\right)  \neq \{0\}.
 $$
 It is possible if and only if and only if $C'_x = C''_x$, so there is the natural  map $\phi_{\mathscr P} :\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$. On the other hand if $\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ and 
 $$
-\xi \bydef \left\{ L \in A \left| \exists C \subset L^*\cap L \quad C_x = \zeta\right.\right\}
+\xi \bydef \left\{ B \in A \left| \exists C \subset B \quad C_x = \zeta\right.\right\}
 $$
 then $\phi_{\mathscr P}\left(\xi \right) = \zeta$, i.e. the map $\phi_{\mathscr P}$ is bijective.
 \end{proof}
 \begin{remark}
 Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
 \end{remark}
+\begin{corollary}\label{ctr_bic_cor}
+	If $A$ is a {continuous-trace} $C^*$-{algebra} then for any element $\xi \in \mathfrak{Gelfand}\left( A\right)$ of the Gelfand space (cf. Definition \ref{gelfand_space_defn})	the bicommutant of $\xi''$ (cf. Definition \ref{bicommutant_defn}) is a proper maximal closed left ideal. 
+\end{corollary}
+\begin{proof}
+From the Lemma \ref{ctr_gelfand_lem} it follows that $\xi$ corresponds to $C_{x_\xi} \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x_\xi \bydef \hat \phi\left( \xi\right)$ and  $C \subset A$ is a  representative of the element of $ \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$. If $V_\xi \bydef \rep_{x_\xi}\left(C \right) \H_{x_\xi}$ then then the closed left ideal
+\bean
+L_\xi \bydef \left\{a \in A \left| \rep_{x_\xi}\left(a \right) \H_{x_\xi}\perp V_\xi\right.\right\}
+\eean
+is proper and maximal. There is an open neighborhood $\sV$ of $x_\xi$ and $c \in C$ such that
+$$
+\forall x \in \sV \quad \left\|\rep_x\left(c \right)  \right\| = 1.
+$$
+If $a \in L_\xi$,  $~~a' \bydef c a c$ and $a''\bydef a - a'$ then  there is $f \in C_c \left(\sX \right)_+$ such that
+\bean
+f\left( x_\xi\right) = 0,\\
+\forall x \in \sV \quad f\left(x \right) = \left\|\rep_x\left(a' \right)  \right\|, \quad c a'' c = 0.
+\eean
+there is a basis $\left\{\sU\right\}$ of neighborhoods of $x_\xi$  such that $\sU \subset \sV$ for any $\sU \in  \left\{\sU\right\}$. One can find a family $\left\{f_\sU\right\}_{\sU \in \left\{\sU\right\}}$
+such that $f_\sU \left(\sU \right)= \{0\}$ and there is the uniform limit
+$$
+f = \lim_{\sU \in  \left\{\sU\right\}} f_\sU.
+$$
+If $C_\sU \bydef C \cap~_\sU A _\sU$ and 
+  $L_\sU$ is a closed left ideal with $C_\sU= L_\sU \cap L^*_\sU$ (cf. Lemma \ref{hered_ideal_lem}), $a_\sU \bydef a'' = f_\sU a'$ then
+\bean
+L_\sU a_\sU^* = 0 \quad \Rightarrow\quad a_\sU \in L^\perp_\sU,\\
+a = \lim_{\sU \in  \left\{\sU\right\}} a_\sU
+\eean
+From the above equations it turns out that $L_\xi$ is a subset of the $C^*$-norm closure of the union $\bigcup_{\sU \in  \left\{\sU\right\}}L_\sU$. Using this fact one can proof that $\xi'' = L_\xi$.
+\end{proof}
+\begin{remark}\label{ctr_bic_rem}
+From the proof of the Corollary it follows that any element of the bicommutant $ \mathfrak{Gelfand}\left( A\right)''$ of the Gelfand space  $\mathfrak{Gelfand}\left( A\right)$ uniquely depends on the pair $\left( x_\xi, V_\xi\right)$. Since $V_\xi \subset \H_{x_\xi}$ is one-dimensional subspace any  element of $ \mathfrak{Gelfand}\left( A\right)''$ uniquely depends of the pair $\left( x_\xi, y_\xi\right)$ where $y_\xi \in \mathbb{P}\left(\H_{x_\xi} \right)$ and $\mathbb{P}\left(\H_{x_\xi} \right)$ is the projective space (cf. Definition \ref{projective_bundle_defn}).
+\end{remark}
+\begin{lemma}
+If $\sX$ is a locally compact Hausdorff space and $A \bydef C_0\left( \sX\right) \otimes \K\left( \sH\right)$ then there is the natural homeomorphism
+\be\label{ctr_prod_eqn}
+\mathfrak{Gelfand}\left( A\right)''\cong \sX \times \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}
+\ee
+where $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ isn given by \eqref{gefand_projective_eqn} projective space with Gelfand topology.
+\end{lemma}
+\begin{proof}
+The Corollary \ref{ctr_bic_cor} and the Remark \ref{ctr_bic_rem} naturally  yield a given by \eqref{ctr_prod_eqn} bijective map. One should prove that the map is a homeomorphism. Clearly an open subset of $\sX \times \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ is open in  $\mathfrak{Gelfand}\left( A\right)''$. Let $\left(x_\xi, y_\xi \right)$ be a pair which yields a point of both $\mathfrak{Gelfand}\left( A\right)''$ and $\sX \times \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$, and let $\sU\subset $
+\end{proof}
+
+\begin{proof}
+
+	Here we use the  construction \ref{topology_base_herd_empt}.
+If $\xi \in \mathfrak{Gelfand}\left( A\right)$ then there 
+from the  Lemma  \ref{ctr_g_lem} it follows that there is a pair $\left(x_\xi, y_\xi \right)$ such that for any $B \in \xi$ the one-dimensional subspace
+$$
+\rep_{x_\xi} \left(L\right)\sH_{x_\xi}\subset  \sH_{x_\xi}
+$$ 
+corresponds to $y_\xi \in \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$.
+\end{proof}
 
 \begin{lemma}
 If $\sX$ is a Hausdorff locally compact space and $A\bydef C_0\left(\sX \right) \otimes \K$ then one has
@@ -3571,6 +4557,198 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
 	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
+\subsection{Fields of operators}\label{f_op_sec}
+\paragraph*{}
+Let $\sX$ be a locally compact Hausdorff space called the base space; and for each $x$ in
+$\sX$, let $A_x$ be a (complex) Banach space.
+\begin{definition}\label{operator_fields_defn}\cite{fell:operator_fields}
+	A \textit{vector field (with values in the $\left\{A_x\right\}$)} is a function
+	$a$ on $\sX$ given by $x \mapsto a_x$ such that $a_x\in A_x$ for each $x$ in $\sX$. Obviously the vector fields form a complex linear
+	space. If each $A_x$ is a $*$-algebra, then the vector fields form a $*$-algebra under the point-wise
+	operations; in that case the vector fields will usually be referred to as \textit{operator fields}.
+	Here, either each $A_x$ will be a Hilbert space or each $A_x$ will be a $C^*$-algebra.
+\end{definition}
+
+
+\begin{definition}\label{operator_fields_continuity_defn}\cite{fell:operator_fields}
+	A \textit{continuity structure for} $\sX$ \textit{and the} $\left\{A_x\right\}$ is a linear space $\sF$ of vector fields on $\sX$, with values in the $\left\{A_x\right\}$ , satisfying:
+	\begin{enumerate}
+		\item[(a)] If $a \in \sF$, the real-valued function $x \mapsto \left\| a_x\right\|$  is continuous on $\sX$.
+		\item[(b)] For each $x$ in $\sX$,  $\left\{\left. a_x~\right|~ a \in \sF\right\}$ is dense in $A_x$.
+		\item[(c)] If each $A_x$ is a $C^*$-algebra, we require also that
+		$\sF$ is closed under pointwise multiplication and involution.
+	\end{enumerate}
+	
+	%If all $A_x$ are equal to the same $A$, then the set of all constant functions on $\sX$to A forms
+	%a continuity structure, the so-called product structure.
+	%Let us fix a continuity structure F for T, {At}.
+\end{definition} 
+\begin{definition}\label{op_cont_fields_defn}\cite{fell:operator_fields}
+	A vector field $a$ is \textit{continuous (with respect to $\sF$)} at $x_0$, if for each $\eps>0$
+	there is an element $b$ of $\sF$ and a neighbourhood $\sU$ of $x_0$ such that $\left\|a_x- b_x\right\|< \eps$ for all
+	$x$ in $\sU$. We say that $a$ is \textit{continuous} on $\sX$ if it is continuous at all points of $\sX$.
+\end{definition} 
+\begin{lemma}\label{op_cont_uni_lem}\cite{fell:operator_fields}
+	%L]~MMA 1.4.
+	If a sequence of vector fields $\left\{a_n\right\}$ continuous (with respect to $\sF$) at $x_0$ converges uniformly on $\sX$ to a vector field $a$, then $a$ is continuous at  $x_0$ (with respect to $\sF$). 
+\end{lemma}
+\begin{lemma}\label{op_cont_con_lem}\cite{fell:operator_fields}
+	If a vector field $a$ is continuous with respect to $\sF$ at $x_0$, then $x \mapsto  \left\| a_x\right\|$ is
+	continuous at $x_0$.
+\end{lemma}
+\begin{lemma}\label{op_cont_module_lem}\cite{fell:operator_fields}
+	The vector fields continuous (with respect to $\sF$) at $x_0$ form a linear space,
+	closed under multiplication by complex-valued functions on $\sX$ which are continuous at $x_0$.
+	If each $A_x$ is a $C^*$-algebra, the vector fields continuous at $x_0$ are also closed under pointwise multiplication and involution.
+\end{lemma}
+\begin{lemma}\cite{fell:operator_fields}
+	%LEMMA 1.3. 
+	A vector field $x$ is continuous (with respect to $\sF$) at $t_0$ if and only if, for each $y \in \sF$, the function $t\mapsto \left\|x\left(t\right) - y\left(t\right)\right\|$ is continuous at $t_0$. 
+\end{lemma}
+\begin{lemma}\cite{fell:operator_fields}
+	%L]~MMA 1.4. 
+	If a sequence of vector fields $\left\{x_n\right\}$ continuous (with respect to $\sF$) at $t_0$ converges uniformly on $T$ to a vector field $x$, then $x$ is continuous at $t_0$ (with respect to $\sF$). 
+\end{lemma}
+\begin{lemma}\cite{fell:operator_fields}
+	%LISMMA 1.5. 
+	For every $t$ in $T$, and every $\a$ in $A_t$, there is a vector field $x$, continuous on $T$ with respect to $\sF$, such that $x\left(t\right)=\a$.
+\end{lemma}
+\begin{defn}\cite{fell:operator_fields}
+	If $\sF'$ is another continuity structure for $T$ and the $\left\{A_t\right\}$, then we shall say that $\sF$ and $\sF'$ are \textit{strictly equivalent} $\left(\sF \sim \sF'\right)$ if, for all $t$ in $T$, a vector field is continuous at $t$ with respect to $\sF$ if and only if it is so with respect to $\sF'$. 
+\end{defn}
+\begin{lemma}\cite{fell:operator_fields}
+	%LEMMA 1.6.
+	If $\sF'$ is another continuity structure for $T$ and the $\{A_t\}$, and if there exists a family $\sG$ of vector fields such that 
+	\begin{enumerate}
+		\item [(i)] each $x$ in $\sG$ is continuous on $T$ with respect to both $\sF$ and $\sF'$, and
+		\item[(ii)]   for each $t$ in $T$, $\left\{\left. x(t)\right| x \in \sG\right\}$ is dense in $A_t$,
+	\end{enumerate}
+	then $\sF \sim \sF'$.
+\end{lemma}
+\begin{defn}\label{full_algebra_operator_fields_defn}\cite{fell:operator_fields}
+	A \textit{full algebra of operator fields} is a family $A$ of operator fields on $T$ 	satisfying: 
+	\begin{enumerate}
+		\item[(a)] $A$ is a $*$-algebra, i.e., it is closed under all the point-wise algebraic operations;
+		\item[(b)] 	for each $x$ in A, the function $t\mapsto \left\|x\left(t\right) \right\|$ is continuous on $T$ and vanishes at infinity; 
+		\item[(c)] for each $t$ , $\left\{x(t)| x\in A\right\}$ is dense in $A_t$;
+		\item[(d)] $A$ is complete in the norm $\left\| x\right\|\bydef \sup_{t\in T} \left\| x(t)\right\|$.
+	\end{enumerate}
+\end{defn}
+
+\begin{empt}\label{top_cs_not_empt}\cite{fell:operator_fields}
+	A full algebra of operator fields is evidently a continuity structure. If $\sF$ is any continuity 
+	structure, let us define $C_0\left(\sF\right)$ to be the family of all vector fields $x$ which are continuous on $T$ with respect to $\sF$, and for which $t\mapsto \left\|x\left(t\right) \right\|$ vanishes at infinity. 
+\end{empt}
+\begin{lemma}\label{top_full_oaf_lem}\cite{fell:operator_fields}
+	For any full algebra $A$ of  operator fields on $T$, the following three conditions are equivalent: 
+	\begin{enumerate}
+		\item [(i)] $A$ is a maximal full algebra of operator fields;
+		\item [(ii)] $A = C_0\left(\sF\right)$ for some continuity structure $\sF$;
+		\item [(iii)] $A = C_0(A)$.
+	\end{enumerate}
+	
+\end{lemma}
+It is proven in \cite{structure_of_standard} that any $C^*$-algebra with Hausdorff spectrum is a full algebra of operator fields (cf. Definition \ref{full_algebra_operator_fields_defn}). Below we consider a simple proof of this fact.
+\begin{lemma}\label{oa_haus_alg_lem}\cite{fell:operator_fields}
+	Any $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ is a full algebra of operator fields (cf. Definition \ref{full_algebra_operator_fields_defn}.
+\end{lemma}
+\begin{proof}
+	There is a family $\left\{\rep_x\left( A\right) \right\}_{x\in \sX}$ of Banach spaces. From the Lemma \ref{hausdorff_spectrum_lem} it follows that $A$ is a continuity structure for $\sX$ and $\left\{\rep_x\left( A\right) \right\}$ (cf. Definition \ref{op_cont_fields_defn}), such that
+	\be\label{top_a_c0a_eqn}
+	A \subset C_0\left(A \right). 
+	\ee
+	If $\left\{a_x \right\}_{x\in \sX} \in  C_0\left(A \right)$ and $\eps > 0$ then there is a compact set $\sY$ such that
+	$$
+	\forall x \in \sX \setminus\sY \quad \left\|a_x  \right\|< \eps.
+	$$
+	From the Definition \ref{op_cont_fields_defn} it follows that  there is a family $\left\{\sU_x\right\}_{x \in \sX}$ of open subsets of $\sX$ such that for all $x \in \sX$ one has $x \in \sU_x$ and there is $b_x \in A$ which satisfies to the following condition
+	$$
+	\forall y \in \sU_x \quad \left\|a_y - \rep_y\left( b_x\right)  \right\| < \eps.
+	$$
+	If $\sum_{j=1}^n f_{x_j}$ is {covering sum} for $\sY$ {dominated} by the family $\left\{\sU_x\right\}$ (cf. Definition \ref{top_covering_sum_defn}) and 
+	$$
+	b \bydef \sum_{j=1}^n f_{x_j}b_{x_j}\in A
+	$$
+	then 
+	$$
+	\forall x \in \sX \quad \left\|a_x - \rep_x\left( b\right)  \right\| < \eps,
+	$$
+	or, equivalently $\left\|\left\{a_x \right\} - b  \right\| < \eps$. Since $A$ is $C^*$-norm closed one has
+	$$
+	\left\{a_x \right\} \in A.
+	$$
+	It turns out that
+	$
+	C_0\left(A \right) \subset A$ and taking into account \eqref{top_a_c0a_eqn} we conclude that $A = C_0(A)$. From the Lemma \ref{top_full_oaf_lem} it follows that $A$ is a full algebra of operator fields.
+\end{proof}
+
+
+
+
+\subsection{$C^*$-algebras as cross sections and their multipliers}\label{cross_sections_sec}
+\paragraph*{}	
+Here I follow to \cite{apt_mult}. The following definition is a specialization of the Definition \ref{op_cont_fields_defn}.
+
+For any $C^*$-algebra $A$ denote by $M\left( A\right)_\bt$  the algebra $M\left( A\right)$ of multipliers with the strict topology (cf. Definition \ref{strict_topology_defn}).
+\begin{definition}\label{ctr_crooss_alg_defn}\cite{apt_mult}
+	A bounded  section $a$ of the fibered space $\left\{\mathcal X, M\left( A_x \right) \right\}$ is said to be \textit{strictly continuous (with respect to)} $\mathscr F$ if for each $\eps > 0$ and for each $c \in \mathscr F$ there is an element $b \in \mathscr{F}$ and an neighbourhood $\mathcal U$ of $x_0$ such that $\left\|c _x \left( a _x - b_x\right)   \right\|+\left\|\left( a _x - b_x\right)c _x    \right\|< \eps$ for every $x$ in $\mathcal U$.
+\end{definition}
+
+We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ the set of all bounded strictly continuous cross sections in $\left\{\mathcal X, M\left( A_x \right) \right\}$.
+\begin{theorem}\label{cross_mult_thm}\cite{apt_mult}
+	There is the natural $*$-isomorphism $$M\left( C_0\left(\mathcal X, A_x, \mathscr F\right)\right) \cong C_b\left(\mathcal X, M\left( A_x\right)_\bt, \mathscr F\right).$$
+\end{theorem}
+
+\begin{empt}\label{ctr_crooss_alg_empt}\cite{dixmier_ca}% 	10.4.1. 
+	Let $\sX$ be a locally compact space,  let $\left\{A_x\right\}_{x \in \sX}$ be a family of $C^*$-algebras, and let $\sF$ be {continuity structure for} $\sX$ {and the} $\left\{A_x\right\}$. Let 	$A= C_0\left(\mathcal X, A\left( x\right), \mathscr F\right)$ be the set of all continuous sections of $\left\{\mathcal X, A\left( x\right) \right\}$ vanishing at infinity. Then $A$ is an involutive algebra. For $a \in A$, put
+	$$
+	\lVert a \rVert = \sup_{x \in \sX} \lVert a\left(x\right) \rVert.
+	$$
+	It is immediate that, for this norm, $A$ is a C$*$-algebra which we will call  \textit{	the $C^*$-algebra defined by $\left(\mathcal X, A\left( x\right), \mathscr F\right)$}.
+\end{empt}
+For any $C^*$-algebra $A$ denote by $M\left( A\right)_\bt$ is the algebra $M\left( A\right)$ with the strict topology.
+
+We denote by $C_b\left(\mathcal X, M\left( A\left( x\right)\right)_\bt,  \mathscr F\right)$ the set of all bounded strictly continuous cross sections in $\left\{\mathcal X, M\left( A\left( x\right) \right) \right\}$
+
+
+
+\begin{theorem}\label{ctr_as_field_thm}\cite{dixmier_ca}
+	Let $A$ be a liminal $C^*$-algebra whose spectrum $\sX$ is Hausdorff. Let  $\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ be the continuous field of non-zero elementary $C^*$-algebras over $\sX$ defined by $A$. Let $A'$ be the  $C^*$-algebra
+	defined by $\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$. For every $a \in A$, let $a'  = \left\{a\left(x\right)\in A_x\right\}_{x \in \sX}$ be the element of  $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$  defined by $a$.  Then $a' \in A'$ and $a \mapsto a'$ is an isomorphism of $A$ onto $A'$.
+\end{theorem}
+\begin{empt}\label{cross_mult_empt}\cite{apt_mult}
+	Theorem \ref{cross_mult_thm} allow !!! ADMIT !!!s us (in principle) to determine the multipliers of any liminal algebra $C^*$-algebra $A$ with Hausdorff spectrum. Because in this case $A$ can be represented as an algebra of continuous cross sections 
+	\be\label{cross_mult_eqn}
+	A = C_0\left(\hat A, A\left(t \right), A  \right) 
+	\ee
+	where $A\left( t\right) = \K\left(\H_t \right)$. Since $M\left(\K\left(\H_t \right) \right) $ is equal to $B\left( \H\right)$ equipped with the strong* topology, denoted by $B\left( \H\right)_{s^*}$, we can state the following.  
+\end{empt}
+%\begin{corollary}\label{cross_mult_cor}\cite{apt_mult}
+%	If $A$ is a  liminal algebra $C^*$-algebra $A$ with Hausdorff spectrum, so what $A = C_0\left(\hat A, K\left(\H_t \right), A  \right)$, then $M\left( A\right)=   C_b\left(\hat A, B\left( \H\right)_{s^*}, A  \right)$.
+%\end{corollary}
+\begin{remark}\cite{apt_mult}
+	Even in case where $A$ has only one and two dimensional representations it is not necessary true that $M\left( A\right)$ has Hausdorff spectrum. 
+\end{remark}
+\begin{theorem}\label{ctr_cont_thm} \cite{fell:operator_fields}
+	Let $\sX$ be a locally compact Hausdorff space, and let $\left\{A_x\right\}_{x \in \sX}$ be a family of $C^*$-algebras. If $\sF$ is a {continuity structure for} $\sX$ {and the} $\left\{A_x\right\}$. If $A_x \cong \K\left(\ell^2\left( \N\right) \right)$ for all $x \in \sX$ then $C_0\left( \sX,  \left\{A_x\right\}, \sF\right)$ is a $C^*$-algebra with continuous trace .
+\end{theorem}
+\begin{remark}\label{ctr_cont_rem}\cite{fell:operator_fields}
+	There are $C^*$-algebras with continuous trace  which do not match to the Theorem \ref{ctr_cont_thm}, i.e. these algebras cannot be represented as  $C_0\left( \sX,  \left\{A_x\right\}, \sF\right)$.
+\end{remark}
+
+%\begin{definition}
+%	DEFINITION. A full algebra o/operator fields is a family A of operator fields on T 
+%	satisfying: 
+%	(i) A is a $*$-algebra, i.e., it is closed under all the pointwise algebraic operations; 
+%	(ii) for each x in A, the function t-+llx (t)H is continuous on T and vanishes at infinity; 
+%	(iii) for each t, {x(t)] xeA} is dense in At; 
+%	(iv) A is complete in the norm Ilxll = s pllx(t)ll 9 
+%	Clearly A is a C$*$-algebra; hence (iii) could be strengthened to the statement that 
+%	{x(t)[x6A} -A t. The algebra A t will be called the component o~ A at t. We refer to T as 
+%	the base space. 
+%	
+%	
+%\end{definition} 
 \subsection{Algebraic counterpart of geometric quotient}\label{quotions_a_sec}
 \paragraph{}
 Here I follow to \cite{{connes:ncg94}}
@@ -4840,7 +6018,7 @@ is a group isomorphism.
 $H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles $A\to]M$ with fiber $\K$. 
 \end{lemma}
 \begin{empt}\label{projective_bundle_empt}\cite{bryl:loop}
-For a separable Hilbert space $E$, the projective space $\mathbb{P}$ of $E$ is a manifold 
+For a separable Hilbert space $E$, the {projective space} $\mathbb{P}$ of $E$ is a manifold 
 modeled on $E/ \C$. For $\left\{e_n\right\}$ an orthonormal basis of $E$, $E\setminus 0$ is covered by the 
 open sets $\sV_j \bydef  = \left\{\left.\sum_{n=1}^\infty x_n e^n\right| x_j \neq 0 \right\}$. $\mathbb{P}$ is covered by the open sets $\sU_j$
 The open set $\sV_j$ identifies with the subspace $\left( \C \cdot e_j\right)^\perp$  of $E$; to $v \in \left( \C \cdot e_j\right)^\perp$
@@ -4849,7 +6027,7 @@ $C^*$-bundle.
 \end{empt}
 \begin{definition}\label{projective_bundle_defn}\cite{bryl:loop}
 The {\it projective space 
-bundle} is a trivial fiber bundle $p : P -* M$ with 
+bundle} is a trivial fiber bundle $p : P \onto M$ with 
 fiber the {\it projective space}
 $\mathbb{P} \left( E\right) \bydef  (E\setminus \{0\})/\C^*$ of lines in $E$.
 \end{definition}
