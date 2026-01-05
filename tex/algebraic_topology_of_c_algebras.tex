@@ -5787,6 +5787,21 @@ but of course they fit together in a very complicated way which is related to th
 properties of the foliation.
 \end{remark}
 \section{Miscellany}
+
+	
+\begin{remark}\label{polarization_equality_rem}
+	For any $C^*$-pre-Hilbert $X$ module, or more  precisely, for any sesquilinear form $\left\langle \cdot , \cdot \right\rangle$ the \textit{polarization equality}
+	\be\label{polarization_equality_eqn}
+	\begin{split}
+		4 \left\langle \xi , \eta \right\rangle=\sum_{k = 0}^3i^k\left\langle \xi + i^k\eta, \xi + i^k\eta \right\rangle
+	\end{split}
+	\ee 
+	is obviously satisfied for all $\xi, \eta \in X$.  If $\H$ is a Hilbert space then there is the following analog of the identity \eqref{polarization_equality_eqn}
+	\be\label{polarization_hilb_equality_eqn}
+	\\
+	\left( \xi , \eta \right)_{\H} = \frac{\sum_{k = 0}^3i^k\left\| \xi + i^k\eta \right\|}{4}, \quad\forall \xi, \eta \in X
+	\ee
+\end{remark} 
 \subsection{Cohomology in algebraic geometry}
 \paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
 
@@ -5822,8 +5837,19 @@ $$
  \end{enumerate}
 \end{theorem}
 \subsection{Fundamental theorem of projective geometry}
-\begin{theorem}\label{fund_proj_thm}
-Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ be two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
+\begin{defn}\cite{berger:geometryI}
+	Let $\sV. \sV'$ be vector spaces over $K, K'$. a map $f: \sV \to \sV'$ is called {\it semilinear} if there exists an automorphism $\sigma :K \to K'$ such that
+	\bean
+	f\left(\la x + \mu y \right) = \sigma\left(\la \right) f\left( x\right) + \sigma\left(\mu \right) f\left( y\right) 
+	\eean
+	for all $x, y\in \sV$, $\la, \mu \in K$. If $\sX, \sX'$ are affine spaces over $K, K'$ a map $f: \sX \to \sX'$ is called {\it semiaffine} if there exists $a \in \sX$ such that $\overline f: \sX_a \to \sX_{f\left(a \right) }$ is semilinear.
+	
+\end{defn}
+\begin{theorem}\cite{berger:geometryI}
+Let $\sX$, $\sX'$ be affine spaces of same finite dimension $d \ge 2$. Let $f: \sX \to \sX'$ be a bijection which takes any three collinear points $a, b, c \in \sX'$ into  collinear points $f(a), f(b), f(c)\in \sX'$. Then $f$ is semiaffine
+\end{theorem}
+\begin{theorem}\label{fund_proj_thm}\cite{berger:geometryI}
+Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
 \end{theorem}
 
 \end{appendices}
@@ -5839,6 +5865,9 @@ of this work.
 
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+		
+	\bibitem{berger:geometryI}	Marcel Berger. {\it Geometry I}
+		Springer Science \& Business Media, Jan 21, 2009.% - Mathematics - 432 pages
 		
 \bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
 	
