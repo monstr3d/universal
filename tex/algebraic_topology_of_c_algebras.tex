@@ -1559,9 +1559,9 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 \newline
 \newline
 \begin{tikzcd}
-	K^{\mathrm{nat}}_j \left( A\right) \arrow[d] \arrow[r]
+	K^{\mathrm{nat}}_j \left( A\right) \arrow[d] \arrow[r, "\subset"]
 	& K_j\left( A \right)  \arrow[d, "\varphi_2"]\\
-	K^j\left(\sX \right) \arrow[r, "\varphi_1"]	& K_j\left( M\left( A\right) \right) 
+	K^j\left(\sX \right)\cong K_j\left(C_0\left(\sX \right)  \right)  \arrow[r, "\varphi_1"]	& K_j\left( M\left( A\right) \right) 
 \end{tikzcd}
 \\
 \\
@@ -1616,6 +1616,7 @@ $$
 	$$
 	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$.
 	 \subsection{$C^*$-algebras of compact operators}\label{compact_sec}
+\subsubsection{Basic constructions}
 
 	
 \paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset A$ there is a closed $\C$-linear subspace $V_L \subset \H$ such that
@@ -1627,101 +1628,11 @@ If $L$ is minimal then $V_L$ is a one dimensional space. Any ultrafilter of the 
 \phi_{\H} : \mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}\to \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left(\K\left(\H \right)\right))_{\mathfrak{Gelfand}}
 \ee
 where $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}} $ is the projective  space with   well known Hausdorff  topology and  $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ is the same set  having the final with respect to the map  $\mathfrak{Gelfand}\left(\K\left(\H \right) \right)\cong  \mathbb{P}\left(\H \right)$ topology (cf. Definition \ref{top_final_defn}).
-\begin{remark}
-Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
-\be\label{open_g_eqn}
-\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
-\ee
-where $V_1, ..., V_n \subset 
-\mathbb{P}\left(\H \right)$ are linear subspaces. \end{remark}
-\begin{remark}\label{compact_nonempt_rem}
-If both $\sU_1, \sU_2 \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ are nonempty open subsets then from \eqref{open_g_eqn} it follows that $\sU_1 \cap \sU_2 \neq \emptyset$. Similar result has the algebraic geometry, i.e. intersection  of two nonempty,  open with respect to Zariski topology sets is not empty (cf. \cite{hartshorne:ag}).
-\end{remark}
-!!!!!
+
+
 \begin{exercise}
 Prove that  the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(\K\left( \sH\right)  \right)$ onto the bicommutant  $ \mathfrak{Gelfand} \left(\K\left(\sH \right)  \right)''$.
 \end{exercise}
-\begin{empt}
-If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left(\H \right)$ then
-$$
-\mathbb{P}\left( \H\right) = \bigcup_{j=0}^\infty \left( \mathbb{P}\left(\H \right) \setminus L_j\right) 
-$$
-Similarly 
-$$
-\mathbb{P}\left( \C^n\right) = \bigcup_{j=0}^{n} \left( \mathbb{P}\left( \C^n\right) \setminus L_j\right). 
-$$
-where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left( \C^n\right)$.
-If 
-\be\label{comp_cov_eqn}
-\mathscr W\bydef \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... } \quad \text{or} \quad \mathscr W\bydef \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }
-\ee then
-\be\label{cp_nerve_eqn}
-\begin{split}
-	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
-	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of the Hilbert space } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
-\end{split}
-\ee
-where the inclusion $\sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j$ follows from the Definition \ref{projective_bundle_defn};
-From the equation \eqref{cp_nerve_eqn} it follows that 
-\be\label{nerve_0_eqn}
-\begin{split}
-	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
-	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
-\end{split}
-\ee
-where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion 
-$\sU_{\sigma}\subset \sH'$.
-If  $F$ is an Abelian group and  $\overline F$ is  $F$-locally constant sheaf  (cf, Definition \ref{constant_presheaf_defn}) on $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}$ (cf, Definition  and $\mathscr W= \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }$ then 
-$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
-all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
-\end{empt}
-\begin{lemma}\label{trivial_cech_lem}
-	If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
-	\be
-	\forall p > 0 \quad H^p\left(\sX, F  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F  \right) = 0
-	\ee
-	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{lemma}
-\begin{proof}
-	Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
-	\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
-	\bean
-	c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F\right).
-	\eean
-	This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
-	\bean
-	\begin{split}
-		c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F\right).
-	\end{split}
-	\eean
-	(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton covering (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
-	\bean
-	c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F\right)
-	\eean  
-	From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F  \right)=H^p\left(\sY, F  \right) = 0$.
-\end{proof}
-\begin{theorem}\label{compact_thm}
-For any Abelian group $F$ the map $\phi_{\H} : \mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}\to \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
-$$
-H^*\left( \mathfrak{Gelfand}\left(\K\left(\H \right), F\right)  \right)\cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
-$$
-	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-
-\end{theorem}
-\begin{proof}
-	If $\mathscr W$ is given by \eqref{cp_nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
-$$
-H^*\left(\mathbb{P}\left( \C^n\right)_{\mathfrak{Hausdorff}},  F \right) \cong \check H^*\left( \mathscr W;  F\right).
-$$
-
-Taking into account that $\mathbb{P}\left( \C^n\right) \setminus L_j$ is open in $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
-\be\label{proj_h_eqn}
-H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
-\ee
-\end{proof}
-\begin{remark}
-The spectrum of $\K\left(\H \right)$ has the single point but cohomology of $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)_{\mathfrak{Gelfand}}$ are not trivial. 
-\end{remark}
 If
 $\dim \H = n < \infty$  then $\H \cong \C^n$, $~A = M_n\left(\C \right)$ and  $\mathbb{P}\left(\H \right)= \mathbb{P}\left( \C^n\right)$. There is the Zariski topology on $ \mathbb{P}\left( \C^n\right)$ such that closed subsets are given by polynomial equations. The closed sets of the Gelfand space are given by linear equations, so the Zariski topology is finer then Gelfand one.
 There is a composition of continuous maps
@@ -1730,6 +1641,29 @@ $$
 $$
 where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 
+\begin{exercise}
+	Similarly to the Appendix \ref{loc_const_triv_empt} prove that 
+	$$
+	\forall r > 0 \quad H^r\left(\mathbb{P}\left( \H\right)_{\mathfrak{Gelfand}}, \mathscr F \right) = 0.
+	$$
+	for any locally constant sheaf $\mathscr F$ (cf. Definition \ref{constant_presheaf_defn}).
+\end{exercise}
+\begin{exercise}\label{nontte_exer}
+	Similarly to the Theorem \ref{projective_ag_coh_thm} prove that for any  $n \in \N$ and there is $r > 0$  a sheaf $\mathscr F$ with
+	$$
+	H^r\left(\mathbb{P}\left( \C^n\right)_{\mathfrak{Gelfand}}, \mathscr F \right) \neq 0.
+	$$
+\end{exercise}
+\begin{remark}
+	The spectrum of $\K\left(\H \right)$ has the single point but the sheaf cohomology of its Gelfand space $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)_{\mathfrak{Gelfand}}$ are not trivial for $r > 0$ (cf. Exercise \ref{nontte_exer}). 
+\end{remark}
+\subsubsection{Reconstruction of $C^*$-algebra from the Gelfand space}
+\paragraph{}
+We already know that the Gelfand space $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(\C \right)\right)$ (cf. Definition \ref{gelfand_space_defn}) of $\mathbb{M}_n\left(\C \right)$ is $\mathbb{P}\left( \C^{n-1}\right)_{\mathfrak{Gelfand}}$. Consider  $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(\C \right)\right)$ as an abstract topological space $\sX$ and let us reconstruct the $C^*$-algebra $\mathbb{M}_n\left(\C \right)$. We say that an irreducible closed subset $\sY \subset \sX$ (cf. Definition \ref{top_ireed_defn}) is a \textit{line} if the Dimension (cf. Definition \ref{top_dimension_defn}) of $\sY$ equals to 1.  According to our construction the notion of line is invariant with respect to homeomorphisms, i.e. any homeomorphism of $\sX$ map any line onto a line. From this fact and the fundamental theorem of the projective geometry $\sX$ has the unique structure of complex projective space $\mathbb{P}\left(\C^{n-1} \right)$ modulo automorphism of the field $\C$. The group of automorphisms of   the field $\C$ equals to $\Z_2$. Now one can obtain two $\R$-linearly isomorphic $n$ dimensional complex spaces and to semi-isomorphic $C^*$-algebras $\mathbb{M}_n\left(\C \right)$.
+
+(cf. Appendix \ref{cell_proj_sec}).
+
+\subsection{Chow ring}
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic constructions}
 
@@ -2726,6 +2660,14 @@ A nonempty subset $\sY$ of a topological space $\sX$ is irreducible if
 it cannot be expressed as the union $\sY = \sY_1 \cup \sY_2$ of two proper subsets, each one of which is closed in $\sY$. The empty set is not considered to be 
 irreducible. 
 	\end{definition}
+			\begin{definition}\label{top_dimension_defn}\cite{hartshorne:ag}
+				If $\sX$ is a topological space, we define the {\it dimension} of $\sX$ (denoted 
+					$\dim \sX$) to be the supremum of all integers $n$ such that there exists a chain 
+					\bean
+					\sZ_0 \subsetneqq	\sZ_1 \subsetneqq...\subsetneqq	\sZ_n 					\eean 
+of distinct irreducible closed subsets of $\sX$.
+	\end{definition}
+	
 	
 	
 %	Example 1.1.2. A1 is irreducible, because its only proper closed subsets are 	finite, yet it is infinite (because k is algebraically closed, hence infinite). 
@@ -3272,6 +3214,123 @@ In particular, given a map pair $f: j \to p_\th$, there is a lifting of $f$ if a
 and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that if $\overline 0 \in H^0\left( \{0\}, \Z\right)$ $\overline 1 \in H^0\left( \{1\}, \Z\right)$ and $\overline 1 \in H^0\left( \{0\}, \Z\right)$ are respective unit integral cohomology classes then identifying $H^0\left(\dot I, \Z \right) \cong H^0\left(\{0\} ; \Z\right)\oplus  H^0\left(\{1\} ; \Z\right)$, we have $\dl \overline 1 = \dot I = - \dl \overline 0$. 
 		
 		\end{definition}
+\subsubsection{Elements of $K$-theory}
+\paragraph*{}
+Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
+\begin{definition}\label{top_vb_fiber_defn}\cite{karoubi:k}
+	A \textit{quasi-vector bundle with base} $\mathcal X$ is given by:
+	\begin{enumerate}
+		\item [(a)] A finite dimensional $k$-vector space $E_x$ for every point $x$ of $\mathcal X$.
+		\item[(b)] A topology on the disjoint union $E = \bigsqcup E_x$ which induces the natural topology on each $E_x$, such that the obvious projection $\pi: E \to  \mathcal X$ is continuous.
+	\end{enumerate}
+	The quasi-vector bundle with base will be denoted by $\xi = \left( E, \pi, \mathcal X\right)$. The space $E$ is the \textit{total space} of $\xi$ and $E_x$ is the \textit{fiber} of $\xi$ at the point $x$.
+\end{definition}
+\begin{empt}\label{trivial_vb_empt}\cite{karoubi:k}	Let $V$ be a finite dimensional vector space over $k$,  $E_x = V$ and the total space may be identified with $\sX \times V$ with the product topology then the quasi-vector bundle  $\left(\sX \times V, \pi, \mathcal X\right)$ is called a \textit{trivial vector bundle}.
+\end{empt}
+\begin{empt}\cite{karoubi:k}	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a quasi-vector bundle, and let let $\sX' \subset \sX$ be a subspace of $\sX$. The triple $\xi' = \left(\pi^{-1}\left( \sX'\right) , \pi|_{\pi^{-1}\left( \sX'\right)}, \mathcal X'\right)$ is called the \textit{restriction} of $\xi$ to $\sX'$. The fibers of $\xi'$ are just fibers of $\xi$ over the subspace $\xi$. One has
+	\be
+	\sX'' \subset \sX' \subset \sX \quad \Rightarrow\quad \left.\left(\xi|_{\sX'} \right) \right|_{\sX''}= \xi|_{\sX''}.
+	\ee
+\end{empt}
+\begin{definition}\label{top_vb_defn}\cite{karoubi:k}
+	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighbourhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
+\end{definition}
+\begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
+	%	5.1. Definition.
+	Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous. The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left  and right $C_b\left(\mathcal{X} \right)$-module.
+\end{definition}
+\begin{notation}\label{top_sec_notn}
+	We denote by $\Ga\left( M, E\right)$ the $\C$-space of continuous sections. Both  $\Ga_0\left( M, E\right)$ and $\Ga_c\left( M, E\right)$ are subspaces of  sections tending to zero at infinity and having compact support.
+\end{notation}
+\begin{remark}
+	In \cite{karoubi:k} the vector bundles! with base  fields $\R$ and $\C$ are considered. Here we consider complex vector bundles only.
+\end{remark}
+% 	We refer to \cite{karoubi:k} for a notion of {\it (locally trivial) vector bundle}. 	Any {\it (locally trivial) vector bundle} with base $\mathcal X$ is a special case of \textit{quasi-vector bundle} which is a triple $\left(E, \pi, \mathcal X \right)$. 
+\begin{definition}\label{vb_inv_img_funct_defn}\cite{karoubi:k}
+	Let $f: \mathcal X' \to \mathcal X$ be a continuous map. For every point $x'$ of $\mathcal X'$, let $E'_{x'}= E_{f\left(x' \right) }$. Then the set $E' = \bigsqcup_{x' \in \mathcal X'}E'_{x'}$ may be identified with the \textit{fiber product} $\mathcal X' \times_{\mathcal X} E$ formed by the pairs $\left(x',e \right)$ such that $f\left(x' \right) = \pi\left( e\right)$. If  $\pi': E' \to \mathcal X'$ is defined by $\pi'\left(x',e \right) = x'$, it is clear that the triple $\xi = \left( E', \pi', \mathcal X'\right)$ defines a quasi-vector bundle  with base  $ \mathcal X'$, when we provide $E'$ with the topology induced by $ \mathcal X' \times E$. We write $\xi' = f^*\left(\xi \right)$ or $f^*\left(E \right)$: this is the \textit{inverse image} of $\xi$ by $f$.  
+\end{definition}
+\begin{theorem}\label{serre_swan_thm}\cite{karoubi:k}.
+	Theorem (Serre, Swan). Let $A = C_k(\sX)$ be the ring of continuous 
+	functions on a compact space $\sX$ with values in $k$. Then the section functor $\Ga$ (cf. Notation \ref{top_sec_notn}) induces an 
+	equivalence of categories of vector bundles  with base  $\sX$ and finitely generated projective $A$-modules.
+\end{theorem}
+
+\begin{definition}\label{top_herm_bundle_form_defn}\cite{karoubi:k}
+	%8.1. Definition. 
+	Let $E$ be a vector bundle over $\C$. A \textit{sesquilinear form} on $E$ is a 
+	continuous map $\varphi: E \times_\sX E \to \C$ which has the following property. The map 
+	$\varphi_x : E_x \times E_x$ induced on each fiber is "sesquilinear" with respect to the $\C$-vector space structure of $E_x$. In other words, ($\varphi_x$ is $\R$-bilinear and $\varphi_x\left(\la e, e' \right)  = \varphi_x\left( e, \overline \la e' \right) = \la \varphi_x\left( e, e' \right)$ f
+	for $\la\in \C$, $e \in E_x$, and $e' \in E_x$. 
+\end{definition}
+
+
+
+
+
+%Following fact is an implication of definitions.
+%\begin{fact}\label{inv_image_fact}
+%	A map $\varphi^*$ is an inverse image of $\varphi$ if and only if the above diagram is commutative for any $\mathcal U$ such that $\pi |_{\mathcal U}: \mathcal U \to \pi ({\mathcal U})$ is a homeomorphism.
+%\end{fact}
+
+\begin{remark}\label{top_herm_bundle_rem}
+	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times_\sX E \to \C$ then there are the following pairings
+	\bea\label{top_gg_eqn}
+	\left\langle \cdot, \cdot \right\rangle:  \Ga_0\left( \sX, E\right)\times \Ga_0\left( \sX, E\right) \to C_0\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) ,\\
+	\label{top_ggc_eqn}
+	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( \sX, E\right)\times \Ga_c\left( \sX, E\right) \to C_c\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) 
+	\eea
+	(cf. Notation \ref{top_sec_notn}).
+\end{remark} 
+
+\begin{proposition}\cite{karoubi:k}\label{k:char_prop}
+%2.17. Proposition. 
+For each vector bundle $\sV$ of rank $n$, with compact base $\sX$, we 
+define {\cite characteristic classes} $c_j\left(\sV \right)\in K\left( \sX\right) $, for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
+These characteristic classes satisfy the following axioms:
+\begin{enumerate}
+	\item [(i)]
+ The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases, $\sX$ and $\sX'$, of $\sV$ and $\sV'$ respectively; 
+			and which induces an isomorphism on each fiber. 
+			\bean
+			\begin{tikzcd}
+			\sV \arrow[d]\arrow[r, "g"] & \sV'\arrow[d]\\
+			\sX \arrow[r, "f"] & \sX'\\
+			\end{tikzcd}
+			\eean
+		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
+		\bean
+		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
+		\eean
+		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+	\end{enumerate}
+			Moreover, the characteristic classes $c_j\left( \sV\right)$  are uniquely determined by these axioms. 
+\end{proposition}
+\begin{theorem}\cite{karoubi:k}\label{k:char_thm}
+	%3.15. THM. 
+	For each complex vector bundle $\sV$ of rank $n$, with compact base $\sX$, we uniquely 
+associate cohomology classes  $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right) $ , for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
+	These characteristic classes satisfy the following axioms:
+	\begin{enumerate}
+		\item [(i)]
+		The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases, $\sX$ and $\sX'$, of $\sV$ and $\sV'$ respectively; 
+		and which induces an isomorphism on each fiber. 
+		\bean
+		\begin{tikzcd}
+			\sV \arrow[d]\arrow[r, "g"] & \sV'\arrow[d]\\
+			\sX \arrow[r, "f"] & \sX'\\
+		\end{tikzcd}
+		\eean
+		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
+		\bean
+		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
+		\eean
+		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+	\end{enumerate}
+\end{theorem}
+
+The proof of the Theorem \ref{k:char_thm} is analogous to the proof of \ref{k:char_prop}. Moreover, 
+this proof gives us the following proposition: 
+
 
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
@@ -5868,7 +5927,7 @@ equipped with a descent isomorphism $\phi: p^*_1Q \cong p^*_2Q$ satisfying the c
 condition \eqref{desc_ppp_eqn}.
 \end{proposition}	
 The situation is entirely analogous for sheaves over $\sX$. We have the 
-notion of descent datum for a sheaf $\mathscr A$ over $\sY$, namely an isomorphism $\phi p^{-1}_1 \mathscr A\cong p^{-1}_2 \mathscr A$ of sheaves on $\sY$, which satisfies the analog of \eqref{desc_ppp_eqn} (with the 
+notion of descent datum for a sheaf $\mathscr A$ over $\sY$, namely an isomorphism $\phi: p^{-1}_1 \mathscr A\cong p^{-1}_2 \mathscr A$ of sheaves on $\sY$, which satisfies the analog of \eqref{desc_ppp_eqn} (with the 
 pull-backs now denoted by $p^{-1}_{ij}$ rather than $p^*_{ij}$). We define a category of 
 such pairs $\left(\mathscr A, \phi \right)$ , and obtain 
 \begin{proposition}
@@ -5945,6 +6004,20 @@ Let $\sX$, $\sX'$ be affine spaces of same finite dimension $d \ge 2$. Let $f: \
 Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
 \end{theorem}
 
+\subsection{Cell decomposition of projective spaces}\label{cell_proj_sec}
+\paragraph{} Here I follow to \cite{fomenko_fucs_hot}
+there the chain of inclusions
+\bean
+\emptyset = \R P^{-1}\subset \R P^0\subset \R P^1\subset  ... \subset  \R P^n:
+\eean
+We set $e^q =  \R P^q \setminus \R^{q-1}$ . A characteristic map for $e^q$ may be chosen as the
+composition of the canonical projection $D^q \to \R P^q$ and the inclusion
+$\R P^q \to \R P^n$. For $n = \infty$, this construction provides a $CW$ decomposition of $\R P^\infty$
+with one cell in every dimension.
+The construction also has complex, quaternionic, and Cayley analogs. In the
+complex case, we get a $CW$ decomposition of $\C P^n$ into $n + 1$ cells $e^0, e^2, e^4, ... , e^{2n} $
+and also a $CW$ decomposition of $\C P^\infty$ with one cell of every even dimension.
+
 \end{appendices}
 
 \section*{Acknowledgment}
@@ -5955,7 +6028,100 @@ Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two project
 "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
 of this work. 
 
+\section{CUT}
 
+\begin{remark}
+	Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
+	\be\label{open_g_eqn}
+	\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
+	\ee
+	where $V_1, ..., V_n \subset 
+	\mathbb{P}\left(\H \right)$ are linear subspaces. \end{remark}
+\begin{remark}\label{compact_nonempt_rem}
+	If both $\sU_1, \sU_2 \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ are nonempty open subsets then from \eqref{open_g_eqn} it follows that $\sU_1 \cap \sU_2 \neq \emptyset$. Similar result has the algebraic geometry, i.e. intersection  of two nonempty,  open with respect to Zariski topology sets is not empty (cf. \cite{hartshorne:ag}).
+\end{remark}
+!!!!!
+
+
+\begin{empt}
+If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left(\H \right)$ then
+$$
+\mathbb{P}\left( \H\right) = \bigcup_{j=0}^\infty \left( \mathbb{P}\left(\H \right) \setminus L_j\right) 
+$$
+Similarly 
+$$
+\mathbb{P}\left( \C^n\right) = \bigcup_{j=0}^{n} \left( \mathbb{P}\left( \C^n\right) \setminus L_j\right). 
+$$
+where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left( \C^n\right)$.
+If 
+\be\label{comp_cov_eqn}
+\mathscr W\bydef \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... } \quad \text{or} \quad \mathscr W\bydef \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }
+\ee then
+\be\label{cp_nerve_eqn}
+\begin{split}
+	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
+	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of the Hilbert space } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
+\end{split}
+\ee
+where the inclusion $\sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j$ follows from the Definition \ref{projective_bundle_defn};
+From the equation \eqref{cp_nerve_eqn} it follows that 
+\be\label{nerve_0_eqn}
+\begin{split}
+	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
+	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
+\end{split}
+\ee
+where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion 
+$\sU_{\sigma}\subset \sH'$.
+If  $F$ is an Abelian group and  $\overline F$ is  $F$-locally constant sheaf  (cf, Definition \ref{constant_presheaf_defn}) on $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}$ (cf, Definition  and $\mathscr W= \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }$ then 
+$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
+\end{empt}
+\begin{lemma}\label{trivial_cech_lem}
+If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
+\be
+\forall p > 0 \quad H^p\left(\sX, F  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F  \right) = 0
+\ee
+where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
+\end{lemma}
+\begin{proof}
+Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
+\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
+\bean
+c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F\right).
+\eean
+This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
+\bean
+\begin{split}
+	c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F\right).
+\end{split}
+\eean
+(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton covering (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
+\bean
+c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F\right)
+\eean  
+From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F  \right)=H^p\left(\sY, F  \right) = 0$.
+\end{proof}
+\begin{theorem}\label{compact_thm}
+For any Abelian group $F$ the map $\phi_{\H} : \mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}\to \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
+$$
+H^*\left( \mathfrak{Gelfand}\left(\K\left(\H \right), F\right)  \right)\cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
+$$
+where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
+
+\end{theorem}
+\begin{proof}
+If $\mathscr W$ is given by \eqref{cp_nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
+$$
+H^*\left(\mathbb{P}\left( \C^n\right)_{\mathfrak{Hausdorff}},  F \right) \cong \check H^*\left( \mathscr W;  F\right).
+$$
+
+Taking into account that $\mathbb{P}\left( \C^n\right) \setminus L_j$ is open in $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
+\be\label{proj_h_eqn}
+H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
+\ee
+\end{proof}
+\
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
 		
