@@ -1555,7 +1555,36 @@ Any natural Hausdorff blowing-up is universal (cf. Definition \ref{blowing_uni_d
 	\subsubsection{Homomorphisms of $K$-theory}
 \paragraph*{}	
 
-If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullback_defn})
+If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then thee are pullback
+diagrams
+\bean
+\begin{tikzcd}
+~
+	& A  \arrow[d, "\varphi^2"] & & V^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& V\left( A\right)   \arrow[d, "\varphi^2_*"]\\
+	C_0\left( \sX\right) \arrow[r, "\varphi^1"]	& M\left( A\right)& & 	V\left( C_0\left( \sX\right)\right)  \arrow[r, "\varphi^1_*"]	& V\left( M\left( A\right)\right) 
+\end{tikzcd}
+\eean
+(cf. Definition \ref{proj_v_defn}).
+\begin{definition}
+	Under the above hypothesis for any $\sV\in V^{\mathrm{nat}}\left(A \right)$ we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right)$ of $\sV$ as {Chern classes} of $\varphi_*\left( \sV\right) \in V\left( C_0\left( \sX\right)\right)$ (cf. Theorem \ref{k:char_thm})
+ \end{definition}
+\begin{definition}\label{top_compactification_defn!!!}!!!!\cite{munkres:topology}
+	If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$ whose
+	closure equals $\sY$, then $\sY$ is said to be a \textit{compactification} of $\sX$. If $\sY\setminus\sX$ equals a single
+	point, then $\sY$ is called the \textit{one-point compactification} of $\sX$.
+\end{definition}
+\begin{definition}\label{proj_v_defn!}!!\cite{blackadar:ko}
+	%Definition 5.1.2. 
+	$\mathrm{Proj}(A)$ is the set of algebraic equivalence classes of idempotents
+	in $A$. We set $V\left( A\right) \bydef \mathrm{Proj}(A)$.
+\end{definition}
+For any $\sV \in V^{\mathrm{nat}}\left(A \right)$ the Chen classes 
+
+If $\sV \in V\left( A\right)$ is such that there is a unique 
+in 
+
+
+there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullback_defn})
 \newline
 \newline
 \begin{tikzcd}
@@ -1565,8 +1594,20 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 \end{tikzcd}
 \\
 \\
-where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological spaces (cf. \cite{blackadar:ko,karoubi:k}). Since $K^{\mathrm{nat}}_j \left( A\right)$ is the invariant of $A$ we can define characteristic classes of elements of 	$K^{\mathrm{nat}}_j \left( A\right)$ in cohomology of the space $\sX$.
+where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological spaces (cf. \cite{blackadar:ko,karoubi:k}). The groups  $K^{\mathrm{nat}}_j \left( A\right)$ are invariants of $A$. Suppose that there is a finitely generated $A^+$-module $P = e \ell^2\left( A^+\right)$ where $e \in \mathbb{M}_\infty \left(A^+ \right) $
 
+\ref{k0_rem} 
+
+
+ According to 
+
+
+ Since $K^{\mathrm{nat}}_j \left( A\right)$ is the invariant of $A$ we can define characteristic classes of elements of 	$K^{\mathrm{nat}}_j \left( A\right)$ in cohomology of the space $\sX$.
+
+\begin{remark}\label{k0_rem!!!}!!!!\cite{blackadar:ko}
+	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism $\om_A : K_{00}(A) \to 
+	K_0\left(A \right)$.
+\end{remark}
 
 
 
@@ -3301,36 +3342,291 @@ These characteristic classes satisfy the following axioms:
 		\bean
 		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
 		\eean
-		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
 	\end{enumerate}
 			Moreover, the characteristic classes $c_j\left( \sV\right)$  are uniquely determined by these axioms. 
 \end{proposition}
 \begin{theorem}\cite{karoubi:k}\label{k:char_thm}
 	%3.15. THM. 
-	For each complex vector bundle $\sV$ of rank $n$, with compact base $\sX$, we uniquely 
-associate cohomology classes  $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right) $ , for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
-	These characteristic classes satisfy the following axioms:
+To each complex vector bundle $\sV$ of rank $n$, with compact base $\sX$, we uniquely 
+associate cohomology classes  $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right) $ called Chern classes of $\sV$ which satisfy the following axioms:
 	\begin{enumerate}
 		\item [(i)]
-		The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases, $\sX$ and $\sX'$, of $\sV$ and $\sV'$ respectively; 
-		and which induces an isomorphism on each fiber. 
-		\bean
-		\begin{tikzcd}
-			\sV \arrow[d]\arrow[r, "g"] & \sV'\arrow[d]\\
-			\sX \arrow[r, "f"] & \sX'\\
-		\end{tikzcd}
-		\eean
+		The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases
 		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
 		\bean
-		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
+		c_k\left(\sV_1 \oplus \sV_2 \right) = \sum_{i + j = k} c_i\left( \sV_1\right) c_j\left( \sV_2\right) 
 		\eean
-		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+		\item[(iii)] If the rank of $\sV$ is one, then $c_0\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
 	\end{enumerate}
 \end{theorem}
 
 The proof of the Theorem \ref{k:char_thm} is analogous to the proof of \ref{k:char_prop}. Moreover, 
 this proof gives us the following proposition: 
+\paragraph{The Fundamental Product Theorem}\label{k_fund_prod_sec}
 
+\paragraph{}
+We assume knowledge of elementary notions of $K$-theory explained in \cite{atiyah:kt,hatcher:kt,karoubi:k}.
+The key result allowing the calculation of $K\left( \sX\right)$  in nontrivial cases is a certain formula
+that computes $K\left(\sX \times S^2 \right)$  in terms of  $K\left(\sX \times S^2 \right)$. For example, when $\sX$ is a point this
+will yield a calculation of $K\left(S^2 \right)$.  Any point of the projective space $\C P^1$ yields a one-dimensional $\C$-subspace  of $\C^2$. So there is a $\C$-bundle over $\C P^1$ which sets to any point of $\C P^1$ the corresponding subspace. Using a homeomorphism $S^2 \cong \C P^1$ we define 
+be the canonical line bundle $H$ with base   $S^2 \cong \C P^1$, and let $1$ is a trivial bundle then according to  in \cite{atiyah:kt}  one has
+\bean
+\left(H \otimes H \right) \oplus 1 \cong H \oplus H,\\
+H^2 +1 = 2H.
+\eean
+We can also write this as $\left( H - 1\right)^ 2$ = 0, so we have a natural ring homomorphism
+$\Z\left[H\right]/\left( H - 1\right)^2\cong  K\left( S^2\right)$  whose domain is the quotient ring of the polynomial ring
+$\Z\left[H\right]$ by the ideal generated by $\left( H - 1\right)^2$ . In particular, note that an additive basis for
+$\Z\left[H\right]/\left( H - 1\right)^2$ is $\left\{1, H\right\}$.
+\paragraph{Fredholm picture of $K$-theory}
+\paragraph{} % PAGE 108
+Here I follow to \cite{karoubi:k}.  Let $\mathscr H$ be the category of Hilbert spaces and let $\check{\mathscr H}$ be the category with the 
+same objects but with $\check{\mathscr H}\left(E, F \right)  = {\mathscr H}\left(E, F \right)/\K(E, F)$, where $\K(E, F)$ denotes the 
+set of completely continuous operators from $E$ to $F$ (i.e. the operators which are 
+limits of operators of finite rank). 
+\begin{exercise}
+	a) Prove that a morphism $D: E \to F$ in the category ${\mathscr H}$ is invertible in $\check{\mathscr H}$ if and 
+	only if $D$ is a Fredholm operator (i.e. $\ker D$ and $\coker D$ are finite dimensional).\\ 
+	b) Let $d: E \to F$ be an invertible morphism of $\check{\mathscr H}$, and let $D$ be an operator in ${\mathscr H}$ 
+	with class $d$. Prove that the "\textit{index}" of $D$ (i.e. $\dim\ker D - \dim\coker D$) is 
+	independent of the choice of $D$, and is a locally constant function of $d$. \\
+	c) Prove the isomorphism $K^{-1} \left( \check{\mathscr H}\right) \cong \Z$.
+\end{exercise}
+\begin{exercise}\label{ex_karouby_exer} %PAGE 176
+	Let $\H$ be a Hilbert space of infinite dimension over  $k=\R$ or $\C$, and let 
+	$GL_c\left( \H\right)$  be the subgroup of $GL\left( \H\right)$  consisting of operators of the form $1+ u$, 
+	where $u$ is compact
+	\begin{enumerate}
+		\item [(i)]  If $\sX$ is a compact space, prove that $\left[\sX, GL_c\left( \H\right) \right] \cong K^{-1}\left(\sX \right) \cong \left[\sX, GL\left(k \right) \right]$.
+		\item[(ii)] Let $\mathscr F\left(\H \right)$  be the set of Fredholm operators $D$ in $\H$ (i.e. such that $\ker D$ 	and $\coker D$ are finite dimensional). Using the fact that $GL\left( \H\right)$  is connected 
+		prove that the map $D \mapsto \dim \ker D - \dim \coker D$ (= \textit{index} of $D$) 	induces a bijection $\pi_0 \left(\mathscr F\left(\H \right) \right) \cong \Z$
+		\item[(iii)] Let $\mathscr F\left(\H \right)^0$ be the subset of $\mathscr F\left(\H \right)$ consisting of operators of index $0$. 
+		Prove the fibration 
+		$$
+		\mathscr F\left(\H \right)^0
+		$$ 
+	\end{enumerate}
+	Using the fact that $GL\left(\H \right) $ is contractible  prove that $\Om \mathscr F\left(\H \right)^0\cong GL_c\left(\H \right)$, and that $K\left( \sX\right) \cong \left[\sX, \mathscr F\left(\H \right)\right]$.		
+\end{exercise}
+\paragraph{The Grothendieck Group of a Category. The Group $K\left(\sX \right) $ }
+\paragraph{} Here I follow to \cite{karoubi:k}
+\begin{example}
+%1.4. Example. 
+Let us take M=ZÑ {0}, an abelian monoid with respect to  
+multiplication. Then S(Af)ÇQ- {0}. 
+\end{example}
+\begin{example}
+1.5. Example. Let us take M=ZÑ {0}, an abelian monoid with respect to  
+multiplication. Then S(Af)ÇQ- {0}. 
+1.5. Example. Let M be an abelian monoid with the following property: there 
+exists an element oo of M such that m + oo = oo for every element m of M. Then 
+S(M)=0 because each element of S(M) can be written as s(m)Ñs(n)= 
+s(m) + s(co)Ñs(ri) Ñ s(co) = s(co)Ñs(co) Ñ 0. Examples of monoids with this  
+property are TL (with multiplication; then oo = 0!), R+*uco, etc. 
+\end{example}
+\begin{remark}
+
+1.6. Remark. The group S(M) depends "functorially" on M in an obvious way: 
+if/: MÑ> N, the universal property enables us to define a unique homomorphism 
+S(f): S(M)-+ S(N) which makes the diagram 
+MÑj-Ñ> N 
+commutative. Moreover, S(g-f) = S(g)-S(f) and 5'(IdM)=IdS(M). The group 
+S(M) is called the symmetrization of the abelian monoid M. 
+\end{remark}
+\begin{empt}
+%	1.7. As a fundamental example, let us now consider an additive category <g. If E 
+%	is an object of , we denote its isomorphism class by E. Then the set  of such E 
+	can be provided with the structure of an abelian monoid if we define ?+ F to be 
+	E © F. This operation is well-defined since the isomorphism class of E © Fdepends 
+	only on the isomorphism classes of E and F. Moreover, the relations E © (F © G)Ç 
+%	(E © F) © G, E © F&F © E, and ? © 0ÇF give the required algebraic  	identities on #(V). In this situation the group S(M), where M is #(^), is called the 	Grothendieck group of #, and is written A^). If <p: #Ñ> r^' is an additive functor, 	(p naturally induces a monoid homomorphism #(^) Ñ> (^'), hence a group  	homomorphism AT(#) -È ?(#') denoted by ?^. If Ç"' is a third category and \j/: #' -> #" 
+	an additive functor, we have the formula OA ¥ <p)* = i/v <P* from 1.6. Of course if 
+%	#'= # and <p = Id^, then p# = l&Km ¥ 
+	\end{empt}
+\begin{example}
+%1.8. Example. 
+Let F be an arbitrary field not necessarily commutative and let  be 
+the category whose objects are finite dimensional F-vector spaces (on the right for 
+example), and whose morphisms are linear maps. Then from the classical theory of 
+dimension of vector spaces we know that ()ÇN. Thus Example 1.3 implies that 
+\end{example}
+\begin{example}
+%1.9. Example.
+% Let # be an additive category provided with an additive functor t :  Ñ> , and a natural isomorphism x + Id,  t. Then K()=0 because the identity above implies s(x(E))-\-s(E)=s(x(E)\ hence s(E) = 0 A.5). For example, let  be 
+the category whose objects are F-vector spaces (not necessarily finite dimensional) 
+and whose morphisms are linear maps. We choose as x the functor E\-+E © E © 
+¥ ¥ ¥ © E © ¥ ¥ ¥. Another example is the category 3tf with Hilbert spaces as objects, 
+\end{example}
+\begin{example}
+	%1.9. Example.
+	% Let # be an additive category provided with an additive functor t :  Ñ> , and a natural isomorphism x + Id,  t. Then K()=0 because the identity above implies s(x(E))-\-s(E)=s(x(E)\ hence s(E) = 0 A.5). For example, let  be 
+	the category whose objects are F-vector spaces (not necessarily finite dimensional) 
+	and whose morphisms are linear maps. We choose as x the functor E\-+E © E © 
+	¥ ¥ ¥ © E © ¥ ¥ ¥. Another example is the category 3tf with Hilbert spaces as objects, 
+\end{example}
+\begin{example}
+	1.10. Example (generalization of Example 1.8). Let A be an arbitrary ring with 
+	unit, and let 3P(A) be the category with finitely generated projective right ,4-modules 
+	as objects, and the /1-linear maps as morphisms. By abuse of notation we write K(A) 
+%	for the Grothendieck group of 0>{A). One of the main purposes of ""algebraic 		It-theory" is to compute K(A) for interesting rings A (Bass [1]). 
+		
+	\end{example}
+	\begin{example}
+1.11. Example. In this book we are mainly concerned with the category (X) of 
+vector bundles over a compact space X. We denote the Grothendieck group of 
+S(X) by K(X). If the basic field k is 1R (resp. C) we write KR(X)( resp. K?(X)) for the 
+group K(X) whenever there is some risk of confusion. The object of "topological 
+K-theory" is to compute K(X) for interesting spaces X. In this presentation, 
+topological AT-theory arises as a special case of algebraic A>theory. Theorem \end{example}
+\begin{proposition}
+1.17. Proposition. Let 9n denote the trivial bundle of rank n over a compact space X. 
+Then every element x of K(X) can be written as [F] Ñ [0ã] for some n, and some 
+%vector bundle E over X. Moreover, [F] Ñ [0ã] = [_F~\ Ñ [0p] if and only if there exists 
+an integer q such that E © 6p + qzzF © 6n+q. 
+\end{proposition}
+\begin{empt}
+	LOCALLY COMPACT
+%4.1. As in the preceding sections X will denote the one point compactification of a locally compact space X. We define K{X) and K~l(X) as Ker[A(Jr)-> K({oo})] 
+%	and Ker[AT~ l(X)-+ K~ ^{oo})] respectively. For X compact, X is just the disjoint 	union of Jf and {oo}; thus by 1.26 and 3.19 this definition agrees with the original 	definition of K(X) and K~ l(X). Let us define a morphism between two locally 	compact spaces Jifand Y to be a continuous map/: X-+ F, such that/@0)=00. 	We will write/in the form/: X --> Y. It is obvious that locally compact spaces are 	the objects of a category with morphisms as defined above. Moreover, since the 	diagrams 
+%	K(Y) >K(X) K~l(Y) > K~\X) 
+%	K(ao)=K(ao) /^@0) = ^@0) 
+%	are commutative, the functors K and K~x are defined on this category. 		
+\end{empt}
+
+\paragraph{The group $K\left(\sX, \sY \right)$}
+\begin{theorem}\label{k_ext_thm}\cite{karoubi:k}
+	%	5.10. Theorem. 
+	Let $\E$ and $\F$ be vector bundles with base  a paracompact space $\sX$, let $\sY$ be 
+	a closed subset of $\sX$, and let  $\a: \E_\sY \to \F_\sY$ be a morphism of vector bundles. Then there 
+	exists a morphism $\widetilde \a: \E \to \F$such that $\widetilde \a|_\sY= \a$ ($\widetilde \a$ is called an "extension" of $\a$ to $\sX$). 
+\end{theorem}
+\begin{corollary}\label{k_ext_cor}\cite{karoubi:k}
+	%5.11. Corollary. 
+	With the notation of Theorem \ref{k_ext_cor}, let us suppose that a is an 
+	isomorphism. Then there exists a neighbourhood $\sV$ of $\sY$ and an isomorphism 
+	$\a': \E_\sV \to \F_\sV$ such that $\a'_\sY = \a$. 
+\end{corollary}
+\begin{definition}\cite{karoubi:k}
+	%2.1. Definition. 
+	Let $\mathscr C$ be an additive category. A \textit{Banach structure} on $\mathscr C$ is given by 
+	a Banach space structure on all the groups $\mathscr C\left(\E, \F \right) $, where $\E$ and $\F$ run through the objects of $\mathscr C$. Moreover , we assume that the map 
+	$$
+	\mathscr C\left(\E, \F \right)\times \mathscr C\left(\F, \G \right)\to \mathscr C\left(\E, \G \right)
+	$$
+	given by the composition of morphisms, is bilinear and continuous (all Banach 
+	spaces are over  the basic field $k=\R$  or $\C$). A \textit{Banach category} is an additive category provided with a Banach structure. 
+	
+\end{definition}
+\begin{definition}\cite{karoubi:k}
+	%2.6. Definitions. 
+	Let $\mathscr C$ and $\mathscr C'$ be additive categories, and $\varphi: \mathscr C\to\mathscr C'$ be an additive.
+	functor. Then $\varphi$ is called \textit{quasi-surjective} if every object of $\mathscr C'$ is a direct factor of an 
+	object of the form $\varphi\left(\E \right) $, where $\E\in \mathrm{Ob}\left(\mathscr C \right)$ ; $\varphi$ is called \textit{full} if the map $\mathscr C\left(\E, \F \right)\to \mathscr C\left(\varphi\left( \E\right) , \varphi\left( \F\right)  \right)$ is surjective for $\E, \F\in \mathrm{Ob}\left(\mathscr C \right)$, Finally, if $\mathscr C$ and $\mathscr C'$ are Banach 
+	categories, the functor $\varphi$ is called a \textit{Banach functor} if the $\mathscr C\left(\E, \F \right)\to \mathscr C\left(\varphi\left( \E\right) , \varphi\left( \F\right)  \right)$ is linear and continuous. 
+\end{definition}
+\begin{empt}\label{k_triple_empt}\cite{karoubi:k}
+	%2.13.
+	Let  $\varphi: \mathscr C\to\mathscr C'$ be a quasi-surjective Banach functor. We wish to define a "relative" group $K\left( \varphi\right)$  (which coincides with $K\left(\mathscr C \right)$ when $\mathscr C'=0$). Let $\Ga\left( \varphi\right)$ denote the set of triples $\left(\E, \F, \a \right)$, where $\E$ and $\F$ are objects of $\mathscr C$ and $\a : \varphi\left(\E \right)\to \varphi\left(\F \right)$  is an 
+	isomorphism. Two triples  $\left(\E, \F, \a \right)$ and  $\left(\E', \F', \a' \right)$ are called \textit{isomorphic} if there 
+	exist isomorphisms $f : \E \to \E'$ and $g : \F \to \F'$ such that the following diagram commutes. 
+	\newline
+	\begin{tikzcd}
+		\varphi\left( \E\right)\arrow[r, "\a"] \arrow[d, "\varphi\left( f\right) "]& \varphi\left( \F\right) \arrow[d, "\varphi\left( g\right) "]\\
+		\varphi\left( \E'\right)\arrow[r, "\a'"] & \varphi\left( \F'\right)
+	\end{tikzcd}
+	
+	A triple $\left(\E, \F, \a \right)$, is called \textit{elementary} if $\E=\F$ and if $\a$ is homotopic to $\Id_{\varphi\left(\E \right) }$ within 
+	the automorphisms of $\varphi\left(\E \right)$. Finally, we define the sum of two triples $\left(\E, \F, \a \right)$ and $\left(\E', \F', \a' \right)$ to be $\left(\E\oplus \E', \F \oplus \F', \a \oplus \a'\right)$.
+	Then $K\left( \varphi\right) $ is the quotient of $\Ga\left( \varphi\right) $ by the following equivalence relation: 
+	$\sigma\sim \sigma'\Leftrightarrow\exists$ elementary $\tau$ and $\tau'$ such that $\sigma + \tau$ is isomorphic to $\sigma' + \tau'$ . The sum of 
+	triples obviously provides the set $K\left(\varphi \right) $ with a monoid structure. We let $d\left(\E, \F, \a \right)$
+	denote the class of $\left(\E, \F, \a \right)$ in the monoid $K\left(\varphi \right)$. %As a direct consequence of the 	definition, we notice that d(E, F, a) = 0 if and only if there exist objects G and 	H of #, and isomorphisms w: F   G >H and v: F  G-> H9 such that 	<p(i>)   (a   Id^C))   <p(w_!) is homotopic to Id^(H) within the automorphisms of(p(H). 
+	
+\end{empt}
+\begin{example}\label{k_triple_exm}\cite{karoubi:k}
+	%2.7. Example. 
+	Let $\varphi: \mathscr E\left( \sX\right) \to  \mathscr\E\left(\sY \right)$  be the functor defined by $\varphi\left( \E\right) = \E|_\sY$ , where 
+	$\sY$ is a closed subspace of the compact space $\sX$. It is proven in \cite{karoubi:k} that $\varphi$ 
+	is a Banach functor which is full and quasi-surjective. We use the following notation
+	$$
+	K\left(\sX, \sY \right) \bydef K\left(\varphi \right) 
+	$$
+	%  By 1.5.9 we see that up to isomorphism the "restriction map" &(X){E, F)-> (Y)(EY, FY) is identical with the map r(X, HOM( , /0)-> 	r(Y, HOM(is, F)Y}. From 1.6.23, it follows that (p is a Banach functor. Moreover , (p is full A.5.10), and also quasi-surjective because any object of $( Y) is a directfactor of a trivial bundle 9n= Yxk" A.6.5), and clearly 6n = (p(E) where E=Xxk". 
+\end{example}
+\begin{example}\label{k_b_s_exm}\cite{karoubi:k}
+	%2.30. Example. 
+	Let $\sX \bydef B^2$ (resp. $\sY \bydef S^1$) be the unit ball(resp. sphere) in $\R^2$.Then 
+	we define an element $d\left(\E, \F, \a \right)$ of $K\left(\sX, \sY \right)  = K\left(B^2, S^1 \right)$ by $\E= \F = B^2\times \C$ and $\a\left(x, v\right) =\left(x, xv\right)$. It is proven that $K\left(B^2, S^1 \right)$ is a generated by $d\left(\E, \F, \a \right)$ free Abelian group, i.e. $K\left(B^2, S^1 \right)=\Z~ d\left(\E, \F, \a \right)$.
+	
+\end{example}
+
+\begin{proposition}\label{k_comp_prop}\cite{karoubi:k}
+	%2.16. Proposition.
+	Let $d\left(\E, \F, \a \right)$ and $d\left(\F, \G, \bt \right)$ be elements of $K\left(\varphi \right)$. Then we have 
+	the relation
+	$$
+	d\left(\E, \F, \a \right) + d\left(\F, \G, \bt \right)= d\left(\E, \G, \bt\a \right)
+	$$ 
+	
+\end{proposition}
+\begin{proposition}\label{k_exact_prop}\cite{karoubi:k}
+	%2.20. Proposition.
+	Let $j: K\left(\varphi \right)\to K\left(\mathscr C\right)$  (resp. $k: K\left( \mathscr C \right)\to K\left( \mathscr C' \right)$  be the homomorphism 
+	defined by $j\left( d\left(\E, \F, \a \right)\right) \bydef \left[\E\right]- \left[\F\right]$ (resp. $j\left( \left[\E\right]- \left[\F\right]\right) \bydef \left[\varphi\left( \E\right) \right]- \left[\varphi\left( \E\right)\right]$. Then we have an exact sequence 
+	$$
+	K\left(\varphi\right)\xrightarrow{j} K\left(\mathscr C\right)\xrightarrow{k} K\left(\mathscr C'\right).
+	$$ 
+	%	Moreover , if there exists a functor ij/'.W tW such that (p\j/   Id^,, f/ze  we have the 	split exact sequence 	0 > K((p) -U K(<#) -^-+ K(W)  ^ 0. 
+\end{proposition}
+\begin{remark}\label{k_exact_rem}\cite{karoubi:k}
+	If $\sY$ is a closed subspace of the compact space then from the Proposition \ref{k_exact_prop} it follows that there is the exact sequence
+	$$
+	K\left( \sX,\sY\right)\to K\left( \sX\right) \to K\left(\sY \right).
+	$$
+\end{remark}
+\begin{theorem}\label{k_excision_thm}(Excision)\cite{karoubi:k}
+	%2.35. Theorem (Excision). 
+	The projection $\pi: \sX \to \sX/\sY$ induces an isomorphism 
+	$$
+	\pi^*:K\left( \sX/\sY,\{{y}\}\right) \xrightarrow{\cong }K\left( \sX,\sY\right).
+	$$
+\end{theorem}
+\begin{proof}
+	For $\sY$ empty, we leave the trivial verification to the reader. For $\sY$ 
+	nonempty, the proof breaks into two parts: \\
+	a) \textit{$\pi^*$ is surjective}. Let $ d\left(\E, \F, \a \right)$ be an element of $K\left( \sX,\sY\right)$. By adding the same 
+	bundle to $\E$ and $\F$, we may assume without loss of generality, that $\F$ is a trivial 
+	bundle, say $\mathcal{T}$. We want to find a triple $\left(\E', \F', \a \right)$ defining an element of 
+	$K\left( \sX/\sY,\{y\}\right)$ such that the triples $\left( \pi^*\left(\E'\right) , \pi^*\left(\F'\right) , \pi^*_1\left(\a\right)  \right)$ and $\left(\E, \F, \a \right)$ are  
+	isomorphic with $\pi_1: \sY \to \{y\}$. % According to 1.5.11, 
+	According to the Corollary \ref{k_ext_cor} there is a closed neighbourhood $\sV$ 
+	of $\sY$ and an isomorphism $\bt :\E_\sV\to  \F_\sV$ such that $\bt|_\sY = \a$. Let $\E'$ be the vector bundle 
+	with base  $\sX/\sY$ obtained by clutching the bundle $\sE|_{\sX\setminus\sY}$ and the trivial bundle of rank $n$ 
+	with base  $\sV \setminus\sY$, using $\bt|_{\sV \setminus\sY}$ (note that $\sX \setminus \sY \cong \sX/\sY \setminus \{y\}$ and $\sV \setminus \sY \cong \sV/\sY \setminus \{y\}$. Let $\sF'$ 
+	be the trivial bundle of rank $n$  with base  $\sX/\sY$, and let $\a': \E'|_{\{y\}} \to \F'|_{\{y\}}$ be the isomorphism 
+	induced by the above clutching. 
+	
+	Then we can define an isomorphism $f: \E \to \pi^*\left( \E'\right)$  by $f_{\sX \setminus\sY}= \Id$, with the 
+	identification $\pi^*\left( \E'\right)|_{\sX\setminus \sY}=\E'|_{\sX\setminus \sY}=\E|_{\sX\setminus \sY}$, and $f|_\sV=\Id$ with the identification 
+	$\E'|_{\sV}= p_n|_{\sX\setminus \sY}$. It is now straightforward to check that the diagram 
+	\newline
+	\begin{tikzcd}
+		\E|_{\sY} \arrow[r, "\a"] \arrow[d, "f|_\sY"]& \F|_{\sY}\arrow[d, "\cong"]\\
+		\pi^*\left( \E'\right) |_{\sY} \arrow[r, "\pi^*_1\left( \a'\right) "] & \pi^*\left( \F'\right) |_{\sY}
+	\end{tikzcd}
+	\\
+	is commutative. \\
+	b) $\pi^*$ is injective. Let $d\left(\E', \F', \a' \right)$ be an element of $K\left( \sX/\sY,\{{y}\}\right)$ such that 
+	$\pi^*\left( d\left(\E', \F', \a' \right)\right) =d\left( \pi^*\left( \E'\right) , \pi^*\left(\F'\right) , \pi^*\left(\a' \right) \right) = 0$. There is a bundle 
+	$\mathcal{T}$  with base  $\sX$ such that $\pi^*\left(\a' \right)\oplus \Id_{\mathcal{T}|_\sY}$ can be extended by an isomorphism $\bt: \pi^*\left( \E'\right)\oplus \mathcal{T}\to \pi^*\left(\F' \right)\oplus \mathcal{T}$ . As before we may assume that $\mathcal{T}$ is trivial. Let $\mathcal{T}'$ be the trivial bundle over $\sX/\sY$ of the same rank as $\mathcal{T}'$. Let $\bt': \E'\oplus \mathcal{T}'\to \F'\oplus \mathcal{T}'$ be the  isomorphism which is equal to $\bt$ with base  $\sX\setminus\sY$, and to $\a'$  with base  $\{y\}$. It is clear that $\bt'$ is continuous and is an extension of  $\a'\oplus \Id_{\mathcal{T}'|_{\{y\}}}$  with base  $\sX/\sY$. Hence  $d\left(\E', \F', \a' \right)=d\left(\E'\oplus \mathcal{T}', \F'\oplus \mathcal{T}', \a'\oplus \Id_{\mathcal{T}'} \right)$. 
+\end{proof}
+\begin{corollary}\label{k_exc_cor}\cite{karoubi:k}
+	%5.20. Corollary. 
+	If $\sX$ is a locally compact space and $\sX'$  is a closed subspace, the 
+	groups $K_0\left(\sX, \sX' \right)$, $K_0\left(\sX\setminus \sX' \right)$ , $K\left(\sX, \sX' \right)$ and $K\left(\sX\setminus \sX' \right)$, are naturally isomorphic. 
+	
+\end{corollary} 
 
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
@@ -3583,7 +3879,165 @@ this proof gives us the following proposition:
 \begin{proposition}\label{lrc_prop}\cite{matro:hcm}
 	Let $A\to B\left(\H \right)$ be a faithful nondegenerate representation. Then there exists a one-to-one isometric correspondence between left, right multipliers and  left, right centralizers respectively.
 \end{proposition}
+	\begin{defn}\label{unitization_defn}\cite{rae:ctr_morita}
+	A \textit{unitization} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective $*$-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential ideal of $B$. 
+\end{defn}
 
+\begin{example}\label{unitization_exm}
+	Suppose $A$ is  $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
+	is a $*$-algebra with 
+	\be\label{a_plus_eqn}
+	\left( a \oplus \la\right)\left( b \oplus \mu\right) = \left(ab + \la b + \mu a\right)  \oplus \la \mu, \quad \left(a \oplus \la \right)^* = a^*\oplus \overline{\la}. 
+	\ee
+	It is proven in \cite{rae:ctr_morita} that there is the natural unique $C^*$-norm $\left\| \cdot\right\|_{A^+}$  on $A^+$ such that 
+	$$
+	\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
+	$$
+	where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$. Thus $A^+$ is an unital $C^*$-algebra, and the natural map $A\hookto A^+$ is a unitization.
+\end{example}
+\begin{definition}\label{multiplier_min_defn}
+	Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization_exm} unitization   $\iota: A \hookto B$  is called \textit{minimal}.
+\end{definition}
+\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
+	A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra there is a $*$-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
+\end{definition}
+
+\begin{rem}\label{multiplier_rem}
+	It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization.
+\end{rem}
+
+\begin{definition}\label{multiplier_defn}\cite{murphy,pedersen:ca_aut}
+	We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
+\end{definition}
+
+\begin{lemma}\label{multiplier_al_lem}\cite{matro:hcm}
+	The set $M\left(A\right)$ is an unital $C^*$-algebra 
+	$$
+	A \subset M\left( A\right) \subset A^{**}
+	$$	
+	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
+\end{lemma} 
+
+	\subsection{$K$-theory and $K$-homology}
+
+
+\paragraph*{} The notions of $K$-theory, $K$-homology and $KK$-theory are explained in \cite{blackadar:ko,wegge_olsen}.
+
+\begin{definition}  !!! TO TOPOLOGY SECTION !!!
+	%Definition 1.6.1.
+	If $\sX$ is locally compact, the \textit{(reduced) suspension} $S\sX$ of $\sX$
+	is defined  to be $\sX \times \R$.
+	The \textit{unreduced suspension} of a compact space $\sX$ is the quotient of $\sX\times \left[0,1\right]$ 
+	obtained by collapsing $\sX \times \{0\}$ and $\sX \times \{1\}$ to single points. The reduced suspension is the analogous construction in the category of pointed spaces: form
+	the unreduced suspension of $\sX^+$, collapse $\{+\}\times \left[0,1\right]$ to a single point, and use
+	this as base point.
+\end{definition}
+
+\begin{definition}\label{m_inf_defn}\cite{blackadar:ko}
+	%Definition 5.1.1. 
+	If $A$ is an algebra then $\mathbb{M}_\infty\left(A \right)$  is the algebraic direct limit of $\mathbb{M}_n\left( A\right)$  under the
+	embeddings $a \mapsto \mathrm{diag}\left(a, 0 \right)$.
+\end{definition}
+\begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
+	%Definition 5.1.2. 
+	$\mathrm{Proj}(A)$ is the set of algebraic equivalence classes of idempotents
+	in $A$. We set $V\left( A\right) \bydef \mathrm{Proj}(A)$.
+\end{definition}
+\begin{definition}\label{k00_defn}\cite{blackadar:ko}
+	%Definition 5.3.1. 
+	$K_{00}(A)$ is the Grothendieck group of $V (A)$.
+\end{definition}
+\begin{empt}\cite{blackadar:ko}\label{k0_empt}
+	Let $A$  be unital algebra, $J$ a closed two-sided ideal in $A$, and $\pi: A \to A/J$ the quotient map. A group $K_0\left(A, J \right)$  has generators $\left(e, f, z \right)$  , where $e, f$ are idempotents in $\mathbb{M}_n\left( A\right)\subset \mathbb{M}_\infty\left( A\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$
+	with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$ ; and relations
+	\be\label{k0_1_eqn}
+	\begin{split}
+		(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
+	\ee
+	and $(e_1, f_1, z_1 ) = (e_2, f_2, z_2 )$ if there are idempotents $g_1, g_2\in \mathbb{M}_n\left( A\right)$ and invertible
+	elements $u, v \in \mathbb{M}_{n+k}\left( A\right)$ with
+	\be\label{k0_2_eqn}
+	\begin{split}
+		u\mathrm{diag}\left( e_1, g_1\right)u^{-1}= \mathrm{diag}\left( e_2, g_2\right),\\
+		v\mathrm{diag}\left( f_1, g_1\right)v^{-1}= \mathrm{diag}\left( f_2, g_2\right),\\
+		\pi\left(v\right)\mathrm{diag}\left( z_1, 1\right)\pi\left(u\right)^{-1}= \mathrm{diag}\left( z_2, 1\right).
+	\end{split}
+	\ee
+\end{empt}
+\begin{definition}\label{k0_defn}\cite{blackadar:ko}
+	%Definition 5.5.1. 
+	$K_0\left( A\right) \bydef K_0\left(A^+, A \right)$. 
+\end{definition}
+\begin{remark}\label{k0_rem}\cite{blackadar:ko}
+	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism
+	\be\label{k0_eqn} 
+	\om_A : K_{00}(A) \to 
+	K_0\left(A \right).
+	\ee
+\end{remark}
+
+\begin{theorem}\label{k_0_iso_thm}\cite{blackadar:ko}
+	%Theorem 5.4.2.
+	For any $A$ and $J$, the natural homomorphism from $K_0\left(J^+, J \right)$ 
+	to $K_0\left(A, J \right)$ is an isomorphism.
+\end{theorem}
+
+\begin{rem}
+	Theorem \ref{k_0_iso_thm} is called the Strong Excision Theorem of $K$-theory. It is really
+	the result which allows $K$-theory to be developed without reference to relative
+	$K$-groups.
+\end{rem}
+\begin{empt}\label{seimfunct_empt}\cite{blackadar:ko}
+%5.2.1. Functoriality. 
+If $\varphi : A \to B$ is a homomorphism (not necessarily
+continuous!) of local Banach algebras, then $\phi$ induces a map $\phi_*: \mathrm{Proj}\left(A \right) \to \mathrm{Proj}\left(B \right)$. $\phi$ extends to a homomorphism from $\mathbb{M}\left(A \right)_\infty$ to $\mathbb{M}\left(A \right)_\infty$, which induces
+a semigroup homomorphism, also denoted $\phi_*$, from $V (A)$ to $V (B)$. So $V$ is a
+covariant functor from the category of local Banach algebras to the category of
+Abelian semigroups.
+\end{empt}
+\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
+	%Corollary 12.2.3. 
+	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
+	$n = 0; 1$.
+\end{corollary}
+
+\begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
+	%			Corollary 6.2.11. Stability of Ko 
+	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
+	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
+	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
+	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
+\end{corollary}
+\begin{cor}\label{stab_k_1_cor}\cite{wegge_olsen}
+	%Corollary 7.1.9. Stability of K\ 
+	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
+	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
+\end{cor}
+
+\begin{corollary}\label{kk_stable_cor}\cite{blackadar:ko}
+	%	Corollary 17.8.8. 
+	For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
+	isomorphisms
+	\bean
+	KK\left(A, B \right) \cong 	KK\left(A\otimes \mathbb{M}_n\left(\C \right) , B \otimes \mathbb{M}_m\left(\C \right)\right)	\cong KK\left(A, B\otimes\K \right)\cong \\\cong	KK\left(A, B\otimes\K \right)\cong 	KK\left(A\otimes\K, B \otimes\K\right).
+	\eean
+	
+\end{corollary}
+
+\begin{corollary}\label{bott_kk_cor}\cite{blackadar:ko}
+	%Corollary 19.2.2 
+	(Bott Periodicity). For any $A$ and $B$, we have
+	$$
+	KK^1\left(A, B \right) \cong KK\left( A, SB\right) \cong KK\left(SA, B \right) 
+	$$
+	and $KK\left( A, B\right)\cong KK^1\left(A, SB \right) \cong KK^1\left( SA, B\right)\cong KK\left( S^2A, B\right) \cong KK\left(SA, SB \right)$   . The isomorphisms are induced by intersection product with a fixed
+	element, and are therefore natural in $A$ and $B$.
+\end{corollary}
+\begin{corollary}\label{bott_kk_e_cor}\cite{blackadar:ko}
+	%Corollary 19.2.3 
+	For any $A$, $A$ and $S^2A$ are $KK$-equivalent. In particular ,
+	$\C$ and $C_0\left(\R^2 \right)$  are $KK$-equivalent.
+\end{corollary}
 
 
 
@@ -6201,7 +6655,9 @@ H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 
 		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
-
+\bibitem{wegge_olsen} N. E. Wegge-Olsen. \textit{$K$-Theory
+	 and $C^*$-Algebras: A Friendly Approach.} Oxford University Press,
+Oxford, England, 1993. 
 \end{thebibliography}
 
 
