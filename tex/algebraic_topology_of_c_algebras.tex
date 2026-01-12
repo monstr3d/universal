@@ -4000,7 +4000,88 @@ Abelian semigroups.
 	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
 	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
 \end{cor}
+	\subsection{Suspensions, mapping cones and Puppe sequences}
+\begin{definition}\label{suspension_defn}\cite{blackadar:ko}
+	%Definition 8.2.1.
+	The \textit{suspension} of $A$, denoted $SA$, is
+	\be
+	\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
+	\ee
+	with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
+	complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
+	We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
+	Moreover,
+	\bean
+	\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~, f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
+	\cong 	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
+	\eean
+\end{definition}
+\begin{proposition}\label{inv_path_prop}
+%Proposition 3.4.1. 
+Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
+to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
+be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
+of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
+\end{proposition}
+\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
+	%Theorem 8.2.2. 
+	$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
+	following diagram commutes:
+	\newline
+	\begin{tikzcd}
+		K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
+		K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
+	\end{tikzcd}
+	\\
+	(In the language of category theory, $\th$ gives an invertible natural transformation
+	from $K_1$ to $K_0\circ S$).
+\end{theorem}
+\begin{proof} (Fragment)
+Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
+(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}$.
+Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
+also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
+\end{proof}
+\begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
+	%Definition 19.4.1. 
+	\begin{enumerate}
+		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
+		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
+		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
+	\end{enumerate}
+	
+	The mapping cone construction is an important example of a pullback.
+	
+\end{definition}
+There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
+There is a standard short exact sequence 
+\be\label{cone_ip_eqn}
+0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
+\ee
+associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
+we have a commutative diagram
+\newline
+\begin{tikzcd}
+	A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
+	A_2  \arrow[r, "\psi"] & B_2
+\end{tikzcd}
+\\
+there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
+\newline
+\begin{tikzcd}
+	0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
+	0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
+\end{tikzcd}
 
+\begin{theorem}\label{puppe_sequence_thm}\cite{blackadar:ko}
+	%Theorem 19.4.3 
+	(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
+	\bean
+	KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
+	KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
+	\eean
+	
+\end{theorem} 
 \begin{corollary}\label{kk_stable_cor}\cite{blackadar:ko}
 	%	Corollary 17.8.8. 
 	For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
@@ -4011,24 +4092,9 @@ Abelian semigroups.
 	
 \end{corollary}
 
-\begin{corollary}\label{bott_kk_cor}\cite{blackadar:ko}
-	%Corollary 19.2.2 
-	(Bott Periodicity). For any $A$ and $B$, we have
-	$$
-	KK^1\left(A, B \right) \cong KK\left( A, SB\right) \cong KK\left(SA, B \right) 
-	$$
-	and $KK\left( A, B\right)\cong KK^1\left(A, SB \right) \cong KK^1\left( SA, B\right)\cong KK\left( S^2A, B\right) \cong KK\left(SA, SB \right)$   . The isomorphisms are induced by intersection product with a fixed
-	element, and are therefore natural in $A$ and $B$.
-\end{corollary}
-\begin{corollary}\label{bott_kk_e_cor}\cite{blackadar:ko}
-	%Corollary 19.2.3 
-	For any $A$, $A$ and $S^2A$ are $KK$-equivalent. In particular ,
-	$\C$ and $C_0\left(\R^2 \right)$  are $KK$-equivalent.
-\end{corollary}
 
 
-
-\subsection{Continuous trace $C^*$-algebras}
+	\subsection{Continuous trace $C^*$-algebras}
 
 
 \begin{definition}\label{abelian_element_defn}\cite{pedersen:ca_aut}
