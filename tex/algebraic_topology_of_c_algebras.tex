@@ -1568,15 +1568,42 @@ diagrams
 \bean
 \begin{tikzcd}
 ~
-	& A  \arrow[d, "\varphi^2"] & & V^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& V\left( A\right)   \arrow[d, "\varphi^2_*"]\\
-	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right)& & 	V\left( C\left( \sX^+\right)\right)  \arrow[r, "\varphi^1_*"]	& V\left( M\left( A\right)\right) 
+	& A  \arrow[d, "\varphi^2"] & & \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& \mathrm{Proj}\left( A\right)   \arrow[d, "\varphi^2_*"]\\
+	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\right)\right) 
 \end{tikzcd}
 \eean
 (cf. Definition \ref{proj_v_defn}) where  $\sX^+$ is the one point  compactification  of $\sX$ (cf. Definition \ref{top_compactification_defn}).
 \begin{definition}
-	Under the above hypothesis for any $\sV\in V^{\mathrm{nat}}\left(A \right)$ 
-	 we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\varphi_*\left( \sV\right) \in V\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{k:char_thm})
+	Under the above hypothesis for any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A \right)$ 
+	 we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\varphi_*\left( \sV\right) \in \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{k:char_thm})
  \end{definition}
+\begin{empt}
+Under the above hypothesis there are left and right actions
+\bean
+\left(C\left( \sX^+\right) \otimes \K \right) \times \left( A \times 
+\K\right) \to A \otimes \K,\\
+\left(f \otimes x, a \otimes y \right) \mapsto fa \otimes xy;\\
+\left( A\otimes \K \right) \times \left( C\left( \sX^+\right) \otimes 
+\K\right) \to A \otimes \K,\\
+\left(a \otimes y, f \otimes x \right) \mapsto af \otimes yx.
+\eean
+So there is an inclusion
+$
+C\left( \sX^+\right) \otimes 
+\K\subset M\left(A\otimes \K \right)$ and  diagrams
+\bean
+\begin{tikzcd}
+	~
+	& A \otimes \K \arrow[d, "\varphi^2"] & & \mathrm{Proj}^{\mathrm{nat}}\left(A \otimes \K\right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi^2_*"]\\
+	C\left( \sX^+\right)\otimes \K \arrow[r, "\varphi^1"]	& M\left( A\otimes \K\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\otimes \K\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\otimes \K\right)\right) 
+\end{tikzcd}
+\eean
+For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is $\varphi_*\left(\sV \right)  \in \mathrm{Proj}\left(	C\left( \sX^+\right)\otimes  \K \right)$. The $C^*$-algebra 	$C\left( \sX^+\right)\otimes  \K$ is strongly Morita equivalent to 	$C\left( \sX^+\right)$, so $\varphi_*\left(\sV \right)$ uniquely defines $\sV' \in 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)$
+\end{empt}
+\begin{definition}
+	Under the above hypothesis for any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes  \K\right)$ 
+	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{k:char_thm})
+\end{definition}
 
 there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullback_defn})
 \newline
@@ -3928,7 +3955,7 @@ an integer q such that E © 6p + qzzF © 6n+q.
 \begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
 	%Definition 5.1.2. 
 	$\mathrm{Proj}(A)$ is the set of algebraic equivalence classes of idempotents
-	in $A$. We set $V\left( A\right) \bydef \mathrm{Proj}(A)$.
+	in $\mathbb{M}_\infty\left(A \right)$. 
 \end{definition}
 \begin{definition}\label{k00_defn}\cite{blackadar:ko}
 	%Definition 5.3.1. 
@@ -3974,20 +4001,12 @@ an integer q such that E © 6p + qzzF © 6n+q.
 	the result which allows $K$-theory to be developed without reference to relative
 	$K$-groups.
 \end{rem}
-\begin{empt}\label{seimfunct_empt}\cite{blackadar:ko}
-%5.2.1. Functoriality. 
-If $\varphi : A \to B$ is a homomorphism (not necessarily
-continuous!) of local Banach algebras, then $\phi$ induces a map $\phi_*: \mathrm{Proj}\left(A \right) \to \mathrm{Proj}\left(B \right)$. $\phi$ extends to a homomorphism from $\mathbb{M}\left(A \right)_\infty$ to $\mathbb{M}\left(A \right)_\infty$, which induces
-a semigroup homomorphism, also denoted $\phi_*$, from $V (A)$ to $V (B)$. So $V$ is a
-covariant functor from the category of local Banach algebras to the category of
-Abelian semigroups.
-\end{empt}
-\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
-	%Corollary 12.2.3. 
-	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
-	$n = 0; 1$.
-\end{corollary}
 
+\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
+%Corollary 12.2.3. 
+If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
+$n = 0; 1$.
+\end{corollary}
 \begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
 	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
