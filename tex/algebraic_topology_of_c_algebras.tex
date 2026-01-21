@@ -1600,10 +1600,15 @@ $
 C\left( \sX^+\right) \subset M\left(A\otimes \K \right)$ and  diagrams
 \bean
 \begin{tikzcd}
-	~
-	& A \otimes \K \arrow[d, "\varphi^2"] & & \mathrm{Proj}^{\mathrm{nat}}\left(A \otimes \K\right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi^2_*"]\\
-	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\otimes \K\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\otimes \K\right)\right) 
+A \arrow[r, "-\otimes p_1"] 	& A \otimes \K \arrow[d, "\varphi^2"]\\
+	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right) \otimes \K \\
+	 \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]&\mathrm{Proj}\left(A \right) \arrow[r, "\otimes p_1"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi^2_*"]\\
+	 	\mathrm{Proj}\left( C\left( \sX^+\right)\right) \arrow[rr, "\mathfrak{Blowing}\otimes p_1"] &	& \mathrm{Proj}\left( M\left( A\right) \otimes \K\right)
 \end{tikzcd}
+\eean
+where 
+\bean
+ \mathrm{Proj}^{\mathrm{nat}}\left(A \right)\bydef \left\{x \in  \mathrm{Proj}\left(A \right)\left|\exists y \in  	\mathrm{Proj}\left( C\left( \sX^+\right)\right)\right.\right\}
 \eean
 For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is $\varphi_*\left(\sV \right)  \in \mathrm{Proj}\left(	C\left( \sX^+\right)\otimes  \K \right)$. The $C^*$-algebra 	$C\left( \sX^+\right)\otimes  \K$ is strongly Morita equivalent to 	$C\left( \sX^+\right)$, so $\varphi_*\left(\sV \right)$ uniquely defines $\sV' \in 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)$
 \end{empt}
@@ -2057,7 +2062,7 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
 	et la proposition \ref{pop3_prop} , $\E^M_T = \E^\Om_T \oplus \E^{M \setminus \overline{ \Om}}_T\cong \K \otimes C^*_r\left(\G^T_T \right) \oplus \E^{M \setminus \overline{\Om}}$ 
 	et donc $\E^M_T\cong \K \otimes C^*_r\left( G^T_T \right)$  en vertu du théorème de stabilisation
 	pour les C*-modules hilbertiens. Et donc, par la proposition \ref{pop3_prop}  (iii), on a :
-	\be\label{foli_times_k_eqn}
+	\be\label{foli_times_k_eqn!}
 	C^*_r\left(M, \sF \right) = C^*_r\left(\G^M_M \right) \cong \K\left( \E^M_T\right) \cong \K \otimes C^*_r\left(\G^T_T \right). 
 	\ee
 	.
@@ -4478,25 +4483,25 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 	$K$-groups.
 \end{rem}
 
-\begin{corollary}\label{stable_k_cor!}\cite{blackadar:ko}
+\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
 	%Corollary 12.2.3. 
 	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
 	$n = 0; 1$.
 \end{corollary}
-\begin{corollary}\label{stab_k_0_cor!}\cite{wegge_olsen}
+\begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
 	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
 	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
 	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
 	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
 \end{corollary}
-\begin{cor}\label{stab_k_1_cor!}\cite{wegge_olsen}
+\begin{cor}\label{stab_k_1_cor}\cite{wegge_olsen}
 	%Corollary 7.1.9. Stability of K\ 
 	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
 	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
 \end{cor}
-\begin{proof}!!!
-	%Proof.
+\begin{proof}
+		%Proof.
 	As $A \otimes \K$ is the $C^*$-inductive limit of  $\mathbb{M}_n\left( A\right)$ , $K_1\left(A \otimes \K \right) = \varinjlim K_1\left( \mathbb{M}_n\left( A\right)\right) $. 
 	%	n(A)) = Ki{A). %according to 7.1.7 and 7.1.8. 
 		
