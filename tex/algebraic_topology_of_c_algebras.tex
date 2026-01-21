@@ -1580,22 +1580,20 @@ diagrams
 \begin{empt}
 Under the above hypothesis there are left and right actions
 \bean
-\left(C\left( \sX^+\right) \otimes \K \right) \times \left( A \times 
+C\left( \sX^+\right)  \times \left( A \otimes 
 \K\right) \to A \otimes \K,\\
-\left(f \otimes x, a \otimes y \right) \mapsto fa \otimes xy;\\
-\left( A\otimes \K \right) \times \left( C\left( \sX^+\right) \otimes 
-\K\right) \to A \otimes \K,\\
-\left(a \otimes y, f \otimes x \right) \mapsto af \otimes yx.
+\left(f , a \otimes x \right) \mapsto fa \otimes x;\\
+\left( A\otimes \K \right) \times  C\left( \sX^+\right)  \to A \otimes \K,\\
+\left(a \otimes x, f  \right) \mapsto af \otimes x.
 \eean
 So there is an inclusion
 $
-C\left( \sX^+\right) \otimes 
-\K\subset M\left(A\otimes \K \right)$ and  diagrams
+C\left( \sX^+\right) \subset M\left(A\otimes \K \right)$ and  diagrams
 \bean
 \begin{tikzcd}
 	~
 	& A \otimes \K \arrow[d, "\varphi^2"] & & \mathrm{Proj}^{\mathrm{nat}}\left(A \otimes \K\right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi^2_*"]\\
-	C\left( \sX^+\right)\otimes \K \arrow[r, "\varphi^1"]	& M\left( A\otimes \K\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\otimes \K\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\otimes \K\right)\right) 
+	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\otimes \K\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\otimes \K\right)\right) 
 \end{tikzcd}
 \eean
 For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is $\varphi_*\left(\sV \right)  \in \mathrm{Proj}\left(	C\left( \sX^+\right)\otimes  \K \right)$. The $C^*$-algebra 	$C\left( \sX^+\right)\otimes  \K$ is strongly Morita equivalent to 	$C\left( \sX^+\right)$, so $\varphi_*\left(\sV \right)$ uniquely defines $\sV' \in 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)$
@@ -1725,7 +1723,7 @@ We already know that the Gelfand space $\mathfrak{Gelfand}\left(\mathbb{M}_n\lef
 
 (cf. Appendix \ref{cell_proj_sec}).
 
-\subsection{Chow ring}
+
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic constructions}
 
@@ -2005,8 +2003,133 @@ correspond to the given by \eqref{open_g_eqn} subsets of $\mathbb{P}\left(\mathb
 \end{proof}
 
 \subsubsection{Example of Chern character}
+\paragraph{}
+If  $\left(\T^2, \mathcal{F}_\th \right)$ is  the {Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ (cf. Example \ref{fol_tor_exm}) then from the equation \eqref{groupoid_multiplier_eqn} it turns out that there is the natural inclusion
+\be\label{torus_mult_eqn}
+C_0\left(\T^2 \right) \hookto M\left(C^*_r \left(\T^2, \mathcal{F}_\th \right)\right). 
+\ee
+One can proof that the inclusion \eqref{torus_mult_eqn} is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $N \bydef N_{0,1} \subset \T^2$ is given by the equation \eqref{foli_npq_eqn} then one has
+	\bean
+C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+\eean
+(cf. equation \eqref{foli_nt_eqn}). On the other hand from \eqref{foli_times_k_eqn} it turns out that
+\bean
+C^*_r\left(\T^2, \sF_\th \right) = C^*_r\left(\G^{\T^2}_{\T^2} \right) \cong \K\left( \E^{\T^2}_N\right) \cong \K \otimes C^*_r\left(\G^N_N  \right)\cong  \K \otimes C\left(\T^2_\th\right). 
+\eean
+where $\E^{\T^2}_N$ is the explained in \ref{foli_hilb_empt} $C^*$-Hilbert module.
+
+\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
+	%Corollary 12.2.3. 
+	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
+	$n = 0; 1$.
+\end{corollary}
+\begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
+	%			Corollary 6.2.11. Stability of Ko 
+	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
+	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
+	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
+	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
+\end{corollary}
+\begin{cor}\label{stab_k_1_cor}\cite{wegge_olsen}
+	%Corollary 7.1.9. Stability of K\ 
+	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
+	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
+\end{cor}
+\begin{proof}
+	%Proof.
+	As $A \otimes \K$ is the $C^*$-inductive limit of  $\mathbb{M}_n\left( A\right)$ , $K_1\left(A \otimes \K \right) = \varinjlim K_1\left( \mathbb{M}_n\left( A\right)\right) $. 
+	%	n(A)) = Ki{A). %according to 7.1.7 and 7.1.8. 
+		
+		Consequently, if $A\otimes \K \cong B\otimes \K$,  $\quad K_1\left( A\right) = K_1\left(A \otimes \K \right) =  K_1\left(B \otimes \K \right)= K_1\left(B \right)$. 
+	\end{proof}
 
 
+\begin{example}\label{fol_tor_exm!!}!!!\emph{Linear foliation on torus}. Here I follow to \cite{candel:foliI,connes:ncg94}.
+	Consider a vector field $\tilde{X}$ on $\R^2$ given by
+	\[
+	\tilde{X}=\alpha\frac{\partial}{\partial
+		x}+\beta\frac{\partial}{\partial y}
+	\]
+	with constant $\alpha$ and $\beta $. Since $\tilde{X}$ is
+	invariant under all translations, it determines a vector field $X$
+	on the two-dimensional torus ${\T}^2={\R}^2/{\Z}^2$. The vector
+	field $X$ determines a foliation $\mathcal{F}$ on ${\T}^2$. The leaves of
+	$\mathcal{F}$ are the images of the parallel lines
+	$\tilde{L}=\{(x_0+t\alpha, y_0+t\beta): t\in\R\}$ with the slope
+	$\theta=\beta/\alpha $ under the projection $\R^2\to \T^2$.
+	In the case when $\theta$ is rational, all leaves of $\mathcal{F}$ are
+	closed and are circles, and the foliation $\mathcal{F}$ is determined by
+	the fibers of a fibration $\T^2\to S^1$. In the case when $\theta$
+	is irrational, all leaves of $\mathcal{F}$ are everywhere dense in $\T^2$. We say that  $\left(\T^2, \mathcal{F}_\th \right)$ is  the \textit{Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ 
+	with natural coordinates $\left((x, y \right)\in \R^2$. Here $\th\in (0,1)$ is an irrational number.
+	The graph $\G$ of this foliation is the manifold $\G \cong \T\times \R$ with range and source maps  $\G \to \T^2$ given by
+	\bean
+	r((x, y), t) = (x + t, y + \th t).\\
+	s((x, y), t) = (x, y)
+	\eean
+	and with composition given by $((x, y), t)((x_0, y_0), t_0) = ((x_0, y_0), t + t_0)$ for any pair of	composable elements.
+	Every closed geodesic of the at torus $\T^2$ yields a compact transversal. More precisely,
+	for each pair $(p, q)$ of relatively prime integers we let $N_{p,q}$ be the submanifold of $\T^2$
+	given by
+\bean
+	N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
+\eean
+	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
+	the manifold $\G^N_N=\T\times \Z$ with range and source maps given by:
+	\bean
+	r(x, n) = x + n\th' ;\\
+	s(x, n) = x
+	\eean
+	where $\th'$ is determined uniquely by any pair $(p_0, q_0)$ of integers such that $pq_0 - p_0q= 1$, $\quad \th' = \frac{p'\th - q'}{p\th - q}$
+	%	The $C^*$-algebra $C^*_{r,N}\left( \T^2, F\right)$ 
+	%	is the crossed product of $C(\T)$ by the rotation of angle $\th'$,
+	%	i.e. it is the irrational rotation $C^*$-algebra $C\left(\T_{\th'}\right)$, generated by two unitaries $U$
+	%	and $V$ such that:
+	%	$$
+	%	VU = e^{2\pi i\th' } UV,
+	%	$$
+	%	Since $N = N_{p,q}$ meets every leaf 
+	%	of the foliation, it follows that $C^*_r (V, F)$ is strongly
+	%	Morita equivalent to $C\left(\T_{\th'}\right)$ for any relatively prime pair $(p, q)$. In particular for $p = 0,~
+	%	q = 1$ we get $C\left(\T_{\th}\right)$, and, by transitivity of strong Morita equivalence
+	If $N = N_{0,1}$ then 
+	\bean
+	r(x, n) = x + n\th ;\\
+	s(x, n) = x
+	\eean
+	Let $U$ be an element of $C\left(\T\right)$ which comes from
+	\bean
+	U:\R \to \C,\\
+	t \mapsto e^{2\pi i t}.
+	\eean
+	If both  $u, v\in C^\infty_c\left(\G^N_N \right)$ are such that
+	\be\label{foli_uv_eqn}
+	\begin{split}
+		u\left(x, n \right) = \begin{cases}
+			U\left(x \right) & n = 0\\
+			0 & n\neq 0
+		\end{cases};\\
+		v\left(x, n \right) = \begin{cases}
+			1 & n = 1\\
+			0 & n\neq 1
+		\end{cases},\\
+	\end{split}
+	\ee
+	then from  the equations \eqref{foli_pseudo_eqn}
+	one has
+	\bean
+	u^*=u^{-1},\\
+	v^*=v^{-1},\\
+	vu = e^{2\pi i\th } uv.
+	\eean
+	Indeed above equations describe a noncommutative 2-torus $C\left(\T^2_\th\right)$ (cf Definition \ref{nt_defn}). Using this fact one deduce that 
+	\be\label{foli_nt_eqn1}
+	C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+	\ee
+\end{example}
+
+
+\
 \begin{appendices}
 			\section{Categories theory}
 	\subsection{Categories}
@@ -4002,23 +4125,30 @@ an integer q such that E © 6p + qzzF © 6n+q.
 	$K$-groups.
 \end{rem}
 
-\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
+\begin{corollary}\label{stable_k_cor!}\cite{blackadar:ko}
 %Corollary 12.2.3. 
 If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
 $n = 0; 1$.
 \end{corollary}
-\begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
+\begin{corollary}\label{stab_k_0_cor!}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
 	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
 	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
 	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
 	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
 \end{corollary}
-\begin{cor}\label{stab_k_1_cor}\cite{wegge_olsen}
+\begin{cor}\label{stab_k_1_cor!}\cite{wegge_olsen}
 	%Corollary 7.1.9. Stability of K\ 
 	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
 	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
 \end{cor}
+\begin{proof}!!!
+%Proof.
+ As $A \otimes \K$ is the $C^*$-inductive limit of  $\mathbb{M}_n\left( A\right)$ , $K_1\left(A \otimes \K \right) = \varinjlim K_1\left( \mathbb{M}_n\left( A\right)\right) $. 
+%	n(A)) = Ki{A). %according to 7.1.7 and 7.1.8. 
+	
+		Consequently, if $A\otimes \K \cong B\otimes \K$,  $\quad K_1\left( A\right) = K_1\left(A \otimes \K \right) =  K_1\left(B \otimes \K \right)= K_1\left(B \right)$. 
+\end{proof}
 	\subsection{Suspensions, mapping cones and Puppe sequences}
 \begin{definition}\label{suspension_defn}\cite{blackadar:ko}
 	%Definition 8.2.1.
@@ -4155,162 +4285,6 @@ Above formula does not really means a norm because $\mathrm{Aut}\left(A\right)$ 
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
 	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
-\subsection{Algebraic counterpart of geometric quotient}\label{quotions_a_sec}
-\paragraph{}
-Here I follow to \cite{{connes:ncg94}}
-We shall formulate the algebraic counterpart of the geometric operation of forming the
-quotient of a space by an equivalence relation, and show how to handle non-Hausdorff quotients by using noncommutative $C^*$-algebras. 
-
-\subsubsection{Quotient of two elements}
-Let $\sY \bydef \left\{a, b\right\}$ be a set consisting in two elements $a$ and $b$, so that the algebra $C\left(\sY \right)$ 
-of (complex-valued) functions on $\sY$ is the commutative algebra $\C \bigoplus 
-\C$ of $2 \times 2$ diagonal
-matrices. There are two ways of declaring that the two points a and b of Y are identical,
-i.e. of quotienting $\sY$ by the equivalence relation $a \sim b$.
-\begin{enumerate}
-	\item The first is to consider the subalgebra $A \subset C\left( \sY\right)$  of functions $f$ on $\sY$ which take the
-	same values at $a$ and $b: f(a) = f(b)$.
-	\item The second is to consider the larger algebra $B \supset C\left(\sY \right)$ of all $2 \times 2$ matrices:
-	\bean
-	f = \begin{pmatrix}
-		f_{aa} & f_{ab}\\
-		f_{ba} & f_{bb}
-	\end{pmatrix}.
-	\eean
-\end{enumerate}
-The relation between the two algebras is the notion of strong Morita equivalence of
-$C^*$-algebras. This relation preserves many
-invariants of $C^*$-algebras, such as $K$-theory and the topology of the space of irreducible
-representations. Thus, in our example the pure states $\om_a$ and $\om_b$ of $B$ which come
-directly from the points $a$ and $b$ of $\sY$ by the formula
-\bean
-\om_a\left( f\right) = f_{aa}, \quad \om_a\left( f\right) = f_{bb}\quad \forall a \in B
-\eean
-yield equivalent irreducible representations of $B = \mathbb{M}_2\left(\C \right)$, which corresponds to the
-identification $a \sim b$ in the spectrum of $B$.
-\subsubsection{Quotients of foliated manifolds}
-\paragraph*{}
-The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
-$$
-M = \bigsqcup_{\la \in \La} \L_\la
-$$
-where $\L_\la$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
-$$
-x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
-$$ 
-It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$. In result one has the following diagram
-\bean
-\begin{tikzcd}
-	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
-	& M/\sim &
-\end{tikzcd}
-\eean
-	\subsubsection{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
-\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
-	Denote by "$\cdot$" the scalar product on $\R^n$.
-	The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
-	\la,\mu \in \Z^n$ implies $\lambda = 0$.
-\end{definition}
-\begin{definition}\label{nt_defn}\cite{wagner:pb}
-	Let $\Theta$ be an invertible, real  skew-symmetric quite irrational $n \times n$ matrix. A \textit{noncommutative torus} $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by the set $\left\{U_k\right\}_{k \in \Z^n}$ of unitary elements which satisfy to the following relations.
-	\begin{equation}\label{nt_unitary_product_eqn}
-		U_k U_p = e^{-\pi ik ~\cdot~ \Theta p} U_{k + p}; ~~~   \end{equation}
-\end{definition}
-Following condition holds
-\begin{equation}\label{nt_unitary_product_comm_eqn}
-	U_k U_p = e^{-2\pi ik ~\cdot~ \Theta p}U_p U_k.
-\end{equation}
-An alternative description of $\C\left(\mathbb{T}^n_{\Theta}\right)$ is such that if
-\begin{equation}\label{nt_th_eqn}
-	\Th = \begin{pmatrix}
-		0& \th_{12} &\ldots & \th_{1n}\\
-		\th_{21}& 0 &\ldots & \th_{2n}\\
-		\vdots& \vdots &\ddots & \vdots\\
-		\th_{n1}& \th_{n2} &\ldots & 0
-	\end{pmatrix}=\begin{pmatrix}
-		0& \th_{12} &\ldots & \th_{1n}\\
-		-\th_{12}& 0 &\ldots & \th_{2n}\\
-		\vdots& \vdots &\ddots & \vdots\\
-		-\th_{1n}& -\th_{2n} &\ldots & 0
-	\end{pmatrix}
-\end{equation}
-then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by unitary elements   $u_1,..., u_n \in U\left( C\left(\mathbb{T}^n_{\Theta}\right)\right) $ such that following condition holds
-\begin{equation}\label{nt_com_eqn}
-	\begin{split}
-		u_j u_k = e^{-2\pi i \theta_{jk} }u_k u_j.
-	\end{split}
-\end{equation}
-Unitary  operators $u_1,..., u_n$ correspond to the standard basis of $\mathbb{Z}^n$ and they are given by
-\be\label{nt_gen_eqn}
-u_j = U_{k_j },\quad \text{ where } k_j=\left(0,...,\underbrace{ 1}_{j^{\text{th}}-\text{place}},...,0 \right)
-\ee
-\begin{defn}\label{nt_uni_defn}
-	The unitary elements 
-	$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ which satisfy the relations \eqref{nt_com_eqn}, \eqref{nt_gen_eqn}
-	are said to be \textit{generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$. The set $\left\{U_l\right\}_{l \in \Z^n}$ is said to be the \textit{basis} of $C\left(\mathbb{T}^n_{\Theta}\right)$.
-\end{defn}
-
-If $a \in C\left(\mathbb{T}^n_{\Th}\right)$ is presented by a series
-\be\label{nt_series_eqn}
-a = \sum_{l \in \mathbb{Z}^{n}}c_l U_l;~~ c_l \in \mathbb{C}
-\ee
-and the series $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right| $ is convergent then from the triangle inequality it follows that the series is $C^*$-norm convergent and the following condition holds.
-\begin{equation}\label{nt_norm_estimation_eqn}
-	\left\|a \right\| \le \sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|.
-\end{equation}
-In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|l\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
-\be\label{nt_coo_eqn}
-\Coo\left(\mathbb{T}^n_{\Theta}\right)\bydef \phi_\infty \left( \sS\left(\mathbb{Z}^n\right)\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)
-\ee
-then $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a pre-$C^*$-algebra, and the Fourier transformation \ref{nt_fourier_eqn} yields the $\C$-isomorphism
-\be\label{nt_coo_iso_eqn}
-\Coo\left(\mathbb{T}^n\right)\cong \Coo\left(\mathbb{T}^n_{\Theta}\right).
-\ee
-\begin{empt}\label{nt_gns_empt}
-	There is a  state 
-	\be\label{nt_state_eqn}
-	\begin{split}
-		\tau: C\left(\mathbb{T}^n_{\Theta}\right) \to \C;\\
-		\sum_{k \in \Z^n} a_k U_k \mapsto a_{\left(0,...,0\right) }; \quad \text{ where } a_k \in \C,
-	\end{split}
-	\ee
-	which induces the faithful GNS representation. 
-	The $C^*$-norm completion  $C\left(\mathbb{T}^n_{\Theta}\right)$ of $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a $C^*$-algebra and there is a faithful representation
-	\begin{equation}\label{nt_repr_eqn}
-		C\left(\mathbb{T}^n_{\Theta}\right) \to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right) .
-	\end{equation}
-	(cf. Definition \ref{gns_defn}).  Similarly to the equation \eqref{from_a_to_l2_eqn} there is a $\C$-linear map 
-	\begin{equation}\label{nt_to_hilbert_eqn}
-		\Psi_\Th:C\left(\mathbb{T}^n_{\Theta}\right) \hookto L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right).
-	\end{equation}
-	If 
-	\be\label{nt_xik_eqn}
-	\xi_k \bydef \Psi_\Th\left(U_k \right)
-	\ee 
-	then from \eqref{nt_unitary_product_eqn}, \eqref{nt_state_eqn} it turns out
-	\begin{equation}\label{nt_h_product_eqn}
-		\tau\left(U^*_k  U_l \right) = \left(\xi_k, \xi_l \right)  = \delta_{kl},   
-	\end{equation} 
-	i.e. the subset $\left\{\xi_k\right\}_{k \in \mathbb{Z}^n}\subset L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is an orthogonal basis of  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$.
-	Hence the Hilbert space  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is naturally isomorphic to the Hilbert space $\ell^2\left(\mathbb{Z}^n\right)$ given by
-	\begin{equation*}
-		\ell^2\left(\mathbb{Z}^n\right) = \left\{\xi = \left\{\xi_k \in \mathbb{C}\right\}_{k\in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~|~ \sum_{k\in \mathbb{Z}^n} \left|\xi_k\right|^2 < \infty\right\}
-	\end{equation*}
-	and the $\C$-valued scalar product on $\ell^2\left(\mathbb{Z}^n\right)$ is given by
-	\begin{equation}\label{nt_xi_eqn}
-		\left(\xi,\eta\right)_{ \ell^2\left(\mathbb{Z}^n\right)}= \sum_{k\in \mathbb{Z}^n}    \overline{\xi}_k\eta_k.
-	\end{equation}
-	From \eqref{nt_unitary_product_eqn} and \eqref{nt_xik_eqn} it follows that the representation $C\left(\mathbb{T}^n_{\Theta}\right)\hookto B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ corresponds to the following action
-	\be\label{nt_l2_eqn}
-	\begin{split}
-		C\left(\mathbb{T}^n_{\Theta}\right)\times  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\to  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right);\\
-		U_k\xi_l = e^{-\pi ik ~\cdot~ \Theta l}\xi_{k + l} .
-	\end{split}
-	\ee
-\end{empt}
-
-
-
 \subsection{$C^*$-algebras of groupoids and foliations}
 \subsubsection{Groupoids}
 \paragraph*{}
@@ -4602,6 +4576,7 @@ which is a specialization of \eqref{groupoid_*_c_eqn}
 \end{lemma}
 
 
+
 \begin{definition}\label{foli_groupoid_red_defn}\cite{renault:gropoid_ca}
 	If $\Pi$ is the set of irreducible representations of $\C\left[\G \right]$ then the completion of $\C\left[\G \right]$ with respect to $C^*$-norm
 	\be\label{groupoid_red_norm}
@@ -4641,6 +4616,13 @@ a $C^*$ -norm on $ C_c\left(\G, \sigma \right)$ dominated by the $C^*$ -norm $\l
 	The \textit{reduced $C^*$ -algebra} $C^*_r\left(\G, \sigma \right)$ of $\G$ is the completion of
 	$C^*_r\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|_r$.
 \end{definition}
+
+\begin{remark}\label{groupoid_multiplier_rem}
+$C_c\left(\G, \sigma \right)$ is dense in $C^*_r\left(\G, \sigma \right)$ with respect to the $C^*$-norm $\left\|\cdot  \right\|_r$. So from the Lemma \ref{groupoid_mult_repr_lem} it follows that there is the natural inclusion
+\be\label{groupoid_multiplier_eqn}
+C_0\left(\G^0 \right) \hookto M\left(  C^*_r\left(\G, \sigma \right)\right).
+\ee
+\end{remark}
 
 
 \subsubsection{$C^*$-algebras of non-Hausdorff \'etale groupoids}
@@ -5044,8 +5026,8 @@ C^*_r\left(\G^\sU_\sU \right) \bydef C^*_r\left(\sU,\sF|_\sU\right)
 \ee 
 where $\G^\sU_\sU$ is the reduction of  $\G$ on $\sU$ (cf. Definition \ref{groupoid_reduction_defn}.
 \end{remark}
-\begin{empt}\cite{hilsum_scandalis:stab}
-If $\sU_1,\sU_2 \nu M$ are open subsets then denote by $\E^{\sU_1}_{\sU_2}$ or $C^*_r\left( \G^{\sU_1}_{\sU_2}\right)$ the $C^*$-Hilbert $C^*_r\left( \G^{\sU_1}_{\sU_1}\right)$-module as the completion of  pre-$C^*$-Hilbert module $C_c\left( \G^{\sU_1}_{\sU_1}\right)$ with $C^*_r\left( \G^{\sU_1}_{\sU_1}\right)$-valued product
+\begin{empt}\label{foli_hilb_empt}\cite{hilsum_scandalis:stab}
+If $\sU_1,\sU_2 \in M$ are  subsets then denote by $\E^{\sU_1}_{\sU_2}$ or $C^*_r\left( \G^{\sU_1}_{\sU_2}\right)$ the $C^*$-Hilbert $C^*_r\left( \G^{\sU_1}_{\sU_1}\right)$-module as the completion of  pre-$C^*$-Hilbert module $C_c\left( \G^{\sU_1}_{\sU_1}\right)$ with $C^*_r\left( \G^{\sU_1}_{\sU_1}\right)$-valued product
 \be\label{foli_h_prod_eqn} 
 \left\langle \xi_1, \xi_2 \right\rangle \bydef \int_{\substack{\sU_2\\ G_{r\left( \ga\right) }}} \overline {\xi_1\left(\ga_1 \right) }\xi_2\left( \ga_1\ga\right) \quad \ga \in \G^{\sU_1}_{\sU_2}.
 \ee
@@ -5085,18 +5067,18 @@ on d\'{e}finit $\xi \otimes \eta\in C_c\left(\G^\Om_\sU, \Om^{1/2} \right) $ par
 \end{proof}
 \begin{lemma}\label{l4_lem}
 %4. LEMME . Ñ 
-Soit $C$ un ferm\'e de $\M$  tel que, pour toute feuille
+Soit $C$ un ferm\'e de $M$  tel que, pour toute feuille
 $\ell$, $C \cap \ell$. soit nŽgligeable pour la classe de mesure de Lebesgue longitudinale.
 Alors, pour tout ouvert 0 de $M$ et toute sous-vari\^et\'e
 $\sV$ transverse ˆ $\F$, l'application naturelle $\E^{0\setminus C}\to \E^0_\sU$ est un
 isomorphisme de $C^*$-modules hilbertiens,
 \end{lemma}
-\begin{remark}
+\begin{remark}\cite{hilsum_scandalis:stab}
 D'aprs le lemme \ref{l4_lem} 
 et la proposition \ref{pop3_prop} , $\E^M_T = \E^\Om \oplus \E^{M \setminus \Om}\cong \K \otimes C^*_r\left(\G^T_T \right) \oplus \E^{M \setminus \overline{\Om}}$ 
 et donc $\E^M_T\cong \K \otimes C^*_r\left( G^T_T \right)$  en vertu du thŽorme de stabilisation
 pour les C*-modules hilbertiens. Et donc, par la proposition \ref{pop3_prop}  (iii), on a :
-\be
+\be\label{foli_times_k_eqn}
 C^*_r\left(M, \sF \right) = C^*_r\left(\G^M_M \right) \cong \K\left( \E^M_T\right) \cong \K \otimes C^*_r\left(\G^T_T \right). 
 \ee
 .
@@ -5129,10 +5111,9 @@ C^*_r\left(M, \sF \right) = C^*_r\left(\G^M_M \right) \cong \K\left( \E^M_T\righ
 	Every closed geodesic of the at torus $\T^2$ yields a compact transversal. More precisely,
 	for each pair $(p, q)$ of relatively prime integers we let $N_{p,q}$ be the submanifold of $\T^2$
 	given by
-	$$
-	N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
-	$$
-	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
+\be\label{foli_npq_eqn}
+N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
+\ee	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
 	the manifold $\G^N_N=\T\times \Z$ with range and source maps given by:
 	\bean
 	r(x, n) = x + n\th' ;\\
@@ -5338,7 +5319,163 @@ open sets $\sU_\la$ such that $\sF$ restricted to $\sU_\la$ has a Hausdorff spac
 but of course they fit together in a very complicated way which is related to the global
 properties of the foliation.
 \end{remark}
-\
+\subsection{Algebraic counterpart of geometric quotient}\label{quotions_a_sec}
+\paragraph{}
+Here I follow to \cite{{connes:ncg94}}
+We shall formulate the algebraic counterpart of the geometric operation of forming the
+quotient of a space by an equivalence relation, and show how to handle non-Hausdorff quotients by using noncommutative $C^*$-algebras. 
+
+\subsubsection{Quotient of two elements}
+Let $\sY \bydef \left\{a, b\right\}$ be a set consisting in two elements $a$ and $b$, so that the algebra $C\left(\sY \right)$ 
+of (complex-valued) functions on $\sY$ is the commutative algebra $\C \bigoplus 
+\C$ of $2 \times 2$ diagonal
+matrices. There are two ways of declaring that the two points a and b of Y are identical,
+i.e. of quotienting $\sY$ by the equivalence relation $a \sim b$.
+\begin{enumerate}
+	\item The first is to consider the subalgebra $A \subset C\left( \sY\right)$  of functions $f$ on $\sY$ which take the
+	same values at $a$ and $b: f(a) = f(b)$.
+	\item The second is to consider the larger algebra $B \supset C\left(\sY \right)$ of all $2 \times 2$ matrices:
+	\bean
+	f = \begin{pmatrix}
+		f_{aa} & f_{ab}\\
+		f_{ba} & f_{bb}
+	\end{pmatrix}.
+	\eean
+\end{enumerate}
+The relation between the two algebras is the notion of strong Morita equivalence of
+$C^*$-algebras. This relation preserves many
+invariants of $C^*$-algebras, such as $K$-theory and the topology of the space of irreducible
+representations. Thus, in our example the pure states $\om_a$ and $\om_b$ of $B$ which come
+directly from the points $a$ and $b$ of $\sY$ by the formula
+\bean
+\om_a\left( f\right) = f_{aa}, \quad \om_a\left( f\right) = f_{bb}\quad \forall a \in B
+\eean
+yield equivalent irreducible representations of $B = \mathbb{M}_2\left(\C \right)$, which corresponds to the
+identification $a \sim b$ in the spectrum of $B$.
+\subsubsection{Quotients of foliated manifolds}
+\paragraph*{}
+The notions of foliation and its $C^*$-algebra are explained in \cite{candel:foliI,candel:foliII}. A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
+$$
+M = \bigsqcup_{\la \in \La} \L_\la
+$$
+where $\L_\la$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
+$$
+x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
+$$ 
+It is proven that the spectrum of the explained in \cite{candel:foliII} reduced $C^*$-algebra of 	$C^*_r\left(M, \F \right)$ naturally homeomorphic to $M/ \sim$. Otherwise there is Hausdorff blowing-up $C_0\left( M\right) \to M\left(C^*_r\left(M, \F \right) \right)$. In result one has the following diagram
+\bean
+\begin{tikzcd}
+	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
+	& M/\sim &
+\end{tikzcd}
+\eean
+\subsubsection{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
+\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
+	Denote by "$\cdot$" the scalar product on $\R^n$.
+	The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
+	\la,\mu \in \Z^n$ implies $\lambda = 0$.
+\end{definition}
+\begin{definition}\label{nt_defn}\cite{wagner:pb}
+	Let $\Theta$ be an invertible, real  skew-symmetric quite irrational $n \times n$ matrix. A \textit{noncommutative torus} $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by the set $\left\{U_k\right\}_{k \in \Z^n}$ of unitary elements which satisfy to the following relations.
+	\begin{equation}\label{nt_unitary_product_eqn}
+		U_k U_p = e^{-\pi ik ~\cdot~ \Theta p} U_{k + p}; ~~~   \end{equation}
+\end{definition}
+Following condition holds
+\begin{equation}\label{nt_unitary_product_comm_eqn}
+	U_k U_p = e^{-2\pi ik ~\cdot~ \Theta p}U_p U_k.
+\end{equation}
+An alternative description of $\C\left(\mathbb{T}^n_{\Theta}\right)$ is such that if
+\begin{equation}\label{nt_th_eqn}
+	\Th = \begin{pmatrix}
+		0& \th_{12} &\ldots & \th_{1n}\\
+		\th_{21}& 0 &\ldots & \th_{2n}\\
+		\vdots& \vdots &\ddots & \vdots\\
+		\th_{n1}& \th_{n2} &\ldots & 0
+	\end{pmatrix}=\begin{pmatrix}
+		0& \th_{12} &\ldots & \th_{1n}\\
+		-\th_{12}& 0 &\ldots & \th_{2n}\\
+		\vdots& \vdots &\ddots & \vdots\\
+		-\th_{1n}& -\th_{2n} &\ldots & 0
+	\end{pmatrix}
+\end{equation}
+then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by unitary elements   $u_1,..., u_n \in U\left( C\left(\mathbb{T}^n_{\Theta}\right)\right) $ such that following condition holds
+\begin{equation}\label{nt_com_eqn}
+	\begin{split}
+		u_j u_k = e^{-2\pi i \theta_{jk} }u_k u_j.
+	\end{split}
+\end{equation}
+Unitary  operators $u_1,..., u_n$ correspond to the standard basis of $\mathbb{Z}^n$ and they are given by
+\be\label{nt_gen_eqn}
+u_j = U_{k_j },\quad \text{ where } k_j=\left(0,...,\underbrace{ 1}_{j^{\text{th}}-\text{place}},...,0 \right)
+\ee
+\begin{defn}\label{nt_uni_defn}
+	The unitary elements 
+	$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ which satisfy the relations \eqref{nt_com_eqn}, \eqref{nt_gen_eqn}
+	are said to be \textit{generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$. The set $\left\{U_l\right\}_{l \in \Z^n}$ is said to be the \textit{basis} of $C\left(\mathbb{T}^n_{\Theta}\right)$.
+\end{defn}
+
+If $a \in C\left(\mathbb{T}^n_{\Th}\right)$ is presented by a series
+\be\label{nt_series_eqn}
+a = \sum_{l \in \mathbb{Z}^{n}}c_l U_l;~~ c_l \in \mathbb{C}
+\ee
+and the series $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right| $ is convergent then from the triangle inequality it follows that the series is $C^*$-norm convergent and the following condition holds.
+\begin{equation}\label{nt_norm_estimation_eqn}
+	\left\|a \right\| \le \sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|.
+\end{equation}
+In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|l\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
+\be\label{nt_coo_eqn}
+\Coo\left(\mathbb{T}^n_{\Theta}\right)\bydef \phi_\infty \left( \sS\left(\mathbb{Z}^n\right)\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)
+\ee
+then $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a pre-$C^*$-algebra, and the Fourier transformation \ref{nt_fourier_eqn} yields the $\C$-isomorphism
+\be\label{nt_coo_iso_eqn}
+\Coo\left(\mathbb{T}^n\right)\cong \Coo\left(\mathbb{T}^n_{\Theta}\right).
+\ee
+\begin{empt}\label{nt_gns_empt}
+	There is a  state 
+	\be\label{nt_state_eqn}
+	\begin{split}
+		\tau: C\left(\mathbb{T}^n_{\Theta}\right) \to \C;\\
+		\sum_{k \in \Z^n} a_k U_k \mapsto a_{\left(0,...,0\right) }; \quad \text{ where } a_k \in \C,
+	\end{split}
+	\ee
+	which induces the faithful GNS representation. 
+	The $C^*$-norm completion  $C\left(\mathbb{T}^n_{\Theta}\right)$ of $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a $C^*$-algebra and there is a faithful representation
+	\begin{equation}\label{nt_repr_eqn}
+		C\left(\mathbb{T}^n_{\Theta}\right) \to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right) .
+	\end{equation}
+	(cf. Definition \ref{gns_defn}).  Similarly to the equation \eqref{from_a_to_l2_eqn} there is a $\C$-linear map 
+	\begin{equation}\label{nt_to_hilbert_eqn}
+		\Psi_\Th:C\left(\mathbb{T}^n_{\Theta}\right) \hookto L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right).
+	\end{equation}
+	If 
+	\be\label{nt_xik_eqn}
+	\xi_k \bydef \Psi_\Th\left(U_k \right)
+	\ee 
+	then from \eqref{nt_unitary_product_eqn}, \eqref{nt_state_eqn} it turns out
+	\begin{equation}\label{nt_h_product_eqn}
+		\tau\left(U^*_k  U_l \right) = \left(\xi_k, \xi_l \right)  = \delta_{kl},   
+	\end{equation} 
+	i.e. the subset $\left\{\xi_k\right\}_{k \in \mathbb{Z}^n}\subset L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is an orthogonal basis of  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$.
+	Hence the Hilbert space  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is naturally isomorphic to the Hilbert space $\ell^2\left(\mathbb{Z}^n\right)$ given by
+	\begin{equation*}
+		\ell^2\left(\mathbb{Z}^n\right) = \left\{\xi = \left\{\xi_k \in \mathbb{C}\right\}_{k\in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~|~ \sum_{k\in \mathbb{Z}^n} \left|\xi_k\right|^2 < \infty\right\}
+	\end{equation*}
+	and the $\C$-valued scalar product on $\ell^2\left(\mathbb{Z}^n\right)$ is given by
+	\begin{equation}\label{nt_xi_eqn}
+		\left(\xi,\eta\right)_{ \ell^2\left(\mathbb{Z}^n\right)}= \sum_{k\in \mathbb{Z}^n}    \overline{\xi}_k\eta_k.
+	\end{equation}
+	From \eqref{nt_unitary_product_eqn} and \eqref{nt_xik_eqn} it follows that the representation $C\left(\mathbb{T}^n_{\Theta}\right)\hookto B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ corresponds to the following action
+	\be\label{nt_l2_eqn}
+	\begin{split}
+		C\left(\mathbb{T}^n_{\Theta}\right)\times  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\to  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right);\\
+		U_k\xi_l = e^{-\pi ik ~\cdot~ \Theta l}\xi_{k + l} .
+	\end{split}
+	\ee
+\end{empt}
+
+
+
+
 \section{Sheaves}
 \subsection{Basic definitions}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
