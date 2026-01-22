@@ -641,7 +641,7 @@
 	\title{Algebraic topology of $C^*$-algebras}
 	
 	\author
-	{\textbf{Petr R. Ivankov*}\\
+	{\textbf{Petr R. Ivankov* 10.02   13:50}\\
 		e-mail: * monster.ivankov@gmail.com \\
 	}
 	
@@ -2053,9 +2053,30 @@ and the image $\Om\in \T^2$ of $\Om_{\R^2}$ is a tubular neighborhood of $N$
 If both $u, v \in C\left(\G^N_N \right)$ are given by
   \eqref{foli_uv_eqn} then one has
   \be
-  \forall \xi \in \E^\Om_N \quad \xi u_{\T^2} = \xi u e^{\pi i \th}
+  \forall \xi \in \E^\Om_N \quad \xi u'_{\T^2} = u \xi
   \ee
-  However from 
+  One has $E^\Om_N\cong C\left( N\right) \otimes L^2\left( -\pi, \pi\right)$ and if $\xi \in    L^2\left( -\pi, \pi\right)\setminus \{0\}$ and $p_1$ is a projection onto $\xi$ then
+  $$
+  \E^{\T^2}_N \cong \left( \E^{N}_N \otimes \xi\right)  \oplus \left( \E^{N}_N \otimes \ell^2\left(\N \right) \right) 
+  $$
+  If $\left\{\mathfrak e_2,...  \right\}\in \ell^2\left(\N \right)$ is a basis then $\left\{\mathfrak e_1, \mathfrak e_2...  \right\}\ell^2\left(N \right) \in \C \mathfrak e_1 \oplus \ell^2\left(\N \right)$ is also a basis. One has
+  \be\label{filinf_m_eqn}
+  \begin{split}
+  \begin{pmatrix}
+  	u& 0 & \ldots &0 &  \dots \\
+  0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
+  	\vdots& \vdots &  \ddots & \vdots& \ldots\\
+  	0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
+  	\vdots& \vdots & \vdots &\vdots & \ddots \\
+  \end{pmatrix}= \\= \begin{pmatrix}
+  u'_{\T^2}& 0 & \ldots &0 &  \dots \\
+  0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
+  \vdots& \vdots &  \ddots & \vdots& \ldots\\
+  0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
+  \vdots& \vdots & \vdots &\vdots & \ddots \\
+  \end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right).
+  \end{split}
+  \ee 
 \paragraph{DEL}
 	\begin{remark}\label{scandalis_rem}\cite{hilsum_scandalis:stab}
 	D'après le lemme \ref{l4_lem} 
@@ -4488,9 +4509,18 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
 	$n = 0; 1$.
 \end{corollary}
+\begin{proposition}\label{k_1_prop}\cite{wegge_olsen}
+%Proposition 7.1.5.
+\bean
+K_1\left(A \right) ) = \varinjlim% \left(\mathrm{GL}^+_n\left(A \right)= \varprojlim \left(U^+_n\left(A \right)\\= \mathrm{GL}^+_n\left(A \right)_0 \right)=\left(\mathrm{GL}_n\left(A^+ \right) \mathrm{GL}_n\left(A^+ \right)_0 \right)=\varprojlim \left(U_n\left(A^+ \right)
+\eean
+where the "$_0$" subscript means the connected component of unity;
+In particular, two elements $x,y \in K_1\left(A \right)$  are equal precisely when there 
+is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\mathrm{GL}^+_n\left(A \right)$) such that $u$ and $v$ are homotopic within $U^+_n\left(A \right)$, ($\mathrm{GL}^+_n\left(A \right)$).
+\end{proposition}
 \begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
-	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
+	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes p_1$, where $p_1$ is a rank 1 
 	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
 	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
 	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
