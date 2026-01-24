@@ -1602,21 +1602,30 @@ C\left( \sX^+\right) \subset M\left(A\otimes \K \right)$ and  diagrams
 \begin{tikzcd}
 A \arrow[r, "-\otimes p_1"] 	& A \otimes \K \arrow[d, "\varphi^2"]\\
 	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right) \otimes \K \\
-	 \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]&\mathrm{Proj}\left(A \right) \arrow[r, "\otimes p_1"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi^2_*"]\\
+	 \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] %\arrow[d, "\varphi_*"]
+	 &\mathrm{Proj}\left(A \right) \arrow[r, "\otimes p_1"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi_*\otimes p_1"]\\
 	 	\mathrm{Proj}\left( C\left( \sX^+\right)\right) \arrow[rr, "\mathfrak{Blowing}\otimes p_1"] &	& \mathrm{Proj}\left( M\left( A\right) \otimes \K\right)
 \end{tikzcd}
 \eean
-where 
+where $p_1$ is a rank-one projector in $\K$
 \bean
- \mathrm{Proj}^{\mathrm{nat}}\left(A \right)\bydef \left\{x \in  \mathrm{Proj}\left(A \right)\left|\exists y \in  	\mathrm{Proj}\left( C\left( \sX^+\right)\right)\right.\right\}
+ \mathrm{Proj}^{\mathrm{nat}}\left(A \right)\bydef \left\{x \in  \mathrm{Proj}\left(A \right)\left|\exists y \in  	\mathrm{Proj}\left( C\left( \sX^+\right)\right)\quad \mathfrak{Blowing}\left( y\right) \otimes p_1=\varphi_*\left( x\right)  \otimes p_1\right.\right\}
 \eean
 For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is $\varphi_*\left(\sV \right)  \in \mathrm{Proj}\left(	C\left( \sX^+\right)\otimes  \K \right)$. The $C^*$-algebra 	$C\left( \sX^+\right)\otimes  \K$ is strongly Morita equivalent to 	$C\left( \sX^+\right)$, so $\varphi_*\left(\sV \right)$ uniquely defines $\sV' \in 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)$
 \end{empt}
-\begin{definition}
+\begin{definition}\label{chern_char_defn}
 	Under the above hypothesis for any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes  \K\right)$ 
 	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{k:char_thm}).
 \end{definition}
-
+\begin{remark}
+	The search of elements of the Definition \ref{chern_char_defn} can be found from the following commutative diagram
+\be\label{chern_char_eqn}
+\begin{tikzcd}
+\mathbb{M}_n \left( A\right)  \arrow[r, "\varphi_A"] & A \otimes \K \arrow[d, "\varphi"]\\
+\mathbb{M}_n\left( 	C\left( \sX^+\right)\right)  \arrow[r, "\varphi_\sX"]	& M\left( A\right) \otimes \K \\
+\end{tikzcd}
+\ee
+\end{remark}
 there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullback_defn})
 \newline
 \newline
@@ -2062,7 +2071,7 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
   If $\left\{\mathfrak e_2,...  \right\}\in \ell^2\left(\N \right)$ is a basis then $\left\{\mathfrak e_1, \mathfrak e_2...  \right\}\ell^2\left(N \right) \in \C \mathfrak e_1 \oplus \ell^2\left(\N \right)$ is also a basis. One has
   \be\label{filinf_m_eqn}
   \begin{split}
-  \begin{pmatrix}
+  u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\bydef\begin{pmatrix}
   	u& 0 & \ldots &0 &  \dots \\
   0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
   	\vdots& \vdots &  \ddots & \vdots& \ldots\\
@@ -2077,8 +2086,19 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
   \end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right).
   \end{split}
   \ee 
+  It is known that $K_1\left(\G^N_N  \right)= \Z\left[u\right]  + \Z\left[v\right]$ (cf. \cite{varilly:nc_intro}) it follows that $\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}$. If 
+  \bean
+  u_{C^*_r\left(\G^{\T^2}_{\T^2}\right)} \bydef \begin{pmatrix}
+  	u_{\T^2}& 0 & \ldots &0 &  \dots \\
+  	0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
+  	\vdots& \vdots &  \ddots & \vdots& \ldots\\
+  	0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
+  	\vdots& \vdots & \vdots &\vdots & \ddots \\
+  \end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right)
+  \eean 
+  then since $u'_{\T^2}$ is homotopic to $u_{\T^2}$ one has $\left[ u_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]=\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}$
 \paragraph{DEL}
-	\begin{remark}\label{scandalis_rem}\cite{hilsum_scandalis:stab}
+	\begin{remark}\label{scandalis_rem!}!!!\cite{hilsum_scandalis:stab}
 	D'après le lemme \ref{l4_lem} 
 	et la proposition \ref{pop3_prop} , $\E^M_T = \E^\Om_T \oplus \E^{M \setminus \overline{ \Om}}_T\cong \K \otimes C^*_r\left(\G^T_T \right) \oplus \E^{M \setminus \overline{\Om}}$ 
 	et donc $\E^M_T\cong \K \otimes C^*_r\left( G^T_T \right)$  en vertu du théorème de stabilisation
@@ -4439,7 +4459,7 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 
 \paragraph*{} The notions of $K$-theory, $K$-homology and $KK$-theory are explained in \cite{blackadar:ko,wegge_olsen}.
 
-\begin{definition}  !!! TO TOPOLOGY SECTION !!!
+\begin{definition}\label{top_suspenxrions_defn}\cite{spanier:at}  !!! TO TOPOLOGY SECTION !!!
 	%Definition 1.6.1.
 	If $\sX$ is locally compact, the \textit{(reduced) suspension} $S\sX$ of $\sX$
 	is defined  to be $\sX \times \R$.
@@ -4512,11 +4532,12 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 \begin{proposition}\label{k_1_prop}\cite{wegge_olsen}
 %Proposition 7.1.5.
 \bean
-K_1\left(A \right) ) = \varinjlim% \left(\mathrm{GL}^+_n\left(A \right)= \varprojlim \left(U^+_n\left(A \right)\\= \mathrm{GL}^+_n\left(A \right)_0 \right)=\left(\mathrm{GL}_n\left(A^+ \right) \mathrm{GL}_n\left(A^+ \right)_0 \right)=\varprojlim \left(U_n\left(A^+ \right)
+K_1\left(A \right) ) = \varinjlim \left(\mathrm{GL}^+_n\left(A \right)/\mathrm{GL}^+_n\left(A \right)_0\right) = \varinjlim \left(U^+_n\left(A \right)/U^+_n\left(A \right)_0\right)\\ =
+\varinjlim \left(\mathrm{GL}_n\left(A^+ \right)/\mathrm{GL}_n\left(A^+ \right)_0\right) = \varinjlim \left(U_n\left(A^+ \right)/U_n\left(A^+ \right)_0\right)
 \eean
 where the "$_0$" subscript means the connected component of unity;
 In particular, two elements $x,y \in K_1\left(A \right)$  are equal precisely when there 
-is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\mathrm{GL}^+_n\left(A \right)$) such that $u$ and $v$ are homotopic within $U^+_n\left(A \right)$, ($\mathrm{GL}^+_n\left(A \right)$).
+is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\mathrm{GL}^+_n\left(A \right)$) such that $u$ and $v$ are homotopic within $U^+_n\left(A \right)$, ($U^+_n\left(A \right)$).
 \end{proposition}
 \begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
@@ -4549,10 +4570,44 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 		We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
 		Moreover,
 		\bean
-		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~, f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
-		\cong 	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
+		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~,~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
+		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, ~f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
 		\eean
 	\end{definition}
+	  	\begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
+		\be\label{diag_eqn}
+		\begin{split}
+			w: \left[0, 1\right] \to \mathbb{M}_2\left(A \right) \\
+			t \mapsto  w\left( t\right)  \bydef \begin{pmatrix}
+				x & 0\\
+				0 & 1
+			\end{pmatrix} 
+			\begin{pmatrix}
+				\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+				\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+			\end{pmatrix}
+			\begin{pmatrix}
+				y & 0\\
+				0 & 1
+			\end{pmatrix}	\begin{pmatrix}
+			\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+			\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+			\end{pmatrix}
+		\end{split}
+		\ee
+		then
+		\bean
+		w\left(0 \right) = \begin{pmatrix}
+			x & 0\\
+			0 & y
+		\end{pmatrix}, \\
+		w\left(1 \right) = \begin{pmatrix}
+			xy & 0\\
+			0 & 1\end{pmatrix}
+		\eean
+		(cf \cite{blackadar:ko})
+	\end{empt} 
+	
 	\begin{proposition}\label{inv_path_prop}
 		%Proposition 3.4.1. 
 		Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
@@ -4575,8 +4630,8 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 	\end{theorem}
 	\begin{proof} (Fragment)
 		Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
-		(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}$.
-		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
+		(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
+		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
 		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
 	\end{proof}
 	\begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
@@ -7500,6 +7555,8 @@ H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\
 
 		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
 		
+\bibitem{varilly:nc_intro} {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
+
 \bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
 		
 		
