@@ -1575,13 +1575,13 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 
 \be\label{chern_eqn}
 \begin{tikzcd}
-	\mathbb{M}_n \left( A\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
-	& & M\left(A \otimes \K \right) \\
-	& \mathbb{M}_n \left(C\left( \sX^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
+	\mathbb{M}_\infty \left( A\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
+	& & 	 M\left(A \otimes \K \right) \\
+	& \mathbb{M}_\infty \left(C\left( \sX^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
 \begin{definition}\label{chern_defn}
-	Let  $\sV\in \mathrm{Proj}\left(A \right)$ be an equivalence class of idempotents represented by $e_A\in 	\mathbb{M}_n \left( A\right)$ such that there is the unique class  $\sV_\sX\in \mathrm{Proj}\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_n \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right) = \phi_\sX\left( e_\sX\right)$. 
+	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
 	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{k:char_thm})
 \end{definition}
 \paragraph{title}
@@ -2082,7 +2082,7 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
   \be\label{filinf_m_eqn}
   \begin{split}
   u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\bydef\begin{pmatrix}
-  	u& 0 & \ldots &0 &  \dots \\
+  	u_{\T^2}& 0 & \ldots &0 &  \dots \\
   0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
   	\vdots& \vdots &  \ddots & \vdots& \ldots\\
   	0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
@@ -2106,9 +2106,74 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
   	\vdots& \vdots & \vdots &\vdots & \ddots \\
   \end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right)
   \eean 
-  then since $u'_{\T^2}$ is homotopic to $u_{\T^2}$ one has $\left[ u_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]=\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}$
+  then since $u'_{\T^2}$ is homotopic to $u_{\T^2}$ one has \be\label{tori_lit_eqn}\left[u\right]=\left[ u_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]=\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}\cong K_1\left( {C^*_r\left(\G^{N}_{N} \right)}\right) \setminus \{0\}.\ee
+  From the Proposition \ref{inv_path_prop} it follows that there are continuous maps 
+  $
+  \Phi_{\G^{N}_{N}}: [0,1] \to \mathbb{M}_2 \left(C^*_r\left(  \G^{N}_{N}\right)\right) \subset \mathbb{M}_\infty \left(C^*_r\left(  \G^{N}_{N}\right)\right)
+  $,  $~
+  \Phi_{\T^2}: [0,1] \to \mathbb{M}_2 \left(C\left(  \T^2\right)\right) \subset \mathbb{M}_\infty \left(C\left( \T^2\right) \right)
+  $ such that
+  \bean
+  \Phi_{\G^{N}_{N}}\left( 0\right) = 1_{ \mathbb{M}_2 \left( C^*_r\left( \G^{N}_{N}\right) \right)},\\
+   \Phi_{ \G^{N}_{N} }\left(1\right) = \begin{pmatrix}
+   	u & 0\\
+   	0 & u^*
+   \end{pmatrix};\\
+  \Phi_{\T^2}\left( 0\right) = 1_{ \mathbb{M}_2 \left( C\left( \T^2\right) \right)},\\
+\Phi_{\T^2}\left(1\right) = \begin{pmatrix}
+	u_{\T^2} & 0\\
+	0 & u^*_{\T^2}
+\end{pmatrix}.
+  \eean
+  There are maps
+  \bean
+  \Psi_{\G^{N}_{N}}:[0, 1] \to \mathbb{M}_2\left( C^*_r\left( \G^{N}_{N}\right)
+   \right),\\
+   t \mapsto    \Phi_{\G^{N}_{N}}\left( t\right) \begin{pmatrix}
+   1_{ C^*_r\left( \G^{N}_{N}\right)} & 0\\
+   	0 &0
+   \end{pmatrix}\left( \Phi_{\G^{N}_{N}}\left( t\right)\right)^{-1};\\
+ \Psi_{\T^2}:[0, 1] \to \mathbb{M}_2\left( C\left( \T^2\right)
+\right),\\
+t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
+	1_{ C\left( \T^2\right)} & 0\\
+	0 &0
+\end{pmatrix}\left( \Phi_{\T^2}\left( t\right)\right)^{-1};\\
+  \eean
+  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right) \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right) \right)$ and  $p_{\T^2} \in \mathbb{M}_\infty \left(C\left(  \T^2 \right)\right)\subset \mathbb{M}_\infty \left(C\left(  \T^2 \right)\right)$.  Similarly to \eqref{chern_eqn} there is a diagram
+\be\label{tori_chern_eqn}
+\begin{tikzcd}
+\Psi:	\mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right) \right)  \ar[r,hook, "\phi"] & SC^*_r\left(\G^{\T^2}_{\T^2} \right)  \ar[rd,hook, "\phi_A"]  &\\
+	& & 	 M\left( SC^*_r\left(\G^{\T^2}_{\T^2}   \right)\right)  \\
+	& \mathbb{M}_\infty \left(C\left( \left( S\T^2\right) ^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
+\end{tikzcd}
+\ee
+Taking into account the equations \eqref{filinf_m_eqn} and \eqref{tori_lit_eqn} one can deduce that
+\be\label{foli_p_eqn}
+\phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{\T^2}\right) 
+\ee
+where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}. From the Definition \ref{chern_defn} it follows that
+\be
+c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right) \in H^{2j}\left(\left( S\T^2\right)^+, \Z \right).
+\ee
+One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T/S^1}: \T^2\to S^1$ such that $u_{\T^2} = u_{S^1}\circ p_{\T/S^1}$ where $u_{S^1}\in U\left(C\left(S^1 \right) \right)$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$  
 \paragraph{DEL}
-	\begin{remark}\label{scandalis_rem!}!!!\cite{hilsum_scandalis:stab}
+\begin{definition}\label{chern_defn!}
+	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
+	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{k:char_thm})
+\end{definition}
+
+  
+  
+
+	\begin{proposition}\label{inv_path_prop!}
+	%Proposition 3.4.1. 
+	Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
+	to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
+	be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
+	of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
+\end{proposition}
+\	\begin{remark}\label{scandalis_rem!}!!!\cite{hilsum_scandalis:stab}
 	D'aprs le lemme \ref{l4_lem} 
 	et la proposition \ref{pop3_prop} , $\E^M_T = \E^\Om_T \oplus \E^{M \setminus \overline{ \Om}}_T\cong \K \otimes C^*_r\left(\G^T_T \right) \oplus \E^{M \setminus \overline{\Om}}$ 
 	et donc $\E^M_T\cong \K \otimes C^*_r\left( G^T_T \right)$  en vertu du thŽorme de stabilisation
@@ -3562,11 +3627,26 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	\eea
 	(cf. Notation \ref{top_sec_notn}).
 \end{remark} 
-
+\begin{theorem}\cite{karoubi:k}
+%3.3. Theorem (Thom).
+ (Thom) Let us assume that the base $\sX$ is compact. Then there exists a 
+unique cohomology class $U_V \in  H^n(V)$, such that the restriction of $U_V$ to each group 
+$H^n(V_x)$ is the generator $\om_x$ Moreover, the cup-product with Uv defines an  
+isomorphism 
+$$
+\varphi_V : H^j\left(\sX \right) \xrightarrow{\cong}  H^{n+j}\left(\sX \right)
+$$
+($U_V$ is called the Thom class in cohomology and ($\varphi_V$ the {\it Thorn isomorphism}). 
+\end{theorem}
+\begin{definition}\label{euler_class_defn}\cite{karoubi:k}
+The restriction $\chi\left(V \right)$ of the Thom class $U_V$ to $H^n\left( V\right) \cong H^n\left( \sX\right)$
+called the {\it Euler class} of the oriented vector bundle V (more precisely, it is the 
+{\it cohomological Euler class}
+\end{definition}
 \begin{proposition}\cite{karoubi:k}\label{k:char_prop}
 %2.17. Proposition. 
 For each vector bundle $\sV$ of rank $n$, with compact base $\sX$, we 
-define {\cite characteristic classes} $c_j\left(\sV \right)\in K\left( \sX\right) $, for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
+define {\it characteristic classes} $c_j\left(\sV \right)\in K\left( \sX\right) $, for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
 These characteristic classes satisfy the following axioms:
 \begin{enumerate}
 	\item [(i)]
@@ -3582,7 +3662,7 @@ These characteristic classes satisfy the following axioms:
 		\bean
 		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
 		\eean
-		\item[(iii)] If the rank of $V$ is one, then $c_1\left(]sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+		\item[(iii)] If the rank of $\sV$ is one, then $c_1\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
 	\end{enumerate}
 			Moreover, the characteristic classes $c_j\left( \sV\right)$  are uniquely determined by these axioms. 
 \end{proposition}
@@ -3597,7 +3677,7 @@ associate cohomology classes  $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \righ
 		\bean
 		c_k\left(\sV_1 \oplus \sV_2 \right) = \sum_{i + j = k} c_i\left( \sV_1\right) c_j\left( \sV_2\right) 
 		\eean
-		\item[(iii)] If the rank of $\sV$ is one, then $c_0\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
+		\item[(iii)] If the rank of $\sV$ is one, then $c_0\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$ (cf. Definition \ref{euler_class_defn}), and $c_i\left( \sV\right)  = 0$ for $i > 1$.
 	\end{enumerate}
 \end{theorem}
 
@@ -4521,7 +4601,20 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 	K_0\left(A \right).
 	\ee
 \end{remark}
+\begin{definition}\label{projection_equivalence_defn}\cite{wegge_olsen}
+%Definition 6.1.1. 
+Call projections $p, q \in \mathbb{M}_\infty\left(A \right)$ {\it equivalent}, denoted $p\sim q$, when there is a $v \in \mathbb{M}_\infty\left(A \right)$ such that $p = v*v$ and $q = vv^*$ 
+The equivalence classes are denoted $[\cdot]$ and the set of all these is 
+\be
+V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left(A \right)\right.\right\}
+\ee
 
+{\it Addition} in $V\left( A\right)$ is defined by 
+\bean
+[p] + [q] = \left[p' \oplus q'\right]
+\eean
+	if $p' \sim p$, $q' \sim  q$, $p'\perp q'$. 
+\end{definition}
 \begin{theorem}\label{k_0_iso_thm}\cite{blackadar:ko}
 	%Theorem 5.4.2.
 	For any $A$ and $J$, the natural homomorphism from $K_0\left(J^+, J \right)$ 
