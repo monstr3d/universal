@@ -1582,7 +1582,7 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 \ee
 \begin{definition}\label{chern_defn}
 	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{k:char_thm})
+	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
 \end{definition}
 \paragraph{title}
 If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)$ and there are pullback
@@ -1625,7 +1625,7 @@ For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is 
 \end{empt}
 \begin{definition}\label{chern_char_defn}
 	Under the above hypothesis for any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes  \K\right)$ 
-	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{k:char_thm}).
+	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{chern_class_thm}).
 \end{definition}
 \begin{remark}
 	The search of elements of the Definition \ref{chern_char_defn} can be found from the following commutative diagram
@@ -2052,10 +2052,13 @@ C^*_r\left(\T^2, \sF_\th \right) = C^*_r\left(\G^{\T^2}_{\T^2} \right) \cong \K\
 where $\E^{\T^2}_N$ is the explained in \ref{foli_hilb_empt} $C^*$-Hilbert module. 
 The maps $u_{\R^2}, v_{\R^2}: \R^2 \to \C$
 \bean
-u_{\R^2}\left(x,y \right)\bydef e^{2]pi i x},\\
-v_{\R^2}\left(x,y \right)\bydef e^{2]pi i y}
+u_{\R^2}\left(x,y \right)\bydef e^{2\pi i x},\\
+v_{\R^2}\left(x,y \right)\bydef e^{2\pi i y}
 \eean
-and the natural projection $\R^2\to \T^2 \cong \R^2/\Z^2$ yield two unitary elements $u_{\T^2}, v_{\T^2}\in C\left( \T^2\right)$.
+and the natural projection $\R^2\onto \T^2 \cong \R^2/\Z^2$ yield two unitary elements
+\be\label{foli_utv_eqn}
+u_{\T^2}, v_{\T^2}\in C\left( \T^2\right).
+\ee
 If $u'_{\R^2}: \R^2 \to \C$ is such that
 \bean
 \forall k_1, k_2 \in \N, \quad \forall\left(x, y \right) \in \left( \left[0, 2\pi\right], \left[0, 2\pi\right]\right)  \quad u'_{\R^2}\left( x + 2k_1\pi, y + 2k_2\pi\right) =\\= \begin{cases}
@@ -2145,35 +2148,101 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 \begin{tikzcd}
 \Psi:	\mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right) \right)  \ar[r,hook, "\phi"] & SC^*_r\left(\G^{\T^2}_{\T^2} \right)  \ar[rd,hook, "\phi_A"]  &\\
 	& & 	 M\left( SC^*_r\left(\G^{\T^2}_{\T^2}   \right)\right)  \\
-	& \mathbb{M}_\infty \left(C\left( \left( S\T^2\right) ^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
+	& \mathbb{M}_\infty \left(S C\left( \T^2\right) ^+\right)  \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
 Taking into account the equations \eqref{filinf_m_eqn} and \eqref{tori_lit_eqn} one can deduce that
 \be\label{foli_p_eqn}
 \phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{\T^2}\right) 
 \ee
-where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}. From the Definition \ref{chern_defn} it follows that
-\be
-c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right) \in H^{2j}\left(\left( S\T^2\right)^+, \Z \right).
+where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}.
+One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T^{2}/S^1}: \T^2\to S^1$ such that
+\be\label{folipu_eqn}
+u_{\T^2} = u_{S^1}\circ p_{\T^{2}/S^1}
 \ee
-One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T/S^1}: \T^2\to S^1$ such that $u_{\T^2} = u_{S^1}\circ p_{\T/S^1}$ where $u_{S^1}\in U\left(C\left(S^1 \right) \right)$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. If $\sX$ is a compact space then from the equation \eqref{suspension_s_eqn} it follows that
-\bean
-	\left(SC\left(\sX \right)  \right)^+ \cong\\ \left\{\left.f:S^1\to C\left(\sX \right) \right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in C\left(\sX \right) , ~x_1 = 0 \in C\left(\sX \right) \right\}.
-\eean
-If $\sY$ is a compact space with $C\left( \sY\right)\cong SC\left(\sX \right)$ then there is a point $y_0\in \sY$ which corresponds to the maximal ideal
-\bean
- \left\{\left.f:S^1\to C\left(\sX \right) \right| f \text{ continuous}, ~f(z)= x_z, ~x_z \in C\left(\sX \right) , ~x_1 = 0 \in C\left(\sX \right) \right\} \subset 	\left(SC\left(\sX \right)  \right)^+
-\eean
-\begin{exercise}
-Under the above hypothesis prove that if $\Sigma \sX$ is the (topological) unreduced suspension (cf. Definition \ref{top_sus_defn}) then there is a continuous surjective map  $f:\Sigma \sX\to \sY$ such that $f\left( x_0\right) = f\left( x_1\right) = y$ where both $x_0$ and $x_1$ are images of $\sX \times \{0\}$ and  $x_0$ and  $\sX \times \{1\}$ respectively.
-Prove that there is the natural homeomorphism
-\be
-\sY = \Sigma \sX/ \{x_0\}\cup \{x_1\}
+where $u_{S^1}\in U\left(C\left(S^1 \right) \right)
+$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. From the Theorem \ref{suspension_thm} it follows that  there is a commutative diagram
+\be\label{foli_sus_eqn}
+\begin{tikzcd}
+	K_1\left(C\left( S^1\right)  \right) \arrow[rrr, "K_1\left( C\left( p_{\T^{2}/S^1} \right) \right)" ]  \arrow[d, "\th_{C\left( S^1\right)}" ]&&& K_1\left(C\left( \T^2\right)  \right)\arrow[d, "\th_{C\left(\T^2 \right) }" ]\\ 
+	K_0\left(S(C\left( S^1\right) \right) \arrow[rrr, "K_0\left( SC\left( p_{\T^{2}/S^1} \right)\right)" ] &&& K_0\left(SC\left(\T^2 \right)  \right)
+\end{tikzcd}
 \ee
-\end{exercise}
+such that
+$$
+\left[u_{\T^2} \right] = K_1\left( C\left( p_{\T^{2}/S^1} \right) \right)\left[ u_{S^1}\right].
+$$
+ From the proof of the Proposition \ref{inv_path_prop} it follows that there is a continuous map 
+$
+\Phi_{S^1}: [0,1] \to \mathbb{M}_2 \left(C\left(  S^1\right)\right) \subset \mathbb{M}_\infty \left(C\left( S^1\right) \right)
+$ such that
+\bean
+\Phi_{S^1}\left(1\right) = \begin{pmatrix}
+	u_{S^1} & 0\\
+	0 & u^*_{S^1}
+\end{pmatrix}.
+\eean
+There  is a map 
+\be
+\Psi_{S^1}:[0, 1] \to \mathbb{M}_2\left( C\left( \T^2\right)
+\right),\\
+t \mapsto    \Phi_{S^1}\left( t\right) \begin{pmatrix}
+	1_{ C\left( S^1\right)} & 0\\
+	0 &0
+\end{pmatrix}\left( \Phi_{S^1}\left( t\right)\right)^{-1};\\
+\ee
+From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{S^1} \in \mathbb{M}_2 \left(SC\left(S^1 \right)  \right)\subset  \mathbb{M}_\infty \left(SC\left(S^1 \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right) \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(S(C\left( S^1\right) \right)\cong \Z\left[p_{S^1}\right]$. Moreover one has $\left[p_{\T^2}\right] = K_0\left( SC\left( p_{\T^{2}/S^1} \right)\right)\left( \left[p_{S^1}\right]\right)$. 
 
+The map $p_{\T^{2}/S^1}$ yields a surjective continuous map
+\bean
+\Sigma p_{\T^{2}/S^1}: \Sigma \T^2 \onto \Sigma S^1 \cong S^2.
+\eean 
+which induces a continuous map
+\bean
+\sY \bydef \Sigma \T^2/\{x_0\}\cup \{x_1\} \onto \sY' \bydef \Sigma S^1/\{x_0\}\cup \{x_1\} \cong S^2 /\{x_0\}\cup \{x_1\}.
+\eean 
+Using \cite{karoubi:k} one can prove that $K_1\left(C\left( S^1\right)  \right)\cong \Z\left[u_{S^1}\right]$ and $K_1\left(C\left( \T^2\right)  \right)\cong \Z\left[u_{\T^2}\right]\oplus \Z\left[v_{\T^2}\right]$ and f
+
+
+\begin{exercise}
+	Under the above hypothesis prove that if $\Sigma \sX$ is the (topological) unreduced suspension (cf. Definition \ref{top_sus_defn}) then there is a continuous surjective map  $f:\Sigma \sX\to \sY$ such that $f\left( x_0\right) = f\left( x_1\right) = y$ where both $x_0$ and $x_1$ are images of $\sX \times \{0\}$ and  $\sX \times \{1\}$ respectively.
+	Prove that there is the natural homeomorphism
+	\be
+	\sY = \Sigma \sX/ \{x_0\}\cup \{x_1\}.
+	\ee
+\end{exercise}
+If $\sY$ is a compact Hausdorff space such that
+\be
+\begin{split}
+\sY \bydef \Sigma \T^2/\{x_0\}\cup \{x_1\},\\
+C\left(\sY  \right) \cong S C\left( \T^2\right) ^+.
+\end{split}
+\ee
+From the Definition \ref{chern_defn} it follows that
+\be
+c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right) \in H^{2j}\left(\sY, \Z \right).
+\ee
+From the Theorem \ref{chern_class_thm}.
 
 \paragraph{DELETE}
+
+\
+\begin{theorem}\label{k:char_thm!}!!!!\cite{hatcher:kt}
+	%Theorem 3.2. 
+	There is a unique sequence of functions $c_1, c_2,...$ assigning to each
+	complex vector bundle $\sV \to \sX$ a class $c_j\left( \sV\right)$  depending only on the isomorphism
+	type of $\sV$ , such that
+	\begin{enumerate}
+		\item [(i)] $c_j\left( f^*\left(
+		\sV  \right)\right)   = H^{2j}\left(\bullet, \Z \right)\left( f\right)  \left(
+		c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
+		\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c_2 + ... \in  H^*\left(\sX, \Z \right)$.
+		\item[(iii)] $c_j(\sV) = 0$ if $j > \dim \sV$.
+		\item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty \right)$  specified
+		in advance.
+	\end{enumerate}
+\end{theorem}
+\
 
 \begin{remark}\label{k_exact_rem!}!!!\cite{karoubi:k}
 	If $\sY$ is a closed subspace of the compact space then from the Proposition \ref{k_exact_prop} it follows that there is the exact sequence
@@ -2184,56 +2253,7 @@ Prove that there is the natural homeomorphism
 
 
 
-
-\begin{definition}\label{suspension_defn!}\cite{blackadar:ko}
-	%Definition 8.2.1.
-	The \textit{suspension} of $A$, denoted $SA$, is
-	\be
-	\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
-	\ee
-	with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
-	complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
-	We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
-	Moreover,
-	\bean
-	\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~,~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
-	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, ~f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
-	\eean
-\end{definition}
-
-\begin{definition}\label{chern_defn!}
-	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{k:char_thm})
-\end{definition}
-
   
-  
-
-	\begin{proposition}\label{inv_path_prop!}
-	%Proposition 3.4.1. 
-	Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
-	to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
-	be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
-	of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
-\end{proposition}
-\	\begin{remark}\label{scandalis_rem!}!!!\cite{hilsum_scandalis:stab}
-	D'aprs le lemme \ref{l4_lem} 
-	et la proposition \ref{pop3_prop} , $\E^M_T = \E^\Om_T \oplus \E^{M \setminus \overline{ \Om}}_T\cong \K \otimes C^*_r\left(\G^T_T \right) \oplus \E^{M \setminus \overline{\Om}}$ 
-	et donc $\E^M_T\cong \K \otimes C^*_r\left( G^T_T \right)$  en vertu du thŽorme de stabilisation
-	pour les C*-modules hilbertiens. Et donc, par la proposition \ref{pop3_prop}  (iii), on a :
-	\be\label{foli_times_k_eqn!}
-	C^*_r\left(M, \sF \right) = C^*_r\left(\G^M_M \right) \cong \K\left( \E^M_T\right) \cong \K \otimes C^*_r\left(\G^T_T \right). 
-	\ee
-	.
-\end{remark}
-
-
-!
-\begin{corollary}\label{stable_k_cor!}\cite{blackadar:ko}
-	%Corollary 12.2.3. 
-	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
-	$n = 0; 1$.
-\end{corollary}
 \begin{corollary}\label{stab_k_0_cor!}\cite{wegge_olsen}
 	%			Corollary 6.2.11. Stability of Ko 
 	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
@@ -3670,46 +3690,8 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	\eea
 	(cf. Notation \ref{top_sec_notn}).
 \end{remark} 
-\begin{theorem}\cite{karoubi:k} DELETE !!!
-%3.3. Theorem (Thom).
- (Thom) Let us assume that the base $\sX$ is compact. Then there exists a 
-unique cohomology class $U_V \in  H^n(V)$, such that the restriction of $U_V$ to each group 
-$H^n(V_x)$ is the generator $\om_x$ Moreover, the cup-product with Uv defines an  
-isomorphism 
-$$
-\varphi_V : H^j\left(\sX \right) \xrightarrow{\cong}  H^{n+j}\left(\sX \right)
-$$
-($U_V$ is called the Thom class in cohomology and ($\varphi_V$ the {\it Thorn isomorphism}). 
-\end{theorem}
-\begin{definition} DELETE !!!!\label{euler_class_defn}\cite{karoubi:k}
-The restriction $\chi\left(V \right)$ of the Thom class $U_V$ to $H^n\left( V\right) \cong H^n\left( \sX\right)$
-called the {\it Euler class} of the oriented vector bundle V (more precisely, it is the 
-{\it cohomological Euler class}
-\end{definition}
-\begin{proposition}\cite{karoubi:k}\label{k:char_prop} DELETE !!!
-%2.17. Proposition. 
-For each vector bundle $\sV$ of rank $n$, with compact base $\sX$, we 
-define {\it characteristic classes} $c_j\left(\sV \right)\in K\left( \sX\right) $, for $j=0, .. ., n$ such that $c_0\left(\sV \right)=1$ . 
-These characteristic classes satisfy the following axioms:
-\begin{enumerate}
-	\item [(i)]
- The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases, $\sX$ and $\sX'$, of $\sV$ and $\sV'$ respectively; 
-			and which induces an isomorphism on each fiber. 
-			\bean
-			\begin{tikzcd}
-			\sV \arrow[d]\arrow[r, "g"] & \sV'\arrow[d]\\
-			\sX \arrow[r, "f"] & \sX'\\
-			\end{tikzcd}
-			\eean
-		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
-		\bean
-		c_k\left(V_1 \oplus V_2 \right) = \sum_{i + j = k} c_i\left( V_1\right) c_j\left( V_2\right) 
-		\eean
-		\item[(iii)] If the rank of $\sV$ is one, then $c_1\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c_i\left( \sV\right)  = 0$ for $i > 1$.
-	\end{enumerate}
-			Moreover, the characteristic classes $c_j\left( \sV\right)$  are uniquely determined by these axioms. 
-\end{proposition}
-\begin{theorem}\label{k:char_thm}\cite{hatcher:at}
+\paragraph{The Chern characters}
+\begin{theorem}\label{chern_class_thm}\cite{hatcher:kt}
 %Theorem 3.2. 
 There is a unique sequence of functions $c_1, c_2,...$ assigning to each
 complex vector bundle $\sV \to \sX$ a class $c_j\left( \sV\right)$  depending only on the isomorphism
@@ -3718,29 +3700,12 @@ type of $\sV$ , such that
 	\item [(i)] $c_j\left( f^*\left(
 	\sV  \right)\right)   = H^{2j}\left(\bullet, \Z \right)\left( f\right)  \left(
 c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
-\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c+2 + ... \in  H^*\left(\sX, \Z \right)$.
-\item[(iiic)] $cj(\sV) = 0$ if $j > \dim \sV$.
-\item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty \right)$  specified
-in advance.
+\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c_2 + ... \in  H^*\left(\sX, \Z \right)$.
+\item[(iii)] $cj(\sV) = 0$ if $j > \dim \sV$.
+\item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty, \Z \right)$.
 \end{enumerate}
 \end{theorem}
-\begin{theorem}\cite{karoubi:k}
-	%3.15. THM. 
-To each complex vector bundle $\sV$ of rank $n$, with compact base $\sX$, we uniquely 
-associate cohomology classes  $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right) $ called Chern classes of $\sV$ which satisfy the following axioms:
-	\begin{enumerate}
-		\item [(i)]
-		The $c_j\left( \sV\right)$  are "natural", i.e. 	$c_j\left( \sV\right)  = f^*\left(c_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases
-		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
-		\bean
-		c_k\left(\sV_1 \oplus \sV_2 \right) = \sum_{i + j = k} c_i\left( \sV_1\right) c_j\left( \sV_2\right) 
-		\eean
-		\item[(iii)] If the rank of $\sV$ is one, then $c_0\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$ (cf. Definition \ref{euler_class_defn}), and $c_i\left( \sV\right)  = 0$ for $i > 1$.
-	\end{enumerate}
-\end{theorem}
 
-The proof of the Theorem \ref{k:char_thm} is analogous to the proof of \ref{k:char_prop}. Moreover, 
-this proof gives us the following proposition: 
 \paragraph{The Fundamental Product Theorem}\label{k_fund_prod_sec}
 
 \paragraph{}
@@ -4782,12 +4747,12 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 		%Theorem 8.2.2. 
 		$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
 		following diagram commutes:
-		\newline
+	\bean
 		\begin{tikzcd}
 			K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
 			K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
 		\end{tikzcd}
-		\\
+\eean
 		(In the language of category theory, $\th$ gives an invertible natural transformation
 		from $K_1$ to $K_0\circ S$).
 	\end{theorem}
@@ -7684,6 +7649,9 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 	
 	\bibitem{hatcher:at}Allen Hatcher, \textit{Algebraic topology}. Cambridge University Presses, Cambridge, 2002. 
 	 	
+	 	\bibitem{hatcher:kt}Allen Hatcher. \textit{Vector Bundles \& $K$-Theory}. Version 2.2, November 2017. Copyright c 2003.
+	 	Paper or electronic copies for noncommercial use may be made freely without explicit permission from the author.
+	 	All other rights reserved.  207.
 	 	
 	 \bibitem{hermann:obstruction}  Robert Hermann {\it Obstruction theory for fibre spaces}.	 Illinois J. Math. 4(1): 9-27 (March 1960). DOI: 10.1215/ijm/1255455733. 1960;
 	 
