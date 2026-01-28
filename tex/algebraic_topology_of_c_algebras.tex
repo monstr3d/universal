@@ -2107,7 +2107,7 @@ If both $u, v \in C\left(\G^N_N \right)$ are given by
   \end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right)
   \eean 
   then since $u'_{\T^2}$ is homotopic to $u_{\T^2}$ one has \be\label{tori_lit_eqn}\left[u\right]=\left[ u_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]=\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}\cong K_1\left( {C^*_r\left(\G^{N}_{N} \right)}\right) \setminus \{0\}.\ee
-  From the Proposition \ref{inv_path_prop} it follows that there are continuous maps 
+  From the proof of the Proposition \ref{inv_path_prop} it follows that there are continuous maps 
   $
   \Phi_{\G^{N}_{N}}: [0,1] \to \mathbb{M}_2 \left(C^*_r\left(  \G^{N}_{N}\right)\right) \subset \mathbb{M}_\infty \left(C^*_r\left(  \G^{N}_{N}\right)\right)
   $,  $~
@@ -2156,8 +2156,40 @@ where the relation $\sim$ is given by the Definition \ref{projection_equivalence
 \be
 c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right) \in H^{2j}\left(\left( S\T^2\right)^+, \Z \right).
 \ee
-One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T/S^1}: \T^2\to S^1$ such that $u_{\T^2} = u_{S^1}\circ p_{\T/S^1}$ where $u_{S^1}\in U\left(C\left(S^1 \right) \right)$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$  
-\paragraph{DEL}
+One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T/S^1}: \T^2\to S^1$ such that $u_{\T^2} = u_{S^1}\circ p_{\T/S^1}$ where $u_{S^1}\in U\left(C\left(S^1 \right) \right)$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. If $\sX$ is a compact space then from the equation \eqref{suspension_s_eqn} it follows that
+\bean
+	\left(SC\left(\sX \right)  \right)^+ \cong\\ \left\{\left.f:S^1\to C\left(\sX \right) \right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in C\left(\sX \right) , ~x_1 = 0 \in C\left(\sX \right) \right\}.
+\eean
+If $\sY$ is a compact space with $C\left( \sY\right)\cong SC\left(\sX \right)$ then there is a point $y_0\in \sY$ which corresponds to the maximal ideal
+\bean
+ \left\{\left.f:S^1\to C\left(\sX \right) \right| f \text{ continuous}, ~f(z)= x_z, ~x_z \in C\left(\sX \right) , ~x_1 = 0 \in C\left(\sX \right) \right\} \subset 	\left(SC\left(\sX \right)  \right)^+
+\eean
+\begin{exercise}
+Under the above hypothesis prove that if $\Sigma \sX$ is the (topological) unreduced suspension (cf. Definition \ref{top_sus_defn}) then there is a continuous surjective map  $f:\Sigma \sX\to \sY$ such that $f\left( x_0\right) = f\left( x_1\right) = y$ where both $x_0$ and $x_1$ are images of $\sX \times \{0\}$ and  $x_0$ and  $\sX \times \{1\}$ respectively.
+Prove that there is the natural homeomorphism
+\be
+\sY = \Sigma \sX/ \{x_0\}\cup \{x_1\}
+\ee
+\end{exercise}
+
+
+\paragraph{DELETE}
+\begin{definition}\label{suspension_defn!}\cite{blackadar:ko}
+	%Definition 8.2.1.
+	The \textit{suspension} of $A$, denoted $SA$, is
+	\be
+	\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
+	\ee
+	with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
+	complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
+	We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
+	Moreover,
+	\bean
+	\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~,~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
+	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, ~f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
+	\eean
+\end{definition}
+
 \begin{definition}\label{chern_defn!}
 	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
 	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{k:char_thm})
@@ -3362,7 +3394,7 @@ A simply connected covering space of a connected locally path-connected space $\
 
 
 \begin{definition}\label{top_sus_defn}\cite{hatcher:at}
-For a space $\sX$, the (unreduced) suspension $\Sigma\sX$ is the quotient of $\sX\times [0,1]$ obtained by collapsing $\sX\times\{0\}$ to one point and  $\sX\times\{1\}$ to another.
+For a space $\sX$, the {\it (unreduced) suspension} $\Sigma\sX$ is the quotient of $\sX\times [0,1]$ obtained by collapsing $\sX\times\{0\}$ to one point and  $\sX\times\{1\}$ to another.
 point.
 \end{definition}
 
@@ -4665,7 +4697,7 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 	\begin{definition}\label{suspension_defn}\cite{blackadar:ko}
 		%Definition 8.2.1.
 		The \textit{suspension} of $A$, denoted $SA$, is
-		\be
+		\be\label{suspension_eqn}
 		\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
 		\ee
 		with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
@@ -4673,9 +4705,11 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 		We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
 		Moreover,
 		\bean
-		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous }~,~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}\\
-		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous }~, ~f(z)=f(1)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}
+		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous},~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}
 		\eean
+		\be\label{suspension_s_eqn}
+		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
+		\ee
 	\end{definition}
 	  	\begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
 		\be\label{diag_eqn}
@@ -7579,8 +7613,14 @@ H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\
 \
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+	
+\bibitem{atiyah:kt}\textit{$K$-theory}
+By Michael Atiyah
+W. A. BENJAMIN, INC. New York, Amsterdam 1967
+Work for these note is was partially supported by NSF Grant GP-1217. 1967.
+
 		
-	\bibitem{berger:geometryI}	Marcel Berger. {\it Geometry I}
+	\bibitem{berger:geometryI}	Marcel Berger. {\it Geometry I}.
 		Springer Science \& Business Media, Jan 21, 2009.% - Mathematics - 432 pages
 		
 \bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
