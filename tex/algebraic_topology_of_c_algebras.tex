@@ -1577,12 +1577,12 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 \begin{tikzcd}
 	\mathbb{M}_\infty \left( A\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
 	& & 	 M\left(A \otimes \K \right) \\
-	& \mathbb{M}_\infty \left(C\left( \sX^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
+	& \mathbb{M}_\infty \left(C_0\left( \sX\right) \right) \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
 \begin{definition}\label{chern_defn}
-	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
+	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C_0\left(\sX \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C_0\left( \sX\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
+	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
 \end{definition}
 \paragraph{title}
 If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)$ and there are pullback
@@ -2177,6 +2177,10 @@ $
 \Phi_{S^1}: [0,1] \to \mathbb{M}_2 \left(C\left(  S^1\right)\right) \subset \mathbb{M}_\infty \left(C\left( S^1\right) \right)
 $ such that
 \bean
+\Phi_{S^1}\left(0\right) = \begin{pmatrix}
+	1_{C\left(S^1 \right) } & 0\\
+	0 & 1_{C\left(S^1 \right) }
+\end{pmatrix},\\
 \Phi_{S^1}\left(1\right) = \begin{pmatrix}
 	u_{S^1} & 0\\
 	0 & u^*_{S^1}
@@ -2195,8 +2199,22 @@ From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi
 
 The map $p_{\T^{2}/S^1}$ yields a surjective continuous map
 \bean
-\Sigma p_{\T^{2}/S^1}: \Sigma \T^2 \onto \Sigma S^1 \cong S^2.
+Sp_{\T^{2}/S^1}: S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1.
 \eean 
+For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphisms
+\bean
+S^2 \setminus \{x_0\}\sqcup \{x_1\} \cong SS^1 \cong\left(  0, 1 \right) \times S^1.
+\eean 
+Taking into account the Remark \ref{k_exact_rem} and the Corollary \ref{k_exc_cor} one has an exact sequence 
+\be
+K\left( S^2 \setminus \{x_0\}\sqcup \{x_1\}\right)\xrightarrow{\phi_1} K\left( S^2 \right) \xrightarrow{\phi_2} K\left( \{x_0\}\sqcup \{x_1\} \right).
+\ee
+One can proof that
+$$
+\ker \phi_2 = \Z \left(\left[H\right] -\left[1\right] \right) 
+$$
+where $H$ is the canonical line bundle (cf. \ref{kt_kan_line_empt})
+
 which induces a continuous map
 \bean
 \sY \bydef \Sigma \T^2/\{x_0\}\cup \{x_1\} \onto \sY' \bydef \Sigma S^1/\{x_0\}\cup \{x_1\} \cong S^2 /\{x_0\}\cup \{x_1\}.
@@ -2225,7 +2243,36 @@ c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right)
 From the Theorem \ref{chern_class_thm}.
 
 \paragraph{DELETE}
-
+\begin{empt}\label{k_triple_empt!}!!!\cite{karoubi:k}
+	%2.13.
+	Let  $\varphi: \mathscr C\to\mathscr C'$ be a quasi-surjective Banach functor. We wish to define a "relative" group $K\left( \varphi\right)$  (which coincides with $K\left(\mathscr C \right)$ when $\mathscr C'=0$). Let $\Ga\left( \varphi\right)$ denote the set of triples $\left(\E, \F, \a \right)$, where $\E$ and $\F$ are objects of $\mathscr C$ and $\a : \varphi\left(\E \right)\to \varphi\left(\F \right)$  is an 
+	isomorphism. Two triples  $\left(\E, \F, \a \right)$ and  $\left(\E', \F', \a' \right)$ are called \textit{isomorphic} if there 
+	exist isomorphisms $f : \E \to \E'$ and $g : \F \to \F'$ such that the following diagram commutes. 
+	\newline
+	\begin{tikzcd}
+		\varphi\left( \E\right)\arrow[r, "\a"] \arrow[d, "\varphi\left( f\right) "]& \varphi\left( \F\right) \arrow[d, "\varphi\left( g\right) "]\\
+		\varphi\left( \E'\right)\arrow[r, "\a'"] & \varphi\left( \F'\right)
+	\end{tikzcd}
+	
+	A triple $\left(\E, \F, \a \right)$, is called \textit{elementary} if $\E=\F$ and if $\a$ is homotopic to $\Id_{\varphi\left(\E \right) }$ within 
+	the automorphisms of $\varphi\left(\E \right)$. Finally, we define the sum of two triples $\left(\E, \F, \a \right)$ and $\left(\E', \F', \a' \right)$ to be $\left(\E\oplus \E', \F \oplus \F', \a \oplus \a'\right)$.
+	Then $K\left( \varphi\right) $ is the quotient of $\Ga\left( \varphi\right) $ by the following equivalence relation: 
+	$\sigma\sim \sigma'\Leftrightarrow\exists$ elementary $\tau$ and $\tau'$ such that $\sigma + \tau$ is isomorphic to $\sigma' + \tau'$ . The sum of 
+	triples obviously provides the set $K\left(\varphi \right) $ with a monoid structure. We let $d\left(\E, \F, \a \right)$
+	denote the class of $\left(\E, \F, \a \right)$ in the monoid $K\left(\varphi \right)$. %As a direct consequence of the 	definition, we notice that d(E, F, a) = 0 if and only if there exist objects G and 	H of #, and isomorphisms w: F   G >H and v: F  G-> H9 such that 	<p(i>)   (a   Id^C))   <p(w_!) is homotopic to Id^(H) within the automorphisms of(p(H). 
+	
+\end{empt}
+\begin{example}\label{k_triple_exm!}!!!!\cite{karoubi:k}
+	%2.7. Example. 
+	Let $\varphi: \mathscr E\left( \sX\right) \to  \mathscr\E\left(\sY \right)$  be the functor defined by $\varphi\left( \E\right) = \E|_\sY$ , where 
+	$\sY$ is a closed subspace of the compact space $\sX$. It is proven in \cite{karoubi:k} that $\varphi$ 
+	is a Banach functor which is full and quasi-surjective. We use the following notation
+	$$
+	K\left(\sX, \sY \right) \bydef K\left(\varphi \right) 
+	$$
+	%  By 1.5.9 we see that up to isomorphism the "restriction map" &(X){E, F)-> (Y)(EY, FY) is identical with the map r(X, HOM( , /0)-> 	r(Y, HOM(is, F)Y}. From 1.6.23, it follows that (p is a Banach functor. Moreover , (p is full A.5.10), and also quasi-surjective because any object of $( Y) is a directfactor of a trivial bundle 9n= Yxk" A.6.5), and clearly 6n = (p(E) where E=Xxk". 
+\end{example}
+\
 \
 \begin{theorem}\label{k:char_thm!}!!!!\cite{hatcher:kt}
 	%Theorem 3.2. 
@@ -2243,14 +2290,19 @@ From the Theorem \ref{chern_class_thm}.
 	\end{enumerate}
 \end{theorem}
 \
-
+\ref{k_exact_rem}
 \begin{remark}\label{k_exact_rem!}!!!\cite{karoubi:k}
 	If $\sY$ is a closed subspace of the compact space then from the Proposition \ref{k_exact_prop} it follows that there is the exact sequence
 	$$
 	K\left( \sX,\sY\right)\to K\left( \sX\right) \to K\left(\sY \right).
 	$$
 \end{remark}
-
+\begin{corollary}\label{k_exc_cor1}\cite{karoubi:k}
+	%5.20. Corollary. 
+	If $\sX$ is a locally compact space and $\sX'$  is a closed subspace, the 
+	groups $K_0\left(\sX, \sX' \right)$, $K_0\left(\sX\setminus \sX' \right)$ , $K\left(\sX, \sX' \right)$ and $K\left(\sX\setminus \sX' \right)$, are naturally isomorphic. 
+	
+\end{corollary} 
 
 
   
@@ -3129,6 +3181,15 @@ Let $G$ be a topological group. A (locally trivial) principal $G$-bundle is a fi
 		%		Let $p: \tilde{X} \to X$ covering projection.  It is clear that there is a {\it group of self-equivalences} of $p$ (a self-equivalence is a homeomorphism $f:\tilde{X}\to\tilde{X}$ such that $p \circ f = p$). We denote this group by $G(\tilde{X}| X)$. This group is also called the {\it group of covering transformations} of $p$.
 		%	\end{defn}
 	
+	\begin{definition}\label{top_suspenxrions_defn}\cite{spanier:at}  !!! TO TOPOLOGY SECTION !!!
+		%Definition 1.6.1.
+		If $\sX$ is locally compact, the \textit{(reduced) suspension} $S\sX$ of $\sX$
+		is defined  to be $\sX \times \R$.
+		The \textit{unreduced suspension} of a compact space $\sX$ is the quotient of $\sX\times \left[0,1\right]$ 
+		obtained by collapsing $\sX \times \{0\}$ and $\sX \times \{1\}$ to single points. The reduced suspension is the analogous construction in the category of pointed spaces: form
+		the unreduced suspension of $\sX^+$, collapse $\{+\}\times \left[0,1\right]$ to a single point, and use
+		this as base point.
+	\end{definition}
 	
 	\begin{empt}\label{top_comp_open_empt} {\it Function spaces.}\cite{switzer:at} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a sub-base for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset \sU\}$, $K\subset \sU$ compact, $\sU \subset \sX$ open. 
 	\end{empt}
@@ -3701,19 +3762,22 @@ type of $\sV$ , such that
 	\sV  \right)\right)   = H^{2j}\left(\bullet, \Z \right)\left( f\right)  \left(
 c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
 \item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c_2 + ... \in  H^*\left(\sX, \Z \right)$.
-\item[(iii)] $cj(\sV) = 0$ if $j > \dim \sV$.
+\item[(iii)] $c_j(\sV) = 0$ if $j > \dim \sV$.
 \item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty, \Z \right)$.
 \end{enumerate}
 \end{theorem}
+\begin{definition}\label{chern_class_defn}
+The given by the Theorem functions are \textit{Chern classes}.
+\end{definition}
 
 \paragraph{The Fundamental Product Theorem}\label{k_fund_prod_sec}
 
-\paragraph{}
+\begin{empt}\label{kt_kan_line_empt}
 We assume knowledge of elementary notions of $K$-theory explained in \cite{atiyah:kt,hatcher:kt,karoubi:k}.
 The key result allowing the calculation of $K\left( \sX\right)$  in nontrivial cases is a certain formula
 that computes $K\left(\sX \times S^2 \right)$  in terms of  $K\left(\sX \times S^2 \right)$. For example, when $\sX$ is a point this
 will yield a calculation of $K\left(S^2 \right)$.  Any point of the projective space $\C P^1$ yields a one-dimensional $\C$-subspace  of $\C^2$. So there is a $\C$-bundle over $\C P^1$ which sets to any point of $\C P^1$ the corresponding subspace. Using a homeomorphism $S^2 \cong \C P^1$ we define 
-be the canonical line bundle $H$ with base   $S^2 \cong \C P^1$, and let $1$ is a trivial bundle then according to  in \cite{atiyah:kt}  one has
+be the {\it canonical line bundle} $H$ with base   $S^2 \cong \C P^1$, and let $1$ is a trivial bundle then according to  in \cite{atiyah:kt}  one has
 \bean
 \left(H \otimes H \right) \oplus 1 \cong H \oplus H,\\
 H^2 +1 = 2H.
@@ -3722,6 +3786,14 @@ We can also write this as $\left( H - 1\right)^ 2$ = 0, so we have a natural rin
 $\Z\left[H\right]/\left( H - 1\right)^2\cong  K\left( S^2\right)$  whose domain is the quotient ring of the polynomial ring
 $\Z\left[H\right]$ by the ideal generated by $\left( H - 1\right)^2$ . In particular, note that an additive basis for
 $\Z\left[H\right]/\left( H - 1\right)^2$ is $\left\{1, H\right\}$.
+\end{empt}
+\begin{remark}
+	Under the above hypothesis one has 
+	\be
+	H^2\left(S^2\cong \C P^1, \Z \right) = \Z x_{S^2}
+	\ee
+	where $x_{S^2} \in 	H^2\left(S^2\cong \C P^1, \Z \right)$ is a generator. From (iv) of 
+\end{remark}
 \paragraph{Fredholm picture of $K$-theory}
 \paragraph{} % PAGE 108
 Here I follow to \cite{karoubi:k}.  Let $\mathscr H$ be the category of Hilbert spaces and let $\check{\mathscr H}$ be the category with the 
@@ -4572,15 +4644,6 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 
 \paragraph*{} The notions of $K$-theory, $K$-homology and $KK$-theory are explained in \cite{blackadar:ko,wegge_olsen}.
 
-\begin{definition}\label{top_suspenxrions_defn}\cite{spanier:at}  !!! TO TOPOLOGY SECTION !!!
-	%Definition 1.6.1.
-	If $\sX$ is locally compact, the \textit{(reduced) suspension} $S\sX$ of $\sX$
-	is defined  to be $\sX \times \R$.
-	The \textit{unreduced suspension} of a compact space $\sX$ is the quotient of $\sX\times \left[0,1\right]$ 
-	obtained by collapsing $\sX \times \{0\}$ and $\sX \times \{1\}$ to single points. The reduced suspension is the analogous construction in the category of pointed spaces: form
-	the unreduced suspension of $\sX^+$, collapse $\{+\}\times \left[0,1\right]$ to a single point, and use
-	this as base point.
-\end{definition}
 
 \begin{definition}\label{m_inf_defn}\cite{blackadar:ko}
 	%Definition 5.1.1. 
