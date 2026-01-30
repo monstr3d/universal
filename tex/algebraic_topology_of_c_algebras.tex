@@ -1571,13 +1571,13 @@ Any natural Hausdorff blowing-up is universal (cf. Definition \ref{blowing_uni_d
 \end{remark}
 	\subsubsection{Homomorphisms of $K$-theory}
 \paragraph*{}	
-If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A\otimes \K }:C\left( \sX^+\right) \hookto M\left(A\otimes \K \right)$ and there is a diagram
+If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A\otimes \K }:C\left( \sX^+\right) \hookto M\left(A\otimes \K \right)$ and there is a diagram
 
 \be\label{chern_eqn}
 \begin{tikzcd}
-	\mathbb{M}_\infty \left( A^+\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
-	& & 	 M\left(A\right)\otimes \K \\
-	& \mathbb{M}_\infty \left(C\left( \sX^+\right)\cong C_0\left( \sX\right)^+ \right) \ar[ru,hook, "\phi_\sX"]&
+	\mathbb{M}_\infty \left( A^+\right)  \ar[r,hook, "\phi"] & A^+ \otimes \ar[rd,hook, "\phi_A"]  \K &\\
+	& & 	 M\left(A\otimes \K\right)\cong  M\left(A\otimes \K\otimes \K\right)  \\
+	& \mathbb{M}_\infty \left(C\left( \sX^+\right) \right) \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
 \begin{definition}\label{chern_defn}
@@ -2187,27 +2187,31 @@ $ such that
 \end{pmatrix}.
 \eean
 There  is a map 
-\be
+\bean
 \Psi_{S^1}:[0, 1] \to \mathbb{M}_2\left( C\left( \T^2\right)
 \right),\\
 t \mapsto    \Phi_{S^1}\left( t\right) \begin{pmatrix}
 	1_{ C\left( S^1\right)} & 0\\
 	0 &0
 \end{pmatrix}\left( \Phi_{S^1}\left( t\right)\right)^{-1};\\
-\ee
+\eean
 From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{S^1} \in \mathbb{M}_2 \left(SC\left(S^1 \right)  \right)\subset  \mathbb{M}_\infty \left(SC\left(S^1 \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right) \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(S(C\left( S^1\right) \right)\cong \Z\left[p_{S^1}\right]$. Moreover one has $\left[p_{\T^2}\right] = K_0\left( SC\left( p_{\T^{2}/S^1} \right)\right)\left( \left[p_{S^1}\right]\right)$. 
 
 The map $p_{\T^{2}/S^1}$ yields a surjective continuous map
 \bean
 Sp_{\T^{2}/S^1}: S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1.
 \eean 
-For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphisms
+For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphism and a continuous surjective map
 \bean
-S^2 \setminus \{x_0\}\sqcup \{x_1\} \cong SS^1 \cong\left(  0, 1 \right) \times S^1.
+S^2 \setminus \{x_0\}\sqcup \{x_1\} \cong SS^1 \cong\left(  0, 1 \right) \times S^1,\\
+\phi_{S^2/\left( SS^1 \right)^+} : S^2\onto \left( SS^1 \right)^+
 \eean 
 Taking into account the Remark \ref{k_exact_rem} and the Corollary \ref{k_exc_cor} one has an exact sequence 
-\be
-K\left( S^2 \setminus \{x_0\}\sqcup \{x_1\}\right)\xrightarrow{\phi_1} K\left( S^2 \right) \xrightarrow{\phi_2} K\left( \{x_0\}\sqcup \{x_1\} \right).
+
+\be 
+\begin{tikzcd}
+K\left(0, 1 \right) \times S^1\cong K\left( S^2 \setminus \{x_0\}\sqcup \{x_1\}\right)\arrow[r] \arrow[d, "\cong"] &K\left( S^2  \right) \arrow[r, "\phi_{S^2}"] \arrow[d, "\phi_{S^2/\left( SS^1 \right)^+} "] &K\left( \{x_0\}\sqcup \{x_1\} \right)\arrow[d]\\
+K\left(0, 1 \right) \times S^1\cong K\left(\left(SS^1 \right)^+  \setminus \{y_0\}\right)\arrow[r]  &K\left(\left(SS^1 \right)^+     \right) \arrow[r, "\phi_{\left( SS^1\right)^+ }"]  &K\left( \{y_0\} \right)\end{tikzcd}
 \ee
 One can proof that
 $$
