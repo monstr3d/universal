@@ -1575,14 +1575,14 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is
 
 \be\label{chern_eqn}
 \begin{tikzcd}
-	\mathbb{M}_\infty \left( A\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
-	& & 	 M\left(A \otimes \K \right) \\
-	& \mathbb{M}_\infty \left(C_0\left( \sX\right) \right) \ar[ru,hook, "\phi_\sX"]&
+	\mathbb{M}_\infty \left( A^+\right)  \ar[r,hook, "\phi"] & A \otimes \ar[rd,hook, "\phi_A"]  \K &\\
+	& & 	 M\left(A\right)\otimes \K \\
+	& \mathbb{M}_\infty \left(C\left( \sX^+\right)\cong C_0\left( \sX\right)^+ \right) \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
 \begin{definition}\label{chern_defn}
-	Let  $\sV\in V\left(A \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C_0\left(\sX \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C_0\left( \sX\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
+	Let  $\sV\in V\left(A^+ \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A^+\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
+	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
 \end{definition}
 \paragraph{title}
 If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)$ and there are pullback
@@ -1646,7 +1646,7 @@ there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullbac
 \end{tikzcd}
 \\
 \\
-where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological spaces (cf. \cite{blackadar:ko,karoubi:k}). The groups  $K^{\mathrm{nat}}_j \left( A\right)$ are invariants of $A$. Suppose that there is a finitely generated $A^+$-module $P = e \ell^2\left( A^+\right)$ where $e \in \mathbb{M}_\infty \left(A^+ \right) $
+where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological spaces (cf. \cite{blackadar:ko,karoubi:k}). The groups  $K^{\mathrm{nat}}_j \left( A\right)$ are invariants of $A$. Suppose that there is a finitely generated $A^+$-module $P =  \ell^2\left( A^+\right)$ where $e \in \mathbb{M}_\infty \left(A^+ \right) $
 
 \ref{k0_rem} 
 
@@ -2036,7 +2036,7 @@ correspond to the given by \eqref{open_g_eqn} subsets of $\mathbb{P}\left(\H \ri
 \end{proof}
 
 \subsection{Example of the Chern character}
-\paragraph{}
+W\paragraph{}
 If  $\left(\T^2, \mathcal{F}_\th \right)$ is  the {Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ (cf. Example \ref{fol_tor_exm}) then from the equation \eqref{groupoid_multiplier_eqn} it turns out that there is the natural inclusion
 \be\label{torus_mult_eqn}
 C_0\left(\T^2 \right) \hookto M\left(C^*_r \left(\T^2, \mathcal{F}_\th \right)\right). 
@@ -2243,7 +2243,20 @@ c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right)
 From the Theorem \ref{chern_class_thm}.
 
 \paragraph{DELETE}
-\begin{empt}\label{k_triple_empt!}!!!\cite{karoubi:k}
+\ref{exc_coh_eqn}
+\begin{empt}\cite{hatcher:at}
+	{\it Excision  in cohomology}  says that for subspaces  $\sZ \subset A \sX$ with the closure
+	of $\sZ$ contained in the interior of $A$, the inclusion $j: \left( \sX \setminus \sZ, A\setminus \sZ\right) \to \left( \sX, A \right)$ ? induces
+	isomorphisms 
+	\be\label{exc_coh_eqn!}!
+	H^n\left(\cdot , G \right) \left( j\right) : \left( \sX , A;G\right)\xrightarrow{\cong}\left( \sX \setminus \sZ, A\setminus \sZ; G\right)
+	\ee
+	for all $n\in \N$. There is an {\it exact sequence of cohomology groups}
+	\be\label{exact_coh_eqn!}!!
+	...\to H^n\left(\sX, A , G \right) \to \left( \sX , ;G\right)\to H^n\left(\sX; G \right) \xrightarrow{\dl} H^{n +1}\left(\sX, A , G \right)\to
+	\ee
+\end{empt}
+!\begin{empt}\label{k_triple_empt!}!!!\cite{karoubi:k}
 	%2.13.
 	Let  $\varphi: \mathscr C\to\mathscr C'$ be a quasi-surjective Banach functor. We wish to define a "relative" group $K\left( \varphi\right)$  (which coincides with $K\left(\mathscr C \right)$ when $\mathscr C'=0$). Let $\Ga\left( \varphi\right)$ denote the set of triples $\left(\E, \F, \a \right)$, where $\E$ and $\F$ are objects of $\mathscr C$ and $\a : \varphi\left(\E \right)\to \varphi\left(\F \right)$  is an 
 	isomorphism. Two triples  $\left(\E, \F, \a \right)$ and  $\left(\E', \F', \a' \right)$ are called \textit{isomorphic} if there 
@@ -3574,6 +3587,18 @@ $$
 H^{n}\left(\sX, \A;G \right)\cong \mathrm{\Ext}\left(H_{n-1}\left(\sX, \A \right),G \right)\oplus\mathrm{Hom}\left(H_{n}\left(\sX, \A\right) ,G \right).
 $$
 \end{theorem}
+\begin{empt}\cite{hatcher:at}
+{\it Excision  in cohomology}  says that for subspaces  $\sZ \subset A \sX$ with the closure
+of $\sZ$ contained in the interior of $A$, the inclusion $j: \left( \sX \setminus \sZ, A\setminus \sZ\right) \to \left( \sX, A \right)$ ? induces
+isomorphisms 
+\be\label{exc_coh_eqn}
+H^n\left(\cdot , G \right) \left( j\right) : \left( \sX , A;G\right)\xrightarrow{\cong}\left( \sX \setminus \sZ, A\setminus \sZ; G\right)
+\ee
+for all $n\in \N$. There is an {\it exact sequence of cohomology groups}
+\be\label{exact_coh_eqn}
+...\to H^n\left(\sX, A , G \right) \to H^n\left( \sX ;G\right)\to H^n\left(A; G \right) \xrightarrow{\dl} H^{n +1}\left(\sX, A , G \right)\to ...
+\ee
+\end{empt}
 
 
 \subsubsection{Obstruction theory}
@@ -3720,7 +3745,8 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	Let $f: \mathcal X' \to \mathcal X$ be a continuous map. For every point $x'$ of $\mathcal X'$, let $E'_{x'}= E_{f\left(x' \right) }$. Then the set $E' = \bigsqcup_{x' \in \mathcal X'}E'_{x'}$ may be identified with the \textit{fiber product} $\mathcal X' \times_{\mathcal X} E$ formed by the pairs $\left(x',e \right)$ such that $f\left(x' \right) = \pi\left( e\right)$. If  $\pi': E' \to \mathcal X'$ is defined by $\pi'\left(x',e \right) = x'$, it is clear that the triple $\xi = \left( E', \pi', \mathcal X'\right)$ defines a quasi-vector bundle  with base  $ \mathcal X'$, when we provide $E'$ with the topology induced by $ \mathcal X' \times E$. We write $\xi' = f^*\left(\xi \right)$ or $f^*\left(E \right)$: this is the \textit{inverse image} of $\xi$ by $f$.  
 \end{definition}
 \begin{theorem}\label{serre_swan_thm}\cite{karoubi:k}.
-	Theorem (Serre, Swan). Let $A = C_k(\sX)$ be the ring of continuous 
+% 6.18	Theorem 
+(Serre, Swan). Let $A = C_k(\sX)$ be the ring of continuous 
 	functions on a compact space $\sX$ with values in $k$. Then the section functor $\Ga$ (cf. Notation \ref{top_sec_notn}) induces an 
 	equivalence of categories of vector bundles  with base  $\sX$ and finitely generated projective $A$-modules.
 \end{theorem}
@@ -3752,6 +3778,7 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	(cf. Notation \ref{top_sec_notn}).
 \end{remark} 
 \paragraph{The Chern characters}
+
 \begin{theorem}\label{chern_class_thm}\cite{hatcher:kt}
 %Theorem 3.2. 
 There is a unique sequence of functions $c_1, c_2,...$ assigning to each
@@ -3769,6 +3796,10 @@ c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definitio
 \begin{definition}\label{chern_class_defn}
 The given by the Theorem functions are \textit{Chern classes}.
 \end{definition}
+\begin{remark}\label{chern_class_rem}
+!!! In the Theorem  \ref{chern_class_thm} and the Definition \ref{chern_class_defn} we do not require that the space $\sX$ is compact. So the Theorem \ref{serre_swan_thm} is not generally hold.
+\end{remark}
+
 
 \paragraph{The Fundamental Product Theorem}\label{k_fund_prod_sec}
 
