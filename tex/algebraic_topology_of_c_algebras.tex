@@ -1582,7 +1582,10 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \
 \ee
 \begin{definition}\label{chern_defn}
 	Let  $\sV\in V\left(A^+ \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A^+\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm})
+	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ are {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm}), i.e.
+	\be\label{chern_defn_eqn}
+\forall j\in \N \quad c_j\left(\sV \right)\bydef c_j\left(\sV_\sX \right)
+	\ee 
 \end{definition}
 \paragraph{title}
 If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)$ and there are pullback
@@ -2143,7 +2146,8 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 	0 &0
 \end{pmatrix}\left( \Phi_{\T^2}\left( t\right)\right)^{-1};\\
   \eean
-  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right) \right)^+\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$.  Similarly to \eqref{chern_eqn} there is a diagram
+  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right) \right)^+\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
+  Similarly to \eqref{chern_eqn} there is a diagram
 \be\label{tori_chern_eqn}
 \begin{tikzcd}
 	\mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)  \ar[r,hook, "\phi"] & SC_r^*\left(  \G^{N}_{N}\right)^+\otimes \K
@@ -2156,7 +2160,19 @@ Taking into account the equations \eqref{filinf_m_eqn} and \eqref{tori_lit_eqn} 
 \be\label{foli_p_eqn}
 \phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{\T^2}\right) 
 \ee
-where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}.
+where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}. If
+\be
+\begin{split}
+	\sV_{G^N_N} \bydef p_{G^N_N}\left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)^2,  \\
+	\sV_{\T^2 }\bydef p_{\T^2}\left( \left(SC\left(  \T^2\right)  \right)^+\right)^2 
+\end{split} 
+\ee
+then from the equation \eqref{chern_defn_eqn}
+it follows that
+\be
+c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+\ee
+where $c_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
 One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $p_{\T^{2}/S^1}: \T^2\to S^1$ such that
 \be\label{folipu_eqn}
 u_{\T^2} = u_{S^1}\circ p_{\T^{2}/S^1}
@@ -2197,9 +2213,12 @@ t \mapsto    \Phi_{S^1}\left( t\right) \begin{pmatrix}
 \eean
 From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{S^1} \in \mathbb{M}_2\left( C\left( \left( SS^1\right)^+ \right)  \right)\subset \mathbb{M}_\infty\left( C\left( \left( SS^1\right)^+ \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right) \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(S(C\left( S^1\right) \right)\cong \Z\left[p_{S^1}\right]$. Moreover one has $\left[p_{\T^2}\right] = K_0\left( SC\left( p_{\T^{2}/S^1} \right)\right)\left( \left[p_{S^1}\right]\right)$. 
 
-The map $p_{\T^{2}/S^1}$ yields a surjective continuous map
+The map $p_{\T^{2}/S^1}$ yields  surjective continuous maps
 \be\label{chern_st_eqn}
-Sp_{\T^{2}/S^1}: S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1.
+\begin{split}
+Sp_{\T^{2}/S^1}: S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1,\\
+S^+p_{\T^{2}/S^1}: \left( S\T^2\right)^+    \onto\left(  SS^1 \right)^+\\
+\end{split}
 \ee 
 For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphism and a continuous surjective map
 \be\label{chern_ss_eqn}
