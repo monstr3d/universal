@@ -2146,7 +2146,7 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 	0 &0
 \end{pmatrix}\left( \Phi_{\T^2}\left( t\right)\right)^{-1};\\
   \eean
-  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
+  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{\G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{S\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
   Similarly to \eqref{chern_eqn} there is a diagram
 \be\label{tori_chern_eqn}
 \begin{tikzcd}
@@ -2158,19 +2158,19 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 \ee
 Taking into account the equations \eqref{filinf_m_eqn} and \eqref{tori_lit_eqn} one can deduce that
 \be\label{foli_p_eqn}
-\phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{\T^2}\right) 
+\phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right) 
 \ee
 where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}. If
-\be
+\be\label{chern_nt_eqn}
 \begin{split}
-	\sV_{G^N_N} \bydef p_{G^N_N}\left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)^2,  \\
-	\sV_{\T^2 }\bydef p_{\T^2}\left( \left(SC\left(  \T^2\right)  \right)^+\right)^2 
+	\sV_{S\G^N_N} \bydef p_{G^N_N}\left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)^2,  \\
+	\sV_{S\T^2 }\bydef p_{S\T^2}\left( \left(SC\left(  \T^2\right)  \right)^+\right)^2 
 \end{split} 
 \ee
 then from the equation \eqref{chern_defn_eqn}
 it follows that
-\be
-c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+\be\label{chern_nt_h2_eqn}
+c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
 \ee
 where $c_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
 One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2}/S^1}: \T^2\to S^1$ such that
@@ -2316,12 +2316,16 @@ One can prove that
 \be
 \xi_{\left(S\T^2 \right)^+ }= H^2 \left( ; \Z\right) \xi_{SS^1 }
 \ee
-
-which induces a continuous map
-\bean
-\sY \bydef \Sigma \T^2/\{x_0\}\cup \{x_1\} \onto \sY' \bydef \Sigma S^1/\{x_0\}\cup \{x_1\} \cong S^2 /\{x_0\}\cup \{x_1\}.
-\eean 
-Using \cite{karoubi:k} one can prove that $K_1\left(C\left( S^1\right)  \right)\cong \Z\left[u_{S^1}\right]$ and $K_1\left(C\left( \T^2\right)  \right)\cong \Z\left[u_{\T^2}\right]\oplus \Z\left[v_{\T^2}\right]$ and f
+\begin{lemma}
+	Under the above hypothesis there is the nontrivial Chern character $c_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right) $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
+\end{lemma}
+\begin{proof}
+	From \eqref{chern_nt_h2_eqn} it follows that
+	\be\label{chern_nt_h2p_eqn}
+	c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+	\ee
+	
+\end{proof}
 \paragraph{RRRRR}
 \begin{exercise}\label{quot_exer!}!!!\cite{hatcher:at}
 	Show that if $A$ is a closed subspace of $\sX$ that is a deformation retract of some
