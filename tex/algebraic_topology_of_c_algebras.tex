@@ -2038,7 +2038,8 @@ correspond to the given by \eqref{open_g_eqn} subsets of $\mathbb{P}\left(\H \ri
 
 \end{proof}
 
-\subsection{Example of the Chern character}
+\subsection{Examples of the Chern character}
+\paragraph{Non Hausdorff spectrum}
 \paragraph{}
 If  $\left(\T^2, \mathcal{F}_\th \right)$ is  the {Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ (cf. Example \ref{fol_tor_exm}) then from the equation \eqref{groupoid_multiplier_eqn} it turns out that there is the natural inclusion
 \be\label{torus_mult_eqn}
@@ -2068,6 +2069,7 @@ If $u'_{\R^2}: \R^2 \to \C$ is such that
 e^{2\pi i\left(  x + \th y\right)  } & y \le \pi,\\
 e^{2\pi i\left(  x + \pi \th - \th \left(y -\pi \right) \right)  } & y > \pi,
 \end{cases}
+\pi/2 !!!!
 \eean
 then $u'_{\R^2}$ is continuous and yields an unitary continuous map $u'_{\T^2}\in C\left( \T^2\right) $ which is homotopic to $u_{\T^2}$. So one has $\left[u'_{\T^2}\right]= \left[u_{\T^2}\right]\in K^1\left(
 \T^2 \right)\cong K_1\left(C\left(\T^2 \right)  \right)$ (cf. Appendices \ref{top_k_sec} and \ref{ca_k_sec}). If 
@@ -2078,7 +2080,7 @@ and the image $\Om\in \T^2$ of $\Om_{\R^2}$ is a tubular neighborhood of $N$
 If both $u, v \in C\left(\G^N_N \right)$ are given by
   \eqref{foli_uv_eqn} then one has
   \be
-  \forall \xi \in \E^\Om_N \quad \xi u'_{\T^2} = u \xi
+  \forall \xi \in \E^\Om_N \quad \xi u'_{\T^2} = u \xi!!!
   \ee
   One has $E^\Om_N\cong C\left( N\right) \otimes L^2\left( -\pi, \pi\right)$ and if $\xi \in    L^2\left( -\pi, \pi\right)\setminus \{0\}$ and $p_1$ is a projection onto $\xi$ then
   $$
@@ -2146,7 +2148,7 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 	0 &0
 \end{pmatrix}\left( \Phi_{\T^2}\left( t\right)\right)^{-1};\\
   \eean
-  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{\G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{S\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
+  From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{S\G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{S\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
   Similarly to \eqref{chern_eqn} there is a diagram
 \be\label{tori_chern_eqn}
 \begin{tikzcd}
@@ -2156,11 +2158,15 @@ t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
 	& \mathbb{M}_\infty \left(S C\left( \T^2\right) ^+\right)  \ar[ru,hook, "\phi_\sX"]&
 \end{tikzcd}
 \ee
-Taking into account the equations \eqref{filinf_m_eqn} and \eqref{tori_lit_eqn} one can deduce that
+From the homotopy between $u'_{\T^2}$ and  $u_{\T^2}$ and 
+taking into account the equations \eqref{filinf_m_eqn}, \eqref{tori_lit_eqn} one can deduce that
 \be\label{foli_p_eqn}
-\phi_A \circ \phi \left(p_{G^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right) 
+\begin{split}
+\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right),
+\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim_h  \phi_\sX \left( p_{S\T^2}\right) 
+\end{split}
 \ee
-where the relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}. If
+where the relations $\sim$ and $\sim_h$ is given by the Definition \ref{projection_equivalences_defn} (cf. Remark \ref{projection_equivalences_rem}). If
 \be\label{chern_nt_eqn}
 \begin{split}
 	\sV_{S\G^N_N} \bydef p_{G^N_N}\left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)^2,  \\
@@ -2170,26 +2176,26 @@ where the relation $\sim$ is given by the Definition \ref{projection_equivalence
 then from the equation \eqref{chern_defn_eqn}
 it follows that
 \be\label{chern_nt_h2_eqn}
-c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+c_1\left( \sV_{SG^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ;~ \Z  \right)  
 \ee
 where $c_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
-One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2}/S^1}: \T^2\to S^1$ such that
+One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2};S^1}: \T^2\to S^1$ such that
 \be\label{folipu_eqn}
-u_{\T^2} = u_{S^1}\circ \phi_{\T^{2}/S^1}
+u_{\T^2} = u_{S^1}\circ \phi_{\T^{2};S^1}
 \ee
 where $u_{S^1}\in U\left(C\left(S^1 \right) \right)
-$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. The map $\phi_{\T^{2}/S^1}$ yields  surjective continuous maps
+$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. The map $\phi_{\T^{2};S^1}$ yields  surjective continuous maps
 \be\label{chern_st_eqn}
 \begin{split}
 	S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1,\\
-	\phi_{S\T^{2}/SS^1}: \left( S\T^2\right)^+    \onto\left(  SS^1 \right)^+\\
+	\phi_{S\T^{2};SS^1}: \left( S\T^2\right)^+    \onto\left(  SS^1 \right)^+\\
 \end{split}
 \ee 
  From the Theorem \ref{suspension_thm} it follows that  there is a commutative diagram
 \be\label{foli_sus_eqn}
 \begin{tikzcd}
 	K_1\left(C\left( S^1\right)  \right) \arrow[rrr, "K_1\left( C\left( \phi_{\T^{2}/S^1} \right) \right)" ]  \arrow[d, "\th_{C\left( S^1\right)}" ]&&& K_1\left(C\left( \T^2\right)  \right)\arrow[d, "\th_{C\left(\T^2 \right) }" ]\\ 
-	K_0\left(S(C\left( S^1\right) \right) \arrow[rrr, "K_0\left( C\left(\phi_{S\T^{2}/SS^1}\right)\right) " ] &&& K_0\left(SC\left(\T^2 \right)  \right)
+	K_0\left(S(C\left( S^1\right) \right) \arrow[rrr, "K_0\left( C\left(\phi_{S\T^{2};SS^1}\right)\right) " ] &&& K_0\left(SC\left(\T^2 \right)  \right)
 \end{tikzcd}
 \ee
 such that
@@ -2218,51 +2224,56 @@ t \mapsto    \Phi_{S^1}\left( t\right) \begin{pmatrix}
 	0 &0
 \end{pmatrix}\left( \Phi_{S^1}\left( t\right)\right)^{-1}.\\
 \eean
-From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{S^1} \in \mathbb{M}_2\left( C\left( \left( SS^1\right)^+ \right)  \right)\subset \mathbb{M}_\infty\left( C\left( \left( SS^1\right)^+ \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right) \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(\left( S(C\left( S^1\right) \right)^+ \right)\cong \Z\left[p_{S^1}\right]$. Moreover one has $\left[p_{\T^2}\right] = K_0\left( C\left(\phi_{S\T^{2}/SS^1} \right)\right)\left( \left[p_{S^1}\right]\right)$ and $p_{\T^2}
-= p_{S^1}\circ \phi_{\T^{2}/S^1}$. If 
+From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{SS^1} \in \mathbb{M}_2\left( C\left( \left( SS^1\right)^+ \right)  \right)\subset \mathbb{M}_\infty\left( C\left( \left( SS^1\right)^+ \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right)\cong K^1\left(S^1 \right)  \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(\left( S(C\left( S^1\right) \right)^+ \right)\cong K\left( \left( SS^1\right)^+ \right) \cong \Z\left[p_{S^1}\right]\oplus \Z\left[1_{SS^1}\right]$ where $1_{SS^1}$ is a trivial bundle with base $\left(SS^1 \right)^+$. Moreover one has $\left[p_{S\T^2}\right] = K_0\left( C\left(\phi_{S\T^{2};SS^1} \right)\right)\left( \left[p_{SS^1}\right]\right)$ and $p_{S\T^2}
+= p_{SS^1}\circ \phi_{S\T^{2};SS^1}$. If 
 \be
 \sV_{SS^1}\bydef p_{S^1}\left(\left( SS^1 \right)^+  \right)^2 
 \ee
 then
-\be
-\sV_{\T^2}= \phi^*_{\T^{2}/S^1}\sV_{SS^1}
+\be\label{chern_sstt_eqn}
+\sV_{S\T^2}= \phi^*_{S\T^{2};SS^1}\sV_{SS^1}
 \ee
-where  the projective finitely generated modules are identified with vector bundles (cf Theorem \ref{serre_swan_thm}) and $\phi^*_{\T^{2}/S^1}\sV_{SS^1}$ means the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
+where  the projective finitely generated modules are identified with vector bundles (cf Theorem \ref{serre_swan_thm}) and $\phi^*_{S\T^{2};SS^1}\sV_{SS^1}$ means the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
 For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphism and a continuous surjective map
 \be\label{chern_ss_eqn}
 \begin{split}
 S^2 \setminus \{x_0\}\sqcup \{x_1\} \cong SS^1 
 \cong \left( SS^1\right)^+\setminus \{y_0\} \cong\left(  0, 1 \right) \times S^1,\\
-\phi_{S^2/\left( SS^1 \right)^+} : S^2\onto \left( SS^1 \right)^+.
+\phi_{S^2; SS^1 } : S^2\onto \left( SS^1 \right)^+.
 \end{split}
 \ee
 Taking into account the Remark \ref{k_exact_rem} and the Corollary \ref{k_exc_cor} one has an exact sequence 
 
 \be 
 \begin{tikzcd}
-K\left( \left(0, 1 \right) \times S^1\right) \cong K\left( \left(SS^1 \right)^+ \setminus \{y_0\}\right)\arrow[r, "\psi_{\left(SS^1 \right)^+ }"] \arrow[dd, "\cong"] &K\left( \left(SS^1 \right)^+   \right) \arrow[r, "\phi_{\left(SS^1 \right)^+ }"] \arrow[dd, "K\left(  \phi_{S^2/\left( SS^1 \right)^+}\right)  "] &K\left( \{y_0\} \right)\arrow[dd]\\
+K\left( \left(0, 1 \right) \times S^1\right) \cong K\left( \left(SS^1 \right)^+ \setminus \{y_0\}\right)\arrow[r, "\psi_{\left(SS^1 \right)^+ }"] \arrow[dd, "\cong"] &K\left( \left(SS^1 \right)^+   \right) \arrow[r, "\phi_{\left(SS^1 \right)^+ }"] \arrow[dd, "K\left(  \phi_{S^2; SS^1 }\right)  "] &K\left( \{y_0\} \right)\arrow[dd]\\
 ~&~ &~ \\
 K\left( \left(0, 1 \right) \times S^1\right) \cong K\left(S^2  \setminus \{x_0\}\sqcup \{x_1\}\right)\arrow[r, "\psi_{S^2 }"]  &K\left(S^2    \right) \arrow[r, "\phi_{S^2}"]  &K\left( \{x_0\}\sqcup \{x_1\} \right)
 \end{tikzcd}
 \ee
-From \ref{kt_kan_line_empt} it follows that $K\left(S^2 \right) \cong \Z \left[H\right] \oplus \Z \left[1_{S^2}\right]$ where $H$ is the canonical line bundle and $1_{S^2}$ is the trivial rank-one bundle.  From \eqref{foli_sus_eqn} and $K_1\left( C\left( S^1\right) \right)\cong \Z\left[u_{s^1}\right]$ it follows that $K_0\left( \left( \left(0, 1 \right) \times S^1\right) \right)  \Z \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)$.
+From \ref{kt_kan_line_empt} it follows that $K\left(S^2 \right) \cong \Z \left[H\right] \oplus \Z \left[1_{S^2}\right]$ where $H$ is the canonical line bundle and $1_{S^2}$ is the trivial rank-one bundle.  From \eqref{foli_sus_eqn} and $K_1\left( C\left( S^1\right) \right)\cong \Z\left[u_{s^1}\right]$ it follows that $K_0\left( \left( \left(0, 1 \right) \times S^1\right) \right)\cong  \Z \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)$.
 On the other hand $
-\ker \phi_2 = \Z \left(\left[H\right] -\left[1\right] \right) 
+\ker \phi_2 = \Z \left(\left[H\right] -\left[1_{S^2}\right] \right) 
 $ so one has
 $$
-\forall n \in \Z \quad \psi_{S^2}\left(n \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)\right) = n\left(1- H \right) 
+\forall n \in \Z \quad \psi_{S^2}\left(n \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)\right) = n\left(H- 1 \right) 
 $$
 If $1_{\left(SS^1 \right)^+ }$ is a trivial rank-one bundle on $\left( SS^1 \right)^{+}$ then one has $\phi^*_{S^2/\left( SS^1 \right)^+}1_{\left(SS^1 \right)^+ }\cong  1_{S^2}$. From the Theorem \ref{serre_swan_thm} it turns out that
 \bean
-\psi_{\left( SS^1\right)^+}\left(K\left( \left( SS^1\right)^+\right)  \right) \cong \Z\left[\sV_{SS^1}\right] \oplus \Z\left[1_{\left( SS^1 \right)^+ }\right]. 
+\psi_{\left( SS^1\right)^+}\left(K\left( \left( SS^1\right)^+\setminus \{y_0\} \right)  \right) \cong \Z\left( \left[\sV_{SS^1}\right] -\left[1_{\left( SS^1 \right)^+ }\right]\right) . 
 \eean 
 Using diagram chasing one has
 \bea
-\psi_{S^2}\left(K\left(  \left(0, 1 \right) \times S^1\right)\right) \cong \Z\left[H \right] \oplus \Z  \left[1_{S^2}\right],\\ 
+\psi_{S^2}\left(K\left(  S^2  \setminus \{x_0\}\sqcup \{x_1\}\right)\right)  \cong \Z\left( \left[H \right] - \left[1_{S^2}\right]\right) ,\\ 
 \label{chern_pp_eqn}
-\phi^*_{S^2/\left( SS^1 \right)^+}\left( \sV_{SS^1}\right) \cong  H.
+K\left(  \phi_{S^2; SS^1 }\right) \left( \sV_{SS^1}\right) \cong  H.
 \eea
-From the inclusion $S^2 \cong \C P^1 \subset \C P^\infty$ one can deduce that there is $\xi \in H^2\left( \C P^1 \right)\cong  H^2\left( \C P^\infty \right)$ such that  $H^2\left( \C P^\infty \right)$ is a generated by $\xi$ unital $\Z$-algebra. From the { the exact sequence of cohomology groups} (cf. equation \eqref{exact_coh_eqn}) one has
+From the inclusion $S^2 \cong \C P^1 \subset \C P^\infty$ one can deduce that there is $\xi \in H^2\left( \C P^1;~\Z \right)\cong  H^2\left( \C P^\infty;~\Z \right)$ such that  $H^2\left( \C P^\infty; ~\Z \right)$ is a generated by $\xi$ unital $\Z$-algebra. From (iv) of the Theorem \ref{chern_class_thm} it follows that 
+\be\label{chern_hx_eqn}
+c_1\left(H \right) = \xi \in H^2\left( S^2; ~\Z\right)\cong H^2\left( \C P^1;~\Z \right) .
+\ee
+where $c_1\left( H\right)$ is the Chern character (cf. Definition \ref)
+From the { the exact sequence of cohomology groups} (cf. equation \eqref{exact_coh_eqn}) one has
 \be
 \begin{split}
 H^0\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^0\left(S^2 ;\Z \right)\to H^0\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)\to \\ \to	H^1\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^1\left(S^2 ;\Z \right)\to H^1\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)\to \\ \to	H^2\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^2\left(S^2 ;\Z \right)\to H^2\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)
@@ -2273,17 +2284,16 @@ $
 H^2\left(S^2 /\left(  \{x_0\}\sqcup  \{x_1\}\right) ;\Z \right) \xrightarrow{\cong} H^2\left(S^2 ;\Z \right)
 $ and taking into account \eqref{chern_ss_eqn} one concludes that these isomorphisms are equivalent to the following one
   $$
-  H^2\left(  \phi_{S^2/\left( SS^1 \right)^+}\right): H^2\left(\left(SS^1 \right)^+;~\Z  \right) \xrightarrow{\cong} H^2\left(S^2;~\Z  \right).$$ 
-There is the unique $\xi_{ SS^1  }\in H^2\left(  \phi_{S^2/\left( SS^1 \right)^+};~\Z\right) \in H^2\left( \left(SS^1 \right)^+ ;\Z  \right)$ such that 
+  H^2\left(  \phi_{S^2;SS^1}\right): H^2\left(\left(SS^1 \right)^+;~\Z  \right) \xrightarrow{\cong} H^2\left(S^2;~\Z  \right).$$ 
+There is the unique nontrivial $\xi_{ SS^1  }\in H^2\left(  \phi_{S^2; SS^1};~\Z\right) \in H^2\left( \left(SS^1 \right)^+ ;\Z  \right)$ such that 
  \be\label{chern_xx_eqn}
-  \xi = H^2\left(  \phi_{S^2/\left( SS^1 \right)^+};~\Z\right)\left(\xi_{ SS^1  } \right)
+  \xi = H^2\left(  \phi_{S^2;SS^1 };~\Z\right)\left(\xi_{ SS^1  } \right)
   \ee
-From (iv) of the Theorem \ref{chern_class_thm} the equations \eqref{chern_pp_eqn}  and \eqref{chern_xx_eqn}  it follows that $c_1\left( H\right) = \xi$ where $c_1\left(H \right)$ is the Chern character (cf. Definition \ref{chern_class_defn}). 
-From (i) of the Theorem \ref{chern_class_thm}, and the equations \eqref{chern_pp_eqn}, \eqref{chern_xx_eqn} it turns out that $c_1\left( \sV_{SS^1 }\right) =  \xi_{SS^1}$. There is the natural surjective continuous map
+From (i) of the Theorem \ref{chern_class_thm}, and the equations \eqref{chern_pp_eqn},  \eqref{chern_hx_eqn}, \eqref{chern_xx_eqn} it turns out that $c_1\left( \sV_{SS^1 }\right) =  \xi_{SS^1}$. There is the natural surjective continuous map
 \be
 \begin{split}
-\phi_{SS^1/S\T^2}: \left( SS^1 \right)^+ \times S^1 \onto \left( S\T^2\right)^+\\
-\phi_{SS^1/S\T^2}\left(\{y_0\} \times S^1\right) = \{z_0\},\\
+\phi_{SS^1\times S^1;S\T^2}: \left( SS^1 \right)^+ \times S^1 \onto \left( S\T^2\right)^+,\\
+\phi_{SS^1\times S^1;S\T^2}\left(\{y_0\} \times S^1\right) = \{z_0\},\\
 \left( S\T^2\right)^+\cong \left( \left( SS^1 \right)^+ \times S^1  \right) / S^1,
 \end{split}
 \ee
@@ -2293,247 +2303,68 @@ H^1\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \to H
 \to H^2\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \to H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)\to  H^2\left( S^1~:\Z  \right)
 \eean 
 One can prove that the natural homomorphism  $H^1\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)\onto  H^1\left( S^1~:\Z  \right)$ is surjective and $H^2\left( S^1~:\Z  \right)= \{0\}$. From these circumstances it follows that the natural homomorphism 
-\bean
-H^2\left(\phi_{SS^1/S\T^2}, \Z \right) : H^2\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \xrightarrow{\cong } H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)
-\eean 
+\be\label{}
+\begin{split}
+H^2\left(\phi_{SS^1\times S^1;S\T^2}, \Z \right) : H^2\left( \left(S\T^2\right)^+~;~\Z   \right)\cong \\ H^2\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \xrightarrow{\cong } H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)
+\end{split}
+\ee 
 is an isomorphism. On the other hand there is a projection
 $$
-\phi_{SS^1\times S^1 / SS^1}: \left(  SS^1 \right)^+ \times S^1 \onto \left(  SS^1 \right)^+
+\phi_{SS^1\times S^1 ; SS^1}: \left(  SS^1 \right)^+ \times S^1 \onto \left(  SS^1 \right)^+
 $$
 onto the first factor of the direct product. From the Exercise \ref{kunn_at_exer} one  has
 $$
 H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right) = \Z\left( \xi_{ \left(SS^1 \right)^+  } \otimes 1_{H^0\left(S^1; \Z \right) } \right) 
 $$
-where $\xi_{SS^1   }$ satisfies to \eqref{chern_xx_eqn} and $1_{H^0\left(S^1; \Z \right) }\in H^0\left(S^1; \Z \right) $ is the generator of the group $H^0\left(S^1; \Z \right)$, It is easy to prove that
+where $\xi_{SS^1   }$ satisfies to \eqref{chern_xx_eqn}. From the above equation one can prove that the map
 \be
-H^2\left(\phi_{SS^1\times S^1 / SS^1}, \Z \right)\left( \xi_{ \left(SS^1 \right)^+} \right) = \xi_{ SS^1  } \otimes 1_{H^0\left(S^1; \Z \right)}. 
+\begin{split}
+H^2\left(\phi_{SS^1\times S^1 ; SS^1};~ \Z \right): H^2\left( SS^1; ~\Z\right) \xrightarrow{\cong }H^2\left( SS^1\times S^1; ~\Z\right),\\
+x \mapsto x \otimes 1_{H^0\left(S^1; \Z \right) }
+\end{split}
 \ee
-There is the unique $\xi_{\left(S\T^2 \right)^+ }\in H^2\left(\left(S\T^2 \right)^+, \Z \right)$ such that 
+is an isomorphism so, the element 
 $$
-H^2\left(\phi_{SS^1/S\T^2}, \Z \right)  \left(\xi_{\left(S\T^2 \right)^+ } \right) = \xi_{\left(S\T^2 \right)^+ }=\xi_{ \left(SS^1 \right)^+  } \otimes 1_{H^0\left(S^1; \Z \right)}.
-$$ 
-One can prove that
-\be
-\xi_{\left(S\T^2 \right)^+ }= H^2 \left( ; \Z\right) \xi_{SS^1 }
-\ee
+\xi_{SS^1\times S^1} \bydef H^2\left(\phi_{\left( SS^1\right)^+ \times S^1 / SS^1};~ \Z \right) \left( \xi_{SS^1}\right) 
+$$
+is not trivial.
+There is a following commutative diagram
+\bean
+\begin{tikzcd}
+~& \left( SS^1 \right)^+ \times S^1 \arrow[ldd, "\phi_{SS^1\times S^1;S\T^2}"] \arrow[rdd, "\phi_{SS^1\times S^1 ; SS^1}"] & ~\\
+~ & ~ & ~\\
+\left(S\T^2 \right)^+ \cong \left(  \left( SS^1 \right)^+ \times S^1\right) /S^1 \arrow[rr, "\phi_{S\T^{2};SS^1}"] & ~ & \left( SS^1 \right)^+
+\end{tikzcd}
+\eean
+From the above diagram it follows that
+\bean
+\phi^*_{SS^1\times S^1 ; SS^1} \sV_{SS^1} = \phi^*_{SS^1\times S^1;S\T^2}\circ \phi^*_{S\T^{2};SS^1} \sV_{SS^1}
+\eean
+and taking into account \eqref{chern_sstt_eqn} one has
+\bean
+\phi^*_{SS^1\times S^1 ; SS^1} \sV_{SS^1} = \phi^*_{SS^1\times S^1;S\T^2} \sV_{S\T^2}  
+\eean 
+From (i) of the Theorem \ref{chern_class_thm} it follows that 
+$$
+c_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right) = \xi_{SS^1\times S^1} \in H^2\left(\left( SS^1 \right)^+ \times S^1. Z \right) \setminus \{0\}
+$$
+Applying (i) of the Theorem \ref{chern_class_thm} once again one has
+\bean
+H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right) \left(  c_1\left( \sV_{S\T^2}\right) \right)  = c_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right).
+\eean 
+There is the unique nontrivial $c_1\left( \sV_{S\T^2}\right)$ satisfying to the above equation since the map $H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right)$ is an isomorphism.
+
 \begin{lemma}
-	Under the above hypothesis there is the nontrivial Chern character $c_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right) $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
+	Under the above hypothesis there is the nontrivial Chern character $c_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right)\setminus\{0\} $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
 \end{lemma}
 \begin{proof}
 	From \eqref{chern_nt_h2_eqn} it follows that
 	\be\label{chern_nt_h2p_eqn}
-	c_1\left( \sV_{G^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+	c_1\left( \sV_{SG^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
 	\ee
+However both the existence of  $c_1\left( \sV_{S\T^2 }\right)$ and the inequality $c_1\left( \sV_{S\T^2 }\right)\neq 0$ are already proven.
 	
 \end{proof}
-\paragraph{RRRRR}
-\begin{exercise}\label{quot_exer!}!!!\cite{hatcher:at}
-	Show that if $A$ is a closed subspace of $\sX$ that is a deformation retract of some
-	neighborhood, then the quotient map $\sX \onto \sX/A$ induces isomorphisms $H^n\left( \sX, A ;G\right) \cong H^n\left( \sX/ A ;G\right)$ for all $n \in \N$.
-\end{exercise}
-
-
-\begin{exercise}
-	Under the above hypothesis prove that if $\Sigma \sX$ is the (topological) unreduced suspension (cf. Definition \ref{top_sus_defn}) then there is a continuous surjective map  $f:\Sigma \sX\to \sY$ such that $f\left( x_0\right) = f\left( x_1\right) = y$ where both $x_0$ and $x_1$ are images of $\sX \times \{0\}$ and  $\sX \times \{1\}$ respectively.
-	Prove that there is the natural homeomorphism
-	\be
-	\sY = \Sigma \sX/ \{x_0\}\cup \{x_1\}.
-	\ee
-\end{exercise}
-If $\sY$ is a compact Hausdorff space such that
-\be
-\begin{split}
-\sY \bydef \Sigma \T^2/\{x_0\}\cup \{x_1\},\\
-C\left(\sY  \right) \cong S C\left( \T^2\right) ^+.
-\end{split}
-\ee
-From the Definition \ref{chern_defn} it follows that
-\be
-c_j\left(\left[p_{G^N_N}\right] \right) = c_j\left(\left[p_{\T^2}\right] \right) \in H^{2j}\left(\sY, \Z \right).
-\ee
-From the Theorem \ref{chern_class_thm}.
-
-\paragraph{DELETE}
-\ref{exc_coh_eqn}
-\begin{empt}\cite{hatcher:at}
-	{\it Excision  in cohomology}  says that for subspaces  $\sZ \subset A \sX$ with the closure
-	of $\sZ$ contained in the interior of $A$, the inclusion $j: \left( \sX \setminus \sZ, A\setminus \sZ\right) \to \left( \sX, A \right)$ ? induces
-	isomorphisms 
-	\be\label{exc_coh_eqn!}!
-	H^n\left(\cdot , G \right) \left( j\right) : \left( \sX , A;G\right)\xrightarrow{\cong}\left( \sX \setminus \sZ, A\setminus \sZ; G\right)
-	\ee
-	for all $n\in \N$. There is an {\it exact sequence of cohomology groups}
-	\be\label{exact_coh_eqn!}!!
-	...\to H^n\left(\sX, A , G \right) \to \left( \sX , ;G\right)\to H^n\left(\sX; G \right) \xrightarrow{\dl} H^{n +1}\left(\sX, A , G \right)\to
-	\ee
-\end{empt}
-!\begin{empt}\label{k_triple_empt!}!!!\cite{karoubi:k}
-	%2.13.
-	Let  $\varphi: \mathscr C\to\mathscr C'$ be a quasi-surjective Banach functor. We wish to define a "relative" group $K\left( \varphi\right)$  (which coincides with $K\left(\mathscr C \right)$ when $\mathscr C'=0$). Let $\Ga\left( \varphi\right)$ denote the set of triples $\left(\E, \F, \a \right)$, where $\E$ and $\F$ are objects of $\mathscr C$ and $\a : \varphi\left(\E \right)\to \varphi\left(\F \right)$  is an 
-	isomorphism. Two triples  $\left(\E, \F, \a \right)$ and  $\left(\E', \F', \a' \right)$ are called \textit{isomorphic} if there 
-	exist isomorphisms $f : \E \to \E'$ and $g : \F \to \F'$ such that the following diagram commutes. 
-	\newline
-	\begin{tikzcd}
-		\varphi\left( \E\right)\arrow[r, "\a"] \arrow[d, "\varphi\left( f\right) "]& \varphi\left( \F\right) \arrow[d, "\varphi\left( g\right) "]\\
-		\varphi\left( \E'\right)\arrow[r, "\a'"] & \varphi\left( \F'\right)
-	\end{tikzcd}
-	
-	A triple $\left(\E, \F, \a \right)$, is called \textit{elementary} if $\E=\F$ and if $\a$ is homotopic to $\Id_{\varphi\left(\E \right) }$ within 
-	the automorphisms of $\varphi\left(\E \right)$. Finally, we define the sum of two triples $\left(\E, \F, \a \right)$ and $\left(\E', \F', \a' \right)$ to be $\left(\E\oplus \E', \F \oplus \F', \a \oplus \a'\right)$.
-	Then $K\left( \varphi\right) $ is the quotient of $\Ga\left( \varphi\right) $ by the following equivalence relation: 
-	$\sigma\sim \sigma'\Leftrightarrow\exists$ elementary $\tau$ and $\tau'$ such that $\sigma + \tau$ is isomorphic to $\sigma' + \tau'$ . The sum of 
-	triples obviously provides the set $K\left(\varphi \right) $ with a monoid structure. We let $d\left(\E, \F, \a \right)$
-	denote the class of $\left(\E, \F, \a \right)$ in the monoid $K\left(\varphi \right)$. %As a direct consequence of the 	definition, we notice that d(E, F, a) = 0 if and only if there exist objects G and 	H of #, and isomorphisms w: F   G >H and v: F  G-> H9 such that 	<p(i>)   (a   Id^C))   <p(w_!) is homotopic to Id^(H) within the automorphisms of(p(H). 
-	
-\end{empt}
-\begin{example}\label{k_triple_exm!}!!!!\cite{karoubi:k}
-	%2.7. Example. 
-	Let $\varphi: \mathscr E\left( \sX\right) \to  \mathscr\E\left(\sY \right)$  be the functor defined by $\varphi\left( \E\right) = \E|_\sY$ , where 
-	$\sY$ is a closed subspace of the compact space $\sX$. It is proven in \cite{karoubi:k} that $\varphi$ 
-	is a Banach functor which is full and quasi-surjective. We use the following notation
-	$$
-	K\left(\sX, \sY \right) \bydef K\left(\varphi \right) 
-	$$
-	%  By 1.5.9 we see that up to isomorphism the "restriction map" &(X){E, F)-> (Y)(EY, FY) is identical with the map r(X, HOM( , /0)-> 	r(Y, HOM(is, F)Y}. From 1.6.23, it follows that (p is a Banach functor. Moreover , (p is full A.5.10), and also quasi-surjective because any object of $( Y) is a directfactor of a trivial bundle 9n= Yxk" A.6.5), and clearly 6n = (p(E) where E=Xxk". 
-\end{example}
-\
-\
-\begin{theorem}\label{k:char_thm}!!!!\cite{hatcher:kt}
-	%Theorem 3.2. 
-	There is a unique sequence of functions $c_1, c_2,...$ assigning to each
-	complex vector bundle $\sV \to \sX$ a class $c_j\left( \sV\right)$  depending only on the isomorphism
-	type of $\sV$ , such that
-	\begin{enumerate}
-		\item [(i)] $c_j\left( f^*\left(
-		\sV  \right)\right)   = H^{2j}\left(\bullet, \Z \right)\left( f\right)  \left(
-		c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
-		\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c_2 + ... \in  H^*\left(\sX, \Z \right)$.
-		\item[(iii)] $c_j(\sV) = 0$ if $j > \dim \sV$.
-		\item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty \right)$  specified
-		in advance.
-	\end{enumerate}
-\end{theorem}
-\
-\ref{k_exact_rem}
-\begin{remark}\label{k_exact_rem!}!!!\cite{karoubi:k}
-	If $\sY$ is a closed subspace of the compact space then from the Proposition \ref{k_exact_prop} it follows that there is the exact sequence
-	$$
-	K\left( \sX,\sY\right)\to K\left( \sX\right) \to K\left(\sY \right).
-	$$
-\end{remark}
-\begin{corollary}\label{k_exc_cor1}\cite{karoubi:k}
-	%5.20. Corollary. 
-	If $\sX$ is a locally compact space and $\sX'$  is a closed subspace, the 
-	groups $K_0\left(\sX, \sX' \right)$, $K_0\left(\sX\setminus \sX' \right)$ , $K\left(\sX, \sX' \right)$ and $K\left(\sX\setminus \sX' \right)$, are naturally isomorphic. 
-	
-\end{corollary} 
-
-
-  
-\begin{corollary}\label{stab_k_0_cor!}\cite{wegge_olsen}
-	%			Corollary 6.2.11. Stability of Ko 
-	The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
-	projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
-	In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
-	then $K_0\left(A\right)\cong K_0\left(B\right)$. 
-\end{corollary}
-\begin{cor}\label{stab_k_1_cor!}\cite{wegge_olsen}
-	%Corollary 7.1.9. Stability of K\ 
-	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
-	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
-\end{cor}
-\begin{proof}
-	%Proof.
-	As $A \otimes \K$ is the $C^*$-inductive limit of  $\mathbb{M}_n\left( A\right)$ , $K_1\left(A \otimes \K \right) = \varinjlim K_1\left( \mathbb{M}_n\left( A\right)\right) $. 
-	%	n(A)) = Ki{A). %according to 7.1.7 and 7.1.8. 
-		
-		Consequently, if $A\otimes \K \cong B\otimes \K$,  $\quad K_1\left( A\right) = K_1\left(A \otimes \K \right) =  K_1\left(B \otimes \K \right)= K_1\left(B \right)$. 
-	\end{proof}
-\paragraph{DEL}
-
-\begin{example}\label{fol_tor_exm!!}!!!\emph{Linear foliation on torus}. Here I follow to \cite{candel:foliI,connes:ncg94}.
-	Consider a vector field $\tilde{X}$ on $\R^2$ given by
-	\[
-	\tilde{X}=\alpha\frac{\partial}{\partial
-		x}+\beta\frac{\partial}{\partial y}
-	\]
-	with constant $\alpha$ and $\beta $. Since $\tilde{X}$ is
-	invariant under all translations, it determines a vector field $X$
-	on the two-dimensional torus ${\T}^2={\R}^2/{\Z}^2$. The vector
-	field $X$ determines a foliation $\mathcal{F}$ on ${\T}^2$. The leaves of
-	$\mathcal{F}$ are the images of the parallel lines
-	$\tilde{L}=\{(x_0+t\alpha, y_0+t\beta): t\in\R\}$ with the slope
-	$\theta=\beta/\alpha $ under the projection $\R^2\to \T^2$.
-	In the case when $\theta$ is rational, all leaves of $\mathcal{F}$ are
-	closed and are circles, and the foliation $\mathcal{F}$ is determined by
-	the fibers of a fibration $\T^2\to S^1$. In the case when $\theta$
-	is irrational, all leaves of $\mathcal{F}$ are everywhere dense in $\T^2$. We say that  $\left(\T^2, \mathcal{F}_\th \right)$ is  the \textit{Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ 
-	with natural coordinates $\left((x, y \right)\in \R^2$. Here $\th\in (0,1)$ is an irrational number.
-	The graph $\G$ of this foliation is the manifold $\G \cong \T\times \R$ with range and source maps  $\G \to \T^2$ given by
-	\bean
-	r((x, y), t) = (x + t, y + \th t).\\
-	s((x, y), t) = (x, y)
-	\eean
-	and with composition given by $((x, y), t)((x_0, y_0), t_0) = ((x_0, y_0), t + t_0)$ for any pair of	composable elements.
-	Every closed geodesic of the at torus $\T^2$ yields a compact transversal. More precisely,
-	for each pair $(p, q)$ of relatively prime integers we let $N_{p,q}$ be the submanifold of $\T^2$
-	given by
-\bean
-	N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
-\eean
-	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
-	the manifold $\G^N_N=\T\times \Z$ with range and source maps given by:
-	\bean
-	r(x, n) = x + n\th' ;\\
-	s(x, n) = x
-	\eean
-	where $\th'$ is determined uniquely by any pair $(p_0, q_0)$ of integers such that $pq_0 - p_0q= 1$, $\quad \th' = \frac{p'\th - q'}{p\th - q}$
-	%	The $C^*$-algebra $C^*_{r,N}\left( \T^2, F\right)$ 
-	%	is the crossed product of $C(\T)$ by the rotation of angle $\th'$,
-	%	i.e. it is the irrational rotation $C^*$-algebra $C\left(\T_{\th'}\right)$, generated by two unitaries $U$
-	%	and $V$ such that:
-	%	$$
-	%	VU = e^{2\pi i\th' } UV,
-	%	$$
-	%	Since $N = N_{p,q}$ meets every leaf 
-	%	of the foliation, it follows that $C^*_r (V, F)$ is strongly
-	%	Morita equivalent to $C\left(\T_{\th'}\right)$ for any relatively prime pair $(p, q)$. In particular for $p = 0,~
-	%	q = 1$ we get $C\left(\T_{\th}\right)$, and, by transitivity of strong Morita equivalence
-	If $N = N_{0,1}$ then 
-	\bean
-	r(x, n) = x + n\th ;\\
-	s(x, n) = x
-	\eean
-	Let $U$ be an element of $C\left(\T\right)$ which comes from
-	\bean
-	U:\R \to \C,\\
-	t \mapsto e^{2\pi i t}.
-	\eean
-	If both  $u, v\in C^\infty_c\left(\G^N_N \right)$ are such that
-	\be\label{foli_uv_eqn}
-	\begin{split}
-		u\left(x, n \right) = \begin{cases}
-			U\left(x \right) & n = 0\\
-			0 & n\neq 0
-		\end{cases};\\
-		v\left(x, n \right) = \begin{cases}
-			1 & n = 1\\
-			0 & n\neq 1
-		\end{cases},\\
-	\end{split}
-	\ee
-	then from  the equations \eqref{foli_pseudo_eqn}
-	one has
-	\bean
-	u^*=u^{-1},\\
-	v^*=v^{-1},\\
-	vu = e^{2\pi i\th } uv.
-	\eean
-	Indeed above equations describe a noncommutative 2-torus $C\left(\T^2_\th\right)$ (cf Definition \ref{nt_defn}). Using this fact one deduce that 
-	\be\label{foli_nt_eqn1}
-	C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
-	\ee
-\end{example}
 
 
 
@@ -4842,9 +4673,23 @@ N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
 	K_0\left(A \right).
 	\ee
 \end{remark}
+
+\begin{definition}\label{projection_equivalences_defn}\cite{wegge_olsen}
+%Definition 5.2.1. 
+Projections p and q in a C*-algebra A are said to be 
+\begin{itemize}
+	\item{\it equivalent}, denoted $p\sim q$, when $p = v^*v$ and $q = vv^*$,  $v\in A$ being 
+	a partial isometry; 
+	\item{\it unitarily equivalent}, denoted $p\sim_uq$, when $p = u^*qu$, $u \in A^+$l 
+	being unitary; 
+	\item{\it homotopic}, denoted $p \sim_h q$, when $p$ and $q$ are connected by a norm 
+	continuous path of projections in A. 
+\end{itemize}
+
+\end{definition}
 \begin{definition}\label{projection_equivalence_defn}\cite{wegge_olsen}
 %Definition 6.1.1. 
-Call projections $p, q \in \mathbb{M}_\infty\left(A \right)$ {\it equivalent}, denoted $p\sim q$, when there is a $v \in \mathbb{M}_\infty\left(A \right)$ such that $p = v*v$ and $q = vv^*$ 
+Call projections $p, q \in \mathbb{M}_\infty\left(A \right)$ {\it equivalent}, denoted $p\sim q$, when there is a $v \in \mathbb{M}_\infty\left(A \right)$ such that $p = v^*v$ and $q = vv^*$ 
 The equivalence classes are denoted $[\cdot]$ and the set of all these is 
 \be
 V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left(A \right)\right.\right\}
@@ -4856,6 +4701,10 @@ V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left
 \eean
 	if $p' \sim p$, $q' \sim  q$, $p'\perp q'$. 
 \end{definition}
+\begin{remark}\label{projection_equivalences_rem}\cite{wegge_olsen}
+	The given by the Definitions \ref{projection_equivalences_defn}  and \ref{projection_equivalence_defn} of are equivalent.
+\end{remark}
+
 \begin{theorem}\label{k_0_iso_thm}\cite{blackadar:ko}
 	%Theorem 5.4.2.
 	For any $A$ and $J$, the natural homomorphism from $K_0\left(J^+, J \right)$ 
