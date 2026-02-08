@@ -1582,9 +1582,9 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \
 \ee
 \begin{definition}\label{chern_defn}
 	Let  $\sV\in V\left(A^+ \right)$ be an equivalence class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A^+\right)$ (cf. Definition \ref{projection_equivalence_defn}) such that there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ are {Chern classes} $c_j\left(\sV_\sX \right)$ of $\sV_\sX$ (cf. Theorem \ref{chern_class_thm}), i.e.
+	The \textit{$K$-theoretical} (resp. \text{cohomological}) {\it Chern classes} $c^K_j\left(\sV \right) \in K\left(\sX^+ \right)$   (resp. $c^H_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$) of $\sV$ are {Chern classes} $c^K_j\left(\sV_\sX \right)$ (resp. $c^H_j\left(\sV_\sX \right)$) of $\sV_\sX$ (cf. Definition  \ref{chern_class_defn}), i.e.
 	\be\label{chern_defn_eqn}
-\forall j\in \N \quad c_j\left(\sV \right)\bydef c_j\left(\sV_\sX \right)
+\forall j\in \N \quad c^K_j\left(\sV \right)\bydef c^K_j\left(\sV_\sX \right);\quad c^H_j\left(\sV \right)\bydef c^H_j\left(\sV_\sX \right)
 	\ee 
 \end{definition}
 \paragraph{title}
@@ -3089,6 +3089,21 @@ of distinct irreducible closed subsets of $\sX$.
 %	Example 1.1.2. A1 is irreducible, because its only proper closed subsets are 	finite, yet it is infinite (because k is algebraically closed, hence infinite). 
 %	Example 1.1.3. Any nonempty open subset of an irreducible space is irre- 	ducible and dense. 
 %	Example 1.1.4. If Y is an irreducible subset of X, then its closure Y in X is 	also irreducible. 
+
+\subsection{Cell decomposition of projective spaces}\label{cell_proj_sec}
+\paragraph{} Here I follow to \cite{fomenko_fucs_hot}
+there the chain of inclusions
+\bean
+\emptyset = \R P^{-1}\subset \R P^0\subset \R P^1\subset  ... \subset  \R P^n:
+\eean
+We set $e^q =  \R P^q \setminus \R^{q-1}$ . A characteristic map for $e^q$ may be chosen as the
+composition of the canonical projection $D^q \to \R P^q$ and the inclusion
+$\R P^q \to \R P^n$. For $n = \infty$, this construction provides a $CW$ decomposition of $\R P^\infty$
+with one cell in every dimension.
+The construction also has complex, quaternionic, and Cayley analogs. In the
+complex case, we get a $CW$ decomposition of $\C P^n$ into $n + 1$ cells $e^0, e^2, e^4, ... , e^{2n} $
+and also a $CW$ decomposition of $\C P^\infty$ with one cell of every even dimension.
+
 	
 \subsection{Fiber bundles}
 \begin{definition}\label{top_bundle_defn}\cite{spanier:at}
@@ -3733,23 +3748,46 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	(cf. Notation \ref{top_sec_notn}).
 \end{remark} 
 \paragraph{The Chern characters}
+\begin{proposition}\cite{karoubi:k}\label{chern_class_prop}
+	%2.17. Proposition. 
+	For each vector bundle $\sV$ of rank $n$, with compact base $\sX$, we 
+	define unique functions $c^K_j\left(\sV \right)\in K\left( \sX\right) $, for $j=0, .. ., n$ such that $c^K_0\left(\sV \right)=1$ . 
+	These characteristic classes satisfy the following axioms:
+	\begin{enumerate}
+		\item [(i)]
+		The $c^K_j\left( \sV\right)$  are "natural", i.e. 	$c^K_j\left( \sV\right)  = f^*\left(c^K_j\left( \sV\right)  \right)$  for any general morphism $\sV \xrightarrow{g}\sV'$ , which induces $f: \sX \to \sX"$ on the bases, $\sX$ and $\sX'$, of $\sV$ and $\sV'$ respectively; 
+		and which induces an isomorphism on each fiber. 
+		\bean
+		\begin{tikzcd}
+			\sV \arrow[d]\arrow[r, "g"] & \sV'\arrow[d]\\
+			\sX \arrow[r, "f"] & \sX'\\
+		\end{tikzcd}
+		\eean
+		\item[(ii)] If $\sV_1$ and $\sV_2$ are vector bundles on $\sX$, then 
+		\bean
+		c^K_k\left(\sV_1 \oplus \sV_2 \right) = \sum_{i + j = k} c_i\left( \sV_1\right) c^K_j\left( \sV_2\right) 
+		\eean
+		\item[(iii)] If the rank of $\sV$ is one, then $c^K_1\left(\sV \right)= \chi\left(\sV \right) \bydef  1 -\left[\sV\right]$, and $c^K_i\left( \sV\right)  = 0$ for $i > 1$.
+	\end{enumerate}
+	Moreover, the characteristic classes $c^K_j\left( \sV\right)$  are uniquely determined by these axioms. 
+\end{proposition}
 
 \begin{theorem}\label{chern_class_thm}\cite{hatcher:kt}
 %Theorem 3.2. 
-There is a unique sequence of functions $c_1, c_2,...$ assigning to each
+There is a unique sequence of functions $c^H_1, c^H_2,...$ assigning to each
 complex vector bundle $\sV \to \sX$ a class $c_j\left( \sV\right)$  depending only on the isomorphism
 type of $\sV$ , such that
 \begin{enumerate}
-	\item [(i)] $c_j\left( f^*\left(
+	\item [(i)] $c^H_j\left( f^*\left(
 	\sV  \right)\right)   = H^{2j}\left(\bullet, \Z \right)\left( f\right)  \left(
-c_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
-\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c_1 + c_2 + ... \in  H^*\left(\sX, \Z \right)$.
-\item[(iii)] $c_j(\sV) = 0$ if $j > \dim \sV$.
+c^H_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
+\item[(ii)] $c\left( \sV_1 \oplus \sV_2\right) = c\left(\sV_1 \right) \smile  c\left(\sV_1 \right)$ for $c \bydef 1 + c^H_1 + c^H_2 + ... \in  H^*\left(\sX, \Z \right)$.
+\item[(iii)] $c^H_j(\sV) = 0$ if $j > \dim \sV$.
 \item[(iv)]For the canonical line bundle $\sV \to \C P^\infty$  is a generator of $H^2\left(\C P^\infty, \Z \right)$.
 \end{enumerate}
 \end{theorem}
 \begin{definition}\label{chern_class_defn}
-The given by the Theorem functions are \textit{Chern classes}.
+The given by the  Proposition \ref{chern_class_prop} (resp. Theorem \ref{chern_class_thm}) functions $c_j^K$ (resp. $c^H_j$) are \textit{($K$-theoretical}) (resp.\textit{cohomological}) \textit{Chern classes}.
 \end{definition}
 \begin{remark}\label{chern_class_rem}
 !!! In the Theorem  \ref{chern_class_thm} and the Definition \ref{chern_class_defn} we do not require that the space $\sX$ is compact. So the Theorem \ref{serre_swan_thm} is not generally hold.
@@ -4028,7 +4066,26 @@ an integer q such that E © 6p + qzzF © 6n+q.
 	groups $K_0\left(\sX, \sX' \right)$, $K_0\left(\sX\setminus \sX' \right)$ , $K\left(\sX, \sX' \right)$ and $K\left(\sX\setminus \sX' \right)$, are naturally isomorphic. 
 	
 \end{corollary} 
-
+\paragraph{Multiplicative structures}
+\begin{empt}\label{kt_o_empt}\cite{karoubi:k}
+Let $\sX$ and $\sY$ be compact spaces, and let $E$ and $F$ be vector bundles with bases 
+$\sX$ and $\sY$ respectively. Then their "external tensor product" $E\otimes F$ is a vector 
+bundle over $\sX \otimes \sY$. The correspondence $(E, F)\mapsto E\otimes F$ induces a functor ($\varphi$ from 
+the category $\E\left(\sX \right) \times \E\left(\sY \right)$  to $\E\left(\sX, \sY \right)$ , such that $\varphi\left( E\oplus E', F\right) \cong \varphi\left(E, F \right) \oplus \varphi\left(E', F \right)$ and  
+$\varphi\left( E, F\oplus F'\right) \cong \varphi\left(E, F \right) \oplus \varphi\left(E, F' \right)$, with the analogous property for morphisms. From this functor we obtain a bilinear map 
+\bean
+\varphi_*: K\left(\sX \right) \times  K\left(\sY \right)\to  K\left(\sX\times \sY \right)
+\eean
+defined by 
+\bean
+\varphi_*\left( \left[E\right]=\left[E'\right],\left[F\right]-\left[F'\right]\right) =\left[\varphi\left(E. F \right) \right]+\left[\varphi\left(E'. F' \right) \right]-\left[\varphi\left(E'. F \right) \right]-\left[\varphi\left(E. F' \right) \right]
+\eean
+Also we denote the {\it cup-product} ($\varphi_*\left(x, y \right)$ for $x \in K\left( \sX\right)$  and $y \in K\left( \sY\right)$, by $x \smile y$ 
+%If Z is another compact space and G is a vector bundle over Z, we have a canonical isomorphism (F [x] F) [x] G % F [x] (F \x\ G) as an immediate consequence of the associativity of tensor product A.4.7). This implies the commutativity of the diagram K(X) xK(Y)x K(Z) ? K(X x 7) x K(Z) K(X)xK(YxZ) >K(Xx YxZ) Similarly we can prove the commutativity of the diagram lt(X) x K{ 7) + K(X x 7) 	K(Y)xK(X) > K(YxX) 	where T is the permutation (x, y) h-> (^, x). 
+\end{empt}
+\begin{empt}\label{kt_d_empt}\cite{karoubi:k}The diagonal map $\sX \hookto \sX \times \sX$ induces a homomorphism $K\left(\sX \times \sX \right)\to \left( \sX\right)$. 
+	If we compose this homomorphism with the homomorphism $K\left( \sX\right)\otimes K\left( \sX\right)\to K\left( \sX\right)\otimes K\left( \sX\right)$  defined above, we have a product operation in the group $K(\sX)$,
+\end{empt}
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
 		Let $\A$ be a partially ordered set, $S$ a subset of $\A$. We say an element $a \in A$
@@ -7194,6 +7251,205 @@ satisfy {\it descent} with respect to local homeomorphisms.
 	\end{remark}
 
 
+\section{Algebraic geometry}
+\subsection{Cohomology of sheaves}
+\paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
+
+\begin{empt}\label{loc_const_triv_empt}
+	It is proven in \cite{milne:lec} that if $\sX_{\mathfrak{Zariski}}$  is an algebraic manifold with Zariski topology and $\mathscr F$ is a  locally constant sheaf on $\sX_{\mathfrak{Zariski}}$  then
+	$$
+	\forall r > 0 \quad H^r\left(\sX_{\mathfrak{Zariski}}, \mathscr F \right) = 0.
+	$$
+\end{empt}
+\begin{empt}\cite{hartshorne:ag}
+	Let A be a noetherian ring, let $S \bydef A\left[x_0, ..., x_n\right]$, and let $\sX \bydef \mathrm{Rroj} S$
+	be the projective space $\mathbb P^r_A$ over $A$. Let $\mathscr O_\sX\left( 1\right)$  be the twisting sheaf of Serre 
+	(cf. \cite{hartshorne:ag}). For any sheaf of ($\mathscr O_\sX$ -modules $\mathscr F$, we denote by $\Ga_*\left(\mathscr F \right)$  the graded $S$-module 
+	$$
+	\bigoplus_{n \in \Z} \Ga\left(\sX, \mathscr F\left( n\right). \right) 
+	$$
+	
+\end{empt}
+\begin{theorem}\label{projective_ag_coh_thm}\cite{hartshorne:ag}
+	%Theorem 5.1.
+	Let $A$ be a noetherian ring, and let $\sX \bydef \mathbb P^r_A$, with $r \ge 1$. Then: 
+	\begin{enumerate}
+		\item[(a)]  the natural map $S \to \Ga_*\left(\mathscr O_\sX \right)  = \sum_{n \in \Z} H^0\left(\sX,\mathscr O_\sX\left( n\right)   \right)$  is an isomorphism of graded $S$-modules; 
+		\item[(b)] $H^i\left( \mathscr O_\sX\left( n\right)\right) = 0$ for $0 < i < r$ and all $n \in \Z$;
+		
+		\item[(c)]	$H^i\left( \mathscr O_\sX\left(-r-1\right)\right)= A$.
+		\item[(d)]	The natural map 
+		$$
+		H^0\left(\sX,O_\sX\left(n\right)  \right) \times 	H^r\left(\sX,O_\sX\left(-n-r-1\right)  \right)\to H^r\left(\sX,O_\sX\left(-r-1\right)  \right)\cong A
+		$$
+		is a perfect pairing of finitely generated free $A$-modules, for each $n \in \Z$. 
+		
+	\end{enumerate}
+\end{theorem}
+\subsection{Chow ring and homology}
+\subsubsection{Divisors and rational equivalence }
+\paragraph{} 
+Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
+
+\paragraph{ Homology and cohomology}
+
+A complex projective variety $\sX$ has homology groups $Hq\sX$ and cohomology 
+groups $H^q\sX$. There are {\it cup 
+products }
+\bean
+H^p\sX \otimes H^q \sX \xrightarrow{\smile }  H^{p+ q} \sX
+\eean
+and {\it cap products} 
+\bean
+H^p\sX \otimes H_q \sX \xrightarrow{\frown }  H_{p+ q} \sX
+\eean
+which make $H^*\sX = \bigoplus \H^p\sX$ a skew-commutative graded ring, and $H_*\sX = \bigoplus \H_p\sX$ an $H^*\sX$ -module. If $f: \sX \to \sY$ is a mapping, $f^*: H^*\sY \to H^*\sX$ homomorphism of rings, and one has the important {\it projection formula}, 
+\bean
+f_*\left( f^*a \frown b\right) = a \frown f_*b
+\eean 
+Any $k$-dimensional subvariety $\sV$ of $\sX$ determines a class denoted $\mathrm {cl}(\sV)$ in 
+$H_{2k}\sX$. This follows for example from the fact that $\sV$ can be triangulated to be an 
+oriented 2$k$-circuit. If $f: \sX \to \sY$ is a morphism, and $f\left(\sV \right)= \mathcal W$, then 
+\bean
+f_*\mathrm {cl}(\sV)= \deg(\sV/\mathcal W)\mathrm {cl}(\mathcal W),
+\eean 
+where $\deg(\sV/\mathcal W)$ is defined as follows. If $\dim(\mathcal W) < \dim(\sV)$, then $\deg(\sV/\mathcal W)= 0$
+If $\dim(\sV)= \dim (\mathcal W)$, there is an open $\mathcal W^*$ such that  $\sV \cap f^{-1} \left( \mathcal W^* \right) \to \mathcal W^*$ 
+is a finite-fold topological covering, and $\deg(\sV/\mathcal W)$ is the number of sheets of 
+this covering; algebraically, $\deg(\sV/\mathcal W)$ is the degree of the function field $R(\sV)$ of $\sV$
+ as a field extension of $R(\mathcal W)$.
+
+If $\sX$ is nonsingular of dimension $n$, capping with $\mathrm{cl}\left( \sX\right)$ gives the {\it Poincare 
+duality} isomorphism 
+\bean
+H^p\sX \xrightarrow[\cong]{\frown \mathrm{cl}\left( \sX\right)  } H_{2n - p}\sX.
+\eean 
+In the nonsingular case, $H_*\sX = H^*\sX$ has an intersection product. If $A$ and $B$ are 
+subvarieties of $\sX$ of dimensions $a$ and $b$, one may therefore define $A \cdot B$ in $H{2a + 2b - 2n}.\left( \sX\right)$  This product may be refined by using relative groups: 
+\bean
+\mathrm{cl}\left(A\right) \in H_{2a}\left(A \right) = H^{2n - 2a}\left(\sX , \sX \setminus A \right) 
+\eean 
+and similarly $\mathrm{cl}\left(B \right) \in H^{2n - 2b} \left(\sX, \sX \setminus B \right)$, so 
+\bean
+\mathrm{cl}\left( A\right) \smile \mathrm{cl}\left( B\right)\in  H^{4n - 2a - 2b}\left(\sX, \sX \aetminus \left( A \cap B\right)  \right) %\cong H_{4n - 2a - 2b}\left(\ A \cap B\right)
+\eean
+(?4?-2?-26(*, *- (? ? 
+and thus A - ? lives in H2a+2b_2n(A ? 5). Note that if the intersection is 
+proper, this last group is free on the classes of irreducible components of ? ? ?, 
+so this determines A ¥ ? as a cycle; in other words, this gives a topological 
+construction of intersection multiplicities. 
+Complex vector bundles Ein X have Chern classes c,(?) in ?2'*, satisfying: 
+(i)co(?)= l;c,(?) = 0if/> rank(?). 
+(ii) If/: Y -+X,c,{f*E) = /%(?). 
+	(iii) If 0 -* E' -+ E -* E" -È 0 is an exact sequence, then 
+	(iv) If L is an algebraic line bundle on X and s is a section of L with 
+	zero-scheme Ds * X, then 
+	where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
+	For a line bundle L e ?^?',©^), c,(L) e H2(X,Z) may be constructed as 
+	the coboundary of L from the exact sequence 
+\paragraph{TTT}
+
+
+
+Each $k$-dimensional complex variety $\sV$ has a cycle class ${cl}(\sV)$  in $H_{2k}\left( \sV\right)$, where 
+$H_*$ denotes homology with locally finite supports (Borel-Moore homology). If $\sV$ is a subvariety of an $n$-dimensional complex manifold $\sX$, then $H_{2k}(\sV) \cong H^{2n - 2k} \left(\sX \setminus \sV \right)$ 
+The resulting homomorphism from cycles to homology 
+passes to algebraic equivalence. There results in particular a cycle map
+\be
+cl : A_*\left(\sX  \right) \to H_*\left( \sX\right) 
+\ee
+for complex schemes $\sX$, which is covariant for proper morphisms, and 
+compatible with Chern classes of vector bundles. 
+If $\sV$ and $\mathcal W$ are subvarieties of dimensions $k$ and $l$ of a non-singular $n$-dimensional variety $\sX$, a refined topological intersection product $cl\left(\sV \right)\cdot cl\left( \mathcal W\right)$   
+is constructed in $H_{2m}(\sV \cap \mathcal W)$, $m = k + l-n$. If $cl^\sX (\sV)$is the class in 
+$H^{2n - 2k}(\sX,\sX \setminus \sV)$ dual to $cl(\sV)$, and similarly for $cl^\sX(\mathcal W)$, then $cl(\sV)\dot(\mathcal W)$
+is defined to be the class dual to 
+$$
+cl^\sX\left( \sV\right) \smile 	cl^\sX\left( \mathcal W\right)\in H^{2n - 2m}\left(\sX, \sX \setminus \sV \cap \mathcal W \right). 
+$$
+Borel-Moore homology can be defined using singular cohomology. If a 
+space $\sX$ is imbedded as a closed subspace of $\R^n$, then 
+\be\label{chow1_eqn}
+H_j\left(\sX  \right) \cong H^{n-j}\left(\R^n, \R^n \setminus \sX \right) 
+\ee
+where the group on the right is relative singular cohomology with integer 
+coefficients. More generally, if $\sX$ is a closed subspace of a space $\sY$, there are 
+cap products 
+\be\label{chow2_eqn}
+H^j\left(\sY, \sY \setminus\sX \right) \otimes \xrightarrow{\frown}H_{k-j}\left(\sX \right). 
+\ee
+If $\sX$ is an oriented, connected, real $n$-manifold, then $H_n\left( \sY\right)$ is freely generated by 
+a \textit{fundamental class} $\mu_\sY$, and capping with $\mu_\sY$ determines an isomorphism 
+\be\label{chow3_eqn}
+H^{n-j}\left(\sY, \sY \setminus \sX \right) \xrightarrow[\cong]{\frown \mu_\sY}H_{k-j}\left( \sX\right). 
+\ee
+When $\sY = \R^n$, this is the isomorphism of \eqref{chow1_eqn}. When $\sX = \sY$, \eqref{chow3_eqn} is the Poincar\'{e} duality isomorphism of $H^{n-j}\left(\sY \right)$  with $H_{j}\left(\sY \right)$. 
+If $f : \sY \to \sX$ is a proper morphism, there are covariant homomorphisms 
+\be\label{chow4_eqn}
+f_* : H_{j}\left(\sX \right) \to H_{j}\left(\sY \right) 
+\ee
+If $j: \sU \to \sY$ is an open embedding, there are contravariant restriction homomorphisms
+\be\label{chow5_eqn}
+j^* : H_{p}\left(\sY \right) \to H_{p}\left(\sU \right). 
+\ee
+If $\sX$ is the complement of $\sU$ in $\sY$, $i: \sX\to \sY$ the closed embedding, there is a long exact sequence 
+\be\label{chow6_eqn}
+...\to  H_{p+1}\left(\sU \right) \to H_{p}\left(\sX \right)\xrightarrow{i_*} \H_{p}\left(\sY \right)\xrightarrow{j_*}H_{p}\left(\sU \right)\to H_{p-1}\left(\sX \right)\to .... 
+\ee
+If $\sX$ is a disjoint union of a finite number of spaces $\sX_1,..., \sX_m$, then 
+\be\label{chow7_eqn}
+H_{i}\left(\sX \right) = H_{i}\left(\sX_1 \right) \oplus ...\oplus H_{i}\left(\sX_m \right)
+\ee 
+There are evident compatibilities among these homomorphisms, which will be used without comment. One such is the equation  
+\be\label{chow8_eqn}
+\left( u \smile v \right) \frown a = j^*\left( u\right)\frown \left( v \frown a\right)  
+\ee 
+in $H_*\left( \sX \cap \mathcal W\right)$ , where $\sX \hookto \sY$, $~j:\mathcal W \to  \sY$ are closed embeddings, $u \in H^*(\sY, \sY\setminus \sX), ~v \in H^*(\sY, \sY- \mathcal W), ~a \in H_*\left( \sY\right)$. 
+\begin{lemma}\cite{fulton:intersection}
+	% Lemma 19.1.1. 
+	If $\sX$ is an $n$-dimensional complex scheme, then $H^j(\sX) =\{0\}$ for 
+	$i >2n$, and $H_{2n}\left(\sX \right) $ is a free Abelian group with one generator for each irreducible 
+	component of $\sX$. 
+\end{lemma}
+\begin{definition}
+	The generator of $H_{2n}\left(\sX \right)$ corresponding to an $n$-dimensional irreducible 
+	component $\sX_i$, will be denoted $cl(\sX_i)$; it is determined by the fact that it 
+	restricts to the fundamental class $\mu_{\sU_i}$ for any connected open subset $\sU_i$, of the 
+	non-singular locus of $\sX_i$. More generally, if $\sV$ is a $k$-dimensional closed sub variety of a scheme $\sX$, define the \textit{cycle class} $cl_\sX(V)$ by 
+	\be
+	cl_\sX\left(\sV \right) \bydef i_* cl\left(\sV\right)\in H_{2k}\left( \sX\right) 
+	\ee
+	where $i$ is the inclusion of $\sV$ in $\sX$. When no confusion is likely, we may write $cl (\sV)$ 
+	in place of $cl_\sX\left( V\right)$. It is proven in \cite{fulton:intersection}. For any $\sX$, there is a homomorphism denoted $cl$, or $cl_\sX$, 
+	\bean
+	A_*(\sX )\to H_*\left(\sX \right),\\
+	\sum_i n_i \left[\sV_i\right] \mapsto \sum_i n_i cl\left(\sV_i\right).
+	\eean 
+\end{definition}
+\begin{definition}\label{ad_ori_defn}
+	Every regular (closed) embedding $i: \sV\hookto\sX$ of codimension $d$ has an \textit{orientation class}.
+	\be\label{ad_ori_eqn}
+	u_i = u_{\sV, \sX}\in H^{2d}\left(\sX, \sX \setminus \sV \right) 
+	\ee 
+\end{definition}
+There is a long exact sequence of cohomology
+\be
+\begin{split}
+	...\to  H^{p-1}\left(\sV ; \Z\right) \to H^{p}\left(\sX, \sX\setminus\sV ;\Z\right)\xrightarrow{i^*_p} H^{p}\left(\sX;\Z \right)\xrightarrow{j^*_p}H^{p}\left(\sV ; \Z\right)\to\\ \to H^{p+1}\left(\sX, \sX\setminus\sV ; \Z\right)\to .... 
+\end{split}
+\ee
+There is an Abelian group homomorphism $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ such that if $\sV$ is an irreducible $k$-dimensional submanifold of $\sX$ then
+\be
+cl \left(\left[\sY\right] \right) = i^*_{2d}\left(u_{\sV, \sX} \right)\in H^{2d} \left(\sX \right)
+\ee 
+
+
+\begin{corollary}
+	%19.2
+	The mapping $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ is a homomorphism of graded rings, covariant for morphism of non-singular varieties. 
+\end{corollary}
+
+
 
 
 \section{Dixmier Douady theory}
@@ -7421,57 +7677,9 @@ The inverse image functor $f^{-1}$ induces an equivalence of categories between
 the category of sheaves over $\sX$ and the category of sheaves A over $\sY$, equipped 
 with a descent datum $\phi : p^{-1}_1A \cong p^{-1}_2A$ satisfying the cocycle condition \eqref{desc_ppp_eqn}.
 \end{proposition}
-
-
 \section{Miscellany}
 	
-\begin{remark}\label{polarization_equality_rem}
-	For any $C^*$-pre-Hilbert $X$ module, or more  precisely, for any sesquilinear form $\left\langle \cdot , \cdot \right\rangle$ the \textit{polarization equality}
-	\be\label{polarization_equality_eqn}
-	\begin{split}
-		4 \left\langle \xi , \eta \right\rangle=\sum_{k = 0}^3i^k\left\langle \xi + i^k\eta, \xi + i^k\eta \right\rangle
-	\end{split}
-	\ee 
-	is obviously satisfied for all $\xi, \eta \in X$.  If $\H$ is a Hilbert space then there is the following analog of the identity \eqref{polarization_equality_eqn}
-	\be\label{polarization_hilb_equality_eqn}
-	\\
-	\left( \xi , \eta \right)_{\H} = \frac{\sum_{k = 0}^3i^k\left\| \xi + i^k\eta \right\|}{4}, \quad\forall \xi, \eta \in X
-	\ee
-\end{remark} 
-\subsection{Cohomology in algebraic geometry}
-\paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
 
-\begin{empt}\label{loc_const_triv_empt}
-It is proven in \cite{milne:lec} that if $\sX_{\mathfrak{Zariski}}$  is an algebraic manifold with Zariski topology and $\mathscr F$ is a  locally constant sheaf on $\sX_{\mathfrak{Zariski}}$  then
-$$
-\forall r > 0 \quad H^r\left(\sX_{\mathfrak{Zariski}}, \mathscr F \right) = 0.
-$$
-\end{empt}
-\begin{empt}\cite{hartshorne:ag}
-Let A be a noetherian ring, let $S \bydef A\left[x_0, ..., x_n\right]$, and let $\sX \bydef \mathrm{Rroj} S$
-be the projective space $\mathbb P^r_A$ over $A$. Let $\mathscr O_\sX\left( 1\right)$  be the twisting sheaf of Serre 
-(cf. \cite{hartshorne:ag}). For any sheaf of ($\mathscr O_\sX$ -modules $\mathscr F$, we denote by $\Ga_*\left(\mathscr F \right)$  the graded $S$-module 
-$$
-\bigoplus_{n \in \Z} \Ga\left(\sX, \mathscr F\left( n\right). \right) 
-$$
-
- \end{empt}
-\begin{theorem}\label{projective_ag_coh_thm}\cite{hartshorne:ag}
-%Theorem 5.1.
- Let $A$ be a noetherian ring, and let $\sX \bydef \mathbb P^r_A$, with $r \ge 1$. Then: 
- \begin{enumerate}
- 	\item[(a)]  the natural map $S \to \Ga_*\left(\mathscr O_\sX \right)  = \sum_{n \in \Z} H^0\left(\sX,\mathscr O_\sX\left( n\right)   \right)$  is an isomorphism of graded $S$-modules; 
- 	\item[(b)] $H^i\left( \mathscr O_\sX\left( n\right)\right) = 0$ for $0 < i < r$ and all $n \in \Z$;
- 	
- 	\item[(c)]	$H^i\left( \mathscr O_\sX\left(-r-1\right)\right)= A$.
- 	\item[(d)]	The natural map 
- 		$$
- 		H^0\left(\sX,O_\sX\left(n\right)  \right) \times 	H^r\left(\sX,O_\sX\left(-n-r-1\right)  \right)\to H^r\left(\sX,O_\sX\left(-r-1\right)  \right)\cong A
- 		$$
- 			is a perfect pairing of finitely generated free $A$-modules, for each $n \in \Z$. 
- 			
- \end{enumerate}
-\end{theorem}
 \subsection{Fundamental theorem of projective geometry}
 \begin{defn}\cite{berger:geometryI}
 	Let $\sV. \sV'$ be vector spaces over $K, K'$. a map $f: \sV \to \sV'$ is called {\it semilinear} if there exists an automorphism $\sigma :K \to K'$ such that
@@ -7488,19 +7696,6 @@ Let $\sX$, $\sX'$ be affine spaces of same finite dimension $d \ge 2$. Let $f: \
 Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
 \end{theorem}
 
-\subsection{Cell decomposition of projective spaces}\label{cell_proj_sec}
-\paragraph{} Here I follow to \cite{fomenko_fucs_hot}
-there the chain of inclusions
-\bean
-\emptyset = \R P^{-1}\subset \R P^0\subset \R P^1\subset  ... \subset  \R P^n:
-\eean
-We set $e^q =  \R P^q \setminus \R^{q-1}$ . A characteristic map for $e^q$ may be chosen as the
-composition of the canonical projection $D^q \to \R P^q$ and the inclusion
-$\R P^q \to \R P^n$. For $n = \infty$, this construction provides a $CW$ decomposition of $\R P^\infty$
-with one cell in every dimension.
-The construction also has complex, quaternionic, and Cayley analogs. In the
-complex case, we get a $CW$ decomposition of $\C P^n$ into $n + 1$ cells $e^0, e^2, e^4, ... , e^{2n} $
-and also a $CW$ decomposition of $\C P^\infty$ with one cell of every even dimension.
 
 \end{appendices}
 
@@ -7511,7 +7706,7 @@ and also a $CW$ decomposition of $\C P^\infty$ with one cell of every even dimen
  Author would like to acknowledge members of the Moscow State University Seminars
 "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
 of this work. 
-
+\section{APP}
 \paragraph{Closed transversals and idempotents of $C^*_r\left(\sV,\F \right)$} 
 
 Let $\left(\sV,\F \right)$ be a foliated manifold, and $N \subset \sV$ a compact submanifold with $\dim N = \codim \F$, everywhere
@@ -7575,100 +7770,7 @@ in $\Coo_c\left( \G_N\right)$  is given by
 f^*\left(\ga \right) = \overline{f\left( \ga^{-1}\right) }.
 \end{split}
 \ee
-\section{CUT}
 
-\begin{remark}
-	Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
-	\be\label{open_g_eqn}
-	\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
-	\ee
-	where $V_1, ..., V_n \subset 
-	\mathbb{P}\left(\H \right)$ are linear subspaces. \end{remark}
-\begin{remark}\label{compact_nonempt_rem}
-	If both $\sU_1, \sU_2 \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ are nonempty open subsets then from \eqref{open_g_eqn} it follows that $\sU_1 \cap \sU_2 \neq \emptyset$. Similar result has the algebraic geometry, i.e. intersection  of two nonempty,  open with respect to Zariski topology sets is not empty (cf. \cite{hartshorne:ag}).
-\end{remark}
-!!!!!
-
-
-\begin{empt}
-If  $\dim \H = \infty$ and $\left\{L_0, L_1, ...\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left(\H \right)$ then
-$$
-\mathbb{P}\left( \H\right) = \bigcup_{j=0}^\infty \left( \mathbb{P}\left(\H \right) \setminus L_j\right) 
-$$
-Similarly 
-$$
-\mathbb{P}\left( \C^n\right) = \bigcup_{j=0}^{n} \left( \mathbb{P}\left( \C^n\right) \setminus L_j\right). 
-$$
-where $\left\{L_0,  ..., L_n\right\}$ is a set of mutually orthogonal codimension one projective subspaces of $\mathbb{P}\left( \C^n\right)$.
-If 
-\be\label{comp_cov_eqn}
-\mathscr W\bydef \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... } \quad \text{or} \quad \mathscr W\bydef \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }
-\ee then
-\be\label{cp_nerve_eqn}
-\begin{split}
-	\forall \sigma \in K\left(\mathscr W\right)\quad \sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j,\\
-	\forall j = 1,..., n \quad L^\sigma_j \text{ is a linear subspace of the Hilbert space } \sH \quad \codim_{\R} ~ L^\sigma_j  \ge 2,
-\end{split}
-\ee
-where the inclusion $\sU_{\sigma} = \sH \setminus \bigcup_{j = 0}^{n_\sigma} L^\sigma_j$ follows from the Definition \ref{projective_bundle_defn};
-From the equation \eqref{cp_nerve_eqn} it follows that 
-\be\label{nerve_0_eqn}
-\begin{split}
-	\mathfrak{Lattice}\left(\sU_{\sigma} \right) \cong \mathfrak{Lattice}\left(\H' \right),\\
-	\forall p > 0 \quad \forall \sigma \in K\left(\mathscr W\right) \quad H^p\left( \sU_{\sigma};\mathscr A \right)= 0.
-\end{split}
-\ee
-where $\sH'$ is a Hilbert space and the isomorphism of semi-lattices comes from the inclusion 
-$\sU_{\sigma}\subset \sH'$.
-If  $F$ is an Abelian group and  $\overline F$ is  $F$-locally constant sheaf  (cf, Definition \ref{constant_presheaf_defn}) on $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}$ (cf, Definition  and $\mathscr W= \left\{ \mathbb{P}\left(\H \right) \setminus L_j\right\}_{j = 0, 1, ... }$ or  $\mathscr W= \left\{ \mathbb{P}\left( \C^n\right)\setminus L_j\right\}_{j = 0,..., n }$ then 
-$H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
-all $\sigma \in K\left(\mathscr W\right)$ where  $K\left(\mathscr W\right)$ is the nerve of $\mathscr W$ (cf. Definition \ref{nerve_defn}). 
-\end{empt}
-\begin{lemma}\label{trivial_cech_lem}
-If  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group then
-\be
-\forall p > 0 \quad H^p\left(\sX, F  \right) = 0 \quad \Rightarrow \quad H^p\left(\sY, F  \right) = 0
-\ee
-where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{lemma}
-\begin{proof}
-Clearly the singleton covering $\left\{\sX\right\}$ of $\sX$ satisfies to the hypothesis of the Theorem \ref{top_nerve_thm}. Any covering $\mathscr U \bydef \left\{
-\sU_\iota \right\}_{\iota \in  I}$ of $\sY$ is a covering of $\sX$. For any class $\left[c_\sY\right] \in \check  H^p\left(\sY, F  \right)$ there is a covering $\mathscr U$ such that $\left[c_\sY\right]$ is represented by the cycle 
-\bean
-c_\sY =	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p}}\in \check C^p\left( \mathscr U, F\right).
-\eean
-This cycle can be regarded as the cycle in $ c_\sX\in \check C^p\left( \mathscr U, F\right)$. From the Theorem \ref{top_nerve_thm} it turns out that $\left[c_\sX\right]$ can be represented by the chain
-\bean
-\begin{split}
-	c'_\sX = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sX\right\}, F\right).
-\end{split}
-\eean
-(cf. \eqref{tau_c_eqn}) where $\tau : \mathscr U \to \left\{\sX\right\}$ is the unique map onto the singleton covering (cf. \eqref{cech_tau_eqn}). It turns out that $\left[c_\sY\right]$ can be represented by the cycle
-\bean
-c'_\sY = \sum_{j = 0}^n	\left( \tau^r \a_{j_0,..., j_{n}} \right)\in \check C^p\left( \left\{\sY\right\}, F\right)
-\eean  
-From $\left[c'_\sX\right]= 0\in \check H^p\left(\sX, F  \right)$ it follows that there is $b_\sX \in \check C^p\left( \left\{\sX\right\}, F\right)$ such that $c'_\sX = d_{p -1}b_\sX$. The chain $b_\sX$ uniquely yields the chain $b_\sY \in \check C^p\left( \left\{\sY\right\}, F\right)$ with $c'_\sY = d_{p -1}b_\sY$. It turns out that $\left[c'_\sY\right]= \left[c_\sY\right]= 0$. So one has $\check H^p\left(\sY, F  \right)=H^p\left(\sY, F  \right) = 0$.
-\end{proof}
-\begin{theorem}\label{compact_thm}
-For any Abelian group $F$ the map $\phi_{\H} : \mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}}\to \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ yields  the natural isomorphism
-$$
-H^*\left( \mathfrak{Gelfand}\left(\K\left(\H \right), F\right)  \right)\cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
-$$
-where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-
-\end{theorem}
-\begin{proof}
-If $\mathscr W$ is given by \eqref{cp_nerve_eqn} then from the equation \eqref{nerve_0_eqn} and the Theorem \ref{top_nerve_thm} it follows that
-$$
-H^*\left(\mathbb{P}\left( \C^n\right)_{\mathfrak{Hausdorff}},  F \right) \cong \check H^*\left( \mathscr W;  F\right).
-$$
-
-Taking into account that $\mathbb{P}\left( \C^n\right) \setminus L_j$ is open in $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ for any $j$ one has
-\be\label{proj_h_eqn}
-H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Gelfand}},  F \right) \cong H^*\left(\mathbb{P}\left(\H \right) _{\mathfrak{Hausdorff}},  F\right)
-\ee
-\end{proof}
-\
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
 	
@@ -7707,6 +7809,21 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 
 	
 \bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
+
+\bibitem{fulton:intersection} William Fulton. \textit{Intersection Theory}.
+Second Edition, Springer, 1997.
+
+
+\bibitem{fulton:intro_intersection}  William Fulton. {\it Introduction to intersection theory in algebraic geometry}.
+Conference Board of the Mathematical Sciences 
+by the 
+American Mathematical Society 
+Providence, Rhode Island 
+Expository Lectures 
+from the CBMS Regional Conference 
+held at George Mason University 
+June 27-July 1, 1983. 
+
 
 	\bibitem{grothendieck:sheaf_noabelian} Alexander Grothendieck. \textit{A General Theory of Fibre Spaces With Structure Sheaf}, University of Kansas, Report No. 4 (1955, 1958), 1958.
 
