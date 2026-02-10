@@ -2601,6 +2601,8 @@ However both the existence of  $c_1\left( \sV_{S\T^2 }\right)$ and the inequalit
 				\eean
 				is onto. 	
 			\end{definition}
+			
+			
 			\section{Topology}
 			\subsection{General topology}
 	
@@ -4086,6 +4088,7 @@ Also we denote the {\it cup-product} ($\varphi_*\left(x, y \right)$ for $x \in K
 \begin{empt}\label{kt_d_empt}\cite{karoubi:k}The diagonal map $\sX \hookto \sX \times \sX$ induces a homomorphism $K\left(\sX \times \sX \right)\to \left( \sX\right)$. 
 	If we compose this homomorphism with the homomorphism $K\left( \sX\right)\otimes K\left( \sX\right)\to K\left( \sX\right)\otimes K\left( \sX\right)$  defined above, we have a product operation in the group $K(\sX)$,
 \end{empt}
+
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
 		Let $\A$ be a partially ordered set, $S$ a subset of $\A$. We say an element $a \in A$
@@ -7250,11 +7253,28 @@ The above situation  is usually phrased by saying that morphisms of sheaves
 satisfy {\it descent} with respect to local homeomorphisms. 
 	\end{remark}
 
+\section{Simplicial sets}
+\paragraph{} Here I follow to \cite{gelfand_manin}.
+\subsection{Nerve of Covering}
 
+Let $\sY$ be a topological space, $\sU \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be its covering (either by open or by 
+closed sets), a running over some set $\mathscr A$. Let 
+\be
+\begin{split}
+	X_n \bydef \left\{\left({\a_0}, ..., {\a_n} \right)  \left|\sU_{\a_0}\cap, ...,\cap \sU_{\a_n} \neq \emptyset  \right.\right\}\\
+	Xf\left({\a_0}, ..., {\a_n} \right)\bydef  \left(\a_{f(0)}, ...,\a_{f(n)} \right)\quad \text{for} \quad f : \left[m\right]\to \left[n\right]	
+	\end{split}
+		\ee
+			This simplicial set reflects the combinatorial structure of a covering. One 
+		can show that if the covering $\sU$ is locally finite and all nonempty finite intersections $ \sU_{\a_0}\cap, ...,\cap \sU_{\a_n}$ are contractible, then the geometric realization $\left|X\right|$
+		of $X$ is homotopically equivalent to $Y$, so that the topology can be efficiently 
+		encoded into combinatorial data. 
+		The similar role is played by the following construction.
+		\subsection{Simplicial sets}
+		\
 \section{Algebraic geometry}
 \subsection{Cohomology of sheaves}
 \paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
-
 \begin{empt}\label{loc_const_triv_empt}
 	It is proven in \cite{milne:lec} that if $\sX_{\mathfrak{Zariski}}$  is an algebraic manifold with Zariski topology and $\mathscr F$ is a  locally constant sheaf on $\sX_{\mathfrak{Zariski}}$  then
 	$$
@@ -7268,7 +7288,6 @@ satisfy {\it descent} with respect to local homeomorphisms.
 	$$
 	\bigoplus_{n \in \Z} \Ga\left(\sX, \mathscr F\left( n\right). \right) 
 	$$
-	
 \end{empt}
 \begin{theorem}\label{projective_ag_coh_thm}\cite{hartshorne:ag}
 	%Theorem 5.1.
@@ -7276,7 +7295,6 @@ satisfy {\it descent} with respect to local homeomorphisms.
 	\begin{enumerate}
 		\item[(a)]  the natural map $S \to \Ga_*\left(\mathscr O_\sX \right)  = \sum_{n \in \Z} H^0\left(\sX,\mathscr O_\sX\left( n\right)   \right)$  is an isomorphism of graded $S$-modules; 
 		\item[(b)] $H^i\left( \mathscr O_\sX\left( n\right)\right) = 0$ for $0 < i < r$ and all $n \in \Z$;
-		
 		\item[(c)]	$H^i\left( \mathscr O_\sX\left(-r-1\right)\right)= A$.
 		\item[(d)]	The natural map 
 		$$
@@ -7287,6 +7305,7 @@ satisfy {\it descent} with respect to local homeomorphisms.
 	\end{enumerate}
 \end{theorem}
 \subsection{Chow ring and homology}
+
 \subsubsection{Divisors and rational equivalence }
 \paragraph{} 
 Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
@@ -7295,7 +7314,7 @@ Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
 
 A complex projective variety $\sX$ has homology groups $Hq\sX$ and cohomology 
 groups $H^q\sX$. There are {\it cup 
-products }
+	products }
 \bean
 H^p\sX \otimes H^q \sX \xrightarrow{\smile }  H^{p+ q} \sX
 \eean
@@ -7317,10 +7336,9 @@ where $\deg(\sV/\mathcal W)$ is defined as follows. If $\dim(\mathcal W) < \dim(
 If $\dim(\sV)= \dim (\mathcal W)$, there is an open $\mathcal W^*$ such that  $\sV \cap f^{-1} \left( \mathcal W^* \right) \to \mathcal W^*$ 
 is a finite-fold topological covering, and $\deg(\sV/\mathcal W)$ is the number of sheets of 
 this covering; algebraically, $\deg(\sV/\mathcal W)$ is the degree of the function field $R(\sV)$ of $\sV$
- as a field extension of $R(\mathcal W)$.
-
+as a field extension of $R(\mathcal W)$.
 If $\sX$ is nonsingular of dimension $n$, capping with $\mathrm{cl}\left( \sX\right)$ gives the {\it Poincare 
-duality} isomorphism 
+	duality} isomorphism 
 \bean
 H^p\sX \xrightarrow[\cong]{\frown \mathrm{cl}\left( \sX\right)  } H_{2n - p}\sX.
 \eean 
@@ -7331,23 +7349,30 @@ subvarieties of $\sX$ of dimensions $a$ and $b$, one may therefore define $A \cd
 \eean 
 and similarly $\mathrm{cl}\left(B \right) \in H^{2n - 2b} \left(\sX, \sX \setminus B \right)$, so 
 \bean
-\mathrm{cl}\left( A\right) \smile \mathrm{cl}\left( B\right)\in  H^{4n - 2a - 2b}\left(\sX, \sX \aetminus \left( A \cap B\right)  \right) %\cong H_{4n - 2a - 2b}\left(\ A \cap B\right)
+\mathrm{cl}\left( A\right) \smile \mathrm{cl}\left( B\right)\in  H^{4n - 2a - 2b}\left(\sX, \sX \setminus \left( A \cap B\right)  \right) \cong H_{4n - 2a - 2b}\left( A \cap B\right)
 \eean
-(?4?-2?-26(*, *- (? ? 
-and thus A - ? lives in H2a+2b_2n(A ? 5). Note that if the intersection is 
-proper, this last group is free on the classes of irreducible components of ? ? ?, 
-so this determines A ¥ ? as a cycle; in other words, this gives a topological 
+and thus  $A\cdot B$ lives  in $H_{4n - 2a - 2b}\left( A \cap B\right)$. Note that if the intersection is 
+proper, this last group is free on the classes of irreducible components of  $A\cap B$, 
+so this determines $A\cdot B$ as a cycle; in other words, this gives a topological 
 construction of intersection multiplicities. 
-Complex vector bundles Ein X have Chern classes c,(?) in ?2'*, satisfying: 
-(i)co(?)= l;c,(?) = 0if/> rank(?). 
-(ii) If/: Y -+X,c,{f*E) = /%(?). 
-	(iii) If 0 -* E' -+ E -* E" -È 0 is an exact sequence, then 
-	(iv) If L is an algebraic line bundle on X and s is a section of L with 
-	zero-scheme Ds * X, then 
-	where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
-	For a line bundle L e ?^?',©^), c,(L) e H2(X,Z) may be constructed as 
-	the coboundary of L from the exact sequence 
-\paragraph{TTT}
+
+
+
+Complex vector bundles $E$ in $\sX$ have {\it Chern classes} $c_j \in H^{2j}\left(\sX \right) $, satisfying: 
+\begin{enumerate}
+	\item [(i)] $c_0\left( E\right) = 1; ~ c_j\left(E \right) = 0$ if $j > \rank \left(E \right)$. 
+\item[	(ii)] If $f : \sY \to \sX, ~ c_j\left(f^*E \right)= f^*\left( c_j\left(E \right) \right)$.
+		\item [(iii)] If $0 \hookto E' \hookto E \onto E''$ is an exact sequence, then
+		$$
+		c_j = \sum_{k + l = j} c_k \left(E' \right)\smile c_l \left(E'' \right). 
+		$$ 
+		\item [(iv)] If $L$ is an algebraic line bundle on $\sX$ and $s$ is a section of $L$ with 
+		zero-scheme $D_s \neq \sX$, then 
+		
+		where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
+\end{enumerate}
+
+\paragraph{TTTT}
 
 
 
@@ -7827,7 +7852,9 @@ June 27-July 1, 1983.
 
 	\bibitem{grothendieck:sheaf_noabelian} Alexander Grothendieck. \textit{A General Theory of Fibre Spaces With Structure Sheaf}, University of Kansas, Report No. 4 (1955, 1958), 1958.
 
-\bibitem{fomenko_fucs_hot} Anatoly Fomenko, Dmitry Fuchs, {\it Homotopical Topology}, Graduate Texts in Mathematics 273, Springer (2016)
+\bibitem{fomenko_fucs_hot} Anatoly Fomenko, Dmitry Fuchs, {\it Homotopical Topology}, Graduate Texts in Mathematics 273, Springer (2016).
+
+\bibitem{gelfand_manin} Sergei I. Gelfand, Yuri I. Manin. \textit{Methods of Homological Algebra},  Springer Monographs in Mathematics (SMM), 1996. 
 
 	\bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 	
