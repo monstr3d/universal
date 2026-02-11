@@ -3542,6 +3542,54 @@ satisfy {\it descent} with respect to local homeomorphisms.
 	\end{remark}
 
 \section{Algebraic geometry}
+\subsection{Schemes}
+\paragraph{} I follow to \cite{hartshorne:ag}
+Let us construct the space $\mathrm{Spec} A$ associated to a ring $A$. As a set, 
+we define  $\mathrm{Spec}~A$ to be the set of all prime ideals of $A$. If $\mathfrak p$ is any ideal of $A$, 
+we define the subset $V(\mathfrak p) \subset \mathrm{Spec}~A$ to be the set of all prime ideals which 
+contain $\mathfrak p$. We define a topology on  $\mathrm{Spec}~A$ by taking the subsets of the form 
+$V(\mathfrak p)$ to be the closed subsets. Note that $V(A)= \emptyset;~ V\left( 0\right)  =$; and 
+		the in \cite{hartshorne:ag} it is proven that  finite unions and arbitrary intersections of sets of the 
+		form $V(\mathfrak a)$ are again of that form. Hence they do form the set of closed sets 
+		for a topology on $\mathrm{Spec}~A$ 
+		There is  a sheaf of rings ($\mathcal O$ on $\mathrm{Spec}~A$. For each prime ideal 
+		$\mathrm a \subseteqq A$, let $A_{\mathfrak{p}}$ be the localization of $A$ at $\mathfrak p$ . For an open set $\sU \subset  \mathrm{Spec}~A$, 
+		we define $\mathcal O\left(\sU\right)$ to be the set of functions $s : \sU \to \coprod{\mathfrak p \in \sU}$ such that $s\left( \mathfrak p\right)  \in A_{\mathfrak p}$
+		for each $\mathfrak p$, and such that $s$ is locally a quotient of elements of $A$: to be precise, 
+		we require that for each $\mathfrak p \in \sU$ there is a neighborhood $\sV$ of $\mathfrak p$, contained in $\sU$, and elements $a, f \in A$, such that for each $\mathfrak q \in \sV,~ f\notin \mathfrak q$, and $s(\mathfrak q) = a/f$ in $_{\mathfrak q}$.
+	 (Note the similarity with the definition of the regular functions on a 
+		variety. %The difference is that we consider functions into the various local 		rings, instead of to a field.) 
+	%	Now it is clear that sums and products of such functions are again such, 		and that the element 1 which gives 1 in each Av, is an identity. Thus Cr(U) is a 		commutative ring with identity. If V ^ U are two open sets, the natural 		restriction map ?{U) -> 6(V) is a homomorphism of rings. It is then clear 			that Cr is a presheaf. Finally, it is clearfrom the local nature of the definition 			that (9 is a sheaf. 
+	One can prove that $\mathcal O$ is a sheaf of rings on 	$\mathrm{Spec}~A$ 
+	\begin{definition}
+Let $A$ be a ring. The {\it spectrum} of $A$ is the pair consisting of the 
+topological space  $\mathrm{Spec}~A$ together with the sheaf of rings $\mathcal O$ defined above
+	\end{definition}
+	\begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
+		A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
+		$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
+		 A {\it morphism} of ringed spaces from  $\left( \sX \mathcal O_\sX\right)$  to $\left( \sY \mathcal O_\sY\right)$ is a pair  $f, f^{\#}$ of  a continuous map $f : \sX \to \sY$ and a map $f^{\#} : \mathcal O_\sY \to f_* \mathcal O_\sX$  of sheaves of rings on $\sY$. The ringed space $\left( \sX,  \mathcal O_\sX\right)$ is a {\it  locally ringed space} if for each point $P\in \sX$, the stalk $\mathcal O_{\sX, P}$ is a local ring. A morphism of locally ringed spaces is a morphism $\left(f, f^{\#} \right)$  of ringed spaces, such that for each point $P \in \sX$ induced map (see below) of local rings $f^{\#}_P: \mathcal O_{\sY, f\left( P\right)   }  \to \mathcal O_{\sX, P}$ ls a {\it local homomorphism} of local rings. We explain this last condition. First of all, given a point $P \in \sX$, the morphism of sheaves $f^{\#}: \mathcal O_\sY \to f_* \mathcal O_\sX$ induces a homomorphism of rings $\mathcal O_\sY \to \mathcal O_\sX \left( f^{-1}\sV\right)$ , for every open set $\sV$ in $\sV$. As $\sV$ ranges over  all open neighborhoods of $f\left(P \right)$ , $~f^{-1}\left(\sV \right)$  ranges over   a subset of the neighbourhoods of $P$. 	Taking direct limits, we obtain a map 
+		 \bean
+		 \mathcal O_{\sY, f\left(P \right) } = \varinjlim_{\sV} \mathcal O_\sY\left(\sV \right)\to  \varinjlim_{\sV} \mathcal O_\sX\left(f^{-1}\sV \right)
+		 \eean
+		 and the latter limit maps to the stalk $\mathcal O_{\sY, P}$. Thus we have an induced 
+		 homomorphism $f^{\#}_P: \mathcal O_{\sY, f\left(  P\right) }\to \mathcal O_{\sX, P}$. We require that this be a local 
+		 	homomorphism: If $A$ and $B$ are local rings with maximal ideals $\mathfrak m_A$ and 
+		 	$\mathfrak m_B$ respectively, a homomorphism $\varphi : A \to B$ is called a {local homo 	morphism} if $\varphi^{-1} \left( \mathfrak m_B \right) = \mathfrak m_A$.
+		 	 
+\end{definition}
+\begin{definition}
+ An {\it affine scheme} is a locally ringed space $\left( \sX, \mathcal O_\sX\right) $  which is isomorphic (as a locally ringed space) to the spectrum of some ring. A 
+{\it scheme} is a locally ringed space $\left( \sX, \mathcal O_\sX\right)$ in which every point has an open 
+neighborhood $\sU$ such that the topological space $\sU$, together with the 
+restricted sheaf $ O_\sX|_\sU$ an affine scheme. We call $\sX$ the {\it underlying topological space of the scheme} $\left( \sX, \mathcal O_\sX\right)$, and $ \mathcal O_\sX$ its {\it structure sheaf}. By abuse 
+of notation we will often write simply $\sX$ for the scheme $\left( \sX, \mathcal O_\sX\right)$. If we 
+wish to refer to the underlying topological space without its scheme 
+structure, we write $\mathrm{sp}\left(\sX \right)$ , read "space of X." A {\it morphism} of schemes is 
+a morphism as locally ringed spaces. An {\it isomorphism} is a morphism 
+with a two-sided inverse. 
+
+\end{definition}
 \subsection{Cohomology of sheaves}
 \paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
 \begin{empt}\label{loc_const_triv_empt}
@@ -3573,6 +3621,24 @@ satisfy {\it descent} with respect to local homeomorphisms.
 		
 	\end{enumerate}
 \end{theorem}
+\section{Intersection theory}
+
+
+\section{Cobordism}
+\paragraph{} Here I follow to \cite{stong:cobord}.
+\subsection{Cobordism categories}
+\paragraph{} Let 
+
+\begin{definition}\label{cobord_cat_defn}\cite{stong:cobord}
+A \textit{cobordism category} $\left(\mathscr C, \partial, j\right)$ is a triple in which
+\begin{enumerate}
+	\item [(a)] $\mathscr C$ is a category having finite sums and an initial object;
+	\item[(b)] $\partial:  \mathscr C \to \mathscr C$ is an additive  functor such that for each object $X$ of $\mathscr C$, $~\partial \partial \left( X\right)$ is an initial object;
+	\item[(c)] $j :\partial \to \Id_{\mathscr C}$ is a natural transformation of additive from $\partial$ to the identity functor $\Id_{\mathscr C}$; and 
+	\item[(d)] There is a small category $\Id_{\mathscr C_0}$ or $\Id_{\mathscr C}$ such that each object of $\mathscr C$ is isomorphic  to and object of $\mathscr C_0$
+\end{enumerate} 
+\end{definition}
+
 \subsection{Chow ring and homology}
 
 \subsubsection{Divisors and rational equivalence }
@@ -3630,15 +3696,15 @@ construction of intersection multiplicities.
 Complex vector bundles $E$ in $\sX$ have {\it Chern classes} $c_j \in H^{2j}\left(\sX \right) $, satisfying: 
 \begin{enumerate}
 	\item [(i)] $c_0\left( E\right) = 1; ~ c_j\left(E \right) = 0$ if $j > \rank \left(E \right)$. 
-\item[	(ii)] If $f : \sY \to \sX, ~ c_j\left(f^*E \right)= f^*\left( c_j\left(E \right) \right)$.
-		\item [(iii)] If $0 \hookto E' \hookto E \onto E''$ is an exact sequence, then
-		$$
-		c_j = \sum_{k + l = j} c_k \left(E' \right)\smile c_l \left(E'' \right). 
-		$$ 
-		\item [(iv)] If $L$ is an algebraic line bundle on $\sX$ and $s$ is a section of $L$ with 
-		zero-scheme $D_s \neq \sX$, then 
-		
-		where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
+	\item[	(ii)] If $f : \sY \to \sX, ~ c_j\left(f^*E \right)= f^*\left( c_j\left(E \right) \right)$.
+	\item [(iii)] If $0 \hookto E' \hookto E \onto E''$ is an exact sequence, then
+	$$
+	c_j = \sum_{k + l = j} c_k \left(E' \right)\smile c_l \left(E'' \right). 
+	$$ 
+	\item [(iv)] If $L$ is an algebraic line bundle on $\sX$ and $s$ is a section of $L$ with 
+	zero-scheme $D_s \neq \sX$, then 
+	
+	where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
 \end{enumerate}
 
 \paragraph{TTTT}
@@ -3743,7 +3809,7 @@ cl \left(\left[\sY\right] \right) = i^*_{2d}\left(u_{\sV, \sX} \right)\in H^{2d}
 	The mapping $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ is a homomorphism of graded rings, covariant for morphism of non-singular varieties. 
 \end{corollary}
 
-
+\
 
 
 \section{Miscellany}
@@ -3878,8 +3944,11 @@ June 27-July 1, 1983.
 
 	
 		\bibitem{spanier:at} E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+	
+\bibitem{stong:cobord}	R. E. Stong	{\it Notes on cobordism theory}. Princeton University Press 1968.
 
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
+
 
 		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
 		
