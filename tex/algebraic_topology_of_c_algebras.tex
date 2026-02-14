@@ -5,8 +5,15 @@
 %\usepackage{graphicx}
 \usepackage[toc,page]{appendix}
 \usepackage{nicefrac}
+%\usepackage{inputenc}
 %% \usepackage[francais]{babel}
+% Source - https://tex.stackexchange.com/a/8858
+% Posted by Alan Munn, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-02-14, License - CC BY-SA 4.0
+
+
 \usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{amssymb, euscript}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{graphicx}
@@ -22,6 +29,14 @@
 
 \usetikzlibrary{matrix}
 \usetikzlibrary{cd}
+
+\usetikzlibrary{decorations.markings}
+		\tikzset{double line with arrow/.style args={#1,#2}{decorate,decoration={markings,%
+			mark=at position 0 with {\coordinate (ta-base-1) at (0,1pt);
+				\coordinate (ta-base-2) at (0,-1pt);},
+			mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);
+				\draw[#2] (ta-base-2) -- (0,-1pt);
+}}}}
 
 \usepackage{siunitx}
 
@@ -641,7 +656,7 @@
 	\title{Algebraic topology of $C^*$-algebras}
 	
 	\author
-	{\textbf{Petr R. Ivankov* 10.02   13:50}\\
+	{\textbf{Petr R. Ivankov*}\\
 		e-mail: * monster.ivankov@gmail.com \\
 	}
 	
@@ -2602,6 +2617,175 @@ However both the existence of  $c_1\left( \sV_{S\T^2 }\right)$ and the inequalit
 				is onto. 	
 			\end{definition}
 			
+			\subsection{Model categories}
+			\paragraph{} Here I follow to \cite{motivic}.
+			\subsubsection{Liftings}
+			
+			\begin{definition}\cite{motivic}
+%Definition 0.1.1 
+Let $\M$ be a category, and $i : A \to B$ and $p : X \to Y$ be two maps in $\M$. We say that $p$ has the {\it right lifting property} with respect to $i$ (and that i has the {\it left lifting property} with respect to $p$) if for all commutative
+diagrams
+\bean
+\begin{tikzcd}
+A \arrow[r] \arrow[d, "i"] & X\arrow[d, "p"]\\
+ B \arrow[r] & Y
+\end{tikzcd}
+\eean
+in $\M$, there is a map $s : B \to X \in \M$ making the following diagram commutative.
+			\end{definition}
+						\subsubsection{The axioms}
+			
+			\begin{definition}\cite{motivic}
+%Definition 1.0.1
+ A {\it model category} is a category $\M$ together with three
+classes of maps $\mathrm{cof}\M$ (the {\it cofibrations}), $\mathrm{fib}\M$ (the {\it fibrations}) and $\mathrm{w}\M$ (the
+{\it weak equivalences}) satisfying the following axioms:
+\begin{enumerate}
+	\item [$\M$1:] (Limit axiom) The category M is (co)complete (i.e., has all small
+	(co)limits).
+		\item [$\M$2:] (Two out of three axiom) If
+\bean
+X \xrightarrow{f}Y\xrightarrow{f}\in \M
+\eean
+	and two of $f$, $g$ and $fg$ are weak equivalences, then so is the third.
+		\item [$\M$3:] (Retract axiom) If the map $g\in \M$ is a retract of h ? M and h is in
+	$\mathrm{cof}\M$, $\mathrm{fib}\M$ or in $\mathrm{w}\M$, then so is $g$.
+		\item [$\M$4:] (Lifting axiom) The cofibrations have the left lifting property with respect
+	to the maps in $\mathrm{fib}\M\cap\mathrm{w}\M$ (the {\it trivial fibrations}) and the fibrations
+	have the right lifting property with respect to the maps in $\mathrm{cof}\M\cap \mathrm{w}\M$
+	(the trivial cofibrations).
+		\item [$\M$5:]: (Factorization axiom) If $g: X \to Y \in \M$ there exist functorial factorizations
+\bean
+\begin{tikzcd}
+	~ & Z_g \arrow[rd, "f_g"] & \\
+	 X \arrow[ru, "i_g"] \arrow[rr, "g"]\arrow[rd, "j_g"]&& Y\\
+	 & W_g \arrow[ru, "p_q"] &
+\end{tikzcd}
+\eean	
+where $i_g$ is a trivial cofibration, $f_g$ is a fibration, $j_g$ is a cofibration and
+$p_g$ is a trivial fibration.
+\end{enumerate}
+	\end{definition}
+			
+	\begin{theorem}
+	%Theorem 1.0.3
+	 The categories $\sS$, $\sS$, $\A$, $\mathcal{T}op$, $\mathcal{T}op_*$ and $\sS pt$ “are” model
+	categories.
+	\end{theorem}		
+			\begin{definition}\cite{motivic}
+			%	Definition 1.2.1 
+			Let $\M$ be a model category. We say that $\M$ is {\it left proper}
+				if for all pushout diagrams
+\bean
+\begin{tikzcd}
+	A \arrow[r, "f"] \arrow[d, "i"] & B\arrow[d, ""]\\
+	C \arrow[r, "g"] & D
+\end{tikzcd}
+\eean				with $i$ a cofibration and $f$ a weak equivalence, $g$ is a weak equivalence.
+
+				Dually, $\M$ is {\it right proper} if for all pullback diagrams
+\bean
+\begin{tikzcd}
+	A \arrow[r, "f"] \arrow[d, ""] & B\arrow[d, "p"]\\
+	C \arrow[r, "g"] & D
+\end{tikzcd}
+\eean								with $p$ a fibration and $f$ a weak equivalence, $g$ is a weak equivalence.
+
+
+				If $\M$ is both left and right proper, we say that $\M$ is proper.
+	\end{definition}
+				\subsubsection{Proper model categories}
+	
+				\begin{definition}\cite{motivic}
+%Definition 1.2.3 
+In a model category a (commuting) square
+\bean
+\begin{tikzcd}
+	A \arrow[r, ""] \arrow[d, ""] & B\arrow[d, ""]\\
+	C \arrow[r, ""] & D
+\end{tikzcd}
+\eean	
+is a {\it homotopy pullback square} if for the functorial factorizations $B \hookto X \onto D$ 
+and $C \hookto Y \onto D$ (into trivial cofibrations followed by fibrations) the canonical
+map $A \to X \times_D Y$ is a weak equivalence. The {\it homotopy pullback} is the object
+ $X \times_D Y$.
+ 
+ \end{definition}
+	
+			\subsubsection{Quillen functors}
+		
+	\begin{definition}\cite{motivic}
+%Definition 1.3.1 
+Let $\M$ and $\mathcal N$ be model categories. A {\it (left) Quillen functor}
+from $\M$ to $\mathcal N$ is a functor $F : \M \to \mathcal N$ such that
+\begin{itemize}
+	\item $F$ has a right adjoint
+	\item $F$ preserves cofibrations and trivial cofibrations.
+	
+\end{itemize}
+A Quillen functor $F$ with right adjoint $G$ is called a {\it Quillen equivalence } if for all cofibrant $A \in \M$ and fibrant $X \in \mathcal N$ the bijection
+\bean
+\M\left(A, GX \right) \cong \mathcal N\left(FA, X \right) 
+\eean
+restricts to a bijection
+\bean
+\mathrm{w}\M\left(A, GX \right) \cong \mathrm{w}\mathcal N\left(FA, X \right) 
+\eean
+	\end{definition}
+		\begin{theorem}\cite{motivic}
+%Theorem 2.0.2 (see e.g., [2, p. 314])
+ The above gives a model category structure,
+called the projective structure, on $\sS^{\sC}$ in which a map is a cofibration if and only if 
+it is a retract of a cellular inclusion.
+\end{theorem}
+	
+	
+			\subsection{Functor categories: The Projective structure}
+				\paragraph{} Here I follow to \cite{motivic}.
+		\begin{definition}\cite{motivic}.
+%Definition 2.0.1
+ Let $\mathcal C$ be a small category, and consider the category $\sS^{\mathcal C}$
+of functors $\mathcal C \to \sS$. Call a natural transformation $X \to Y \in \sS^{\mathcal C}$ a {\it pointwise
+weak equivalence} (resp. {\it pointwise fibration}) if for every $c \in \mathcal C$ the map $X\left(c \right) \to Y\left(c \right)$ is a weak equivalence (resp. fibration).
+A {\it cellular inclusion} is a composite
+\bean
+X\left(0 \right) \to X\left(0 \right) \to...\to \varprojlim_{i \in \N} X\left(i \right) 
+\eean
+where each $X(i)\to X(i + 1)$ is the pushout along a disjoint union of maps
+\bean
+\partial \Delta \left[n\right] \times \mathcal C\left(c , \cdot  \right) \subset \Delta \left[n\right]
+\eean
+for $c \in \mathcal C$ and $n \ge 0$.	
+
+\end{definition}
+	
+			\subsection{Cofibrantly generated model categories}
+\paragraph{} Here I follow to \cite{motivic}. There was one particularly cool thing about simplicial sets which we employed
+many times: that the “building blocks” for (trivial) cofibrations were easy to
+cope with.
+		\begin{definition}\cite{motivic}.
+%Definition 3.0.1 
+Let $I$ be a set of the morphisms in a cocomplete category
+$\M$. We let
+\begin{enumerate}
+	\item  $I$?inj be the set of morphisms in $\M$ having the right lifting property with
+	respect to the maps in $I$,
+	2. $I$?cof be the set of morphisms in $\M$ having the left lifting property with
+	respect to the maps in $I$?inj. The elements of $I$?cof are referred to as
+	$I$-{\it cofibrations}.
+\end{enumerate}
+
+\end{definition}
+		\begin{definition}\cite{motivic}.
+Definition 3.0.2 A cofibrantly generated model category is a model category
+M in which there exists
+1. a set I of cofibrations which permits the small object argument and for
+which the cofibrations and I-cofibrations coincide.
+2. a set J of trivial cofibrations which permits the small object argument
+and for which the trivial cofibrations and J-cofibrations coincide.\end{definition}
+
+
+
 			
 			\section{Topology}
 			\subsection{General topology}
@@ -7880,6 +8064,9 @@ June 27-July 1, 1983.
 
 \bibitem{miyazaki_cw} Hiroshi Miyazaki, {The paracompactness of CW-complexes}, Tohoku Math. J. (2) Volume 4, Number 3 (1952), 309-313. 1952 	
 	
+	\bibitem{motivic} B.I. Dundas,	M. Levine,	P.A. Østvær,	O. R\"{o}ndigs,	V. Voevodsky.
+	{\it Motivic	Homotopy Theory}.	Lectures at a Summer School	in Nordfjordeid, Norway, Springer, August 2002.
+	
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 	
 	\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.	
@@ -7911,6 +8098,17 @@ June 27-July 1, 1983.
 \bibitem{wegge_olsen} N. E. Wegge-Olsen. \textit{$K$-Theory
 	 and $C^*$-Algebras: A Friendly Approach.} Oxford University Press,
 Oxford, England, 1993. 
+
+
+\bibitem{motivic} B.I. Dundas,
+M. Levine,
+P.A. Østvær,
+O. R\"{o}ndigs,
+V. Voevodsky.
+{\it Motivic	Homotopy Theory}.
+Lectures at a Summer School
+in Nordfjordeid, Norway, Springer, August 2002.
+
 \end{thebibliography}
 
 
