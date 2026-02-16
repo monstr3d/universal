@@ -679,7 +679,7 @@
 \subsection{The Gelfand space of $C^*$-algebra}
 
 \begin{definition}\label{lattice_a_defn}
-If $A$ be a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-semilattice (cf. Definition \ref{lattice_defn}) of closed left ideals such that 
+If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-semilattice (cf. Definition \ref{lattice_defn}) of closed left ideals such that 
 \be\label{meet_eqn}
 \begin{split}
 L' \wedge L''\bydef L' \cap L'',\\
@@ -739,9 +739,8 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	\bean
 	\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\}
 		\eean 
-		is the  $\sU$-\textit{space}
-		If $\sU \bydef \bigcup_\iota \sU_\iota$ is any union of belonging to a basis open subsets $\sU_\iota$ then the $\sU$-\textit{space} is the closure of $L_{\sU_\iota}$ where  $L_{\sU_\iota}$ is the $\sU_\iota$
-		
+		is the  $\sU$-\textit{space}.
+	%	If $\sU \bydef \bigcup_\iota \sU_\iota$ is any union of belonging to a basis open subsets $\sU_\iota$ then the $\sU_\iota$-\textit{space} is the closure of $L_{\sU_\iota}$ where  $L_{\sU_\iota}$ is the $\sU_\iota$
 \end{definition}
 
 \begin{empt}\label{topology_base_herd_empt}
@@ -749,7 +748,7 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	\be\label{hered_ideal_eqn}
 	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
 	\ee
-	So the Gelfand space can be be regarded as a subset of ultrafilters of right ideals and/or a set of ultrafilters of hereditary $C^*$ subalgebras of $B \subset A$ such that there is $a \in \K\left( A\right)_+$ with
+	So the Gelfand space can be be regarded as a subset of ultrafilters of right ideals and/or a set of ultrafilters of hereditary $C^*$ subalgebras of $B \subset A$ such that there is $a \in K\left( A\right)_+$ with
 	\be
 	B \subset a A a
 	\ee
@@ -850,7 +849,7 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 
 
 \begin{definition}\label{belongs_defn}
-	Let $A$ be a $C^*$ -algebra and let $\hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to } $x \in \hat A$ if one has
+	Let $A$ be a $C^*$ -algebra and let $\hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to} $x \in \hat A$ if one has
 	\be\label{belongs_eqn}
 	\forall L \in \xi \quad \rep_x\left(L\right) \neq \{0\} 
 	\ee
@@ -895,13 +894,13 @@ Moreover if there is the bicommutant $\mathfrak{Gelfand}\left(A \right)''$ of $\
 %\end{definition}
 \subsection{Morphisms}
 \paragraph*{}
-If both $A$ and $\widetilde{A}$ are $C^*$-algebra then any injective  homomorphism 	
+If both $A$ and $\widetilde{A}$ are $C^*$-algebras then any injective  $*$-homomorphism 	
 \be\label{phi_r_eqn}
 \varphi_M: A \hookto M\left(\widetilde A\right)	
 \ee
-of $\C$-algebras such that
+such that
 \be\label{closed_p_eqn}
-\widetilde{ A }\quad \text{is the closure of} \quad \widetilde A \varphi_M\left( A\right).
+\widetilde{ A }\quad \text{is the $C^*$-norm closure of} \quad \widetilde A \varphi_M\left( A\right).
 \ee
 yields an injective homomorphism  
 \be\label{lat_mor_eqn}
@@ -1038,130 +1037,7 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	If $A$ is a $C^*$ -algebra then a noncommutative covering $\left(A, \widetilde{A}, G, \lift \right)$ is \textit{universal}, if for any noncommutative covering $\left(A, \widetilde{A}', G', \lift' \right)$ there is natural noncommutative covering $\left(\widetilde{A}', \widetilde{A}, G'', \lift'' \right)$ with $\lift = \lift''\circ \lift'$. If the universal covering exists then $G$ is said to be the \textit{fundamental group} of $A$.
 \end{definition}
 
-\subsection{Some cohomology calculation}
-\begin{lemma}\label{iso_cech_lem}
-	Let  $\sX \to \sY$ is a bijective continuous map and $F$ is an Abelian group. If $\mathscr U \bydef \left\{\sU_\iota\right\}_{\iota \in I}$ is a satisfying to the hypothesis of the Theorem \ref{top_nerve_thm} covering  of $\sY$ then there are following isomorphisms
-	\be
-	\check H^\bullet\left(\mathscr U, F \right) \cong \check H^\bullet\left(\mathscr U, F \right)\cong \check H^\bullet\left( \sX, F \right) \cong \check H^\bullet\left(\sY, F \right) \cong  H^\bullet\left( \sX, F\right) \cong  H^\bullet\left(\sY, F \right)
-	\ee
-	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{lemma}
-\begin{proof}
-	From the Lemma \ref{trivial_cech_lem} it turns out that $\mathscr U$ can be regarded as satisfying to the Theorem \ref{top_nerve_thm} covering of $\sX$. Now this lemma directly follows from the Theorem \ref{top_nerve_thm}.
-\end{proof}
-
-\begin{lemma}\label{zero_product_lem}
-	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$.  If both $\sX$ and  $\sY$ are connected spaces with
-	\bean
-	H^p\left(\sX, F \right) \cong 	H^p\left(\sY, F \right) \cong  \begin{cases}
-		F & p = 0\\
-		\{0\} & p > 0
-	\end{cases}
-	\eean 
-	then
-	\bean
-	H^p\left(\sX \times \sY, F \right) \cong \begin{cases}
-		F & p = 0\\
-		\{0\} & p > 0
-	\end{cases}
-	\eean	
-	where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{lemma}
-\begin{proof}
-	If $c \in \check H^p\left(\sX \times \sY, F \right)$ then there are coverings $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ and  $\mathscr V \bydef \left\{\sV_\bt\right\}_{\bt \in \mathscr B}$, i.e. 
-	\bean
-	\sX = \bigcup_{\a \in \mathscr A} \sU_\a,\\
-	\sY = \bigcup_{\bt \in \mathscr B} \sV_\bt,\\
-	\eean
-	such that
-	\bean
-	c \in H^p\left( \mathscr U \times \mathscr V, F\otimes_\Z F \right)  
-	\eean
-	Similarly to \eqref{cup_prod_eqn} $c$ is represented by
-	$$
-	\sum_{j = 1} ^n\a^j_{\iota_0,...,\iota_{p_j}}\otimes  \bt^j_{\iota_{p_j},..., \iota_{p}}.
-	$$
-	Similarly to \eqref{cech_tau_eqn} there are maps
-	\bean
-	\rho: \mathscr A \onto \left\{\sX\right\},\\
-	\sigma :\mathscr B \onto \left\{\sY\right\}
-	\eean
-	with
-	\bean
-	\rho^\bullet: \check C^\bullet\left( \left\{\sX\right\} F\right)\to \check C^\bullet\left( \mathscr U, F\right),\\
-	\left( \rho^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\right) \bydef \a^j_{\iota_0,...,\iota_{p_j}},\\
-	\sigma^\bullet: \check C^\bullet\left( \left\{\sY\right\} F\right)\to \check C^\bullet\left( \mathscr V, F\right),\\
-	\left( \sigma^{p-p_j} \dl^j_{\iota_{p_j},...,\iota_{p}}\right) \bydef \bt^j_{\iota_{p_j},...,\iota_{p}},\\
-	\eean 
-	where $\ga^j_{\iota_0,...,\iota_{p_j}}$ and $\dl^j_{\iota_{p_j},...,\iota_{p}}$ correspond to $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p_j = \text{times}}$ and $\underbrace{\sX\times_\sX...\times_\sX\sX}_{p-p_j = \text{times}}$ respectively (cf. equation \ref{tau_c_eqn}). However from the Theorem \ref{top_nerve_thm} it follows that $c$ can be represented by 
-	$$
-	\sum_{j = 1} ^n\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}}.
-	$$
-	Also for any $j = 1, ..., n$ one can find $\mu^j \in \check C^{p_j -1}\left( \left\{\sX\right\}, F\right)$ and  $\nu^j \in \check C^{p - p_j -1}\left( \left\{\sX\right\}, F\right)$ such that
-	\bean
-	\ga^j_{\iota_0,...,\iota_{p_j}} = d_{p_j - 1} \mu^j,\\
-	\dl^j_{\iota_{p_j},...,\iota_{p}}= = d_{p - p_j - 1} \nu^j,
-	\eean 
-	and taking into account \eqref{cup_product_comm_eqn} one has
-	\bean
-	\ga^j_{\iota_0,...,\iota_{p_j}}\otimes  \dl^j_{\iota_{p_j},..., \iota_{p}} = d_{p-1}\left( \mu^j\otimes  \dl^j_{\iota_{p_j},...,\iota_{p}}+ \left( {-1}\right) ^{p_j} \ga^j_{\iota_0,...,\iota_{p_j}}\otimes \nu^j \right). 
-	\eean
-	From the above equation it follows that $c = 0$.
-\end{proof}
-
-
-\begin{empt}\label{top_formal_fibre_empt}
-	Suppose that  $\xi = \left(E, B, F, p \right)$  consists of a total space $E$, a base space $B$, 
-	a fiber $F$, and a bundle projection $p: E \onto B$ such that there exists an open 
-	covering $\left\{\sU\right\}$ of $B$ and, for each $\sU \in  \left\{\sU\right\}$, a  set theoretic bijection $\varphi_\sU: \sU \times F \to p^{-1}\left( \sU\right)$. Let $\xi_{\mathrm{finer}} = \left(E_{\mathrm{finer}}, B_{\mathrm{finer}}, F_{\mathrm{finer}}, p_{\mathrm{finer}} \right)$  be the fiber bundle (cf. Definition \ref{top_bundle_defn}) with bijective continuous maps
-	\bean
-	E_{\mathrm{finer}} \xrightarrow{\cong} E,\\
-	B_{\mathrm{finer}} \xrightarrow{\cong} B,\\
-	F_{\mathrm{finer}} \xrightarrow{\cong} F
-	\eean  
-	and commutative  diagram
-	\bean
-	\begin{tikzcd}
-		E_{\mathrm{finer}} \arrow[d, "p_{\mathrm{finer}}"] \arrow[r, "\cong"] & E \arrow[d, "p"]\\
-		B_{\mathrm{finer}} \arrow[r, "\cong"]	& B
-	\end{tikzcd}
-	\eean
-	Assume for each $\sU \in  \left\{\sU\right\}$, a  set theoretic bijection $\varphi_\sU: \sU \times F \to p^{-1}\left( \sU\right)$ naturally yields a homeomorphism  
-	$$
-	\varphi_{\sU_{\mathrm{finer}}}: \sU_{\mathrm{finer}} \times F_{\mathrm{finer}} \to p^{-1}\left( \sU_{\mathrm{finer}}\right)
-	$$
-	Let $M$ is and Abelian group with isomorphism $M \cong M\otimes_\sZ M$. Let $\left\{\sU\right\}$ (resp. $\left\{\sV\right\}$) be and open covering of $B$ (resp $F$) having the property that $H^p\left( \sU_{\sigma};M\right)= 0$  (resp  $H^p\left( \sV_{\rho};M \right)= 0$  for $p > 0$ and
-	all $\sigma \in K\left(\sU\right)$ (resp. all $\rho\in K\left(\sV\right)$) in the nerves of coverings (cf. Definition \ref{nerve_defn})
-\end{empt}
-\begin{definition}\label{top_formal_fibre_defn}
-	Under the hypothesis \ref{top_formal_fibre_empt}  $\xi = \left(E, B, F, p \right)$ is a {\it formal fiber bundle}
-\end{definition}
-\begin{theorem}\label{top_formal_fibre_thm}
-	$\xi = \left(E, B, F, p \right)$ is a { formal fiber bundle} then for any $p > 0$ one has the natural isomorphism 
-	\be
-	H^*\left(E, M  \right) \cong  H^*\left(E_{\mathrm{finer}}, M \right)
-	\ee
-\end{theorem}
-\begin{proof}
-	According to the Lemma  \ref{zero_product_lem} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
-	One has
-	\be\label{projective_union_eqn}
-	E = \bigcup_{\substack{\sU \in \{\sU\} \\ \sV \in \{\sV\} }} \sU \times \sV
-	\ee
-	Both $\{\sU\}$ and $\{\sV\}$ satisfy  to the Theorem \ref{top_nerve_thm}, so one has 
-	$$
-	\forall p > 0\quad \forall \sU\in K\left( \{\sU\}\right) \quad  \forall \sV \in  K\left(\{\sV\}\right)\quad H^p\left(\sU \right) = H^p\left(\sV \right)= \{0\}
-	$$
-	and taking into account the Lemma  \eqref{zero_product_lem} one has
-	\bean
-	\forall p > 0\quad \forall \sU\in K\left( \{\sU\}\right) \quad  \forall \sV \in  K\left(\{\sV\}\right)\quad H^p\left(\sU\times \sV \right)= \{0\}
-	\eean 
-	Any product $\sU \times \mathcal W\subset E$ is open in both $E$ and $(E_{\mathrm{finer}}$. This lemma follows from the Theorem \ref{top_nerve_thm} the proof is similar to the \ref{compact_thm} one.
-	
-\end{proof}
-
-	
-	\subsection{Hausdorff blowing-up}
+\subsection{Hausdorff blowing-up}
 	\subsubsection{Basic construction}	
 	\begin{definition}\label{blowing_defn}
 		If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up} of $A$ if  both sets
@@ -1421,7 +1297,7 @@ such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \r
 			\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathfrak{Gelfand}\left( A\right) , R^q\left(\phi_A \right) _*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
 		\end{enumerate}
 	\end{empt}
-	!!!
+
 	\begin{empt}\label{blowing_empt}
 		Let $A$ be a $C^*$-algebra with the spectrum $\sY$ such that
 		\be\label{norm_eqn}
@@ -1486,12 +1362,12 @@ such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \r
 	Let $A$ be a $C^*$-algebra. Consider a category $\mathfrak{Hausdorff}\left(A\right)$ such that 
 	\begin{enumerate}
 		\item[(a)] any object of $\mathfrak{Hausdorff}\left(A\right)$ is Hausdorff blowing-up, 
-		\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homeomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
+		\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
 		such that the diagram 
 		\newline
 		\begin{tikzcd}
 			&M\left(A \right)   & \\
-			C_b\left(\sX' \right)  \arrow[rr]\arrow[ru]	&& 	C_b\left(\sX'' \right)
+			C_b\left(\sX' \right)  \arrow[rr, hook]\arrow[ru]	&& 	C_b\left(\sX'' \right)
 			\arrow[lu]
 		\end{tikzcd}
 		\\
@@ -1602,86 +1478,16 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \
 \forall j\in \N \quad c^K_j\left(\sV \right)\bydef c^K_j\left(\sV_\sX \right);\quad c^H_j\left(\sV \right)\bydef c^H_j\left(\sV_\sX \right)
 	\ee 
 \end{definition}
-\paragraph{title}
-If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)$ and there are pullback
-diagrams
-\bean
-\begin{tikzcd}
-~
-	& A  \arrow[d, "\varphi^2"] & & \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] \arrow[d, "\varphi_*"]& \mathrm{Proj}\left( A\right)   \arrow[d, "\varphi^2_*"]\\
-	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right)& & 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)  \arrow[r, "\varphi^1_*"]	& \mathrm{Proj}\left( M\left( A\right)\right) 
-\end{tikzcd}
-\eean
-(cf. Definition \ref{proj_v_defn}) where  $\sX^+$ is the one point  compactification  of $\sX$ (cf. Definition \ref{top_compactification_defn}).
 
-\begin{empt}
-Under the above hypothesis there are left and right actions
-\bean
-C\left( \sX^+\right)  \times \left( A \otimes 
-\K\right) \to A \otimes \K,\\
-\left(f , a \otimes x \right) \mapsto fa \otimes x;\\
-\left( A\otimes \K \right) \times  C\left( \sX^+\right)  \to A \otimes \K,\\
-\left(a \otimes x, f  \right) \mapsto af \otimes x.
-\eean
-So there is an inclusion
-$
-C\left( \sX^+\right) \subset M\left(A\otimes \K \right)$ and  diagrams
-\bean
-\begin{tikzcd}
-A \arrow[r, "-\otimes p_1"] 	& A \otimes \K \arrow[d, "\varphi^2"]\\
-	C\left( \sX^+\right) \arrow[r, "\varphi^1"]	& M\left( A\right) \otimes \K \\
-	 \mathrm{Proj}^{\mathrm{nat}}\left(A \right) \arrow[r, "\subset"] %\arrow[d, "\varphi_*"]
-	 &\mathrm{Proj}\left(A \right) \arrow[r, "\otimes p_1"]& \mathrm{Proj}\left( A\otimes \K\right)   \arrow[d, "\varphi_*\otimes p_1"]\\
-	 	\mathrm{Proj}\left( C\left( \sX^+\right)\right) \arrow[rr, "\mathfrak{Blowing}\otimes p_1"] &	& \mathrm{Proj}\left( M\left( A\right) \otimes \K\right)
-\end{tikzcd}
-\eean
-where $p_1$ is a rank-one projector in $\K$
-\bean
- \mathrm{Proj}^{\mathrm{nat}}\left(A \right)\bydef \left\{x \in  \mathrm{Proj}\left(A \right)\left|\exists y \in  	\mathrm{Proj}\left( C\left( \sX^+\right)\right)\quad \mathfrak{Blowing}\left( y\right) \otimes p_1=\varphi_*\left( x\right)  \otimes p_1\right.\right\}
-\eean
-For any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes \K \right)$ there is $\varphi_*\left(\sV \right)  \in \mathrm{Proj}\left(	C\left( \sX^+\right)\otimes  \K \right)$. The $C^*$-algebra 	$C\left( \sX^+\right)\otimes  \K$ is strongly Morita equivalent to 	$C\left( \sX^+\right)$, so $\varphi_*\left(\sV \right)$ uniquely defines $\sV' \in 	\mathrm{Proj}\left( C\left( \sX^+\right)\right)$
-\end{empt}
+
 \begin{definition}\label{chern_char_defn}
 	Under the above hypothesis for any $\sV\in \mathrm{Proj}^{\mathrm{nat}}\left(A\otimes  \K\right)$ 
 	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{chern_class_thm}).
 \end{definition}
-\begin{remark}
-	The search of elements of the Definition \ref{chern_char_defn} can be found from the following commutative diagram
-\be\label{chern_char_eqn}
-\begin{tikzcd}
-\mathbb{M}_n \left( A\right)  \arrow[r, "\varphi_A"] & A \otimes \K \arrow[d, "\varphi"]\\
-\mathbb{M}_n\left( 	C\left( \sX^+\right)\right)  \arrow[r, "\varphi_\sX"]	& M\left( A\right) \otimes \K \\
-\end{tikzcd}
-\ee
-\end{remark}
-there then for any $j = 0, 2$ there is the pullback (cf. Definition \ref{pullback_defn})
-\newline
-\newline
-\begin{tikzcd}
-	K^{\mathrm{nat}}_j \left( A\right) \arrow[d] \arrow[r, "\subset"]
-	& K_j\left( A \right)  \arrow[d, "\varphi_2"]\\
-	K^j\left(\sX \right)\cong K_j\left(C_0\left(\sX \right)  \right)  \arrow[r, "\varphi_1"]	& K_j\left( M\left( A\right) \right) 
-\end{tikzcd}
-\\
-\\
-where $K_j$ and $K^J$ meant $K$-functors of $C^*$-algebras and topological spaces (cf. \cite{blackadar:ko,karoubi:k}). The groups  $K^{\mathrm{nat}}_j \left( A\right)$ are invariants of $A$. Suppose that there is a finitely generated $A^+$-module $P =  \ell^2\left( A^+\right)$ where $e \in \mathbb{M}_\infty \left(A^+ \right) $
-
-\ref{k0_rem} 
-
-
- According to 
-
-
- Since $K^{\mathrm{nat}}_j \left( A\right)$ is the invariant of $A$ we can define characteristic classes of elements of 	$K^{\mathrm{nat}}_j \left( A\right)$ in cohomology of the space $\sX$.
-
-\begin{remark}\label{k0_rem!!!}!!!!\cite{blackadar:ko}
-	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism $\om_A : K_{00}(A) \to 
-	K_0\left(A \right)$.
-\end{remark}
-
-
 
 \subsubsection{Generalized foliations and inversion of algebraic factorization}
+
+\subsubsection{Connes quantization}
 \paragraph*{}	
 
 Let $A$ be a $C^*$-algebra and  let $C_0\left( \sX\right)\subset M\left(A \right)$ be natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}). Suppose that the equation \eqref{to_spec_eqn} !!! CHECK !!! yields the following diagram of commutative maps
@@ -5542,30 +5348,6 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 	\end{remark}
 	
 	
-	\subsubsection{$C^*$-algebras of non-Hausdorff \'etale groupoids}
-	\paragraph{} Here I follow to \cite{neshv:non_haudorff}. 
-	\begin{definition}
-		Assume $\G$ is a locally compact, not necessarily Hausdorff, \'etale groupoid.
-		By this, we mean that $\G$ is a groupoid endowed with a locally compact topology
-		such that
-		\begin{itemize}
-			\item  the groupoid operations are continuous;
-			\item the unit space $\G^0$ is a locally compact Hausdorff space in the relative
-			topology;
-			\item the range map $r : \G \to \G^0$ and the source map $r : \G \to \G^0$ are local
-			homeomorphisms.
-		\end{itemize}
-	\end{definition}
-	
-	
-	For an open Hausdorff subset $\sV \subset \G$, consider the usual space $C_c\left( \sV\right)$  of continuous
-	compactly supported functions on $\sV$ . Every such function can be extended
-	by zero to $\G$; in general, this extension is not a continuous function on $\G$.
-	This way, we can view  $C_c\left( \sV\right)$ as a subspace of the space of functions $\text{Func}\left(\G \right)$ 
-	on $\G$. For arbitrary open subsets $\sU\subset G$ we denote by $C_c\left( \sU\right)$  the
-	linear span of the subspaces $C_c\left( \sV\right) \subset \text{Func}\left(\G \right)$ for all open Hausdorff subsets
-	$\sV \subset \sU$ Instead of all possible $\sV$ , it suffices to take a collection of open bisections
-	covering $\sU$. 
 	\subsubsection{$C^*$-algebras of groupoids}
 	
 	\subsubsection{Foliations and pseudogroups}
@@ -7401,96 +7183,6 @@ and hence the long exact cohomology sequence
 ... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(A;\mathscr A  \right)\to  H^{p+1}_\Phi\left(A;\mathscr A | A \right)\to ...
 \ee
 
-\subsection{Descent of sheaves}
-\paragraph*{} Here I follow to \cite{bryl:loop}. There is an alternative description of sheaves based on the notion of local homeomorphisms (cf. Definition \ref{local_homeo_defn}). Instead of an 
-open subset of $\sX$, we will more generally consider a continuous mapping 
-$f: \sX \to \sY$ of some space $\sX$ into $\sY$ (in the terminology of Grothendieck, this 
-is called a "space over $\sX$"). If $\mathscr A$ is sheaf over $\sX$ them there is an inverse image sheaf $f^{-1}\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) over $\sY$. Then we can define a 
-set $\mathscr A\left(\sY \to \sX \right)$  (or simply $A\left( \sY\right)$ ) to be the set $\Ga\left(\sY, f^{-1} \mathscr A\right)$  of global sections 
-of the pull-back sheaf over $\sY$. Now let $g : \sZ \to \sX$ be another continuous 
-mapping. Assume there exists a, continuous mapping $h : \sZ \to \sY$ such that 
-$g = f\circ h$. Then we have a pull-back map $h^*:  \mathscr A\left(\sY \xrightarrow{f} \sX \right)\to \mathscr A\left(\sX \xrightarrow{g} \sX \right)$.
-
-Note that, given an open covering $\left\{\sU_j\right\}$ of the open set $\sV \subset \sX$ as above, we have a continuous mapping $f: \sY \bydef \coprod_j \to \sX$, where the restriction of $f$ to each $\sU_j$ is the inclusion map, yielding $\mathscr A\left(\sY \xrightarrow{f} \sX \right)\bydef \prod_{j \in J} \mathscr A\left( \sU_j\right)$. The glueing condition involves all the intersections $\sU{jk}$, which are all open subsets of the space $\sY \times_\sX \sY$, the fiber product of $f: \sY \to \sX$ with itself. The 
-fiber product is the set of $\left(y_1, y_2 \right)\in \sY \times \sY$  such that $f\left( y_1\right)=f\left( y_2\right)$ There 
-are two projection maps $p_1, p_2: \sY \times_\sX  \sY$ such that $p_j\left(y_1, y_2 \right)= y_j$ . However there is only one mapping $\sY \times_\sX \times \sY\to \sX$, given by $g\left(y1, y2 \right) = f\left(y_1 \right)= f\left(y_2 \right)$. When $\sY = \coprod_j \sU_j$ is the disjoint union of 
-the $\sU_j$ and $f : \sY \to \sX$ is the (local) inclusion, then $\sY \times_\sX  \sY$ is the disjoint union of the $\sU_j \times_\sX  \sU_k=\sU_{jk}$. The restriction of $p_1$ to $\sU_{jk}$ is the inclusion 
-of $\sU{jk}$ into the component $\sU_j$ of $\sY$, and the restriction of $p_2$ to $\sU_{jk}$ is the inclusion of $\sU{jk}$ into $\sU_k$. 
-
-The glueing property therefore means that the following sequence
-\be\label{f_ex_eqn} 
-F\left(\sV \right)\xrightarrow{f^{-1}} F \left( \sY\right) \substack{ \xrightarrow{p_1^{-1}}\\\xrightarrow[p_2^{-1}]{}} F\left(\sY\times_\sX \sY \right) 
-\ee 
-is an exact sequence of sets, whenever $\sV$ is an open subset of $\sX$, and $\sY = \coprod_j \sU_j$, for $\left\{\sU_j\right\}$ an open covering of $\sV$. What this means is that $f^{-1}$ induces a bijection between $F\left(\sV \right)$ and the kernel $\ker\left( p_1, p_2\right)$  of the pair $\left( p_1, p_2\right)$, 
-i.e., the set of elements $s\in F\left(\sY \right)$  such that $p_1^{-1}\left( s\right) = p_2^{-1}\left( s\right)$  Of course $f^{-1}$ induces a mapping from $f\left(\sY \right)$  to this kernel; surjectivity of the map implies 	the existence of a "glued together" section, and injectivity means that the glued together section is unique. Such a formulation of the glueing property 	is more elegant and compact, and it can be generalized to mappings other 	than the inclusion of a disjoint union of open sets. 
-	
-Note that the composition of two local homeomorphisms (cf. Definition \ref{local_homeo_defn}) is again one, that the inclusion of a disjoint union of open sets is a local homeomorphism, and that a covering map is also a local homeomorphism (in fact, a very special one). If $f: \sY \to \sX$ is a local homeomorphism, and $g : \sZ \to \sX$ is any continuous map, the map $\sZ \times_\sX \to \sZ$ is again a local homeomorphism. Given a local homeomorphism $f: \sY \to \sX$, with $\sX$ is a smooth manifold, $\sY$ acquires the structure of a smooth manifold, with respect to which $f$ is a local diffeomorphism. 
-\begin{proposition}\cite{bryl:loop}
-%5.1.2. Proposition. 
-If $\mathscr A$ is a sheaf on $\sX$, for every open set $\sV$ of $\sV$ and 
-any surjective local homeomorphism $f: \sY \to \sV$, the sequence of sets \eqref{f_ex_eqn} 
-is exact. 
-\end{proposition}
-Thus we get a new definition of a sheaf of sets $\mathscr A$ on $\sX$. In the 
-new definition, such a sheaf $\mathscr A$ will associate to any local homeomorphism 
-$f: \sY \to \sX$  a set $\mathscr A\left( \sY \to \sX\right) $, and to a diagram $\sZ \xrightarrow{g}\sY \xrightarrow{f}\sX$ of local homeomorphisms, a pull-back map $g^{-1} : \mathscr A\left(\sY \to \sX \right)$. The pull-back map should be compatible with the composition of such diagrams, so that if we have local homeomorphisms $\mathcal W \xrightarrow[]{h}\sZ \xrightarrow[]{g}\sY\xrightarrow[]{p}\sX$, the 	pull-back map $\left( gh\right)^{-1}: \mathscr A\left(\sY \xrightarrow{f} \sX \right)\to \mathscr A\left(\mathcal W \xrightarrow{fgh} \sX \right)$ is the composite of $g^{-1} : \mathscr A\left(\sY \xrightarrow{f} \sX \right)$ and of $h^{-1}:\mathscr A\left(\sY \xrightarrow{f} \sX \right)$. 					Then $\mathscr A$ is a sheaf if and only if, for any open set $\sV$ of $\sX$ and every surjective 	local homeomorphism $f: \sY \to \sV$, the sequence of sets \eqref{f_ex_eqn} is exact. 
-
-Note that, given a space $\sX$, we have a category $\mathscr C_\sX$, whose objects are the local homeomorphisms $\sX$, and such that a morphism from  $\sZ \to \sX$ 
-to $\sY \to \sX$ is a commutative diagram 
-\be\label{f_sheaf_eqn}
-		\begin{tikzcd}
-\sZ	 \arrow[rr, "g"]\arrow[rd, "h"]  & ~ & \sY \arrow[ld, , "f"]\\
-	& \sX &
-\end{tikzcd}
-\ee
-where $g$ is a local homeomorphism. A sheaf of sets $\mathscr F$ on $\sX$ gives rise to a contravariant functor from $\mathscr C_\sX$ to the category $Sets$ of sets. The category $\mathscr C_\sX$ % gives a nice interpretation of the notion of a refinement $\left\{\sV_j\right\}_{j \in J}$ of an open covering $\left\{\sU_\iota right\}_{\iota \in I}$ of $\sX$. It means that there 
-	exists a mapping $f " J \to I$ such that $\sV_j \subset \sU_{f\left( j\right) }$  for all $j \in J$. Observe that such a mapping gives rise to a local homeomorphism $h : \coprod_{j\in J}\sV_j\to  \coprod_{\iota\in I}\sU_\iota$.
-	which makes the following diagram commute 
-\be\label{f_sheaf_ij_eqn}
-\begin{tikzcd}
-	\coprod_{j\in J}\sV_j	 \arrow[rr, "g"]\arrow[rd, "h"]  & ~ & 	\coprod_{\iota\in I}\sU_\iota \arrow[ld, , "f"]\\
-	& \sX &
-\end{tikzcd}
-\ee	
-
-We now come to the glueing property. If $f: \sY \to \sX$ is a surjective local 
-	homeomorphism, one can obtain a section of a sheaf $\mathscr A$ over $\sX$ from a section $s$ of $\mathscr A$ over $f: \sY \to \sX$ satisfying the glueing condition $p_1^{-1}\left(s \right) = p_2^{-1}\left(s \right)$ in 
-	$\mathscr A\left(\sY \times_\sX \sY \right)$. We apply this to morphisms of sheaves. Given 	sheaves $\mathscr A$ and $\mathscr B$ over $\sX$, a morphism of sheaves $\phi: \mathscr A\to \mathscr B$ consists of 	mappings $\mathscr A\left(\sU \right)\to \mathscr B\left(\sU \right) $  for every open set $\sU$ such that, for $\sV \subset \sU$, we have a commutative diagram 
-
-\bean
-\begin{tikzcd}
-	\mathscr A\left(\sU \right)\arrow[d, "\rho_{\sV, \sU}"] \arrow[r, "\phi_\sU"]& \mathscr B\left(\sU \right)\arrow[d, "\rho_{\sV, \sU}"]\\
-	\mathscr A\left(\sV \right) \arrow[r, "\phi_\sU"]& \mathscr B\left(\sV \right)
-\end{tikzcd}
-\eean
-Similarly we have the notion of morphism of sheaves of groups. If $\mathscr A$ and 
-$\mathscr A$ are two sheaves of groups over $\sX$, the set of morphisms from $\mathscr A$ to $\mathscr B$ is denoted by $\Hom_\sX(A, B)$. For every open set $\sU$ of $\sX$, there is a natural restriction map $\Hom_\sX (A,B) \to \Hom_\sU\left(A|_\sU, B_\sU \right)$. Thus we have a presheaf $\sU \mapsto Hom_\sU\left(A|_\sU, B_\sU \right)$ 
-, which is denoted by $\mathcal{Hom}\left(\mathscr A. \mathscr B \right)$. It is easy to see that this is a sheaf on $\sX$. Given a local homeomorphism $f: \sY \to \sX$, the value of the sheaf $\mathcal{Hom}\left(\mathscr A, \mathscr B \right)$ on $f$ is $\mathcal{Hom}_\sY\left(f^{-1}\mathscr A, f^{-1}\mathscr B \right)$. The fact that 	Hom(A, B) is a sheaf means that, given an open set $\sV$ and a surjective 
-	local homeomorphism $f: \sY \to \sV$, a morphism $\phi: \mathscr A|_\sV \to B|_{\sV}$ of sheaves of 	groups over $\sX$ is the same as a morphism $\psi : f^{-1} \mathscr A \to f^{-1} \mathscr B$ of the pull-back 	sheaves on $\sY$ such that we have $p_1^{-1}\left( \psi\right) = p_2^{-1}\left( \psi\right)$ as morphisms of sheaves on $\sY \times_\sX \sY$.
-	\begin{remark}\label{sheaf_desc_rem}\cite{bryl:loop}
-The above situation  is usually phrased by saying that morphisms of sheaves 
-satisfy {\it descent} with respect to local homeomorphisms. 
-	\end{remark}
-
-\section{Simplicial sets}
-\paragraph{} Here I follow to \cite{gelfand_manin}.
-\subsection{Nerve of Covering}
-
-Let $\sY$ be a topological space, $\sU \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be its covering (either by open or by 
-closed sets), a running over some set $\mathscr A$. Let 
-\be
-\begin{split}
-	X_n \bydef \left\{\left({\a_0}, ..., {\a_n} \right)  \left|\sU_{\a_0}\cap, ...,\cap \sU_{\a_n} \neq \emptyset  \right.\right\}\\
-	Xf\left({\a_0}, ..., {\a_n} \right)\bydef  \left(\a_{f(0)}, ...,\a_{f(n)} \right)\quad \text{for} \quad f : \left[m\right]\to \left[n\right]	
-	\end{split}
-		\ee
-			This simplicial set reflects the combinatorial structure of a covering. One 
-		can show that if the covering $\sU$ is locally finite and all nonempty finite intersections $ \sU_{\a_0}\cap, ...,\cap \sU_{\a_n}$ are contractible, then the geometric realization $\left|X\right|$
-		of $X$ is homotopically equivalent to $Y$, so that the topology can be efficiently 
-		encoded into combinatorial data. 
-		The similar role is played by the following construction.
-		\subsection{Simplicial sets}
-		\
 \section{Algebraic geometry}
 \subsection{Cohomology of sheaves}
 \paragraph{} Algebraic geometry operates with Zariski topology (cf. \cite{hartshorne:ag}) However some modifications of the algebraic geometry cab be applied to the considered hare spaces.
@@ -7501,7 +7193,7 @@ closed sets), a running over some set $\mathscr A$. Let
 	$$
 \end{empt}
 \begin{empt}\cite{hartshorne:ag}
-	Let A be a noetherian ring, let $S \bydef A\left[x_0, ..., x_n\right]$, and let $\sX \bydef \mathrm{Rroj} S$
+	Let A be a Noetherian ring, let $S \bydef A\left[x_0, ..., x_n\right]$, and let $\sX \bydef \mathrm{Rroj} S$
 	be the projective space $\mathbb P^r_A$ over $A$. Let $\mathscr O_\sX\left( 1\right)$  be the twisting sheaf of Serre 
 	(cf. \cite{hartshorne:ag}). For any sheaf of ($\mathscr O_\sX$ -modules $\mathscr F$, we denote by $\Ga_*\left(\mathscr F \right)$  the graded $S$-module 
 	$$
@@ -7523,179 +7215,6 @@ closed sets), a running over some set $\mathscr A$. Let
 		
 	\end{enumerate}
 \end{theorem}
-\subsection{Chow ring and homology}
-
-\subsubsection{Divisors and rational equivalence }
-\paragraph{} 
-Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
-
-\paragraph{ Homology and cohomology}
-
-A complex projective variety $\sX$ has homology groups $Hq\sX$ and cohomology 
-groups $H^q\sX$. There are {\it cup 
-	products }
-\bean
-H^p\sX \otimes H^q \sX \xrightarrow{\smile }  H^{p+ q} \sX
-\eean
-and {\it cap products} 
-\bean
-H^p\sX \otimes H_q \sX \xrightarrow{\frown }  H_{p+ q} \sX
-\eean
-which make $H^*\sX = \bigoplus \H^p\sX$ a skew-commutative graded ring, and $H_*\sX = \bigoplus \H_p\sX$ an $H^*\sX$ -module. If $f: \sX \to \sY$ is a mapping, $f^*: H^*\sY \to H^*\sX$ homomorphism of rings, and one has the important {\it projection formula}, 
-\bean
-f_*\left( f^*a \frown b\right) = a \frown f_*b
-\eean 
-Any $k$-dimensional subvariety $\sV$ of $\sX$ determines a class denoted $\mathrm {cl}(\sV)$ in 
-$H_{2k}\sX$. This follows for example from the fact that $\sV$ can be triangulated to be an 
-oriented 2$k$-circuit. If $f: \sX \to \sY$ is a morphism, and $f\left(\sV \right)= \mathcal W$, then 
-\bean
-f_*\mathrm {cl}(\sV)= \deg(\sV/\mathcal W)\mathrm {cl}(\mathcal W),
-\eean 
-where $\deg(\sV/\mathcal W)$ is defined as follows. If $\dim(\mathcal W) < \dim(\sV)$, then $\deg(\sV/\mathcal W)= 0$
-If $\dim(\sV)= \dim (\mathcal W)$, there is an open $\mathcal W^*$ such that  $\sV \cap f^{-1} \left( \mathcal W^* \right) \to \mathcal W^*$ 
-is a finite-fold topological covering, and $\deg(\sV/\mathcal W)$ is the number of sheets of 
-this covering; algebraically, $\deg(\sV/\mathcal W)$ is the degree of the function field $R(\sV)$ of $\sV$
-as a field extension of $R(\mathcal W)$.
-If $\sX$ is nonsingular of dimension $n$, capping with $\mathrm{cl}\left( \sX\right)$ gives the {\it Poincare 
-	duality} isomorphism 
-\bean
-H^p\sX \xrightarrow[\cong]{\frown \mathrm{cl}\left( \sX\right)  } H_{2n - p}\sX.
-\eean 
-In the nonsingular case, $H_*\sX = H^*\sX$ has an intersection product. If $A$ and $B$ are 
-subvarieties of $\sX$ of dimensions $a$ and $b$, one may therefore define $A \cdot B$ in $H{2a + 2b - 2n}.\left( \sX\right)$  This product may be refined by using relative groups: 
-\bean
-\mathrm{cl}\left(A\right) \in H_{2a}\left(A \right) = H^{2n - 2a}\left(\sX , \sX \setminus A \right) 
-\eean 
-and similarly $\mathrm{cl}\left(B \right) \in H^{2n - 2b} \left(\sX, \sX \setminus B \right)$, so 
-\bean
-\mathrm{cl}\left( A\right) \smile \mathrm{cl}\left( B\right)\in  H^{4n - 2a - 2b}\left(\sX, \sX \setminus \left( A \cap B\right)  \right) \cong H_{4n - 2a - 2b}\left( A \cap B\right)
-\eean
-and thus  $A\cdot B$ lives  in $H_{4n - 2a - 2b}\left( A \cap B\right)$. Note that if the intersection is 
-proper, this last group is free on the classes of irreducible components of  $A\cap B$, 
-so this determines $A\cdot B$ as a cycle; in other words, this gives a topological 
-construction of intersection multiplicities. 
-
-
-
-Complex vector bundles $E$ in $\sX$ have {\it Chern classes} $c_j \in H^{2j}\left(\sX \right) $, satisfying: 
-\begin{enumerate}
-	\item [(i)] $c_0\left( E\right) = 1; ~ c_j\left(E \right) = 0$ if $j > \rank \left(E \right)$. 
-\item[	(ii)] If $f : \sY \to \sX, ~ c_j\left(f^*E \right)= f^*\left( c_j\left(E \right) \right)$.
-		\item [(iii)] If $0 \hookto E' \hookto E \onto E''$ is an exact sequence, then
-		$$
-		c_j = \sum_{k + l = j} c_k \left(E' \right)\smile c_l \left(E'' \right). 
-		$$ 
-		\item [(iv)] If $L$ is an algebraic line bundle on $\sX$ and $s$ is a section of $L$ with 
-		zero-scheme $D_s \neq \sX$, then 
-		
-		where cl([DJ) = Em,.01B),) if [Ds] = ??,.?. is the cycle of Ds. 
-\end{enumerate}
-
-\paragraph{TTTT}
-
-
-
-Each $k$-dimensional complex variety $\sV$ has a cycle class ${cl}(\sV)$  in $H_{2k}\left( \sV\right)$, where 
-$H_*$ denotes homology with locally finite supports (Borel-Moore homology). If $\sV$ is a subvariety of an $n$-dimensional complex manifold $\sX$, then $H_{2k}(\sV) \cong H^{2n - 2k} \left(\sX \setminus \sV \right)$ 
-The resulting homomorphism from cycles to homology 
-passes to algebraic equivalence. There results in particular a cycle map
-\be
-cl : A_*\left(\sX  \right) \to H_*\left( \sX\right) 
-\ee
-for complex schemes $\sX$, which is covariant for proper morphisms, and 
-compatible with Chern classes of vector bundles. 
-If $\sV$ and $\mathcal W$ are subvarieties of dimensions $k$ and $l$ of a non-singular $n$-dimensional variety $\sX$, a refined topological intersection product $cl\left(\sV \right)\cdot cl\left( \mathcal W\right)$   
-is constructed in $H_{2m}(\sV \cap \mathcal W)$, $m = k + l-n$. If $cl^\sX (\sV)$is the class in 
-$H^{2n - 2k}(\sX,\sX \setminus \sV)$ dual to $cl(\sV)$, and similarly for $cl^\sX(\mathcal W)$, then $cl(\sV)\dot(\mathcal W)$
-is defined to be the class dual to 
-$$
-cl^\sX\left( \sV\right) \smile 	cl^\sX\left( \mathcal W\right)\in H^{2n - 2m}\left(\sX, \sX \setminus \sV \cap \mathcal W \right). 
-$$
-Borel-Moore homology can be defined using singular cohomology. If a 
-space $\sX$ is imbedded as a closed subspace of $\R^n$, then 
-\be\label{chow1_eqn}
-H_j\left(\sX  \right) \cong H^{n-j}\left(\R^n, \R^n \setminus \sX \right) 
-\ee
-where the group on the right is relative singular cohomology with integer 
-coefficients. More generally, if $\sX$ is a closed subspace of a space $\sY$, there are 
-cap products 
-\be\label{chow2_eqn}
-H^j\left(\sY, \sY \setminus\sX \right) \otimes \xrightarrow{\frown}H_{k-j}\left(\sX \right). 
-\ee
-If $\sX$ is an oriented, connected, real $n$-manifold, then $H_n\left( \sY\right)$ is freely generated by 
-a \textit{fundamental class} $\mu_\sY$, and capping with $\mu_\sY$ determines an isomorphism 
-\be\label{chow3_eqn}
-H^{n-j}\left(\sY, \sY \setminus \sX \right) \xrightarrow[\cong]{\frown \mu_\sY}H_{k-j}\left( \sX\right). 
-\ee
-When $\sY = \R^n$, this is the isomorphism of \eqref{chow1_eqn}. When $\sX = \sY$, \eqref{chow3_eqn} is the Poincar\'{e} duality isomorphism of $H^{n-j}\left(\sY \right)$  with $H_{j}\left(\sY \right)$. 
-If $f : \sY \to \sX$ is a proper morphism, there are covariant homomorphisms 
-\be\label{chow4_eqn}
-f_* : H_{j}\left(\sX \right) \to H_{j}\left(\sY \right) 
-\ee
-If $j: \sU \to \sY$ is an open embedding, there are contravariant restriction homomorphisms
-\be\label{chow5_eqn}
-j^* : H_{p}\left(\sY \right) \to H_{p}\left(\sU \right). 
-\ee
-If $\sX$ is the complement of $\sU$ in $\sY$, $i: \sX\to \sY$ the closed embedding, there is a long exact sequence 
-\be\label{chow6_eqn}
-...\to  H_{p+1}\left(\sU \right) \to H_{p}\left(\sX \right)\xrightarrow{i_*} \H_{p}\left(\sY \right)\xrightarrow{j_*}H_{p}\left(\sU \right)\to H_{p-1}\left(\sX \right)\to .... 
-\ee
-If $\sX$ is a disjoint union of a finite number of spaces $\sX_1,..., \sX_m$, then 
-\be\label{chow7_eqn}
-H_{i}\left(\sX \right) = H_{i}\left(\sX_1 \right) \oplus ...\oplus H_{i}\left(\sX_m \right)
-\ee 
-There are evident compatibilities among these homomorphisms, which will be used without comment. One such is the equation  
-\be\label{chow8_eqn}
-\left( u \smile v \right) \frown a = j^*\left( u\right)\frown \left( v \frown a\right)  
-\ee 
-in $H_*\left( \sX \cap \mathcal W\right)$ , where $\sX \hookto \sY$, $~j:\mathcal W \to  \sY$ are closed embeddings, $u \in H^*(\sY, \sY\setminus \sX), ~v \in H^*(\sY, \sY- \mathcal W), ~a \in H_*\left( \sY\right)$. 
-\begin{lemma}\cite{fulton:intersection}
-	% Lemma 19.1.1. 
-	If $\sX$ is an $n$-dimensional complex scheme, then $H^j(\sX) =\{0\}$ for 
-	$i >2n$, and $H_{2n}\left(\sX \right) $ is a free Abelian group with one generator for each irreducible 
-	component of $\sX$. 
-\end{lemma}
-\begin{definition}
-	The generator of $H_{2n}\left(\sX \right)$ corresponding to an $n$-dimensional irreducible 
-	component $\sX_i$, will be denoted $cl(\sX_i)$; it is determined by the fact that it 
-	restricts to the fundamental class $\mu_{\sU_i}$ for any connected open subset $\sU_i$, of the 
-	non-singular locus of $\sX_i$. More generally, if $\sV$ is a $k$-dimensional closed sub variety of a scheme $\sX$, define the \textit{cycle class} $cl_\sX(V)$ by 
-	\be
-	cl_\sX\left(\sV \right) \bydef i_* cl\left(\sV\right)\in H_{2k}\left( \sX\right) 
-	\ee
-	where $i$ is the inclusion of $\sV$ in $\sX$. When no confusion is likely, we may write $cl (\sV)$ 
-	in place of $cl_\sX\left( V\right)$. It is proven in \cite{fulton:intersection}. For any $\sX$, there is a homomorphism denoted $cl$, or $cl_\sX$, 
-	\bean
-	A_*(\sX )\to H_*\left(\sX \right),\\
-	\sum_i n_i \left[\sV_i\right] \mapsto \sum_i n_i cl\left(\sV_i\right).
-	\eean 
-\end{definition}
-\begin{definition}\label{ad_ori_defn}
-	Every regular (closed) embedding $i: \sV\hookto\sX$ of codimension $d$ has an \textit{orientation class}.
-	\be\label{ad_ori_eqn}
-	u_i = u_{\sV, \sX}\in H^{2d}\left(\sX, \sX \setminus \sV \right) 
-	\ee 
-\end{definition}
-There is a long exact sequence of cohomology
-\be
-\begin{split}
-	...\to  H^{p-1}\left(\sV ; \Z\right) \to H^{p}\left(\sX, \sX\setminus\sV ;\Z\right)\xrightarrow{i^*_p} H^{p}\left(\sX;\Z \right)\xrightarrow{j^*_p}H^{p}\left(\sV ; \Z\right)\to\\ \to H^{p+1}\left(\sX, \sX\setminus\sV ; \Z\right)\to .... 
-\end{split}
-\ee
-There is an Abelian group homomorphism $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ such that if $\sV$ is an irreducible $k$-dimensional submanifold of $\sX$ then
-\be
-cl \left(\left[\sY\right] \right) = i^*_{2d}\left(u_{\sV, \sX} \right)\in H^{2d} \left(\sX \right)
-\ee 
-
-
-\begin{corollary}
-	%19.2
-	The mapping $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ is a homomorphism of graded rings, covariant for morphism of non-singular varieties. 
-\end{corollary}
-
-
-
-
 \section{Dixmier Douady theory}
 \subsection{Dixmier Douady theory of spaces}
 	\paragraph*{} Here I follow to \cite{bryl:loop}
@@ -7845,100 +7364,6 @@ $H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $
 	\eea
 	where $K_\bullet\left( CT\left(\sX, \dl \right)\right)$ means $K$-theoretic groups of $C^*$-algebra $ CT\left(\sX, \dl \right)$ and $K^\bullet\left( \sX\right)$ means $K$-theoretic groups of the space $\sX$.
 \end{proposition}
-\subsection{Dixmier Douady theory of groupoids}
-\paragraph*{} Here I follow to \cite{bryl:loop}.
-Sheaves themselves can be descended. To 
-explain this, we start with the more concrete case of principal $G$-bundles, 
-for $G$  a Lie group. Say $\sX$ and $\sY$ are smooth manifolds, and $f: \sY \onto \sX$
-is a smooth surjective local homeomorphism. Given a principal $G$-bundle 
-$\pi: P \to \sX$, setting $Q = P \times_\sX \sY$,we have the pull-back bundle $\pi: Q \to \sY$. 
-There is a natural isomorphism $\phi : p^*_1Q\xrightarrow{\cong} p^*_2Q$ the two pull-back bundles 
-over $\sY\times_\sX \sY$ , since $fp_1 = fp_2$, which satisfies the following cocycle condition 
-\be\label{desc_ppp_eqn}
-p^*_{13}\left(\phi \right)= p^*_{23}\left(\phi \right)\circ p^*_{12}\left(\phi \right), 
-\ee
-an equality of morphisms $p^*_1Q\to p^*_2Q$ of $G$-bundles over the triple fiber 
-product $\sY\times_\sX\sY\times_\sX\sY$ . In \eqref{desc_ppp_eqn} $p_1, p_2, p_3 : \sY\times_\sX\sY\times_\sX\sY \to \sY$ are the 
-projections on the three factors, and $p_{12},p_{13}p_{23}:\sY\times_\sX\sY\times_\sX\sY 
-\to \sY\times_\sX\sY$
-are the projections on two of the three factors. 
-
-Conversely, consider a $G$-bundle $\pi : Q\onto \sY$, together with an isomorphism $\phi : p^*_1Q\xrightarrow{\cong} p^*_2Q$ of the two pull-back bundles over $\sY\times_\sX\sY$, which 
-satisfies the cocycle condition \eqref{desc_ppp_eqn}. We recover a $G$-bundle $P \onto \sX$, the 
-pull-back of which to $\sY$ identifies with $Q\onto \sY$. Indeed we can construct 
-the total space $P$ as the quotient space of $Q$ by some equivalence relation 
-$\sim$. The relation $\sim$  identifies $q_1$ and $q_2$ if $y_1= \pi\left(q_1 \right)$  and $y_2= \pi\left(q_2 \right)$ satisfy 
-$f\left( y_1\right) = f\left( y_2\right)$, and the isomorphism $\phi$ of $G$-bundles over $\sY\times_\sX\sY$, evaluated 
-at the point $\left(y_1, y_2 \right)$  of $\sY\times_\sX\sY$ sends $\left( q_1; y_1, y_2\right)$  to $\left( q_2; y_1, y_2\right)$. Condition 
-\eqref{desc_ppp_eqn} means precisely that $\sim$ is an equivalence relation. It is then easy to 
-see that $P \onto \sX$ is a $G$-bundle; the natural mapping $Q \onto P$ now allows the 
-$G$-bundle $Q\onto \sY$ to be identified with the pull-back of $P\onto \sX$ to $\sY$. The 
-isomorphism $\phi$ is therefore the natural one between the two inverse images of 
-$P$ to $\sY$, so that we have a one-to-one correspondence between the following 
-kinds of objects: 
-\begin{itemize}
-	\item [(i)] a principal $G$-bundle $p: P \onto \sX$; 
-\item [(ii)] a principal $G$-bundle $\pi: Q \onto \sY$, together with an isomorphism 
-$p^*_1Q \xrightarrow{\cong} p^*_2Q $ of the two pull-back bundles over $\sY \times_\sX \sY$, which satisfies the 	cocycle condition \eqref{desc_ppp_eqn}.
-\end{itemize}
-The isomorphism $\phi$ in (ii) is called a {\it descent datum} (or {\it descent isomorphism}) for the bundle $Q$ with respect to the mapping $f: \sY \onto \sX$. 
-We not only have a one-to-one correspondence between isomorphism 
-classes of objects of type (i) and (ii), but we in fact have an equivalence 
-of categories. Stated simply, we observe that there exists a category of $G$- 
-bundles $p: P\onto \sX$ over $\sX$. The objects are $G$-bundles. A morphism a from 
-a $G$-bundle $p_1: P_1 \onto \sX$ to a $G$-bundle  $p_2: P_2 \onto \sX$ is a bundle isomorphism 
-$\a : P_1 \cong P_2$ (so $\a$ is a diffeomorphism which commutes with the $G$-actions 
-and induces the identity on the base space $\sX$). Note that this category is a 
-groupoid, i.e., every morphism between objects is invertible.
- 
-The second category is associated to the surjective local homeomorphism  $f: \sY \onto \sX$. The objects of this category are pairs $\left(\pi: Q \onto \sY, \phi \right)$  as 
-in (ii) above. A morphism from $\left(\pi_1: Q \onto \sY, \phi_1 \right)$ to $\left(\pi_2: Q \onto \sY, \phi_2 \right)$ is 
-defined to be an isomorphism $a: Q_1 \cong Q_2$ of $G$-bundles over $\sY$, such that 
-the following diagram commutes 
-\bean
-\begin{tikzcd}
-p^*_1Q_1\arrow[r, "p^*_1\a"]\arrow[d, "\phi_1"] & p^*_1Q_2 \arrow[d, "\phi_2"]\\
-p^*_2Q_1\arrow[r, "p^*_2\a"] & p^*_2Q_2
-\end{tikzcd}
-\eean 
-This category is also a groupoid. We now obtain 
-\begin{proposition}
-%5.1.3. Proposition. 
-Let $f : \sX \onto \sY$ be a surjective local homeomorphism. 
-The pull-back functor $f^*$ induces an equivalence of categories between the 
-category of $G$-bundles over $\sX$ and the category of $G$-bundles $G$ over $\sY$, 
-equipped with a descent isomorphism $\phi: p^*_1Q \cong p^*_2Q$ satisfying the cocycle 
-condition \eqref{desc_ppp_eqn}.
-\end{proposition}	
-The situation is entirely analogous for sheaves over $\sX$. We have the 
-notion of descent datum for a sheaf $\mathscr A$ over $\sY$, namely an isomorphism $\phi: p^{-1}_1 \mathscr A\cong p^{-1}_2 \mathscr A$ of sheaves on $\sY$, which satisfies the analog of \eqref{desc_ppp_eqn} (with the 
-pull-backs now denoted by $p^{-1}_{ij}$ rather than $p^*_{ij}$). We define a category of 
-such pairs $\left(\mathscr A, \phi \right)$ , and obtain 
-\begin{proposition}
-%5.1.4. Proposition. 
-Let $f: \sY \to \sX$ be a surjective local homeomorphism. 
-The inverse image functor $f^{-1}$ induces an equivalence of categories between 
-the category of sheaves over $\sX$ and the category of sheaves A over $\sY$, equipped 
-with a descent datum $\phi : p^{-1}_1A \cong p^{-1}_2A$ satisfying the cocycle condition \eqref{desc_ppp_eqn}.
-\end{proposition}
-\section{Miscellany}
-	
-
-\subsection{Fundamental theorem of projective geometry}
-\begin{defn}\cite{berger:geometryI}
-	Let $\sV. \sV'$ be vector spaces over $K, K'$. a map $f: \sV \to \sV'$ is called {\it semilinear} if there exists an automorphism $\sigma :K \to K'$ such that
-	\bean
-	f\left(\la x + \mu y \right) = \sigma\left(\la \right) f\left( x\right) + \sigma\left(\mu \right) f\left( y\right) 
-	\eean
-	for all $x, y\in \sV$, $\la, \mu \in K$. If $\sX, \sX'$ are affine spaces over $K, K'$ a map $f: \sX \to \sX'$ is called {\it semiaffine} if there exists $a \in \sX$ such that $\overline f: \sX_a \to \sX_{f\left(a \right) }$ is semilinear.
-	
-\end{defn}
-\begin{theorem}\cite{berger:geometryI}
-Let $\sX$, $\sX'$ be affine spaces of same finite dimension $d \ge 2$. Let $f: \sX \to \sX'$ be a bijection which takes any three collinear points $a, b, c \in \sX'$ into  collinear points $f(a), f(b), f(c)\in \sX'$. Then $f$ is semiaffine
-\end{theorem}
-\begin{theorem}\label{fund_proj_thm}\cite{berger:geometryI}
-Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
-\end{theorem}
 
 
 \end{appendices}
@@ -7950,70 +7375,6 @@ Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two project
  Author would like to acknowledge members of the Moscow State University Seminars
 "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
 of this work. 
-\section{APP}
-\paragraph{Closed transversals and idempotents of $C^*_r\left(\sV,\F \right)$} 
-
-Let $\left(\sV,\F \right)$ be a foliated manifold, and $N \subset \sV$ a compact submanifold with $\dim N = \codim \F$, everywhere
-transverse to the foliation. Then the restriction $\F'$ of $\F$ to a small enough tubular
-neighborhood $\sV'$  of $N$ defines on $\sV'$  a fibration with compact base $N$. In other words,
-there exists a fibration $\sV' \xrightarrow{p} N$ with fibbers $\R^k$, $k = \dim \F$, such that for any $x \in \sV$
-one has $\F_x = \ker\left(p_* \right)_x$. The $C^*$-algebra $C^*_r\left(\sV,\F \right)$ of the restriction of $\sF$ to $\sV'$ is
-thus strongly Morita equivalent to $C\left( N\right)$ , and in fact isomorphic to $C\left(N \right)\otimes \K$  where
-$\K$ is the $C^*$-algebra of compact operators. In particular it contains an idempotent
-$e = e^2 = e^*$, $~e = 1_N \otimes f \in C\left(N \right)\otimes \K$ , where $f$ is a minimal projection in $\K$. Using the
-inclusion $C^*_r\left(\sV'.\F' \right) \subset C^*_r\left(\sV,\F \right)$, we thus get an idempotent of $C^*_r\left(\sV,\F \right)$, which we shall now describe more concretely. The transversality of
-$N$ to the foliation ensures the existence of a neighborhood $\mathcal W$ of $\G^{(0)}$ in $\G$ such that
-\bean
-	\ga \in \mathcal W \circ \mathcal W^{-1}, \quad s\left(\ga  \right) \in N \quad r\left(\ga  \right) \in N\quad \Rightarrow \quad \ga \in \G^{(0)},
-\eean
-where $\G^{(0)}\bydef \left\{\left(x,x \right) | x \in \sV\right\}$ is the set of units of $\G$ . Let then $\xi$ be a smooth
-section on the submanifold $r^{-1} \left( N\right)\subset \G$ of the bundle $s^*\left( \Om^{1/2}\right)$  of half-densities, $\xi \in \Coo_c\left(r^{-1} \left( N\right), s^*\left( \Om^{1/2}\right) \right) $, such that
-		\begin{enumerate}
-			\item[($\a$)] $\supp \xi \in \mathcal W$
-			\item[($\bt$)] $\int_{r\left( \ga\right)= y  }\left|\xi\left( \ga\right)  \right|^2=1\quad \forall y \in N $.
-		\end{enumerate}
-The equality 
-$$
-e \left(\ga \right) = \sum_{\substack{s\left(\ga'\right) = s\left( ga\right) \\ r\left(\ga' \right)\in N }}\overline \xi\left(\ga' \ga^{-1} \right)\xi\left( \ga'\right)  
-$$
- defines an idempotent
-$$
-e \in \Coo_c\left( \G, \Om^{1/2}\right) \subset C^*_r\left(\sV,\F \right).
-$$
-Indeed, for each $x \in \sV$ the operator $\pi_x\left(e \right)$  in $L^2\left( \G_x\right)$  is the orthogonal projection on
-the closed subspace of $L^2\left( \G_x\right)$ spanned by a set of orthogonal vectors labeled by the
-countable set $I \bydef r^{-1}(N) \cap \G_x$, namely $\left\{\eta_\ga\right\}_{\ga\in I}$ , where
-$$
-\eta_\ga\left( \ga'\right) = \xi\left(\ga\left( \ga'\right)^{-1}  \right) 
-$$
-A more canonical way to deøne the (equivalence class of the) above idempotent $e \in \Coo_c\left(r^{-1} \left( N\right), s^*\left( \Om^{1/2}\right) \right) $
- is to show that the $C^*$-module $eA$, $A\bydef C^*_r\left(\sV,\F \right)$, is the same as the completion of $\Coo_c\left(r^{-1} \left( N\right), s^*\left( \Om^{1/2}\right) \right)$ 
-with the right action $\Coo_c\left(\G,  \Om^{1/2} \right)$ given by convolution, for f $$
-\left(\xi * f \right)\left( \ga \right) \bydef \int_{\ga_1 \circ \ga_2=\ga}\xi\left( \ga_1\right) f\left( \ga_2\right) \quad \forall \xi \in \Coo_c\left(r^{-1} \left( N\right), s^*\left( \Om^{1/2}\right) \right).
-$$
-and with the $\Coo_c\left( \G, \Om^{1/2}\right) $-valued inner product given by
-$$
-\left\langle\xi, \eta \right\rangle \bydef \sum_{\substack{s\left(\ga'\right) = s\left( ga\right) \\ r\left(\ga' \right)\in N }}\overline \xi\left(\ga' \ga^{-1} \right)\eta\left( \ga'\right), \quad \forall  \xi, 
-\eta \in \Coo_c\left(r^{-1} \left( N\right), s^*\left( \Om^{1/2}\right) \right).
-$$
-The construction of this $C^*$-module $\E_N$ over $C^*_r\left(\sV,\F \right)$ makes sense whether $N$ is compact or not, but in the former case the identity is a compact endomorphism of $\E_N$ and $\E_N \bydef eC^*_r\left(\sV,\F \right)$ for a suitable idempotent $e \in C^*_r\left(\sV,\F \right)$ (the identity being of rank
-one). 
-
-
-If $N$ is compact and meets every leaf of $ C^*_r\left(\sV,\F \right)$, then $\E_N$ gives a strong Morita equivalence between $C^*_r\left(\sV,\F \right)$ and the $C^*$-algebra of compact endomorphisms of $\E_N$ which, if
-we assume that $N$ is compact, is {\it unital}. This $C^*$-algebra is the convolution $C^*$-algebra
-of the reduced groupoid $\G_N$:
-$$
-\G_N\left\{\ga \in \G \left| r\left(\ga \right) \in N, \quad s\left(\ga \right) \in N \right.\right\}
-$$
-The groupoid $\G_N$ is a manifold of dimension $q= \codim \F$, and the convolution product
-in $\Coo_c\left( \G_N\right)$  is given by
-\be
-\begin{split}
-\left( f*g\right)\left( \ga\right)  = \sum_{\ga_1\circ \ga_2=\ga}f\left(\ga_1 \right) g\left(\ga_2 \right)\\
-f^*\left(\ga \right) = \overline{f\left( \ga^{-1}\right) }.
-\end{split}
-\ee
 
 \begin{thebibliography}{10}
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
