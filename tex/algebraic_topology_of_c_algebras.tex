@@ -729,7 +729,6 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	where $L_1,..., L_n$ are closed left ideals.
 \end{remark}
 
-
 \begin{definition}\label{open_ideal_defn}
 	If $L_1,..., L_n\subset A$ are closed left ideals and
 	\bean
@@ -1485,20 +1484,32 @@ If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \
 	we define  {\it Chern classes} $c_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$ of $\sV$ as {Chern classes} of $\sV'\in  \mathrm{Proj}\left( C\left( \sX^+\right)\right)$ (cf. Theorem \ref{chern_class_thm}).
 \end{definition}
 
-\subsubsection{Generalized foliations and inversion of algebraic factorization}
 
 \subsubsection{Connes quantization}
-\paragraph*{}	
 
-Let $A$ be a $C^*$-algebra and  let $C_0\left( \sX\right)\subset M\left(A \right)$ be natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}). Suppose that the equation \eqref{to_spec_eqn} !!! CHECK !!! yields the following diagram of commutative maps
+\paragraph*{}	
+In general the quantization yields a passage from the classical physics to the quantum one. In particular there is a quantization which yields an the transposition from commutative $C^*$-algebra $B$ to noncommutative ones. In particular a commutative  $C^*$-algebra $B$ with the product $\times$ is a depending on real parameter $\hslash$  limit of continuous fields  of noncommutative $C^*$-algebras $\overline B_\hslash$ with product $\times_\hslash$ such that
+\begin{itemize}
+	\item Any $\overline B_\hslash$ is isomorphic to $B$ with the $C^*$-norm $f \mapsto \left\|f \right\|_{\hslash}$ which is continuous of $\hslash$ for any $f \in B$. 
+	\item For any $f, g \in B$ we have $\left\|\left(f\times_\hslash g - g\times_\hslash f \right) /\hslash - i\left\{f, g\right\}_J \right\|_{\hslash}$ AS $\hslash\to 0$, where $\left\{ ,\right\}_J$ is the Poisson bracket defined by $J$ (with a factor of $\pi$).
+\end{itemize}
+The details of the above construction are explained in  \cite{rieffel:c_quant}.
+\paragraph{}
+The given by the Definition \ref{blowing_defn}  Hausdorff blowing-up equation
+\be\label{blowing_r_eqn}
+\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)
+\ee
+contains both a commutative $C^*$-algebra $C_0\left( \sX\right)$ and  a noncommutative one $A$. Elements of  $C_0\left( \sX\right)$  are limits of elements of $A$ with respect to the strict topology of $M\left(A \right)$. This duality can have rich structure. Physical fields correspond to vector bundles, or equivalently projective modules. The equation \eqref{chern_eqn} yields a bridge between projective $C\left(\sX^+ \right)$-modules and  $A^+$-modules. Physically it means that there is a set of common fields belonging to classical geometry and noncommutative one. The Rieffel projection on the noncommutative torus  correspond to a projective module which does not have a classical geometry analog. This circumstance can have following physical interpretation. Classical fields correspond  to the "experimentally  proven" phenomena.  Rieffel projection is responsible for phenomena which cannot be easily detected, e.g. vanishing of the divergences.  This analogy can be extends. For example the Dirac operator of noncommutative torus coincides with commutative one.
+
+Sometimes this duality comes from the given by Alain Connes  algebraic counterpart of geometric quotient (cf. Appendix \ref{quotions_a_sec}) which makes a non Hausdorff spectrum from a Hausdorff space. In this case we say that there is  {\it Connes quantization}.
+
+Let us describe an  analogy  between algebraic counterpart of geometric quotient and Connes quantization. If $A$ is a $C^*$-algebra and   $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}). Suppose that the equation \eqref{to_spec_eqn} !!! CHECK !!! yields the following diagram of commutative maps
 \be\label{gen_foli_eqn}
 \begin{tikzcd}
 	\mathfrak{Gelfand}\left(A\right) \arrow[rr] \arrow[rd, "\hat \phi"]&& \sX\arrow[ld, "\phi"]\\
 	& \hat A &
 \end{tikzcd}
 \ee
-
-
 \begin{definition}\label{generalized_foliation_defn}
 	Under the above hypothesis there is the equivalence relation $\sim$ on $\sX$ such that
 	\bean
@@ -1527,7 +1538,7 @@ $$
 	If $B\subset A$  is a hereditary $C^*$-subalgebra evenly covered by $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{evenly_defn}) then there is a connected open subset $\sU \subset \sX$ with $B \cong \sU$. From the Definition \ref{evenly_defn} it follows that $\mathfrak{Gelfand}\left(\lift \right)^{-1}\left(\sU\right)$ is the disjoint union of homeomorphic to $\sU$ connected open subsets of  $\mathfrak{Gelfand}\left(\widetilde A \right)$, i.e. the map $\mathfrak{Gelfand}\left(\lift \right)$ is a covering. If $\widetilde A$ is not commutative then there is $\widetilde x \in \mathfrak{Gelfand}\left(\lift \right)$ with
 	$$
 \dim \widetilde A / \widetilde x > 1.	
-	$$. From the condition (b) of the Definition \ref{fin_pre_defn} it follows that 
+	$$ From the condition (b) of the Definition \ref{fin_pre_defn} it follows that 
 	$$
 \dim C_0\left( \sX\right) / \mathfrak{Gelfand}\left(\lift \right)\left( \widetilde x\right) > 1.	
 	$$
@@ -1574,13 +1585,16 @@ where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 \begin{remark}
 	The spectrum of $\K\left(\H \right)$ has the single point but the sheaf cohomology of its Gelfand space $\mathfrak{Gelfand}\left(\K\left(\H \right)  \right)_{\mathfrak{Gelfand}}$ are not trivial for $r > 0$ (cf. Exercise \ref{nontte_exer}). 
 \end{remark}
-\subsubsection{Reconstruction of $C^*$-algebra from the Gelfand space}
-\paragraph{}
-We already know that the Gelfand space $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(\C \right)\right)$ (cf. Definition \ref{gelfand_space_defn}) of $\mathbb{M}_n\left(\C \right)$ is $\mathbb{P}\left( \C^{n-1}\right)_{\mathfrak{Gelfand}}$. Consider  $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(\C \right)\right)$ as an abstract topological space $\sX$ and let us reconstruct the $C^*$-algebra $\mathbb{M}_n\left(\C \right)$. We say that an irreducible closed subset $\sY \subset \sX$ (cf. Definition \ref{top_ireed_defn}) is a \textit{line} if the Dimension (cf. Definition \ref{top_dimension_defn}) of $\sY$ equals to 1.  According to our construction the notion of line is invariant with respect to homeomorphisms, i.e. any homeomorphism of $\sX$ map any line onto a line. From this fact and the fundamental theorem of the projective geometry $\sX$ has the unique structure of complex projective space $\mathbb{P}\left(\C^{n-1} \right)$ modulo automorphism of the field $\C$. The group of automorphisms of   the field $\C$ equals to $\Z_2$. Now one can obtain two $\R$-linearly isomorphic $n$ dimensional complex spaces and to semi-isomorphic $C^*$-algebras $\mathbb{M}_n\left(\C \right)$.
-
-(cf. Appendix \ref{cell_proj_sec}).
-
-
+\begin{remark}
+	Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
+	\be\label{open_g_eqn}
+	\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
+	\ee
+	where $V_1, ..., V_n \subset 
+	\mathbb{P}\left(\H \right)$ are linear subspaces. \end{remark}
+\begin{remark}\label{compact_nonempt_rem}
+	If both $\sU_1, \sU_2 \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ are nonempty open subsets then from \eqref{open_g_eqn} it follows that $\sU_1 \cap \sU_2 \neq \emptyset$. Similar result has the algebraic geometry, i.e. intersection  of two nonempty,  open with respect to Zariski topology sets is not empty (cf. \cite{hartshorne:ag}).
+\end{remark}
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic constructions}
 
@@ -1675,7 +1689,7 @@ The Corollary \ref{ctr_bic_cor} and the Remark \ref{ctr_bic_rem} naturally  yiel
 
 	Here we use the  construction \ref{topology_base_herd_empt}.
 If $\xi \in \mathfrak{Gelfand}\left( A\right)$ then there 
-from the  Lemma  \ref{ctr_g_lem} it follows that there is a pair $\left(x_\xi, y_\xi \right)$ such that for any $B \in \xi$ the one-dimensional subspace
+from the  Corollary  \ref{ctr_bic_cor} it follows that there is a pair $\left(x_\xi, y_\xi \right)$ such that for any $B \in \xi$ the one-dimensional subspace
 $$
 \rep_{x_\xi} \left(L\right)\sH_{x_\xi}\subset  \sH_{x_\xi}
 $$ 
@@ -1683,96 +1697,6 @@ corresponds to $y_\xi \in \mathbb{P}\left(\H_x \right)_{\mathfrak{Gelfand}}$.
 \end{proof}
 
 
-\subsubsection{Comparison with the bundle space} 
-\paragraph*{}
-Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\mathbb{P}\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\mathbb{P}\left(\H \right)$. From the Lemma \ref{ctr_g_lem} it follows that there is a set theoretic bijective map
-\bean
-\phi_C: \mathbb{P}\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)''.
-\eean     
-There is the initial with respect to $\phi_C$ on  topology on $\mathbb{P}\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote                                                   corresponding space by $\mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}$. The bijective map $\phi_C$ we denote by 
-\be\label{ctr_bundle_eqn}
-\begin{split}
-\mathbb{P}\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi)_{\mathbb{P}\left( \E\right) }} \mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}
-\end{split}
-\ee
-where $\mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}$ and $\mathbb{P}\left(\E \right)_{\mathfrak{Hausdorff}}$, is the set $\mathbb{P}\left(\E \right)$ having Gelfand and well known Hausdorff topology. 
-
-\begin{empt}\label{ctr_bundle_empt}
-
-If  $F$ be an Abelian group then from the Proposition \ref{spectral_sequence_prop} it follows that there are the natural homomorphisms
-\be\label{h_ctr_eqn}
-\begin{split}
-H^*\left(\phi_{\mathbb{P}\left( \E\right)} \right) :  H^*\left( \mathbb{P}\left(\E \right)_{\mathfrak{Hausdorff}}, F \right) \cong  H^* \left( \mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}},  F\right)
-\end{split}
-\ee
-where the notation \eqref{locally_const_not_eqn} for locally constant sheaves is used.
-\end{empt}
-
-\begin{theorem}\label{ctr_thm}
-	Let $F$ be an Abelian group with the natural  isomorphism $F\otimes_\Z F \cong F$. Under the hypothesis \ref{ctr_bundle_empt} assume that  there is a 		
-		family $
-		\mathscr{U} =\left\{\sU_\bt \subset \sX\right\}_{\bt \in \mathscr B}$ 	
-		satisfying to the Theorem \ref{top_nerve_thm}  open subsets of $\sX$ then there are the natural isomorphisms
-\bean
-H^*\left( \mathfrak{Gelfand}\left(A \right)'',  F\right) \cong    H^*\left( \mathbb{P}\left(\E \right)_{\mathfrak{Gelfand}}, F \right) \cong  H^*\left( \mathbb{P}\left(\E \right)_{\mathfrak{Hausdorff}}, F \right)
-\eean
-where the notation \eqref{constant_presheaf_eqn} of locally constant sheaves is used.
-\end{theorem}\label{ctr_coh_thm}
-\begin{proof}
-!!!! THEOREM \ref{top_formal_fibre_thm}	According to the Lemma  \ref{zero_product_lem} one should prove that the homomorphism \eqref{h_ctr_eqn} is an isomorphism.
-One has
-\be\label{projective_union_eqn1}
-\mathbb{P}\left( \E\right) = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W \in   \mathscr W }} \sU \times \mathcal W
-\ee
-where $\mathscr W$ is given by the equation \eqref{nerve_0_eqn}. $\mathscr U$ satisfies  to the Theorem \ref{top_nerve_thm}, so any $\sU \in  K\left( \mathscr U\right) $ one has 
-$$
-\forall p > 0\quad \forall \sU\in K\left( \mathscr U\right) \quad  \forall \mathcal W \in  K\left( \mathscr W\right)\quad H^p\left(\sU \right) = H^p\left(\mathcal W \right)= \{0\}
-$$
-and taking into account the Lemma  \eqref{zero_product_lem} one has
-\bean
-\forall p > 0 \quad \forall \sU\in K\left( \mathcal U\right) \quad  \mathcal W \in  K\left( \mathscr W\right)\quad H^p\left(\sU \times \mathcal W \right) = \{0\}.
-\eean 
-Any product $\sU \times \mathcal W\subset \mathbb{P}\left( \E\right)$ is open in both $\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}}$ and $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}}$. This lemma follows from the Theorem \ref{top_nerve_thm} the proof is similar to the \ref{compact_thm} one.
-
-\end{proof}
-\begin{empt}
-According to the equation \eqref{projective_union_eqn} one has
-\bean
-\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}} = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}=  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}/\sim,\\
-\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}} = \bigcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfand}}=  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfand}}/\sim
-\eean 
-where $\mathscr W$ is given by the equation \eqref{comp_cov_eqn}, $\mathcal W_{\mathfrak{Hausdorff}}$ and $\mathcal W_{\mathfrak{Gelfand}}$ are the same sets having the Hausdorff and Gelfand topology respectively. Any $\mathcal W_{\mathfrak{Gelfand}}\in \mathscr W$ naturally defines $\mathcal W_{\mathfrak{Hausdorff}}$. Using this fact one obtain the space $\mathbb{P}\left( \E\right)_{\mathfrak{Hausdorff}} =  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Hausdorff}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Hausdorff}}/\sim$ from the $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}} =  \bigsqcup_{\substack{\sU \in \mathscr{U} \\ \mathcal W_{\mathfrak{Gelfand}} \in   \mathscr W }} \sU \times \mathcal W_{\mathfrak{Gelfabd}}/\sim$ one; In result one has the following lemma.
-\end{empt}
-\begin{lemma}
-	Any stable separable algebra $A$ of continuous
-trace over a second-countable locally compact Hausdorff space $\sX$ naturally depends on the bicommutant of Gelfand space 
-\end{lemma}
-\begin{proof}
-One can proof that the given by the Proposition \ref{ctr_bundle_prop} bundle with fibers $\K$ naturally depends from the $\mathbb{P}\left( \E\right)_{\mathfrak{Gelfand}}$ one. The details of the proof are leaved to the reader.
-\end{proof}
-\begin{empt}
-Let $A$ be any stable separable algebra $A$ of continuous
-trace over a second-countable locally compact Hausdorff $CW$ complex $\sX$. Similarly to the equation \eqref{top_lift_obstr_eqn} one has a homomorphisms
-\bean
-H^3\left( \{x_0\} \times I \cup \sX \times \dot I; \Z \right) \xrightarrow{\delta}  H^{4}\left( \left( \sX,\{x_0\}\right) \times \left( I, \dot I\right) ; \Z\right)
-\eean
- \begin{definition}\label{top_lift_obstr_defn!!}!!!!\cite{spanier:at}
-	The {\it obstruction to lifting} $f$ denoted by $c(f) \in H^n(\sX,\A; \pi)$, 
-	is defined by 
-	\be
-	\dl \th\left(f \right)^*\left(\iota \right) =\left(-1 \right)^n\tau\left( c\left(f \right) \right)   
-	\ee
-	where
-	\bean
-	\tau :  H^n\left( \sX,\A; \pi\right)  \cong  H^{n+1}\left( \left( \sX,\A\right) \times \left( I, \dot I\right) ; \pi\right) ,\\
-	u \mapsto u \smile \overline I
-	\eean
-	and $\overline I\in H^1\left(I, \dot I, \Z \right)$ is the generator such that if $\overline 0 \in H^0\left( \{0\}, \Z\right)$ $\overline 1 \in H^0\left( \{1\}, \Z\right)$ and $\overline 1 \in H^0\left( \{0\}, \Z\right)$ are respective unit integral cohomology classes then identifying $H^0\left(\dot I, \Z \right) \cong H^0\left(\{0\} ; \Z\right)\oplus  H^0\left(\{1\} ; \Z\right)$, we have $\dl \overline 1 = \dot I = - \dl \overline 0$. 
-	
-\end{definition}
-
-
-\end{empt}
 \subsection{Gelfand space of $C^*$-algebras of groupoids}
 
 \subsubsection{Algebraic construction}
@@ -1803,7 +1727,7 @@ H^3\left( \{x_0\} \times I \cup \sX \times \dot I; \Z \right) \xrightarrow{\delt
 $$
 	M = \bigsqcup_{\la \in \La} \L_\la
 	$$
-	where $\L_\la$ is a set of leaves.  There is an equivalence relation on $M$ such that
+	where $\La$ is a set of leaves.  There is an equivalence relation on $M$ such that
 	$$
 	x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \L_\la
 	$$ 
@@ -1827,7 +1751,7 @@ The diagram \eqref{f_dia_eqn} is a specialization of generalized foliation (cf. 
 			& M/\sim &
 		\end{tikzcd}
 	\end{equation}
-	with Hausdorff $\sX$ and continuous map $\phi$ with $x', x''\in  \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. If $\xi', \xi'' \in  	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)$ then there are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that $\sV'\cap \sV'' = \emptyset$. Let us use the notation \eqref{topology_base_herd_eqn}  and suppose that 
+	with Hausdorff $\sX$ and continuous map $\phi$ with $x', x''\in  \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. If $\xi', \xi'' \in  	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)$ with $\psi\left(\xi' \right)= x'$ and $\psi\left(\xi'' \right)= x''$  then there are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that $\sV'\cap \sV'' = \emptyset$. Let us use the notation \eqref{topology_base_herd_eqn}  and suppose that 
 					\bean
 	\begin{split}
 		\sV'\bydef	\left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^m B'_j\right)  = \{0\}\right. \right\},\\
@@ -7202,7 +7126,7 @@ and hence the long exact cohomology sequence
 \end{empt}
 \begin{theorem}\label{projective_ag_coh_thm}\cite{hartshorne:ag}
 	%Theorem 5.1.
-	Let $A$ be a noetherian ring, and let $\sX \bydef \mathbb P^r_A$, with $r \ge 1$. Then: 
+	Let $A$ be a Noetherian ring, and let $\sX \bydef \mathbb P^r_A$, with $r \ge 1$. Then: 
 	\begin{enumerate}
 		\item[(a)]  the natural map $S \to \Ga_*\left(\mathscr O_\sX \right)  = \sum_{n \in \Z} H^0\left(\sX,\mathscr O_\sX\left( n\right)   \right)$  is an isomorphism of graded $S$-modules; 
 		\item[(b)] $H^i\left( \mathscr O_\sX\left( n\right)\right) = 0$ for $0 < i < r$ and all $n \in \Z$;
@@ -7504,6 +7428,9 @@ V. Voevodsky.
 {\it Motivic	Homotopy Theory}.
 Lectures at a Summer School
 in Nordfjordeid, Norway, Springer, August 2002.
+
+Marc A. Rieffel.\bibitem{rieffel:c_quant}
+{\it Quantization and $C^*$-algebras}, Contemporary   Mathematics,  167 (1994), 67-97. 1994.
 
 \end{thebibliography}
 
