@@ -893,13 +893,26 @@ Moreover if there is the bicommutant $\mathfrak{Gelfand}\left(A \right)''$ of $\
 %\end{definition}
 \subsection{Morphisms}
 \paragraph*{}
+	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
+	\be\label{unital_notation_eqn}
+	A^\sim\bydef\begin{cases}
+		A & \text{if }A \text{ is unital}\\
+		A^+ & \text{if }A \text{ is not unital}\\
+	\end{cases}
+	\ee
+	where $A^+$ is given by \eqref{a_plus_eqn}.
+	If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
+	is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
 If both $A$ and $\widetilde{A}$ are $C^*$-algebras then any injective  $*$-homomorphism 	
 \be\label{phi_r_eqn}
-\varphi_M: A \hookto M\left(\widetilde A\right)	
+\varphi_M: A^\sim  \hookto M\left(\widetilde A\right)	
 \ee
 such that
 \be\label{closed_p_eqn}
-\widetilde{ A }\quad \text{is the $C^*$-norm closure of} \quad \widetilde A \varphi_M\left( A\right).
+\begin{split}
+\widetilde{ A }\quad \text{is the $C^*$-norm closure of} \quad \widetilde A \varphi_M\left( A\right),\\
+\varphi_M\left(1_{A^\sim} \right)  = 1_{M\left(A \right) }
+\end{split}
 \ee
 yields an injective homomorphism  
 \be\label{lat_mor_eqn}
@@ -934,7 +947,9 @@ Using the above map one can construct the natural map
 
 
 \begin{defn}\label{good_defn}
-The injective homomorphism \eqref{lat_mor_eqn} is \textit{good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_M \right)$ yields the natural   map
+	Let both $A$ and $\widetilde A$ be $C^*$-algebras, and let $\varphi_M : A^\sim  \hookto M\left( \widetilde A\right)$  be an injective 	$*$-homomorphism satisfying to the condition \ref{closed_p_eqn}. We say that both $\varphi_M$ and the injective
+	homomorphism \eqref{ultra_mor_eqn} are {\it good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_M \right)$ yields the natural
+	map
 	\be\label{gelfand_map_eqn}
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
@@ -946,7 +961,7 @@ If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_
 	From the equation \eqref{topology_eqn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$.
 \end{proof}.
 \begin{empt}\label{bicommutant_empt}
-	Let $\varphi_M: A \hookto M\left(\widetilde A\right)$ be a good morphism. If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
+	Let $\varphi_M: A^\sim \hookto M\left(\widetilde A\right)$ be a good $*$-homomorphism (cf. Definition \ref{good_defn}). If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
   $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} then there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
   \be\label{b_neq_eqn}
   \forall a_1, ..., a_n \in \xi'' \quad \forall \widetilde a_1, ..., \widetilde a_n \in A\quad \left\| \sum_{j =1}^n \widetilde a_j a_j - \widetilde a,\right\| > \eps.
@@ -990,16 +1005,16 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
 \begin{definition}\label{fin_pre_defn}
-	Let   $A$ be an unital connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A \hookto M\left( \widetilde{A}\right) $ be an injective  $*$-homomorphism of % connected
+	Let   $A$ be an unital connected $C^*$-algebra  and let  $\widetilde{A}$ be  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\lift: A^\sim  \hookto M\left( \widetilde{A}\right) $ be a good  $*$-homomorphism (cf. Definition 
+	\ref{good_defn}) of  connected
 	$C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
-		\item[(a)] $\lift\left( 1_A\right) = 1_{ M\left( \widetilde{A}\right)}$,
-		\item[(b)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
+			\item[(a)] if $\Aut\left(\widetilde{A} \right)$ is a group of $*$-automorphisms of $\widetilde{A}$ then the group  
 		\be\nonumber
 		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \lift \left(M\left(  A\right) \right) \quad ga = a\right\}
 		\ee
 		is discrete with respect to the described in the Section \ref{op_top_sec} topologies,
-		\item[(c)] 	$A = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
+		\item[(b)] 	$A^\sim = M\left( \widetilde{A}\right) ^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \lift \right)$ and/or $*$-homomorphism $\lift: A \hookto M\left( \widetilde{A}\right) $   is a \textit{noncommutative  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
@@ -1015,18 +1030,15 @@ The existence of the map follows from \ref{bicommutant_empt}. The continuity can
 	where $\bt \text{-}\sum$ means the convergence with respect to the strict topology of $M\left( \widetilde A\right)$ (cf. the Definition \ref{strict_topology_defn} and the equation \eqref{strict_topology_eqn}).	
 \end{definition}
 
-\begin{definition}\label{cov_unital_defn}
-	A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn}) with unital $A$ is a {\it unital noncommutative covering} if for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in \xi$
-\end{definition}
+\begin{definition}\label{cov_defn} 
+	A  noncommutative  pre-covering $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{fin_pre_defn})  is a {\it noncommutative covering} if one has
 
-\begin{definition}\label{cov_defn}
-	Let $\left(A, \widetilde{A}, G, \lift \right)$ be a quadruple such that both $A$ and $\widetilde{A}$ are $C^*$-algebras $G \subset \Aut\left( \widetilde{A}\right)$ is a discrete subgroup and $\lift: A \hookto M\left( \widetilde{A}\right)$ is an injective $*$-homomorphism. If there is an unital noncommutative covering $\left(B, \widetilde{B}, G, \widetilde\lift \right)$  with inclusions $A \subset B$ and $\widetilde A \subset \widetilde B$ such that:
-	\begin{enumerate}
-		\item [(a)] both $A$ and $\widetilde A$ are essential ideals of $B$ and $\widetilde B$,
-		\item[(b)] $\lift \bydef \left.\widetilde\lift\right|_A$,
-		\item[(c)] the action $G \times \widetilde B \to \widetilde B$ naturally comes from the $G \times \widetilde A \to \widetilde A$.
-	\end{enumerate}	
-	then $\left(A, \widetilde{A}, G, \lift \right)$ is a \textit{noncommutative covering}.
+\begin{enumerate}
+	\item[(a)] for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ there is a hereditary connected $C^*$-subalgebra of $B$ {evenly covered by} $\left(A, \widetilde{A}, G, \lift \right)$ with $B \in \xi$ and  $*$-isomorphism $\lift^{\widetilde B}: B \cong \widetilde B$ (cf. Definition \ref{evenly_defn})
+\item[(b)] $\widetilde{A}$ is the $C^*$-norm completion of $*$-subalgebra of $A$ generated by the union of its described in (a)  subalgebras $\widetilde B$.
+\end{enumerate}	
+	
+	
 \end{definition}
 
 	
@@ -1281,7 +1293,7 @@ such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \r
 	\end{remark}
 	
 	\begin{remark}\label{blow_rem}
-		From the equation  \eqref{peder_c0_eqn} it follows that the injective homomorphism $\varphi_\sX : C_0\left(\sX \right) \hookto M\left(A \right)$ is good (cf. Definition \ref{good_defn}). So there is the natural surjective continuous map
+		From the equation  \eqref{peder_c0_eqn} it follows that the injective $*$-homomorphism $\varphi_\sX : C_0\left(\sX \right) \hookto M\left(A \right)$ is good (cf. Definition \ref{good_defn}). So there is the natural surjective continuous map
 		\be\label{phi_a_eqn}
 		\phi_A : \mathfrak{Gelfand}\left(A \right) \onto \sX.
 		\ee
@@ -1529,20 +1541,20 @@ The described above situation is a specialization of algebraic counterpart of ge
 
 \section{Applications}
 \subsection{Fundamental group of commutative $C^*$-algebras}
-\paragraph{} If $\sX$ is a connected, locally compact, Hausdorff space then there is a homeomorphism $\mathfrak{Gelfand}\left(C_0\left(\sX \right)  \right)\cong \sX$. If  $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ is a noncommutative covering then there is the given by  \ref{gelfand_map_eqn} continuous map
+\paragraph{} If $\sX$ is a connected, locally compact, Hausdorff space then there is a homeomorphism
+ $\mathfrak{Gelfand}\left(C_0\left(\sX \right)  \right)\cong \sX$. If  $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ is a noncommutative
+ covering then there is the given by  \ref{gelfand_map_eqn} continuous map
 $$
 \mathfrak{Gelfand}\left(\lift \right): \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX.
 $$
-	
+Any $C^*$-subalgebra of $C_0\left( \sX\right) $ is commutative. From (b) of the Definition \ref{cov_defn} it follows that $\widetilde A$ is the  $C^*$-norm completion of $*$-algebra generated by its commutative $C^*$-subalgebras. So $\widetilde{A}$ is commutative and there is locally compact Hausdorff space % $\widetilde \sX$ with $\widetilde{A}\cong C_0\left( \widetilde\sX\right)$ (cf. Theorem \ref{gelfand-naimark_thm}). The Lemma \ref{lem_g_lem} yields  a natural  homeomorphism $ \mathfrak{Gelfand} {\widetilde _\sX}: \mathfrak{Gelfand}\left(C_0\left( \widetilde\sX\right) \right)\cong  \widetilde\sX$. If a map
+$$
+\phi_\sX : \widetilde \sX \to \sX
+$$
+if a specialization of \eqref{gelfand_map_eqn} one then from the Lemma \ref{good_lem} it follows that $\phi_\sX$ is continuous. 	If $B\subset A$  is a hereditary $C^*$-subalgebra evenly covered by $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{evenly_defn}) then there is a connected open subset $\sU \subset \sX$ with $B \cong C_0\left( \sU\right) $. Using the Definition \eqref{evenly_defn} one can prove that $\sU$ is evenly covered by $\phi_\sX$ in the sense of the Definition \ref{top_covering_defn}. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. If there is the universal covering of $\sX$ then from the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$ (cf. the Definition \ref{top_universal_covering_defn} and the Lemma \ref{top_simply_con_cov_lem}).
 
-	If $B\subset A$  is a hereditary $C^*$-subalgebra evenly covered by $\left(C_0\left(\sX \right), \widetilde{A}, G, \lift \right)$ (cf. Definition \ref{evenly_defn}) then there is a connected open subset $\sU \subset \sX$ with $B \cong \sU$. From the Definition \ref{evenly_defn} it follows that $\mathfrak{Gelfand}\left(\lift \right)^{-1}\left(\sU\right)$ is the disjoint union of homeomorphic to $\sU$ connected open subsets of  $\mathfrak{Gelfand}\left(\widetilde A \right)$, i.e. the map $\mathfrak{Gelfand}\left(\lift \right)$ is a covering. If $\widetilde A$ is not commutative then there is $\widetilde x \in \mathfrak{Gelfand}\left(\lift \right)$ with
-	$$
-\dim \widetilde A / \widetilde x > 1.	
-	$$ From the condition (b) of the Definition \ref{fin_pre_defn} it follows that 
-	$$
-\dim C_0\left( \sX\right) / \mathfrak{Gelfand}\left(\lift \right)\left( \widetilde x\right) > 1.	
-	$$
-	It is impossible so $\widetilde A\cong C_0\left(\mathfrak{Gelfand}\left(\widetilde A\right) \right)$ is a commutative $C^*$-algebra. Thus there is an 1-1 correspondence between topological and noncommutative coverings of $C_0\left(\sX \right)$. From the Definition \ref{fund_den} that the fundamental group of $C_0\left(\sX \right)$ if it exists is isomorphic to $\pi_1\left( \sX\right)$.
+
+
 	 \subsection{$C^*$-algebras of compact operators}\label{compact_sec}
 \subsubsection{Basic constructions}
 
@@ -2290,32 +2302,7 @@ However both the existence of  $c_1\left( \sV_{S\T^2 }\right)$ and the inequalit
 				
 			\end{definition}
 			
-			\begin{definition}\label{monomorphism_defn}\cite{goldblatt:topoi}
-				PAGE 36
-				An arrow $f: a \to b$ in a category $\mathscr C$ is monic in <€ if for any parallel pair 
-				g, h:czta of <€ -arrows, the equality f°g=f°h implies that g = h. The 
-				symbolism /: a >-> b is used to indicate that / is monic.
-			\end{definition}	
-			\begin{remark}
-				MONIC MONO !!!
-			\end{remark}
-			\begin{definition}\label{epimorphism_defn}\cite{goldblatt:topoi}
-				
-			%	PAGE 39.
-				An arrow $f:a\to b$ is epic (right-cancellable) in a category $\mathscr C$ if for any 
-				pair of $\mathscr C$-arrows $g, h : b\substack{\to\\\to} c$, the equality $g\circ f = h \circ f$ implies that $g = h$, i.e. 
-				whenever a diagram 
-				\newline
-				\begin{tikzcd}
-					a \arrow[d, "f"] \arrow[r, "f"] 
-					& b \arrow[d, "g"]\\
-					b\arrow[r, "h"]	& c
-				\end{tikzcd}
-				\\
-				\\
-				commutes, then $g = h$.
-			\end{definition}	
-			\begin{definition}\label{initial_ob_defn}\cite{goldblatt:topoi}
+				\begin{definition}\label{initial_ob_defn}\cite{goldblatt:topoi}
 		%		PAGE 43
 				
 				An object $0_{\mathscr C}$ is \textit{initial} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
@@ -2594,6 +2581,16 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 		\begin{definition}\label{top_init_defn}\cite{bourbaki_sp:gt}
 			Under the hypotheses of Proposition \ref{top_init_prop} we say that the topology $\mathfrak{T}$ is \textit{initial} (\textit{with respect to the family of maps} $\left\{f_\iota:\sX \to \sY_\iota\right\}_{\iota\in I}$).
 		\end{definition}
+		
+		\begin{definition}\label{inverse_limit_defn}\cite{spanier:at}
+			An \textit{inverse system of sets} $\left\{A_\a, f^\bt_\a\right\}$ consist of a collection of sets $\left\{A_\a\right\}$ indexed by by a directed set $\La = \left\{\a\right\}$ and a collection of functions $f^\bt_\a: A_\bt \to A_\a$ such that
+			\begin{enumerate}
+				\item [(a)] $f^\a_\a = 1_{A_\a}: A_\a\cong A_\a$ for $\a\in\La$
+				\item[(b)] $f^\ga_\a = f^\bt_\a \circ f^\ga_\bt : A_\ga \to A_\a$ for $\a \le \bt \le \ga$ in $\La$
+			\end{enumerate}
+			The \textit{inverse limit} $\varprojlim A_\a$ is the subset of $\prod A_\a$ consisting of all points $\left\{a_\a\right\}$ such that if $\a\le\bt$, then $a_\a = f^\bt_\a\left( a_\bt\right) $. For each $\a$ there is a map $p_\a: \varprojlim A_\a\to A_\a$, and if $\a \le \bt$, then $p_\a = f^\bt_\a \circ p_\bt$ . 
+		\end{definition}
+		
 		
 
 	\begin{remark}
@@ -3079,6 +3076,7 @@ Let $G$ be a topological group. A (locally trivial) principal $G$-bundle is a fi
 	\end{empt}
 	
 	\subsection{Algebraic topology}
+
 	\subsubsection{$H$-groups}
 	\paragraph{}
 	Here I follow to \cite{spanier:at}. If both $\sX$ and $\sY$ are topological spaces then we denote by $\left[\sX; \sY\right]$ the set of homotopy classes of continuous maps from $\sX$ to $\sY$. One method of obtaining a group structure on  $\left[\sX; \sY\right]$ is to start with a 
@@ -4200,18 +4198,7 @@ Also we denote the {\it cup-product} ($\varphi_*\left(x, y \right)$ for $x \in K
 	\end{tikzcd}
 	\\ 	
 \end{proposition}
-\subsection{Commutative $C^*$-algebras}
-%\begin{remark}\label{pedersen_ideal_rem}
-%	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$. A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
-%	\be\label{pedersen_ideal_eqn}
-%	\begin{split}
-	%		K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
-	%		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
-	%	\end{split}
-%	\ee
-%	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
-%\end{remark}
-	\subsection{Representations}
+\subsection{Representations}
 \begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
 	\begin{enumerate}
@@ -7330,7 +7317,12 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 \bibitem{cuntz_meyer_ros:bivariant} Joachim Cuntz, Ralf Meyer, Jonathan M. Rosenberg.
 \textit{Topological and Bivariant K-Theory}. (Oberwolfach Seminars, 36, Band 36) 2010.
 
+	\bibitem{motivic} B.I. Dundas,	M. Levine,	P.A. Østvær,	O. R\"{o}ndigs,	V. Voevodsky.
+{\it Motivic	Homotopy Theory}.	Lectures at a Summer School	in Nordfjordeid, Norway, Springer, August 2002.
+
+
 \bibitem{eust} Samuel Eilenberg, Norman E. Steenrod. \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952. 
+
 
 \bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
@@ -7375,17 +7367,20 @@ June 27-July 1, 1983.
 	
 	\bibitem{johnstone:topos}Peter Johnstone. \textit{Topos Theory}, L. M. S. Monographs no. 10, Academic Press 1977.
 	
+	
+	
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
 	
 \bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978. 
 
+\bibitem{topos:intro} Saunders Mac Lane, Ieke Moerdijk
+\textit{Sheaves in Geometry and Logic. A First Introduction to Topos Theory}. Springer-Verlag - Berlin : New York. 1994.
+
 \bibitem{milne:lec} J.S. Milne. \textit{Lectures on \'Etale Cohomology}. Version 2.21 March 22, 2013.
 
 \bibitem{miyazaki_cw} Hiroshi Miyazaki, {The paracompactness of CW-complexes}, Tohoku Math. J. (2) Volume 4, Number 3 (1952), 309-313. 1952 	
 	
-	\bibitem{motivic} B.I. Dundas,	M. Levine,	P.A. Østvær,	O. R\"{o}ndigs,	V. Voevodsky.
-	{\it Motivic	Homotopy Theory}.	Lectures at a Summer School	in Nordfjordeid, Norway, Springer, August 2002.
 	
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 	
@@ -7401,6 +7396,8 @@ June 27-July 1, 1983.
 \bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
 %\bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
+\bibitem{rieffel:c_quant} Marc A. Rieffel.
+{\it Quantization and $C^*$-algebras}, Contemporary   Mathematics,  167 (1994), 67-97. 1994.
 
 
 	
@@ -7409,8 +7406,9 @@ June 27-July 1, 1983.
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 
 		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
+	
 		
-\bibitem{varilly:nc_intro} {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
+\bibitem{varilly:nc_intro} J. Varilly {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
 
 \bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
 		
@@ -7420,17 +7418,6 @@ June 27-July 1, 1983.
 Oxford, England, 1993. 
 
 
-\bibitem{motivic} B.I. Dundas,
-M. Levine,
-P.A. Østvær,
-O. R\"{o}ndigs,
-V. Voevodsky.
-{\it Motivic	Homotopy Theory}.
-Lectures at a Summer School
-in Nordfjordeid, Norway, Springer, August 2002.
-
-Marc A. Rieffel.\bibitem{rieffel:c_quant}
-{\it Quantization and $C^*$-algebras}, Contemporary   Mathematics,  167 (1994), 67-97. 1994.
 
 \end{thebibliography}
 
