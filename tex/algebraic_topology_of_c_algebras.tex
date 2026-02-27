@@ -2450,6 +2450,19 @@ In summary then, a \textit{natural transformation} from functor $F: \mathscr C\t
 	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
 \end{definition}
 
+\subsubsection{Cobordism categories}
+\paragraph{}  Here I follow to \cite{stong:cobord}. 
+
+\begin{definition}\label{cobord_cat_defn}\cite{stong:cobord}
+	A \textit{cobordism category} $\left(\mathscr C, \partial, j\right)$ is a triple in which
+	\begin{enumerate}
+		\item [(a)] $\mathscr C$ is a category having finite sums and an initial object;
+		\item[(b)] $\partial:  \mathscr C \to \mathscr C$ is an additive  functor such that for each object $X$ of $\mathscr C$, $~\partial \partial \left( X\right)$ is an initial object;
+		\item[(c)] $j :\partial \to \Id_{\mathscr C}$ is a natural transformation of additive from $\partial$ to the identity functor $\Id_{\mathscr C}$; and 
+		\item[(d)] There is a small category $\Id_{\mathscr C_0}$ or $\Id_{\mathscr C}$ such that each object of $\mathscr C$ is isomorphic  to and object of $\mathscr C_0$.
+	\end{enumerate} 
+\end{definition}
+
 			
 			\section{Topology}
 			\subsection{General topology}
@@ -3704,6 +3717,57 @@ Also we denote the {\it cup-product} ($\varphi_*\left(x, y \right)$ for $x \in K
 \begin{empt}\label{kt_d_empt}\cite{karoubi:k}The diagonal map $\sX \hookto \sX \times \sX$ induces a homomorphism $K\left(\sX \times \sX \right)\to \left( \sX\right)$. 
 	If we compose this homomorphism with the homomorphism $K\left( \sX\right)\otimes K\left( \sX\right)\to K\left( \sX\right)\otimes K\left( \sX\right)$  defined above, we have a product operation in the group $K(\sX)$,
 \end{empt}
+
+
+\paragraph{ Homology and cohomology}
+
+A complex projective variety $\sX$ has homology groups $Hq\sX$ and cohomology 
+groups $H^q\sX$. There are {\it cup 
+	products }
+\bean
+H^p\sX \otimes H^q \sX \xrightarrow{\smile }  H^{p+ q} \sX
+\eean
+and {\it cap products} 
+\bean
+H^p\sX \otimes H_q \sX \xrightarrow{\frown }  H_{p+ q} \sX
+\eean
+which make $H^*\sX = \bigoplus \H^p\sX$ a skew-commutative graded ring, and $H_*\sX = \bigoplus \H_p\sX$ an $H^*\sX$ -module. If $f: \sX \to \sY$ is a mapping, $f^*: H^*\sY \to H^*\sX$ homomorphism of rings, and one has the important {\it projection formula}, 
+\bean
+f_*\left( f^*a \frown b\right) = a \frown f_*b
+\eean 
+Any $k$-dimensional subvariety $\sV$ of $\sX$ determines a class denoted $\mathrm {cl}(\sV)$ in 
+$H_{2k}\sX$. This follows for example from the fact that $\sV$ can be triangulated to be an 
+oriented 2$k$-circuit. If $f: \sX \to \sY$ is a morphism, and $f\left(\sV \right)= \mathcal W$, then 
+\bean
+f_*\mathrm {cl}(\sV)= \deg(\sV/\mathcal W)\mathrm {cl}(\mathcal W),
+\eean 
+where $\deg(\sV/\mathcal W)$ is defined as follows. If $\dim(\mathcal W) < \dim(\sV)$, then $\deg(\sV/\mathcal W)= 0$
+If $\dim(\sV)= \dim (\mathcal W)$, there is an open $\mathcal W^*$ such that  $\sV \cap f^{-1} \left( \mathcal W^* \right) \to \mathcal W^*$ 
+is a finite-fold topological covering, and $\deg(\sV/\mathcal W)$ is the number of sheets of 
+this covering; algebraically, $\deg(\sV/\mathcal W)$ is the degree of the function field $R(\sV)$ of $\sV$
+as a field extension of $R(\mathcal W)$.
+If $\sX$ is nonsingular of dimension $n$, capping with $\mathrm{cl}\left( \sX\right)$ gives the {\it Poincare 
+	duality} isomorphism 
+\bean
+H^p\sX \xrightarrow[\cong]{\frown \mathrm{cl}\left( \sX\right)  } H_{2n - p}\sX.
+\eean 
+In the nonsingular case, $H_*\sX = H^*\sX$ has an intersection product. If $A$ and $B$ are 
+subvarieties of $\sX$ of dimensions $a$ and $b$, one may therefore define $A \cdot B$ in $H{2a + 2b - 2n}.\left( \sX\right)$  This product may be refined by using relative groups: 
+\bean
+\mathrm{cl}\left(A\right) \in H_{2a}\left(A \right) = H^{2n - 2a}\left(\sX , \sX \setminus A \right) 
+\eean 
+and similarly $\mathrm{cl}\left(B \right) \in H^{2n - 2b} \left(\sX, \sX \setminus B \right)$, so 
+\bean
+\mathrm{cl}\left( A\right) \smile \mathrm{cl}\left( B\right)\in  H^{4n - 2a - 2b}\left(\sX, \sX \setminus \left( A \cap B\right)  \right) \cong H_{4n - 2a - 2b}\left( A \cap B\right)
+\eean
+and thus  $A\cdot B$ lives  in $H_{4n - 2a - 2b}\left( A \cap B\right)$. Note that if the intersection is 
+proper, this last group is free on the classes of irreducible components of  $A\cap B$, 
+so this determines $A\cdot B$ as a cycle; in other words, this gives a topological 
+construction of intersection multiplicities. 
+
+
+
+
 
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
@@ -6534,6 +6598,14 @@ and hence the long exact cohomology sequence
 		
 	\end{enumerate}
 \end{theorem}
+
+\subsection{Chow ring and homology}
+
+\subsubsection{Divisors and rational equivalence }
+\paragraph{} 
+Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
+
+
 \section{Dixmier Douady theory}
 \subsection{Dixmier Douady theory of spaces}
 	\paragraph*{} Here I follow to \cite{bryl:loop}
@@ -6835,6 +6907,10 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 	
 		\bibitem{spanier:at} E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+		
+			
+\bibitem{stong:cobord}	R. E. Stong	{\it Notes on cobordism theory}. Princeton University Press 1968.
+		
 
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 
