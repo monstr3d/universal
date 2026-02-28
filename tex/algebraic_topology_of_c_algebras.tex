@@ -258,6 +258,7 @@
 \newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
 %\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
 \newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\cP}{\mathbb{P}}                  %% complex numbers
 \newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
 \DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
 \newcommand{\F}{\mathcal{F}}                 %% space of test functions
@@ -1532,7 +1533,7 @@ The described above situation is a specialization of algebraic counterpart of ge
 \end{remark}
 
 \section{Applications}
-	 \subsection{$C^*$-algebras of compact operators}\label{compact_sec}
+	 \subsection{Gelfand space of $C^*$-algebras of compact operators}\label{compact_sec}
 \subsubsection{Basic constructions}
 
 	
@@ -1582,6 +1583,93 @@ where the subscript $_{\mathfrak{Zariski}}$ means the Zariski topology.
 	$$
 \end{exercise}
 
+\subsubsection{Chow ring}
+\paragraph{Cobordism category.} Any $\C$-linear map $\C^{m+1}\otimes_\C \C^2 \to \C^{n+1}$ yields a continuous map $\C P^m  \times \C P^1  \xrightarrow{f} \C P^n$. The map $f$ naturally yields a map $ \C P^m \xrightarrow{\mathrm{ex}\left( f\right)} \left( \C P^1\right) ^{\C P^n}$ 
+Let $n \in \N$, and let $\mathscr{L}\left(n \right) $ be a category such that
+\begin{itemize}
+	\item any  $\mathscr{L}\left(n \right)$-object is a described above map $\C P^m  \times \C P^1  \xrightarrow{f} \C P^n$ such  that
+	\bean
+	m < n,\\
+	\forall x', x''\in \C P^m \quad x' \neq x'' \quad  \exists y \in \C P^1\quad f\left( x',y\right) \neq f\left( x'',y\right),
+	\eean 
+	\item an arrow from $\C P^{m'}  \times \C P^1  \xrightarrow{f'} \C P^n$ to $\C P^{m''}  \times \C P^1  \xrightarrow{f''} \C P^n$ is a map $\C P^{m'}  \times \C P^1  \xrightarrow{\phi } \C P^{m''}  \times \C P^1  \xrightarrow{f'}$ such than $m'\le m''$ and the diagram 
+	\bean
+\begin{tikzcd}
+\C P^{m'}  \times \C P^1 \arrow[dd, "\phi"] \arrow[rd, "f'"]& ~\\
+~ & \C P^n\\
+\C P^{m''}  \times \C P^1 \arrow[ru, "f''"]& ~
+\end{tikzcd}
+	\eean
+commutative.
+\end{itemize}
+Let $\mathscr{C}\left(n \right)$ be a category such that
+ be a category such that
+\begin{itemize}
+	\item any object of $\mathscr{C}\left(n \right)$ is a $\Z$-linear combination of $\mathscr{L}\left(n \right)$ objects,
+	\item if $f_1, ..., f_{m'}, g_1, ..., g_{m''}$ are $\mathscr{L}\left(n \right)$-objects then there exists the unique  $\mathscr{C}\left(n \right)$ arrow from $\sum_{j = 1}^{m'}c_j f_j$ to $\sum_{j = 1}^{m''}d_j g_j$ if and only if for any $j' \in 1,..., m'$ there is  $j'' \in 1,..., m''$ and $\mathscr{L}\left(n \right)$-arrow $f_{j'}\xrightarrow{\phi} g_{j''}$.
+\end{itemize}
+So the set of $\mathscr{C}\left(n \right)$ objects is the Grothendieck group of the category $\mathscr{L}\left(n \right)$.
+We suppose that there is the natural subset $\left\{0, \infty\right\}\subset \C P^1$. For any $\mathscr{L}\left(n \right)$-object  map $\C P^m  \times \C P^1  \xrightarrow{f} \C P^n$ we define  $\C P^m  \times \C P^1  \xrightarrow{f_0} \C P^n$ and $\C P^m  \times \C P^1  \xrightarrow{f_1} \C P^n$ such that
+\be\label{co_dd_eqn}
+f_0\left( x,y\right) \bydef f\left(x, 0 \right),\\ 
+f_1\left( x,y\right) \bydef f\left(x, 1 \right).
+\ee
+If $1_\Z \cdot f$ is $\mathscr{C}\left(n \right)$-object then we define
+\be\label{co_d_eqn}
+\partial \left( 1_\Z \cdot f\right)  \bydef 1_\Z \cdot f_0 - 1_\Z \cdot f_1
+\ee 
+The $\Z$-linearity yields the unique additive  functor $\mathscr{C}\left(n \right)\xrightarrow{\partial} \mathscr{C}\left(n \right)$.
+\begin{lemma}
+Under the above hypothesis  $\mathscr{C}\left(n \right)$ is the cobordism category (cf. Definition \ref{cobordism_category_defn}).
+\end{lemma}
+\begin{proof}
+One needs check conditions (a)-(d) of the Definition \ref{cobordism_category_defn}.
+\paragraph{}(a) Follows from that the set of  $\mathscr{C}\left(n \right)$ -objects is a free Abelian group, i.e. $\Z$-module.
+\paragraph{}(b) If we consider \eqref{co_d_eqn} then from
+\bean
+\forall x \in \C P^m \quad  \quad f_0\left(x, 0  \right) = f_0\left(x, \infty \right); \quad f_1\left(x, 0  \right) = f_1\left(x, \infty \right);
+\eean 
+if follows that $\partial \left( 1_\Z \cdot f_0\right)= \partial \left( 1_\Z \cdot f_1\right)= 0_{\mathscr{C}\left(n \right)}$ so one has $\partial \partial\left( 1_\Z \cdot f\right)= 0_{\mathscr{C}\left(n \right)}$. From this fact it turns out that for each object $X$ of $\mathscr C\left( n\right) $ one has $~\partial \partial \left( X\right)= 0_{\mathscr{C}\left(n \right)}$.
+\paragraph{}(c) From the equations \eqref{co_dd_eqn} it turns out that there are $\mathscr{L}\left(n \right)$-arrows $f_0 \to f$ and $f_1 \to f$, so there is the natural arrow $\mathscr{C}\left(n \right)$
+$$
+j_{1_\Z \cdot f}:  \partial \left( 1_\Z \cdot f\right) \to 1_\Z \cdot f.
+$$ 
+using this fact one can deduce that for any $\mathscr{C}\left(n \right)$-arrow $X \xrightarrow{\phi} Y$ there is a commutative diagram
+	\bean
+\begin{tikzcd}
+\partial X\arrow[d, "\phi|_{\partial X}"]\arrow[r, "j_X"]& X\arrow[d, "\phi"]\\
+\partial Y\arrow[r, "j_Y"]& Y\\
+\end{tikzcd}
+\eean
+\paragraph{}(d) The category $\mathscr{C}\left(n \right)$ is small.
+\end{proof}
+\paragraph{Chow ring of $\C P^n_{_{\mathfrak{Gelfand}}}$.}
+For any projective algebraic variety $\sX_{\mathfrak{Zariski}}$ there is the described in \cite{fulton:intersection,fulton:intro_intersection,hartshorne:ag} Chow ring. As an Abelian group this ring is isomorphic to $Z / \sim$ where $Z$ is the Grothendieck group cycles, i.e,  irreducible closed with respect to the Zariski topology sets  (cf. Definition \ref{top_irreducible_defn})
+
+
+\break
+\begin {table}[H]
+\caption {Mapping !!!} \label{main_mapping_table} 
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+	&	 Gelfand topology &  Zariski topology\\
+		\hline
+	& & 	\\
+	The space & $\C P^n_{\mathfrak{Gelfand}}$ &  $\C P^n_{\mathfrak{Zariski}}$ \\
+	&&	\\
+Cycles 	&	Linear subspace  & Algebraic subvariety \\
+	& $\C P^m \subset \C P^n$ & $\sX \subset \C P^n$	\\
+	& &\\
+	Equivalence relation & Cobordism & Rational equivalence\\
+	&& \\
+Chow ring	& $\Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^1\right] \right)^{n+1}$	& $\Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^1\right] \right)^{n+1}$\\
+&& \\
+		\hline
+	\end{tabular}
+\end{center}
+\end {table}
+\pagebreak 
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
 \subsubsection{Basic constructions}
 
@@ -2453,13 +2541,13 @@ In summary then, a \textit{natural transformation} from functor $F: \mathscr C\t
 \subsubsection{Cobordism categories}
 \paragraph{}  Here I follow to \cite{stong:cobord}. 
 
-\begin{definition}\label{cobord_cat_defn}\cite{stong:cobord}
+\begin{definition}\label{cobordism_category_defn}\cite{stong:cobord}
 	A \textit{cobordism category} $\left(\mathscr C, \partial, j\right)$ is a triple in which
 	\begin{enumerate}
 		\item [(a)] $\mathscr C$ is a category having finite sums and an initial object;
 		\item[(b)] $\partial:  \mathscr C \to \mathscr C$ is an additive  functor such that for each object $X$ of $\mathscr C$, $~\partial \partial \left( X\right)$ is an initial object;
 		\item[(c)] $j :\partial \to \Id_{\mathscr C}$ is a natural transformation of additive from $\partial$ to the identity functor $\Id_{\mathscr C}$; and 
-		\item[(d)] There is a small category $\Id_{\mathscr C_0}$ or $\Id_{\mathscr C}$ such that each object of $\mathscr C$ is isomorphic  to and object of $\mathscr C_0$.
+		\item[(d)] There is a small category $\Id_{\mathscr C_0}$ or $\Id_{\mathscr C}$ such that each object of $\mathscr C$ is isomorphic  to an object of $\mathscr C_0$.
 	\end{enumerate} 
 \end{definition}
 
@@ -2897,10 +2985,10 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 %5.1.1. Definition. 
 A mapping $f: \sX \to \sY$ is said to be a {\it local homeomorphism} if every $y \in \sY$ has an open neighborhood $\sU$ such that $f\left( \sU\right)$  is open. 
 	\end{definition}
-		\begin{definition}\label{top_ireed_defn}\cite{hartshorne:ag}
+		\begin{definition}\label{top_irreducible_defn}\cite{hartshorne:ag}
 		%5.1.1. Definition. 
 %	Definition. 
-A nonempty subset $\sY$ of a topological space $\sX$ is irreducible if 
+A nonempty subset $\sY$ of a topological space $\sX$ is {\it irreducible} if 
 it cannot be expressed as the union $\sY = \sY_1 \cup \sY_2$ of two proper subsets, each one of which is closed in $\sY$. The empty set is not considered to be 
 irreducible. 
 	\end{definition}
@@ -2909,8 +2997,22 @@ irreducible.
 					$\dim \sX$) to be the supremum of all integers $n$ such that there exists a chain 
 					\bean
 					\sZ_0 \subsetneqq	\sZ_1 \subsetneqq...\subsetneqq	\sZ_n 					\eean 
-of distinct irreducible closed subsets of $\sX$.
+of distinct irreducible closed subsets of $\sX$ (cf. Definition \ref{top_irreducible_defn}).
 	\end{definition}
+	\begin{definition}\label{top_codimension_defn}\cite{hartshorne:ag}
+	If $\sZ$ is an irreducible closed subset of $\sZ$, then the 
+	{\it codimension} of $\sZ$ in $\sX$, denoted $\codim(\sZ,\sX$) is the supremum of integers $n$.
+	such that there exists a chain 
+	\bean
+	\sZ = \sZ_0 \supsetneqq \sZ_1 \supsetneqq... \supsetneqq \sZ_0 \supsetneqq \sZ_n 
+	\eean 
+	of distinct closed irreducible subsets of $\sX$, beginning with $\sZ$. If $\sY$ is any 
+	closed subset of $\sY$, we define 
+	\bean
+	\codim(\sY,\sX)\bydef \inf_{\sZ \subset \sY} \codim \sZ.
+	\eean
+	where the infinum is taken over all closed irreducible subsets of Y. 
+\end{definition}
 	
 	
 	
