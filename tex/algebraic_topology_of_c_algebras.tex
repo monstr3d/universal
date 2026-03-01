@@ -1535,8 +1535,70 @@ The described above situation is a specialization of algebraic counterpart of ge
 \section{Applications}
 	 \subsection{Gelfand space of $C^*$-algebras of compact operators}\label{compact_sec}
 \subsubsection{Basic constructions}
-
+!!!!
+Projective Geometry:
+From Foundations to Applications
+Albrecht Beutelspacher
+and
+Ute Rosenbaum
+Cambridge University Press 1998
+\begin{definition}
+We recall: a collineation of P is a bijective map from the point set and line set
+of P onto themselves that preserves incidence.\end{definition}
+	\begin{definition}
+Definition. A collineation of a projective space P(V) is called projective if it is
+induced by a linear map of V.
+	\end{definition}
+	\begin{definition}
+%Definition. 
+Let $P$ be a projective space. We say that in $P$ {\it the theorem of Desargues
+holds} if the following statement is valid. For any choice  $A_1$, $A_2$, $A_3$, $B_1$, $B_2$,  $B_3$ of points with the properties
+\begin{itemize}
+	\item $A_j$, $B_j$ are collinear with a point $C$, $C\neq A_j, \neq B_j\neq C$ ($j = 1,2,3$),
+	\item no three of the points $C$, $A_1$, $A_2$, $A_3$,  and no three of the points$C$, $B_1$, $B_2$, $B_3$
+	are collinear,
 	
+	we have that the points
+	\bean
+	P_{12}\bydef A_1A_2 \cap  B_1B_2, \quad P_{23}\bydef A_2A_3 \cap  B_2B_3, \quad P_{31}\bydef A_3A_1 \cap  B_3B_1
+	\eean
+	lie on a common line.
+\end{itemize}
+	\end{definition}
+	\begin{theorem}
+2.2.1 Theorem. Let V be a vector space of dimension d + lover a division ring
+F. Then the theorem of Des argues holds in P(V).
+	\end{theorem}
+	\begin{definition}
+Let $P$ be a projective space. We say that in $P$ {\it the theorem of Pappus
+	holds} if any two intersecting lines $g$ and $h$ with $g \neq h$ satisfy the following
+	condition. If  $A_1$, $A_2$, $A_3$ are distinct points on $g$ and 
+	$B_1$, $B_2$,  $B_3$ are distinct points on $h$ all different from $g \cap h$  then the points
+	\bean
+Q_{12}\bydef A_1B_2 \cap  B_1A_2, \quad Q_{23}\bydef A_2B_3 \cap  B_2A_3, \quad Q_{31}\bydef A_3B_1 \cap  B_3A_1
+\eean
+lie on a common line.
+ 
+\end{definition}
+\begin{theorem}
+2.2.2 Theorem. Let V be a vector space over the division ring F. Then the theorem
+of Pappus holds in P(V) if and only if F is commutative (in other words, if
+F is afield).
+\end{theorem}
+\begin{theorem}
+2.2.2 Theorem. Let V be a vector space over the division ring F. Then the theorem
+of Pappus holds in P(V) if and only if F is commutative (in other words, if
+F is afield).
+\end{theorem}
+\begin{theorem}
+2.2.3 Hessenberg's theorem. Let P be an arbitrary projective space. If the theorem
+of Pappus holds in P then the theorem of Desargues is also true in P.\end{theorem}
+
+\begin{definition}
+Definition. Let $P$ be a projective space of finite dimension $d$, The subspaces of
+dimension 2 are called {\it planes}, and the subspaces of dimension $d - 1$ are called
+{\it hyperplanes} of $P$,\end{definition}
+
 \paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset A$ there is a closed $\C$-linear subspace $V_L \subset \H$ such that
 \bean
 L = \left\{\left.a \in \K\left(\H \right)\right| a \H  \subset V_L\right\}.
@@ -3011,8 +3073,16 @@ of distinct irreducible closed subsets of $\sX$ (cf. Definition \ref{top_irreduc
 	\bean
 	\codim(\sY,\sX)\bydef \inf_{\sZ \subset \sY} \codim \sZ.
 	\eean
-	where the infinum is taken over all closed irreducible subsets of Y. 
+	where the infinum is taken over all closed irreducible subsets of $\sY$. 
 \end{definition}
+
+
+\begin{remark}\label{general_pos_rem}
+If there is a family of objects parameterized by points a
+in some topological space $\sX$
+they usually say that {\it an object is in general position} (or {\it generic}) to mean that a
+belongs to an open dense subset of $\sX$.
+\end{remark}
 	
 	
 	
@@ -6701,171 +6771,51 @@ and hence the long exact cohomology sequence
 	\end{enumerate}
 \end{theorem}
 
-\subsection{Chow ring and homology}
+\subsection{Intersections and Chow ring}
 
-\subsubsection{Divisors and rational equivalence }
+\subsubsection{Divisors and rational equivalence}
 \paragraph{} 
 Here I follow to \cite{fulton:intersection}, \cite{fulton:intro_intersection}
-
-
-\section{Dixmier Douady theory}
-\subsection{Dixmier Douady theory of spaces}
-	\paragraph*{} Here I follow to \cite{bryl:loop}
-	If $M$ is a manifold then $H^2\left(M, \Z \right)$ is the group of isomorphism  classes of line bundles over $M$
-	Given a paracompact space $M$, we wish to describe bundles over $M$ which 
-	represent classes in $H^3\left(M, \Z \right)$  Actually it is more convenient to work with 
-	the isomorphic group $H^3\left(M, \Z \left( 1\right) \right)$, where $\Z\left( 1\right)\bydef 2\pi\sqrt{-1} \cdot \Z$. First, let us 	use the exponential exact sequence of sheaves $0\to\Z\left(1 \right)\to \underline{\C}_M\xrightarrow{\exp}\underline{\C}^*_M\to 0$. Using the exact sequence of cohomology one can identify $H^3\left( M,\Z\left(1\right)\right) $  and  $H^2\left( M,\underline{\C}^*_M\right) $ 
-Here we  $\underline{\C}^*_M$ is used to denote the sheaf of continuous $\C^*$-valued functions on open sets of $M$. We will 
-	need degree 1 \v{C}ech cohomology with values in a sheaf of nonabelian groups
-	We wish to apply the Theorem \ref{nc_coh_exact_central_eqn}  to the exact sequence \eqref{nc_coh_exact_central_eqn} in the case 
-	of a suitable sheaf of algebras $R$. As we are interested in the cohomology 
-	group $H^2\left(M, \underline{\C}^*_M \right)$, we want the center of $R$ to be the sheaf $\underline{\C}^*_M$. Let us 
-	take the sheaf of algebras $R$ to be the sheaf $\underline L_M$ of continuous functions 
-	with values in some Banach algebra $L$, with center equal to $\C$. The best 
-	choice will turn out to be the algebra $L = \L\left(E \right)$ of bounded operators in a 
-	separable Hilbert space $E$; the norm is the sup-norm of an operator. It is 
-	well-known (and easy to see) that the center of $L$ is equal to $\C$. The quotient 
-	Lie group $L^*/\C^*$ identifies with the Lie group $G = Aut\left( \K\right)$  of continuous 
-	algebra automorphisms of the Banach algebra K of compact operators of $E$. 
-	In other words, one has an exact sequence of Lie groups 
-	\be\label{ctr_seq_eqn}
-1 \hookto C^* \hookto L^* \cong Aut\left(E \right)\onto G = Aut\left(\K \right) \onto 1.  
-\ee
-			Since the mapping $Aut\left(E \right)\onto G$  is a principal $\C^*$-fibration, one has an exact 
-			sequence of sheaves of continuous functions with values in \eqref{ctr_seq_eqn}, to wit: 
-	\be
-	\{1\} \hookto \underline{C}^*_M \hookto\underline{L}^*_M \onto\underline{G}_M\onto \{1\}.
-	\ee
-			The following result is the basic reason behind the choice of this Banach 
-			algebra $L$. 
-			\begin{proposition}\cite{bryl:loop}
-%4.1.5. Proposition. [D-D, Lemme 3] 
-The Lie group $L^*$ of invertible 
-continuous operators in $E$ is contractible. 
-			\end{proposition}
-	
-\begin{corollary}\cite{bryl:loop}
-%4.1.6. Corollary. [D-D, Lemme 4] 
-The sheaf $\underline{L}^*_M$ of continuous $L^*$-valued 
-functions is soft (cf. \cite{bredon:sheaf})
-\end{corollary}
-\begin{proposition}\cite{bryl:loop}
-%4.1.7. Proposition. 
-Let B be a soft sheaf of groups on M. Then 
-$H^1\left( M, B\right) = \{1\}$.
-\end{proposition}
-\begin{proposition}\cite{bryl:loop}
-%4.1.8. Proposition. [D-D, Lemme 22] 
-Let $\{1 \}\hookto A \hookto B  \onto C \onto \{1\}$ be
-a central exact sequence of sheaves of groups over $M$. If $B$ is a soft sheaf, then $\dl_1 : H^1\left(M,C \right) \cong H^2\left(M, A \right)$ is a bijection. 
-\end{proposition}
-\begin{theorem}\cite{bryl:loop}
-%4.1.9. Theorem. 
-( Dixmier-Douady) For the Lie group G of algebra 
-automorphisms of the Banach algebra K of compact operators on a separable 
-Hilbert space E, we have natural bijections
-\be 
-H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)\cong H^3\left(M,\Z\left(1 \right) \right).
-\ee
-\end{theorem}
-\begin{proposition}\cite{bryl:loop}
-%4.1.10. Proposition. 
-The operation $\otimes$ on $H^1\left(M, \underline{G}_M \right)$ gives   $H^1\left(M, \underline{G}_M \right)$
-structure of an Abelian group. The bijection $\dl_1: H^1\left(M, \underline{G}_M \right) \cong H^2\left(M, \underline{\C}^*_M \right)$
-is a group isomorphism. 
-\end{proposition}
-\begin{lemma}\cite{bryl:loop}
-%Lemma. 
-$H^1\left(M, \underline{G}_M \right)$ is in a natural bijection with the set of isomorphism classes of locally trivial algebra bundles $A\to]M$ with fiber $\K$. 
-\end{lemma}
-\begin{empt}\label{projective_bundle_empt}\cite{bryl:loop}
-For a separable Hilbert space $E$, the {projective space} $\mathbb{P}$ of $E$ is a manifold 
-modeled on $E/ \C$. For $\left\{e_n\right\}$ an orthonormal basis of $E$, $E\setminus 0$ is covered by the 
-open sets $\sV_j \bydef  = \left\{\left.\sum_{n=1}^\infty x_n e^n\right| x_j \neq 0 \right\}$. $\mathbb{P}$ is covered by the open sets $\sU_j$
-The open set $\sV_j$ identifies with the subspace $\left( \C \cdot e_j\right)^\perp$  of $E$; to $v \in \left( \C \cdot e_j\right)^\perp$
-corresponds the line spanned by $v + e_j$. Again $p: E\setminus 0 \to  \mathbb{P}$ is  principal 
-$C^*$-bundle. 
-\end{empt}
-\begin{definition}\label{projective_bundle_defn}\cite{bryl:loop}
-The {\it projective space 
-bundle} is a trivial fiber bundle $p : P \onto M$ with 
-fiber the {\it projective space}
-$\mathbb{P} \left( E\right) \bydef  (E\setminus \{0\})/\C^*$ of lines in $E$.
+\begin{definition}
+%	Definition. 
+	Let $\sX$ satisfy (*). A {\it prime divisor} on $\sX$ is a closed integral subscheme $\sY$ of codimension one. A {\it Weil divisor} is an element of the free Abelian group $\mathrm{Div}\sX$ generated by the prime divisors. We write a divisor as $D =\sum_{j=1}^n n_j \sY_j $  where the $\sY_j$ are prime divisors, the $n_j$ are integers, and 
+	only finitely many $n_j$ are different from zero. If all the $n_j \ge 0$, we say 
+	that $D$ is {\it effective}. 
 \end{definition}
-\begin{lemma}\cite{bryl:loop}
-%4.1.12. Lemma. 
-The group of projective automorphisms of  $\mathbb{P} \left( E\right)$, equipped 
-with the topology of uniform convergence on bounded subsets of P(.E), is 
-homeomorphic to G. 
-\end{lemma}
-\begin{proposition}\cite{bryl:loop}
-%4.1.13. Proposition. 
-There is a natural bijection between the set of iso- 
-morphism classes of separable projective space bundles over M and the set 
-$H^1(M, \underline{G_M})$ of isomorphism classes of principal $G$-bundles over $M$. 
-\end{proposition}
-%	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
-	%Proposition 9.3. 
-	%		Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of		compact operators on $\H$. Then every irreducible *-representation of $\K$ is unitary		equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism		of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism		group of $\K$ can be identified with the topological group $PU\bydef U/\T$ the		projective unitary group of $\H$, with the quotient topology from the strong operator		topology on $U\left(\H\right)$.
-	%	\end{proposition}
 
-\begin{proposition}\label{ctr_bundle_prop}\cite{cuntz_meyer_ros:bivariant}
-	%Proposition 5.59. 
-	%Theorem 9.9 
-	(Dixmier–Douady). 
-	Any stable separable algebra $A$ of continuous
-	trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
-	$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
-	over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
-	such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
-	The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
-	algebra A is called its Dixmier–Douady class.
-\end{proposition}
-\begin{proof}
-	Principal $PU$-bundles over $\sU$ are thus classified by
-	$\left[\sX, BPU\right] = \left[\sX, K\left( \Z, 3\right) \right] = H^3\left(\sX, \Z \right)$. 
-	The details of the proof are presented in \cite{cuntz_meyer_ros:bivariant}.
-\end{proof}
-
-\begin{proposition}\label{ctr_d_prop}\cite{cuntz_meyer_ros:bivariant}
-	%Proposition 9.11 (P. Green [51,96,104]). 
-	Let $\sX$ be a second-countable locally compact
-	Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over $\sX$.
-	Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
-	$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
-\end{proposition}
-\begin{proof}
-	Here a fragment of the proof is presented.
-	From the proposition it follows that that if $A =\Ga_0\left( \sX, \A\right)$ and $B = \Ga_0\left( \sX, \B\right)$, where $\A$ and B are locally trivial bundles of $C^*$-algebras over $\sX$ with fibres isomorphic	to $\K$ then $A\times_\sX B = \Ga_0\left( \sX, \A\otimes B\right)$ where $\A\otimes \B$, where  is the locally trivial bundle with
-	fibre $\A_x\widehat \otimes \B_x$ over $x\in \sX$.  It is proven in \ref{ctr_d_prop} that $\dl \left(A \otimes_\sX B \right)= \dl  \left(A  \right)+\left(B \right)$.
-	
-\end{proof}
-\begin{notation}\label{ctr_not}
-	If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
-	continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$. From the Proposition \ref{ctr_d_prop} it follows that
-	\be\label{bundle_prod_iso}
-	\varphi_{\dl \rho}	:CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
-	\ee
-\end{notation}
-\begin{proposition}\label{ctr_cup_prop}\cite{cuntz_meyer_ros:bivariant}
-	%Proposition 9.17.
-	There are natural homomorphisms
-	\bea\label{ka_eqn}
-	K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right),\\
-	\label{kx_eqn}
-	K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right),
-	\eea
-	where $K_\bullet\left( CT\left(\sX, \dl \right)\right)$ means $K$-theoretic groups of $C^*$-algebra $ CT\left(\sX, \dl \right)$ and $K^\bullet\left( \sX\right)$ means $K$-theoretic groups of the space $\sX$.
-\end{proposition}
-
-
+\begin{empt}
+Let $\sX$ be any variety over field  $k$. A {\it cycle of codimension} $r$ on $\sX$ is an element 
+of the free Abelian group generated by the closed irreducible subvarieties of $\sX$ 
+of codimension $r$. So we write a cycle as $\sY = \sum n_j \sY_j$ where the $\sY_j$ are subvarieties, and $n_j \in \Z$. 
+	Let $f: \sX \to \sX'$ be a morphism of varieties, and let $\sY$ be a subvariety of $\sX$. 
+	If $\dim f\left(\sY \right) < \dim \sY$, we set $f_*\left( \sY\right)= 0$ . If $\dim f\left(\sY \right) = \dim \sY$, then the 
+	function field $K\left(\sY \right)$  is a finite extension field of $K\left(f\left( \sY \right) \right)$, and we set 
+	$$
+f\left( \sY\right)\bydef \left[K\left(\sY \right):K\left(f\left( \sY\right)  \right)\right]\cdot \overline{f\left(\sY \right) } 
+	$$
+	Extending by linearity defines a homomorphism  $f_*$ of the group of cycles on $\sX$
+	to the group of cycles on $\sX'$.	  
+			Now we come to the definition of rational equivalence For any subvariety 
+			$\sV$ of $\sX$, let $f: \widetilde \sV\to \sV$ be the normalization of $\sV$. Then $\sV$ satisfies the condition (*)!!! of (II, §6), so we can talk about Weil divisors and linear equivalence 
+			on $\sV$. Whenever $D$ and $D'$ are linearly equivalent Weil divisors on V, we say 
+			that $f_*D$ and $f_*D'$ are {\it rationally equivalent} as cycles on $\sX$. Then we define 
+			rational equivalence of cycles on X in general by dividing out by the group 
+			generated by all such $f_*D'\sim f_*D'$ for all subvarieties $\sV$, and all linearly 
+			equivalent Weil divisors $D, D'$ on $\sV$. In particular, if $\sX$  itself is normal, then 
+			rational equivalence for cycles of codimension 1 coincides with linear 
+			equivalence of Weil divisors. 
+			For each $r$ we let $A^r\left(\sX \right)$  be the group of cycles of codimension r on X 
+			modulo rational equivalence. We denote by $A\left(\sX\right) \bigoplus_{r= 0}^n A^r\left( \sX\right)$  the graded group  where $n = \dim \sX$. Note that $A^0\left( \sX\right)= \Z$ , and that $A^r\left(\sX \right)= 0$  for $r > \dim \sX$. Note also that if X is complete there is a natural group homomorphism, the {\it degree}, from $A^n\left( \sX\right)$  to $\Z$, defined by $\deg \left(\sum n_j P_j \right) \bydef \sum n_j$ , where 
+			the $P_j$ are points. This is well-defined on rational equivalence classes because 
+			of (II, 6.10). !!!
+\end{empt}
 \end{appendices}
 
 \section*{Acknowledgment}
 
 
 \paragraph*{}
- Author would like to acknowledge members of the Moscow State University Seminars
+Author would like to acknowledge members of the Moscow State University Seminars
 "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
 of this work. 
 
