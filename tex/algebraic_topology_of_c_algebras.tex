@@ -1729,9 +1729,14 @@ For any hereditary $C^*$-subalgebra $B \subset A$ we define
 \be\label{u_b_eqn} 
 \mathscr U_B \bydef \left\{\left.C_x \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right|\exists C \in \mathfrak{Comm}\left( A\right)\quad C \subset B \right\}\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)
 \ee
-where $C_x$ is a stalk of $C$ (cf. Definition \ref{sheaf_stalk_defn}), For any open subset $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ we define a hereditary $C^*$-subalgebra $B_{\mathscr U } \subset A$ which contains the union
+where $C_x$ is a stalk of $C$ (cf. Definition \ref{sheaf_stalk_defn}). For any open subset $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ and any $\eta \in \mathscr U$ we say that $C \in \mathfrak{Comm}\left( A\right)$ is an $\mathscr U$-{\it representative of} $\eta$ if one has
+\bea
+\exists x \in \sX \quad \eta = C_x,\\
+\forall y \in \sX \quad \rep_y\left(C \right) \neq \{0\}\quad \Rightarrow \quad C_y \in \mathscr U.
+\eea
+Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ since the set an $\mathscr U$ is open. We define a hereditary $C^*$-subalgebra $B_{\mathscr U } \subset A$ which contains the union
 \be
-\bigcup \left\{C \in \mathfrak{Comm}\left( A\right)\left| \forall x \in \sX  \quad \rep_x\left(C \right)\neq 0 \quad \Rightarrow \quad  C_x \in  \mathscr U\right.\right\}
+\bigcup \left\{C \in \mathfrak{Comm}\left( A\right)\left|\exists  \eta \in  \mathscr U\quad C \quad \text{ is an} \mathscr U \text{-representative of }\quad \eta \right.\right\}
 \ee
 \begin{lemma}
 One has.
@@ -1746,22 +1751,37 @@ One has.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(a)
+(i)
 	If $C \in \mathfrak{Comm}\left( A\right)$ and $C \subset B$ then from the Exercise \ref{sheaf_etale_exer}) it turns out that the union 
 	$$
 	\bigcup_{\substack{x \in\sX\\ \rep_x\left(C \right)\neq 0 }}C_x \subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}\right)
 	$$
 	is open. So $\mathscr U_B$ is a union of open subsets.
 	
-	(b) If both  $\mathscr U', \mathscr U'' \subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}\right)$ are open subsets with $\mathscr U'\setminus \mathscr U''\neq \emptyset$ then since $\sX$ is Hausdorff and  the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\su \sX$ is local homeomorphism one has an open subset $\mathscr V \subset \mathscr U'$ with $\mathscr V \cap \mathscr U'' = \emptyset$. Since the set $\mathscr V$ is open there is $C \in \mathfrak{Comm}\left( A\right)$ with
+	(ii) If both  $\mathscr U', \mathscr U'' \subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}\right)$ are open subsets with $\eta \in \mathscr U'\setminus \mathscr U''\neq \emptyset$ then one has
+	\bean
+	C \subset B_{\mathscr U'},\\
+		C \not\subset B_{\mathscr U''}	
+	\eean 
+	where $C$ is an $	\mathscr U'$-representative of $\eta$. If follows that
 	$$
-	\forall x \in \sX  \quad \rep_x\left(C \right)\neq 0 \quad \Rightarrow \quad  C_x \in  \mathscr V.
+	\mathscr U' = \mathscr U'' \quad \Rightarrow \quad B_{\mathscr U'}= B_{\mathscr U''}.
 	$$
-	From our construction it turns out that $C \subset B'$ and $C \cap B'' = \{0\}$, i.e. the map \eqref{u_t_b_eqn} is injective.
-
-
-(b)	If $B', B'' \subset A$ be $C^*$-subalgebras such that $B'\setminus B'' \neq \{0\}$ then there is $C\in \mathfrak{Comm}\left( A\right)$ such that $C \subset B"$ and $C\cap B'' = \{0\}$. So the map \eqref{b_t_u_eqn} is injective
-\end{proof}
+	If $B'\setminus B'' \neq \{0\}$ then from the Proposition \ref{continuous_trace_c_a_proposition} one can deduce that there is $C \in \mathfrak{Comm}\left( A\right)$ such that
+	\bean
+	C \subset B',\\
+	C \not\subset B''.
+	\eean 
+	There is $x \in \sX$ such that
+	\bean
+	C_x \in \mathscr U_{B'},\\
+	C_x \notin \mathscr U_{B''}.
+	\eean 
+	It turns out that
+	$$
+B' = B'' \quad \Rightarrow \quad \mathscr U_{B'} = \mathscr U_{B''}.
+	$$
+	\end{proof}
 \begin{lemma}\label{ctr_gelfand_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 \bean
@@ -1778,60 +1798,31 @@ One has.
 \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x \bydef \left\{\left.\eta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right| 	p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)}\left(\eta \right) = x\right\},\\
 \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi =  \left\{\left.\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x\right| \forall B \in \xi \quad  \exists  C \subset B\quad \zeta = C_x  \right\}
 \eean
-where $C$ is a commutative $C^*$-subalgebra which represents $\zeta$ and $C_x$ is the germ of $C$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}). According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that there is  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). Let $\rep_x : A \to B\left( \sH_x\right)$ be the corresponding to  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $n \in \N$ such that $\rep_x \left(aAa \right) \cong \mathbb{M}_n\left(\C\right)$. If 
+where $C$ is a commutative $C^*$-subalgebra which represents $\zeta$ and $C_x$ is the germ of $C$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}). According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that there is  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Let $S \subset \N$ be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ such that
 \bean
-\bigcap_{\substack{B \in \xi\\\rep_x\left( B\right)  \subset aAa}} B = \{0\}
-\eean  
-then there is a finite set $B_1, ..., B_m \in \xi$ with
-$$
-\rep_x\left(B_1\cap ...\cap B_m\right)= \{0\}
-$$
-Using the above equation one can find $B'_1, ..., B'_m \in \xi$ with $B'_1\cap ...\cap B'_m = \{0\}$. It is impossible since $\xi$ is a filter (cf. Definition \ref{filter_defn}).
-It turns out that there is $k \in \N$ with
-$$
-\rep_x\left( \bigcap_{\substack{B \in \xi\\\rep_x\left( B\right)  \subset aAa}} B\right)  =\rep_x\left( \bigcap_{B \in \xi} B\right) = \mathbb{M}_k\left(\C\right)
-$$
-From the Proposition \ref{less_n_pi_prop} one can deduce that there is an open neighborhood $\sU$ of $x$ such that there is the natural inclusion $$C_0\left(\sU \right) \otimes \mathbb{M}_k\left(\C\right)\subset \bigcap_{B \in \xi} B.$$ There is a commutative $C^*$-subalgebra $C \subset  \bigcap_{B \in \xi} B$  given by a system inclusions
-$$
-C_0\left(\sU \right) \otimes\begin{pmatrix}
-1& 0 & \ldots &0  \\
-	0&  0 & \ldots& 0 \\
-	\vdots& \vdots &  \ddots & \vdots\\
-	0& 0 &\ldots &0 \\
-\end{pmatrix}\subset C_0\left(\sU \right) \otimes \mathbb{M}_k\left(\C\right)\subset  \bigcap_{B \in \xi} B
-$$
-If a filter $\xi'$ is generated by the set
-$$
- \left\{B \cap C | B \in \xi \right\}
-$$
-then $\xi \subsetneqq \xi'$. It is impossible since $\xi$ is an ultrafilter. It follows that $\rep_x\left( \bigcap_{B \in \xi} B\right) = \mathbb{M}_k\left(\C\right)= \C$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Let $S \subset \N$ be such that 
-$$
-\forall l \in S \quad \exists \sU \in \left\{\sU\right\}\quad \exists B \in \xi\quad  \forall x \in \sU \quad \quad \Rightarrow \quad \rep_x\left(B\right) \subset \mathbb{M}_l\left(\C\right)
-$$
-Let  $d \bydef \min_{l \in S}l > 1$ and let $\sU\in  \left\{\sU\right\}$, $~B \in \xi$ be such that
-$$
-\forall x \in \sU  \quad \rep_x\left(B \right)\subset  \mathbb{M}_d\left(\C\right)
-$$
+B \subset aAa,\\
+\forall y \in \sU \quad \rep_y\left(B\right) \subset \mathbb{M}_l\left(\C\right)
+\eean 
+From the our construction it follows that $N \in S$. Suppose that   $d \bydef \min_{l \in S}l > 1$ and let $\sU\in  \left\{\sU\right\}$, $~B \in \xi$ be such that
+\bean
+B \subset aAa,\\
+\forall y \in \sU  \quad \rep_y\left(B \right)\subset  \mathbb{M}_d\left(\C\right)
+\eean 
 From the Proposition \ref{less_n_pi_prop} it follows that there is an open subset $\sV \subset \sU$ such that 
 $$
-\forall x \in \sV\quad  \rep_x\left(B\right) \cong  \mathbb{M}_d\left(\C\right).
+\forall y \in \sV\quad  \rep_y\left(B\right) \cong  \mathbb{M}_d\left(\C\right).
 $$
 Moreover there is $\sU' \in \left\{\sU\right\}$ such that there is the the natural inclusion 
 $$
 C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset B
 $$
-There is a commutative $C^*$-subalgebra $C' \subset  B$  given by a system inclusions
+There is a  $C^*$-subalgebra $B' \subset  B$
 $$
-C_0\left(\sU \right) \otimes\begin{pmatrix}
-	1& 0 & \ldots &0  \\
-	0&  0 & \ldots& 0 \\
-	\vdots& \vdots &  \ddots & \vdots\\
-	0& 0 &\ldots &0 \\
-\end{pmatrix}\subset C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset   B
+C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)\subset C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset   B
 $$
 If   
 $$
-B' \bydef \left\{b \in B \left| \forall x \in \sU' \cap \sV  \quad \rep_x\left(b \right) \in \rep_x\left(C' \right) \right.\right\}
+B'' \bydef \left\{b \in B \left| \forall y \in \sU' \cap \sV  \quad \rep_y\left(b \right) \in \rep_x\left(B' \right) \right.\right\}
 $$ 
 then 
 $$
@@ -1839,28 +1830,17 @@ $$
 $$
 If a filter $\xi'$ is generated by the set
 $$
-\left\{B \cap B' | B \in \xi \right\}
+\left\{B \cap B'' | B \in \xi \right\}
 $$
 then $\xi \subsetneqq \xi'$. It is impossible since $\xi$ is an ultrafilter. From this contradiction it follows that $d= 1$. So there is $B'' \in \xi$ and $\sU'' \in \left\{\sU\right\}$ 
 such that 
 $$
 \forall x \in \sU' \quad \rep_x\left(B'' \right) \cong \C
 $$
-and $C'' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra.
+and $C''' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra such that $C'' \in \xi$.
 
 
-
-
-
-!!!
- Let us prove that $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi\neq \emptyset$. Since $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)}$ is a local homeomorphism for any $\zeta \in mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)$ there is neighborhood. 
-
-If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ contains more than !!!! EXISTS  one element and $\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi$ then the  filter of hereditary $C^*$-subalgebras
-\bean
-\left\{B \subset A \left| \exists  C \subset B \quad \zeta = C_x \right.\right\}
-\eean 
-exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. If $\hat \phi\left( 
-\xi\right)= x$ and  $C', C''\subset \xi$ are two commutative $C^*$-algebras  then one has
+If  $C', C''\subset \xi$ are two commutative!!! $C^*$-algebras  then one has
 $$
 \forall f \in C_0\left(\sX \right) \quad f\left(x \right)\neq 0 \quad\left(  \mathfrak {Blowing}_{\sX-A }(f) C'\right) \cap \left( \mathfrak {Blowing}_{\sX-A }(f) C''\right)  \neq \{0\}.
 $$
@@ -4633,6 +4613,22 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 			\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
 		\end{itemize}
 	\end{lemma}
+	\begin{defn}\label{type_I_defn}\cite{pedersen:ca_aut}
+		We say that a $C^*$-algebra $A$ is \textit{of type} $I$ if each non-zero quotient of $A$ contains a non-zero
+		Abelian element. If $A$ is even generated (as $C^*$-algebra) by its Abelian elements we say
+		that it is \textit{of type} $I_0$.
+	\end{defn}
+	\begin{prop}\label{continuous_trace_c_a_proposition}\cite{pedersen:ca_aut}
+		Let $A$ be a $C^*$ - algebra with continuous trace . Then
+		\begin{enumerate}
+			\item[(i)] $A$ is of type $I_0$;
+			\item[(ii)] $\hat A$ is a locally compact Hausdorff space;
+			\item[(iii)] For each $t \in \hat A$ there is an Abelian element $x \in A$ such that $\hat x \in K(\hat A)$ and $\hat x(t) = 1$.
+		\end{enumerate}
+		The last condition is sufficient for $A$ to have continuous trace .
+	\end{prop}
+	
+
 	\begin{definition}\label{projective_bundle_defn}\cite{bryl:loop}
 		The {\it projective space 
 			bundle} is a trivial fiber bundle $p : P \onto M$ with 
