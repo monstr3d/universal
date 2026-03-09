@@ -791,57 +791,6 @@ or equivalently $\sV_\xi\subset  \supp a$ and the set $\supp a$ is compact (cf. 
 	From the Proposition \ref{top_ultra_thm} it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 	\end{proof}
 
-\begin{definition}\label{commutant_defn}
-	Let $A$ be a $C^*$-algebra and let $L$ be a closed left ideal. The closed left ideal
-	$$
-	L^\perp \bydef \bigcup \left\{a \in A | L a^* = \{{0}\} \right\}
-	$$
-	is the \textit{commutant} of $L$ (write $L^\perp$).;
-\end{definition}
-
-\begin{definition}\label{bicommutant_defn}
-For any element $\xi \in  \mathfrak{Gelfand} \left(A \right)$ the \textit{bicommutant} of $\xi$ (written $\xi^{\perp\perp}$ or $\xi''$) is the $C^*$-norm closure of the union
-$$
-\bigcup_{L \in \xi} L^\perp.
-$$
-If for any $\xi\in \mathfrak{Gelfand} \left(A \right)$ the bicommutant $\xi''$  is the proper left ideal 
-then the set of bicommutants  (write $\mathfrak{Gelfand} \left(A \right)^{\perp\perp}$ or $\mathfrak{Gelfand} \left(A \right)''$) is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$.  Under this hypothesis There is the natural surjective  map 
-\be\label{bicommutant_to_eqn}
- \mathfrak{Gelfand} \left(A \right) \xrightarrow{\phi''}  \mathfrak{Gelfand} \left(A \right)''
-\ee
-We imply that the topology of $\mathfrak{Gelfand} \left(A \right)''$  is final with respect to the map $\phi''$ (cf. Definition \ref{top_final_defn}).
-\end{definition}
-
-\begin{example}
-From the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism $\mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$. If $x = \mathfrak{Gelfand}_\sX\left( \xi\right)$ then for any $L \in \xi$ there is an open neighborhood of $x$ such that 
-\bean
-\forall a \in L \quad a\left(\sX \setminus \sU \right) = \{0\}
-\eean  
-so one has
-\bean
-\forall a \in L^\perp \quad a\left(\sU \right) = \{0\}
-\eean
-
-If $L_x \bydef \left\{a \in C_0\left(\sX \right) | a\left(x \right)= 0  \right\}$ 
-the for any positive   $a'\in L_x$ one has
-\be\label{pden_eqn}
-\begin{split}
-\left\|a' - f_{\eps/2}\left(a' \right)  \right\| < \eps,\\
-\exists L \in \xi \quad a' \in L^\perp.\
-\end{split}
-\ee 
-where $f_\eps$ is given by \eqref{f_eps_eqn}. From the equation \eqref{pden_eqn} it turns out that the subset of positive elements of the union $\cup  L^\perp$ is dense  in  the subset of positive elements of $L_x$.
-If $A$ is a $C^*$-algebra then one has
-\be\label{four_decompositon_eqn}
-\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4 \quad  a_1, a_2, a_3, a_4 \ge 0.
-\ee
-From \eqref{four_decompositon_eqn} it follows that the the union $\cup  L^\perp$ is dense in $L_x$, so one has $L_x \subset \xi'' \bydef \phi''\left( \xi\right) $ (cf. Definition \ref{bicommutant_defn}). On the other hand if $a \notin L_x$ then $\left\|a\left(x \right)  \right\| > 0$ and
-\bean
-\forall L \in \xi \quad \exists a' \in L \quad a'\left(x \right)\neq 0 \quad  \Rightarrow \quad a'\left( x\right) a^*\left( x\right) \neq 0\quad  \Rightarrow \quad a'a^* \neq 0.
-\eean 
-So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out that the given by \eqref{bicommutant_to_eqn} map is a  homeomorphism from  $\mathfrak{Gelfand} \left(A \right)$ onto $ \mathfrak{Gelfand} \left(A \right)''$.
-\end{example}
-
 
 
 \begin{definition}\label{belongs_defn}
@@ -849,7 +798,7 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 	\be\label{belongs_eqn}
 	\forall L \in \xi \quad \rep_x\left(L\right) \neq \{0\} 
 	\ee
-	where $\rep_x : A \to B\left(\H_x \right)$ is an irreducible representation (cf. Definition  \ref{irred_defn}).  Similarly the bicommutant $\xi''$ \textit{belongs to} $x$ if $\rep_x\left(\xi'' \right) \neq \rep_x\left(A \right)$.
+	where $\rep_x : A \to B\left(\H_x \right)$ is an irreducible representation (cf. Definition  \ref{irred_defn}). 
 	
 \end{definition}
 \begin{empt}
@@ -866,28 +815,21 @@ So one has $\xi'' \subset L_x$, and  $\xi'' = L_x$. From this fact it turns out 
 \mathfrak{Gelfand}\left(A \right) \xrightarrow{\hat \phi} \hat A
 	\end{split}
 	\ee
-Moreover if there is the bicommutant $\mathfrak{Gelfand}\left(A \right)''$ of $\mathfrak{Gelfand}\left(A \right)$ (cf. Definition \ref{bicommutant_defn}) then the map $\hat \phi$ naturally induces the continuous map $\mathfrak{Gelfand}\left(A \right)'' \xrightarrow{\hat \phi''} \hat A$ with the following commutative diagram
-	\be\label{not_c_bel}
-		\begin{tikzcd}
-			\mathfrak{Gelfand}\left(A \right) \arrow[rr, "\phi''" ]  \arrow[rd, "\hat \phi" ]& & \mathfrak{Gelfand}\left(A \right)'' \arrow[ld, "\hat \phi''" ]\\
-			& \hat A&
-\end{tikzcd}
-\ee
-
 \end{empt}
+\begin{definition}\label{bicommutant_defn}
+Let $A$ be a $C^*$-algebra. If $\xi \in \mathfrak{Gelfand}\left(A \right)$ and the set
+\bean
+\xi'' \bydef \left\{\left. a \in \rep_{\hat \phi\left( \xi\right) }\left(A \right)\right| \forall L \in \xi \quad  a^* \rep_{\hat \phi\left( \xi\right) }\left(L \right) = \{0\}
+ \right\}\subset \rep_{\hat \phi\left( \xi\right) }\left(A \right)
+ \eean
+ is a proper left ideal of $\rep_{\hat \phi\left( \xi\right) }\left(A \right)$ then $\xi''$ is the \textit{bicommutant} of $\xi$. If for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ the bicommutant exists then there is 
+  is the natural surjective  map 
+ \be\label{bicommutant_to_eqn}
+ \mathfrak{Gelfand} \left(A \right) \xrightarrow{\phi''}  \mathfrak{Gelfand} \left(A \right)''
+ \ee
+ where $\mathfrak{Gelfand} \left(A \right)''$ is the set of all bicommutants. We consider the final with respect to the map $\phi''$  (cf. Definition \ref{top_final_defn}) topology on $\mathfrak{Gelfand} \left(A \right)''$ and say that the space $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$.
+\end{definition}
 
-%\begin{definition}\label{red_geland_defn}
-%Let $A$ be a $C^*$-algebra, and  let both $\mathfrak{Gelfand}\left(A\right$ be its Gelfand space. Consider the equivalence relations 
-%\bean
-%\forall \xi',\xi''\in\mathfrak{Gelfand}\left(A\right) \quad   \xi'\sim\xi''\quad \Leftrightarrow \quad\\ \left(
-%\forall \text{ open set }\quad  \sU \subset  \mathfrak{Gelfand}\left(A\right\quad 
-%\xi' \in \sU
-%\quad \Leftrightarrow \quad \xi'' \in \sU \right).
-%\eean 
-%The quotient spaces 
-%\bean
-
-%\end{definition}
 \subsection{Morphisms}
 \paragraph*{}
 	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
@@ -957,7 +899,7 @@ If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_
 \begin{proof}
 	From the equation \eqref{topology_eqn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$.
 \end{proof}.
-\begin{empt}\label{bicommutant_empt}
+\begin{empt}\label{bicommutant_empt}!!!
 	Let $\varphi_M: A^\sim \hookto M\left(\widetilde A\right)$ be a good $*$-homomorphism (cf. Definition \ref{good_defn}), and suppose that there are bicommutants $\mathfrak{Gelfand}\left( A \right)$,  $\mathfrak{Gelfand}\left(\widetilde A \right)''$ (cf. Definition \ref{bicommutant_defn}).
 	If $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)$ and 
   $\widetilde \xi'' \in \mathfrak{Gelfand}\left(\widetilde A \right)''$ is the corresponding element  of bicommutant (cf. Definition \ref{bicommutant_defn} such that there is $\widetilde{a}\in \widetilde{\xi}''$ end $\eps > 0$ such that
