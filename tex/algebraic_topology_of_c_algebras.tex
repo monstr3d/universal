@@ -986,15 +986,15 @@ From the Lemma \ref{lem_g_lem} it follows that in case of commutative $C^*$-alge
 		If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up} of $A$ if  both sets
 		\be\label{blowing_eqn}
 		\begin{split}
-			C_c\left( \sX\right)A \bydef \left\{fa| f \in C_c\left( \sX\right)\quad a \in A \right\},\\
-			AC_c\left( \sX\right) \bydef \left\{af| f \in C_c\left( \sX\right)\quad a \in A \right\}
+		\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A \bydef \left\{fa| f \in 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\quad a \in A \right\},\\
+			A\cdot	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right) \bydef \left\{af| f \in 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\quad a \in A \right\}
 		\end{split}
 		\ee
 		are dense in $A$.
 	\end{definition}
 	
 	\begin{remark}\label{blowing_rem}
-		$C_c\left( \sX\right)A$ is dense in $A$ if and only if $AC_c\left( \sX\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations iuclusions  \eqref{blowing_eqn} are equivalent.
+		$	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A$ is dense in $A$ if and only if $A\cdot 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations iuclusions  \eqref{blowing_eqn} are equivalent.
 	\end{remark}
 \begin{remark}
 	The inclusion $
@@ -1002,7 +1002,7 @@ From the Lemma \ref{lem_g_lem} it follows that in case of commutative $C^*$-alge
 \be\label{blowing_p_eqn}
 \mathfrak{Blowing}^+_{\sX-A }:C\left( \sX^+\right) \hookto M\left(A \right)
 \ee
-such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \ref{top_compactification_defn}) and $\mathfrak{Blowing}^+_{\sX-A }\left( 1_{C\left( \sX^+\right)}\right) \bydef 1_{M\left(A \right) }$.
+such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \ref{top_compactification_defn}) and $$\mathfrak{Blowing}^+_{\sX-A }\left( 1_{C\left( \sX^+\right)}\right) \bydef 1_{M\left(A \right) }.$$
 \end{remark}
 
 	
@@ -1712,7 +1712,7 @@ such that there is the natural isomorphism $A\left(\C P^n_{\mathfrak{Gelfand}} \
 
 
 \subsection{Gelfand space of continuous trace $C^*$-algebra}
-\subsubsection{Basic constructions}
+
 
 \paragraph{}
 
@@ -1782,6 +1782,56 @@ One has.
 B' = B'' \quad \Rightarrow \quad \mathscr U_{B'} = \mathscr U_{B''}.
 	$$
 	\end{proof}
+	
+\begin{lemma}\label{ctr_gelfand_exist_lem}
+	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$. For any element $\xi \in 	\mathfrak{Gelfand}\left( A\right)$ there is a commutative hereditary $C^*$-subalgebra $C$ such that $C \in \xi$ (cf. Notation \eqref{hered_ideal_eqn}).
+\end{lemma}
+\begin{proof}
+ Let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$ 	where $\hat \phi$ is a specialization of the continuous map \eqref{to_spec_eqn}. According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that there is  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\forall y \in \sX \quad \rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Denote by  $S \subset \N$ the subset be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ with
+\bean
+B \subset aAa,\\
+\forall y \in \sU \quad \rep_y\left(B\right) \subset \mathbb{M}_l\left(\C\right)
+\eean 
+From the our construction it follows that $N \in S$. Suppose that   $d \bydef \min_{l \in S}l > 1$, and let $\sU\in  \left\{\sU\right\}$, $~B \in \xi$ be such that
+\bean
+B \subset aAa,\\
+\forall y \in \sU  \quad \rep_y\left(B \right)\subset \mathbb{M}_d\left(\C\right),\\
+\exists y \in \sU  \quad \rep_y\left(B \right)\cong \mathbb{M}_d\left(\C\right)
+\eean 
+From the Proposition \ref{less_n_pi_prop} it follows that
+the set
+$$
+\sV \bydef \left\{y \in \sU \left|\rep_y\left(B\right) \cong  \mathbb{M}_d\left(\C\right) \right.\right\}
+$$
+is open. Moreover there is $\sU' \in \left\{\sU\right\}$ such that there is the the natural inclusion 
+$$
+C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset B
+$$
+For any inclusion $\mathbb{M}_{d-1}\left(\C\right)\subset \mathbb{M}_{d}\left(\C\right)$ is a  $C^*$-subalgebra $B' \subset  B$ which is the image of $C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)$ where the following composition of inclusions
+$$
+C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)\subset C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset   B
+$$
+is implied.
+If   
+$$
+B'' \bydef \left\{b \in B \left| \forall y \in \sU' \cap \sV  \quad \rep_y\left(b \right) \in \rep_x\left(B' \right) \right.\right\}
+$$ 
+then 
+\bean
+\forall y \in \sU' \quad  \rep_y\left(B' \right)\subsetneqq \mathbb{M}_d\left(\C\right),\\
+\forall B \in \xi \quad B \cap B'' \neq \{0\}.
+\eean
+If a filter $\xi'$ is generated by the set
+$$
+\left\{B \cap B'' | B \in \xi \right\}
+$$
+then $\xi \subsetneqq \xi'$. It is impossible since $\xi$ is an ultrafilter. From this contradiction it follows that $d= 1$. So there is $B'' \in \xi$ and $\sU'' \in \left\{\sU\right\}$ 
+such that 
+$$
+\forall x \in \sU' \quad \rep_x\left(B'' \right) \cong \C
+$$
+and $C''' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra such that $C''' \in \xi$.
+\end{proof}
 \begin{lemma}\label{ctr_gelfand_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 \bean
@@ -1793,70 +1843,24 @@ B' = B'' \quad \Rightarrow \quad \mathscr U_{B'} = \mathscr U_{B''}.
 	where $\hat \phi$ is a specialization of the continuous map \eqref{to_spec_eqn}.
 \end{lemma}	
 \begin{proof}
- Let $\xi \in 	\mathfrak{Gelfand}\left( A\right)$,  $\quad x\bydef p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)}\left( \xi\right)  \in \sX$, and
+Let $\xi \in \mathfrak{Gelfand}\left( A\right)$ and let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$. From the Lemma \ref{ctr_gelfand_exist_lem} it turns out that there is a commutative $C^*$-algebra $C$ such that $C \in \xi$. Consider a set of hereditary $C^*$-subalgebras
+\be\label{ctr_xx_eqn}
+\xi' \bydef \left\{B \subset A \left| C_x \in\mathscr U_B\right.\right\}
+\ee
+where $\mathscr U_B \subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ is given by \eqref{u_b_eqn}. If $B',B''\in \xi'$ then there are commutative $C'\subset B'$ and $C'' \subset B''$ such that $C'_x = C''_x = C_x$. From $C'\cap C'' \neq \{0\}$ it follows that $B'\cap B'' \neq \{0\}$, i.e. $\xi'$ is a filter. If there is a filter $\xi''$ with $\xi'\subsetneqq \xi''$ then there is $B''' \in \xi'' \setminus \xi'$, i.e. $C_x \notin \mathscr U_{B'''}$. So there is a commutative $C^*$-algebra $C'''$ with $C'''_x = C_x$ and $C'''\cap B''' = \{0\}$. However it is impossible since $C''' \in \xi' \subset \xi''$. So is no a filter $\xi''$ with $\xi'\subsetneqq \xi''$, i.e. $\xi'$ is an ultrafilter. From \eqref{ctr_xx_eqn} it turns out that $\xi'$ is the unique ultrafilter having following properties:
 \bean
-\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x \bydef \left\{\left.\eta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right| 	p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A}  \right)}\left(\eta \right) = x\right\},\\
-\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_\xi =  \left\{\left.\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_x\right| \forall B \in \xi \quad  \exists  C \subset B\quad \zeta = C_x  \right\}
-\eean
-where $C$ is a commutative $C^*$-subalgebra which represents $\zeta$ and $C_x$ is the germ of $C$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}). According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that there is  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Let $S \subset \N$ be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ such that
-\bean
-B \subset aAa,\\
-\forall y \in \sU \quad \rep_y\left(B\right) \subset \mathbb{M}_l\left(\C\right)
+\hat \phi\left(\xi' \right) = \hat \phi\left(\xi \right),\\
+C \in \xi'
 \eean 
-From the our construction it follows that $N \in S$. Suppose that   $d \bydef \min_{l \in S}l > 1$ and let $\sU\in  \left\{\sU\right\}$, $~B \in \xi$ be such that
-\bean
-B \subset aAa,\\
-\forall y \in \sU  \quad \rep_y\left(B \right)\subset  \mathbb{M}_d\left(\C\right)
-\eean 
-From the Proposition \ref{less_n_pi_prop} it follows that there is an open subset $\sV \subset \sU$ such that 
-$$
-\forall y \in \sV\quad  \rep_y\left(B\right) \cong  \mathbb{M}_d\left(\C\right).
-$$
-Moreover there is $\sU' \in \left\{\sU\right\}$ such that there is the the natural inclusion 
-$$
-C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset B
-$$
-There is a  $C^*$-subalgebra $B' \subset  B$
-$$
-C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)\subset C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset   B
-$$
-If   
-$$
-B'' \bydef \left\{b \in B \left| \forall y \in \sU' \cap \sV  \quad \rep_y\left(b \right) \in \rep_x\left(B' \right) \right.\right\}
-$$ 
-then 
-$$
-\forall x \in \sU' \quad  \rep_x\left(B' \right)\subsetneqq \mathbb{M}_d\left(\C\right).
-$$
-If a filter $\xi'$ is generated by the set
-$$
-\left\{B \cap B'' | B \in \xi \right\}
-$$
-then $\xi \subsetneqq \xi'$. It is impossible since $\xi$ is an ultrafilter. From this contradiction it follows that $d= 1$. So there is $B'' \in \xi$ and $\sU'' \in \left\{\sU\right\}$ 
-such that 
-$$
-\forall x \in \sU' \quad \rep_x\left(B'' \right) \cong \C
-$$
-and $C''' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra such that $C'' \in \xi$.
-
-
-If  $C', C''\subset \xi$ are two commutative!!! $C^*$-algebras  then one has
-$$
-\forall f \in C_0\left(\sX \right) \quad f\left(x \right)\neq 0 \quad\left(  \mathfrak {Blowing}_{\sX-A }(f) C'\right) \cap \left( \mathfrak {Blowing}_{\sX-A }(f) C''\right)  \neq \{0\}.
-$$
-It is possible if and only if and only if $C'_x = C''_x$, so there is the natural  map $\phi_{\mathscr P} :\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$. On the other hand if $\zeta \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ and 
-$$
-\xi \bydef \left\{ B \in A \left| \exists C \subset B \quad C_x = \zeta\right.\right\}
-$$
-then $\phi_{\mathscr P}\left(\xi \right) = \zeta$, i.e. the map $\phi_{\mathscr P}$ is bijective.
+It follows $\xi = \xi'$ since $\xi$ satisfies to the above properties. From the equation \eqref{ctr_xx_eqn} it follows that both $\xi$ and $\xi'$ uniquely depend on $C_x$. The bijective map $\phi_{\mathscr P}$ is given by $\xi \mapsto C_x$.
 \end{proof}
 \begin{remark}
 Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
 \end{remark}
 \begin{corollary}\label{ctr_bic_cor}
-	If $A$ is a {continuous-trace} $C^*$-{algebra} then for any element $\xi \in \mathfrak{Gelfand}\left( A\right)$ of the Gelfand space (cf. Definition \ref{gelfand_space_defn})	the bicommutant of $\xi''$ (cf. Definition \ref{bicommutant_defn}) is a proper maximal closed left ideal. 
+	If $A$ is a {continuous-trace} $C^*$-{algebra} then for any element $\xi \in \mathfrak{Gelfand}\left( A\right)$ of the Gelfand space (cf. Definition \ref{gelfand_space_defn})	the bicommutant of $\xi$ (cf. Definition \ref{bicommutant_defn}) is a proper maximal closed left ideal. 
 \end{corollary}
-\begin{proof}
+\begin{proof}!!!!
 From the Lemma \ref{ctr_gelfand_lem} it follows that $\xi$ corresponds to $C_{x_\xi} \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x_\xi \bydef \hat \phi\left( \xi\right)$ and  $C \subset A$ is a  representative of the element of $ \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$. If $\rep_{x_\xi}: A \to B\left(\H_\xi \right)$ is the corresponding to $x_\xi$ irreducible representation (cf. Definition \ref{irred_defn}) and   $V_\xi \bydef \rep_{x_\xi}\left(C \right) \H_{x_\xi}\subset \H_{x_\xi}$ then  the closed left ideal
 \bean
 L_\xi \bydef \left\{a \in A \left| \rep_{x_\xi}\left(a \right) \H_{x_\xi}\perp V_\xi\right.\right\}
