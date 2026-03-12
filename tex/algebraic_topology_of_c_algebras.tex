@@ -1710,20 +1710,24 @@ B \mathscr{C}\left(n \right)\bydef \partial \mathscr{C}\left(n \right)
 such that there is the natural isomorphism $A\left(\C P^n_{\mathfrak{Gelfand}} \right)\cong Z \mathscr{C}\left(n \right)/ B \mathscr{C}\left(n \right)$.
 
 
-\subsection{Gelfand space of continuous trace $C^*$-algebra}
+\subsection{Gelfand spaces of continuous trace $C^*$-algebras}
 
 
 \paragraph{}
 
-		If   $A$  is a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$ then there is a presheaf  $\mathscr P_{\sX\text{-}A}$ of sets such that for any open $\sU \subset \sX$  one has
+		Let   $A$  be a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$, and let
+		\be\label{ctr_comm_eqn}
+		\mathfrak{Comm}\left( A\right)  \text{ is a set of all commutative } C^*\text{-subalgebras of } A.
+		\ee
+		Then there is a presheaf  $\mathscr P_{\sX\text{-}A}$ (cf. Definition \ref{presheaf_defn}) of sets such that for any open $\sU \subset \sX$  one has
 		\be\label{presh_eqn}
 		\begin{split}
-	\mathscr P_{\sX\text{-}A}\left(\sU \right) \bydef \\\left\{ C \subset A \text{ is commutative hereditary subalgebra} \left| C \subset ~_\sU A_\sU \text{ cf. \eqref{blowing_hereditary_u_eqn})}\right. \right\};\\
+	\mathscr P_{\sX\text{-}A}\left(\sU \right) \left\{ C \in	\mathfrak{Comm}\left( A\right) \left|~ C \subset ~_\sU A_\sU \text{ cf. \eqref{blowing_hereditary_u_eqn})}\right. \right\};\\
 \rho_{\sU\sV} : \mathscr P_{\sX\text{-}A}\left(\sU \right)\to \mathscr P_{\sX\text{-}A}\left(\sV \right),\\
 C \mapsto C \cap ~_\sV A _\sV.
 		\end{split}
 		\ee
-		and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ (cf. Exercise \ref{sheaf_etale_exer}) with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$. Let $\mathfrak{Comm}\left( A\right)$ be a set of all commutative $C^*$-subalgebras of $A$.
+		and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ (cf. Exercise \ref{sheaf_etale_exer}) with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$.
 For any hereditary $C^*$-subalgebra $B \subset A$ we define
 \be\label{u_b_eqn} 
 \mathscr U_B \bydef \left\{\left.C_x \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right|\exists C \in \mathfrak{Comm}\left( A\right)\quad C \subset B \right\}\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)
@@ -1862,7 +1866,7 @@ Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfra
 \begin{proof}
 From the Theorem \ref{ctr_gelfand_thm} it follows that any $\xi \in \mathfrak{Gelfand}\left( A\right)$ is uniquely defined by an element $C_x\in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x \in \hat A$, $~C \subset A$ is a commutative $C^*$-subalgebra and $C_x$ is a stalk of $\mathscr P_{\sX\text{-}A}$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}) represented by $C$. If $\rep_x: A \to B\left( \sH_x\right)$ is the irreducible representation (cf. Definition \ref{irred_defn}) which corresponds to $x$ then the $V \bydef \rep_x\left(C \right) \sH_x$ is one dimensional subspace of $\sH_x$. The  given by \eqref{bicommutant_id_eqn} set equals to
 \be\label{ctr_bicommutant_id_eqn}
-\xi'' \bydef \left\{\left. a \in \rep_{x }\left(A \right)\right| \forall L \in \xi \quad  a^* V = \{0\}
+\xi'' \bydef \left\{\left. a \in \rep_{x }\left(A \right)\right| \forall L \in \xi \quad  a V = \{0\}
 \right\}\subset \rep_{\hat \phi\left( \xi\right) }\left(A \right).
 \ee
 One can prove that $\xi''$ is a proper ideal of $\rep_{x }\left(A \right)$, i.e. $A$ satisfies to the Definition \ref{bicommutant_defn}.
