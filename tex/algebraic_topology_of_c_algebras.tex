@@ -1274,7 +1274,7 @@ such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \r
 		\end{itemize}
 	\end{remark}
 	
-	\subsubsection{Natural blowing-up}	
+	\subsubsection{Universal blowing-up}	
 
 \paragraph*{}
 	If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right) \to M\left(A \right)$ is Hausdorff blowing-up then the action $C_b\left(
@@ -1286,39 +1286,6 @@ such that $\sX^+$ is the one-point compactification  of $\sX$ (cf. Definition \r
 	\be\label{blowing_b_eqn} 
 	C_b\left(\sX \right)\to M\left(A \right).  
 \ee
-
-
-\begin{definition}\label{blowing_uni_defn}
-	Let $A$ be a $C^*$-algebra. Consider a category $\mathfrak{Hausdorff}\left(A\right)$ (cf. Definition \ref{category_defn}) such that 
-	\begin{enumerate}
-		\item[(a)] any object of $\mathfrak{Hausdorff}\left(A\right)$ is Hausdorff blowing-up, 
-		\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
-		such that the diagram 
-		\newline
-		\begin{tikzcd}
-			&M\left(A \right)   & \\
-			C_b\left(\sX' \right)  \arrow[rr, hook]\arrow[ru]	&& 	C_b\left(\sX'' \right)
-			\arrow[lu]
-		\end{tikzcd}
-		\\
-		is commutative (cf the equation \eqref{blowing_b_eqn}).
-	\end{enumerate}
-		The final object (cf. Definition \ref{terminal_ob_defn}) of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{universal Hausdorff blowing-up of $A$}.  Hausdorff blowing-up $C\left(\sX \right)   \to M\left( A\right)$ is {\it maximal}  if for any Hausdorff blowing-up $C_0\left(\sX' \right)   \to M\left( A\right)$ with the commutative diagram
-			\newline
-		\begin{tikzcd}
-			&M\left(A \right)   & \\
-			C_0\left(\sX' \right)  \arrow[rr, "
-			\cong "]\arrow[ru]	&& 	C_b\left(\sX \right)
-			\arrow[lu]
-		\end{tikzcd}
-		\\
-		the $*$-homomorphism $C_0\left(\sX' \right)\hookto C_0\left(\sX\right)$ is an isomorphism.
-		
-\end{definition}	
-\begin{remark}
-From the Theorem \ref{zorn_thm} it follows that a maximal Hausdorff blowing-up always exists.
-\end{remark}
-
 \begin{definition}\label{hausdorff_defn}
 	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
 	
@@ -1331,13 +1298,13 @@ From the Theorem \ref{zorn_thm} it follows that a maximal Hausdorff blowing-up a
 			&\sX \arrow[ld] \arrow[rd] & \\
 			\sY' \arrow[rr]	&& \sY''
 		\end{tikzcd}
-	\eean
+		\eean
 		is commutative.
 	\end{itemize}
 	
 \end{definition}
 
-	\begin{lemma}
+\begin{lemma}
 	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
 \end{lemma}
 \begin{proof}
@@ -1353,18 +1320,39 @@ From the Theorem \ref{zorn_thm} it follows that a maximal Hausdorff blowing-up a
 	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space}.
 \end{definition}
 
-
-\begin{definition}\label{blowing_natural_defn}
-	Blowing-up $C_0\left(\sX \right)\hookto M\left( A\right)$ is \textit{natural} if $\sX$ is the $\mathfrak{Gelfand}\left( A\right)$-universal Hausdorff  space (cf. Definition \ref{blowing_uni_h_defn}).
-\end{definition}
-
-\begin{remark}
-If natural blowing-up exists then it is unique and maximal.
-\end{remark}
+\begin{lemma}\label{final_blowing_lem}
+	Let $A$ be a $C^*$-algebra. If  a category $\mathfrak{Hausdorff}\left(A\right)$ (cf. Definition \ref{category_defn}) such that 
+\begin{enumerate}
+	\item[(a)] any object of $\mathfrak{Hausdorff}\left(A\right)$ is Hausdorff blowing-up, 
+	\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
+	such that the diagram 
+	\newline
+	\begin{tikzcd}
+		&M\left(A \right)   & \\
+		C_b\left(\sX' \right)  \arrow[rr, hook]\arrow[ru]	&& 	C_b\left(\sX'' \right)
+		\arrow[lu]
+	\end{tikzcd}
+	\\
+	is commutative (cf the equation \eqref{blowing_b_eqn}).
+\end{enumerate}
+then there is the final object $\mathfrak{Hausdorff}\left(A\right)$ of (cf. Definition \ref{terminal_ob_defn}). 
+\end{lemma}
+\begin{proof}
+If $\sY$ is the $\mathfrak{Gelfand}\left( A\right)
+$ {universal Hausdorff quotient space} (cf Definition \ref{blowing_uni_h_defn}) and $C_0\left( \sX'\right) \to M\left(\sX  \right)$ is Hausdorff blowing up, then from the equation \eqref{phi_a_eqn}  it follows that  there are;
+\begin{itemize}
+	\item the natural surjective continuous map $\sY \to \sX$,
+	\item The natural  inclusion $C_0\left(\sX \right)\\subset C_b\left(\sY \right)$. 
+\end{itemize}
+If $\left\{C_0\left(\sX_\la \right) \right\}_{\la \in \La}$  is family of all Blowing-ups then the $C^*$-norm completion of the included into  $C_b\left(\sY \right)$ union $\bigcup_{\la\in \La} C_0\left(\sX_\la \right)$ is a commutative $C^*$-algebra $C_0\left( \sX\right)$. One can proof that the natural inclusion  $C_0\left(\sX \right) \subset M\left( A\right)$ is the final object of the category  $\mathfrak{Hausdorff}\left(A\right)$.
+\end{proof}
+\begin{definition}\label{blowing_universal_defn}
+		The final object of the category $\mathfrak{Hausdorff}\left(A\right)$ (cf. Definition \ref{terminal_ob_defn}) of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \textit{universal Hausdorff blowing-up of $A$}.
+\end{definition}	
 
 	\subsubsection{Classical and quantum projective modules}
 \paragraph*{}	
-If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A\otimes \K }:C\left( \sX^+\right) \hookto M\left(A\otimes \K \right)$ and there is a diagram
+If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \right)$ is universal Hausdorff blowing-up (cf. Definition \ref{blowing_universal_defn}) then there is a given by \eqref{blowing_p_eqn} homomorphism 	$\mathfrak{Blowing}^+_{\sX-A\otimes \K }:C\left( \sX^+\right) \hookto M\left(A\otimes \K \right)$ and there is a diagram
 
 \be\label{chern_eqn}
 \begin{tikzcd}
@@ -1412,7 +1400,7 @@ contains both a commutative $C^*$-algebra $C_0\left( \sX\right)$ and  a noncommu
 
 Sometimes this duality comes from the given by Alain Connes  algebraic counterpart of geometric quotient (cf. Appendix \ref{quotions_a_sec}) which makes a non Hausdorff spectrum from a Hausdorff space. In this case we say that there is  {\it Connes quantization}.
 
-Let us describe an  analogy  between algebraic counterpart of geometric quotient and Connes quantization. If $A$ is a $C^*$-algebra and   $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_natural_defn}). Suppose that the equation \eqref{to_spec_eqn}  yields the following diagram of commutative maps
+Let us describe an  analogy  between algebraic counterpart of geometric quotient and Connes quantization. If $A$ is a $C^*$-algebra and   $C_0\left( \sX\right)\subset M\left(A \right)$ is natural Hausdorff blowing-up (cf. Definition \ref{blowing_universal_defn} !!!). Suppose that the equation \eqref{to_spec_eqn}  yields the following diagram of commutative maps
 \be\label{gen_foli_eqn}
 \begin{tikzcd}
 	\mathfrak{Gelfand}\left(A\right) \arrow[rr] \arrow[rd, "\hat \phi"]&& \sX\arrow[ld, "\phi"]\\
@@ -1712,7 +1700,7 @@ such that there is the natural isomorphism $A\left(\C P^n_{\mathfrak{Gelfand}} \
 
 \subsection{Gelfand spaces of continuous trace $C^*$-algebras}
 
-
+\subsubsection{Basic construction}
 \paragraph{}
 
 		Let   $A$  be a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$, and let
@@ -1770,12 +1758,12 @@ One has.
 	$$
 	\mathscr U' = \mathscr U'' \quad \Rightarrow \quad B_{\mathscr U'}= B_{\mathscr U''}.
 	$$
-	If $B'\setminus B'' \neq \{0\}$ then from the Proposition \ref{continuous_trace_c_a_proposition} one can deduce that there is $C \in \mathfrak{Comm}\left( A\right)$ such that
+From the Proposition \ref{continuous_trace_c_a_proposition} it turns out that $B'$ is a $C^*$-algebra of type $I_0$ i.e. It is generated by its Abelian elements. So if $B'\setminus B'' \neq \{0\}$ then there is an Abelian element $a$ in $B'\setminus B''$. The generated by $a$ $C^*$-algebra $C$  is commutative, i.e. $C \in \mathfrak{Comm}\left( A\right)$.  From 
 	\bean
 	C \subset B',\\
 	C \not\subset B''.
 	\eean 
-	There is $x \in \sX$ such that
+one has $x \in \sX$ such that
 	\bean
 	C_x \in \mathscr U_{B'},\\
 	C_x \notin \mathscr U_{B''}.
@@ -1790,7 +1778,7 @@ B' = B'' \quad \Rightarrow \quad \mathscr U_{B'} = \mathscr U_{B''}.
 	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$. For any element $\xi \in 	\mathfrak{Gelfand}\left( A\right)$ there is a commutative hereditary $C^*$-subalgebra $C$ such that $C \in \xi$ (cf. Notation \eqref{hered_ideal_eqn}).
 \end{lemma}
 \begin{proof}
- Let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$ 	where $\hat \phi$ is a specialization of the continuous map \eqref{to_spec_eqn}. According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that there is  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\forall y \in \sX \quad \rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Denote by  $S \subset \N$ the subset be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ with
+ Let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$ 	where $\hat \phi$ is a specialization of the continuous map \eqref{to_spec_eqn}. According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\forall y \in \sX \quad \rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Denote by  $S \subset \N$ the subset be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ with
 \bean
 B \subset aAa,\\
 \forall y \in \sU \quad \rep_y\left(B\right) \subset \mathbb{M}_l\left(\C\right)
@@ -1804,13 +1792,13 @@ B \subset aAa,\\
 From the Proposition \ref{less_n_pi_prop} it follows that
 the set
 $$
-\sV \bydef \left\{y \in \sU \left|\rep_y\left(B\right) \cong  \mathbb{M}_d\left(\C\right) \right.\right\}
+\sV \bydef \left\{y \in \sU \left|\rep_y\left(B\right) \cong  \mathbb{M}_d\left(\C\right) \right.\right\}\subset \sU
 $$
 is open. Moreover there is $\sU' \in \left\{\sU\right\}$ such that there is the the natural inclusion 
 $$
 C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset B
 $$
-For any inclusion $\mathbb{M}_{d-1}\left(\C\right)\subset \mathbb{M}_{d}\left(\C\right)$ is a  $C^*$-subalgebra $B' \subset  B$ which is the image of $C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)$ where the following composition of inclusions
+For any inclusion $\mathbb{M}_{d-1}\left(\C\right)\subset \mathbb{M}_{d}\left(\C\right)$ there is a  $C^*$-subalgebra $B' \subset  B$ which is the image of $C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)$ where the following composition of inclusions
 $$
 C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_{d-1}\left(\C\right)\subset C_0\left(\sU' \cap \sV \right) \otimes \mathbb{M}_d\left(\C\right)\subset   B
 $$
@@ -1860,9 +1848,10 @@ It follows $\xi = \xi'$ since $\xi$ satisfies to the above properties. From the 
 \begin{remark}
 Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
 \end{remark}
-\begin{corollary}\label{ctr_bic_cor}
+\subsubsection{Bicommutant}
+\begin{lemma}\label{ctr_bic_lem}
 	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the bicommutant $\mathfrak{Gelfand}\left( A\right)''$ of $\mathfrak{Gelfand}\left( A\right)$ (cf. Definition \ref{bicommutant_defn}).
-\end{corollary}
+\end{lemma}
 \begin{proof}
 From the Theorem \ref{ctr_gelfand_thm} it follows that any $\xi \in \mathfrak{Gelfand}\left( A\right)$ is uniquely defined by an element $C_x\in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x \in \hat A$, $~C \subset A$ is a commutative $C^*$-subalgebra and $C_x$ is a stalk of $\mathscr P_{\sX\text{-}A}$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}) represented by $C$. If $\rep_x: A \to B\left( \sH_x\right)$ is the irreducible representation (cf. Definition \ref{irred_defn}) which corresponds to $x$ then the $V \bydef \rep_x\left(C \right) \sH_x$ is one dimensional subspace of $\sH_x$. The  given by \eqref{bicommutant_id_eqn} set equals to
 \be\label{ctr_bicommutant_id_eqn}
@@ -1876,6 +1865,7 @@ One can prove that $\xi''$ is a proper ideal of $\rep_{x }\left(A \right)$, i.e.
 \begin{remark}\label{ctr_bic_rem}
 From the proof of the Corollary it follows that any element of the bicommutant $ \mathfrak{Gelfand}\left( A\right)''$ of the Gelfand space  $\mathfrak{Gelfand}\left( A\right)$ uniquely depends on the pair $\left( x_\xi, V_\xi\right)$. Since $V_\xi \subset \H_{x_\xi}$ is one-dimensional subspace any  element of $ \mathfrak{Gelfand}\left( A\right)''$ uniquely depends of the pair $\left( x_\xi, y_\xi\right)$ where $y_\xi \in \mathbb{P}\left(\H_{x_\xi} \right)$ and $\mathbb{P}\left(\H_{x_\xi} \right)$ is the projective space (cf. Definition \ref{projective_bundle_defn}).
 \end{remark}
+
 \begin{empt}\label{ctr_bundle_empt}
 	Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\H \right)$. From the Remark \ref{ctr_bic_rem} it follows that there is a set theoretic bijective map
 	\bean
@@ -1935,8 +1925,9 @@ $$
 \begin{lemma}
 The diagram \eqref{f_dia_eqn} is a specialization of generalized foliation (cf. Definition \ref{generalized_foliation_defn}).
 \end{lemma}
+!!!!
 \begin{proof}
-	One should prove that Hausdorff blowing-up $C_0\left(M \right) \hookto (C^*_r\left(M, \F \right)$ is natural (cf. Definition \ref{blowing_natural_defn}). If not then there is a diagram 
+	One should prove that Hausdorff blowing-up $C_0\left(M \right) \hookto (C^*_r\left(M, \F \right)$ is natural (cf. Definition \ref{blowing_universal_defn} !!!). If not then there is a diagram 
 		\begin{equation}\label{f_diam_eqn}
 		\begin{tikzcd}
 			& \sX  \arrow[rd, "\phi" ] &\\
@@ -1947,18 +1938,18 @@ The diagram \eqref{f_dia_eqn} is a specialization of generalized foliation (cf. 
 	with Hausdorff $\sX$ and continuous map $\phi$ with $x', x''\in  \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. If $\xi', \xi'' \in  	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)$ with $\psi\left(\xi' \right)= x'$ and $\psi\left(\xi'' \right)= x''$  then there are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that $\sV'\cap \sV'' = \emptyset$. Let us use the notation \eqref{topology_base_herd_eqn}  and suppose that 
 					\bean
 	\begin{split}
-		\sV'\bydef	\left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^m B'_j\right)  = \{0\}\right. \right\},\\
-		\sV''\bydef	\left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^n B''_j\right)  = \{0\}\right. \right\},
+		\sV'\bydef	\left\{ \xi \in 	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^m B'_j\right)  = \{0\}\right. \right\},\\
+		\sV''\bydef	\left\{ \xi \in 	\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^n B''_j\right)  = \{0\}\right. \right\},
 	\end{split}
 	\eean
 	so one has
 				\be\label{foli_topology_base_herd_eqn}
 				\begin{split}
  \exists B' \in \xi'\quad B'\cap \left( \bigcup_{j=1}^n B'_j\right)  = \{0\},\\
- \exists B'' \in \xi''\quad B''\cap \left( \bigcup_{j=1}^m B'_j\right)  = \{0\}
+ \exists B'' \in \xi''\quad B''\cap \left( \bigcup_{j=1}^m B''_j\right)  = \{0\}
 \end{split}
 	\ee
-If $\la =  \hat \phi\left(\xi' \right) =  \hat \phi\left(\xi' \right) \in M/\sim$ then from \eqref{not_bel} and the $C^*$-norm \eqref{groupoid_red_norm} it follows that the equations \eqref{foli_topology_base_herd_eqn} are equivalent to the following ones
+If $\la =  \hat \phi\left(\xi' \right) =  \hat \phi\left(\xi'' \right) \in M/\sim$ then from \eqref{not_bel} and the $C^*$-norm \eqref{groupoid_red_norm} it follows that the equations \eqref{foli_topology_base_herd_eqn} are equivalent to the following ones
 					\be\label{rep_foli_topology_base_herd_eqn} 
 	\begin{split}
 		\exists B' \in \xi'\quad \rep_\la\left(  B'\right) \cap \rep_\la\left( \bigcup_{j=1}^m B'_j\right)   = \{0\},\\
@@ -1979,7 +1970,7 @@ correspond to the given by \eqref{open_g_eqn} subsets of $\mathbb{P}\left(\H \ri
 \subsection{Examples of classical and quantum projective modules}
 \paragraph{Hausdorff spectrum.}
 If $A$ is a homogeneous of order $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) then $A$ corresponds to a fibre bundle and any fiber  is $n^2$-dimensional $\C$-space $\mathbb{M}_n\left( 
-\C\right)$. The spectrum of $\sX$ is Hausdorff and locally compact. If the space $\sX$ is  compact then both $C\left( \sX\right)$ and $A$ are unital. From the Theorem \ref{serre_swan_thm} it follows that $A$ is a finitely generated projective $C\left( \sX\right)$=module. From this fact one can deduce that any finitely generated projective $A$-module $P$ is a finitely generated projective $C\left( \sX\right) $-module, i.e. $P$ is classical (cf. Definition \ref{classic_quant_defn}).
+\C\right)$. The spectrum of $\sX$ is Hausdorff and locally compact. If the space $\sX$ is  compact then both $C\left( \sX\right)$ and $A$ are unital. From the Theorem \ref{serre_swan_thm} it follows that $A$ is a finitely generated projective $C\left( \sX\right)$-module. From this fact one can deduce that any finitely generated projective $A$-module $P$ is a finitely generated projective $C\left( \sX\right) $-module, i.e. $P$ is classical (cf. Definition \ref{classic_quant_defn}).
 \paragraph{Non Hausdorff spectrum.}
 If  $\left(\T^2, \mathcal{F}_\th \right)$ is  the {Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ (cf. Example \ref{fol_tor_exm}) then from the equation \eqref{groupoid_multiplier_eqn} it turns out that there is the natural inclusion
 \be\label{torus_mult_eqn}
@@ -2117,6 +2108,7 @@ One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2
 \be\label{folipu_eqn}
 u_{\T^2} = u_{S^1}\circ \phi_{\T^{2};S^1}
 \ee
+!!!
 where $u_{S^1}\in U\left(C\left(S^1 \right) \right)
 $ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. The map $\phi_{\T^{2};S^1}$ yields  surjective continuous maps
 \be\label{chern_st_eqn}
