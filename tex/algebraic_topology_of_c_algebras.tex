@@ -1345,7 +1345,7 @@ The Definition \ref{classic_quant_rem}  is motivated by the Connes quantization 
 
 
 
-\subsubsection{Connes quantization}\label{connes_q_sec}
+\subsubsection{Connes quantization}!!!!\label{connes_q_sec}
 
 \paragraph*{}	
   In general the quantization yields a passage from the classical physics to the quantum one. In particular there is a quantization which yields an the transformation from commutative $C^*$-algebra $B$ to noncommutative one. In particular a commutative  $C^*$-algebra $B$ with the product $\times$ is a depending on real parameter $\hslash$  limit of continuous fields  of noncommutative $C^*$-algebras $\overline B_\hslash$ with product $\times_\hslash$ such that
@@ -1885,16 +1885,12 @@ $$
 		& M/\sim &
 	\end{tikzcd}
 \end{equation}
-\begin{lemma}
+\begin{lemma}\label{foli_uni_bl_lem}
 The diagram \eqref{f_dia_eqn} is a specialization of universal Hausdorff blowing-up (cf. Definition \ref{generalized_foliation_defn}).
 \end{lemma}
-	\begin{prop}\label{foli_tens_comp_prop!}\cite{candel:foliII}
-	% Proposition 1.5.4. \\
-	The reduced  $C^*$-algebra $C^*_r\left(\mathcal N\times Z \right)$ of the trivial foliated space $\mathcal N \times \mathcal Z$ is the tensor product $\K\otimes C_0\left(\mathcal Z\right)$, where $\K$ is the algebra of compact operators on $L^2\left(\mathcal N \right)$  and $ C_0\left(\mathcal Z\right)$ is the space of continuous functions on $\mathcal Z$ that vanish at infinity.
-\end{prop}
 
 \begin{proof}
-	One should prove that Hausdorff blowing-up $C_0\left(M \right) \hookto (C^*_r\left(M, \F \right)$ is natural (cf. Definition \ref{blowing_universal_defn}). If not then there is a diagram 
+	One should prove that Hausdorff blowing-up $C_0\left(M \right) \hookto (C^*_r\left(M, \F \right)$ is universal (cf. Definition \ref{blowing_universal_defn}). If not then there is a diagram 
 		\begin{equation}\label{f_diam_eqn}
 		\begin{tikzcd}
 			& \sX  \arrow[rd, "\phi" ] &\\
@@ -1902,7 +1898,7 @@ The diagram \eqref{f_dia_eqn} is a specialization of universal Hausdorff blowing
 			& M/\sim &
 		\end{tikzcd}
 	\end{equation}
-	with Hausdorff $\sX$ and continuous map $\phi$ with $x', x''\in  \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. There are two functions $f', f'' \in C_c \left( \sX\right)$ such that
+	with Hausdorff blowing-up $C_0\left(\sX \right)\hookto M\left(C^*_r\left(M, \F \right) \right)$ and a continuous map $\phi$ with $x', x''\in  \sX$ such that $x'\neq x''$ and $\phi\left( x'\right) = \phi\left( x''\right)= y \in M$. Since $\sX$ is a Hausdorff space there are open neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ such that $\sU'\cap \sU'' = \emptyset$. There are two functions $f', f'' \in C_c \left( \sX\right)$ such that
 	\bean
 	f'\left( \sU'\right) = f''\left( \sU''\right) = \{1\},\\
 	f'\left( \sU''\right) = f''\left( \sU'\right) = \{0\}.
@@ -1920,6 +1916,9 @@ a \mapsto f''af''\\
 	\eean 
 	of $B$-modules. It follows that there is an injective homomorphism $B\oplus B \hookto B$ of $B$-modules. However it is impossible. From this contradiction one can deduce that always $x' = x''$ and $\phi$ is a homeomorphism.
 \end{proof}
+\begin{remark}
+The Lemma \ref{foli_uni_bl_lem} yields an example of the Connes quantization (cf. Section \ref{connes_q_sec}).
+\end{remark}
 
 \subsection{Examples of classical and quantum projective modules}
 \paragraph{Hausdorff spectrum.}
@@ -1953,7 +1952,7 @@ If $u'_{\R^2}: \R^2 \to \C$ is such that
 \forall k_1, k_2 \in \N, \quad \forall\left(x, y \right) \in \left( \left[-\pi , \pi\right), \left[-\pi , \pi\right)\right)  \quad u'_{\R^2}\left( x + 2k_1\pi, y + 2k_2\pi\right) =\\= \begin{cases}
 e^{2i\left(  x + \th y\right)  } &\left|  y \right| \le \frac{\pi}{2},\\
 e^{2 i\left(  x + \frac{\pi\th}{2}  - \th \left(y -\pi \right) \right)  } & y >\frac{\pi}{2}\\
-e^{2 i\left(  x - \frac{\pi\th}{2}  - \th \left(y +\pi \right) \right)  } & y >\frac{\pi}{2}
+e^{2 i\left(  x - \frac{\pi\th}{2}  - \th \left(y +\pi \right) \right)  } & y <-\frac{\pi}{2}
 \end{cases}
 \eean
 then $u'_{\R^2}$ is continuous and yields an unitary continuous map $u'_{\T^2}\in C\left( \T^2\right) $ which is homotopic to $u_{\T^2}$. So one has $\left[u'_{\T^2}\right]= \left[u_{\T^2}\right]\in K^1\left(
@@ -2041,7 +2040,7 @@ From the homotopy between $u'_{\T^2}$ and  $u_{\T^2}$ and
 taking into account the equations \eqref{filinf_m_eqn}, \eqref{tori_lit_eqn} one can deduce that
 \be\label{foli_p_eqn}
 \begin{split}
-\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right),
+\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right),\\
 \phi_A \circ \phi \left(p_{SG^N_N}\right)\sim_h  \phi_\sX \left( p_{S\T^2}\right) 
 \end{split}
 \ee
@@ -2055,9 +2054,9 @@ where the relations $\sim$ and $\sim_h$ is given by the Definition \ref{projecti
 then from the equation \eqref{chern_defn_eqn}
 it follows that
 \be\label{chern_nt_h2_eqn}
-c_1\left( \sV_{SG^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ;~ \Z  \right)  
+c^H_1\left( \sV_{SG^N_N} \right) = c^H_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ;~ \Z  \right)  
 \ee
-where $c_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
+where $c^H_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
 One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2};S^1}: \T^2\to S^1$ such that
 \be\label{folipu_eqn}
 u_{\T^2} = u_{S^1}\circ \phi_{\T^{2};S^1}
@@ -2149,7 +2148,7 @@ K\left(  \phi_{S^2; SS^1 }\right) \left( \sV_{SS^1}\right) \cong  H.
 \eea
 From the inclusion $S^2 \cong \C P^1 \subset \C P^\infty$ one can deduce that there is $\xi \in H^2\left( \C P^1;~\Z \right)\cong  H^2\left( \C P^\infty;~\Z \right)$ such that  $H^2\left( \C P^\infty; ~\Z \right)$ is a generated by $\xi$ unital $\Z$-algebra. From (iv) of the Theorem \ref{chern_class_thm} it follows that 
 \be\label{chern_hx_eqn}
-c_1\left(H \right) = \xi \in H^2\left( S^2; ~\Z\right)\cong H^2\left( \C P^1;~\Z \right) .
+c^H_1\left(H \right) = \xi \in H^2\left( S^2; ~\Z\right)\cong H^2\left( \C P^1;~\Z \right) .
 \ee
 where $c^H_1\left( H\right)$ is the cohomological Chern character (cf. Definition \ref{chern_class_defn})
 From the { the exact sequence of cohomology groups} (cf. equation \eqref{exact_coh_eqn}) one has
@@ -2168,7 +2167,7 @@ There is the unique nontrivial $\xi_{ SS^1  }\in H^2\left(  \phi_{S^2; SS^1};~\Z
  \be\label{chern_xx_eqn}
   \xi = H^2\left(  \phi_{S^2;SS^1 };~\Z\right)\left(\xi_{ SS^1  } \right)
   \ee
-From (i) of the Theorem \ref{chern_class_thm}, and the equations \eqref{chern_pp_eqn},  \eqref{chern_hx_eqn}, \eqref{chern_xx_eqn} it turns out that $c_1\left( \sV_{SS^1 }\right) =  \xi_{SS^1}$. There is the natural surjective continuous map
+From (i) of the Theorem \ref{chern_class_thm}, and the equations \eqref{chern_pp_eqn},  \eqref{chern_hx_eqn}, \eqref{chern_xx_eqn} it turns out that $c^H_1\left( \sV_{SS^1 }\right) =  \xi_{SS^1}$. There is the natural surjective continuous map
 \be
 \begin{split}
 \phi_{SS^1\times S^1;S\T^2}: \left( SS^1 \right)^+ \times S^1 \onto \left( S\T^2\right)^+,\\
@@ -2225,23 +2224,23 @@ and taking into account \eqref{chern_sstt_eqn} one has
 \eean 
 From (i) of the Theorem \ref{chern_class_thm} it follows that 
 $$
-c_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right) = \xi_{SS^1\times S^1} \in H^2\left(\left( SS^1 \right)^+ \times S^1. Z \right) \setminus \{0\}
+c^H_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right) = \xi_{SS^1\times S^1} \in H^2\left(\left( SS^1 \right)^+ \times S^1; \Z \right) \setminus \{0\}
 $$
 Applying (i) of the Theorem \ref{chern_class_thm} once again one has
 \bean
-H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right) \left(  c_1\left( \sV_{S\T^2}\right) \right)  = c_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right).
+H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right) \left(  c^H_1\left( \sV_{S\T^2}\right) \right)  = c^H_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right).
 \eean 
-There is the unique nontrivial $c_1\left( \sV_{S\T^2}\right)$ satisfying to the above equation since the map $H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right)$ is an isomorphism.
+There is the unique nontrivial $c^H_1\left( \sV_{S\T^2}\right)$ satisfying to the above equation since the map $H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right)$ is an isomorphism.
 
 \begin{lemma}
-	Under the above hypothesis there is the nontrivial Chern character $c_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right)\setminus\{0\} $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
+	Under the above hypothesis there is the nontrivial Chern character $c^H_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right)\setminus\{0\} $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
 \end{lemma}
 \begin{proof}
 	From \eqref{chern_nt_h2_eqn} it follows that
 	\be\label{chern_nt_h2p_eqn}
-	c_1\left( \sV_{SG^N_N} \right) = c_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+	c^H_1\left( \sV_{SG^N_N} \right) = c^H_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
 	\ee
-However both the existence of  $c_1\left( \sV_{S\T^2 }\right)$ and the inequality $c_1\left( \sV_{S\T^2 }\right)\neq 0$ are already proven.
+However both the existence of  $c^H_1\left( \sV_{S\T^2 }\right)$ and the inequality $c^H_1\left( \sV_{S\T^2 }\right)\neq 0$ are already proven.
 	
 \end{proof}
 
