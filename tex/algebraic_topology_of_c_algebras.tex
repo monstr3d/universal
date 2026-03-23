@@ -727,19 +727,6 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	where $L_1,..., L_n$ are closed left ideals.
 \end{remark}
 
-\begin{definition}\label{open_ideal_defn}
-	If $L_1,..., L_n\subset A$ are closed left ideals and
-	\bean
-	\sU \bydef \mathfrak{Gelfand}\left( A\right) \bigcap \left(  \bigcap_{j = 1}^n \mathfrak{Ultrafilters}\left(A \right)_{L_j}\right) \subset \mathfrak{Gelfand}\left(A\right)
-	\eean 
-	is an element of basis (cf. Definition \ref{top_base_defn}) then the closure of the union
-	\bean
-	\bigcup \left\{ L \text{ is a left ideal of } A  \left| L \bigcap  \left( \bigcup_{j= 1}^n L_j \right) = \{0\}\right.\right\}
-		\eean 
-		is the  $\sU$-\textit{space}.
-	%	If $\sU \bydef \bigcup_\iota \sU_\iota$ is any union of belonging to a basis open subsets $\sU_\iota$ then the $\sU_\iota$-\textit{space} is the closure of $L_{\sU_\iota}$ where  $L_{\sU_\iota}$ is the $\sU_\iota$
-\end{definition}
-
 \begin{empt}\label{topology_base_herd_empt}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$ we use a following notation
 	\be\label{hered_ideal_eqn}
@@ -910,20 +897,13 @@ If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
 \begin{definition}\label{covering_defn}
-	Let   $A$ and  $\widetilde{A}$ be  connected $C^*$-algebras.  A good     $*$-homomorphism $\lift: A^\sim  \hookto M\left( \widetilde{A}\right)$ (cf. Definition 
-	\ref{good_defn}) is a \textit{noncommutative covering} if
-	the given by \eqref{gelfand_map_eqn}	\bean
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
+	Let  both $A$ and  $\widetilde{A}$ be  connected $C^*$-algebras.  Let  $\lift: A  \hookto M\left( \widetilde{A}\right)$ be a good  $*$-homomorphism (cf. Definition 
+	\ref{good_defn})  with 
+	the given by \eqref{gelfand_map_eqn} surjective  continuous map	\bean
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\lift \right)}\mathfrak{Gelfand}\left(A \right).
 	\eean 
-	continuous map is a (topological) covering (cf. Definition \ref{top_covering_defn}).
-	The  \textit{covering group} is given by  
-	\be\label{cov_group_eqn}
-	G\left(\left.\widetilde{A} \right| A\right) \bydef \left\{\left.g \in \Aut\left(\widetilde A \right)\right| \forall a \in A \quad M\left( g\right)\lift\left(   a \right) = \lift\left(   a \right) \right\}
-	\ee
-	where $\Aut\left(\widetilde A \right)$ is the group of $*$-automorphisms, and $M\left( g\right) \in \Aut\left(M\left( \widetilde A \right) \right)$ is the natural extension of $g$. 
-	
+	The $*$-homomorphism $\lift$ is a {\it noncommutative covering} if for any $x \in \mathfrak{Gelfand}\left(A \right)$ there is a closed neighborhood $\sU$ such that $\mathfrak{Gelfand}\left(\lift\right)^{-1}\left( \sU\right)$  is the disjoint union of closed  subsets of $\mathfrak{Gelfand}\left(\widetilde A \right)$ each of which is mapped homeomorphically onto $\mathcal{U}$
 \end{definition}
-
 
 \begin{definition}\label{fund_den}
 	If $A$ is a $C^*$ -algebra then a noncommutative covering $\lift: A  \hookto M\left( \widetilde{A}\right) $ is \textit{universal}, if for any noncommutative covering   $\lift': A  \hookto M\left( \widetilde{A}'\right) $ there is natural noncommutative covering $\lift'': \widetilde{A}' \hookto M\left( \widetilde{A}\right)$ with commutative diagram
@@ -948,19 +928,9 @@ From the Lemma \ref{lem_g_lem} it follows that in case of commutative $C^*$-alge
 \subsection{Hausdorff blowing-up}
 	\subsubsection{Basic construction}	
 	\begin{definition}\label{blowing_defn}
-		If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up} of $A$ if  both sets
-		\be\label{blowing_eqn}
-		\begin{split}
-		\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A \bydef \left\{fa| f \in 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\quad a \in A \right\},\\
-			A\cdot	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right) \bydef \left\{af| f \in 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\quad a \in A \right\}
-		\end{split}
-		\ee
-		are dense in $A$.
-	\end{definition}
-	
-	\begin{remark}\label{blowing_rem}
-		$	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A$ is dense in $A$ if and only if $A\cdot 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations inclusions  \eqref{blowing_eqn} are equivalent.
-	\end{remark}
+	If $A$ is a $C^*$-algebra then an good $*$-homomorphism (cf. Definition \ref{good_defn}) $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff blowing-up}.
+\end{definition}
+
 \begin{remark}
 	The inclusion $
 \mathfrak{Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$ can be uniquely extended up to
