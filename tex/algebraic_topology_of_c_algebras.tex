@@ -798,7 +798,7 @@ or equivalently $\sV_\xi\subset  \supp a$ and the set $\supp a$ is compact (cf. 
 	\end{split}
 	\ee
 	
-	So there is the natural continuous map:
+	So from (c) of the Theorem \ref{top_continuous_thm} one has the natural continuous map:
 	\be\label{to_spec_eqn} 
 	\begin{split}
 \mathfrak{Gelfand}\left(A \right) \xrightarrow{\hat \phi} \hat A
@@ -886,8 +886,50 @@ Using the above map one can construct the natural map
 If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous.
 \end{lemma}
 \begin{proof}
-	From the equation \eqref{topology_eqn} one can deduce any closed  set of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a closed set of $\mathfrak{Gelfand}\left(\widetilde A\right)$.
-\end{proof}.
+	From the equation \eqref{topology_eqn} one can deduce any  set of subbasis (cf. Definition \ref{top_subbasis_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. This lemma follows from (c) of the Theorem \ref{top_continuous_thm}.
+\end{proof}
+\begin{lemma}
+If there is a commutative diagram 
+\be\label{two_alg_map_eqn}
+\begin{tikzcd}
+	A' \ar[rd,hook, "\varphi_{A'}"] &\\
+	 & 	 M\left(\widetilde A\right)  \\
+	A'' \ar[ru,hook, "\varphi_{A''}"]&
+\end{tikzcd}
+\ee
+of good $*$-homomorphisms such that for any open subset $\sU''\subset \sX''$  there is an open subset  $\sU'\subset \sX'$ with $\varphi^{-1}_{A''}\left(\sU'' \right) = \varphi^{-1}_{A'}\left(\sU' \right)$ then there is the natural surjective continuous map $$\varphi:\mathfrak{Gelfand}\left( A' \right)\onto \mathfrak{Gelfand}\left( A'' \right)$$ with the  natural commutative diagram
+\be\label{two_alg_map_g_eqn}
+\begin{tikzcd}
+  & \mathfrak{Gelfand}\left(A' \right) \ar[dd, "\varphi"]\\
+\mathfrak{Gelfand}\left(\widetilde A \right)\ar[ru]\ar[rd]	& 	   \\
+	& \mathfrak{Gelfand}\left( A'' \right)
+\end{tikzcd}
+\ee
+\end{lemma}
+\begin{proof}
+	If  $\xi'' \in \mathfrak{Gelfand}\left( A'' \right)$ is represented by an ultrafilter  $\left\{\sU''_\la\right\}_{\la \in \La}$ then there is a filter $\left\{\varphi_{A''}\left( \sU''_\la\right) \right\}_{\la \in \La}$ and a filter $\left\{\sU'_\la\right\}_{\la \in \La}$ on $\mathfrak{Gelfand}\left( A' \right)$ with
+	$$
+	\forall \la\in \La \quad \varphi^{-1}_{A'}\left(\sU'_\la \right) = \varphi^{-1}_{A''}\left(\sU''_\la \right)
+	$$
+	Let $\varphi^{-1}\left(\xi'' \right)$ be a set of ultrafilters on  $\mathfrak{Gelfand}\left( A' \right)$ each of which exceeds the filter $\left\{\sU'_\la\right\}_{\la \in \La}$. There is the unique map $\varphi:\mathfrak{Gelfand}\left( A' \right)\onto \mathfrak{Gelfand}\left( A'' \right)$ such that
+	$$
+	\forall \xi' \in \varphi^{-1}\left(\xi'' \right) \quad \varphi\left(\xi' \right)= \xi.
+	$$
+One can prove that the map $\varphi$ is continuous.	
+\end{proof}
+\begin{empt}
+The diagram \ref{two_alg_map_eqn} yields a diagram 
+\be\label{two_alg_map_m_eqn}
+\begin{tikzcd}
+	\mathbb{M}_\infty\left( 	A'^\sim\right)  \ar[rd,hook, "\varphi_{A'}"] &\\
+	& 		\mathbb{M}_\infty\left(  M\left(\widetilde A\right)\right)   \\
+	\mathbb{M}_\infty\left( 	A''^\sim\right)  \ar[ru,hook, "\varphi_{A''}"]&
+\end{tikzcd}
+\ee
+\end{empt}
+\begin{definition}\label{comp_defn}
+	An equivalence classes of projections  $\sV'\in V\left(A'^\sim \right)$ and $\sV''\in V\left(A''^\sim \right)$  represented by $e_{A'}\in 	\mathbb{M}_\infty \left( A'^~\right)$ and $e_{A''}\in 	\mathbb{M}_\infty \left( A''^~\right)$ (cf. Definition \ref{projection_equivalence_defn}) are  $M\left(\widetilde A\right)$-{\it equivalent} if $\phi_{A'} \left(e_A' \right)\sim\phi_{A''} \left(e_A'' \right)$ where the equivalence relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}.
+\end{definition}
 
 \subsection{Coverings and fundamental group}
 
@@ -1381,7 +1423,7 @@ where $\mathbb{P}\left(\H \right)_{\mathfrak{Hausdorff}} $ is the projective  sp
 
 
 \begin{remark}
-	Any open subset of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ equals to
+	There is a basis for the topology (cf. Definition \ref{top_base_defn}) of $\mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ containing all open subsets of $\sU_{\mathfrak{Gelfand}} \subset \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}$ given by
 	\be\label{open_g_eqn}
 	\sU_{\mathfrak{Gelfand}} = \mathbb{P}\left(\H \right)_{\mathfrak{Gelfand}}\setminus \bigcap_{j= 0}^n V_j
 	\ee
@@ -1406,6 +1448,8 @@ The following notation
 \C P^n \bydef \mathbb{P}\left( \C^n\right)
 \ee
 is also used.
+
+
 \subsubsection{Cohomology of sheaves}
 
 
@@ -2222,8 +2266,8 @@ However both the existence of  $c^H_1\left( \sV_{S\T^2 }\right)$ and the inequal
 	
 \end{proof}
 
-
-
+\subsection{Noncommutative torus versus commutative one}
+!!!!
 \begin{appendices}
 			\section{Category theory}
 	\subsection{Categories}
@@ -2504,6 +2548,27 @@ collection $\mathscr T$ of all unions of finite intersections of elements of $\m
 		\begin{definition}\label{top_init_defn}\cite{bourbaki_sp:gt}
 			Under the hypotheses of Proposition \ref{top_init_prop} we say that the topology $\mathfrak{T}$ is \textit{initial} (\textit{with respect to the family of maps} $\left\{f_\iota:\sX \to \sY_\iota\right\}_{\iota\in I}$).
 		\end{definition}
+		
+		\begin{theorem}\label{top_continuous_thm}\cite{kelley:gt}
+If $\sX$ and $\sY$ are topological space and $f$ is a function 
+on $\sX$ to $\sY$, then the following statements are equivalent. 
+\begin{enumerate}
+	\item[ (a)] The function $f$ is continuous. 
+\item[ (b)] The inverse of each closed set is closed. 
+\item[ (c)] The inverse of each member of a subbasis for the topology for 
+	$\sY$ is open. 
+\item[ (d)] For each $x$ in $\sX$ the inverse of every neighborhood of $f(x)$ is 
+	a neighborhood of $x$. 
+\item[ (e)] For each $x$ in $\sX$ and each neighborhood $\sU$ of $f(x)$  there is a 
+	neighborhood $\sV$ of $x$ such that $f(\sV)\subset \sU$. 
+\item[ (f)]For each net $S$  in $\sX$ which converges to a 
+	point $s$, the composition $f \circ S$ converges to 
+	f(s)). 
+\item[ (g)] For each subset $A$ of X the image of the closure is a subset of 
+	the closure of the image; that is $f\left(\overline A \right)  \subset \overline {f\left( A\right)}$ 
+\item[ (h)] For each subset $B$ of $\sY$, $\overline{f^{-1}\left( B\right) }\subset f^{-1}\left( \overline B\right)$.
+\end{enumerate}
+\end{theorem}
 		
 		\begin{definition}\label{inverse_limit_defn}\cite{spanier:at}
 			An \textit{inverse system of sets} $\left\{A_\a, f^\bt_\a\right\}$ consist of a collection of sets $\left\{A_\a\right\}$ indexed by by a directed set $\La = \left\{\a\right\}$ and a collection of functions $f^\bt_\a: A_\bt \to A_\a$ such that
@@ -4558,6 +4623,39 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 		algebra A is called its Dixmier–Douady class.
 	\end{proposition}
 	
+	\subsection{Noncommutative torus}
+	Here I follow to \cite{varilly:nc_intro}.
+	\begin{definition}
+For a fixed irrational real number~$\th\in \R\setminus \Q$, let
+$C\left( \T^2_\th\right) $ be the unital $C^*$-algebra generated by two elements $u$, $v$
+subject only to the relations $uu^* = u^*u = 1$, $vv^* = v^*v = 1$,
+and
+\be\label{eq_43_eqn}
+vu = \la\,uv  \sepword{where} \la := e^{2\pi i\th}.
+%\eqno (4.3)
+\ee
+Let $\SS(\Z^2)$ denote the double sequences $\ul{a} = \{a_{rs}\}$ that
+are \textit{rapidly decreasing} in the sense that
+$$
+\sup_{r,s\in\Z} (1 + r^2 + s^2)^k \,|a_{rs}|^2 < \infty
+\sepword{for all} k \in \N.
+$$
+The \textit{irrational rotation algebra} $\Coo\left( \T^2_\th\right)$ is defined as
+\be\label{eq_44_eqn}
+\Coo\left( \T^2_\th\right) \bydef \bigl\{\, a = \sum_{r,s\in \Z} a_{rs}\,u^r v^s
+: \ul{a} \in \SS(\Z^2) \bigr\}.
+%\eqno (4.4)
+\ee 
+It is a \textit{pre-$C^*$-algebra} that is dense in~$C\left( \T^2_\th\right)$.
+
+
+The product and involution in $\Coo\left( \T^2_\th\right)$ are computable from \eqref{eq_43_eqn}
+\be\label{eq_45_eqn}
+ab = \sum_{r,s\in \Z} a_{r-n,m}\,\la^{mn}\,b_{n,s-m}\, u^r v^s,  \qquad
+a^* = \sum_{r,s} \la^{rs}\,\bar a_{-r,-s}\, u^r v^s.
+%\eqno (4.5)
+\ee	
+\end{definition}
 	
 	\subsection{$C^*$-algebras of groupoids and foliations}
 	
@@ -6309,9 +6407,40 @@ satisfies the axioms A1-A7 above.
 	Let $\sX$, $\sX'$ be affine spaces of same finite dimension $d \ge 2$. Let $f: \sX \to \sX'$ be a bijection which takes any three collinear points $a, b, c \in \sX'$ into  collinear points $f(a), f(b), f(c)\in \sX'$. Then $f$ is semiaffine
 \end{theorem}
 \begin{theorem}\label{fund_proj_thm}\cite{berger:geometryI}
-	Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
+	Let both $\mathbb{P}\left( E\right)$,   $\mathbb{P}\left( E'\right)$ two projective spaces of equal dimension  $\ge 2$ over fields $K$ and $K'$. Let $f: \mathbb{P}\left( E\right)\cong \mathbb{P}\left( E'\right)$ be a set theoretic bijection such that for any three collinear points $a, b, c \in \mathbb{P}\left( E\right)$ the points $f(a), f(b), f(c) \in \mathbb{P}\left( E\right)$ are collinear then there is a semilinear map $f : E \to E'$ with $f = \underline{ \hat f}$
 \end{theorem}
+\begin{definition}
+%Definition. 
+!!! Let Q be a point of P. The rank 2 geometry P IQ whose points are
+the lines of P through Q, whose lines are the planes of P through Q, and whose
+incidence is the incidence induced by P is called the quotient geometry of Q.
+We also speak of 'P modulo the point Q'.
+\end{definition}
+\begin{theorem}
+!!! 1.4.1 Theorem. Let P be a d-dimensional projective space, and let Q be a
+point of P. Then the quotient geometry P IQ of P modulo Q is a projective
+space of dimension d - 1.
+\end{theorem}
+\begin{definition}
+Definition. Let V be a vector space of dimension d + I Z 3 over a division ring
+F. We define the rank 2 geometry P(V) as follows:
+the points of P(V) are the I-dimensional subspaces of V,
+- the lines of P(V) are the 2-dimensional subspaces of V,
+- the incidence of P(V) is set-theoretical containment.
+\end{definition}
+\begin{theorem}
+2.1.1 Theorem. Let V be a vector space of dimension d + I Z 3 over a division
+ring F. Then P(V) is a projective space. We call P(V) the projective space
+coordinatized by F
+\end{theorem}
+\begin{empt}\label{proj_axiomatic_empt}
+There is the {\it axiomatic projective geometry} which roughly speaking operates with pairs such that $X$ is a set and $L \subset 2^X$ is a subset of the set of subsets of $X$. Any element of $X$ is a {\it point}, an element of $L$ is a {\it line}. The pair satisfies to the explained in \cite{projective_geometry} axioms. There is a set of versions of systems of axiom. One of the axioms comes from the  theorem of Desargues. There is an axiom which comes from the theorem Pappus.
+\end{empt}
 
+\section{Abstract projective space}
+\begin{definition}
+	An {\it abstract projective space} $\mathbb{P} \bydef \left( X, L\right) $  is a pair such that $X$ is a set and $L \subset 2^X$ is a subset of the set of subsets of $X$. Any element of $X$ is a {\it point}, an element of $L$ is a {\it line}. We assume that the pair  $\left( X, L\right)$ satisfies to the following axiom theorem of Desargues and there is a 
+\end{definition}
 
 
 \begin{definition}\label{collineatioin_defn}\cite{projective_geometry}
@@ -6356,9 +6485,9 @@ Let $\sV$ be a vector space of dimension $d + 1$ over a division ring	$F$. Then 
 \end{definition}
 \begin{theorem}\cite{projective_geometry}
 %	2.2.2 Theorem. 
-Let V be a vector space over the division ring F. Then the theorem
+Let $V$ be a vector space over the division ring $F$. Then the theorem
 	of Pappus holds in $P(\sV)$ if and only if F is commutative (in other words, if
-	F is afield).
+	$F$ is a field).
 \end{theorem}
 \begin{theorem}\cite{projective_geometry}
 %	2.2.2 Theorem. 
@@ -6503,7 +6632,8 @@ J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
 	
-
+\bibitem{kelley:gt} John L. Kelley. {\it General Topology}. Springer, 1975.
+   
 \bibitem{topos:intro} Saunders Mac Lane, Ieke Moerdijk
 \textit{Sheaves in Geometry and Logic. A First Introduction to Topos Theory}. Springer-Verlag - Berlin : New York. 1994.
 
