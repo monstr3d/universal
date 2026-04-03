@@ -12,7 +12,7 @@
 \title{Algebraic topology of $C^*$-algebras}
 \institute
 {
-Noncommutative geometry and topology\\
+Algebreas in analisys\\
 https://arxiv.org/abs/2511.09189
 }
 
@@ -165,17 +165,35 @@ Development of the (co)homology theory of $C^*$-algebras such that:
 	\item the theory is not trivial even for algebras having one-point  spectrum.
 \end{itemize}
 \end{frame}
+\begin{frame}
+	\begin{thm}\label{gelfand-naimark_I_thm} (Commutative Gelfand-Na\u{\i}mark theorem). 
+		Let $A$ be a commutative $C^*$-algebra and let $\mathcal{X}$ be the spectrum of A. There is the natural $*$-isomorphism $\gamma:A \xrightarrow{\cong} C_0(\mathcal{X})$.
+	\end{thm}
+	\begin{lemma}\label{lem_g_i_lem} (\alert{ Ivankov}) (Generalized commutative Gelfand theorem).
+		If $\sX$ is a locally compact, Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right)  \right)\cong \sX$.
+	\end{lemma}
+		\begin{lemma} (\alert{ Ivankov}) Let $A$ be a $C^*$-algebra which is represented by locally trivial bundle $\E\onto \sX$ such that
+			\begin{itemize}
+				\item $\sX$ is the Hausdorff spectrum of $A$,
+				\item any fiber of $\E$ is a $C^*$-algebra of compact operators $\K = \K\left(\sH \right)$. 
+			\end{itemize}
+			Then $A$ uniquely depends on the Gelfand space of $A$.
+	\end{lemma}
+	
+	
+	
+\end{frame}
 \section{Introduction}
 
-\begin{frame}
+%\begin{frame}
 	
-	\begin{figure}
-		\includegraphics[width=\linewidth]{PICTURE.png}
+%	\begin{figure}
+%		\includegraphics[width=\linewidth]{PICTURE.png}
 %		\caption{A boat.}
 %		\label{fig:boat1}
-	\end{figure}
-Irrational rotation $C^*$-algebra $C^*_r\left( M, \mathcal F\right)$ and its one-sided ideal.
-\end{frame}
+%	\end{figure}
+%Irrational rotation $C^*$-algebra $C^*_r\left( M, \mathcal F\right)$ and its one-sided ideal.
+%end{frame}
 \begin{frame}
 		\begin{definition}\label{upper_defn}
 	Let $A$ be a partially ordered set, $S$ a subset of $A$. We say an element $a \in A$
@@ -462,7 +480,50 @@ H^p\left( \C P^n_{\mathfrak{Zariski}}, \mathscr F\right) \cong H^p\left( \C P^n_
 \eean 
 where $f_* \mathscr F$ is the direct image of $\mathscr F$.
  \end{theorem}
- 
+ \section{Synthetic and analytic projective geometry}
+\end{frame}
+\begin{frame}
+ {\Large  Synthetic and analytic projective geometry}
+There is the \alert{synthetic projective geometry} given by the system of axioms. The axioms yield \alert{ projective spaces}, its \alert{points}, \alert{lines}, linear subspaces. 
+\begin{definition}
+	%Definition. 
+	Let $V$ be a vector space of dimension $d \ge 3$ over a division ring
+	$F$. We define the rank 2 geometry $\mathbb{P}(V)$ as follows:
+	\begin{itemize}
+		\item the points of $\mathbb{P}(V)$ are the 1-dimensional subspaces of $V$,
+		\item the lines of $\mathbb{P}(V)$ are the 2-dimensional subspaces of $V$,
+		\item the incidence of  $\mathbb{P}(V)$ is set-theoretical containment.
+	\end{itemize}
+\end{definition}
+\begin{theorem}
+	%2.1.1 Theorem. 
+	Let $V$ be a vector space of dimension $d \ge 3$ over a division
+	ring $F$. Then $\mathbb{P}(V)$ is a projective space. We call $\mathbb{P}(V)$  the projective space
+	coordinatized by $F$,
+\end{theorem}
+The above theorem states a one-to-one correspondence between \alert{synthetic and analytic projective geometry}.
+\end{frame}
+  \section{Topological projective geometry}
+ \begin{frame}
+  {\Large  Topological projective geometry}
+  		\begin{definition}\label{top_irreducible_defn}
+  	%5.1.1. Definition. 
+  	%	Definition. 
+  	A nonempty subset $\sY$ of a topological space $\sX$ is \alert{ irreducible} if 
+  	it cannot be expressed as the union $\sY = \sY_1 \cup \sY_2$ of two proper subsets, each one of which is closed in $\sY$. The empty set is not considered to be 
+  	irreducible. 
+  \end{definition}
+  \begin{definition}\label{top_dimension_defn}
+  	If $\sX$ is a topological space, we define the \alert{ dimension} of $\sX$ (denoted 
+  	$\dim \sX$) to be the supremum of all integers $n$ such that there exists a chain 
+  	\bean
+  	\sZ_0 \subsetneqq	\sZ_1 \subsetneqq...\subsetneqq	\sZ_n 					\eean 
+  	of distinct irreducible closed subsets of $\sX$.
+  \end{definition} 
+Any Gelfand space $\C P^n_{\mathfrak{Gelfand}}$ yields a \alert{topological projective geometry} where points are elements of $\C P^n_{\mathfrak{Gelfand}}$, lines are one-dimensional subspaces of $\C P^n_{\mathfrak{Gelfand}}$, etc.
+ \end{frame}
+  \begin{frame}
+ 	
  \begin{definition}
  	Let $\sV, ~\sV'$ be vector spaces over $K, K'$. a map $f: \sV \to \sV'$ is called \alert{ semilinear} if there exists an automorphism $\sigma :K \to K'$ such that
  	\bean
