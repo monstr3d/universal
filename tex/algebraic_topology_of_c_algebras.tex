@@ -675,6 +675,43 @@
 
 \tableofcontents
 \section{General Theory}
+\begin{figure}
+	\begin{tikzpicture}[
+		level 1/.style={level distance = 4.0cm,sibling distance=70mm, node distance=100mm},
+		level 2/.append style={level distance = 3cm, sibling distance=60mm, node distance=20mm},		
+		level 3/.append style={level distance = 3cm, sibling distance=50mm, node distance=20mm},
+		edge from parent/.style={->,draw},
+		>=latex]
+		% root of the the initial tree, level 1
+		\node[root] {Coverings of $C^*$-algebras}
+		% The first level, as children of the initial tree
+		child {node[level 2] (ch1) {Hausdorff blowing-up}
+			child {node[level 2] (c1) {Hausdorff spectrum}}
+			child {node[level 2] (c2) {Non Hausdorff}}{
+				child {node[level 2] (c3) {Groupoids}}{
+					child {node[level 2] (c4) {Foliations}}
+				}
+			}
+		}
+		child {node[level 2] (ch2) {Other coverings}
+		};
+		\begin{scope}%[every node/.style={level 2}]
+			\node [below = of  ch2, style={level 2}, xshift=10pt] (ch21) {Noncommutative tori};
+			\node [below = of  ch21, style={level 2}] (ch22) {Isospectral deformations};
+			\node [below = of  ch22, style={level 3}]  (ch23) {Covering of $SO_q(3)$ by $SU_2(q)$};
+		\end{scope}	
+		\begin{scope}[every node/.style={level 2}]
+			\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+			\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+		\end{scope}	
+		\foreach \value in {1,...,2}
+		\draw[->] (c1.195) |- (c1\value.west);	
+		\foreach \value in {1,...,3}
+		\draw[->] (ch2.180) |- (ch2\value.west);
+	\end{tikzpicture}	
+	\caption{Classification of known noncommutative coverings} \label{fig:M1}
+\end{figure}
+
 \subsection{The Gelfand space of $C^*$-algebra}
 
 \begin{definition}\label{lattice_a_defn}
@@ -707,7 +744,7 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
   is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then there is a topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
  
 	\be\label{topology_eqn}
-\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\cap L = \{0\} \right\}
+\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\subset L \right\}
 	\ee
  set is open.
 	
@@ -719,13 +756,6 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	$$
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
-\begin{remark}
-	The given by  	\eqref{topology_eqn} sets yield a subbase (cf. Definition \ref{top_subbasis_defn})  of the topology of the Gelfand space  $\mathfrak{Gelfand}\left(A \right)$. The base (cf. Definition \ref{top_base_defn}) of $\mathfrak{Gelfand}\left(A \right)$ is given by the sets
-		\be\label{topology_base_eqn}
- \left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| \exists L \in \xi\quad L\cap \left( \bigcup_{j=1}^n L_j\right)  = \{0\}\right. \right\}
-	\ee
-	where $L_1,..., L_n$ are closed left ideals.
-\end{remark}
 
 \begin{empt}\label{topology_base_herd_empt}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$ we use a following notation
@@ -736,12 +766,6 @@ Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can 
 	\be
 	B \subset a A a
 	\ee
-	Similarly to \eqref{topology_base_eqn} the base (cf. Definition \ref{top_base_defn}) of $\mathfrak{Gelfand}\left(A \right)$ is given by the sets
-			\be\label{topology_base_herd_eqn}
-	\left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| \exists B \in \xi\quad B\cap \left( \bigcup_{j=1}^n B_j\right)  = \{0\}\right. \right\}
-	\ee
-	where $B$,  $B_1,..., B_n$ are hereditary $C^*$ subalgebras of $A$.
-	
 \end{empt}
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
