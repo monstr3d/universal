@@ -710,8 +710,10 @@
 	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. \xi \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in \xi\quad L'\subset L \right\}
 	\ee
 	set is open.
-	
 \end{empt}
+\begin{remark}
+Using the direct check one can prove that the set of the  given by the equation \eqref{topology_eqn} sets is a basis of topology (cf. Definition \ref{top_base_defn}).
+\end{remark}
 \begin{definition}\label{gelfand_space_defn}
 	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ in Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) such that 
 	$$
@@ -870,10 +872,40 @@ Using the above map one can construct the natural map
 	\ee
 \end{defn}
 \begin{lemma}\label{good_lem}
-	If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous.
+	If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous and open (cf. Definitions \ref{top_continuous_defn} and \ref{top_onen_map_defn}).
 \end{lemma}
 \begin{proof}
-	From the equation \eqref{topology_eqn} one can deduce any  set of subbasis (cf. Definition \ref{top_subbasis_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. This lemma follows from (c) of the Theorem \ref{top_continuous_thm}.
+	If $L \subset A$ is a closed left ideal and $\widetilde L$ is the $C^*$-norm closure of $\varphi_M\left( L\right) \widetilde A$ then
+	\bean
+	\mathfrak{Gelfand}\left(\varphi_M \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) = \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
+	\eean 
+	So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
+	\bean
+	L = \bigcap \left\{L' \subset A \left| {\widetilde L} \subset \varphi_M\left( L\right) \widetilde A\right.\right\}\subset A
+	\eean
+	is a closed left ideal of $A$. From the above definition of $\mathfrak{Gelfand}\left(\varphi_M \right)$ it turns out that $$\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)\subset \mathfrak{Gelfand}\left(A \right)_L.$$ 
+	Any $\xi \in \mathfrak{Gelfand}\left(A \right)_L$ is given by the ultrafilter $\left\{L_\la\subset L\right\}$. If any $\widetilde L_\la$ is the $C^*$-norm closure of $\varphi_M\left( L_\la\right) \widetilde A$ then  there is filter $\left\{\widetilde L_\la\right\}$. If there is $\widetilde L_{\la_0}\in \left\{\widetilde L_\la\right\}$ such that $\widetilde L_{\la_0}\cap \widetilde L=\{0\}$ then there is a nontrivial intersection 
+	\bean
+	L'' \bydef \bigcap \left\{L' \subset L\left| \widetilde L_{\la_0}\subset \varphi_M\left( L'\right) \widetilde A \right.\right\}
+	\eean 
+	and the $C^*$-norm closure $L'''$ of the union of left ideals 
+	\bean
+	\bigcap \left\{L' \subset L | L' \cap L'' = \{0\}\right\}
+	\eean 
+	is not trivial. From our construction it follows that $L'''\subsetneqq L$ and the closure of $\widetilde L\subset \varphi_M\left( L'\right) \widetilde A$ equals to $\widetilde L$. On the other hand $L$ is the minimal among the closed ideals $L''''$ such that $\widetilde L\subset \varphi_M\left( L'''''\right) \widetilde A$. There is a contradiction. From the contradiction it follows that 
+	\be 
+	\forall \widetilde L_\la\cap \widetilde L \neq \{0\}.
+	\ee
+	There is a filter $\left\{\widetilde L_\la\cap \widetilde L\right\}$ and there exists an ultrafilter $\left\{\widetilde L_\a\right\}$ such that  $ \left\{\widetilde L_\la\cap \widetilde L\right\}\subset \left\{\widetilde L_\a\right\}$. If $\widetilde \xi$ is represented by $\left\{\widetilde L_\a\right\}$ then from our construction it follows that
+	\bean
+	\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L},\\
+	\varphi_M\left(\widetilde \xi \right) = \xi
+	\eean 
+	Taking into account $\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)= \mathfrak{Gelfand}\left(A \right)_L$ one has 
+	$$
+	\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)\subset \mathfrak{Gelfand}\left(A \right)_L,
+	$$
+	i.e. the image of an element   $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$  of base of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element  $\mathfrak{Gelfand}\left( A \right)_{ L}$ of base of topology $\mathfrak{Gelfand}\left( A \right)$. it means the the map $\varphi_M$ is open.
 \end{proof}
 \begin{lemma}
 	If there is a commutative diagram 
@@ -1406,7 +1438,7 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	Any connected, path connected, simply connected  space is weakly simply connected.
 \end{remark}
 \begin{remark}
-	The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_finite_covering_thm} below).
+	The Definition  \ref{top_weakly_simply_connected_defn} can be regarded as a generalization of \ref{top_simply_conn_defn} one.
 \end{remark}
 
 \begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
@@ -1417,7 +1449,7 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
 \end{remark}
 \begin{definition}\label{top_weak_path_defn}
-	Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \textit{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
+	Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected semilocally proper subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. 
 \end{definition}
 \begin{empt}\label{top_path_inv_empt}
 	There is an involution * on the set of paths such that
@@ -1438,7 +1470,6 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
 	\ee 
 \end{remark}
-
 %\begin{rem}
 %	There is groupoid of paths with composition and inversion given by the equations \eqref{top_path_comp_eqn} and \eqref{top_path_inv_eqn} respectively.
 %\end{rem}
@@ -1449,68 +1480,18 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 	\mathfrak p\bydef \desc_p\left( \widetilde{\mathfrak p}\right). 
 	\ee
 \end{defn}
-\begin{definition}\label{top_gen_path_defn}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{1},...,\sU_{n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n$.
-\end{definition}
-
-
-
+%\begin{definition}\label{top_gen_path_defn}
+%	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{1},...,\sU_{n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n$.
+%\end{definition}
 \begin{lemma}\label{top_gen_path_lem}
-	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+	If $\sX$ is a connected, locally connected and {weakly semilocally 1-connected} (cf. Definition \ref{top_weakly_semi1_defn}) space then for any $x', x'' \in \sX$ there is a path $\left(\sU_{1},...,\sU_{n}\right)$ such that $x'=\sU_{1}$ and $x''=\sU_{n}$ .
 \end{lemma}
 
 \begin{proof}
-	Denote by
-	\bean
-	\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
-	\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
-	\eean
-	If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then  and 
-	$$
-	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset,
-	$$
-	then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
-	\bean
-	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
-	\eean
-	Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}$ of open sets are open, so one has a disjoint union
-	$$
-	\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
-	$$
-	i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.  
-\end{proof}
-
-\begin{corollary}\label{top_connected_union_cor}
-	If $\sX$ is a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
-	\begin{itemize}
-		\item 
-		$$
-		\sX = \bigcup_{\la\in \La}\sU_\la,
-		$$
-		\item a closure of $\sU_\la$ is compact for each $\la\in \La$,
-		\item
-		\be\label{top_lmit_eqn}
-		\forall \mu, \nu \in \La  \quad \sU_\mu \cap \sU_\nu \neq \emptyset,
-		\ee
-		\item
-		\be\label{top_lmord_eqn}
-		\forall \mu, \nu \in \La \quad \mu \le \nu\quad\Leftrightarrow \quad \sU_\mu \subset \sU_\nu.
-		\ee
-	\end{itemize}
-\end{corollary}
-\begin{proof}
-	Consider a situation of the Lemma \ref{top_gen_path_lem}. Select $\a_0 \in \mathscr A$. For any $\a\in \mathscr A$ we select a path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a_0}$ and $\sU_{\a_n}=\sU_{\a}$ (cf Lemma \ref{top_gen_path_lem}). For all $\a \in \mathscr A$ a closure of a finite union $\sV_{\a}\bydef \bigcup \sU_{\a_j}$ is compact because a closure of $\sU_{\a_j}$ is compact for every $j = 1,..., n$. From $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j=1,...,n-1$ it turns out that $\sV_{\a}$ is connected, and taking into account $\bigcup_{\a\in \mathscr A}\sU_\a = \sX$ one has 
-	\bean
-	\forall \a\in \mathscr A \quad  \sU_\a\subset \sV_\a\quad \Rightarrow\quad \bigcup_{\a\in \mathscr A}\sU_\a\subset \bigcup_{\a\in \mathscr A}\sV_\a \quad \Rightarrow\quad\bigcup_{\a\in \mathscr A}\sV_\a= \sX.
-	\eean 
-	If $\left\{\sU_\la\right\}_{\la \in \La}$ is a family of all finite unions  $$\sU_\la\bydef \bigcup_{j=1}^n \sV_{\a_j}$$ then from $\sU_{\a_0} \subset \sV_{\a}$ it follows that $\sU_\la$ is connected for all $\la \in \La$ and the condition \ref{top_lmit_eqn} holds.
-	The condition \eqref{top_lmord_eqn} follows from $\sU_\a \subset \sU_\la$ for all $\la\in \La$.
-	A union of two finite unions is also finite union so one has
-	$$
-	\forall \mu, \nu \in \La\quad \exists \la \in \La\quad \sU_\mu \cup \sU_\nu = \sU_\la.
-	$$
-	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.	
+The set 
+	$
+	\sX_{x'} \bydef \left\{x \in \sX \left|\exists \text{ path }\left(\sU_{1},...,\sU_{n}\right)\quad x'\in \sU_1 \quad x'' \in \sU_n \right. \right\}
+	$ is a union of open sets, so $\sX$ is open. If $\sX_{x'}\neq \sX$ then there is $x''' \in \sX \setminus \sX'$ such that for every neighborhood $\sU'''$ of $x'''$ one has $\sU''' \cap \sX_{x'}\neq \emptyset$. If $\sU'''$ is connected and semilocally proper then there is a path $\left(\sU_{1},...,\sU_{n}, \sU'''\right)$ such that $x' \in \sU_1$ and $x'''\in \sU'''$. So $x''' \in 	\sX_{x'}$. It is a contradiction since  $x''' \notin 	\sX_{x'}$. From this contradiction it turns out that $\sX_{x'} = \sX$,
 \end{proof}
 
 \begin{defn}\label{top_closed_path_defn}
@@ -1521,8 +1502,7 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 \end{rem}
 
 \begin{exercise}\label{top_path_lift_exer}
-	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering, and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
-	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
+	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering. Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a {path}, such that $x_0\in\sU_1$. 
 	Prove that there is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$.
 \end{exercise}
 \begin{definition}\label{top_path_lift_defn}
@@ -1536,7 +1516,7 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 
 \begin{definition}\label{top_contactible_path_defn}
 	Let 
-	$\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  semilocally 1-connected path $x_0$-path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
+	$\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  path $x_0$-path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
 \end{definition}
 
 \begin{exercise}\label{top_path_inv_exer} 
@@ -1556,7 +1536,7 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 	is contractible.
 \end{exercise}
 \begin{empt}\label{top_weak_fundamental_group_empt}
-	From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
+	From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
 \end{empt}
 \begin{definition}\label{top_weak_fundamental_group_defn}
 	If
@@ -1767,7 +1747,7 @@ So one has the following Theorem.
 
 \subsection{Hausdorff blowing-up and coverings}
 !!!
-subsection{Gelfand space of $C^*$-algebras of compact operators}\label{compact_sec}
+\subsection{Gelfand space of $C^*$-algebras of compact operators}\label{compact_sec}
 \subsubsection{Basic constructions}
 
 \paragraph{} If $\H$ is a Hilbert space and $A = \K\left(\H \right)$ then for any  left ideal $L\subset A$ there is a closed $\C$-linear subspace $V_L \subset \H$ such that
@@ -2669,11 +2649,9 @@ However both the existence of  $c^H_1\left( \sV_{S\T^2 }\right)$ and the inequal
 				
 	\begin{definition}\label{initial_ob_defn}\cite{goldblatt:topoi}
 		%		PAGE 43
-		
-		An object $0_{\mathscr C}$ is \textit{initial} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
+			An object $0_{\mathscr C}$ is \textit{initial} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
 		there is one and only one arrow from $0_{\mathscr C}$ to $a$ in ${\mathscr C}$. 
 	\end{definition}
-	
 	\begin{definition}\label{terminal_ob_defn}\cite{goldblatt:topoi}
 		%			PAGE 44
 		An object $1_{\mathscr C}$ is \textit{terminal} or \textit{final} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
@@ -2881,11 +2859,33 @@ In summary then, a \textit{natural transformation} from functor $F: \mathscr C\t
 	\end{definition}
 	\begin{remark}\label{top_base_rem}It is proven that given by the Definition \ref{top_base_defn} collection $\mathscr T$ is a topology  (cf. \cite{munkres:topology}).
 	\end{remark}
-\begin{definition}\label{top_subbasis_defn}\cite{munkres:topology}
-A {\it subbasis } $\mathscr S$ for a topology on $\sX$ is a collection of subsets of $\sX$ whose
-union equals $\sX$. The {\it topology generated by the subbasis} $\mathscr S$ is defined to be the  
-collection $\mathscr T$ of all unions of finite intersections of elements of $\mathscr S$.
-\end{definition}		\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
+	\begin{theorem}\label{top_continuous_thm}\cite{kelley:gt}
+		If $\sX$ and $\sY$ are topological space and $f$ is a function 
+		on $\sX$ to $\sY$, then the following statements are equivalent. 
+		\begin{enumerate}
+			\item[ (a)] The function $f$ is continuous. 
+			\item[ (b)] The inverse of each closed set is closed. 
+			\item[ (c)] The inverse of each member of a subbasis for the topology for 
+			$\sY$ is open. 
+			\item[ (d)] For each $x$ in $\sX$ the inverse of every neighborhood of $f(x)$ is 
+			a neighborhood of $x$. 
+			\item[ (e)] For each $x$ in $\sX$ and each neighborhood $\sU$ of $f(x)$  there is a 
+			neighborhood $\sV$ of $x$ such that $f(\sV)\subset \sU$. 
+			\item[ (f)]For each net $S$  in $\sX$ which converges to a 
+			point $s$, the composition $f \circ S$ converges to 
+			f(s)). 
+			\item[ (g)] For each subset $A$ of X the image of the closure is a subset of 
+			the closure of the image; that is $f\left(\overline A \right)  \subset \overline {f\left( A\right)}$ 
+			\item[ (h)] For each subset $B$ of $\sY$, $\overline{f^{-1}\left( B\right) }\subset f^{-1}\left( \overline B\right)$.
+		\end{enumerate}
+	\end{theorem}
+	\begin{definition}\label{top_continuous_defn}
+	A satisfying to the Theorem \ref{top_continuous_thm} map is {\it continuous}.
+	\end{definition}
+%\begin{definition}\label{top_subbasis_defn}\cite{munkres:topology}
+%A {\it subbasis } $\mathscr S$ for a topology on $\sX$ is a collection of subsets of $\sX$ whose union equals $\sX$. The {\it topology generated by the subbasis} $\mathscr S$ is defined to be the  collection $\mathscr T$ of all unions of finite intersections of elements of $\mathscr S$.
+%\end{definition}		
+\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
 		Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of topological spaces, and for each $\iota\in I$ let $f_\iota$ be a mapping of $\sY_\iota$ into $\sX$. Let $\mathfrak{D}$ be a set of subsets $\sU$ of $\sX$ such that $f_\iota^{-1} \left(\sU \right)$ is open in $\sY_\iota$ for each $\iota \in I$; then  $\mathfrak{D}$ is a set of open sets in a topology $\mathfrak{T}$. In particular $\mathfrak{T}$ is the finest topology for which the mappings $f_\iota$ are continuous. In other words, if $g$ is mapping on $\sX$ into a topological space $\sZ$, then $g$ is continuous ($\sX$ carrying the topology $\mathfrak{T}$) if and only if each of the mappings $g\circ f_\iota$ is continuous.
 	\end{proposition}
 	%\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
@@ -3324,17 +3324,11 @@ belongs to an open dense subset of $\sX$.
 %	Example 1.1.4. If Y is an irreducible subset of X, then its closure Y in X is 	also irreducible. 
 
 	
-	\begin{empt}\label{top_lex_square_empt}\cite{counter_topology,munkres:topology}
-	Let $I^2_o = \left[0,1\right]^2$ be a unit square. We order $I^2_o$ lexicographically
-	\be\label{top_order_top_s_eqn}
-	\forall (x, y),(u, w) \in \left[0,1\right]^2 = I^2_o \quad (x, y)< (u, w)  = \begin{cases}
-		y < w & x = u\\
-		x < u & \text{otherwise}
-	\end{cases}
-	\ee
-	and place the order topology on $I^2_o$. It is proven in  \cite{counter_topology,munkres:topology} $I^2_o$ is connected but it is not path connected.
-	The space $I^2_o$ is said to be the \textit{the ordered square} (cf. \cite{munkres:topology}).
-\end{empt} 
+	 
+\begin{definition}\label{top_open_map}\cite{munkres:topology}
+A map $f : \sX \to \sY$ is said to be an {\it open map} if for every open set $\sU$ of $\sX$, the
+set $f\left(\sU\right)$ is open in $\sY$.% Show that 7Ti : X x y -È X and ni : X x Y -* /areopen maps.
+\end{definition}
 
 	\subsection{Algebraic topology}
 	\subsubsection{Loop space and suspension in topology}
@@ -3404,9 +3398,17 @@ belongs to an open dense subset of $\sX$.
 	$$
 	where $\pi_0\left( \Om^n\sX\right) $ is a set of connected components of $\Om^n\sX$,
 \end{definition}
+ 
 \begin{remark}\label{top_homotopy_group_rem}\cite{switzer:at}
 	The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$. We say that $\pi_1\left(\sX, x_0 \right)$ is the \textit{fundamental group} of the  pointed space $\left(\sX, x_0 \right)$. 
 \end{remark}
+\begin{theorem}\label{top_fundamental_group_mor_thm}\cite{spanier:at}
+	%2 theoeem 
+	Let $p: \widetilde{\sX}\to \sX$ a fibration with unique path lifting. Let $\sX$ be path connected and let $x_0\in \sX$. Then  there is  a monomorphism $\psi$ of $G\left( \left.\widetilde{\sX} \right|\sX\right) $ to 
+	the quotient group $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)   /\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ where $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)$ is a maximal among subgroups $G\subset \pi_1\left(\sX, x_0 \right)$ such that $\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ is a normal subgroup of $G$.	If $\sX$ is also locally path connected, 
+	$\psi$ is an isomorphism. 
+\end{theorem}
+
 
 \begin{defn}\label{top_semi1_defn}\cite{spanier:at}
 	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
@@ -6913,6 +6915,7 @@ June 27-July 1, 1983.
 \bibitem{counter_topology}	Lynn Arthur Steen,
 J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 1970.	
+\bibitem{kelley:gt} John L. Kelley. {\it General Topology}. Springer, 1975.
 	
 \bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978. 
 	
