@@ -864,13 +864,27 @@ Using the above map one can construct the natural map
 
 
 \begin{defn}\label{good_defn}
-	Let both $A$ and $\widetilde A$ be $C^*$-algebras, and let $\varphi_M : A^\sim  \hookto M\left( \widetilde A\right)$  be an injective 	$*$-homomorphism satisfying to the condition \ref{closed_p_eqn}. We say that both $\varphi_M$ and the injective
-	homomorphism \eqref{ultra_mor_eqn} are {\it good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_M \right)$ yields the natural
+	Let both $A$ and $\widetilde A$ be $C^*$-algebras, and let $\varphi_M : A \hookto M\left( \widetilde A\right)$  be an injective 	$*$-homomorphism satisfying to the condition \ref{closed_p_eqn}. We say that both $\varphi_M$ is {\it good} if the given by \eqref{ultra_mor_eqn} map $\mathfrak{Ultrafilters}\left(\varphi_M \right)$ yields the natural
 	map
 	\be\label{gelfand_map_eqn}
 	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
 	\ee
 \end{defn}
+\begin{definition}\label{connected_c_a_defn}
+	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
+	
+	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
+\end{definition}
+\begin{definition}\label{gelfand_category_defn}
+There is the {\it Gelfand category} $\mathfrak{Gelfand}$ such that
+\begin{enumerate}
+	\item [(a)] $\mathfrak{Gelfand}$-objects are connected $C^*$-algebras,
+	\item [(b)] $\mathfrak{Gelfand}$-morphisms are good $*$-homomorphisms.
+\end{enumerate}
+\end{definition}
+\begin{remark}\label{gelfand_category_rem}
+If $\mathfrak{Top}$ is the category of topological spaces and continuous maps then any functor  $\mathfrak{Top}\to \mathscr C$ naturally yields the functor $\mathfrak{Gelfand}\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
+\end{remark}
 \begin{theorem}\label{good_thm}
 	If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous and open (cf. Definitions \ref{top_continuous_defn} and \ref{top_onen_map_defn}).
 \end{theorem}
@@ -905,8 +919,14 @@ and the above equation means that $\mathfrak{Gelfand}\left(A \right)_L \subset \
 	$$
 	\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)= \mathfrak{Gelfand}\left(A \right)_L,
 	$$
-	i.e. the image of an element   $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$  of the subbasis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element  $\mathfrak{Gelfand}\left( A \right)_{ L}$ of the subbasis  of topology $\mathfrak{Gelfand}\left( A \right)$. It follows that  the image of an element    of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element   of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$, so  the map $\mathfrak{Gelfand}\left(\varphi_M \right)$ is open.
+	i.e. the image of an element   $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$  of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element  $\mathfrak{Gelfand}\left( A \right)_{ L}$ of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$. It follows that  the image of an element    of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element   of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$, so  the map $\mathfrak{Gelfand}\left(\varphi_M \right)$ is open.
 \end{proof}
+\begin{definition}\label{good_top_defn}
+If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \right)$ is its Gelfand space then an open continuous map $\phi: \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX$ is {\it good} is there is a good $*$-homomorphism $\varphi: A \hookto \widetilde{A}$ (cf. Definition \ref{good_defn}) such that the map $\phi$ is equivalent to the given by the equation \eqref{gelfand_map_eqn} map  $
+\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)$.
+ 
+
+\end{definition}
 \begin{lemma}
 	If there is a commutative diagram 
 	\be\label{two_alg_map_eqn}
@@ -951,11 +971,7 @@ and the above equation means that $\mathfrak{Gelfand}\left(A \right)_L \subset \
 \end{definition}
 \subsection{Coverings of $C^*$-algebras}
 
-\begin{definition}\label{connected_c_a_defn}
-	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
-	
-	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
-\end{definition}
+
 \begin{definition}\label{covering_defn}
 	Let   $A$ and  $\widetilde{A}$ be  connected $C^*$-algebras.  A good     $*$-homomorphism $\lift: A^\sim  \hookto M\left( \widetilde{A}\right)$ (cf. Definition 
 	\ref{good_defn}) is a \textit{noncommutative covering} if
