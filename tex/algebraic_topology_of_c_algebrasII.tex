@@ -1323,6 +1323,32 @@ So one has the following Theorem.
 
 \subsection{Universal Hausdorff quotient space}
 
+\begin{definition}\label{gelfand_decomposition_defn}
+	A $C^*$-algebra $A$ {\it admits Gelfand decomposition} if for any family $\left\{L_\la\right\}_{\la\in\La}$ of left ideals with 
+	$$
+	\mathfrak{Gelfand}\left(A \right) = \bigcup_{\la\in \La} \mathfrak{Gelfand}\left(A \right)_{L_\la}
+	$$  
+	any self adjoint $a\in A$ there are self-adjoint $a', a''\in M\left( A\right) $, finite sunset $\La_0\subset \La$ such that
+	\be\label{gelfand_decomposition_eqn}
+\begin{split}
+\left\| a' - a''\right\| <\eps,\\
+a' \le a \le a'',\\
+a' = \sum_{\la\in \La_0} a'_\la + r', \quad a'_\la \in L_\la,\quad r' \in \R;\\
+a'' = \sum_{\la\in \La_0} a''_\la + r'', \quad a''_\la \in L_\la,\quad r'' \in \R;
+\end{split}
+	\ee
+\end{definition}
+
+\begin{lemma}
+If $C^*$-algebra admits  Gelfand decomposition and 	$\phi:\mathfrak{Gelfand}\left(A \right)\onto  \sY$ is a surjective continuous map then there is the natural injective $*$-homomorphism
+\be
+C_0\left( \sY\right)  \hookto M\left(A \right) 
+\ee
+\end{lemma}
+\begin{proof}
+Let $f \in C_0\left( \sX\right)$ and !!!
+\end{proof}
+
 \begin{definition}\label{hausdorff_defn}
 	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
 	
@@ -5935,6 +5961,16 @@ $\Z\left[H\right]/\left( H - 1\right)^2$ is $\left\{1, H\right\}$.
 \begin{thm}(Dauns Hofmann)\label{dauns_hofmann_thm}\cite{pedersen:ca_aut}
 	For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
 \end{thm}
+\begin{empt}
+	According to \cite{ped_semi} for any $C^*$-algebra $A$ the class $A^m$ 
+is a class of elements in $A''$ which can be approximated
+weakly from below with self-adjoint operators of the form $x + \a$ a with $x$ in $A$
+and $\a$ in $\R$. Define $A_m \bydef -A^m$,
+\end{empt}
+\begin{theorem}\label{low_up_thm} \cite{ped_semi}
+%THEOREM 2.5. 
+The set $A^m \cap A_m$, is equal to the self-adjoint part of $M\left( A\right)$. 
+\end{theorem}
 \begin{definition}\label{ctr_homo_defn}\cite{fell:operator_fields} 
 	A $C^*$-algebra is \textit{homogeneous of order} $n$ if every irreducible $*$-representation is of the same finite dimension $n$.
 \end{definition}
@@ -8686,7 +8722,10 @@ J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 	
 	\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.	
+	
 		\bibitem{pedersen:ca_aut}Gert K Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+\bibitem{ped_semi} Gert K Pedersen.  {\it Applications of weak$*$ semicontinuity in $C^*$-algebra theory}, Duke Math.
+J., 39 (1972), 431-450, 1972.
 
 %\bibitem{pedersen:mea_c} Gert K Pedersen.  \textit{Measure Theory for $C^*$-Algebras}. Mathematica Scandinavica (1966) Volume: 19, page 131-145 ISSN: 0025-5521; 1903-1807/e, 1966.
 	
@@ -8733,7 +8772,6 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 \bibitem{wegge_olsen} N. E. Wegge-Olsen. \textit{$K$-Theory
 	 and $C^*$-Algebras: A Friendly Approach.} Oxford University Press,
 Oxford, England, 1993. 
-
 
 
 \end{thebibliography}
