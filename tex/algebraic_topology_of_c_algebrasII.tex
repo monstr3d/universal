@@ -1323,30 +1323,80 @@ So one has the following Theorem.
 
 \subsection{Universal Hausdorff quotient space}
 
+%\begin{definition}\label{gelfand_decomposition_defn}
+%	A $C^*$-algebra $A$ {\it admits Gelfand decomposition} if for any family $\left\{L_\la\right\}_{\la\in\La}$ of left ideals with 
+%	$$
+%	\mathfrak{Gelfand}\left(A \right) = \bigcup_{\la\in \La} \mathfrak{Gelfand}\left(A \right)_{L_\la}
+%	$$  
+%	any self adjoint $a\in A$ there are self-adjoint $a', a''\in M\left( A\right) $, finite sunset $\La_0\subset \La$ such that
+%	\be\label{gelfand_decomposition_eqn}
+%\begin{split}
+%\left\| a' - a''\right\| <\eps,\\
+%a' \le a \le a'',\\
+%a' = \sum_{\la\in \La_0} a'_\la + r', \quad a'_\la \in L_\la,\quad r' \in \R;\\
+%a'' = \sum_{\la\in \La_0} a''_\la + r'', \quad a''_\la \in L_\la,\quad r'' \in \R;
+%\end{split}
+%	\ee
+%\end{definition}
+
 \begin{definition}\label{gelfand_decomposition_defn}
-	A $C^*$-algebra $A$ {\it admits Gelfand decomposition} if for any family $\left\{L_\la\right\}_{\la\in\La}$ of left ideals with 
-	$$
-	\mathfrak{Gelfand}\left(A \right) = \bigcup_{\la\in \La} \mathfrak{Gelfand}\left(A \right)_{L_\la}
-	$$  
-	any self adjoint $a\in A$ there are self-adjoint $a', a''\in M\left( A\right) $, finite sunset $\La_0\subset \La$ such that
-	\be\label{gelfand_decomposition_eqn}
+A $C^*$-algebra $A$ {\it admits Gelfand decomposition} if for any family $\left\{L_\la\right\}_{\la\in\La}$ of left ideals of $A$ with 
+\be\label{gelfand_f_decomposition_eqn}
+\mathfrak{Gelfand}\left(A \right) = \bigcup_{\la\in \La} \mathfrak{Gelfand}\left(A \right)_{L_\la}
+\ee 
+any $\eps > 0$ and  $a\in A$  there is a finite subset $\La_0 \subset \La$ with
+\be\label{gelfand_decomposition_eqn}
 \begin{split}
-\left\| a' - a''\right\| <\eps,\\
-a' \le a \le a'',\\
-a' = \sum_{\la\in \La_0} a'_\la + r', \quad a'_\la \in L_\la,\quad r' \in \R;\\
-a'' = \sum_{\la\in \La_0} a''_\la + r'', \quad a''_\la \in L_\la,\quad r'' \in \R;
+	\left\| a -\sum_{\la\in \La_0} a_\la\right\| <\eps
 \end{split}
-	\ee
+\ee
+where $a_\la \in L_\la$ for each $\la \in \La_0$.
 \end{definition}
 
-\begin{lemma}
-If $C^*$-algebra admits  Gelfand decomposition and 	$\phi:\mathfrak{Gelfand}\left(A \right)\onto  \sY$ is a surjective continuous map then there is the natural injective $*$-homomorphism
-\be
-C_0\left( \sY\right)  \hookto M\left(A \right) 
+\begin{lemma}\label{gelfand_decomposition_lem}
+If $C^*$-algebra admits  Gelfand decomposition and 	$\phi:\mathfrak{Gelfand}\left(A \right)\onto  \sY$ is a surjective continuous open map onto Hausdorff locally compact space $\sY$ then there is the natural injective $*$-homomorphism
+\be\label{gelfand_decomposition_lem_eqn}
+C_0\left( \sY\right)  \hookto M\left(A \right). 
 \ee
 \end{lemma}
 \begin{proof}
-Let $f \in C_0\left( \sX\right)$ and !!!
+Let both $f \in C_0\left( \sY\right)_+$ and $a \in A_+$ be positive elements, and let $\eps > 0$. Consider a family  $\mathfrak A$ of satisfying to \eqref{gelfand_f_decomposition_eqn} families $\left\{L_\la\right\}_{\la\in\La}$ of left ideals of $A$. For any $\mathfrak a = \left\{L_\la\right\}\in \mathfrak A$ we define a subset
+$$
+A_{\mathfrak a}\bydef \left\{ \left.\sum_{\la\in \La_0} a_\la < a ~\right| ~ a_\la \in \La_0\right\}\subset A
+$$
+where $\La_0 \subset \La$ is a finite subset. From \eqref{gelfand_decomposition_eqn} it follows that
+$$
+A_{\mathfrak a}= \left\{\left. a' \in A ~\right| a' < a\right\}
+$$
+If $$A_{\mathfrak A}\bydef \bigcup_{\mathfrak a\in \mathfrak A} A_{\mathfrak a}$$ then 
+$$
+A_{\mathfrak A}= \left\{\left. a' \in A ~\right| a' < a\right\}.
+$$
+If we consider $A_{\mathfrak A}$ as directed set then there is a $C^*$-norm limit
+$$
+a = \lim_{a' \in A_{\mathfrak A}} a'.
+$$
+Consider a set $\mathscr A$ of pairs r $\left( \left\{L_\la\right\}, \La_0 \subset \La \right)$ with finite subset $\La_0 \subset \La$ and for any $\left( \left\{L_\la\right\}, \La_0  \right)\in \mathscr A$ define a set
+$$
+A_{\left( \left\{L_\la\right\}, \La_0 \right)}\bydef \left\{\left. \sum_{\la \in \La_0}\inf_{y \in  \mathfrak{Gelfand}\left(A \right)_{L_\la}} f(y) a_\la \right| \sum_{\la \in \La_0} a_\la < a\right\}\subset A.
+$$ 
+There is a directed set
+$$
+A_{\mathscr A} \bydef \bigcup_{\left( \left\{L_\la\right\}, \La_0  \right)\in \mathscr A} A_{\left( \left\{L_\la\right\}, \La_0 \right)}\subset A.
+$$
+If $\dl > 0$ then since the $\sY$ is locally compact there is a family $\left\{L_\la\right\}_{\la\in\La}$ of satisfying to \eqref{gelfand_f_decomposition_eqn} left ideals such that 
+\be\label{f_mm_eqn}
+\forall \la \in \La \quad\quad  \sup_{y \in  \mathfrak{Gelfand}\left(A \right)_{L_\la}} f\left( y\right)\quad  - \quad \inf_{y \in  \mathfrak{Gelfand}\left(A \right)_{L_\la}} f\left( y\right)< \dl
+\ee
+Using \eqref{f_mm_eqn} one can proof that for all $\eps > 0$ there is $\left( \left\{L_\la\right\}, \La_0  \right)\in \mathscr A$ and  $a_\eps \in A_{\left( \left\{L_\la\right\}, \La_0 \right)}$ such that
+\be\label{gelfand_c_decomposition_eqn}
+\forall a' \in A_{\mathscr A} \quad a' > a_\eps \quad \Rightarrow\quad 	\left\| a' - a_\eps\right\| <\eps
+\ee
+If we consider  $A_{\mathscr A}$ as a directed set then from \eqref{gelfand_c_decomposition_eqn} it turns out that the set  $A_{\mathscr A}$ is $C^*$-norm convergent. We define
+$$
+f a \bydef \lim_{a' \in A_{\mathscr A}} a'
+$$
+Using linearity one can define the product $fa$ for any $a \in A$ and $f \in C_0\left( \sY\right)$. We leave to the reader proof of that this product naturally yields the  $*$-homomorphism  $C_0\left( \sY\right)  \hookto M\left(A \right)$  
 \end{proof}
 
 \begin{definition}\label{hausdorff_defn}
