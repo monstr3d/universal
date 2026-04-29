@@ -695,7 +695,7 @@ $\Rightarrow$ If $y\in \sY$ then there is   $b \in C_c\left(\sY \right)$ with $b
 \\$\Leftarrow$ If $b \in C_c\left( \sY\right)$ support $\supp b$ is compact, so the set $f\left(\supp b \right) \in \sY$ is compact.  From the Tietze theorem  is $a\in C_c \left(\sX\right)$ with $a\left( f\left(\supp b\right)\right)  = \{1\}$ and $b = b\phi\left( a\right) $.
 \end{proof}
 \begin{definition}\label{good_hom_defn}
-If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\phi : A \to M\left( B\right) $ is {\it good} if for any element $b \in K\left(B\right)$ of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn})  there is $a \in K\left(A\right)$ such that $b 
+If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : A \to M\left( B\right) $ is {\it good} if for any element $b \in K\left(B\right)$ of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn})  there is $a \in K\left(A\right)$ such that $b 
 \in B\phi\left( a\right)$.
 \end{definition}
 \begin{remark}\label{good_hom_rem}
@@ -844,9 +844,9 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	where $\mathfrak{Gelfand} \left(A \right)''$ is the set of all bicommutants. We consider the final with respect to the map $\phi''$   topology on $\mathfrak{Gelfand} \left(A \right)''$ and say that the space $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$ (cf. Definition \ref{top_final_defn}).
 \end{definition}
 
-\subsection{Gelfand spaces and good $*$homomorphisms}
+\subsection{Gelfand spaces and good $*$-homomorphisms}
 \paragraph*{}
-If both  $A$ and $\widetilde{A}$ are $C^*$-algebras 
+If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
 %\be\label{unital_notation_eqn}
 %A^\sim\bydef\begin{cases}
 %	A & \text{if }A \text{ is unital}\\
@@ -892,9 +892,13 @@ Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the conti
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
 \ee
 \begin{theorem}\label{good_thm}
-	If the  homomorphism \eqref{lat_mor_eqn} is good 	  then the map \eqref{gelfand_map_eqn} is continuous and !!! open (cf. Definitions \ref{top_continuous_defn} and \ref{top_onen_map_defn}).
+	\begin{enumerate}
+		\item [(i)]	If the  homomorphism $\varphi : A\to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
+		\item[(ii)] Moreover if $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} open (cf. Definition  \ref{top_onen_map_defn}).
+	\end{enumerate}
+
 \end{theorem}
-\begin{proof}
+\begin{proof}(i)
 	If $L \subset A$ is a closed left ideal and 
 	\bean
 \widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi_M\left(L \right).
@@ -903,7 +907,9 @@ then $\widetilde L$ is a closed left ideal and
 	\bean
 	\mathfrak{Gelfand}\left(\varphi_M \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
 	\eean 
-	So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
+	So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
+	
+(ii)	Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
 	\bean
 	L = \bigcap \left\{L' \subset A \left| {\widetilde L} \subset  \widetilde A \varphi_M\left( L'\right) \right.\right\}\subset A
 	\eean
@@ -927,20 +933,48 @@ and the above equation means that $\mathfrak{Gelfand}\left(A \right)_L \subset \
 	$$
 	i.e. the image of an element   $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$  of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element  $\mathfrak{Gelfand}\left( A \right)_{ L}$ of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$. It follows that  the image of an element    of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element   of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$, so  the map $\mathfrak{Gelfand}\left(\varphi_M \right)$ is open.
 \end{proof}
-\begin{remark}
-	content...
+\begin{remark}\label{good_rem}
+The Theorem \ref{good_thm} yields  a contravariant functor
+\be
+\mathfrak{Good}~ C^*
+\text{-}\mathfrak{alg}\xrightarrow{\mathfrak{Gelfand}} \mathfrak{Top}
+\ee
+  of $C^*$-algebras and good $*$-homomorphisms (cf. Remark \ref{good_hom_rem}) to the category  $\mathfrak{Top}$ of topological spaces and continuous maps.  We say that $\mathfrak{Gelfand}$ it is the  {\it Gelfand functor}.
+  Any functor  $\mathfrak{Top}\to \mathscr C$ naturally yields the functor $\mathfrak{Good}~ C^*
+  \text{-}\mathfrak{alg}\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 \end{remark}
-\begin{remark}\label{good_hom_rem}
-	Any $*$-homomorphism $A\to M\left( B\right)$ can be uniquely extended up to $M\left( A\right)  \to M\left(B \right)$, so one can define  a composition of good  $*$-homomorphism. One can prove that the composition is good. So there is a category $\mathfrak{Good} $ $C^*$-$\mathfrak{alg}$ of $C^*$-algebras and good $*$-homomorphisms.
-	
-\end{remark}
+From the Theorem \ref{good_thm} if follows that for any good inclusion $
+\phi: C_0\left( 
+\sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
+\be
+\sX \xrightarrow{{\mathfrak{Gelfand}}\left( \phi\right)} \mathfrak{Gelfand}\left( A\right) 
+\ee
+\begin{definition}
+	 A $C^*$-algebra is {
+	 \it  Dauns-Hoffman algebra} if there is the natural inclusion 
+	 \be\label{dh_eqn}
+	 \Phi : C_b\left( \mathfrak{Gelfand}\left( A\right) \right) \hookto M\left(A \right) 
+	\ee 
+	such that any  any good inclusion $
+	\phi: C_0\left( 
+	\sX\right) \hookto M\left(A \right)$ is given by
+	$$
+\forall f \in C_0\left( 
+\sX\right) \quad \phi \left(f \right) =  \Phi\left( f \circ\mathfrak{Gelfand}\left( \phi\right)\right) 
+	$$
+	where $f \circ\mathfrak{Gelfand}\left(\phi \right) \in C_b\left( \mathfrak{Gelfand}\left( A\right) \right)$.
+	 \end{definition}
+	 \begin{remark}
+	If $A$ is a commutative $C^*$-algebra then the inclusion \eqref{dh_eqn} coincides with the isomorphism	\eqref{dauns_hofmann_eqn} given by the Dauns-Hoffman theorem.
+	 \end{remark}
+
 \begin{remark}\label{gelfand_category_rem}
 	
 	If $\mathfrak{Top}$ is the category of topological spaces and continuous maps then any functor  $\mathfrak{Top}\to \mathscr C$ naturally yields the functor $\mathfrak{Gelfand}\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 \end{remark}
 
 \begin{definition}\label{good_top_defn}
-If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \right)$ is its Gelfand space then an open continuous map $\phi: \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX$ is {\it good} is there is a good $*$-homomorphism $\varphi: A \hookto \widetilde{A}$ (cf. Definition \ref{good_defn}) such that the map $\phi$ is equivalent to the given by the equation \eqref{gelfand_map_eqn} map  $
+If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \right)$ is its Gelfand space then an open continuous map $\phi: \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX$ is {\it good} is there is a good $*$-homomorphism $\varphi: A \hookto \widetilde{A}$ (cf. Definition \ref{good_hom_defn}) such that the map $\phi$ is equivalent to the given by the equation \eqref{gelfand_map_eqn} map  $
 \mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)$.
  
 
@@ -6045,7 +6079,11 @@ $\Z\left[H\right]/\left( H - 1\right)^2$ is $\left\{1, H\right\}$.
 	representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. 
 \end{definition}
 \begin{thm}(Dauns Hofmann)\label{dauns_hofmann_thm}\cite{pedersen:ca_aut}
-	For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
+	For each $C^*$-algebra $A$ there is the natural isomorphism 
+	\be\label{dauns_hofmann_eqn}
+	\mathrm{Center}\left(M\left( A\right) \right) \cong C_b\left( \check{A}\right) 
+	\ee
+	from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
 \end{thm}
 \begin{empt}
 	According to \cite{ped_semi} for any $C^*$-algebra $A$ the class $A^m$ 
