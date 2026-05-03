@@ -674,9 +674,15 @@
 \end{abstract}
 
 \tableofcontents
-\section{General Theory}
-\subsubsection{Good ultrafilters  and $*$-homomorphisms}
-\paragraph{} It is known that there are filter on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
+\section{Gelfand category and Gelfand functor}
+\paragraph{} The commutative  Gelfand-Na\u{\i}mark \ref{gelfand-naimark_thm} theorem yields the equivalence between  following categories:
+\begin{itemize}
+	\item  unital commutative $C^*$-algebras and $*$-homomorphisms,
+		\item compact Hausdorff spaces and continuous maps.
+	\end{itemize} 
+	Here we would like construct a category such that objects of it are all $C^*$-algebras and a functor to the category of locally compact  Hausdorff spaces  and continuous maps.
+\subsection{Basic construction}
+\paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
 \begin{definition}\label{good_ultrafilter_defn}
 An ultrafilter of open subsets sets  on locally compact Hausdorff space  is {\it good} if contains a set with compact closure.
 \end{definition}
@@ -695,19 +701,17 @@ $\Rightarrow$ If $y\in \sY$ then there is   $b \in C_c\left(\sY \right)$ with $b
 \\$\Leftarrow$ If $b \in C_c\left( \sY\right)$ support $\supp b$ is compact, so the set $f\left(\supp b \right) \in \sY$ is compact.  From the Tietze theorem  is $a\in C_c \left(\sX\right)$ with $a\left( f\left(\supp b\right)\right)  = \{1\}$ and $b = b\phi\left( a\right) $.
 \end{proof}
 \begin{definition}\label{good_hom_defn}
-If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : A \to M\left( B\right) $ is {\it good} if for any element $b \in K\left(B\right)$ of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn})  there is $a \in K\left(A\right)$ such that $b 
+If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is {\it good} if for any element $b \in K\left(B\right)$ of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn})  there is $a \in K\left(A\right)$ such that $b 
 \in B\phi\left( a\right)$.
 \end{definition}
-\begin{remark}\label{good_hom_rem}
-Any $*$-homomorphism $A\to M\left( B\right)$ can be uniquely extended up to $M\left( A\right)  \to M\left(B \right)$, so one can define  a composition of good  $*$-homomorphism. One can prove that the composition is good. So there is a category $\mathfrak{Good} $ $C^*$-$\mathfrak{alg}$ of $C^*$-algebras and good $*$-homomorphisms.
+\begin{definition}\label{gelfand_category_defn}
+The {\it Gelfand category} $C^*$-$\mathfrak{Gelfand}$ is such that:
+\begin{itemize}
+	\item objects of $C^*$-$\mathfrak{Gelfand}$ are $C^*$-algebras,
+	\item for any two objects $A$ and $B$ of $C^*$-$\mathfrak{Gelfand}$ the set of arrows from $A$ to $B$ is a set of good $*$-homomorphisms from $M\left(A \right)\to M\left( B\right)$, 
+\end{itemize}
 
-\end{remark}
-
-\subsection{The Gelfand space of $C^*$-algebra}
-
-
-
-
+\end{definition}
 \begin{definition}\label{lattice_a_defn}
 	If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} is the meet-semilattice (cf. Definition \ref{lattice_defn}) of closed left ideals of $A$ such that 
 	\be\label{meet_eqn}
@@ -804,9 +808,104 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	is an ultrafilter on the compact set $\supp a$.
 	From the Proposition \ref{top_ultra_prop} !!!!  PROP !!! it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 \end{proof}
+\paragraph*{}
+If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
+%\be\label{unital_notation_eqn}
+%A^\sim\bydef\begin{cases}
+	%	A & \text{if }A \text{ is unital}\\
+	%	A^+ & \text{if }A \text{ is not unital}\\
+	%\end{cases}
+	%\ee
+	%where $A^+$ is given by the equation \eqref{a_plus_eqn}.
+	%If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
+	%is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
+	%$If both $A$ and $\widetilde{A}$ are $C^*$-algebras then any injective  $*$-homomorphism 	
+	then there is the natural homomorphism of lattices
+	\be\label{lat_mor_eqn}
+	\begin{split}
+		\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
+		L \mapsto \text{ the $C^*$-norm closure of } \widetilde A \varphi\left(L \right).
+	\end{split}
+	\ee
+	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi \right)$ yields a mapping of filters
+	\be\label{fil_mor_eqn}
+	\begin{split}
+		\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
+		\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi \right)\left( L_\la\right) \right\}_{\la \in \La}
+	\end{split}
+	\ee
+	If $\xi \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
+	\bean
+	\mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi_M \right)\left( \xi\right)\subset \widetilde \xi \right\}
+	\eean
+	For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $L' \in \xi'$ and $L'' \in \xi''$ such that $L'\cap L'' = \{0\}$. It turns out that
+	\bean
+	\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)\quad \xi' \neq \xi'' \quad \Rightarrow\\
+	\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi ''\right)= \emptyset
+	\eean 
+	Using the above map one can construct the natural map
+	\be\label{ultra_mor_eqn}
+	\begin{split}
+		\mathfrak{Ultrafilters}\left(\varphi_M \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
+		\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_M \right)}\mathfrak{Ultrafilters} \left( A\right).
+	\end{split}
+	\ee
+	Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the continuous map 
+	\be\label{gelfand_map_eqn}
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
+	\ee
+	\begin{theorem}\label{good_thm}
+		\begin{enumerate}
+		If the  homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
+		\end{enumerate}
+		\end{theorem}
+	\begin{proof}
+		If $L \subset A$ is a closed left ideal and 
+		\bean
+		\widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi_M\left(L \right).
+		\eean	
+		then $\widetilde L$ is a closed left ideal and	
+		\bean
+		\mathfrak{Gelfand}\left(\varphi_M \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
+		\eean 
+		So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
+		
+		(ii)	Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
+		\
+	\end{proof}
+	 
+	\begin{definition}\label{gglfand_functor_defn}
+		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functor} 
+		\be
+		 C^*\text{-}\mathfrak{Gelfand}\to \mathfrak{Hausdorff}
+		\ee
+		 Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the category  $\mathfrak{Hausdorff}$ of locally compact Hausdorff topological spaces and continuous maps.  
+		Any functor  $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}\to
+		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
+	\end{definition}
+	\subsection{Gelfand space of the noncommutative torus}
+	\paragraph{} Here we find a bijective continuous map from the Gelfand space of noncommutative torus to the commutative one.
+	\begin{definition}\label{connected_case}{\it Noncommutative torus}. 
+		A noncommutative torus \cite{varilly:nc_intro} $C\left(\T^2 _{\theta}\right) $ is the universal  $C^*$-algebra generated by two unitary elements $u, v$ which satisfy following conditions
+		\begin{equation}\nonumber
+			uu^*=u^*u=vv^*=v^*v=1;\\
+		\end{equation}
+		\begin{equation}\nonumber
+			uv=e^{2\pi i \theta}vu
+		\end{equation}
+		where $\theta \in \R\setminus\Q$.
+		There is a trace $\tau_0$ on  $A_{\theta}$ such that $\tau_0 (\sum_{-\infty < i < \infty, -\infty < j<\infty}a_{ij}u^iv^j) = a_{00}$. $C^*$ - norm of $A_{\theta}$  is defined by following way $\|a\|=\sqrt{\tau_0 (a^*a)}$. 
+	\end{definition}
+	
+	From the Theorem \ref{good_thm} if follows that for any good inclusion $
+	\phi: C_0\left( 
+	\sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
+	\be
+	\sX \xrightarrow{{\mathfrak{Gelfand}}\left( \phi\right)} \mathfrak{Gelfand}\left( A\right) 
+	\ee
 
 
-
+\subsection{The map to the spectrum}
 \begin{definition}\label{belongs_defn}
 	Let $A$ be a $C^*$ -algebra and let $\hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to} $x \in \hat A$ if one has
 	\be\label{belongs_eqn}
@@ -844,111 +943,7 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	where $\mathfrak{Gelfand} \left(A \right)''$ is the set of all bicommutants. We consider the final with respect to the map $\phi''$   topology on $\mathfrak{Gelfand} \left(A \right)''$ and say that the space $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$ (cf. Definition \ref{top_final_defn}).
 \end{definition}
 
-\subsection{Gelfand spaces and good $*$-homomorphisms}
-\paragraph*{}
-If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
-%\be\label{unital_notation_eqn}
-%A^\sim\bydef\begin{cases}
-%	A & \text{if }A \text{ is unital}\\
-%	A^+ & \text{if }A \text{ is not unital}\\
-%\end{cases}
-%\ee
-%where $A^+$ is given by the equation \eqref{a_plus_eqn}.
-%If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
-%is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
-%$If both $A$ and $\widetilde{A}$ are $C^*$-algebras then any injective  $*$-homomorphism 	
-then there is the natural homomorphism of lattices
-\be\label{lat_mor_eqn}
-\begin{split}
-	\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
-	L \mapsto \text{ the $C^*$-norm closure of } \widetilde A \varphi\left(L \right).
-\end{split}
-\ee
-On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi \right)$ yields a mapping of filters
-\be\label{fil_mor_eqn}
-\begin{split}
-	\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
-	\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi \right)\left( L_\la\right) \right\}_{\la \in \La}
-\end{split}
-\ee
-If $\xi \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
-\bean
-\mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi_M \right)\left( \xi\right)\subset \widetilde \xi \right\}
-\eean
-For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $L' \in \xi'$ and $L'' \in \xi''$ such that $L'\cap L'' = \{0\}$. It turns out that
-\bean
-\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)\quad \xi' \neq \xi'' \quad \Rightarrow\\
-\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi ''\right)= \emptyset
-\eean 
-Using the above map one can construct the natural map
-\be\label{ultra_mor_eqn}
-\begin{split}
-	\mathfrak{Ultrafilters}\left(\varphi_M \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
-	\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_M \right)}\mathfrak{Ultrafilters} \left( A\right).
-\end{split}
-\ee
-Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the continuous map 
-	\be\label{gelfand_map_eqn}
-\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
-\ee
-\begin{theorem}\label{good_thm}
-	\begin{enumerate}
-		\item [(i)]	If the  homomorphism $\varphi : A\to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
-		\item[(ii)] Moreover if $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} open (cf. Definition  \ref{top_onen_map_defn}).
-	\end{enumerate}
-
-\end{theorem}
-\begin{proof}(i)
-	If $L \subset A$ is a closed left ideal and 
-	\bean
-\widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi_M\left(L \right).
-\eean	
-then $\widetilde L$ is a closed left ideal and	
-	\bean
-	\mathfrak{Gelfand}\left(\varphi_M \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
-	\eean 
-	So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
-	
-(ii)	Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
-	\bean
-	L = \bigcap \left\{L' \subset A \left| {\widetilde L} \subset  \widetilde A \varphi_M\left( L'\right) \right.\right\}\subset A
-	\eean
-	is a closed left ideal of $A$. From the above definition of $\mathfrak{Gelfand}\left(\varphi_M \right)$ it turns out that $$\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)\subset \mathfrak{Gelfand}\left(A \right)_L.$$ 
-	Any $\xi \in \mathfrak{Gelfand}\left(A \right)_L$ is given by the ultrafilter $\left\{L_\la\right\}$, such that there is $L_{\la_0}\in \left\{L_\la\right\}$ with $L_{\la_0}\subset L$. If 
-		\bean
-	\widetilde L_{\la_0}\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi_M\left(L_{\la_0} \right).
-	\eean
-	then
-	\be\label{ll0_eqn}
-	\widetilde L_{\la_0}\subset  \widetilde L.
-	\ee
-	There exists an ultrafilter $\left\{\widetilde L_\a\right\}$ such that  $\left\{\widetilde L_\la\right\}\subset \left\{\widetilde L_\a\right\}$. 	If $\widetilde \xi \in  \mathfrak{Gelfand}\left(\widetilde A \right)$ is represented by  $\left\{\widetilde L_\a\right\}$ then $\mathfrak{Gelfand}\left(\varphi_M \right)\left(\widetilde \xi \right)= \xi$. Otherwise from the equations \eqref{topology_eqn} and \eqref{ll0_eqn} it follows that $\widetilde \xi \in \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$.
-	So one has
-	\bean
-	\forall \xi \in \mathfrak{Gelfand}\left(A \right)_L \quad \exists \widetilde \xi \in\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\quad \xi = \mathfrak{Gelfand}\left(\varphi_M \right)\left(\widetilde \xi \right). 
-	\eean 
-and the above equation means that $\mathfrak{Gelfand}\left(A \right)_L \subset \mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right) $.	Taking into account $\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)\subset \mathfrak{Gelfand}\left(A \right)_L$ one concludes that
-	$$
-	\mathfrak{Gelfand}\left(\varphi_M \right)\left( \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}\right)= \mathfrak{Gelfand}\left(A \right)_L,
-	$$
-	i.e. the image of an element   $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$  of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element  $\mathfrak{Gelfand}\left( A \right)_{ L}$ of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$. It follows that  the image of an element    of the basis of topology $\mathfrak{Gelfand}\left(\widetilde A \right)$ is an element   of the basis  of topology $\mathfrak{Gelfand}\left( A \right)$, so  the map $\mathfrak{Gelfand}\left(\varphi_M \right)$ is open.
-\end{proof}
-\begin{remark}\label{good_rem}
-The Theorem \ref{good_thm} yields  a contravariant functor
-\be
-\mathfrak{Good}~ C^*
-\text{-}\mathfrak{alg}\xrightarrow{\mathfrak{Gelfand}} \mathfrak{Top}
-\ee
-  of $C^*$-algebras and good $*$-homomorphisms (cf. Remark \ref{good_hom_rem}) to the category  $\mathfrak{Top}$ of topological spaces and continuous maps.  We say that $\mathfrak{Gelfand}$ it is the  {\it Gelfand functor}.
-  Any functor  $\mathfrak{Top}\to \mathscr C$ naturally yields the functor $\mathfrak{Good}~ C^*
-  \text{-}\mathfrak{alg}\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
-\end{remark}
-From the Theorem \ref{good_thm} if follows that for any good inclusion $
-\phi: C_0\left( 
-\sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
-\be
-\sX \xrightarrow{{\mathfrak{Gelfand}}\left( \phi\right)} \mathfrak{Gelfand}\left( A\right) 
-\ee
+\section{Gelfand spaces and good $*$-homomorphisms}
 \begin{definition}
 	 A $C^*$-algebra is {
 	 \it  Dauns-Hoffman algebra} if there is the natural inclusion 
@@ -1021,7 +1016,7 @@ If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \
 \begin{definition}\label{comp_defn}
 	An equivalence classes of projections  $\sV'\in V\left(A'^\sim \right)$ and $\sV''\in V\left(A''^\sim \right)$  represented by $e_{A'}\in 	\mathbb{M}_\infty \left( A'^~\right)$ and $e_{A''}\in 	\mathbb{M}_\infty \left( A''^~\right)$ (cf. Definition \ref{projection_equivalence_defn}) are  $M\left(\widetilde A\right)$-{\it equivalent} if $\phi_{A'} \left(e_A' \right)\sim\phi_{A''} \left(e_A'' \right)$ where the equivalence relation $\sim$ is given by the Definition \ref{projection_equivalence_defn}.
 \end{definition}
-\subsection{Coverings of $C^*$-algebras}
+\section{Coverings of $C^*$-algebras}
 
 
 \begin{definition}\label{covering_defn}
@@ -8127,6 +8122,650 @@ then $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a pre-$C^*$-algebra, and the Fo
 	\end{split}
 	\ee
 \end{empt}
+
+\section{Spectral triples}
+
+\paragraph{}
+This section contains citations of  \cite{hajac:toknotes}. 
+\subsection{Definition of spectral triples}\label{sp_tr_defn_sec}
+\begin{defn}
+	\label{df:spec-triple}\cite{hajac:toknotes}
+	A (unital) {\it {spectral triple}} $(\A, \H, D)$ consists of:
+	\begin{itemize}
+		\item
+		an unital pre-$C^*$-algebra $\A$ with an involution $a \mapsto a^*$, equipped
+		with a faithful representation on:
+		\item
+		a \emph{Hilbert space} $\H$; and also
+		\item
+		a \emph{self-adjoint operator} $D$ on $\mathcal{H}$, with dense domain
+		$\Dom D \subset \H$, such that $a(\Dom D) \subseteq \Dom D$ for all 
+		$a \in \mathcal{A}$.
+	\end{itemize}
+\end{defn}
+\begin{defn}
+	\label{df:spt-real_defn}\cite{hajac:toknotes}
+	A {\it real  spectral triple} is a  spectral triple $(\sA, \sH, D)$,
+	together with an antiunitary operator $J\:\sH\to\sH$ such that
+	$J(\Dom D)\subset \Dom D$, and 
+	\be\label{df:spt-real_eqn}
+	[a, Jb^*J^\dagger] = 0
+	\ee for all
+	$a, b \in \sA$.
+\end{defn}
+
+\begin{defn}
+	\label{df:spt-even}\cite{hajac:toknotes}
+	A  spectral triple $(\sA, \sH, D)$ is {\it even} if there is
+	a selfadjoint unitary \textit{grading operator} $\Ga$ on $\sH$ such that $a\Ga = \Ga a$
+	for all $a \in \sA$, $\Ga(\Dom D) = \Dom D$, and $D\Ga = -\Ga D$. If
+	no such $\bZ_2$-grading operator $\Ga$ is given, we say that
+	the spectral triple is {\it odd}.
+\end{defn}
+There is a set of axioms for  spectral triples described in \cite{hajac:toknotes,varilly:noncom}. In this article the following axioms are used only.
+\begin{axiom}\label{regularity_axiom}\cite{varilly:noncom} (Regularity). 
+	For any $a \in \A$, $[D,a]$ is a bounded operator on~$\H$, and both
+	$a$ and $[D,a]$ belong to the domain of smoothness
+	$\bigcap_{k=1}^\infty \Dom(\delta^k)$ of the derivation $\delta$
+	on~$B(\H)$ given by $\delta(T) \stackrel{\mathrm{def}}{=} [\left|D\right|,T]$.
+\end{axiom}
+\begin{axiom}\label{finiteness_axiom}
+	(Finiteness)
+	The subspace of smooth vectors
+	$\sH^\infty \bydef \bigcap_{k\in\bN} \Dom D^k$ is a \emph{finitely
+		generated projective} left  $\sA$-module.
+	
+	This is equivalent to saying that, for some $N \in \bN$, there is a 
+	projector $p = p^2 = p^*$ in~$M_N(\sA)$ such that 
+	$\sH^\infty \isom \sA^N p$ as left  $\sA$-modules. 
+\end{axiom}
+\begin{axiom}[Real structure]
+	The antiunitary operator $J : \sH \to \sH$ satisfying
+	$J^2 = \pm 1$, $JDJ^\dagger = \pm D$, and $J\Ga = \pm \Ga J$ in the even
+	case, where the signs depend only on $n \bmod 8$ (and thus are given
+	by the table of signs for the standard commutative examples).
+	\[
+	\begin{array}[t]{|c|cccc|}
+		\hline
+		n \bmod 8               & 0 & 2 & 4 & 6 \rule[-5pt]{0pt}{17pt} \\
+		\hline
+		J^2 = \pm 1             & + & - & - & + \rule[-5pt]{0pt}{17pt} \\
+		JD = \pm D J & + & + & + & + \rule[-5pt]{0pt}{17pt} \\
+		J\Ga = \pm\Ga J         & + & - & + & - \rule[-5pt]{0pt}{17pt} \\
+		\hline
+	\end{array}
+	\qquad\qquad
+	\begin{array}[t]{|c|cccc|}
+		\hline
+		n \bmod 8               & 1 & 3 & 5 & 7 \rule[-5pt]{0pt}{17pt} \\
+		\hline
+		J^2 = \pm 1             & + & - & - & + \rule[-5pt]{0pt}{17pt} \\
+		JD = \pm D J & - & + & - & + \rule[-5pt]{0pt}{17pt} \\
+		\hline
+	\end{array}
+	\]
+	Moreover , $b \mapsto J b^* J^\dagger$ is an antirepresentation of $\sA$
+	on~$\sH$ (that is, a representation of the opposite algebra
+	$\sA^\opp$), which commutes with the given representation of~$\sA$:
+	\be\label{st_comn_eqn}
+	[a, J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA,
+	\ee
+	(cf. Definition \ref{df:spt-real_defn}).
+\end{axiom}
+
+
+\begin{axiom}\label{fist_order_st_ax}(First order).
+	For each $a,b \in \sA$, the following relation holds:
+	\begin{equation}\label{fist_order_eqn}
+		[[D, a], J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA.
+	\end{equation}
+	This generalizes, to the noncommutative context, the condition that
+	$D$ be a first-order differential operator.
+	Since 
+	\[
+	[[D, a], Jb^*J^\dagger]
+	= [[D, Jb^*J^\dagger], a] + [D, \underbrace{[a, Jb^*J^\dagger]}_{=0}],
+	\]
+	this is equivalent to the condition that 
+	\be\label{first_order_dual_eqn}
+	[a, [D, Jb^*J^\dagger]] = 0.
+	\ee
+\end{axiom}
+
+
+\begin{axiom}[Orientation]\label{orientation_st_ax}
+	There is a Hochschild $n$-cycle
+	$$
+	\cc = \tsum_j (a_j^0 \ox b_j^0) \ox a_j^1 \oxyox a_j^n 
+	\in Z_n(\sA, \sA \ox \sA^\opp),
+	$$
+	such that
+	\begin{equation}\label{eq:vol-cond}
+		\pi_D(\cc)
+		\equiv \tsum_j a_j^0 (J b_j^{0*} J^{-1}) \,[D,a_j^1] \dots [D,a_j^n]
+		= \begin{cases} \Ga, &\text{if $n$ is even}, \\
+			1, &\text{if $n$ is odd}. \end{cases}
+	\end{equation}
+\end{axiom}
+
+
+\begin{lem}
+	\label{lm:proj-approx}\cite{hajac:toknotes}
+	Let $\sA$ be an unital Fr\'echet pre-$C^*$-algebra, whose
+	$C^*$-completion is~$A$. If $\tilde{q} = \tilde{q}^2 = \tilde{q}^*$ is
+	a projection in $A$, then for any $\eps > 0$, we can find a projection
+	$q = q^2 = q^* \in \sA$ such that $\|q - \tilde{q}\| < \eps$.
+\end{lem}
+\begin{theorem}\label{smooth_k_iso_thm}\cite{varilly_bondia}
+	If $\sA$ is  a Fr\'echet pre-$C^*$-algebra with $C^*$-completion $A$, then the inclusion $j: \A \to A$ induces an isomorphism $K_0\left( j\right) : K_0\left(\A\right)\to K_0\left(A\right)$.
+\end{theorem}
+\begin{remark}\label{smooth_k_iso_rem}
+	The $K_0$-symbol in the above Theorem is the $K_0$-functor of $K$-theory (cf. \cite{bass,blackadar:ko}). The $K_0$-functor is related to projective finitely generated modules. Otherwise any projective finitely generated module corresponds to the idempotent of the matrix algebra. The idea of the proof of the Theorem \ref{smooth_k_iso_thm} contains following ingredients:
+	\begin{itemize}
+		\item For any idempotent $\tilde e \in \mathbb{M}_n\left(A\right)$ one constructs and idempotent $e\in \mathbb{M}_n\left(\A\right)$ such that there is the isomorphisms $\tilde e A^n\cong e A^n$ of $A$-modules.
+		\item The inverse to $K_0j$ homomorphism is roughly speaking given by
+		$$
+		\left[e\A^n\right]\mapsto \left[ \tilde e A^n\right] 
+		$$
+		where $\left[\cdot \right]$ means the $K$-theory class  of projective finitely generated module. From the isomorphism $\tilde e A^n\cong e A^n$ the above equation can be replaced with
+		\be\label{smooth_k_iso_eqn}
+		\left[e\A^n\right]\mapsto \left[  e A^n\right]
+		\ee
+	\end{itemize}
+\end{remark}
+\subsection{Representations of  smooth algebras}\label{s_repr}
+
+\paragraph*{}
+Let $(\A, \H, D)$ be a spectral triple. Similarly to \cite{bram:atricle} we  define a representation of $\pi^1:\A \to B(\H^2)$ given by
+\begin{equation}\label{s_diff1_repr_equ}
+	\pi^1(a) =  \begin{pmatrix} a & 0\\
+		[D,a] & a\end{pmatrix}.
+\end{equation}
+We can inductively construct  representations $\pi^s: \A \to B\left(\H^{2^s}\right)$ for any $s \in \mathbb{N}$. If $\pi^s$ is already constructed then  $\pi^{s+1}: \A \to B\left(\H^{2^{s+1}}\right)$ is given by
+\begin{equation}\label{s_diff_repr_equ}
+	\pi^{s+1}(a) =  \begin{pmatrix}  \pi^{s}(a) & 0 \\ \left[D,\pi^s(a)\right] &  \pi^s(a)\end{pmatrix}
+\end{equation}
+where we assume diagonal action of $D$ on $\H^{2^s}$, i.e.
+\begin{equation*}
+	D \begin{pmatrix} x_1\\ ... \\ x_{2^s}
+	\end{pmatrix}= \begin{pmatrix} D x_1\\ ... \\ D x_{2^s}
+	\end{pmatrix}; \ x_1,..., x_{2^s}\in \H.
+\end{equation*}
+For any $s \in \N^0$ there is a seminorm $\left\|\cdot \right\|_s$  on $\A$ given by
+\begin{equation}\label{s_semi_eqn}
+	\left\|a \right\|_s = \left\| \pi^{s}(a) \right\|.
+\end{equation}
+The definition of spectral triple requires that $\A$ is a Fr\'echet algebra with respect to seminorms $\left\|\cdot \right\|_s$.
+
+
+\subsection{Noncommutative differential forms}\label{ass_cycle_sec}
+
+\paragraph*{} 
+\begin{defn}\cite{connes:ncg94}\label{cycle_defn}
+	\begin{enumerate}
+		\item [(a)]  A \textit{cycle} of dimension $n$ is a triple $\left(\Om, d, \int \right)$ where $\Om = \bigoplus_{j=0}^n\Om^j$  is a graded algebra over $\C$, $d$ is a graded derivation of degree 1 such that $d^2=0$, and $\int :\Om^n \to \C$ is a closed graded trace on $\Om$,
+		\item[(b)] Let $\A$  be an algebra over $\C$. Then a \textit{cycle over } $\A$ is given by a cycle $\left(\Om, d, \int \right)$	and a homomorphism $\A \to \Om^0$.
+	\end{enumerate}
+\end{defn}
+\begin{empt}\label{connes_cycle_empt}
+	We  let $\Om^*\A$ be the reduced universal differential graded algebra over $\A$ (cf. \cite{connes:ncg94} Chapter III.1).
+	It is by definition equal to $\A$ in degree 0 and is generated by symbols $da$ ($a \in \A$) of
+	degree 1 with the following presentation:
+	\begin{enumerate}
+		\item[$(\a)$] $d(ab) = (da)b + adb \quad \forall a, b \in \A$,
+		\item[$(\bt)$] $d1 = 0$.
+	\end{enumerate}
+	
+	One can check that $\Om^1\A$ is isomorphic as an $\A$-bimodule to the kernel $\ker(m)$ of the
+	multiplication mapping $m : \A\otimes\A \to A$, the isomorphism being given by the mapping
+	$$
+	\sum a_j \otimes b_j \in \ker(m) \mapsto \sum a_j d b_j\in \Om^1\A
+	$$
+	The involution * of $\A$ extends uniquely to an involution on * with the rule
+	$$
+	\left(da \right)^* \stackrel{\text{def}}{=} - da^*.
+	$$
+	The differential $d$ on $A$ is defined unambiguously by
+	$$
+	d(a_0da_1 ... da_n) =  da_0da_1 ... da_n \quad \forall a_j \in \A,
+	$$
+	and it satisfies the relations
+	\bean
+	d^2\om = 0 \quad \forall \om \in \Om^*\A,\\
+	d(\om_1\om_2) = (d\om_1)\om_2 + \left( -1\right)^{\partial \om_1} \om_1 d\om_2.
+	\eean
+	
+\end{empt}
+\begin{proposition}\label{st_cycle_connes_prop}\cite{connes:ncg94}
+	Let  $\left( \A, \H, D\right)$  be a spectral triple.
+	\begin{enumerate}
+		\item 	The following equality defines a $*$-representation $\pi$ of the reduced universal
+		algebra $\Om^*\A$ on $\H$:
+		\be\label{diff_repr_eqn}
+		\pi(a_0da_1 ... da_n) = a_0[D, a_1] ... [D, a_n] \quad \forall a_j \in \A.
+		\ee
+		\item Let $J_0 = \ker \pi$  be the graded two-sided ideal of $\Om^*\A$ given by 
+		\be\label{junk_grad_eqn}
+		J_0^k = \left\{\left.\om \in \Om^k~\right| \pi\left(\om \right)=0 \right\}
+		\ee
+		then 
+		\be\label{junk_cycle_eqn}
+		J = J_0 + dJ_0
+		\ee
+		is a graded differential two-sided ideal of
+		$\Om^*\A$.
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	Using 2) of Proposition \ref{st_cycle_connes_prop}, we can now introduce the graded differential algebra
+	\be\label{connes_cycle_eqn}
+	\Om_D \bydef \Om^*\A/J.
+	\ee
+\end{remark}
+
+Thus any spectral triple $\left( \A, \H, D\right)$  naturally defines a cycle $\rho : \A \to \Om_D$ (cf. Definition \ref{cycle_defn}). 
+In particular for any spectral triple there is an $\A$-bimodule $\Om^1_D\subset B\left(\H \right) $ of differential forms which is the $\C$-linear span of operators given by
+\begin{equation}\label{dirac_d_module}
+	a\left[D, b \right];\quad a,b \in \A.
+\end{equation}
+There is the differential map
+\begin{equation}\label{diff_map_eqn}
+	\begin{split}
+		d: \A \to \Om^1_D, \\
+		a \mapsto \left[D, a \right].
+	\end{split}
+\end{equation}
+
+\begin{definition}\label{ass_cycle_defn}
+	We say that that both the cycle $\rho : \A \to \Om_D$ and the differential \eqref{diff_map_eqn} are \textit{associated} with the triple  $\left( \A, \H, D\right)$. We say that  $\A$-bimodule $\Om^1_D$ is the \textit{module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$.
+\end{definition}
+
+\subsection{Noncommutative connections and curvatures}
+
+\begin{defn}\label{connection_defn}\cite{connes:ncg94}
+	Let $\A\xrightarrow{\rho} \Om$ be a cycle over $\A$, and $\E$ a finite projective module over $\A$.
+	Then a \textit{connection} $\nabla$ on $\E$ is a linear map  $\nabla: \E \to \E \otimes_{\A} \Om^1$ such that
+	\be\label{conn_prop_eqn}
+	\nabla\left(\xi x \right) =  \nabla\left(\xi \right) x =  \xi \otimes d\rho\left(x \right) ; ~ \forall \xi \in \E, ~ \forall x \in \A.
+	\ee
+	Here $\E$ is a right module over $\A$ and $\Om^1$ is considered as a bimodule over $\A$.
+\end{defn}
+\begin{remark}
+	In case of associated cycles (cf. Definition \ref{connection_defn}) the connection equation \eqref{conn_prop_eqn} has the following form
+	\be\label{conn_triple_eqn}
+	\nabla \left(\xi a \right) = \nabla \left(\xi \right) a + \xi \left[ D,a\right] .
+	\ee
+\end{remark}
+
+
+\begin{rem}
+	The map $\nabla: \E \to \E \otimes_{\A} \Om^1$ is an algebraic analog of the map $\nabla : \Ga\left( E\right) \to \Ga\left( E \otimes T^*\left( M\right) \right)$ given by \eqref{comm_alg_conn}. 
+\end{rem}
+
+\begin{prop}\label{conn_prop}\cite{connes:ncg94}
+	Following conditions hold:	
+	\begin{enumerate} 
+		\item[(a)] 	Let $e \in \End_{\A}\left( \E\right)$ be an idempotent and $\nabla$ is a connection on $\E$; then 
+		\be\label{idem_conn}
+		\xi \mapsto \left(e \otimes 1 \right) \nabla \xi
+		\ee
+		is a connection on $e\E$,
+		\item[(b)] Any finitely generated projective module $\E$ admits a connection,
+		\item[(c)]  The space of connections is an affine space over the vector space $\Hom_{\sA}\left(\E, \E \otimes_{\A} \Om^1 \right)$, 
+		\item[(d)] Any connection $\nabla$ extends uniquely up to a linear map  of  $\widetilde{\mathcal E}= \mathcal E \otimes_{\A} \Om$ into itself
+		such that
+		\be\label{eop_into_eqn}
+		\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
+		\ee
+	\end{enumerate}
+\end{prop}
+\begin{remark}\label{conn_rem}
+	The Proposition \ref{conn_prop} implicitly assumes that $\mathcal E\cong  \mathcal E \otimes_{\A} \A\cong \mathcal E \otimes_{\A} \Om^0$ so  there is the natural inclusion
+	\be\label{conn_eqn}
+	\mathcal E \subset \mathcal E \otimes_{\A} \Om
+	\ee
+	of right $\A$-modules.
+	
+\end{remark}
+
+
+
+\subsection{Connection and curvature}
+\begin{definition}\label{curvature_definition}
+	A \textit{curvature} of a connection $\nabla$ is a (right $\A$-linear) map
+	\be
+	F_\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^2
+	\ee
+	defined as the restriction of $\nabla \circ \nabla$ to $\mathcal E$, that is, $F_{\nabla}\bydef \left.\nabla \circ \nabla \right|_{\mathcal E}$ (cf. \eqref{eop_into_eqn},\eqref{conn_eqn}).
+	A connection is said to be \textit{flat} if
+	its curvature is identically equal to $0$ (cf. \cite{brzezinsky:flat_co}).
+\end{definition}
+
+
+\begin{remark}
+	Above algebraic notions of curvature and flat connection are generalizations of corresponding geometrical notions explained in \cite{kobayashi_nomizu:diff_geom} and the Section \ref{geom_flat_subsec}.
+\end{remark}
+\begin{defn}\label{triv_conn_defn}
+	
+	For any projective $\A$ module $\mathcal E$ there is the unique \textit{trivial connection}
+	\bean
+	\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\
+	\nabla = \Id_{\mathcal E} \otimes d.
+	\eean
+\end{defn}
+\begin{remark}\label{triv_conn_rem}
+	From $d^2 = d \circ d = 0$ it follows that $\left(\Id_{\mathcal E} \otimes d \right) \circ   \left(\Id_{\mathcal E} \otimes d \right)$ = 0, i.e. any trivial connection is flat.
+\end{remark}
+
+
+
+\subsection{Commutative spectral triples}\label{comm_sp_tr_sec}
+
+\paragraph*{} This section contains citation of \cite{hajac:toknotes,varilly:noncom}.
+
+
+
+\subsection{Spin$^{c}$ manifolds}\label{spin_mani_sec}
+\paragraph*{}
+%	 \bean
+%	  	Xe^2 x = Xe \cdot e x + e \cdot X e x + e\cdot  %Xx= Xe \cdot x + e\cdot Xx\\
+% 	    Xe \cdot e x + e \cdot X e x = Xe \cdot x 
+%	 \eean
+% 	 \bean
+% 	 Xe^2  = Xe \cdot  e + e \cdot X  e = Xe \\
+%  	 e \cdot Xe \cdot e = 0.
+%    	 \eean
+Let  $M$ be a compact $n$-dimensional orientable Riemannian manifold with a metric~$g$ on  its tangent bundle~$TM$.  For any section  $X \in \Ga\left(M, TM \right)$ of the tangent bundle there is the \textit{derivative}  (cf. \cite{kobayashi_nomizu:diff_geom})
+$$
+X: \Coo\left(M \right) \to C\left( M\right) 
+$$
+We say that $X$ is \textit{smooth} if $X \left(  \Coo\left(M \right)\right) \subset\Coo\left(M \right)$.
+Denote by $\Ga^\infty\left(M, TM \right)$ the space of smooth vector fields. %For all $X \in  \Ga^\infty\left(M, TM \right)$ there is the  \textit{Lie derivative}
+% \bean
+% 	L_X : \Ga^\infty\left(M, TM \right)\to \Ga^\infty\left(M, TM \right);\\
+%	Y \mapsto \left[X, Y\right]
+%\eean
+A  \textit{tensor bundle}  corresponds to a tensor products
+$$
+\Ga\left(M, TM \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, TM \right)
+$$
+\textit{Smooth sections} of tensor bundle correspond to elements of
+\bean
+\Ga^\infty\left(M, TM \right)\otimes_{C^\infty\left( M\right) } ...\otimes_{C^\infty\left( M\right) } \Ga^\infty\left(M, TM \right)\subset \\ \subset\Ga\left(M, TM \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, TM \right).
+\eean
+The metric  tensor $g\bydef \left[g_{jk}\right]$ (cf. Remark \ref{riemann_mani_rem}) is a section of the tensor  bundle, or equivalently $g\in\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$,  we suppose that the section is smooth, i.e $g\in\Ga^\infty\left(M, TM \right)\otimes_{\Coo\left( M\right) }\Ga^\infty\left(M, TM \right)$. On the other hand $g$ yields the isomorphism
+$$
+\Ga\left(M, TM \right)\cong \Ga\left(M, T^*M \right)
+$$
+between sections of the tangent and the cotangent bundle. The section of cotangent bundle is said to be \textit{smooth} if it is an image of the smooth section of the tangent bundle. Below we consider tensor bundles which correspond to tensor products of exemplars of $\Ga\left(M, T^*M \right)$ and/or $\Ga\left(M, T^*M \right)$.
+The metric tensor  yields the given by
+\be\label{top_vol_eqn}
+v = \sqrt{\left[ g_{jk}\right] }~dx_1...dx_n
+\ee
+\textit{volume element} (cf. \cite{do_carmo:rg}. The volume element can be regarded as an element of $\Ga\left(M, T^*M \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, T^*M \right)$, i.e. $v$ is a section of the tensor field. On the other hand element $v$ defines the unique \textit{Riemannian measure} $\mu$ on $M$.
+If $E \to M$ is a complex bundle then from the Serre-Swan Theorem \ref{serre_swan_thm} it turns out that there is an idempotent $e \in \mathbb{M}_n\left(C\left(M \right)  \right)$ such that there is the  $C(M)$-module isomorphism
+$$
+\Ga\left(M, E \right) \cong e C\left(M \right)^n.
+$$
+From the Theorem \ref{smooth_k_iso_thm} one can suppose that $e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)$ (cf. Remark \ref{smooth_k_iso_rem}).
+\begin{definition}\label{top_smooth_m_defn}
+	The isomorphic to $e \Coo\left(M \right)^n$ group  with the induced by
+	\be\label{top_smooth_m_eqn}
+	\Ga^\infty\left(M, E \right) \cong e \Coo\left(M \right)^n \subset e C\left(M \right)^n\cong \Ga\left(M, E \right)\quad e \in \mathbb{M}_n\left(\Coo\left(M \right)  \right)
+	\ee
+	inclusion $\Ga^\infty\left(M, E \right) \subset \Ga\left(M, E \right)$ is said to be the subgroup of \textit{smooth sections}.
+\end{definition} 
+It is clear that 
+\be
+\Coo\left(M \right)\Ga^\infty\left(M, E \right)\subset \Ga^\infty\left(M, E \right)
+\ee
+and the map
+$$
+\Ga^\infty\left(M, E \right)\mapsto \Ga\left(M, E \right)
+$$
+yields the given by the Theorem \ref{smooth_k_iso_thm} isomorphism $K_0\left(\Coo\left(M \right) \right) \cong K_0\left( C\left(M \right)\right) $. 
+It can be proved that   the Definition \ref{top_smooth_m_defn} complies with the above definition of smooth tensor fields.
+We build a Clifford algebra bundle
+$\C\ell(M) \to M$ whose fibres are full matrix algebras (over ~$\C$) as
+follows. If $n$ is even, $n = 2m$, then
+$\C\ell_x(M) \bydef \Cl(T_xM,g_x) \ox_\R \C \simeq M_{2^m}(\C)$ is the
+complexified Clifford algebra over the tangent space $T_xM$. If $n$ is
+odd, $n = 2m + 1$, the analogous fibre splits as
+$\mathbb{M}_{2^m}(\C) \oplus \mathbb{M}_{2^m}(\C)$, so we take only the \textit{even}
+part of the Clifford algebra:
+$\C\ell_x(M) \bydef \Cl^\mathrm{even}(T_xM) \ox_\R \C \simeq \mathbb{M}_{2^m}(\C)$. %The price 	we pay for this choice is that we lose the $\Z_2$-grading of the 	Clifford algebra bundle in the odd-dimensional case.	
+What we gain is that in all cases, the bundle
+\be\label{st_cliffod_eqn}
+\C\ell(M) \to M
+\ee
+is a locally trivial field of (finite-dimensional) elementary
+$C^*$-algebras, so $B = \Ga\left( M, \C\ell(M)\right)$ is a $C^*$-algebra % Such a field is classified, up to equivalence, by a 	third-degree \v{C}ech cohomology class 	$\delta(\C\ell(M)) \in H^3(M,\Z)$ called the Dixmier-Douady   	class~\cite{dixmier_a_r}.	Locally, one finds trivial bundles with fibres
+$S_x$ such that 
+\be\label{st_spinor_eqn}
+\C\ell_x(M) \simeq \End(S_x);
+\ee the
+class~$\delta(\C\ell(M))$ is precisely the obstruction to patching them
+together (there is no obstruction to the existence of the algebra
+bundle $\C\ell(M)$). It was shown by Plymen~\cite{plymen:mor_s} that
+$\delta(\C\ell(M)) = W_3(TM)\in  H^3(M,\Z)$, the integral class that is the
+obstruction to the existence of a \textit{Spin$^c$ structure} in the
+conventional sense of a lifting of the structure group of~$TM$ {}from
+$SO(n)$ to $\Spin^c(n)$: see \cite{lawson_m} for more
+information on~$W_3(TM)$.
+
+Thus $M$ admits Spin$^c$ structures if and only if
+$\delta(\C\ell(M)) = 0$. But in the Dixmier--Douady theory,
+$\delta(\C\ell(M))$ is the obstruction to constructing (within the
+$C^*$-category) a $B$-$A$-bimodule $\SS$ that implements a Morita
+equivalence between $A = C(M)$ and $B = C(M,\C\ell(M))$. Let us
+paraphrase Plymen's redefinition of a Spin$^c$ structure, in the
+spirit of noncommutative geometry:
+\begin{definition}\label{spin_str_defn}
+	Let $M$ be a Riemannian manifold, $A = C(M)$ and\\
+	$B = C(M,\C\ell(M))$. We say that the tangent bundle $TM$
+	\textit{admits a }Spin$^c${ structure} if and only if it is orientable
+	and $\delta(\C\ell(M)) = 0$. In that case, a \textit{Spin$^{\bf c}$
+		structure} on~$TM$ is a pair $(\eps,S)$ where $\eps$ is an
+	orientation on~$TM$ and $S$ is a $B$-$A$-equivalence bimodule.
+\end{definition}
+
+%	Following an earlier terminology introduced by Atiyah, Bott and
+%	Shapiro~\cite{atiyah_b_s} in their seminal paper on Clifford modules,
+%	the pair $(\eps,\SS)$ is also called a \textbf{$K$-orientation}
+%	on~$M$. Notice that $K$-orientability demands more than mere
+%	orientability in the cohomological sense.
+
+What is this equivalence bimodule~$\SS$? By the Serre-Swan theorem  \ref{serre_swan_thm}, it
+is of the form $\Ga(M, S)$ for some complex vector bundle $S \to M$ that also
+carries an irreducible left  action of the Clifford algebra bundle
+$\C\ell(M)$. This is the \textit{spinor bundle} whose existence displays
+the Spin$^c$ structure in the conventional picture. We call
+$\Ga^\infty(M,S)$ the \textit{spinor module}; it is an irreducible
+Clifford module in the terminology of~\cite{atiyah_b_s}, and has
+rank~$2^m$ over $C(M)$ if $n = 2m$ or $2m + 1$.
+\begin{remark}
+	If $\B \bydef \Ga^\infty \left(M, \C\ell(M) \right)$ then $\B$ is an be an unital Fr\'echet pre-$C^*$-algebra, such that $\B$ is dense in $B$. Similarly if $\A\bydef \Coo\left(M \right)$ then $\A$ is dense in  $A\bydef C\left(M \right)$. The Morita equivalence between $B$ and $A$ is given by the projective $B$-$A$ bimodule $\Ga\left(M,S \right)$. Similarly  the Morita equivalence between $\B$ and $\A$ is given by the projective $\B$-$\A$ bimodule $\Ga^\infty\left(M,S \right)$.
+\end{remark}
+\begin{empt}
+	Let $\sS^\sharp\bydef \Hom_{C\left(M\right)}\left(\Ga\left(M,S \right), C\left(M\right) \right)$
+\end{empt}
+
+\begin{prop}\label{pr:charge-conj_prop}\cite{hajac:toknotes}
+	If $\sS^\sharp\bydef \Hom_{C\left(M\right)}\left(\Ga\left(M,S \right), C\left(M\right) \right)$ then 	there is a $B$-$A$-bimodule isomorphism $\sS^\sharp \isom \sS$ if and only
+	if there is an \textit{antilinear} endomorphism $C$ of $\sS$ such that
+	\begin{enumerate}
+		\item[(a)]
+		$C(\psi\,a) = C(\psi) \,\bar a$\quad
+		for $\psi \in \sS$, $a \in A$;
+		\item[(b)]
+		$C(b\,\psi) = \chi(\bar b)\, C(\psi)$\quad
+		for $\psi \in \sS$, $b \in B$;
+		\item[(c)]
+		$C$ is \emph{antiunitary} in the sense that
+		$\pairing{C\phi}{C\psi} = \pairing{\psi}{\phi} \in A$,\quad
+		for $\phi, \psi \in \sS$;
+		\item[(d)]
+		$C^2 = \pm 1$ on $\sS$ whenever $M$ is connected.
+	\end{enumerate}
+\end{prop}
+\begin{remark}\label{pr:charge-conj_rem}
+	Operator $C$ from the Proposition \ref{pr:charge-conj_prop} is a bijective isomorphism $\Ga\left(M,S \right)\cong \Ga\left(M,S \right)$ of Abelian groups. On the other hand since $\Ga\left(M,S \right)$ is dense in $L^2\left(M, S, \mu \right)$ it can be extended up to antiunitary  operator $J:L^2\left(M, S, \mu \right)\cong L^2\left(M, S, \mu \right)$. According to the construction of commutative real spectral triples $J$ is an operator which defines the structure of a real spectral triple (cf. Definition \ref{df:spt-real_defn}).
+\end{remark}
+
+
+
+\begin{remark}\label{top_spin_prod_rem}\cite{varilly:noncom}
+	Any spinor bundle $S$ has a sesquilinear form $S \times_\sX S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). In \cite{varilly:noncom} a bundle with  sesquilinear form is said to be a \textit{Hermitian bundle}.
+\end{remark}
+
+
+%Another matter is how to fit into this picture \textit{spin
+	%	structures} on~$M$ (liftings of the structure group of~$TM$ from
+%$SO(n)$ to $\Spin(n)$ rather than $\Spin^c(n)$). These are
+%distinguished by the availability of a %\textit{conjugation
+	%	operator}~$J$ on the spinors (which is antilinear); we shall take up
+%this matter later.
+
+
+
+
+\subsection{The Dirac operator}\label{comm_dirac_sec}
+\paragraph{}
+As soon as a spinor module makes its appearance, one can introduce the
+\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
+of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
+This is a selfadjoint first-order
+differential operator $\Dslash$ defined on the space $\H$
+of square-integrable spinors, whose domain includes the space of smooth spinors
+$\SS = \Ga^\infty\left(M, S \right)$.  The Riemannian metric $g = [g_{ij}]$
+defines isomorphisms $T_xM \simeq T^*_xM$ and induces a metric
+$g^{-1} = [g^{ij}]$ on the cotangent bundle $T^*M$. Via this
+isomorphism, we can redefine the Clifford algebra as the bundle with
+fibres $\C\ell_x(M) \bydef \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
+by $\Cl^\mathrm{even}$ when $\dim M$ is odd). Let $\Ga(M, T^*M)$ be
+the $C\left( M\right) $-module of \hbox{$1$-forms} on~$M$. 
+The spinor module $\SS$ is
+then a $B$-$A$-bimodule on which the algebra $B = \Ga\left( M,\C\ell\left( M\right) \right) $
+acts irreducibly. If 
+\be\label{spin_gamma_eqn}
+\begin{split}
+	\ga: B \cong \End_A\left( \SS\right) \\
+	\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_{C\left(M \right) }\left( \Ga\left(M,S \right) \right)
+\end{split}
+\ee	
+is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
+$$
+\{\ga(\a), \ga(\b)\} = -2 g^{-1}(\a,\b) = -2 g^{ij} \a_i \b_j\in C\left( M\right) 
+\sepword{for}  \a,\b \in \Ga(M, T^*M).
+$$
+The action~$\ga$ of $\Ga(M, \C\ell(M))$ on the Hilbert-space completion
+$\H$ of~$\SS$ is called the \textit{spin representation}.
+
+The metric $g^{-1}$ on $T^*M$ gives rise to a canonical
+\textit{Levi-Civita connection}\\
+$\nabla^g \: \Ga^\infty(M, T^*M) \to \Ga^\infty(M, T^*M) \otimes_\A \Ga^\infty(M, T^*M)$ that, as well as
+obeying the Leibniz rule
+$$
+\nabla^g(\om a) = \nabla^g(\om)\,a + \om \ox da,
+$$
+preserves the metric and is torsion-free. The \textit{spin connection}
+is then a linear operator
+\be\label{spin_conn_defn_eqn}
+\begin{split}
+	\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_{\Coo\left(M \right) } \Ga^\infty(M, TM)
+\end{split}
+\ee
+satisfying two Leibniz rules, one for the right action of~$\A$ and the
+other, involving the Levi-Civita connection, for the left  action of
+the Clifford algebra:
+\be\label{spin_conn_eqn}
+\begin{split}
+	\nabla^S(\psi a) \bydef \nabla^S(\psi)a + \psi \otimes  da,\\
+	\nabla^S(\ga(\om)\psi)= \ga(\nabla^g\om)\psi + \ga(\om)\nabla^S\psi,
+\end{split}
+\ee
+$$
+%\eqalignno{
+	%	\nabla^S(\psi a) &= \nabla^S(\psi)\,a + \psi \ox da,
+	%	\cr
+	%	\nabla^S(\ga(\om)\psi)
+	%	&= \ga(\nabla^g\om)\,\psi + \ga(\om)\,\nabla^S\psi,
+	%	& (1.3) \cr}
+$$
+for $a \in \A$, $\om \in \Ga^\infty(M, T^*M)$, $\psi \in \Ga^\infty(M, S)$.
+
+Once the spin connection is found, we define the Dirac operator as the
+composition $\ga \circ \nabla^S$; more precisely, the local expression
+\be\label{comm_dirac_eqn}
+\Dslash \bydef \sum_{j=1}^n\ga(dx^j) \, \nabla^S_{\del/\del x^j}
+\ee
+is independent of the local coordinates and defines $\Dslash$ on the domain
+$\SS \subset \H$.
+One can check that this operator is symmetric; it extends to an 	unbounded selfadjoint operator on~$\H$, also called $\Dslash$.
+In result one has the commutative spectral triple
+\be\label{comm_sp_tr_eqn}
+\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash , J  \right).
+\ee
+It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condition (cf. Axiom \ref{fist_order_st_ax}) is equivalent to the following equation
+\begin{equation}\label{comm_matr_x_eqn}
+	\begin{split}
+		\left[ {\slashed D}, {a}\right]b= b\left[ {\slashed D}, {a}\right] \quad\forall a, b \in \Coo\left( M\right).
+	\end{split}
+\end{equation}
+
+
+\subsection{Hermitian connections}
+The operator $\widetilde D$ must be selfadjoint on~$\widetilde\H$. If
+$\xi,\eta \in \Dom(D)$, we get
+\bean
+\left\langle r \otimes \eta \otimes  \overline q\left| \widetilde D\left(  s \otimes \xi \otimes  \overline t \right) \right. \right\rangle =  \left\langle \eta\left|\pi_D\left(\left(r, \nabla s \right)  \right)\pi^0\left(\left( t, q\right)\right) \xi    \right.\right\rangle+\\+ \left\langle \eta\left|\pi\left(\left(r,  s \right)  \right)\pi^0\left(\left( t, q\right)\right) D \xi    \right.\right\rangle
++ \left\langle \eta\left|\pi\left(\left(r,  s \right)  \right)\pi^0_D\left(\left(\nabla  t, q\right)\right)  \xi    \right.\right\rangle,\\
+\\
+\left\langle\left.\widetilde{D} \left( r \otimes \eta \otimes  \overline q\right) \right|   s \otimes \xi \otimes  \overline t  \right\rangle =  \left\langle \eta\left|\pi_D\left(\left(\nabla r,  s \right)  \right)\pi^0\left(\left( t, q\right)\right) \xi    \right.\right\rangle+\\+ \left\langle \eta\left|D\pi\left(\left(r,  s \right)  \right)\pi^0\left(\left( t, q\right)\right) \xi    \right.\right\rangle
++ \left\langle \eta\left|\pi\left(\left(r,  s \right)  \right)\pi^0_D\left(\left(  t, \nabla q\right)\right) \xi    \right.\right\rangle.
+\eean
+This reduces to the condition that
+\be\label{herm_conn_eqn}
+(r,\nabla s) - (\nabla r,s) = [D, (r,s)]
+\sepword{for all} r,s \in \E.
+\ee
+where the order one condition ensures commutation of $\pi_D(\Om_D^1)$
+with $\pi^0(\A)$.
+\begin{definition}\label{herm_conn_defn}\cite{varilly:noncom}.
+	We call the connection $\nabla$ \textit{Hermitian} (with respect
+	to~$D$) if \eqref{herm_conn_eqn} holds.
+\end{definition}
+% The minus sign is due to the presence ofthe selfadjoint operator $D$ where a skewadjoint differential operator is used in the standard definition of a metric-preservingconnection~\cite{BerlineGV,~LawsonM}.
+
+To sum up: two \textit{geometries} $(\A,\H,D,\Ga,J)$ and
+$(\B,\widetilde\H,\widetilde D,\widetilde\Ga,\widetilde J)$ are \textit{Morita-equivalent}
+if there exist a finite projective right $\A$-module $\E$ and an
+$\Om_D^1$-valued Hermitian connection $\nabla$ on~$\E$, such that:
+$\B = \End_\A \E$, $\widetilde\H$ and $\widetilde\Ga$ are given by \eqref{morita_prod_eqn},
+$\widetilde J$ by \eqref{morita_J_eqn}, and $\widetilde D$ by \eqref{morita_d_eqn}.
+\section{Weyl s Theorem}. 
+The simple computation which we carried out above
+has a general counterpart which originates with a famous theorem of Weyl. We
+shall state the theorem in the context of Dirac-type operators
+\begin{thm}\label{weyl_thm}\cite{higson:residue}
+	Let $M$ be a closed Riemannian manifold of dimension $n$,
+	and let $\slashed{D}$ be a Dirac-type operator on M, acting on the sections of some complex
+	Hermitian vector bundle $S$ over $\sS$. The operator $D$ has a unique self-adjoint
+	extension, and $\left|\slashed{D}\right|^{-n} \in \L^{1, \infty}\left(\H \right)$. Moreover
+	\be\label{weyl_eqn}
+	Trace_\om \left(\left| \slashed{D}\right|^{-n}  \right) = \frac{\dim\left( {\sS}\right) \mathrm{Vol}\left(M \right) }{\left( 2 \sqrt{\pi}\right)^n \Ga\left(\frac{n}{2} +1\right)  }.
+	\ee
+\end{thm}  
+
+
+
+
+%%%Henceforth  $\left\{x_{\iota}\right\}_{\iota \in I}$ means a set indexed by finite or countable  set $I$ of indexes.
+
+
+
+
+
 
 
 
