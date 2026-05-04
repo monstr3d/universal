@@ -835,44 +835,47 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\end{split}
 	\ee
 	If $\xi \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
-	\bean
-	\mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi_M \right)\left( \xi\right)\subset \widetilde \xi \right\}
-	\eean
+	\be\label{uphi-inv_eqn}
+	\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi\right)\left( \xi\right)\subset \widetilde \xi \right\}
+	\ee
 	For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $L' \in \xi'$ and $L'' \in \xi''$ such that $L'\cap L'' = \{0\}$. It turns out that
 	\bean
 	\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)\quad \xi' \neq \xi'' \quad \Rightarrow\\
-	\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi ''\right)= \emptyset
+	\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi ''\right)= \emptyset
 	\eean 
 	Using the above map one can construct the natural map
 	\be\label{ultra_mor_eqn}
 	\begin{split}
-		\mathfrak{Ultrafilters}\left(\varphi_M \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
-		\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi_M \right)}\mathfrak{Ultrafilters} \left( A\right).
+		\mathfrak{Ultrafilters}\left(\varphi \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
+		\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi \right)}\mathfrak{Ultrafilters} \left( A\right).
 	\end{split}
 	\ee
 	Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the continuous map 
 	\be\label{gelfand_map_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
 	\ee
 	\begin{theorem}\label{good_thm}
-		\begin{enumerate}
-		If the  homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
+		\begin{enumerate} One has
+			\begin{enumerate}
+				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
+				\item[(ii)] If $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} is surjective.
+			\end{enumerate}
+	
 		\end{enumerate}
 		\end{theorem}
-	\begin{proof}
-		If $L \subset A$ is a closed left ideal and 
-		\bean
-		\widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi_M\left(L \right).
-		\eean	
-		then $\widetilde L$ is a closed left ideal and	
-		\bean
-		\mathfrak{Gelfand}\left(\varphi_M \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
-		\eean 
-		So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
-		
-		(ii)	Any element of basis of the topology of $\mathfrak{Gelfand}\left(\widetilde A \right)$ is given by $\mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}$. The intersection
-		\
-	\end{proof}
+	\begin{proof}(i) 		If $L \subset A$ is a closed left ideal and 
+	\bean
+	\widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi\left(L \right).
+	\eean	
+	then $\widetilde L$ is a closed left ideal and	
+	\bean
+	\mathfrak{Gelfand}\left(\varphi \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
+	\eean 
+	So any  set of subbasis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
+	
+	(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
+	
+\end{proof}
 	 
 	\begin{definition}\label{gglfand_functor_defn}
 		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functor} 
@@ -884,28 +887,67 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 	\end{definition}
 	\subsection{Gelfand space of the noncommutative torus}
-	\paragraph{} Here we find a bijective continuous map from the Gelfand space of noncommutative torus to the commutative one.
-	\begin{definition}\label{connected_case}{\it Noncommutative torus}. 
-		A noncommutative torus \cite{varilly:nc_intro} $C\left(\T^2 _{\theta}\right) $ is the universal  $C^*$-algebra generated by two unitary elements $u, v$ which satisfy following conditions
-		\begin{equation}\nonumber
-			uu^*=u^*u=vv^*=v^*v=1;\\
-		\end{equation}
-		\begin{equation}\nonumber
-			uv=e^{2\pi i \theta}vu
-		\end{equation}
-		where $\theta \in \R\setminus\Q$.
-		There is a trace $\tau_0$ on  $A_{\theta}$ such that $\tau_0 (\sum_{-\infty < i < \infty, -\infty < j<\infty}a_{ij}u^iv^j) = a_{00}$. $C^*$ - norm of $A_{\theta}$  is defined by following way $\|a\|=\sqrt{\tau_0 (a^*a)}$. 
-	\end{definition}
-	
-	From the Theorem \ref{good_thm} if follows that for any good inclusion $
-	\phi: C_0\left( 
-	\sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
-	\be
-	\sX \xrightarrow{{\mathfrak{Gelfand}}\left( \phi\right)} \mathfrak{Gelfand}\left( A\right) 
-	\ee
+	\paragraph{} Here we find a bijective continuous map from the Gelfand space of noncommutative torus $C\left(\T^n _{\theta}\right)$ (cf. Definition \ref{nt_defn}) to the commutative torus $\T^n$.
+\begin{lemma}\label{nt_lem}
+There is the natural bijective continuous map $\varphi \mathfrak{Gelfand}\left(C\left(\T^n _{\theta}\right) \right) \onto \T^n$.
+\end{lemma}
+\begin{proof}
+From the Definition \ref{nt_defn} it follows that for any $j =1, ..., n$ there is an injective $*$ - homomorphism $\phi_j: C\left( U_j\right)  \hookto C\left(\T^n _{\theta}\right)$. Both $C^*$-algebras $C\left( U_j\right)$ and $C\left(\T^n _{\theta}\right)$ are unital so $\phi_j$ is good homomorphism (cf. Definition \ref{good_hom_defn}), so from the Theorem \ref{good_thm} there is a continuous map
+$$
+\mathfrak{Gelfand}\left(\widetilde C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}\left(\phi_j \right)}\mathfrak{Gelfand}\left(C\left( U_j\right)  \right)
+$$
+From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
+$$
+\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
+$$
+From (ii) of the Theorem \ref{good_hom_defn} it follows that the map $\varphi_j$ is surjective for any $j = 1,..,n$. We leave to the reader the proof of that the map $\varphi$ is surjective.
+!!! INJECTIVE
+\end{proof}
+
+\begin{lemma}
+	Under the hypothesis of the Lemma \ref{nt_lem} 
+if $\mathscr F$ is a sheaf of Abelian groups on $\T^n$ and $\varphi^{-1}\mathscr F$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then for any $p \in \N$ there is the natural inclusion
+\bean
+H^p\left( \T^n, \mathscr F \right) \subset  H^p\left( \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right), \varphi^{-1}\mathscr F \right)
+\eean
+\end{lemma}
+\begin{proof}
+	If $\sX \bydef  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) $ and $\mathscr F' \bydef \varphi^{-1}\mathscr F$ then from the 
+ the Lemma \ref{nt_lem} it follows that there is a bijective continuous map $\sX \onto \T^n$.
+ For any $x \in \sX$ there is the natural inclusion 
+\bean
+\mathscr F_{\varphi\left(x \right) }\subset \mathscr F'_{x}.
+\eean 
+	Let both !!!
+	\bean
+	0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_2 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_3}\dots\\
+	0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_2 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_3}\dots\\
+	\eean 
+	are canonical resolutions (cf. \eqref{canonical_resolution_eqn})
 
 
+where both $\mathscr F_{\varphi\left(\xi \right) }$ and $\varphi^{-1}\mathscr F_{\xi}$ are stalks (cf. Definition \ref{sheaf_stalk_defn}). Let 
+\bean
+ff
+\eean
+
+Using the above inclusion one cab construct commutative diagram
+\bean
+\begin{tikzcd}
+0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right)  \arrow[r, "d_3^{\T^n}"] & \dots\\
+0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right)  \arrow[r, "d_3^{\T^n}"] & \dots
+\end{tikzcd}
+\eean
+\end{proof}
 \subsection{The map to the spectrum}
+	From the Theorem \ref{good_thm} if follows that for any good inclusion $
+\phi: C_0\left( 
+\sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
+\be
+\sX \xrightarrow{{\mathfrak{Gelfand}}\left( \phi\right)} \mathfrak{Gelfand}\left( A\right) 
+\ee
+
+
 \begin{definition}\label{belongs_defn}
 	Let $A$ be a $C^*$ -algebra and let $\hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi \in \mathfrak{Gelfand}\left(A \right)$  \textit{belongs to} $x \in \hat A$ if one has
 	\be\label{belongs_eqn}
@@ -970,7 +1012,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 
 \begin{definition}\label{good_top_defn}
 If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \right)$ is its Gelfand space then an open continuous map $\phi: \mathfrak{Gelfand}\left(\widetilde A \right)\to \sX$ is {\it good} is there is a good $*$-homomorphism $\varphi: A \hookto \widetilde{A}$ (cf. Definition \ref{good_hom_defn}) such that the map $\phi$ is equivalent to the given by the equation \eqref{gelfand_map_eqn} map  $
-\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)$.
+\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)$.
  
 
 \end{definition}
@@ -1024,7 +1066,7 @@ If $\widetilde A$ is a $C^*$-algebra and $\mathfrak{Gelfand}\left(\widetilde A \
 	\ref{good_defn}) is a \textit{noncommutative covering} if
 	the given by \eqref{gelfand_map_eqn}	
 	\be\label{covering_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
+	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
 	\ee 
 	continuous map is a (topological) covering (cf. Definition \ref{top_covering_defn}).
 	The  \textit{covering group} is given by  
@@ -1368,11 +1410,11 @@ So one has the following Theorem.
 \end{empt}
 \subsection{Fundamental groups of $C^*$-algebras}
 \begin{definition}\label{alg_semi1_defn}
-Let $A$ be a $C^*$-algebra with connected, locally connected Gelfand space $\mathfrak{Gelfand}\left(A \right)$. If  a connected open subset $\sU\subset \mathfrak{Gelfand}\left(A \right)$ is \textit{algebraically semilocally proper} if for any {noncommutative covering} $\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)$  (cf. Definition \ref{covering_defn}) the set $\sU$ is evenly covered by $\mathfrak{Gelfand}\left(\varphi_M \right)$ (cf. Definition \ref{top_covering_defn}). $A$ $\sX$ is said to be \textit{semilocally 1-connected} if for any $x\in \mathfrak{Gelfand}\left( A \right)$  there is a semilocally proper neighborhood.
+Let $A$ be a $C^*$-algebra with connected, locally connected Gelfand space $\mathfrak{Gelfand}\left(A \right)$. If  a connected open subset $\sU\subset \mathfrak{Gelfand}\left(A \right)$ is \textit{algebraically semilocally proper} if for any {noncommutative covering} $\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)$  (cf. Definition \ref{covering_defn}) the set $\sU$ is evenly covered by $\mathfrak{Gelfand}\left(\varphi \right)$ (cf. Definition \ref{top_covering_defn}). $A$ $\sX$ is said to be \textit{semilocally 1-connected} if for any $x\in \mathfrak{Gelfand}\left( A \right)$  there is a semilocally proper neighborhood.
 \end{definition} 
 
  \begin{definition}\label{alg_contracible_defn}
-Let $A$ be a  \textit{semilocally 1-connected} $C^*$-algebra.	A closed {weak path  $\mathfrak p\bydef\left(\sU_1, ..., \sU_n\right)$ on} $\mathfrak{Gelfand}\left(A \right)$  is \textit{algebraically contractible} for any   for any {noncommutative covering} $$\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)$$ the a $\mathfrak{Gelfand}\left(\varphi_M \right)$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
+Let $A$ be a  \textit{semilocally 1-connected} $C^*$-algebra.	A closed {weak path  $\mathfrak p\bydef\left(\sU_1, ..., \sU_n\right)$ on} $\mathfrak{Gelfand}\left(A \right)$  is \textit{algebraically contractible} for any   for any {noncommutative covering} $$\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right)$$ the a $\mathfrak{Gelfand}\left(\varphi \right)$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
 \end{definition}
 
  \begin{definition}\label{alg_fund_defn}
@@ -1496,7 +1538,7 @@ The continuous map $\sX \onto \sY$ onto initial object $\sX$-{Hausdorff category
 	\ref{good_defn}) is a {noncommutative covering} (cf. Definition \ref{covering_defn})
 then the natural map 
 	\bean
-\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right).
+\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
 \eean 
 is a (topological) covering. If both $f: \mathfrak{Gelfand}\left(A \right) \onto \sX$ and  $\widetilde f: \mathfrak{Gelfand}\left(\widetilde A \right) \onto \widetilde\sX$ are universal Hausdorff maps then there are given by
 \bean
@@ -1506,7 +1548,7 @@ is a (topological) covering. If both $f: \mathfrak{Gelfand}\left(A \right) \onto
 Moreover one can construct the natural commutative diagram
 		\be\label{cov_et_dia}
 \begin{tikzcd}
-\mathrm{Sp\acute{e}}\left(\widetilde{\mathscr P}\right) \arrow[r] \arrow[d]	&\mathfrak{Gelfand}\left(\widetilde A \right)\arrow[r, "\widetilde f"] \arrow[d, "\mathfrak{Gelfand}\left(\varphi_M \right)"] & \widetilde \sX \arrow[d, "\varphi"] \\
+\mathrm{Sp\acute{e}}\left(\widetilde{\mathscr P}\right) \arrow[r] \arrow[d]	&\mathfrak{Gelfand}\left(\widetilde A \right)\arrow[r, "\widetilde f"] \arrow[d, "\mathfrak{Gelfand}\left(\varphi \right)"] & \widetilde \sX \arrow[d, "\varphi"] \\
 \mathrm{Sp\acute{e}}\left(\mathscr P \right) \arrow[r]	&\mathfrak{Gelfand}\left( A \right) \arrow[r, " f"]& \sX
 \end{tikzcd}
 \ee
@@ -9017,21 +9059,25 @@ shall state the theorem in the context of Dirac-type operators
 		
 	\end{enumerate}
 \end{theorem}
+\begin{definition}\label{cohom_defn}\cite{hartshorne:ag}
+Let $\sX$ be a topological space. Let $\Ga\left( \sX, -\right)$  be the global section 
+functor from the category of sheaves on $\sX$ to the category of Abelian groups. We define the cohomology functors $H^p\left(\sX,- \right)$
+	to be the right derived functors of $\Ga\left( \sX, -\right)$. 
+	\end{definition}
 
 
-
-\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+%\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
 	%8.17 
-	Let $\sX \xrightarrow{f} \sY$ be a continuous map then
-	\begin{enumerate}		\item [(i)] 
-		if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
-		\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr \sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
-	\end{enumerate}
-\end{proposition}
+%	Let $\sX \xrightarrow{f} \sY$ be a continuous map then
+%	\begin{enumerate}		\item [(i)] 
+%		if $\mathscr A$ is sheaf of  Abelian group in $\sY$ then we have a homomorphism $H^q\left(\sY, \mathscr A \right) \xrightarrow{} H^q \left(\sX, f^*\mathscr A\right)$ for each $q$ which is functorial in $f$ and natural in $\mathscr A$.
+%		\item [(ii)] If $\mathscr B$ is a sheaf of Abelian groups in $\sX$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr \sY, R^qf_*\left(\mathscr B \right) \right)\Rightarrow H^{p + q}\left(\sX, \mathscr B \right)$ which is natural in $ \mathscr B$.
+%	\end{enumerate}
+%\end{proposition}
 \begin{remark}
 	The above formulation of the Proposition \ref{spectral_sequence_prop} differs from the described in \cite{johnstone:topos} more general one.
 \end{remark}
-\subsection{Canonical resolution}\label{canonical_resolution_empt}
+\subsection{Canonical resolution}\label{canonical_resolution_sec}
 Here I follow to \cite{bredon:sheaf, godement:sheaf}.					
 For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
 collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
@@ -9069,13 +9115,26 @@ is exact. Let $d \bydef \eps \circ \partial$ be the composition
 $$
 \mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
 $$
-
 Then the sequence 
 \be\label{canonical_resolution_eqn}
-0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d}\dots
+0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_2 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_3}\dots
 \ee
-is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
+is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is an injective resolution of $\mathscr F$. It is called the \textit{canonical
 	resolution} of $\mathscr F$.
+If 
+\be\label{canonical_resolution_cohomolgy_sheaf_eqn}
+\mathscr H^p\left(\sX, \mathscr F \right) \cong \begin{cases}
+	\ker d_1 & p = 0\\
+	\ker d_{p+1}/ d_p\left(\mathscr{C}^{p-1}\left(\sX, \mathscr F \right) \right) & p > 0
+\end{cases}
+\ee
+then from the Definition \ref{cohom_defn} it follows that
+\be\label{canonical_resolution_cohomolgy_eqn}
+\forall p > 0 \quad H^p\left(\sX,  \mathscr F\right) = \Ga\left(\sX, \mathscr H^p\left(\sX, \mathscr F \right) \right) 
+\ee
+
+
+
 
 
 \subsection{\v{C}ech cohomology}
