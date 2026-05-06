@@ -911,34 +911,36 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		\eean
 	\end{lemma}
 	\begin{proof}
-		If $\sX \bydef  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) $ and $\mathscr F' \bydef \varphi^{-1}\mathscr F$ then from the 
+		If $\sX \bydef  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) $ and $\mathscr G \bydef \varphi^{-1}\mathscr F$ then from the 
 		the Lemma \ref{nt_lem} it follows that there is a bijective continuous map $\sX \onto \T^n$.
 		For any $x \in \sX$ there is the natural inclusion 
+		\be\label{nt_can_st_eqn}
+		\mathscr F_{\varphi\left(x \right) }\subset \mathscr G_{x}
+		\ee 
+		since the topology of $\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)$ is finer then the topology of $\T^2$
+		Let both 
 		\bean
-		\mathscr F_{\varphi\left(x \right) }\subset \mathscr F'_{x}.
+		0 \to \mathscr F \xrightarrow{\eps^{\T^2}} 	\mathscr{C}^{0}\left(\T^2, \mathscr F \right) \xrightarrow{d^{\T^2}_1 } \mathscr{C}^{1}\left(\T^2, \mathscr F \right)\xrightarrow{d^{\T^2}_2 } \mathscr{C}^{2}\left(\T^2, \mathscr F \right)\xrightarrow{d^{\T^2}_3}\dots\\
+		0 \to \mathscr G \xrightarrow{\eps^{\sX}} 	\mathscr{C}^{0}\left(\sX, \mathscr G \right) \xrightarrow{d^\sX_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d^\sX_2 } \mathscr{C}^{2}\left(\sX, \mathscr G \right)\xrightarrow{d^\sX_3}\dots\\
 		\eean 
-		Let both !!!
-		\bean
-		0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_2 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_3}\dots\\
-		0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_2 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_3}\dots\\
-		\eean 
-		are canonical resolutions (cf. \eqref{canonical_resolution_eqn})
-		
-		
-		where both $\mathscr F_{\varphi\left(\xi \right) }$ and $\varphi^{-1}\mathscr F_{\xi}$ are stalks (cf. Definition \ref{sheaf_stalk_defn}). Let 
-		\bean
-		ff
-		\eean
-		
-		Using the above inclusion one cab construct commutative diagram
+		are canonical resolutions (cf. \eqref{canonical_resolution_eqn}). 
+		Using the above inclusion \eqref{nt_can_st_eqn} one cab construct commutative diagram
 		\bean
 		\begin{tikzcd}
-			0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right)  \arrow[r, "d_3^{\T^n}"] & \dots\\
-			0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right)  \arrow[r, "d_3^{\T^n}"] & \dots
+			0 \arrow[r] & \mathscr F \arrow[d] \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[d]\arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[d]\arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right) \arrow[d] \arrow[r, "d_3^{\T^n}"] & \dots\\
+			0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\sX}"]	&\mathscr{C}^{0}\left(\sX, \mathscr F \right)  \arrow[r, "d_1^{\sX}"] & \mathscr{C}^{1}\left(\sX, \mathscr F \right) \arrow[r, "d_2^{\sX}"] & \mathscr{C}^{2}\left(\sX, \mathscr F \right)  \arrow[r, "d_3^{\sX}"] & \dots
 		\end{tikzcd}
 		\eean
+		The above diagram yields the diagram 
+			\bean
+		\begin{tikzcd}
+			0 \arrow[r] & \Ga\left( \mathscr F \right) \arrow[d] \arrow[r, "\Ga\left( \eps^{\T^n}\right) "]	&\Ga\left( \mathscr{C}^{0}\left(\T^n, \mathscr F \right)\right)   \arrow[d]\arrow[r, "\Ga\left( d_1^{\T^n}\right) "] & \Ga\left( \mathscr{C}^{1}\left(\T^n, \mathscr F \right)\right)  \arrow[d]\arrow[r, "\Ga\left( d_2^{\T^n}\right)"] & \Ga\left( \mathscr{C}^{2}\left(\T^n, \mathscr F \right)\right)  \arrow[d] \\
+			0 \arrow[r] & \Ga\left( \mathscr G\right)   \arrow[r, "\Ga\left( \eps^{\sX}\right) "]	&\Ga\left( \mathscr{C}^{0}\left(\sX, \mathscr G \right)\right)   \arrow[r, "\Ga\left( d_1^{\sX}\right) "] & \Ga\left( \mathscr{C}^{1}\left(\sX, \mathscr G \right)\right)  \arrow[r, "\Ga\left( d_2^{\sX}\right) "] &\Ga\left(  \mathscr{C}^{2}\left(\sX, \mathscr G \right)\right)   
+		\end{tikzcd}
+		\eean
+	!!!	
 	\end{proof}
-	\subsection{Multipliers}
+	\subsection{Algebraic Gelfand space}
 	\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \to M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
 	$$
 \psi_\varphi:	\mathfrak{Gelfand}: \left(A \right) \onto \sX_{\varphi}
