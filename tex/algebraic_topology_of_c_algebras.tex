@@ -939,113 +939,41 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		\eean
 	\end{proof}
 	\subsection{Multipliers}
-	  \begin{definition}\label{connected_c_a_defn}
-		We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
-		
-		% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
-	\end{definition}
-	\begin{definition}\label{connected_comp_defn}
-		A connected closed two-sided ideal $A$ of  $C^*$-algebra $B$ is said to be a \textit{connected component of}  $B$ is there is a direct sum $B = A \oplus A'$ of $C^*$-algebras.
-	\end{definition}
-	\begin{exercise}\label{conn_comp_exer}
-		Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove that there is a natural one-to-one correspondence between connected components of $C^*$-algebra and quasi-components of its spectrum (cf. Definitions \ref{top_quasi_component_defn}, \ref{spectrum_prime_primtive_defn}).
-	\end{exercise}
-	\begin{empt}\label{unital_notation_empt}
-		Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
-		\be\label{unital_notation_eqn}
-		A^\sim\bydef\begin{cases}
-			A & \text{if }A \text{ is unital}\\
-			A^+ & \text{if }A \text{ is not unital}\\
-		\end{cases}
-		\ee
-		where $A^+$ is given by \eqref{a_plus_eqn}.
-		If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
-		is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
-	\end{empt}
-	%\begin{empt}\label{unital_notation_empt}
-	%	Let $A$ be a $C^*$-algebra. Denote by $A^{\sim}$ the unital $C^*$-algebra given by
-	%	\be\label{unital_notation_eqn}
-	%A^{\sim}\bydef\begin{cases}
-		%A & \text{if }A \text{ is unital}\\
-		%A^+ & \text{if }A \text{ is not unital}\\
-		%\end{cases}
-		%\ee
-		%where $A^+$ is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
-		%\end{empt}
-		\begin{definition}\label{principal_non_defn}
-			An injective $*$-homomorphism $\phi: A \hookto B$ of $C^*$-algebras is said to be \textit{unital} if it is unital in the sense of the Definition \ref{principal_defn} or can be uniquely extended up to the unital (in sense of the Definition \ref{principal_defn}) $*$-homomorphism $\phi^{\sim}: A^{\sim} \hookto B^{\sim}$ where $A^{\sim}\bydef A^+$ and $B^{\sim} \bydef B^+$ are minimal unitizations of $A$ and $B$ (cf. equation \eqref{unital_notation_eqn} and Definition \ref{multiplier_min_defn}).
-		\end{definition}
-		\begin{remark}
-			The Definition \ref{principal_non_defn}  is a generalization of the Definition \ref{principal_defn}.
-		\end{remark}
-		
-		
-		\begin{empt}\label{inductive_empt}
-			Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an  directed set (cf. Definition \ref{directed_set_defn}). Suppose that for every $\mu, \nu$ with $\mu \le \nu$, there exists the unique unital (in sense of the Definition \ref{principal_non_defn}) injective $*$-homomorphism  $f_{\mu\nu}: A_\mu \hookto A_\nu$ satisfying
-			$
-			f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}$ {where} $\quad \mu < \la < \nu.
-			$
-			If $C^*$-algebras $A_\la$ are  not unital 	then there are natural unital  (in sense of the Definition \ref{principal_defn}) unique injective $*$-homomorphisms  $f^{\sim}_{\mu\nu}: A^{\sim}_\mu \to A^{\sim}_\nu$ of minimal unitizations (cf. equation \eqref{unital_notation_eqn}). From the Theorem \ref{inductive_lim_thm} it turns out that there is the $C^*$-{inductive limit}  $C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}_{\la\in\La}$. 
-		\end{empt}
-		\begin{definition}\label{inductive_lim_non_defn}
-			In the situation of \ref{inductive_empt} consider injective $*$-homomorphisms $A_\la \hookto C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ which are compositions $A_\la \hookto  A_\la^\sim\hookto  C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$.	The $C^*$-norm completion of the union  $\cup_{\la \in \La}A_\la\subset C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$  is said to be the $C^*$-\textit{inductive limit} of $\left\{A_\la \right\}$. It is denoted by $C^*\text{-}\varinjlim_{\la\in\La} A_\la$ or  $C^*\text{-}\varinjlim A_\la$.
-		\end{definition}
-		
-		\begin{remark}
-			The Definition \ref{inductive_lim_non_defn} is a generalization of the Definition \ref{inductive_lim_defn}. There are  described below generalizations of the Theorem \ref{inductive_lim_thm} and the Proposition  \ref{inductive_lim_prop}.
-		\end{remark}
-		\begin{lemma}\label{state_un_lem}
-			If $A^+$ is the minimal unitization of a nonunital $C^*$-algebra $A$ and $\Om_A$, $\Om_{A^+}$ are state spaces of $A$ and  $A^+$ respectively then one has
-			\be\label{state_un_eqn}
-			\Om_A = \left\{\tau^+ \in \Om_{A^+}~|~ \tau^+\left(0\oplus 1 \right)= 0;\quad \mathrm{where} \quad 0\oplus 1 \in A \oplus \C \cong A^+  \right\}.
-			\ee
-		\end{lemma}
-		\begin{proof}
-			Any state $\tau: A\to \C$ induces the  state $\tau^+: A^+\to \C$ given by $\tau^+\left(a\oplus \la  \right)\bydef \tau\left(a \right)+\la$ for any $a \oplus \la \in  A \oplus \C \cong A^+$. Clearly  $\tau^+$ satisfies to  \eqref{state_un_eqn}. 
-		\end{proof}
-		
-		\begin{corollary}\label{inductive_lim_state_nor_cor}
-			If a nonunital $C^*$-algebra $\widehat A$ is a $C^*$-inductive limit (in sense of the Definition \ref{inductive_lim_non_defn}) of $\left\lbrace A_\la\right\rbrace_{\la \in \La}$, then the
-			state space $\Om$ of $\widehat A$ is homeomorphic to the projective limit of the state spaces $\Om_\la$ of $A_\la$. 
-		\end{corollary}
-		\begin{proof}
-			Let us consider unital  injective $*$-homomorphisms  $f^+_{\mu\nu}: A^+_\mu \to A^+_\nu$ (in the sense of the Definition \ref{principal_defn})  of the minimal unitizations and let $\widehat{A}^+$ be a $C^*$-inductive limit (in sense of the Definition \ref{inductive_lim_non_defn}) of $\left\{A^+_\la\right\}$. From the Theorem \ref{inductive_lim_state_thm} it follows that the state space $\Om_{\widehat{A}^+}$ is the projective limit $\Om^+_\la$ of $A^+_\la$. From the Lemma \ref{state_un_lem} it turns that $\Om_{\widehat{A}} \subset \Om_{\widehat{A}^+}$ and  $\Om_\la \subset \Om^+_\la$ and for any $\la\in \La$. Moreover  every state $\widehat{\tau} \in \Om_{\widehat{A}}$ is mapped onto $\tau_\la \in \Om_\la$. It follows that $\Om$ is homeomorphic to the projective limit of the state spaces $\Om_\la$.
-		\end{proof}
-		\begin{remark}\label{inductive_lim_state_rem}
-			The Corollary \ref{inductive_lim_state_nor_cor} is a generalization of the Theorem \ref{inductive_lim_state_thm}.
-		\end{remark}
-		
-	\begin{empt}  !!! INDUCTIVE LIMIT
-If   $A$ is a $C^*$-algebra and 
-\be
-\mathfrak{GoodComm}\left( A\right)  \bydef \left\{\left.\varphi : M\left( C_0\left(\sX_\varphi \right)\right)   \to  M\left(A \right) \right| \varphi \quad \text{is good and injective} \right\}
-\ee 
-then there for any $\varphi \in \mathfrak{GoodComm}\left( A\right)$ there is a surjective continuous map 
-$$ 
-\mathfrak{Gelfand}\left(A \right) \onto \sX_\varphi
-$$ 
-and injective $*$-homomorphisms
+	\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \to M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
+	$$
+\psi_\varphi:	\mathfrak{Gelfand}: \left(A \right) \onto \sX_{\varphi}
+	$$
+	this map yields ab injective  $*$-homomorphism
+	$$
+\phi_\varphi:	C_0\left( \sX_{\varphi}\right)\to C_b\left(\mathfrak{Gelfand}\left(A \right) \right)  
+	$$
+Since  $\varphi$ is good one has $\phi	\left( C_0\left( \sX\right)\right) \subset C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$. Let $\Phi$ be a set of all satisfying to the described above conditions maps. There the partial order on $\Phi$ such that for any $\phi', \phi''$ the condition $\varphi' \ge \varphi''$ is equivalent to the following commutative diagram
 \bean
-\Phi_\varphi: C_0\left(\sX_\varphi \right)\hookto C_b\left( \mathfrak{Gelfand}\left(A \right)\right),\\
-\Phi_\varphi\left(C_0\left(\sX_\varphi \right) \right)\hookto M\left( A\right) \subset C_b\left( \mathfrak{Gelfand}\left(A \right)\right) 
+\begin{tikzcd}
+	& \mathfrak{Gelfand} \left(A \right) \arrow[ld, "\psi_{\varphi'}" ] \arrow[rd, "\psi_{\varphi''}" ] &\\
+\sX_{\varphi'} \arrow[rr] && \sX_{\varphi''}	
+\end{tikzcd}
 \eean
-If a  space  $M\left(\mathfrak{Gelfand}\left(A \right) \right)$ it such that $C\left( M\left(\mathfrak{Gelfand}\left(A \right) \right)\right)$ is  the  completion of the union
-\be\label{ph_union_eqn}
-\bigcup_{\varphi \in \mathfrak{GoodComm}\left( A\right)} \Phi_\varphi\left(C_0\left(\sX_\varphi \right) \right)\subset C_b\left( \mathfrak{Gelfand}\left(A \right)\right)
+If $\varprojlim_{\varphi \in \Phi} \sX_\varphi$ is the inverse limit of topological spaces then 
+	$$
+C_0\left(\varprojlim_{\varphi \in \Phi}\sX_\varphi \right) \cong 	C^*\text{-}\varinjlim_{\varphi \in \Phi} C_0\left(\sX_\varphi \right) 
+	$$
+where 	$C^*\text{-}\varinjlim$ means the inductive limit (cf. \cite{matro:hcm})
+\begin{definition}
+Under the above hypothesis the space  $\mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi$  is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
+\be
+\mathfrak{Gelfand} \left(A \right)\onto \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)
 \ee
- with respect to strict topology (cf. Definition \ref{strict_topology_defn}) of $C_b\left( \mathfrak{Gelfand}\left(A \right)\right)$ and $\bt~	\mathfrak{Gelfand}\left(A \right)$ is the Stone-\v{C}ech compactification of $\mathfrak{Gelfand}\left(A \right)$ (cf. Definition \ref{top_stone_cech_defn}) then the Theorem \ref{good_thm} yield following surjective continuous maps
-\bea\label{Phi_eqn}
-\Phi : \bt~	\mathfrak{Gelfand}\left(A \right)\onto M\left(\mathfrak{Gelfand}\left(A \right)\right),\\
-\forall \varphi \in \mathfrak{GoodComm}\left( A\right)  \quad  \Phi^{-1}\left( \mathfrak{Gelfand}\left(A \right)\right) \onto \sX_\varphi
-\eea
-	\end{empt}
-	\begin{definition}
-	Under the above hypothesis the space $M\left(\mathfrak{Gelfand}\left(A \right) \right)$ is the {\it multiplier of Gelfand space}. The natural injective $*$-homomorphism 
-	\be\label{dauns_hofmann_eqn}
-C^{\text{DH}} \left(A \right) :	C\left( M\left(\mathfrak{Gelfand}\left(A \right) \right)\right) \hookto M\left(A \right) 
+it turns out that there is the natural good injective {\it  Dauns-Hoffman $*$-homomorphism}
+\be\label{dauns_hofmann_eqn}
+C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\right) \hookto M\left(A \right)
 \ee
-	is {\it  Dauns-Hoffman homomorphism}.
-	\end{definition}
+
+\end{definition}
+
+	
+	 
+
 \begin{remark}
 	If $A$ is a commutative $C^*$-algebra then the inclusion \eqref{dauns_hofmann_eqn} coincides with the isomorphism	\eqref{dauns_hofmann_eqn} given by the Dauns-Hoffman theorem.
 \end{remark}
@@ -6432,66 +6360,11 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	is dominated by a multiple of $\varphi$ then the representation $\pi_\psi: A \to B\left( \H_\psi\right)$  is spatially 
 	equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\right)$. 
 \end{corollary}
-\section{Inductive limits of $C^*$-algebras}
-\begin{definition}\label{principal_defn}\cite{takeda:inductive}
-	An  injective $*$-homomorphism  $\phi: A \hookto B$ of unital $C^*$-algebras is said to be \textit{unital} if and only if $\phi\left(1_A\right)= 1_B$. 
-\end{definition}
-\begin{remark}
-	In the cited text \cite{takeda:inductive} the word "principal" used instead "unital". In this book all entries of the word "principal $*$-homomorphism" are replaced with "unital $*$-homomorphism".
-\end{remark}
-\begin{definition}\label{inductive_lim_defn}\cite{takeda:inductive}
-	Let $\La$ be an increasingly directed set and $A_\la$ be a $C^*$-algebra
-	having an identity $1_\la$ associated with $\la \in \La$ If there exists a $C^*$-algebra $A$ with the identity $1$ and a unital isomorphism $f_\la$ of $A_\la$ into $A$ for every $\la \in \La$ such that
-	$$
-	f_\mu\left(A_\mu\right)\subset f_\nu\left(A_\nu\right) \quad \text{ if } \quad \nu < \mu; \quad \mu, \nu \in \La
-	$$
-	and that the join of $f_\la\left(A_\la\right)$ ($\la \in \La$) is uniformly dense in $A$, $A$ is called the $C^*$-\textit{inductive limit} of $A_\la$, and is denoted by $C^*\text{-}\varinjlim_\La A_\la$ or  $C^*\text{-}\varinjlim A_\la$
-\end{definition}
-\begin{theorem}\label{inductive_lim_thm}\cite{takeda:inductive}
-	Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an increasingly directed set. If, for every $\mu, \nu$ with $\mu < \nu$, there exists a unital injective $*$-homomorphism $f_{\mu\nu}: A_\mu \to A_\nu$ satisfying
-	$$
-	f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}\quad~\mathrm{where} \quad \mu < \la < \nu.
-	$$
-	then there exists the $C^*$-inductive limit of $A_\la$.
-\end{theorem}
-\begin{remark}\label{inductive_lim_rem}
-	A proof of the Theorem is presented in \cite{takeda:inductive}. Roughly speaking the union $\bigcup A_\la$ has the natural structure of $*$-algebra with $C^*$-norm. The $C^*$-algebra $A$ is the $C^*$-norm completion of $\bigcup A_\la$. Moreover  one has
-	\be\label{inductive_lim_eqn}
-	\forall a \in A \quad \exists \left(a_\la\right)_{\la\in \La} \in \prod A_\la\quad  a = \lim_{\la \in \La}a_\la
-	\ee
-	where the $C^*$-norm limit is implied.
-\end{remark}
-
-\begin{empt}\label{inductive_lim_empt}
-	Let $\Om$ and $\Om_{\la}$ be state spaces of $A$ and $A_\la$ respectively. When $A$ is a $C^*$-
-	inductive limit of $\left\{A_\la\right\}$, every state $\tau$ of $A$ defines a state $\tau_{\la}$ on $A_\la$.
-	Then, for every $\mu, \nu \in \La$ such as $\mu < \nu$, we put $f^*_{\mu\nu}$ the conjugate mapping of 	the principal isomorphism $f_{\mu\nu}$ of $A_\mu$ into $A_\nu$ which maps $\Om_{\nu}$ onto  $\Om_{\nu}$
-	has the following properties
-	\be\label{ind_7_eqn}
-	\tau_\mu = f^*_{\mu\nu}\left(\tau_\nu \right) 
-	\ee
-	\be\label{ind_8_eqn}
-	f^*_{\mu\nu}= f^*_{\mu\la}\circ f^*_{\la\nu}\quad \text{ if }\quad \mu < \la < \nu.
-	\ee
-	Conversely, a system of states $\left\{\tau_\la \in \Om_{\la} \right\}_{\la \in \La}$ which satisfies the condition \eqref{ind_7_eqn}  defines a state on $A$ since every positive bounded linear functional on the algebraic inductive limit $A^0$ of  $\left\{A_\la\right\}$, is uniquely extended over $A$.
-\end{empt}
-\begin{prop}\label{inductive_lim_prop}\cite{takeda:inductive}
-	Let a $C^*$-algebra $A$ be a $C^*$-inductive limit of $\left\{A_\la\right\}_{\la \in \La}$, and $\La'$ be a cofinal subset in $\La$, then $A$ is the $C^*$-inductive limit of $\left\{A_{\la'})\right\}_{\la' \in \La'}$.
-\end{prop}
-\begin{theorem}\label{inductive_lim_state_thm}\cite{takeda:inductive}
-	If a $C^*$-algebra $A$ is a $C^*$-inductive limit of $A_\la$ ($\la \in \La$), the
-	state space $\Om$ of A is homeomorphic to the projective limit of the state spaces $\Om_\la$ of $A_\la$.
-\end{theorem}
-\begin{corollary}\label{inductive_lim_state_cor}\cite{takeda:inductive}
-	If a commutative $C^*$-algebra $A$ is a $C^*$-inductive limit of the
-	commutative  $C^*$-algebras $A_\la$ ($\la \in \La$), the spectrum $\mathcal X$ of $A$ is the projective limit of spectra $\mathcal X_\la$ of $A_\la$ ($\la \in \La$).
-\end{corollary}
 
 
 
 
 
-\
 		\subsection{Hilbert modules and compact operators}\label{hilbert_modules_chap}
 %\paragraph{} We refer to \cite{blackadar:ko} for definition of Hilbert $C^*$-modules, or simply Hilbert modules.
 \begin{definition}\label{banach_non_defn}\cite{rae:ctr_morita}
