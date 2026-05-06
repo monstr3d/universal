@@ -923,22 +923,25 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		0 \to \mathscr F \xrightarrow{\eps^{\T^2}} 	\mathscr{C}^{0}\left(\T^2, \mathscr F \right) \xrightarrow{d^{\T^2}_1 } \mathscr{C}^{1}\left(\T^2, \mathscr F \right)\xrightarrow{d^{\T^2}_2 } \mathscr{C}^{2}\left(\T^2, \mathscr F \right)\xrightarrow{d^{\T^2}_3}\dots\\
 		0 \to \mathscr G \xrightarrow{\eps^{\sX}} 	\mathscr{C}^{0}\left(\sX, \mathscr G \right) \xrightarrow{d^\sX_1 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d^\sX_2 } \mathscr{C}^{2}\left(\sX, \mathscr G \right)\xrightarrow{d^\sX_3}\dots\\
 		\eean 
-		are canonical resolutions (cf. \eqref{canonical_resolution_eqn}). 
-		Using the above inclusion \eqref{nt_can_st_eqn} one cab construct commutative diagram
+		are canonical resolutions (cf. Appendix \eqref{canonical_resolution_eqn}). Using the explained in the   Appendix \eqref{canonical_resolution_eqn} construction  one can prove that for any $p$ there is the natural inclusion
+		\be\label{nt_cany_st_eqn}
+		\forall x \in \sX \quad \mathscr{C}^{p}\left(\T^n, \mathscr F \right)_x\hookto \mathscr{C}^{p}\left(\sX, \mathscr G \right)_{\varphi\left(x \right) }
+		\ee 
+		Using the  inclusion \eqref{nt_cany_st_eqn} one can construct commutative diagram
 		\bean
 		\begin{tikzcd}
-			0 \arrow[r] & \mathscr F \arrow[d] \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[d]\arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[d]\arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right) \arrow[d] \arrow[r, "d_3^{\T^n}"] & \dots\\
-			0 \arrow[r] & \mathscr F  \arrow[r, "\eps^{\sX}"]	&\mathscr{C}^{0}\left(\sX, \mathscr F \right)  \arrow[r, "d_1^{\sX}"] & \mathscr{C}^{1}\left(\sX, \mathscr F \right) \arrow[r, "d_2^{\sX}"] & \mathscr{C}^{2}\left(\sX, \mathscr F \right)  \arrow[r, "d_3^{\sX}"] & \dots
+			0 \arrow[r] & \mathscr F \arrow[d, "\phi_0"] \arrow[r, "\eps^{\T^n}"]	&\mathscr{C}^{0}\left(\T^n, \mathscr F \right)  \arrow[d, "\phi_1"]\arrow[r, "d_1^{\T^n}"] & \mathscr{C}^{1}\left(\T^n, \mathscr F \right) \arrow[d, "\phi_2"]\arrow[r, "d_2^{\T^n}"] & \mathscr{C}^{2}\left(\T^n, \mathscr F \right) \arrow[d, "\phi_3"] \arrow[r, "d_3^{\T^n}"] & \dots\\
+			0 \arrow[r] & \mathscr G \arrow[r, "\eps^{\sX}"]	&\mathscr{C}^{0}\left(\sX, \mathscr G \right)  \arrow[r, "d_1^{\sX}"] & \mathscr{C}^{1}\left(\sX, \mathscr F \right) \arrow[r, "d_2^{\sX}"] & \mathscr{C}^{2}\left(\sX, \mathscr G \right)  \arrow[r, "d_3^{\sX}"] & \dots
 		\end{tikzcd}
 		\eean
 		The above diagram yields the diagram 
 			\bean
 		\begin{tikzcd}
-			0 \arrow[r] & \Ga\left( \mathscr F \right) \arrow[d] \arrow[r, "\Ga\left( \eps^{\T^n}\right) "]	&\Ga\left( \mathscr{C}^{0}\left(\T^n, \mathscr F \right)\right)   \arrow[d]\arrow[r, "\Ga\left( d_1^{\T^n}\right) "] & \Ga\left( \mathscr{C}^{1}\left(\T^n, \mathscr F \right)\right)  \arrow[d]\arrow[r, "\Ga\left( d_2^{\T^n}\right)"] & \Ga\left( \mathscr{C}^{2}\left(\T^n, \mathscr F \right)\right)  \arrow[d] \\
+			0 \arrow[r] & \Ga\left( \mathscr F \right) \arrow[d, "\Ga\left(\phi_0 \right)" ] \arrow[r, "\Ga\left( \eps^{\T^n}\right) "]	&\Ga\left( \mathscr{C}^{0}\left(\T^n, \mathscr F \right)\right)   \arrow[d, "\Ga\left(\phi_1 \right)"]\arrow[r, "\Ga\left( d_1^{\T^n}\right) "] & \Ga\left( \mathscr{C}^{1}\left(\T^n, \mathscr F \right)\right)  \arrow[d, "\Ga\left(\phi_2 \right)"]\arrow[r, "\Ga\left( d_2^{\T^n}\right)"] & \Ga\left( \mathscr{C}^{2}\left(\T^n, \mathscr F \right)\right)  \arrow[d, "\Ga\left(\phi_3 \right)"] \\
 			0 \arrow[r] & \Ga\left( \mathscr G\right)   \arrow[r, "\Ga\left( \eps^{\sX}\right) "]	&\Ga\left( \mathscr{C}^{0}\left(\sX, \mathscr G \right)\right)   \arrow[r, "\Ga\left( d_1^{\sX}\right) "] & \Ga\left( \mathscr{C}^{1}\left(\sX, \mathscr G \right)\right)  \arrow[r, "\Ga\left( d_2^{\sX}\right) "] &\Ga\left(  \mathscr{C}^{2}\left(\sX, \mathscr G \right)\right)   
 		\end{tikzcd}
 		\eean
-	!!!	
+For any section $s \in \mathscr{C}^{p}\left(\T^n, \mathscr F \right)$ there is a section !!!
 	\end{proof}
 	\subsection{Algebraic Gelfand space}
 	\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \to M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
@@ -962,7 +965,8 @@ C_0\left(\varprojlim_{\varphi \in \Phi}\sX_\varphi \right) \cong 	C^*\text{-}\va
 	$$
 where 	$C^*\text{-}\varinjlim$ means the inductive limit (cf. \cite{matro:hcm})
 \begin{definition}
-Under the above hypothesis the space  $\mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi$  is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
+Under the above hypothesis the space  \bean \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi\eean  
+is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
 \be
 \mathfrak{Gelfand} \left(A \right)\onto \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)
 \ee
@@ -977,7 +981,7 @@ C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelf
 	 
 
 \begin{remark}
-	If $A$ is a commutative $C^*$-algebra then the inclusion \eqref{dauns_hofmann_eqn} coincides with the isomorphism	\eqref{dauns_hofmann_eqn} given by the Dauns-Hoffman theorem.
+	If $A$ is a $C^*$ algebra with Hausdorff spectrum  then the inclusion \eqref{dauns_hofmann_eqn} coincides with the isomorphism	\eqref{dauns_hofmann_eqn} given by the Dauns-Hoffman theorem.
 \end{remark}
 \begin{remark} If $\Phi$ is given by \eqref{Phi_eqn} and
 	\be
@@ -1000,14 +1004,24 @@ C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelf
 	
 	\subsection{$K$-theory functor}
 	\paragraph{}
-	Any projector $p \in \mathbb{M}_n\left(	C\left( M\left(\mathfrak{Gelfand}\left(A \right) \right) \right) \right) $ naturally yields the projector $\mathbb{M}_n\left( \varphi_{\text{DH}} \circ p\right)\in  \mathbb{M}_n\left(M\left(A \right)  \right)$. So there is the map
+	The Gelfand space yields a new conception of the $K$-theory. If $A$ is an unital $C^*$-algebra then the group $K_0\left(A \right)$ is given by projectors of $\mathbb{M}_n\left(A \right)$. On the other hand  if $p \in  \mathbb{M}_n\left(A \right)$ is projector then one has a direct sum of left ideals
+	\bean
+	\mathbb{M}_n\left(A \right) = p\mathbb{M}_n\left(A \right) \oplus \left( 1_{\mathbb{M}_n\left(A \right)}-p\right) \mathbb{M}_n\left(A \right) 
+	\eean
+	It follows that
+	\bean
+	\mathbb{M}_n\left(A \right)  = \mathbb{M}_n\left(A \right)_{p}\bigsqcup \mathbb{M}_n\left(A \right)_{1_{\mathbb{M}_n\left(A \right)}-p},
+	\eean 
+	i.e. the group $K_0\left(A \right)$  can be explained in terms of quasicomponents of the Gelfand space.
+\paragraph{}	
+	If $A$ is an unital $C^*$-algebra then projector $p \in \mathbb{M}_n\left(	C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right) \right) $ naturally yields the projector $\mathbb{M}_n\left( \varphi_{\text{DH}} \circ p\right)\in  \mathbb{M}_n\left(M\left(A \right)  \right)$. So there is the map
 	\be
-V^{\text{DH}}\left( A\right)  :	V\left( M\left(\mathfrak{Gelfand}\left(A \right) \right)\right) \hookto V\left(A \right) 	
+V^{\text{DH}}\left( A\right)  :	V\left( C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right) \right) \hookto V\left(A \right) 	
 \ee
 where $V$ means the set of algebraic equivalence classes of idempotents (cf. Definition \ref{proj_v_defn}). Using it one can define homomorphisms
 \bean
-K_0\left(C\left( M\left(\mathfrak{Gelfand}\left(A \right) \right)\right) \to K_0\left( M\left(A \right)  \right) \right),\\
-K^0\left(M\left(\mathfrak{Gelfand}\left(A \right) \right) \to K_0\left( M\left(A \right)  \right) \right)
+K_0\left(C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right)  \right) \to K_0\left( M\left(A \right)  \right) \right),\\
+K^0\left(\mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right)  \to K_0\left( M\left(A \right)  \right) 
 \eean
 
 	
