@@ -5842,9 +5842,77 @@ c^H_j\left( 	\sV \right)  \right)$ where $f^*$ is the inverse image (cf. Definit
 \begin{definition}\label{chern_class_defn}
 The given by the  Proposition \ref{chern_class_prop} (resp. Theorem \ref{chern_class_thm}) functions $c_j^K$ (resp. $c^H_j$) are \textit{($K$-theoretical}) (resp.\textit{cohomological}) \textit{Chern classes}.
 \end{definition}
+\begin{remark}\label{full_c_rem}\cite{karoubi:k}
+ Let us write 
+  $c^H(V)= \sum_{j= 0}^n  c^H_j\left( V\right) \in H^{\mathrm{even}}\left(\sX \right)$ . This is called the "total 	Chern class" of $V$. One has
+  \bean
+  c^H\left(V_1 \oplus V_3 \right) = c^H\left( V_1\right) \cdot c^H\left( V_1\right)
+  \eean
+  Similarly there is "total 	Chern class" $c^K\left(V \right) \in K\left( \sX\right)$  of $V$ in $K$-theory.
+	\end{remark}
+	\begin{empt}
+We let $Q_k$, for $k>1$, denote the "Newton polynomials": they express the 
+$\sum_{j=1}^k u^k_j$ symmetric functions as unique polynomials of the elementary symmetric 
+functions,
+$$
+\sigma_r \bydef \sum_{j_1 < j_2 < ... < j_r} u_{j_1}... u_{j_r}\quad 1 \le r \le k.
+$$
+For instance
+\be\label{newton_p_eqn}
+\begin{split}
+Q_1\left(\sigma_1 \right) = \sigma_1,\\
+Q_2\left(\sigma_1, \sigma_2 \right) = \left( \sigma_1\right)^2-2\sigma_2,\\
+Q_1\left(\sigma_1, \sigma_2, \sigma_3 \right) = \left( \sigma_1\right)^3 - 3 \sigma_1\sigma_2 + 2\sigma_3,\\
+...
+\end{split}
+\ee
+There are classes $s_x\left(V \right)\in H^{2k}$ , such that $s_k\left( V_1 \oplus V_2\right) = s_k\left( V_1\right)+ s_k\left( V_1\right)$  by putting $s_k\left( V\right)  = Q_k\left(c_1,..., c_n \right)$  where $cj \bydef c_j\left( V\right)$ , and $Q_k$ is the Newton polynomial. We 
+	make the convention that $s_0\left(V \right) \bydef \rank\left(V \right)$. As well known $H^p\left( \sX, \Q\right) \cong H^p\left(\sX, \Z \right)\otimes \Q$. Thus we may define
+	\be 
+	\begin{split}
+Ch_k\left( V\right) \bydef \frac{1}{k!}	s_k\left(V \right) = \frac{1}{k!}	Q_k\left(c_1\left(V \right), ..., c_n\left(V \right) \right)\in H^{2k} \left(\sX, \Q\right),\\
+Ch\left( V\right) \bydef \sum_{k=0}^\infty Ch_k\left( V\right) \in H^{\mathrm{even}} \left(\sX, \Q\right),\\
+	\end{split} 
+	\ee
+\end{empt}
+\begin{theorem}\cite{karoubi:k}
+%3.23. Theorem. 
+Let $V_1$ and$V_2$ be vector bundles, with compact base $\sX$. Then we 
+have the formulas 
+	\be 
+\begin{split}
+	Ch\left( V_1 + V_2 \right) =Ch\left( V_1 \right)+Ch\left( V_2 \right),\\
+	Ch\left( V_1 \otimes  V_2 \right) =Ch\left( V_1 \right)\cdot Ch\left( V_2 \right),\\
+\end{split} 
+\ee
+	Moreover, if $L$ is a line bundle, then $Ch\left(L \right) = \exp\left(\chi\left(L \right)  \right)$. 
+\end{theorem}
 
+\begin{definition}\cite{karoubi:k}
+%3.24. Definition. 
+We call the ring homomorphism 
+\be
+Ch: K(X) \to H^{\mathrm{even}} \left(\sX, \Q\right)\bydef \bigoplus_{j=0}^\infty\left(\sX, \Q \right) 
+\ee 
+defined by $Ch\left(\left[E\right]-\left[F\right]  \right) \bydef  Ch\left(\left[E\right]  \right)-Ch\left(\left[F\right]  \right)$, the {\it Chern character}. 
 
-\paragraph{The Fundamental Product Theorem}\label{k_fund_prod_sec}
+\end{definition}
+\begin{theorem}
+%3.25. Theorem. 
+The Chem character has the following properties:
+\begin{enumerate}
+	\item [(i)]  If $\sX$ is the sphere $S^{2n}$, then $Ch$ is injective, and its image is $H^*(S^{2n}, \Z)\subset H^*\left( S^{2n}, \Q\right)$,
+		\item [(ii)] b) For any compact space $\sX$, Ch induces an isomorphism 
+	$$K\left(\sX \right) \otimes \Q \xrightarrow{\cong} H^{\mathrm{even}} \left(\sX, \Q\right)$$
+		(the cohomology used here is \v{C}ech cohomology).
+\end{enumerate} 
+ 
+\end{theorem}
+\begin{remark}
+!!!\cite{a_thomas_kt_hom}. 
+
+\end{remark}
+\paragraph{The fundamental product theorem}\label{k_fund_prod_sec}
 
 \begin{empt}\label{kt_kan_line_empt}
 We assume knowledge of elementary notions of $K$-theory explained in \cite{atiyah:kt,hatcher:kt,karoubi:k}.
@@ -9506,6 +9574,7 @@ By Michael Atiyah
 W. A. BENJAMIN, INC. New York, Amsterdam 1967
 Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 
+
 \bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
 
 		
@@ -9565,19 +9634,14 @@ Ute Rosenbaum. {\it Projective Geometry:
 	
 \bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
 
-\bibitem{fulton:intersection} William Fulton. \textit{Intersection Theory}.
-Second Edition, Springer, 1997.
 
 
-\bibitem{fulton:intro_intersection}  William Fulton. {\it Introduction to intersection theory in algebraic geometry}.
-Conference Board of the Mathematical Sciences 
-by the 
-American Mathematical Society 
-Providence, Rhode Island 
-Expository Lectures 
-from the CBMS Regional Conference 
-held at George Mason University 
-June 27-July 1, 1983. 
+%\bibitem{fulton:intersection} William Fulton. \textit{Intersection Theory}.Second Edition, Springer, 1997.
+
+
+%\bibitem{fulton:intro_intersection}  William Fulton. {\it Introduction to intersection theory in algebraic geometry}.Conference Board of the Mathematical Sciences 
+%by the American Mathematical Society Providence, Rhode Island Expository Lectures from the CBMS Regional Conference 
+%held at George Mason University June 27-July 1, 1983. 
 
 
 	\bibitem{grothendieck:sheaf_noabelian} Alexander Grothendieck. \textit{A General Theory of Fibre Spaces With Structure Sheaf}, University of Kansas, Report No. 4 (1955, 1958), 1958.
@@ -9662,12 +9726,14 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 \bibitem{takeda:inductive} Zir\^{o} Takeda. \textit{Inductive limit and infinite direct product of operator algebras.} Tohoku Math. J. (2) 	Volume 7, Number 1-2 (1955), 67-86. 1955.
+\bibitem{a_thomas_kt_hom} Alan Thomas. {\it A Relation Between K-Theory and Cohomology}.Transactions of the American Mathematical Society Vol. 193 (Jun., 1974), pp. 133-142 (10 pages), 1972
 
-		\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
 
+	%	\bibitem{thomsem:ho_type_uhf} Klaus Thomsen. {\it The homotopy type of the group of automorphisms of a $UHF$-algebra}. Journal of Functional Analysis. Volume 72, Issue 1, May 1987.
+
+\bibitem{varilly:nc_intro} J. Varilly {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
 	
 	\bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.  	
-\bibitem{varilly:nc_intro} J. Varilly {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
 
 \bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
 		
