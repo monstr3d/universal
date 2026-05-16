@@ -957,7 +957,7 @@ a\in 	\begin{pmatrix}
 	\begin{definition}\label{elementary_defn}
 		If $A$ is an unital  $C^*$-algebra then a given by \eqref{matr_eqn} element $a\in 	 \mathbb{M}_n\left(A \right)$ is  $j,k$-\textit{elementary} if 
 	\be\label{elementary_eqn}
-	a_{g,r} = \begin{cases}
+	a_{p,q} = \begin{cases}
 	1_A & p = j \quad q = k \\
 	0 & \text{otherwise}
 	\end{cases}
@@ -974,13 +974,83 @@ A_{j',j'', k', k''} \cong A
 \ee
 From \eqref{matr_eqn} it turns out that there is a set theoretic bijection
 \be\label{mat_dec_eqn}
-\mathbb{M}_n\left(A \right) \cong \prod_{j',j'', k', k''\in \left\{1, ..., n\right\}}A_{j',j'', k', k''}
+\mathbb{M}_n\left(A \right) \cong \prod_{j',j'', k', k''\in \left\{1, ..., n\right\}}\mathbb{M}_n\left(A \right)A_{j',j'', k', k''}
 \ee
+From the equation \eqref{mat_dec_eqn} one can deduce that there is an open continuous map
+	\be\label{matrpp_eqn}
+\begin{split}
+\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)	\xrightarrow{\cong}\coprod_{j',j'', k', k''\in \left\{1, ..., n\right\}}\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) 
+\end{split}
+\ee
+where $\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right)$ is homeomorphic to $\mathfrak{Gelfand}\left( A \right)$ for all $j',j'', k', k''\in \left\{1, ..., n\right\}$.
+\begin{lemma}\label{proj_id_lem}
+The given by \eqref{matrpp_eqn} map is a homeomorphism.
+\end{lemma}
+\begin{proof}
+	The topology of $ \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$ is finer then the topology of $$\coprod_{j',j'', k', k''\in \left\{1, ..., n\right\}}\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right)$$ 	
+	If $L \subset \mathbb{M}_n\left(A \right)$ is a closed left ideal then it corresponds to an element of the basis of the topology of $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) $. 
+$$
+L \neq \{0\} \quad \Leftrightarrow \quad \exists j',j'', k', k'' \in \left\{1, ..., n\right\}\quad  L \cap A_{j',j'', k', k''} \neq \{0\}.
+$$
+So if $L \neq \{0\}$ then there is   $a \in  L \cap A_{j',j'', k', k''} \setminus \{0\}$ which yields an ideal
+$$
+  L_{j',j'', k', k''}\bydef \mathbb{M}_n\left(A \right) a 
+$$
+The ideal $L_{j, k}$ corresponds to an open set of 
+$$
+\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) \subset \coprod_{j',j'', k', k''\in \left\{1, ..., n\right\}}\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) 
+$$
+From $L_{j',j'', k', k''}$ subset if follows that this open set is a subset of the given by $L$ open subset of $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$ i.e. the topology of 	$$\coprod_{j',j'', k', k''\in \left\{1, ..., n\right\}}\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right)$$ is finer than the topology of $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$.
+\end{proof}
+\begin{empt}
+If $p \in \mathbb{M}_n\left(A \right) $ is a projector then $p \mathbb{M}_n\left(A \right)\mathbb{M}_n\left(A \right)$ is a left ideal. It corresponds to an open subset of $$
+\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)_L\subset \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right).
+$$
+From the Lemma \eqref{proj_id_lem} it follows that 
+$\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)_L$ corresponds to an open subset 
+$$
+\sU \subset \mathfrak{Gelfand}\left(\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right)  \right) \right)
+$$ 
+Using $p + \left( 1_{\mathbb{M}_n\left(A\right) }-p\right)= 1_{\mathbb{M}_n\left(A\right)}$ one cap prove that there is an open subset% $\sU' \subset \mathfrak{Gelfand}\left(\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right)  \right)$ such that 
+$$
+\mathfrak{Gelfand}\left(\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)  \right) = \sU \sqcup \sU'
+$$
+where $\sqcup$ is the disconnected topological union. One can prove that $\sU$ and $\sU'$ correspond to the left ideals $L_{\sU}, L_{\sU'}\subset \mathbb{M}_n\left(A \right)$ with  $ \mathbb{M}_n\left(A \right)= L_{\sU}\oplus L_{\sU'}$. There a map $p_{\sU}\in C\left(\mathfrak{Gelfand}\left(\mathbb{M}_n\left((C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right) \right)  \right)$ such that
+\be
+p_{\sU}\left(x \right) = \begin{cases}
+	1 & x \in \sU\\
+	0 & x \notin \sU
+\end{cases}
+\ee 
+then 
+
+
+!!!
+
+If projectors are 
+\begin{definition}\label{projection_equivalences_defn!}!!!\cite{wegge_olsen}
+	%Definition 5.2.1. 
+	Projections $p$ and $q$ in a $C^*$-algebra $A$ are said to be 
+	\begin{itemize}
+		\item{\it equivalent}, denoted $p\sim q$, when $p = v^*v$ and $q = vv^*$,  $v\in A$ being 
+		a partial isometry; 
+		\item{\it unitarily equivalent}, denoted $p\sim_uq$, when $p = u^*qu$, $u \in A^+$l 
+		being unitary; 
+		\item{\it homotopic}, denoted $p \sim_h q$, when $p$ and $q$ are connected by a norm 
+		continuous path of projections in $A$. 
+	\end{itemize}
+	
+\end{definition}
+\ref{projection_equivalences_defn}
+\end{empt}
 If we consider $C^*$-norm topology on $\mathbb{M}_n\left(A \right)$ and the topology on $A_{j',j'', k', k''}$ which comes from the map \eqref{mat_jjkk_eqn} then one can prove that the bijection \eqref{mat_dec_eqn} is a homeomorphism.
-	If $L \subset \mathbb{M}_n\left(A \right)$ is a closed left ideal then 
-	$$
-	L \neq \{0\} \quad \Leftrightarrow \quad \exists j',j'', k', k'' \in \left\{1, ..., n\right\}\quad  L \cap A_{j',j'', k', k''} \neq \{0\}
-	$$
+From \eqref{matr_eqn} it follows that there is a continuous map 
+\be 
+\begin{split}
+\bigoplus_{j',j'', k', k''\in \left\{1, ..., n\right\}} 	\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) 
+\end{split}
+\ee
+From $L_{j, k}\subset L$ it follow
 So if $L \neq \{0\}$ then there is   $a' \in  L \cap A_{j',j'', k', k''} \setminus \{0\}$ such that
 $$
 a' \mathbb{M}_n\left(A \right) \subset L
@@ -2765,159 +2835,6 @@ Now this Lemma is a consequence of the Corollary \ref{trivial_cech_cor}
 	$$
 	for any locally constant sheaf $\mathscr F$ (cf. Definition \ref{constant_presheaf_defn}).
 \end{exercise}
-
-\subsubsection{Chow ring  of $\C P^n_{\mathfrak{Gelfand}}$}
-
-\paragraph{Cycles}
-Here we use the notation \eqref{projecive_not_eqn}. If we consider $\C P^n_{\mathfrak{Gelfand}}$ with $n \ge 2$ as pure topological space and define {\it lines} as irreducible closed subsets (cf. Definition \ref{top_irreducible_defn}) having dimension 1 (cf. Definition \ref{top_dimension_defn}) then from the Theorem \ref{fund_proj_thm} one can prove that $\C P^n_{\mathfrak{Gelfand}}$ has natural structure od the complex projective space in the sense of the analytical geometry. Roughly speaking the topology of $\C P^n_{\mathfrak{Gelfand}}$ naturally defines the analytical geometry and vice versa. The geometry is such that the theorems of Desargues and Pappus hold (cf. \cite{projective_geometry} for details). Moreover from the described in \cite{projective_geometry} results it follows that  any  irreducible closed subsets (cf. Definition \ref{top_irreducible_defn}) having dimension $d$ correspond to the linear inclusion $\C P^d\hookto \C P^n$. Here we construct an analog of the well known in the algebraic geometry  intersection theory (cf. Appendix \ref{intersec_sec}). Similarly to the Definition \ref{prime_divisor_dern} we define a \textit{prime divisor}  as an irreducible closed subset  of $\C P^n_{\mathfrak{Gelfand}}$ (cf. Definition \ref{top_irreducible_defn}) having codimension 1 (cf. Definition \ref{top_codimension_defn}). One can define the group Abelian group $\mathrm{Div}~\C P^n$ which is an analog of $\mathrm{Div}~\sX$ and any divisor correspond to a injective linear map $\C P^{n - 1} \hookto \C P^n$. There is the natural correspondence between the  set of continuous maps  $\C P^n_{\mathfrak{Gelfand}}\to \C P^1_{\mathfrak{Gelfand}}\cong \C P^n_{\mathfrak{Zariski}}$ and the set of linear in sense of analytical geometry  maps $\C P^n\to \C P^1$. Similarly to the Appendix \ref{principal_div_empt} for any linear map $f: \C P^n\to \C P^1$ one can define an analog of the {\it principal divisor} (cf. Definition \ref{principal_div_defn}) given by 
-$$
-f\left( 0\right) - f\left(\infty \right). 
-$$
-There is a notion of {\it linearly equivalent} divisors (cf. Definition \ref{linearly_div_defn}). For any two different linear maps $\phi' :\C P^{n - 1} \hookto \C P^n$ and $\phi'': \C P^{n - 1} \hookto \C P^n$ there is a linear map $f: \C P^n\to \C P^1$ such that 
-\bean
-f\left(0 \right) = \phi'\left(\C P^{n - 1} \right),\\ 
-f\left(\infty \right) = \phi''\left(\C P^{n - 1} \right),
-\eean 
-i.e. any prime divisors are linearly equivalent so one has 
-$$
-\mathrm {Cl}~\C P^n_{\mathfrak{Gelfand}}\cong \Z\left[\C P^{n-1}\right]
-$$
-where $\left[\C P^{n-1}\right]\in \mathrm {Cl}~\C P^n_{\mathfrak{Gelfand}}$ is an analog an element of divisor class group (cf. Definition \ref{linearly_div_defn}) and $\left[\C P^{n-1}\right]$ is the  represented by $\C P^{n-1}\subset \C P^n_{\mathfrak{Gelfand}}$ class. Similarly to the Appendix \ref{ag_cycles_empt} one can define {\it cycle of codimension} $r$ on $\sX$ is an element 
-of the free Abelian group generated by the closed irreducible subspaces  of $\C P^n_{\mathfrak{Gelfand}}$ of codimension $r$. If both $\sY', \sY'' \subset \C P^n_{\mathfrak{Gelfand}}$ are two    closed irreducible subspaces  of $\C P^n_{\mathfrak{Gelfand}}$ of codimension $r$ such that the intersection $\sY' \cap \sY''$ has codimension $2r$ then there are:
-\begin{enumerate}
-	\item [(a)] the natural closed irreducible subspace $\sZ \subset \C P^n_{\mathfrak{Gelfand}}$ of codimension  $r - 1$ with $\sY' \cup \sY''\subset \sX$,
-	\item [(b)] a continuous with respect to Gelfand topology  map $f: \sZ \to \C P^1$ with
-	\be\label{lc_eq_eqn}
-	\sY' = f^{-1}\left(0 \right),
-		\sY'' = f^{-1}\left(\infty \right)
-	\ee 
-\end{enumerate}
-i.e. cycles are {\it rationally equivalent}. So similarly to thr Appendix  \ref{linearly_div_defn} there are the group $A^r\left(\C P^n_{\mathfrak{Gelfand}} \right)$ of rationally equivalent  classes of $r$-cycles. From \eqref{lc_eq_eqn} it follows that the cycled $\sX'$ and $\sX'$ are rationally equivalent, i.e.
-\be\label{ar_c_eqn}
-\left[\sX'\right]= \left[\sX''\right]\in A^r\left(\C P^n_{\mathfrak{Gelfand}} \right).
-\ee
-Using the equation \eqref{ar_c_eqn} one can deduce that for any $r = 0,..., n$ there is the natural isomorphism
-\be
-A^r\left(\C P^n_{\mathfrak{Gelfand}} \right) = \Z \left[\C P^{n-r}\right]
-\ee
-where  $\left[\C P^{n-r}\right]$ is represented by a cycle $\C P^{n-r} \subset \C P^n_{\mathfrak{Gelfand}}$.
-
-\paragraph{The ring structure}
-Any $m$-dimensional irreducible subspace  of $\C P^n_{\mathfrak{Gelfand}}$ can be represented by an element of the set
-$$
-L^m_n \bydef \left\{\left.\psi \in \Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right) \right| \rank \psi = m + 1 \right\}\subset \Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right).
-$$
-where $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ is the  $\C$-linear space of  $\C$-linear homomorphisms. There is the {\it Gelfand  topology} on $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ which is the minimal among the topologies such that any $\C$-linear subspace of $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ is closed. This topology yields the natural (Gelfand) topology on both $L^m_n$ and the set $C^m_n$ of $m$-dimensional irreducible subspace  of $\C P^n_{\mathfrak{Gelfand}}$ (cf. Definitions \ref{top_final_defn} and \ref{top_init_defn}). If $\sY' \in C^{m'}_n$ then there is an open dense subset $\sU^{m''}_n \subset C^{m''}_m$ such that
-\be\label{gen_pos_eqn}
-\forall \sY'' \in \sU^{m''}_n \quad \sY' \cap \sY'' \cong \C P^{n - m' - m''}
-\ee
-
-We say that the hypothesis \eqref{gen_pos_eqn} is the \textit{general position} (cf. Remark \ref{gen_pos_eqn}). Similarly to the Appendix \ref{ag_cycles_empt} we define the ring structure on $\C P^n_{\mathfrak{Gelfand}}$ such that
-\be
-\left[\C P^{n-m'}\right]\cdot \left[\C P^{n-m''}\right]= \left[\C P^{n-m'-m''}\right]
-\ee
-From out construction one has the natural isomorphism
-$$
-A\left( \C P^n_{\mathfrak{Gelfand}}\right) \cong \Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^{n-1}\right] \right)^{n+1}
-$$
-\begin{exercise}
-Prove that the ring $A\left( \C P^n_{\mathfrak{Gelfand}}\right)$ satisfies to analogs of  described in the Appendix \ref{intersed_ald_sec} conditions A1. - A7. of the Chow ring of an algebraic manifold.
-\end{exercise}
-There is the following mapping between Zariski and Gelfand topology.
-
-\break
-\begin {table}[H]
-\caption {Mapping between Zariski and Gelfand topology } \label{main_mapping_table} 
-\begin{center}
-	\begin{tabular}{|c|c|c|}
-		\hline
-		&	 Gelfand topology &  Zariski topology\\
-		\hline
-		& & 	\\
-		The space & $\C P^n_{\mathfrak{Gelfand}}$ &  $\C P^n_{\mathfrak{Zariski}}$ \\
-		&&	\\
-		Cycles 	&	Linear subspace  & Algebraic subvariety \\
-		& $\C P^m \subset \C P^n$ & $\sX \subset \C P^n$	\\
-		& &\\
-		Equivalence relation & Cobordism & Rational equivalence\\
-		&& \\
-		Chow ring	& $\Z\left[\left[\C P^{n-1}\right]\right] /\left( \left[\C P^1\right] \right)^{n+1}$	& $\Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^{n-1}\right] \right)^{n+1}$\\
-		&& \\
-		\hline
-	\end{tabular}
-\end{center}
-\end {table}
-
-\paragraph{Cobordism interpretation.} There is an interpretation of the Chow ring it terms of the cobordism category (cf. Definition \ref{cobordism_category_defn}).
-Let $n \in \N$, and let $\mathscr{L}\left(n \right) $ be a category such that
-\begin{itemize}
-	\item any  $\mathscr{L}\left(n \right)$-object is a pair $\left(\sX, f \right)$ where $\sX \subset \C P^n_{\mathfrak{Gelfand}}$ is an irreducible closed subset and $f: \sX \to \C P^1_{\mathfrak{Gelfand}}\cong \C P^1_{\mathfrak{Zariski}}$ is a continuous map with $0 \in f\left( \sX\right)$. 
-	\item an arrow from $\left(\sX', f' \right)$ to $\left(\sX'', f'' \right)$ is an injective  continuous  map $\phi: \sX' \hookto \sX''$ satisfying to the following conditions:
-\begin{enumerate}
-	\item [(a)] The diagram
-		\bean
-	\begin{tikzcd}
-		\sX'\arrow[dd, "\phi"] \arrow[rd, "\subset"]& ~\\
-		~ &\C P^n_{\mathfrak{Gelfand}}\\
-		\sX'' \arrow[ru, "\subset"]& ~
-	\end{tikzcd}
-	\eean
-is	commutative.
-\item[(b)] $f' = f''\circ  \phi$, 
-\end{enumerate}
-		
-
-\end{itemize}
-Let $\mathscr{C}\left(n \right)$ be a category (cf. Definition \ref{category_defn}) such that
- be a category such that
-\begin{itemize}
-	\item any object of $\mathscr{C}\left(n \right)$ is a $\Z$-linear combination of $\mathscr{L}\left(n \right)$ objects,
-	\item if $f_1, ..., f_{m'}, g_1, ..., g_{m''}$ are $\mathscr{L}\left(n \right)$-objects then there is the unique  $\mathscr{C}\left(n \right)$-arrow from $\sum_{j = 1}^{m'}c_j f_j$ to $\sum_{\iota = 1}^{m''}d_\iota g_\iota$ with integer $c_\iota, ~d_\iota$ if and only if for any $\iota' \in 1,..., m'$ there is  $\iota'' \in 1,..., m''$ and $\mathscr{L}\left(n \right)$-arrow $f_{\iota'}\xrightarrow{\phi} g_{\iota''}$.
-\end{itemize}
-So the set of $\mathscr{C}\left(n \right)$ objects is the Grothendieck group of the category $\mathscr{L}\left(n \right)$.
-We suppose that there is the natural two=point subset $\left\{0, \infty\right\}\subset \C P^1$. For any $\mathscr{L}\left(n \right)$-object $\left(\sX, f \right)$ we define two objects $\left(\sX_0\bydef f^{-1}\left(0 \right) , f_0 \right)$  and $\left(\sX_1\bydef f^{-1}\left(\infty \right) , f_1 \right)$ where $f_0\left(\sX_0 \right) = f_1\left(\sX_1 \right)= {0} \in \C P^1_{\mathfrak{Gelfand}}$. If $\sX_1 = \emptyset$ then we set $f_1\left(\sX_1 \right)= \emptyset$.
-If $1_\Z \cdot \left(\sX, f \right)$ is $\mathscr{C}\left(n \right)$-object then we define
-\be\label{co_d_eqn}
-\partial \left( 1_\Z \cdot \left(\sX, f \right)\right)  \bydef \begin{cases}
-1_\Z \cdot \left(\sX_0, f_0 \right) - 1_\Z \cdot \left(\sX_1, f_1 \right) & \infty \in f\left(\sX \right) \\
-0_{\mathscr{C}\left(n \right)} &  \infty \notin f\left(\sX \right)
-\end{cases}
-\ee 
-The $\Z$-linearity yields the unique additive  functor $\mathscr{C}\left(n \right)\xrightarrow{\partial} \mathscr{C}\left(n \right)$.
-\begin{lemma}
-Under the above hypothesis  $\mathscr{C}\left(n \right)$ is the cobordism category (cf. Definition \ref{cobordism_category_defn}).
-\end{lemma}
-\begin{proof}
-One needs check conditions (a)-(d) of the Definition \ref{cobordism_category_defn}.
-\paragraph{}(a) Follows from that the set of  $\mathscr{C}\left(n \right)$-objects is a free Abelian group, i.e. $\Z$-module.
-\paragraph{}(b) From  \eqref{co_d_eqn} it follows that
-\bean
-\partial \partial \left( 1_\Z \cdot \left(\sX, f \right)\right)= \begin{cases}
-\partial  \left( 1_\Z \cdot \left(\sX_0, f_0 \right)\right)- \partial  \left( 1_\Z \cdot \left(\sX_1, f_1 \right)\right)= 0_{\mathscr{C}\left(n \right)}  & \infty \in f\left(\sX \right) \\
-	0_{\mathscr{C}\left(n \right)} &  \infty \notin f\left(\sX \right)
-\end{cases} = 0_{\mathscr{C}\left(n \right)};
-\eean 
- From this fact it turns out that for each object $X$ of $\mathscr C\left( n\right) $ one has $~\partial \partial \left( X\right)= 0_{\mathscr{C}\left(n \right)}$.
-\paragraph{}(c) From  the our construction it  turns out that there are $\mathscr{L}\left(n \right)$-arrows $\left(\sX_0, f_0\right) \to \left(\sX, f \right)$ and $\left(\sX_1, f_1\right) \to \left(\sX, f \right)$, so there is the natural arrow $\mathscr{C}\left(n \right)$
-$$
-j_{1_\Z \cdot \left(\sX, f \right)}:  \partial \left( 1_\Z \cdot \left(\sX, f \right)\right) \to 1_\Z \cdot \left(\sX, f \right).
-$$ 
-using this fact one can deduce that for any $\mathscr{C}\left(n \right)$-arrow $X \xrightarrow{\phi} Y$ there is a commutative diagram
-	\bean
-\begin{tikzcd}
-\partial X\arrow[d, "\phi|_{\partial X}"]\arrow[r, "j_X"]& X\arrow[d, "\phi"]\\
-\partial Y\arrow[r, "j_Y"]& Y\\
-\end{tikzcd}
-\eean
-\paragraph{}(d) The category $\mathscr{C}\left(n \right)$ is small.
-\end{proof}
-Using this interpretation one can define cycles and boundaries
-\bean
-Z \mathscr{C}\left(n \right) \bydef \left\{\left.x \in \mathscr{C}\left(n \right)\right| \partial x = 0_{\mathscr{C}\left(n \right)} \right\},\\
-B \mathscr{C}\left(n \right)\bydef \partial \mathscr{C}\left(n \right)
-\eean
-such that there is the natural isomorphism $A\left(\C P^n_{\mathfrak{Gelfand}} \right)\cong Z \mathscr{C}\left(n \right)/ B \mathscr{C}\left(n \right)$.
-
 
 \subsection{Gelfand spaces of continuous trace $C^*$-algebras}
 
