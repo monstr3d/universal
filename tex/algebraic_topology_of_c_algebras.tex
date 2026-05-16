@@ -760,7 +760,7 @@ From the  Proposition \ref{top_ultra_prop} it follows that the space $\mathfrak{
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
 \begin{remark}\label{loc_compact_rem}
-	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff.
+	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
 \end{remark}
 \begin{empt}\label{topology_base_herd_empt}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$ we use a following notation
@@ -943,37 +943,109 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		\eean
 For any section $s \in \mathscr{C}^{p}\left(\T^n, \mathscr F \right)$ there is a section !!!
 	\end{proof}
+	\subsection{$K$-theory functor. Chern class}
+	\paragraph{}
+	The Gelfand space yields a new conception of the $K$-theory. If $A$ is a $C^*$-algebra then any element $a \in \mathbb{M}_n\left(A \right) $ corresponds to a matrix
+	\be\label{matr_eqn}
+a\in 	\begin{pmatrix}
+		a_{1,1}& \ldots & a_{n,1}  \\
+		\vdots& \ddots & \vdots\\
+		a_{n,1}& \ldots &a_{n,j}  \\
+	\end{pmatrix}\in \mathbb{M}_n\left(A \right).
+	\ee
+	
+	\begin{definition}\label{elementary_defn}
+		If $A$ is an unital  $C^*$-algebra then a given by \eqref{matr_eqn} element $a\in 	 \mathbb{M}_n\left(A \right)$ is  $j,k$-\textit{elementary} if 
+	\be\label{elementary_eqn}
+	a_{g,r} = \begin{cases}
+	1_A & p = j \quad q = k \\
+	0 & \text{otherwise}
+	\end{cases}
+\ee
+		Denote by $\mathfrak{e}_{j,k}$ the $j,k$-{elementary} matrix. 
+	\end{definition}
+If $j',j'', k', k'' \in \left\{1, ..., n\right\}$ and
+\be
+A_{j',j'', k', k''}\bydef \mathfrak{e}_{j',k'}\mathbb{M}_n\left(A \right) \mathfrak{e}_{j'',k''}
+\ee
+then there is the natural $A$-$A$ bimodule isomorphism 
+\be\label{mat_jjkk_eqn} 
+A_{j',j'', k', k''} \cong A
+\ee
+From \eqref{matr_eqn} it turns out that there is a set theoretic bijection
+\be\label{mat_dec_eqn}
+\mathbb{M}_n\left(A \right) \cong \prod_{j',j'', k', k''\in \left\{1, ..., n\right\}}A_{j',j'', k', k''}
+\ee
+If we consider $C^*$-norm topology on $\mathbb{M}_n\left(A \right)$ and the topology on $A_{j',j'', k', k''}$ which comes from the map \eqref{mat_jjkk_eqn} then one can prove that the bijection \eqref{mat_dec_eqn} is a homeomorphism.
+	If $L \subset \mathbb{M}_n\left(A \right)$ is a closed left ideal then 
+	$$
+	L \neq \{0\} \quad \Leftrightarrow \quad \exists j',j'', k', k'' \in \left\{1, ..., n\right\}\quad  L \cap A_{j',j'', k', k''} \neq \{0\}
+	$$
+So if $L \neq \{0\}$ then there is   $a' \in  L \cap A_{j',j'', k', k''} \setminus \{0\}$ such that
+$$
+a' \mathbb{M}_n\left(A \right) \subset L
+$$
+Otherwise from the $A$-$A$ bimodule isomorphism 
+$$
+\mathfrak{e}_{j',k'}\mathbb{M}_n\left(A \right) \mathfrak{e}_{j'',k''}\cong A
+$$
+it follows that there is $a \in A \setminus \{0\}$ which corresponds to $a'$. 
+	For any $j,k \in \left\{1, ..., n\right\}$ and any closed left ideal $L \subset A$ there is a closed left ideal $L_{j,k}\bydef L \mathfrak{e}_{j,k} \subset \mathbb{M}_n\left(A \right)$. From this circumstance there is an inclusion
+\bean
+\mathfrak{inc}_{j,k}:\mathfrak{Gelfand} \left(A \right)\hookto \mathfrak{Gelfand} \left(\mathbb{M}_n\left(A \right) \right)
+\eean
+	
+	
+	there is the natural $*$-homomorphism 
+	\be\label{matrp_eqn}
+	\begin{split}
+\mathbb{M}_n\left(A \right)  \to \mathfrak{e}^*_{j,k} \mathbb{M}_n\left(A \right)\mathfrak{e}_{j,k}\\
+a \mapsto  \mathfrak{e}^*_{j,k} a\mathfrak{e}_{j,k}
+	\end{split}
+\ee
+Since $\mathfrak{e}^*_{j,k} \mathbb{M}_n\left(A \right)\mathfrak{e}_{j,k}\cong A$ the homomorphism \eqref{matrp_eqn} yields a homomorphism 
+	\be\label{matr_pjk_eqn}
+\begin{split}
+\mathfrak{pr}_{j,k}: \mathbb{M}_n\left(A \right)\to A.
+\end{split}
+\ee
+From the Theorem !!! it follows that there is a continuous map
+\be
+\mathfrak{Gelfand} \left(A \right)\xrightarrow{\mathfrak{Gelfand}\left( \mathfrak{pr}_{j,k}\right)  }\mathfrak{Gelfand} \left(\mathbb{M}_n\left(A \right) \right)
+\ee
+
+
 	\subsection{Algebraic Gelfand space}
-	\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \to M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
-	$$
+\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \to M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
+$$
 \psi_\varphi:	\mathfrak{Gelfand}: \left(A \right) \onto \sX_{\varphi}
-	$$
-	this map yields ab injective  $*$-homomorphism
-	$$
+$$
+this map yields ab injective  $*$-homomorphism
+$$
 \phi_\varphi:	C_0\left( \sX_{\varphi}\right)\to C_b\left(\mathfrak{Gelfand}\left(A \right) \right)  
-	$$
+$$
 Since  $\varphi$ is good one has $\phi	\left( C_0\left( \sX\right)\right) \subset C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$. Let $\Phi$ be a set of all satisfying to the described above conditions maps. There the partial order on $\Phi$ such that for any $\phi', \phi''$ the condition $\varphi' \ge \varphi''$ is equivalent to the following commutative diagram
 \bean
 \begin{tikzcd}
 	& \mathfrak{Gelfand} \left(A \right) \arrow[ld, "\psi_{\varphi'}" ] \arrow[rd, "\psi_{\varphi''}" ] &\\
-\sX_{\varphi'} \arrow[rr] && \sX_{\varphi''}	
+	\sX_{\varphi'} \arrow[rr] && \sX_{\varphi''}	
 \end{tikzcd}
 \eean
 If $\varprojlim_{\varphi \in \Phi} \sX_\varphi$ is the inverse limit of topological spaces then 
-	$$
+$$
 C_0\left(\varprojlim_{\varphi \in \Phi}\sX_\varphi \right) \cong 	C^*\text{-}\varinjlim_{\varphi \in \Phi} C_0\left(\sX_\varphi \right) 
-	$$
+$$
 where 	$C^*\text{-}\varinjlim$ means the inductive limit (cf. \cite{matro:hcm})
 \begin{definition}
-Under the above hypothesis the space  \bean \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi\eean  
-is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
-\be
-\mathfrak{Gelfand} \left(A \right)\onto \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)
-\ee
-it turns out that there is the natural good injective {\it  Dauns-Hoffman $*$-homomorphism}
-\be\label{dauns_hofmann_eqn}
-C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\right) \hookto M\left(A \right)
-\ee
+	Under the above hypothesis the space  \bean \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi\eean  
+	is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
+	\be
+	\mathfrak{Gelfand} \left(A \right)\onto \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)
+	\ee
+	it turns out that there is the natural good injective {\it  Dauns-Hoffman $*$-homomorphism}
+	\be\label{dauns_hofmann_eqn}
+	C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\right) \hookto M\left(A \right)
+	\ee
 \end{definition}
 
 \begin{definition}\label{gelfand_alg_functor_defn}
@@ -983,36 +1055,8 @@ C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelf
 	\ee
 	from Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the category  $\mathfrak{Hausdorff}$ of locally compact Hausdorff topological spaces and continuous maps. For any $C^*$-algebra $A$ the functor   $\mathfrak{Alg}\text{-}\mathfrak{Gelfand}$ sets its algebraic Gelfand space.
 \end{definition}	
-	 
 
-	
-	\subsection{$K$-theory functor. Chern class}
-	\paragraph{}
-	The Gelfand space yields a new conception of the $K$-theory. If $A$ is an unital $C^*$-algebra then the group $K_0\left(A \right)$ is given by projectors of $\mathbb{M}_n\left(A \right)$. On the other hand  if $p \in  \mathbb{M}_n\left(A \right)$ is projector then one has a direct sum of left ideals
-	\bean
-	\mathbb{M}_n\left(A \right) = p\mathbb{M}_n\left(A \right) \oplus \left( 1_{\mathbb{M}_n\left(A \right)}-p\right) \mathbb{M}_n\left(A \right) 
-	\eean
-	It follows that
-	\bean
-	\mathbb{M}_n\left(A \right)  = \mathbb{M}_n\left(A \right)_{p}\bigsqcup \mathbb{M}_n\left(A \right)_{1_{\mathbb{M}_n\left(A \right)}-p},
-	\eean 
-	i.e. the group $K_0\left(A \right)$  can be explained in terms of quasicomponents of the Gelfand space.
-\paragraph{}	
-	If $A$ is an unital $C^*$-algebra then projector $p \in \mathbb{M}_n\left(	C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right) \right) $ naturally yields the projector $\mathbb{M}_n\left( \varphi_{\text{DH}} \circ p\right)\in  \mathbb{M}_n\left(M\left(A \right)  \right)$. So there is the map
-	\be
-V^{\text{DH}}\left( A\right)  :	V\left( C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right) \right) \hookto V\left(A \right) 	
-\ee
-where $V$ means the set of algebraic equivalence classes of idempotents (cf. Definition \ref{proj_v_defn}). Using it one can define homomorphisms
-\bean
-K_0\left(C\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right)  \right) \to K_0\left( M\left(A \right)  \right) \right),\\
-K^0\left(\mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right)  \to K_0\left( M\left(A \right)  \right) 
-\eean
-\bean
-\begin{tikzcd}
-	 A \arrow[r] \arrow[rd]& \mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right)\arrow[r]  & K^0\left(\mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) \right)\arrow[ld]\arrow[d]\\
-&K_0\left( M\left( A\right) \right) \arrow[r, dotted ]  &H^{\text{even}}\left(\mathfrak{Alg}\text{-}\mathfrak{Gelfand}\left(A \right) , \Z\right)
-\end{tikzcd}
-\eean
+
 
 
 	
