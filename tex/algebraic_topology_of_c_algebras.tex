@@ -903,50 +903,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		
 	\end{proof}
 	
-	\subsection{Algebraic Gelfand space}
-	\paragraph{} If $A$ is a $C^*$- algebra and $\varphi : M\left(C_0\left(\sX \right)  \right) \hookto M\left( A\right)$ is a good injective $*$-homomorphism from the Theorem \ref{good_thm} is the natural surjective continuous map
-	\be\label{cont_eqn}
-	\psi_\varphi:	\mathfrak{Gelfand}: \left(A \right) \onto \sX_{\varphi}
-\ee
-	this map yields an injective  $*$-homomorphism
-	$$
-	\phi_\varphi:	C_0\left( \sX_{\varphi}\right)\hookto C_b\left(\mathfrak{Gelfand}\left(A \right) \right)  
-	$$
-	Since  $\varphi$ is good one has $\phi	\left( C_0\left( \sX\right)\right) \subset C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$. Let $\Phi$ be a set of all given by the equation \eqref{cont_eqn} conditions maps. There the partial order on $\Phi$ such that for any $\phi', \phi''\in \Phi$ the condition $\varphi' \ge \varphi''$ is equivalent to the following commutative diagram
-	\bean
-	\begin{tikzcd}
-		& \mathfrak{Gelfand} \left(A \right) \arrow[ld, "\psi_{\varphi'}" ] \arrow[rd, "\psi_{\varphi''}" ] &\\
-		\sX_{\varphi'} \arrow[rr] && \sX_{\varphi''}	
-	\end{tikzcd}
-	\eean
-	If $\varprojlim_{\varphi \in \Phi} \sX_\varphi$ is the inverse limit of topological spaces then 
-	$$
-	C_0\left(\varprojlim_{\varphi \in \Phi}\sX_\varphi \right) \cong 	C^*\text{-}\varinjlim_{\varphi \in \Phi} C_0\left(\sX_\varphi \right) 
-	$$
-	where 	$C^*\text{-}\varinjlim$ means the inductive limit (cf. \cite{matro:hcm})
-	\begin{definition}
-		Under the above hypothesis the space  \bean \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\bydef \varprojlim_{\varphi \in \Phi} \sX_\varphi\eean  
-		is the {\it algebraic Gelfand space} of $A$. From the surjective continuous map 
-		\be
-		\mathfrak{Gelfand} \left(A \right)\onto \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)
-		\ee
-		it turns out that there is the natural good injective {\it  Dauns-Hoffman $*$-homomorphism}
-		\be\label{dauns_hofmann_eqn}
-		C^{\text{DH}}_0 \left(A \right) :	C_0\left( \mathfrak{Alg}\text{-}\mathfrak{Gelfand} \left(A \right)\right) \hookto M\left(A \right)
-		\ee
-	\end{definition}
-	
-	\begin{definition}\label{gelfand_alg_functor_defn}
-		There is a contravariant {\it algebraic Gelfand functor} $\mathfrak{Alg}\text{-}\mathfrak{Gelfand}$
-		\be
-		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Alg}\text{-}\mathfrak{Gelfand}} \mathfrak{Hausdorff}
-		\ee
-		from Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the category  $\mathfrak{Hausdorff}$ of locally compact Hausdorff topological spaces and continuous maps. For any $C^*$-algebra $A$ the functor   $\mathfrak{Alg}\text{-}\mathfrak{Gelfand}$ sets its algebraic Gelfand space.
-	\end{definition}	
-	
-	
-	
-	\subsection{$K$-theory functor}
+\subsection{$K$-theory functor}
 	\paragraph{}
 If $A$ is a $C^*$-algebra then any element $a \in \mathbb{M}_n\left(A \right) $ corresponds to a matrix
 \be\label{matr_eqn}
@@ -1114,6 +1071,329 @@ If $A$ is a stable $C^*$-algebra then from the Theorem \ref{rosen_ak2_thm} it fo
 	\ee
 	where $\mathfrak{Gelfand} \left(A \right)''$ is the set of all bicommutants. We consider the final with respect to the map $\phi''$   topology on $\mathfrak{Gelfand} \left(A \right)''$ and say that the space $\mathfrak{Gelfand} \left(A \right)''$ is the \textit{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$ (cf. Definition \ref{top_final_defn}).
 \end{definition}
+\subsection{Examples of classical and quantum projective modules}
+\paragraph{Hausdorff spectrum.}
+If $A$ is a homogeneous of order $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) then $A$ corresponds to a fibre bundle and any fiber  is $n^2$-dimensional $\C$-space $\mathbb{M}_n\left( 
+\C\right)$. The spectrum of $\sX$ is Hausdorff and locally compact. If the space $\sX$ is  compact then both $C\left( \sX\right)$ and $A$ are unital. From the Theorem \ref{serre_swan_thm} it follows that $A$ is a finitely generated projective $C\left( \sX\right)$-module. From this fact one can deduce that any finitely generated projective $A$-module $P$ is a finitely generated projective $C\left( \sX\right) $-module, i.e. $P$ is classical (cf. Definition \ref{classic_quant_defn}).
+\paragraph{Non Hausdorff spectrum.}
+If  $\left(\T^2, \mathcal{F}_\th \right)$ is  the {Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ (cf. Example \ref{fol_tor_exm}) then from the equation \eqref{groupoid_multiplier_eqn} it turns out that there is the natural inclusion
+\be\label{torus_mult_eqn}
+C_0\left(\T^2 \right) \hookto M\left(C^*_r \left(\T^2, \mathcal{F}_\th \right)\right). 
+\ee
+One can proof that the inclusion \eqref{torus_mult_eqn} is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $N \bydef N_{0,1} \subset \T^2$ is given by the equation \eqref{foli_npq_eqn} then one has
+\bean
+C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+\eean
+(cf. equation \eqref{foli_nt_eqn}). On the other hand from \eqref{foli_times_k_eqn} it turns out that
+\bean
+C^*_r\left(\T^2, \sF_\th \right) = C^*_r\left(\G^{\T^2}_{\T^2} \right) \cong \K\left( \E^{\T^2}_N\right) \cong \K \otimes C^*_r\left(\G^N_N  \right)\cong  \K \otimes C\left(\T^2_\th\right). 
+\eean
+where $\E^{\T^2}_N$ is the explained in \ref{foli_hilb_empt} $C^*$-Hilbert module. 
+The maps $u_{\R^2}, v_{\R^2}: \R^2 \to \C$
+\bean
+u_{\R^2}\left(x,y \right)\bydef e^{2\pi i x},\\
+v_{\R^2}\left(x,y \right)\bydef e^{2\pi i y}
+\eean
+and the natural projection $\R^2\onto \T^2 \cong \R^2/\Z^2$ yield two unitary elements
+\be\label{foli_utv_eqn}
+u_{\T^2}, v_{\T^2}\in C\left( \T^2\right).
+\ee
+If $u'_{\R^2}: \R^2 \to \C$ is such that
+\bean
+\forall k_1, k_2 \in \N, \quad \forall\left(x, y \right) \in \left( \left[-\pi , \pi\right), \left[-\pi , \pi\right)\right)  \quad u'_{\R^2}\left( x + 2k_1\pi, y + 2k_2\pi\right) =\\= \begin{cases}
+	e^{2i\left(  x + \th y\right)  } &\left|  y \right| \le \frac{\pi}{2},\\
+	e^{2 i\left(  x + \frac{\pi\th}{2}  - \th \left(y -\pi \right) \right)  } & y >\frac{\pi}{2}\\
+	e^{2 i\left(  x - \frac{\pi\th}{2}  - \th \left(y +\pi \right) \right)  } & y <-\frac{\pi}{2}
+\end{cases}
+\eean
+then $u'_{\R^2}$ is continuous and yields an unitary continuous map $u'_{\T^2}\in C\left( \T^2\right) $ which is homotopic to $u_{\T^2}$. So one has $\left[u'_{\T^2}\right]= \left[u_{\T^2}\right]\in K^1\left(
+\T^2 \right)\cong K_1\left(C\left(\T^2 \right)  \right)$ (cf. Appendices \ref{top_k_sec} and \ref{ca_k_sec}). If 
+\bean
+\Om_{\R^2} \bydef \left\{\left. \left(x,y \right)\in \R^2 \right| y = y' + 2\pi n\quad \left|y \right| < \frac{\pi}{2}\quad n \in \Z \right\}
+\eean
+and the image $\Om\in \T^2$ of $\Om_{\R^2}$ is a tubular neighborhood of $N$
+If both $u, v \in C\left(\G^N_N \right)$ are given by
+\eqref{foli_uv_eqn} then one has
+\be
+\forall \xi \in \E^\Om_N \quad \xi u'_{\T^2} = u \xi
+\ee
+One has $E^\Om_N\cong C\left( N\right) \otimes L^2\left( -\pi, \pi\right)$ and if $\xi \in    L^2\left( -\frac{\pi}{2}, \frac{\pi}{2}\right)\setminus \{0\}$ and $p_1$ is a projection onto $\xi$ then
+$$
+\E^{\T^2}_N \cong \left( \E^{N}_N \otimes \xi\right)  \oplus \left( \E^{N}_N \otimes \ell^2\left(\N \right) \right) 
+$$
+If $\left\{\mathfrak e_2,...  \right\}\in \ell^2\left(\N \right)$ is a basis then $\left\{\mathfrak e_1, \mathfrak e_2...  \right\}\in \ell^2\left(N \right) \cong\C \mathfrak e_1 \oplus \ell^2\left(\N \right)$ is also a basis. One has
+\be\label{filinf_m_eqn}
+\begin{split}
+	u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\bydef\begin{pmatrix}
+		u'_{\T^2}& 0 & \ldots &0 &  \dots \\
+		0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
+		\vdots& \vdots &  \ddots & \vdots& \ldots\\
+		0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
+		\vdots& \vdots & \vdots &\vdots & \ddots \\
+	\end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right).
+\end{split}
+\ee 
+It is known that $K_1\left(\G^N_N  \right)= \Z\left[u\right]  + \Z\left[v\right]$ (cf. \cite{varilly:nc_intro}) it follows that $\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}$. If 
+\bean
+u_{C^*_r\left(\G^{\T^2}_{\T^2}\right)} \bydef \begin{pmatrix}
+	u_{\T^2}& 0 & \ldots &0 &  \dots \\
+	0&  1_{C^*_r\left( G^N_N\right) } & \ldots& 0& \ldots \\
+	\vdots& \vdots &  \ddots & \vdots& \ldots\\
+	0& 0 &\ldots &1_{C^*_r\left( G^N_N\right) }&  \ldots \\
+	\vdots& \vdots & \vdots &\vdots & \ddots \\
+\end{pmatrix}\in U^+\left(C^*_r\left(\G^\N_\N \right)\otimes  \K\right)
+\eean 
+then since $u'_{\T^2}$ is homotopic to $u_{\T^2}$ one has \be\label{tori_lit_eqn}\left[u\right]=\left[ u_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]=\left[ u'_{C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right]\in  K_1\left( {C^*_r\left(\G^{\T^2}_{\T^2} \right)}\right) \setminus \{0\}\cong K_1\left( {C^*_r\left(\G^{N}_{N} \right)}\right) \setminus \{0\}.\ee
+From the proof of the Proposition \ref{inv_path_prop} it follows that there are  the given by \eqref{diag_eqn} continuous maps 
+$
+\Phi_{\G^{N}_{N}}: [0,1] \to \mathbb{M}_2 \left(C^*_r\left(  \G^{N}_{N}\right)\right) \subset \mathbb{M}_\infty \left(C^*_r\left(  \G^{N}_{N}\right)\right)
+$,  $~
+\Phi_{\T^2}: [0,1] \to \mathbb{M}_2 \left(C\left(  \T^2\right)\right) \subset \mathbb{M}_\infty \left(C\left( \T^2\right) \right)
+$ such that
+\bean
+\Phi_{\G^{N}_{N}}\left( 0\right) = 1_{ \mathbb{M}_2 \left( C^*_r\left( \G^{N}_{N}\right) \right)},\\
+\Phi_{ \G^{N}_{N} }\left(1\right) = \begin{pmatrix}
+	u & 0\\
+	0 & u^*
+\end{pmatrix};\\
+\Phi_{\T^2}\left( 0\right) = 1_{ \mathbb{M}_2 \left( C\left( \T^2\right) \right)},\\
+\Phi_{\T^2}\left(1\right) = \begin{pmatrix}
+	u_{\T^2} & 0\\
+	0 & u^*_{\T^2}
+\end{pmatrix}.
+\eean
+There are maps
+\bean
+\Psi_{\G^{N}_{N}}:[0, 1] \to \mathbb{M}_2\left( C^*_r\left( \G^{N}_{N}\right)
+\right),\\
+t \mapsto    \Phi_{\G^{N}_{N}}\left( t\right) \begin{pmatrix}
+	1_{ C^*_r\left( \G^{N}_{N}\right)} & 0\\
+	0 &0
+\end{pmatrix}\left( \Phi_{\G^{N}_{N}}\left( t\right)\right)^{-1};\\
+\Psi_{\T^2}:[0, 1] \to \mathbb{M}_2\left( C\left( \T^2\right)
+\right),\\
+t \mapsto    \Phi_{\T^2}\left( t\right) \begin{pmatrix}
+	1_{ C\left( \T^2\right)} & 0\\
+	0 &0
+\end{pmatrix}\left( \Phi_{\T^2}\left( t\right)\right)^{-1};\\
+\eean
+From the proof of the Theorem \ref{suspension_thm} it follows that the maps $\Psi_{G^N_N}$ and $\Psi_{\T^2}$ yield the projections  $p_{S\G^N_N} \in \mathbb{M}_2 \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)\subset  \mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)$ and  $p_{S\T^2} \in \mathbb{M}_2 \left(SC\left(  \T^2 \right)^+\right)\subset \mathbb{M}_\infty \left(SC\left(  \T^2 \right)^+\right)$. 
+Similarly to \eqref{chern_eqn} there is a diagram
+\be\label{tori_chern_eqn}
+\begin{tikzcd}
+	\mathbb{M}_\infty \left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)  \ar[r,hook, "\phi"] & SC_r^*\left(  \G^{N}_{N}\right)^+\otimes \K
+	\ar[rd,hook, "\phi_A"]  &\\
+	& & 	 M\left( C_r^*\left(  \G^{N}_{N}\right)^+\otimes \K\right)   \\
+	& \mathbb{M}_\infty \left(S C\left( \T^2\right) ^+\right)  \ar[ru,hook, "\phi_\sX"]&
+\end{tikzcd}
+\ee
+From the homotopy between $u'_{\T^2}$ and  $u_{\T^2}$ and 
+taking into account the equations \eqref{filinf_m_eqn}, \eqref{tori_lit_eqn} one can deduce that
+\be\label{foli_p_eqn}
+\begin{split}
+	\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim  \phi_\sX \left( p_{S\T^2}\right),\\
+	\phi_A \circ \phi \left(p_{SG^N_N}\right)\sim_h  \phi_\sX \left( p_{S\T^2}\right) 
+\end{split}
+\ee
+where the relations $\sim$ and $\sim_h$ is given by the Definition \ref{projection_equivalences_defn} (cf. Remark \ref{projection_equivalences_rem}). If
+\be\label{chern_nt_eqn}
+\begin{split}
+	\sV_{S\G^N_N} \bydef p_{G^N_N}\left(SC_r^*\left(  \G^{N}_{N}\right)^+ \right)^2,  \\
+	\sV_{S\T^2 }\bydef p_{S\T^2}\left( \left(SC\left(  \T^2\right)  \right)^+\right)^2 
+\end{split} 
+\ee
+then from the equation \eqref{chern_defn_eqn}
+it follows that
+\be\label{chern_nt_h2_eqn}
+c^H_1\left( \sV_{SG^N_N} \right) = c^H_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ;~ \Z  \right)  
+\ee
+where $c^H_1$ means the given by the Definitions \ref{chern_class_defn} and \ref{chern_defn} Chern classes.
+One has a homeomorphism $\T^2 \cong S^1 \times S^1$ and a projector $\phi_{\T^{2};S^1}: \T^2\to S^1$ such that
+\be\label{folipu_eqn}
+u_{\T^2} = u_{S^1}\circ \phi_{\T^{2};S^1}
+\ee
+where $u_{S^1}\in U\left(C\left(S^1 \right) \right)
+$ such that $K_1\left(C\left( S^1\right)  \right)= \Z\left[u_{S^1}\right]$. The map $\phi_{\T^{2};S^1}$ yields  surjective continuous maps
+\be\label{chern_st_eqn}
+\begin{split}
+	S\T^2 \cong \left(0, 1 \right) \times \T^2 \onto SS^1 \cong \left(0, 1 \right) \times S^1,\\
+	\phi_{S\T^{2};SS^1}: \left( S\T^2\right)^+    \onto\left(  SS^1 \right)^+\\
+\end{split}
+\ee 
+From the Theorem \ref{suspension_thm} it follows that  there is a commutative diagram
+\be\label{foli_sus_eqn}
+\begin{tikzcd}
+	K_1\left(C\left( S^1\right)  \right) \arrow[rrr, "K_1\left( C\left( \phi_{\T^{2}/S^1} \right) \right)" ]  \arrow[d, "\th_{C\left( S^1\right)}" ]&&& K_1\left(C\left( \T^2\right)  \right)\arrow[d, "\th_{C\left(\T^2 \right) }" ]\\ 
+	K_0\left(S(C\left( S^1\right) \right) \arrow[rrr, "K_0\left( C\left(\phi_{S\T^{2};SS^1}\right)\right) " ] &&& K_0\left(SC\left(\T^2 \right)  \right)
+\end{tikzcd}
+\ee
+such that
+$$
+\left[u_{\T^2} \right] = K_1\left( C\left( \phi_{\T^{2}/S^1} \right) \right)\left[ u_{S^1}\right].
+$$
+From the proof of the Proposition \ref{inv_path_prop} it follows that there is the given by \eqref{diag_eqn} continuous map 
+$
+\Phi_{S^1}: [0,1] \to \mathbb{M}_2 \left(C\left(  S^1\right)\right) \subset \mathbb{M}_\infty \left(C\left( S^1\right) \right)
+$ such that
+\bean
+\Phi_{S^1}\left(0\right) = \begin{pmatrix}
+	1_{C\left(S^1 \right) } & 0\\
+	0 & 1_{C\left(S^1 \right) }
+\end{pmatrix},\\
+\Phi_{S^1}\left(1\right) = \begin{pmatrix}
+	u_{S^1} & 0\\
+	0 & u^*_{S^1}
+\end{pmatrix}.
+\eean
+There  is a map 
+\bean
+\Psi_{S^1}:[0, 1] \to \mathbb{M}_2\left( \left(SC(S^1)\right)^+ \right)\cong \mathbb{M}_2\left( C\left( \left( SS^1\right)^+ \right)  \right),\\
+t \mapsto    \Phi_{S^1}\left( t\right) \begin{pmatrix}
+	1_{ C\left( S^1\right)} & 0\\
+	0 &0
+\end{pmatrix}\left( \Phi_{S^1}\left( t\right)\right)^{-1}.\\
+\eean
+From the proof of the Theorem \ref{suspension_thm} it follows that the map $\Psi_{S^1}$ the  projection  $p_{SS^1} \in \mathbb{M}_2\left( C\left( \left( SS^1\right)^+ \right)  \right)\subset \mathbb{M}_\infty\left( C\left( \left( SS^1\right)^+ \right)  \right)$. If we consider a diagram \ref{foli_sus_eqn} then from the Theorem \ref{suspension_thm} if turns out that $\th_{C\left( S^1\right)}$ is an isomorphism, so from 	$K_1\left(C\left( S^1\right)  \right)\cong K^1\left(S^1 \right)  \cong \Z\left[u_{S^1}\right]$ it turns out that 	$K_0\left(\left( S(C\left( S^1\right) \right)^+ \right)\cong K\left( \left( SS^1\right)^+ \right) \cong \Z\left[p_{S^1}\right]\oplus \Z\left[1_{SS^1}\right]$ where $1_{SS^1}$ is a trivial bundle with base $\left(SS^1 \right)^+$. Moreover one has $\left[p_{S\T^2}\right] = K_0\left( C\left(\phi_{S\T^{2};SS^1} \right)\right)\left( \left[p_{SS^1}\right]\right)$ and $p_{S\T^2}
+= p_{SS^1}\circ \phi_{S\T^{2};SS^1}$. If 
+\be
+\sV_{SS^1}\bydef p_{S^1}\left(\left( SS^1 \right)^+  \right)^2 
+\ee
+then
+\be\label{chern_sstt_eqn}
+\sV_{S\T^2}= \phi^*_{S\T^{2};SS^1}\sV_{SS^1}
+\ee
+where  the projective finitely generated modules are identified with vector bundles (cf Theorem \ref{serre_swan_thm}) and $\phi^*_{S\T^{2};SS^1}\sV_{SS^1}$ means the inverse image (cf. Definition \ref{vb_inv_img_funct_defn}).
+For any $x_0, x_1 \in S^2$ with $x_0\neq x_1$ there is a homeomorphism and a continuous surjective map
+\be\label{chern_ss_eqn}
+\begin{split}
+	S^2 \setminus \{x_0\}\sqcup \{x_1\} \cong SS^1 
+	\cong \left( SS^1\right)^+\setminus \{y_0\} \cong\left(  0, 1 \right) \times S^1,\\
+	\phi_{S^2; SS^1 } : S^2\onto \left( SS^1 \right)^+.
+\end{split}
+\ee
+Taking into account the Remark \ref{k_exact_rem} and the Corollary \ref{k_exc_cor} one has an exact sequence 
+
+\be 
+\begin{tikzcd}
+	K\left( \left(0, 1 \right) \times S^1\right) \cong K\left( \left(SS^1 \right)^+ \setminus \{y_0\}\right)\arrow[r, "\psi_{\left(SS^1 \right)^+ }"] \arrow[dd, "\cong"] &K\left( \left(SS^1 \right)^+   \right) \arrow[r, "\phi_{\left(SS^1 \right)^+ }"] \arrow[dd, "K\left(  \phi_{S^2; SS^1 }\right)  "] &K\left( \{y_0\} \right)\arrow[dd]\\
+	~&~ &~ \\
+	K\left( \left(0, 1 \right) \times S^1\right) \cong K\left(S^2  \setminus \{x_0\}\sqcup \{x_1\}\right)\arrow[r, "\psi_{S^2 }"]  &K\left(S^2    \right) \arrow[r, "\phi_{S^2}"]  &K\left( \{x_0\}\sqcup \{x_1\} \right)
+\end{tikzcd}
+\ee
+From \ref{kt_kan_line_empt} it follows that $K\left(S^2 \right) \cong \Z \left[H\right] \oplus \Z \left[1_{S^2}\right]$ where $H$ is the canonical line bundle and $1_{S^2}$ is the trivial rank-one bundle.  From \eqref{foli_sus_eqn} and $K_1\left( C\left( S^1\right) \right)\cong \Z\left[u_{s^1}\right]$ it follows that $K_0\left( \left( \left(0, 1 \right) \times S^1\right) \right)\cong  \Z \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)$.
+On the other hand $
+\ker \phi_2 = \Z \left(\left[H\right] -\left[1_{S^2}\right] \right) 
+$ so one has
+$$
+\forall n \in \Z \quad \psi_{S^2}\left(n \th_{C\left( S^1\right)}\left(  \left[u_{S^1}\right]\right)\right) = n\left(H- 1 \right) 
+$$
+If $1_{\left(SS^1 \right)^+ }$ is a trivial rank-one bundle on $\left( SS^1 \right)^{+}$ then one has $\phi^*_{S^2/\left( SS^1 \right)^+}1_{\left(SS^1 \right)^+ }\cong  1_{S^2}$. From the Theorem \ref{serre_swan_thm} it turns out that
+\bean
+\psi_{\left( SS^1\right)^+}\left(K\left( \left( SS^1\right)^+\setminus \{y_0\} \right)  \right) \cong \Z\left( \left[\sV_{SS^1}\right] -\left[1_{\left( SS^1 \right)^+ }\right]\right) . 
+\eean 
+Using diagram chasing one has
+\bea
+\psi_{S^2}\left(K\left(  S^2  \setminus \{x_0\}\sqcup \{x_1\}\right)\right)  \cong \Z\left( \left[H \right] - \left[1_{S^2}\right]\right) ,\\ 
+\label{chern_pp_eqn}
+K\left(  \phi_{S^2; SS^1 }\right) \left( \sV_{SS^1}\right) \cong  H.
+\eea
+From the inclusion $S^2 \cong \C P^1 \subset \C P^\infty$ one can deduce that there is $\xi \in H^2\left( \C P^1;~\Z \right)\cong  H^2\left( \C P^\infty;~\Z \right)$ such that  $H^2\left( \C P^\infty; ~\Z \right)$ is a generated by $\xi$ unital $\Z$-algebra. From (iv) of the Theorem \ref{chern_class_thm} it follows that 
+\be\label{chern_hx_eqn}
+c^H_1\left(H \right) = \xi \in H^2\left( S^2; ~\Z\right)\cong H^2\left( \C P^1;~\Z \right) .
+\ee
+where $c^H_1\left( H\right)$ is the cohomological Chern character (cf. Definition \ref{chern_class_defn})
+From the { the exact sequence of cohomology groups} (cf. equation \eqref{exact_coh_eqn}) one has
+\be
+\begin{split}
+	H^0\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^0\left(S^2 ;\Z \right)\to H^0\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)\to \\ \to	H^1\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^1\left(S^2 ;\Z \right)\to H^1\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)\to \\ \to	H^2\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \to H^2\left(S^2 ;\Z \right)\to H^2\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)
+\end{split}
+\ee
+and taking into account $H^1\left(S^2 ;\Z \right)=H^2\left(\{x_0\}\sqcup \{x_1\} ;\Z \right)= \{0\}$ one has the isomorphism $H^2\left(S^2 , \{x_0\}\sqcup \{x_1\};\Z \right) \xrightarrow{\cong} H^2\left(S^2 ;\Z \right)$. The Exercise \ref{quot_exer} yields the natural isomorphism 
+$
+H^2\left(S^2 /\left(  \{x_0\}\sqcup  \{x_1\}\right) ;\Z \right) \xrightarrow{\cong} H^2\left(S^2 ;\Z \right)
+$ and taking into account \eqref{chern_ss_eqn} one concludes that these isomorphisms are equivalent to the following one
+$$
+H^2\left(  \phi_{S^2;SS^1}\right): H^2\left(\left(SS^1 \right)^+;~\Z  \right) \xrightarrow{\cong} H^2\left(S^2;~\Z  \right).$$ 
+There is the unique nontrivial $\xi_{ SS^1  }\in H^2\left(  \phi_{S^2; SS^1};~\Z\right) \in H^2\left( \left(SS^1 \right)^+ ;\Z  \right)$ such that 
+\be\label{chern_xx_eqn}
+\xi = H^2\left(  \phi_{S^2;SS^1 };~\Z\right)\left(\xi_{ SS^1  } \right)
+\ee
+From (i) of the Theorem \ref{chern_class_thm}, and the equations \eqref{chern_pp_eqn},  \eqref{chern_hx_eqn}, \eqref{chern_xx_eqn} it turns out that $c^H_1\left( \sV_{SS^1 }\right) =  \xi_{SS^1}$. There is the natural surjective continuous map
+\be
+\begin{split}
+	\phi_{SS^1\times S^1;S\T^2}: \left( SS^1 \right)^+ \times S^1 \onto \left( S\T^2\right)^+,\\
+	\phi_{SS^1\times S^1;S\T^2}\left(\{y_0\} \times S^1\right) = \{z_0\},\\
+	\left( S\T^2\right)^+\cong \left( \left( SS^1 \right)^+ \times S^1  \right) / S^1,
+\end{split}
+\ee
+From the { the exact sequence of cohomology groups} (cf. equation \eqref{exact_coh_eqn}) and the Exercise \ref{quot_exer} one has
+\bean
+H^1\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \to H^1\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)\to  H^1\left( S^1~:\Z  \right)\to \\
+\to H^2\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \to H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)\to  H^2\left( S^1~:\Z  \right)
+\eean 
+One can prove that the natural homomorphism  $H^1\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)\onto  H^1\left( S^1~:\Z  \right)$ is surjective and $H^2\left( S^1~:\Z  \right)= \{0\}$. From these circumstances it follows that the natural homomorphism 
+\be\label{}
+\begin{split}
+	H^2\left(\phi_{SS^1\times S^1;S\T^2}, \Z \right) : H^2\left( \left(S\T^2\right)^+~;~\Z   \right)\cong \\ H^2\left(\left( \left( SS^1 \right)^+ \times S^1\right) /S^1~;\Z   \right) \xrightarrow{\cong } H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right)
+\end{split}
+\ee 
+is an isomorphism. On the other hand there is a projection
+$$
+\phi_{SS^1\times S^1 ; SS^1}: \left(  SS^1 \right)^+ \times S^1 \onto \left(  SS^1 \right)^+
+$$
+onto the first factor of the direct product. From the Exercise \ref{kunn_at_exer} one  has
+$$
+H^2\left( \left( SS^1 \right)^+ \times S^1 ~;\Z  \right) = \Z\left( \xi_{ \left(SS^1 \right)^+  } \otimes 1_{H^0\left(S^1; \Z \right) } \right) 
+$$
+where $\xi_{SS^1   }$ satisfies to \eqref{chern_xx_eqn}. From the above equation one can prove that the map
+\be
+\begin{split}
+	H^2\left(\phi_{SS^1\times S^1 ; SS^1};~ \Z \right): H^2\left( SS^1; ~\Z\right) \xrightarrow{\cong }H^2\left( SS^1\times S^1; ~\Z\right),\\
+	x \mapsto x \otimes 1_{H^0\left(S^1; \Z \right) }
+\end{split}
+\ee
+is an isomorphism so, the element 
+$$
+\xi_{SS^1\times S^1} \bydef H^2\left(\phi_{\left( SS^1\right)^+ \times S^1 / SS^1};~ \Z \right) \left( \xi_{SS^1}\right) 
+$$
+is not trivial.
+There is a following commutative diagram
+\bean
+\begin{tikzcd}
+	~& \left( SS^1 \right)^+ \times S^1 \arrow[ldd, "\phi_{SS^1\times S^1;S\T^2}"] \arrow[rdd, "\phi_{SS^1\times S^1 ; SS^1}"] & ~\\
+	~ & ~ & ~\\
+	\left(S\T^2 \right)^+ \cong \left(  \left( SS^1 \right)^+ \times S^1\right) /S^1 \arrow[rr, "\phi_{S\T^{2};SS^1}"] & ~ & \left( SS^1 \right)^+
+\end{tikzcd}
+\eean
+From the above diagram it follows that
+\bean
+\phi^*_{SS^1\times S^1 ; SS^1} \sV_{SS^1} = \phi^*_{SS^1\times S^1;S\T^2}\circ \phi^*_{S\T^{2};SS^1} \sV_{SS^1}
+\eean
+and taking into account \eqref{chern_sstt_eqn} one has
+\bean
+\phi^*_{SS^1\times S^1 ; SS^1} \sV_{SS^1} = \phi^*_{SS^1\times S^1;S\T^2} \sV_{S\T^2}  
+\eean 
+From (i) of the Theorem \ref{chern_class_thm} it follows that 
+$$
+c^H_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right) = \xi_{SS^1\times S^1} \in H^2\left(\left( SS^1 \right)^+ \times S^1; \Z \right) \setminus \{0\}
+$$
+Applying (i) of the Theorem \ref{chern_class_thm} once again one has
+\bean
+H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right) \left(  c^H_1\left( \sV_{S\T^2}\right) \right)  = c^H_1 \left(\phi^*_{SS^1\times S^1 ; SS^1}\sV_{SS^1} \right).
+\eean 
+There is the unique nontrivial $c^H_1\left( \sV_{S\T^2}\right)$ satisfying to the above equation since the map $H^2\left(\phi_{SS^1\times S^1;S\T^2};~\Z \right)$ is an isomorphism.
+
+\begin{lemma}
+	Under the above hypothesis there is the nontrivial Chern character $c^H_1\left(\sV_{S\G^N_N} \right) \in H^2\left(\left( S\T^2 \right)^+; \Z\right)\setminus\{0\} $ (cf. Definition \ref{chern_defn}) of the given by \eqref{chern_nt_eqn} element $\sV_{\G^N_N} \in V\left( \left( SC\left(\T^2_\th \right)\right)^+\right)  \cong V\left( \left(S C^*_r\left( \G^N_N\right)\right)^+ \right) $. 
+\end{lemma}
+\begin{proof}
+	From \eqref{chern_nt_h2_eqn} it follows that
+	\be\label{chern_nt_h2p_eqn}
+	c^H_1\left( \sV_{SG^N_N} \right) = c^H_1\left( \sV_{S\T^2 }\right)\in H^2\left(\left(S \T^2\right)^+  ; \Z  \right)  
+	\ee
+	However both the existence of  $c^H_1\left( \sV_{S\T^2 }\right)$ and the inequality $c^H_1\left( \sV_{S\T^2 }\right)\neq 0$ are already proven.
+	
+\end{proof}
 
 
 
@@ -2764,6 +3044,146 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 		
 		Consequently, if $A\otimes \K \cong B\otimes \K$,  $\quad K_1\left( A\right) = K_1\left(A \otimes \K \right) =  K_1\left(B \otimes \K \right)= K_1\left(B \right)$. 
 	\end{proof}
+\begin{definition}\label{suspension_defn}\cite{blackadar:ko}
+	%Definition 8.2.1.
+	The \textit{suspension} of $A$, denoted $SA$, is
+	\be\label{suspension_eqn}
+	\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
+	\ee
+	with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
+	complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
+	We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
+	Moreover,
+	\bean
+	\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous},~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}
+	\eean
+	\be\label{suspension_s_eqn}
+	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
+	\ee
+\end{definition}
+\begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
+	\be\label{diag_eqn}
+	\begin{split}
+		w: \left[0, 1\right] \to \mathbb{M}_2\left(A \right) \\
+		t \mapsto  w\left( t\right)  \bydef \begin{pmatrix}
+			x & 0\\
+			0 & 1
+		\end{pmatrix} 
+		\begin{pmatrix}
+			\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+			\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+		\end{pmatrix}
+		\begin{pmatrix}
+			y & 0\\
+			0 & 1
+		\end{pmatrix}	\begin{pmatrix}
+			\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+			\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+		\end{pmatrix}
+	\end{split}
+	\ee
+	then
+	\bean
+	w\left(0 \right) = \begin{pmatrix}
+		x & 0\\
+		0 & y
+	\end{pmatrix}, \\
+	w\left(1 \right) = \begin{pmatrix}
+		xy & 0\\
+		0 & 1\end{pmatrix}
+	\eean
+	(cf \cite{blackadar:ko}).
+\end{empt} 
+
+\begin{proposition}\label{inv_path_prop}\cite{blackadar:ko}
+	%Proposition 3.4.1. 
+	Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
+	to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
+	be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
+	of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
+\end{proposition}
+\begin{remark}
+	The proof of the Proposition is based on \ref{diag_empt}.
+\end{remark}
+
+\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
+	%Theorem 8.2.2. 
+	$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
+	following diagram commutes:
+	\bean
+	\begin{tikzcd}
+		K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
+		K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
+	\end{tikzcd}
+	\eean
+	(In the language of category theory, $\th$ gives an invertible natural transformation
+	from $K_1$ to $K_0\circ S$).
+\end{theorem}
+\begin{proof} (Fragment)
+	Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
+	(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
+	Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
+	also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
+\end{proof}
+\begin{remark} It is proven in \cite{blackadar:ko} that there is a commutative diagram 
+\be
+\begin{tikzcd}
+\{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right) \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
+\{{0}\}\arrow[r]& K_1\left(SA \right) \arrow[r] & K_1\left(SA^+ \right) \arrow[r] & K_1\left(S\C \right) \arrow[r]& \{{0}\}
+\end{tikzcd}
+\ee
+such that vertical arrows are isomorphisms.
+\end{remark}
+\begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
+	%Definition 19.4.1. 
+	\begin{enumerate}
+		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
+		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
+		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
+	\end{enumerate}
+	
+	The mapping cone construction is an important example of a pullback.
+	
+\end{definition}
+There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
+There is a standard short exact sequence 
+\be\label{cone_ip_eqn}
+0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
+\ee
+associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
+we have a commutative diagram
+\newline
+\begin{tikzcd}
+	A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
+	A_2  \arrow[r, "\psi"] & B_2
+\end{tikzcd}
+\\
+there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
+\newline
+\begin{tikzcd}
+	0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
+	0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
+\end{tikzcd}
+
+\begin{theorem}\label{puppe_sequence_thm}\cite{blackadar:ko}
+	%Theorem 19.4.3 
+	(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
+	\bean
+	KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
+	KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
+	\eean
+	
+\end{theorem} 
+\begin{corollary}\label{kk_stable_cor}\cite{blackadar:ko}
+	%	Corollary 17.8.8. 
+	For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
+	isomorphisms
+	\bean
+	KK\left(A, B \right) \cong 	KK\left(A\otimes \mathbb{M}_n\left(\C \right) , B \otimes \mathbb{M}_m\left(\C \right)\right)	\cong KK\left(A, B\otimes\K \right)\cong \\\cong	KK\left(A, B\otimes\K \right)\cong 	KK\left(A\otimes\K, B \otimes\K\right).
+	\eean
+	
+\end{corollary}
+
 	
 	\subsection{Karoubi conjecture}
 	
@@ -2901,138 +3321,6 @@ Theorem \ref{rosen_ak1_thm} is an equivalence.
 	%\begin{proposition}\label{morita_k_prop}\cite{rae:ctr_morita}% 	Proposition 3.8. 
 	%	Every full Hilbert $B$-module $X_B$ is a $\K\left(X \right)-B$-imprimitivity bi-	module with $\left\langle x,y \right\rangle_{\K\left(X\right)} \stackrel{\mathrm{def}}{=}\Th{x,y}= y\left\rangle \right\langle x $  Conversely, if $X$ is an $A$-$B$-imprimitivity bimodule, then there is an isomorphism $\phi$ of $A$ onto $\K\left(X\right)$ such that $\phi\left(\left\langle x, y \right\rangle_A\right)=  \left\langle x,y \right\rangle_{\K\left(X\right)}$ for all $x, y\in \K\left(X\right)$
 	%\end{proposition}
-	
-	\subsection{Suspensions, mapping cones and Puppe sequences}
-	\begin{definition}\label{suspension_defn}\cite{blackadar:ko}
-		%Definition 8.2.1.
-		The \textit{suspension} of $A$, denoted $SA$, is
-		\be\label{suspension_eqn}
-		\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
-		\ee
-		with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
-		complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
-		We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
-		Moreover,
-		\bean
-		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous},~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}
-		\eean
-		\be\label{suspension_s_eqn}
-		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
-		\ee
-	\end{definition}
-	  	\begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
-		\be\label{diag_eqn}
-		\begin{split}
-			w: \left[0, 1\right] \to \mathbb{M}_2\left(A \right) \\
-			t \mapsto  w\left( t\right)  \bydef \begin{pmatrix}
-				x & 0\\
-				0 & 1
-			\end{pmatrix} 
-			\begin{pmatrix}
-				\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
-				\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
-			\end{pmatrix}
-			\begin{pmatrix}
-				y & 0\\
-				0 & 1
-			\end{pmatrix}	\begin{pmatrix}
-			\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
-			\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
-			\end{pmatrix}
-		\end{split}
-		\ee
-		then
-		\bean
-		w\left(0 \right) = \begin{pmatrix}
-			x & 0\\
-			0 & y
-		\end{pmatrix}, \\
-		w\left(1 \right) = \begin{pmatrix}
-			xy & 0\\
-			0 & 1\end{pmatrix}
-		\eean
-		(cf \cite{blackadar:ko}).
-	\end{empt} 
-	
-	\begin{proposition}\label{inv_path_prop}\cite{blackadar:ko}
-		%Proposition 3.4.1. 
-		Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
-		to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
-		be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
-		of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
-	\end{proposition}
-	\begin{remark}
-	The proof of the Proposition is based on \ref{diag_empt}.
-	\end{remark}
-
-	\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
-		%Theorem 8.2.2. 
-		$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
-		following diagram commutes:
-	\bean
-		\begin{tikzcd}
-			K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
-			K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
-		\end{tikzcd}
-\eean
-		(In the language of category theory, $\th$ gives an invertible natural transformation
-		from $K_1$ to $K_0\circ S$).
-	\end{theorem}
-	\begin{proof} (Fragment)
-		Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
-		(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
-		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
-		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
-	\end{proof}
-	\begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
-		%Definition 19.4.1. 
-		\begin{enumerate}
-			\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
-			\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
-			denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
-		\end{enumerate}
-		
-		The mapping cone construction is an important example of a pullback.
-		
-	\end{definition}
-	There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
-	There is a standard short exact sequence 
-	\be\label{cone_ip_eqn}
-	0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
-	\ee
-	associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
-	we have a commutative diagram
-	\newline
-	\begin{tikzcd}
-		A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
-		A_2  \arrow[r, "\psi"] & B_2
-	\end{tikzcd}
-	\\
-	there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
-	\newline
-	\begin{tikzcd}
-		0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
-		0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
-	\end{tikzcd}
-	
-	\begin{theorem}\label{puppe_sequence_thm}\cite{blackadar:ko}
-		%Theorem 19.4.3 
-		(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
-		\bean
-		KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
-		KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
-		\eean
-		
-	\end{theorem} 
-	\begin{corollary}\label{kk_stable_cor}\cite{blackadar:ko}
-		%	Corollary 17.8.8. 
-		For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
-		isomorphisms
-		\bean
-		KK\left(A, B \right) \cong 	KK\left(A\otimes \mathbb{M}_n\left(\C \right) , B \otimes \mathbb{M}_m\left(\C \right)\right)	\cong KK\left(A, B\otimes\K \right)\cong \\\cong	KK\left(A, B\otimes\K \right)\cong 	KK\left(A\otimes\K, B \otimes\K\right).
-		\eean
-		
-	\end{corollary}
 	
 	
 	
