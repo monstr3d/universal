@@ -2346,7 +2346,45 @@ The Chem character has the following properties:
  
 \end{theorem}
 
+\subsection{Multiplicative structures}
 
+	\begin{empt}\label{etp_empt}
+	%4.9. 
+	Let $E$ and $F$ be vector bundles with bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where F [x] where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
+\end{empt}
+\begin{empt}\label{k_cup_empt}
+%5.1. 
+Let $\sX$ and $\sY$ be compact spaces, and let $E$ and $F$ be vector bundles with bases 
+$\sX$ and $\sY$ respectively. Then their "external tensor product" $E\boxtimes F$ (\ref{etp_empt}) is a vector bundle over $\sX \times \sY$. The correspondence $\left(E , F \right)\mapsto E\boxtimes F$  induces a functor $\varphi$ from 
+the category $\E\left( \sX\right)\times \E\left( \sX\right)$  to  $\E\left( \sX\times \sY\right)$, such that $\varphi\left( E \oplus E', F\right)\cong  \varphi\left( E , F\right)\oplus \varphi\left(  E', F\right)$ and $\varphi\left( E, F \oplus F\right)\cong  \varphi\left( E , F'\right)\oplus \varphi\left(  E, F'\right)$, with the analogous property for morphisms. From this functor we obtain a bilinear map 
+\be 
+\begin{split}
+\varphi_*:K\left(\sX \right) \times K\left(\sY \right) \to :K\left(\sX \times \sY\right),\\
+\varphi_* \left(\left[E\right]-\left[E'\right], \left[F\right]-\left[F'\right] \right) \bydef \left[\varphi\left(E, F \right) \right]+\left[\varphi\left(E', F' \right) \right]-\left[\varphi\left(E, F' \right) \right]-\left[\varphi\left(E', F \right)\right].
+\end{split}
+\ee
+Also we denote the \emph{cup}-\emph{product} $\varphi_*\left(x, y \right)$ for $x \in K\left(\sX \right)$  and $y \in K\left(\sY \right)$, by $x \smile y$.  
+
+If both $\sX$ and $\sY$ are locally compact space then the cup-product
+\be\label{kf_prod_eqn}
+\begin{split}
+	K\left(\sX, \R^n \right) \times 	K\left(\sY, \R^p \right) \to 	K\left(\sX\times \R^n \times \sY, \R^p \right)\cong 	K\left(\sX\times\sY\times \R^{n + p} \right)
+\end{split}
+\ee
+may be interpreted as a bilinear map
+ \be 
+ \begin{split}
+ K^n\left( \sX \right)\times  K^p\left( \sY \right) \to K^{n+p}\left( \sX \times \sY\right)
+ \end{split}
+ \ee
+ The diagonal map $\sX \hookto\sX \times \sX$ yields  homomorphisms $K^{n+p}\left(\sX \times \sX \right)  \to K^{n+p}\left(\sX  \right)$ and from \eqref{kf_prod_eqn} one has a product
+   \be 
+  \begin{split}
+  	K^n\left( \sX \right)\times  K^p\left( \sX \right) \to K^{n+p}\left( \sX \right)
+  \end{split}
+  \ee
+  
+\end{empt}
 \section{Lattices and filters}
 			\begin{definition}\label{upper_defn}\cite{johnstone:stone_spaces}
 		Let $\A$ be a partially ordered set, $S$ a subset of $\A$. We say an element $a \in A$
@@ -2472,7 +2510,20 @@ The Chem character has the following properties:
 	\eea
 	
 \end{remark}	
-
+\begin{theorem}\label{left_ideal_thm}\cite{murphy}
+	%3.1.2. Theorem.
+	If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
+	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
+\end{theorem}
+\begin{proof}
+	Set $B \bydef L\cap L^*$. Since $B$ is a $C^*$-algebra, it admits an approximate
+	unit $\left\{u_\la\right\}_{\la\in \La}\subset B$. If $a \in L$, then $a^*a\in B$, so $0 =
+	\lim_{\la\in \La} a^*a\left(1_{A^\sim }- u_\la \right)$ . Hence,\\ $\lim_{\la\in \La}\left\|  a - au_\la \right\|^2= \lim_{\la\in \La}\left\| \left(1-u_\la \right)a^*a \left(1-u_\la \right) \right\|
+	\le \lim_{\la\in \La}\left\|a^*a \left(1-u_\la \right) \right\|=0$, and therefore $\lim_{\la\in \La}\left\|a - au_\la \right\|=0 $.
+	In the preceding proof we worked in the unitization $A^\sim$ of $A$. %We shall
+	frequently do this tacitly.
+\end{proof} 
 	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
 	Let $A$ be a $C^*$-algebra.
 	\begin{enumerate}
@@ -2527,7 +2578,7 @@ The Chem character has the following properties:
 	\ee
 	from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
 \end{thm}
-\begin{empt}
+\begin{empt}\label{low_up_empt}
 	According to \cite{ped_semi} for any $C^*$-algebra $A$ the class $A^m$ 
 is a class of elements in $A''$ which can be approximated
 weakly from below with self-adjoint operators of the form $x + \a$ a with $x$ in $A$
@@ -3363,7 +3414,7 @@ Theorem \ref{rosen_ak1_thm} is an equivalence.
 		the required $\left(C_0\left(\widetilde \sX \right)\rtimes \Ga, C_0\left(\sX \right) \right)$  $C^*$-bimodule.
 	\end{remark}
 	
-	\subsubsection{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
+	\subsection{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
 		Denote by "$\cdot$" the scalar product on $\R^n$.
 		The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
@@ -3477,10 +3528,148 @@ Theorem \ref{rosen_ak1_thm} is an equivalence.
 	%	Every full Hilbert $B$-module $X_B$ is a $\K\left(X \right)-B$-imprimitivity bi-	module with $\left\langle x,y \right\rangle_{\K\left(X\right)} \stackrel{\mathrm{def}}{=}\Th{x,y}= y\left\rangle \right\langle x $  Conversely, if $X$ is an $A$-$B$-imprimitivity bimodule, then there is an isomorphism $\phi$ of $A$ onto $\K\left(X\right)$ such that $\phi\left(\left\langle x, y \right\rangle_A\right)=  \left\langle x,y \right\rangle_{\K\left(X\right)}$ for all $x, y\in \K\left(X\right)$
 	%\end{proposition}
 	
+	\subsubsection{$K$-theory and Poincar\'e duality}\cite{varilly:nc_intro}
+	The noncommutative torus provides an example of a pre-$C^*$-algebra,
+	which is neither commutative nor approximately finite but has an
+	interesting and computable $K$-theory~\cite{r}. The group
+	$K_1(C\left(\T^2_\th \right) )$ is fairly easy to find. There are two generating
+	unitaries, $u$ and~$v$, and all the $u^m v^n$ are mutually
+	non-homotopic in $U(A_\th)$. Indeed, since $\tau_0(1) = 1$ and
+	$\tau_0(u^m v^n) = 0$ for $(m,n) \neq (0,0)$, there cannot be a
+	continuous path in $U(A_\th)$ from~$1$ to $u^m v^n$. Passing to
+	matrices in $M_k(A_\th)$ cannot remedy this, since the same argument
+	works, with $\tau_0$ replaced by~$\tau_0 \ox \tr$. Thus
+	$K_1(\A_\th) = K_1(A_\th) = \Z[u] \oplus \Z[v]$.
 	
+	To determine $K_0(\A_\th)$, we seek projectors in $M_k(\A_\th)$ not
+	equivalent to $e := 1 \oplus 0_{k-1}$. In fact, due to the irrationality
+	of~$\th$, such projectors may be found in $\A_\th$ itself: the
+	\textit{Powers--Rieffel projector}
+	\be\label{rp_eqn}
+	\begin{split}
+		p \in \Coo\left( \T^2_\th\right) \subset C\left( \T^2_\th\right)
+	\end{split} 
+	\ee
+	 has the
+	characteristic property that $\tau_0(p) = \th$. Given this projector,
+	the map $m[e] + n[p] \mapsto m\tau_0(e) + n\tau_0(p) = m + n\th$
+	defines a map from $K_0(\A_\th)$ to $\Z + \Z\th$ which, by a theorem
+	of Pimsner and Voiculescu~\cite{p-v:irr}, is an isomorphism of
+	ordered groups.
 	
+	The projector $p$ is constructed as follows. Write elements of
+	$\A_\th$ as $a = \sum_s f_s v^s$, where $f_s = \sum_r a_{rs} u^r$ is a
+	Fourier series expansion of $f_s(t) = \sum_r a_{rs} e^{2\pi irt}$ in
+	$\Coo(\T)$. Now we look for $p$ of the form
+	$$
+	p = gv + f + hv^{-1}.
+	$$
+	Since $p^* = p$, the function $f$ is real and
+	$\Bar{h(t)} = g(t + \th)$. Assuming $\thalf < \th < 1$, as we may, we
+	choose $f$ to be a smooth increasing function on
+	$[0, 1 - \th]$, define $f(t) := 1$ if $t \in [1 - \th, \th]$, and
+	$f(t) := 1 - f(t - \th)$ if $t \in [\th,1]$; then let $g$ be the
+	smooth bump function supported in~$[\th,1]$ given by
+	$g(t) := \sqrt{f(t) - f(t)^2}$ for $\th \leq t \leq 1$. One checks
+	that these conditions guarantee $p^2 = p$ (look at the coefficients
+	of $v^2$, $v$ and~$1$ in the expansion of~$p^2$). Moreover,
+	$$
+	\tau_0(p) = a_{00} = \int_0^1 f(t) \,dt
+	= \int_0^{1-\th} f(t)\,dt + (2\th - 1) + \int_\th^1 f(t)\,dt = \th.
+	$$
+	The existence of these projectors (variation of $f$ on the interval
+	$[0, 1 - \th]$ gives rise to many homotopic projectors) shows that
+	the topology of the noncommutative torus is very disconnected, in
+	contrast to the ordinary torus $\A_0$, whose only projectors are~$0$
+	and $1$.
+	\begin{theorem}\label{rp_nc_thm}\cite{Rieffel:irrat}
+			%THEOREM 1. 
+			For each $\bt \in \Z\th \cap \left[0,1\right]$ there is a projection
+			$p \in C\left(\T^2_\th \right)$  such that $\tau\left( p\right) =\bt$.
+		\end{theorem}
+	[The commutative torus $\Coo(\T^2)$ has the same $K$-groups:
+	$K_j(\A_0) = \Z \oplus \Z$ for $j = 1,2$. However, this algebra has no
+	Powers--Rieffel projector: the second generator of $K_0(\A_0)$ is
+	obtained by pulling back the Bott projector from $K_0(\Coo(\Sf^2))$.]
+	
+	Thus, $K_\8(\A_\th)$ has four generators: $[e]$, $[p]$, $[u]$
+	and~$[v]$. The intersection form is antisymmetric (this is typical of
+	dimension two) and the nonzero pairings of the generators
+	are~\cite{aaa}:
+	$$
+	\bigl<[e], [p]\bigr> = - \bigl<[p], [e]\bigr> = 1,  \qquad
+	\bigl<[u], [v]\bigr> = - \bigl<[v], [u]\bigr> = 1.
+	$$
+	The matrix of the form is a direct sum of two
+	$\begin{pmatrix}
+	0 & -1 \cr 1 & 0 \cr	\end{pmatrix}$ blocks, so it is nondegenerate, and
+	Poincar\'e duality holds.
+	
+	\bigskip
+	
+	We have constructed a geometry $(\A_\th, \H, D_\tau, \Ga, J)$, which
+	may be denoted by $\T^2_{\th,\tau}$. When $\th = 0$, $\tau$ plays the
+	r\^ole of the modular parameter of an elliptic curve. Whether or not
+	this provides an opening to a noncommutative theory of elliptic curves
+	is a tantalizing speculation; it remains to be seen whether
+	$\T^2_{\th,\tau}$ can yield useful arithmetic information.
+	
+	\subsection{Non-stable}
+	\begin{lemma}
+	%THEOREM 8. 
+	Let $\th$ be an automorphisms of the unital $C^*$-algebra $A$
+which is in the connected component of the identity automorphisms of
+	$A$, and let $\a$. also denote the corresponding action of $Z$ on $A$. Suppose
+	that
+	\begin{enumerate}
+		\item 	Every element of $K_1\left(A \right)$  is represented y an invertible element
+		in $A$ itself.
+		\item The projections in  $A$ generate $K_0\left(A \right)$.  
+		
+	\end{enumerate}
+			Then every element in $K_0\left(A\otimes_\a \Z \right)$  is represented by an invertible
+	element of $A\otimes_\a \Z$. 
+	
+	\end{lemma}
+	\begin{rem}
+	It is proven in \cite{Rieffel:stable_irrat} that
+	\be
+	\begin{split}
+	K_0\left(C\left(\T^n_\th \right)  \right) \cong \Z^{2^{n-1}}
+	\end{split}
+	\ee
+	
+	\end{rem}
+	\begin{theorem}\cite{Rieffel:stable_irrat}
+	%THEOREM A.
+	 If $\th$ is not rational, then the positive cone of 	$K_0\left(C\left(\T^n_\th \right)  \right)$
+	consists of exactly the elements on which $\tau$ is positive.
+	\end{theorem}
+
+	\begin{theorem}\cite{Rieffel:stable_irrat}
+%THEOREM c- 
+If $\th$ is not rational, then the projections in $C\left(\T^n_\th \right)$
+generate $K_0\left(C\left(\T^n_\th \right)  \right)$.
+\end{theorem}
+
+	\begin{theorem}\cite{Rieffel:stable_irrat}
+%THEOREM D. 
+If $\th$ is not rational, then every element of $K_1\left(C\left(\T^n_\th \right)  \right)$ is represented by an invertible element of $C\left(\T^n_\th \right)$
+\end{theorem}
+
+	\begin{theorem}\cite{Rieffel:stable_irrat}
+%THEOREM E.
+ If $\th$ is not rational, then the natural map from
+$U_1\left( C\left(\T^n_\th \right)\right)/ U^0_1\left( C\left(\T^n_\th \right)\right)$  to $U_1\left( C\left(\T^n_\th \right)\right)$ is an isomorphism.
+\end{theorem}
 
 
+\begin{theorem}\cite{Rieffel:stable_irrat}
+%THEOREM F. 
+If $\th$ is not rational, then any two projections in
+$\mathbb{M}_m\left(C\left(\T^n_\th \right) \right)$ which represent the same element of $K_1\left(C\left(\T^n_\th \right)  \right)$ are in the  same
+connected component of the set of projections in $\mathbb{M}_m\left(C\left(\T^n_\th \right) \right)$.
+\end{theorem}
 
 
 
@@ -3521,6 +3710,8 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 
 
 \bibitem{bryl:loop}Jean-Luc Brylinski. \textit{Loop Spaces, Characteristic Classes and Geometric Quantization}. Springer Science \& Business Media, Nov 15, 2007.
+
+\bibitem{nt:ky}Chakraborty, S., Echterhoff, S., Kranz, J. et al. {\it $K$-theory of noncommutative Bernoulli shifts}. Math. Ann. 388, 2671–2703 (2024). https://doi.org/10.1007/s00208-023-02587-w, 2024.
 
 \bibitem{connes:foli_survey} A. Connes. \textit{A survey of foliations and operator algebras}. Operator algebras and applications, Part 1, pp. 521-628, Proc. Sympos. Pure Math., 38, Amer. Math. Soc, Providence, R.I., 1982; MR 84m:58140. 1982. 
 
@@ -3614,11 +3805,17 @@ J., 39 (1972), 431-450, 1972.
 	
 	
 	\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
-
+	
+\bibitem{p-v:irr} M. V. Pimsner and D. Voiculescu, {\it Imbedding the irrational rotation $C^*$-algebra into an AF-algebra}, J. Oper. Theory 4 (1980), 201–210.  1980.
 
 \bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
 %\bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
+\bibitem{Rieffel:irrat}M. A. Rieffel, {\it $C^*$-algebras associated with irrational rotations”}, Pac. J. Math. 93 (1981), 415–429. 1981.
+
+\bibitem{Rieffel:stable_irrat}
+Marc~A. Rieffel, \emph{Non-stable $K$-theory and noncommutative tori}.
+Contemporary Mathematics, Volume 62, 1987.
 
 \bibitem{Rieffel:74a}
 Marc~A. Rieffel, \emph{Induced representations of {C}{$^\ast$}-algebras},
