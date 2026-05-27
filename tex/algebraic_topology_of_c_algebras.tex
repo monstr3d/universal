@@ -978,7 +978,6 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		such that vertical arrows are isomorphisms.
 	\end{remark}
 	
-	\paragraph{!!!!!!!!!!!!!}
 	\begin{definition}\label{suspension_defn!!}!!!\cite{blackadar:ko}
 		%Definition 8.2.1.
 		The \textit{suspension} of $A$, denoted $SA$, is
@@ -996,11 +995,14 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
 		\ee
 	\end{definition}
+	
+		\paragraph{!!!!!!!!!!!!!}
+	
 		\begin{lemma}\label{suspension_lem}
 	For any $C^*$-algebra $A$ there is the natural homeomorphism
 	\be
 	\begin{split}
-		\mathfrak{Gelfand}\left(SA  \right) \cong 	S\mathfrak{Gelfand}
+		\mathfrak{Gelfand}\left(SA  \right) \cong \R \times \mathfrak{Gelfand}
 	\end{split}
 	\ee
 	\end{lemma}
@@ -1008,42 +1010,51 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\begin{proof}
 	There are natural injective $*$-homomorphisms 
 	\bean
-	\phi_A : A \hookto M\left(A\otimes_\C C_0\left(\R \right) \right),\\ 
-		\phi_\R : C_0\left( \R\right)  \hookto M\left(A\otimes_\C C_0\left(\R \right) \right) 
+	\phi_A : A \hookto M\left(SA \right),\\ 
+		\phi_\R : C_0\left( \R\right)  \hookto M\left(SA \right) 
 	\eean
 	so the Theorem \ref{good_thm}  yields surjective continuous maps
 	\bean
-				\mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right)\onto \mathfrak{Gelfand}\left(A  \right),\\
-								\mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right)\onto \mathfrak{Gelfand}\left(C_0\left(\R \right).   \right)
+				\mathfrak{Gelfand}\left(SA \right)\onto \mathfrak{Gelfand}\left(A  \right),\\
+								\mathfrak{Gelfand}\left(SA \right)\onto \mathfrak{Gelfand}\left(C_0\left(\R \right).   \right)
 	\eean
 	These maps naturally yield a continuous map  
 		\bean
 	\begin{split}
-		\mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right) \to 	\mathfrak{Gelfand}\left(A  \right)\times \R
+		\mathfrak{Gelfand}\left(SA \right) \to 	\mathfrak{Gelfand}\left(A  \right)\times \R
 	\end{split}
 	\eean
 	Let us construct the inverse continuous map 
 	\bean
 \begin{split}
-	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right).
+	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(SA  \right).
 \end{split}
 \eean
-	If $\left(x, r \right)\in \mathfrak{Gelfand}\left(A  \right)\times \R$, both $\left\{\sU_\la\right\}_{\la\in \La}$ and $\left\{\sV_\la\right\}_{\la\in \La}$ ares bases on neighborhoods of $x$ and $r$ then $\left\{\sU_\la\times \sV_\la\right\}_{\la\in \La}$ is a  basis of neighborhoods of $\left(x, r \right)$. If $\sU_\la$ (resp. $\sV_\la$) corresponds to the closed left ideal $L^A_\la \subset A$ (resp. $L^\R_\la \subset C_0\left(\R \right)$) then
+	If $\left(x, r \right)\in \mathfrak{Gelfand}\left(A  \right)\times \R$, both $\left\{\sU_\la\right\}_{\la\in \La}$ and $\left\{\sV_\la\right\}_{\la\in \La}$ ares bases on neighborhoods of $x$ and $r$ then $\left\{\sU_\la\times \sV_\la\right\}_{\la\in \La}$ is a  basis of neighborhoods of $\left(x, r \right)$. If $\sU_\la$ (resp. $\sV_\la$) corresponds to the closed left ideal $L^A_\la \subset A$ (resp. $L^\R_\la \subset C_0\left(\R \right)$) and
 	\bean
 \begin{split}
-	L_\la \bydef\left( \left(  L^A_\la \otimes 1_{C_b\left(\R\right)  }\right) \left(A\otimes_\C C_0\left(\R \right)  \right)\right) \bigcap \left( \left( 1_{M\left( A\right) } \otimes {C_0\left(\R\right)  }\right) \left(A\otimes_\C C_0\left(\R \right)  \right)\right) 
+	\widetilde L^\R_\la \bydef \left\{ f \in SA \left| \supp f \in \sV_\la\right.\right\}\\
+	\widetilde L^A_\la \bydef \left\{ f \in SA \left|  f\left(\R \right)  \in L^A_\la\right.\right\}\\
 \end{split}
 \eean
-is a closed left ideal of $A\otimes_\C C_0\left(\R \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there is the nontrivial left ideal 
+them 
+	\bean
+\begin{split}
+	L_\la \bydef\widetilde L^\R_\la \bigcap \widetilde L^A_\la
+\end{split}
+\eean
+is a closed left ideal of $A\otimes_\C C_0\left(\R \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there are $y', y'' \in \mathfrak{Gelfand}\left(SA  \right)$ such that $y'\neq y''$ ans corresponding to $y'$ and $y''$ ultrafilters exceed $\left\{L_\la\right\}$. !!!!
+
+ there is the nontrivial left ideal 
 	\bean
 \begin{split}
 	L\subset \bigcap_{\la \in \La} L_\la \neq \{0\}
 \end{split}
 \eean
-but it is impossible. The ultrafilter  $\left\{L_\la\right\}$ yields the unique $y \in \mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right)$ so one has a map
+but it is impossible. The ultrafilter  $\left\{L_\la\right\}$ yields the unique $y \in \mathfrak{Gelfand}\left(SA  \right)$ so one has a map
 	\be\label{sus_inv_map_eqn}
 \begin{split}
-	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(A\otimes_\C C_0\left(\R \right)  \right),\\
+	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(SA \right),\\
 	\left(r, s \right) \mapsto y.
 \end{split}
 \ee
