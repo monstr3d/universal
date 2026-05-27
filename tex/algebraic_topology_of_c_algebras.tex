@@ -1015,21 +1015,16 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\eean
 	so the Theorem \ref{good_thm}  yields surjective continuous maps
 	\bean
-				\mathfrak{Gelfand}\left(SA \right)\onto \mathfrak{Gelfand}\left(A  \right),\\
-								\mathfrak{Gelfand}\left(SA \right)\onto \mathfrak{Gelfand}\left(C_0\left(\R \right).   \right)
+		\varphi_A:		\mathfrak{Gelfand}\left(SA \right)\onto \mathfrak{Gelfand}\left(A  \right),\\
+						\varphi_\R:			\mathfrak{Gelfand}\left(SA \right)\onto  \mathfrak{Gelfand}\left(C_0\left(\R \right).   \right)
 	\eean
 	These maps naturally yield a continuous map  
-		\bean
+		\be\label{dir_map_eqn}
 	\begin{split}
 		\mathfrak{Gelfand}\left(SA \right) \to 	\mathfrak{Gelfand}\left(A  \right)\times \R
 	\end{split}
-	\eean
-	Let us construct the inverse continuous map 
-	\bean
-\begin{split}
-	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(SA  \right).
-\end{split}
-\eean
+	\ee
+
 	If $\left(x, r \right)\in \mathfrak{Gelfand}\left(A  \right)\times \R$, both $\left\{\sU_\la\right\}_{\la\in \La}$ and $\left\{\sV_\la\right\}_{\la\in \La}$ ares bases on neighborhoods of $x$ and $r$ then $\left\{\sU_\la\times \sV_\la\right\}_{\la\in \La}$ is a  basis of neighborhoods of $\left(x, r \right)$. If $\sU_\la$ (resp. $\sV_\la$) corresponds to the closed left ideal $L^A_\la \subset A$ (resp. $L^\R_\la \subset C_0\left(\R \right)$) and
 	\bean
 \begin{split}
@@ -1037,31 +1032,33 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\widetilde L^A_\la \bydef \left\{ f \in SA \left|  f\left(\R \right)  \in L^A_\la\right.\right\}\\
 \end{split}
 \eean
-them 
+then 
 	\bean
 \begin{split}
-	L_\la \bydef\widetilde L^\R_\la \bigcap \widetilde L^A_\la
+	L_\la \bydef\widetilde L^\R_\la \cap \widetilde L^A_\la
 \end{split}
 \eean
-is a closed left ideal of $A\otimes_\C C_0\left(\R \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there are $y', y'' \in \mathfrak{Gelfand}\left(SA  \right)$ such that $y'\neq y''$ ans corresponding to $y'$ and $y''$ ultrafilters exceed $\left\{L_\la\right\}$. !!!!
-
- there is the nontrivial left ideal 
-	\bean
+is a closed left ideal of $A\otimes_\C C_0\left(\R \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there are $y', y'' \in \mathfrak{Gelfand}\left(SA  \right)$ such that $y'\neq y''$ and corresponding to $y'$ and $y''$ ultrafilters  $\left\{L'_\la\right\}$ and $\left\{L''_\la\right\}$ exceed $\left\{L_\la\right\}$. There is $\la_0\in \La$ such that
+	\be\label{intsec_eqn}
 \begin{split}
-	L\subset \bigcap_{\la \in \La} L_\la \neq \{0\}
-\end{split}
-\eean
-but it is impossible. The ultrafilter  $\left\{L_\la\right\}$ yields the unique $y \in \mathfrak{Gelfand}\left(SA  \right)$ so one has a map
-	\be\label{sus_inv_map_eqn}
-\begin{split}
-	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(SA \right),\\
-	\left(r, s \right) \mapsto y.
+\forall \la \in \La \quad \la \ge \la_0 \quad L'_\la \cap L''_\la = \{0\}\quad \Rightarrow \quad \left(  L'_\la\cap \widetilde L^\R_\la \cap \widetilde L^A_\la \right) \bigcap \left( L''_\la\cap \widetilde L^\R_\la \cap \widetilde L^A_\la\right)  = \{0\}
 \end{split}
 \ee
-The set $\left\{\sU_\la\times \sV_\la\right\}$ is a basis of neighborhoods of $\left(r, s \right)$ so from (c) of  the Theorem \ref{top_continuous_thm} it follows that the map \eqref{sus_inv_map_eqn} is continuous.
+If $ \left( L'_\la\cap \widetilde L^A_\la\right)
+\bigcap  \left( L''_\la\cap \widetilde L^A_\la\right)  = \{0\}$ for any $\la \ge \la_0$ then $\varphi_A(y')\neq  \varphi_A(y'')$ but it is impossible since $\varphi_A(y')= x$ and $\varphi_A(y'')=x$. Now the condition \eqref{intsec_eqn} holds if 
+$ \left( L'_\la\cap \widetilde L^\R_\la\right)
+\bigcap  \left( L''_\la\cap \widetilde L^\R_\la\right)  = \{0\}$ for any $\la \ge \la_0$. Then one has $\varphi_\R(y')\neq  \varphi_\R(y'')$ but it is impossible since $\varphi_\R(y')= r$ and $\varphi_\E(y'')=r$. So the filter $\left\{L_\la\right\}$ is an ultrafilter which yields the unique $y \in  \mathfrak{Gelfand}\left(SA  \right)$. In result one has a  continuous map 
+\bean
+\begin{split}
+	\mathfrak{Gelfand}\left(A  \right)\times \R\to 	\mathfrak{Gelfand}\left(SA  \right),\\
+	\left(x, r \right)\mapsto y 
+\end{split}
+\eean
+which is inverse to the map \eqref{dir_map_eqn}.
+
 	\end{proof}
 	\begin{definition}\label{image_defn}
-	For any  $f \in C_0\left( \mathfrak{Gelfand}\left(A \right) \right)$ an element $a \in M\left( A\right)$ is the \textit{image} of $f$ if for any $x \in  \mathfrak{Gelfand}\left(A \right)$ with $f\left(x \right)\neq 0$  and any $\eps > 0$ there is an ideal $L \subset A$ such that 
+If  $f \in C_0\left( \mathfrak{Gelfand}\left(A \right) \right)$ an element $a \in M\left( A\right)$ is the \textit{image} of $f$ if for any $x \in  \mathfrak{Gelfand}\left(A \right)$ with $f\left(x \right)\neq 0$  and any $\eps > 0$ there is an ideal $L \subset A$ such that 
 	\begin{enumerate}
 		\item (a) $\quad x \in \mathfrak{Gelfand}\left(A \right)_L$ (cf. equation \eqref{topology_eqn}), i.e. $L$ represents a neighborhood of $x$.
 		\item(b) 	$\quad \forall b \in L \setminus \{0\}\quad   \left\| f\left( x\right) b - ab\right\| < \eps \left\| b\right\|$
@@ -1108,58 +1105,26 @@ a= 	\begin{pmatrix}
 	\end{cases}
 	\ee
 \end{definition}
-If $j',j'', k', k'' \in \left\{1, ..., n\right\}$ and
-\be\label{mat_dec_teqn}
-A_{j',j'', k', k''}\bydef \mathfrak{e}_{j',k'}\mathbb{M}_n\left(A \right) \mathfrak{e}_{j'',k''}
-\ee
-then there is the natural $A$-$A$ bimodule isomorphism 
-\be\label{mat_jjkk_eqn} 
-A_{j',j'', k', k''} \cong A
-\ee
-From \eqref{mat_dec_teqn} for any $j',j'', k', k''\in \left\{1, ..., n\right\}$ there is the natural inclusion
-\be\label{mat_dec_eqn}
-\mathbb{M}_n\left(A \right)A_{j',j'', k', k''}\subset \mathbb{M}_n\left(A \right) 
-\ee
-From the equation \eqref{mat_dec_eqn} one can deduce that there is an open continuous map
-\be\label{matrpp_eqn}
+\begin{lemma}
+If $A$ is an unital $C^*$ algebra then for any $n \in \N$ there is the following homeomorphisms
+		\be\label{gn_eqn}
 \begin{split}
-	\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) \subset \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) 
+\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \cong \coprod_{j-1}^n \mathfrak{Gelfand}\left(A \right)_j,\\
+\mathfrak{Gelfand}\left(A \right)_j\cong \mathfrak{Gelfand}\left(A \right)\quad j=1,..., n/
 \end{split}
 \ee
-where $\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right)$ is homeomorphic to $\mathfrak{Gelfand}\left( A \right)$ for all $j',j'', k', k''\in \left\{1, ..., n\right\}$.
-\begin{lemma}\label{proj_id_lem}
-	The given by \eqref{matrpp_eqn} map yields the natural  homeomorphism
-	\be\label{matrppb_eqn}
-	\begin{split}
-		\coprod_{j',j'', k', k''\in \left\{1, ..., n\right\}}	\mathfrak{Gelfand}\left( A_{j',j'', k', k''} \right) \cong \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) 
-	\end{split}
-	\ee
 \end{lemma}
 \begin{proof}
-	Let $\xi \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) $ is represented by an ultrafilter $\left\{\sU_\la\right\}_{\la\in \La}$. If  both  $\left(  j'_1,j''_1, k'_1, k''_1\right) $  and $\left(  j'_2,j''_2, k'_2, k''_2\right) $  are different quadruples with
-	\bean
-	\begin{split}
-	\forall \la\in \La \quad \sU_\la \cap \mathfrak{Gelfand}\left( A_{ j'_1,j''_1, k'_1, k''_1} \right)\neq \{0\}, \quad \sU_\la \cap \mathfrak{Gelfand}\left( A_{   j'_2,j''_2, k'_2, k''_2} \right)\neq \{0\
-		\end{split}
-		\eean
-		then the filter 
-		$$
-	\left\{\sU_\la \cap \mathfrak{Gelfand}\left( A_{ j'_1,j''_1, k'_1, k''_1} \right)\right\}_{\la\in \La}	
-		$$
-		exceeds $\left\{\sU_\la\right\}$. If is impossible since   $\left\{\sU_\la\right\}$ is an ultrafilter. So there is the unique $j',j'', k', k'' \in \left\{1, ..., n\right\}$ and $\la_0 \in \La$ with 
-			\bean
-		\begin{split}
-			\forall \la\in \La \quad \la \ge \la_0 \quad  \sU_\la \subset \mathfrak{Gelfand}\left( A_{  j',j'', k', k'' } \right)
-		\end{split}
-		\eean
-		It turns out that the set $\mathfrak{Gelfand}\left( A_{  j',j'', k', k'' } \right)$ contains a basis of neighborhoods of $\xi$, From this circumstance it turns out that there is the homeomorphism \eqref{matrppb_eqn}.
-	\end{proof}
-	From the Lemma \ref{proj_id_lem} it follows that there is the natural isomorphism 
-			\bean
-	\begin{split}
-\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(\mathbb{M}_n\left(C\left( \mathfrak{Gelfand}\left(A \right) \right)  \right)\right)
-	\end{split}
-	\eean
+Any closed left ideal $L\subset \mathbb{M}_n\left(A \right)$ can be uniquely defined by left $\mathbb{M}_n\left(A \right)$-submodule $P \subset A^n$ given by
+		\bean
+\begin{split}
+P \bydef A^n L \subset A^n = \bigoplus_{j=1}^n A_j
+\end{split}
+\eean
+where $A_j\cong A$ as left $A$-module for each $j \in \{1,...,n\}$,
+If $\left\{L_\la\right\}_{\la \in \La}$ is an ultrafilter then there is the unique $j \in \{1,...,n\}$ such that there is $\la_0 \in \La$ such that $L_\la \subset A_j$ for every $\la \ge \la_0$. If $x \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is given by the ultrafilter  $\left\{L_\la\right\}$ then $x \in \mathfrak{Gelfand}\left(A \right)_j$.
+\end{proof}
+
 	If $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
 	\be\label{matrppbu_eqn}
 	\begin{split}
@@ -1194,10 +1159,28 @@ Moreover $p$ is the image (cf. Definition \ref{image_defn}) of $p_{ \mathfrak{Ge
 $$
 p =  \mathfrak{Image}\left( p_{ \mathfrak{Gelfand}\left(A \right) }\right) .
 $$
+Both projectors $p$ and  $p_{ \mathfrak{Gelfand}\left(A \right) }$ yield elements of algebraic $K$-theory (cf. Appendix \ref{algebraic_k_theory}) so we have the natural isomorphism 
+\bean
+\begin{split}
+K_0^{\mathrm{alg}}\left(A \right)\cong K_0^{\mathrm{alg}}\left(C\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+\end{split}
+\eean
+Using excision (cf. Appendix \ref{excision_empt} and the Theorem \ref{k_0_iso_thm}) of one has the isomorphism for nonunital $C^*$-algebras
+\be\label{k_0_alg_iso}
+\begin{split}
+	K_0^{\mathrm{alg}}\left(A \right)\cong K_0^{\mathrm{alg}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+\end{split}
+\ee
+If $A$ is a stable $C^*$-algebra then from the Remark \ref{ho_top_rem} and the Theorem \ref{rosen_ak2_thm} the map \eqref{k_0_alg_iso} yields the natural isomorphism 
+\be\label{k_0_top_iso}
+\begin{split}
+	K_0^{\mathrm{top}}\left(A \right)\cong K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+\end{split}
+\ee
+According to the Proposition \ref{k_1_prop} any $[u]\in K_1\left(A \right)$ is represented by an element $u$ of $U_n\left(A^+ \right)\cong U\left( \mathbb{M}_n\left( A^+\right) \right)$. Suppose that there is $u_{\mathfrak{Gelfand}}\in U\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left( A^+\right) \right)\right)$ which is the image of $u$  
 
 
-
-If $A$ is a $C^*$-algebra then  according to the Proposition \ref{k_1_prop} any $[u]\in K_1\left(A \right)$ is represented by an element $u$ of $U_n\left(A^+ \right)\cong U\left( \mathbb{M}_n\left( A^+\right) \right)$. If $u_{S^1}\in C\left(S^1 \right)$ is an unitary generator of $C\left(S^1 \right)$ then there is the natural $*$-homomorphism $C\left(S^1 \right)\to \mathbb{M}_n\left( A^+\right)$. From the Theorem \ref{good_thm} it follows that there is the natural continuous map 
+is an unitary generator of $C\left(S^1 \right)$ then there is the natural $*$-homomorphism $C\left(S^1 \right)\to \mathbb{M}_n\left( A^+\right)$. From the Theorem \ref{good_thm} it follows that there is the natural continuous map 
 	\bean
 \begin{split}
 f_S: \mathfrak{Gelfand}\left(\mathbb{M}_n\left( A^+\right) \right) \xrightarrow{} C\left(S^1 \right) 
@@ -1849,7 +1832,7 @@ In summary then, a \textit{natural transformation} from functor $F: \mathscr C\t
 	
 	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
 \end{definition}
-\subsection{Algebraic $K$-theory}
+\subsection{Algebraic $K$-theory}\label{algebraic_k_theory}
 \paragraph{} Let $R$ be a ring with unit. To define $K_0\left(R \right)$  we consider the following equivalence
 relation. We say that two finitely projective $R$-modules $P$ and $Q$ are equivalent
 if and only if they are isomorphic, i.e. if there is an isomorphism of
@@ -1899,7 +1882,7 @@ K_1\left( R\right)\bydef GL\left(R \right)/E\left(R \right)
 \begin{remark}\label{ho_top_rem}
 If $A$ is a $C^*$-algebra  then $K_0\left(A \right)\cong \pi_1\left(GL^{\mathrm{top}}\left(A \right)  \right)$. Using this fact one can prove that the functor $A \mapsto K_0\left(A \otimes \K \right)$ is homotopy invariant.  
 \end{remark}
-\begin{empt}
+\begin{empt}\label{excision_empt}
 	 Here I follow to \cite{suslin:exc}. The algebraic  $K$-theory groups $K_j\left(R \right)$ of a ring with unit $R$ are defined as a homotopy groups of $BGL\left(R \right)^+$, the Quillen plus construction applied to $BGL\left(R \right)$:
 	 \be\label{kr_pi_eqn}
 	 \begin{split}
@@ -3506,7 +3489,7 @@ K^{\mathrm{top}}(\mathbb{F})\times K^{\mathrm{top}}(A)\arrow[r, "\mu_{\mathrm{to
 	$\mu$ denoting the multiplication maps, is homotopy commutative.
 \end{theorem}	
 
-\begin{theorem}\label{rosen_ak2_thm}
+\begin{theorem}\label{rosen_ak2_thm}\cite{rosen:algebraicK}
 %Theorem 3.3. 
 The Karoubi Conjecture is true. In other words, if $A \cong A \otimes \K$  is a stable $C^*$-algebra, then the comparison map $c : K(A)\to K^{\mathrm{top}}(A)$ of
 Theorem \ref{rosen_ak1_thm} is an equivalence.
