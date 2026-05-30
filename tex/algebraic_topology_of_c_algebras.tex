@@ -886,123 +886,12 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		Any functor  $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 	\end{definition}
-	\paragraph{!!!!!!!!!!!!!!!!}
-	\begin{definition}\label{suspension_defn}\cite{blackadar:ko}
-		%Definition 8.2.1.
-		The \textit{suspension} of $A$, denoted $SA$, is
-		\be\label{suspension_eqn}
-		\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
-		\ee
-		with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
-		complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
-		We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
-		Moreover,
-		\bean
-		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous},~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}
-		\eean
-		\be\label{suspension_s_eqn}
-		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
-		\ee
-	\end{definition}
-	\begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
-		\be\label{diag_eqn}
-		\begin{split}
-			w: \left[0, 1\right] \to \mathbb{M}_2\left(A \right) \\
-			t \mapsto  w\left( t\right)  \bydef \begin{pmatrix}
-				x & 0\\
-				0 & 1
-			\end{pmatrix} 
-			\begin{pmatrix}
-				\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
-				\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
-			\end{pmatrix}
-			\begin{pmatrix}
-				y & 0\\
-				0 & 1
-			\end{pmatrix}	\begin{pmatrix}
-				\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
-				\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
-			\end{pmatrix}
-		\end{split}
-		\ee
-		then
-		\bean
-		w\left(0 \right) = \begin{pmatrix}
-			x & 0\\
-			0 & y
-		\end{pmatrix}, \\
-		w\left(1 \right) = \begin{pmatrix}
-			xy & 0\\
-			0 & 1\end{pmatrix}
-		\eean
-		(cf \cite{blackadar:ko}).
-	\end{empt} 
-	
-	\begin{proposition}\label{inv_path_prop}\cite{blackadar:ko}
-		%Proposition 3.4.1. 
-		Let $A$ be a unital local Banach algebra. If $x$ and $x$ are invertible in $A$, then there is a path of invertible elements in $\mathbb{M}_2\left( A\right)$  from $\mathrm{diag}(xy; 1)$
-		to $\mathrm{diag}(x; y)$. If $A$ is a local $C^*$-algebra and $x$ and $y$ are unitary, the path may
-		be chosen to consist of unitaries. So if $z$ is invertible in $A$, then there is a path
-		of invertibles in $\mathbb{M}_2\left( A\right)$ ) from 1 to $\mathrm{diag}(z; z^{-1})$.
-	\end{proposition}
-	\begin{remark}
-		The proof of the Proposition is based on \ref{diag_empt}.
-	\end{remark}
-	
-	\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
-		%Theorem 8.2.2. 
-		$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
-		following diagram commutes:
-		\bean
-		\begin{tikzcd}
-			K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
-			K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
-		\end{tikzcd}
-		\eean
-		(In the language of category theory, $\th$ gives an invertible natural transformation
-		from $K_1$ to $K_0\circ S$).
-	\end{theorem}
-	\begin{proof} (Fragment)
-		Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
-		(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
-		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
-		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
-	\end{proof}
-	\begin{remark} It is proven in \cite{blackadar:ko} that there is a commutative diagram 
-		\be
-		\begin{tikzcd}
-			\{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right) \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
-			\{{0}\}\arrow[r]& K_1\left(SA \right) \arrow[r] & K_1\left(SA^+ \right) \arrow[r] & K_1\left(S\C \right) \arrow[r]& \{{0}\}
-		\end{tikzcd}
-		\ee
-		such that vertical arrows are isomorphisms.
-	\end{remark}
-	
-	\begin{definition}\label{suspension_defn!!}!!!\cite{blackadar:ko}
-		%Definition 8.2.1.
-		The \textit{suspension} of $A$, denoted $SA$, is
-		\be\label{suspension_eqn~!}
-		\left\{f : \R \to A\left|f \quad \mathrm{continuous}, \quad \lim_{x \to \infty }\left\|f\left( x\right)= 0  \right\| \right.\right\}
-		\ee
-		with pointwise  operations and sup norm, $SA$ is a local Banach algebra which is
-		complete if $A$ is; if $A$ is a $C^*$-algebra, then so is $SA \cong C_0\left( \R\right) \otimes A$. We also say that 	$SA$ is the \textit{algebraic suspension}.
-		We have $S\left( \mathbb{M}_n\left( A\right)\right) \cong  S\left( \mathbb{M}_n\left( A\right)\right) $ , and the map $\phi : A \to B$ induces $S\phi: SA \to SB$.
-		Moreover,
-		\bean
-		\left(SA \right)^+ \cong \left\{\left.f:\left[0,1\right|\to A^+\right| f \text{ continuous},~ f(0)=f(1)=\la1, f(t)=\la 1+x_t \text{ for } x_t \in A\right\}
-		\eean
-		\be\label{suspension_s_eqn!}
-		\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
-		\ee
-	\end{definition}
-	
-		\paragraph{!!!!!!!!!!!!!}
 	
 		\begin{lemma}\label{suspension_lem}
 	For any $C^*$-algebra $A$ there is the natural homeomorphism
-	\be
+	\be\label{suspension_g_eqn}
 	\begin{split}
-		\mathfrak{Gelfand}\left(SA  \right) \cong \R \times \mathfrak{Gelfand}
+		\mathfrak{Gelfand}\left(SA  \right) \cong S\mathfrak{Gelfand}\left(A \right).
 	\end{split}
 	\ee
 	\end{lemma}
@@ -1110,7 +999,7 @@ If $A$ is an unital $C^*$ algebra then for any $n \in \N$ there is the following
 		\be\label{gn_eqn}
 \begin{split}
 \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \cong \coprod_{j-1}^n \mathfrak{Gelfand}\left(A \right)_j,\\
-\mathfrak{Gelfand}\left(A \right)_j\cong \mathfrak{Gelfand}\left(A \right)\quad j=1,..., n/
+\mathrm{where}~~\mathfrak{Gelfand}\left(A \right)_j\cong \mathfrak{Gelfand}\left(A \right)~~ \mathrm{as ~left~} A\mathrm{-module}\quad \forall j=1,..., n.
 \end{split}
 \ee
 \end{lemma}
@@ -1124,45 +1013,42 @@ P \bydef A^n L \subset A^n = \bigoplus_{j=1}^n A_j
 where $A_j\cong A$ as left $A$-module for each $j \in \{1,...,n\}$,
 If $\left\{L_\la\right\}_{\la \in \La}$ is an ultrafilter then there is the unique $j \in \{1,...,n\}$ such that there is $\la_0 \in \La$ such that $L_\la \subset A_j$ for every $\la \ge \la_0$. If $x \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is given by the ultrafilter  $\left\{L_\la\right\}$ then $x \in \mathfrak{Gelfand}\left(A \right)_j$.
 \end{proof}
-
-	If $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
+\begin{empt}\label{alg_top_equivalence_empt}
+	If $e \in \mathbb{M}_n\left(A^+ \right)$ is an idempotent then one has the natural disjoint union of open sets
 	\be\label{matrppbu_eqn}
 	\begin{split}
-	\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
+	\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)=\\= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }
 \end{split}
 \ee
-(cf. notation \ref{topology_eqn}). From \eqref{matrppbu_eqn} it turns out that 
-	\bean
+(cf. notation \ref{topology_eqn}). From the Shilov Idempotent Theorem (cf. Appendix \ref{commutative_k_empt})  there is $e_{\mathfrak{Gelfand}} \in  C_c\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right), \Z\right)$  such that 
+	\be\label{matrppbuy_eqn}
 \begin{split}
-	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)= L \oplus L'
-\end{split}
-\eean
-where $L$ and $L'$ are corresponding to $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}$ and\\ $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }$ ideals.
-So one has
-	\be\label{matrppbup_eqn}
-\begin{split}
-	1_{\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)}= p_{ \mathfrak{Gelfand}\left( A\right) }+\left( 1_{1_{\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)}}-p_{ \mathfrak{Gelfand}\left( A\right) }\right) 
+ \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}= \left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 1\right\},\\
+  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }=\\=\left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 0\right\}
 \end{split}
 \ee
-such that 
+From \eqref{matrppbu_eqn} it turns out that 
 	\bean
 \begin{split}
-	1_{\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)}= p_{ \mathfrak{Gelfand}\left( A\right) }+\left( 1_{\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)}-p_{ \mathfrak{Gelfand}\left( A\right) }\right) 
+	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
 \end{split}
 \eean
-where
-\bean
-p_{ \mathfrak{Gelfand}\left( A\right)} \in L,\\
-1_{\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)}-p_{ \mathfrak{Gelfand}\left( A\right) }\in L'	
-\eean 
+where $L$ and $L'$ are corresponding to $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)e}$ and\\ $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -e\right) }$ ideals. Conversely any  idempotent
+	\bean
+\begin{split}
+	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
+\end{split}
+\eean
+ naturally yields an idempotent  $e \in 	\mathbb{M}_n\left( A^+\right)$.
 Moreover $p$ is the image (cf. Definition \ref{image_defn}) of $p_{ \mathfrak{Gelfand}\left( A\right) }$, i.e.
 $$
 p =  \mathfrak{Image}\left( p_{ \mathfrak{Gelfand}\left(A \right) }\right) .
 $$
+So there is the natural one-to-one correspondence between idempotents of $	\mathbb{M}_n\left(C\left(   A^+ \right) \right)$ and 	$\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)$
 Both projectors $p$ and  $p_{ \mathfrak{Gelfand}\left(A \right) }$ yield elements of algebraic $K$-theory (cf. Appendix \ref{algebraic_k_theory}) so we have the natural isomorphism 
 \bean
 \begin{split}
-K_0^{\mathrm{alg}}\left(A \right)\cong K_0^{\mathrm{alg}}\left(C\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+K_0^{\mathrm{alg}}\left(A^+ \right)\cong K_0^{\mathrm{alg}}\left(C\left(\mathfrak{Gelfand}\left(A^+ \right)\right) \right) 
 \end{split}
 \eean
 Using excision (cf. Appendix \ref{excision_empt} and the Theorem \ref{k_0_iso_thm}) of one has the isomorphism for nonunital $C^*$-algebras
@@ -1172,11 +1058,93 @@ Using excision (cf. Appendix \ref{excision_empt} and the Theorem \ref{k_0_iso_th
 \end{split}
 \ee
 If $A$ is a stable $C^*$-algebra then from the Remark \ref{ho_top_rem} and the Theorem \ref{rosen_ak2_thm} the map \eqref{k_0_alg_iso} yields the natural isomorphism 
-\be\label{k_0_top_iso}
+\be\label{k_0_top_iso_eqn}
 \begin{split}
 	K_0^{\mathrm{top}}\left(A \right)\cong K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
 \end{split}
 \ee
+\end{empt}
+\begin{theorem}\label{alg_top_equivalence_thm}
+If $\mathfrak{Stable}~	C^*\text{-}\mathfrak{Gelfand}$ is a category of stable $C^*$-algebras and good $*$-homomorphisms (cf. Definition \ref{good_hom_defn}) 	then there  the commutative diagram of functors and natural transformations 
+	\be\label{alg_top_equivalence_eqn}
+\begin{tikzcd}
+	\mathfrak{Stable}~C^*\text{-}\mathfrak{Gelfand} \arrow[d,""]  \arrow[r, "K^{\mathrm{top}}_*"]\arrow[d,"\mathfrak{Gelfand}"]&  \mathfrak{Ab}  \arrow[d, equal]  \\
+	\mathfrak{Hausdorff} \arrow[r, "K^*"]&  \mathfrak{Ab}  
+\end{tikzcd}
+\ee
+%	\be\label{alg_top_equivalence_eqn}
+%	\begin{tikzcd}
+%		& & \mathfrak{Ab}\\
+%		C^*\text{-}\mathfrak{Gelfand}\arrow[d, "\mathfrak{Gelfand}"] \arrow[rru, "K_*"]\ \arrow[rr, "K^{\mathrm{alg}}_*\circ (\cdot)^+"]& & \mathfrak{Ab} \arrow[u],  \arrow[dd,equal]  \\
+%		\mathfrak{Hausdorff} \arrow[d, "C_0\left(\cdot \right)^+" ]&   &\\
+%		\mathfrak{Alg} \arrow[rr, "K_*^{\mathrm{alg}}"]&   & \mathfrak{Ab}
+%	\end{tikzcd}
+%	\ee
+	where $\mathfrak{Gelfand}$ is the Gelfand functor (cf. Definitions \ref{gelfand_functor_defn}), both $K^{\mathrm{top}}_*$ and $K^*$ are $K$ functors on $C^*$-algebras and topological spaces.
+\end{theorem}
+\begin{proof}
+	From the equation \eqref{k_0_top_iso_eqn} it follows the natural isomorphism
+\bean
+\begin{split}
+	K_0^{\mathrm{top}}\left(A \right)\cong K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+\end{split}
+\eean
+On the other hand from \eqref{top_alg_eqn} one has
+\bean
+\begin{split}
+ K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) \cong K^0\left(\mathfrak{Gelfand}\left(A \right) \right),
+\end{split}
+\eean
+i.e. there is the natural equivalence of functors.
+\bean
+\begin{split}
+	K_0^{\mathrm{top}}\cong  K^0\circ \mathfrak{Gelfand}.
+\end{split}
+\eean
+From  the Lemma \ref{suspension_lem} and the the Theorem \ref{suspension_thm} one can deduce
+\bean
+\begin{split}
+	K_1^{\mathrm{top}}\cong  K^1\circ \mathfrak{Gelfand}.
+\end{split}
+\eean
+ 
+\end{proof}
+\begin{empt}
+From the Appendix \ref{commutative_k_empt} any idempotent of $C_0\left( 	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)\right)$ corresponds to  element of $H^0_c\left(	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right); \Z \right) \cong C_c\left( \sX, \Z\right)$. So any element of $$H^0_c\left(	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right); \Z \right)$$ yields an element of $K_0^{\mathrm{alg}}\left(A^+ \right)$. From the Definition \ref{} the natural homomorphism  $K_0^{\mathrm{alg}}\left(A^+ \right)\onto K_0^{\mathrm{top}}\left(A^+ \right)$ is not in general injective.
+\end{empt}
+
+\begin{definition}\label{projection_equivalences_defn}\cite{wegge_olsen}
+	%Definition 5.2.1. 
+	Projections $p$ and $q$ in a $C^*$-algebra $A$ are said to be 
+	\begin{itemize}
+		\item{\it equivalent}, denoted $p\sim q$, when $p = v^*v$ and $q = vv^*$,  $v\in A$ being 
+		a partial isometry; 
+		\item{\it unitarily equivalent}, denoted $p\sim_uq$, when $p = u^*qu$, $u \in A^+$
+		being unitary; 
+		\item{\it homotopic}, denoted $p \sim_h q$, when $p$ and $q$ are connected by a norm 
+		continuous path of projections in $A$. 
+	\end{itemize}
+	
+\end{definition}
+\begin{definition}\label{projection_equivalence_defn}\cite{wegge_olsen}
+	%Definition 6.1.1. 
+	Call projections $p, q \in \mathbb{M}_\infty\left(A \right)$ {\it equivalent} (cf. Definition \ref{equivalence_relation_defn}), denoted $p\sim q$, when there is a $v \in \mathbb{M}_\infty\left(A \right)$ such that $p = v^*v$ and $q = vv^*$ 
+	The equivalence classes are denoted $[\cdot]$ and the set of all these is 
+	\be
+	V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left(A \right)\right.\right\}
+	\ee
+	
+	{\it Addition} in $V\left( A\right)$ is defined by 
+	\bean
+	[p] + [q] = \left[p' \oplus q'\right]
+	\eean
+	if $p' \sim p$, $q' \sim  q$, $p'\perp q'$. 
+\end{definition}
+\begin{remark}\label{projection_equivalences_rem}\cite{wegge_olsen}
+	In \cite{wegge_olsen} it is proven that 	the given by the Definitions \ref{projection_equivalences_defn}  and \ref{projection_equivalence_defn}equivalence relations of 
+\end{remark}
+
+
 According to the Proposition \ref{k_1_prop} any $[u]\in K_1\left(A \right)$ is represented by an element $u$ of $U_n\left(A^+ \right)\cong U\left( \mathbb{M}_n\left( A^+\right) \right)$. Suppose that there is $u_{\mathfrak{Gelfand}}\in U\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left( A^+\right) \right)\right)$ which is the image of $u$  
 
 
@@ -1193,25 +1161,11 @@ u_{\mathfrak{Gelfand}} \bydef u_{S^1} \circ f_S \in U\left(\mathfrak{Gelfand}\le
 \left[u_{\mathfrak{Gelfand}}\right]\in K^1\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left( A^+\right) \right)\right)\cong K_1\left(C_0\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left( A^+\right)\right) \right)\right)  
 \end{split}
 \eean
-From the Theorem  \ref{gelfand_suspension_lem} it follows that \ref{gelfand_suspension_lem}
+From the Theorem  \ref{suspension_lem} it follows that \ref{gelfand_suspension_lem}
 
 !!!
 
-\begin{theorem}\label{alg_top_equivalence_thm}
-	There is the commutative diagram 
-	\be\label{alg_top_equivalence_eqn}
-	\begin{tikzcd}
-		& & \mathfrak{Ab}\\
-		C^*\text{-}\mathfrak{Gelfand}\arrow[d, "\mathfrak{Gelfand}"] \arrow[rru, "K_*"]\ \arrow[rr, "K^{\mathrm{alg}}_*\circ (\cdot)^+"]& & \mathfrak{Ab} \arrow[u],  \arrow[dd,equal]  \\
-		\mathfrak{Hausdorff} \arrow[d, "C_0\left(\cdot \right)^+" ]&   &\\
-		\mathfrak{Alg} \arrow[rr, "K_*^{\mathrm{alg}}"]&   & \mathfrak{Ab}
-	\end{tikzcd}
-	\ee
-	where $\mathfrak{Gelfand}$ is the Gelfand functor (cf. Definitions \ref{gelfand_functor_defn}), $K_*$ and $K^*$ topological and algebraic $K$-theory functor, $\cong$ the natural equivalence between $K_*$ and $K^* \circ \mathfrak{Gelfand}$.
-\end{theorem}
-\begin{proof}
-	From the Lemma \ref{proj_id_lem} it follows that any projector $p \in \mathbb{M}_n\left( A\right)$ naturally yields a projector   $p_{ \mathfrak{Gelfand}\left( A\right) }\in \mathbb{M}_n\left(C\left( \mathfrak{Gelfand}\left(A \right) \right)  \right)$ and vice versa. 
-\end{proof}
+
 
 \begin{remark}
 	If $A$ is a stable $C^*$-algebra then from the Theorem \ref{rosen_ak2_thm} it follows that the algebraic $K$-theory functor can be replaced with the $K$-functor of $K$-theory of $C^*$-algebras.
@@ -2359,6 +2313,19 @@ point.
 (cf. Proposition 3.30).
 If $\sX$ is a topological space then there is an action of $\pi_1\left(\sX\right)\times \pi_1\left(\sX\right)\to \pi_1\left(\sX\right)$ given conjugation; i.e. such that for $\ga, \a \in \pi_1\left(\sX\right)$ one has $\ga \cdot \a = \ga \a\ga^{-1}$.
 \end{prop}
+\begin{definition}\label{top_susp_defn}\cite{blackadar:ko}
+%Definition 1.6.1. 
+If $\sX$ is locally compact, the {\it (reduced) suspension} $S\sX$ of $\sX$
+is defined to be $\sX \times \R$.
+\end{definition}
+	\begin{empt}\label{reduced_coh_empt}\cite{bredon:sheaf} !!!!
+	PAGE 126.
+	In this section we take cohomology with coefficients in the constant sheaf
+	$L$, where $L$ is a principal ideal domain. There is the canonical inclusion
+	$L \Ga\left(L \right)  = H_0\left(\sX, L \right)$ , and the cokernel is called the {\it reduced cohomology
+	group} $\tilde H^0(X; L) = H^0(\sX L)/L$. For $p \neq 0$ we let $\tilde H^p(X; L) \bydef H^p(\sX; L)$.
+	
+\end{empt}
 \subsection{Elements of $K$-theory}\label{top_k_sec}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
@@ -2515,23 +2482,24 @@ Ch: K(X) \to H^{\mathrm{even}} \left(\sX, \Q\right)\bydef \bigoplus_{j=0}^\infty
 defined by $Ch\left(\left[E\right]-\left[F\right]  \right) \bydef  Ch\left(\left[E\right]  \right)-Ch\left(\left[F\right]  \right)$, the {\it Chern character}. 
 
 \end{definition}
-\begin{theorem}
-%3.25. Theorem. 
-The Chem character has the following properties:
-\begin{enumerate}
-	\item [(i)]  If $\sX$ is the sphere $S^{2n}$, then $Ch$ is injective, and its image is $H^*(S^{2n}, \Z)\subset H^*\left( S^{2n}, \Q\right)$,
-		\item [(ii)] b) For any compact space $\sX$, Ch induces an isomorphism 
-	$$K\left(\sX \right) \otimes \Q \xrightarrow{\cong} H^{\mathrm{even}} \left(\sX, \Q\right)$$
-		(the cohomology used here is \v{C}ech cohomology).
-\end{enumerate} 
- 
+\begin{theorem}\label{chern_ch_thm}\cite{karoubi:k}
+%Theorem 1.6.6 (Chern Character). 
+Let $\sX$ be compact. Then there are isomorphisms
+	\be 
+\begin{split}
+\chi^0 :K^0\left( \sX\right) \otimes \Q \xrightarrow{\cong } \bigoplus_{n ~\mathrm{ even}} H^n\left(\sX, \Q \right),\\ 
+\chi^1 :K^1\left( \sX\right) \otimes \Q \xrightarrow{\cong } \bigoplus_{n ~\mathrm{ odd}} H^n\left(\sX, \Q \right) 
+\end{split} 
+\ee
+where $H_n\left(\sX, \Q \right)$  denotes the n-th ordinary (Alexander or  \v{C}ech) cohomology
+group of $\sX$ with coefficients  in $\Q$.
 \end{theorem}
 
 \subsection{Multiplicative structures}
 
 	\begin{empt}\label{etp_empt}
 	%4.9. 
-	Let $E$ and $F$ be vector bundles with bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where F [x] where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
+	Let $E$ and $F$ be vector bundles with bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
 \end{empt}
 \begin{empt}\label{k_cup_empt}
 %5.1. 
@@ -3190,7 +3158,7 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 %A Hilbert $C^*$-module $X$ is called  \textit{reflexive} if $X''\cong X$.
 %\end{definition}
 
-	\subsection{$K$-theory and $K$-homology}\label{ca_k_sec}
+	\subsection{$K$-theory}\label{ca_k_sec}
 
 
 \paragraph*{} The notions of $K$-theory, $K$-homology and $KK$-theory are explained in \cite{blackadar:ko,wegge_olsen}.
@@ -3203,8 +3171,8 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 \end{definition}
 \begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
 	%Definition 5.1.2. 
-	$V(A)$ is the set of algebraic equivalence classes of idempotents
-	in $\mathbb{M}_\infty\left(A \right)$. 
+	$V(A)$ is the set of equivalence classes of idempotents
+	in $\mathbb{M}_\infty\left(A \right)$ (cf. Definition \ref{projection_equivalence_defn}). 
 \end{definition}
 \begin{definition}\label{k00_defn}\cite{blackadar:ko}
 	%Definition 5.3.1. 
@@ -3267,7 +3235,7 @@ V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left
 	if $p' \sim p$, $q' \sim  q$, $p'\perp q'$. 
 \end{definition}
 \begin{remark}\label{projection_equivalences_rem}\cite{wegge_olsen}
-	The given by the Definitions \ref{projection_equivalences_defn}  and \ref{projection_equivalence_defn} of are equivalent.
+In \cite{wegge_olsen} it is proven that 	the given by the Definitions \ref{projection_equivalences_defn}  and \ref{projection_equivalence_defn}equivalence relations of are equivalent.
 \end{remark}
 
 \begin{theorem}\label{k_0_iso_thm}\cite{blackadar:ko}
@@ -3281,7 +3249,22 @@ V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left
 	the result which allows $K$-theory to be developed without reference to relative
 	$K$-groups.
 \end{rem}
-\begin{remark}\cite{blackadar:ko}
+\begin{proposition}\cite{rordam:kc}\label{k_0_stab_prop}
+	% 4.3.8
+Let $A$ be a $C^*$-algebra and let $n$ be a natural number Then $K_0\left( A\right)$ is isomorphic to $K_0\left(\mathbb{M}_n\left( A\right)  \right)$.
+
+More specially, the homomorphism 
+\bean
+\begin{split}
+\la_{n, A} A \hookto \mathbb{M}_n\left( A\right),\\
+a \mapsto \begin{pmatrix}
+	a & 0\\ 0 & 0
+\end{pmatrix}
+\end{split}
+\eean
+induces an isomorphism $K_0\left(\la_{n, A}  \right) : K_0\left( A\right)\cong K_0\left(\mathbb{M}_n\left( A\right)  \right)$.
+\end{proposition}
+\begin{remark}\label{standard_picture_rem}\cite{blackadar:ko}
 The group $K_0\left(A \right)$  may be viewed as formal differences $\left[e\right]-\left[f\right]$, where $e, f \in \mathbb{M}_\infty\left( A^+\right)$  with
 $e \equiv f \mod  \mathbb{M}_\infty\left( A\right)$, with the usual notion of equivalence of formal differences in $K_{00}\left(A^+ \right)$ . In fact, any element of $K_0\left( A\right)$  may be written $\left[e\right]-\left[p_n\right]$, where
 $p_n = \mathrm{diag}\left(1,...,1,0.... \right)$  (with $n$ ones on the diagonal) and $e \equiv p_n  \mod  \mathbb{M}_\infty\left( A\right)$:
@@ -3345,6 +3328,13 @@ is an $n \in \N$ and unitaries (invertibles) $u, v \in U^+_n\left(A \right)$ ($\
 	\left(SA \right)^+ \cong \left\{\left.f:S^1\to A^+\right| f \text{ continuous}, ~f(z)=\la1 + x_z, ~x_z \in A, ~x_1 = 0 \in A\right\}.
 	\ee
 \end{definition}
+\begin{remark}\cite{blackadar:ko}
+If $\sX$ is a locally compact Hausdorff space then one has
+\be
+SC_0\left(\sX \right) = C_0\left( S\sX \right) 
+\ee
+where $SC_0\left(\sX \right)$ and $S\sX$ are given by the Definitions \ref{suspension_defn} and \ref{top_susp_defn}
+\end{remark}
 \begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
 	\be\label{diag_eqn}
 	\begin{split}
@@ -3467,7 +3457,23 @@ there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutat
 	\eean
 	
 \end{corollary}
+\begin{empt}\label{commutative_k_empt}
+%9.4.3.
+Here a follow to  \cite{blackadar:ko}.
+Let $A$ be a commutative Banach algebra with maximal ideal space $\sX$.
+Then there is a natural homomorphism  $\ga : A \to C_0\left(\sX \right)$, the Gelfand transform induces homomorphisms 
+\be\label{top_alg_eqn}
+\ga_*: K_j\left( A\right)\to K_j \left(C_0\left( \sX\right)  \right) \cong K^{-j}\left(\sX \right)\cong K^{j}\left(\sX \right)
+\ee 
+These homomorphisms are actually isomorphisms.
+The other isomorphism can then be obtained
+using Bott periodicity. There are two earlier related theorems, the Shilov Idempotent Theorem, which states that every idempotent in $C_0(\sX)$ is in the image of $\ga$, and hence that the group of integer
+linear combinations of idempotents in $A$ is isomorphic to $H^0_c\left(\sX; \Z \right) \cong C_c\left( \sX, \Z\right)$ 
+and the Arens-Royden Theorem, which states that  induces an isomorphism of
+	$GL_1\left( A\right) / GL_1\left( A\right)_0$ with $GL_1\left(  C_0\left(\sX \right)\right) / GL_1\left( C_0\left(\sX \right)\right)_0\cong H^1_c\left( \sX, \Z\right)$.
 
+%	A description of these results and some applications, along with a further discussion	of $K$-theory for commutative Banach algebras, may be found in [Taylor	1975].
+\end{empt}
 	
 	\subsection{Karoubi conjecture}
 	
@@ -3978,7 +3984,7 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 	
 	\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.	
 	
-		\bibitem{pedersen:ca_aut}Gert K Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+		\bibitem{pedersen:ca_aut}Gert  Kjærgård Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
 \bibitem{ped_semi} Gert K Pedersen.  {\it Applications of weak$*$ semicontinuity in $C^*$-algebra theory}, Duke Math.
 J., 39 (1972), 431-450, 1972.
 
@@ -4009,6 +4015,9 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 \bibitem{rieffel_morita} Marc A. Reiffel, {\it Morita equivalence for $C^*$-algebras and $W^*$-algebras }, Journal of Pure and Applied Algebra 5 (1974), 51-96. 1974.
 
 \bibitem{rosen:algebraicK} J. Rosenberg. {\it The algebraic K-theory of operator algebras}, $K$-Theory 12:1 (1997), (75-99) 1997.
+
+\bibitem{rordam:kc} M. Rørdam, Flemming Larsen, N. Laustsen. {\it An Introduction to $K$-Theory for $C^*$-Algebras}. Cambridge University Press, Jul 20, 2000 - Mathematics, 2000. 
+
 	
 \bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
