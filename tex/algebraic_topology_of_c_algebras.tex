@@ -757,10 +757,10 @@ From the  Proposition \ref{top_ultra_prop} it follows that the space $\mathfrak{
 	$$
 	Aa \in \xi.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
+	The \textit{(wild) Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{wild}-\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
 \begin{remark}\label{loc_compact_rem}
-	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
+	From the natural inclusion $\mathfrak{wild}-\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
 \end{remark}
 \begin{empt}\label{topology_base_herd_empt}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$ we use a following notation
@@ -775,7 +775,7 @@ From the  Proposition \ref{top_ultra_prop} it follows that the space $\mathfrak{
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact (cf. Definition \ref{top_locally_compact_defn}), Hausdorff space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
+	If $\sX$ is a locally compact (cf. Definition \ref{top_locally_compact_defn}), Hausdorff space then  is a natural  homeomorphism $ \mathfrak{wild}=\mathfrak{Gelfand}_\sX: \mathfrak{wild}-\mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
 \end{lemma}
 \begin{proof}
 	
@@ -808,6 +808,9 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	is an ultrafilter on the compact set $\supp a$.
 	From the Proposition \ref{top_ultra_prop} !!!!  PROP !!! it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 \end{proof}
+\begin{exercise}
+Prove that the wild Gelfand space of $C^*$-algebra $\K$ of compact operators is a complex projective spacer $\\C P^\infty$ with discrete topology.
+\end{exercise}
 \paragraph*{}
 If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
 %\be\label{unital_notation_eqn}
@@ -878,13 +881,70 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 \end{proof}
 	 
 	\begin{definition}\label{gelfand_functor_defn}
-		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functor} 
+		The Theorem \ref{good_thm} yields  a contravariant {\it wild Gelfand functor} 
 		\be\label{gelfand_functor_eqn}
 		 C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Hausdorff}
 		\ee
 		 Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the category  $\mathfrak{Hausdorff}$ of locally compact Hausdorff topological spaces and continuous maps.  
 		Any functor  $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
+	\end{definition}
+	
+		 \begin{empt}\label{alg_top_equivalence_empt}
+		If $e \in \mathbb{M}_n\left(A^+ \right)$ is an idempotent then one has the natural disjoint union of open sets
+		\be\label{matrppbu_eqn}
+		\begin{split}
+			\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)=\\= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }
+		\end{split}
+		\ee
+		(cf. notation \ref{topology_eqn}). From the Shilov Idempotent Theorem (cf. Appendix \ref{commutative_k_empt})  there is $e_{\mathfrak{Gelfand}} \in  C_c\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right), \Z\right)$  such that 
+		\be\label{matrppbuy_eqn}
+		\begin{split}
+			\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}= \left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 1\right\},\\
+			\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }=\\=\left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 0\right\}
+		\end{split}
+		\ee
+		From \eqref{matrppbu_eqn} it turns out that 
+		\bean
+		\begin{split}
+			\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
+		\end{split}
+		\eean
+		where $L$ and $L'$ are corresponding to $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)e}$ and\\ $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -e\right) }$ ideals. Conversely any  idempotent
+		\bean
+		\begin{split}
+			\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
+		\end{split}
+		\eean
+		naturally yields an idempotent  $e \in 	\mathbb{M}_n\left( A^+\right)$.
+		Moreover $p$ is the image (cf. Definition \ref{image_defn}) of $p_{ \mathfrak{Gelfand}\left( A\right) }$, i.e.
+		$$
+		p =  \mathfrak{Image}\left( p_{ \mathfrak{Gelfand}\left(A \right) }\right) .
+		$$
+		So there is the natural one-to-one correspondence between idempotents of $	\mathbb{M}_n\left(C\left(   A^+ \right) \right)$ and 	$\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)$
+		Both projectors $p$ and  $p_{ \mathfrak{Gelfand}\left(A \right) }$ yield elements of algebraic $K$-theory (cf. Appendix \ref{algebraic_k_theory}) so we have the natural isomorphism 
+		\bean
+		\begin{split}
+			K_0^{\mathrm{alg}}\left(A^+ \right)\cong K_0^{\mathrm{alg}}\left(C\left(\mathfrak{Gelfand}\left(A^+ \right)\right) \right) 
+		\end{split}
+		\eean
+		Using excision (cf. Appendix \ref{excision_empt} and the Theorem \ref{k_0_iso_thm}) of one has the isomorphism for nonunital $C^*$-algebras
+		\be\label{k_0_alg_iso}
+		\begin{split}
+			K_0^{\mathrm{alg}}\left(A \right)\cong K_0^{\mathrm{alg}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+		\end{split}
+		\ee
+		If $A$ is a stable $C^*$-algebra then from the Remark \ref{ho_top_rem} and the Theorem \ref{rosen_ak2_thm} the map \eqref{k_0_alg_iso} yields the natural isomorphism 
+		\be\label{k_0_top_iso_eqn}
+		\begin{split}
+			K_0^{\mathrm{top}}\left(A \right)\cong K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
+		\end{split}
+		\ee
+		
+		If $S$ is a $C^*$-algebra then the group $\mathrm{Int}\left(A \right)$ of the internal automorphisms acts on  $\mathfrak{wild}$-$\mathfrak{Gelfand}\left(A^+ \right)$
+	\end{empt}
+	\begin{definition}
+		The \textit{Gelfand space} of $A$ is the quotient space $\mathfrak{wild}$-$\mathfrak{Gelfand}\left(A \right)/\mathrm{Int}\left(A \right)$. 
 	\end{definition}
 	
 		\begin{lemma}\label{suspension_lem}
@@ -1013,57 +1073,6 @@ P \bydef A^n L \subset A^n = \bigoplus_{j=1}^n A_j
 where $A_j\cong A$ as left $A$-module for each $j \in \{1,...,n\}$,
 If $\left\{L_\la\right\}_{\la \in \La}$ is an ultrafilter then there is the unique $j \in \{1,...,n\}$ such that there is $\la_0 \in \La$ such that $L_\la \subset A_j$ for every $\la \ge \la_0$. If $x \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is given by the ultrafilter  $\left\{L_\la\right\}$ then $x \in \mathfrak{Gelfand}\left(A \right)_j$.
 \end{proof}
-\begin{empt}\label{alg_top_equivalence_empt}
-	If $e \in \mathbb{M}_n\left(A^+ \right)$ is an idempotent then one has the natural disjoint union of open sets
-	\be\label{matrppbu_eqn}
-	\begin{split}
-	\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)=\\= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }
-\end{split}
-\ee
-(cf. notation \ref{topology_eqn}). From the Shilov Idempotent Theorem (cf. Appendix \ref{commutative_k_empt})  there is $e_{\mathfrak{Gelfand}} \in  C_c\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right), \Z\right)$  such that 
-	\be\label{matrppbuy_eqn}
-\begin{split}
- \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right)_{\mathbb{M}_n\left(A \right)e}= \left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 1\right\},\\
-  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A^+ \right)\left(1_{\mathbb{M}_n\left(A^+ \right)} -e\right) }=\\=\left\{\left. x\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right)\right) \right|e_{\mathfrak{Gelfand}}\left( x\right)  = 0\right\}
-\end{split}
-\ee
-From \eqref{matrppbu_eqn} it turns out that 
-	\bean
-\begin{split}
-	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
-\end{split}
-\eean
-where $L$ and $L'$ are corresponding to $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)e}$ and\\ $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -e\right) }$ ideals. Conversely any  idempotent
-	\bean
-\begin{split}
-	\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)= L \oplus L'
-\end{split}
-\eean
- naturally yields an idempotent  $e \in 	\mathbb{M}_n\left( A^+\right)$.
-Moreover $p$ is the image (cf. Definition \ref{image_defn}) of $p_{ \mathfrak{Gelfand}\left( A\right) }$, i.e.
-$$
-p =  \mathfrak{Image}\left( p_{ \mathfrak{Gelfand}\left(A \right) }\right) .
-$$
-So there is the natural one-to-one correspondence between idempotents of $	\mathbb{M}_n\left(C\left(   A^+ \right) \right)$ and 	$\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A^+\right) \right) \right)$
-Both projectors $p$ and  $p_{ \mathfrak{Gelfand}\left(A \right) }$ yield elements of algebraic $K$-theory (cf. Appendix \ref{algebraic_k_theory}) so we have the natural isomorphism 
-\bean
-\begin{split}
-K_0^{\mathrm{alg}}\left(A^+ \right)\cong K_0^{\mathrm{alg}}\left(C\left(\mathfrak{Gelfand}\left(A^+ \right)\right) \right) 
-\end{split}
-\eean
-Using excision (cf. Appendix \ref{excision_empt} and the Theorem \ref{k_0_iso_thm}) of one has the isomorphism for nonunital $C^*$-algebras
-\be\label{k_0_alg_iso}
-\begin{split}
-	K_0^{\mathrm{alg}}\left(A \right)\cong K_0^{\mathrm{alg}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
-\end{split}
-\ee
-If $A$ is a stable $C^*$-algebra then from the Remark \ref{ho_top_rem} and the Theorem \ref{rosen_ak2_thm} the map \eqref{k_0_alg_iso} yields the natural isomorphism 
-\be\label{k_0_top_iso_eqn}
-\begin{split}
-	K_0^{\mathrm{top}}\left(A \right)\cong K_0^{\mathrm{top}}\left(C_0\left(\mathfrak{Gelfand}\left(A \right)\right) \right) 
-\end{split}
-\ee
-\end{empt}
 \begin{theorem}\label{alg_top_equivalence_thm}
 If $\mathfrak{Stable}~	C^*\text{-}\mathfrak{Gelfand}$ is a category of stable $C^*$-algebras and good $*$-homomorphisms (cf. Definition \ref{good_hom_defn}) 	then there  the commutative diagram of functors and natural transformations 
 	\be\label{alg_top_equivalence_eqn}
