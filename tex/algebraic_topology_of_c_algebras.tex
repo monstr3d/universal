@@ -85,6 +85,7 @@
 
 \usepackage{amsfonts,cite}
 \usepackage{graphicx}
+%\usepackage{MnSymbol}
 
 %% \usepackage[francais]{babel}
 \usepackage[applemac]{inputenc}
@@ -1017,7 +1018,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\end{definition}
 	
 	\paragraph{}
-	If $p \in \mathbb{M}_n\left(A \right)$ is a projection (resp. unitary $u \in \mathbb{M}_n\left(A^+ \right)$ ) then from the Lemma \ref{image_defn} it follows that there is the unique projector $p_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$ ((resp. unitary $u_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right) \right)$
+	If $p \in \mathbb{M}_n\left(A \right)$ is a projection (resp. unitary $u \in \mathbb{M}_n\left(A^+ \right)$ ) then from the Lemma \ref{image_lem} it follows that there is the unique projector $p_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$ ((resp. unitary $u_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right) \right)$
 	such that 
 	\be
 	\begin{split}
@@ -1032,24 +1033,58 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
 	\end{split}
 	\ee 
-	Taking into account the equations \eqref{stab_k1_eqn} and \eqref{royden_eqn} one has
+Any homotopy $\left[0, 1\right]\to U_1\left( \left( A \otimes \K\right)^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
+$$
+u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
+$$
+such that 
+	\bean
+\begin{split}
+	u_{\left[0, 1\right]} =  \mathfrak{Image}\left( u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A^+ \right)} \right) .
+\end{split}
+\eean
+Using this circumstance one concludes that there are following isomorphisms of groups 
+	\bean
+\begin{split}
+ U_1\left( A ^+ \right)\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right),\\
+  U_1\left( A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0,\\
+  U_1\left( A ^+ \right)/  U_1\left( A ^+ \right)_0\cong   U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0
+\end{split}
+\eean
+	From  \eqref{stab_k1_eqn} it follows that 
+\bean
+\begin{split}
+	K_1\left(A \right) \cong U_1\left( A ^+ \right) / U_1\left(  A ^+ \right)_0.
+\end{split}
+\eean	
+so taking into account  \eqref{royden_eqn} one has
 	\be\label{k_1_h_eqn}
 	\begin{split}
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
 	\ee 
-	\begin{lem}
+	\begin{theorem}\label{k_h_thm}
 	If $A$ is a $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
 	K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right),\\
 	\label{k_1_eqn}
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right). 
 	\eea
-	\end{lem}
+	\end{theorem}
 	\begin{proof}
 		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_00_h_eqn} and \eqref{k_1_h_eqn}.
 	\end{proof}
+	\begin{remark}
+	From the equation \eqref{k_00_eqn} it turns out that there is the natural surjective homomorphism 
+		\be\label{nh_eqn}
+	\begin{split}
+\varphi_{H^0\to K_{00}}	: H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\onto  H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right)\cong \\K_{00}\left(A \right) 
+	 	\end{split}
+	\ee 
+	of Abelian groups.
+	\end{remark}
 	\subsubsection{Multiplicative structures}
+		
 	\paragraph{} If $A$ is a stably unital $C^*$-algebra (cf. Definition \ref{stably_unital_defn}) then from  the Proposition	
 	 \ref{stably_unital_prop} and the equation \eqref{k_00_eqn} it follows that there is the natural isomorphism
 		\bean
@@ -1057,7 +1092,38 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	K_0\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right).
 	\end{split}
 	\eean
-	Since $\Z$ is a ring the group  $H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)$ has the natural ring structure with the $\smile$ product. Here we will supply the natural ring structure on the factor-group $$H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right),$$ The group $H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)$ by the pairs $\left( \sU, n\right)$ where $\sU\subset \mathfrak{Gelfand}\left(A \otimes \K\right)$ is an open closed subset and $n \in \N$.
+	The ring $\Z$ is a  principal ideal domain, so from the Theorem \ref{kunnet_sheaf_thm} it follows that there is the natural injective map
+	\bean
+	\begin{split}
+H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\otimes H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\hookto\\ H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)
+	\end{split}
+	\eean
+	If $\Dl : \mathfrak{Gelfand}\left(A \otimes \K\right) \to \mathfrak{Gelfand}\left(A \otimes \K\right) \times \mathfrak{Gelfand}\left(A \otimes \K\right)$ is the diagonal map then from the equation \eqref{cohom_mor_eqn} it follows that
+	there is the natural homomorphism
+	\bean
+\begin{split}
+\Dl^* : H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)
+\end{split}
+\eean
+From the above equations it follows that there is the natural map
+	\be\label{hh_p_eqn}
+\begin{split}
+H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\otimes \mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to \H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\right), 
+\end{split}
+\ee
+i.e. the Abelian group $H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right);\Z\right) $ has the natural ring structure. Using to pairing  \eqref{hh_p_eqn} as prototype we wold like the pairing 
+	\be\label{hh_po_eqn}
+\begin{split}
+\varphi_{H^0\to K_{00}}\left( 	H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\right)\right)  \otimes \varphi_{H^0\to K_{00}}\left( 	H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\right)\right)\to\\ \to \varphi_{H^0\to K_{00}}\left( 	H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\right)\right), 
+\end{split}
+\ee
+where 	the homomorphism 		
+\bean
+\begin{split}
+	\varphi_{H^0\to K_{00}}	: H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\onto  H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right).
+\end{split}
+\eean
+is given by \eqref{nh_eqn}. The group $H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)$ by the pairs $\left( \sU, n\right)$ where $\sU\subset \mathfrak{Gelfand}\left(A \otimes \K\right)$ is an open closed subset and $n \in \N$.
 	One has
 \bean
 \begin{split}
@@ -1075,14 +1141,10 @@ If both $\sU_1, \sU_2 \subset H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\ri
 	 	\forall g \in U\left(\left( A\otimes \K\right) ^+ \right) \quad \sU''_1\cap  g\left(\sU''_2 \right) = \emptyset.
 \end{split}
 \ee
-If $n_1, n_2 \in \Z$ and
-$$
-\varphi : H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\onto H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right)\cong K_0\left( A\right) 
-$$
-is the natural surjective map then under the hypothesis \eqref{int_c_eqn} we define
+If $n_1, n_2 \in \Z$  then under the hypothesis \eqref{int_c_eqn} we define
 	\be\label{int_cm_eqn}
 \begin{split}
-\varphi \left( \sU_1, n_1\right) \smile \varphi \left( \sU_2, n_2\right)\bydef \varphi \left( \sU'_1, n_1\cdot n_2\right).
+	\varphi_{H^0\to K_{00}}\left( \sU_1, n_1\right) \smile 	\varphi_{H^0\to K_{00}}i \left( \sU_2, n_2\right)\bydef 	\varphi_{H^0\to K_{00}} \left( \sU'_1, n_1\cdot n_2\right).
 \end{split}
 \ee
 Using linearity one can define the cup product for any two elements of $K_0\left( A\right)$.
@@ -1091,19 +1153,12 @@ Using linearity one can define the cup product for any two elements of $K_0\left
 the equations \eqref{int_c_eqn} and \eqref{int_cm_eqn} yield a binary operation 
 	\be\label{cup_eqn}
 \begin{split}
-\smile : K_*\left( A\right)  \times K_*\left( A\right) \to K_*\left( A\right)  
+\smile : K_0\left( A\right)  \times K_0\left( A\right) \to K_0\left( A\right)  
 \end{split}
 \ee
-such that the group $K_*\left( A\right)$ obtains the ring structure.
+such that the group $K_0\left( A\right)$ obtains the ring structure.
 \end{lemma}
 \begin{proof}
-Firstly we define that there is the natural operation 
-	\bean
-\begin{split}
-	\smile : K_0\left( A\right)  \times K_0\left( A\right) \to K_0\left( A\right)  
-\end{split}
-\eean
-
 One needs proof the following.
 \begin{itemize}
 	\item The equations  \eqref{int_c_eqn} and \eqref{int_cm_eqn} uniquely defines the operation $\smile$.
@@ -1111,17 +1166,27 @@ One needs proof the following.
 \end{itemize}
 We leave to the reader the details of this proof.
 \end{proof}
-\begin{lem}
-If $\sX$ is a compact space then 
-\end{lem}
+\begin{lemma}
+If $\sX$ is a compact Hausdorff space and $A \cong C\left(\sX \right)$ then the given by the Lemma \ref{prod_lem} operation coincides with the operation explained in !!!
 
-	\be\label{int_cmu-eqn}
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+\begin{empt}
+According to the Bott periodicity  one has 
+$$
+K_0\left(A \right) \cong K_1\left(SA \cong A \times C_0\left( \R\right)  \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R; \Z \right)
+$$
+From the Theorem \ref{kunnet_sheaf_thm} there is the natural bilinear  map 
+	\bean
 \begin{split}
-	\varphi \left( \sU_1, n_1\right) \smile \varphi \left( \sU_2, n_2\right)\bydef \varphi \left( \sU'_1, n_1\cdot n_2\right).
+H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\times H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)
 \end{split}
-\ee
-and similarly to 
-	
+\eean 
+
+\end{empt}
+
 	\paragraph*{PRODUCTS!!!}
 	
 		So there is the natural one-to-one correspondence between idempotents of $	\mathbb{M}_n\left(C\left(   A^+ \right) \right)$ and 	$\mathbb{M}_n\left(C\left(  \mathfrak{Gelfand}\left( A\right) \right) \right)$.
@@ -2569,7 +2634,7 @@ group of $\sX$ with coefficients  in $\Q$.
 \end{theorem}
 
 \subsection{Multiplicative structures}
-
+\paragraph{} Here I follow to \cite{karoubi:k}. 
 	\begin{empt}\label{etp_empt}
 	%4.9. 
 	Let $E$ and $F$ be vector bundles with bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
@@ -3072,7 +3137,7 @@ may be interpreted as a bilinear map
 		So we have proved the following.	
 	\end{empt}
 	
-	\begin{lem}\label{gr_ring_lem}
+	\begin{lem}\cite{bryl:loop}\label{gr_ring_lem}
 		Let $\sX$ be a topological space. If $F$ is an Abelian group then any isomorphism $F \otimes_\Z F \cong  F$ yields a product
 		\bean
 		\smile: \check{H}^\bullet\left(\sX, F \right)\otimes \check{H}^\bullet\left(\sX,F \right) \to \check{H}^\bullet\left(\sX,F \right)
@@ -3083,11 +3148,23 @@ may be interpreted as a bilinear map
 	\begin{exercise}\label{ring_homo_exer}
 		Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 	\end{exercise}
-	
+	\begin{definition}\label{cohomomor_defn}\cite{bredon:sheaf}
+%4.1. Definition.
+ If $A$ and $B$ are presheaves on $\sX$ and $\sY$ respectively, then
+an $f$ -{\it cohomomorphism} $k: A  \leadsto B$ is a collection of homomorphisms
+$k_\sU : B(\sU) \to A\left( f^{-1}\left(\sU \right) \right)$ , for $\sU$ open in $\sY$, compatible with restrictions.	
+\end{definition}
+\begin{remark}
+It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
+there is the natural homomorphism
+\be\label{cohom_mor_eqn}
+f^*: H^*_c\left(\sY;\mathscr B  \right) \to  H^*_c\left(\sX;f^*\mathscr B  \right).
+\ee
+\end{remark}
 	\begin{remark}\label{ring_homo_rem} 
 		In \cite{milne:lec,swan:cup} it is explained that the homomorphism \eqref{cech_hom_eqn} Lemma \ref{gr_ring_lem} and the Exercise  \ref{ring_homo_exer} can by applied to any Grothendieck topology.
 	\end{remark}
-	\begin{corollary}
+	\begin{corollary}\cite{bredon:sheaf}
 		%Corollary. 
 		For $\Phi$ paracompactifying and sheaves $\mathscr F$ on $\sX$ there as
 		a natural isomorphism
@@ -3095,7 +3172,19 @@ may be interpreted as a bilinear map
 		\check{H}_\Phi^\bullet\left(\sX, \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX, \mathscr F \right) 
 		$$
 	\end{corollary}
-	
+	\begin{theorem}\label{kunnet_sheaf_thm}\cite{bredon:sheaf}
+%15.2. Theorem. 
+(\text{K\"{u}nneth.}) If $\sX$ and $\sY$ are locally compact Hausdorff
+spaces and if $\mathscr A$ and $\mathscr B$ are sheaves on $\sX$ and $\sY$ respectively with $\mathrm{Tor}_L\left(\mathscr A, \mathscr B \right) = \{0\}$
+then there is a natural exact sequence (over the principal ideal domain $L$
+as base ring)
+\be\label{kunnet_sheaf_eqn}
+\begin{split}
+\bigoplus_{p+q = n} H^p_c\left(\sX; \mathscr A \right) \otimes H^q_c\left(\sY; \mathscr A \right)\hookto H^n_c\left(\sX\times \sY; \mathscr A\otimes_L\mathscr B \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX; \mathscr A \right),  H^p_c\left(\sX; \mathscr B \right) \right). 
+\end{split}
+\ee
+that splits nonnaturally.	
+\end{theorem}
 	
 	
 	
