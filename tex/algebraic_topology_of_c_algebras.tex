@@ -761,6 +761,19 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 	$$
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
+\begin{lemma}\label{one_point_lem}
+		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
+		\be 
+		\begin{split}
+		\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+
+		\end{split}
+		\ee
+		where $\mathfrak{Gelfand}\left(A \right)^+\cong  \mathfrak{Gelfand}\left(A \right)\cup \{+\}$ is a one-point compactification of $\mathfrak{Gelfand}\left(A \right)$.
+\end{lemma}
+
+\begin{proof}
+	The net of all  closed left ideals  of $L\subset A^+$ with $L \not\subset A$ is an ultrafilter. It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$.
+\end{proof}
 \begin{remark}\label{loc_compact_rem}
 	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
 \end{remark}
@@ -1026,14 +1039,15 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 		u =  \mathfrak{Image}\left( u_{ \mathfrak{Gelfand}\left(A \right) }\right) .
 	\end{split}
 	\ee
-	If $A$ is a stable $C^*$-algebra then for any $n \in \N$ there is an $*$-isomorphisms $A \cong \mathbb{M}_n\left( A\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
+	Suppose that $A$ is a \textbf{stable} 
+	 $C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A \cong \mathbb{M}_n\left( A\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
 	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There is the action $U\left(A^+ \right)\times \mathrm{Pr}\left( A\right)\to \mathrm{Pr}(A)$ of the unitary group on the set of projectors. So there is the natural action $U\left(A^+ \right)\times H^0_c\left(\mathfrak{Gelfand}\left(A\right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$. Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
 	\be\label{k_00_h_eqn}
 	\begin{split}
 		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
 	\end{split}
 	\ee 
-Any homotopy $\left[0, 1\right]\to U_1\left( \left( A \otimes \K\right)^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
+Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
 $$
 u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
 $$
@@ -1054,7 +1068,7 @@ Using this circumstance one concludes that there are following isomorphisms of g
 	From  \eqref{stab_k1_eqn} it follows that 
 \bean
 \begin{split}
-	K_1\left(A \right) \cong U_1\left( A ^+ \right) / U_1\left(  A ^+ \right)_0.
+	K_1\left(A \right) \cong U_1\left( A ^+ \right) / U_1\left(  A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0.
 \end{split}
 \eean	
 so taking into account  \eqref{royden_eqn} one has
@@ -1062,7 +1076,66 @@ so taking into account  \eqref{royden_eqn} one has
 	\begin{split}
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
+	\ee
+	If $A^+\bydef A \oplus \C$ is its minimal unitization then from the Lemma \ref{one_point_lem} it follows that 	$\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+$. From \eqref{k_00_h_eqn} and the Proposition \ref{stably_unital_prop}  it turns out that 	\be\label{k_0_h_eqn}
+	\begin{split}
+		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right). 
+	\end{split}
 	\ee 
+Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfrak{Gelfand}\left(A \right)^+ \right)$. If $n \bydef f\left( +\right)$ then from the Standard picture (cf. Remark \ref{standard_picture_rem}) any $x \in K_0\left( A\right)$ is given by $\left[e\right]-  \left[p_n\right]$ From this circumstance one can deduce 
+\be\label{k0_eq_eqn}
+	\begin{split}
+	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
+\end{split}
+\ee
+Let us consider there sheaves $\sR$, $\sS$ and $\sZ$ on $\R$ which corresponds to sheaves of continuous maps from $\R$ to $\R$, $S^1$ and $\Z$  respectively.  There is an exact sequence of sheaves
+
+\bean
+\begin{split}
+\{0\}  \hookto \sZ \hookto \sR \onto \sS \onto \{0\}
+\end{split}
+\eean
+which yield the following long exact sequence
+\bean
+\begin{split}
+	\{0\}  \to  H^0_c\left(\R, \Z\right)  \to  H^0_c\left(\R, \sR \right)\to  H^0_c\left(\R, \sS \right)\xrightarrow{\dl }  H^1_c\left(\R, \Z \right)\to ...
+\end{split}
+\eean
+From \ref{sheaf_h_comp_eqn} it follows that $H^0_c\left(\R, \sS \right)\cong  H^1_c\left(\R, \Z \right)\cong \Z$.
+If   $f:\mathfrak{Gelfand}\left(A \right) \times  \R\to \R$ from the equation \eqref{cohom_mor_eqn} one has a diagram
+\bean
+\begin{tikzcd}
+... \arrow[r] &  H^0_c\left(\R, \sS \right) \arrow[r]  \arrow[d]&  H^1_c\left(\R, \Z \right) \arrow[r]  \arrow[d] & ...\\
+... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, f^*\sS \right) \arrow[r] &  H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z \right) \arrow[r] & ...\\
+... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) , f^*\sS \right) \arrow[r]\arrow[u] &  H^1_c\left(\mathfrak{Gelfand}\left(A \right), \Z \right) \arrow[r]\arrow[u] & ...
+	\end{tikzcd}
+\eean
+
+\paragraph{title}
+
+\begin{theorem}\label{cup_thm}\cite{bredon:sheaf}
+	%7.1. Theorem. 
+	Let $\Phi$ and $\Psi$ be families of supports on $\sX$. Then there exists
+	a unique natural transformation of functors (on the category of sheaves on
+	X to Abelian groups)
+	\be\label{cup_p_eqn}
+	\begin{split}
+		\smile : H^p_\Phi\left(\sX, \mathscr A \right) \otimes  H^p_\Psi\left(\sY, \mathscr B \right)\to H^p_{\Phi\cap\Psi}\left(\sX, \mathscr A \otimes \mathscr B\right)
+	\end{split}
+	\ee
+	called the {\it cup product} and satisfying the following three properties:
+	\begin{enumerate}
+		\item [(a)] For $p = q = 0, ~ \smile \Ga_\Phi\left( \mathscr A\right) \Ga_\Psi\left( \mathscr B\right)\to \Ga_{\Phi\cap \Psi}\left(\mathscr A \otimes \mathscr B \right)$  is the transformation
+		induced by the canonical map $\mathscr A\left(\sX\right)\otimes \mathscr B\left(\sX\right)\to \left(\mathscr A \otimes \mathscr A \right)\left(\sX \right)$.   % of I-Section 5.
+		\item [(b)] If $0 \hookto \mathscr A' \hookto \mathscr A \onto \mathscr A'' \onto 0$ and $0 \hookto \mathscr A' \otimes \mathscr B\hookto \mathscr A \otimes \mathscr B\onto \mathscr A'' \otimes \mathscr B \onto 0$  , are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \dl \a  \smile \bt$.
+		\item [(c)] If $0 \hookto \mathscr B' \hookto \mathscr B \onto \mathscr B'' \onto 0$ and $0 \hookto \mathscr A \otimes\mathscr B' \hookto\mathscr A \otimes \mathscr B \onto \mathscr A \otimes\mathscr B'' \onto 0$, are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \left(-1 \right)^p  \a  \smile \dl\bt$.
+		
+	\end{enumerate}
+\end{theorem}	
+
+
+\paragraph{title}
+		
 	\begin{theorem}\label{k_h_thm}
 	If $A$ is a $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
@@ -3936,7 +4009,7 @@ called the {\it cup product} and satisfying the following three properties:
 		Thus $\mathscr B^\sX$ is the unique sheaf on $\sX$ inducing  $\mathscr B$ on $A$ and $0$ on $\sX \setminus A$. Clearly, $\mathscr B\mapsto \mathscr B^\sX$ is an exact functor. The sheaf $\mathscr B^\sX$ is called the {\it extension of $\mathscr B$
 			by zero}. If $\sX^+$ is a one point compactification then there is the isomorphism 
 		
-		\be
+		\be\label{sheaf_h_comp_eqn}
 		\begin{split}
 			H^*_c\left(\sX; \mathscr A \right) \cong H^*\left(\sX^+; \mathscr A^{\sX^+} \right)
 		\end{split}
