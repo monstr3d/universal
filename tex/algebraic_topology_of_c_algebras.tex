@@ -1077,6 +1077,35 @@ so taking into account  \eqref{royden_eqn} one has
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
 	\ee
+	\begin{remark}
+		It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
+		there is the natural homomorphism
+		\be\label{cohom_mor_eqn}
+		f^*: H^*_c\left(\sY;\mathscr B  \right) \to  H^*_c\left(\sX;f^*\mathscr B  \right).
+		\ee
+		If $\{0\}\hookto \mathscr A' \hookto \mathscr A \onto \mathscr A''\onto \{0\}$ is an exact sequence of sheaves then there is a long exact sequence
+		
+	\end{remark}
+
+	Let $\sX$ be a locally compact Hausdorff  space. Let us consider there sheaves $\sR$, $\sS$ and $\sZ$ on $\R$ which corresponds to sheaves of continuous maps from $\R^+\cong S^1$ to $\R$, $S^1$ and $\Z$  respectively.  There is an exact sequence of sheaves
+	
+	\bean
+	\begin{split}
+		\{0\}  \hookto \sZ \hookto \sR \onto \sS \onto \{0\}
+	\end{split}
+	\eean
+	which yield the following long exact sequence
+	\bean
+	\begin{split}
+		\{0\}  \to  H^0_c\left(\sX, \Z\right)  \to  H^0_c\left(\sX, \sR \right)\to  H^0_c\left(\sX, \sS \right)\xrightarrow{\dl }  H^1_c\left(\sX, \Z \right)\to  H^1_c\left(\sX, \sR \right)\to ... 
+	\end{split}
+	\eean
+		(cf. equation \eqref{cohom_seq_eqn}). Taking into account that $\sR$ is $c$-soft one has  $H^1_c\left(\sX, \sR \right)= 0$ (cf. \eqref{cohom_soft_eqn}) the homomorphism  
+		\be
+		H^0_c\left(\sX, \sS \right)\xrightarrow{\dl }  H^1_c\left(\sX, \Z \right)
+		\ee
+	is surjective.
+	\paragraph{title}
 	If $A^+\bydef A \oplus \C$ is its minimal unitization then from the Lemma \ref{one_point_lem} it follows that 	$\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+$. From \eqref{k_00_h_eqn} and the Proposition \ref{stably_unital_prop}  it turns out that 	\be\label{k_0_h_eqn}
 	\begin{split}
 		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right). 
@@ -1088,19 +1117,7 @@ Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfra
 	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
 \end{split}
 \ee
-Let us consider there sheaves $\sR$, $\sS$ and $\sZ$ on $\R$ which corresponds to sheaves of continuous maps from $\R$ to $\R$, $S^1$ and $\Z$  respectively.  There is an exact sequence of sheaves
 
-\bean
-\begin{split}
-\{0\}  \hookto \sZ \hookto \sR \onto \sS \onto \{0\}
-\end{split}
-\eean
-which yield the following long exact sequence
-\bean
-\begin{split}
-	\{0\}  \to  H^0_c\left(\R, \Z\right)  \to  H^0_c\left(\R, \sR \right)\to  H^0_c\left(\R, \sS \right)\xrightarrow{\dl }  H^1_c\left(\R, \Z \right)\to ...
-\end{split}
-\eean
 From \ref{sheaf_h_comp_eqn} it follows that $H^0_c\left(\R, \sS \right)\cong  H^1_c\left(\R, \Z \right)\cong \Z$.
 If   $f:\mathfrak{Gelfand}\left(A \right) \times  \R\to \R$ from the equation \eqref{cohom_mor_eqn} one has a diagram
 \bean
@@ -3202,16 +3219,22 @@ there is the natural homomorphism
 \be\label{cohom_mor_eqn}
 f^*: H^*_c\left(\sY;\mathscr B  \right) \to  H^*_c\left(\sX;f^*\mathscr B  \right).
 \ee
+If $\{0\}\hookto \mathscr A' \hookto \mathscr A \onto \mathscr A''\onto \{0\}$ is an exact sequence of sheaves then there is a long exact sequence
+\be\label{cohom_seq_eqn}
+... \to H^p_c\left( \sX; \mathscr A'\right) \to H^p_c\left( \sX; \mathscr A\right) \to H^p_c\left( \sX; \mathscr A''\right) \xrightarrow{\dl} H^{p+1}_c\left( \sX; \mathscr A'\right)\to ... 
+\ee
+If a sheaf $ \mathscr F$ is $c$-soft then
+\be\label{cohom_soft_eqn}
+\forall p \ge 1 \quad H^p_c\left( \sX, \mathscr F\right)= 0  
+\ee
+
 \end{remark}
-	\begin{remark}\label{ring_homo_rem} 
-		In \cite{milne:lec,swan:cup} it is explained that the homomorphism \eqref{cech_hom_eqn} Lemma \ref{gr_ring_lem} and the Exercise  \ref{ring_homo_exer} can by applied to any Grothendieck topology.
-	\end{remark}
 	\begin{corollary}\cite{bredon:sheaf}
 		%Corollary. 
 		For $\Phi$ paracompactifying and sheaves $\mathscr F$ on $\sX$ there as
 		a natural isomorphism
 		$$
-		\check{H}_\Phi^\bullet\left(\sX, \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX, \mathscr F \right) 
+		\check{H}_\Phi^\bullet\left(\sX; \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX; \mathscr F \right) 
 		$$
 	\end{corollary}
 	\begin{theorem}\label{kunnet_sheaf_thm}\cite{bredon:sheaf}
@@ -4863,18 +4886,52 @@ where $SC_0\left(\sX \right)$ and $S\sX$ are given by the Definitions \ref{suspe
 \begin{remark}
 	The proof of the Proposition is based on \ref{diag_empt}.
 \end{remark}
+\begin{empt}\cite{blackadar:ko}
+We have a split exact sequence 
+	\bean
+\begin{split}
+\{0\}\hookto S A \hookto \Om A \onto A \onto \{0\},
+\end{split}
+\eean
+ where $\Om A\bydef C\left(S^1, A \right)$ 
+ which induces a split exact sequence 	\bean
+ \begin{split}
+ 	\{0\}\hookto K_1\left( S A \right) \hookto K_1\left( \Om A \right) \onto K_1\left( A \right) \onto \{0\},
+ \end{split}
+ \eean
+ so $K_1\left( SA\right) = \ker \eta_*$  where $\eta : \Om A \to A$ is evaluation at 1. This will be our {\it standard picture} of $K_1\left( SA \right)$. So $K_1\left( SA \right)$ may be viewed as the
+group of homotopy equivalence classes of loops in $GL_n(A)$ with base point 1.
+The group operation is pointwise multiplication, but may alternately be taken
+as the ordinary concatenation multiplication of loops %[Spanier 1966, 1.6.10]
+, i.e.
+$K_1\left( SA\right) \cong \pi_1\left( GL_\infty\left( A\right) \right)$. 
 
+If $e$ is an idempotent in $\mathbb{M}_n\left( A^+\right)$, write 
+\be\label{idem_map_eqn} 
+\begin{split}
+f_e\left( z\right) = - ze+(1-e)  \in GL_n\left(\Om\left( A^+\right)\right)\cong C\left( S^1, GL_n\left( A^+\right) \right) 
+\end{split}
+\ee
+ A loop of this sort is called an {\it idempotent loop}. If $e_1 \pmod e_2$ mod $\mathbb{M}_n\left(A \right)$ , then $f_{e_1}f^{-1}_{e_2}\in GL_n\left( \Om A\right)$ 
+ taking the value 1 at $z = 1$. If $e_1 \sim_h e_2$,
+then $f_{e_1}$ is homotopic to $f_{e_2}$ as elements of $GL_n\left(\Om\left( A^+\right)  \right)$  taking the value 1 at 1, i.e. as loops in $GL_n\left(A^+ \right)$  with base point 1. We will write $f_{e_1}\sin_h f_{e_2}$ to denote
+this type of homotopy of elements.
+\end{empt}
+\begin{definition}\label{bott_map_defn}\cite{blackadar:ko}
+The homomorphism $\bt_A : K_0\left(A \right)\to K_1\left( SA\right) $  defined by
+$\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p_n}\right]$ is called the {\it Bott map} for $A$.
+\end{definition}
 \begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
 	%Theorem 8.2.2. 
-	$K_1(A)$ is naturally isomorphic to $K_0(SA)$, i .e. there is an isomorphism $\th_A$ : $K_1(A)\to  K_0\left(SA \right)$ such that, whenever $\phi: A\to B$, the
+	$K_0(A)$ is naturally isomorphic to $K_1(SA)$, i .e. there is an isomorphism $\th_A$ : $K_0(A)\to  K_1\left(SA \right)$ such that, whenever $\phi: A\to B$, the
 	following diagram commutes:
 	\bean
 	\begin{tikzcd}
-		K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
-		K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
+		K_0\left(A \right) \arrow[r, "K_0\left(\phi \right)" ]  \arrow[d, "\bt_A" ]& K_1\left(B \right)\arrow[d, "\bt_B" ]\\ 
+		K_1\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_1\left(SB \right)
 	\end{tikzcd}
 	\eean
-	(In the language of category theory, $\th$ gives an invertible natural transformation
+	(In the language of category theory, $\bt$ gives an invertible natural transformation
 	from $K_1$ to $K_0\circ S$).
 \end{theorem}
 \begin{proof} (Fragment)
