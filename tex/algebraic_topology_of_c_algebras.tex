@@ -1077,10 +1077,10 @@ so taking into account  \eqref{royden_eqn} one has
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
 	\ee
-	\begin{remark}
+	\begin{remark}!!!!
 		It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
 		there is the natural homomorphism
-		\be\label{cohom_mor_eqn}
+		\be\label{cohom_mor_eqn!}
 		f^*: H^*_c\left(\sY;\mathscr B  \right) \to  H^*_c\left(\sX;f^*\mathscr B  \right).
 		\ee
 		If $\{0\}\hookto \mathscr A' \hookto \mathscr A \onto \mathscr A''\onto \{0\}$ is an exact sequence of sheaves then there is a long exact sequence
@@ -1101,36 +1101,71 @@ so taking into account  \eqref{royden_eqn} one has
 	\end{split}
 	\eean
 		(cf. equation \eqref{cohom_seq_eqn}). Taking into account that $\sR$ is $c$-soft one has  $H^1_c\left(\sX, \sR \right)= 0$ (cf. \eqref{cohom_soft_eqn}) the homomorphism  
-		\be
+		\be\label{dl_sh_eqn}
 		H^0_c\left(\sX, \sS \right)\xrightarrow{\dl }  H^1_c\left(\sX, \Z \right)
 		\ee
 	is surjective.
-	\paragraph{title}
 	If $A^+\bydef A \oplus \C$ is its minimal unitization then from the Lemma \ref{one_point_lem} it follows that 	$\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+$. From \eqref{k_00_h_eqn} and the Proposition \ref{stably_unital_prop}  it turns out that 	\be\label{k_0_h_eqn}
 	\begin{split}
 		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right). 
 	\end{split}
 	\ee 
-Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfrak{Gelfand}\left(A \right)^+ \right)$. If $n \bydef f\left( +\right)$ then from the Standard picture (cf. Remark \ref{standard_picture_rem}) any $x \in K_0\left( A\right)$ is given by $\left[e\right]-  \left[p_n\right]$ From this circumstance one can deduce 
+
+	Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfrak{Gelfand}\left(A \right)^+ \right)$. If $n \bydef f\left( +\right)$ then from the Standard picture (cf. Remark \ref{standard_picture_rem}) any $x \in K_0\left( A\right)$ is given by $\left[e\right]-  \left[p_n\right]$ From this circumstance one can deduce 
 \be\label{k0_eq_eqn}
 	\begin{split}
-	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
+	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right) 
 \end{split}
 \ee
-
-From \ref{sheaf_h_comp_eqn} it follows that $H^0_c\left(\R, \sS \right)\cong  H^1_c\left(\R, \Z \right)\cong \Z$.
+and there is the natural homomorphism surjective homomorphism
+\be\label{k_0_hh_eqn}
+\begin{split}
+	\varphi_{H-K}:H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\onto  K_0\left(A \right). 
+\end{split}
+\ee 
+From \ref{dl_sh_eqn} it follows that the homomorphism  $H^0_c\left(\R, \sS \right)\onto   H^1_c\left(\R, \Z \right)\cong \Z$ is surjective. Let  $v^1_\Z \in H^1_c\left(\R, \Z \right)$ be a generator and let $v^0_\sS\in H^0_c\left(\R, \sS \right)$ be such that $\dl_\R v^0_\sS= v^1_\Z$.
 If   $f:\mathfrak{Gelfand}\left(A \right) \times  \R\to \R$ from the equation \eqref{cohom_mor_eqn} one has a diagram
 \bean
 \begin{tikzcd}
-... \arrow[r] &  H^0_c\left(\R, \sS \right) \arrow[r]  \arrow[d]&  H^1_c\left(\R, \Z \right) \arrow[r]  \arrow[d] & ...\\
-... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, f^*\sS \right) \arrow[r] &  H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z \right) \arrow[r] & ...\\
-... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) , f^*\sS \right) \arrow[r]\arrow[u] &  H^1_c\left(\mathfrak{Gelfand}\left(A \right), \Z \right) \arrow[r]\arrow[u] & ...
+... \arrow[r] &  H^0_c\left(\R, \sS \right) \arrow[rr, "\dl_\R"]  \arrow[d, "H^0_c\left( f\right)" ]&&  H^1_c\left(\R, \Z \right) \arrow[r]  \arrow[d, "H^1_c\left( f\right)"] & ...\\
+... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, f^*\sS \right) \arrow[rr, "\dl_{\mathfrak{Gelfand}}"] &&  H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z \right) \arrow[r] & ...
 	\end{tikzcd}
 \eean
+If $g :\mathfrak{Gelfand}\left(A \right)\times \R\to \mathfrak{Gelfand}\left(A \right)$ is a projector then there is a homomorphism
+\be\label{k_eqn}
+\begin{split}
+	H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\xrightarrow{H^0_c\left( g\right) } 	H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\times \R
+\end{split}
+\ee
+Let $x \in   K_0\left(A \right)$, and let $x_H\in H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ be a representative of $x$, i.e. $x = \varphi_{H-K}\left( x_H\right)$.
+From the Theorem \ref{cup_thm} it follows that there is the natural product
+\be\label{k_u_eqn}
+\begin{split}
+\left( 	H^0_c\left(g\right)x_H\right) \smile \left( 	H^0_c\left(g\right)v^0_\sS\right)\in   H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \otimes \Z\otimes f^*\sS \cong f^*\SS\right) 
+\end{split}
+\ee
+The product reflects the formula \eqref{idem_map_eqn} for the Bott periodicity. From (c) of the Theorem \ref{cup_thm}
+it follows that
+\be\label{k_uu_eqn}
+\begin{split}
+u\bydef \dl_{\mathfrak{Gelfand}}\left(  \left( 	H^0_c\left(g\right)x_H\right) \smile \left( 	H^0_c\left(g\right)v^0_\sS\right)\right) = \left( 	H^0_c\left(g\right)x_H\right) \smile  H^1_c\left(f \right) \dl_\R v^0_\sS \in 
+\\ \in H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z\otimes \Z\cong \Z\right)
+\end{split}
+\ee
+represents $\bt_A\left( x\right) \in K_1\left(SA \right)$ (cf. Theorem \ref{suspension_defn}). Since $\bt_A$ is the isomorphism one has
+\be\label{k_utu_eqn}
+\begin{split}
+	\forall x \in H^0_c\left(\mathfrak{Gelfand}\left(A \right);\Z\right) \quad \varphi_{H-K}\left( x\right) = 0 \quad \Leftrightarrow\quad  \bt_A \circ \varphi_{H-K}\left( x\right) = 0\quad \Leftrightarrow\\
+	\Leftrightarrow \quad  H^1_c\left(f \right) \dl_\R v^0_\sS  = 0
+\end{split}
+\ee
+From \eqref{k_utu_eqn} it turns out that $\ker \varphi_{H-K}$ is a left ideal of the ring $	H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$. Similarly one can prove that $\ker \varphi_{H-K}$ the right ideal.
+
+
 
 \paragraph{title}
 
-\begin{theorem}\label{cup_thm}\cite{bredon:sheaf}
+\begin{theorem}\label{cup_thm!}!!!\cite{bredon:sheaf}
 	%7.1. Theorem. 
 	Let $\Phi$ and $\Psi$ be families of supports on $\sX$. Then there exists
 	a unique natural transformation of functors (on the category of sheaves on
