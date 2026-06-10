@@ -1077,15 +1077,6 @@ so taking into account  \eqref{royden_eqn} one has
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
 	\ee
-	\begin{remark}!!!!
-		It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
-		there is the natural homomorphism
-		\be\label{cohom_mor_eqn!}
-		f^*: H^*_c\left(\sY;\mathscr B  \right) \to  H^*_c\left(\sX;f^*\mathscr B  \right).
-		\ee
-		If $\{0\}\hookto \mathscr A' \hookto \mathscr A \onto \mathscr A''\onto \{0\}$ is an exact sequence of sheaves then there is a long exact sequence
-		
-	\end{remark}
 
 	Let $\sX$ be a locally compact Hausdorff  space. Let us consider there sheaves $\sR$, $\sS$ and $\sZ$ on $\R$ which corresponds to sheaves of continuous maps from $\R^+\cong S^1$ to $\R$, $S^1$ and $\Z$  respectively.  There is an exact sequence of sheaves
 	
@@ -1163,52 +1154,38 @@ From \eqref{k_utu_eqn} it turns out that $\ker \varphi_{H-K}$ is a left ideal of
 
 
 
-\paragraph{title}
-
-\begin{theorem}\label{cup_thm!}!!!\cite{bredon:sheaf}
-	%7.1. Theorem. 
-	Let $\Phi$ and $\Psi$ be families of supports on $\sX$. Then there exists
-	a unique natural transformation of functors (on the category of sheaves on
-	X to Abelian groups)
-	\be\label{cup_p_eqn}
-	\begin{split}
-		\smile : H^p_\Phi\left(\sX, \mathscr A \right) \otimes  H^p_\Psi\left(\sY, \mathscr B \right)\to H^p_{\Phi\cap\Psi}\left(\sX, \mathscr A \otimes \mathscr B\right)
-	\end{split}
-	\ee
-	called the {\it cup product} and satisfying the following three properties:
-	\begin{enumerate}
-		\item [(a)] For $p = q = 0, ~ \smile \Ga_\Phi\left( \mathscr A\right) \Ga_\Psi\left( \mathscr B\right)\to \Ga_{\Phi\cap \Psi}\left(\mathscr A \otimes \mathscr B \right)$  is the transformation
-		induced by the canonical map $\mathscr A\left(\sX\right)\otimes \mathscr B\left(\sX\right)\to \left(\mathscr A \otimes \mathscr A \right)\left(\sX \right)$.   % of I-Section 5.
-		\item [(b)] If $0 \hookto \mathscr A' \hookto \mathscr A \onto \mathscr A'' \onto 0$ and $0 \hookto \mathscr A' \otimes \mathscr B\hookto \mathscr A \otimes \mathscr B\onto \mathscr A'' \otimes \mathscr B \onto 0$  , are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \dl \a  \smile \bt$.
-		\item [(c)] If $0 \hookto \mathscr B' \hookto \mathscr B \onto \mathscr B'' \onto 0$ and $0 \hookto \mathscr A \otimes\mathscr B' \hookto\mathscr A \otimes \mathscr B \onto \mathscr A \otimes\mathscr B'' \onto 0$, are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \left(-1 \right)^p  \a  \smile \dl\bt$.
-		
-	\end{enumerate}
-\end{theorem}	
-
-
-\paragraph{title}
-		
 	\begin{theorem}\label{k_h_thm}
 	If $A$ is a $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
-	K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right),\\
+	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/I,\\
 	\label{k_1_eqn}
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right). 
 	\eea
+	where $I$ is two sided ideal with respect to given ny the Theorem \ref{cup_thm} cup product.
 	\end{theorem}
 	\begin{proof}
-		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_00_h_eqn} and \eqref{k_1_h_eqn}.
+		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_0_hh_eqn} and \eqref{k_1_h_eqn}.
 	\end{proof}
-	\begin{remark}
-	From the equation \eqref{k_00_eqn} it turns out that there is the natural surjective homomorphism 
-		\be\label{nh_eqn}
-	\begin{split}
-\varphi_{H^0\to K_{00}}	: H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\onto  H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/U\left(\left( A\otimes \K\right) ^+ \right)\cong \\K_{00}\left(A \right) 
-	 	\end{split}
-	\ee 
-	of Abelian groups.
-	\end{remark}
-	\subsubsection{Multiplicative structures}
+\subsubsection{Multiplicative structures}
+\begin{theorem}\label{cup_prod_thm}
+If $A$ is a $C^*$-algebra then there is the natural graded cup product
+\be\label{cup_prodc_eqn}
+\smile : K_*\left(A \right) \otimes K_*\left(A \right) \to K_*\left(A \right) 
+\ee
+\end{theorem}
+\begin{proof}
+From the Theorem \ref{k_h_thm} it turns out that $K_0\left( A\right) =H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/I$ so we can define $\smile : K_0\left(A \right) \otimes K_0\left(A \right) \to K_0\left(A \right)$ which comes from the given by the Theorem \ref{cup_thm} cup product $$\smile :H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\otimes H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right).$$
+Similarly the the given by the Theorem \ref{cup_thm} cup products 
+\bean
+\smile :H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\otimes H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right),\\
+\smile :H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\otimes H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)
+\eean
+naturally yield following products
+\bean
+\smile :K_0\left(A \right) \otimes K_1\left(A \right) \to K_1\left(A \right) ,\\
+\smile :K_1\left(A \right) \otimes K_0\left(A \right) \to K_1\left(A \right)\eean
+
+\end{proof}
 		\paragraph{} If $A$ is a stably unital $C^*$-algebra (cf. Definition \ref{stably_unital_defn}) then from  the Proposition	
 	\ref{stably_unital_prop} and the equation \eqref{k_00_eqn} it follows that there is the natural isomorphism
 	\bean
@@ -3552,7 +3529,7 @@ a unique natural transformation of functors (on the category of sheaves on
 X to Abelian groups)
 \be\label{cup_p_eqn}
 \begin{split}
-\smile : H^p_\Phi\left(\sX, \mathscr A \right) \otimes  H^p_\Psi\left(\sY, \mathscr B \right)\to H^p_{\Phi\cap\Psi}\left(\sX, \mathscr A \otimes \mathscr B\right)
+\smile : H^p_\Phi\left(\sX, \mathscr A \right) \otimes  H^p_\Psi\left(\sX, \mathscr B \right)\to H^p_{\Phi\cap\Psi}\left(\sX, \mathscr A \otimes \mathscr B\right)
 \end{split}
 \ee
 called the {\it cup product} and satisfying the following three properties:
