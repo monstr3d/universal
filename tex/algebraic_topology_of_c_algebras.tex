@@ -1116,12 +1116,13 @@ and there is the natural homomorphism surjective homomorphism
 \ee 
 From \ref{dl_sh_eqn} it follows that the homomorphism  $H^0_c\left(\R, \sS \right)\onto   H^1_c\left(\R, \Z \right)\cong \Z$ is surjective. Let  $v^1_\Z \in H^1_c\left(\R, \Z \right)$ be a generator and let $v^0_\sS\in H^0_c\left(\R, \sS \right)$ be such that $\dl_\R v^0_\sS= v^1_\Z$.
 If   $f:\mathfrak{Gelfand}\left(A \right) \times  \R\to \R$ from the equation \eqref{cohom_mor_eqn} one has a diagram
-\bean
+\be\label{dia_mult_dia}
 \begin{tikzcd}
-... \arrow[r] &  H^0_c\left(\R, \sS \right) \arrow[rr, "\dl_\R"]  \arrow[d, "H^0_c\left( f\right)" ]&&  H^1_c\left(\R, \Z \right) \arrow[r]  \arrow[d, "H^1_c\left( f\right)"] & ...\\
-... \arrow[r] &  H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, f^*\sS \right) \arrow[rr, "\dl_{\mathfrak{Gelfand}}"] &&  H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z \right) \arrow[r] & ...
+  H^0_c\left(\R, \sS \right) \arrow[rr, "\dl_\R"]  \arrow[d, "H^0_c\left( f\right)" ]&&  H^1_c\left(\R, \Z \right)   \arrow[d, "H^1_c\left( f\right)"] \\
+  H^0_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, f^*\sS \right) \arrow[rr, "\dl_{\mathfrak{Gelfand}}"] &&  H^1_c\left(\mathfrak{Gelfand}\left(A \right) \times\R, \Z \right) 
 	\end{tikzcd}
-\eean
+\ee
+ 
 If $g :\mathfrak{Gelfand}\left(A \right)\times \R\to \mathfrak{Gelfand}\left(A \right)$ is a projector then there is a homomorphism
 \be\label{k_eqn}
 \begin{split}
@@ -1183,8 +1184,9 @@ Similarly the the given by the Theorem \ref{cup_thm} cup products
 naturally yield following products
 \bean
 \smile :K_0\left(A \right) \otimes K_1\left(A \right) \to K_1\left(A \right) ,\\
-\smile :K_1\left(A \right) \otimes K_0\left(A \right) \to K_1\left(A \right)\eean
-
+\smile :K_1\left(A \right) \otimes K_0\left(A \right) \to K_1\left(A \right).
+\eean
+If $x', x'' \in  K_1\left(A \right)$ are elements represented by $y', y'' \in H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)$ ans  $f: A \times \R \to A$ ia a projection then the equation 
 \end{proof}
 		\paragraph{} If $A$ is a stably unital $C^*$-algebra (cf. Definition \ref{stably_unital_defn}) then from  the Proposition	
 	\ref{stably_unital_prop} and the equation \eqref{k_00_eqn} it follows that there is the natural isomorphism
@@ -5113,6 +5115,13 @@ SC_0\left(\sX \right) = C_0\left( S\sX \right)
 \ee
 where $SC_0\left(\sX \right)$ and $S\sX$ are given by the Definitions \ref{suspension_defn} and \ref{top_susp_defn}
 \end{remark}
+\begin{proposition}\label{k_spit_prop}\cite{blackadar:ko}
+%Proposition 8.3.6. 
+If $\{0\} \hookto J \hookto A \onto A/J \onto \{0\}$ is a split exact sequence of
+local Banach algebras, then $\{0\} \hookto K_n\left( J\right)  \hookto K_n\left( A\right)  \onto K_n\left(  A/J\right)  \onto \{0\}$ is a split
+exact sequence for all $n$.
+\end{proposition}
+
 \begin{empt}\label{diag_empt} If $A$ is a $C^*$-algebra, $x, y \in A$ and
 	\be\label{diag_eqn}
 	\begin{split}
@@ -5194,7 +5203,7 @@ $\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p
 \end{definition}
 \begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
 	%Theorem 8.2.2. 
-	$K_0(A)$ is naturally isomorphic to $K_1(SA)$, i .e. there is an isomorphism $\th_A$ : $K_0(A)\to  K_1\left(SA \right)$ such that, whenever $\phi: A\to B$, the
+	$K_0(A)$ is naturally isomorphic to $K_1(SA)$, i .e. there is an isomorphism $\bt_A$ : $K_0(A)\to  K_1\left(SA \right)$ such that, whenever $\phi: A\to B$, the
 	following diagram commutes:
 	\bean
 	\begin{tikzcd}
@@ -5208,7 +5217,7 @@ $\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p
 \begin{proof} (Fragment)
 	Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 
 	(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
-	Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
+	Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\bt_a([u])\bydef [e]-[p_n]$ (where $p_n$
 	also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
 \end{proof}
 \begin{remark} It is proven in \cite{blackadar:ko} that there is a commutative diagram 
@@ -5220,6 +5229,18 @@ $\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p
 \ee
 such that vertical arrows are isomorphisms.
 \end{remark}
+\begin{exercise}\cite{blackadar:ko}
+	%9.4.1. 
+	Let $A$ be a $C^*$-algebra. Then there is a split exact sequence
+	\be 
+	0 \to SA \to A \otimes C\left(S^1 \right) \to A \to 0
+	\ee
+	Use \ref{k_spit_prop} and Bott periodicity to compute that
+	\be
+	K_0\left( A \times C\left(S^1 \right) \right) \cong K_1\left( A \times C\left(S^1 \right) \right)\cong K_0\left( A\right) \oplus K_1\left(A \right).
+	\ee
+	
+\end{exercise}
 \begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
 	%Definition 19.4.1. 
 	\begin{enumerate}
