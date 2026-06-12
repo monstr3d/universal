@@ -1088,19 +1088,57 @@ so taking into account  \eqref{royden_eqn} one has
 	which yield the following long exact sequence
 	\bean
 	\begin{split}
-		\{0\}  \to  H^0_c\left(\sX, \Z\right)  \to  H^0_c\left(\sX, \sR \right)\to  H^0_c\left(\sX, \sS \right)\xrightarrow{\dl }  H^1_c\left(\sX, \Z \right)\to  H^1_c\left(\sX, \sR \right)\to ... 
+		\{0\}  \to  H^0_c\left(\sX, \Z\right)  \to  H^0_c\left(\sX, \sR \right)\to  H^0_c\left(\sX, \sS \right)\xrightarrow{\dl_\SS }  H^1_c\left(\sX, \Z \right)\to  H^1_c\left(\sX, \sR \right)\to ... 
 	\end{split}
 	\eean
 		(cf. equation \eqref{cohom_seq_eqn}). Taking into account that $\sR$ is $c$-soft one has  $H^1_c\left(\sX, \sR \right)= 0$ (cf. \eqref{cohom_soft_eqn}) the homomorphism  
 		\be\label{dl_sh_eqn}
-		H^0_c\left(\sX, \sS \right)\xrightarrow{\dl }  H^1_c\left(\sX, \Z \right)
+	\dl_\SS	: H^0_c\left(\sX, \sS \right)\onto H^1_c\left(\sX, \Z \right)
 		\ee
 	is surjective.
 	If $A^+\bydef A \oplus \C$ is its minimal unitization then from the Lemma \ref{one_point_lem} it follows that 	$\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+$. From \eqref{k_00_h_eqn} and the Proposition \ref{stably_unital_prop}  it turns out that 	\be\label{k_0_h_eqn}
 	\begin{split}
-		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right). 
+		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right),\\
+				K_{0}\left(A^+ \otimes C\left(S^1 \right) \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \Z \right)/U\left(A^+\times C\left(S^1 \right)  \right). 
 	\end{split}
 	\ee 
+	The identical map $u: S^1 \cong S^1$ yields an element $\left[u\right] \in H^0\left(S^1; \sS \right)$ such that 
+	 \be
+	 	H^1_c\left(S^1 ;\Z\right)= \Z \left(\dl_\SS \left[u\right] 
+	 	\right) 
+	 \ee 
+	 If $e \in C\left( \mathfrak{Gelfand}\left(A \right)^+; \Z\right)\cong H^0\left( \mathfrak{Gelfand}\left(A \right)^+; \Z\right)$ is an idempotent 
+	 then there is u unitary element
+	 \be\label{e_u_eqn}
+	 \begin{split}
+u_{\mathfrak{Gelfand}}\bydef e\otimes u + \left( 1 -e\right)\otimes 1_{C\left(S^1 \right) } \in C\left( U\left( \mathfrak{Gelfand}\left(A \right)^+\times S^1\right)\right) 	 
+\end{split}
+\ee
+ yields elements
+	 \be 
+	 \begin{split}
+	 \left[u_{\mathfrak{Gelfand}}\right]\in H^0\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \SS \right),\\
+	 \dl_\SS  \left[u_{\mathfrak{Gelfand}}\right]\in H^1\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \Z \right)
+	 \end{split}
+	 \ee
+	 Comparison of the  equations  \eqref{e_u_eqn} and \eqref{idem_map_eqn} enables us to state that the map
+	  \be 
+	 \begin{split}
+	\Phi : H^0\left( \mathfrak{Gelfand}\left(A \right)^+, \Z\right) \to H^1\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1 \right) ,\\
+	\left[e\right]\mapsto  \dl_\SS  \left[u_{\mathfrak{Gelfand}}\right]
+	 \end{split}
+	 \ee
+yields the isomorphism 
+	  \be 
+\begin{split}
+\bt_{ \mathfrak{Gelfand}\left(A \right)^+}: K_0\left(  C\left( \mathfrak{Gelfand}\left(A \right)^+\right) \right) \cong !!!
+\end{split}
+\ee
+From \eqref{e_u_eqn} ir follows that the map $\Phi$ is an isomorphism of rinds so since $\bt_{ \mathfrak{Gelfand}\left(A \right)^+}$ the
+\bean
+I \bydef \ker \left(  H^0\left( \mathfrak{Gelfand}\left(A \right)^+, \Z\right)\to K_0\left(C\left( \mathfrak{Gelfand}\left(A \right)^+ \right)\right)  \right) 
+\eean
+is the two sided ideal.
 
 	Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfrak{Gelfand}\left(A \right)^+ \right)$. If $n \bydef f\left( +\right)$ then from the Standard picture (cf. Remark \ref{standard_picture_rem}) any $x \in K_0\left( A\right)$ is given by $\left[e\right]-  \left[p_n\right]$ From this circumstance one can deduce 
 \be\label{k0_eq_eqn}
@@ -1114,6 +1152,7 @@ and there is the natural homomorphism surjective homomorphism
 	\varphi_{H-K}:H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\onto  K_0\left(A \right). 
 \end{split}
 \ee 
+So 
 From \ref{dl_sh_eqn} it follows that the homomorphism  $H^0_c\left(\R, \sS \right)\onto   H^1_c\left(\R, \Z \right)\cong \Z$ is surjective. Let  $v^1_\Z \in H^1_c\left(\R, \Z \right)$ be a generator and let $v^0_\sS\in H^0_c\left(\R, \sS \right)$ be such that $\dl_\R v^0_\sS= v^1_\Z$.
 If   $f:\mathfrak{Gelfand}\left(A \right) \times  \R\to \R$ from the equation \eqref{cohom_mor_eqn} one has a diagram
 \be\label{dia_mult_dia}
@@ -1129,6 +1168,7 @@ If $g :\mathfrak{Gelfand}\left(A \right)\times \R\to \mathfrak{Gelfand}\left(A \
 	H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\xrightarrow{H^0_c\left( g\right) } 	H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)\times \R
 \end{split}
 \ee
+
 Let $x \in   K_0\left(A \right)$, and let $x_H\in H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ be a representative of $x$, i.e. $x = \varphi_{H-K}\left( x_H\right)$.
 From the Theorem \ref{cup_thm} it follows that there is the natural product
 \be\label{k_u_eqn}
