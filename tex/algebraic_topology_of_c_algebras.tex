@@ -1041,12 +1041,19 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi : A\to M\left( 
 	\ee
 	Suppose that $A$ is a \textbf{stable} 
 	 $C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A \cong \mathbb{M}_n\left( A\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
-	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There is the action $U\left(A^+ \right)\times \mathrm{Pr}\left( A\right)\to \mathrm{Pr}(A)$ of the unitary group on the set of projectors. So there is the natural action $U\left(A^+ \right)\times H^0_c\left(\mathfrak{Gelfand}\left(A\right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$. Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
-	\be\label{k_00_h_eqn}
+	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} and the Remark \ref{projection_equivalences_rem} one can deduce that 
+	\be\label{k_00_jh_eqn}
 	\begin{split}
-		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
+		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/\sim_h
 	\end{split}
 	\ee 
+where the equivalence relation $\sim_h$ comes from the homotopy equivalence (cf. Definition \ref{projection_equivalences_defn}). Otherwise from the Remark \ref{ho_inv_rem} and the Theorem \ref{ho_inv_thm} it follows that 
+	\be\label{k_00_h_eqn}
+\begin{split}
+	K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)
+\end{split}
+\ee 
+	
 Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
 $$
 u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
@@ -1078,72 +1085,11 @@ so taking into account  \eqref{royden_eqn} one has
 	\end{split}
 	\ee
 
-	Let $\sX$ be a locally compact Hausdorff  space. Let us consider there sheaves $\sR$, $\sS$ and $\sZ$ on $\R$ which corresponds to sheaves of continuous maps from $\R^+\cong S^1$ to $\R$, $S^1$ and $\Z$  respectively.  There is an exact sequence of sheaves
-	
-	\bean
-	\begin{split}
-		\{0\}  \hookto \sZ \hookto \sR \onto \sS \onto \{0\}
-	\end{split}
-	\eean
-	which yield the following long exact sequence
-	\bean
-	\begin{split}
-		\{0\}  \to  H^0_c\left(\sX, \Z\right)  \to  H^0_c\left(\sX, \sR \right)\to  H^0_c\left(\sX, \sS \right)\xrightarrow{\dl_\SS }  H^1_c\left(\sX, \Z \right)\to  H^1_c\left(\sX, \sR \right)\to ... 
-	\end{split}
-	\eean
-		(cf. equation \eqref{cohom_seq_eqn}). Taking into account that $\sR$ is $c$-soft one has  $H^1_c\left(\sX, \sR \right)= 0$ (cf. \eqref{cohom_soft_eqn}) the homomorphism  
-		\be\label{dl_sh_eqn}
-	\dl_\SS	: H^0_c\left(\sX, \sS \right)\onto H^1_c\left(\sX, \Z \right)
-		\ee
-	is surjective.
-	If $A^+\bydef A \oplus \C$ is its minimal unitization then from the Lemma \ref{one_point_lem} it follows that 	$\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+$. From \eqref{k_00_h_eqn} and the Proposition \ref{stably_unital_prop}  it turns out that 	\be\label{k_0_h_eqn}
-	\begin{split}
-		K_{0}\left(A^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+; \Z \right)/U\left(A^+ \right),\\
-				K_{0}\left(A^+ \otimes C\left(S^1 \right) \right) \cong H^0\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \Z \right)/U\left(A^+\times C\left(S^1 \right)  \right). 
-	\end{split}
-	\ee 
-	The identical map $u: S^1 \cong S^1$ yields an element $\left[u\right] \in H^0\left(S^1; \sS \right)$ such that 
-	 \be
-	 	H^1_c\left(S^1 ;\Z\right)= \Z \left(\dl_\SS \left[u\right] 
-	 	\right) 
-	 \ee 
-	 If $e \in C\left( \mathfrak{Gelfand}\left(A \right)^+; \Z\right)\cong H^0\left( \mathfrak{Gelfand}\left(A \right)^+; \Z\right)$ is an idempotent 
-	 then there is u unitary element
-	 \be\label{e_u_eqn}
-	 \begin{split}
-u_{\mathfrak{Gelfand}}\bydef e\otimes u + \left( 1 -e\right)\otimes 1_{C\left(S^1 \right) } \in C\left( U\left( \mathfrak{Gelfand}\left(A \right)^+\times S^1\right)\right) 	 
-\end{split}
-\ee
- yields elements
-	 \be 
-	 \begin{split}
-	 \left[u_{\mathfrak{Gelfand}}\right]\in H^0\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \SS \right),\\
-	 \dl_\SS  \left[u_{\mathfrak{Gelfand}}\right]\in H^1\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1; \Z \right)
-	 \end{split}
-	 \ee
-	 Comparison of the  equations  \eqref{e_u_eqn} and \eqref{idem_map_eqn} enables us to state that the map
-	  \be 
-	 \begin{split}
-	\Phi : H^0\left( \mathfrak{Gelfand}\left(A \right)^+, \Z\right) \to H^1\left(\mathfrak{Gelfand}\left(A \right)^+\times S^1 \right) ,\\
-	\left[e\right]\mapsto  \dl_\SS  \left[u_{\mathfrak{Gelfand}}\right]
-	 \end{split}
-	 \ee
-yields the isomorphism 
-	  \be 
-\begin{split}
-\bt_{ \mathfrak{Gelfand}\left(A \right)^+}: K_0\left(  C\left( \mathfrak{Gelfand}\left(A \right)^+\right) \right) \cong !!!
-\end{split}
-\ee
-From \eqref{e_u_eqn} ir follows that the map $\Phi$ is an isomorphism of rinds so since $\bt_{ \mathfrak{Gelfand}\left(A \right)^+}$ the
-\bean
-I \bydef \ker \left(  H^0\left( \mathfrak{Gelfand}\left(A \right)^+, \Z\right)\to K_0\left(C\left( \mathfrak{Gelfand}\left(A \right)^+ \right)\right)  \right) 
-\eean
-is the two sided ideal.
-
 	Any $e \in 	V\left(A^+ \right)$ corresponds to an element $f \in C\left(\mathfrak{Gelfand}\left(A \right)^+ \right)$. If $n \bydef f\left( +\right)$ then from the Standard picture (cf. Remark \ref{standard_picture_rem}) any $x \in K_0\left( A\right)$ is given by $\left[e\right]-  \left[p_n\right]$ From this circumstance one can deduce 
 \be\label{k0_eq_eqn}
 	\begin{split}
-	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right) 
+		REDUCED !!!!
+	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)
 \end{split}
 \ee
 and there is the natural homomorphism surjective homomorphism
@@ -3120,7 +3066,7 @@ may be interpreted as a bilinear map
 		From (b) of the Proposition \ref{top_ultra_prop} !!!!  PROP !!! it follows that the notion of ultrafilter is not adequate analog of the point of Hausdorff, locally compact space. One needs the finer notion.
 	\end{remark} 
 	
-	\section{Sheaves}
+	\section{Sheaves and cohomology}
 	\subsection{Basic definitions}
 	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
 		Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of sets or Abelian groups on  $\sX$ consists of the data
@@ -3196,25 +3142,15 @@ may be interpreted as a bilinear map
 		{F}_\sX \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
 		\ee
 	\end{definition}
-	\begin{empt}
-		For any Abelian group $F$ one can define a locally  constant presheaf $F_\sX$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
-		We use a following notation
-		\be\label{locally_const_not_eqn}
-		\begin{split}
-			\check{H}^r\left(\sX, F\right)\bydef \check{H}^r\left(\sX, F_\sX\right),\\
-			{H}^r\left(\sX, F\right)\bydef {H}^r\left(\sX, F_\sX\right).
-		\end{split}
-		\ee
-	\end{empt}
 	
 	
 	\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 		Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 	\end{definition}
-	%\begin{definition}\label{flabby_sheaf_defn}\label{bredon:sheaf}
+	\begin{definition}\label{flabby_sheaf_defn}\label{bredon:sheaf}
 	%5.1. Definition. 
-	%A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathscr A\left( \sX\right) \to \mathscr A\left( \sU\right)$ is surjective for every open set  $\sU \subset \sX$
-	%\end{definition}
+	A sheaf $\mathscr A$ on $\sX$ is \textit{flabby} or \textit{flasque} if $\mathscr A\left( \sX\right) \to \mathscr A\left( \sU\right)$ is surjective for every open set  $\sU \subset \sX$
+	\end{definition}
 	\begin{definition}\label{sheaf_support_defn}\cite{hartshorne:ag}
 		For $s \in \mathscr{F}\left(\sX \right)$, 
 		\be\label{sheaf_supp_eqn}
@@ -3267,37 +3203,14 @@ may be interpreted as a bilinear map
 	%\end{theorem}
 	
 	
+\subsection{Families of supports}
 	
-	
-	
-	\subsection{Flasque (flabby) and soft sheaves}
-	\begin{remark}\label{sheaf_locale_flasque} !!!! DELETE !!!
-		If $X$ ia a locale then one can define flasque sheaves in the category $\mathbf{Sh}\left(X \right)$. 
-	\end{remark}
 	\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
 		%Proposition 2.5. // 
 		If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
 	\end{proposition}
-	\begin{exercise}\label{sheaf_flasque_my_exer}
-		Similarly to the described in \cite{hartshorne:ag} theory of flasque shaves prove that
-		for any locale $X$ and for every flasque sheaf in the category $\mathbf{Ab}\left(X \right)$ one has  $H^p\left(X, \mathscr F \right)  = 0$ for all $p > 0$ 
-	\end{exercise}
-	\begin{remark}\label{sheaf_flasque_rem}
-		If $X$ is   a locale, $\mathscr F \in \mathbf{Ab}\left(X \right)$ and 
-		$$
-		0 \to \mathscr F \xrightarrow{\dl_0} \sJ^0 \xrightarrow{\dl_1}\sJ^1 \to \dots
-		$$
-		is an exact sequence where each $\sJ^p$ is flasque then from the Exercise \ref{sheaf_flasque_my_exer} it follows that $\sJ^p$ is acyclic for any $p\ge 0$. Taking into account the Proposition \ref{acyc_prop} one has
-		\be\label{etale_cohf_eqn}
-		\begin{split}
-			H^p\left(X, \mathscr F \right)\bydef\begin{cases}
-				\ker \Ga\left( \dl^0 \right) & p = 0\\
-				\ker~ \Ga\left(  \dl_{p} \right) / \im~ \Ga\left(  \dl_{p-1}\right)   & p > 0
-			\end{cases}
-		\end{split}
-		\ee
-	\end{remark}
-	\begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
+
+		\begin{definition}\label{phi_supp_defn}\cite{bredon:sheaf,godement:sheaf}.
 		Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
 		subsets of $\sX$  such that:
 		\begin{enumerate}
@@ -3316,7 +3229,8 @@ may be interpreted as a bilinear map
 		A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
 		called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
 	\end{definition}
-	Now  $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
+	\
+Now  $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
 	$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
 	Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}=0$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
 	$$
@@ -3325,27 +3239,7 @@ may be interpreted as a bilinear map
 	
 	
 	For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
-	\begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
-		Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
-	\end{lemma}
-	
-	\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
-		%Théor?me 1.3.1.—? 
-		Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 
-		fermé localement fini de $\sX$. Supposons données des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 
-		$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s \in \mathscr F\left(\sX \right)$ qui 
-		co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
-	\end{theorem}
-	Following theorem is an English translation of the \ref{loc_fin_french_thm} one.
-	\begin{theorem}\label{loc_fin_eng_thm}\cite{godement:sheaf}
-		Let $\sX$ is a topological space, and let $\mathscr F \in \mathbf{Sh}\left( \sX\right)$. Let $\left\{M_\iota\right\}$ is a locally finite closed covering of $\sX$, and let $s_\iota \in \mathscr F\left( M_\iota \right)$ be such that $s_\iota = s_j$ on $M_\iota \cap M_j$ for all $\iota$ and $j$. Then there is $s \in \mathscr F\left( \sX\right)$ 
-	\end{theorem}
-	\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
-		Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
-		$$
-		H^0\left(\mathscr U; \mathscr A \right) \cong \Ga\left(\mathscr A \right)\cong H^0\left(\sX; \mathscr A \right).
-		$$
-	\end{theorem}	
+
 	%\begin{theorem}\cite{bredon:sheaf}
 	%	6.2.\\
 	%	Theorem. Let $\mathscr P$ be a presheaf  DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
@@ -3354,44 +3248,7 @@ may be interpreted as a bilinear map
 	%	$$
 	%	is exact.
 	%\end{theorem}
-	\begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
-		%	3.3.1\\
-		Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
-	\end{theorem}
-	\begin{theorem}\label{sheaf_neigh_en_thm}\cite{godement:sheaf}
-		!!!		ENGLISH !!!
-	\end{theorem}
-	
-	\begin{theorem}
-		%Thorme 3.4.1- — 
-		Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que 
-		tout point de $\sX$ possède un  voisinage $\sU$ vérifiant la condition suivante : toute section de $\mathscr F$
-		au-dessus d'un sous-ensemble fermé de $\sX$ contenu dans $\sU$, se prolonge à $\sU$. Alors $\mathscr F$ est mou.
-	\end{theorem}
-	Following text is an English translation of the above theorem
-	\begin{theorem}
-		Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
-	\end{theorem}
-	\begin{definition}\label{phi_supp_defn}\cite{bredon:sheaf,godement:sheaf}.
-		Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
-		subsets of $\sX$  such that:
-		\begin{enumerate}
-			\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
-			\item $\Phi$ is closed under finite unions.
-		\end{enumerate}
-		
-		$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
-		\begin{enumerate}
-			\item  each element of $\Phi$ is paracompact;
-			\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
-		\end{enumerate}
-	\end{definition}\label{sheaf_soft_defn}
-	The family of all compact subsets of $\sX$ is denoted by $c$.
-	\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
-		A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
-		called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
-	\end{definition}
-	\begin{definition}\cite{bredon:sheaf}
+\begin{definition}\cite{bredon:sheaf}
 		%10.5. Definition. 
 		Let $\Phi$ be a family of supports on $\sX$. Then a subspace
 		$A \subset \sX$ is said to be $\Phi$-\textit{taut} if for every flabby sheaf $\mathscr F$ on $\sX$, the restriction
@@ -3419,61 +3276,12 @@ may be interpreted as a bilinear map
 		\end{enumerate}
 		If we are in case (b) with $\dim_{\Psi, L}\sX < \infty$ , then
 		\bean
-		0 \to \mathscr A \to \mathscr C^0\left(\sX, \mathscr A \right) \to ... \to C^{m-1}\left(\sX, \mathscr A \right)\to \mathscr Z^b\left(\sX, \mathscr A \right)
+		0 \to \mathscr A \to \mathscr C^0\left(\sX; \mathscr A \right) \to ... \to C^{m-1}\left(\sX,\; \mathscr A \right)\to \mathscr Z^m\left(\sX; \mathscr A \right)
 		\eean
 		is a resolution of $\Psi$ by $\Psi$-acyclic sheaves and is an exact functor of $\mathscr A$. In
 		the discussion below, $C^*_\Phi\left(\sX, \mathscr A \right)$  should be replaced by $\Ga_\Phi$ of this resolution
 		when we are in case (b).
-		Let
-		\bean
-		L^{p,q}\bydef C^p_\Phi \left( \sX; \mathscr L^q\right) 
-		\eean
-		We take $d': L^{p, q} \to L^{p+1, q}$ to be the differential of the complex $C^p_\Phi \left( \sX; \mathscr L^q\right)$
-		and $\left(-1 \right)^p  : L^{p,q} \to  L^{p,q+l}$ to be the differential induced by the coefficient
-		homomorphism $\mathscr L^q \to \mathscr L^{q+1}$ Let $d = d' + d''$ be the total differential and
-		$L^*$ the total complex, where
-		\bean
-		L^n = \bigoplus_{q + p = n} L^{p, q}
-		\eean 
-		There are two spectral sequences, $'E^{p,q}_r$ and  $''E^{p,q}_r$, of the double complex
-		$L^{*,*}$ converging' to graded groups associated with filtrations on $H^{p+q}_r\left( L^*\right)$.
-		We abbreviate this statement by the notation $E^{p,q}\Rightarrow H^{p+q} (L^*)$; 
-		In the first spectral sequence we have $'E^{p,q}_r= 'H^p\left(''H^q\left( L^*, L^*\right)  \right)$  and in
-		the second $''E^{p,q}_r= ''H^p\left('H^q\left( L^*, L^*\right)  \right)$, where $'H$ and $''H$ are computed using
-		$d'$ and $d''$ respectively.
-		Now
-		$$
-		''H^q\left(L^{*,*} \right) = C^*_\Phi\left(\sX, \mathscr K^q\left(\mathscr L^* \right)  \right) 
-		$$
-		since $ C^*_\Phi\left(\sX, \bullet  \right)$ is an exact functor. 
-		Thus
-		$$
-		''H^{p, q} = H_\Phi^p\left(\sX, \mathscr K^q\left(\mathscr L \right)  \right) 
-		$$
 	\end{empt}
-	\begin{definition}
-		%4.1. Definition.	
-		The \textit{Leray sheaf of the map } $f ~\mathrm {mod} f |A$ is the sheaf
-		\bean
-		\mathscr H^*_\Psi\left(f, f|A, \mathscr A \right)  \bydef \mathfrak{Sheaf}\left(\left.\sU \mapsto H^*_{\Psi\cap \sU^\bullet}\left( \sU^\bullet, \sU^\bullet \cap A, \mathscr A \right| \sU^\bullet \right)  \right) 
-		\eean 
-		on $\sY$.
-		For $A = \emptyset$, $\mathscr H^*_\Psi\left(f; \mathscr A \right)\bydef   \mathfrak{Sheaf}\left(\sU \mapsto \Ga_{\Psi\left( \sU\right) }\left(\mathscr A | \sU^\bullet \right) = \left(f_\Psi\mathscr A \right)\left(\sU \right)  \right)$,  and so
-		\bean
-		\mathscr H^0_\Psi\left(f; \mathscr A \right)= f_\Psi\left( \mathscr A\right) 
-		\eean 
-		
-	\end{definition}
-	\begin{proposition}
-		%4.2. Proposition. 
-		If $f$ is $\Phi$-closed and $y^\bullet \bydef f^{-1}\left(y \right)$  is $\Phi$-taut in $\sX$ (e.g.,
-		if $\Phi$ is paracompactifying or if $\Phi$ contains a neighborhood of $\sY\bullet$ and $y^\bullet$ is
-		compact and relatively Hausdorff in $\sX$), then
-		$$
-		r^*_y : \mathscr H_\Psi \left(f, \mathscr A \right) \to H^*_{\Psi \cap y^\bullet}\left(y^\bullet; \mathscr A \right) 
-		$$
-		is an isomorphism for all $\mathscr A$. %(Also see Section 7.)
-	\end{proposition}
 	
 	\begin{defn}
 		Let $f : \sX \to \sY$ with $\Psi$ and $\Phi$ being families of supports on $\sX$ and $\sY$
@@ -3496,68 +3304,15 @@ may be interpreted as a bilinear map
 		\eean
 		under the defining equality $\left( f_\Psi \mathscr A\right) = \Ga_{\Phi\left(\Psi \right) }\left(\mathscr A\right)$.
 	\end{proposition}
-	\begin{empt}
-		%PAGE 213
-		For $A = \emptyset$, the Leray sheaf is denoted by $\mathscr H^*_\Psi \left(f: \mathscr A \right)$, and by the preceding
-		remarks, it is the derived sheaf
-		\bean
-		\mathscr H^*_\Psi \left(f: \mathscr A \right)\cong \mathscr H^* \left(f_\Psi \mathscr A \right)
-		\eean
-		for any flabby (e.g., injective) resolution $\mathscr A^*$ of $\mathscr A$. Therefore $\mathscr H^* \left(f_\Psi \mathscr A \right)$ is
-		just the $p-$th right derived functor of the left exact functor $f_\Psi$,.
-	\end{empt}
-	\begin{empt}\label{leray_empt}
-		Let $A \subset \sX$, let $f : \sX \to \sY$, and let $\Psi$ and $\Phi$ be families of supports on $\sX$
-		and $\sY$ respectively. In this section we shall assume that at least one of the
-		following two conditions holds:
-		\begin{enumerate}
-			\item[(A)] $\Psi = cld$,
-			\item[(B)] $\Phi$ is paracompactifying
-		\end{enumerate}
-	\end{empt}
-	\begin{theorem}\label{leray_thm}
-		%6.1. Theorem. 
-		If (A) or (B) of \ref{leray_empt} holds, then there is a spectral sequence (the
-		Leray spectral sequence) in which
-		\bean
-		E^{p,q} = H^p_\Phi\left(\sY; \mathscr H^q_\Psi\left(f, f|A; \mathscr A \right)  \right) \Rightarrow H^{p + q}_{\Phi\left(\Psi \right) }\left( \sX, A,  \mathscr A\right) 
-		\eean 
-		Moreover, if $f$ is $\Psi$-closed and $\Psi \cap A$-closed and if each $y^\bullet \bydef f^{-1}\left( y\right)$  is $\Psi$-taut
-		and each $y^\bullet\cap A$ is $\Psi\cap A$-taut in $\sX$, then the canonical homomorphisms
-		\bean
-		r^*_y: \mathscr H^*_\Psi\left(f, f|A; \mathscr A \right)_y \to H^*_{\Psi \cap y^\bullet}\left( y^\bullet, y^\bullet \cap A; \mathscr A\right) 
-		\eean
-		are isomorphisms.
-	\end{theorem}
-	\begin{theorem}\label{kun_thm}\cite{bredon:sheaf}!!!
-		%15.2. Theorem. 
-		If $\sX$ and $\sY$ are locally compact Hausdorff
-		spaces and if $\mathscr A$ and  $\mathscr B$ are sheaves on $\sX$ and $\sY$ respectively with = 0,
-		then there is a natural exact sequence (over the principal ideal domain L
-		as base ring)
-	\end{theorem}
-	%
-	\begin{thm}\cite{godement:sheaf}
-		%Thorme 3-7-2. — 
-		Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
-	\end{thm}
-	Following text is an English translation of the above theorem.
-	\begin{theorem}\label{sheaf_a_soft_thm}
-		Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
-		\bean
-		S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
-		\eean
-	\end{theorem}
-	
+
+
 	\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
 		%	9.22. Proposition. \\
 		If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
 		then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf  $\mathscr{F}$ on $\sX$.
 	\end{proposition}
 	
-	
-	
-	\subsection{Canonical resolution}\label{canonical_resolution_empt}
+		\subsection{Canonical resolution and cohomology}\label{canonical_resolution_empt}
 	Here I follow to \cite{bredon:sheaf, godement:sheaf}.					
 	For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
 	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
@@ -3593,7 +3348,7 @@ may be interpreted as a bilinear map
 	
 	is exact. Let $d \bydef \eps \circ \partial$ be the composition
 	$$
-	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
+	\mathscr{C}^{n}\left(\sX; \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX; \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX; \mathscr F \right) 
 	$$
 	
 	Then the sequence 
@@ -3602,15 +3357,31 @@ may be interpreted as a bilinear map
 	\ee
 	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
 		resolution} of $\mathscr F$.
-		
-		\subsection{Cohomology}
+	
+	
+	Since  $\mathscr C^0\left(\sX; \mathscr A \right)$ is an exact functor of $\mathscr A$, so is $\mathscr Z^1\left(\sX; \mathscr A \right)$. By induction
+	it follows that $\mathscr C^0\left(\sX; \mathscr A \right)$ and $\mathscr Z^1\left(\sX; \mathscr A \right)$ are all exact functors of $\mathscr A$.
+	
+	For a family $\Phi$ of supports on $\sX$ we put
+	\be
+	\begin{split}
+	C^n_\Phi\left( \sX, \mathcal A\right) \bydef \Ga_\Phi\left( \mathscr C^n\left(\sX; \mathscr A \right)\right) \cong C^0_\Phi\left( \mathscr Z^n\left(\sX; \mathscr A \right)\right)
+	\end{split}
+	\ee
+
+	Since $C^0_\Phi\left( \bullet; \bullet \right)$ and $\mathscr Z^1\left( \sX ; \bullet \right)$ are exact functors, it follows that 
+	$C^n_\Phi\left( \bullet; \bullet \right)$ and $\mathscr Z^n\left( \sX ; \bullet \right)$) are all exact functors.
+	2.2. Definition. For a family of supports on X and for a sheaf d on
+	X we define
+	I HH(X; d) = H"(C,(X;4)). I!!!!!
+
 		\begin{definition}\label{cohomomor_defn}\cite{bredon:sheaf}
 			%4.1. Definition.
 			If $A$ and $B$ are presheaves on $\sX$ and $\sY$ respectively, then
 			an $f$ -{\it cohomomorphism} $k: A  \leadsto B$ is a collection of homomorphisms
 			$k_\sU : B(\sU) \to A\left( f^{-1}\left(\sU \right) \right)$ , for $\sU$ open in $\sY$, compatible with restrictions.	
 		\end{definition}
-		\begin{remark}
+			\begin{remark}
 			It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
 			there is the natural homomorphism
 			\be\label{cohom_mor_eqn}
@@ -3626,13 +3397,15 @@ may be interpreted as a bilinear map
 			\ee
 			
 		\end{remark}
-		\begin{corollary}\cite{bredon:sheaf}
-			%Corollary. 
-			For $\Phi$ paracompactifying and sheaves $\mathscr F$ on $\sX$ there as
+
+		\begin{corollary}\label{cech_cor}\cite{bredon:sheaf}
+			%4.5 Corollary. 
+			For $\Phi$ paracompactifying and $A$ is a presheaf  on $\sX$ and $\mathscr A$ is the associated to $A$ sheaf then there is
 			a natural isomorphism
 			$$
-			\check{H}_\Phi^\bullet\left(\sX; \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX; \mathscr F \right) 
+			\check{H}_\Phi^\bullet\left(\sX; \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX; \mathscr F \right). 
 			$$
+			where $\check{H}$ are \v{C}ech cohomology.
 		\end{corollary}
 		\begin{theorem}\label{kunnet_sheaf_thm}\cite{bredon:sheaf}
 			%15.2. Theorem. 
@@ -3667,84 +3440,66 @@ may be interpreted as a bilinear map
 				
 			\end{enumerate}
 		\end{theorem}	
-		
-		
+\subsection{Homotopy invariance}\label{ho_inv_chap} Here I follow to \cite{bredon:sheaf}. If $\Phi$ and $\Psi$ are given families of supports on $\sX$ and $\sY$ respectively, we
+shall say that a map $f: \sX \to \sY$ is {\it proper} (with respect to $\Phi$ and $\Psi$) if
+$f^{-1}\Psi\subset \Phi$). If that is the case, then $f^*: H^*_\Psi\left(\sY \right)\to  H^*_\Phi\left(\sX \right)$  is defined. A homotopy $\sX \times \left[0,1\right]$ is {\it proper} if it is so with respect to the families $\Phi\times \left[0,1\right]$
+and $\Psi$. For locally compact spaces, "proper" means proper with respect to
+compact supports unless otherwise indicated	
+\begin{theorem}\label{ho_inv_thm}
+%11.12. Theorem. 
+Any two properly homotopic maps (with respect to $\Phi$
+and $\Psi$ of a space $\sX$ into a space $\sY$ induce identical homomorphisms
+\be\label{ho_inv_eqn}
+ H^*_\Psi\left(\sY; G \right)\to  H^*_\Phi\left(\sX; G \right)
+\ee
+where $G$ is any constant coefficient group.
+\end{theorem}
+\begin{rem}\label{ho_inv_rem}\cite{bredon:sheaf}
+If both $\sX$, $\sY$ a locally compact and Hausdorff and $\Phi = c = \Psi$ then the conditions of the Theorem \ref{ho_inv_thm} hold.
+\end{rem}
+
 \subsection{Relative cohomology}
-	\paragraph*{} Here I follow to \cite{bredon:sheaf}
-	Let $j : \hookto \sX$ and let $\Phi$ be a family of supports on $\sX$. For any sheaf $\mathscr A$ on $\sX$ we have the natural $j$-cohomomorphism %(see Section 8)
-	\bean
-	\mathscr C^*\left(\sX; \mathscr A\right) \to C^*\left(A; \mathscr A|A\right)
-	\eean
-	Equivalently, we have the homomorphism
-	\bean
-	\mathscr C\left(\sX; \mathscr A\right) 
-	j^*: \mathscr C^*\left(\sX; \mathscr A\right) \to j^*C^*\left(A; \mathscr A|A\right)
-	\eean
-	of sheaves on $\sX$.
-	In order to define relative cohomology, we shall show that $j^*$ is surjective
-	and has a flabby kernel. We introduce the notation
-	\bean
-	\ker j^* \bydef  \mathscr C^*\left(\sX, A ;\mathscr A\right),\\
-	C^*_\Phi\left(\sX, A; \mathscr A\right)\bydef \Ga_\Phi\left( C^*\left(\sX; A \mathscr A\right)\right) 
-	\eean
-	and
-	\bean
-	H^*_\Phi \left(\sX, A; \mathscr A\right) \bydef H^*\left( C^*_\Phi\left(\sX, A; \mathscr A\right)\right) 
-	\eean 
-	Since $\ker j^*$ is flabby and since $\G_\Phi\left(j \mathscr B \right) = \Ga_{\Phi \cap A}\left(\mathscr B \right)$  % by I-Exercise 8, we will
-	obtain the induced short exact sequence
-	\bean
-	0 \hookto C^*_\Phi\left(\sX, A;\mathscr A  \right) \hookto C^*_\Phi\left(\sX;\mathscr A  \right)\onto C^*_\Phi\left(A;\mathscr A | A \right)\onto 0
-	\eean
-	and hence the long exact cohomology sequence
-	\be 
-	... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(A;\mathscr A  \right)\to  H^{p+1}_\Phi\left(A;\mathscr A | A \right)\to ...
-	\ee
-	If  $0 \hookto \mathscr A' \hookto \mathscr A \onto \mathscr A'' \onto 0$ is an exact sequence of sheaves then one has
-	\be
+\paragraph*{} Here I follow to \cite{bredon:sheaf}
+Let $j : \hookto \sX$ and let $\Phi$ be a family of supports on $\sX$. For any sheaf $\mathscr A$ on $\sX$ we have the natural $j$-cohomomorphism %(see Section 8)
+\bean
+\mathscr C^*\left(\sX; \mathscr A\right) \to C^*\left(A; \mathscr A|A\right)
+\eean
+Equivalently, we have the homomorphism
+\bean
+\mathscr C\left(\sX; \mathscr A\right) 
+j^*: \mathscr C^*\left(\sX; \mathscr A\right) \to j^*C^*\left(A; \mathscr A|A\right)
+\eean
+of sheaves on $\sX$.
+In order to define relative cohomology, we shall show that $j^*$ is surjective
+and has a flabby kernel. We introduce the notation
+\bean
+\ker j^* \bydef  \mathscr C^*\left(\sX, A ;\mathscr A\right),\\
+C^*_\Phi\left(\sX, A; \mathscr A\right)\bydef \Ga_\Phi\left( C^*\left(\sX; A \mathscr A\right)\right) 
+\eean
+and
+\bean
+H^*_\Phi \left(\sX, A; \mathscr A\right) \bydef H^*\left( C^*_\Phi\left(\sX, A; \mathscr A\right)\right) 
+\eean 
+Since $\ker j^*$ is flabby and since $\Ga_\Phi\left(j \mathscr B \right) = \Ga_{\Phi \cap A}\left(\mathscr B \right)$  % by I-Exercise 8, we will
+obtain the induced short exact sequence
+\bean
+0 \hookto C^*_\Phi\left(\sX, A;\mathscr A  \right) \hookto C^*_\Phi\left(\sX;\mathscr A  \right)\onto C^*_\Phi\left(A;\mathscr A | A \right)\onto 0
+\eean
+and hence the long exact cohomology sequence
+\be 
+... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(A;\mathscr A  \right)\to  H^{p+1}_\Phi\left(A;\mathscr A | A \right)\to ...
+\ee
+If  $0 \hookto \mathscr A' \hookto \mathscr A \onto \mathscr A'' \onto 0$ is an exact sequence of sheaves then one has
+\be
 \to  H^p_\Phi\left(\sX, A;\mathscr A'  \right) \to  H^p_\Phi\left(\sX, A;\mathscr A  \right)\to  H^p_\Phi\left(\sX, A;\mathscr A''  \right) \to H^{p+1}_\Phi\left(\sX, A;\mathscr A'  \right)\to ...
-	\ee
+\ee
 For any closet and $\Phi$-taut subset $F \subset \sX$ there is the natural isomorphism
 
 \be
 H^*_\Phi\left(\sX, F;\mathscr A  \right)\cong H^*_\Phi\left(\sX\setminus F;\mathscr A  \right)
 \ee
 
-\subsection{Miscellany}
-	\begin{empt}\cite{bredon:sheaf}
-		%2.6. p 11
-		Let $A$ be a locally closed subspace of $\sX$ and let $\mathscr B$ be a sheaf on $A$. It is easily seen (since $A$ is locally closed) that there is a unique topology on the
-		point set $\mathscr B\cup \left( \sX \times \{0\}\right) $ such that $\sX$ is a subspace and the projection onto $\sX$ is a local homeomorphism (we identify $A \times \{0\}$ with the zero section of  $\mathscr B$.
-		With this topology and the canonical algebraic structure, $\mathscr B\cup \left( \sX \times \{0\}\right) $  is
-		a sheaf on X denoted by
-		\be
-		\begin{split}
-			\mathscr B^\sX \bydef \mathscr B\cup \left( \sX \times \{0\}\right)
-		\end{split}
-		\ee
-		Thus $\mathscr B^\sX$ is the unique sheaf on $\sX$ inducing  $\mathscr B$ on $A$ and $0$ on $\sX \setminus A$. Clearly, $\mathscr B\mapsto \mathscr B^\sX$ is an exact functor. The sheaf $\mathscr B^\sX$ is called the {\it extension of $\mathscr B$
-			by zero}. If $\sX^+$ is a one point compactification then there is the isomorphism 
 		
-		\be\label{sheaf_h_comp_eqn}
-		\begin{split}
-			H^*_c\left(\sX; \mathscr A \right) \cong H^*\left(\sX^+; \mathscr A^{\sX^+} \right)
-		\end{split}
-		\ee
-	\end{empt}
-	
-\begin{theorem}
-%7.6. Theorem. P 231
-  Let $A \subset \sX$, where $\sX$ is any space, and let the base ring $L$
-be a principal ideal domain. Let $\mathscr A$ be a sheaf of $L$-modules on $\sX$ and let be any family of supports on $\sX$. Let $\sY$ be a locally compact Hausdorff
-and $clc_L^\infty$ space. Then there is a natural exact sequence
-		\be
-\begin{split}
-\bigoplus_{p+q = n}	H^*_{\Phi}\left(\sX, A; \mathscr A \right) \hookto H^*_{\Phi \times c}\left(\sX,  \mathscr A^{\sX^+} \right)
-\end{split}
-\ee
-
-which splits
-\end{theorem}	
 \section{$C^*$-algebras}
 \subsection{Basic definitions}
 
@@ -4347,31 +4102,7 @@ any idempotent is homotopic to a projection.
 	it is proven that for any two projections the conditions (a) - (c) of the Definition \ref{projection_equivalences_defn} are equivalent  $\mathbb{M}_\infty\left(A \right)$.
 \end{remark}
 
-\begin{proposition}\label{projection_u_equivalence_prop}\cite{blackadar:ko}
-%Proposition 4.6.5. 
-If $p \sim_s q$, then there is a unitary $u$ with $upu^* = q$.
-\end{proposition}
-\begin{definition}\label{local_ca_defn}\cite{blackadar:ko}
-%Definition 3.1.1. 
-A {\it local Banach algebra} is a normed algebra $A$ which is closed
-under holomorphic functional calculus (i.e. if $x \in A$ and $f$ is an analytic function
-on a neighborhood of the spectrum of $x$ in the completion of $A$, with $f(0) = 0$ if
-$A$ is nonunital, then $f(x) \in A$. For technical reasons we will also require that
-all matrix algebras over A have the same property. If $A$ is a $*$-algebra, it will be
-called a local Banach $*$-algebra; if the norm is a pre-$C^*$-norm, A will be called a
-{\it local $C^*$-algebra}.
-\end{definition}
-%Theorem 4.6.7.
-\begin{theorem}\label{ga_proj_thm}\cite{blackadar:ko}
-Let $A$ be a local $C^*$-algebra. Consider the action  of $U\left(A^+ \right)$ 
-on the set $\mathrm{Pr}(A)$ of projections in $A$ given by $\ga\left(u \right) \left( p\right)\bydef upu^*$.Then:
-\begin{enumerate}
-	\item[(a)] 	The orbits of  are open and closed; the orbit containing $p$ contains the open	ball $B_p$ of radius 1 around $p$ in $\mathrm{Pr}(A)$.
-\item[(b)] For any $p \in \mathrm{Pr}(A)$, there is a continuous cross section $v_p : B_p \to U\left(A\right)$  for $\ga$ 
-	(i .e. $v_p\left(q\right)p v_p\left(q\right)^*= q$ ) with $v_p(p) = 1$.
-\item[(c)] The association $p \mapsto \pi\left( p\right) $ is functorial, i .e. if $\pi : A \to B$ is a $*$-homomorphism, then $v_{\pi\left(p \right) }\left( \pi\left( q\right) \right)  = \pi\left( v_p\left( q\right) \right)$) for $q \in B_p$.
-\end{enumerate}
-\end{theorem} 
+
 \begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
 	%Definition 5.1.2. 
 	$V(A)$ is the set of algebraic equivalence classes of idempotents
@@ -4722,7 +4453,7 @@ These homomorphisms are actually isomorphisms.
 The other isomorphism can then be obtained
 using Bott periodicity. The Shilov Idempotent Theorem, which states that every idempotent in $C_0(\sX)$ is in the image of $\ga$, and hence that the group of integer
 linear combinations of idempotents in $A$ is isomorphic to $H^0_c\left(\sX; \Z \right) \cong C_c\left( \sX, \Z\right)$. 
-The Arens-Royden Theorem, which states that  induces an isomorphism of
+The Arens-Royden Theorem (cf. \cite{royden:fa}), which states that  induces an isomorphism of
 	$GL_1\left( A\right) / GL_1\left( A\right)_0$ with 
 	\be\label{royden_eqn}
 GL_1\left(  C_0\left(\sX \right)\right) / GL_1\left( C_0\left(\sX \right)\right)_0\cong H^1_c\left( \sX, \Z\right)	
@@ -5275,6 +5006,8 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 \bibitem{rordam:kc} M. Rørdam, Flemming Larsen, N. Laustsen. {\it An Introduction to $K$-Theory for $C^*$-Algebras}. Cambridge University Press, Jul 20, 2000 - Mathematics, 2000. 
 
+\bibitem{royden:fa} H.L. Royden. {\it Function algebras}.
+Technical report. No 21. January 21, 1963. Prepared under grant DA AR0(D)31-124-G80. For U.S. Army Research Office. Applied Mathematics and statistics laboratories. Stanford University. Stanford, California. 1963.
 	
 \bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
