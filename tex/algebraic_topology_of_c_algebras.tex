@@ -3370,10 +3370,23 @@ Now  $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \r
 	\ee
 
 	Since $C^0_\Phi\left( \bullet; \bullet \right)$ and $\mathscr Z^1\left( \sX ; \bullet \right)$ are exact functors, it follows that 
-	$C^n_\Phi\left( \bullet; \bullet \right)$ and $\mathscr Z^n\left( \sX ; \bullet \right)$) are all exact functors.
-	2.2. Definition. For a family of supports on X and for a sheaf d on
-	X we define
-	I HH(X; d) = H"(C,(X;4)). I!!!!!
+	$C^n_\Phi\left( \sX; \bullet \right)$ and $\mathscr Z^n\left( \sX ; \bullet \right)$ are all exact functors it follows that
+	\be
+\begin{split}
+	C^n_\Phi\left( \sX, \bullet\right) \quad \text{is an exact functor}.
+\end{split}
+\ee
+	
+		\begin{definition}\label{cohomol_defn}\cite{bredon:sheaf}
+%2.2. Definition. 
+For a family $\Phi$ of supports on $\Phi$ and for a sheaf $\mathscr A$ on
+$\sX$ we define
+	\be
+\begin{split}
+	H^n_\Phi\left( \sX, \mathscr A\right) \bydef H^n\left( C^*_\Phi\left( \sX, \mathscr A\right)\right).
+\end{split}
+\ee
+\end{definition}
 
 		\begin{definition}\label{cohomomor_defn}\cite{bredon:sheaf}
 			%4.1. Definition.
@@ -3457,7 +3470,6 @@ where $G$ is any constant coefficient group.
 \begin{rem}\label{ho_inv_rem}\cite{bredon:sheaf}
 If both $\sX$, $\sY$ a locally compact and Hausdorff and $\Phi = c = \Psi$ then the conditions of the Theorem \ref{ho_inv_thm} hold.
 \end{rem}
-
 \subsection{Relative cohomology}
 \paragraph*{} Here I follow to \cite{bredon:sheaf}
 Let $j : \hookto \sX$ and let $\Phi$ be a family of supports on $\sX$. For any sheaf $\mathscr A$ on $\sX$ we have the natural $j$-cohomomorphism %(see Section 8)
@@ -3465,7 +3477,7 @@ Let $j : \hookto \sX$ and let $\Phi$ be a family of supports on $\sX$. For any s
 \mathscr C^*\left(\sX; \mathscr A\right) \to C^*\left(A; \mathscr A|A\right)
 \eean
 Equivalently, we have the homomorphism
-\bean
+\bean!!!
 \mathscr C\left(\sX; \mathscr A\right) 
 j^*: \mathscr C^*\left(\sX; \mathscr A\right) \to j^*C^*\left(A; \mathscr A|A\right)
 \eean
@@ -3499,7 +3511,42 @@ For any closet and $\Phi$-taut subset $F \subset \sX$ there is the natural isomo
 H^*_\Phi\left(\sX, F;\mathscr A  \right)\cong H^*_\Phi\left(\sX\setminus F;\mathscr A  \right)
 \ee
 
-		
+
+
+\subsection{Mayer-Vietoris theorems}
+\paragraph{}
+First, let $\mathscr A$ be a sheaf on $\sX$ and $\Phi$ a family of supports on $\sX$. Let $\sX_1$
+and $\sX_2$ be closed subspaces of $\sX$ with $\sX = \sX_1 \cup \sX_2$ and put $A = \sX_1 \cap \sX_2$
+We have the surjections
+\bean
+r_i : \mathscr A \onto \mathscr A_{\sX_i},\\
+s_i : \mathscr A_{\sX_i} \onto \mathscr A_{A}
+\eean
+Considering stalks, we see that the sequence
+\bean
+0\to \mathscr A \xrightarrow{\a} \mathscr A_{\sX_1} \oplus \mathscr A_{\sX_2}\xrightarrow{\bt} \mathscr A_{A}
+\eean
+is exact, where $\a \bydef (r_l,r_2)$ and $\bt \bydef s_1 - s_2$. Thus, there is  the
+exact Mayer-Vietoris sequence (for $A$, closed and arbitrary $\Phi$)
+\be\label{mv_eqn}
+\begin{split}
+...\to H^p_\Psi\left(\sX; \mathscr A \right)\to  H^p_{\Psi\cap \sX_1}\left(\sX_1; \mathscr A \right)\oplus  H^p_{\Psi\cap \sX_2}\left(\sX_2; \mathscr A \right)\to  H^p_{\Psi\cap A}\left(A; \mathscr A \right)\to \\\to H^{p+1}_\Psi\left(\sX; \mathscr A \right)\to ...
+\end{split}
+\ee
+\begin{example}
+%13.1. Example. 
+For an arbitrary space $\sX$, the cone $C\sX$ on $\sX$ is the
+quotient space $\sX \times \left[0,1\right]/\sX \times \{0\}$. Since this is contractible, it is acyclic for
+any constant coefficients and closed supports. The (unreduced) {\it suspension}
+of a space $\sX$ is $\Sigma\sX \bydef C\sX /\sX \times \{1\}$. This is the union along $\sX \times \left\{\frac{1}{2}\right\}$ of two
+cones. The Mayer-Vietoris sequence \eqref{mv_eqn} applies to show that $\tilde H^k\left(\Sigma\sX \right) \cong \tilde H^{k-1}\left(\sX \right)$ for all $k$. If $*\in \sX$  is a base point, then $\Sigma \sX$ contains the arc $I$,
+which is the image of $*\times \left[0,1\right]$ and is a closed subspace of $\Sigma\sX$. The {\it reduced
+suspension} of $\sX$ is $S\sX \bydef \Sigma \sX /I$. Now the collapsing map $\Sigma \sX\onto S\sX$ 
+is closed and $I$ is connected, acyclic, and taut (since it is compact and
+relatively Hausdorff in $\Sigma \sX$), so the Vietoris mapping theorem  applies
+to show that $\tilde H^k (SX) \cong H^k\left( \Sigma\sX\right) \cong  H^-{k-1}(\sX)$ for all $k$. %Note that this doesnot hold in this generality for singular theory where one must assume thespace to be "well pointed," that is, that the base point is nondegenerate.
+\end{example}
+
 \section{$C^*$-algebras}
 \subsection{Basic definitions}
 
