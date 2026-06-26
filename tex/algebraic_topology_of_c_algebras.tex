@@ -761,6 +761,13 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 	$$
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
+\begin{lemma}\label{gelfand_compact_lem}
+		If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is compact and Hausdorff.
+	\end{lemma}
+	\begin{proof}
+		since $A$ is compact any $a \in A\setminus\{0\}$ lies in $K\left( A\right) \setminus\{0\}$. If follows that any  ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-{finite point} and $\mathfrak{Gelfand}\left(A \right) = \mathfrak{Ultrafilters}\left(A \right)$.  From the  Proposition \ref{top_ultra_prop} it follows that the space $\mathfrak{Ultrafilters}\left(A \right)$ is compact and Hausdorff.
+	\end{proof}
+
 \begin{lemma}\label{one_point_lem}
 		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
 		\be 
@@ -772,7 +779,24 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 \end{lemma}
 
 \begin{proof}
-	The net of all  closed left ideals  of $L\subset A^+$ with $L \not\subset A$ is an ultrafilter. It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$.
+	If   $\left\{L_\la\right\}_{\la\in \La}$ is  a set of  all  closed left ideals  of $L_\la\subset A^+$ with $L_\la \not\subset A \quad \forall \La$ then one has
+	$$
+	\forall \la' , \la'' \in \La \quad 1_\C \in L_{\la'}\cap L_{\la''}\neq \{0\}
+	$$
+	i.e. $\left\{L_\la\right\}$ is a filter. If $L$ is a closed left ideal such that 
+	\bean
+	L \neq A,\\
+	L \subset A,\\
+	\eean  
+	then
+		\be 
+\begin{split}
+L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}
+\end{split}
+\ee
+	
+	
+	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$.
 \end{proof}
 \begin{remark}\label{loc_compact_rem}
 	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
@@ -2678,7 +2702,18 @@ where $	 \widetilde A= \Z \rtimes A$ denotes the ring obtained from $A$ by adjoi
 
 A ring $A$ is said to satisfy {\it excision}  in algebraic $K$-theory if for every ring with unit $R$, which contains $A$ as a two-sided ideal, the canonical map $K_*\left( A\right) \to K_*\left(R, A\right)$ is an isomorphism.
 \end{empt}
-
+\subsection{Miscellany}
+%	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
+	% 2.3.13 THEOREM. T
+%	The module $M_R$ over an (unital) ring $R$ is finitely generated if and only if for every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
+%	$$
+%	M=\sum_{\la \in \La} A_\la
+%	$$
+%	there is a finite subset $\La_0\subset \La$  such that 
+%	$$
+%	M = \sum_{\la \in \La_0} A_\la.
+%	$$
+%\end{theorem} 
 
 
 \section{Topology}
@@ -5457,7 +5492,9 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 	
 
 \bibitem{isely:akt}Olivier Isely {\it Algebraic K-Theory} Semester project Chaire of the Prof. Kathryn Hess Directed by Sverre Lun¿e-Nielsen winter semester 2005-2006, 2006.
-\bibitem{kelley:gt} John L. Kelley. {\it General Topology}. Springer, 1975.
+%\bibitem{kelley:gt} John L. Kelley. {\it General Topology}. Springer, 1975.
+
+\bibitem{kasch:mr} \textit{Modules and Rings}. A translation of \textit{Moduln und Ringe}. German text by F. Kasch, Ludwig-Maximilian University, Munich, Germany, Translation and editing by D. A. R. WALLACE University of Stirling, Stirling, Scotland 1982 ACADEMIC PRESS. A Subsidiary of Harcourt Brace Jovanovich, Publishers LONDON, NEW YORK, PARIS, SAN DIEGO, SAN FRANCISCO, S\~{A}O PAULO, SYDNEY, TOKYO, TORONTO.  1982.
 	
 \bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978. 
 	
