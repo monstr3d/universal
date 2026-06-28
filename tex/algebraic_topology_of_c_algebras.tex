@@ -779,23 +779,37 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 \end{lemma}
 
 \begin{proof}
-	If   $\left\{L_\la\right\}_{\la\in \La}$ is  a set of  all  closed left ideals  of $L_\la\subset A^+$ with $L_\la \not\subset A \quad \forall \La$ then one has
-	$$
-	\forall \la' , \la'' \in \La \quad 1_\C \in L_{\la'}\cap L_{\la''}\neq \{0\}
-	$$
-	i.e. $\left\{L_\la\right\}$ is a filter. If $L$ is a closed left ideal such that 
-	\bean
-	L \neq A,\\
-	L \subset A,\\
-	\eean  
-	then
-		\be 
+
+If both $L_1, L_2 \subset A$ are closed left ideals then one has
+		\be\label{intersec_eqn} 
 \begin{split}
-L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}
+	L_1\cap L_2 = \{0\}\quad \Leftrightarrow\quad\left(  L_1\cap L_2\right) \bigcap \left( L^*_1\cap L^*_2\right)  = \{0\}\quad \Leftrightarrow\quad L_1\cap L^*_2 = \{0\}
 \end{split}
 \ee
-	
-	
+(cf. Lemma \ref{hered_ideal_lem})
+Let  $\left\{L_\la\right\}_{\la\in \La}$ be  a set of  all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A $. If $L_1, L2\in \left\{L_\la\right\}$ then there are $a_1 , a_2 \in A$  such that 
+\bean
+1_{A^+}+ a_1 \in L_1,\\
+1_{A^+}+ a_2 \in L_2
+\eean
+One has
+		\be
+\begin{split}
+\left( 1_{A^+} + a_1\right) \left(1_{A^+} + a_2 \right)^* = 1_{A^+} + a_1 + a_2 + a_1a^*_2 \in L_1\cap L^*_2 
+\end{split}
+\ee
+Otherwise $\left( 1 + a_1\right) \left(1 + a_2 \right)^*\neq 0$ since  $a_1 + a_2 + a_1a^*_2\in A$ and $1_{A^+} \notin A$. From \eqref{intersec_eqn} it follows that $L_1 \cap L_2 \neq \{0\}$, i.e. $\left\{L_\la\right\}_{\la\in \La}$ is a filter. If $L\notin \left\{L_\la\right\}$ is a closed left ideal such that 
+	\bean
+	L \subsetneqq A,\\
+	\eean  
+	then
+		\bean 
+\begin{split}
+L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}\quad \Rightarrow \quad L' \in \left\{L_\la\right\},\\
+L \cap L' = \{0\}.
+\end{split}
+\eean
+The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
 	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$.
 \end{proof}
 \begin{remark}\label{loc_compact_rem}
@@ -1149,25 +1163,71 @@ i.e. there is a contradiction with \eqref{neqxx_eqn}, i.e.
 		\end{cases}
 		\ee
 	\end{definition}
-	
-	\paragraph{}
-		If $p \in \mathbb{M}_n\left(A \right)$ is a projection (resp. unitary $u \in \mathbb{M}_n\left(A^+ \right)$ ) then from the Lemma \ref{image_lem} it follows that there is the unique projector $p_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right) \right)$ ((resp. unitary $u_{ \mathfrak{Gelfand}\left(A \right) }\in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A^+ \right) \right)$
-	such that 
-	\be
+	\begin{lemma}
+		If $A$ is an unital $C^*$ algebra then for any $n \in \N$ there is the following homeomorphisms
+		\be\label{gn_eqn}
+		\begin{split}
+			\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \cong \coprod_{j-1}^n \mathfrak{Gelfand}\left(A \right)_j,\\
+			\mathfrak{Gelfand}\left(A \right)_j\cong \mathfrak{Gelfand}\left(A \right)\quad j=1,..., n.
+		\end{split}
+		\ee
+	\end{lemma}
+	\begin{proof}
+		Any closed left ideal $L\subset \mathbb{M}_n\left(A \right)$ can be uniquely defined by left $\mathbb{M}_n\left(A \right)$-submodule $P \subset A^n$ given by
+		\bean
+		\begin{split}
+			P \bydef A^n L \subset A^n = \bigoplus_{j=1}^n A_j
+		\end{split}
+		\eean
+		where $A_j\cong A$ as left $A$-module for each $j \in \{1,...,n\}$,
+		If $\left\{L_\la\right\}_{\la \in \La}$ is an ultrafilter then there is the unique $j \in \{1,...,n\}$ such that there is $\la_0 \in \La$ such that $L_\la \subset A_j$ for every $\la \ge \la_0$. If $x \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is given by the ultrafilter  $\left\{L_\la\right\}$ then $x \in \mathfrak{Gelfand}\left(A \right)_j$.
+	\end{proof}
+	From 
+	If $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
+	\be\label{matrppbu_eqn}
 	\begin{split}
-		p =  \mathfrak{Image}\left( p_{ \mathfrak{Gelfand}\left(A \right) }\right),\\
-		u =  \mathfrak{Image}\left( u_{ \mathfrak{Gelfand}\left(A \right) }\right) .
+		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
 	\end{split}
 	\ee
-	Suppose that $A$ is a \textbf{stable} 
-	$C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A \cong \mathbb{M}_n\left( A\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
-	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There is the action $U\left(A^+ \right)\times \mathrm{Pr}\left( A\right)\to \mathrm{Pr}(A)$ of the unitary group on the set of projectors. So there is the natural action $U\left(A^+ \right)\times H^0_c\left(\mathfrak{Gelfand}\left(A\right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)$. Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
+	(cf. notation \ref{topology_eqn}). Taking into account equations \eqref{gn_eqn} \eqref{matrppbu_eqn} one has a direct sum 
+	\bean
+	\begin{split}
+	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus  C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)= C\left(\mathfrak{Gelfand}\left(A \right) \right)^n,  
+	\end{split}
+	\eean
+	i.e. 	$C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\right) $ is a finitely generated $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-module. In result one has the following Theorem 
+	\begin{theorem}\label{k_0_alg_top_thm}
+	If $A$ is an unital $C^*$-algebra then one has.
+	\begin{enumerate}
+		\item [(i)] There is the natural one-to-one correspondence between finitely generated projective $A$-modules and complex vector bundles on the Gelfand space  $\mathfrak{Gelfand}\left(A \right)$.
+		\item[(ii)] There is the natural isomorphism
+		\be\label{k_0_alg_top_eqn} 
+		K_0\left( A\right) \cong K^0\left( \mathfrak{Gelfand}\left(A \right)\right). 
+		\ee 
+	\end{enumerate}
+	\end{theorem}
+\begin{proof}
+		(i) We already know that is the natural one-to-one correspondence between finitely generated projective $A$-modules and finitely generated projective $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-modules. Our statement follows from the Serre Swan Theorem 	\ref{serre_swan_thm}.
+		
+		(ii) The Theorem \ref{rosen_ak1_thm} states that the comparison map $c_* : K_0(A) \to  K_0^{\mathrm{top}}(A)$ between the functor $K_0$ of algebraic $K$-theory and functor  $K_0^{\mathrm{top}}(A)$ of $K$-theory of $C^*$-algebras is identity. Now this statement follows from (i).
+\end{proof}
+	
+\begin{remark}
+The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic classes, multiplicative structures and Adams operations.
+\end{remark}
+	\subsubsection{Sheaf-theoretic interpretation of $K$-theory}
+	\paragraph{} Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology.	
+	Suppose that $A$ is an unital
+	$C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A\otimes \K \cong \mathbb{M}_n\left( A\otimes \K\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
+	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}\left(A\otimes \K \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There is the action $U\left(\left(A\otimes \K \right) ^+ \right)\times \mathrm{Pr}\left( A\right)\to \mathrm{Pr}(A)$ of the unitary group on the set of projectors. So there is the natural action $U\left(\left(A\otimes \K \right) ^+ \right)\to H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)$. Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
 	\be\label{k_00_h_eqn}
 	\begin{split}
-		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right)/U\left(A^+ \right). 
+		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 	\end{split}
 	\ee 
-	!!!! Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
+	
+	Suppose that $A$ is a \textbf{stable} $C^*$-algebra. 
+ Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
 	$$
 	u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
 	$$
@@ -1205,7 +1265,7 @@ From  \eqref{stab_k1_eqn} it follows that
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
 	\end{split}
 	\ee
-	Let $u\in U\left(C\left(S^` \right)  \right)$ be such that  $K_1\left(C\left(S^` \right)  \right) = \Z\left[u\right]$.
+	Let $u\in U\left(C\left(S^1 \right)  \right)$ be such that  $K_1\left(C\left(S^1 \right)  \right) = \Z\left[u\right]$.
 	One has $\mathfrak{Gelfand}\left(C_0\left(\R \right)\otimes  A\right)^+\cong S^1`\times \mathfrak{Gelfand}\left(A \right)^+$. The natural projection  $S^1`\times \mathfrak{Gelfand}\left(A \right)^+\onto S^1$ and $u$ yield an unitary  $u_{\mathfrak{Gelfand}}\in U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \times S^1 \right)$ and an element 
 	$$
 \left[	u_{\mathfrak{Gelfand}}\right]\in H^0_c\left(S^1\times \mathfrak{Gelfand}\left(A \right)^+; \sU\left(1 \right)  \right) 
@@ -1255,13 +1315,16 @@ is a right ideal of the ring $H^0_c\left( \mathfrak{Gelfand}\left(A \right);\Z \
  \ee
 	
 	\begin{theorem}\label{k_h_thm}
-	If $A$ is a $C^*$-algebra then one has
+	If $A$ is an unital $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
-	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/I_A,\\
+	K_{0}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)/I_A.
+	\eea
+	where $I_A$ is two sided ideal with respect to given ny the Theorem \ref{cup_thm} cup product.
+If $A$ is any $C^*$-algebra then one has
+	\bea
 	\label{k_1_eqn}
 		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right). 
 	\eea
-	where $I_A$ is two sided ideal with respect to given ny the Theorem \ref{cup_thm} cup product.
 	\end{theorem}
 	\begin{proof}
 		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_0_iso_eqn} and \eqref{k_1_h_eqn}.
@@ -2702,7 +2765,7 @@ where $	 \widetilde A= \Z \rtimes A$ denotes the ring obtained from $A$ by adjoi
 
 A ring $A$ is said to satisfy {\it excision}  in algebraic $K$-theory if for every ring with unit $R$, which contains $A$ as a two-sided ideal, the canonical map $K_*\left( A\right) \to K_*\left(R, A\right)$ is an isomorphism.
 \end{empt}
-\subsection{Miscellany}
+
 %	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
 	% 2.3.13 THEOREM. T
 %	The module $M_R$ over an (unital) ring $R$ is finitely generated if and only if for every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
@@ -4023,9 +4086,9 @@ is closed and $I$ is connected, acyclic, and taut (since it is compact and
 relatively Hausdorff in $\Sigma \sX$), so the Vietoris mapping theorem  applies
 to show that 
 \be\label{red_c_eqn}
-\tilde H^k (\sX) \cong \tilde H^k\left( \Sigma\sX\right) \cong \tilde H^{k-1}(\sX)
+\tilde H^k (\R\times \sX)\cong \tilde H^k (S\sX) \cong \tilde H^k\left( \Sigma\sX\right) \cong \tilde H^{k-1}(\sX)
 \ee
- for all $k$. %Note that this doesnot hold in this generality for singular theory where one must assume thespace to be "well pointed," that is, that the base point is nondegenerate.
+ for all $k> 0$. %Note that this doesnot hold in this generality for singular theory where one must assume thespace to be "well pointed," that is, that the base point is nondegenerate.
 \end{example}
 
 \section{$C^*$-algebras}
