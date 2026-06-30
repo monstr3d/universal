@@ -1156,35 +1156,64 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	
 	
 	\begin{definition}\label{elementary_defn}
-		If $A$ is a  $C^*$-algebra then a given by \eqref{inf_m_eqn} element $a\in 	 \mathbb{M}_n\left(A^+ \right)$ is  $j,k$-\textit{elementary} if 
+		If $A$ is an unital  $C^*$-algebra then a given by \eqref{inf_m_eqn} element $a\in 	 \mathbb{M}_n\left(A \right)$ is  $j,k$-\textit{elementary} if 
 		\be\label{elementary_eqn}
 		a_{p,q} = \begin{cases}
 			1_A & p = j \quad q = k \\
-			0 & \text{otherwise}
+			0 & \text{otherwise}.
 		\end{cases}
 		\ee
-	\end{definition}
-	\begin{lemma}
-		If $A$ is an unital $C^*$ algebra then for any $n \in \N$ there is the following homeomorphisms
-		\be\label{gn_eqn}
-		\begin{split}
-			\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \cong \coprod_{j-1}^n \mathfrak{Gelfand}\left(A \right)_j,\\
-			\mathfrak{Gelfand}\left(A \right)_j\cong \mathfrak{Gelfand}\left(A \right)\quad j=1,..., n.
-		\end{split}
+		The  $j,k$-{elementary} element is denoted by
+				\be\label{elementary_jk_eqn}
+\mathfrak{e}^{j,k}_A\in \mathbb{M}_n\left(A^+ \right)
 		\ee
+		
+	\end{definition}
+	\begin{empt}
+	If $A$ is an unital $C^*$ algebra then the diagonal map 
+		\be\label{diag_A}
+	\begin{split}
+	d_A : A \hookto \mathbb{M}_n\left(A \right) \cong \K\left(A^n \right) ,\\
+	a \mapsto 		\begin{pmatrix}
+		a& \ldots & 0  \\
+		\vdots& \ddots & \vdots\\
+		0& \ldots &a \\
+	\end{pmatrix}
+	\end{split}
+	\ee
+	is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn}). From the Theorem \ref{good_thm} it follows that there is a surjective continuous map 
+		\be\label{ge_fc_eqn}
+	\begin{split}
+		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \onto \mathfrak{Gelfand}\left(A \right)
+	\end{split}
+	\ee
+	of compact Hausdorff spaces, which yields the natural injective $*$-homomorphism
+	\be\label{fin_g_eqn}
+\begin{split}
+	C\left( \mathfrak{Gelfand}\left(A \right)\right)  \hookto C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right).
+\end{split}
+\ee
+	
+	
+	\end{empt}
+	\begin{lemma}
+If we consider the equation \eqref{fin_g_eqn} then $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}\left(A \right)\right)$-module
 	\end{lemma}
 	\begin{proof}
-		Any closed left ideal $L\subset \mathbb{M}_n\left(A \right)$ can be uniquely defined by left $\mathbb{M}_n\left(A \right)$-submodule $P \subset A^n$ given by
-		\bean
-		\begin{split}
-			P \bydef LA^n \subset A^n = \bigoplus_{j=1}^n A_j
+		If $S_n$ is a group of transpositions of $n$ then there is the natural action $S_n \times \mathbb{M}_n\left(A \right)\to \mathbb{M}_n\left(A \right)$ which  transposes rows and columns of matrix. This action yields the action $S_n \times  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$. From 
+		\be\label{finU_g_eqn}
+	\begin{split}
+	\mathbb{M}_n\left(A \right)^{S_n}\bydef \left\{\left.\tilde a \in \mathbb{M}_n\left(A \right)\right| \forall s \in S_n \quad s \tilde a =  \tilde a \right\}= d_A\left(A \right) \cong A
 		\end{split}
-		\eean
-		where $A_j\cong A$ as left $A$-module for each $j \in \{1,...,n\}$,
-		If $\left\{L_\la\right\}_{\la \in \La}$ is an ultrafilter then there is the unique $j \in \{1,...,n\}$ such that there is $\la_0 \in \La$ such that $L_\la \subset A_j$ for every $\la \ge \la_0$. If $x \in \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is given by the ultrafilter  $\left\{L_\la\right\}$ then $x \in \mathfrak{Gelfand}\left(A \right)_j$.
-	\end{proof}
-	From 
-	If $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
+	\ee
+it turns out that 	$\mathfrak{Gelfand}\left(A \right) \cong 	 \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) /S_n$. Since for any nontrivial $s \in S_n$ one has
+$$
+s \left(\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A\right) \cap \mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A = \{0\}
+$$
+one can deduce then the action $S_n \times  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is properly disconnected. If follows that the map \eqref{ge_fc_eqn} is a finite-fold covering, and $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}\left(A \right)\right)$-module.
+\end{proof}
+If  
+ $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
 	\be\label{matrppbu_eqn}
 	\begin{split}
 		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
@@ -1193,9 +1222,10 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	(cf. notation \ref{topology_eqn}). Taking into account equations \eqref{gn_eqn} \eqref{matrppbu_eqn} one has a direct sum 
 	\bean
 	\begin{split}
-	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus  C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)= C\left(\mathfrak{Gelfand}\left(A \right) \right)^n,  
+	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus  C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)= \\=	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\right),  
 	\end{split}
 	\eean
+	Both $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)$ and $C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)$ are left $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-modules.
 	i.e. 	$C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\right) $ is a finitely generated $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-module. In result one has the following Theorem 
 	\begin{theorem}\label{k_0_alg_top_thm}
 	If $A$ is an unital $C^*$-algebra then one has.
