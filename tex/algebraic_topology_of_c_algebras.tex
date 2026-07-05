@@ -761,81 +761,6 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 	$$
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$.
 \end{definition}
-\begin{lemma}\label{gelfand_compact_lem}
-		If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is compact.
-	\end{lemma}
-	\begin{proof}
-	If $\mathfrak{Gelfand}\left(A \right)$ is not compact then there is an infinite set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\mathfrak{Gelfand}\left(A \right)$ such that
-	\begin{itemize}
-		\item 
-		\bean
-	\bigcup_{\a \in \mathscr A}\sU_\a = \mathfrak{Gelfand}\left(A \right)
-		\eean
-		\item
-		\bean
-\forall \mathscr A_0 \subset \mathscr A \quad \mathscr A_0\quad \text{ is finite}\quad \Rightarrow \quad \bigcup_{\a \in \mathscr A_0}\sU_\a\subsetneqq \mathfrak{Gelfand}\left(A \right)
-\eean
-	\end{itemize}
-	Without loss of generality we suppose that for every $\a \in \mathscr A$ there is a closed left ideal $L\a \subset A$ with $\sU_\a = \mathfrak{Gelfand}\left(A \right)_{L\a}$ (cf. equation \eqref{topology_eqn}), If  $\left\{L_\la\right\}_{\la\in\La}$ is the family of all finite sums of $L\a$, i.e.
-	\bean
-	\forall \la \in \La\quad  L_\la = \sum_{j = 1}^m L_j, \quad L_1, ..., L_m \in \left\{L_\a\right\}_{\a \in \mathscr A}
-	\eean 
-	then $\left\{L_\la\right\}$ is a net. If $L$ is the $C^*$-norm closure of the union
-	\bean
-\bigcup_{\la \in \La} L_\la
-\eean 
-then one has
-\bean
-	\bigcup_{\a \in \mathscr A}\sU_\a  \subset \mathfrak{Gelfand}\left(A \right)_L \quad \Rightarrow \quad  \mathfrak{Gelfand}\left(A \right)_L =  \mathfrak{Gelfand}\left(A \right).
-\eean 
-It turns out that $1_A \in L$, so there is the $C^*$-norm limit
-\bean
-1_A =\lim_{\la \in \La} a_\la, \quad a_\la \in L_\la.
-\eean 
-On the other hand the above limit is impossible since one has
-\bean
-\forall a_\la \in L_\la \quad \left\|a_\la - 1_A \right\|\ge 1. 
-\eean 
-This contradiction proves this lemma.
-	
-	\end{proof}
-		\begin{empt}
-			Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
-			\begin{itemize}
-		\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
-				\item $\mathfrak{Gelfand}\left(A \right)_{L_\la}$ yields an open neighborhood of $\xi$
-			\end{itemize}
-			where the notation \eqref{topology_eqn} is used. We define $\ker F$ as the $C^*$-norm closure of the union 
-				\be\label{aun_eqn} 
-		\begin{split}
-			\bigcup_{\substack{\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F\\\la \in \La_\xi}}~~  L_\la
-			\end{split}
-		\ee
-			For each subset $I$ of $A$ define a set 
-		\be\label{hull_g_eqn}
-		\mathrm{hull}\left( I\right)\bydef \bigcap_{I \subset L}\mathfrak{Gelfand}\left(A \right)_L
-		\ee 
-		where $L$ is a closed ideal and $\mathfrak{Gelfand}\left(A \right)_L$ is given by \eqref{topology_eqn}.		
-		\end{empt}
-		\begin{remark}
-		The equations \eqref{aun_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones,
-		\end{remark}
-\begin{empt}
-If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ is the closed left ideal. If $L \subset A$ is a closed left ideal then one has
-			\be
-\begin{split}
-L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad \xi \in \mathfrak{Gelfand}\left(A \right)_L,
-\end{split}
-\ee
-or
-			\be
-\begin{split}
-	L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}\left(A \right)
-\end{split}
-\ee
-and from 
-
-\end{empt}		
 \begin{empt}
 Let $L_1, L_2 \in A$ be two closed left ideals of $C^*$-algebra $A$ such that $L_1 \cap L^*_2 \neq \{0\}$. If $a\in L_1 \cap L^*_2 \setminus \{0\}$ then $a^*\in L_2 \cap L^*_1 \setminus \{0\}$. One has $aa^* > 0$ and $aa^*=\left( aa^*\right)^*\in L_2\cap L^*_1$
 		\be\label{aa_eqn} 
@@ -855,45 +780,6 @@ From the equations \eqref{aa_eqn} it turns out that
 \ee
 
 \end{empt}
-\begin{lemma}\label{one_point_lem}
-		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
-		\be 
-		\begin{split}
-		\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)^+
-		\end{split}
-		\ee
-		where $\mathfrak{Gelfand}\left(A \right)^+\cong  \mathfrak{Gelfand}\left(A \right)\cup \{+\}$ is a one-point compactification of $\mathfrak{Gelfand}\left(A \right)$.
-\end{lemma}
-
-\begin{proof}
-Let  $\left\{L_\la\right\}_{\la\in \La}$ be  the  set of  all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A $. If $L_1, L_2\in \left\{L_\la\right\}$ then there are $a_1 , a_2 \in A$  such that 
-\bean
-1_{A^+}+ a_1 \in L_1,\\
-1_{A^+}+ a_2 \in L_2
-\eean
-One has
-		\be
-\begin{split}
-\left( 1_{A^+} + a_1\right) \left(1_{A^+} + a_2 \right)^* = 1_{A^+} + a_1 + a_2 + a_1a^*_2 \in L_1\cap L^*_2 
-\end{split}
-\ee
-Otherwise $\left( 1 + a_1\right) \left(1 + a_2 \right)^*\neq 0$ since  $a_1 + a_2 + a_1a^*_2\in A$ and $1_{A^+} \notin A$. From \eqref{intersec_eqn} it follows that $L_1 \cap L_2 \neq \{0\}$, i.e. $\left\{L_\la\right\}_{\la\in \La}$ is a filter. If $L\notin \left\{L_\la\right\}$ is a closed left ideal such that 
-	\bean
-	L \subsetneqq A,\\
-	\eean  
-	then
-		\bean 
-\begin{split}
-L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}\quad \Rightarrow \quad L' \in \left\{L_\la\right\},\\
-L \cap L' = \{0\}.
-\end{split}
-\eean
-The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
-	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
-\end{proof}
-\begin{remark}\label{loc_compact_rem}
-	From the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem} it follows that the  Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff !!!. The Gelfand  space $\mathfrak{Gelfand}\left(A \right)$ is compact if and only is the $C^*$-algebra $A$ is unital. 
-\end{remark}
 \begin{empt}\label{topology_base_herd_empt}
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any filter $\xi$ we use a following notation
 	\be\label{hered_ideal_eqn}
@@ -907,7 +793,7 @@ The above equation means that the filter $\left\{L_\la\right\}$ could not be ext
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact (cf. Definition \ref{top_locally_compact_defn}), Hausdorff !!! space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
+	If $\sX$ is a locally compact (cf. Definition \ref{top_locally_compact_defn}), Hausdorff  space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
 \end{lemma}
 \begin{proof}
 	
@@ -940,67 +826,52 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	is an ultrafilter on the compact set $\supp a$.
 	From the Proposition \ref{top_ultra_prop} !!!!  PROP !!! it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
 \end{proof}
-	\subsection{The bicommutant and the  map onto the spectrum}
-\paragraph{}
-For any element $\xi\in \mathfrak{Gelfand}\left(A \right)$ any $L\in \Xi$ yields an open neighborhood $\mathfrak{Gelfand}\left(A \right)_L$ of $\xi$. The closed left ideal  
-\be
-L^\perp\bydef \left\{ a \in A \left| \forall a' \in L \quad a^*a' = 0\right.\right\}
-\ee
-corresponds  to the open set $\mathfrak{Gelfand}\left(A \right) \setminus \overline{\mathfrak{Gelfand}\left(A \right)_L}$ where $\overline{\mathfrak{Gelfand}\left(A \right)_L}$ is the closure of ${\mathfrak{Gelfand}\left(A \right)_L}$. From 
-\be
-\bigcap_{L \in \xi }  \overline{\mathfrak{Gelfand}\left(A \right)_L} = \{\xi\}.
-\ee
-it follows that the $C^*$-norm closure  of the union \eqref{uni_eqn}
-\be\label{uni_eqn}
-\bigcup_{L \in \xi } L^\perp
-\ee
-is the maximal left ideal $\xi^\perp \subset A$ which corresponds to the set $\mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}$. 
 
-\begin{definition}\label{bicommutant_defn}
-Under the above hypothesis the natural bijective  map 
-\be\label{bicommutant_eqn}
-\begin{split}
-(\cdot)^\perp:	\mathfrak{Gelfand}\left(A \right)\cong \mathfrak{LeftMax}\left(A \right),\\
-\xi \mapsto \xi^\perp
-\end{split}
-\ee
-from the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ onto the set $\mathfrak{LeftMax}\left(A \right)$ of maximal left ideals is the {\it bicommutant map}.
-The final topology on $\mathfrak{LeftMax}\left(A \right)$ with respect to the map $\left( \cdot\right)^\perp$ (cf. Definition \ref{top_final_defn}) is the {\it natural topology of} $\mathfrak{LeftMax}\left(A \right)$.
-\end{definition}
+	\subsection{Hausdorff quotient space}	
 
-\begin{remark}\label{bicommutant_rem}
-	From the construction \ref{topology_empt} it follows then 
-for any closed left ideal $L \in A$ the set
-\be\label{bicommutantl_eqn}
-\begin{split}
-\mathfrak{LeftMax}\left(A \right)_L \bydef \left\{\left.\xi^\perp \in \mathfrak{LeftMax}\left(A \right)\right| L \subset \xi^\perp \right\}\subset \mathfrak{LeftMax}\left(A \right)
-\end{split}
-\ee
-is open in $\mathfrak{LeftMax}\left(A \right)$. Moreover the set of given by \eqref{bicommutantl_eqn} sets is a subbasis (cf. Definition \ref{top_subbasis_defn}) of the natural topology of $\mathfrak{LeftMax}\left(A \right)$.
-\end{remark}
-\begin{definition}\label{belongs_defn}
-	Let $A$ be a $C^*$ -algebra and let $\hat A$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}). An element $\xi^\perp \in \mathfrak{LeftMax}\left(A \right)$  \textit{belongs to} $x \in \hat A$ if one has
-	\be\label{belongs_eqn}
-	\xi^\perp \subset \ker \rep_x
-	\ee
-	where $\rep_x : A \to B\left(\H_x \right)$ is an irreducible representation (cf. Definition  \ref{irred_defn}). 
-\end{definition}
-\begin{defn}\label{gelfand_spectal_map_defn}
-	Under the hypothesis of the Definition \ref{belongs_defn}  if $x', x'' \in \hat A$ with $x' \neq x''$ then 
-	and $\xi\in \mathfrak{Gelfand}\left(A \right)$ belongs to both $x'$, and $x''$ then the generated by the set $\left\{ L \cap \ker_{x'}\right\}$ filter exceeds $\xi$. It is impossible since $\xi$ is an ultrafilter. Moreover
-	\be\label{not_bel}
-	\begin{split}
-		\forall x \in \hat A \quad \xi \text{ does not belong to } x \quad \Rightarrow \quad \exists L  \in \xi \quad \rep_x\left( L\right) = \{0\}.
-	\end{split}
-	\ee
+\begin{definition}\label{hausdorff_defn}
+	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
 	
-	So from (c) of the Theorem \ref{top_continuous_thm} one has the natural continuous surjective \textit{Gelfand spectral map}:
-	\be\label{to_spec_eqn} 
-	\begin{split}
-		\mathfrak{Gelfand}\left(A \right)\cong \mathfrak{LeftMax}\left(A \right) \xrightarrow{\hat \phi} \hat A
-	\end{split}
+	\begin{itemize}
+		\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact (cf. Definition \ref{top_locally_compact_defn}) space $\sY$, 
+		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
+		
+		\bean
+		\begin{tikzcd}
+			&\sX \arrow[ld] \arrow[rd] & \\
+			\sY' \arrow[rr]	&& \sY''
+		\end{tikzcd}
+		\eean
+		is commutative.
+	\end{itemize}
+	
+\end{definition}
+
+\begin{lemma}
+	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
+\end{lemma}
+\begin{proof}
+	Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
+	$$
+	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
+	$$
+	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
+	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
+	
+\end{proof}
+\begin{definition}\label{blowing_uni_h_defn}
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
+\end{definition}
+\begin{definition}\label{hausdorff_funct_defn}
+	The map $\sX \mapsto \mathfrak{Hausdorff}\left(\sX \right)$ yields the {\it Hausdorff functor}
+	\be\label{hausdorff_funct_eqn}
+	\mathfrak{Top} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}
 	\ee
-\end{defn}
+\end{definition}
+from the category $\mathfrak{Top}$ of topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps.
+\begin{definition}
+If $A$ is a $C^*$-algebra then the universal Hausdorff quotient space of the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ denoted by  $\mathfrak{Gelfand}_r\left(A \right)$ is {\it the reduced Gelfand space of} $A$.
+\end{definition}
 \subsection{Good $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
 If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
@@ -1072,12 +943,13 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\end{proof}
 	
 	\begin{definition}\label{gelfand_functor_defn}
-		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functor} 
-		\be\label{gelfand_functor_eqn}
-		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Hausdorff}
-		\ee
-		Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the category  $\mathfrak{Hausdorff}$ of locally compact Hausdorff topological spaces and continuous maps.  
-		Any functor  $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
+		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors} from 
+		\bea\label{gelfand_functor_eqn}
+		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Top},\\\label{gelfand_h_functor_eqn}
+			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Hausdorff}~\circ~\mathfrak{Gelfand}}\mathfrak{Hausdorff}
+		\eea
+	the Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the categories   $\mathfrak{Top}$ (resp. $\mathfrak{Hausdorff}$ of topological (resp. Hausdorff locally compact) spaces and continuous maps.  
+		Any functor  $\mathfrak{Top}\to \mathscr C$ and/or $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 	\end{definition}
 	\begin{lemma}\label{suspension_lem}
@@ -1123,13 +995,13 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		is a closed left ideal of $ C_0\left(\sX,A \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there are $y', y'' \in \mathfrak{Gelfand}\left(C_0\left(\sX,A \right)  \right)$ such that $y'\neq y''$ and corresponding to $y'$ and $y''$ ultrafilters  $\left\{L'_\la\right\}$ and $\left\{L''_\la\right\}$ exceed $\left\{L_\la\right\}$. There is $\la_0\in \La$ such that
 		\be\label{intsec_eqn}
 		\begin{split}
-			\forall \la \in \La \quad \la \ge \la_0 \quad L'_\la \cap L''_\la = \{0\}\quad \Rightarrow\\\Rightarrow \quad \left(  L'_\la\cap \widetilde L^\R_\la \cap \widetilde L^A_\la \right) \bigcap \left( L''_\la\cap \widetilde L^\R_\la \cap \widetilde L^A_\la\right)  = \{0\}
+			\forall \la \in \La \quad \la \ge \la_0 \quad L'_\la \cap L''_\la = \{0\}\quad \Rightarrow\\\Rightarrow \quad \left(  L'_\la\cap \widetilde L^\sX_\la \cap \widetilde L^A_\la \right) \bigcap \left( L''_\la\cap \widetilde L^\sX_\la \cap \widetilde L^A_\la\right)  = \{0\}
 		\end{split}
 		\ee
 		If $ \left( L'_\la\cap \widetilde L^A_\la\right)
 		\bigcap  \left( L''_\la\cap \widetilde L^A_\la\right)  = \{0\}$ for any $\la \ge \la_0$ then $\varphi_A(y')\neq  \varphi_A(y'')$ but it is impossible since $\varphi_A(y')= x$ and $\varphi_A(y'')=x$. Now the condition \eqref{intsec_eqn} holds if 
 		$ \left( L'_\la\cap \widetilde L^\sX_\la\right)
-		\bigcap  \left( L''_\la\cap \widetilde L^\sX_\la\right)  = \{0\}$ for any $\la \ge \la_0$. Then one has $\varphi_\sX(y')\neq  \varphi_\sY(y'')$ but it is impossible since $\varphi_\R(y')= r$ and $\varphi_\E(y'')=r$. So the filter $\left\{L_\la\right\}$ is an ultrafilter which yields the unique $y \in  \mathfrak{Gelfand}\left(SA  \right)$. In result one has a  continuous map 
+		\bigcap  \left( L''_\la\cap \widetilde L^\sX_\la\right)  = \{0\}$ for any $\la \ge \la_0$. Then one has $\varphi_\sX(y')\neq  \varphi_\sY(y'')$ but it is impossible since $\varphi_\sX(y')= r$ and $\varphi_\E(y'')=r$. So the filter $\left\{L_\la\right\}$ is an ultrafilter which yields the unique $y \in  \mathfrak{Gelfand}\left(SA  \right)$. In result one has a  continuous map 
 		\bean
 		\begin{split}
 			\mathfrak{Gelfand}\left(A  \right)\times \sX\to 	\mathfrak{Gelfand}\left(C_0\left(\sX,A \right)\right) ,\\
@@ -1140,7 +1012,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		
 	\end{proof}
 	\begin{definition}\label{image_defn}
-		If  $f \in C_0\left( \mathfrak{Gelfand}\left(A \right) \right)$ an element $a \in M\left( A\right)$ is the \textit{image} of $f$ if for any $x \in  \mathfrak{Gelfand}\left(A \right)$ with $f\left(x \right)\neq 0$  and any $\eps > 0$ there is an ideal $L \subset A$ such that 
+		If  $f \in C_b\left( \mathfrak{Gelfand}\left(A \right) \right)$ an element $a \in K\left( A\right)$ is the \textit{image} of $f$ if for any $x \in  \mathfrak{Gelfand}\left(A \right)$ with $f\left(x \right)\neq 0$  and any $\eps > 0$ there is an ideal $L \subset A$ such that 
 		\begin{enumerate}
 			\item (a) $\quad x \in \mathfrak{Gelfand}\left(A \right)_L$ (cf. equation \eqref{topology_eqn}), i.e. $L$ represents a neighborhood of $x$.
 			\item(b) 	$\quad \forall b \in L \setminus \{0\}\quad   \left\| f\left( x\right) b - ab\right\| < \eps \left\| b\right\|$
@@ -1153,33 +1025,188 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\end{exercise}
 	\begin{lemma}\label{image_lem}
 		If $A$ is a $C^*$-algebra then 
-		any normal element $a$ (cf. Definition \ref{normal_defn}) in  $K\left(A \right) $ is the image (cf. Definition \ref{image_defn}) of an element $f \in C_c\left( \mathfrak{Gelfand}\left(A \right)\right)$
+		any normal element $a$ (cf. Definition \ref{normal_defn}) in  $K\left(A \right) $ is the image (cf. Definition \ref{image_defn}) of an element $f \in C_b\left( \mathfrak{Gelfand}\left(A \right)\right)$
 	\end{lemma}
 	\begin{proof}
-		Let  $a \in K\left(A \right) $ is a normal element (cf. Definition \ref{normal_defn}). If $C_0\left(\sX \right)\subset K\left(A \right) $ is the generated by $a$ commutative $C^*$-subalgebra then the Theorem \ref{good_thm} yields a continuous map $\phi: \mathfrak{Gelfand}\left(A  \right)\onto \sX$. If $\overline a\in C_0\left( \sX\right)$ corresponds to $a$ then $a$ is the image of $\overline a\circ \varphi$.  
+		Let  $a \in K\left(A \right) $ is a normal element (cf. Definition \ref{normal_defn}). If $C_0\left(\sX \right)\subset K\left(A \right) $ is the generated by $a$ commutative $C^*$-subalgebra then the Theorem \ref{good_thm} yields a continuous map $\phi: \mathfrak{Gelfand}\left(A  \right)\onto \sX$. If $f\in C_0\left( \sX\right)$ corresponds to $a$ then $a$ is the image of $f\circ \varphi$.  
 	\end{proof}
-\paragraph*{}
-	\begin{example}\label{nt_exm} {\it Gelfand space of noncommutative torus}.
-		From the Definition \ref{nt_defn} it follows that for any $j =1, ..., n$ there is an injective $*$ - homomorphism $\phi_j: C\left( U_j\right)  \hookto C\left(\T^n _{\theta}\right)$. Both $C^*$-algebras $C\left( U_j\right)$ and $C\left(\T^n _{\theta}\right)$ are unital so $\phi_j$ is good homomorphism (cf. Definition \ref{good_hom_defn}), so from the Theorem \ref{good_thm} there is a continuous map
-		$$
-		\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}\left(\phi_j \right)}\mathfrak{Gelfand}\left(C\left( U_j\right)  \right)
-		$$
-		From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
-		$$
-		\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
-		$$
-		From (ii) of the Theorem \ref{good_thm} it follows that the map $\varphi_j$ is surjective for any $j = 1,..,n$. We leave to the reader the proof of that the map $\varphi$ is surjective. Let $x = \left( x_1, ..., x_n \right) \in \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n$
-		and for any $x_j \in \{x_1,...,x_n\}$ we select a basis $\left\{\sU^k_{x_j}\right\}_{k\in \N}$ of connected open neighborhoods of $x_j$. Then the net of products $\mathfrak{U}_x \bydef \left\{\sU^k_x \bydef\sU^k_{x_1}\times ...\times \sU^k_{x_n}\right\}_{k\in N}$ is a basis of neighborhoods of $x$. The net $\mathfrak{U}_x$ is an ultrafilter of $\T^n$. There is a filter $\varphi^{-1} \left( \mathfrak{U}_x\right)  \bydef \left\{\varphi^{-1}\left( \sU^k_x \right) \right\}_{k\in N}$ on $\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)$ which yields a filter of closed left ideals $\left\{L_k\subset  C\left(\T^n _{\theta}\right) \right\}$. If $\left\{L_k \right\}$ is not an ultrafilter then there is a nontrivial  closed ideal $L \subset  C\left(\T^n _{\theta}\right)$ such that $L \subsetneqq L_k$. It is impossible since $\bigcap L_k = \{0\}$. So $\varphi^{-1} \left( \mathfrak{U}_x\right)$ is an ultrafilter which yields the unique point which is mapped onto $x$, i.e. the map $\varphi$ is surjective. In result there is the natural surjective  continuous map 
-		\be\label{nt_eqn}
-		\begin{split}
-			\varphi : \mathfrak{Gelfand}\left(C\left(\T^n _{\theta}\right) \right) \onto \T^n
-		\end{split}
-		\ee
-		
-	\end{example}
 	
-	\subsection{$K$-theory functor}
-	\subsubsection{$K$-theory and Gelfand space}
+
+\subsection{Gelfand spaces of unital $C^*$-algebras}
+\paragraph{}
+If $A$ is a unital $C^*$-algebra and $\mathfrak{Gelfand}_r\left(A \right)$ is the reduced Gelfand space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$ is unital.
+\begin{lemma}\label{gelfand_compact_lem}
+	If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is compact.
+\end{lemma}
+\begin{proof}
+	If $\mathfrak{Gelfand}\left(A \right)$ is not compact then there is an infinite set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\mathfrak{Gelfand}\left(A \right)$ such that
+	\begin{itemize}
+		\item 
+		\bean
+		\bigcup_{\a \in \mathscr A}\sU_\a = \mathfrak{Gelfand}\left(A \right)
+		\eean
+		\item
+		\bean
+		\forall \mathscr A_0 \subset \mathscr A \quad \mathscr A_0\quad \text{ is finite}\quad \Rightarrow \quad \bigcup_{\a \in \mathscr A_0}\sU_\a\subsetneqq \mathfrak{Gelfand}\left(A \right)
+		\eean
+	\end{itemize}
+	Without loss of generality we suppose that for every $\a \in \mathscr A$ there is a closed left ideal $L\a \subset A$ with $\sU_\a = \mathfrak{Gelfand}\left(A \right)_{L\a}$ (cf. equation \eqref{topology_eqn}), If  $\left\{L_\la\right\}_{\la\in\La}$ is the family of all finite sums of $L\a$, i.e.
+	\bean
+	\forall \la \in \La\quad  L_\la = \sum_{j = 1}^m L_j, \quad L_1, ..., L_m \in \left\{L_\a\right\}_{\a \in \mathscr A}
+	\eean 
+	then $\left\{L_\la\right\}$ is a net. If $L$ is the $C^*$-norm closure of the union
+	\bean
+	\bigcup_{\la \in \La} L_\la
+	\eean 
+	then one has
+	\bean
+	\bigcup_{\a \in \mathscr A}\sU_\a  \subset \mathfrak{Gelfand}\left(A \right)_L \quad \Rightarrow \quad  \mathfrak{Gelfand}\left(A \right)_L =  \mathfrak{Gelfand}\left(A \right).
+	\eean 
+	It turns out that $1_A \in L$, so there is the $C^*$-norm limit
+	\bean
+	1_A =\lim_{\la \in \La} a_\la, \quad a_\la \in L_\la.
+	\eean 
+	On the other hand the above limit is impossible since one has
+	\bean
+	\forall a_\la \in L_\la \quad \left\|a_\la - 1_A \right\|\ge 1. 
+	\eean 
+	This contradiction proves this lemma.
+	
+\end{proof}
+\begin{empt}
+	Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
+	\begin{itemize}
+		\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
+		\item $\mathfrak{Gelfand}\left(A \right)_{L_\la}$ yields an open neighborhood of $\xi$
+	\end{itemize}
+	where the notation \eqref{topology_eqn} is used. We define $\ker F$ as the $C^*$-norm closure of the union 
+	\be\label{aun_eqn} 
+	\begin{split}
+		\bigcup_{\substack{\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F\\\la \in \La_\xi}}~~  L_\la
+	\end{split}
+	\ee
+	For each subset $I$ of $A$ define a set
+	\be\label{hull_g_eqn}
+	\mathrm{hull}\left( I\right)\bydef \bigcap_{I \subset L}\mathfrak{Gelfand}\left(A \right)_L
+	\ee 
+	where $L$ is a closed ideal and $\mathfrak{Gelfand}\left(A \right)_L$ is given by \eqref{topology_eqn}.		
+\end{empt}
+\begin{remark}
+	The equations \eqref{aun_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones.
+\end{remark}
+\begin{empt} Let $A$ be an unital $C^*$-algebra.
+	If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ is the closed left ideal such that
+	\be 
+	\mathrm{hull}\left( \ker \xi\right) = \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}.
+	\ee
+	If $L \subset A$ is a closed left ideal then one has
+	\be
+	\begin{split}
+		L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad \xi \in \mathfrak{Gelfand}\left(A \right)_L,
+	\end{split}
+	\ee
+	or
+	\be\label{max_y_eqn}
+	\begin{split}
+		L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}\left(A \right)\quad \Rightarrow \quad \ker \{\xi\} \cup L = A.
+	\end{split}
+	\ee
+	From \eqref{max_y_eqn} it turns out that $\ker{\xi}$ is the maximal proper ideal. 
+\end{empt}
+\begin{theorem}\label{gelfand_max_thm}
+For any unital $C^*$-algebra there is the natural bijective map
+	\be
+\begin{split}
+\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\cong \mathfrak{LeftMax}\left(A \right),\\
+\xi \mapsto \ker\{\xi\}
+\end{split}
+\ee
+from the Gelfand space to the set of maximal proper left ideals.
+For any closed ideal $L \subset A$ an open set $\mathfrak{Gelfand}\left(A \right)_L \subset \mathfrak{Gelfand}\left(A \right)$ (cf. equation \eqref{topology_eqn}) corresponds to the set
+	\be\label{gelfand_max_eqn}
+\begin{split}
+\mathrm{hull}\left(L \right) = \left\{t \in \mathfrak{LeftMax}\left(A \right) | L \subset t\right\}\subset  \mathfrak{LeftMax}\left(A \right)
+\end{split}
+\ee
+\end{theorem}	
+\begin{proof}
+!!!!
+\end{proof}	
+\begin{remark}
+The equation \eqref{gelfand_max_eqn} is an analog of the Jacobson topology on the prime spectrum (cf. \eqref{hull_eqn}), i.e. the map $\mathfrak{Max}_A$ can be regarded as a homeomorphism.
+\end{remark}
+\begin{empt}
+If $A$ is unital $C^*$-algebra and a left ideal $L$ contains an invertible element then $L = A$. So for any $t \in \mathfrak{LeftMax}\left(A \right)$ does not contain invertible element. So the generated by $t$ two sided ideal $\mathfrak{Ideal}\left( t\right)$ does not contain  an invertible element, so the ideal $\mathfrak{Ideal}\left( t\right)$ is proper. If $a \notin \mathfrak{Ideal}\left( t\right)$ then $a \notin t$. But $Aa = t = A$ since the ideal $t$ is maximal. So  $Aa = \mathfrak{Ideal}\left( t\right) = A$, i.e. the ideal is maximal.
+\end{empt}
+\begin{lemma}\label{gelfand_sp_thm}
+If $A$ is an unital $C^*$-algebra then there is the natural surjective continuous maps
+	\be\label{gelfand_sp_eqn}
+\begin{split}
+\mathfrak{LeftMax}\left(A \right)\onto \hat A,\\
+\mathfrak{LeftMax}\left(A \right)\onto \check A
+\end{split}
+\ee
+from the space of maximal left ideals onto the prime spectrum.
+\end{lemma}
+\begin{proposition}\label{hered_spectrum_prop!!!}\cite{pedersen:ca_aut}!!!
+	If $B$ is a hereditary $C^*$-subalgebra of $A$ then the map $t \mapsto t\cap B$ is a homeomorphism between $\check A\setminus \mathrm{hull}\left( B\right)$ and $\check B$, where 
+	$$
+	\mathrm{hull}\left( B\right) = \left\{\left. x \in \hat A~\right|~ \rep_x\left(B \right)= \{0\} \right\} .
+	$$ 
+	Moreover  we have a commutative diagram:
+	\\
+	\begin{tikzcd}
+		\hat A \setminus \mathrm{hull}\left(B \right)\arrow[d]\arrow[r, "\approx"] & \hat B\arrow[d]\\
+		\check A \setminus \mathrm{hull}\left(B \right)\arrow[r, "\approx"] & \check B
+	\end{tikzcd}
+	\\ 	
+\end{proposition}
+
+
+\begin{proof}
+If $t \in \mathfrak{LeftMax}\left(A \right)$ then $t\cap t^*$ is the maximal hereditary $C^*$-algebra (cf. \ref{hered_ideal_lem}), From \ref{hered_spectrum_prop}
+\end{proof}
+\begin{lemma}\label{one_point_lem}
+	If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
+	\be 
+	\begin{split}
+		\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup\{+\}
+	\end{split}
+	\ee
+	where $\{+\}$ is the singleton.
+\end{lemma}
+\begin{proof}
+According to the Definition \ref{jackobseon_defn}!!!
+\end{proof}
+\begin{proof}
+	Let  $\left\{L_\la\right\}_{\la\in \La}$ be  the  set of  all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A $. If $L_1, L_2\in \left\{L_\la\right\}$ then there are $a_1 , a_2 \in A$  such that 
+	\bean
+	1_{A^+}+ a_1 \in L_1,\\
+	1_{A^+}+ a_2 \in L_2
+	\eean
+	One has
+	\be
+	\begin{split}
+		\left( 1_{A^+} + a_1\right) \left(1_{A^+} + a_2 \right)^* = 1_{A^+} + a_1 + a_2 + a_1a^*_2 \in L_1\cap L^*_2 
+	\end{split}
+	\ee
+	Otherwise $\left( 1 + a_1\right) \left(1 + a_2 \right)^*\neq 0$ since  $a_1 + a_2 + a_1a^*_2\in A$ and $1_{A^+} \notin A$. From \eqref{intersec_eqn} it follows that $L_1 \cap L_2 \neq \{0\}$, i.e. $\left\{L_\la\right\}_{\la\in \La}$ is a filter. If $L\notin \left\{L_\la\right\}$ is a closed left ideal such that 
+	\bean
+	L \subsetneqq A,\\
+	\eean  
+	then
+	\bean 
+	\begin{split}
+		L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}\quad \Rightarrow \quad L' \in \left\{L_\la\right\},\\
+		L \cap L' = \{0\}.
+	\end{split}
+	\eean
+	The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
+	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
+\end{proof}
+
+	\section{Gelfand space and $K$-theory}
+	\subsection{Basic constructions}
 	\paragraph{}
 	Any element of $A\otimes \K$ corresponds to a matrix
 	\be\label{inf_m_eqn}
@@ -1291,7 +1318,7 @@ If
 \begin{remark}
 The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic classes, multiplicative structures and Adams operations.
 \end{remark}
-	\subsubsection{Sheaf-theoretic interpretation of $K$-theory}
+	\subsection{Sheaf-theoretic interpretation of $K$-theory}
 	\paragraph{} Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology.	
 	Suppose that $A$ is an unital
 	$C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A\otimes \K \cong \mathbb{M}_n\left( A\otimes \K\right)$ which yields a homeomorphism $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $C_0\left(\mathfrak{Gelfand}\left(A \right) \right)$ and vice versa.
@@ -1417,7 +1444,7 @@ K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}
 \ee
 for each $r \ge 0$.
 	\end{rem}
-\subsubsection{Multiplicative structures}
+\subsection{Multiplicative structures}
 \paragraph{} The Appendix \ref{mult_k_sec} describes the cup  product on the topological $K$-theory given by 
 \be\label{k_top_p_eqn}
 \begin{split}
@@ -1500,13 +1527,13 @@ For any $C^*$-algebra $A$ the equation \eqref{smile_d_eqn} yields a multiplicati
 
 
 \begin{lemma}
-If $\sX$ is compact Hausdorff !!! space and $A \bydef C\left(\sX \right)$  is a compact space then the given by the Theorem \ref{cup_prod_thm} cup product coincides with given by the Appendix \ref{mult_k_sec} one.
+If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a compact space then the given by the Theorem \ref{cup_prod_thm} cup product coincides with given by the Appendix \ref{mult_k_sec} one.
 \end{lemma}
 \begin{proof}
 	!!!!
 \end{proof}
-\subsection{Hausdorff !!! blowing-up}
-\subsubsection{Basic construction}	
+\section{Hausdorff  blowing-up}
+\subsection{Basic construction}	
 \begin{definition}\label{blowing_defn}
 	If $A$ is a $C^*$-algebra then an inclusion $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \textit{Hausdorff !!! blowing-up} of $A$ if  both sets
 	\be\label{blowing_eqn}
@@ -1806,7 +1833,7 @@ The Lemma means that the $*$-homomorphism  $C_0\left( \sX\right)\hookto M\left( 
 	\end{itemize}
 \end{remark}
 
-\subsubsection{Connes quantization}\label{connes_q_sec}
+\subsection{Connes quantization}\label{connes_q_sec}
 
 \paragraph*{}	
 In general the quantization yields a passage from the classical physics to the quantum one. In particular there is a quantization which yields an the transformation from commutative $C^*$-algebra $B$ to noncommutative one. In particular a commutative  $C^*$-algebra $B$ with the product $\times$ is a depending on real parameter $\hslash$  limit of continuous fields  of noncommutative $C^*$-algebras $\overline B_\hslash$ with product $\times_\hslash$ such that
@@ -1849,10 +1876,30 @@ Sometimes this duality comes from the given by Alain Connes  algebraic counterpa
 \end{remark}
 
 
-\section{Applications}
-\subsection{Gelfand space of the noncommutative torus}
+
+\section{Gelfand space of the noncommutative torus}
+\paragraph*{}
+\begin{example}\label{nt_exm} {\it Gelfand space of noncommutative torus}.
+	From the Definition \ref{nt_defn} it follows that for any $j =1, ..., n$ there is an injective $*$ - homomorphism $\phi_j: C\left( U_j\right)  \hookto C\left(\T^n _{\theta}\right)$. Both $C^*$-algebras $C\left( U_j\right)$ and $C\left(\T^n _{\theta}\right)$ are unital so $\phi_j$ is good homomorphism (cf. Definition \ref{good_hom_defn}), so from the Theorem \ref{good_thm} there is a continuous map
+	$$
+	\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}\left(\phi_j \right)}\mathfrak{Gelfand}\left(C\left( U_j\right)  \right)
+	$$
+	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
+	$$
+	\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
+	$$
+	From (ii) of the Theorem \ref{good_thm} it follows that the map $\varphi_j$ is surjective for any $j = 1,..,n$. We leave to the reader the proof of that the map $\varphi$ is surjective. Let $x = \left( x_1, ..., x_n \right) \in \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n$
+	and for any $x_j \in \{x_1,...,x_n\}$ we select a basis $\left\{\sU^k_{x_j}\right\}_{k\in \N}$ of connected open neighborhoods of $x_j$. Then the net of products $\mathfrak{U}_x \bydef \left\{\sU^k_x \bydef\sU^k_{x_1}\times ...\times \sU^k_{x_n}\right\}_{k\in N}$ is a basis of neighborhoods of $x$. The net $\mathfrak{U}_x$ is an ultrafilter of $\T^n$. There is a filter $\varphi^{-1} \left( \mathfrak{U}_x\right)  \bydef \left\{\varphi^{-1}\left( \sU^k_x \right) \right\}_{k\in N}$ on $\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)$ which yields a filter of closed left ideals $\left\{L_k\subset  C\left(\T^n _{\theta}\right) \right\}$. If $\left\{L_k \right\}$ is not an ultrafilter then there is a nontrivial  closed ideal $L \subset  C\left(\T^n _{\theta}\right)$ such that $L \subsetneqq L_k$. It is impossible since $\bigcap L_k = \{0\}$. So $\varphi^{-1} \left( \mathfrak{U}_x\right)$ is an ultrafilter which yields the unique point which is mapped onto $x$, i.e. the map $\varphi$ is surjective. In result there is the natural surjective  continuous map 
+	\be\label{nt_eqn}
+	\begin{split}
+		\varphi : \mathfrak{Gelfand}\left(C\left(\T^n _{\theta}\right) \right) \onto \T^n
+	\end{split}
+	\ee
+	
+\end{example}
+
 	\paragraph{} Here we find a bijective continuous map from the Gelfand space of noncommutative torus $C\left(\T^n _{\theta}\right)$ (cf. Definition \ref{nt_defn}) to the commutative torus $\T^n$.
-\subsection{Examples of classical and quantum projective modules}
+\section{Examples of classical and quantum projective modules}
 \paragraph{Hausdorff !!! spectrum.}
 If $A$ is a homogeneous of order $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) then $A$ corresponds to a fibre bundle and any fiber  is $n^2$-dimensional $\C$-space $\mathbb{M}_n\left( 
 \C\right)$. The spectrum of $\sX$ is Hausdorff !!! and locally compact. If the space $\sX$ is  compact then both $C\left( \sX\right)$ and $A$ are unital. From the Theorem \ref{serre_swan_thm} it follows that $A$ is a finitely generated projective $C\left( \sX\right)$-module. From this fact one can deduce that any finitely generated projective $A$-module $P$ is a finitely generated projective $C\left( \sX\right) $-module, i.e. $P$ is classical (cf. Definition \ref{classic_quant_defn}).
@@ -4248,7 +4295,7 @@ only if $u$ commutes with $E(S)$ for all Borel sets $S$ of $\Om$.
 The class $\left\{\mathrm{hull}\left( I\right)| I \subset A\right\}$ form the closed sets for a topology on $\check A$ There is a bijective, order preserving isomorphism between the open sets in 
 this topology and the closed ideals in $A$. 
 \end{theorem}
-\begin{definition}
+\begin{definition}\label{jackobseon_defn}
 %4.1.4. 
 The topology on $A$ defined in \ref{jack_empt} is called the {\it Jacobson topology}. Note that a point $t \in \check A$ is closed if and only if t is a maximal ideal. % We can therefore not in general expect A to be a Ti -space. It is, however, always a T0-space. For if t1^t2 then either t1${t2}~ ox t2i{t1}~. 
 
