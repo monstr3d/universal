@@ -867,11 +867,20 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	\be\label{hausdorff_funct_eqn}
 	\mathfrak{Top} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}
 	\ee
+from the category $\mathfrak{Top}$ of topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
 \end{definition}
-from the category $\mathfrak{Top}$ of topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps.
-\begin{definition}
-If $A$ is a $C^*$-algebra then the universal Hausdorff quotient space of the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ denoted by  $\mathfrak{Gelfand}_r\left(A \right)$ is {\it the reduced Gelfand space of} $A$.
+\begin{remark}\label{hausdorff_sim_rem}
+One has an alternative construction of the the space $\mathfrak{Hausdorff}\left(\sX \right)$. We define the minimal  equivalence relation $\sim_{\mathfrak{Hausdorff}}$ on $\sX$ such  that for all $x', x''\in \sX$ the condition    $x'\sim_{\mathfrak{Hausdorff}}x''$ holds if and only if for any neighborhoods $\sU'$ and $\sU''$ of $x'$ and $x''$ one has $\sU'\cap \sU'' \neq \emptyset$. In this case
+\be\label{hausdorff_sim_eqn}
+\mathfrak{Hausdorff}\left(\sX \right) \cong \sX / \sim_{\mathfrak{Hausdorff}}
+\ee
+We say that $\sim_{\mathfrak{Hausdorff}}$ is the {\it Hausdorff equivalence relation}.
+\end{remark}
+
+\begin{definition}\label{gelfand_r_defn}
+If $A$ is a $C^*$-algebra then the universal Hausdorff quotient space $$\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$$ of the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ denoted by  $\mathfrak{Gelfand}_r\left(A \right)$ is {\it the reduced Gelfand space of} $A$, i.e. $\mathfrak{Gelfand}_r\left(A \right)\bydef \mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$,
 \end{definition}
+
 \subsection{Good $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
 If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
@@ -920,13 +929,12 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
 	\ee
 	\begin{theorem}\label{good_thm}
-		\begin{enumerate} One has
+	One has
 			\begin{enumerate}
 				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
 				\item[(ii)] If $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} is surjective.
 			\end{enumerate}
 			
-		\end{enumerate}
 	\end{theorem}
 	\begin{proof}(i) 		If $L \subset A$ is a closed left ideal and 
 		\bean
@@ -941,7 +949,16 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 		
 	\end{proof}
-	
+	\begin{corollary}\label{good_cor}
+	Any good $*$-homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ yields the natural continuous map
+		\be\label{gelfandr_map_eqn}
+	\mathfrak{Gelfand}_r\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}_r\left(\varphi \right)}\mathfrak{Gelfand}_r\left(A \right).
+	\ee
+	of reduced Gelfand spaces (cf. Definition \ref{gelfand_r_defn}). Moreover if $\varphi$ is injective then $\mathfrak{Gelfand}_r\left(\varphi \right)$ is surjective.
+	\end{corollary}
+	\begin{proof}
+	Follows from the Theorem \ref{good_thm} and the Definition \ref{gelfand_r_defn}.
+	\end{proof}
 	\begin{definition}\label{gelfand_functor_defn}
 		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors} from 
 		\bea\label{gelfand_functor_eqn}
@@ -1032,7 +1049,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\end{proof}
 	
 
-\subsection{Gelfand spaces of unital $C^*$-algebras}
+\subsection{Maps onto spaces of maximal ideals}
 \paragraph{}
 If $A$ is a unital $C^*$-algebra and $\mathfrak{Gelfand}_r\left(A \right)$ is the reduced Gelfand space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$ is unital.
 \begin{lemma}\label{gelfand_compact_lem}
@@ -1111,27 +1128,17 @@ If $A$ is a unital $C^*$-algebra and $\mathfrak{Gelfand}_r\left(A \right)$ is th
 		L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}\left(A \right)\quad \Rightarrow \quad \ker \{\xi\} \cup L = A.
 	\end{split}
 	\ee
-	From \eqref{max_y_eqn} it turns out that $\ker{\xi}$ is the maximal proper ideal. 
+	From \eqref{max_y_eqn} it turns out that $\ker{\xi}$ is the maximal proper ideal. In result one has the following theorem. 
 \end{empt}
 \begin{theorem}\label{gelfand_max_thm}
-For any unital $C^*$-algebra there is the natural bijective map
-	\be
+For any unital $C^*$-algebra there is the natural continuous  map
+	\be\label{gelfand_max_eqn}
 \begin{split}
-\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\cong \mathfrak{LeftMax}\left(A \right),\\
+\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\to  \mathfrak{LeftMax}\left(A \right),\\
 \xi \mapsto \ker\{\xi\}
 \end{split}
 \ee
-from the Gelfand space to the set of maximal proper left ideals.
-For any closed ideal $L \subset A$ an open set $\mathfrak{Gelfand}\left(A \right)_L \subset \mathfrak{Gelfand}\left(A \right)$ (cf. equation \eqref{topology_eqn}) corresponds to the set
-	\be\label{gelfand_max_eqn}
-\begin{split}
-\mathrm{hull}\left(L \right) = \left\{t \in \mathfrak{LeftMax}\left(A \right) | L \subset t\right\}\subset  \mathfrak{LeftMax}\left(A \right)
-\end{split}
-\ee
 \end{theorem}	
-\begin{proof}
-!!!!
-\end{proof}	
 \begin{remark}
 The equation \eqref{gelfand_max_eqn} is an analog of the Jacobson topology on the prime spectrum (cf. \eqref{hull_eqn}), i.e. the map $\mathfrak{Max}_A$ can be regarded as a homeomorphism.
 \end{remark}
