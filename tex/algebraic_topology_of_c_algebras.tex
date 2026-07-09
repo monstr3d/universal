@@ -1391,7 +1391,7 @@ From  \eqref{stab_k1_eqn} it follows that
 	\begin{theorem}\label{k_h_thm}
 	If $A$ is an unital $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
-H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
+K_0\left( A\right) =H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
 	\eea
 There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)$ which comes from the cup-product on  $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$.	If $A$ is any $C^*$-algebra then one has
 	\bea
@@ -1920,6 +1920,33 @@ where $\mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)$ is the r
 
 \subsection{The topological invariants}
 \paragraph*{}
+It is known that $C\left(\T^n_\th \right) \cong C\left(S^1 \right)\rtimes_\a \Z$, where $\a\in \Aut\left(C\left( S^1\right)  \right) \cong \Aut\left(C\left( u\right)  \right)$ is a $*$- automorphism given by $u \mapsto e^{2\pi i \th} u$.
+The Theorem \ref{p_v_theorem} yields  a cyclic six-term exact sequence
+	\bean
+	\begin{tikzcd}
+		K_0\left( C\left(S^1 \right)\right)\arrow[r, "1-\a_*"] & K_0\left( C\left(S^1 \right)\right)\arrow[r, "\iota_*"] & K_0\left( C\left(S^1 \right) \rtimes_\a \Z \right) \arrow[d]\\
+		K_1\left(  C\left(S^1 \right)\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota_*"] K_1\left( C\left(S^1 \right) \right) & \arrow[l, "1-\a_*"]K_1\left( C\left(S^1 \right) \rtimes_\a \Z \right)
+	\end{tikzcd}
+	\eean
+	where the map $\iota_*$ corresponds to 
+	From the isomorphisms $	K_0\left( C\left(S^1 \right)\right)\cong 	K_1\left( C\left(S^1 \right)\right)\cong \Z$ it follow that $\a_*$ is identical, $1=\a_*= 0$, so there are the exact sequences
+		\bea\label{kk_0_nt_eqn}
+\{0\}\hookto	K_0\left( (C\left(S^1 \right)\right) \xrightarrow{\iota_*} K_0\left( C\left(S^1 \right)  \rtimes_\a \Z \right) \onto K_1\left( C\left(S^1 \right)\right) \onto \{0\} \\ \label{kk_1_nt_eqn}
+	\eea
+	
+From  the Theorem \ref{k_1_tor_thm} (resp \ref{k_1_tor_thm})  element of $K_0\left(C\left(\T^n_\th \right)  \right)$  (resp. $K_1\left(C\left(\T^n_\th \right)  \right)$) is represented by an idempotent (resp. invertible element) of $C\left(\T^n_\th \right)$ From this circumstance the given by the Theorem \ref{k_h_thm} equations 
+	\bean
+K_0\left( (C\left(\T^n_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\otimes \K \right); \Z \right)/U\left(\left((C\left(\T^n_\th \right) \otimes \K \right) ^+ \right),\\
+K_{1}\left((C\left(\T^n_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left((C\left(\T^n_\th \right) \otimes \K\right); \Z \right). 
+\eean
+can be replaced with following ones,
+	\bea\label{k_0_nt_eqn}
+K_0\left( (C\left(\T^n_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)/U\left(C\left(\T^n_\th \right)  \right),\\ \label{k_1_nt_eqn}
+K_{1}\left((C\left(\T^n_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left((C\left(\T^n_\th \right)\right); \Z \right). 
+\eea
+
+
+
 From the equation \eqref{k_1_eqn} it follows that $K_1\left( C\left(\T^n _{\theta}\right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(  C\left(\T^n _{\theta}\right)\otimes \K\right) ; \Z \right)$.  The following exact sequence 
 \be\label{sxx_shhnt_eqn}
 \begin{split}
@@ -5231,9 +5258,9 @@ The map $\a$ has degree 0 and $\bt$ has degree 1. The sequence is natural in eac
 variable, and splits unnaturally. So if $K_*\left(A \right)$ or $K_*\left(A \right)$ is torsion-free, $\a$ is an
 isomorphism.
 \end{theorem} 
-\begin{theorem}\cite{blackadar:ko}
+\begin{theorem}\label{p_v_theorem}\cite{blackadar:ko}
 %	Theorem 10.2.1 (Pimsner{Voiculescu Exact Sequence). 
-	Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$ Then there is a cyclic six-term exact sequence
+	Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$. Then there is a cyclic six-term exact sequence
 \bean
 \begin{tikzcd}
 	K_0\left( A\right)\arrow[r, "1-\a_*"] & K_0\left(A \right)\arrow[r, "\iota_*"] & K_0\left(A \rtimes_\a \Z \right) \arrow[d]\\
@@ -6660,7 +6687,7 @@ which is in the connected component of the identity automorphisms of
 	consists of exactly the elements on which $\tau$ is positive.
 	\end{theorem}
 
-	\begin{theorem}\cite{Rieffel:stable_irrat}
+	\begin{theorem}\label{k_0_tor_thm}\cite{Rieffel:stable_irrat}
 %THEOREM c- 
 If $\th$ is not rational, then the projections in $C\left(\T^n_\th \right)$
 generate $K_0\left(C\left(\T^n_\th \right)  \right)$.
