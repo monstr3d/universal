@@ -1529,6 +1529,95 @@ If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a com
 \begin{proof}
 	!!!!
 \end{proof}
+\subsection{Pimsner-Voiculescu Exact Sequence in cohomology}
+	\paragraph{} If $A$ is an unital $C^*$-algebra then  Theorems \ref{k_h_thm} and \ref{p_v_theorem} yield the following  a cyclic six-term exact sequence
+	\be
+	\begin{tikzcd}
+	 H^0_c\left(\sX; \Z \right)/U \arrow[r, "1-\a_*"] &  H^0_c\left(\sX; \Z \right)/U\arrow[r, "\iota_*"] &H^0_c\left(\sX_\Z; \Z \right)/U_\Z \arrow[d]\\
+		 H^1_c\left(\sX_\Z; \Z \right)\arrow[u] & \arrow[l, "\iota_*"]  H^1_c\left(\sX; \Z \right) & \arrow[l, "1-\a_*"]H^1_c\left(\sX; \Z \right)
+	\end{tikzcd}
+	\ee
+	where 
+	\bean
+	\sX \bydef\mathfrak{Gelfand}_r\left(A \otimes \K\right),\\
+	\sX_\Z \bydef\mathfrak{Gelfand}_r\left(\left( A\rtimes_\a \Z\right)  \otimes \K\right),\\
+	U \bydef U\left(\left(A\otimes \K \right) ^+ \right),\\
+	U_\Z \bydef U\left(\left(\left( A\rtimes_\a \Z\right)\otimes \K \right) ^+ \right)
+	\eean
+		\begin{theorem}\label{k_h_thm!}!!!
+		If $A$ is an unital $C^*$-algebra then one has
+		\bea\label{k_00_eqn}
+		K_0\left( A\right) =H^0_c\left(\sX; \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
+		\eea
+		There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)$ which comes from the cup-product on  $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$.	If $A$ is any $C^*$-algebra then one has
+		\bea
+		\label{k_1_eqn}
+		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right). 
+		\eea
+	\end{theorem}
+	%	Theorem 10.2.1 (Pimsner{Voiculescu Exact Sequence). 
+		Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$. Then there is a cyclic six-term exact sequence
+		\bean
+		\begin{tikzcd}
+			K_0\left( A\right)\arrow[r, "1-\a_*"] & K_0\left(A \right)\arrow[r, "\iota_*"] & K_0\left(A \rtimes_\a \Z \right) \arrow[d]\\
+			K_1\left( A\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota_*"] K_1\left(A \right) & \arrow[l, "1-\a_*"]K_1\left(A \rtimes_\a \Z \right)
+		\end{tikzcd}
+		\eean
+	\begin{definition}\label{mapping_torus_defn}
+		%Definition 10.3.1. 
+		Let $\a\in \Aut\left( A\right)$ . The {\it mapping torus} of $\a$ is
+		\bean
+		M_\a \bydef \left\{f : \R \to A : f\left( x+1\right) = \a f(x)\right\}\cong \left\{f: \left[0,1\right]\to A | f(1)= \a\left( f(0)\right) \right\}
+		\eean
+	\end{definition}
+	\begin{empt}
+		There is an exact sequence
+		\be 
+		\{0\}\hookto S A \hookto M_\a \onto A \onto \{0\}
+		\ee
+		
+		We need the following structure theorem for crossed products. If $\th$ is an
+		action of $\R$ on a $C^*$-algebra $B$, and $\th$ is trivial on $\Z$, then $\bt$ drops to an action
+		of $\T \cong \R/\Z$, also denoted $\bt$. $\bt$ induces an action $\hat \bt$ of $\hat \T\cong \Z$ on $B \times_\bt\T$ , i.e. an automorphism of $B \times_\bt\T$.
+	\end{empt}
+	\begin{proposition}
+		%Proposition 10.3.2. 
+		$B \times_\bt \R$ is isomorphic to the mapping torus of $\hat \bt$ on $B \times_\bt \T$.
+	\end{proposition}
+	\begin{empt}
+		Suppose $\a \in \Aut\left( A\right)$, and let $B \bydef A\rtimes \Z$. There is an action $\bt \bydef \hat \a$ of $T$ on $B$; we may regard $\bt$  as an action of $\R$ on $B$ with $\Z$ acting trivially. We have $B \rtimes_\bt \T \cong A \otimes \K$ by Takai duality, and $B \rtimes_\bt \R \cong M_{\hat \bt}$. Thus there is a short exact sequence
+		\be
+		\{0\}\hookto S\left( A \otimes \K\right) \hookto B\rtimes_\bt \R \onto A \otimes \K\onto \{0\}.
+		\ee
+		From the Thom isomorphism, we have $K_i\left(B \rtimes \bt \R \right) \cong K_{1 =i}\left( B\right)$; thus there is 
+		exact sequence is just the six-term exact sequence associated to this extension.
+		It only remains to show that the connecting maps in this exact sequence are
+		of the form $1 - \a_*$, which comes from the following two propositions.
+	\end{empt}
+	\begin{proposition}
+		%Proposition 10.4.1. 
+		Let $\a \in \Aut\left( A\right)$, and let $M_\a$ be the
+		mapping torus. If
+		$K_i\left(SA \right)$  is identified  with $K_{1-i}\left( A\right)$  via the Bott map, then the connecting maps
+		in the six-term exact sequence
+		\be 
+		\begin{tikzcd}
+			K_1\left( A\right)\arrow[r]&K_0\left(M_\a\right)\arrow[r]& K_0\left( A\right)\arrow[d, "\partial"] \\
+			K_1\left( A\right)\arrow[u, "\partial"]&\arrow[l]K_1\left(M_\a\right)& \arrow[l]K_0\left( A\right)
+		\end{tikzcd}
+		\ee
+		are of the form $1-\a_*$.
+	\end{proposition}
+	\begin{proposition}
+		%Proposition 10.4.2. 
+		Let $\a \in \Aut\left(A \right), ~\ga \in \Aut\left(\K \right)$. If $K_i\left( A\right)$  is identified  with
+		$K_i\left(A \otimes  \K\right)$  in the standard way, then $\a_* = \left(\a\otimes\ga \right)_*$.
+	\end{proposition}
+	\begin{proposition}
+		%$Proposition 10.4.3.$ Let  be an automorphism of a C-algebra A. 
+		Then $K_i\left(A \rtimes_\a \Z \right)\cong K_{1-i}\left( M_\a\right)$  for $i = 0, 1$. The isomorphism is natural with respect to covariant homomorphisms.
+	\end{proposition}
+
 \section{Hausdorff  blowing-up}
 \subsection{Basic construction}	
 \begin{definition}\label{blowing_defn}
@@ -4683,21 +4772,6 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 %\begin{definition}\label{hm_reflexive_defn}\cite{matro:hcm}
 %A Hilbert $C^*$-module $X$ is called  \textit{reflexive} if $X''\cong X$.
 %\end{definition}
-
-	\subsection{$K$-theory of $C^*$-algebras}\label{ca_k_sec}
-
-
-\paragraph*{} The notions of $K$-theory is explained in \cite{blackadar:ko,wegge_olsen}.
-\begin{definition}\label{projection_equivalences_defn}\cite{blackadar:ko}
-	%Definition 4.2.1. 
-	Let $e$ and $f$ be idempotents in $A$.
-	\begin{enumerate}
-		\item [(a)] $e\sim f$ if there are $x, y \in A$ with $xy = e$ and $yx = f$ ({\it algebraic equivalence}),
-		\item[(b)] $e \sim_s f$ if there is an invertible $z \in A^+$ with $zez^{-1}= f$ ({\it similarity}),
-		\item[(c)] $\sim_h f$ if there is a norm-continuous path of idempotents in $A$ from $a$ to $f$ ({\it homotopy}).
-	\end{enumerate}
-\end{definition}
-
 		\subsection{Strong Morita equivalence for $C^*$-algebras}\label{strong_morita_sec}
 
 \paragraph*{}
@@ -4737,8 +4811,8 @@ equivalence was introduced by Rieffel.
 %	Let~$X$ be an $A$-$B$ equivalence bimodule.  Then given by \ref{induced_representation_defn} functor $X\otimes_B\blank$	induces an equivalence (cf. Definition \ref{category_equivalence_definition}) between the category of Hermitian  $B$ modules and
 %	the category of Hermitian  $A$-modules, the inverse being given by
 %	$\tilde{X} \otimes_A\blank$.
-	
-	% This functor preserves weak containment and 	direct integrals.
+
+% This functor preserves weak containment and 	direct integrals.
 %\end{theorem}
 \begin{theorem}\label{rieffel_equiv_thm}\cite{rae:ctr_morita}
 	%Theorem 3.29. 
@@ -4797,7 +4871,22 @@ equivalence was introduced by Rieffel.
 	with base  $\sX$  whose fiber at $x\in\sX$ is the $\ell^2$-space of the orbit $x\in\sX$. This yields
 	the required $\left(C_0\left(\widetilde \sX \right)\rtimes \Ga, C_0\left(\sX \right) \right)$  $C^*$-bimodule.
 \end{remark}
-\
+
+	\subsection{$K$-theory of $C^*$-algebras}\label{ca_k_sec}
+
+
+\paragraph*{} The notions of $K$-theory is explained in \cite{blackadar:ko,wegge_olsen}.
+\begin{definition}\label{projection_equivalences_defn}\cite{blackadar:ko}
+	%Definition 4.2.1. 
+	Let $e$ and $f$ be idempotents in $A$.
+	\begin{enumerate}
+		\item [(a)] $e\sim f$ if there are $x, y \in A$ with $xy = e$ and $yx = f$ ({\it algebraic equivalence}),
+		\item[(b)] $e \sim_s f$ if there is an invertible $z \in A^+$ with $zez^{-1}= f$ ({\it similarity}),
+		\item[(c)] $\sim_h f$ if there is a norm-continuous path of idempotents in $A$ from $a$ to $f$ ({\it homotopy}).
+	\end{enumerate}
+\end{definition}
+
+
 
 \begin{definition}\label{m_inf_defn}\cite{blackadar:ko}
 	%Definition 5.1.1. 
@@ -5195,24 +5284,22 @@ GL_1\left(  C_0\left(\sX \right)\right) / GL_1\left( C_0\left(\sX \right)\right)
 	\ee
 %	A description of these results and some applications, along with a further discussion	of $K$-theory for commutative Banach algebras, may be found in [Taylor	1975].
 \end{empt}
-\begin{theorem}\cite{blackadar:ko}
+%\begin{theorem}\cite{blackadar:ko}
 %Theorem 23.1.3 (Kunneth Theorem for Tensor Products (KTP)).[Schochet 1982] 
-Let $A$ and $B$ be $C^*$-algebras, with $A, B \in N$ Then there is a short
-exact sequence
-\bean
-\{0\}\hookto K_*\left(A \right) \otimes K_*\left(B \right) \xrightarrow{\a} K_*\left(A \otimes B \right) \xrightarrow{\bt} \mathrm{Tor}^\Z_1\left(\hookto K_*\left(A \right), K_*\left(B \right) \right) \onto \{0\}.
-\eean 
-The map $\a$ has degree 0 and $\bt$ has degree 1. The sequence is natural in each
-variable, and splits unnaturally. So if $K_*\left(A \right)$ or $K_*\left(A \right)$ is torsion-free, $\a$ is an
-isomorphism.
-\end{theorem} 
+%Let $A$ and $B$ be $C^*$-algebras, with $A, B \in N$ Then there is a short
+%exact sequence
+%\bean
+%\{0\}\hookto K_*\left(A \right) \otimes K_*\left(B \right) \xrightarrow{\a} K_*\left(A \otimes B \right) \xrightarrow{\bt} \mathrm{Tor}^\Z_1\left(\hookto K_*\left(A \right), K_*\left(B \right) \right) \onto \{0\}.
+%\eean 
+%The map $\a$ has degree 0 and $\bt$ has degree 1. The sequence is natural in each variable, and splits unnaturally. So if $K_*\left(A \right)$ or $K_*\left(A \right)$ is torsion-free, $\a$ is an isomorphism.
+%\end{theorem} 
 \begin{theorem}\label{p_v_theorem}\cite{blackadar:ko}
 %	Theorem 10.2.1 (Pimsner{Voiculescu Exact Sequence). 
 	Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$. Then there is a cyclic six-term exact sequence
 \bean
 \begin{tikzcd}
 	K_0\left( A\right)\arrow[r, "1-\a_*"] & K_0\left(A \right)\arrow[r, "\iota_*"] & K_0\left(A \rtimes_\a \Z \right) \arrow[d]\\
-		K_1\left( A\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota_*"] K_1\left(A \right) & \arrow[l, "1-\a_*"]K_1\left(A \rtimes_\a \Z \right)
+		K_1\left( A\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota_*"] K_1\left(A \right) & \arrow[l, "1-\a_*"]K_1\left(A \right)
 \end{tikzcd}
 \eean
 \end{theorem}
