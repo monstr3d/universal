@@ -1168,12 +1168,12 @@ We leave to the reader the proof of that these maps are continuous.
 \end{proof}
 \begin{lemma}\label{one_point_lem}
 	If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
-	\be 
+	\bean 
 	\begin{split}
-		\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup\{+\}
+		\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup\{x_0\}
 	\end{split}
-	\ee
-	where $\{+\}$ is the singleton. 
+	\eean
+	where $\{x_0\}$ is the singleton. 
 \end{lemma}
 \begin{proof}
 	Let  $\left\{L_\la\right\}_{\la\in \La}$ be  the  set of  all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A $. If $L_1, L_2\in \left\{L_\la\right\}$ then there are $a_1 , a_2 \in A$  such that 
@@ -1201,6 +1201,20 @@ We leave to the reader the proof of that these maps are continuous.
 	The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
 	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
 \end{proof}
+
+\begin{corollary}\label{one_point_cor}
+	If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then  the reduced Gelfand space	$\mathfrak{Gelfand}_r\left(A^+ \right)$ is the one point compactification of the reduced Gelfand space $\mathfrak{Gelfand}_r\left(A \right)$, i.e.
+	\be 
+	\begin{split}\label{one_point_cor_eqn}
+		\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
+	\end{split}
+	\ee
+	where $\{x_0\}$ is the singleton. 
+\end{corollary}
+\begin{proof}
+!!!
+\end{proof}
+
 
 	\section{Gelfand space and $K$-theory}
 	\subsection{Basic constructions}
@@ -1332,9 +1346,88 @@ The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic clas
 		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 	\end{split}
 	\ee 
+		\begin{empt}
+			If $C^*$-algebra $A$ is not unital then $A$ is a closed two-sided ideal of $A^+$.  For any $n \in \N$ let
+			\be\label{gl_k_eqn}!!!
+	\begin{split}
+\mathrm{GL}_n\left( A \otimes \K\right) \bydef 
+		\begin{pmatrix}
+	  \mathrm{GL}_n\left( A\right)& 0& 0 &\ldots\\
+0 &  1 & 0 &\ldots \\
+0& 0& 1& \ldots \\
+	\vdots& \vdots & \vdots & \ddots \\
+\end{pmatrix}\subset \mathrm{GL}_n\left( \left( A \otimes \K\right)^+\right)
+\end{split}
+	\ee
+	where $\mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}$ (cf. the equation \eqref{gl_eqn})
+			 
+			
+			
+			
+			One has the quotient map  $\pi: A \to A^+/A$.  Similarly to the Appendix \ref{k0_empt} suppose than both  $e, f$ are idempotents in $\mathbb{M}_n\left( A^+\right)\subset \mathbb{M}_\infty\left( A^+\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$ and 
+			with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$.
+			\be\label{k0_1_eqn!1}!!!
+			\begin{split}
+				(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
+			\ee
+			The inclusion $\mathbb{M}_n\left( A^+\right)\subset A^+\otimes K$ naturally  yields corresponding to $e$ ans $f$ idempotents $e_\K, f_\K \in A^+\otimes \K$. If both $z', z'' \in M\left(A^+ \right)$ are representatives of $z$ and $z^{-1}$ respectively then 
+			\bean
+			z'z'' \in \mathbb{M}_n\left( A\right)
+			\eean 
+
+
+
+!!!!	
+	
+The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.	
+	, so from the Corollary \ref{one_point_cor} it follows that
+	\bean
+	\mathfrak{Gelfand}_r\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}_r\left(A\otimes \K \right)\cup\{x_0\}
+	\eean
+	\end{empt}
+	
+	\paragraph{title}
+\begin{notation}\cite{blackadar:ko}!!!
+	We use the following definition
+	\be\label{gl_eqn!}!!!
+	\forall n \in \N\quad \mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}
+	\ee
+\end{notation}
+	\begin{empt}\cite{blackadar:ko}\label{k0_empt!}!!!
+		Let $A$  be unital algebra, $J$ a closed two-sided ideal in $A$, and $\pi: A \to A/J$ the quotient map. A group $K_0\left(A, J \right)$  has generators $\left(e, f, z \right)$  , where $e, f$ are idempotents in $\mathbb{M}_n\left( A\right)\subset \mathbb{M}_\infty\left( A\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$
+		with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$ ; and relations
+		\be\label{k0_1_eqn!}!!!
+		\begin{split}
+			(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
+		\ee
+		and $(e_1, f_1, z_1 ) = (e_2, f_2, z_2 )$ if there are idempotents $g_1, g_2\in \mathbb{M}_n\left( A\right)$ and invertible
+		elements $u, v \in \mathbb{M}_{n+k}\left( A\right)$ with
+		\be\label{k0_2_eqn}
+		\begin{split}
+			u\mathrm{diag}\left( e_1, g_1\right)u^{-1}= \mathrm{diag}\left( e_2, g_2\right),\\
+			v\mathrm{diag}\left( f_1, g_1\right)v^{-1}= \mathrm{diag}\left( f_2, g_2\right),\\
+			\pi\left(v\right)\mathrm{diag}\left( z_1, 1\right)\pi\left(u\right)^{-1}= \mathrm{diag}\left( z_2, 1\right).
+		\end{split}
+		\ee
+	\end{empt}
+	\paragraph{title}
 \begin{lemma}\label{ring_auto_lem}
 	Any $g \in U\left(\left(A\otimes \K \right) ^+ \right)$ yields a ring automorphism of $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\right) $ with respect to the cup-product (cf. Definition \ref{cup_sheaf_thm}).
 \end{lemma}	
+
+\begin{definition}\label{k0_defn!}\cite{blackadar:ko}!!!
+	%Definition 5.5.1. 
+	$K_0\left( A\right) \bydef K_0\left(A^+, A \right)$. 
+\end{definition}
+\begin{remark}\label{k0_rem!}\cite{blackadar:ko}!!!
+	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism
+	\be\label{k0_eqn} 
+	\om_A : K_{00}(A) \to 
+	K_0\left(A \right).
+	\ee
+\end{remark}
+
+\paragraph{title}
 \begin{proof}
 The group $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$ is a free Abelian group generated by quasicomponents of $\mathfrak{Gelfand}_r\left(A\otimes \K \right)$. Moreover if both $\sU', \sU''\subset \mathfrak{Gelfand}_r\left(A\otimes \K \right)$ are quasicomponents then
 \be\label{cup_u_eqn}
@@ -1408,7 +1501,7 @@ There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otim
 	U\left(\left(A\otimes \K \right) ^+ \right)\times H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)$$ 	
 		\end{rem}
 		\begin{rem}
-	From \eqref{k_1_eqn} and the Corollary \ref{bott_kk_cor} it follows that for any $k \ge 0$ one has
+	From \eqref{k_1_eqn} and the Corollary !!!! \ref{bott_kk_cor} it follows that for any $k \ge 0$ one has
 	\bea\label{k0_s_eqn}
 K_{0}\left(A \right) \cong H^1_c\left(S^{2k +1}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k + 1}; \Z \right),\\\label{k1_s_eqn}
 K_{1}\left(A \right)  \cong H^1_c\left(S^{2k}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right)
@@ -1507,21 +1600,7 @@ where the action \eqref{u_1_act_eqn} is implied. So for any $x \in K_0\left(A \r
 
 \end{remark}
 
-\begin{remark}\label{cup_prod_suspernsion_rem}
-If $A$ is an unital $C^*$-algebra then from the Theorems \ref{suspension_thm} and \ref{bott_map_thm} it turns out that there is the $\Z_2$  isomorphism of Abelian groups.
-	\be\label{cup_prod_suspernsion_eqn}
-\begin{split}
-S : K_*\left( A\right) \cong K_*\left( SA\right) 
-\end{split}
-\ee
-where $S$ is the  suspension (cf. Definition \ref{suspension_defn}). The isomorphism inverses grading, i.e. it is given by maps
-	\be\label{cup_prod_suspernsiong_eqn}
-\begin{split}
-\forall j = 0, 1 \quad	S : K_{j}\left( A\right) \cong K_{1 - j}\left( SA\right) 
-\end{split}
-\ee
-Using the equations \eqref{h1isc_m_eqn} \eqref{red_eqn}  \eqref{red_c_eqn} one can prove that $S$ is the ring isomorphism.
-\end{remark}
+
 
 \begin{lemma}
 If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a compact space then the given by the Theorem \ref{cup_prod_thm} cup product coincides with given by the Appendix \ref{mult_k_sec} one.
@@ -1529,41 +1608,101 @@ If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a com
 \begin{proof}
 	!!!!
 \end{proof}
+
+\subsection{Graded $K$-theoretic ring}
+\paragraph{} It is known (cf. Appendix \ref{mult_k_sec}) that the topological  $K$-theory yields a contravariant  functor from the category  locally compact spaces  to the category of graded rings. Here we extend the domain of this functor.
+If $A$ is c $C^*$-algebra then from the Exercise \ref{cs1_exer} one has following homomorphisms 
+\bea\label{cs1_11_eqn} 
+	0 \hookto SA \xrightarrow{\iota} A \otimes C\left(S^1 \right) \xrightarrow{p} A \onto 0,\\
+\label{cs1_21_eqn} 
+K_0\left( A \otimes C\left(S^1 \right) \right) \cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_0\left( A\right) \oplus K_1\left(A \right).
+\eea
+On the other hand if $\sX \bydef \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ then the equation \eqref{long_pair_eqn} yields the sequence
+
+	\be\label{coh_suspernsion_eqn}
+\begin{split}
+{0} \hookto  H^0_c\left(\sX\times S^1, \sX\times {x_0};\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^0_{c\cap \sX\times {x_0}}\left(\sX\times {x_0};\Z \right)\xrightarrow{\dl}\\ \xrightarrow{\dl}  H^1_c\left(\sX\times S^1, \sX\times {x_0};\Z  \right) \xrightarrow{\iota_*} H^1_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^1_{c\cap \sX\times {x_0}}\left(\sX\times {x_0};\Z \right)\xrightarrow{\dl}...
+\end{split}
+\ee
+Taking into account \eqref{setmunus_h_eqn} one has 
+	\bean
+\begin{split}
+	{0} \hookto  H^0_c\left(\sX\times S^1\setminus \sX\times {x_0};\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^0_{c\cap \sX\times {x_0}}\left(\sX\times {x_0};\Z \right)\xrightarrow{\dl}\\ \xrightarrow{\dl}  H^1_c\left(\sX\times S^1\setminus \sX\times {x_0};\Z  \right) \xrightarrow{\iota_*} H^1_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^1_{c\cap \sX\times {x_0}}\left(\sX\times {x_0};\Z \right)\xrightarrow{\dl}...
+\end{split}
+\eean
+or, equivalently
+
+\be\label{coh_suspernsione_eqn}
+\begin{split}
+	{0} \hookto  H^0_c\left(\sX\times \R;\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^0_{c\cap \sX\times {x_0}}\left(\sX;\Z \right)\xrightarrow{\dl}\\ \xrightarrow{\dl}  H^1_c\left(\sX\times \R;\Z  \right) \xrightarrow{\iota_*} H^1_c\left(\sX\times S^1;\Z  \right) \xrightarrow{p_*} H^1_{c\cap \sX\times {x_0}}\left(\sX;\Z \right)\xrightarrow{\dl}...
+\end{split}
+\ee
+There is the natural surjective map  $\sX\times S^1\onto \sX$ and injective map  $\sX\cong  \sX\times {x_0}\hookto \sX\times S^1$ such that the composition $\sX \hookto \sX \times S^1 \onto \sX$ is the identical map. It turns out that the sequence \ref{coh_suspernsione_eqn} naturally splits and there is the natural direct sums
+\bea 
+ H^0_c\left(\sX\times S^1;\Z  \right)\cong H^0_c\left(\sX;\Z  \right)\oplus H^0_c\left(\sX\times \R;\Z  \right),\\\label{h1_d_eqn}
+  H^1_c\left(\sX\times S^1;\Z  \right)\cong H^1_c\left(\sX;\Z  \right)\oplus H^1_c\left(\sX\times \R;\Z  \right).
+\eea 
+From the equation \eqref{k_1_eqn} it follows that
+\bean
+K_1\left(A \right) \cong H^1_c\left(\sX;\Z  \right)\bydef  H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right);\Z\right) 
+\eean 
+Taking into account the Theorems  \ref{suspension_thm}, \ref{bott_map_thm} and one has
+\bean 
+K_0\left(A \right) \cong   H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)\times \R;\Z\right), 
+\eean 
+so from \eqref{cs1_21_eqn} and \eqref{h1_d_eqn} one has the group isomorphism 
+\be
+ H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1;\Z\right)\cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_*\left( A\right) 
+\ee
+Let us define the multiplication on $K_*\left( A\right)$. Let $$x, y \in K_0\left( A\right) $$ . If both $x' \in  H^0_c\left(\sX;\Z  \right)$ and $y' \in  H^1_c\left(\sX\times \R;\Z  \right)$ are given by the equations \eqref{k_00_eqn} and \eqref{k0_s_eqn} representatives of $x$ and $y$ then one can assume that $x', y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)$. It turns out that
+\be
+x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)
+\ee
+where the cup product is given by \ref{cup_sheaf_thm}. 
+
+
+
+
+\begin{remark}\label{cup_prod_suspernsion_rem}
+	If $A$ is an unital $C^*$-algebra then from the Theorems \ref{suspension_thm} and \ref{bott_map_thm} it turns out that there is the $\Z_2$  isomorphism of Abelian groups.
+	\be\label{cup_prod_suspernsion_eqn}
+	\begin{split}
+		S : K_*\left( A\right) \cong K_*\left( SA\right) 
+	\end{split}
+	\ee
+	where $S$ is the  suspension (cf. Definition \ref{suspension_defn}). The isomorphism inverses grading, i.e. it is given by maps
+	\be\label{cup_prod_suspernsiong_eqn}
+	\begin{split}
+		\forall j = 0, 1 \quad	S : K_{j}\left( A\right) \cong K_{1 - j}\left( SA\right) 
+	\end{split}
+	\ee
+	Using the equations \eqref{h1isc_m_eqn} \eqref{red_eqn}  \eqref{red_c_eqn} one can prove that $S$ is the ring isomorphism.
+\end{remark}
 \subsection{Pimsner-Voiculescu Exact Sequence in cohomology}
-	\paragraph{} If $A$ is an unital $C^*$-algebra then  Theorems \ref{k_h_thm} and \ref{p_v_theorem} yield the following  a cyclic six-term exact sequence
-	\be
+	\paragraph{} 	The left shift of $\Z$ yields the natural $*$-automorphism $\ga \in \Aut\left(\K \right) \cong \Aut\left(\K \right)\cong \Aut\left( \K\left( \ell^2\left( \Z\right) \right) \right)$. Similarly to the Proposition \ref{k_aut_prop} we consider the action $\Z \times A\otimes \K A\otimes \K$ generated by $\left(\a\otimes\ga \right)$. i.e. we imply $\a^\K \bydef \a\otimes\ga$. 
+		If $A$ is an unital $C^*$-algebra then  Theorems \ref{k_h_thm} and \ref{p_v_theorem} yield the following  a cyclic six-term exact sequence
+	\be\label{k_hom_seq_eqn}
 	\begin{tikzcd}
-	 H^0_c\left(\sX; \Z \right)/U \arrow[r, "1-\a_*"] &  H^0_c\left(\sX; \Z \right)/U\arrow[r, "\iota_*"] &H^0_c\left(\sX_\Z; \Z \right)/U_\Z \arrow[d]\\
-		 H^1_c\left(\sX_\Z; \Z \right)\arrow[u] & \arrow[l, "\iota_*"]  H^1_c\left(\sX; \Z \right) & \arrow[l, "1-\a_*"]H^1_c\left(\sX; \Z \right)
+	 H^0_c\left(\sX; \Z \right)/U \arrow[r, "1-\a^\K_*"] &  H^0_c\left(\sX; \Z \right)/U\arrow[r, "\iota_*"] &H^0_c\left(\sX_\Z; \Z \right)/U_\Z \arrow[d]\\
+		 H^1_c\left(\sX_\Z; \Z \right)\arrow[u] & \arrow[l, "\iota_*"]  H^1_c\left(\sX; \Z \right) & \arrow[l, "1-\a^\K_*"]H^1_c\left(\sX; \Z \right)
 	\end{tikzcd}
 	\ee
 	where 
 	\bean
 	\sX \bydef\mathfrak{Gelfand}_r\left(A \otimes \K\right),\\
-	\sX_\Z \bydef\mathfrak{Gelfand}_r\left(\left( A\rtimes_\a \Z\right)  \otimes \K\right),\\
+	\sX_\Z \bydef\mathfrak{Gelfand}_r\left(\left( A\rtimes_{\a^\K} \Z\right)  \otimes \K\right),\\
 	U \bydef U\left(\left(A\otimes \K \right) ^+ \right),\\
-	U_\Z \bydef U\left(\left(\left( A\rtimes_\a \Z\right)\otimes \K \right) ^+ \right)
+	U_\Z \bydef U\left(\left(\left( A\rtimes_{\a^\K} \Z\right)\otimes \K \right) ^+ \right)
 	\eean
-		\begin{theorem}\label{k_h_thm!}!!!
-		If $A$ is an unital $C^*$-algebra then one has
-		\bea\label{k_00_eqn}
-		K_0\left( A\right) =H^0_c\left(\sX; \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
-		\eea
-		There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)$ which comes from the cup-product on  $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$.	If $A$ is any $C^*$-algebra then one has
-		\bea
-		\label{k_1_eqn}
-		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right). 
-		\eea
-	\end{theorem}
-	%	Theorem 10.2.1 (Pimsner{Voiculescu Exact Sequence). 
-		Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$. Then there is a cyclic six-term exact sequence
-		\bean
-		\begin{tikzcd}
-			K_0\left( A\right)\arrow[r, "1-\a_*"] & K_0\left(A \right)\arrow[r, "\iota_*"] & K_0\left(A \rtimes_\a \Z \right) \arrow[d]\\
-			K_1\left( A\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota_*"] K_1\left(A \right) & \arrow[l, "1-\a_*"]K_1\left(A \rtimes_\a \Z \right)
-		\end{tikzcd}
-		\eean
-	\begin{definition}\label{mapping_torus_defn}
+From the Theorems \ref{suspension_thm} and \ref{bott_map_thm} the sequence \eqref{k_hom_seq_eqn} is equivalent to the following one.
+	\be\label{k_hom_sequ_eqn}
+\begin{tikzcd}
+	H^0_c\left(\sX; \Z \right)/U \arrow[r, "1-\a^\K_*"] &  H^0_c\left(\sX; \Z \right)/U\arrow[r, "\iota_*"] &H^0_c\left(\sX_\Z; \Z \right)/U_\Z \arrow[d]\\
+	H^0_c\left(\sX_S; \Z \right)\arrow[u] & \arrow[l, "\iota_*"]  H^0_c\left(\sX_S; \Z \right) & \arrow[l, "1-\a^\K_*"]H^0_c\left(\sX_S; \Z \right)
+\end{tikzcd}
+\ee
+	
+	\begin{definition}\label{mapping_torus_defn!}
 		%Definition 10.3.1. 
 		Let $\a\in \Aut\left( A\right)$ . The {\it mapping torus} of $\a$ is
 		\bean
@@ -1607,11 +1746,6 @@ If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a com
 		\end{tikzcd}
 		\ee
 		are of the form $1-\a_*$.
-	\end{proposition}
-	\begin{proposition}
-		%Proposition 10.4.2. 
-		Let $\a \in \Aut\left(A \right), ~\ga \in \Aut\left(\K \right)$. If $K_i\left( A\right)$  is identified  with
-		$K_i\left(A \otimes  \K\right)$  in the standard way, then $\a_* = \left(\a\otimes\ga \right)_*$.
 	\end{proposition}
 	\begin{proposition}
 		%$Proposition 10.4.3.$ Let  be an automorphism of a C-algebra A. 
@@ -5007,12 +5141,12 @@ and $e' \perp p_n$. This is the {\it Standard Picture} of $K_0\left( A\right)$  
 	If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for
 	$n = 0; 1$.
 \end{corollary}
-\begin{empt}\cite{blackadar:ko}
+\begin{notation}\cite{blackadar:ko}
 We use the following definition
 \be\label{gl_eqn}
-\forall n \in \N\quad \mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A^+\right) \right\}
+\forall n \in \N\quad \mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}
 \ee
-\end{empt}
+\end{notation}
 \begin{definition}
 	\label{k_1_defn}\cite{blackadar:ko}%$Definition 8.1.1.
 \bean
@@ -5171,15 +5305,6 @@ exact sequence for all $n$.
 		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
 	\end{proof}
 \end{empt}
-\
-\begin{definition}\label{bott_map_defn}\cite{blackadar:ko}
-%	9.1.1
-The homomorphism $\bt_A : K_0\left(A \right)\to K_1\left( SA\right) $  defined by
-$\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p_n}\right]$ is called the {\it Bott map} for $A$.
-\end{definition}
-\begin{theorem}\label{bott_map_thm}\cite{blackadar:ko}$\bt_A$ is an isomorphism.
-%Theorem 9.2.1 (Bott Periodicity). 
-\end{theorem}
 \begin{remark} It is proven in \cite{blackadar:ko} that
 	 there is a commutative diagram 
 \be
@@ -5190,80 +5315,21 @@ $\bt_A \left( \left[e\right]- \left[p_n\right]\right) \bydef \left[f_e f^{-1}_{p
 \ee
 such that vertical arrows are isomorphisms.
 \end{remark}
+
+\begin{theorem}\label{bott_map_thm}\cite{blackadar:ko} $\bt_A$ is an isomorphism.
+	%Theorem 9.2.1 (Bott Periodicity). 
+\end{theorem}
 \begin{exercise}\label{cs1_exer}\cite{blackadar:ko}
 	%9.4.1. 
 	Let $A$ be a $C^*$-algebra. Then there is a split exact sequence
 	\be\label{cs1_1_eqn} 
-	0 \to SA \to A \otimes C\left(S^1 \right) \to A \to 0
+	0 \hookto SA \hookto A \otimes C\left(S^1 \right) \onto A \onto 0
 	\ee
 	Use \ref{k_spit_prop} and Bott periodicity to compute that
 	\be\label{cs1_2_eqn} 
 	K_0\left( A \otimes C\left(S^1 \right) \right) \cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_0\left( A\right) \oplus K_1\left(A \right).
 	\ee
 \end{exercise}
-\begin{definition}\label{mapping_cone_defn}\cite{blackadar:ko}
-	%Definition 19.4.1. 
-	\begin{enumerate}
-		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes C\left(\left[0, 1\right) \right)  \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
-		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
-		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
-	\end{enumerate}
-	
-	The mapping cone construction is an important example of a pullback.
-	
-\end{definition}
-There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
-There is a standard short exact sequence 
-\be\label{cone_ip_eqn}
-0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
-\ee
-associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
-we have a commutative diagram
-\newline
-\begin{tikzcd}
-	A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
-	A_2  \arrow[r, "\psi"] & B_2
-\end{tikzcd}
-\\
-there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
-\newline
-\begin{tikzcd}
-	0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
-	0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
-\end{tikzcd}
-
-\begin{theorem}\label{puppe_sequence_thm}\cite{blackadar:ko}
-	%Theorem 19.4.3 
-	(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
-	\bean
-	KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
-	KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
-	\eean
-	
-\end{theorem} 
-\begin{corollary}\label{kk_stable_cor}\cite{blackadar:ko}
-	%	Corollary 17.8.8. 
-	For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
-	isomorphisms
-	\bean
-	KK\left(A, B \right) \cong 	KK\left(A\otimes \mathbb{M}_n\left(\C \right) , B \otimes \mathbb{M}_m\left(\C \right)\right)	\cong KK\left(A, B\otimes\K \right)\cong \\\cong	KK\left(A, B\otimes\K \right)\cong 	KK\left(A\otimes\K, B \otimes\K\right).
-	\eean
-	
-\end{corollary}
-\begin{corollary}\label{bott_kk_cor}\cite{blackadar:ko}
-	%Corollary 19.2.2 
-	(Bott Periodicity). For any $A$ and $B$, we have
-	$$
-	KK^1\left(A, B \right) \cong KK\left( A, SB\right) \cong KK\left(SA, B \right) 
-	$$
-	and $KK\left( A, B\right)\cong KK^1\left(A, SB \right) \cong KK^1\left( SA, B\right)\cong KK\left( S^2A, B\right) \cong KK\left(SA, SB \right)$   . The isomorphisms are induced by intersection product with a fixed
-	element, and are therefore natural in $A$ and $B$.
-\end{corollary}
-\begin{corollary}\label{bott_kk_e_cor}\cite{blackadar:ko}
-	%Corollary 19.2.3 
-	For any $A$, $A$ and $S^2A$ are $KK$-equivalent. In particular ,
-	$\C$ and $C_0\left(\R^2 \right)$  are $KK$-equivalent.
-\end{corollary}
 
 \begin{empt}\label{commutative_k_empt}
 %9.4.3.
@@ -5293,6 +5359,31 @@ GL_1\left(  C_0\left(\sX \right)\right) / GL_1\left( C_0\left(\sX \right)\right)
 %\eean 
 %The map $\a$ has degree 0 and $\bt$ has degree 1. The sequence is natural in each variable, and splits unnaturally. So if $K_*\left(A \right)$ or $K_*\left(A \right)$ is torsion-free, $\a$ is an isomorphism.
 %\end{theorem} 
+
+\begin{empt}\cite{blackadar:ko}
+Let $A$ be a $C^*$-algebra, $G$ a locally compact group, and $\a$ continuous homomorphism
+from $A$ into $\Aut\left(A \right)$ , the group of $*$-automorphisms of $A$ with the
+topology of pointwise norm-convergence. A {\it covariant representation }of the covariant
+system $\left( A, G, \a\right)$  is a pair of representations $\left(\pi, \rho \right)$  of $A$ and $G$ on the
+same Hilbert space such that $\rho(g)\pi(a)\rho(g)^*$ for all $a \in A$, $g \in G$.
+Each covariant representation of $\left( A, G, \a\right)$ gives a representation of the twisted
+convolution algebra $C_c\left(G, A \right)$  by integration, and hence a pre-$C^*$-norm on this
+$*$-algebra. The supremum of all these norms is a $C^*$-norm, and the completion
+of $C_c\left(G, A \right)$  with respect to this norm is called the {\it crossed product} of $A$ by $G$
+under the action $\a$, denoted $A \rtimes_\a G$, or sometimes $C^*\left( A, G\right)$ or $C^*\left( A, G, \a\right)$.
+The $*$-representations of $A \rtimes_\a G$ are in natural one-one correspondence with the
+covariant representations of the system $\left( A, G, \a\right)$. 
+If$\a$ is a single automorphism of $A$, we may regard $\a$ as giving an action of $A$ on $A$; the crossed product will be called the crossed product of $A$ by $\a$
+\end{empt}
+
+\begin{theorem}\label{takai_theorem}\cite{blackadar:ko}
+%Theorem 10.1.2 (Takai Duality). 
+Let $\left( A, G, \a\right)$ be a covariant system with
+$G$ Abelian. Then $\left(A\rtimes_\a G \right)\rtimes_{\hat\a} \hat G \cong K\left( L^2\left(G \right) \right)$. 
+So the second crossed product
+is stably isomorphic to $A$, and is stable if $G$ is infinite (if $G$ has $n$ elements, it is
+$\mathbb{M}_n\left(A \right)$. %Under this isomorphism, the second dual action %$\hat{\hat{\a}}$ of $G$ on the second crossed product $\a\otimes \la$, where $\la$ is the action of $G$ on $K\left(L^2\left(  \right)\right) $  coming from the regular representation of $G$.
+\end{theorem}
 \begin{theorem}\label{p_v_theorem}\cite{blackadar:ko}
 %	Theorem 10.2.1 (Pimsner{Voiculescu Exact Sequence). 
 	Let A be a $C^*$-algebra and $\a \in \Aut\left( A\right)$. Then there is a cyclic six-term exact sequence
@@ -5303,14 +5394,14 @@ GL_1\left(  C_0\left(\sX \right)\right) / GL_1\left( C_0\left(\sX \right)\right)
 \end{tikzcd}
 \eean
 \end{theorem}
-\begin{definition}\label{mapping_torus_defn}
+\begin{definition}\label{mapping_torus_defn}\cite{blackadar:ko}
 %Definition 10.3.1. 
 Let $\a\in \Aut\left( A\right)$ . The {\it mapping torus} of $\a$ is
 \bean
 M_\a \bydef \left\{f : \R \to A : f\left( x+1\right) = \a f(x)\right\}\cong \left\{f: \left[0,1\right]\to A | f(1)= \a\left( f(0)\right) \right\}
 \eean
 \end{definition}
-\begin{empt}
+\begin{empt}\cite{blackadar:ko}
 There is an exact sequence
 \be 
 \{0\}\hookto S A \hookto M_\a \onto A \onto \{0\}
@@ -5320,11 +5411,11 @@ We need the following structure theorem for crossed products. If $\th$ is an
 action of $\R$ on a $C^*$-algebra $B$, and $\th$ is trivial on $\Z$, then $\bt$ drops to an action
 of $\T \cong \R/\Z$, also denoted $\bt$. $\bt$ induces an action $\hat \bt$ of $\hat \T\cong \Z$ on $B \times_\bt\T$ , i.e. an automorphism of $B \times_\bt\T$.
 \end{empt}
-\begin{proposition}
+\begin{proposition}\cite{blackadar:ko}
 %Proposition 10.3.2. 
 $B \times_\bt \R$ is isomorphic to the mapping torus of $\hat \bt$ on $B \times_\bt \T$.
 \end{proposition}
-\begin{empt}
+\begin{empt}\cite{blackadar:ko}
 Suppose $\a \in \Aut\left( A\right)$, and let $B \bydef A\rtimes \Z$. There is an action $\bt \bydef \hat \a$ of $T$ on $B$; we may regard $\bt$  as an action of $\R$ on $B$ with $\Z$ acting trivially. We have $B \rtimes_\bt \T \cong A \otimes \K$ by Takai duality, and $B \rtimes_\bt \R \cong M_{\hat \bt}$. Thus there is a short exact sequence
 \be
 \{0\}\hookto S\left( A \otimes \K\right) \hookto B\rtimes_\bt \R \onto A \otimes \K\onto \{0\}.
@@ -5334,7 +5425,7 @@ exact sequence is just the six-term exact sequence associated to this extension.
 It only remains to show that the connecting maps in this exact sequence are
 of the form $1 - \a_*$, which comes from the following two propositions.
 \end{empt}
-\begin{proposition}
+\begin{proposition}\cite{blackadar:ko}
 %Proposition 10.4.1. 
 Let $\a \in \Aut\left( A\right)$, and let $M_\a$ be the
  mapping torus. If
@@ -5348,12 +5439,12 @@ in the six-term exact sequence
 \ee
 are of the form $1-\a_*$.
 \end{proposition}
-\begin{proposition}
+\begin{proposition}\label{k_aut_prop}\cite{blackadar:ko}
 %Proposition 10.4.2. 
 Let $\a \in \Aut\left(A \right), ~\ga \in \Aut\left(\K \right)$. If $K_i\left( A\right)$  is identified  with
 $K_i\left(A \otimes  \K\right)$  in the standard way, then $\a_* = \left(\a\otimes\ga \right)_*$.
 \end{proposition}
-\begin{proposition}
+\begin{proposition}\cite{blackadar:ko}
 %$Proposition 10.4.3.$ Let  be an automorphism of a C-algebra A. 
 Then $K_i\left(A \rtimes_\a \Z \right)\cong K_{1-i}\left( M_\a\right)$  for $i = 0, 1$. The isomorphism is natural with respect to covariant homomorphisms.
 \end{proposition}
