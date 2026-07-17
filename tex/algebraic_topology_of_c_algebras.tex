@@ -966,7 +966,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		Any functor  $\mathfrak{Top}\to \mathscr C$ and/or $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 	\end{definition}
-	\begin{lemma}\label{suspension_lem}
+	\begin{lemma}\label{product_lem}
 		For any $C^*$-algebra $A$ and any locally compact Hausdorff space $\sX$ there is the natural homeomorphism
 		\be\label{suspension_g_eqn}
 		\begin{split}
@@ -1346,88 +1346,40 @@ The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic clas
 		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 	\end{split}
 	\ee 
-		\begin{empt}
-			If $C^*$-algebra $A$ is not unital then $A$ is a closed two-sided ideal of $A^+$.  For any $n \in \N$ let
-			\be\label{gl_k_eqn}!!!
-	\begin{split}
-\mathrm{GL}_n\left( A \otimes \K\right) \bydef 
-		\begin{pmatrix}
-	  \mathrm{GL}_n\left( A\right)& 0& 0 &\ldots\\
-0 &  1 & 0 &\ldots \\
-0& 0& 1& \ldots \\
-	\vdots& \vdots & \vdots & \ddots \\
-\end{pmatrix}\subset \mathrm{GL}_n\left( \left( A \otimes \K\right)^+\right)
-\end{split}
-	\ee
-	where $\mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}$ (cf. the equation \eqref{gl_eqn})
-			 
-			
-			
-			
-			One has the quotient map  $\pi: A \to A^+/A$.  Similarly to the Appendix \ref{k0_empt} suppose than both  $e, f$ are idempotents in $\mathbb{M}_n\left( A^+\right)\subset \mathbb{M}_\infty\left( A^+\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$ and 
-			with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$.
-			\be\label{k0_1_eqn!1}!!!
-			\begin{split}
-				(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
-			\ee
-			The inclusion $\mathbb{M}_n\left( A^+\right)\subset A^+\otimes K$ naturally  yields corresponding to $e$ ans $f$ idempotents $e_\K, f_\K \in A^+\otimes \K$. If both $z', z'' \in M\left(A^+ \right)$ are representatives of $z$ and $z^{-1}$ respectively then 
-			\bean
-			z'z'' \in \mathbb{M}_n\left( A\right)
-			\eean 
-
-
-
-!!!!	
-	
-The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.	
-	, so from the Corollary \ref{one_point_cor} it follows that
-	\bean
-	\mathfrak{Gelfand}_r\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}_r\left(A\otimes \K \right)\cup\{x_0\}
-	\eean
-	\end{empt}
-	
-	\paragraph{title}
-\begin{notation}\cite{blackadar:ko}!!!
-	We use the following definition
-	\be\label{gl_eqn!}!!!
-	\forall n \in \N\quad \mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}
-	\ee
-\end{notation}
-	\begin{empt}\cite{blackadar:ko}\label{k0_empt!}!!!
-		Let $A$  be unital algebra, $J$ a closed two-sided ideal in $A$, and $\pi: A \to A/J$ the quotient map. A group $K_0\left(A, J \right)$  has generators $\left(e, f, z \right)$  , where $e, f$ are idempotents in $\mathbb{M}_n\left( A\right)\subset \mathbb{M}_\infty\left( A\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$
-		with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$ ; and relations
-		\be\label{k0_1_eqn!}!!!
-		\begin{split}
-			(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
-		\ee
-		and $(e_1, f_1, z_1 ) = (e_2, f_2, z_2 )$ if there are idempotents $g_1, g_2\in \mathbb{M}_n\left( A\right)$ and invertible
-		elements $u, v \in \mathbb{M}_{n+k}\left( A\right)$ with
-		\be\label{k0_2_eqn}
-		\begin{split}
-			u\mathrm{diag}\left( e_1, g_1\right)u^{-1}= \mathrm{diag}\left( e_2, g_2\right),\\
-			v\mathrm{diag}\left( f_1, g_1\right)v^{-1}= \mathrm{diag}\left( f_2, g_2\right),\\
-			\pi\left(v\right)\mathrm{diag}\left( z_1, 1\right)\pi\left(u\right)^{-1}= \mathrm{diag}\left( z_2, 1\right).
-		\end{split}
-		\ee
-	\end{empt}
-	\paragraph{title}
+%		\begin{empt}
+%			If $C^*$-algebra $A$ is not unital then $A$ is a closed two-sided ideal of $A^+$.  For any $n \in \N$ let
+%			\be\label{gl_k_eqn}!!!
+%	\begin{split}
+%\mathrm{GL}_n\left( A \otimes \K\right) \bydef 
+%		\begin{pmatrix}
+%	  \mathrm{GL}_n\left( A\right)& 0& 0 &\ldots\\
+%0 &  1 & 0 &\ldots \\
+%0& 0& 1& \ldots \\
+%	\vdots& \vdots & \vdots & \ddots \\
+%\end{pmatrix}\subset \mathrm{GL}_n\left( \left( A \otimes \K\right)^+\right)
+%\end{split}
+%	\ee
+%	where $\mathrm{GL}_n\left(A \right) \bydef \left\{\left.x \in \mathrm{GL}_n\left(A^+ \right)\right| x\equiv 1_n \mod  \mathbb{M}_n\left( A\right) \right\}$ (cf. the equation \eqref{gl_eqn})
+%			One has the quotient map  $\pi: A \to A^+/A$.  Similarly to the Appendix \ref{k0_empt} suppose than both  $e, f$ are idempotents in $\mathbb{M}_n\left( A^+\right)\subset \mathbb{M}_\infty\left( A^+\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$ and 			with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$.
+%			\be\label{k0_1_eqn!1}!!!
+%			\begin{split}
+%				(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
+%			\ee
+%			The inclusion $\mathbb{M}_n\left( A^+\right)\subset A^+\otimes K$ naturally  yields corresponding to $e$ ans $f$ idempotents $e_\K, f_\K \in A^+\otimes \K$. If both $z', z'' \in M\left(A^+ \right)$ are representatives of $z$ and $z^{-1}$ respectively then 
+%			\bean
+%			z'z'' \in \mathbb{M}_n\left( A\right)
+%			\eean 
+%The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.		, so from the Corollary \ref{one_point_cor} it follows that
+%	\bean
+%	\mathfrak{Gelfand}_r\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}_r\left(A\otimes \K \right)\cup\{x_0\}
+%	\eean
+%	\end{empt}
+%	
+%	\paragraph{title}
 \begin{lemma}\label{ring_auto_lem}
 	Any $g \in U\left(\left(A\otimes \K \right) ^+ \right)$ yields a ring automorphism of $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\right) $ with respect to the cup-product (cf. Definition \ref{cup_sheaf_thm}).
 \end{lemma}	
 
-\begin{definition}\label{k0_defn!}\cite{blackadar:ko}!!!
-	%Definition 5.5.1. 
-	$K_0\left( A\right) \bydef K_0\left(A^+, A \right)$. 
-\end{definition}
-\begin{remark}\label{k0_rem!}\cite{blackadar:ko}!!!
-	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism
-	\be\label{k0_eqn} 
-	\om_A : K_{00}(A) \to 
-	K_0\left(A \right).
-	\ee
-\end{remark}
-
-\paragraph{title}
 \begin{proof}
 The group $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$ is a free Abelian group generated by quasicomponents of $\mathfrak{Gelfand}_r\left(A\otimes \K \right)$. Moreover if both $\sU', \sU''\subset \mathfrak{Gelfand}_r\left(A\otimes \K \right)$ are quasicomponents then
 \be\label{cup_u_eqn}
@@ -1500,18 +1452,29 @@ There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otim
 		$$
 	U\left(\left(A\otimes \K \right) ^+ \right)\times H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)$$ 	
 		\end{rem}
-		\begin{rem}
-	From \eqref{k_1_eqn} and the Corollary !!!! \ref{bott_kk_cor} it follows that for any $k \ge 0$ one has
-	\bea\label{k0_s_eqn}
-K_{0}\left(A \right) \cong H^1_c\left(S^{2k +1}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k + 1}; \Z \right),\\\label{k1_s_eqn}
-K_{1}\left(A \right)  \cong H^1_c\left(S^{2k}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right)
-\eea
-or equivalently  
-\be\label{k01_s_eqn} 
-K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{r}; \Z \right)
-\ee
-for each $r \ge 0$.
-	\end{rem}
+				\begin{theorem}\label{full_k_thm}
+	For any $k \ge 0$ one has
+			\bea\label{k0_s_eqn}
+			K_{0}\left(A \right) \cong H^1_c\left(S^{2k +1}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k + 1}; \Z \right),\\\label{k1_s_eqn}
+			K_{1}\left(A \right)  \cong H^1_c\left(S^{2k}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right)
+			\eea
+			or equivalently  
+			\be\label{k01_s_eqn} 
+			K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{r}; \Z \right)
+			\ee
+			for each $r \ge 0$.
+		\end{theorem}
+		\begin{proof}
+	From \eqref{k_1_eqn} it follows that 
+	\bean
+K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right). 
+\eean
+From the Theorems \ref{suspension_thm} and \ref{bott_map_thm} and the Lemma \ref{product_lem} it follows that 
+	\bean
+\forall k \in \N \quad K_{1}\left(A \right) \cong K_{1}\left(S^{2k} A \right) \cong K_{1}\left(A \otimes C_0\left( \R^{2k} \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right). 
+\eean
+The equation \eqref{k0_s_eqn} can be proven by similar way.
+	\end{proof}
 \subsection{Multiplicative structures}
 \paragraph{} The Appendix \ref{mult_k_sec} describes the cup  product on the topological $K$-theory given by 
 \be\label{k_top_p_eqn}
@@ -1554,7 +1517,7 @@ then there are unitary  $u', u'' \in U\left( \left( \mathbb{M}_{n'}\left( A\righ
   u'' \left(a' \otimes a'' \otimes x' \otimes x''\right) \bydef \sum_\a a' \otimes a''_\a \otimes x' \otimes x''_\a
  \end{split}
  \ee
-From the Lemma \ref{suspension_lem}, the isomorphisms  \eqref{is_m_eqn}  and the equation \eqref{dl_sh_eqn} the above unitary elements can be regarded as representatives of homology groups, i.e.
+From the Lemma \ref{product_lem}, the isomorphisms  \eqref{is_m_eqn}  and the equation \eqref{dl_sh_eqn} the above unitary elements can be regarded as representatives of homology groups, i.e.
 \be\label{h1is_m_eqn}
 \begin{split}
 	\left[v'\right]\in H^1_c\left(\sX \times \R^{r'}; \Z \right),\\ 
@@ -1566,10 +1529,27 @@ From the Lemma \ref{suspension_lem}, the isomorphisms  \eqref{is_m_eqn}  and the
 From the Theorem \ref{cup_sheaf_thm} there is a cup product
 \be\label{h1isc_m_eqn}
 \begin{split}
- \left[u'\right]\smile \left[u''\right]\in H^2_c\left(\sX \times \R^{r'+ r''}; \Z\otimes \Z \right)\cong H^2_c\left(\sX \times \R^{r'+ r''}; \Z \right).
+	\left[u'\right]\smile \left[u''\right]\in H^2_c\left(\sX \times \R^{r'+ r''}; \Z\otimes \Z \right)\cong H^2_c\left(\sX \times \R^{r'+ r''}; \Z \right).
+\end{split}
+\ee 
+One has
+\be\label{kunnet_sheafrr_eqn}
+\begin{split}
+	\sX \times \R^{r'+ r''} = \left(\sX \times \R^{r'+ r'' - 1}\right) \times \R,\\
+	H^p_c\left(\R; \Z \right)= \begin{cases}
+		0 & p \neq 1,\\
+		1 & p = 1
+	\end{cases}
+	\end{split}
+	\ee
+so from  Theorem \ref{kunnet_sheaf_thm} it follows that
+\be\label{kunnet_sheafr_eqn}
+\begin{split}
+	\bigoplus_{p+q = n} H^p_c\left(\sX \times \R^{r'+ r'' - 1}; \Z \right) \otimes H^q_c\left(\R; \Z \right)\hookto H^n_c\left(\sX \times \R^{r'+ r''}; \Z \otimes \Z \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX \times \R^{r'+ r'' - 1}; \Z \right),  H^p_c\left(\R; \Z \right) \right). 
 \end{split}
 \ee
-Using the equations \eqref{red_eqn}  \eqref{red_c_eqn} one can prove that the product  $\left[u'\right]\smile \left[u''\right]$ uniquely defines an element $\bt \in H^1_c\left(\sX \times \R^{r'+ r'' + 1}; \Z \right)$. From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v'\right]$ and $\bt$ can be regarded as elements of $K$-groups, i.e.
+Both \eqref{kunnet_sheafrr_eqn} and \eqref{kunnet_sheafr_eqn} yield the following group isomorphism $H^2_c\left(\sX \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\sX \times \R^{r'+ r''-1}; \Z \right)$.
+From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v'\right]$ and $\bt$ can be regarded as elements of $K$-groups, i.e.
 \be\label{h1isk_m_eqn}
 \begin{split}
 	\left[v'\right]_K \in K_{r'+ 1~ \mathrm{mod}~2 }\left(A \right),\\ 
@@ -1579,8 +1559,9 @@ Using the equations \eqref{red_eqn}  \eqref{red_c_eqn} one can prove that the pr
 \ee
 where the subscript "$_K$ means that the elements of cohomology are regarded as elements of $K$-groups. We define 
 \be\label{smile_d_eqn}
-	\left[v'\right]_K \smile	\left[v''\right]_K\bydef \bt_K 
+\left[v'\right]_K \smile	\left[v''\right]_K\bydef \bt_K 
 \ee
+	
 \begin{theorem}\label{cup_prod_thm}
 For any $C^*$-algebra $A$ the equation \eqref{smile_d_eqn} yields a multiplicative structure on the group $K_*\left( A\right)$, i.e. there is the natural cup product
 \be\label{cup_product_eqn}
@@ -2304,7 +2285,7 @@ x' \smile x'' = \begin{cases}
 	\end{enumerate}
 	
 \end{definition}
-Suppose that the noncommutative torus $C\left(\T^n_\th \right)$ is {good}. The Lemma  \ref{suspension_lem} it follows that 
+Suppose that the noncommutative torus $C\left(\T^n_\th \right)$ is {good}. The Lemma  \ref{product_lem} it follows that 
 		\be 
 \begin{split}
 \mathfrak{Gelfand}_r\left(C_0\left(S^1 \right)\otimes  C\left(\T^n_\th \right)\right)   \cong S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right)
