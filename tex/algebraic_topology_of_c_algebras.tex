@@ -1488,6 +1488,25 @@ The equation \eqref{k0_s_eqn} can be proven by similar way.
 \smile : K_p\left(A \right) \otimes K_q\left(A \right) \to K_{p+q~ \mathrm{mod}~2}\left(A \right) \quad \forall p, q \in \{0, 1\}.
 \ee
 of the product \eqref{k_top_p_eqn}
+According to \cite{bredon:sheaf} one has
+\be\label{kunnet_sheafrr_eqn}
+\begin{split}
+	H^p_c\left(\R^r; \Z \right)= \begin{cases}
+		0 & p \neq r,\\
+		1 & p = r
+	\end{cases}
+\end{split}
+\ee
+If $\sX$ is a locally compact Hausdorff space then Theorem \ref{kunnet_sheaf_thm} it follows that
+\be\label{kunnet_sheafr_eqn}
+\begin{split}
+	\bigoplus_{p+q = n} H^p_c\left(\sX ; \Z \right) \otimes H^q_c\left(\R^r; \Z \right)\hookto H^{n}_c\left(\sX \times \R^{r}; \Z \otimes \Z \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX ; \Z \right),  H^p_c\left(\R^r; \Z \right) \right). 
+\end{split}
+\ee
+and taking into account \eqref{h1is_m_eqn} we have
+\be\label{shift_hom_eqn}
+H^p_c\left( \sX \times \R^k\right) = H^{p + k}_c\left( \sX\right).
+\ee
 
 Let $A$ be a {\bf stable} $C^*$-algebra and $\sX \bydef \mathfrak{Gelfand}_r\left(A\right)$. Since $A$ is stable for all $n', n'' \in \N$ there are $*$-isomorphisms 
 \be\label{s_m_eqn}
@@ -1520,46 +1539,30 @@ then there are unitary  $u', u'' \in U\left( \left( \mathbb{M}_{n'}\left( A\righ
 From the Lemma \ref{product_lem}, the isomorphisms  \eqref{is_m_eqn}  and the equation \eqref{dl_sh_eqn} the above unitary elements can be regarded as representatives of homology groups, i.e.
 \be\label{h1is_m_eqn}
 \begin{split}
-	\left[v'\right]\in H^1_c\left(\sX \times \R^{r'}; \Z \right),\\ 
-	\left[v''\right]\in H^1_c\left(\sX \times \R^{r''}; \Z \right),\\ 
-	\left[u'\right]\in H^1_c\left(\sX \times \R^{r'+ r''}; \Z \right),\\ 
-	\left[u''\right]\in H^1_c\left(\sX \times \R^{r'+ r''}; \Z \right),\\ 
+	\left[v'\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z \right),\\ 
+	\left[v''\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r''}; \Z \right),\\ 
+	\left[u'\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r'+ r''}; \Z \right),\\ 
+	\left[u''\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r'+ r''}; \Z \right),\\ 
 \end{split}
 \ee
 From the Theorem \ref{cup_sheaf_thm} there is a cup product
 \be\label{h1isc_m_eqn}
 \begin{split}
-	\left[u'\right]\smile \left[u''\right]\in H^2_c\left(\sX \times \R^{r'+ r''}; \Z\otimes \Z \right)\cong H^2_c\left(\sX \times \R^{r'+ r''}; \Z \right).
+	\left[u'\right]\smile \left[u''\right]\in H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z\otimes \Z \right)\cong \\ \cong H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right).
 \end{split}
 \ee 
-One has
-\be\label{kunnet_sheafrr_eqn}
-\begin{split}
-	\sX \times \R^{r'+ r''} = \left(\sX \times \R^{r'+ r'' - 1}\right) \times \R,\\
-	H^p_c\left(\R; \Z \right)= \begin{cases}
-		0 & p \neq 1,\\
-		1 & p = 1
-	\end{cases}
-	\end{split}
-	\ee
-so from  Theorem \ref{kunnet_sheaf_thm} it follows that
-\be\label{kunnet_sheafr_eqn}
-\begin{split}
-	\bigoplus_{p+q = n} H^p_c\left(\sX \times \R^{r'+ r'' - 1}; \Z \right) \otimes H^q_c\left(\R; \Z \right)\hookto H^n_c\left(\sX \times \R^{r'+ r''}; \Z \otimes \Z \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX \times \R^{r'+ r'' - 1}; \Z \right),  H^p_c\left(\R; \Z \right) \right). 
-\end{split}
-\ee
-Both \eqref{kunnet_sheafrr_eqn} and \eqref{kunnet_sheafr_eqn} yield the following group isomorphism $H^2_c\left(\sX \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\sX \times \R^{r'+ r''-1}; \Z \right)$.
-From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v'\right]$ and $\bt$ can be regarded as elements of $K$-groups, i.e.
+If $r' + r'' \ge 1$ then the equation  \eqref{shift_hom_eqn} yield the following group isomorphism $$\phi^2_1: H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''-1}; \Z \right)$$.
+From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v''\right]$ and $\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]$ can be regarded as elements of $K$-groups, i.e.
 \be\label{h1isk_m_eqn}
 \begin{split}
 	\left[v'\right]_K \in K_{r'+ 1~ \mathrm{mod}~2 }\left(A \right),\\ 
 	\left[v''\right]_K \in K_{r''+1~ \mathrm{mod}~2 }\left(A \right),\\ 
-	\bt_K  \in K_{r' + r'' +1 + 1~ \mathrm{mod}~2 }\left(A \right)
+		\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]_K  \in K_{r' + r'' +1 - 1~ \mathrm{mod}~2 }\left(A \right)
 \end{split}
 \ee
 where the subscript "$_K$ means that the elements of cohomology are regarded as elements of $K$-groups. We define 
 \be\label{smile_d_eqn}
-\left[v'\right]_K \smile	\left[v''\right]_K\bydef \bt_K 
+\left[v'\right]_K \smile	\left[v''\right]_K\bydef 	\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]_K
 \ee
 	
 \begin{theorem}\label{cup_prod_thm}
@@ -1571,7 +1574,20 @@ For any $C^*$-algebra $A$ the equation \eqref{smile_d_eqn} yields a multiplicati
 \begin{proof}
 	To prove this theorem one should state the associativity of the cup product. It follows from the Proposition \ref{cup_ass_prop}.
 \end{proof}
-
+\begin{lemma}
+	There is the natural degree 1 isomorphism of rings
+\be\label{d1_d_eqn}
+K_*\left( A\right) \cong K_*\left( A\otimes \R\right)
+\ee
+i.e. \eqref{d1_d_eqn} corresponds to the isomorphisms 
+\be\label{d1_dd_eqn}
+\forall j = 0, 1 \quad K_j\left( A\right) \cong K_{1 - j}\left( A\otimes \R\right)
+\ee
+given ny the Theorems \ref{suspension_thm} and \ref{bott_map_thm}.
+\end{lemma}
+\begin{proof}
+The group  isomorphism 	follows from the Theorems \ref{suspension_thm} and \ref{bott_map_thm}.  Using the equation \eqref{smile_d_eqn} one  can prove that it is the ring homomorphism.
+\end{proof}
 \begin{remark}\label{cup_prod_rem}
 If $A$ be an unital $C^*$-algebra then any element of $x' \in K_0\left( A\right)$ can be represented by $y' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$. If $z \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ then from the Remark \ref{inv_h1_rem}  it follows that
 \be
@@ -5288,7 +5304,7 @@ exact sequence for all $n$.
 \end{empt}
 \begin{remark} It is proven in \cite{blackadar:ko} that
 	 there is a commutative diagram 
-\be
+\be\label{ba_eqn}
 \begin{tikzcd}
 \{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right) \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
 \{{0}\}\arrow[r]& K_1\left(SA \right) \arrow[r] & K_1\left(SA^+ \right) \arrow[r] & K_1\left(S\C \right) \arrow[r]& \{{0}\}
@@ -5297,7 +5313,7 @@ exact sequence for all $n$.
 such that vertical arrows are isomorphisms.
 \end{remark}
 
-\begin{theorem}\label{bott_map_thm}\cite{blackadar:ko} $\bt_A$ is an isomorphism.
+\begin{theorem}\label{bott_map_thm}\cite{blackadar:ko} $\bt_A$ (cf. \eqref{ba_eqn}) is an isomorphism.
 	%Theorem 9.2.1 (Bott Periodicity). 
 \end{theorem}
 \begin{exercise}\label{cs1_exer}\cite{blackadar:ko}
