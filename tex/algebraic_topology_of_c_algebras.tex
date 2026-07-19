@@ -1508,61 +1508,47 @@ and taking into account \eqref{h1is_m_eqn} we have
 H^p_c\left( \sX \times \R^k\right) = H^{p + k}_c\left( \sX\right).
 \ee
 
-Let $A$ be a {\bf stable} $C^*$-algebra and $\sX \bydef \mathfrak{Gelfand}_r\left(A\right)$. Since $A$ is stable for all $n', n'' \in \N$ there are $*$-isomorphisms 
-\be\label{s_m_eqn}
+If $A$ be a {\bf stable} $C^*$-algebra then from the Lemma \ref{product_lem} and the Theorem \ref{full_k_thm} it turns out that
+\bean
+K_1\left(A \otimes C_0\left(\R^r \right) \right)\cong  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z \right),
+\eean 
+For any $r', r'' > 0$ there are surjective continuous projections 
+\bean
+p_1 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'},\\
+p_2 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}
+\eean 
+If both $\mathscr A'$ and  $\mathscr A''$ are $\Z$-locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}) on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}$ and $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}$ then inverse images $p_1^*\mathscr A'$ and $p_2^*\mathscr A'$ (cf. Definition \ref{sheaf_inv_im_defn})  are $\Z$-locally constant sheaves on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}$. There are given by the equation \eqref{cohom_mor_eqn} group homomorphisms
+\bean
+H^1_c\left(p_1 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \mathscr A'\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\right),\\
+H^1_c\left(p_2 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \mathscr A''\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_2^*\mathscr A''\right)
+\eean 
+There is a homomorphism 
+\be\label{pssh_eqn}
 \begin{split}
-A \cong \mathbb{M}_{n'}\left( A\right) \cong \mathbb{M}_{n''}\left( A\right) \cong \mathbb{M}_{n'}\left( A\right) \otimes \mathbb{M}_{n''}\left( A\right) 
+  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \mathscr A'\right)\otimes  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \mathscr A''\right)\to \\ \to 
+H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\otimes p^*_2\mathscr A''\right),\\
+u_1 \otimes u_2\mapsto H^1_c\left(p_1 \right)\left(u_1 \right) \smile H^1_c\left(p_2 \right)\left(u_2 \right).
 \end{split}
 \ee
-If $r', r'', n', n'' \in \N$ then there are $*$-isomorphisms
-\be\label{is_m_eqn}
+the the cup product $\smile$ is given by the Theorem \ref{cup_sheaf_thm}. Taking into account that   $\mathscr A'$, $\mathscr A''$, $p^*_1\mathscr A'$, $p^*_2\mathscr A''$ are  $\Z$-locally constant sheaves the map \eqref{pssh_eqn} naturally yields a pairing
+\be\label{psshz_eqn}
 \begin{split}
-A\otimes C_0\left( \R^{r'}\right) \cong \mathbb{M}_{n'}\left( A\right)\otimes C_0\left( \R^{r'}\right),\\
-A\otimes C_0\left( \R^{r''}\right) \cong \mathbb{M}_{n''}\left( A\right)\otimes C_0\left( \R^{r''}\right),\\
-A\otimes C_0\left( \R^{r'+r''}\right) \cong  \mathbb{M}_{n'}\left( A\right)\otimes  \mathbb{M}_{n''}\left( A\right)\otimes C_0\left( \R^{r'}\right)\otimes C_0\left( \R^{r''}\right).
+	\smile : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z\right)\otimes  : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \Z\right)\to \\ \to 
+	H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\otimes\Z\right)\cong H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\right).\\
 \end{split}
 \ee
-If both $v' \in U\left( \left( \mathbb{M}_{n'}\left( A\right)\otimes C_0\left( \R^{r'}\right)\right)^+\right)$ and $v'' \in U\left( \left( \mathbb{M}_{n''}\left( A\right)\otimes C_0\left( \R^{r''}\right)\right)^+\right)$ are unitary elements such that 
-\be\label{iss_m_eqn}
-\begin{split}
-v' \left(a'\otimes x'  \right) = \sum_\a a'_\a \otimes x'_\a, \quad a'\otimes x'\in\mathbb{M}_{n'}\left( A\right)\otimes C_0\left( \R^{r'}\right);\\ 
-v'' \left(a''\otimes x''  \right) = \sum_\a a''_\a \otimes x''_\a,  \quad a''\otimes x''\in\mathbb{M}_{n''}\left( A\right)\otimes C_0\left( \R^{r''}\right)
-\end{split}
-\ee
-then there are unitary  $u', u'' \in U\left( \left( \mathbb{M}_{n'}\left( A\right)\otimes  \mathbb{M}_{n''}\left( A\right)\otimes C_0\left( \R^{r'}\right)\otimes C_0\left( \R^{r''}\right)^+\right) \right)$ such that
- \be\label{sis_m_eqn}
- \begin{split}
- u' \left(a' \otimes a'' \otimes x' \otimes x''\right) \bydef \sum_\a a'_\a \otimes a'' \otimes x'_\a \otimes x'',\\
-  u'' \left(a' \otimes a'' \otimes x' \otimes x''\right) \bydef \sum_\a a' \otimes a''_\a \otimes x' \otimes x''_\a
- \end{split}
- \ee
-From the Lemma \ref{product_lem}, the isomorphisms  \eqref{is_m_eqn}  and the equation \eqref{dl_sh_eqn} the above unitary elements can be regarded as representatives of homology groups, i.e.
-\be\label{h1is_m_eqn}
-\begin{split}
-	\left[v'\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z \right),\\ 
-	\left[v''\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r''}; \Z \right),\\ 
-	\left[u'\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r'+ r''}; \Z \right),\\ 
-	\left[u''\right]\in H^1_c\left(\mathfrak{Gelfand}_r\left(A\right)  \times \R^{r'+ r''}; \Z \right),\\ 
-\end{split}
-\ee
-From the Theorem \ref{cup_sheaf_thm} there is a cup product
-\be\label{h1isc_m_eqn}
-\begin{split}
-	\left[u'\right]\smile \left[u''\right]\in H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z\otimes \Z \right)\cong \\ \cong H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right).
-\end{split}
-\ee 
-If $r' + r'' \ge 1$ then the equation  \eqref{shift_hom_eqn} yield the following group isomorphism $$\phi^2_1: H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''-1}; \Z \right)$$.
+If $r' + r'' \ge 1$ then the equation  \eqref{shift_hom_eqn} yield the following group isomorphism $$\phi^2_1: H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''-1}; \Z \right).$$
 From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v''\right]$ and $\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]$ can be regarded as elements of $K$-groups, i.e.
 \be\label{h1isk_m_eqn}
 \begin{split}
-	\left[v'\right]_K \in K_{r'+ 1~ \mathrm{mod}~2 }\left(A \right),\\ 
-	\left[v''\right]_K \in K_{r''+1~ \mathrm{mod}~2 }\left(A \right),\\ 
-		\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]_K  \in K_{r' + r'' +1 - 1~ \mathrm{mod}~2 }\left(A \right)
+	u'_K \in K_{r'+ 1~ \mathrm{mod}~2 }\left(A \right),\\ 
+	u''_K \in K_{r''+1~ \mathrm{mod}~2 }\left(A \right),\\ 
+		\left[\phi^2_1\left(u'\smile u'' \right) \right]_K  \in K_{\left( r' + 1\right) +\left(  r'' +1\right)  - 1~ \mathrm{mod}~2 }\left(A \right)= K_{r'+  r'' +1 ~ \mathrm{mod}~2 }\left(A \right)
 \end{split}
 \ee
 where the subscript "$_K$ means that the elements of cohomology are regarded as elements of $K$-groups. We define 
 \be\label{smile_d_eqn}
-\left[v'\right]_K \smile	\left[v''\right]_K\bydef 	\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]_K
+u'_K \smile	u''_K\bydef 	\left[\phi^2_1\left(	u'\smile u'' \right) \right]_K
 \ee
 	
 \begin{theorem}\label{cup_prod_thm}
@@ -3835,7 +3821,7 @@ may be interpreted as a bilinear map
 	
 	
 	\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-		Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+		Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f*\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over  all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 	\end{definition}
 	\begin{definition}\label{flabby_sheaf_defn}\label{bredon:sheaf}
 	%5.1. Definition. 
@@ -4085,10 +4071,13 @@ $\sX$ we define
 			$k_\sU : B(\sU) \to A\left( f^{-1}\left(\sU \right) \right)$ , for $\sU$ open in $\sY$, compatible with restrictions.	
 		\end{definition}
 			\begin{remark}
-			It is proven in \cite{bredon:sheaf} that if $f: \sX \to\sY$ is a continuous map and  $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
+		 Let $f: \sX \to\sY$ is a continuous map, 
+		let $\Phi$ and $\Psi$ be families of supports
+		on $\sX$ and $\sY$ respectively such that $f^{-1}\Psi  \subset \Phi$.
+		It is proven in \cite{bredon:sheaf} that if   $\mathscr B$ is a sheaf of Abelian groups on $\sY$  then 
 			there is the natural homomorphism
 			\be\label{cohom_mor_eqn}
-			f^*: H^*_\Phi\left(\sY;\mathscr B  \right) \to  H^*_\Phi\left(\sX;f^*\mathscr B  \right).
+			f^*: H^*_\Psi\left(\sY;\mathscr B  \right) \to  H^*_\Phi\left(\sX;f^*\mathscr B  \right).
 			\ee
 			If $\{0\}\hookto \mathscr A' \hookto \mathscr A \onto \mathscr A''\onto \{0\}$ is an exact sequence of sheaves then there is a long exact sequence
 			\be\label{cohom_seq_eqn}
@@ -6595,7 +6584,7 @@ Then $K_i\left(A \rtimes_\a \Z \right)\cong K_{1-i}\left( M_\a\right)$  for $i =
 	\subsection{$K$-theory and Poincar\'e duality}\label{rieffel_sec}\cite{varilly:nc_intro}
 	The noncommutative torus provides an example of a pre-$C^*$-algebra,
 	which is neither commutative nor approximately finite but has an
-	interesting and computable $K$-theory~\cite{r}. The group
+	interesting and computable $K$-theory. The group
 	$K_1(C\left(\T^2_\th \right) )$ is fairly easy to find. There are two generating
 	unitaries, $u$ and~$v$, and all the $u^m v^n$ are mutually
 	non-homotopic in $U(A_\th)$. Indeed, since $\tau_0(1) = 1$ and
