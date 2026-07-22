@@ -1643,24 +1643,19 @@ x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times 
 \ee
 where the cup product is given by \ref{cup_sheaf_thm}. 
 
-
-
-
-\begin{remark}\label{cup_prod_suspernsion_rem}
-	If $A$ is an unital $C^*$-algebra then from the Theorems \ref{suspension_thm} and \ref{bott_map_thm} it turns out that there is the $\Z_2$  isomorphism of Abelian groups.
-	\be\label{cup_prod_suspernsion_eqn}
-	\begin{split}
-		S : K_*\left( A\right) \cong K_*\left( SA\right) 
-	\end{split}
-	\ee
-	where $S$ is the  suspension (cf. Definition \ref{suspension_defn}). The isomorphism inverses grading (is degree 1), i.e. it is given by maps
-	\be\label{cup_prod_suspernsiong_eqn}
-	\begin{split}
-		\forall j = 0, 1 \quad	S : K_{j}\left( A\right) \cong K_{1 - j}\left( SA\right) 
-	\end{split}
-	\ee
-Using the equations \eqref{cup_product_eqn} \eqref{red_eqn}  \eqref{red_c_eqn} one can prove that $S$ is the ring isomorphism.
-\end{remark}
+\begin{definition}\label{deg_1_defn}
+If both $A$ and $B$ are $C^*$-algebras a homomorphism $\phi: K_*\left(A \right) \to K_*\left(B \right)$ \textit{has degree 1} if $\phi\left(K_j\left( A\right)  \right) \subset K_{1=j}\left( B\right)$, $j = 0,1$. We say that $\phi$ is {\it of degree 1}.
+\end{definition}
+\begin{example}\label{degr_1_exanple}
+The Theorems \ref{suspension_thm} and \ref{bott_map_thm} yield isomorphisms  $K_*\left(A \right) \cong K_*\left(SA \right)$  and  $K_*\left(SA \right) \cong K_*\left(A \right)$ of degree 1.
+\end{example}
+\begin{definition}\label{degr_1_defn}
+A homomorphism $\phi: K_*\left(A \right) \to K_*\left(B \right)$ \textit{has degree 1} is a \text{ring homomorphism} if the composition
+\be
+K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)\cong  K_*\left(SB \right)
+\ee
+is the ring homomorphisms, where $K_*\left(B \right)\cong  K_*\left(SB \right)$ is given by the Example \ref{degr_1_exanple}.  Both given by the Example \ref{degr_1_exanple} homomorphisms are ring homomorphisms.
+\end{definition}
 
 \subsection{Standard Exact Sequence}
 
@@ -1704,21 +1699,67 @@ The set $\mathfrak{Gelfand}_r\left(A/J\right)$ is closed in $\mathfrak{Gelfand}_
 	{0} \hookto  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right) \xrightarrow{\pi_*} \\ \xrightarrow{\pi_*} H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\xrightarrow{\dl}H^1_{c}\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)\to ...
 \end{split}
 \ee
-Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $x \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ can represented by  $f_x \in C_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$. The support of $f_x$ is compact so from the Theorem \ref{tietze_ext_thm} there is real valued $y \in C_c\left( \mathfrak{Gelfand}_r\left(A\right)\right)$ such that 
+Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$. The support of $f_x$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}_r\left(A\right); \Z\right)$ such that 
 \be
 \forall \xi \in \mathfrak{Gelfand}_r\left(A/J\right)\quad f_x\left( \xi\right) = y\left( \xi\right) 
 \ee 
 If  
 \be\label{u_x_eqn}
-u_x \bydef e^{2\pi i y}
+u_c\bydef e^{2\pi i b}
 \ee
-then $u_x$ can be regarded  an element of both  $U\left(C_0\left( \mathfrak{Gelfand}_r\left(A/J\right)^+\right)  \right)$, $H^0_{c}\left(\mathfrak{Gelfand}_r\left(J\right);U\left( 1\right)\right)$ and $\left[u_x\right]=\partial x \in K_1\left( J\right)$ (cf. equations \eqref{u_x_eqn} and \eqref{exp_map_eqn}).
+then $u_c$ can be regarded  an element of both  $U\left(C_0\left( \mathfrak{Gelfand}_r\left(A/J\right)^+\right)  \right)$ and \\ $H^0_{c}\left(\mathfrak{Gelfand}_r\left(J\right);U\left( 1\right)\right)$, so $\left[u_c\right]=\partial c \in K_1\left( J\right)$ (cf. equations \eqref{u_x_eqn} and \eqref{exp_map_eqn}).
+If 
+\be\label{sxxh_shh_eqn}
+\begin{split}
+%	\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right) \sU\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z \right)\to... ;
+		\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(J\right) U\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)\to ...
+\end{split}
+\ee
+is  a specializations of \eqref{sxx_shh_eqn}  then there is
+\be\label{a_p_eqn}
+a' \bydef \dl_\SS u_c \in H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)
+\ee
+such that $a'$ is a representative of $\partial c \in K_1\left( J\right)$ (cf. equation \eqref{k_1_eqn})
+\begin{lemma}\label{six_term_lem}
+	The exponential map $\partial : K_0\left(A/ J \right)\to K_1\left( J\right)$ in \eqref{sisf_ext_eqn} corresponds to the homomorphism $\dl$ of \eqref{coh_x_eqn} where the equations of the Theorem \ref{k_h_thm} are implied.
+\end{lemma}
+\begin{proof}
+	There is a specialization of exact sequence of complexes \eqref{longx_pair_eqn} given by
+\be\label{longcx_pair_eqn} 
+0 \hookto C^*_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right) \xrightarrow{\iota} C^*_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z \right)\xrightarrow{\pi} C^*_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\onto 0
+\ee
+Let $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ and $c \in C^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)\cong C_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)$ is a representative of $x$. There is $b \in C^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right)$ such that $c_x = \pi\left( b\right)$. From $\partial c_x = 0$ it follows that  $ \pi\circ \partial \left( b\right) = 0$. It turns out that there is $a\in  C^1_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)$ such that $\partial \left( b\right)= \iota\left(  a\right)$. Since $\iota$ is injective $ \partial^2 \left( b\right)=0$. It follows that $\partial a = 0$, so $a$ is a cycle  According to homological algebra one has 
+\be\label{dl_eqn}
+\dl \left[c\right] = \left[a\right].
+\ee
+From $\dl b = \dl_\SS e^{2\pi i b}$ it follows that  $\left[a\right]= a'$ where $a'$ is given by \eqref{a_p_eqn}.
+\end{proof}
 
 \begin{theorem}\label{six_term_thm}
-The Abelian group homomorphisms $\partial$ in \eqref{sisf_ext_eqn} are degree 1 ring homomorphisms.
+The Abelian group homomorphisms $\partial$ in \eqref{sisf_ext_eqn} yield a  degree 1 ring homomorphisms $K_*\left( A/J\right) \to K_*\left( J\right)$.
 \end{theorem}
 \begin{proof}
-	!!!!
+If $\left[p_1\right], \left[p_2\right]\in K_0\left(S\left( A/ J \right) \right)$ then there are representatives \\ $p_1, p_2 \in H^0_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right) \cong C_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right)$ of these element. Moreover $\left[p_1\right]\cup \left[p_2\right]= \left[p_1p_2\right]$. If both $p'_1, p'_2 \in \in  C_c\left( \mathfrak{Gelfand}_r\left(SA\right); \Z\right)$ are such that  
+\be
+\forall \xi \in \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right)\quad p'_1\left( \xi\right) = p_1\left( \xi\right), \quad  p'_2\left( \xi\right) = p_2\left( \xi\right)
+\ee
+then 
+\be
+\forall \xi \in \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right)\quad \left( p'_1\cdot p_2'\right)\left(\xi \right)  \left( \xi\right) = \left( p_1\cdot p_2\right)\left(\xi \right) 
+\ee
+where $\cdot$ means the product of integer valued functions. It follows that $\partial \left( \left[p_1\right]\cup \left[p_2\right]\right)$ is given by $e^{2\pi i \left( p'_1\cdot p'_2\right) }$. Let  $p''_1, p''_2 \in H^0_c\left( \mathfrak{Gelfand}_r\left( J \right); \Z \right)$ representatives of $\left[p''_1\right], \left[p''_2\right]\in K_0\left(J \right)$ such that
+\bean
+\bt_J\left(  \left[p''_1\right]\right) = \partial \left[p_1\right],\\
+\bt_J\left(  \left[p''_2\right]\right) = \partial \left[p_2\right]
+\eean 
+where $\bt_J$ is the Bott map (cf. Definition \ref{bott_map_defn}). One has 
+	\be\label{cup_pu_eqn}
+\begin{split}
+	\left[p''_1\right]\cup \left[p''_2\right]= \left[\left( p''_1\cdot p''_2\right) \right].\\
+	\bt_J\left(  \left[\left( p''_1\cdot p''_2\right)\right]\right)  = \partial \left( \left[p_1\right]\cup \left[p_2\right]\right)
+\end{split}
+\ee
+!!!!
 \end{proof}
 
 \subsection{Connes' Thom isomorphism and Pimsner-Voiculescu Exact Sequence}
@@ -1742,7 +1783,7 @@ From the theorem \ref{six_term_thm} it follows that  The Abelian group homomorph
 \bean
 	K_*\left(A \right) \cong K_*\left(A \rtimes_\a \R \right). 
 \eean
-From the Remark \ref{c_t_rem} it turns out that this isomorphism coincides with \eqref{c_t_eqn} one.
+This theorem is a consequence of  \eqref{six_term_thm} one.
 \end{proof}	
 \begin{theorem}\label{pimsner_voiculesky_thm}
 If the exact sequence
@@ -1752,10 +1793,11 @@ If the exact sequence
 	K_*\left( A\rtimes \Z\right)\arrow[u , "\partial"] & \arrow[l, "\iota_*"] K_*\left(A \right) & \arrow[l, "1-\a_*"]K_*\left(A \right)
 \end{tikzcd}
 \ee
-comes from  \eqref{p_v_eqn} then both Abelian group homomorphism $\iota_*$ and $\partial$ of \eqref{pimsner_voiculesky_eqn} are  ring homomorphisms having degree 0 and 1 respectively.
+comes from  \eqref{p_v_eqn} then all Abelian group homomorphism $\iota_*$ and $\partial$ of \eqref{pimsner_voiculesky_eqn} are  ring homomorphisms. Both $1-\a_*$ and $\iota_*$ are grade, $\partial$ has degree 1.
 \end{theorem}	
 \begin{proof}
-	Below the notation of \ref{p_v_empt} will be used 
+	 $\a_*$ is a graded ring homomorphism since it comes from continuous map (cf. \eqref{cohom_mor_eqn}), so $1-\a_*$  is also a graded ring homomorphism.
+	Below the notation of \ref{p_v_empt} will be used.
 	The exact sequence \eqref{p_v_sec_eqn} yields the diagram 
 	\be\label{thoh_xexs_eqn}
 	\begin{tikzcd}
@@ -1770,7 +1812,7 @@ comes from  \eqref{p_v_eqn} then both Abelian group homomorphism $\iota_*$ and $
 		K_*\left(  A\right) \arrow[u] &K_*\left(B \rtimes_\bt\R\right)\arrow[l] & K_*\left( A \right)\arrow[l]
 	\end{tikzcd}
 	\ee
-where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\right)$ (resp. $K_*\left( B \rtimes_\bt \R\right)\to K_*\left( A\right)$ has degree 1 (resp. 0). The Theorem \ref{connes_thom_thm} yields the ring ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \right)$ (resp. $K_*\left( B  \right)\to K_*\left( A\right)$ having  degree 0 (resp. 1). Taking into account $B \bydef A\rtimes_\a \Z$ one completes the proof.
+where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\right)$ (resp. $K_*\left( B \rtimes_\bt \R\right)\to K_*\left( A\right)$ has degree 1 (resp. 0). The Theorem \ref{connes_thom_thm} yields the ring ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \right)$ (resp. $K_*\left( B  \right)\to K_*\left( A\right)$ having  degree 0 (resp. 1). Taking into account $B \bydef A\rtimes_\a \Z$ and the Theorem \ref{six_term_thm} one completes the proof. 
 \end{proof}
 
 \section{Hausdorff  blowing-up}
@@ -2161,8 +2203,8 @@ It is known that $C\left(\T^2_\th \right)$ is an universal $C^*$-algebra generat
 The Theorem \ref{p_v_theorem} yields  a cyclic six-term exact sequence
 	\bean
 	\begin{tikzcd}
-		K_0\left( C\left(u_{S^1} \right)\right)\arrow[r, "1-\a^{u_{S^1}}_*"] & K_0\left( C\left(u \right)\right)\arrow[r, "\iota^{u_{S^1}}_*"] & K_0\left( C\left({u_{S^1}} \right) \rtimes_\a \Z \right) \arrow[d]\\
-		K_1\left(  C\left(u \right)\rtimes \Z\right)\arrow[u] & \arrow[l, "\iota^{u_{S^1}}_*"] K_1\left( C\left(u \right) \right) & \arrow[l, "1-\a^{u_{S^1}}_*"]K_1\left( C\left(u \right)  \right)
+		K_0\left( C\left(u_{S^1} \right)\right)\arrow[r, "1-\a^{u_{S^1}}_*"] & K_0\left( C\left(u \right)\right)\arrow[r, "\iota^{u_{S^1}}_*"] & K_0\left( C\left({u_{S^1}} \right) \rtimes_\a \Z \right) \arrow[d, "\partial"]\\
+		K_1\left(  C\left(u \right)\rtimes \Z\right)\arrow[u, "\partial"] & \arrow[l, "\iota^{u_{S^1}}_*"] K_1\left( C\left(u \right) \right) & \arrow[l, "1-\a^{u_{S^1}}_*"]K_1\left( C\left(u \right)  \right)
 	\end{tikzcd}
 	\eean
 	where the map $\iota^{u_{S^1}}_*$ corresponds to the injective $*$-homomorphism
@@ -4233,7 +4275,7 @@ In order to define relative cohomology, we shall show that $j^*$ is surjective
 and has a flabby kernel. We introduce the notation
 \bean
 \ker j^* \bydef  \mathscr C^*\left(\sX, A ;\mathscr A\right),\\
-C^*_\Phi\left(\sX, A; \mathscr A\right)\bydef \Ga_\Phi\left( C^*\left(\sX; A \mathscr A\right)\right) 
+C^*_\Phi\left(\sX, A; \mathscr A\right)\bydef \Ga_\Phi\left( C^*\left(\sX; A; \mathscr A\right)\right) 
 \eean
 and
 \bean
@@ -4241,9 +4283,9 @@ H^*_\Phi \left(\sX, A; \mathscr A\right) \bydef H^*\left( C^*_\Phi\left(\sX, A; 
 \eean 
 Since $\ker j^*$ is flabby and since $\Ga_\Phi\left(j \mathscr B \right) = \Ga_{\Phi \cap A}\left(\mathscr B \right)$  % by I-Exercise 8, we will
 obtain the induced short exact sequence
-\bean
+\be\label{longx_pair_eqn} 
 0 \hookto C^*_\Phi\left(\sX, A;\mathscr A  \right) \hookto C^*_\Phi\left(\sX;\mathscr A  \right)\onto C^*_\Phi\left(A;\mathscr A | A \right)\onto 0
-\eean
+\ee
 and hence the long exact cohomology sequence
 \be\label{long_pair_eqn} 
 ... \to  H^p_\Phi\left(\sX, A;\mathscr A  \right) \to H^p_\Phi\left(\sX;\mathscr A  \right) \to H^p_{\Phi\cap A}\left(A;\mathscr A | A \right)\to  H^{p+1}_\Phi\left(\sX ;\mathscr A \right)\to ...
@@ -5283,7 +5325,26 @@ exact sequence for all $n$.
 \begin{remark}
 	The proof of the Proposition is based on \ref{diag_empt}.
 \end{remark}
-\begin{empt}\cite{blackadar:ko}
+	
+	\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
+		%Theorem 8.2.2. 
+		$K_0(A)$ is naturally isomorphic to $K_1(SA)$, i .e. there is an isomorphism $\th_A$ : $K_0(A)\to  K_1\left(SA \right)$ such that, whenever $\phi: A\to B$, the
+		following diagram commutes:
+		\bean
+		\begin{tikzcd}
+			K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
+			K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
+		\end{tikzcd}
+		\eean
+		(In the language of category theory, $\th$ gives an invertible natural transformation
+		from $K_1$ to $K_0\circ S$).
+	\end{theorem}
+	\begin{proof} %(Fragment)
+		Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 	(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
+		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
+		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
+	\end{proof}
+\begin{empt}\label{bott_map_empt}\cite{blackadar:ko}
 	We have a split exact sequence 
 	\bean
 	\begin{split}
@@ -5311,38 +5372,25 @@ exact sequence for all $n$.
 	\ee
 	A loop of this sort is called an {\it idempotent loop}. If $e_1 \pmod e_2$ mod $\mathbb{M}_n\left(A \right)$ , then $f_{e_1}f^{-1}_{e_2}\in GL_n\left( \Om A\right)$ 
 	taking the value 1 at $z = 1$. If $e_1 \sim_h e_2$,
-	then $f_{e_1}$ is homotopic to $f_{e_2}$ as elements of $GL_n\left(\Om\left( A^+\right)  \right)$  taking the value 1 at 1, i.e. as loops in $GL_n\left(A^+ \right)$  with base point 1. We will write $f_{e_1}\sin_h f_{e_2}$ to denote
+	then $f_{e_1}$ is homotopic to $f_{e_2}$ as elements of $GL_n\left(\Om\left( A^+\right)  \right)$  taking the value 1 at 1, i.e. as loops in $GL_n\left(A^+ \right)$  with base point 1. We will write $f_{e_1}\sim_h f_{e_2}$ to denote
 	this type of homotopy of elements.
-	
-	\begin{theorem}\label{suspension_thm}\cite{blackadar:ko}
-		%Theorem 8.2.2. 
-		$K_0(A)$ is naturally isomorphic to $K_1(SA)$, i .e. there is an isomorphism $\th_A$ : $K_0(A)\to  K_1\left(SA \right)$ such that, whenever $\phi: A\to B$, the
-		following diagram commutes:
-		\bean
-		\begin{tikzcd}
-			K_1\left(A \right) \arrow[r, "K_1\left(\phi \right)" ]  \arrow[d, "\th_A" ]& K_1\left(B \right)\arrow[d, "\th_B" ]\\ 
-			K_0\left(SA \right) \arrow[r, "K_0\left(\phi \right)" ] & K_0\left(SB \right)
-		\end{tikzcd}
-		\eean
-		(In the language of category theory, $\th$ gives an invertible natural transformation
-		from $K_1$ to $K_0\circ S$).
-	\end{theorem}
-	\begin{proof} %(Fragment)
-		Let $u \in \mathrm{ GL}_n(A)$. Take a path $z_t$ from $1_{2n}$ to $\mathrm{diag}(u; u^{-1})$ in $\mathrm{GL}_{2n}\left(A \right)$ 	(note that the path given in the Proposition \ref{inv_path_prop} lies in $\mathrm{GL}_{2n}\left(A \right)$. Set $e_t \bydef z_t p_n z^{-1}_t$.
-		Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2n}\left(\left( SA\right)^+  \right)$.  Set $\th_a([u])\bydef [e]-[p_n]$ (where $p_n$
-		also denotes the corresponding element of $\mathbb{M}_{\infty}\left(\left( SA\right)^+  \right)$ i.e. the constant function $p_n$).
-	\end{proof}
 \end{empt}
-\begin{remark} It is proven in \cite{blackadar:ko} that
+\begin{definition}\label{bott_map_defn}\cite{blackadar:ko}
+%Definition 9.1.1. 
+The homomorphism $\bt_A: K_0\left(A \right)\to K_1\left(SA \right) $  defined by
+$\bt_A \left( \left[e\right]-\left[p_n\right]\right)\bydef \left[f_e f^{-1}_{p_n}\right]$  is called the {\it Bott map} for $A$.
+\end{definition}
+\begin{empt}
+ It is proven in \cite{blackadar:ko} that
 	 there is a commutative diagram 
 \be\label{ba_eqn}
 \begin{tikzcd}
 \{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right) \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
-\{{0}\}\arrow[r]& K_1\left(SA \right) \arrow[r] & K_1\left(SA^+ \right) \arrow[r] & K_1\left(S\C \right) \arrow[r]& \{{0}\}
+\{{0}\}\arrow[r]& K_1\left(SB \right) \arrow[r] & K_1\left(SB^+ \right) \arrow[r] & K_1\left(\C \right) \arrow[r]& \{{0}\}
 \end{tikzcd}
 \ee
 such that vertical arrows are isomorphisms.
-\end{remark}
+\end{empt}
 
 \begin{theorem}\label{bott_map_thm}\cite{blackadar:ko} $\bt_A$ (cf. \eqref{ba_eqn}) is an isomorphism.
 	%Theorem 9.2.1 (Bott Periodicity). 
