@@ -742,7 +742,6 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 \begin{empt}\label{topology_empt}
 	If $\mathfrak{Ultrafilters}\left(A \right)$ 
 	is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then there is a topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
-	
 	\be\label{topology_eqn}
 	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{ \xi \in \mathfrak{Ultrafilters}\left(A \right) \left| \exists L' \in \xi\quad L'\subset L\right.\right\}
 	\ee
@@ -1589,8 +1588,36 @@ where the action \eqref{u_1_act_eqn} is implied. So for any $x \in K_0\left(A \r
 If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a compact space then the given by the Theorem \ref{cup_prod_thm} cup product coincides with given by the Appendix \ref{mult_k_sec} one.
 \end{lemma}
 \begin{proof}
-	!!!!
+Consider the equation \eqref{kfn_prod_eqn}
+  \bean
+\begin{split}
+	K^n\left( \sX \right)\times  K^p\left( \sX \right) \to K^{n+p~\mathrm{mod} ~2}\left( \sX \right)
+\end{split}
+\eean
+In $n = p = 0$ then any element of $K^0\left( \sX\right)$ is given by $\left[E\right]- \left[F\right]$ where $F$ and $F$ are vector bundles. The cup product is given by
+\bean
+\left( \left[E'\right]- \left[F'\right]\right) \smile \left( \left[E''\right]- \left[F'\right]\right) = \left[E'\boxtimes E''\right]-\left[E'\boxtimes F''\right]-\left[F'\boxtimes E''\right]+\left[F'\boxtimes F''\right].
+\eean
+Using the Theorem \eqref{serre_swan_thm} one can replace vector bundles with projectors in $\mathbb{M}_\infty\left( C\left(\sX \right) \right)$. For any $m, n\in \N$ there is the natural isomorphism $$
+\iota: \mathbb{M}_m\left( C\left(\sX \right) \right) \otimes \mathbb{M}_n\left( C\left(\sX \right) \right) \cong \mathbb{M}_{mn}\left( C\left(\sX \right) \right).
+$$
+If $p\in \mathbb{M}_m\left( C\left(\sX \right) \right)$ and $q \in\mathbb{M}_q\left( C\left(\sX \right) \right)$ are representatives of bundles $E$ and $F$ then $p \otimes q$ is the representative of $E\boxtimes F$. There are $*$-homomorphisms $\iota': \mathbb{M}_m\left( C\left(\sX \right) \right)\hookto \mathbb{M}_{mn}\left( C\left(\sX \right) \right)$ and $\iota'': \mathbb{M}_n\left( C\left(\sX \right) \right) \hookto \mathbb{M}_{mn}\left( C\left(\sX \right) \right)$ such that 
+  \bean
+\begin{split}
+\iota\left(p \otimes q \right) = \iota'\left(p \right) \iota''\left(q \right).
+\end{split}
+\eean
+There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset C\left( \sX\right) \otimes \K$. If $P \in C\left( \sX\right) \otimes \K$ is the projector onto $\left( A \otimes\K\right) 1_{\mathbb{M}_{mn}\left( C\left(\sX \right) \right)}$  then  the image  $\mathfrak{Image}\left( P\right)\in C_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right)\right)$ (cf. Definition \ref{image_defn}) of $P$ is a projector. From our construction it turns out that 
+\bean
+\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)\le \mathfrak{Image}\left( P\right),\\
+\mathfrak{Image}\left( \iota'\left(p\right) \right)\le \mathfrak{Image}\left( P\right),\\
+\mathfrak{Image}\left( \iota''\left(q\right) \right)\le \mathfrak{Image}\left( P\right),\\
+\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)= \mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right).
+\eean
+The elements $\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)$,  $\mathfrak{Image}\left( \iota'\left( p\right) \right)$, $\mathfrak{Image}\left( \iota''\left(  q\right) \right)$ in $H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$  are representatives of $\left[p\otimes q \right]$, $\left[p\right]$ and $\left[q \right]$ in $K_0\left( C\left(\sX \right) \right)$  (cf. \eqref{k0_s_eqn}).
+Otherwise $\left[p\otimes q \right]$ is the representative of $\left[p \right]\smile\left[ q \right]$ and $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] \in H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$ is a representative of $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\right]\smile  \left[\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] $.
 \end{proof}
+
 
 \subsection{Graded $K$-theoretic ring}
 \paragraph{} It is known (cf. Appendix \ref{mult_k_sec}) that the topological  $K$-theory yields a contravariant  functor from the category  locally compact spaces  to the category of graded rings. Here we extend the domain of this functor.
@@ -1644,17 +1671,20 @@ x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times 
 where the cup product is given by \ref{cup_sheaf_thm}. 
 
 \begin{definition}\label{deg_1_defn}
-If both $A$ and $B$ are $C^*$-algebras a homomorphism $\phi: K_*\left(A \right) \to K_*\left(B \right)$ \textit{has degree 1} if $\phi\left(K_j\left( A\right)  \right) \subset K_{1=j}\left( B\right)$, $j = 0,1$. We say that $\phi$ is {\it of degree 1}.
+If both $A$ and $B$ are $C^*$-algebras then a homomorphism $\phi: K_*\left(A \right) \to K_*\left(B \right)$ of Abelian groups \textit{has degree 1} if $\phi\left(K_j\left( A\right)  \right) \subset K_{1=j}\left( B\right)$, $j = 0,1$. We say that $\phi$ is {\it of degree 1}.
 \end{definition}
 \begin{example}\label{degr_1_exanple}
 The Theorems \ref{suspension_thm} and \ref{bott_map_thm} yield isomorphisms  $K_*\left(A \right) \cong K_*\left(SA \right)$  and  $K_*\left(SA \right) \cong K_*\left(A \right)$ of degree 1.
 \end{example}
 \begin{definition}\label{degr_1_defn}
-A homomorphism $\phi: K_*\left(A \right) \to K_*\left(B \right)$ \textit{has degree 1} is a \text{ring homomorphism} if the composition
+Suppose that a homomorphism  $\phi: K_*\left(A \right) \to K_*\left(B \right)$ of Abelian groups {has degree 1} and both   $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(B \right)\cong  K_*\left(SB \right)$ are given by the Example \ref{degr_1_exanple}.. We say that $\phi$ is a \textit{degree 1 ring homomorphism} if both compositions
 \be
-K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)\cong  K_*\left(SB \right)
+\begin{split}
+K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)\cong  K_*\left(SB \right),\\
+K_*\left(SA \right)\cong K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)
+\end{split}
 \ee
-is the ring homomorphisms, where $K_*\left(B \right)\cong  K_*\left(SB \right)$ is given by the Example \ref{degr_1_exanple}.  Both given by the Example \ref{degr_1_exanple} homomorphisms are ring homomorphisms.
+are the ring homomorphisms.  Both $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(B \right)\cong  K_*\left(SB \right)$ are degree 1 ring homomorphisms.
 \end{definition}
 
 \subsection{Standard Exact Sequence}
@@ -1736,7 +1766,7 @@ From $\dl b = \dl_\SS e^{2\pi i b}$ it follows that  $\left[a\right]= a'$ where 
 \end{proof}
 
 \begin{theorem}\label{six_term_thm}
-The Abelian group homomorphisms $\partial$ in \eqref{sisf_ext_eqn} yield a  degree 1 ring homomorphisms $K_*\left( A/J\right) \to K_*\left( J\right)$.
+The Abelian group homomorphisms $\iota_*$ and $\pi_*$  \eqref{sisf_ext_eqn} are ring homomorphisms, The Abelian group homomorphisms $\partial$ in \eqref{sisf_ext_eqn} yield a  degree 1 ring homomorphisms $K_*\left( A/J\right) \to K_*\left( J\right)$.
 \end{theorem}
 \begin{proof}
 If $\left[p_1\right], \left[p_2\right]\in K_0\left(S\left( A/ J \right) \right)$ then there are representatives \\ $p_1, p_2 \in H^0_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right) \cong C_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right)$ of these element. Moreover $\left[p_1\right]\cup \left[p_2\right]= \left[p_1p_2\right]$. If both $p'_1, p'_2 \in \in  C_c\left( \mathfrak{Gelfand}_r\left(SA\right); \Z\right)$ are such that  
@@ -1756,10 +1786,10 @@ where $\bt_J$ is the Bott map (cf. Definition \ref{bott_map_defn}). One has
 	\be\label{cup_pu_eqn}
 \begin{split}
 	\left[p''_1\right]\cup \left[p''_2\right]= \left[\left( p''_1\cdot p''_2\right) \right].\\
-	\bt_J\left(  \left[\left( p''_1\cdot p''_2\right)\right]\right)  = \partial \left( \left[p_1\right]\cup \left[p_2\right]\right)
+	\bt_J\left(  \left[\left( p''_1\cdot p''_2\right)\right]\right)  = \partial \left( \left[p_1\right]\cup \left[p_2\right]\right).
 \end{split}
 \ee
-!!!!
+The completion of the poof is leaved to the reader.
 \end{proof}
 
 \subsection{Connes' Thom isomorphism and Pimsner-Voiculescu Exact Sequence}
@@ -1793,7 +1823,7 @@ If the exact sequence
 	K_*\left( A\rtimes \Z\right)\arrow[u , "\partial"] & \arrow[l, "\iota_*"] K_*\left(A \right) & \arrow[l, "1-\a_*"]K_*\left(A \right)
 \end{tikzcd}
 \ee
-comes from  \eqref{p_v_eqn} then all Abelian group homomorphism $\iota_*$ and $\partial$ of \eqref{pimsner_voiculesky_eqn} are  ring homomorphisms. Both $1-\a_*$ and $\iota_*$ are grade, $\partial$ has degree 1.
+comes from  \eqref{p_v_eqn} then  Abelian group homomorphism $\iota_*$ and $1-\a_*$ are ring homomorphism. and $\partial$  is a degree 1 ring homomorphism.
 \end{theorem}	
 \begin{proof}
 	 $\a_*$ is a graded ring homomorphism since it comes from continuous map (cf. \eqref{cohom_mor_eqn}), so $1-\a_*$  is also a graded ring homomorphism.
@@ -2189,13 +2219,13 @@ where $\mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)$ is the r
 \paragraph*{}
 From  the Theorem \ref{k_0_tor_thm} (resp \ref{k_1_tor_thm})  element of $K_0\left(C\left(\T^2_\th \right)  \right)$  (resp. $K_1\left(C\left(\T^2_\th \right)  \right)$) is represented by an idempotent (resp. invertible element) of $C\left(\T^2_\th \right)$. From this circumstance the given by the Theorem \ref{k_h_thm} equations 
 \bean
-K_0\left(C\left(\T^2_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\otimes \K \right); \Z \right)/U\left(\left((C\left(\T^2_\th \right) \otimes \K \right) ^+ \right),\\
-K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \otimes \K\right); \Z \right). 
+K_0\left(C\left(\T^2_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\otimes \K \right); \Z \right)/U\left(\left(C\left(\T^2_\th \right) \otimes \K \right) ^+ \right),\\
+K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \otimes \K\right); \Z \right) 
 \eean
 can be replaced with following ones,
 \bea\label{k_0_nt_eqn}
-K_0\left( (C\left(\T^2_\th \right) \right) =H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right),\\ \label{k_1_nt_eqn}
-K_{1}\left((C\left(\T^2_\th \right) \right) \cong H^1\left(\mathfrak{Gelfand}_r\left((C\left(\T^2_\th \right)\right); \Z \right). 
+K_0\left( C\left(\T^2_\th \right) \right) =H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right),\\ \label{k_1_nt_eqn}
+K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right); \Z \right). 
 \eea
 
 It is known that $C\left(\T^2_\th \right)$ is an universal $C^*$-algebra generated by two unitaries $u, v \in C\left(\T^2_\th \right)$ such that $uv = e^{2\pi i \th}vu$. It is also known 
@@ -2221,8 +2251,9 @@ $$
 $$	
 	 it follow that $\a^{u_{S^1}}_*$ is identical, $1=\a^{u_{S^1}}_*= 0$, so there are the exact sequences
 		\bea\label{kk_0_nt_eqn}
-\{0\}\hookto	K_0\left( C\left({u_{S^1}} \right)\right) \xrightarrow{\iota^u_*} K_0\left( C\left(u \right)  \rtimes_\a \Z \right) \xrightarrow{p^{u_{S^1}}_*} K_1\left( C\left({u_{S^1}} \right)\right) \onto \{0\} \\ \label{kk_1_nt_eqn}
-\{0\}\hookto	K_1\left( C\left(u \right)\right) \xrightarrow{\iota^{u_{S^1}}_*} K_1\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right) \xrightarrow{p^{u_{S^1}}_*} K_0\left( C\left({u_{S^1}} \right)\right) \onto \{0\}	\eea
+\{0\}\hookto	K_0\left( C\left({u_{S^1}} \right)\right) \xrightarrow{\iota^u_*} K_0\left( C\left(u \right)  \rtimes_\a \Z \right) \xrightarrow{\partial} K_1\left( C\left({u_{S^1}} \right)\right) \onto \{0\}, \\ \label{kk_1_nt_eqn}
+\{0\}\hookto	K_1\left( C\left(u \right)\right) \xrightarrow{\iota^{u_{S^1}}_*} K_1\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right) \xrightarrow{\partial} K_0\left( C\left({u_{S^1}} \right)\right) \onto \{0\}.	
+\eea
 Moreover one has
 \be\label{tor_gen_eqn}
 \begin{split}
@@ -2242,7 +2273,7 @@ From  the Appendix \ref{rieffel_sec} it turns out  that
 \ee
 where $p_\th$ is  the Powers - Rieffel projector. If $\mathfrak{Image}\left( p_\th\right)\in C\left( \mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right)\right) $ is the image of $p_\th$ (cf. Definition \ref{image_defn}) then $\mathfrak{Image}\left( p_\th\right)$ is a projector represents 
 \bean
-\left[\mathfrak{Image}\left( p_\th\right)\right]\in H^0\left(\mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right). 
+\left[\mathfrak{Image}\left( p_\th\right)\right]=\in H^0\left(\mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right). 
 \eean
 From \eqref{prod_u_tor_eqn} and  \eqref{iprod_u_tor_eqn} it turns out that
 \be
@@ -2250,124 +2281,76 @@ From \eqref{prod_u_tor_eqn} and  \eqref{iprod_u_tor_eqn} it turns out that
 \ee
 Using the Theorem \ref{cup_prod_thm} and the Remark \ref{cup_prod_rem} we have 
 \be
-\left[ p_\th\right]\smile \left[{u}\right] \in  K_1\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right)=  K_1\left( C\left(\T^2_\th \right)\right)
+\left[ p_\th\right]\smile \left[{u}\right] = \left[{u}\right]\in  K_1\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right)=  K_1\left( C\left(\T^2_\th \right)\right)
 \ee
-where $\left[ p_\th\right]\in K_0\left( C\left(\T^2_\th \right)\right)$ and $\left[ {u_{S^1}}\right]\in K_1\left( C\left(\T^2_\th \right)\right)$. Using isomorphism \ref{k_0_nt_eqn} and \ref{k_1_nt_eqn} one can identify $\left[ p_\th\right]$ and $\left[ u\right]$ with their representatives in $H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right)$ and $H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)$.  We leave to the reader the proof of the following
+where $\left[ p_\th\right]\in K_0\left( C\left(\T^2_\th \right)\right)$ and $\left[ {u}\right]\in K_1\left( C\left(\T^2_\th \right)\right)$. From Lemma \ref{nt_gen_lem} it follows that $p_\th \in   C\left(\T^2_\th \right)$ so one has the disconnected union
+\be\label{tor_prodw_eqn}
+\begin{split}
+\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) = \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}\bigsqcup	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }
+\end{split}
+\ee
+where the notation \eqref{topology_eqn} is used. Ir turns out that there is the following direct sum of rings.
+\be\label{torh_prodw_eqn}
+\begin{split}
+H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right);\Z\right)=\\= H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \oplus H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }\right) 
+\end{split}
+\ee
+Taking into account the Theorem \ref{pimsner_voiculesky_thm} one has the following direct sum of rings
+\be\label{torhk_prodw_eqn}
+\begin{split}
+	H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \cong H^*_c\left( C\left(S^1\right);Z\right) ,\\
+	H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left( 1-p_\th\right) }; \Z\right) \cong H^*_c\left( SC\left(S^1\right);Z\right) ,\\
+K_*\left( C\left(\T^2_\th \right)\right) =K_*\left( C\left(S^1\right)\right) \oplus 
+K_*\left( SC\left(S^1 \right)\right) 
+\end{split}
+\ee
+From the equation \eqref{torhk_prodw_eqn} one has 
+\be\label{torhk_hprodw_eqn}
+\begin{split}
+	K_0\left(C\left(\T^2_\th \right) \right) \cong 	H^0_c\left( 	\mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[p_\th\right]\oplus \Z\left[1- p_\th\right],\\
+	K_1\left(C\left(\T^2_\th \right) \right) \cong 	H^1_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[u\right]\oplus \Z\left[v\right]
+\end{split}
+\ee
+and  following conditions hold.
+
 \be\label{tor_prod_eqn}
 \begin{split}
 	\left[ p_\th\right]\smile \left[1 - p_\th\right] = 0,\\
 	\left[ p_\th\right]\smile \left[ p_\th\right] = \left[ p_\th\right],\\
 	\left[1 - p_\th\right] \smile \left[1 - p_\th\right]= \left[1 - p_\th\right],\\
-\left[ p_\th\right]\smile \left[u\right]= \left[u\right],\\
-\left[1- p_\th\right]\smile \left[u\right]=0,\\
-\left[1- p_\th\right]\smile \left[v\right]=\left[v\right],\\
-\left[ p_\th\right]\smile \left[v\right]= 0.
-\end{split}
-\ee
-where one implies the sheaf-theoretic  cup product, given by the Theorem \ref{cup_sheaf_thm}. The equations \eqref{tor_prod_eqn} can be regarded as $K$-theoretic ones where we consider the given by the  Theorem  \ref{cup_prod_thm}  $K$-theoretic cup product.
-The left ideal $C\left(\T^2_\th \right)\mathfrak{Image}\left( p_\th\right)$ yields an open closed subset 
-\be\label{x_u_eqn}
-\sX_u \bydef \mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)_{C\left(\T^2_\th \right)\mathfrak{Image}\left( p_\th\right)}\subset \mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)
-\ee
-If $\sX_v \bydef \mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)\setminus \sX_v$, then there is a disconnected union
-\be\label{tor_dis_eqn}
- \mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)= \sX_u \bigsqcup \sX_v.
-\ee
-and one has
-\be
- H^0\left(\mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right)\cong \Z\left[\sX_u\right]\oplus \Z\left[\sX_v\right]
-\ee
-where we imply that  $\mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)$  is a free Abelian group generated by quasicomponents of $\mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)$ (cf. proof of the Lemma \ref{ring_auto_lem})
-
-
-Below we will use alternative notation given by
-
-\be\label{tor_not_eqn}
-\begin{split}
-	U_1 \bydef u, \quad 	U_2 \bydef v \quad \text{where} \quad u, v \quad \text{are generators of }C\left(\T^2_\th \right),\\
-	\sX_1 \bydef \sX_u \quad \sX_2 \bydef \mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)\setminus  \sX_u\quad \text{(cf. \eqref{x_u_eqn})},\\
-	\mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right)\right)= \sX_1 \bigsqcup \sX_2 \quad \text{(cf. \eqref{tor_dis_eqn})},\\
-	P_1 \in   C\left(\T^2_\th \right) \quad \text{is  the Powers - Rieffel projector (cf. Appendix \ref{rieffel_sec})}\\
-	 P_2 \bydef 1- P_1.
-	\end{split}
-\ee
-From the above construction it follows that 
-\be\label{tor_nott_eqn}
-\begin{split}
-K_0\left( C\left(\T^2_\th \right)\right) \cong \Z\left[P_1\right] \oplus \Z\left[P_2\right] \cong\\ \cong H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right)\cong  H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right),\\
-K_1\left( C\left(\T^2_\th \right)\right) \cong \Z\left[U_1\right] \oplus \Z\left[U_2\right] \cong\\ \cong H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right).
-\end{split}
-\ee
-Using the above Abelian group isomorphisms one can set 
-\be\label{tor_iso_eqn}
-\begin{split}
-	\left[ P_1\right]\smile \left[u\right]
-\left[P_1\right], \left[P_2\right]\in H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right),\\
-\left[U_1\right], \left[U_2\right]\in H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)
-\end{split}
-\ee
-and from \eqref{tor_prodU_eqn} it follows that 
-\be\label{tor_prodU_eqn}
-\begin{split}
-	\left[ P_1\right]\smile \left[P_2\right] = 0,\\
-\left[P_1\right]\smile \left[P_1\right] = \left[ P_1\right],\\
-\left[P_2\right] \smile \left[P_2\right]= \left[P_2\right],\\
-\left[ P_1\right]\smile \left[U_1\right]= \left[U_1\right],\\
-\left[P_1\right]\smile \left[U_2\right]=0,\\
-\left[P_2\right]\smile \left[U_1\right]=0,\\
-\left[P_2\right]\smile \left[U_2\right]=\left[U_2\right].
-\end{split}
-\ee
-The equations \eqref{tor_prodU_eqn} can be regarded as both $K$-theoretic and sheaf-theoretic where the cup product is given by the Theorems \ref{cup_prod_thm} and  \ref{cup_sheaf_thm} respectively. Besides \eqref{tor_prodU_eqn} there are $K$-theoretic equations 
-\be\label{tor_prodUK_eqn}
-\begin{split}
-	\left[ U_1\right]\smile \left[U_2\right] = 0,\\
-	\left[U_1\right]\smile \left[U_1\right] = \left[ P_1\right],\\
-	\left[U_2\right] \smile \left[U_2\right]= \left[P_2\right],\\
-\end{split}
-\ee
-The Remark \ref{cup_prod_suspernsion_rem} yields the following products
-\be\label{tor_dprodU_eqn}
-\begin{split}
-	\left[ S P_1\right]\smile \left[SP_2\right] = 0,\\
-	\left[ SP_1\right]\smile \left[ SP_1\right] = \left[ S P_1\right],\\
-	\left[ SP_2\right] \smile \left[ SP_2\right]= \left[ SP_2\right],\\
-	\left[ S P_1\right]\smile \left[ SU_1\right]= \left[ SU_1\right],\\
-	\left[ SP_1\right]\smile \left[ SU_2\right]=0,\\
-	\left[ SP_2\right]\smile \left[ SU_1\right]=0,\\
-	\left[ SP_2\right]\smile \left[ SU_2\right]=\left[ SU_2\right],\\
-		\left[ S U_1\right]\smile \left[ SU_2\right] = 0,\\
-	\left[ SU_1\right]\smile \left[ SU_1\right] = \left[ S P_1\right],\\
-	\left[ SU_2\right] \smile \left[ SU_2\right]= \left[S P_2\right]
+	\left[ p_\th\right]\smile \left[u\right]= \left[u\right],\\
+	\left[1- p_\th\right]\smile \left[u\right]=0,\\
+	\left[1- p_\th\right]\smile \left[v\right]=\left[v\right],\\
+	\left[ p_\th\right]\smile \left[v\right]= 0,\\
+	\left[u\right]\smile \left[u\right]= 	\left[v\right]\smile \left[v\right]= \left[u\right]\smile \left[v\right]=0.
 \end{split}
 \ee
 
 \begin{definition}
 	Let  $n = 2k \in \N$ be ab even natural number. We say that the noncommutative torus $C\left(\T^n_\th \right)$ is \textit{good} if one has 
-	\begin{enumerate}
-		\item [(a)] $$H^*\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong \left(  \bigoplus_{j = 1}^{2^{n-1}}\Z t_j\right)\bigoplus  \left(  \bigoplus_{j = 1}^{2^{n-1}}\Z t_j \smile \left[U\right]\right) $$ where $\left\{t_1, ...,t_{2^{n-1}} \right\}\subset H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)$ and $\left[U\right]\in .H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)$.
- 		\item[(b)] For all $x', x'' \in \left\{t_1, ...,t_{2^{n-1}} \right\}$ one has 
-	\be 
+	\be\label{tor_prodg_eqn}
 	\begin{split}
-x' \smile x'' = \begin{cases}
-	x'  & x' = x''\\
-	0 & x'\neq x''
-	\end{cases}\in .H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right),\\
-		x' = x'' \quad \Leftrightarrow \quad x'  \smile \left[U\right] = x''  \smile \left[U\right]
+K_0\left( C\left(\T^n_\th\right)\right)  \cong	H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z s_j,\\
+K_1\left( C\left(\T^n_\th\right)\right)  \cong	H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z t_j
+	\end{split}
+	\ee
+	where for each $j, k \in \left\{1,..., 2^{n-1}\right\}$ the cup product satisfies to the following equations	
+	\be 
+\begin{split}
+s_j \smile s_k = \begin{cases}
+s_j & j = k\\
+0 & j \neq k
+\end{cases},\\
+s_j \smile t_k = t_k \smile s_j =\begin{cases}
+t_k & j = k\\
+	0 & j \neq k
+\end{cases},\\
+t_j \smile t_k = 0.
 \end{split}	
 \ee
-		\item[(c)] The action  $$U_1\left(C\left(\T^n_\th \right) \right)  \times H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\to  H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)$$ is trivial, so there is the natural isomorphism  $$\varphi: H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong K_0\left((C\left(\T^n_\th \right) \right)$$ is an isomorphism.
-		\item[(d)] There is the natural ring isomorphism
-		\be 
-	\begin{split}
-		H^*\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong K_*\left( C\left(\T^n_\th \right)\right). 
-\end{split}
-\ee
-
-	\end{enumerate}
-	
+		
 \end{definition}
-Suppose that the noncommutative torus $C\left(\T^n_\th \right)$ is {good}. The Lemma  \ref{product_lem} it follows that 
+Suppose that the noncommutative torus $C\left(\T^n_\th \right)$ is {good}. From the Lemma  \ref{product_lem} it follows that 
 		\be 
 \begin{split}
 \mathfrak{Gelfand}_r\left(C_0\left(S^1 \right)\otimes  C\left(\T^n_\th \right)\right)   \cong S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right)
@@ -6816,7 +6799,7 @@ Then $K_i\left(A \rtimes_\a \Z \right)\cong K_{1-i}\left( M_\a\right)$  for $i =
 	is a tantalizing speculation; it remains to be seen whether
 	$\T^2_{\th,\tau}$ can yield useful arithmetic information.
 	
-	\begin{lemma}\cite{Rieffel:stable_irrat}
+	\begin{lemma}\label{nt_gen_lem}\cite{Rieffel:stable_irrat}
 	%THEOREM 8. 
 	Let $\th$ be an automorphisms of the unital $C^*$-algebra $A$
 which is in the connected component of the identity automorphisms of
