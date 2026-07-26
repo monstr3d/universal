@@ -1046,7 +1046,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		Let   $A$ and  $\widetilde{A}$ be  $C^*$-algebras.  A good     $*$-homomorphism $\lift: M(A) \hookto M\left( \widetilde{A}\right)$ (cf. Definition 
 		\ref{good_hom_defn}) is a \textit{noncommutative covering} if
 		the given by \eqref{gelfand_map_eqn}	\bean
-		\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\lift \right)}\mathfrak{Gelfand}\left(A \right)
+		\mathfrak{Gelfand}_r\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}_r\left(\lift \right)}\mathfrak{Gelfand}_r\left(A \right)
 		\eean 
 		continuous map is a (topological) covering (cf. Definition \ref{top_covering_defn}).
 		The  \textit{covering group} is given by  
@@ -1553,7 +1553,7 @@ For any $r', r'' > 0$ there are surjective continuous projections
 p_1 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'},\\
 p_2 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}
 \eean 
-If both $\mathscr A'$ and  $\mathscr A''$ are $\Z$-locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}) on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}$ and $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}$ then inverse images $p_1^*\mathscr A'$ and $p_2^*\mathscr A'$ (cf. Definition \ref{sheaf_inv_im_defn})  are $\Z$-locally constant sheaves on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}$. There are given by the equation \eqref{cohom_mor_eqn} group homomorphisms
+If both $\mathscr A'$ and  $\mathscr A''$ are $\Z$-locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}) on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}$ and $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}$ then inverse images $p_1^*\mathscr A'$ and $p_2^*\mathscr A'$ respectively (cf. Definition \ref{sheaf_inv_im_defn})  are $\Z$-locally constant sheaves on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}$. There are given by the equation \eqref{cohom_mor_eqn} group homomorphisms
 \bean
 H^1_c\left(p_1 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \mathscr A'\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\right),\\
 H^1_c\left(p_2 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \mathscr A''\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_2^*\mathscr A''\right)
@@ -1569,7 +1569,7 @@ u_1 \otimes u_2\mapsto H^1_c\left(p_1 \right)\left(u_1 \right) \smile H^1_c\left
 the the cup product $\smile$ is given by the Theorem \ref{cup_sheaf_thm}. Taking into account that   $\mathscr A'$, $\mathscr A''$, $p^*_1\mathscr A'$, $p^*_2\mathscr A''$ are  $\Z$-locally constant sheaves the map \eqref{pssh_eqn} naturally yields a pairing
 \be\label{psshz_eqn}
 \begin{split}
-	\smile : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z\right)\otimes  : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \Z\right)\to \\ \to 
+	\smile : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z\right)\otimes  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \Z\right)\to \\ \to 
 	H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\otimes\Z\right)\cong H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\right).\\
 \end{split}
 \ee
@@ -1596,20 +1596,6 @@ For any $C^*$-algebra $A$ the equation \eqref{smile_d_eqn} yields a multiplicati
 \begin{proof}
 	To prove this theorem one should state the associativity of the cup product. It follows from the Proposition \ref{cup_ass_prop}.
 \end{proof}
-\begin{lemma}
-	There is the natural degree 1 isomorphism of rings
-\be\label{d1_d_eqn}
-K_*\left( A\right) \cong K_*\left( A\otimes \R\right)
-\ee
-i.e. \eqref{d1_d_eqn} corresponds to the isomorphisms 
-\be\label{d1_dd_eqn}
-\forall j = 0, 1 \quad K_j\left( A\right) \cong K_{1 - j}\left( A\otimes \R\right)
-\ee
-given ny the Theorems \ref{suspension_thm} and \ref{bott_map_thm}.
-\end{lemma}
-\begin{proof}
-The group  isomorphism 	follows from the Theorems \ref{suspension_thm} and \ref{bott_map_thm}.  Using the equation \eqref{smile_d_eqn} one  can prove that it is the ring homomorphism.
-\end{proof}
 \begin{remark}\label{cup_prod_rem}
 If $A$ be an unital $C^*$-algebra then any element of $x' \in K_0\left( A\right)$ can be represented by $y' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$. If $z \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ then from the Remark \ref{inv_h1_rem}  it follows that
 \be
@@ -1626,11 +1612,11 @@ If $\sX$ is compact Hausdorff  space and $A \bydef C\left(\sX \right)$  is a com
 \end{lemma}
 \begin{proof}
 Consider the equation \eqref{kfn_prod_eqn}
-  \bean
+  \be\label{top_cup_eqn}
 \begin{split}
 	K^n\left( \sX \right)\times  K^p\left( \sX \right) \to K^{n+p~\mathrm{mod} ~2}\left( \sX \right)
 \end{split}
-\eean
+\ee
 In $n = p = 0$ then any element of $K^0\left( \sX\right)$ is given by $\left[E\right]- \left[F\right]$ where $F$ and $F$ are vector bundles. The cup product is given by
 \bean
 \left( \left[E'\right]- \left[F'\right]\right) \smile \left( \left[E''\right]- \left[F'\right]\right) = \left[E'\boxtimes E''\right]-\left[E'\boxtimes F''\right]-\left[F'\boxtimes E''\right]+\left[F'\boxtimes F''\right].
@@ -1652,7 +1638,13 @@ There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset 
 \mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)= \mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right).
 \eean
 The elements $\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)$,  $\mathfrak{Image}\left( \iota'\left( p\right) \right)$, $\mathfrak{Image}\left( \iota''\left(  q\right) \right)$ in $H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$  are representatives of $\left[p\otimes q \right]$, $\left[p\right]$ and $\left[q \right]$ in $K_0\left( C\left(\sX \right) \right)$  (cf. \eqref{k0_s_eqn}).
-Otherwise $\left[p\otimes q \right]$ is the representative of $\left[p \right]\smile\left[ q \right]$ and $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] \in H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$ is a representative of $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\right]\smile  \left[\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] $.
+Otherwise $\left[p\otimes q \right]$ is the representative of $\left[p \right]\smile\left[ q \right]$ and $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] \in H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$ is a representative of $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\right]\smile  \left[\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] $. So this lemma is proven for the restriction 
+  \bean
+\begin{split}
+	K^0\left( \sX \right)\times  K^0\left( \sX \right) \to K^{0}\left( \sX \right)
+\end{split}
+\eean
+of the product \eqref{top_cup_eqn}. The completion of the proof is left to the reader.
 \end{proof}
 
 
@@ -1701,7 +1693,7 @@ so from \eqref{cs1_21_eqn} and \eqref{h1_d_eqn} one has the group isomorphism
 \be
  H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1;\Z\right)\cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_*\left( A\right) 
 \ee
-Let us define the multiplication on $K_*\left( A\right)$. Let $$x, y \in K_0\left( A\right) $$ . If both $x' \in  H^0_c\left(\sX;\Z  \right)$ and $y' \in  H^1_c\left(\sX\times \R;\Z  \right)$ are given by the equations \eqref{k_00_eqn} and \eqref{k0_s_eqn} representatives of $x$ and $y$ then one can assume that $x', y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)$. It turns out that
+Let us define the multiplication on $K_*\left( A\right)$. Let $$x, y \in K_0\left( A\right) .$$  If both $x' \in  H^0_c\left(\sX;\Z  \right)$ and $y' \in  H^1_c\left(\sX\times \R;\Z  \right)$ are given by the equations \eqref{k_00_eqn} and \eqref{k0_s_eqn} representatives of $x$ and $y$ then one can assume that $x', y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)$. It turns out that
 \be
 x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)
 \ee
@@ -1750,7 +1742,7 @@ The Theorem \ref{standard_exact_sequence_thm} yields the following
 \end{tikzcd}
 \ee
 	
-Using  the Corollary \ref{good_cor}, the Theorem \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cup_rem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}_r\left(J\right)$ is an open subset of $\mathfrak{Gelfand}_r\left(J\right)$. There are continuous maps
+Using  the Corollary \ref{good_cor}, the Theorem \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cup_rem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}_r\left(J\right)$ is an open subset of $\mathfrak{Gelfand}_r\left(A\right)$. There are continuous maps
 \bea\label{map_j_eqn}
 \mathfrak{Gelfand}_r\left(J\right)\hookto \mathfrak{Gelfand}_r\left(A\right),\\\label{map_aj_eqn} \mathfrak{Gelfand}_r\left(A/J\right)\to \mathfrak{Gelfand}_r\left(A\right)
 \eea
@@ -1766,9 +1758,9 @@ The set $\mathfrak{Gelfand}_r\left(A/J\right)$ is closed in $\mathfrak{Gelfand}_
 	{0} \hookto  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right) \xrightarrow{\pi_*} \\ \xrightarrow{\pi_*} H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\xrightarrow{\dl}H^1_{c}\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)\to ...
 \end{split}
 \ee
-Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$. The support of $f_x$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}_r\left(A\right); \Z\right)$ such that 
+Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$. The support of $c$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}_r\left(A\right); \Z\right)$ such that 
 \be
-\forall \xi \in \mathfrak{Gelfand}_r\left(A/J\right)\quad f_x\left( \xi\right) = y\left( \xi\right) 
+\forall \xi \in \mathfrak{Gelfand}_r\left(A/J\right)\quad c\left( \xi\right) = y\left( \xi\right) 
 \ee 
 If  
 \be\label{u_x_eqn}
@@ -1779,7 +1771,7 @@ If
 \be\label{sxxh_shh_eqn}
 \begin{split}
 %	\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right) \sU\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z \right)\to... ;
-		\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(J\right) U\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)\to ...
+		\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); U\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)\to ...
 \end{split}
 \ee
 is  a specializations of \eqref{sxx_shh_eqn}  then there is
@@ -1795,7 +1787,7 @@ such that $a'$ is a representative of $\partial c \in K_1\left( J\right)$ (cf. e
 \be\label{longcx_pair_eqn} 
 0 \hookto C^*_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right) \xrightarrow{\iota} C^*_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z \right)\xrightarrow{\pi} C^*_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\onto 0
 \ee
-Let $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ and $c \in C^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)\cong C_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)$ is a representative of $x$. There is $b \in C^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right)$ such that $c_x = \pi\left( b\right)$. From $\partial c_x = 0$ it follows that  $ \pi\circ \partial \left( b\right) = 0$. It turns out that there is $a\in  C^1_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)$ such that $\partial \left( b\right)= \iota\left(  a\right)$. Since $\iota$ is injective $ \partial^2 \left( b\right)=0$. It follows that $\partial a = 0$, so $a$ is a cycle  According to homological algebra one has 
+Let $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ and $c \in C^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)\cong C_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)$ is a representative of $\left[c\right]$. There is $b \in C^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right)$ such that $c = \pi\left( b\right)$. From $\partial c = 0$ it follows that  $ \pi\circ \partial \left( b\right) = 0$. It turns out that there is $a\in  C^1_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)$ such that $\partial \left( b\right)= \iota\left(  a\right)$. Since $\iota$ is injective $ \partial^2 \left( b\right)=0$. It follows that $\partial a = 0$, so $a$ is a cycle  According to homological algebra one has 
 \be\label{dl_eqn}
 \dl \left[c\right] = \left[a\right].
 \ee
@@ -1826,7 +1818,7 @@ where $\bt_J$ is the Bott map (cf. Definition \ref{bott_map_defn}). One has
 	\bt_J\left(  \left[\left( p''_1\cdot p''_2\right)\right]\right)  = \partial \left( \left[p_1\right]\cup \left[p_2\right]\right).
 \end{split}
 \ee
-The completion of the poof is leaved to the reader.
+This theorem is proven for the homomorphism $\partial : K_0\left(A/ J \right)\to K_1\left( J\right)$. The completion of the proof is left to the reader.
 \end{proof}
 
 \subsection{Connes' Thom isomorphism and Pimsner-Voiculescu Exact Sequence}
@@ -2123,7 +2115,7 @@ where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\
 	However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
 \end{proof}
 \begin{remark}\label{blowing_gelfand_rem}
-The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ is good (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
+The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
 \be\label{blowing_gelfand_eqn}
 	\mathfrak{Gelfand}_r\left(A \right) \onto \sX
 \ee
@@ -2186,10 +2178,10 @@ The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\math
 
 \subsection{Noncommutative coverings}
 \paragraph{}
-Here we suppose that we have Hausdorff blowing-up and investigate conditions when they enable us to construct noncommutative coverings.
+Here we suppose that we have Hausdorff blowing-up and investigate conditions when they enable us to construct given by the Definition \ref{covering_defn} noncommutative coverings.
 
 \begin{empt}\label{desc__empt}
-	Let  $\pi: \widetilde{\sX}\to \sX$ is a covering (cf. Definition \ref{top_covering_defn}) where both $\sX$ and $\widetilde{\sX}$ are locally compact Hausdorff spaces. If $\widetilde f \in C_c\left(\widetilde{\sX} \right)$ then for each $x \in \sX$ the set $$\left\{\left.\widetilde x \in \widetilde \sX\right| \widetilde f\left( \widetilde x\right)= x, \quad \widetilde f \left( \widetilde x\right) \neq 0 \right\}$$ finite  
+	Let  $\pi: \widetilde{\sX}\to \sX$ is a covering (cf. Definition \ref{top_covering_defn}) where both $\sX$ and $\widetilde{\sX}$ are locally compact Hausdorff spaces. If $\widetilde f \in C_c\left(\widetilde{\sX} \right)$ then for each $x \in \sX$ the set $$\left\{\left.\widetilde x \in \widetilde \sX\right| \widetilde f\left( \widetilde x\right)= x, \quad \widetilde f \left( \widetilde x\right) \neq 0 \right\}$$ finite.  
 	We leave to the reader proof of that  if
 	\be\label{cov_comp_eqn}
 	\begin{split}
@@ -2202,7 +2194,7 @@ Here we suppose that we have Hausdorff blowing-up and investigate conditions whe
 \begin{defn}\label{top_compactly_supported_descent_defn}
 	Under the hypothesis \ref{desc__empt} the $\C$-linear homomorphism 	\be\label{desc_eqn}
 	\begin{split}
-		\desc_\pi : C_c\left(\sX \right)\to C_c\left(\widetilde\sX \right),\\
+		\desc_\pi : C_c\left(\widetilde\sX \right)\to C_c\left(\sX \right),\\
 		\widetilde f \mapsto f
 	\end{split}
 	\ee 
@@ -2338,11 +2330,10 @@ then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top
 	$$
 	one can deduce that a pair $\left( L_a, R_a\right)$ satisfies to  the equation \eqref{double_centralizer_eqn}, i.e.  $\left( L_a, R_a\right)$ is  a {double centralizer} (cf. Definition \ref{double_centralizer_defn}). From the Remark \ref{double_centralizer_rem} it follows that $\left( L_a, R_a\right)$ yields an element of $M\left( \widetilde{A}\right)$, so one has a natural map $	M\left(\widetilde \pi \right) :	M\left(A \right)  \to M\left( \widetilde A\right)$. 
 	We leave to the reader the proof of that $M\left(\pi \right)$ is an injective $*$-homomorphisms  and $M\left(\pi \right)$ is an extension of  $\pi$.
-	
 \end{proof}
-%
+
 \begin{empt}\label{blowing_lift_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $q: \widetilde \sY\to \sY$. There is $C_0\left(\sY \right)$-valued product
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let $q: \widetilde \sY\to \sY$ be a topological covering (cf. Definition \ref{top_covering_defn}). There is $C_0\left(\sY \right)$-valued product
 	\bean
 	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
 	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
