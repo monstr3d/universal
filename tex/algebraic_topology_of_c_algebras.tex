@@ -1243,6 +1243,44 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	%\begin{proof}
 	%!!!
 	%\end{proof}
+	\begin{lemma}\label{one_point_lem}
+		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
+		\bean 
+		\begin{split}
+			\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
+		\end{split}
+		\eean
+		where $\{x_0\}$ is the singleton. 
+	\end{lemma}
+	\begin{proof}
+		The set   $\left\{L_\la\right\}_{\la\in \La}$   all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A$ is a filter,
+	 If $L\notin \left\{L_\la\right\}$ is a closed left ideal such that 
+		\bean
+		L \subsetneqq A,\\
+		\eean  
+		then
+		\bean 
+		\begin{split}
+			L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}\quad \Rightarrow \quad L' \in \left\{L_\la\right\},\\
+			L \cap L' = \{0\}.
+		\end{split}
+		\eean
+		The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
+		It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
+	\end{proof}
+	
+	\begin{corollary}\label{one_point_cor}
+		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then  the reduced Gelfand space	$\mathfrak{Gelfand}_r\left(A^+ \right)$ is the one point compactification (cf. Definition \ref{one_point_compactification_defn}) of the reduced Gelfand space $\mathfrak{Gelfand}_r\left(A \right)$, i.e.
+		\be 
+		\begin{split}\label{one_point_cor_eqn}
+			\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
+		\end{split}
+		\ee
+		where $\{x_0\}$ is the singleton. 
+	\end{corollary}
+	\begin{proof}
+		Follows from the Lemma \ref{one_point_lem} and the Theorem \ref{locally_compact_hausdorff_thm}.
+	\end{proof}
 	
 
 	\section{Gelfand space and $K$-theory}
@@ -1358,23 +1396,36 @@ If
 \begin{remark}
 The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic classes, multiplicative structures and Adams operations.
 \end{remark}
-	\subsection{Sheaf-theoretic interpretation of $K$-theory}
 	\paragraph{} Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology.	
-	Suppose that $A$ is a stable
-	$C^*$-algebra. Then for any $n \in \N$ there is an $*$-isomorphisms $A\otimes \K \cong \mathbb{M}_n\left( A\otimes \K\right)$ which yields a homeomorphism $\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)\cong \mathfrak{Gelfand}_r\left(A \right)$. So any projector in $\mathbb{M}_n\left(A\right)$  yield a projector in $A$ and vice versa.  On the other hand any projector in $A$ yields a projector in $C_0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right) \right)$.
-	According to the  Shilov Idempotent Theorem any projector in $C_0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right) \right)$ corresponds to an element of the group of cohomology $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)\cong C_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There are natural actions 
+	For any $n \in \N$ there is an $*$-isomorphisms $\left( A\otimes \K \right)^+ \cong \left( \mathbb{M}_n\left( A\otimes \K\right)\right)^+$ which yields a homeomorphism $$\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+  \right).$$ 
+	So any projector in $\mathbb{M}_n\left(\left(A \otimes \K \right)^+\right)$  yield a projector in $\left( A\otimes \K\right)^+$ and vice versa.  On the other hand any projector in $\left(A \otimes \K \right)^+$ yields a projector in $C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right) \right)$ (cf. Lemma \ref{image_lem}).
+	According to the  Shilov Idempotent Theorem any projector in\\ $C\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+ \right)$ corresponds to an element of the group of cohomology \\$H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)\cong C\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There are natural actions
+
 	\bea\label{g_act_eqn}
 	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathfrak{Gelfand}_r\left(A\otimes \K \right)\to\mathfrak{Gelfand}_r\left(A\otimes \K \right),\\
 	\label{pr_act_eqn}
 	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathrm{Pr}\left( A\otimes \K\right)\to \mathrm{Pr}(A\otimes \K)
 	\eea
-	 of the unitary group on the reduced Gelfand space $\mathfrak{Gelfand}_e\left(A \right)$ and the set of projectors $\mathrm{Pr}(A\otimes \K)$. So there is the natural action \be\label{u_1_act_eqn}
-	 U\left(\left(A\otimes \K \right) ^+ \right)\times H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)\to H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right).\ee Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
+	 Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
 	\be\label{k_00_h_eqn}
 	\begin{split}
-		K_{00}\left(A \right) \cong H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
+		K_{00}\left(\left( A \otimes \K\right)^+ \right) \cong H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 	\end{split}
 	\ee 
+	From the Definition \ref{k0_defn} one can prove that 	$K_{0}\left(A \otimes \K\right)$ correspond to the set
+	\be\label{k_0set}
+	\left\{\left.f \in  C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\right| f\left(x_0 \right) = 0\right\}\subset C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)
+	\ee 
+ where $\{x_0\}\bydef \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right)\setminus \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ (cf. Corollary \ref{one_point_cor}). Since $\Z$ is the principal ideal domain the set \eqref{k_0set} is isomorphic to the reduced cohomology $\tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)$ (cf. Definition \ref{red_defn}). On the other hand from  \eqref{red_eqn} it turns out that 
+ \bean
+ \tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\cong H^0_c\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)
+ \eean 
+In result one has
+	\be\label{k_0_h_eqn}
+\begin{split}
+	K_{0}\left(A \otimes \K\right) \cong H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
+\end{split}
+\ee 
 %		\begin{empt}
 %			If $C^*$-algebra $A$ is not unital then $A$ is a closed two-sided ideal of $A^+$.  For any $n \in \N$ let
 %			\be\label{gl_k_eqn}
@@ -1479,7 +1530,7 @@ There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otim
 	\eea
 	\end{theorem}
 	\begin{proof}
-		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_00_h_eqn} \eqref{k_1_h_eqn} and the Lemma \ref{ring_auto_lem}.
+		The $C^*$-algebra $A$ is strongly Morita equivalent to $ A\otimes \K$. So this lemma is the direct consequence of the equations \eqref{k_0_h_eqn} \eqref{k_1_h_eqn} and the Lemma \ref{ring_auto_lem}.
 	\end{proof}
 	\begin{rem}\label{inv_h1_rem}
 		The given by \eqref{g_act_eqn} action
@@ -1601,7 +1652,7 @@ If $A$ be an unital $C^*$-algebra then any element of $x' \in K_0\left( A\right)
 \be
 \forall g \in U_1\left(\left(A \otimes \K \right)^+  \right)  \quad \left(gx' \right) \smile y' = x' \smile y'
 \ee
-where the action \eqref{u_1_act_eqn} is implied. So for any $x \in K_0\left(A \right)$ and $y \in K_1\left(A \right)$  the given by the Theorem  \ref{cup_prod_thm} product $x \smile y$ corresponds to $x' \smile y'\in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ where $x' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ (resp. $y' \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$) is a representable of $x$ (resp. $y$), i.e. the product does not depend on choice of representable of $x$.
+where the action \eqref{pr_act_eqn} is implied. So for any $x \in K_0\left(A \right)$ and $y \in K_1\left(A \right)$  the given by the Theorem  \ref{cup_prod_thm} product $x \smile y$ corresponds to $x' \smile y'\in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ where $x' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ (resp. $y' \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$) is a representable of $x$ (resp. $y$), i.e. the product does not depend on choice of representable of $x$.
 
 \end{remark}
 
@@ -3866,7 +3917,26 @@ A ring $A$ is said to satisfy {\it excision}  in algebraic $K$-theory if for eve
 	If $\sX$ is locally compact, the {\it (reduced) suspension} $S\sX$ of $\sX$
 	is defined to be $\sX \times \R$.
 	\end{definition}
-	 
+	
+\begin{theorem}\label{locally_compact_hausdorff_thm}\cite{munkres:topology}
+%Theorem 29.1.
+ Let $\sX$ be a space. Then $\sX$ is locally compact Hausdorff if and only
+if there exists a space $\sY$ satisfying the following conditions:
+\begin{enumerate}
+	\item[(a)] $\sX$ is a subspace of $\sY$.
+		\item[(b)] The set $\sY \setminus\sX$ consists of a single point.
+		\item[(a)] $\sY$ is a compact Hausdorff space.
+	Jf $\sY$ and $\sY'$ are two spaces satisfying these conditions, then there is a homeomorphism of $\sY$ with $\sY'$ that equals the identity map on $\sX$
+\end{enumerate}
+\end{theorem}	
+
+
+\begin{definition}\label{one_point_compactification_defn}\cite{munkres:topology}
+If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$  whose
+closure equals $\sY$, then $\sY$ is said to be a {\it compactification} of $\sX$. If $\sY \setminus\sX$ equals a single
+point, then $\sY$ is called the {\it one-point compactification} of X.
+%We have shown that X has a one-point compactification Y if and only if X isa locally compact Hausdorff space that is not itself compact. We speak of Y as "the"one-point compactification because Y is uniquely determined up to a homeomorphism.
+\end{definition} 
 
 	\subsection{Algebraic topology}
 \subsubsection{Coverings and fundamental groups}
@@ -7436,7 +7506,7 @@ Technical report. No 21. January 21, 1963. Prepared under grant DA AR0(D)31-124-
 %\bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
 
-%\bibitem{rudin:pa} Rudin, Walter. \textit{ Principles of mathematical analysis}. (3rd. ed.), McGraw-Hill, ISBN 978-0-07-054235-8. 1976.
+\bibitem{rudin:pa} Rudin, Walter. \textit{ Principles of mathematical analysis}. (3rd. ed.), McGraw-Hill, ISBN 978-0-07-054235-8. 1976.
 
 	\bibitem{schwieger:nt_cov}
 Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}. 	Math. Scand. 26 (2020), 99Ð116. 2020.
@@ -7459,15 +7529,16 @@ Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}.
 
 \bibitem{varilly:nc_intro} J. Varilly {An Introduction to Noncommutative Geometry}, arXiv:physics/9709045v1. 1997.
 	
-	\bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.  	
 
-%\bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
+\bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
 		
+		\bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.  	
 		
 \bibitem{wegge_olsen} N. E. Wegge-Olsen. \textit{$K$-Theory
 	 and $C^*$-Algebras: A Friendly Approach.} Oxford University Press,
 Oxford, England, 1993. 
 
+\bibitem{zhi:cov_group} Zhi-Ming Luo. \textit{Covering groupoids} arXiv:math/0412230, 2004.
 
 \end{thebibliography}
 
