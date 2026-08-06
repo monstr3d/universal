@@ -757,6 +757,13 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 	$$
 	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the explained in \ref{topology_empt} Gelfand topology.
 \end{definition}
+	\begin{lemma}\label{gelfand_compact_lem}
+	If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is compact.
+\end{lemma}
+\begin{proof}
+From $A= K\left( A\right)$ it turns out that $\mathfrak{Gelfand}\left(A \right) = \mathfrak{Ultrafilters}\left(A \right)$. On the other  any ultrafilter on the the topological space $\mathfrak{Ultrafilters}\left(A \right)$ is convergent. Now this lemma is a direct consequence of (b) of the Proposition \ref{top_ultra_prop}
+\end{proof}
+
 %\begin{empt}
 %Let $L_1, L_2 \in A$ be two closed left ideals of $C^*$-algebra $A$ such that $L_1 \cap L^*_2 \neq \{0\}$. If $a\in L_1 \cap L^*_2 \setminus \{0\}$ then $a^*\in L_2 \cap L^*_1 \setminus \{0\}$. One has $aa^* > 0$ and $aa^*=\left( aa^*\right)^*\in L_2\cap L^*_1$
 %		\be\label{aa_eqn} 
@@ -1080,45 +1087,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\subsection{Maps onto spaces of maximal ideals}
 	\paragraph{}
 	If $A$ is a unital $C^*$-algebra and $\mathfrak{Gelfand}_r\left(A \right)$ is the reduced Gelfand space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$ is unital.
-	\begin{lemma}\label{gelfand_compact_lem}
-		If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is compact.
-	\end{lemma}
-	\begin{proof}
-		If $\mathfrak{Gelfand}\left(A \right)$ is not compact then there is an infinite set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\mathfrak{Gelfand}\left(A \right)$ such that
-		\begin{itemize}
-			\item 
-			\bean
-			\bigcup_{\a \in \mathscr A}\sU_\a = \mathfrak{Gelfand}\left(A \right)
-			\eean
-			\item
-			\bean
-			\forall \mathscr A_0 \subset \mathscr A \quad \mathscr A_0\quad \text{ is finite}\quad \Rightarrow \quad \bigcup_{\a \in \mathscr A_0}\sU_\a\subsetneqq \mathfrak{Gelfand}\left(A \right)
-			\eean
-		\end{itemize}
-		Without loss of generality we suppose that for every $\a \in \mathscr A$ there is a closed left ideal $L_\a \subset A$ with $\sU_\a = \mathfrak{Gelfand}\left(A \right)_{L_\a}$ (cf. equation \eqref{topology_eqn}), If  $\left\{L_\la\right\}_{\la\in\La}$ is the family of all finite sums of $L_\a$, i.e.
-		\bean
-		\forall \la \in \La\quad  L_\la = \sum_{j = 1}^m L_j, \quad L_1, ..., L_m \in \left\{L_\a\right\}_{\a \in \mathscr A}
-		\eean 
-		then $\left\{L_\la\right\}$ is a net. If $L$ is the $C^*$-norm closure of the union
-		\bean
-		\bigcup_{\la \in \La} L_\la
-		\eean 
-		then one has
-		\bean
-		\bigcup_{\a \in \mathscr A}\sU_\a  \subset \mathfrak{Gelfand}\left(A \right)_L \quad \Rightarrow \quad  \mathfrak{Gelfand}\left(A \right)_L =  \mathfrak{Gelfand}\left(A \right).
-		\eean 
-		It turns out that $1_A \in L$, so there is the $C^*$-norm limit
-		\bean
-		1_A =\lim_{\la \in \La} a_\la, \quad a_\la \in L_\la.
-		\eean 
-		On the other hand the above limit is impossible since one has
-		\bean
-		\forall a_\la \in L_\la \quad \left\|a_\la - 1_A \right\|\ge 1. 
-		\eean 
-		This contradiction proves this lemma.
-		
-	\end{proof}
-	\begin{empt}
+\begin{empt}
 		Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
 		\begin{itemize}
 			\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
@@ -7333,8 +7302,19 @@ If $\th$ is not rational, then any two projections in
 $\mathbb{M}_m\left(C\left(\T^n_\th \right) \right)$ which represent the same element of $K_1\left(C\left(\T^n_\th \right)  \right)$ are in the  same
 connected component of the set of projections in $\mathbb{M}_m\left(C\left(\T^n_\th \right) \right)$.
 \end{theorem}
-
-
+\section{Order Structure on $K_0$}
+\section{Theory of AF Algebras}
+\begin{definition}\cite{blackadar:ko}
+%Definition 7.1.1.
+ A $C^*$-algebra $A$ is an {\it AF algebra} if $A$ is an inductive limit
+of a sequence of finite-dimensional $C^*$-algebras.
+\end{definition}
+\begin{example}\cite{blackadar:ko}
+%Examples 7.1.2. 
+The CAR algebra; more generally, UHF and matroid $C^*$-
+algebras; $\K$; $C_0\left( \sX\right)$, when $\sX$  is locally compact, totally disconnected, and second
+countable
+\end{example}
 
 \end{appendices}
 \section*{Acknowledgment}
