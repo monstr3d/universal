@@ -1088,51 +1088,62 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\paragraph{}
 	If $A$ is a unital $C^*$-algebra and $\mathfrak{Gelfand}_r\left(A \right)$ is the reduced Gelfand space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$ is unital.
 \begin{empt}
-		Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
+		Let $F\subset \mathfrak{Gelfand}_r\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}_r\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
 		\begin{itemize}
-			\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
-			\item $\mathfrak{Gelfand}\left(A \right)_{L_\la}$ yields an open neighborhood of $\xi$
+			\item $  \mathfrak{Gelfand}_r\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}_r\left(A \right)\setminus F$
+			\item $\mathfrak{Gelfand}_r\left(A \right)_{L_\la}$ yields an open neighborhood of $\xi$
 		\end{itemize}
-		where the notation \eqref{topology_eqn} is used. We define $\ker F$ as the $C^*$-norm closure of the union 
+		where the notation \eqref{topology_eqn} is used. The set $\mathscr A$ of finite subsets  of $\la$ is a net. If for any $\a \in \mathscr A$ 
+		\be
+		L_\a \bydef \sum_{\la\in \a} L_\la
+		\ee
+		is the algebraic finite sum of closed left $A$-modules then $\left\{L_\a | \a \in \mathscr A\right\}$ is a net, so the union
 		\be\label{aun_eqn} 
 		\begin{split}
-			\bigcup_{\substack{\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F\\\la \in \La_\xi}}~~  L_\la
+			\bigcup_{\a \in \mathscr A} L_\a
 		\end{split}
 		\ee
+		is a left $A$-module. We define 
+		\be\label{kf_eqn} 
+	\begin{split}
+		\ker F \bydef \mathfrak{Gelfand}_r\left(A \right)\setminus \mathfrak{Gelfand}_r\left(A \right)_{L_F}
+	\end{split}
+	\ee
+	where $L_F$ is the $C^*$-norm closure of the left ideal \eqref{aun_eqn}.	
 		For each subset $I$ of $A$ define a set
 		\be\label{hull_g_eqn}
-		\mathrm{hull}\left( I\right)\bydef \bigcap_{I \subset L}\mathfrak{Gelfand}\left(A \right)_L
+		\mathrm{hull}\left( I\right)\bydef \bigcap_{I \subset L}\mathfrak{Gelfand}_r\left(A \right)_L
 		\ee 
-		where $L$ is a closed ideal and $\mathfrak{Gelfand}\left(A \right)_L$ is given by \eqref{topology_eqn}.		
+		where $L$ is a closed ideal and $\mathfrak{Gelfand}_r\left(A \right)_L$ is given by \eqref{topology_eqn}.		
 	\end{empt}
 	\begin{remark}
-		The equations \eqref{aun_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones.
+		The equations \eqref{kf_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones.
 	\end{remark}
 	\begin{empt} Let $A$ be an unital $C^*$-algebra.
-		If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ is the closed left ideal such that
+		If  $\xi \in \mathfrak{Gelfand}_r\left(A \right)$ then $\ker \{\xi\}$ corresponds to the closed left ideal $L_\xi\subset A$ such that
 		\be 
-		\mathrm{hull}\left( \ker \xi\right) = \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}.
+		\mathrm{hull}\left( L_\xi\right) = \mathfrak{Gelfand}_r\left(A \right)\setminus \{\xi\}.
 		\ee
 		If $L \subset A$ is a closed left ideal then one has
 		\be
 		\begin{split}
-			L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad \xi \in \mathfrak{Gelfand}\left(A \right)_L,
+			L \not\subset L_\xi \quad \Leftrightarrow \quad \xi \in \mathfrak{Gelfand}_r\left(A \right)_L,
 		\end{split}
 		\ee
 		or
 		\be\label{max_y_eqn}
 		\begin{split}
-			L \not\subset \ker \{\xi\} \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}\left(A \right)\quad \Rightarrow \quad \ker \{\xi\} \cup L = A.
+			L \not\subset L_\xi \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}_r\left(A \right)\quad \Rightarrow \quad L_\xi \cup L = A.
 		\end{split}
 		\ee
-		From \eqref{max_y_eqn} it turns out that $\ker{\xi}$ is the maximal proper ideal. In result one has the following theorem. 
+		From \eqref{max_y_eqn} it turns out that $L_\xi$ is the maximal proper left ideal. In result one has the following theorem. 
 	\end{empt}
 	\begin{theorem}\label{gelfand_max_thm}
 		For any unital $C^*$-algebra there is the natural continuous  map
 		\be\label{gelfand_max_eqn}
 		\begin{split}
-			\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\to  \mathfrak{LeftMax}\left(A \right),\\
-			\xi \mapsto \ker\{\xi\}
+			\mathfrak{Max}_A: \mathfrak{Gelfand}_r\left(A \right)\to  \mathfrak{LeftMax}\left(A \right),\\
+			\xi \mapsto L_\xi
 		\end{split}
 		\ee
 	\end{theorem}	
@@ -1170,7 +1181,7 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 %		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
 %		\bean 
 %		\begin{split}
-%			\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup\{x_0\}
+%			\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
 %		\end{split}
 %		\eean
 %		where $\{x_0\}$ is the singleton. 
@@ -1198,9 +1209,9 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 %			L \cap L' = \{0\}.
 %		\end{split}
 %		\eean
-%		The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
+%		The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	It corresponds to a point $\{+\}\in \mathfrak{Gelfand}_r\left(A^+ \right)\setminus \mathfrak{Gelfand}_r\left(A \right)$ such that $\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
 %	\end{proof}
-	%\begin{corollary}\label{one_point_cor}
+	%\begin{corollary}\label{one_point_cor} !!! REP \ref{one_point_lem}
 	%	If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then  the reduced Gelfand space	$\mathfrak{Gelfand}_r\left(A^+ \right)$ is the one point compactification of the reduced Gelfand space $\mathfrak{Gelfand}_r\left(A \right)$, i.e.
 	%	\be 
 	%	\begin{split}\label{one_point_cor_eqn}
@@ -1219,37 +1230,22 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 			\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
 		\end{split}
 		\eean
-		where $\{x_0\}$ is the singleton. 
+		where $\{x_0\}$ is the singleton, i.e. $\mathfrak{Gelfand}_r\left(A^+ \right)$ is the one-point compactification of $\mathfrak{Gelfand}_r\left(A\right)$ (cf. Definition \ref{one_point_compactification_defn}).
 	\end{lemma}
-	\begin{proof}
-		The set   $\left\{L_\la\right\}_{\la\in \La}$   all  closed left ideals  of $L_\la\subset A^+$ with $ \forall \La \quad L_\la \not\subset A$ is a filter,
-	 If $L\notin \left\{L_\la\right\}$ is a closed left ideal such that 
+	\begin{proof} The set $A$ is a maximal left ideal of $A^+$
+		If  there are $x'_0, x''_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)$ with $x'_0 \neq x''_0$ then there are left ideals $L', L'' \in A^+$ such that
 		\bean
-		L \subsetneqq A,\\
-		\eean  
-		then
-		\bean 
-		\begin{split}
-			L' \bydef \left\{\left.a \in A^+\right| A a \cap L = \{0\} \right\}\quad \Rightarrow \quad L' \in \left\{L_\la\right\},\\
-			L \cap L' = \{0\}.
-		\end{split}
+		x'_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)_{L'},\\
+		x''_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)_{L''},
+		L' \cap L'' = \{0\}.
 		\eean
-		The above equation means that the filter $\left\{L_\la\right\}$ could not be extended, i.e. it is an ultrafilter.	
-		It corresponds to a point $\{+\}\in \mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ such that $\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup \{+\}$. We leave other details of the proof to the reader.
+		It follows that
+		\be 
+		A \subsetneqq A + L' \subsetneqq  A + L' + L'' \subset A^+,
+		\ee 
+		i.e. $A$ is not a maximal proper ideal of $A$. The contradiction proves this lemma.
 	\end{proof}
 	
-	\begin{corollary}\label{one_point_cor}
-		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then  the reduced Gelfand space	$\mathfrak{Gelfand}_r\left(A^+ \right)$ is the one point compactification (cf. Definition \ref{one_point_compactification_defn}) of the reduced Gelfand space $\mathfrak{Gelfand}_r\left(A \right)$, i.e.
-		\be 
-		\begin{split}\label{one_point_cor_eqn}
-			\mathfrak{Gelfand}_r\left(A^+ \right)\cong \mathfrak{Gelfand}_r\left(A \right)\cup\{x_0\}
-		\end{split}
-		\ee
-		where $\{x_0\}$ is the singleton. 
-	\end{corollary}
-	\begin{proof}
-		Follows from the Lemma \ref{one_point_lem} and the Theorem \ref{locally_compact_hausdorff_thm}.
-	\end{proof}
 	
 
 	\section{Gelfand space and $K$-theory}
@@ -1385,7 +1381,7 @@ The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic clas
 	\be\label{k_0set}
 	\left\{\left.f \in  C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\right| f\left(x_0 \right) = 0\right\}\subset C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)
 	\ee 
- where $\{x_0\}\bydef \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right)\setminus \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ (cf. Corollary \ref{one_point_cor}). Since $\Z$ is the principal ideal domain the set \eqref{k_0set} is isomorphic to the reduced cohomology $\tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)$ (cf. Definition \ref{red_defn}). On the other hand from  \eqref{red_eqn} it turns out that 
+ where $\{x_0\}\bydef \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right)\setminus \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ (cf. Lemma \ref{one_point_lem}). Since $\Z$ is the principal ideal domain the set \eqref{k_0set} is isomorphic to the reduced cohomology $\tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)$ (cf. Definition \ref{red_defn}). On the other hand from  \eqref{red_eqn} it turns out that 
  \bean
  \tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\cong H^0_c\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)
  \eean 
@@ -1418,7 +1414,7 @@ In result one has
 %			\bean
 %			z'z'' \in \mathbb{M}_n\left( A\right)
 %			\eean 
-%The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.		, so from the Corollary \ref{one_point_cor} it follows that
+%The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.		, so from the Corollary  \ref{one_point_lem} it follows that
 %	\bean
 %	\mathfrak{Gelfand}_r\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}_r\left(A\otimes \K \right)\cup\{x_0\}
 %	\eean
