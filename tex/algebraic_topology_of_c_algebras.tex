@@ -1087,8 +1087,8 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\end{remark}
 	\subsection{Maps onto spaces of maximal ideals}
 	\paragraph{}
-	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
-\begin{empt}
+!!!	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
+\begin{empt}!!!
 		Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
 		\begin{itemize}
 			\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
@@ -1117,11 +1117,11 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		\ee 
 		where $L$ is a closed ideal and $\mathfrak{Gelfand}\left(A \right)_L$ is given by \eqref{topology_eqn}.		
 	\end{empt}
-	\begin{remark}
+	\begin{remark}!!!
 		The equations \eqref{kf_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones.
 	\end{remark}
-	\begin{empt}  Let $A$ be a $C^*$-algebra.
-		If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ corresponds to the closed left ideal $L_\xi\subset A$ such that
+	\begin{empt}!!!  Let $A$ be a $C^*$-algebra.
+		If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ corresponds to the closed left ideal $L_{\{\xi\}}\subset A$ such that
 		\be 
 		\mathrm{hull}\left( L_\xi\right) = \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}.!!!
 		\ee
@@ -1139,15 +1139,58 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 		\ee
 		From \eqref{max_y_eqn} it turns out that $L_\xi$ is the maximal proper left ideal. In result one has the following theorem. 
 	\end{empt}
+	\begin{empt}\label{max_map_empt}
+	Let $\xi \in \mathfrak{Gelfand}\left(A \right)$ and let $\left\{L_\la\right\}_{\la \in \La_\xi}$ be a set of closed left ideals of $A$ such that for any $\la \in \La_\xi$ one has  $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}$. The set $\mathscr A$ of finite subsets  of $\La$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
+	\be
+	L_\a \bydef \sum_{\la\in \a} L_\la
+	\ee
+	is the algebraic finite sum of closed left $A$-modules then $\left\{L_\a | \a \in \mathscr A\right\}$ is directed (cf. Definition \ref{directed_set_defn}), so the union
+	\be\label{aunnn_eqn} 
+	\begin{split}
+		\bigcup_{\a \in \mathscr A} L_\a
+	\end{split}
+	\ee
+	is a left $A$-module.The set $\mathscr A$ of finite subsets  of $\La$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
+	\be
+	L_\a \bydef \sum_{\la\in \a} L_\la
+	\ee
+	is the algebraic finite sum of closed left $A$-modules then $\left\{L_\a | \a \in \mathscr A\right\}$ is directed (cf. Definition \ref{directed_set_defn}), so the union
+	\be\label{aunm_eqn} 
+	\begin{split}
+		\bigcup_{\a \in \mathscr A} L_\a
+	\end{split}
+	\ee
+	is a left $A$-module. If  $L_{\{\xi\}}$ is the $C^*$-norm closure of the union \eqref{aunm_eqn} then  $L_{\{\xi\}}$ is the closed left ideal. Denote by $\mathfrak{LeftMax}\left(A \right)$ the set of maximal left proper ideals of $A$.
+		\end{empt}
+		\begin{definition}\label{jacobson_defn} 
+There is the \textit{generalized Jacobson  topology}  on $\mathfrak{LeftMax}\left(A \right)$ with basis
+\be\label{jacobson_eqn} 
+\begin{split}
+	\left\{\mathfrak{LeftMax}\left(A \right)_L\right\}_{L \mathrm{~is~a~closed~left~ideal~of~}A},\\
+	\mathfrak{LeftMax}\left(A \right)_L \bydef \left\{\left. \xi \in \mathfrak{LeftMax}\left(A \right)\right| L \subset \xi\right\}.
+\end{split}
+\ee		\end{definition} 
+
 	\begin{theorem}\label{gelfand_max_thm}
-		For any unital $C^*$-algebra there is the natural homeomorphism 
+	Under the hypothesis \ref{max_map_empt}	there is  the natural surjective continuous map 
 		\be\label{gelfand_max_eqn}
 		\begin{split}
-			\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\to  \mathfrak{LeftMax}\left(A \right),\\
-			\xi \mapsto L_\xi
+			\mathfrak{Max}_A: \mathfrak{Gelfand}\left(A \right)\onto  \mathfrak{LeftMax}\left(A \right),\\
+			\xi \mapsto L_{\{\xi\}}.
 		\end{split}
 		\ee
-	\end{theorem}	
+	\end{theorem}
+	\begin{proof}
+	If the ideal $L_{\{\xi\}}$ is not maximal then there are $a', a'' \in A$ such that
+	\bean
+	L_{\{\xi\}} \subsetneqq	L_{\{\xi\}} + Aa' \subsetneqq L_{\{\xi\}} + Aa' + Aa''.
+	\eean
+	If $\xi$ is given by the family $\left\{L_\la\right\}_{\la\in \La}$ of left ideals then 
+	\be 
+	\forall\la\in \La \quad L_\la \cap  Aa' \neq \{0\}
+	\ee
+	The family $\left\{L_\la \cap  Aa'\right\}_{\la\in \La}$ exceeds $\left\{L_\la \right\}_{\la\in \La}$, so $\left\{L_\la \right\}_{\la\in \La}$ is not an ultrafilter. From this contradiction one concludes that the ideal $L_{\{\xi\}}$ is maximal. For any $L \in \mathfrak{LeftMax}\left(A \right)$ we define the set $\left\{L_\la\right\}$ if all closed left ideal with $L \cap L_\la \neq L_\la$. The set $\left\{L_\la\right\}$ is a filter. If $\xi \in  \mathfrak{Gelfand}\left(A \right)$ corresponds to an ultrafilter which exceeds $\left\{L_\la\right\}$ then 	$\mathfrak{Max}_A\left( \xi\right) = L$, i.e, the map 	$\mathfrak{Max}_A$ is surjective. The continuity of $\mathfrak{Max}_A$ follows from the Gelfand and Jacobson topology (cf. \ref{topology_empt} and the Definitions \ref{jacobson_defn}).
+	\end{proof}
 	\begin{remark}
 		The equation \eqref{gelfand_max_eqn} is an analog of the Jacobson topology on the prime spectrum (cf. \eqref{hull_eqn}), i.e. the map $\mathfrak{Max}_A$ can be regarded as a homeomorphism.
 	\end{remark}
