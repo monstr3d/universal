@@ -739,31 +739,63 @@ Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yiel
 \begin{proof}
 	Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
 \end{proof}
-\begin{empt}\label{topology_empt}
+\begin{empt}\label{topology_empt} 
 	If $\mathfrak{Ultrafilters}\left(A \right)$ 
-	is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$  then there is a {\it Gelfand topology} on $\mathfrak{Ultrafilters}\left(A \right)$ is the minimal among topologies such that for any closed left ideal $L \subset A$ the set
+	is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) then foe any for any closed left ideal $L \subset A$ ww define a set
 	\be\label{topology_eqn}
 	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{ \xi \in \mathfrak{Ultrafilters}\left(A \right) \left| L \in \xi\right.\right\}\subset 	\mathfrak{Ultrafilters}\left(A \right)
 	\ee
-	set is open.
 \end{empt}
-\begin{remark}
-	Using the direct check one can prove that the set of the  given by the equation \eqref{topology_eqn} sets is a basis of topology (cf. Definition \ref{top_base_defn}).
-\end{remark}
-
+\begin{lem}\label{topology_lem} 
+	The set of given by \eqref{topology_eqn} sets is a basis of topology on $\mathfrak{Ultrafilters}\left(A \right)$  (cf. Definition \ref{top_base_defn}).
+\end{lem}
+\begin{proof}
+One needs check conditions (a) and (b) of the Definition \ref{top_base_defn},\\
+(a) If $\xi \in \mathfrak{Ultrafilters}\left(A \right) = \left\{ L_\la \right\}_{\la \in \La}$ then 
+$$
+\forall \la \in \La\quad  \xi \in 	\mathfrak{Ultrafilters}\left(A \right)_{L_\la}.
+$$
+(b) 
+\bean
+\forall \la', \la'' \in \La\quad \exists \la \in \La\quad L_\la = L_{\la'}\cap L_{\la''},\\
+\mathfrak{Ultrafilters}\left(A \right)_{L_{\la'}}\cap\mathfrak{Ultrafilters}\left(A \right)_{L_{\la''}}=\mathfrak{Ultrafilters}\left(A \right)_{L_{\la}}.
+\eean
+\end{proof}
+\begin{definition}\label{topology_defn} 
+The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology}, so the set  $\mathfrak{Ultrafilters}\left(A \right)$ becomes a topological space.
+\end{definition}
+	\begin{lemma}\label{gelfand_u_compact_lem}
+	If $A$ is a $C^*$-algebra then the space  $\mathfrak{Ultrafilters}\left(A \right)$ is compact and Hausdorff. 
+\end{lemma}
+\begin{proof}
+Follows the Proposition the Proposition \ref{top_ultra_prop},
+\end{proof}
 \begin{definition}\label{gelfand_space_defn}
-	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ in Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) such that 
+!!!	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi \in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ in Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) such that 
 	$$
 	Aa \in \xi.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the explained in \ref{topology_empt} Gelfand topology.
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the explained in \ref{topology_empt} !!! \ref{topology_defn} Gelfand topology.
 \end{definition}
 
-	\begin{lemma}\label{gelfand_compact_lem}
+	\begin{lemma}\label{gelfand_compact_lem}!!!
 	If $A$ is a $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. Moreover if $A$ is unital then the space  $\mathfrak{Gelfand}\left(A \right)$  is compact.
 \end{lemma}
 \begin{proof}
-From the construction \ref{topology_empt} and the Proposition \ref{top_ultra_prop} it follows that the space of $A$-ultrafilters is compact and Hausdorff. The Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff since it is a subspace of the space of  $A$-ultrafilters. If $A$ is unital then  $A= K\left( A\right)$, it turns out that $\mathfrak{Gelfand}\left(A \right) = \mathfrak{Ultrafilters}\left(A \right)$. 
+From the construction \ref{topology_empt} !!! \ref{topology_defn} and the Proposition \ref{top_ultra_prop} it follows that the space of $A$-ultrafilters is compact and Hausdorff. The Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff since it is a subspace of the space of  $A$-ultrafilters. If $A$ is unital then  $A= K\left( A\right)$, it turns out that $\mathfrak{Gelfand}\left(A \right) = \mathfrak{Ultrafilters}\left(A \right)$. 
+\end{proof}
+\begin{lemma}\label{ineq_lem}
+If $A$ is an unital $C^*$-algebra and $L', L''$ are two closed left ideals then one has
+\bean 
+L' \subseteqq L'' \quad \Rightarrow \quad \mathfrak{Ultrafilters}\left(A \right)_{L'}\subsetneqq \mathfrak{Ultrafilters}\left(A \right)_{L''}\quad \Leftrightarrow\\ \Leftrightarrow \mathfrak{Gelfand}\left(A \right)_{L'}\subsetneqq \mathfrak{Gelfand}\left(A \right)_{L''}.
+\eean
+\end{lemma}
+\begin{proof}
+If $a \in L'' \setminus L'$ then
+\bean
+\mathfrak{Ultrafilters}\left(A \right)_{Aa}\neq \emptyset,\\
+\mathfrak{Ultrafilters}\left(A \right)_{Aa} \subset  \mathfrak{Ultrafilters}\left(A \right)_{L''}\setminus \mathfrak{Ultrafilters}\left(A \right)_{L'}.
+\eean 
 \end{proof}
 %\begin{empt}
 %Let $L_1, L_2 \in A$ be two closed left ideals of $C^*$-algebra $A$ such that $L_1 \cap L^*_2 \neq \{0\}$. If $a\in L_1 \cap L^*_2 \setminus \{0\}$ then $a^*\in L_2 \cap L^*_1 \setminus \{0\}$. One has $aa^* > 0$ and $aa^*=\left( aa^*\right)^*\in L_2\cap L^*_1$
@@ -1088,59 +1120,50 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\subsection{Maps onto spaces of maximal ideals}
 	\paragraph{}
 !!!	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
-\begin{empt}!!!
-		Let $F\subset \mathfrak{Gelfand}\left(A \right)$ be a closed subset. For any $\xi \in \mathfrak{Gelfand}\left(A \right)\setminus F$ we define a set $\left\{L_\la\right\}_{\la \in \La_\xi}$ such that for any $\la \in \La_\xi$ one has 
-		\begin{itemize}
-			\item $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus F$
-			\item $\mathfrak{Gelfand}\left(A \right)_{L_\la}$ yields an open neighborhood of $\xi$
-		\end{itemize}
-		where the notation \eqref{topology_eqn} is used. The set $\mathscr A$ of finite subsets  of $\La$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
-		\be
-		L_\a \bydef \sum_{\la\in \a} L_\la
-		\ee
-		is the algebraic finite sum of closed left $A$-modules then $\left\{L_\a | \a \in \mathscr A\right\}$ is directed (cf. Definition \ref{directed_set_defn}), so the union
-		\be\label{aun_eqn} 
-		\begin{split}
-			\bigcup_{\a \in \mathscr A} L_\a
-		\end{split}
-		\ee
-		is a left $A$-module. We define 
-		\be\label{kf_eqn} 
-	\begin{split}
-		\ker F \bydef \mathfrak{Gelfand}\left(A \right)\setminus \mathfrak{Gelfand}\left(A \right)_{L_F}
-	\end{split}
-	\ee
-	where $L_F$ is the $C^*$-norm closure of the left ideal \eqref{aun_eqn}.	
-		For each subset $I$ of $A$ define a set
-		\be\label{hull_g_eqn}
-		\mathrm{hull}\left( I\right)\bydef \bigcap_{I \subset L}\mathfrak{Gelfand}\left(A \right)_L
-		\ee 
-		where $L$ is a closed ideal and $\mathfrak{Gelfand}\left(A \right)_L$ is given by \eqref{topology_eqn}.		
-	\end{empt}
-	\begin{remark}!!!
-		The equations \eqref{kf_eqn} and \eqref{hull_g_eqn} can be regarded as analogs of \eqref{ker_eqn} and \eqref{hull_eqn} ones.
-	\end{remark}
-	\begin{empt}!!!  Let $A$ be a $C^*$-algebra.
-		If  $\xi \in \mathfrak{Gelfand}\left(A \right)$ then $\ker \{\xi\}$ corresponds to the closed left ideal $L_{\{\xi\}}\subset A$ such that
-		\be 
-		\mathrm{hull}\left( L_\xi\right) = \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}.!!!
-		\ee
-		If $L \subset A$ is a closed left ideal then one has
-		\be
-		\begin{split}
-			L \not\subset L_\xi \quad \Leftrightarrow \quad \xi \in \mathfrak{Gelfand}\left(A \right)_L,
-		\end{split}
-		\ee
-		or
-		\be\label{max_y_eqn}
-		\begin{split}
-			L \not\subset L_\xi \quad \Leftrightarrow \quad 	\mathrm{hull}\left( \ker \{\xi\} \cup L\right) = \mathfrak{Gelfand}\left(A \right)\quad \Rightarrow \quad L_\xi \cup L = A.
-		\end{split}
-		\ee
-		From \eqref{max_y_eqn} it turns out that $L_\xi$ is the maximal proper left ideal. In result one has the following theorem. 
-	\end{empt}
-	\begin{empt}\label{max_map_empt}
-	Let $\xi \in \mathfrak{Gelfand}\left(A \right)$ and let $\left\{L_\la\right\}_{\la \in \La_\xi}$ be a set of closed left ideals of $A$ such that for any $\la \in \La_\xi$ one has  $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}$. The set $\mathscr A$ of finite subsets  of $\La$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
+\begin{empt}\label{max_map_empt} Let $A$ be an unital $C^*$-algebra. Consider an equivalence relation on  $\mathfrak{Gelfand}\left(A \right)$ 
+\be
+\begin{split}
+\forall \xi', \xi'' \quad \xi'\sim \xi'' \quad \Leftrightarrow \quad \forall\quad  \mathrm{closed~left~ideal~}L \subset A\quad\Leftrightarrow \\
+\Leftrightarrow \left(\xi'\not\in \mathfrak{Gelfand}\left(A \right)_L \quad \Leftrightarrow\quad \xi'' \notin\mathfrak{Gelfand}\left(A \right)_L  \right) 
+\end{split}
+\ee
+For every $\xi \in \mathfrak{Gelfand}\left(A \right)$ denote by
+\be
+\begin{split}
+\mathfrak{Gelfand}\left(A \right)_\xi \bydef \left\{\left.\eta \in \mathfrak{Gelfand}\left(A \right)\right| \xi \sim \eta \right\}
+\end{split}
+\ee
+Suppose that there is a proper left ideal $L_\xi \subset A$ such that 
+\be\label{lxi_eqn}
+\begin{split}
+\mathfrak{Gelfand}\left(A \right)\setminus \mathfrak{Gelfand}\left(A \right)_\xi = \mathfrak{Gelfand}\left(A \right)_{L_\xi}.
+\end{split}
+\ee
+The ideal $L_\xi$ yields an open  $p^\perp_\xi \in A'' = A^{**}$ and close $p_\xi \bydef 1-p^\perp_\xi$ projections (cf. Definition \ref{open_close_ideal_defn}). 
+\end{empt}
+\begin{lemma}
+	Under the hypothesis \ref{max_map_empt} if the projection  $p_\xi$ is not trivial then it is is minimal.
+\end{lemma}
+\begin{proof}
+	If 	$p_\xi$ is not minimal then from the Proposition \ref{open_close_ideal_prop} it follows that there is a closed projection $p$ with $p < p_\xi$. The projection $1-p$ is open and correspond to the closed left ideal with $L_\xi \subsetneqq L$. From the Lemma Lemma \ref{ineq_lem} it follows that 
+\bean
+	\mathfrak{Gelfand}\left(A \right)\setminus \mathfrak{Gelfand}\left(A \right)_\xi = \mathfrak{Gelfand}\left(A \right)_{L_\xi}\subsetneqq \mathfrak{Gelfand}\left(A\right)_L,  \\
+	\mathfrak{Gelfand}\left(A\right) \setminus \mathfrak{Gelfand}\left(A\right)_L \subsetneqq 	\mathfrak{Gelfand}\left(A \right)_\xi
+\eean
+If $\eta' \in \mathfrak{Gelfand}\left(A \right)_\xi\setminus\left(\mathfrak{Gelfand}\left(A\right) \setminus \mathfrak{Gelfand}\left(A\right)_L \right)$ and $\eta'' \in  \mathfrak{Gelfand}\left(A\right) \setminus \mathfrak{Gelfand}\left(A\right)_L$ then $\eta' \sim \eta''$ since $\eta', \eta'' \in \mathfrak{Gelfand}\left(A \right)_\xi$. One the other hand from
+\bean
+\eta' \notin \mathfrak{Gelfand}\left(A\right)_L ,\\
+\eta'' \in \mathfrak{Gelfand}\left(A\right)_L
+\eean 
+it follows that $\eta'\not\sim \eta''$.	 The contradiction proves this lemma.
+\end{proof}
+\begin{corollary}
+If  a proper ideal $L_\xi\subset A$ satisfies to \eqref{lxi_eqn} then the ideal $L_\xi$ is maximal.
+\end{corollary}
+
+\begin{empt}
+	
+	and let $\left\{L_\la\right\}_{\la \in \La_\xi}$ be a set of closed left ideals of $A$ such that for any $\la \in \La_\xi$ one has  $  \mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\setminus \{\xi\}$. The set $\mathscr A$ of finite subsets  of $\La$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
 	\be
 	L_\a \bydef \sum_{\la\in \a} L_\la
 	\ee
@@ -1189,7 +1212,7 @@ There is the \textit{generalized Jacobson  topology}  on $\mathfrak{LeftMax}\lef
 	\be 
 	\forall\la\in \La \quad L_\la \cap  Aa' \neq \{0\}
 	\ee
-	The family $\left\{L_\la \cap  Aa'\right\}_{\la\in \La}$ exceeds $\left\{L_\la \right\}_{\la\in \La}$, so $\left\{L_\la \right\}_{\la\in \La}$ is not an ultrafilter. From this contradiction one concludes that the ideal $L_{\{\xi\}}$ is maximal. For any $L \in \mathfrak{LeftMax}\left(A \right)$ we define the set $\left\{L_\la\right\}$ if all closed left ideal with $L \cap L_\la \neq L_\la$. The set $\left\{L_\la\right\}$ is a filter. If $\xi \in  \mathfrak{Gelfand}\left(A \right)$ corresponds to an ultrafilter which exceeds $\left\{L_\la\right\}$ then 	$\mathfrak{Max}_A\left( \xi\right) = L$, i.e, the map 	$\mathfrak{Max}_A$ is surjective. The continuity of $\mathfrak{Max}_A$ follows from the Gelfand and Jacobson topology (cf. \ref{topology_empt} and the Definitions \ref{jacobson_defn}).
+	The family $\left\{L_\la \cap  Aa'\right\}_{\la\in \La}$ exceeds $\left\{L_\la \right\}_{\la\in \La}$, so $\left\{L_\la \right\}_{\la\in \La}$ is not an ultrafilter. From this contradiction one concludes that the ideal $L_{\{\xi\}}$ is maximal. For any $L \in \mathfrak{LeftMax}\left(A \right)$ we define the set $\left\{L_\la\right\}$ if all closed left ideal with $L \cap L_\la \neq L_\la$. The set $\left\{L_\la\right\}$ is a filter. If $\xi \in  \mathfrak{Gelfand}\left(A \right)$ corresponds to an ultrafilter which exceeds $\left\{L_\la\right\}$ then 	$\mathfrak{Max}_A\left( \xi\right) = L$, i.e, the map 	$\mathfrak{Max}_A$ is surjective. The continuity of $\mathfrak{Max}_A$ follows from the Gelfand and Jacobson topology (cf. \ref{topology_empt} !!! \ref{topology_defn} and the Definitions \ref{jacobson_defn}).
 	\end{proof}
 	\begin{remark}
 		The equation \eqref{gelfand_max_eqn} is an analog of the Jacobson topology on the prime spectrum (cf. \eqref{hull_eqn}), i.e. the map $\mathfrak{Max}_A$ can be regarded as a homeomorphism.
@@ -5721,6 +5744,219 @@ only if $u$ commutes with $E(S)$ for all Borel sets $S$ of $\Om$.
 		x = \bt\text{-}\sum_{i=1}^{\infty}a_i.
 	\end{equation}
 \end{defn}
+ 	\paragraph{}In this section I follow to \cite{murphy,pedersen:ca_aut}.
+\begin{defn}\label{strict_topology}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms $\vertiii{x}_a = \|ax\| + \|xa\|$, ($a\in A$). We denote by $\bt\text{-}\lim$ the limit with respect to the strict topology.
+	If $x \in M(A)$  and a sequence of partial sums $\sum_{i=1}^{n}a_i$ ($n = 1,2, ...$), ($a_i \in A$) tends to $x$ in the strict topology then we shall write
+	\begin{equation*}
+		x = \bt\text{-}\lim\sum_{i=1}^{\infty}a_i.
+	\end{equation*}
+\end{defn}
+\begin{defn}\label{unitization_defn}\cite{rae:ctr_morita}
+	A \text{unitization} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective *-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential ideal of $B$. 
+\end{defn}
+\begin{example}\label{unitization_exm}
+	Suppose A is a $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
+	is a *-algebra with 
+	$$
+	\left( a \oplus \la\right)\left( b \oplus \mu\right) = \left(ab + \la b + \mu a\right)  \oplus \la \mu, \quad \left(a \oplus \la \right)^* = a^*\oplus \overline{\la}. 
+	$$
+	It is proven in \cite{rae:ctr_morita} that there is the natural unique $C^*$-norm $\left\| \cdot\right\|_{A^+}$  on $A^+$ such that 
+	$$
+	\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
+	$$
+	where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$.
+\end{example}
+\begin{definition}\label{multiplier_min_defn}
+	Let $A$ be a $C^*$-algebra. A unitization   $\iota: A \hookto B$  is called \textit{minimal} if following conditions hold:
+	\begin{itemize}
+		\item If $A$ is not unital then $B = A^+$ where $A^+$ is described in the example \ref{unitization_exm}.
+		\item If $A$ is  unital then $B = A$ and $\iota = \Id_A$.
+	\end{itemize}
+	The minimal unitization will be denoted by $A^+$.
+\end{definition}
+\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
+	A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j$ of $A$ as an essential ideal of a $C^*$-algebra $\phi: C\to B$ such that $\phi \circ j = \iota$. 
+\end{definition}
+
+\begin{rem}\label{multiplier_rem}
+	It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization
+\end{rem}
+
+\begin{definition}\label{multiplier_defn}
+	We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
+\end{definition}
+\begin{defn}\label{app_unit_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra. A net $\left\{u_\la \right\}_{\la \in \La}$ in $A_+$ with $\left\|u_\la \right\| \le 1$ for all $\la \in \La$ is called an \textit{approximate unit} for $A$ if $\la < \mu$ implies $u_\la < u_\mu$ and if $\lim \left\|x- xu_\la \right\| = 0$ for each $x$ in $A$. Then, of course, $\lim \left\|x- u_\la x \right\| = 0$ as well.
+\end{defn}
+\begin{proposition}\label{mult_str_pos_prop}\cite{apt_mult}
+	If $B$ is a $C^*$-subalgebra of $A$ containing an
+	approximate unit for $A$, then  $M\left(B \right) \subset M\left( A\right)$  (regarding $B''$ as a subalgebra	of $A''$).
+\end{proposition}
+\begin{definition}\label{hered_defn}\cite{pedersen:ca_aut}
+	A cone in the positive part of $C^*$-algebra $A$ is said to be \textit{hereditary} if $0 \le x \le y$, $y \in M$ implies $x \in M$ for each $x \in A$. A *-subalgebra $B$ of $A$ is \textit{hereditary} if $B_+$ is hereditary in $A_+$.
+\end{definition}
+\begin{lemma}\label{hered_lem}\cite{murphy}
+	Let $B$ be a $C^*$-subalgebra of $C^*$-algebra $A$. Then $B$ is hereditary in $A$ if and only if $bab' \in B$ for all $b, b' \in B$ and $a \in A$.
+\end{lemma}
+\begin{defn}\label{center_defn}\cite{murphy}
+	If $A$ is a $C^*$-algebra, its \textit{center} $C$ is the set of elements of $A$ commuting with every of $A$.
+\end{defn}
+
+\begin{thm}\label{vN_thm}\cite{pedersen:ca_aut}
+	Let $M$ be a $C^*$-subalgebra of $B(\H)$, containing the identity operator. The following conditions are equivalent:
+	\begin{itemize}
+		\item $M=M''$ where $M''$ is the bicommutant of $M$;
+		\item $M$ is weakly closed;
+		\item $M$ is strongly closed.
+	\end{itemize}
+\end{thm}
+
+\begin{defn}
+	Any $C^*$-algebra $M$ is said to be a {\it von Neumann algebra} or a {\it $W^*$- algebra} if $M$ satisfies to the conditions of the Theorem \ref{vN_thm}.
+\end{defn}
+
+
+
+%\begin{defn}\cite{pedersen:ca_aut}
+%Let $B \in B(H)$ be a $C^*$-algebra. Denote by $B''$ the strong closure of $B$ in $B(H)$. $B''$ is an unital weakly closed $C^*$-algebra and if $B$ acts non-degenerately on $H$ then  $B''$ is the {\it bicommutant} of $B$. Any strongly (=weakly) closed algebra is said to be a {\it von Neumann algebra}.
+%\end{defn}
+%\begin{defn}\cite{pedersen:ca_aut}
+%For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+%\end{defn}
+\begin{remark}\label{irr_func_rem}
+	From the condition (i) of the Theorem \ref{irred_thm} it turns out that irreducibility is the categorical property, i.e. if there is the equivalence between category of representations of $C^*$-algebras then any irreducible representation is mapped to irreducible one.  The equivalence between category of representations corresponds to the strong Morita equivalence (cf. \ref{strong_morita_sec}).
+\end{remark}
+\begin{definition}\label{equiv_repr_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra.
+	We say that two representations $\pi_1: A \to B\left( \H_1\right)$ and $\pi_2: A \to B\left( \H_2\right)$  are \textit{spatially equivalent} (or \textit{unitary equivalent}) if there is an isometry $u$ of $\H_1$ onto $\H_2$ such that $u\pi_1\left(a \right)u^*=\pi_2\left(a \right)$ for all $a \in A$. By the \textit{spectrum} of $A$ we understand the set $\hat A$ of spatially equivalence classes of irreducible representations. For any $x \in \hat A$ we denote by
+	\be\label{rep_x_eqn}
+	\begin{split}
+		\rep_x : A \to B\left( \H\right) \quad \text{OR} \quad 	\rep^A_x : A \to B\left( \H\right)
+	\end{split}
+	\ee
+	a representation which corresponds to $x$.  Sometimes we use alternative notation of the spectrum $A^\wedge\stackrel{\text{def}}{=}\hat A$.
+\end{definition}
+\begin{definition}\label{prim_sp_defn}
+	Let $A$ be a $C^*$-algebra.
+	The \textit{primitive spectrum} is the space of the primitive ideals of $A$, we shall denote the primitive spectrum by $\check{A}$.
+\end{definition}
+\begin{remark}
+	There is the natural surjective map 
+	\be\label{check_hat_eqn}
+	\hat{A}\to \check{A}
+	\ee
+	which maps an irreducible representation to its kernel.
+\end{remark}
+\begin{theorem}\label{jtop_thm}
+	The class $\left\{\mathrm{hull}\left( I\right)~|~I \subset A\right\}$ form the closed sets for a topology on $\check{A}$. There is a bijective order preserving isomorphism between open sets in this topology and the closed ideals in $A$.
+\end{theorem}
+\begin{definition}\label{jtop_defn}
+	The topology on  $\check{A}$ defined in the Theorem \ref{jtop_thm} is called be the \textit{Jacobson topology}. The topology on $\hat A$ induced by the surjecive map $\hat{A}\to \check{A}$ and the {Jacobson topology} on  $\check{A}$ is also called to be  the \textit{Jacobson topology}.
+\end{definition}
+\begin{remark}
+	In the following text we consider the only Jacobson topology on both $\hat{A}$ and $\check{A}$.
+\end{remark}
+\begin{cor}\label{hered_closed_cor}\cite{murphy}
+	Every closed ideal  of $C^*$-albebra is a hereditary $C^*$-subalbebra.
+\end{cor}
+\begin{remark}\label{ideal_open_inc_rem}
+	From the Theorem \ref{jtop_thm}, the Proposition \ref{hered_spectrum_prop} and the Corollary \ref{hered_closed_cor} any closed ideal $I$ corresponds of $C^*$-algebra $A$ corresponds to  the open subset $\mathcal U \subset \hat A$ such that there is the natural homeomorphism $\hat I \cong  \mathcal U$. Moreover if $I$ is an essential ideal then $\mathcal U$ is dense subset of $\hat A$.
+\end{remark}
+\begin{proposition}\label{lift_prop}\cite{murphy}
+	Let $B$ be a $C^*$-algebra. For each positive functional $\phi$ on $B$ there is a norm preserving extension of $\phi$ to a positive functional on $A$. If $B$ is hereditary this extension is unique.
+\end{proposition}
+\begin{proposition}\label{state_prop}\cite{pedersen:ca_aut}
+	If $B$ is a $C^*$-subalgebra of $A$ then each pure state of $B$ can be extended to a pure state of $A$.
+\end{proposition}
+\begin{proposition}\label{sur_prop}\cite{pedersen:ca_aut}
+	If $B$ is a $C^*$-subalgebra of $A$ then for each irreducible representation $\rho: B \to B\left( \H'\right)$ of $B$ there is an irreducible representation $A \to B\left(\H \right)$ of $A$ with a closed subspace $\H_1 \subset \H$ such that $\rho_B  :B \to B\left(\H_1 \right)$ is spatially equivalent to $\rho: B \to B\left( \H'\right)$.  
+\end{proposition}	
+\begin{theorem}\label{norm_semi_thm}\cite{rae:ctr_morita}
+	Suppose that $A$ is a $C^*$-algebra and that $a \in A$.
+	\begin{enumerate}
+		\item [(a)] The function $x \mapsto \left\| \rep_x\left(a \right) \right\|$ is lower semi-continuous on $\hat A$; that is $$\left\{x \in \hat A~|~  \left\| \rep_x\left(a \right) \right\|\le k \right\}$$ is closed for all $k \ge 0$.
+		\item[(b)] For each $k > 0$, $\left\{x \in \hat A~|~  \left\| \rep_x\left(a \right) \right\|\ge k \right\}$ is compact.
+	\end{enumerate}
+\end{theorem}
+\begin{thm}\label{peder_id_thm}  \cite{pedersen:ca_aut} For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
+	which is minimal among dense ideals.
+	
+\end{thm}
+
+\begin{defn}\label{peder_id_defn}
+	The ideal $K(A)$ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen ideal of $A$}. Henceforth Pedersen ideal shall be denoted by $K(A)$.
+\end{defn}
+
+
+%	If $\mathcal X$ is compact then we can select the a measure such that
+%\begin{equation*}
+%	\int_{\mathcal X}1_{\mathcal X} \ d\mu = 1.
+%	\end{equation*}
+%		\begin{equation*}
+%		\int_{\mathcal X}\left|f\right| \ d\mu \le \left\|f\right\|_\infty;~~\forall f \in L^\infty\left(\mathcal X\right). 
+%		\end{equation*}
+%		If $\widetilde{\pi}: \widetilde{\mathcal X} \to \mathcal X$ is a covering then there is the measure $\widetilde{\mu}$ on $ \widetilde{\mathcal X}$ such that for any open relatively compact $\widetilde{\mathcal U} \subset \widetilde{\mathcal X}$ homeomorphically mapped onto $\widetilde{\pi}\left(\widetilde{\mathcal U}\right)$ following condition holds
+%	\begin{equation*}
+%	\widetilde{\mu}\left(\widetilde{\mathcal U}\right)= \mu\left(\widetilde{\pi}\left(\widetilde{\mathcal U}\right)\right)
+%	\end{equation*}
+%\paragraph{}For any self-adjoint operator $A \in B\left(H\right)$ and any bounded Borel-measured function $f$ on $\mathbb{R}$ there is the operator $f\left(A\right)\in B\left(H\right)$
+
+%\begin{defn}
+%In the above situation the $\widetilde{\mu}$ is said to be the $\widetilde{\pi}$-\textit{pullback} or simply \textit{pullback} of $\mu$. We will write $\mathfrak{pullback}_{\widetilde{\pi}}\left(\mu\right)\stackrel{\mathrm{def}}{=}\widetilde{\mu}$.
+%\end{defn}
+% \begin{defn}\cite{pedersen:ca_aut}
+%  For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+%  \end{defn}
+%  \begin{empt}\cite{pedersen:ca_aut}
+% If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $\mathcal{M}$ is a von Neumann algebra in $B(H)$ then $[x]\in \mathcal{M}$ for any $x\in \mathcal{M}$. We next prove a {\it polar decomposition}.
+%   \end{empt}
+
+%  \begin{prop}\cite{pedersen:ca_aut}
+%   For each element $x$ in   a von Neumann algebra $\mathcal{M}$ there is a unique partial isometry $u\in \mathcal{M}$ with $uu^*=[|x|]$ and  $x=|x|u$.
+%   \end{prop}
+%   \begin{proof}
+%   Consider the sequence $u_n =x\left(\left(1/n\right)+ |x|\right)^{-1}$. Since $x=x[|x|]$ we have $u_n=u_n[x]$. A short computation shows that
+%   \begin{equation}
+	%   (u_n - u_m)^*(u_n-u_m)=\left(\left(\left(1/n\right)+|x|\right)^{-1}-\left(\left(1/m\right)+|x|\right)^{-1}\right)|x|^2
+	%  \end{equation}
+%  and this tends strongly, hence weakly to zero by spectral theory. It follows that $\{u_n\}$ is strongly convergent to an element $u\in \mathcal{M}$ with $u[|x|]=u$. Since $\{u_n|x|\}$ is norm convergent to $x$ we have $x=u|x|$. Then $x^*x= |x|u^*u|x|$ which implies that $u^*u \ge [|x|]$. Hence $u^*u = [|x|]$, in particular $u$ is a partial isometry. If $x = v|x|$ then from $v|x|=u|x|$ we get $v=v[|x|]=u$, so $u$ is unique.
+%  \end{proof}
+
+
+
+
+%\begin{defn}
+%Let $a \in B(H)$, $h \in H$. The {\it $\sigma$-strong topology} is defined by the seminorms
+%\begin{equation}
+%p(a)= \sum_{i=1}^{\infty}ah_i, \ \sum_{i=1}^{\infty}\|h\|^2_i < \infty.
+%\end{equation}
+%\end{defn}
+
+%\begin{defn}
+%Let $X_B$ be a  Hilbert $B$-module, $B \to B(H)$ a faithful representation. For any $h \in H$  we define a seminorm $\vertiii{}_h$ on $_AX_B$ such that
+% \begin{equation*}
+% \vertiii{\xi}_h = \|\langle \xi, \xi \rangle_Bh\|.
+% \end{equation*}
+%  Completion of $X_B$ with respect to above seminorms is said to be the {\it strong completion}. Denote by $X''$ or $X''_{B''}$ the strong completion. There is the natural scalar product $\langle,\rangle_{X''}$ such that
+% \begin{equation}
+% \langle \xi, \zeta \rangle_{X''} \in B'',  \ \forall\xi,\zeta \in X''.
+% \end{equation}
+%  \end{defn}
+% \begin{empt}
+% Since $X\otimes_B H$ is norm complete there is a following natural $B$-isomorphism
+%  \begin{equation}\label{von_neum_iso}
+% X\otimes_B H \approx X''\otimes_{B''} H.
+% \end{equation}
+% \end{empt}
+\begin{thm}\label{mult_m_m_thm}\cite{pedersen:semi}
+Let $A$ be a nonunital $C^*$-algebra, let  $A^m$ be a set of elements in $A''$ which can be approximated
+weakly from below with self-adjoint operators of the form $x +\al$ a with $x \in A$ and $\al \in \R$. Denote by $A_m = - A^m$. The set $A^m \bigcap A_m$, is equal to the self-adjoint part of $M\left( A\right)$. 
+\end{thm}
+
+
+
+
 
 \subsection{Representations}
 \begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
@@ -5858,37 +6094,6 @@ The set $A^m \cap A_m$, is equal to the self-adjoint part of $M\left( A\right)$.
 \begin{proposition}\label{lrc_prop}\cite{matro:hcm}
 	Let $A\to B\left(\H \right)$ be a faithful nondegenerate representation. Then there exists a one-to-one isometric correspondence between left, right multipliers and  left, right centralizers respectively.
 \end{proposition}
-	\begin{defn}\label{unitization_defn}\cite{rae:ctr_morita}
-	A \textit{unitization} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective $*$-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential ideal of $B$. 
-\end{defn}
-
-\begin{example}\label{unitization_exm}
-	Suppose $A$ is  $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
-	is a $*$-algebra with 
-	\be\label{a_plus_eqn}
-	\left( a \oplus \la\right)\left( b \oplus \mu\right) = \left(ab + \la b + \mu a\right)  \oplus \la \mu, \quad \left(a \oplus \la \right)^* = a^*\oplus \overline{\la}. 
-	\ee
-	It is proven in \cite{rae:ctr_morita} that there is the natural unique $C^*$-norm $\left\| \cdot\right\|_{A^+}$  on $A^+$ such that 
-	$$
-	\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
-	$$
-	where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$. Thus $A^+$ is an unital $C^*$-algebra, and the natural map $A\hookto A^+$ is a unitization.
-\end{example}
-\begin{definition}\label{multiplier_min_defn}
-	Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization_exm} unitization   $\iota: A \hookto B$  is called \textit{minimal}.
-\end{definition}
-\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
-	A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra there is a $*$-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
-\end{definition}
-
-\begin{rem}\label{multiplier_rem}
-	It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization.
-\end{rem}
-
-\begin{definition}\label{multiplier_defn}\cite{murphy,pedersen:ca_aut}
-	We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
-\end{definition}
-
 \begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
 	A pair $\left(L, R\right)$ of maps
 	\be\label{double_centralizer_eqn}
@@ -5983,9 +6188,40 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\right)$. 
 \end{corollary}
 
+\subsection{Enveloping von Neumann algebra}
+\begin{defn} \cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra, and let $S$ be the state space of $A$. For any $s \in S$ there is an associated representation $\pi_s: A \to B\left( \H_s\right)$. The representation $\bigoplus_{s \in S} \pi_s: A \to \bigoplus_{s \in S} B\left(\H_s \right)$ is said to be the \textit{universal representation}. The universal representation can be regarded as $A \to B\left( \bigoplus_{s \in S}\H_s\right)$.  
+\end{defn} 
+\begin{defn}\label{env_alg_defn}\cite{pedersen:ca_aut}
+	Let   $A$ be a $C^*$-algebra, and let $A \to B\left(\H \right)$ be the universal representation $A \to B\left(\H \right)$. The strong closure of $\pi\left( A\right)$ is said to be   the  {\it enveloping von Neumann algebra} or  the {\it enveloping $W^*$-algebra}  of $A$. The enveloping  von Neumann algebra will be denoted by $A''$.
+\end{defn}
+\begin{prop}\label{env_alg_sec_dual}\cite{pedersen:ca_aut}
+	The enveloping von Neumann algebra $A''$ of a $C^*$-algebra $A$ is isomorphic, as a Banach space, to the second dual of $A$, i.e. $A'' \approx A^{**}$.
+\end{prop}
 
+\begin{thm}\label{env_alg_thm}\cite{pedersen:ca_aut}
+	For each non-degenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
+\end{thm}
+\subsection{Open and closed projections}
 
+\begin{definition}\label{open_close_ideal_defn}\cite{akerman_stone}
+%DEFINITION 11.1. 
+A projection $p \in A''= A^{**}$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
+net $\left\{a_\la \right\}_{\la \in \La}$ such that $0\ge a_\la \uparrow p$
+$$
+\lim_{\la\in \La} a_\la = p
+$$
+ in the weak* topology of $A^{**}$). If $p$ is open, we say $p' \bydef 1=p$ is {\it closed}.
+\end{definition}
+\begin{remark}
+The net $\left\{a_\la \right\}_{\la \in \La}$ can be chosen by the Theorem \ref{left_ideal_thm}
+\end{remark}
 
+\begin{proposition}\label{open_close_ideal_prop}\cite{akerman_stone}
+%PROPOSITION 11.4. 
+The minimal closed projections in  $A''= A^{**}$ are the
+minimal projections.
+\end{proposition}
 
 		\subsection{Hilbert modules and compact operators}\label{hilbert_modules_chap}
 %\paragraph{} We refer to \cite{blackadar:ko} for definition of Hilbert $C^*$-modules, or simply Hilbert modules.
@@ -8181,7 +8417,12 @@ Author would like to acknowledge members of the Moscow State University Seminars
 of this work. 
 
 \begin{thebibliography}{10}
+
+		\bibitem{akerman_stone} C.A. Akemann, {\it The general StoneÐWeierstrass problem}, J. Funct. Anal. 4 (1969) 277Ð294, 1969. %http://dx.doi.org/10.1016/0022-1236(69)90015-9.
+	
 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+		
+		
 	
 \bibitem{atiyah:kt}\textit{$K$-theory}.
 By Michael Atiyah
