@@ -765,7 +765,7 @@ $$
 The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology}, so the set  $\mathfrak{Ultrafilters}\left(A \right)$ becomes a topological space.
 \end{definition}
 	\begin{lemma}\label{gelfand_u_compact_lem}
-	If $A$ is a $C^*$-algebra then the space  $\mathfrak{Ultrafilters}\left(A \right)$ is compact and Hausdorff. 
+!!!	If $A$ is a $C^*$-algebra then the space  $\mathfrak{Ultrafilters}\left(A \right)$ is compact. 
 \end{lemma}
 \begin{proof}
 Follows the Proposition the Proposition \ref{top_ultra_prop},
@@ -775,16 +775,30 @@ Follows the Proposition the Proposition \ref{top_ultra_prop},
 	$$
 	Aa \in \xi.
 	$$
-	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the explained in \ref{topology_empt} !!! \ref{topology_defn} Gelfand topology.
-\end{definition}
+	The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{Gelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the   Gelfand topology (cf. Definition \ref{topology_defn} 
+	\end{definition}
 
-	\begin{lemma}\label{gelfand_compact_lem}!!!
-	If $A$ is a $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff. Moreover if $A$ is unital then the space  $\mathfrak{Gelfand}\left(A \right)$  is compact.
+	\begin{lemma}\label{gelfand_compact_lem}
+	If $A$ is an unital  $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is locally compact.
 \end{lemma}
 \begin{proof}
-From the construction \ref{topology_empt} !!! \ref{topology_defn} and the Proposition \ref{top_ultra_prop} it follows that the space of $A$-ultrafilters is compact and Hausdorff. The Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff since it is a subspace of the space of  $A$-ultrafilters. If $A$ is unital then  $A= K\left( A\right)$, it turns out that $\mathfrak{Gelfand}\left(A \right) = \mathfrak{Ultrafilters}\left(A \right)$. 
+!!!! From the construction \ref{topology_empt} !!! \ref{topology_defn} and the Proposition \ref{top_ultra_prop} it follows that the space of $A$-ultrafilters is compact.  
 \end{proof}
-\begin{lemma}\label{ineq_lem}
+\begin{lemma}
+If $A$ is a nonunital $C^*$ algebra and $A^+\bydef A \oplus \C$ is a unitization 
+then the difference $\mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ contains the single point.
+\end{lemma}
+
+\begin{proof}
+$A \subset A^+$ is the maximal ideal, it correspond to an open projection of $p \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p' \bydef 1-p$ is the minimal projection in $\left( A^+\right)^{**}$ the set of ideal which correspond to the projections which exceeds $p'$ is an ultrafilter. !!!!
+\end{proof}
+\begin{lemma}
+Any maximal ideal of $C^*$ algebra $A$ yields a point of $\mathfrak{Gelfand}\left(A \right)$
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+\begin{lemma}\label{ineq_lem}!!!
 If $A$ is an unital $C^*$-algebra and $L', L''$ are two closed left ideals then one has
 \bean 
 L' \subseteqq L'' \quad \Rightarrow \quad \mathfrak{Ultrafilters}\left(A \right)_{L'}\subsetneqq \mathfrak{Ultrafilters}\left(A \right)_{L''}\quad \Leftrightarrow\\ \Leftrightarrow \mathfrak{Gelfand}\left(A \right)_{L'}\subsetneqq \mathfrak{Gelfand}\left(A \right)_{L''}.
@@ -5051,7 +5065,18 @@ may be interpreted as a bilinear map
 	\begin{remark}\label{ultra_filter_rem}
 		From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
 	\end{remark}
-	\begin{proposition}\label{top_ultra_prop}\cite{johnstone:stone_spaces}
+
+	\subsection{Filter base topology}
+	\begin{defn}\label{filted_conv_defn}
+	\cite{engelking:general_topology}
+	By a {\it filter} (a {\it filter-base}) in a topological space $\sX$ we mean a filter (a filter-base) in the
+	family of all subsets of $\sX$. In this section we shall discuss only filters and filter-bases in
+	topological spaces; we shall call them simply filters and filter-bases.
+	A point $\sX$ is called a limit of a filter $\mathfrak{F}$ if every neighbourhood of $x$ belongs to  $\mathfrak{F}$; we
+	then say that the filter  $\mathfrak{F}$ converges to $x$ and we write $x = \lim  \mathfrak{F}$. % A point x is called a limit	of a filter-base Q if x S Wra7g; we then say that the filter-base Q converges to x and we write	x e lim Q. Clearly, x ? lim? if and only if every neighbourhood of x contains a member of	9-
+	\end{defn}
+	
+		\begin{proposition}\label{top_ultra_prop}\cite{johnstone:stone_spaces}
 		One has:
 		\begin{enumerate}
 			\item [(a)] 	A topological space $\sX$ is Hausdorff  if and only if every ultrafilter on $\sX$ has at most one limit.
@@ -5061,7 +5086,6 @@ may be interpreted as a bilinear map
 	\begin{remark}
 		From (b) of the Proposition \ref{top_ultra_prop} it follows that the notion of ultrafilter is not adequate analog of the point of Hausdorff , locally compact space. One needs the finer notion.
 	\end{remark} 
-	
 	\section{Sheaves and cohomology}
 	\subsection{Basic definitions}
 	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -5076,8 +5100,7 @@ may be interpreted as a bilinear map
 				\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
 			\end{itemize}
 		\end{itemize}
-	\end{definition}
-	
+	\end{definition}	
 	\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
 		A \textit{presheaf} $\mathscr F$ on  
 		a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
@@ -8483,6 +8506,7 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 	
 \bibitem{connes:ncg94} Alain Connes. {\it Noncommutative Geometry}, Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994.
 
+\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
 
 
 %\bibitem{fulton:intersection} William Fulton. \textit{Intersection Theory}.Second Edition, Springer, 1997.
