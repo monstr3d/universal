@@ -779,12 +779,12 @@ Follows the Proposition the Proposition \ref{top_ultra_prop},
 	\end{definition}
 
 	\begin{lemma}\label{gelfand_compact_lem}
-	If $A$ is an unital  $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is locally compact.
+	If $A$ is an unital  $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is  compact.
 \end{lemma}
 \begin{proof}
 !!!! From the construction \ref{topology_empt} !!! \ref{topology_defn} and the Proposition \ref{top_ultra_prop} it follows that the space of $A$-ultrafilters is compact.  
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{one_point_s_lem}
 If $A$ is a nonunital $C^*$ algebra and $A^+\bydef A \oplus \C$ is a unitization 
 then the difference $\mathfrak{Gelfand}\left(A^+ \right)\setminus \mathfrak{Gelfand}\left(A \right)$ contains the single point.
 \end{lemma}
@@ -918,9 +918,18 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	\ee
 	We say that $\sim_{\mathfrak{Hausdorff}}$ is the {\it Hausdorff equivalence relation}.
 	\end{remark}
-\begin{definition}\label{gelfand_r_defn}  !!!! DELETE !!!!
-	If $A$ is a $C^*$-algebra then the universal Hausdorff quotient space $$\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$$ of the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ denoted by  $\mathfrak{Gelfand}\left(A \right)$ is {\it the reduced Gelfand !!! DELETE !!! space of} $A$, i.e. $\mathfrak{Gelfand}\left(A \right)\bydef \mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$,
+\begin{definition}\label{gelfand_r_defn}  
+	If $A$ is a $C^*$-algebra then the universal Hausdorff quotient space $$\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$$ of the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ denoted by  $\mathfrak{Gelfand}_r\left(A \right)$ is {\it the reduced Gelfand  space of} $A$, i.e. $\mathfrak{Gelfand}_r\left(A \right)\bydef \mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}\left(A \right)\right)$.
 \end{definition}
+
+
+\begin{lemma}\label{one_point_r_lem}
+	If $A$ is a nonunital $C^*$-algebra  then $\mathfrak{Gelfand}_r\left(A^+ \right) \cong \mathfrak{Gelfand}_r\left(A \right)^+$.
+\end{lemma}
+\begin{proof}
+Follows from the Lemma \ref{one_point_s_lem}.
+\end{proof}
+
 
 \subsection{Good $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
@@ -1301,28 +1310,6 @@ There is the \textit{generalized Jacobson  topology}  on $\mathfrak{LeftMax}\lef
 	%\begin{proof}
 	%!!!
 	%\end{proof}
-	\begin{lemma}\label{one_point_lem}
-		If $A$ is a nonunital $C^*$-algebra and $A^+\bydef A \oplus \C$ is its minimal unitization then 
-		\bean 
-		\begin{split}
-			\mathfrak{Gelfand}\left(A^+ \right)\cong \mathfrak{Gelfand}\left(A \right)\cup\{x_0\}
-		\end{split}
-		\eean
-		where $\{x_0\}$ is the singleton, i.e. $\mathfrak{Gelfand}\left(A^+ \right)$ is the one-point compactification of $\mathfrak{Gelfand}\left(A\right)$ (cf. Definition \ref{one_point_compactification_defn}).
-	\end{lemma}
-	\begin{proof} The set $A$ is a maximal left ideal of $A^+$
-		If  there are $x'_0, x''_0 \in \mathfrak{Gelfand}\left(A^+ \right)$ with $x'_0 \neq x''_0$ then there are left ideals $L', L'' \in A^+$ such that
-		\bean
-		x'_0 \in \mathfrak{Gelfand}\left(A^+ \right)_{L'},\\
-		x''_0 \in \mathfrak{Gelfand}\left(A^+ \right)_{L''},
-		L' \cap L'' = \{0\}.
-		\eean
-		It follows that
-		\be 
-		A \subsetneqq A + L' \subsetneqq  A + L' + L'' \subset A^+,
-		\ee 
-		i.e. $A$ is not a maximal proper ideal of $A$. The contradiction proves this lemma.
-	\end{proof}
 	
 	
 
@@ -1377,61 +1364,61 @@ There is the \textit{generalized Jacobson  topology}  on $\mathfrak{LeftMax}\lef
 	is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn}). From the Theorem \ref{good_thm} it follows that there is a surjective continuous map 
 		\be\label{ge_fc_eqn}
 	\begin{split}
-		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \onto \mathfrak{Gelfand}\left(A \right)
+		\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right) \onto \mathfrak{Gelfand}_r\left(A \right)
 	\end{split}
 	\ee
 	of compact Hausdorff  spaces, which yields the natural injective $*$-homomorphism
 	\be\label{fin_g_eqn}
 \begin{split}
-	C\left( \mathfrak{Gelfand}\left(A \right)\right)  \hookto C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right).
+	C\left( \mathfrak{Gelfand}\left(A \right)_r\right)  \hookto C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right) \right).
 \end{split}
 \ee
 	
 	
 	\end{empt}
 	\begin{lemma}
-If we consider the equation \eqref{fin_g_eqn} then $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}\left(A \right)\right)$-module
+If we consider the equation \eqref{fin_g_eqn} then $C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$-module
 	\end{lemma}
 	\begin{proof}
-		If $S_n$ is a group of transpositions of $n$ then there is the natural action $S_n \times \mathbb{M}_n\left(A \right)\to \mathbb{M}_n\left(A \right)$ which  transposes rows and columns of matrix. This action yields the action $S_n \times  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$. From 
+		If $S_n$ is a group of transpositions of $n$ then there is the natural action $S_n \times \mathbb{M}_n\left(A \right)\to \mathbb{M}_n\left(A \right)$ which  transposes rows and columns of matrix. This action yields the action $S_n \times  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)$. From 
 		\be\label{finU_g_eqn}
 	\begin{split}
 	\mathbb{M}_n\left(A \right)^{S_n}\bydef \left\{\left.\tilde a \in \mathbb{M}_n\left(A \right)\right| \forall s \in S_n \quad s \tilde a =  \tilde a \right\}= d_A\left(A \right) \cong A
 		\end{split}
 	\ee
-it turns out that 	$\mathfrak{Gelfand}\left(A \right) \cong 	 \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) /S_n$. Since for any nontrivial $s \in S_n$ one has
+it turns out that 	$\mathfrak{Gelfand}_r\left(A \right) \cong 	 \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right) /S_n$. Since for any nontrivial $s \in S_n$ one has
 $$
 s \left(\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A\right) \cap \mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A = \{0\}
 $$
-one can deduce then the action $S_n \times  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is properly disconnected. If follows that the map \eqref{ge_fc_eqn} is a finite-fold covering, and $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}\left(A \right)\right)$-module.
+one can deduce then the action $S_n \times  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)\to  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)$ is properly disconnected. If follows that the map \eqref{ge_fc_eqn} is a finite-fold covering, and $C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}_r\left(A \right)\right)$-module.
 \end{proof}
 If  
  $p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
 	\be\label{matrppbu_eqn}
 	\begin{split}
-		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)= \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
+		\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)= \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
 	\end{split}
 	\ee
 	(cf. notation \ref{topology_eqn}). Taking into account the equation  \eqref{matrppbu_eqn} one has a direct sum 
 	\bean
 	\begin{split}
-	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus  C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)= \\=	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\right),  
+	C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus  C\left(  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)= \\=	C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)\right),  
 	\end{split}
 	\eean
-	Both $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)$ and $C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)$ are left $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-modules.
-	i.e. 	$C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\right) $ is a finitely generated $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-module. In result one has the following Theorem 
+	Both $C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)$ and $C\left(  \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)$ are left $C\left(\mathfrak{Gelfand}_r\left(A \right) \right)$-modules.
+	i.e. 	$C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\right) $ is a finitely generated $C\left(\mathfrak{Gelfand}_r\left(A \right) \right)$-module. In result one has the following Theorem 
 	\begin{theorem}\label{k_0_alg_top_thm}
 	If $A$ is an unital $C^*$-algebra then one has.
 	\begin{enumerate}
-		\item [(i)] There is the natural one-to-one correspondence between finitely generated projective $A$-modules and complex vector bundles on the Gelfand space  $\mathfrak{Gelfand}\left(A \right)$.
+		\item [(i)] There is the natural one-to-one correspondence between finitely generated projective $A$-modules and complex vector bundles on the Gelfand space  $\mathfrak{Gelfand}_r\left(A \right)$.
 		\item[(ii)] There is the natural isomorphism
 		\be\label{k_0_alg_top_eqn} 
-		K_0\left( A\right) \cong K^0\left( \mathfrak{Gelfand}\left(A \right)\right). 
+		K_0\left( A\right) \cong K^0\left( \mathfrak{Gelfand}_r\left(A \right)\right). 
 		\ee 
 	\end{enumerate}
 	\end{theorem}
 \begin{proof}
-		(i) We already know that is the natural one-to-one correspondence between finitely generated projective $A$-modules and finitely generated projective $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-modules. Our statement follows from the Serre Swan Theorem 	\ref{serre_swan_thm}.
+		(i) We already know that is the natural one-to-one correspondence between finitely generated projective $A$-modules and finitely generated projective $C\left(\mathfrak{Gelfand}_r\left(A \right) \right)$-modules. Our statement follows from the Serre Swan Theorem 	\ref{serre_swan_thm}.
 		
 		(ii) The Theorem \ref{rosen_ak1_thm} states that the comparison map $c_* : K_0(A) \to  K_0^{\mathrm{top}}(A)$ between the functor $K_0$ of algebraic $K$-theory and functor  $K_0^{\mathrm{top}}(A)$ of $K$-theory of $C^*$-algebras is identity. Now this statement follows from (i).
 \end{proof}
@@ -1440,33 +1427,55 @@ If
 The Theorem \ref{k_0_alg_top_thm} yields a generalization of characteristic classes, multiplicative structures and Adams operations.
 \end{remark}
 	\paragraph{} Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology.	
-	For any $n \in \N$ there is an $*$-isomorphisms $\left( A\otimes \K \right)^+ \cong  \mathbb{M}_n\left( A\otimes \K\right)^+$ which yields a homeomorphism $$\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+  \right).$$ 
-	So any projector in $\mathbb{M}_n\left(A \otimes \K \right)^+$  yield a projector in $\left( A\otimes \K\right)^+$ and vice versa.  On the other hand any projector in $\left(A \otimes \K \right)^+$ yields a projector in $C\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right) \right)$ (cf. Lemma \ref{image_lem}).
-	According to the  Shilov Idempotent Theorem any projector in\\ $C\left(\mathfrak{Gelfand}\left(A\otimes \K \right)^+ \right)$ corresponds to an element of the group of cohomology \\$H^0\left(\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong C\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}).  There are natural actions
+	For any $n \in \N$ there is an $*$-isomorphisms $\left( A\otimes \K \right)^+ \cong  \mathbb{M}_n\left( A\otimes \K\right)^+$ which yields a homeomorphism $$\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+  \right).$$ 
+	So any projection in $\mathbb{M}_n\left(A \otimes \K \right)^+$  yields a projection in $\left( A\otimes \K\right)^+$ and vice versa.  On the other hand any projector in $\left(A \otimes \K \right)^+$ yields a projection in $C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right) \right)$ (cf. Lemma \ref{image_lem}).
+	According to the  Shilov Idempotent Theorem any projector in\\ $C\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+ \right)$ corresponds to an element of the group of cohomology \\$H^0_c\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong C\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+ \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}). The $C^*$-algebra $\left(A\otimes \K \right)^+$ is unital so the space $\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right)$ is compact (cf. Lemma \ref{gelfand_compact_lem}) so one has $H^0_c\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong H^0\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)$. From the Lemma \ref{one_point_r_lem} it follows that $\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}_r\left( A\otimes \K \right)^+$. 	 There are natural actions
 
 	\bea\label{g_act_eqn}
-	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathfrak{Gelfand}\left(A\otimes \K \right)\to\mathfrak{Gelfand}\left(A\otimes \K \right),\\
+	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathfrak{Gelfand}_r\left(A\otimes \K \right)^+\to\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+,\\
 	\label{pr_act_eqn}
-	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathrm{Pr}\left( A\otimes \K\right)\to \mathrm{Pr}(A\otimes \K)
+	U\left(\left(A\otimes \K \right) ^+ \right)\times \mathrm{Pr}\left( \left( A\otimes \K \right)^+\right)\to \mathrm{Pr}\left( \left( A\otimes \K \right)^+\right)
 	\eea
+	where the action \eqref{pr_act_eqn} is given by the theorem \ref{ga_proj_thm}.
 	 Using the Definitions \ref{proj_v_defn} and \ref{k00_defn} one can deduce that 
 	\be\label{k_00_h_eqn}
 	\begin{split}
-		K_{00}\left(\left( A \otimes \K\right)^+ \right) \cong H^0\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
+		K_{00}\left(\left( A \otimes \K\right)^+ \right) \cong H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+; \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 	\end{split}
-	\ee 
-	From the Definition \ref{k0_defn} one can prove that 	$K_{0}\left(A \otimes \K\right)$ correspond to the set
+	\ee
+	According to the Remark \ref{k0_rem} any element of $K_{0}\left( A \otimes \K \right)$ can be represented as $\left[e + p_n\right]- \left[p_n\right]$ where $e \in M_\infty \left( A \otimes \K\right)$. The projection $p_n$ corresponds to a map 
+	\bean
+	\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+ \to \Z,\\
+	x \mapsto n
+	\eean
+	The above map is associated with the given by the equation \eqref{red_s_eqn} natural homomorphism
+	\bean
+	\Z \hookto C\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+;\Z\right)\cong H^0\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)^+;\Z\right).
+	\eean 
+On the other hand
 	\be\label{k_0set}
-	\left\{\left.f \in  C\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right), \Z \right)\right| f\left(x_0 \right) = 0\right\}\subset C\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right), \Z \right)
+e \in 	\left\{\left.f \in  C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\right| f\left(x_0 \right) = 0\right\}\subset C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)
 	\ee 
- where $\{x_0\}\bydef \mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right)\setminus \mathfrak{Gelfand}\left(A \otimes \K\right)$ (cf. Lemma \ref{one_point_lem}). Since $\Z$ is the principal !!!ideal domain the set \eqref{k_0set} is isomorphic to the reduced cohomology $\tilde H^0\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right), \Z \right)$ (cf. Definition \ref{red_defn}). On the other hand from  \eqref{red_eqn} it turns out that 
+ where $\{x_0\}\bydef \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right)\setminus \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ (cf. Lemma \ref{one_point_r_lem}). From 
+ $$
+ \forall m, n \in \N \quad \left[e + p_n\right]- \left[p_n\right]= \left[e + p_m\right]- \left[p_m\right]
+ $$
+ the group $K_0\left(A \right)$ corresponds to  
+ $$
+ H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+; \Z \right)/\Z = \tilde H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+; \Z \right)
+ $$
+ where $\tilde H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+; \Z \right)$ means reduced cohomology (cf. Definition \ref{red_defn}), i.e.
+ $$
+ 	K_{0}\left(A \otimes \K\right) \cong \tilde H^0\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+; \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right).
+ $$
+  On the other hand from  \eqref{red_eqn} it turns out that 
  \bean
- \tilde H^0\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right), \Z \right)\cong H^0_c\left(\mathfrak{Gelfand}\left(\left(A \otimes \K \right)^+\right), \Z \right)
+ \tilde H^0\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right), \Z \right)\cong H^0_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K \right), \Z \right).
  \eean 
 In result one has
 	\be\label{k_0_h_eqn}
 \begin{split}
-	K_{0}\left(A \otimes \K\right) \cong H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
+	K_{0}\left(A \otimes \K\right) \cong H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right). 
 \end{split}
 \ee 
 %		\begin{empt}
@@ -1494,17 +1503,17 @@ In result one has
 %			\eean 
 %The $C^*$-algebra $A\otimes \K$ is a two-sided ideal of $\left( A\otimes \K\right)^+$.		, so from the Corollary  \ref{one_point_lem} it follows that
 %	\bean
-%	\mathfrak{Gelfand}\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}\left(A\otimes \K \right)\cup\{x_0\}
+%	\mathfrak{Gelfand}_r\left(\left( A\otimes \K\right)^+ \right)\cong \mathfrak{Gelfand}_r\left(A\otimes \K \right)\cup\{x_0\}
 %	\eean
 %	\end{empt}
 %	
 %	\paragraph{title}
 \begin{lemma}\label{ring_auto_lem}
-	Any $g \in U\left(\left(A\otimes \K \right) ^+ \right)$ yields a ring automorphism of $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right)\right) $ with respect to the cup-product (cf. Definition \ref{cup_sheaf_thm}).
+	Any $g \in U\left(\left(A\otimes \K \right) ^+ \right)$ yields a ring automorphism of $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\right) $ with respect to the cup-product (cf. Definition \ref{cup_sheaf_thm}).
 \end{lemma}	
 
 \begin{proof}
-The group $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)$ is an Abelian group generated by open-closed subsets of $\mathfrak{Gelfand}\left(A\otimes \K \right)$ with the relations
+The group $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$ is an Abelian group generated by open-closed subsets of $\mathfrak{Gelfand}_r\left(A\otimes \K \right)$ with the relations
 \be\label{plus_u_eqn}
 \begin{split}
 \sU' \cap \sU''= \emptyset \quad \Rightarrow \quad \left[\sU'\right]+ \left[\sU''\right]= \left[\sU'\cup \sU''\right].
@@ -1514,7 +1523,7 @@ The cup product satisfies to the following equation
 \be\label{cup_u_eqn}
 \left[\sU'\right]\smile \left[\sU''\right]= \left[\sU'\cap \sU''\right]
 \ee
-Element $g$ yields a homeomorphism of $\mathfrak{Gelfand}\left(A\otimes \K \right)$, so from 
+Element $g$ yields a homeomorphism of $\mathfrak{Gelfand}_r\left(A\otimes \K \right)$, so from 
 \bean
 g\left( \sU'\cap \sU''\right)  = g\sU'\cap g\sU''
 \eean 
@@ -1524,26 +1533,26 @@ it turns that $g$ yields a ring automorphisms.
 	Suppose that $A$ is a \textbf{stable} $C^*$-algebra. 
  Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
 	$$
-	u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
+	u_{\left[0, 1\right]\times\mathfrak{Gelfand}_r\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
 	$$
 	such that 
 	\bean
 	\begin{split}
-		u_{\left[0, 1\right]} =  \mathfrak{Image}\left( u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A^+ \right)} \right) .
+		u_{\left[0, 1\right]} =  \mathfrak{Image}\left( u_{\left[0, 1\right]\times\mathfrak{Gelfand}_r\left(A^+ \right)} \right) .
 	\end{split}
 	\eean
 	Using this circumstance one concludes that there are following isomorphisms of groups 
 	\bean
 	\begin{split}
-		U_1\left( A ^+ \right)\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right),\\
-		U_1\left( A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0,\\
-		U_1\left( A ^+ \right)/  U_1\left( A ^+ \right)_0\cong   U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0
+		U_1\left( A ^+ \right)\cong U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right),\\
+		U_1\left( A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)_0,\\
+		U_1\left( A ^+ \right)/  U_1\left( A ^+ \right)_0\cong   U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)_0
 	\end{split}
 	\eean
-	Any element of $U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)$ is represented by the map $f_{U\left( 1\right) }: \mathfrak{Gelfand}\left(A^+ \right) \to U\left( 1\right)$ such that the set
+	Any element of $U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)$ is represented by the map $f_{U\left( 1\right) }: \mathfrak{Gelfand}_r\left(A^+ \right) \to U\left( 1\right)$ such that the set
 $
 \left\{x \in \sX | f\left(x \right) \neq 1\right\}
-$ is compact. Any element of $U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0$ corresponds to a map
+$ is compact. Any element of $U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)_0$ corresponds to a map
 \bean
 \sX \to U(1),\\
 x \mapsto e^{2\pi i f_\R\left( x\right) }
@@ -1552,24 +1561,24 @@ where $f_\R : \sX \to \R$ is continuous compactly supported map.
 From  \eqref{stab_k1_eqn} it follows that 
 	\bean
 	\begin{split}
-		K_1\left(A \right) \cong U_1\left( A ^+ \right) / U_1\left(  A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}\left(A^+ \right)\right) \right)_0.
+		K_1\left(A \right) \cong U_1\left( A ^+ \right) / U_1\left(  A ^+ \right)_0\cong U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)/  U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right)_0.
 	\end{split}
 	\eean	
 	Taking into account the equations \eqref{sxx_shh_eqn}, \eqref{dl_sh_eqn} one has	\be\label{k_1_h_eqn}
 	\begin{split}
-		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \right); \Z \right). 
+		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \right); \Z \right). 
 	\end{split}
 	\ee
 	
 	\begin{theorem}\label{k_h_thm}
 	If $A$ is an unital $C^*$-algebra then one has
 	\bea\label{k_00_eqn}
-K_0\left( A\right) =H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
+K_0\left( A\right) =H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)
 	\eea
-There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)$ which comes from the cup-product on  $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right); \Z \right)$.	If $A$ is any $C^*$-algebra then one has
+There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)/U\left(\left(A\otimes \K \right) ^+ \right)$ which comes from the cup-product on  $H^0_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right); \Z \right)$.	If $A$ is any $C^*$-algebra then one has
 	\bea
 	\label{k_1_eqn}
-		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right). 
+		K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right). 
 	\eea
 	\end{theorem}
 	\begin{proof}
@@ -1578,30 +1587,30 @@ There is the natural cup product on $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes
 	\begin{rem}\label{inv_h1_rem}
 		The given by \eqref{g_act_eqn} action
 		$$
-		U\left(\left(A\otimes \K \right) ^+ \right)\times \mathfrak{Gelfand}\left(A\otimes \K \right)\to\mathfrak{Gelfand}\left(A\otimes \K \right)$$ yields the trivial action
+		U\left(\left(A\otimes \K \right) ^+ \right)\times \mathfrak{Gelfand}_r\left(A\otimes \K \right)\to\mathfrak{Gelfand}_r\left(A\otimes \K \right)$$ yields the trivial action
 		$$
-	U\left(\left(A\otimes \K \right) ^+ \right)\times H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)$$ 	
+	U\left(\left(A\otimes \K \right) ^+ \right)\times H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\to H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)$$ 	
 		\end{rem}
 				\begin{theorem}\label{full_k_thm}
 	For any $k \ge 0$ one has
 			\bea\label{k0_s_eqn}
-			K_{0}\left(A \right) \cong H^1_c\left(S^{2k +1}\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{2k + 1}; \Z \right),\\\label{k1_s_eqn}
-			K_{1}\left(A \right)  \cong H^1_c\left(S^{2k}\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{2k}; \Z \right)
+			K_{0}\left(A \right) \cong H^1_c\left(S^{2k +1}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k + 1}; \Z \right),\\\label{k1_s_eqn}
+			K_{1}\left(A \right)  \cong H^1_c\left(S^{2k}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right)
 			\eea
 			or equivalently  
 			\be\label{k01_s_eqn} 
-			K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{r}; \Z \right)
+			K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{r}; \Z \right)
 			\ee
 			for each $r \ge 0$.
 		\end{theorem}
 		\begin{proof}
 	From \eqref{k_1_eqn} it follows that 
 	\bean
-K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right). 
+K_{1}\left(A \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right); \Z \right). 
 \eean
 From the Theorems \ref{suspension_thm} and \ref{bott_map_thm} and the Lemma \ref{product_lem} it follows that 
 	\bean
-\forall k \in \N \quad K_{1}\left(A \right) \cong K_{1}\left(S^{2k} A \right) \cong K_{1}\left(A \otimes C_0\left( \R^{2k} \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{2k}; \Z \right). 
+\forall k \in \N \quad K_{1}\left(A \right) \cong K_{1}\left(S^{2k} A \right) \cong K_{1}\left(A \otimes C_0\left( \R^{2k} \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(A \otimes \K\right)\times \R^{2k}; \Z \right). 
 \eean
 The equation \eqref{k0_s_eqn} can be proven by similar way.
 	\end{proof}
@@ -1640,34 +1649,34 @@ H^p_c\left( \sX \times \R^k\right) = H^{p + k}_c\left( \sX\right).
 
 If $A$ be a {\bf stable} $C^*$-algebra then from the Lemma \ref{product_lem} and the Theorem \ref{full_k_thm} it turns out that
 \bean
-K_1\left(A \otimes C_0\left(\R^r \right) \right)\cong  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'}; \Z \right),
+K_1\left(A \otimes C_0\left(\R^r \right) \right)\cong  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z \right),
 \eean 
 For any $r', r'' > 0$ there are surjective continuous projections 
 \bean
-p_1 : \mathfrak{Gelfand}\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}\left(A\right) \times \R^{r'},\\
-p_2 : \mathfrak{Gelfand}\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}\left(A\right) \times \R^{r''}
+p_1 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'},\\
+p_2 : \mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}\onto \mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}
 \eean 
-If both $\mathscr A'$ and  $\mathscr A''$ are $\Z$-locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}) on $\mathfrak{Gelfand}\left(A\right) \times \R^{r'}$ and $\mathfrak{Gelfand}\left(A\right) \times \R^{r''}$ then inverse images $p_1^*\mathscr A'$ and $p_2^*\mathscr A'$ respectively (cf. Definition \ref{sheaf_inv_im_defn})  are $\Z$-locally constant sheaves on $\mathfrak{Gelfand}\left(A\right) \times \R^{r'+r''}$. There are given by the equation \eqref{cohom_mor_eqn} group homomorphisms
+If both $\mathscr A'$ and  $\mathscr A''$ are $\Z$-locally constant sheaves (cf. Definition \ref{constant_presheaf_defn}) on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}$ and $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}$ then inverse images $p_1^*\mathscr A'$ and $p_2^*\mathscr A'$ respectively (cf. Definition \ref{sheaf_inv_im_defn})  are $\Z$-locally constant sheaves on $\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+r''}$. There are given by the equation \eqref{cohom_mor_eqn} group homomorphisms
 \bean
-H^1_c\left(p_1 \right) : H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'}; \mathscr A'\right)\to  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\right),\\
-H^1_c\left(p_2 \right) : H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r''}; \mathscr A''\right)\to  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r' + r''}; p_2^*\mathscr A''\right)
+H^1_c\left(p_1 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \mathscr A'\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\right),\\
+H^1_c\left(p_2 \right) : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \mathscr A''\right)\to  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_2^*\mathscr A''\right)
 \eean 
 There is a homomorphism 
 \be\label{pssh_eqn}
 \begin{split}
-  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'}; \mathscr A'\right)\otimes  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r''}; \mathscr A''\right)\to \\ \to 
-H^2_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\otimes p^*_2\mathscr A''\right),\\
+  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \mathscr A'\right)\otimes  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \mathscr A''\right)\to \\ \to 
+H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; p_1^*\mathscr A'\otimes p^*_2\mathscr A''\right),\\
 u_1 \otimes u_2\mapsto H^1_c\left(p_1 \right)\left(u_1 \right) \smile H^1_c\left(p_2 \right)\left(u_2 \right).
 \end{split}
 \ee
 the the cup product $\smile$ is given by the Theorem \ref{cup_sheaf_thm}. Taking into account that   $\mathscr A'$, $\mathscr A''$, $p^*_1\mathscr A'$, $p^*_2\mathscr A''$ are  $\Z$-locally constant sheaves the map \eqref{pssh_eqn} naturally yields a pairing
 \be\label{psshz_eqn}
 \begin{split}
-	\smile : H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'}; \Z\right)\otimes  H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r''}; \Z\right)\to \\ \to 
-	H^2_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r' + r''}; \Z\otimes\Z\right)\cong H^2_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r' + r''}; \Z\right).\\
+	\smile : H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'}; \Z\right)\otimes  H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r''}; \Z\right)\to \\ \to 
+	H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\otimes\Z\right)\cong H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r' + r''}; \Z\right).\\
 \end{split}
 \ee
-If $r' + r'' \ge 1$ then the equation  \eqref{shift_hom_eqn} yield the following group isomorphism $$\phi^2_1: H^2_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}\left(A\right) \times \R^{r'+ r''-1}; \Z \right).$$
+If $r' + r'' \ge 1$ then the equation  \eqref{shift_hom_eqn} yield the following group isomorphism $$\phi^2_1: H^2_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''}; \Z \right)\cong H^1_c\left(\mathfrak{Gelfand}_r\left(A\right) \times \R^{r'+ r''-1}; \Z \right).$$
 From \eqref{k01_s_eqn} it follows that  $\left[v'\right]$, $\left[v''\right]$ and $\left[\phi^2_1\left(	\left[u'\right]\smile \left[u''\right] \right) \right]$ can be regarded as elements of $K$-groups, i.e.
 \be\label{h1isk_m_eqn}
 \begin{split}
@@ -1691,11 +1700,11 @@ For any $C^*$-algebra $A$ the equation \eqref{smile_d_eqn} yields a multiplicati
 	To prove this theorem one should state the associativity of the cup product. It follows from the Proposition \ref{cup_ass_prop}.
 \end{proof}
 \begin{remark}\label{cup_prod_rem}
-If $A$ be an unital $C^*$-algebra then any element of $x' \in K_0\left( A\right)$ can be represented by $y' \in H^0_c\left( \mathfrak{Gelfand}\left(A \otimes \K\right)\right)$. If $z \in H^1_c\left( \mathfrak{Gelfand}\left(A \otimes \K\right)\right)$ then from the Remark \ref{inv_h1_rem}  it follows that
+If $A$ be an unital $C^*$-algebra then any element of $x' \in K_0\left( A\right)$ can be represented by $y' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$. If $z \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ then from the Remark \ref{inv_h1_rem}  it follows that
 \be
 \forall g \in U_1\left(\left(A \otimes \K \right)^+  \right)  \quad \left(gx' \right) \smile y' = x' \smile y'
 \ee
-where the action \eqref{pr_act_eqn} is implied. So for any $x \in K_0\left(A \right)$ and $y \in K_1\left(A \right)$  the given by the Theorem  \ref{cup_prod_thm} product $x \smile y$ corresponds to $x' \smile y'\in H^1_c\left( \mathfrak{Gelfand}\left(A \otimes \K\right)\right)$ where $x' \in H^0_c\left( \mathfrak{Gelfand}\left(A \otimes \K\right)\right)$ (resp. $y' \in H^1_c\left( \mathfrak{Gelfand}\left(A \otimes \K\right)\right)$) is a representable of $x$ (resp. $y$), i.e. the product does not depend on choice of representable of $x$.
+where the action \eqref{pr_act_eqn} is implied. So for any $x \in K_0\left(A \right)$ and $y \in K_1\left(A \right)$  the given by the Theorem  \ref{cup_prod_thm} product $x \smile y$ corresponds to $x' \smile y'\in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ where $x' \in H^0_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$ (resp. $y' \in H^1_c\left( \mathfrak{Gelfand}_r\left(A \otimes \K\right)\right)$) is a representable of $x$ (resp. $y$), i.e. the product does not depend on choice of representable of $x$.
 
 \end{remark}
 
@@ -1724,15 +1733,15 @@ If $p\in \mathbb{M}_m\left( C\left(\sX \right) \right)$ and $q \in\mathbb{M}_q\l
 \iota\left(p \otimes q \right) = \iota'\left(p \right) \iota''\left(q \right).
 \end{split}
 \eean
-There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset C\left( \sX\right) \otimes \K$. If $P \in C\left( \sX\right) \otimes \K$ is the projector onto $\left( A \otimes\K\right) 1_{\mathbb{M}_{mn}\left( C\left(\sX \right) \right)}$  then  the image  $\mathfrak{Image}\left( P\right)\in C_c\left( \mathfrak{Gelfand}\left(C_0\left(\sX \right)\otimes \K \right)\right)$ (cf. Definition \ref{image_defn}) of $P$ is a projector. From our construction it turns out that 
+There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset C\left( \sX\right) \otimes \K$. If $P \in C\left( \sX\right) \otimes \K$ is the projector onto $\left( A \otimes\K\right) 1_{\mathbb{M}_{mn}\left( C\left(\sX \right) \right)}$  then  the image  $\mathfrak{Image}\left( P\right)\in C_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right)\right)$ (cf. Definition \ref{image_defn}) of $P$ is a projector. From our construction it turns out that 
 \bean
 \mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)\le \mathfrak{Image}\left( P\right),\\
 \mathfrak{Image}\left( \iota'\left(p\right) \right)\le \mathfrak{Image}\left( P\right),\\
 \mathfrak{Image}\left( \iota''\left(q\right) \right)\le \mathfrak{Image}\left( P\right),\\
 \mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)= \mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right).
 \eean
-The elements $\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)$,  $\mathfrak{Image}\left( \iota'\left( p\right) \right)$, $\mathfrak{Image}\left( \iota''\left(  q\right) \right)$ in $H^0_c\left( \mathfrak{Gelfand}\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$  are representatives of $\left[p\otimes q \right]$, $\left[p\right]$ and $\left[q \right]$ in $K_0\left( C\left(\sX \right) \right)$  (cf. \eqref{k0_s_eqn}).
-Otherwise $\left[p\otimes q \right]$ is the representative of $\left[p \right]\smile\left[ q \right]$ and $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] \in H^0_c\left( \mathfrak{Gelfand}\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$ is a representative of $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\right]\smile  \left[\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] $. So this lemma is proven for the restriction 
+The elements $\mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)$,  $\mathfrak{Image}\left( \iota'\left( p\right) \right)$, $\mathfrak{Image}\left( \iota''\left(  q\right) \right)$ in $H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$  are representatives of $\left[p\otimes q \right]$, $\left[p\right]$ and $\left[q \right]$ in $K_0\left( C\left(\sX \right) \right)$  (cf. \eqref{k0_s_eqn}).
+Otherwise $\left[p\otimes q \right]$ is the representative of $\left[p \right]\smile\left[ q \right]$ and $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] \in H^0_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right); \Z\right)$ is a representative of $\left[\mathfrak{Image}\left( \iota'\left( p\right) \right)\right]\smile  \left[\mathfrak{Image}\left( \iota''\left( q\right) \right)\right] $. So this lemma is proven for the restriction 
   \bean
 \begin{split}
 	K^0\left( \sX \right)\times  K^0\left( \sX \right) \to K^{0}\left( \sX \right)
@@ -1750,7 +1759,7 @@ If $A$ is c $C^*$-algebra then from the Exercise \ref{cs1_exer} one has followin
 \label{cs1_21_eqn} 
 K_0\left( A \otimes C\left(S^1 \right) \right) \cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_0\left( A\right) \oplus K_1\left(A \right).
 \eea
-On the other hand if $\sX \bydef \mathfrak{Gelfand}\left(A \otimes \K\right)$ then the equation \eqref{long_pair_eqn} yields the sequence
+On the other hand if $\sX \bydef \mathfrak{Gelfand}_r\left(A \otimes \K\right)$ then the equation \eqref{long_pair_eqn} yields the sequence
 
 	\be\label{coh_suspernsion_eqn}
 \begin{split}
@@ -1777,19 +1786,19 @@ There is the natural surjective map  $\sX\times S^1\onto \sX$ and injective map 
 \eea 
 From the equation \eqref{k_1_eqn} it follows that
 \bean
-K_1\left(A \right) \cong H^1_c\left(\sX;\Z  \right)\bydef  H^1_c\left( \mathfrak{Gelfand}\left(A\otimes \K \right);\Z\right) 
+K_1\left(A \right) \cong H^1_c\left(\sX;\Z  \right)\bydef  H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right);\Z\right) 
 \eean 
 Taking into account the Theorems  \ref{suspension_thm}, \ref{bott_map_thm} and one has
 \bean 
-K_0\left(A \right) \cong   H^1_c\left( \mathfrak{Gelfand}\left(A\otimes \K \right)\times \R;\Z\right), 
+K_0\left(A \right) \cong   H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)\times \R;\Z\right), 
 \eean 
 so from \eqref{cs1_21_eqn} and \eqref{h1_d_eqn} one has the group isomorphism 
 \be
- H^1_c\left( \mathfrak{Gelfand}\left(A\otimes \K \right)\times S^1;\Z\right)\cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_*\left( A\right) 
+ H^1_c\left( \mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1;\Z\right)\cong K_1\left( A \otimes C\left(S^1 \right) \right)\cong K_*\left( A\right) 
 \ee
-Let us define the multiplication on $K_*\left( A\right)$. Let $$x, y \in K_0\left( A\right) .$$  If both $x' \in  H^0_c\left(\sX;\Z  \right)$ and $y' \in  H^1_c\left(\sX\times \R;\Z  \right)$ are given by the equations \eqref{k_00_eqn} and \eqref{k0_s_eqn} representatives of $x$ and $y$ then one can assume that $x', y' \in H^*_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right)\times S^1 \right)$. It turns out that
+Let us define the multiplication on $K_*\left( A\right)$. Let $$x, y \in K_0\left( A\right) .$$  If both $x' \in  H^0_c\left(\sX;\Z  \right)$ and $y' \in  H^1_c\left(\sX\times \R;\Z  \right)$ are given by the equations \eqref{k_00_eqn} and \eqref{k0_s_eqn} representatives of $x$ and $y$ then one can assume that $x', y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)$. It turns out that
 \be
-x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right)\times S^1 \right)
+x' \smile y' \in H^*_c\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)\times S^1 \right)
 \ee
 where the cup product is given by \ref{cup_sheaf_thm}. 
 
@@ -1836,41 +1845,41 @@ The Theorem \ref{standard_exact_sequence_thm} yields the following
 \end{tikzcd}
 \ee
 	
-Using  the Corollary \ref{good_cor}, the Theorem \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cup_rem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}\left(J\right)$ is an open subset of $\mathfrak{Gelfand}\left(A\right)$. There are continuous maps
+Using  the Corollary \ref{good_cor}, the Theorem \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cup_rem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}_r\left(J\right)$ is an open subset of $\mathfrak{Gelfand}_r\left(A\right)$. There are continuous maps
 \bea\label{map_j_eqn}
-\mathfrak{Gelfand}\left(J\right)\hookto \mathfrak{Gelfand}\left(A\right),\\\label{map_aj_eqn} \mathfrak{Gelfand}\left(A/J\right)\to \mathfrak{Gelfand}\left(A\right)
+\mathfrak{Gelfand}_r\left(J\right)\hookto \mathfrak{Gelfand}_r\left(A\right),\\\label{map_aj_eqn} \mathfrak{Gelfand}_r\left(A/J\right)\to \mathfrak{Gelfand}_r\left(A\right)
 \eea
 where the map \eqref{map_aj_eqn} is given by the equation \eqref{gelfand_map_eqn}. From our construction it turns out that
 \bean
-\mathfrak{Gelfand}\left(A\right) = \mathfrak{Gelfand}\left(J\right)\cup \mathfrak{Gelfand}\left(A/J\right),\\
-\mathfrak{Gelfand}\left(J\right)\cap \mathfrak{Gelfand}\left(A/J\right)= \emptyset,\\
-\mathfrak{Gelfand}\left(J\right)=\mathfrak{Gelfand}\left(A/J\right)\setminus \mathfrak{Gelfand}\left(A/J\right).
+\mathfrak{Gelfand}_r\left(A\right) = \mathfrak{Gelfand}_r\left(J\right)\cup \mathfrak{Gelfand}_r\left(A/J\right),\\
+\mathfrak{Gelfand}_r\left(J\right)\cap \mathfrak{Gelfand}_r\left(A/J\right)= \emptyset,\\
+\mathfrak{Gelfand}_r\left(J\right)=\mathfrak{Gelfand}_r\left(A/J\right)\setminus \mathfrak{Gelfand}_r\left(A/J\right).
 \eean 
-The set $\mathfrak{Gelfand}\left(A/J\right)$ is closed in $\mathfrak{Gelfand}\left(A\right)$ since $\mathfrak{Gelfand}\left(J\right)$ is open. Both equations \eqref{cohom_seq_eqn} and \eqref{setmunus_h_eqn} yield the following exact sequence 
+The set $\mathfrak{Gelfand}_r\left(A/J\right)$ is closed in $\mathfrak{Gelfand}_r\left(A\right)$ since $\mathfrak{Gelfand}_r\left(J\right)$ is open. Both equations \eqref{cohom_seq_eqn} and \eqref{setmunus_h_eqn} yield the following exact sequence 
 \be\label{coh_x_eqn}
 \begin{split}
-	{0} \hookto  H^0_c\left(\mathfrak{Gelfand}\left(J\right);\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\mathfrak{Gelfand}\left(A\right);\Z  \right) \xrightarrow{\pi_*} \\ \xrightarrow{\pi_*} H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)\xrightarrow{\dl}H^1_{c}\left(\mathfrak{Gelfand}\left(J\right);\Z \right)\to ...
+	{0} \hookto  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right) \xrightarrow{\pi_*} \\ \xrightarrow{\pi_*} H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\xrightarrow{\dl}H^1_{c}\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)\to ...
 \end{split}
 \ee
-Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$. The support of $c$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}\left(A\right); \Z\right)$ such that 
+Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$. The support of $c$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}_r\left(A\right); \Z\right)$ such that 
 \be
-\forall \xi \in \mathfrak{Gelfand}\left(A/J\right)\quad c\left( \xi\right) = y\left( \xi\right) 
+\forall \xi \in \mathfrak{Gelfand}_r\left(A/J\right)\quad c\left( \xi\right) = y\left( \xi\right) 
 \ee 
 If  
 \be\label{u_x_eqn}
 u_c\bydef e^{2\pi i b}
 \ee
-then $u_c$ can be regarded  an element of both  $U\left(C_0\left( \mathfrak{Gelfand}\left(A/J\right)^+\right)  \right)$ and \\ $H^0_{c}\left(\mathfrak{Gelfand}\left(J\right);U\left( 1\right)\right)$, so $\left[u_c\right]=\partial c \in K_1\left( J\right)$ (cf. equations \eqref{u_x_eqn} and \eqref{exp_map_eqn}).
+then $u_c$ can be regarded  an element of both  $U\left(C_0\left( \mathfrak{Gelfand}_r\left(A/J\right)^+\right)  \right)$ and \\ $H^0_{c}\left(\mathfrak{Gelfand}_r\left(J\right);U\left( 1\right)\right)$, so $\left[u_c\right]=\partial c \in K_1\left( J\right)$ (cf. equations \eqref{u_x_eqn} and \eqref{exp_map_eqn}).
 If 
 \be\label{sxxh_shh_eqn}
 \begin{split}
-%	\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}\left(A/J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}\left(A/J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}\left(A/J\right) \sU\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}\left(A/J\right); \Z \right)\to... ;
-		\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}\left(J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}\left(J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}\left(J\right); U\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}\left(J\right); \Z \right)\to ...
+%	\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right) \sU\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(A/J\right); \Z \right)\to... ;
+		\{0\}  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z\right)  \to  H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); \sR \right)\to \\ H^0_c\left(\mathfrak{Gelfand}_r\left(J\right); U\left( 1\right)  \right)\xrightarrow{\dl_\SS }  H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)\to ...
 \end{split}
 \ee
 is  a specializations of \eqref{sxx_shh_eqn}  then there is
 \be\label{a_p_eqn}
-a' \bydef \dl_\SS u_c \in H^1_c\left(\mathfrak{Gelfand}\left(J\right); \Z \right)
+a' \bydef \dl_\SS u_c \in H^1_c\left(\mathfrak{Gelfand}_r\left(J\right); \Z \right)
 \ee
 such that $a'$ is a representative of $\partial c \in K_1\left( J\right)$ (cf. equation \eqref{k_1_eqn})
 \begin{lemma}\label{six_term_lem}
@@ -1879,9 +1888,9 @@ such that $a'$ is a representative of $\partial c \in K_1\left( J\right)$ (cf. e
 \begin{proof}
 	There is a specialization of exact sequence of complexes \eqref{longx_pair_eqn} given by
 \be\label{longcx_pair_eqn} 
-0 \hookto C^*_c\left(\mathfrak{Gelfand}\left(J\right);\Z \right) \xrightarrow{\iota} C^*_c\left(\mathfrak{Gelfand}\left(A\right);\Z \right)\xrightarrow{\pi} C^*_c\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)\onto 0
+0 \hookto C^*_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right) \xrightarrow{\iota} C^*_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z \right)\xrightarrow{\pi} C^*_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)\onto 0
 \ee
-Let $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$ and $c \in C^0_c\left(\mathfrak{Gelfand}\left(A/J\right);\Z  \right)\cong C_c\left(\mathfrak{Gelfand}\left(A/J\right);\Z  \right)$ is a representative of $\left[c\right]$. There is $b \in C^0_c\left(\mathfrak{Gelfand}\left(A\right);\Z  \right)$ such that $c = \pi\left( b\right)$. From $\partial c = 0$ it follows that  $ \pi\circ \partial \left( b\right) = 0$. It turns out that there is $a\in  C^1_c\left(\mathfrak{Gelfand}\left(J\right);\Z \right)$ such that $\partial \left( b\right)= \iota\left(  a\right)$. Since $\iota$ is injective $ \partial^2 \left( b\right)=0$. It follows that $\partial a = 0$, so $a$ is a cycle  According to homological algebra one has 
+Let $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z \right)$ and $c \in C^0_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)\cong C_c\left(\mathfrak{Gelfand}_r\left(A/J\right);\Z  \right)$ is a representative of $\left[c\right]$. There is $b \in C^0_c\left(\mathfrak{Gelfand}_r\left(A\right);\Z  \right)$ such that $c = \pi\left( b\right)$. From $\partial c = 0$ it follows that  $ \pi\circ \partial \left( b\right) = 0$. It turns out that there is $a\in  C^1_c\left(\mathfrak{Gelfand}_r\left(J\right);\Z \right)$ such that $\partial \left( b\right)= \iota\left(  a\right)$. Since $\iota$ is injective $ \partial^2 \left( b\right)=0$. It follows that $\partial a = 0$, so $a$ is a cycle  According to homological algebra one has 
 \be\label{dl_eqn}
 \dl \left[c\right] = \left[a\right].
 \ee
@@ -1892,15 +1901,15 @@ From $\dl b = \dl_\SS e^{2\pi i b}$ it follows that  $\left[a\right]= a'$ where 
 The Abelian group homomorphisms $\iota_*$ and $\pi_*$  \eqref{sisf_ext_eqn} are ring homomorphisms, The Abelian group homomorphisms $\partial$ in \eqref{sisf_ext_eqn} yield a  degree 1 ring homomorphisms $K_*\left( A/J\right) \to K_*\left( J\right)$.
 \end{theorem}
 \begin{proof}
-If $\left[p_1\right], \left[p_2\right]\in K_0\left(S\left( A/ J \right) \right)$ then there are representatives \\ $p_1, p_2 \in H^0_c\left( \mathfrak{Gelfand}\left(S\left( A/ J \right)\right); \Z \right) \cong C_c\left( \mathfrak{Gelfand}\left(S\left( A/ J \right)\right); \Z \right)$ of these element. Moreover $\left[p_1\right]\cup \left[p_2\right]= \left[p_1p_2\right]$. If both $p'_1, p'_2 \in \in  C_c\left( \mathfrak{Gelfand}\left(SA\right); \Z\right)$ are such that  
+If $\left[p_1\right], \left[p_2\right]\in K_0\left(S\left( A/ J \right) \right)$ then there are representatives \\ $p_1, p_2 \in H^0_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right) \cong C_c\left( \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right); \Z \right)$ of these element. Moreover $\left[p_1\right]\cup \left[p_2\right]= \left[p_1p_2\right]$. If both $p'_1, p'_2 \in \in  C_c\left( \mathfrak{Gelfand}_r\left(SA\right); \Z\right)$ are such that  
 \be
-\forall \xi \in \mathfrak{Gelfand}\left(S\left( A/ J \right)\right)\quad p'_1\left( \xi\right) = p_1\left( \xi\right), \quad  p'_2\left( \xi\right) = p_2\left( \xi\right)
+\forall \xi \in \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right)\quad p'_1\left( \xi\right) = p_1\left( \xi\right), \quad  p'_2\left( \xi\right) = p_2\left( \xi\right)
 \ee
 then 
 \be
-\forall \xi \in \mathfrak{Gelfand}\left(S\left( A/ J \right)\right)\quad \left( p'_1\cdot p_2'\right)\left(\xi \right)  \left( \xi\right) = \left( p_1\cdot p_2\right)\left(\xi \right) 
+\forall \xi \in \mathfrak{Gelfand}_r\left(S\left( A/ J \right)\right)\quad \left( p'_1\cdot p_2'\right)\left(\xi \right)  \left( \xi\right) = \left( p_1\cdot p_2\right)\left(\xi \right) 
 \ee
-where $\cdot$ means the product of integer valued functions. It follows that $\partial \left( \left[p_1\right]\cup \left[p_2\right]\right)$ is given by $e^{2\pi i \left( p'_1\cdot p'_2\right) }$. Let  $p''_1, p''_2 \in H^0_c\left( \mathfrak{Gelfand}\left( J \right); \Z \right)$ representatives of $\left[p''_1\right], \left[p''_2\right]\in K_0\left(J \right)$ such that
+where $\cdot$ means the product of integer valued functions. It follows that $\partial \left( \left[p_1\right]\cup \left[p_2\right]\right)$ is given by $e^{2\pi i \left( p'_1\cdot p'_2\right) }$. Let  $p''_1, p''_2 \in H^0_c\left( \mathfrak{Gelfand}_r\left( J \right); \Z \right)$ representatives of $\left[p''_1\right], \left[p''_2\right]\in K_0\left(J \right)$ such that
 \bean
 \bt_J\left(  \left[p''_1\right]\right) = \partial \left[p_1\right],\\
 \bt_J\left(  \left[p''_2\right]\right) = \partial \left[p_2\right]
@@ -2211,7 +2220,7 @@ where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\
 \begin{remark}\label{blowing_gelfand_rem}
 The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
 \be\label{blowing_gelfand_eqn}
-	\mathfrak{Gelfand}\left(A \right) \onto \sX
+	\mathfrak{Gelfand}_r\left(A \right) \onto \sX
 \ee
 (cf. Theorem \ref{good_thm}).
 \end{remark}
@@ -2249,7 +2258,7 @@ The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\math
 % Let us describe an  analogy  between algebraic counterpart of geometric quotient and Connes quantization. If $A$ is a $C^*$-algebra and   $C_0\left( \sX\right)\subset M\left(A \right)$ is universal Hausdorff blowing-up (cf. Definition \ref{blowing_universal_defn}). Suppose that the equation \eqref{gelfand_sp_eqn}  yields the following diagram of commutative maps
 %\be\label{gen_foli_eqn}
 %\begin{tikzcd}
-%	\mathfrak{Gelfand}\left(A\right) \arrow[rr] \arrow[rd, "\hat \phi"]&& \sX\arrow[ld, "\phi"]\\
+%	\mathfrak{Gelfand}_r\left(A\right) \arrow[rr] \arrow[rd, "\hat \phi"]&& \sX\arrow[ld, "\phi"]\\
 %	& \hat A &
 %\end{tikzcd}
 %\ee
@@ -2613,14 +2622,14 @@ then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top
 	is a noncommutative covering (cf. Definition \ref{covering_defn})
 \end{theorem}
 \begin{proof}
-	The Theorem \ref{good_thm} yields the natural continuous map $\mathfrak{Gelfand}\left(A \right)\onto \sY$. Taking into account the Lemma \ref{blowing_blowing_lem} one has the natural continuous map $\mathfrak{Gelfand}\left(A_0\left(\widetilde\sY\right) \right)\onto \widetilde \sY$. Applying the  Theorem \ref{good_thm} once again one has the following diagram
+	The Theorem \ref{good_thm} yields the natural continuous map $\mathfrak{Gelfand}_r\left(A \right)\onto \sY$. Taking into account the Lemma \ref{blowing_blowing_lem} one has the natural continuous map $\mathfrak{Gelfand}_r\left(A_0\left(\widetilde\sY\right) \right)\onto \widetilde \sY$. Applying the  Theorem \ref{good_thm} once again one has the following diagram
 	\bean
 	\begin{tikzcd}
-	\mathfrak{Gelfand}\left(A_0\left(\widetilde\sY\right) \right) \arrow[r, "\widetilde\phi"] \arrow[d, "\widetilde\varphi"] & \widetilde \sY \arrow[d, "\varphi"] \\
-		\mathfrak{Gelfand}\left(A \right) \arrow[r, "\phi"] &  \sY
+	\mathfrak{Gelfand}_r\left(A_0\left(\widetilde\sY\right) \right) \arrow[r, "\widetilde\phi"] \arrow[d, "\widetilde\varphi"] & \widetilde \sY \arrow[d, "\varphi"] \\
+		\mathfrak{Gelfand}_r\left(A \right) \arrow[r, "\phi"] &  \sY
 		\end{tikzcd}
 	\eean
-	For ant $x \in 	\mathfrak{Gelfand}\left(A \right)$, there is an open neighborhood $\sU \subset \sY$ of $\phi\left(x \right)$ such that
+	For ant $x \in 	\mathfrak{Gelfand}_r\left(A \right)$, there is an open neighborhood $\sU \subset \sY$ of $\phi\left(x \right)$ such that
 \bean
 	\varphi^{-1}\left( \sU\right) = \bigsqcup_{\la\in ]La}\sU_\la,\\
 	\forall \la \in \La \quad \sU_\la \cong \sU.
@@ -3401,13 +3410,13 @@ field $X_\th$ determines a foliation $\mathcal{F}_\th$ on ${\T}^{2N}$.
 \paragraph*{}
 From  the Theorem \ref{k_0_tor_thm} (resp \ref{k_1_tor_thm})  element of $K_0\left(C\left(\T^2_\th \right)  \right)$  (resp. $K_1\left(C\left(\T^2_\th \right)  \right)$) is represented by an idempotent (resp. invertible element) of $C\left(\T^2_\th \right)$. From this circumstance the given by the Theorem \ref{k_h_thm} equations 
 \bean
-K_0\left(C\left(\T^2_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\otimes \K \right); \Z \right)/U\left(\left(C\left(\T^2_\th \right) \otimes \K \right) ^+ \right),\\
-K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right) \otimes \K\right); \Z \right) 
+K_0\left(C\left(\T^2_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\otimes \K \right); \Z \right)/U\left(\left(C\left(\T^2_\th \right) \otimes \K \right) ^+ \right),\\
+K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \otimes \K\right); \Z \right) 
 \eean
 can be replaced with following ones,
 \bea\label{k_0_nt_eqn}
-K_0\left( C\left(\T^2_\th \right) \right) =H^0\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right),\\ \label{k_1_nt_eqn}
-K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right); \Z \right). 
+K_0\left( C\left(\T^2_\th \right) \right) =H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right),\\ \label{k_1_nt_eqn}
+K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right); \Z \right). 
 \eea
 
 It is known that $C\left(\T^2_\th \right)$ is an universal $C^*$-algebra generated by two unitaries $u, v \in C\left(\T^2_\th \right)$ such that $uv = e^{2\pi i \th}vu$. It is also known 
@@ -3441,25 +3450,25 @@ Moreover one has
 \begin{split}
 	K_0\left( C\left({u_{S^1}} \right)\right) = \Z \left[1_{u_{S^1}}\right],\\
 		K_1\left( C\left({u_{S^1}} \right)\right) = \Z \left[{u_{S^1}}\right],\\
-		H^0\left( \mathfrak{Gelfand}\left( C\left({u_{S^1}} \right)\right); \Z\right)\cong 	H^0\left( S^1; \Z\right)  = \Z \left[1_{u_{S^1}}\right],\\
-		H^1\left(\mathfrak{Gelfand}\left(  C\left({u_{S^1}} \right)\right);\Z\right)  \cong  H^1\left( S^1; \Z\right)= \Z \left[{u_{S^1}}\right],\\
+		H^0\left( \mathfrak{Gelfand}_r\left( C\left({u_{S^1}} \right)\right); \Z\right)\cong 	H^0\left( S^1; \Z\right)  = \Z \left[1_{u_{S^1}}\right],\\
+		H^1\left(\mathfrak{Gelfand}_r\left(  C\left({u_{S^1}} \right)\right);\Z\right)  \cong  H^1\left( S^1; \Z\right)= \Z \left[{u_{S^1}}\right],\\
 	\end{split}
 \ee	
 If we consider the cup product (cf. Theorem \ref{cup_sheaf_thm}) then one has 
 \be\label{prod_u_tor_eqn}
-\left[1_{u_{S^1}}\right]\smile \left[{u_{S^1}}\right]=\left[{u_{S^1}}\right]\in 		H^1\left(\mathfrak{Gelfand}\left(  C\left({u_{S^1}} \right)\right);\Z\right). 
+\left[1_{u_{S^1}}\right]\smile \left[{u_{S^1}}\right]=\left[{u_{S^1}}\right]\in 		H^1\left(\mathfrak{Gelfand}_r\left(  C\left({u_{S^1}} \right)\right);\Z\right). 
 \ee
 From  the Appendix \ref{rieffel_sec} it turns out  that
 \be\label{iprod_u_tor_eqn}
 \iota_*\left( \left[1_{u_{S^1}}\right]\right) = \left[p_\th\right]\in K_0\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right)
 \ee
-where $p_\th$ is  the Powers - Rieffel projector. If $\mathfrak{Image}\left( p_\th\right)\in C\left( \mathfrak{Gelfand}\left(  C\left(u \right)\rtimes_\a \Z\right)\right) $ is the image of $p_\th$ (cf. Definition \ref{image_defn}) then $\mathfrak{Image}\left( p_\th\right)$ is a projector represents 
+where $p_\th$ is  the Powers - Rieffel projector. If $\mathfrak{Image}\left( p_\th\right)\in C\left( \mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right)\right) $ is the image of $p_\th$ (cf. Definition \ref{image_defn}) then $\mathfrak{Image}\left( p_\th\right)$ is a projector represents 
 \bean
-\left[\mathfrak{Image}\left( p_\th\right)\right]=\in H^0\left(\mathfrak{Gelfand}\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right). 
+\left[\mathfrak{Image}\left( p_\th\right)\right]=\in H^0\left(\mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right). 
 \eean
 From \eqref{prod_u_tor_eqn} and  \eqref{iprod_u_tor_eqn} it turns out that
 \be
-\left[\mathfrak{Image}\left( p_\th\right)\right]\smile \iota^{{u_{S^1}}}_* \left[{u_{S^1}}\right] \in  H^1\left(\mathfrak{Gelfand}\left(  C\left({u_{S^1}} \right)\rtimes_\a \Z\right);\Z \right).
+\left[\mathfrak{Image}\left( p_\th\right)\right]\smile \iota^{{u_{S^1}}}_* \left[{u_{S^1}}\right] \in  H^1\left(\mathfrak{Gelfand}_r\left(  C\left({u_{S^1}} \right)\rtimes_\a \Z\right);\Z \right).
 \ee
 Using the Theorem \ref{cup_prod_thm} and the Remark \ref{cup_prod_rem} we have 
 \be
@@ -3468,20 +3477,20 @@ Using the Theorem \ref{cup_prod_thm} and the Remark \ref{cup_prod_rem} we have
 where $\left[ p_\th\right]\in K_0\left( C\left(\T^2_\th \right)\right)$ and $\left[ {u}\right]\in K_1\left( C\left(\T^2_\th \right)\right)$. From Lemma \ref{nt_gen_lem} it follows that $p_\th \in   C\left(\T^2_\th \right)$ so one has the disconnected union
 \be\label{tor_prodw_eqn}
 \begin{split}
-\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) = \mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}\bigsqcup	\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }
+\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) = \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}\bigsqcup	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }
 \end{split}
 \ee
 where the notation \eqref{topology_eqn} is used. Ir turns out that there is the following direct sum of rings.
 \be\label{torh_prodw_eqn}
 \begin{split}
-H^*_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right);\Z\right)=\\= H^*_c\left( \mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \oplus H^*_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }\right) 
+H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right);\Z\right)=\\= H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \oplus H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left(1- p_\th\right) }\right) 
 \end{split}
 \ee
 Taking into account the Theorem \ref{pimsner_voiculesky_thm} one has the following direct sum of rings
 \be\label{torhk_prodw_eqn}
 \begin{split}
-	H^*_c\left( \mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \cong H^*_c\left( C\left(S^1\right);Z\right) ,\\
-	H^*_c\left( \mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left( 1-p_\th\right) }; \Z\right) \cong H^*_c\left( SC\left(S^1\right);Z\right) ,\\
+	H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)p_\th}; \Z\right) \cong H^*_c\left( C\left(S^1\right);Z\right) ,\\
+	H^*_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right)\right) _{C\left(\T^2_\th \right)\left( 1-p_\th\right) }; \Z\right) \cong H^*_c\left( SC\left(S^1\right);Z\right) ,\\
 K_*\left( C\left(\T^2_\th \right)\right) =K_*\left( C\left(S^1\right)\right) \oplus 
 K_*\left( SC\left(S^1 \right)\right) 
 \end{split}
@@ -3489,8 +3498,8 @@ K_*\left( SC\left(S^1 \right)\right)
 From the equation \eqref{torhk_prodw_eqn} one has 
 \be\label{torhk_hprodw_eqn}
 \begin{split}
-	K_0\left(C\left(\T^2_\th \right) \right) \cong 	H^0_c\left( 	\mathfrak{Gelfand}\left( C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[p_\th\right]\oplus \Z\left[1- p_\th\right],\\
-	K_1\left(C\left(\T^2_\th \right) \right) \cong 	H^1_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[u\right]\oplus \Z\left[v\right]
+	K_0\left(C\left(\T^2_\th \right) \right) \cong 	H^0_c\left( 	\mathfrak{Gelfand}_r\left( C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[p_\th\right]\oplus \Z\left[1- p_\th\right],\\
+	K_1\left(C\left(\T^2_\th \right) \right) \cong 	H^1_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^2_\th \right) \right) ; \Z \right) \cong \Z\left[u\right]\oplus \Z\left[v\right]
 \end{split}
 \ee
 and  following conditions hold.
@@ -3512,8 +3521,8 @@ and  following conditions hold.
 	Let  $n = 2k \in \N$ be ab even natural number. We say that the noncommutative torus $C\left(\T^n_\th \right)$ is \textit{good} if one has 
 	\be\label{tor_prodg_eqn}
 	\begin{split}
-K_0\left( C\left(\T^n_\th\right)\right)  \cong	H^0\left(\mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z s_j,\\
-K_1\left( C\left(\T^n_\th\right)\right)  \cong	H^1\left(\mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z t_j
+K_0\left( C\left(\T^n_\th\right)\right)  \cong	H^0\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z s_j,\\
+K_1\left( C\left(\T^n_\th\right)\right)  \cong	H^1\left(\mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right); \Z \right)\cong   \bigoplus_{j = 1}^{2^{n-1}}\Z t_j
 	\end{split}
 	\ee
 	where for each $j, k \in \left\{1,..., 2^{n-1}\right\}$ the cup product satisfies to the following equations	
@@ -3535,29 +3544,29 @@ t_j \smile t_k = 0.
 Suppose that the noncommutative torus $C\left(\T^n_\th \right)$ is {good}. From the Lemma  \ref{product_lem} it follows that 
 		\be 
 \begin{split}
-\mathfrak{Gelfand}\left(C_0\left(S^1 \right)\otimes  C\left(\T^n_\th \right)\right)   \cong S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right)
+\mathfrak{Gelfand}_r\left(C_0\left(S^1 \right)\otimes  C\left(\T^n_\th \right)\right)   \cong S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right)
 \end{split}
 \ee
 From \eqref{long_pair_eqn} it follows that 
 
 \be\label{tor_long_pair_eqn} 
 \begin{split}
-0 \hookto  H^0_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right), \{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right) ;\Z \right)\to \\ \to H^0_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right) \to\\ \to  H^0_{c\cap \{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right)}\left(\{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right);\Z \right)\to \\ \to 
-H^1_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right), \{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right) ;\Z \right)\to \\ \to H^1_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right) \to\\ \to  H^1_{c\cap \{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right)}\left(\{x_0\}\times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right);\Z \right)
+0 \hookto  H^0_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right), \{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right) ;\Z \right)\to \\ \to H^0_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right) \to\\ \to  H^0_{c\cap \{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right)}\left(\{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right);\Z \right)\to \\ \to 
+H^1_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right), \{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right) ;\Z \right)\to \\ \to H^1_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right) \to\\ \to  H^1_{c\cap \{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right)}\left(\{x_0\}\times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right);\Z \right)
 \end{split}
 \ee
 and taking into account \eqref{setmunus_h_eqn} one has
 \be\label{t_exact_eqn}
 \begin{split}
-	\{0\} \hookto  H^0_c\left(\R \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right) ;\Z \right)\hookto  H^0_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right) \xrightarrow{p^0_*}\\   H^0_c\left( \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right);\Z \right)\xrightarrow{\dl}\\ 
-H^1_c\left(\R \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right) ;\Z \right)\xrightarrow{\iota^1_*} H^1_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right)\xrightarrow{p^1_*}\\ \to  H^1_c\left( \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right);\Z \right)\to...
+	\{0\} \hookto  H^0_c\left(\R \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right) ;\Z \right)\hookto  H^0_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right) \xrightarrow{p^0_*}\\   H^0_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right);\Z \right)\xrightarrow{\dl}\\ 
+H^1_c\left(\R \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right) ;\Z \right)\xrightarrow{\iota^1_*} H^1_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right)\xrightarrow{p^1_*}\\ \to  H^1_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right);\Z \right)\to...
 \end{split}
 \ee
 From the equations \eqref{k0_s_eqn} and \eqref{k1_s_eqn} one has 
 \be\label{t1_eqn}
 \begin{split}
-H^1_c\left(\R \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right) ;\Z \right)\cong K_0\left( C\left(\T^n_\th \right)\right)\cong   \Z^{2n-1},\\
-H^1_c\left( \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right) ;\Z \right)\cong K_1\left( C\left(\T^n_\th \right)\right)\cong   \Z^{2n-1}
+H^1_c\left(\R \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right) ;\Z \right)\cong K_0\left( C\left(\T^n_\th \right)\right)\cong   \Z^{2n-1},\\
+H^1_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right) ;\Z \right)\cong K_1\left( C\left(\T^n_\th \right)\right)\cong   \Z^{2n-1}
 \end{split}
 \ee
 From the Exercise \ref{cs1_exer} it follows that
@@ -3570,10 +3579,10 @@ From the exact sequence \eqref{t_exact_eqn} it turns out that
 both equations \eqref{t1_eqn} and \eqref{t2_eqn} are compatible if and only if the homomorphism $\iota^1_*$ is injective and the homomorphism $\p^1_*$ is surjective. It follows that $\dl$ is trivial, $p^0_*$ is a surjective homomorphism and
 \be\label{t22_eqn}
 \begin{split}
-H^0_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right)\cong \\ H^0_c\left(\R \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right) ;\Z \right)\oplus H^0_c\left( \mathfrak{Gelfand}\left(C\left(\T^n_\th \right)\right);\Z \right) \cong  \Z^{2n}
+H^0_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right)\cong \\ H^0_c\left(\R \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right) ;\Z \right)\oplus H^0_c\left( \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right)\right);\Z \right) \cong  \Z^{2n}
 \end{split}
 \ee
-From the isomorphism $H^0_c\left(S^1 \times \mathfrak{Gelfand}\left(C\left(\T^n_\th \right) \right);\Z \right) \cong  \Z^{2n}\cong 	K_0\left( C\left(\T^n_\th \right) \otimes C\left(S^1 \right) \right)$ and the equation \eqref{k_00_eqn} it follows that the natural action
+From the isomorphism $H^0_c\left(S^1 \times \mathfrak{Gelfand}_r\left(C\left(\T^n_\th \right) \right);\Z \right) \cong  \Z^{2n}\cong 	K_0\left( C\left(\T^n_\th \right) \otimes C\left(S^1 \right) \right)$ and the equation \eqref{k_00_eqn} it follows that the natural action
 $$
 U\left(C\left(\T^n_\th \right)\otimes C\left(S^1 \right) \right)\times K_0\left( C\left(\T^n_\th \right) \otimes C\left(S^1 \right) \right)\to K_0\left( C\left(\T^n_\th \right) \otimes C\left(S^1 \right) \right)
 $$
@@ -3593,24 +3602,24 @@ Taking into account $1-\a_*$ we have the following short exact sequences
 \{0\}\hookto	K_0\left( C\left(\T^n_\th \right)\right) \xrightarrow{\iota_*} K_0\left( C\left(\T^n_\th \right)  \rtimes_\a \Z \right) \xrightarrow{p_*} K_1\left( C\left(\T^n_\th \right)\right) \onto \{0\}, \\ \label{kkt_1_nt_eqn}
 \{0\}\hookto	K_1\left( C\left(\T^n_\th \right)\right) \xrightarrow{\iota_*} K_1\left( C\left(\T^n_\th \right)  \rtimes_\a \Z \right) \xrightarrow{p_*} K_0\left( C\left(\T^n_\th \right)\right) \onto \{0\}
 	\eea
-	From the Theorem \ref{nt_gen_lem} it follows that the image $\iota_*\left( 	K_0\left( C\left(\T^n_\th \right)\right)\right)\subset  K_0\left( C\left(\T^n_\th \right)  \rtimes_\a \Z \right)$ yields an open and closed subset  $\sX' \subset  \mathfrak{Gelfand}\left(C\left(\T^{n+1}_\th \right)\right)$, such that there is 
+	From the Theorem \ref{nt_gen_lem} it follows that the image $\iota_*\left( 	K_0\left( C\left(\T^n_\th \right)\right)\right)\subset  K_0\left( C\left(\T^n_\th \right)  \rtimes_\a \Z \right)$ yields an open and closed subset  $\sX' \subset  \mathfrak{Gelfand}_r\left(C\left(\T^{n+1}_\th \right)\right)$, such that there is 
 	the disconnected union
 	\be\label{tor_prodwx_eqn}
 	\begin{split}
-		\mathfrak{Gelfand}\left(C\left(\T^{n + 1}_\th \right)\right) =\sX'\bigsqcup	\sX''
+		\mathfrak{Gelfand}_r\left(C\left(\T^{n + 1}_\th \right)\right) =\sX'\bigsqcup	\sX''
 	\end{split}
 	\ee
-$\sX'' \bydef \mathfrak{Gelfand}\left(C\left(\T^{n + 1}_\th \right)\right)\setminus\sX'$ Ir turns out that there is the following direct sum of rings.
+$\sX'' \bydef \mathfrak{Gelfand}_r\left(C\left(\T^{n + 1}_\th \right)\right)\setminus\sX'$ Ir turns out that there is the following direct sum of rings.
 	\be\label{torh_prodwx_eqn}
 	\begin{split}
-		H^*_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^{n+1}_\th \right)\right);\Z\right)=\\= H^*_c\left(\sX'; \Z\right) \oplus H^*_c\left(\sX''; \Z\right)
+		H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^{n+1}_\th \right)\right);\Z\right)=\\= H^*_c\left(\sX'; \Z\right) \oplus H^*_c\left(\sX''; \Z\right)
 	\end{split}
 	\ee
 	Taking into account the Theorem \ref{pimsner_voiculesky_thm} one has the following direct sum of rings
 	\be\label{torhkx_prodw_eqn}
 	\begin{split}
-		H^*_c\left( \sX'; \Z\right) \cong H^*_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^{n}_\th \right)\right)\times S^1;\Z\right) ,\\
-	H^*_c\left( \sX''; \Z\right) \cong H^*_c\left( 	\mathfrak{Gelfand}\left(C\left(\T^{n}_\th \right)\right)\times S^1\times \R;\Z\right)  ,\\
+		H^*_c\left( \sX'; \Z\right) \cong H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^{n}_\th \right)\right)\times S^1;\Z\right) ,\\
+	H^*_c\left( \sX''; \Z\right) \cong H^*_c\left( 	\mathfrak{Gelfand}_r\left(C\left(\T^{n}_\th \right)\right)\times S^1\times \R;\Z\right)  ,\\
 		K_*\left( C\left(\T^{n + 1}_\th \right)\right) =	K_*\left( C\left(\T^{n}_\th \right)\otimes C\left(S^1\right)\right) \oplus 
 		K_*\left( C\left(\T^{n}_\th \right)\otimes C\left(S^1\right)\otimes C_0\left(\R \right) \right)
 	\end{split}
@@ -3623,11 +3632,11 @@ $\sX'' \bydef \mathfrak{Gelfand}\left(C\left(\T^{n + 1}_\th \right)\right)\setmi
 %\paragraph*{}
 %If $C\left(\T^n _{\theta}\right)$ is the noncommutative torus (cf. 	From the Definition \ref{nt_defn}) then for  any $j =1, ..., n$ there is an injective $*$ - homomorphism $\phi_j: C\left( U_j\right)  \hookto C\left(\T^n _{\theta}\right)$. Both $C^*$-algebras $C\left( U_j\right)$ and $C\left(\T^n _{\theta}\right)$ are unital so $\phi_j$ is good homomorphism (cf. Definition \ref{good_hom_defn}), so from the Theorem \ref{good_thm} there is a continuous map
 %	$$
-%	\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}\left(\phi_j \right)}\mathfrak{Gelfand}\left(C\left( U_j\right)  \right)
+%	\mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}_r\left(\phi_j \right)}\mathfrak{Gelfand}_r\left(C\left( U_j\right)  \right)
 %	$$
-%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
+%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}_r\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}_r\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
 %\be\label{torus_map_eqn}
-%	\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
+%	\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
 %\ee
 %If $\left(x_1, x_2 \right)\in S^1 \times S^1$ and  $\sU_1$  ( resp. $\sU_2$) is a neighborhood of $x_1$ (resp. $x_2$) then for any $\la \in \La$ there is a left ideal $L^{S^1}_1\subset C\left( S^1\right)$ (resp. $L^{S^1}_2\subset C\left( S^1\right)$). There are left ideals 
 %\bean
@@ -3671,13 +3680,13 @@ $\sX'' \bydef \mathfrak{Gelfand}\left(C\left(\T^{n + 1}_\th \right)\right)\setmi
 %\ee
 %The set of given by \eqref{bss_eqn} is the basis of neighborhoods of $\left(x_1, ..., x_2 \right)$ (cf. Definition \ref{top_base_defn}) so one has an ultrafilter on the space $\T^n$. From \eqref{lln_eqn} it turns out that this ultrafilter yields a filter $\Xi\in \mathfrak{Filters}\left( A\right)$ (cf. Definition  \ref{lattice_a_defn}). The map \eqref{torus_map_eqn} is such that
 %\bean
-%\forall \xi \in \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\quad \Xi \subset \xi \quad \Rightarrow \quad \varphi\left( \xi \right) = \left(x_1, ..., x_n \right).
+%\forall \xi \in \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)\quad \Xi \subset \xi \quad \Rightarrow \quad \varphi\left( \xi \right) = \left(x_1, ..., x_n \right).
 %\eean 
 %From the above construction it follows that $\varphi$ is surjective. Since the space $\T^n$ is Hausdorff there is the natural surjective continuous map
 %\be
-%\varphi_r : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\onto \T^n
+%\varphi_r : \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)\onto \T^n
 %\ee
-%where $\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)$ is the reduced Gelfand !!! DELETE !!! space (cf. Definition \ref{gelfand_r_defn}  !!!! DELETE !!!!).
+%where $\mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)$ is the reduced Gelfand !!! DELETE !!! space (cf. Definition \ref{gelfand_r_defn}  !!!! DELETE !!!!).
 %\begin{exercise}
 %	Prove that the described in \cite{schwieger:nt_cov} covering of noncommutative torus is a covering in the sense of the Definition \ref{covering_defn}.
 %\end{exercise}
@@ -3759,7 +3768,7 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 \end{proof}
 
 \begin{lemma}\label{ctr_gelfand_exist_lem}
-	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$. For any element $\xi \in 	\mathfrak{Gelfand}\left( A\right)$ there is a commutative hereditary $C^*$-subalgebra $C$ such that $C \in \xi$ (cf. Notation \eqref{hered_ideal_eqn}).
+	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$. For any element $\xi \in 	\mathfrak{Gelfand}_r\left( A\right)$ there is a commutative hereditary $C^*$-subalgebra $C$ such that $C \in \xi$ (cf. Notation \eqref{hered_ideal_eqn}).
 \end{lemma}
 \begin{proof}
 	Let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$ 	where $\hat \phi$ is a specialization of the continuous map \eqref{gelfand_sp_eqn}. According to the Definition \ref{gelfand_space_defn} there is  positive n element $a \in K\left( A\right)_+$ of the Pedersen's ideal such that  $aAa \in \xi$ (cf. notation \eqref{hered_ideal_eqn}). If $\rep_y : A \to B\left( \sH_y\right)$ is  the corresponding to $y \in \sX$  irreducible representation of $A$ (cf. \ref{irred_defn}) then from the equation  \eqref{peder_k_eqn} it follows that there is $N \in \N$ such that $\forall y \in \sX \quad \rep_y \left(aAa \right) \subset  \mathbb{M}_N\left(\C\right)$. Let $\left\{\sU\right\}$ be a basis of neighborhoods of $x$. Denote by  $S \subset \N$ the subset be such that for any $l\in S$ there are $B \in \xi$ and $\sU \in \left\{\sU\right\}$ with
@@ -3808,17 +3817,17 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 	and $C''' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra such that $C''' \in \xi$.
 \end{proof}
 \begin{theorem}\label{ctr_gelfand_thm}
-	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
+	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}_r\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 	\bean
 	\begin{tikzcd}
-		\mathfrak{Gelfand}\left( A\right)		 \arrow[rr, "\phi_{\mathscr P}"]\arrow[rd, "\hat \phi"]  & ~ & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \arrow[ld, "p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)}" ]\\
+		\mathfrak{Gelfand}_r\left( A\right)		 \arrow[rr, "\phi_{\mathscr P}"]\arrow[rd, "\hat \phi"]  & ~ & \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \arrow[ld, "p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)}" ]\\
 		& \sX &
 	\end{tikzcd}
 	\eean
 	where $\hat \phi$ is a specialization of the continuous map given by the Theorem \ref{gelfand_sp_thm}.
 \end{theorem}	
 \begin{proof}
-	Let $\xi \in \mathfrak{Gelfand}\left( A\right)$ and let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$. From the Lemma \ref{ctr_gelfand_exist_lem} it turns out that there is a commutative $C^*$-algebra $C$ such that $C \in \xi$. Consider a set of hereditary $C^*$-subalgebras
+	Let $\xi \in \mathfrak{Gelfand}_r\left( A\right)$ and let   $x\bydef \hat \phi \left( \xi\right)  \in \sX$. From the Lemma \ref{ctr_gelfand_exist_lem} it turns out that there is a commutative $C^*$-algebra $C$ such that $C \in \xi$. Consider a set of hereditary $C^*$-subalgebras
 	\be\label{ctr_xx_eqn}
 	\xi' \bydef \left\{B \subset A \left| C_x \in\mathscr U_B\right.\right\}
 	\ee
@@ -3830,14 +3839,14 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 	It follows $\xi = \xi'$ since $\xi$ satisfies to the above properties. From the equation \eqref{ctr_xx_eqn} it follows that both $\xi$ and $\xi'$ uniquely depend on $C_x$. The bijective map $\phi_{\mathscr P}$ is given by $\xi \mapsto C_x$.
 \end{proof}
 \begin{remark}
-	Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}\cong \mathfrak{Gelfand}\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
+	Denote by $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ the set $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ supplied with the smallest topology such that the map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}\to \sX$ is continuous. If $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}_r}$ is the topological space such that the bijective map $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}_r}\cong \mathfrak{Gelfand}_r\left( A\right)$ is  homeomorphism then since the map $\mathfrak{Gelfand}_r\left( A\right)\to \sX$ is continuous the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}_r}$ is finer than $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Etale}}$ one. 
 \end{remark}
 %\subsubsection{Bicommutant}
 %\begin{lemma}\label{ctr_bic_lem}
-%	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the bicommutant $\mathfrak{Gelfand}\left( A\right)''$ of $\mathfrak{Gelfand}\left( A\right)$ (cf. Definition \ref{bicommutant_defn}).
+%	If $A$ is a {continuous-trace} $C^*$-{algebra} then there is the bicommutant $\mathfrak{Gelfand}_r\left( A\right)''$ of $\mathfrak{Gelfand}_r\left( A\right)$ (cf. Definition \ref{bicommutant_defn}).
 %\end{lemma}
 %\begin{proof}
-%	From the Theorem \ref{ctr_gelfand_thm} it follows that any $\xi \in \mathfrak{Gelfand}\left( A\right)$ is uniquely defined by an element $C_x\in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x \in \hat A$, $~C \subset A$ is a commutative $C^*$-subalgebra and $C_x$ is a stalk of $\mathscr P_{\sX\text{-}A}$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}) represented by $C$. If $\rep_x: A \to B\left( \sH_x\right)$ is the irreducible representation (cf. Definition \ref{irred_defn}) which corresponds to $x$ then the $V \bydef \rep_x\left(C \right) \sH_x$ is one dimensional subspace of $\sH_x$. The  given by \eqref{bicommutant_id_eqn} set equals to
+%	From the Theorem \ref{ctr_gelfand_thm} it follows that any $\xi \in \mathfrak{Gelfand}_r\left( A\right)$ is uniquely defined by an element $C_x\in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ where $x \in \hat A$, $~C \subset A$ is a commutative $C^*$-subalgebra and $C_x$ is a stalk of $\mathscr P_{\sX\text{-}A}$ at $x$ (cf. Definition \ref{sheaf_stalk_defn}) represented by $C$. If $\rep_x: A \to B\left( \sH_x\right)$ is the irreducible representation (cf. Definition \ref{irred_defn}) which corresponds to $x$ then the $V \bydef \rep_x\left(C \right) \sH_x$ is one dimensional subspace of $\sH_x$. The  given by \eqref{bicommutant_id_eqn} set equals to
 %	\be\label{ctr_bicommutant_id_eqn}
 %	\xi'' \bydef \left\{\left. a \in \rep_{x }\left(A \right)\right| \forall L \in \xi \quad  a V = \{0\}
 %	\right\}\subset \rep_{\hat \phi\left( \xi\right) }\left(A \right).
@@ -3847,20 +3856,20 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 %\end{proof}
 
 %\begin{remark}\label{ctr_bic_rem}
-%	From the proof of the Corollary it follows that any element of the bicommutant $ \mathfrak{Gelfand}\left( A\right)''$ of the Gelfand space  $\mathfrak{Gelfand}\left( A\right)$ uniquely depends on the pair $\left( x_\xi, V_\xi\right)$. Since $V_\xi \subset \H_{x_\xi}$ is one-dimensional subspace any  element of $ \mathfrak{Gelfand}\left( A\right)''$ uniquely depends of the pair $\left( x_\xi, y_\xi\right)$ where $y_\xi \in \mathbb{P}\left(\H_{x_\xi} \right)$ and $\mathbb{P}\left(\H_{x_\xi} \right)$ is the projective space (cf. Definition \ref{projective_bundle_defn}).
+%	From the proof of the Corollary it follows that any element of the bicommutant $ \mathfrak{Gelfand}_r\left( A\right)''$ of the Gelfand space  $\mathfrak{Gelfand}_r\left( A\right)$ uniquely depends on the pair $\left( x_\xi, V_\xi\right)$. Since $V_\xi \subset \H_{x_\xi}$ is one-dimensional subspace any  element of $ \mathfrak{Gelfand}_r\left( A\right)''$ uniquely depends of the pair $\left( x_\xi, y_\xi\right)$ where $y_\xi \in \mathbb{P}\left(\H_{x_\xi} \right)$ and $\mathbb{P}\left(\H_{x_\xi} \right)$ is the projective space (cf. Definition \ref{projective_bundle_defn}).
 %\end{remark}
 
 %\begin{empt}\label{ctr_bundle_empt}
 %	Suppose that $A$ is the given by the Proposition \ref{ctr_bundle_prop}  locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\H \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\H \right)$. From the Remark \ref{ctr_bic_rem} it follows that there is a set theoretic bijective map
 %	\bean
-%	\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)''.
+%	\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}_r\left(A \right)''.
 %	\eean
-%	There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote corresponding space by $\C P\left(\E \right)_{\mathfrak{Gelfand}}$. There is a continuous map 
+%	There is the initial with respect to $\phi_C$ on  topology on $\C P\left(\E \right)$ (cf, Definition \ref{top_init_defn}), we denote corresponding space by $\C P\left(\E \right)_{\mathfrak{Gelfand}_r}$. There is a continuous map 
 %	\be\label{ctr_bundle_eqn}
-%	\C P\left(\E \right)_{\mathfrak{Hausdorff }}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}.
+%	\C P\left(\E \right)_{\mathfrak{Hausdorff }}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}_r}.
 %	\ee
 %	where $\C P\left(\E \right)_{\mathfrak{Hausdorff }}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology. 
-%	If the dimension of $\sH$ is finite then $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ yields the space $\C P\left(\E \right)_{\mathfrak{Geometric}}$ having structure of projective geometry, i.e. the subspace of dimension $r$ is an irreducible closed subspace of the dimension $r$. The Theorem \ref{fund_proj_thm} yields the space $\C P\left(\E \right)_{\mathfrak{Analitic}}$ having structure of analytic  geometry. Now it is easy to obtain $\C P\left(\E \right)_{\mathfrak{Hausdorff }}$. It is known than	$\C P\left(\E \right)_{\mathfrak{Hausdorff }}$ uniquely defines $A$ (cf. \cite{bryl:loop}), i.e. the Gelfand space contains exact information about $A$.  
+%	If the dimension of $\sH$ is finite then $\C P\left(\E \right)_{\mathfrak{Gelfand}_r}$ yields the space $\C P\left(\E \right)_{\mathfrak{Geometric}}$ having structure of projective geometry, i.e. the subspace of dimension $r$ is an irreducible closed subspace of the dimension $r$. The Theorem \ref{fund_proj_thm} yields the space $\C P\left(\E \right)_{\mathfrak{Analitic}}$ having structure of analytic  geometry. Now it is easy to obtain $\C P\left(\E \right)_{\mathfrak{Hausdorff }}$. It is known than	$\C P\left(\E \right)_{\mathfrak{Hausdorff }}$ uniquely defines $A$ (cf. \cite{bryl:loop}), i.e. the Gelfand space contains exact information about $A$.  
 %\end{empt}
 
 
@@ -3879,7 +3888,7 @@ It is proven that the spectrum of the explained in \cite{candel:foliII} reduced 
 one has the following commutative diagram
 \begin{equation}\label{f_dia_eqn}
 	\begin{tikzcd}
-		\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd, "\hat \phi"]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
+		\mathfrak{Gelfand}_r\left(C^*_r\left(M, \F \right)\right)	 \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd, "\hat \phi"]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"]\\
 		& M/\sim &
 	\end{tikzcd}
 \end{equation}
@@ -3892,7 +3901,7 @@ one has the following commutative diagram
 %	\begin{equation}\label{f_diam_eqn}
 %		\begin{tikzcd}
 %			& \sX  \arrow[rd, "\phi" ] &\\
-%			\mathfrak{Gelfand}\left(C^*_r\left(M, \F \right)\right)	\arrow[ru, "\psi"] \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd, "\hat\phi"]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"] \\
+%			\mathfrak{Gelfand}_r\left(C^*_r\left(M, \F \right)\right)	\arrow[ru, "\psi"] \arrow[rr, "\phi_{(C^*_r\left(M, \F \right)}"]\arrow[rd, "\hat\phi"]  & ~ & M \arrow[ld, , "\mathfrak{Blowing}"] \\
 %			& M/\sim &
 %		\end{tikzcd}
 %	\end{equation}
@@ -3919,29 +3928,29 @@ one has the following commutative diagram
 %\end{remark}
 
 \section{Gelfand space of Cuntz algebra}
-\paragraph{} Let $O_N$ be the Cuntz $C^*$-algebra (cf. Definition \ref{cuntz_defn}), and let $\mathfrak{Gelfand}\left(O_N\right)$ be its reduced  Gelfand space (cf. Definition \ref{gelfand_space_defn}). From the equation \eqref{cuntz_seqn} it follows that 
+\paragraph{} Let $O_N$ be the Cuntz $C^*$-algebra (cf. Definition \ref{cuntz_defn}), and let $\mathfrak{Gelfand}_r\left(O_N\right)$ be its reduced  Gelfand space (cf. Definition \ref{gelfand_space_defn}). From the equation \eqref{cuntz_seqn} it follows that 
 $$
-\mathfrak{Gelfand}\left(O_N\right) = \bigsqcup_{j \in \Z_N}\mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) p_j}
+\mathfrak{Gelfand}_r\left(O_N\right) = \bigsqcup_{j \in \Z_N}\mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) p_j}
 $$
 where  $p_j\bydef S_jS^*_j$. If  $I_k$ be a set of words of length $k$ and for any $I \in I_k$ there is  projection $P_I$ is given by \eqref{cuntz_fin_w_o_eqn}. We leave to the reader the proof of the following
 \be
 \begin{split}
 	O_N = \bigoplus_{I \in I_k} O_N P_I, \\
-	\mathfrak{Gelfand}\left(O_N\right) = \bigsqcup_{I \in I_k}\mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_I}
+	\mathfrak{Gelfand}_r\left(O_N\right) = \bigsqcup_{I \in I_k}\mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_I}
 \end{split}
 \ee
-For any $x \in \mathfrak{Gelfand}\left(O_N\right)$ and any $k > 0$ there is the unique $x_k \in I_k$ such that 
+For any $x \in \mathfrak{Gelfand}_r\left(O_N\right)$ and any $k > 0$ there is the unique $x_k \in I_k$ such that 
 \be\label{cuntz_p_x_eqn}
 \begin{split}
 	x \in 
-	\mathfrak{Gelfand}\left(O_N\right) = \mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}
+	\mathfrak{Gelfand}_r\left(O_N\right) = \mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}
 \end{split}
 \ee
 There is the unique word $\om_x   \in \mathfrak{K}$ in Cantor group on $N$ letters  (cf. Definition \ref{cuntz_gl_defn}) with
 $$
 \forall k > 0 \quad \om_x | k = x_k
 $$
-(cf. the equation \eqref{cuntz_cut_eqn}). If $\mathfrak{F}$ is a filter generated by the set $\left\{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}\right\}_{k > 0}$ then $\mathfrak{F}\subset U_x$ where $U_x$ is the corresponding to $x$ ultrafilter (cf. Definition \ref{gelfand_space_defn}). The set $\mathscr A$ of finite subsets  of $\mathfrak{F}$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
+(cf. the equation \eqref{cuntz_cut_eqn}). If $\mathfrak{F}$ is a filter generated by the set $\left\{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}\right\}_{k > 0}$ then $\mathfrak{F}\subset U_x$ where $U_x$ is the corresponding to $x$ ultrafilter (cf. Definition \ref{gelfand_space_defn}). The set $\mathscr A$ of finite subsets  of $\mathfrak{F}$ is a directed (cf. Definition \ref{dir_map_eqn}). If for any $\a \in \mathscr A$ 
 \be
 L_\a \bydef \sum_{\la\in \a} L_\la
 \ee
@@ -3955,11 +3964,11 @@ where $L_{\mathfrak{F}}$ is the $C^*$-norm closure of the left ideal. One can pr
 \be\label{cuntz_max_eqn}
 L_{\mathfrak{F}}= \left\{ a \in O_N | \xi_\om \notin  f_{O_N}\left(a\right)\H \right\}
 \ee
-where $f_{O_N}$ is the given by \eqref{cuntz_repres_eqn} representation. From \eqref{cuntz_max_eqn} it turns out that the ideal is maximal, so taking into account  the Theorem \ref{gelfand_max_thm} one concludes that $L_{\mathfrak{F}}$ corresponds to the unique point in  	$\mathfrak{Gelfand}\left(O_N\right)$. This point is $x$ so $\mathfrak{F}$ is an ultrafilter. So there is the bijective map
+where $f_{O_N}$ is the given by \eqref{cuntz_repres_eqn} representation. From \eqref{cuntz_max_eqn} it turns out that the ideal is maximal, so taking into account  the Theorem \ref{gelfand_max_thm} one concludes that $L_{\mathfrak{F}}$ corresponds to the unique point in  	$\mathfrak{Gelfand}_r\left(O_N\right)$. This point is $x$ so $\mathfrak{F}$ is an ultrafilter. So there is the bijective map
 
 \be\label{cuntz_homeo_eqn}
 \begin{split}
-	\mathfrak{Gelfand}\left(O_N\right)\cong \mathfrak{K}\\
+	\mathfrak{Gelfand}_r\left(O_N\right)\cong \mathfrak{K}\\
 	x \mapsto \om_x
 \end{split}
 \ee
@@ -3970,9 +3979,9 @@ where  $\mathfrak{K}$ is the  Cantor group on $N$ letters  (cf. Definition \ref{
 \begin{proof} 
 From the above instruction it follows that the equation  \eqref{cuntz_p_x_eqn} means that the family 
 \be\label{cuntz_fund_set_eqn}
-\left\{\mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}\right\}_{k > 1}
+\left\{\mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}\right\}_{k > 1}
 \ee
- is a fundamental system of neighborhoods of $x$. On the other hand for any $k > 1$ the open  set  $\mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}\subset \mathfrak{Gelfand}\left(O_N\right)$ corresponds to the set  $\Om_k \bydef \left\{
+ is a fundamental system of neighborhoods of $x$. On the other hand for any $k > 1$ the open  set  $\mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}\subset \mathfrak{Gelfand}_r\left(O_N\right)$ corresponds to the set  $\Om_k \bydef \left\{
 \left.\om \in \mathfrak{K}\right|~ \om|k = x_k\right\}\subset \mathfrak{K}$. However the family $\left\{\Om_k\right\}_{k > 1}$ is  a fundamental system of neighborhoods of $\om_x$ where the topology of $\mathfrak{K}$ is given by the Definition \ref{cuntz_gl_defn}.
 \end{proof}
 
@@ -3982,13 +3991,13 @@ The fundamental group $\pi_1\left(O_N \right)$ (cf. Definition \ref{fund_defn}) 
 \begin{proof}
 If  $\lift: O_N \hookto M\left(\widetilde{A} \right)$ is a noncommutative covering (cf. Definition \ref{covering_defn}) with connected $\widetilde{A}$ (cf. Definition \ref{connected_c_a_defn}) then the natural continuous map
 \be\label{covering_eqn}
-\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\lift \right)}\mathfrak{Gelfand}\left(O_N \right)
+\mathfrak{Gelfand}_r\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}_r\left(\lift \right)}\mathfrak{Gelfand}_r\left(O_N \right)
 \ee
-is a (topological) covering (cf. Definition \ref{top_covering_defn}). Let $x \in \mathfrak{Gelfand}\left(O_N \right)$ be a point and $\sU \subset \mathfrak{Gelfand}\left(O_N \right)$ be an open neighborhood of $x$ evenly covered by $\mathfrak{Gelfand}\left(\lift \right)$ (cf. Definition \ref{top_covering_defn}). The family \eqref{cuntz_fund_set_eqn}
-is a fundamental system of neighborhoods of $x$, so there is $k \in \N$ such that $\mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}\subset \sU$. From the Definition \ref{top_covering_defn} it turns out that 
+is a (topological) covering (cf. Definition \ref{top_covering_defn}). Let $x \in \mathfrak{Gelfand}_r\left(O_N \right)$ be a point and $\sU \subset \mathfrak{Gelfand}_r\left(O_N \right)$ be an open neighborhood of $x$ evenly covered by $\mathfrak{Gelfand}_r\left(\lift \right)$ (cf. Definition \ref{top_covering_defn}). The family \eqref{cuntz_fund_set_eqn}
+is a fundamental system of neighborhoods of $x$, so there is $k \in \N$ such that $\mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}\subset \sU$. From the Definition \ref{top_covering_defn} it turns out that 
 \bean
-\mathfrak{Gelfand}\left(\lift \right)^{-1}\left( \mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}\right)\cong \bigsqcup_{\la\in \La}\widetilde {\sU}_\la,\\
-\forall \la\in \La  \quad \widetilde {\sU}_\la \cong \mathfrak{Gelfand}\left(O_N\right)_{\mathfrak{Gelfand}\left(O_N\right) P_{x_k}}.
+\mathfrak{Gelfand}_r\left(\lift \right)^{-1}\left( \mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}\right)\cong \bigsqcup_{\la\in \La}\widetilde {\sU}_\la,\\
+\forall \la\in \La  \quad \widetilde {\sU}_\la \cong \mathfrak{Gelfand}_r\left(O_N\right)_{\mathfrak{Gelfand}_r\left(O_N\right) P_{x_k}}.
 \eean 
 
 \end{proof}
@@ -5562,20 +5571,26 @@ For any closet and $\Phi$-taut subset $F \subset \sX$ there is the natural isomo
 H^*_\Phi\left(\sX, F;\mathscr A  \right)\cong H^*_\Phi\left(\sX\setminus F;\mathscr A  \right)
 \ee
 \subsection{Reduced cohomology}
+\paragraph{} If $\sX$ is as compact space and $L$ is a principal ideal domain then there is the natural homomorphism 
+\be \label{red_s_eqn}
+L \hookto \Ga\left(\sX, L \right)\cong H^0\left(\sX, L \right)
+\ee
+
 \begin{definition}\label{red_defn}\cite{bredon:sheaf}
-If $L$ is a principal ideal domain then there {\it reduced cohomology} $\hat H^*\left(*, L \right) $ such that
+If $L$ is a principal ideal domain then there it {\it reduced cohomology} $\tilde H^*\left(*, L \right) $ such that
 \bean
-\hat H^p\left(\sX, L \right)\bydef \begin{cases}
+\tilde H^p\left(\sX, L \right)\bydef \begin{cases}
 H^0\left(\sX, L \right)/L & p = 0\\
-H^p\left(\sX, L \right)/L & p > 0
+H^p\left(\sX, L \right)& p > 0
 \end{cases}
 \eean
 \end{definition}
 \begin{remark}\cite{bredon:sheaf}
-If $L$ is a principal ideal domain and a $\sX$ space is locally compact then 
+If $L$ is a principal ideal domain and a $\sX$ space is locally compact Hausdorff space  then 
 	\be\label{red_eqn}
-	H^0_c\left( \sX, L\right) \cong \hat H^0\left(\sX^+, L \right) 
+	H^0_c\left( \sX, L\right) \cong \tilde H^0\left(\sX^+, L \right) 
 	\ee
+	where $\sX^+$ is a one point compactification.
 \end{remark}
 
 
@@ -6607,7 +6622,7 @@ equivalence was introduced by Rieffel.
 \begin{definition}\label{proj_defn}\cite{blackadar:ko}
 %Definition 4.6.1. 
 A projection is a self-adjoint idempotent. A {\it partial isometry}
-is an element $u$ with $u*u$ a projection. If $A$ has a unit, then $U$ is an {\it isometry} if $u^*u = 1$, and $u$ is unitary if $uu^* = u^*u = uu^*=1$.
+is an element $u$ with $u^*u$ a projection. If $A$ has a unit, then $U$ is an {\it isometry} if $u^*u = 1$, and $u$ is unitary if $uu^* = u^*u = uu^*=1$.
 \end{definition}
 \begin{proposition}
 %Proposition 4.6.2.
@@ -6617,6 +6632,36 @@ any idempotent is homotopic to a projection.
 \begin{remark}\label{projection_equivalences_rem} In \cite{blackadar:ko,wegge_olsen}
 	it is proven that for any two projections the conditions (a) - (c) of the Definition \ref{projection_equivalences_defn} are equivalent  $\mathbb{M}_\infty\left(A \right)$.
 \end{remark}
+\begin{proposition}
+%	Proposition 4.6.4. 
+If $p \sim q$, then there is a partial isometry $u$ with $u^*u= p, \quad uu^8=q$.
+\end{proposition}
+
+\begin{proposition}\label{projection_u_equivalence_prop}\cite{blackadar:ko}
+	%Proposition 4.6.5. 
+	If $p \sim_s q$, then there is a unitary $u$ with $upu^* = q$.
+\end{proposition}
+\begin{definition}\label{local_ca_defn}\cite{blackadar:ko}
+	%Definition 3.1.1. 
+	A {\it local Banach algebra} is a normed algebra $A$ which is closed
+	under holomorphic functional calculus (i.e. if $x \in A$ and $f$ is an analytic function
+	on a neighborhood of the spectrum of $x$ in the completion of $A$, with $f(0) = 0$ if
+	$A$ is nonunital, then $f(x) \in A$. For technical reasons we will also require that
+	all matrix algebras over A have the same property. If $A$ is a $*$-algebra, it will be
+	called a local Banach $*$-algebra; if the norm is a pre-$C^*$-norm, A will be called a
+	{\it local $C^*$-algebra}.
+\end{definition}
+
+\begin{theorem}\label{ga_proj_thm}\cite{blackadar:ko}%Theorem 4.6.7.
+	Let $A$ be a local $C^*$-algebra. Consider the action  of $U\left(A^+ \right)$ 
+	on the set $\mathrm{Pr}(A)$ of projections in $A$ given by $\ga\left(u \right) \left( p\right)\bydef upu^*$.Then:
+	\begin{enumerate}
+		\item[(a)] 	The orbits of  are open and closed; the orbit containing $p$ contains the open	ball $B_p$ of radius 1 around $p$ in $\mathrm{Pr}(A)$.
+		\item[(b)] For any $p \in \mathrm{Pr}(A)$, there is a continuous cross section $v_p : B_p \to U\left(A\right)$  for $\ga$ 
+		(i .e. $v_p\left(q\right)p v_p\left(q\right)^*= q$ ) with $v_p(p) = 1$.
+		\item[(c)] The association $p \mapsto \pi\left( p\right) $ is functorial, i .e. if $\pi : A \to B$ is a $*$-homomorphism, then $v_{\pi\left(p \right) }\left( \pi\left( q\right) \right)  = \pi\left( v_p\left( q\right) \right)$) for $q \in B_p$.
+	\end{enumerate}
+\end{theorem} 
 
 
 \begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
@@ -6655,6 +6700,11 @@ $V (A)$ corresponds to direct sum of modules
 	$K_0\left( A\right) \bydef K_0\left(A^+, A \right)$. 
 \end{definition}
 \begin{remark}\label{k0_rem}\cite{blackadar:ko}
+	The group
+	$K_0\left(A \right)$  may be viewed as formal differences $\left[e\right]-\left[f\right]$, where $e, f \in M_\infty\left(A^+ \right)$  with
+	$e \equiv f \mathrm{mod} M_\infty\left(A \right)$, with the usual notion of equivalence of formal differences
+	in $K_{00}\left( A^+\right)$. In fact, any element of $K_0\left( A\right)$ may be written  $\left[e\right]- \left[p_n\right]$, where $p_n$ is the rank $n$ projection. This is the {\it Standard Picture} of $K_0\left( A\right)$  for general $A$.
+	
 	There is a homomorphism from $K_{00}(A^+)$ to $K_0(A)$, given by $\left[e\right] \mapsto \left[e\right]- \left[p_n\right]$, where $\pi\left(e \right)$ is a rank $n$ projection in $\mathbb{M}_\infty\left(A \right)$. Composing this with the canonical map from $K_{00}(A)$ to $K_{00}\left(A^+ \right) $ yields a homomorphism
 	\be\label{k0_eqn} 
 	\om_A : K_{00}(A) \to 
@@ -6889,7 +6939,7 @@ $\bt_A \left( \left[e\right]-\left[p_n\right]\right)\bydef \left[f_e f^{-1}_{p_n
 	 there is a commutative diagram 
 \be\label{ba_eqn}
 \begin{tikzcd}
-\{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right) \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
+\{{0}\}\arrow[r]& K_0\left(A \right) \arrow[r] \arrow[d, "\bt_A"]& K_0\left(A^+ \right) \arrow[r] \arrow[d, "\bt_A^+"] & K_0\left(\C \right)\cong \Z \arrow[r]\arrow[d, "\bt_\C"]& \{{0}\}\\
 \{{0}\}\arrow[r]& K_1\left(SB \right) \arrow[r] & K_1\left(SB^+ \right) \arrow[r] & K_1\left(\C \right) \arrow[r]& \{{0}\}
 \end{tikzcd}
 \ee
