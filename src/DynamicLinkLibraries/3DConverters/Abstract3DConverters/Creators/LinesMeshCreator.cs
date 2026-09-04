@@ -29,8 +29,9 @@ namespace Abstract3DConverters.Creators
 
         abstract protected void CreateAdditional(object additional);
 
-        public override void Load(byte[] bytes)
+        protected override void Load(object obj)
         {
+            var bytes = obj as byte[];
             using var stream = new MemoryStream(bytes);
             using (var reader = new StreamReader(stream))
             {

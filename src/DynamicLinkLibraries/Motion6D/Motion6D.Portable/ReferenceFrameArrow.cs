@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 using CategoryTheory;
@@ -8,8 +9,8 @@ using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
-using System.Linq;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Motion6D.Portable
 {
@@ -76,7 +77,7 @@ namespace Motion6D.Portable
             {
                 IReferenceFrame rf = value.GetTarget<IReferenceFrame>();
                 IAssociatedObject sa = source as IAssociatedObject;
-                IAssociatedObject ta = value as IAssociatedObject;
+                IAssociatedObject ta = value;
                 INamedComponent ns = sa.Object as INamedComponent;
                 INamedComponent nt = ta.Object as INamedComponent;
                 /*if (nt != null & ns != null)

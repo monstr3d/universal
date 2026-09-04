@@ -17,15 +17,16 @@ namespace Diagram.UI
         {
             Language = language;   
         }
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
 
-    
+   
+
         protected virtual string Language { get; set; }
 
-        protected  IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
-
+    
         object ICurrentObject.CurrentObject => current;
 
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
         #region Fields
@@ -39,15 +40,16 @@ namespace Diagram.UI
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
             current = obj;
-            foreach (IClassCodeCreator creator in list)
+                foreach (IClassCodeCreator creator in list)
             {
+                creator.DesktopCodeCreator = DesktopCodeCreator;
                 List<string> l = creator.CreateCode(preffix, obj, volume);
                 if (l != null)
                 {
-                    return l;
+                     return l;
                 }
             }
-            throw new IncludedException("Type \"" + obj.GetType() + "\" is not supported", obj);
+            throw new IncludedException("Type \"" + obj.GetType() + "\" is not supported ", obj);
         }
 
         #endregion

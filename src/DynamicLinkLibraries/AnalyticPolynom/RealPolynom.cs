@@ -1,5 +1,4 @@
 using ErrorHandler;
-using System;
 
 namespace AnalyticPolynom
 {

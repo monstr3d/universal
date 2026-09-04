@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+using BaseTypes;
+
+using NamedTree.Interfaces;
+
 
 using CategoryTheory;
 
@@ -11,12 +14,10 @@ using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Helpers;
-using DataPerformer.Portable;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+
 
 using Event.Interfaces;
-using DataPerformer.Portable.DifferentialEquationProcessors;
-using BaseTypes;
-using NamedTree;
 
 namespace DataPerformer.Portable.Runtime
 {
@@ -27,6 +28,12 @@ namespace DataPerformer.Portable.Runtime
     public class DataRuntime : IDataRuntime, IStep, IActionFactory, IDisposable
     {
         #region Fields
+
+        /// <summary>
+        /// Performer
+        /// </summary>
+        protected Performer performer = new();
+
 
         /// <summary>
         /// Objects
@@ -507,7 +514,7 @@ namespace DataPerformer.Portable.Runtime
                     UpdateMeasurements();
                 };
             }
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
         }
 
         /// <summary>

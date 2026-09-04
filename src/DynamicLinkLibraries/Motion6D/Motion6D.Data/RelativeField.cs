@@ -1,22 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using System.Linq;
 
 using CategoryTheory;
-using Diagram.UI;
 using SerializationInterface;
 using BaseTypes;
 
-using PhysicalField;
 using DataPerformer;
 using Motion6D.Interfaces;
 using PhysicalField.Interfaces;
 using Motion6D.Portable;
-using NamedTree;
-using System.Linq;
+using NamedTree.Interfaces;
 
 namespace Motion6D
 {
@@ -31,7 +26,6 @@ namespace Motion6D
 
         private int num = -1;
 
-        private IPhysicalField field;
 
         private ReferenceFrame fieldFrame;
 
@@ -105,12 +99,12 @@ namespace Motion6D
 
         IPhysicalField IFieldConsumer.this[int n]
         {
-            get { return field; }
+            get { return Field; }
         }
 
         void IFieldConsumer.Add(IPhysicalField field)
         {
-            if (this.field != null)
+            if (this.Field != null)
             {
                 throw new ErrorHandler.OwnException("Field of this object already exist");
             }
@@ -118,15 +112,15 @@ namespace Motion6D
             {
                 throw new ErrorHandler.OwnException("Field has no postion");
             }
-            this.field = field;
+            this.Field = field;
             IPositionObject po = field as IPositionObject;
             fieldFrame = ReferenceFrame.GetOwnFrame(po.Position);
             CreateDelegate();
         }
 
         void IFieldConsumer.Remove(IPhysicalField field)
-        {
-            this.field = null;
+        { 
+            this.Field = null;
             transform = null;
             num = -1;
         }
@@ -187,14 +181,14 @@ namespace Motion6D
                     return null;
                 }
                 List<int> l = new List<int>();
-                for (int i = 0; i < field.Count; i++)
+                for (int i = 0; i < Field.Count; i++)
                 {
-                    object t = field.GetTransformationType(i);
+                    object t = Field.GetTransformationType(i);
                     if (!t.Equals(Field3D_Types.CovariantVector))
                     {
                         continue;
                     }
-                    if (!field.GetType(i).Equals(type))
+                    if (!Field.GetType(i).Equals(type))
                     {
                         continue;
                     }
@@ -209,10 +203,8 @@ namespace Motion6D
         /// </summary>
         public IPhysicalField Field
         {
-            get
-            {
-                return field;
-            }
+            get;
+            set;
         }
 
         /// <summary>
@@ -236,12 +228,12 @@ namespace Motion6D
                 {
                     throw new ErrorHandler.OwnException("Field is abscent");
                 }
-                object t = field.GetTransformationType(value);
+                object t = Field.GetTransformationType(value);
                 if (!t.Equals(Field3D_Types.CovariantVector))
                 {
                     throw new ErrorHandler.OwnException("Illegal type of field");
                 }
-                if (!field.GetType(value).Equals(type))
+                if (!Field.GetType(value).Equals(type))
                 {
                     throw new ErrorHandler.OwnException("Illegal type of field");
                 }
@@ -306,7 +298,7 @@ namespace Motion6D
                 transform = null;
                 return;
             }
-            if (field == null | position == null)
+            if (Field == null | position == null)
             {
                 transform = null;
                 num = -1;
@@ -334,7 +326,7 @@ namespace Motion6D
 
         private void SimpleTransform(double[] x)
         {
-            double[] a = field[position.Position][num] as double[];
+            double[] a = Field[position.Position][num] as double[];
             for (int i = 0; i < 3; i++)
             {
                 x[i] += a[i];
@@ -343,7 +335,7 @@ namespace Motion6D
 
         private void InverseTransform(double[] x)
         {
-            double[] a = field[position.Position][num] as double[];
+            double[] a = Field[position.Position][num] as double[];
             for (int i = 0; i < 3; i++)
             {
                 x[i] -= a[i];
@@ -374,7 +366,7 @@ namespace Motion6D
             ReferenceFrame.GetRelativeFrame(posFrame, fieldFrame, relative);
             double[] r = relative.Position;
             double[,] m = relative.Matrix;
-            object[] o = field[r];
+            object[] o = Field[r];
             double[] a = o[num] as double[];
             PhysicalFieldMeasurements3D.ProcessCovariantVector(a, m, x);
         }

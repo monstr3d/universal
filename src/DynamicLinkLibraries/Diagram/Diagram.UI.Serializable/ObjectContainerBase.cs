@@ -6,6 +6,8 @@ using System.Runtime.Serialization;
 
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Diagram.UI
 {
@@ -98,7 +100,7 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="bytes">Soure bytes</param>
         /// <returns>Thrue in success and false otherwise</returns>
-        protected abstract bool LoadDesktop(byte[] bytes);
+        protected abstract  Task< bool> LoadDesktop(byte[] bytes, CancellationToken ? cancellation);
 
         #endregion
 
@@ -121,7 +123,7 @@ namespace Diagram.UI
         /// Loads itself
         /// </summary>
         /// <returns>True in success</returns>
-        public override bool Load()
+        public override async Task<bool> LoadAsync(CancellationToken ? token)
         {
             if (isLoaded)
             {
@@ -132,7 +134,7 @@ namespace Diagram.UI
             {
                 pure.HasParent = true;
             }
-            bool b = LoadDesktop(Bytes);
+            bool b = await LoadDesktop(Bytes, token);
             LoadProtected();
             CreateInterface();
             return b;
@@ -191,9 +193,10 @@ namespace Diagram.UI
         /// Loads desktop
         /// </summary>
         /// <returns>Desktop</returns>
-        public override IDesktop LoadDesktop()
+        public override async Task<IDesktop> LoadDesktop(CancellationToken cancellation)
         {
-            (desktop as PureDesktopPeer).Load(Bytes);
+            base.LoadDesktop(cancellation);
+            await (desktop as PureDesktopPeer).Load(Bytes, cancellation);
             return desktop;
         }
 

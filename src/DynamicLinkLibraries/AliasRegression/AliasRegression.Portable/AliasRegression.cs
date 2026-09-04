@@ -13,7 +13,7 @@ using Diagram.UI.Labels;
 
 using GeneralLinearMethod;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 using ErrorHandler;
 
@@ -143,15 +143,22 @@ namespace Regression.Portable
 
 		protected IDataRuntime runtime;
 
- 
-		#endregion
-	
-		#region Constructors
+
+        /// <summary>
+        /// Performer
+        /// </summary>
+        protected DataPerformer.Portable.Performer performer = new();
+
+
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>
         /// Default constructor
         /// </summary>
-		public AliasRegression()
+        public AliasRegression()
 		{
 
 		}
@@ -163,14 +170,14 @@ namespace Regression.Portable
 		void IChildren<IMeasurements>.AddChild(IMeasurements arrow)
 		{
 			measurements.Add(arrow);
-            measurements.GetDependent(l, dependent);
+			performer.GetDependentMeasurements(measurements, l, dependent);
 		}
 
         void IChildren<IMeasurements>.RemoveChild(IMeasurements arrow)
 		{
 			measurements.Remove(arrow);
-            measurements.GetDependent(l, dependent);
-		}
+            performer.GetDependentMeasurements(measurements, l, dependent);
+        }
 
         /// <summary>
         /// Updates data of data providers

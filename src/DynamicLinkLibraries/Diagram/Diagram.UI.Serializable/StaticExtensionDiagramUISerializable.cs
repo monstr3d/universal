@@ -14,6 +14,8 @@ using Diagram.UI.Labels;
 
 using AssemblyService;
 using ErrorHandler;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Diagram.UI
 {
@@ -114,7 +116,7 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="buffer">Buffer</param>
         /// <returns>The desktop</returns>
-        public static IDesktop DesktopFromBytes(this byte[] buffer)
+        public static async Task<IDesktop> DesktopFromBytes(this byte[] buffer, CancellationToken token)
         {
             if (buffer == null)
             {
@@ -125,7 +127,7 @@ namespace Diagram.UI
                 return null;
             }
             PureDesktopPeer desktop = new PureDesktopPeer();
-            bool success = desktop.Load(buffer);
+            bool success = await desktop.Load(buffer, token);
             return success ? desktop : null;
         }
 
@@ -134,10 +136,10 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <returns>Desktop</returns>
-        public static IDesktop DesktopFromStream(this System.IO.Stream stream)
+        public static async Task<IDesktop> DesktopFromStream(this System.IO.Stream stream, CancellationToken token)
         {
             PureDesktopPeer desktop = new PureDesktopPeer();
-            bool success = desktop.Load(stream);
+            bool success = await desktop.Load(stream, token);
             return success ? desktop : null;
         }
 
@@ -146,11 +148,12 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="fileName">File name</param>
         /// <returns>The desktop</returns>
-        public static IDesktop DesktopFromFile(this string fileName)
+        public static async Task<IDesktop> DesktopFromFile(this string fileName)
         {
+            var ct = new CancellationToken();
             using (System.IO.Stream stream = System.IO.File.OpenRead(fileName))
             {
-                return stream.DesktopFromStream();
+                return await stream.DesktopFromStream(ct);
             }
         }
 
@@ -159,9 +162,10 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="str">The string</param>
         /// <returns>The desktop</returns>
-        public static IDesktop DesktopFromString(string str)
+        public static async Task<IDesktop> DesktopFromString(string str)
         {
-            return str.StringToBytes().DesktopFromBytes();
+            var ct = new CancellationToken();
+            return await str.StringToBytes().DesktopFromBytes(ct);
         }
 
         /// <summary>

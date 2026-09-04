@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataWarehouse.Classes.Abstract.Async
 {

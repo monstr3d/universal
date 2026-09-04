@@ -3,6 +3,7 @@
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable
 {

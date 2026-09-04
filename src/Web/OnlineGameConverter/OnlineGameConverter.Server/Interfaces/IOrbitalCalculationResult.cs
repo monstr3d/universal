@@ -1,10 +1,10 @@
-﻿using OnlineGameConverter.Server.Classes;
+﻿using OnlineGameConverter.Server.Classes.Orbital;
 
 namespace OnlineGameConverter.Server.Interfaces
 {
     public interface IOrbitalCalculationResult
     {
-        List<OrbitalForecastItemDateTime> Items { get; set; }
+        List<OrbitaForecastItem> Items { get; set; }
     }
 
     public interface IOrbitalCalculationResultSingleton : IOrbitalCalculationResult

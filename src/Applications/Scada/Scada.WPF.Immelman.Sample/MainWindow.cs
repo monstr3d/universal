@@ -14,6 +14,7 @@ namespace Scada.WPF.Immelman.Sample
     {
         private void CreateScada()
         {
+            /*
             //Scada.WPF.UI._3D.ScadaControls.UserControlCamera c = new UI._3D.ScadaControls.UserControlCamera
             StaticExtensionEventInterfaces.TimerEventFactory = WpfTimerEventFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
@@ -28,7 +29,7 @@ namespace Scada.WPF.Immelman.Sample
                 new Tuple<string, Color, double[]>("Motion.Formula_2",
                 Color.FromRgb(0x90, 0xEE, 0x90), new double[] {0, 4000}),
             };*/
-
+            
         }
     }
 

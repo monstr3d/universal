@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ErrorHandler;
+using RealMatrixProcessor;
+using System;
 using Vector3D.Interfaces;
 
 namespace Vector3D
@@ -17,6 +15,8 @@ namespace Vector3D
 
         private readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
 
+        protected RealMatrix realMatrix = new RealMatrix();
+
 
         #endregion
 
@@ -26,11 +26,7 @@ namespace Vector3D
         /// <param name="a">Fisrt arqument</param>
         /// <param name="b">Second argument</param>
         /// <returns>The value of the function</returns>
-        double CopySign(double a, double b)
-        {
-            return Math.Abs(a) * Math.Sign(b);
-        }
-
+ 
         /// <summary>
         ///  Sets the Euler angles from the quaternion
         /// </summary>
@@ -115,7 +111,7 @@ namespace Vector3D
             double sinp = 2 * (w * y - z * x);
             if (Math.Abs(sinp) >= 1)
             {
-                angles.pitch = CopySign(Math.PI / 2, sinp);
+                angles.pitch = realMatrix.CopySign(Math.PI / 2, sinp);
                 //std::copysign(M_PI / 2, sinp); // use 90 degrees if out of range
             }
             else
@@ -137,7 +133,7 @@ namespace Vector3D
         /// <param name="time"></param>
         public void RotateOmega(double[] omega, double[] quaternion, double time)
         {
-            double o = PartialNorm(omega,0, 3);
+            double o = realMatrix.PartialNorm(omega,0, 3);
             double phi = 0.5 * o * time;
             double s = Math.Sin(phi);
             quaternion[0] = Math.Sqrt(1 - s * s);
@@ -297,7 +293,7 @@ namespace Vector3D
         /// <param name="x">First vector</param>
         /// <param name="y">Second vector</param>
         /// <returns>Vector product</returns>
-        public double[] VectorPoduct(double[] x, double[] y)
+        public double[] VectorProduct(double[] x, double[] y)
         {
             double[] z = new double[3];
             z[0] = x[1] * y[2] - x[2] * y[1];
@@ -312,7 +308,7 @@ namespace Vector3D
         /// <param name="x">First vector</param>
         /// <param name="y">Second vector</param>
         /// <param name="z">Result vector</param>
-        public void VectorPoduct(double[] x, double[] y, double[] z)
+        public void VectorProduct(double[] x, double[] y, double[] z)
         {
             z[0] = x[1] * y[2] - x[2] * y[1];
             z[1] = x[2] * y[0] - x[0] * y[2];
@@ -350,7 +346,7 @@ namespace Vector3D
             // !!! EXCEPTION DELETE
             if (x.Length != 3)
             {
-                throw new ArgumentException();
+                throw new OwnArgumentException();
             }
             return x[0] * x[0] + x[1] * x[1] + x[2] * x[2];
         }
@@ -366,7 +362,7 @@ namespace Vector3D
             // !!! EXCEPTION DELETE
             if (x.Length != 3)
             {
-                throw new ArgumentException();
+                throw new OwnArgumentException();
             }
             double a = ScalarNorm3d(x);
             return Multiply3d(1 / a, x);
@@ -411,9 +407,9 @@ namespace Vector3D
         {
             double[][] a = new double[3][];
             a[0] = VectorNorm3d(x);
-            a[2] = VectorPoduct(a[0], y);
+            a[2] = VectorProduct(a[0], y);
             a[2] = VectorNorm3d(a[2]);
-            a[1] = VectorPoduct(a[2], a[0]);
+            a[1] = VectorProduct(a[2], a[0]);
             return a;
         }
 
@@ -438,11 +434,6 @@ namespace Vector3D
         /// <param name="The quaternion"></param>
         public void QuaternionNormalize(double[] quaternion)
         {
-            // !!! DELETE EXCEPTION
-            if (quaternion.Length != 4)
-            {
-                throw new ArgumentException();
-            }
             double a = 0;
             foreach (var q in quaternion)
             {
@@ -859,36 +850,8 @@ namespace Vector3D
         }
 
 
-        /// <summary>
-        /// Partial square of vector
-        /// </summary>
-        /// <param name="x">The vector</param>
-        /// <param name="startIndex">startIndex</param>
-        /// <param name="length">Length</param>
-        /// <returns>The partial square</returns>
-        public double PartialSquare(double[] x, int startIndex, int length)
-        {
-            double a = 0;
-            for (int i = 0; i < length; i++)
-            {
-                double c = x[i + startIndex];
-                a += c * c;
-            }
-            return a;
-        }
 
-        /// <summary>
-        /// Partial norm of vector
-        /// </summary>
-        /// <param name="x">The vector</param>
-        /// <param name="startIndex">startIndex</param>
-        /// <param name="length">Length</param>
-        /// <returns>The partial norm</returns>
-        public double PartialNorm(double[] x, int startIndex, int length)
-        {
-            return Math.Sqrt(PartialSquare(x, startIndex, length));
-        }
-
+  
         /// <summary>
         /// Converts jagged array to square array
         /// </summary>
@@ -966,14 +929,14 @@ namespace Vector3D
           double[] position, double[] buffer, double[] buffer1, double[] result)
         {
             Array.Copy(acc, result, 3);
-            VectorPoduct(omega, velocity, buffer);
+            VectorProduct(omega, velocity, buffer);
             for (int i = 0; i < 3; i++)
             {
                 result[i] += buffer[i];
             }
-            VectorPoduct(omega, position, buffer1);
-            VectorPoduct(omega, buffer1, buffer);
-            VectorPoduct(eps, position, buffer1);
+            VectorProduct(omega, position, buffer1);
+            VectorProduct(omega, buffer1, buffer);
+            VectorProduct(eps, position, buffer1);
             for (int i = 0; i < 3; i++)
             {
                 result[i] += buffer[i] + buffer1[i];

@@ -78,7 +78,7 @@ namespace Motion6D
         /// <summary>
         /// Properties
         /// </summary>
-        public override object Properties
+        protected override object Properties
         {
             get => PureDesktopPeer.GetProperties(properties, bytes);
             set => base.Properties = value;

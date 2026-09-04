@@ -1,18 +1,16 @@
+using DataWarehouse;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-
-using DataWarehouse;
-
-
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using TestCategory.Interfaces;
-using ErrorHandler;
 
 namespace TestCategory
 {
@@ -140,11 +138,13 @@ namespace TestCategory
         /// </summary>
         /// <param name="buffer">Byte buffer that contains scenario</param>
         /// <returns>Test exception</returns>
-        public bool TestBuffer(byte[] buffer)
+        public async Task<bool> TestBuffer(byte[] buffer)
         {
             try
             {
-                List<Exception> l = PureDesktopPeer.Check(buffer);
+                var ct = new CancellationToken();
+
+                List<Exception> l = await PureDesktopPeer.Check(buffer, ct);
                 if (l != null)
                 {
                     foreach (Exception e in l)
@@ -153,7 +153,7 @@ namespace TestCategory
                     }
                 }
                 PureDesktopPeer d = new PureDesktopPeer();
-                d.Load(buffer);
+                await d.Load(buffer, ct);
                 test(d);
                 foreach (Exception e in le)
                 {
@@ -182,7 +182,7 @@ namespace TestCategory
             le.Clear();
             if (testInterface != null)
             {
-                buffer.CreateTestReport(testInterface);
+             buffer.CreateTestReport(testInterface);
             }
             return true;
         }
@@ -192,11 +192,13 @@ namespace TestCategory
         /// </summary>
         /// <param name="buffer">Byte buffer that contains scenario</param>
         /// <returns>True if change is necessary and false otherwise</returns>
-        public bool TestChange(byte[] buffer)
+        public async Task<bool> TestChange(byte[] buffer)
         {
+            var ct = new CancellationToken();
+
             PureDesktopPeer.NeedChange = false;
             PureDesktopPeer d = new PureDesktopPeer();
-            d.Load(buffer);
+            await d.Load(buffer, ct);
             bool b = PureDesktopPeer.NeedChange;
             PureDesktopPeer.NeedChange = false;
             return b;

@@ -12,6 +12,8 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Diagram.UI.Labels
 {
@@ -46,10 +48,11 @@ namespace Diagram.UI.Labels
 		/// <summary>
 		/// Expands children
 		/// </summary>
-		public void Expand()
+		public async Task Expand()
 		{
+			var ct = new CancellationToken();
  			IObjectContainer cont = Object as IObjectContainer;
-            cont.Load();
+            await cont.LoadAsync(ct);
             cont.PostLoad();
             if (cont is ICategoryObject)
             {

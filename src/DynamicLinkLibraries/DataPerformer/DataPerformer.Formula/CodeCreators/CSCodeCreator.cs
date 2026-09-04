@@ -30,24 +30,25 @@ namespace DataPerformer.Formula.CodeCreators
 
         #region IClassCodeCreator Members
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
-   
+
         protected virtual string BaseClassString(string prefix, object obj)
         {
             return obj.GetType().Name;
         }
 
 
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
+        List<string> IClassCodeCreator.CreateCode(string prefix, object obj, string volume)
         {
             foreach (Func<object, bool> key in dictionary.Keys)
             {
                 if (key(obj))
                 {
-                    return dictionary[key](preffix, obj);
+                    return dictionary[key](prefix, obj);
                 }
             }
             return null;

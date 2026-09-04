@@ -1,12 +1,13 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using System.Text;
+
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 
 using ErrorHandler;
 
-using NamedTree;
-using System.Text;
+using NamedTree.Interfaces;
 
 namespace Abstract3DConverters.Converters
 {

@@ -12,6 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 using DataSetService;
 using ResourceService;
+using DataSetService.Pure.Interfaces;
 
 namespace DataSetService.Forms
 {

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Event.Portable.Events

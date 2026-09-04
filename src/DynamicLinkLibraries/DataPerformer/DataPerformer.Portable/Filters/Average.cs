@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace DataPerformer.Portable.Filters
 {
@@ -14,11 +10,15 @@ namespace DataPerformer.Portable.Filters
         double ?Calculate(double? a)
         {
             var c = base[a];
+            if (c == null)
+            {
+                return null;
+            }
             if (data.Count > inter.Count)
             {
                 data.Dequeue();
             }
-            if (data.Count == inter.Count)
+            if (data.Count >= inter.Count)
             {
                 return data.Average();
             }

@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace CategoryTheory
 {

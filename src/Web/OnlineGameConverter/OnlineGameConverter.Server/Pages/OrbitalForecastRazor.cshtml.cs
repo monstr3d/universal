@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
 using OnlineGameConverter.Server.BusinessLogic.Orbital;
-using OnlineGameConverter.Server.Classes;
 using OnlineGameConverter.Server.Interfaces;
+using OnlineGameConverter.Server.Classes.Orbital;
 
 namespace OnlineGameConverter.Server.Pages
 {
@@ -110,7 +110,7 @@ namespace OnlineGameConverter.Server.Pages
         [Display(Name = "Vz - velocity, km/s")]
         public double Vz { get; private set; }
 
-        public List<OrbitalForecastItemDateTime> Items => OrbitalCalculationResultSingleton.Items;
+        public List<OrbitaForecastItem> Items => OrbitalCalculationResultSingleton.Items;
 
         public async Task<IActionResult> OnPostStartAsync()
         {

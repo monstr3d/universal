@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CategoryTheory;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace DataPerformer
 {

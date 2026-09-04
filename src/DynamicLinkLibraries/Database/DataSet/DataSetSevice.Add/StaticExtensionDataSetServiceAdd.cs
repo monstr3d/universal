@@ -1,8 +1,8 @@
 ﻿using AssemblyService.Attributes;
 
-using DataSetService;
+using DataSetService.Pure;
 
-using DataSetService.Interfaces;
+using DataSetService.Pure.Interfaces;
 
 namespace DataSetSevice.Add
 {
@@ -12,6 +12,9 @@ namespace DataSetSevice.Add
     [InitAssembly]
     public static class StaticExtensionDataSetServiceAdd
     {
+        static public readonly string cs = "Data Source=IVANKOV;Initial Catalog=??????;Integrated Security=True;Encrypt=False";
+
+        static public readonly string ic = "initial catalog=";
 
         /// <summary>
         /// Initialize itself
@@ -26,6 +29,9 @@ namespace DataSetSevice.Add
             var c = Converter.Instance;
         }
 
+       
+ 
+
         class Converter : IConnectionStringConverter
         {
             static internal readonly Converter Instance = new Converter();
@@ -36,8 +42,12 @@ namespace DataSetSevice.Add
 
             string IConnectionStringConverter.Convert(string value)
             {
-                var s = value.Replace("SSPI", "True").Replace("user id=sa;", "");
-                return s;
+                var s = value.ToLower();
+                int n = s.IndexOf(ic);
+                s = value.Substring(n + ic.Length);
+                n = s.IndexOf(";");
+                s = s.Substring(0, n);
+                return cs.Replace("??????", s); ;
             }
         }
     }

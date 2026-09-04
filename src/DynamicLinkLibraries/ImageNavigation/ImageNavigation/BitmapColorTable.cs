@@ -12,7 +12,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using BitmapConsumer;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace ImageNavigation

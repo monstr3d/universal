@@ -122,7 +122,7 @@ namespace DataPerformer.Formula.TypeScript
         private static string[] fraction = new string[] { " = (", ") / (", ");" };
 
 
-        private static string[] equals = new string[] { " = (", ").Equals(", ");" };
+        private static string[] equals = new string[] { " = (", ") === (", ");" };
 
 
         protected Dictionary<string, Tuple<int, object>> Output
@@ -394,18 +394,6 @@ namespace DataPerformer.Formula.TypeScript
                 return (op as IStringConstantValue).Value;
             }
 
-            /* !!! DELETE          
-                  if (op is ElementaryRealConstant)
-                  {
-                      ElementaryRealConstant co = op as ElementaryRealConstant;
-                      return co.StringValue;
-                  }
-                  if (op is BooleanConstant)
-                  {
-                      BooleanConstant ce = op as BooleanConstant;
-                      return ce.StringValue;
-                  }
-            */
             if (op.ReturnType.Equals(""))
             {
                 return "\"\"";
@@ -476,18 +464,21 @@ namespace DataPerformer.Formula.TypeScript
         /// <returns>List of code strings</returns>
         public static IList<string> CreateCode(object obj, ObjectFormulaTree[] trees, ITreeCodeCreator creator, 
             out ITreeCodeCreator local,
-             out IList<string> variables, out IList<string> initializers,  string current)
+             out IList<string> variables,  out IList<string> initializers, out IList<string> reset, out IList<string> print,  string current)
         {
             Exception ex;
+            reset = new List<string>();
+            print = new List<string>();
             try
             {
                 local = null;
                 IList<string> l = StaticCodeCreatorTypeScript.CreateCode(obj, trees, creator, out local,
                     out variables, out initializers,  current);
                 ObjectFormulaTree[] lt = local.Trees;
-                 foreach (ObjectFormulaTree tree in lt)
+                foreach (ObjectFormulaTree tree in lt)
                 {
                     var s = "";
+                    var r = "";
                     object ret = tree.ReturnType;
                     if (ret.IsEmpty())
                     {
@@ -503,14 +494,18 @@ namespace DataPerformer.Formula.TypeScript
                         if (def.Length > 0)
                         {
                             s = id + " : " + t + " = " + def;
+                            r = "this." + id + " = " + def;
                         }
                     }
                     else
                     {
                         s = id + " : " + t + " = " + cv;
+                        r = "this." + id + " = " + cv;
                     }
-                    s += ";";
                     variables.Add(s);
+                    reset.Add(r);
+                    print.Add("printer.print(\"" + id + "\")");
+                    print.Add("printer.print(this." + id + ")");
                 }
                 return l;
             }

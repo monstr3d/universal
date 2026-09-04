@@ -16,7 +16,7 @@ using DataPerformer.Formula.CodeCreators;
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
 
-using NamedTree;
+using NamedTree.Interfaces;
 using ErrorHandler;
 using FormulaEditor.CodeCreators.Interfaces;
 

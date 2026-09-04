@@ -6,7 +6,10 @@ using DataWarehouse.Interfaces;
 
 using NamedTree;
 
+using NamedTree.Interfaces;
+
 using ErrorHandler;
+
 
 namespace SQLServerWarehouse.Models
 {

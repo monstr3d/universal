@@ -7,7 +7,7 @@ using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DinAtm.Portable
 {

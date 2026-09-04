@@ -8,6 +8,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Threading;
 
 using CategoryTheory;
 
@@ -20,16 +23,16 @@ using Diagram.UI.Forms.Interfaces;
 
 using SerializationInterface;
 
-using System.ComponentModel;
-using System.Threading.Tasks;
 
 using Common.UI;
 
 using ToolBox;
+
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
+
 using WindowsExtensions;
-using System.Threading;
 
 
 namespace Diagram.UI
@@ -43,7 +46,7 @@ namespace Diagram.UI
         #region Fields
 
 
-        Diagram.UI.Performer p = new Diagram.UI.Performer();
+        Performer performer = new ();
 
         IComponentCollection collection;
 
@@ -1502,8 +1505,9 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="x">x - coordinate to set label</param>
         /// <param name="y">y - coordinate to set label</param>
-        public void AddObjectLabel(int x, int y)
+        public async Task AddObjectLabel(int x, int y)
         {
+            var ct = new CancellationToken();
             IObjectLabelUI label = tools.Factory.CreateObjectLabel(tools.Active);
             label.X = x;
             label.Y = y;
@@ -1516,7 +1520,7 @@ namespace Diagram.UI
             {
                 act(label);
             }
-            ICategoryObject ob = tools.Factory.CreateObject(tools.Active);
+            ICategoryObject ob = await tools.Factory.CreateObject(tools.Active);
             if (ob != null)
             {
                 StaticExtensionDiagramUI.PostCreateObject(ob);
@@ -1538,7 +1542,7 @@ namespace Diagram.UI
             {
                 IContainerObjectLabel cont = label as IContainerObjectLabel;
                 IObjectContainer con = label.Object as IObjectContainer;
-                con.Load();
+                await con.LoadAsync(ct);
                 con.PostLoad();
                 con.SetParents(this);
                 cont.Expand();
@@ -1818,13 +1822,13 @@ namespace Diagram.UI
         /// <param name="fileName">The fileName</param>
         /// <param name="namespacE">Namespace</param>
         /// <param name="className">Classname</param>
-        public void SaveCSCodeToFile(string fileName, string namespacE, string className, bool staticClass = true)
+        public async Task SaveCSCodeToFile(string fileName, string namespacE, string className, bool staticClass, CancellationToken token)
         {
             MemoryStream stream = new MemoryStream();
             SaveAll(stream);
             // RemoveAll();
             PureDesktopPeer d = new PureDesktopPeer();
-            bool b = d.Load(stream, null, true);
+            bool b = await d.Load(stream, null, true, token);
             //  d.Refresh();
             List<string> l = d.CreateInitDesktopCSharpCode(namespacE, className, staticClass);
             using (TextWriter w = new StreamWriter(fileName))
@@ -1839,13 +1843,13 @@ namespace Diagram.UI
         /// <summary>
         /// Refreshs itself
         /// </summary>
-        public void RefreshObjects()
+        public async Task RefreshObjects(CancellationToken token)
         {
             MemoryStream stream = new MemoryStream();
             SaveAll(stream);
             RemoveAll();
             PureDesktopPeer d = new PureDesktopPeer();
-            bool b = d.Load(stream, null, true);
+            bool b = await d.Load(stream, null, true, token);
             SetBlocking(true);
             Copy(d.Objects, d.Arrows, true);
             this.PostSetArrow();
@@ -1867,7 +1871,7 @@ namespace Diagram.UI
                 await t;
                 using var stream = new MemoryStream(t.Result);
                 stream.Position = 0;
-                var tt  = LoadFromStreamAsync(stream, binder, ext, extd);
+                var tt  = LoadFromStreamAsync(stream, binder, ext, extd, true, cancellation);
                 await tt;
                 Cursor = cur;
                 return tt.Result;
@@ -1881,7 +1885,7 @@ namespace Diagram.UI
         }
 
         public async Task<bool> LoadFromStreamAsync(Stream stream, SerializationBinder binder, string ext,
-            string extd, bool changCuror = false)
+            string extd, bool changCuror, CancellationToken cancellation)
         {
             var cur = Cursor;
             try
@@ -1890,14 +1894,12 @@ namespace Diagram.UI
                 {
                     Cursor = Cursors.WaitCursor;
                 }
-                Func<bool> f = () => LoadFromStreamInvoke(stream, binder, ext, extd);
-                var t = Task.FromResult(f());
-                await t;
+                var t = await LoadFromStreamInvoke(stream, binder, ext, extd, cancellation);
                 if (changCuror)
                 {
                     Cursor = cur; ;
                 }
-                return t.Result;
+                return t;
             }
             catch (Exception e)
             {
@@ -1910,14 +1912,10 @@ namespace Diagram.UI
             return false;
         }
 
-        public bool  LoadFromStreamInvoke(Stream stream, SerializationBinder binder, string ext, string extd)
+        public async Task<bool> LoadFromStreamInvoke(Stream stream, SerializationBinder binder, string ext, string extd, CancellationToken token)
         {
             bool b = false;
-            var act = () =>
-            {
-                b = LoadFromStream(stream, binder, ext, extd);
-            };
-            this.InvokeIfNeeded(act);
+            b = await LoadFromStream(stream, binder, ext, extd, token);
             return b;
         }
 
@@ -1930,7 +1928,8 @@ namespace Diagram.UI
         /// <param name="ext">Extension</param>
         /// <param name="extd">Typical extension</param>
         /// <returns>True in success and false otherwise</returns>
-        public bool LoadFromStream(Stream stream, SerializationBinder binder, string ext, string extd)
+        public async Task<bool> LoadFromStream(Stream stream, SerializationBinder binder, string ext,
+            string extd, CancellationToken token)
         {
             PureDesktopPeer dp = new PureDesktopPeer();
             IDesktop d = dp;
@@ -1938,13 +1937,13 @@ namespace Diagram.UI
             bool b = true;
             if (ext.ToLower().Equals(extd))
             {
-                b = dp.Load(stream, binder, true);
+                b = await dp.Load(stream, binder, true, token);
                 pos = dp.StreamPosition;
             }
             else
             {
                 IObjectContainer oc = stream.Deserialize<IObjectContainer>();
-                oc.LoadDesktop();
+                 await  oc.LoadDesktop(token);
                 d = oc.Desktop;
             }
             if (b)
@@ -1952,21 +1951,25 @@ namespace Diagram.UI
                 long k = 0;
                 try
                 {
-                    SetBlocking(true);
-                    d.Copy(this);
-                    this.PostSetArrow();
-                    this.PostLoad();
-                    PostLoadControl();
-                    RedrawImage();
-                    SetBlocking(false);
-                    Refresh();
-                    List<object> c = dp.Comments;
-                    ControlPanel.LoadControls(this, c);
-                    k = pos;
-                    if (k < 0)
-                    {
-                        k = stream.Position;
-                    }
+                    var act = () =>
+{
+    SetBlocking(true);
+    d.Copy(this);
+    this.PostSetArrow();
+    this.PostLoad();
+    PostLoadControl();
+    RedrawImage();
+    SetBlocking(false);
+    Refresh();
+    List<object> c = dp.Comments;
+    ControlPanel.LoadControls(this, c);
+    k = pos;
+    if (k < 0)
+    {
+        k = stream.Position;
+    }
+};
+                    await this.InvokeIfNeededAsync(act, token);
                 }
                 catch (Exception exception)
                 {
@@ -1981,10 +1984,10 @@ namespace Diagram.UI
         /// Load from buffer
         /// </summary>
         /// <param name="buffer">The buffer</param>
-        public void Load(byte[] buffer)
+        public async Task Load(byte[] buffer, CancellationToken token)
         {
             PureDesktopPeer d = new PureDesktopPeer();
-            d.Load(buffer);
+            await d.Load(buffer, token);
             Load(d);
         }
 
@@ -2012,7 +2015,7 @@ namespace Diagram.UI
         {
             try
             {
-                a = Double.Parse(c.Text);
+                a = double.Parse(c.Text);
             }
             catch (Exception ex)
             {
@@ -2066,9 +2069,9 @@ namespace Diagram.UI
         /// <summary>
         /// Checks itself
         /// </summary>
-        public void Check()
+        public async Task Check(CancellationToken token)
         {
-            List<Exception> l = PureDesktopPeer.Check(this, null);
+            List<Exception> l = await PureDesktopPeer.Check(this, null, token);
             if (l != null)
             {
                 throw l[0];
@@ -2083,14 +2086,14 @@ namespace Diagram.UI
         /// <param name="filename">File name</param>
         /// <param name="binder">Binder</param>
         /// <returns>True is success</returns>
-        bool Load(string filename, SerializationBinder binder)
+        async Task<bool> Load(string filename, SerializationBinder binder, CancellationToken token)
         {
             Stream stream = null;
             bool b = false;
             try
             {
                 stream = File.OpenRead(filename);
-                b = LoadFromStream(stream, binder, ext, ext);
+                b = await LoadFromStream(stream, binder, ext, ext, token);
             }
             catch (Exception ex)
             {
@@ -2141,6 +2144,34 @@ namespace Diagram.UI
 			}
             GC.Collect();
 		}
+
+        public void PostInitControl()
+        {
+            try
+            {
+                this.ForEach((IAssociatedObject ao) =>
+                {
+                    object o = ao.Object;
+                    if (o is Control)
+                    {
+                        Control c = o as Control;
+                        var children = c.FindChildren<IPostInitControl>();
+                        if (children != null)
+                        {
+                            foreach (var child in children)
+                            {
+                                child.PostInit();
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException(10);
+            }
+
+        }
 
         /// <summary>
         /// Post Load control operation
@@ -2312,7 +2343,7 @@ namespace Diagram.UI
 		/// </summary>
 		/// <param name="sender">The sender</param>
 		/// <param name="e">The event arguments</param>
-		private void onMouseUp(object sender, MouseEventArgs e)
+		private async void onMouseUp(object sender, MouseEventArgs e)
 		{
 			if (performsSelection)
 			{
@@ -2331,7 +2362,7 @@ namespace Diagram.UI
 				}
 				return;
 			}
-			AddObjectLabel(e.X, e.Y);
+			await AddObjectLabel(e.X, e.Y);
 		}
 		
 		/// <summary>
@@ -2401,7 +2432,6 @@ namespace Diagram.UI
             Graphics g = e.Graphics;
             g.DrawImage(image, 0, 0, image.Width, image.Height);
         }
-
 
 
         /// <summary>
@@ -2580,12 +2610,18 @@ namespace Diagram.UI
             }
         }
 
-        private void FileDragDrop(object sender, DragEventArgs e)
+        private async void FileDragDrop(object sender, DragEventArgs e)
+        {
+          await  FileDragDropAsync(sender, e);
+        }
+
+        private async Task FileDragDropAsync(object sender, DragEventArgs e)
         {
             if (ext == null)
             {
                 return;
             }
+            var ct = new CancellationToken();
             IDataObject d = e.Data;
             if (d.GetDataPresent("FileDrop"))
             {
@@ -2600,7 +2636,7 @@ namespace Diagram.UI
                         string ex = System.IO.Path.GetExtension(fn);
                         if (ex.ToLower().Equals(ext.ToLower()))
                         {
-                            Load(fn, SerializationInterface.StaticExtensionSerializationInterface.Binder);
+                            await  Load(fn, SerializationInterface.StaticExtensionSerializationInterface.Binder, ct);
                             if (afterDrag != null)
                             {
                                 Stream st = File.OpenRead(fn);
@@ -2616,8 +2652,14 @@ namespace Diagram.UI
 
         IEnumerable<T> IComponentCollection.Get<T>()
         {
-          return  p.GetObjectsAndArrows<T>(this);
+          return  performer.GetObjectsAndArrows<T>(this);
         }
+
+        T IComponentCollection.Get<T>(string name)
+        {
+            return performer.GetObject<T>(this, name);
+        }
+
         #endregion
 
         #endregion
@@ -2771,5 +2813,6 @@ namespace Diagram.UI
             cancellationToken = new CancellationToken();
             return cancellationToken; 
         }
+
     }
 }

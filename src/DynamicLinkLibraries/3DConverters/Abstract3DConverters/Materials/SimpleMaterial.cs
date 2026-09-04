@@ -3,7 +3,7 @@ namespace Abstract3DConverters.Materials
 {
     public abstract class SimpleMaterial : Material
     {
-        public Color Color { get; private set; }
+        public Color Color { get; protected set; }
 
         protected SimpleMaterial(Color color)
         {

@@ -1,15 +1,12 @@
-﻿using CategoryTheory;
-using DataPerformer;
+﻿using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
+
 using DataPerformer.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.UserControls;
-using NamedTree;
-using Regression;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer.UI.UserControls

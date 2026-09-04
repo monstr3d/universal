@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 using RealMatrixProcessor;
 
@@ -220,9 +222,8 @@ namespace Motion6D.Interfaces
         /// <returns>Parent frame</returns>
         static public ReferenceFrame GetOwnFrame(IPosition position)
         {
-            if (position is IReferenceFrame)
+            if (position is IReferenceFrame f)
             {
-                IReferenceFrame f = position as IReferenceFrame;
                 return f.Own;
             }
             return GetParentFrame(position);
@@ -233,7 +234,7 @@ namespace Motion6D.Interfaces
         /// </summary>
         public virtual void Update()
         {
-            ReferenceFrame p = ParentFrame;
+            ReferenceFrame p = this.GetParentFrame();
             position = p.Position;
             quaternion = p.quaternion;
             matrix = p.matrix;
@@ -313,7 +314,6 @@ namespace Motion6D.Interfaces
                     p[i] += m[j, i] * diff[j];
                 }
             }
-
         }
 
         /// <summary>

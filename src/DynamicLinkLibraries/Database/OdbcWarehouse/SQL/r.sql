@@ -1,4 +1,0 @@
-CREATE PROCEDURE `fiction` ()
-BEGIN
-
-END

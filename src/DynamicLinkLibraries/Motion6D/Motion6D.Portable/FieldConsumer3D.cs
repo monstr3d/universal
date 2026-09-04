@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Motion6D.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 using PhysicalField.Interfaces;
 
 

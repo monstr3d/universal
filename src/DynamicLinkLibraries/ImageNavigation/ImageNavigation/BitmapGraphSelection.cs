@@ -7,17 +7,13 @@ using System.Drawing;
 
 
 using CategoryTheory;
-using Diagram.UI;
-using Diagram.UI.Labels;
-
-using GeneralLinearMethod;
-using Regression;
 
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using BitmapConsumer;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 
 

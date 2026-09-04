@@ -1,14 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 
 using CategoryTheory;
+
 using DataPerformer.Interfaces;
+
 using Diagram.UI.Interfaces;
+
 using Motion6D.Interfaces;
-using NamedTree;
+
+using NamedTree.Interfaces;
+
 using RealMatrixProcessor;
+
 using Vector3D;
 
 namespace Motion6D.Portable
@@ -106,7 +111,7 @@ namespace Motion6D.Portable
         /// <summary>
         /// Own frame
         /// </summary>
-        public ReferenceFrame Own
+        ReferenceFrame IReferenceFrame.Own
         {
             get { return own; }
         }
@@ -368,10 +373,12 @@ namespace Motion6D.Portable
         /// <summary>
         /// Relative position
         /// </summary>
-        public double[] RelativePosition
-        {
-            get { return relativePosition; }
-        }
+        public double[] RelativePosition => relativePosition;
+
+        /// <summary>
+        /// Relative quaternioon
+        /// </summary>
+        public double[] RelativeQuaternion => relativeQuaternion;
 
         /// <summary>
         /// Relative matrix
@@ -413,6 +420,18 @@ namespace Motion6D.Portable
         #endregion
 
         #region Protected Members
+
+        /// <summary>
+        /// Own reference frame
+        /// </summary>
+        protected virtual ReferenceFrame Own
+        {
+            get
+            {
+                IReferenceFrame f = this;
+                return f.Own;
+            }
+        }
 
         /// <summary>
         /// The "is serialized" sign

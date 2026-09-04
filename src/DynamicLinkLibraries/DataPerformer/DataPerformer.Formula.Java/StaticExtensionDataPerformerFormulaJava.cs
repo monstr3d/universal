@@ -57,7 +57,14 @@ namespace DataPerformer.Formula.Java
             {
                 if (b)
                 {
-                    return "[0] = ((double[])";
+                    if (type == typeof(double))
+                    {
+                        return "[0] = ((double[])";
+                    }
+                    if (type == typeof(bool))
+                    {
+                        return "[0] = ((boolean[])";
+                    }
                 }
                 return "[0] = (";
             }    

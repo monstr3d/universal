@@ -19,13 +19,14 @@ namespace Gravity_36_36.Wrapper.CodeCreators
             this.AddClassCodeCreator();
         }
 
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
         #region IClassCodeCreator Members
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
-
+     
 
 
  

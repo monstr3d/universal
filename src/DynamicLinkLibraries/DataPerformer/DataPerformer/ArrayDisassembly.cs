@@ -13,7 +13,7 @@ using Diagram.UI;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer
 {

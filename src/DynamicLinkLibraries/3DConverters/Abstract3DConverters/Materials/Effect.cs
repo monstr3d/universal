@@ -1,7 +1,5 @@
-﻿using Abstract3DConverters.Creators;
-using Abstract3DConverters.Interfaces;
-using NamedTree;
-using System.Reflection;
+﻿using Abstract3DConverters.Interfaces;
+using NamedTree.Interfaces;
 
 namespace Abstract3DConverters.Materials
 {

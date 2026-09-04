@@ -2,7 +2,7 @@
 
 using CategoryTheory;
 using DataPerformer.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 using Web.Interfaces;
 
 namespace Gravity_36_36.Wrapper

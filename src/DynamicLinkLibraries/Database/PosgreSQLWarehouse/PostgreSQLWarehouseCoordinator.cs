@@ -26,8 +26,9 @@ namespace PostgreSQLWarehouse
             {
                 new NpgsqlConnection(name);
             }
-            catch
+            catch (Exception e)
             {
+                IncludedException.Get(e, null);
                 return null;
             }
             using (var conn = new NpgsqlConnection(name))
@@ -39,7 +40,7 @@ namespace PostgreSQLWarehouse
                 }
                 catch (Exception e)
                 {
-                    return null;
+                    IncludedException.Get(e, null);
                 }
             }
             return null;

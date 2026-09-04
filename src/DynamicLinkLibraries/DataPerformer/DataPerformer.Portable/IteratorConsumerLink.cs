@@ -1,8 +1,8 @@
+using System;
 
 using CategoryTheory;
 using DataPerformer.Interfaces;
-using NamedTree;
-using System;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -32,8 +32,6 @@ namespace DataPerformer.Portable
 
 
         #endregion
-
-
 
         #region ICategoryArrow Members
 

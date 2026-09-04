@@ -193,7 +193,7 @@ namespace Motion6D.UI
                 double[] p = new double[3];
                 for (int i = 0; i < 3; i++)
                 {
-                    p[i] = Double.Parse(linear[i].Text);
+                    p[i] = double.Parse(linear[i].Text);
                 }
                 return p;
             }
@@ -219,7 +219,7 @@ namespace Motion6D.UI
             try
             {
                 double[] p = coordinates;
-                double a = Double.Parse(textBoxRot.Text);
+                double a = double.Parse(textBoxRot.Text);
                 double[,] m = Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 fill(m);
             }

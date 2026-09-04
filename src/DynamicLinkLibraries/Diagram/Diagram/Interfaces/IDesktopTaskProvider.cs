@@ -1,4 +1,6 @@
-﻿namespace Diagram.UI.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Provider of desktop end task
@@ -10,10 +12,7 @@
         /// </summary>
         /// <param name="name">Name</param>
         /// <returns>Desktop</returns>
-        IDesktop this[string name]
-        {
-            get;
-        }
+        Task<IDesktop> Get(string name);
 
         /// <summary>
         /// Task by name

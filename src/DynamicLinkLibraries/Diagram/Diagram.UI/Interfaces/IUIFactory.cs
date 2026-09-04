@@ -7,6 +7,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces.Labels;
+using System.Threading.Tasks;
 
 namespace Diagram.UI.Interfaces
 {
@@ -20,7 +21,7 @@ namespace Diagram.UI.Interfaces
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        ICategoryObject CreateObject(IPaletteButton button);
+        Task<ICategoryObject> CreateObject(IPaletteButton button);
 
         /// <summary>
         /// Creates an arrow which corresponds to a button

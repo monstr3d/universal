@@ -23,10 +23,11 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
-using System.Drawing;
 using ErrorHandler;
 using System.Threading;
 using NamedTree;
+using System.Threading.Tasks;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -76,7 +77,7 @@ namespace DataPerformer.Portable
         /// </summary>
         static StaticExtensionDataPerformerPortable()
         {
-            new CodeCreators.CSCodeCreator();
+            new CodeCreators.ClassCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
             Runtime.DataRuntimeFactory.Singleton.SetBase();
             Runtime.DataRuntimeFactory.Singleton.SetBaseAction();
@@ -245,25 +246,6 @@ namespace DataPerformer.Portable
             return wrapper.Measurements;
         }
 
-        /// <summary>
-        /// Performs action with fixed step
-        /// </summary>
-        /// <param name="consumer">Data consumer</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <param name="reason">Reason</param>
-        /// <param name="priority">Priority</param>
-        /// <param name="action">Additional action</param>
-        /*     public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
-            int priority, Action action, Func<bool> stop = null,  IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
-         {
-             consumer.PerformFixed(start, step, count,
-                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                    DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
-                 reason, priority, action, stop, asynchronousCalculation, errorHandler);
-         }*/
-
 
         /// <summary>
         /// Performs action with fixed step
@@ -324,13 +306,59 @@ namespace DataPerformer.Portable
         /// <param name="stop">The stop</param>
         /// <param name="preparation">The preparation action</param>
         /// <param name="errorHandler">The error handler</param>
-        public static void PerformIterator(this IDataConsumer consumer, IIterator iterator,
-           Action action, Func<bool> stop = null, Action preparation = null,
+        public static async Task PerformIteratorAsync(this IDataConsumer consumer, IIterator iterator,
+           Action action, CancellationToken cancellation, Func<bool> stop = null, Action preparation = null,
+           IExceptionHandler errorHandler = null)
+        {
+           var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+           await wrapper.PerformIteratorAsync(iterator, action, cancellation, stop, preparation, errorHandler);
+        }
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="consumer">The Data Consumer</param>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="output">The output</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public static async Task<List<Dictionary<string, object>>> 
+            PerformIteratorAsync(this IDataConsumer consumer, 
+            IIterator iterator,
+           Dictionary<string, IMeasurement> output, CancellationToken cancellation, Func<bool> stop = null, Action preparation = null,
            IExceptionHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
-            wrapper.PerformIterator(iterator, action, stop, preparation, errorHandler);
+            var t = wrapper.PerformIteratorAsync(iterator, output, 
+                cancellation, stop, preparation, errorHandler);
+            await t;
+            return t.Result;
         }
+
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="consumer">The Data Consumer</param>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="output">The output</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public static async Task<List<Dictionary<string, object>>>
+            PerformIteratorAsync(this IDataConsumer consumer,
+            IIterator iterator,
+            CancellationToken cancellation, Func<bool> stop = null, Action preparation = null,
+           IExceptionHandler errorHandler = null)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            var t = wrapper.PerformIteratorAsync(iterator,
+                cancellation, stop, preparation, errorHandler);
+            await t;
+            return t.Result;
+        }
+
 
 
 
@@ -545,8 +573,36 @@ namespace DataPerformer.Portable
              processor, errorHandler);
         }
 
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="output">Output parameters</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="start">Start time</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="provider">Provider of time measurements</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <returns>The Xml document</returns>
+        static public Task<XmlDocument> CreateXmlDocumentAsync(this IDataConsumer consumer, IIterator iterator,
+            Dictionary<string, string> output,
+            CancellationToken token,
+            string condition, Func<bool> stop,
+            ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor,
+        IExceptionHandler errorHandler = null)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            return wrapper.CreateXmlDocumentAsync(iterator, output, token, provider, processor);
+        }
 
- 
+
+
+
+
 
 
 
@@ -802,75 +858,7 @@ namespace DataPerformer.Portable
             return () => wrapper.GetValue;
         }
 
-        /// <summary>
-        /// Gets dependent measurements
-        /// </summary>
-        /// <param name="measurements">Source</param>
-        /// <param name="list">Dependent objects</param>
-        /// <param name="dependent">Dependent measurements</param>
-        public static void GetDependent(this IEnumerable<IMeasurements> measurements,
-            List<object> list, List<IMeasurements> dependent)
-        {
-            performer.GetDependent(measurements, list, dependent);
-            dependent.Clear();
-            list.Clear();
-            foreach (IMeasurements m in measurements)
-            {
-                if (m is IRuntimeUpdate)
-                {
-                    if (!(m as IRuntimeUpdate).ShouldRuntimeUpdate)
-                    {
-                        continue;
-                    }
-                }
-                dependent.Insert(0, m);
-                if (m is IDataConsumer)
-                {
-                    (m as IDataConsumer).GetDependentObjects(list);
-                    foreach (object o in list)
-                    {
-                        if (o is IMeasurements)
-                        {
-                            IMeasurements mm = o as IMeasurements;
-                            if (!dependent.Contains(mm))
-                            {
-                                dependent.Insert(0, mm);
-                            }
-                        }
-                    }
-                }
-            }
-            dependent.SortMeasurements();
-        }
-
-        /// <summary>
-        /// Gets dependent objects
-        /// </summary>
-        /// <param name="consumer">Data consumer</param>
-        /// <param name="list">Objects</param>
-        /// <param name="dependent">Dependent objects</param>
-        public static void GetDependent(this IDataConsumer consumer,
-            List<object> list, List<IMeasurements> dependent)
-        {
-            consumer.GetMeasurements().GetDependent(list, dependent);
-        }
-
-        /// <summary>
-        /// Gets measurements of data consumer
-        /// </summary>
-        /// <param name="consumer">Consumer</param>
-        /// <returns>Measurements</returns>
-        public static List<IMeasurements> GetMeasurements(this IDataConsumer consumer)
-        {
-            int n = consumer.Count;
-            List<IMeasurements> l = new List<IMeasurements>();
-            for (int i = 0; i < n; i++)
-            {
-                l.Add(consumer[i]);
-            }
-            return l;
-        }
-
+ 
         /// <summary>
         /// Updates children data of consumer
         /// </summary>
@@ -949,21 +937,7 @@ namespace DataPerformer.Portable
         /// <param name="consumer">The consumer</param>
         public static void FullReset(this IDataConsumer consumer)
         {
-            if (consumer is IMeasurements)
-            {
-                IMeasurements mea = consumer as IMeasurements;
-                mea.IsUpdated = false;
-            }
-            for (int i = 0; i < consumer.Count; i++)
-            {
-                IMeasurements m = consumer[i] as IMeasurements;
-                m.IsUpdated = false;
-                if (m is IDataConsumer)
-                {
-                    IDataConsumer c = m as IDataConsumer;
-                    c.Reset();
-                }
-            }
+            performer.FullReset(consumer);
         }
 
         /// <summary>
@@ -2095,63 +2069,8 @@ namespace DataPerformer.Portable
         /// <returns>The measure</returns>
         public static IMeasurement FindMeasurement(this IDataConsumer consumer, string measurement, bool allowNull = false)
         {
-            if (measurement == null)
-            {
-                if (!allowNull)
-                {
-                    throw new OwnException("Undefined measure");
-                }
-                return null;
-            }
-            int n = measurement.LastIndexOf(".");
-            if (n < 0)
-            {
-                if (!allowNull)
-                {
-                    throw new OwnException("Undefined measure");
-                }
-                return null;
-            }
-            string p = measurement.Substring(0, n);
-            string s = measurement.Substring(n + 1);
-            IAssociatedObject ass = consumer as IAssociatedObject;
-            INamedComponent comp = ass.Object as INamedComponent;
-            IDesktop d = comp.Desktop;
-            for (int i = 0; i < consumer.Count; i++)
-            {
-                IMeasurements mea = consumer[i];
-                IAssociatedObject ao = mea as IAssociatedObject;
-                INamedComponent nc = ao.Object as INamedComponent;
-                string name = PureObjectLabel.GetName(nc, d);
-                if (!name.Equals(p))
-                {
-                    continue;
-                }
-                for (int j = 0; j < mea.Count; j++)
-                {
-                    IMeasurement m = mea[j];
-                    if (s.Equals(m.Name))
-                    {
-                        return m;
-                    }
-                }
-            }
-            if (consumer is IMeasurements)
-            {
-                if (consumer.ShouldInsertIntoChildren())
-                {
-                    var cm = consumer as IMeasurements;
-                    foreach (var cmm in cm.GetMeasurementObjects())
-                    {
-                        var nm = consumer.GetName(cmm);
-                        if (measurement.Equals(nm))
-                        {
-                            return cmm;
-                        }
-                    }
-                }
-            }
-            return null;
+            var wr = new Wrappers.DataConsumerWrapper(consumer);
+            return wr.FindMeasurement(measurement, allowNull);
         }
 
         /// <summary>
@@ -2365,16 +2284,7 @@ namespace DataPerformer.Portable
             return processor.Variables.Count;
         }
 
-        /// <summary>
-        /// Sorts measurements
-        /// </summary>
-        /// <param name="measurements">Measurements for sort</param>
-        public static void SortMeasurements(this List<IMeasurements> measurements)
-        {
-            measurements.ClearDoubleObjectsFormList();
-            measurements.SortPatriallyOrderedSet(measurementsComparer);
-        }
-
+  
         /// <summary>
         /// Sorts started objects
         /// </summary>

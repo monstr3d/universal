@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
 
-using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
-using NamedTree;
-using WpfInterface.Interfaces;
+
+using NamedTree.Interfaces;
 
 namespace WpfInterface.Objects3D
 {

@@ -7,13 +7,12 @@ using CategoryTheory;
 
 using BaseTypes;
 
-using Diagram.UI;
 
 using DataPerformer.Interfaces;
 
-using DataSetService;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
+using DataSetService.Pure.Interfaces;
 
 namespace DataTableSelection
 {

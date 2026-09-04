@@ -1,17 +1,19 @@
-﻿using System.IO;
+﻿using System.Data;
+using System.IO;
+using System.Net.WebSockets;
 using System.Text;
-using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using ErrorHandler;
+using Motion6D.Interfaces;
 
 
 namespace Wpf.Loader
 {
-    public class XamlWrapper
+    public class XamlWrapper : ISaveGrahicalData
     {
 
         protected Paths.Service.Service service = new();
@@ -46,7 +48,8 @@ namespace Wpf.Loader
 
         public Dictionary<string, byte[]> Attachment
         {
-            get; protected set;
+            get; 
+            protected set;
         }
 
         protected Dictionary<string, string> Urls
@@ -253,8 +256,6 @@ namespace Wpf.Loader
                 parameters[i] = par[i].ToArray();
             }
         }
-
-
 
         /// <summary>
         /// Xaml
@@ -532,6 +533,60 @@ namespace Wpf.Loader
             return StaticExtensionWpfLoader.GenerateFileName(ext, out path);
         }
 
+        string Replace(string s)
+        {
+            var t = s.Replace('\\', ' ');
+            t = t.Replace('/', ' ');
+            return t;
+        }
+
+        protected Dictionary<string, string> GetGraphicalData(string language)
+        {
+            var d = new Dictionary<string, string>();
+            var p = Attachment;
+            foreach (var item in p)
+            {
+                var f = Path.GetFileName(item.Key);
+                d[Replace(f)] = f;
+                
+             }
+            foreach (var item in Textures)
+            {
+                var f = Path.GetFileName(item.Key);
+                d[Replace(f)] = f;
+            }
+
+            return d;
+        }
+
+        protected virtual void Save(string directory, string language)
+        {
+            var p = Attachment;
+            foreach (var item in p)
+            {
+                var f = Path.GetFileName(item.Key);
+                f = Path.Combine(directory, f);
+                using var s = File.OpenWrite(f);
+                s.Write(item.Value);
+            }
+            foreach (var item in Textures)
+            {
+                var f = Path.GetFileName(item.Key);
+                f = Path.Combine(directory, f);
+                using var s = File.OpenWrite(f);
+                s.Write(item.Value);
+            }
+        }
+
+        void ISaveGrahicalData.Save(string directory, string language)
+        {
+           Save(directory, language);
+        }
+
+        Dictionary<string, string> ISaveGrahicalData.GetGraphicalData(string language)
+        {
+            return GetGraphicalData(language);
+        }
 
         protected virtual System.Windows.Media.ImageBrush ImageBrush
         {

@@ -1,60 +1,54 @@
-using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Xml;
-using System.Xml.Linq;
-using System.Windows.Forms;
-using System.IO;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Linq;
-
-
-using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Utils;
-using Diagram.UI.Labels;
-
+using Animation.Interfaces;
 using BaseTypes;
 using BaseTypes.Attributes;
-
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using DataPerformer.Portable.DifferentialEquationProcessors;
-using DataPerformer.Interfaces.BufferedData.Interfaces;
-using DataPerformer.UI.Objects;
-using DataPerformer.UI.Interfaces;
-
-using Event.UI;
-using Event.Interfaces;
-using Event.Portable;
-using Event.Log.Database.Interfaces;
-
-using Animation.Interfaces;
-
-using Chart.Interfaces;
+using CategoryTheory;
+using Chart.DataPerformer;
 using Chart.Drawing;
 using Chart.Drawing.Interfaces;
+using Chart.Indicators;
+using Chart.Interfaces;
 using Chart.Objects;
 using Chart.Panels;
-using Chart.Indicators;
-using Chart.DataPerformer;
 using Chart.UserControls;
-
-using ToolBox;
-
-using WindowsExtensions;
+using DataPerformer.Interfaces;
+using DataPerformer.Interfaces.BufferedData.Interfaces;
+using DataPerformer.Portable;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.UI.Interfaces;
+using DataPerformer.UI.Labels;
+using DataPerformer.UI.Objects;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using Diagram.UI.Utils;
 using ErrorHandler;
-using NamedTree;
+using Event.Interfaces;
+using Event.Log.Database.Interfaces;
+using Event.Portable;
+using Event.UI;
+using NamedTree.Interfaces;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using ToolBox;
+using WindowsExtensions;
 
 namespace DataPerformer.UI.UserControls
 {
+    enum Mode
+    {
+        Chart,
+        Text
+    }
     /// <summary>
     /// User control for graph
     /// </summary>
@@ -66,6 +60,8 @@ namespace DataPerformer.UI.UserControls
 
         #region Specific Fields
 
+        Portable.Performer performer = new();
+ 
         XmlDocument docResult;
 
         List<List<object>> lists = new List<List<object>>();
@@ -89,14 +85,14 @@ namespace DataPerformer.UI.UserControls
 
         OfficePickers.ColorPicker.ToolStripColorPicker pic = new OfficePickers.ColorPicker.ToolStripColorPicker();
 
-        private Dictionary<TextBox, IMeasurement> DictionaryMeasurements
+        private Dictionary<TextBox, Tuple<IMeasurement, string>> DictionaryMeasurements 
         {
             get;
-        } = new Dictionary<TextBox, IMeasurement>();
+        } = new ();
 
         IList<IParameterWriter> pw = new List<IParameterWriter>();
 
-        private Chart.ChartPerformer performer;
+        private Chart.ChartPerformer chartPerformer;
 
         private ICoordPainter coordinator;
 
@@ -323,7 +319,7 @@ namespace DataPerformer.UI.UserControls
                     labelX.Visible = enabled;
                     labelY.Visible = enabled;
                 };
-                performer.Add(mouseTransformerIndicator);
+                chartPerformer.Add(mouseTransformerIndicator);
                 var gl = this.FindParent<Labels.GraphLabel>();
                 if (gl != null)
                 {
@@ -493,8 +489,8 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                double start = Double.Parse(calculatorBoxStart.Text);
-                double step = Double.Parse(calculatorBoxStep.Text);
+                double start = double.Parse(calculatorBoxStart.Text);
+                double step = double.Parse(calculatorBoxStep.Text);
 
                 int steps = (int)numericUpDownStepCount.Value;
                 IGraphLabel l = this;
@@ -770,14 +766,20 @@ namespace DataPerformer.UI.UserControls
 
         internal void Init()
         {
+            var gl = this.FindParent<GraphLabel>();
+            if (gl != null)
+            {
+                checkBoxAllParameters.Checked = gl.AllVaues;
+                checkBoxAllParameters.CheckedChanged += CheckBoxAllParameters_CheckedChanged;
+            }
             var panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
             panel.Cursor = Cursors.Cross;
-            performer = panel.Performer;
+            chartPerformer = panel.Performer;
             panelGraph.Controls.Add(panel);
             panel.Dock = DockStyle.Fill;
-            performer.Resize();
+            chartPerformer.Resize();
             coordinator = new Chart.SimpleCoordinator(5, 5);
-            performer.Coordinator = coordinator;
+            chartPerformer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);
             DataConsumer consumer = this.Consumer as DataConsumer;
@@ -789,17 +791,26 @@ namespace DataPerformer.UI.UserControls
             pic.Text = ResourceService.Resources.GetControlResource("Color", Utils.ControlUtilites.Resources);
             pic.Width = 50;
             StaticExtensionDataPerformerUI.FillSeriesTypeCombo(toolStripButtonType);
-            performer.MouseDown += (object sender, MouseEventArgs args) =>
+            chartPerformer.MouseDown += (object sender, MouseEventArgs args) =>
             {
-                if (!performer.IsMoved)
+                if (!chartPerformer.IsMoved)
                 {
                     return;
                 }
                 if (args.Button == MouseButtons.Right)
                 {
-                    MoveToX(performer.CurrentX);
+                    MoveToX(chartPerformer.CurrentX);
                 }
             };
+        }
+
+        private void CheckBoxAllParameters_CheckedChanged(object sender, EventArgs e)
+        {
+            var gl = this.FindParent<GraphLabel>();
+            if (gl != null)
+            {
+                gl.AllVaues = checkBoxAllParameters.Checked;
+            }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -860,7 +871,7 @@ namespace DataPerformer.UI.UserControls
 
         void MoveToX(double x)
         {
-            ISeries series = performer.First;
+            ISeries series = chartPerformer.First;
             if (series != null)
             {
                 int n = series.GetArgumentPosition(x);
@@ -1301,50 +1312,85 @@ namespace DataPerformer.UI.UserControls
             return i;
 
         }
-
-        private void PerformIteratorOLD(IDataConsumer consumer, IIterator iterator)
+        private async Task PerformIteratorAsync(IDataConsumer consumer,
+            Mode mode, IIterator iterator,
+            CancellationToken ct)
         {
-            iterator.Reset();
+            globalArg = ArgumentString;
             var mea = consumer.FindMeasurement(globalArg);
-            var coord = mea.CreateCoordinateFunctions();
-            if (coord != null)
+      //      var coll = consumer.GetDependentCollection();
+      //      coll.ForEach((IRunning s) => s.IsRunning = true);
+            if (mode == Mode.Chart)
             {
-                mouseTransformerIndicator.X = coord[0];
-                mouseTransformerIndicator.Y = coord[1];
-
-            }
-            var coll = consumer.GetDependentCollection();
-            coll.ForEach((IRunning s) => s.IsRunning = true);
-            dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => ctx.Token.IsCancellationRequested);
-        }
-
-        private void PerformIterator(IDataConsumer consumer, IIterator iterator)
-        {
-            var mea = consumer.FindMeasurement(globalArg);
-            var coord = mea.CreateCoordinateFunctions();
-            if (coord != null)
-            {
-                mouseTransformerIndicator.X = coord[0];
-                mouseTransformerIndicator.Y = coord[1];
-            }
-            var ch = this.FindChildObject<UserControlChart>();
-            if (ch != null)
-            {
-                ch.Performer.PrepareChartPerformer(mea);
+                var coord = mea.CreateCoordinateFunctions();
+                if (coord != null)
+                {
+                    mouseTransformerIndicator.X = coord[0];
+                    mouseTransformerIndicator.Y = coord[1];
+                }
+                var ch = this.FindChildObject<UserControlChart>();
+                if (ch != null)
+                {
+                    ch.Performer.PrepareChartPerformer(mea);
+                }
+                else
+                {
+                    var pch = this.FindChildObject<PanelChart>();
+                    if (pch != null)
+                    {
+                        pch.Performer.PrepareChartPerformer(mea);
+                    }
+                }
+                MeasurementSeries[] series = null;
+                var t = await consumer.PerformIteratorAsync(iterator, ct, globalArg,
+                    globalFunc, () => ct.IsCancellationRequested);
+                dicto = t.Item1;
+                series = t.Item2;
             }
             else
             {
-                var pch = this.FindChildObject<PanelChart>();
-                if (pch != null)
+                var fn = this.SaveJSONXml();
+                if (string.IsNullOrEmpty(fn)) return;
+                var d = new Dictionary<string, IMeasurement>();
+                var dn = new Dictionary<string, string>();
+                List<Dictionary<string, object>> l = null;
+                if (checkBoxAllParameters.Checked)
                 {
-                    pch.Performer.PrepareChartPerformer(mea);
+                    l = await consumer.PerformIteratorAsync(iterator, ct);
                 }
+                else
+                {
+                    foreach (var tb in DictionaryMeasurements)
+                    {
+                        string key = tb.Key.Text;
+                        if (!string.IsNullOrEmpty(key))
+                        {
+                            d[key] = tb.Value.Item1;
+                            dn[key] = tb.Value.Item2;
+                        }
+                    }
+                    l = await consumer.PerformIteratorAsync(iterator, d, ct);
+                }
+                Save(l, fn);
+                WorkCompleted();
             }
-            var coll = consumer.GetDependentCollection();
-            coll.ForEach((IRunning s) => s.IsRunning = true);
-            MeasurementSeries[] series = null;
-            ctx = new();
-            dicto = consumer.PerformIterator(iterator, globalArg, globalFunc, out series, () => ctx.Token.IsCancellationRequested);
+        }
+
+        private void Save(object o, string fn)
+        {
+            if (o is List<Dictionary<string, object>> d)
+            {
+                var ext = Path.GetExtension(fn).ToLower();
+                if (ext == ".xml")
+                {
+                    var x = performer.CreateXML(d, "Root", "Group", "Item");
+                    x.Save(fn);
+                    return;
+                }
+                var xj = System.Text.Json.JsonSerializer.Serialize(d);
+                using var writer = new StreamWriter(fn);
+                writer.Write(xj);
+            }
         }
 
         public Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
@@ -1379,24 +1425,25 @@ Func<bool> stop)
         }
 
 
-        private void StartChart()
+
+
+        private async Task StartAsync(Mode mode, CancellationToken token)
         {
             try
             {
-                mouseTransformerIndicator.X = null;
                 var it = (Consumer as DataConsumerIterate).Iterator;
                 if (it != null) 
                 {
-                    PerformIterator(Consumer, it);
+                    await PerformIteratorAsync(Consumer, mode,  it, token);
                     return;
                 }
                 if (array == null)
                 {
-                    PerformFixed();
+                    PerformFixed(mode);
                 }
                 else
                 {
-                    performArray();
+                    performArray(mode);
                 }
             }
             catch (Exception ex)
@@ -1406,25 +1453,6 @@ Func<bool> stop)
             }
         }
 
-        private void StartText()
-        {
-            try
-            {
-                if (array != null)
-                {
-                    performArrayText();
-                }
-                else
-                {
-                    performFixedText();
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.HandleException(10);
-                ShowErrorLocal(ex);
-            }
-        }
 
   
         private void TextAction()
@@ -1454,15 +1482,15 @@ Func<bool> stop)
             }
         }
 
-        private void performFixedText()
+        private void PerformFixedText()
         {
             try
             {
                 DataConsumer consumer = this.Consumer as DataConsumer;
-             /*   consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
+                /*consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider, processor,
                     StaticExtensionDataPerformerInterfaces.Calculation,
-                    0, TextAction);*/
+                    0, TextAction); //*/
             }
             catch (Exception e)
             {
@@ -1485,9 +1513,9 @@ Func<bool> stop)
                     string key = tb.Text;
                     if (key.Length > 0)
                     {
-                        d[key] = DictionaryMeasurements[tb];
+                        d[key] = DictionaryMeasurements[tb].Item1;
                         PanelMeasureText p = tb.Parent as PanelMeasureText;
-                        string n = p.MeasureName + "." + DictionaryMeasurements[tb].Name;
+                        string n = p.MeasureName + "." + DictionaryMeasurements[tb].Item1.Name;
                         data.Item3[n] = key;
                     }
                 }
@@ -1503,7 +1531,7 @@ Func<bool> stop)
                 string key = tb.Text;
                 if (key.Length > 0)
                 {
-                    dicText[key] = DictionaryMeasurements[tb].Parameter() + "";
+                    dicText[key] = DictionaryMeasurements[tb].Item1.Parameter() + "";
                 }
             }
             foreach (IParameterWriter wr in pw)
@@ -1521,7 +1549,7 @@ Func<bool> stop)
                 if (key.Length > 0)
                 {
                     PanelMeasureText p = tb.Parent as PanelMeasureText;
-                    string n = p.MeasureName + "." + DictionaryMeasurements[tb].Name;
+                    string n = p.MeasureName + "." + DictionaryMeasurements[tb].Item1.Name;
                     data.Item3[n] = key;
                 }
             }
@@ -1531,7 +1559,7 @@ Func<bool> stop)
         {
             foreach (ISeries s in ownSeries)
             {
-                performer.Remove(s);
+                chartPerformer.Remove(s);
             }
             ownSeries.Clear();
         }
@@ -1737,7 +1765,7 @@ Func<bool> stop)
             }
         }
 
-        async Task StartChartClick()
+        async Task StartChartClickAsync()
         {
             try
             {
@@ -1745,28 +1773,6 @@ Func<bool> stop)
                 type = 0;
                 text = false;
                 ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
-           /*     IDataRuntime runtime = consumer.CreateRuntime(StaticExtensionDataPerformerInterfaces.Calculation);
-                double st = Double.Parse(calculatorBoxStart.Text);
-                runtime.StartAll(st);
-                consumer.FullReset();
-              /* !!! MAY BE DELETE  for (int i = 0; i < 10; i++)
-                {
-                    try
-                    {
-                        consumer.UpdateChildrenData();
-                        break;
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.HandleException(10);
-                        if (i == 9)
-                        {
-                            this.ShowErrorLocal(ex);
-                            ActParent(ActionType.Stop, null);
-                            return;
-                        }
-                    }
-                }//*/
                 consumer.StartTime = double.Parse(calculatorBoxStart.Text);
                 consumer.Step = double.Parse(calculatorBoxStep.Text);
                 string sc;
@@ -1810,31 +1816,36 @@ Func<bool> stop)
             {
                 ctx = new();
             }
-            var t = new Task(DoWork);
-            t.Start();
+            var t = DoWorkAsync(Mode.Chart);
             await t;
             WorkCompleted();
-            return;
-            t.GetAwaiter().OnCompleted(WorkCompleted);
-            t.Start();
-       //     backgroundWorker.RunWorkerAsync();
-        }
+         }
 
-        async Task StartTextClick()
+        async Task StartTextClickAsync()
         {
-
-            this.InvokeIfNeeded(() =>
+            try
             {
-                ActParent(ActionType.Start, Animation.Interfaces.Enums.ActionType.Calculation);
-                toolStripButtonStop.Enabled = false;
-            });
-            Task t = new Task(Text_DoWork);
+                DataConsumer consumer = this.Consumer as DataConsumer;
+                type = 0;
+                text = false;
+                ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException(10);
+                ControlExtensions.ShowMessageBoxModal("Refresh please");
+                ActParent(ActionType.Stop, null);
+                return;
+            }
+            object ot = comboBoxArg.SelectedItem ?? "Time";
+            ArgumentString = ot + "";
             if (ctx == null)
             {
                 ctx = new();
             }
-                t.GetAwaiter().OnCompleted(Text_RunWorkerCompleted);
-            t.Start();
+            var t = DoWorkAsync(Mode.Text);
+            await t;
+            WorkCompleted();
         }
 
         void WriteList()
@@ -1845,7 +1856,7 @@ Func<bool> stop)
                 string key = tb.Text;
                 if (key.Length > 0)
                 {
-                    list.Add(DictionaryMeasurements[tb].Parameter());
+                    list.Add(DictionaryMeasurements[tb].Item1.Parameter());
                 }
             }
             lists.Add(list);
@@ -1853,15 +1864,22 @@ Func<bool> stop)
 
 
 
-        private void PerformFixed()
+        private void PerformFixed(Mode mode)
         {
 
+            ctx = new();
             try
             {
-                ctx = new();
-                DataConsumer dc = Consumer as DataConsumer;
-                dicto =
-                     dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
+                if (mode == Mode.Chart)
+                {
+                    DataConsumer dc = Consumer as DataConsumer;
+                    dicto =
+                         dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
+                    return;
+                }
+
+                performArrayText();
+                 
             }
             catch (Exception ex)
             {
@@ -1870,7 +1888,7 @@ Func<bool> stop)
             }
         }
 
-        private void performArray()
+        private void performArray(Mode mode)
         {
             try
             {
@@ -1949,9 +1967,9 @@ Func<bool> stop)
             XmlDocument doc = new XmlDocument();
             doc.LoadXml("<WriteText/>");
             string[] sa = new string[] { "Start", "Step", "Finish" };
-            double ss = Double.Parse(calculatorBoxStart.Text);
+            double ss = double.Parse(calculatorBoxStart.Text);
             string sta = ss.StringValue();
-            double ff = ss + (Double.Parse(calculatorBoxStep.Text) * (double)numericUpDownStepCount.Value);
+            double ff = ss + (double.Parse(calculatorBoxStep.Text) * (double)numericUpDownStepCount.Value);
             string fin = ff.StringValue();
             string[] sp = [ sta, numericUpDownStepCount.Value + "", fin ];
             XmlElement inter = doc.CreateElement("Interval");
@@ -2002,7 +2020,7 @@ Func<bool> stop)
             INamedComponent nc = parentLab;
             IDesktop d = nc.Desktop;
             ISeriesPainter painter = StaticExtensionDataPerformerUI.SelectPainter(toolStripButtonType.SelectedItem + "",
-                new Color[] { pic.Color }, performer);
+                new Color[] { pic.Color }, chartPerformer);
             if (painter == null)
             {
                 return;
@@ -2019,7 +2037,7 @@ Func<bool> stop)
                 if (series is DrawSeries)
                 {
                     DrawSeries ds = series as DrawSeries;
-                    painter = ds.Factory.GetPainter(performer);
+                    painter = ds.Factory.GetPainter(chartPerformer);
                 }
             }
             if (o is Series)
@@ -2027,23 +2045,131 @@ Func<bool> stop)
                 Series s = o as Series;
                 series = new SeriesGraph(s);
             }
-            performer.AddSeries(series, painter);
-            performer.RefreshAll();
+            chartPerformer.AddSeries(series, painter);
+            chartPerformer.RefreshAll();
             Refresh();
 
         }
 
-        void DoWork()
+        async Task DoWorkAsync(Mode mode)
         {
-            StartChart();
+            ctx = new CancellationTokenSource();
+            var t = ctx.Token;
+            await StartAsync(mode, ctx.Token);
             ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
             this.InvokeIfNeeded(() => { toolStripButtonStop.Enabled = false; });
         }
 
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        private async Task StartTextAnalysisAsync(object l)
         {
-           DoWork();
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter =
+                ResourceService.Resources.GetControlResource("Xml Files|*.xml",
+                Utils.ControlUtilites.Resources);
+            if (dialog.ShowDialog(this) != DialogResult.OK)
+            {
+                return;
+            }
+            analysisXML = dialog.FileName;
+            beginAnalysis = true;
+            textDictionary = TextDictionary;
+            StaticExtensionDataPerformerUI.initText(Consumer);
+            object si = comboBoxCond.SelectedItem;
+            if (si != null)
+            {
+                data.Item4[0] = si + "";
+            }
+            else
+            {
+                data.Item4[0] = "";
+            }
+            measurementsWrapperList.Clear();
+            measurementsWrapperDictionary = Consumer.CreateDisassemblyMeasurements();
+            List<IMeasurement> lm = new List<IMeasurement>();
+            foreach (IMeasurement mm in measurementsWrapperDictionary.Keys)
+            {
+                string k = null;
+                foreach (string key in textDictionary.Keys)
+                {
+                    if (mm == textDictionary[key])
+                    {
+                        k = key;
+                        break;
+                    }
+                }
+                if (k == null)
+                {
+                    continue;
+                }
+                textDictionary.Remove(k);
+                MeasurementsDisassemblyWrapper wr = measurementsWrapperDictionary[mm];
+                measurementsWrapperList.Add(wr);
+                foreach (IMeasurement measurement in wr.Measurements)
+                {
+                    textDictionary[measurement.Name] = measurement;
+                }
+            }
+            textXML = XElement.Parse("<Analysis/>");
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
+                Consumer.CreateDisassemblyMeasurements();
+            Func<object>[] provider = new Func<object>[1];
+            IDataConsumer dc = Consumer;
+            double time = 0;
+            ITimeMeasurementConsumer tc = Consumer as ITimeMeasurementConsumer;
+            Action<object> act = (object sender) =>
+            {
+                StaticExtensionDataPerformerUI.performText(sender);
+                time = tc.GetTime();
+                if (!condition())
+                {
+                    return;
+                }
+                XElement e = XElement.Parse("<Cadr/>");
+                textXML.Add(e);
+                XElement xt = XElement.Parse("<Time/>");
+                e.Add(xt);
+                xt.Add(time + "");
+                XElement xc = XElement.Parse("<Number/>");
+                e.Add(xc);
+                xc.Add(currentCadr + "");
+                ++currentCadr;
+                if (item != null)
+                {
+                    XElement xi = XElement.Parse("<FileName/>");
+                    e.Add(xi);
+                    xi.Add((item as ILogData).FileName);
+                }
+                XElement measurements = XElement.Parse("<Measurements/>");
+                e.Add(measurements);
+                foreach (MeasurementsDisassemblyWrapper wr in measurementsWrapperList)
+                {
+                    wr.Update();
+                }
+                foreach (string key in textDictionary.Keys)
+                {
+                    XElement measurement = XElement.Parse("<Measurement/>");
+                    measurements.Add(measurement);
+                    measurement.SetNameValue(key, textDictionary[key].Parameter() + "");
+                }
+            };
+
+            Func<object, bool> stop = (object o) =>
+            {
+                analysisPause.WaitOne();
+                analysisPause.Set();
+                if (backgroundWorkerTextRealtimeAnalysis.CancellationPending)
+                {
+                    return true;
+                }
+                act(o);
+                return false;
+            };
+            realtimeRun = () => { StartRealtimeAnalysis(l, stop); };
+            backgroundWorkerTextRealtimeAnalysis.RunWorkerAsync();
         }
+
+
+
 
         private void StartTextAnalysis(object l)
         {
@@ -2424,12 +2550,12 @@ Func<bool> stop)
                     }
                 }
                 userControlRealtimeAnalysis.Visible = false;
-                performer.RemoveAll();
+                chartPerformer.RemoveAll();
                 foreach (IMeasurement m in SeriesDictionary.Keys)
                 {
-                    performer.AddSeries(SeriesDictionary[m], dcolorAnalysis[m]);
+                    chartPerformer.AddSeries(SeriesDictionary[m], dcolorAnalysis[m]);
                 }
-                 performer.RefreshAll();
+                 chartPerformer.RefreshAll();
                 StaticExtensionEventPortable.PostStop();
             };
             //  Func<object, bool> f = (object o) => { act(o); return false; };
@@ -2723,12 +2849,12 @@ Func<bool> stop)
                     }
                 }
                 userControlRealtimeAnalysis.Visible = false;
-                performer.RemoveAll();
+                chartPerformer.RemoveAll();
                 foreach (IMeasurement m in SeriesDictionary.Keys)
                 {
-                    performer.AddSeries(SeriesDictionary[m], dcolorAnalysis[m]);
+                    chartPerformer.AddSeries(SeriesDictionary[m], dcolorAnalysis[m]);
                 }
-                performer.RefreshAll();
+                chartPerformer.RefreshAll();
                 StaticExtensionEventPortable.PostStop();
             };
             Func<object, bool> f = (object o) => { act(o); return false; };
@@ -2801,12 +2927,12 @@ Func<bool> stop)
             }
             if (page == tabPageGraph)
             {
-                StartChartClick();
+                StartChartClickAsync();
                 return;
             }
             else if (page == tabPageText)
             {
-                StartTextClick();
+                StartTextClickAsync();
             }
             else if (page == tabPageRealTime)
             {
@@ -2862,11 +2988,6 @@ Func<bool> stop)
             ActParent(ActionType.Stop, null);
         }
 
-        void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            WorkCompleted();
-        }
-
         private void WorkCompleted()
         {
             if (CommonComplete())
@@ -2880,38 +3001,42 @@ Func<bool> stop)
                     var coll = Consumer.GetDependentCollection();
                     coll.ForEach((IRunning s) => s.IsRunning = false);
                     bool pr = true;
-                    if (dicto.Count > 0)
+                    if (dicto != null)
                     {
-                        foreach (var kvp in dicto.Values)
+                        if (dicto.Count > 0)
                         {
-                            if (!(kvp is SeriesTypes.ParametrizedSeries))
+                            foreach (var kvp in dicto.Values)
                             {
-                                pr = false;
+                                if (!(kvp is SeriesTypes.ParametrizedSeries))
+                                {
+                                    pr = false;
+                                }
+                                break;
                             }
-                            break;
                         }
-                    }
-                    performer.RemoveAll();
-                    performer.Remove(typeof(DynamicSeriesAttribute));
-                    Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
-                    Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
-                    foreach (string key in dicto.Keys)
-                    {
-                        var mea = dd[key];
-
-                        if (pr)
+                        chartPerformer.RemoveAll();
+                        chartPerformer.Remove(typeof(DynamicSeriesAttribute));
+                        Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
+                        Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
+                        foreach (string key in dicto.Keys)
                         {
-                            SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
-                            ParametrizedSeries series = new ParametrizedSeries(null, null);
-                            series.Add(ps);
-                            performer.AddSeries(series, d[dd[key]][0], mea);
-                            ownSeries.Add(series);
-                            continue;
+                            var mea = dd[key];
+
+                            if (pr)
+                            {
+                                SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
+                                ParametrizedSeries series = new ParametrizedSeries(null, null);
+                                series.Add(ps);
+                                chartPerformer.AddSeries(series, d[dd[key]][0], mea);
+                                ownSeries.Add(series);
+                                continue;
+                            }
+                            ISeries s = dicto[key] as ISeries;
+                            chartPerformer.AddSeries(s, d[dd[key]][0], mea);
                         }
-                        ISeries s = dicto[key] as ISeries;
-                        performer.AddSeries(s, d[dd[key]][0], mea);
+                        chartPerformer.RefreshAll();
+                        dicto = null;
                     }
-                    performer.RefreshAll();
                 }
                 catch (Exception ex)
                 {
@@ -2934,7 +3059,7 @@ Func<bool> stop)
             }
             if (Path.GetExtension(fileText).ToLower() == ".json")
             {
-                string jsonString = JsonSerializer.Serialize(lists);
+                string jsonString = System.Text.Json.JsonSerializer.Serialize(lists);
                 using (var writer = new StreamWriter(fileText))
                 {
                     writer.Write(jsonString);
@@ -3046,7 +3171,7 @@ Func<bool> stop)
 
                         dicText.Clear();
                         consumer.StartTime = double.Parse(calculatorBoxStart.Text);
-                        consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                        consumer.Step = double.Parse(calculatorBoxStep.Text);
                         consumer.Steps = (int)numericUpDownStepCount.Value;
                     };
                     this.InvokeIfNeeded(p);
@@ -3103,13 +3228,6 @@ Func<bool> stop)
 
 
         }
-
-
-        private void backgroundWorkerText_DoWork(object sender, DoWorkEventArgs e)
-        {
-            Text_DoWork();
-        }
-
         private void toolStripButtonAnimation_Click(object sender, EventArgs e)
         {
             StartAnimation(AnimationType);

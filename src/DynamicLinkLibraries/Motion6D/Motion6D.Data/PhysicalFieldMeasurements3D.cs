@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
@@ -19,7 +18,7 @@ using Motion6D.Portable;
 using PhysicalField.Interfaces;
 using RealMatrixProcessor;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Motion6D

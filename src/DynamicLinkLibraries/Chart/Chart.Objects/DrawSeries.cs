@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
+
 using CategoryTheory;
-using Chart.Drawing;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Interfaces.Points;
-using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Chart.Objects
 {

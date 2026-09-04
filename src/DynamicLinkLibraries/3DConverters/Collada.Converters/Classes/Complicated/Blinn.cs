@@ -5,7 +5,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 using Collada.Converters.Classes.Abstract;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Collada.Converters.Classes.Complicated

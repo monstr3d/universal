@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 
 using CategoryTheory;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI
 {

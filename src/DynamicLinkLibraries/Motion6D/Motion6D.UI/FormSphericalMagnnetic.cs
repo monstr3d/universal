@@ -151,7 +151,7 @@ namespace Motion6D.UI
         {
             get
             {
-                return Double.Parse(textBoxR.Text);
+                return double.Parse(textBoxR.Text);
             }
         }
 
@@ -163,7 +163,7 @@ namespace Motion6D.UI
             {
                 ss = '0' + ss;
             }
-            return Double.Parse(ss);
+            return double.Parse(ss);
         }
 
 

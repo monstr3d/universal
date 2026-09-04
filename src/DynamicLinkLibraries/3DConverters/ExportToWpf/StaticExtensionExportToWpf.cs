@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq.Expressions;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -15,6 +14,8 @@ namespace ExportToWpf
     public static class StaticExtensionExportToWpf
     {
         static Service s = new ();
+
+        static Performer performer = new();
 
         static StaticExtensionExportToWpf()
         {
@@ -64,9 +65,8 @@ namespace ExportToWpf
                 var str = Path.GetFileName(filename);
                 d[str] = b;
             }
-            var p = new Performer();
             var converter = new Abstract3DConverters.Converters.XamlMeshConverter();
-            var res = p.CreateAll<object>(creator, converter);
+            var res = performer.CreateAll<object>(creator, converter);
 
             //    res.SetLight();
             if (creator is IAdditionalInformation add)

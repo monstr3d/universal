@@ -154,14 +154,14 @@ namespace Motion6D.Portable.Runtime
                     dynamical.Add(dyn);
                 }
             }
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
             p.SortPositions(Frames);
             actions.Add(UpdateMeasurements);
             if (Frames != null)
             {
                 if (Frames.Count > 0)
                 {
-                    actions.Add(() =>  p.UpdateFrames(Frames));
+                    actions.Add(() => p.UpdateFrames(Frames));
                 }
             }
             started.SortOrder();
@@ -240,7 +240,7 @@ namespace Motion6D.Portable.Runtime
         private void GetMeasurements()
         {
             GetMeasurements(consumer);
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
         }
 
      

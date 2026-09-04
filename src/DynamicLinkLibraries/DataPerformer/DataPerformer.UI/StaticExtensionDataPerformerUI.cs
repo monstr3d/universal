@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -26,12 +24,11 @@ using Chart;
 using Chart.Drawing.Series;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
-using DataPerformer.UI.UserControls;
 using Chart.Objects;
 using DataPerformer.UI.Labels;
 using BaseTypes;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer.UI
@@ -52,10 +49,13 @@ namespace DataPerformer.UI
         static List<IDataConsumerCodeGenerator> dataConsumerCodeGenerators = new();
 
         /// <summary>
-        /// Buffer connection string
+        /// Performer
         /// </summary>
-     // !!!   static public readonly string BufferConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BufferDatabase;Integrated Security=" +
-     // !!!       "True";
+        static Portable.Performer Performer
+        {
+            get;
+        } = new ();
+
 
         /// <summary>
         /// Modes for painting
@@ -71,7 +71,7 @@ namespace DataPerformer.UI
         static IAsynchronousCalculation currentCalculation;
 
         static IDisassemblyObject disassembly =
-            new BaseTypes.DisassemblyObjectList();
+            new DisassemblyObjectList();
 
         static internal DataPerformer.Interfaces.Objects.MeasurementObjectFactoryCollection GraphCollection =
             new ();
@@ -287,7 +287,8 @@ namespace DataPerformer.UI
             IDataConsumer consumer)
         {
             var d = dictionary.ColorDictionary;
-            foreach (var measurements in consumer.GetMeasurements())
+            var meas = Performer.GetMeasurements(consumer);
+            foreach (var measurements in meas)
             {
                 var name = consumer.GetRelativeMeasurementsName(measurements);
                 if (d.ContainsKey(name)) yield return measurements;

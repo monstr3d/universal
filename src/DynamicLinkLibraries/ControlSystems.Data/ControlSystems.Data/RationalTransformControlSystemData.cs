@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+
 using BaseTypes.Interfaces;
 using CategoryTheory;
 using ControlSystemsWrapper;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Portable.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 using OrdinaryDifferentialEquations;
 using SerializationInterface;
 using ISetFeedback = DataPerformer.Portable.Interfaces.ISetFeedback;

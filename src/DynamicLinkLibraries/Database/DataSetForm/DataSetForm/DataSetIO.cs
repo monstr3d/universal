@@ -46,7 +46,7 @@ namespace DataSetService.Forms
         {
 
             dataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            DataSetService.DataSetStaticPerformer.ConvertToUnspecifiedTime(dataSet);
+            Pure.DataSetStaticPerformer.ConvertToUnspecifiedTime(dataSet);
             string ext = Path.GetExtension(filename);
             if (ext.ToLower().Contains("xml"))
             {

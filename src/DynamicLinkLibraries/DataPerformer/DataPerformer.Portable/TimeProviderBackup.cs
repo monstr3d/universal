@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CategoryTheory;
 using DataPerformer.Interfaces;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -30,6 +29,11 @@ namespace DataPerformer.Portable
         IDifferentialEquationProcessor processor;
 
         List<IMeasurements> measurements = null;
+
+        /// <summary>
+        /// Performer
+        /// </summary>
+        protected Performer performer = new();
 
 
         #endregion
@@ -319,7 +323,8 @@ namespace DataPerformer.Portable
             // IDataRuntime dr = consumer.CreateRuntime();
         }
 
-        static void SetTimeProvider(IChildren<IAssociatedObject> co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(IChildren<IAssociatedObject> co, 
+            ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
             IAssociatedObject[] ao = co.Children.ToArray();
             foreach (object o in ao)
@@ -452,7 +457,7 @@ namespace DataPerformer.Portable
             List<IMeasurements> add = new List<IMeasurements>();
             l.Sort(StaticExtensionDiagramUI.ObjectComparer);
             measurements = l;
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
         }
 
         #endregion

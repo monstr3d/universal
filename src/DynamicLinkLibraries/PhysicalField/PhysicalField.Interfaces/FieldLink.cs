@@ -1,7 +1,7 @@
 using System;
 
 using CategoryTheory;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace PhysicalField.Interfaces

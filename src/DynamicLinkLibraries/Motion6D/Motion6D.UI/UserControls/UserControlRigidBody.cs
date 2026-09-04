@@ -188,7 +188,7 @@ namespace Motion6D.UI.UserControls
                 double[] p = new double[3];
                 for (int i = 0; i < 3; i++)
                 {
-                    p[i] = Double.Parse(linear[i].Text);
+                    p[i] = double.Parse(linear[i].Text);
                 }
                 return p;
             }
@@ -223,12 +223,12 @@ namespace Motion6D.UI.UserControls
                 TextBox[] tb = moments[i];
                 for (int j = i; j < 3; j++)
                 {
-                    double a = Double.Parse(tb[j - i].Text);
+                    double a = double.Parse(tb[j - i].Text);
                     m[i, j] = a;
                     m[j, i] = a;
                 }
             }
-            double mass = Double.Parse(textBoxMass.Text);
+            double mass = double.Parse(textBoxMass.Text);
             string[] inert = comboInertial.GetSelectedStringArray();
             string[] forces = comboForces.GetSelectedStringArray();
             Dictionary<int, string> dic = comboAli.GetSelectedDictionary();
@@ -340,7 +340,7 @@ namespace Motion6D.UI.UserControls
             try
             {
                 double[] p = coordinates;
-                double a = Double.Parse(textBoxRot.Text);
+                double a = double.Parse(textBoxRot.Text);
                 double[,] m = Motion6D.Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 fillMatrix(m);
             }

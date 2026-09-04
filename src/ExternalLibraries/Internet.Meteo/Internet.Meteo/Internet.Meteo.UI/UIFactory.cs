@@ -6,6 +6,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 
 using Internet.Meteo.UI.Labels;
+using System.Threading.Tasks;
 
 namespace Internet.Meteo.UI
 {
@@ -21,12 +22,13 @@ namespace Internet.Meteo.UI
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
             var type = button.ReflectionType;
             if (type == typeof(Wrapper.Serializable.Sensor))
             {
-                return new Wrapper.Serializable.Sensor(button.Kind);
+                ICategoryObject a = new Wrapper.Serializable.Sensor(button.Kind);
+                return Task.FromResult(a);
             }
             return null;
         }

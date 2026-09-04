@@ -548,7 +548,7 @@ namespace BaseTypes.Utils
             if (o is decimal)
             {
                 decimal dec = (decimal)o;
-                return Double.Parse(dec + "");
+                return double.Parse(dec + "");
             }
             if (o is Double)
             {

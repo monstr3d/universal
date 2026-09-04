@@ -3,7 +3,6 @@ using DataPerformer.UI.UserControls;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Windows.Forms;

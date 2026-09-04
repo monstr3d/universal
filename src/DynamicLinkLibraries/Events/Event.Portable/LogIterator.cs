@@ -12,7 +12,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Interfaces.Attributes;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.Portable
 {

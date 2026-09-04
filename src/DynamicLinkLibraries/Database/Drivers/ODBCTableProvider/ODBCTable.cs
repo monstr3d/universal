@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 
 
 using DataSetService;
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
 using ErrorHandler;
 
 

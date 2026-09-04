@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Text;
-using NamedTree;
+using NamedTree.Interfaces;
+
 using ErrorHandler;
 
 namespace CategoryTheory.Math

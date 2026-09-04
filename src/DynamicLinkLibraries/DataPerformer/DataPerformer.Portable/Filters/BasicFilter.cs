@@ -5,7 +5,7 @@ namespace DataPerformer.Portable.Filters
     /// <summary>
     /// Basic filter
     /// </summary>
-    public  class BasicFilter : IFilter
+    public class BasicFilter : IFilter
     {
         protected IFilter inter;
 

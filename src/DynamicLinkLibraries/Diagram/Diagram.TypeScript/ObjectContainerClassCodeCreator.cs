@@ -14,10 +14,6 @@ namespace Diagram.UI.TypeScript
             this.AddClassCodeCreator();
         }
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
-
-
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {
@@ -29,6 +25,9 @@ namespace Diagram.UI.TypeScript
         {
             return obj.GetType().Name;
         }
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
     }
 }

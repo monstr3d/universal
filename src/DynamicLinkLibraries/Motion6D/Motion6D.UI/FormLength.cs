@@ -1,12 +1,12 @@
-using CategoryTheory;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using ErrorHandler;
 using Motion6D.Interfaces;
-using NamedTree;
-using System;
-using System.ComponentModel;
-using System.Windows.Forms;
+using NamedTree.Interfaces;
 
 namespace Motion6D.UI
 {
@@ -67,7 +67,7 @@ namespace Motion6D.UI
         {
             try
             {
-                length.Length = Double.Parse(textBoxLength.Text);
+                length.Length = double.Parse(textBoxLength.Text);
             }
             catch (Exception e)
             {

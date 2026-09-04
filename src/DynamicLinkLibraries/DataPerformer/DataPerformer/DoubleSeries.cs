@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
+
 using BaseTypes;
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer
 {

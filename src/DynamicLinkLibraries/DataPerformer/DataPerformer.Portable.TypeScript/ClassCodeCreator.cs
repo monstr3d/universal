@@ -1,9 +1,10 @@
-﻿using BaseTypes.Attributes;
-using Diagram.UI;
-using Diagram.UI.CodeCreators.Interfaces;
-using Diagram.UI.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
+using BaseTypes.Attributes;
+
+using Diagram.UI;
 
 namespace DataPerformer.Portable.TypeScript
 {
@@ -11,42 +12,41 @@ namespace DataPerformer.Portable.TypeScript
     /// Creator of TS code
     /// </summary>
     [Language("TS")]
-    internal class ClassCodeCreator : IClassCodeCreator
+    public class ClassCodeCreator : Diagram.UI.TypeScript.ClassCodeCreator
     {
-        static Diagram.UI.TypeScript.Performer performer = new Diagram.UI.TypeScript.Performer();
-
+        
+        protected Diagram.UI.TypeScript.Performer performer = new();
 
         #region Ctor
-        internal ClassCodeCreator()
-        {
-           this.AddClassCodeCreator();
-        }
-        #endregion
 
-        static readonly Dictionary<Func<object, bool>, Func<string, object, List<string>>> dictionary =
-         new Dictionary<Func<object, bool>, Func<string, object, List<string>>>()
+        protected ClassCodeCreator(bool b) : base(true) { }
+        internal ClassCodeCreator() : base(false)
+        {
+            dictionary = new Dictionary<Func<object, bool>, Func<string, object, List<string>>>()
          {
                       { (object o) => { return o is ObjectTransformer; } , CreateObjectTransformer },
-              { (object o) => { return o is DataLink; } ,CreateDataLink},
                    { (object o) => { return o is RandomGenerator; } , CreateRandomGenerator},
-               { (object o) => { return o is ObjectTransformerLink; } , CreateObjectTransformerLink},
+                { (object o) => { return o is FilterWrapper; } ,CreateFilterWrapper},
+             { (object o) => { return o is DataLink; } ,CreateDataLink},
+              { (object o) => { return o is ObjectTransformerLink; } , CreateObjectTransformerLink},
+               { (object o) => { return o is IteratorConsumerLink; } , CreateIteratorConsumerLink},
          };
+            this.AddClassCodeCreator();
+        }
 
+        #endregion
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
-
- 
-
-
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
+        protected string DoubleToString(double d)
         {
-            foreach (var val in dictionary)
+            return performer.DoubleToString(d);
+        }
+
+        protected override List<string> CreateCode(string preffix, object obj, string volume)
+        {
+           var l = base.CreateCode(preffix, obj, volume);
+            if (l != null)
             {
-                if (val.Key(obj))
-                {
-                    return val.Value(preffix, obj);
-                }
+                return l;
             }
             string th = obj.GetType().Name;
             if (th.Equals("DataConsumer"))
@@ -57,10 +57,40 @@ namespace DataPerformer.Portable.TypeScript
             return null;
         }
 
-        static List<string> CreateObjectTransformer(string preffix, object obj)
+        List<string> CreateFilterWrapper(string preffix, object obj)
         {
             List<string> l = new List<string>();
-           var ot = obj as ObjectTransformer;
+            var filter = obj as FilterWrapper;
+            var s = performer.ClassString(preffix, "SequenceFilterWrapper");
+            l.Add(s);
+            l.Add("{");
+            performer.AddObjectConstructor(l);
+            var count = filter.Filter.Count;
+            l.Add("\t\tthis.count = " + count);
+            l.Add("\t\tthis.input = \"" + filter.Input + "\"");
+            var kind = filter.Kind;
+            if (kind == 0)
+            {
+                l.Add("\t\tthis.type = SequenceFilterType.Avarage");
+            }
+            else
+            {
+                l.Add("\t\tthis.type = SequenceFilterType.Donchian");
+                var st = filter.Kind == 1 ? "true" : "false";
+                l.Add("\t\tthis.mimax = " + st);
+
+            }
+            l.Add("\t}");
+            l.Add("}");
+            return l;
+        }
+
+
+
+        List<string> CreateObjectTransformer(string preffix, object obj)
+        {
+            List<string> l = new List<string>();
+            var ot = obj as ObjectTransformer;
             var s = performer.ClassString(preffix, "ObjectTransformer");
             var ll = performer.CreateStringDictionary("map", ot.Links);
             l.Add(s);
@@ -74,7 +104,7 @@ namespace DataPerformer.Portable.TypeScript
         }
 
 
-        static List<string> CreateDataConsumer(string preffix, object obj)
+        List<string> CreateDataConsumer(string preffix, object obj)
         {
             List<string> l = new List<string>();
             var s = performer.ClassString(preffix, "DataConsumer");
@@ -86,7 +116,7 @@ namespace DataPerformer.Portable.TypeScript
             return l;
         }
 
-        static List<string> CreateRandomGenerator(string preffix, object obj)
+         List<string> CreateRandomGenerator(string preffix, object obj)
         {
             List<string> l = new List<string>();
             var s = performer.ClassString(preffix, "RandomGenerator");
@@ -106,7 +136,7 @@ namespace DataPerformer.Portable.TypeScript
             return (S)o;
         }
 
-        static List<string> CreateObjectTransformerLink(string preffix, object obj)
+        List<string> CreateObjectTransformerLink(string preffix, object obj)
         {
 
             List<string> l = new List<string>();
@@ -120,7 +150,7 @@ namespace DataPerformer.Portable.TypeScript
         }
 
 
-        static List<string> CreateDataLink(string preffix, object obj)
+        List<string> CreateDataLink(string preffix, object obj)
         {
 
             List<string> l = new List<string>();
@@ -132,6 +162,21 @@ namespace DataPerformer.Portable.TypeScript
             l.Add("}");
             return l;
         }
+
+         List<string> CreateIteratorConsumerLink(string preffix, object obj)
+        {
+
+            List<string> l = new List<string>();
+            var s = performer.ClassString(preffix, "IteratorConsumerLink");
+            l.Add(s);
+            l.Add("{");
+            performer.AddObjectConstructor(l);
+            l.Add("\t}");
+            l.Add("}");
+            return l;
+        }
+
+
 
         protected virtual string ClassString(string prefix, object obj)
         {

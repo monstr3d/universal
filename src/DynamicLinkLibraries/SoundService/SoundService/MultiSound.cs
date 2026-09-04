@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
+
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 using DataPerformer.Portable;
-using Diagram.UI;
 using ErrorHandler;
 using Event.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace SoundService
 {

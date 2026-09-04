@@ -2,8 +2,8 @@
 using System.Reflection;
 
 using Abstract3DConverters.Attributes;
-using Abstract3DConverters.Fartories.Converters;
-using Abstract3DConverters.Fartories.Creators;
+using Abstract3DConverters.Factories.Converters;
+using Abstract3DConverters.Factories.Creators;
 using Abstract3DConverters.Interfaces;
 
 
@@ -74,7 +74,7 @@ namespace Abstract3DConverters
 
         public static IPolygonSplitter PolygonSplitter => PolygonSplitterFactory.CreatePolygonSplitter();
 
-        static readonly Type[] InputTypes = new Type[] { typeof(InitAttribute) };
+        static readonly Type[] InputTypes = [ typeof(InitAttribute) ];
 
         static Dictionary<string, ConstructorInfo> creators = new();
 
@@ -190,9 +190,6 @@ namespace Abstract3DConverters
         {
             HandleExceptionFunc(exception, [obj]);
         }
-
-
-
 
         /// <summary>
         /// The Check file sign

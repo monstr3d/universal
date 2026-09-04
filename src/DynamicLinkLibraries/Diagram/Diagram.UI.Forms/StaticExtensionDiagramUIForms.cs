@@ -846,6 +846,25 @@ namespace Diagram.UI
             }
       }
 
+        public static string SaveJSONXml(this IWin32Window form)
+        {
+            var fn = "";
+            var act = () =>
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                var f = Resources.GetControlResource("JSON files |*.json|Xml files |*.xml", Utils.ControlUtilites.Resources);
+                dialog.Filter = f;
+                if (dialog.ShowDialog(form) == DialogResult.OK)
+                {
+                    fn = dialog.FileName;
+                }
+            };
+            (form as Control).InvokeIfNeeded(act);
+            return fn;
+        }
+
+
+
 
 
         /// <summary>

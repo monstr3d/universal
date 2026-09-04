@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using NamedTree;
+﻿
+using NamedTree.Interfaces;
 
 namespace Event.Interfaces
 {

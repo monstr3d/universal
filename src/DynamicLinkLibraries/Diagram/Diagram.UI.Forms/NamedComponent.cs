@@ -1,24 +1,14 @@
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.IO;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization.Formatters;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Collections;
-using System.Configuration.Assemblies;
-using System.Threading;
-using System.Xml.Serialization;
-using System.Xml;
 
-using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Labels
 {

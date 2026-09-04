@@ -1,22 +1,17 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Windows.Forms;
+
 using BitmapConsumer;
 using CategoryTheory;
-using ColorUI;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using ErrorHandler;
 using ImageTransformation.UI;
-using ImageTransformations;
 using ImageTransformations.Forms;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace ImageTransformations.Labels
 {

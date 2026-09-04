@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using CategoryTheory;
 
 using Diagram.UI;
@@ -107,25 +107,26 @@ namespace Event.UI.Factory
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
+            ICategoryObject categoryObject = null;
             Type type = button.ReflectionType;
             string kind = button.Kind;
             if (type.Equals(typeof(Basic.Events.ImportedEvent)))
             {
-                return new Basic.Events.ImportedEvent(kind);
+                categoryObject = new Basic.Events.ImportedEvent(kind);
             }
-            if (type.Equals(typeof(Basic.Data.Events.ImportedEventReader)))
+            else if (type.Equals(typeof(Basic.Data.Events.ImportedEventReader)))
             {
-                return new Basic.Data.Events.ImportedEventReader(kind);
+                categoryObject = new Basic.Data.Events.ImportedEventReader(kind);
             }
-            if (type.Equals(typeof(Basic.Data.Events.ImportedEventWriter)))
+            else if (type.Equals(typeof(Basic.Data.Events.ImportedEventWriter)))
             {
-                return new Basic.Data.Events.ImportedEventWriter(kind);
+                categoryObject = new Basic.Data.Events.ImportedEventWriter(kind);
             }
-            if (type.Equals(typeof(Basic.Events.ThresholdEvent)))
+            else if (type.Equals(typeof(Basic.Events.ThresholdEvent)))
             {
-                return new Basic.Events.ThresholdEvent();
+                categoryObject = new Basic.Events.ThresholdEvent();
             }
 
             if (type.Equals(typeof(Basic.Data.Events.ForcedEventData)))
@@ -141,8 +142,12 @@ namespace Event.UI.Factory
                         new Tuple<string, object>("Y", a)
                     };
                     forcedEventData.Initial = new object[] { a, a };
-                    return forcedEventData;
+                    categoryObject = forcedEventData;
                 }
+            }
+            if (categoryObject != null)
+            {
+                return Task.FromResult(categoryObject);
             }
             return null;
         }

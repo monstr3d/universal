@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DataPerformer.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Regression.Portable
 {

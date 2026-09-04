@@ -1,14 +1,146 @@
-﻿using System.Net.WebSockets;
-using System.Reflection;
-
+﻿using System.Reflection;
 using System.Xml;
-
+using System.Xml.Linq;
 using ErrorHandler;
+using NamedTree.Interfaces;
+
 
 namespace NamedTree
 {
+    /// <summary>
+    /// Performer of common operations
+    /// </summary>
     public class Performer
     {
+
+        /// <summary>
+        /// Clears double objects
+        /// </summary>
+        /// <typeparam name="T">Type of objects</typeparam>
+        /// <param name="objects">Objects</param>
+        /// <returns>Collection without double objects</returns>
+        public  IEnumerable<T> ClearDoubleObjects<T>(IEnumerable<T> objects)
+        {
+            List<T> l = new List<T>();
+            foreach (T t in objects)
+            {
+                if (l.Contains(t))
+                {
+                    continue;
+                }
+                l.Add(t);
+                yield return t;
+            }
+        }
+
+        /// <summary>
+        /// Clears doubling from list
+        /// </summary>
+        /// <typeparam name="T">Name of type</typeparam>
+        /// <param name="list">The list</param>
+        public  void ClearDoubleObjectsFormList<T>(List<T> list)
+        {
+            List<T> l = new List<T>(list);
+            IEnumerable<T> ex = ClearDoubleObjects<T>(l);
+            list.Clear();
+            list.AddRange(ex);
+        }
+
+        /// <summary>
+        /// Adds unique item to the list
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="list">The list</param>
+        /// <param name="item">The item</param>
+        /// <returns>True if added</returns>
+        public bool AddUnique<T>(IList<T> list, T item) where T : class 
+        {
+            if (!list.Contains(item))
+            {
+                list.Add(item);
+                return true;
+            }
+            return false;
+        }
+        
+        /// <summary>
+        /// Saves strings
+        /// </summary>
+        /// <param name="strings">The strings</param>
+        /// <param name="fileName"></param>
+        public void SaveStrings(IEnumerable<string> strings, string fileName)
+        {
+            using var writer = new StreamWriter(fileName);
+            SaveStrings(strings, writer);
+         }
+
+        /// <summary>
+        /// Saves strings to writer
+        /// </summary>
+        /// <param name="strings">The strings</param>
+        /// <param name="writer">The writer</param>
+        public void SaveStrings(IEnumerable<string> strings, TextWriter writer)
+        {
+            var l = from line in strings select Write(line, writer);
+            l = l.ToList();
+        }
+
+        /// <summary>
+        /// Recursive action
+        /// </summary>
+        /// <typeparam name="T">Type of node</typeparam>
+        /// <param name="node">The node</param>
+        /// <param name="action">The action</param>
+        public void Recursive<T>(INode<T> node, Action<T> action) where T : class
+        {
+            var children = node.Nodes;
+            foreach (var child in children)
+            {
+                Recursive(child, action);
+            }
+            action(node.Value);
+        }
+
+        /// <summary>
+        /// Whites a string
+        /// </summary>
+        /// <param name="s">The string</param>
+        /// <param name="w">Ther whiter</param>
+        /// <returns>True</returns>
+        public bool Write(string s, TextWriter w)
+        {
+            w.WriteLine(s);
+            return true;
+        }
+    
+        /// <summary>
+        /// Generates long string
+        /// </summary>
+        /// <param name="id">Identifier</param>
+        /// <param name="s">String</param>
+        /// <param name="length">Lengh</param>
+        /// <returns>List of strigns</returns>
+        public List<string> GenerateLong(string id, string s, int length)
+        {
+            var l = new List<string>();
+            l.Add("string " + id + " = \"\";");
+
+            var st = s;
+            while (st.Length > length)
+            {
+                var ss = st.Substring(0, length);
+                ss = ss.Replace("\"", "\\\"");
+                st = st.Substring(length);
+                l.Add(id + " += \"" + ss + "\";");
+            }
+            if (st.Length > 0)
+            {
+                st = st.Replace("\"", "\\\"");
+                l.Add(id + " += \"" + st + "\";");
+            }
+            return l;
+        }
+
 
         /// <summary>
         /// Sorts partially ordered set
@@ -16,7 +148,7 @@ namespace NamedTree
         /// <typeparam name="T">The type</typeparam>
         /// <param name="list">The set</param>
         /// <param name="comparer">The comparer</param>
-        public  void SortPatriallyOrderedSet<T>(List<T> list,
+        public void SortPatriallyOrderedSet<T>(List<T> list,
             IComparer<T> comparer)
         {
             list.Sort(comparer);
@@ -48,6 +180,25 @@ namespace NamedTree
             }
         }
 
+        /// <summary>
+        /// Converts to string with p
+        /// </summary>
+        /// <param name="a">Double value</param>
+        /// <returns>String</returns>
+        public string DoubleToStringWrap(double a)
+        {
+            return  "\"" + DoubleToString(a) + "\"";
+        }
+
+        /// <summary>
+        /// Converts to string with p
+        /// </summary>
+        /// <param name="a">Double value</param>
+        /// <returns>String</returns>
+        public string Wrap(object o)
+        {
+            return "\"" + o.ToString() + "\"";
+        }
 
         /// <summary>
         /// Converts to string
@@ -86,6 +237,8 @@ namespace NamedTree
         /// <param name="shift">The shift</param>
         public void Add(List<string> list, List<string> l, int shift)
         {
+            if (list == null) return;
+            if (l == null) return;
             var s = "";
             for (int i = 0; i < shift; i++)
             {
@@ -102,7 +255,6 @@ namespace NamedTree
           return from value in values where value is T select value as T;
 
         }
-
 
         /// <summary>
         /// Sorts py name
@@ -133,17 +285,6 @@ namespace NamedTree
             return from n in GetAll(node)  select n.Value;
         }
 
-        public void Perform<T>(INode<T> node, Action<T> action) where T : class
-        {
-            var nodes = node.Nodes;
-            foreach (var child in nodes)
-            {
-                Perform(child, action);
-            }
-            action(node.Value);
-        }
-
-
         public IEnumerable<INode<T>> GetAll<T>(INode<T> node) where T : class
         {
             yield return node;
@@ -171,13 +312,10 @@ namespace NamedTree
             return IsParent(parent, p);
   
         }
-
         public bool IsLeaf<T>(INode<T> node) where T : class
         {
             return GetAttribute<LeafAttribute<T>>(node) != null;
         }
-
-
 
         public void AddChildrenNodes<T>(INode<T> parent, IEnumerable<INode<T>> children) where T : class
         {
@@ -444,6 +582,45 @@ namespace NamedTree
                 }
             }
             return null;
+        }
+
+        private string Convert(object o, Func<object, string> converter = null)
+        {
+            if (o == null) return "null";
+            return (converter == null) ? o + "" : converter(o);
+        }
+
+        /// <summary>
+        /// Creates XML 
+        /// </summary>
+        /// <param name="nodes">Nodee</param>
+        /// <param name="root">Root name</param>
+        /// <param name="group">Group name</param>
+        /// <param name="item">Item name</param>
+        /// <param name="converter">Converter</param>
+        /// <returns>XElement</returns>
+        public XElement CreateXML(List<Dictionary<string, object>> nodes, string root, string group,
+            string item, Func<object, string> converter = null)
+        {
+            XName xr =  XName.Get(root);
+            XName gr = XName.Get(group);
+            XName it = XName.Get(item);
+            XName id = XName.Get("id");
+            var e = new  XElement(xr);
+            foreach (var i in nodes)
+            {
+                var c = new XElement(gr);
+                e.Add(c);
+                foreach (var k in i)
+                {
+                    var ite = new XElement(it);
+                    c.Add(ite);
+                    ite.SetAttributeValue(id, k.Key);
+                    var s = Convert(k.Value, converter);
+                    ite.Add(s);
+                }
+            }
+            return e;
         }
 
         

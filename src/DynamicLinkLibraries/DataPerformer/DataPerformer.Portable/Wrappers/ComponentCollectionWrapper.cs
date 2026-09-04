@@ -1,19 +1,14 @@
 ﻿using DataPerformer.Interfaces;
-using Diagram.UI;
 using Diagram.UI.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace DataPerformer.Portable.Wrappers
 {
     /// <summary>
     /// Wrapper of component collection
     /// </summary>
-    public  class ComponentCollectionWrapper
+    public  class ComponentCollectionWrapper : CommonWrapper
     {
         /// <summary>
         /// The Component collection
@@ -29,60 +24,6 @@ namespace DataPerformer.Portable.Wrappers
             ComponentCollection = componentCollection;
         }
 
-
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="consumer">Consumer name</param>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <returns>Document</returns>
-    /*!!!    public XmlDocument CreateXmlDocument(string consumer,
-            XmlDocument input, double start, double step, int count)
-        {
-            var desktop = ComponentCollection as IDesktop;
-            var c = desktop.GetObject(consumer) as IDataConsumer;
-            var wrapper = new DataConsumerWrapper(c);
-            return wrapper.CreateXmlDocument(input, start, step, count);
-        }*/
-
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <returns>Document</returns>
-      /* !!!  public XmlDocument CreateXmlDocument(XmlDocument input, double start, double step, int count)
-        {
-            string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
-            return CreateXmlDocument(consumer, input, start, step, count);
-        }*/
-
-        /// <summary>
-        /// Creates Xml document
-        /// </summary>
-        /// <param name="input">Input</param>
-        /// <returns>Document</returns>
-      /* !!! public XmlDocument CreateXmlDocument(XmlDocument input)
-        {
-            string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
-            XmlElement p = input.GetElementsByTagName("Interval")[0] as XmlElement;
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            foreach (XmlElement e in p.ChildNodes)
-            {
-                d[e.Name] = e.InnerText;
-            }
-            double a = 0;
-            double start = (double)d["Start"].FromString(a);
-            double step = (double)d["Step"].FromString(a);
-            double finish = (double)d["Finish"].FromString(a);
-            int count = (int)((finish - start) / step);
-            return CreateXmlDocument(consumer, input, start, step, count);
-        }*/
 
 
         /// <summary>

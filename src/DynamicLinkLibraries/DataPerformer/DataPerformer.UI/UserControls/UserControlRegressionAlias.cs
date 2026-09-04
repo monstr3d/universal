@@ -39,7 +39,7 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                return Double.Parse(textBoxDelta.Text);
+                return double.Parse(textBoxDelta.Text);
             }
             set
             {
@@ -52,7 +52,7 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-                return Double.Parse(textBoxSigma.Text);
+                return double.Parse(textBoxSigma.Text);
             }
             set
             {

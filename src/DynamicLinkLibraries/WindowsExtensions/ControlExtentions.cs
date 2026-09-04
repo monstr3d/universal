@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsExtensions.Interfaces;
 
@@ -141,6 +143,17 @@ namespace WindowsExtensions
         #endregion
 
         #region Invoke if needed 
+
+        /// <summary>
+        /// Invokes action if needed
+        /// </summary>
+        /// <param name="control">Control</param>
+        /// <param name="doit">Action</param>
+        public static async Task InvokeIfNeededAsync(this Control control, Action doit, CancellationToken token)
+        {
+            await extension.InvokeIfNeededAsync(control, doit, token);
+        }
+
 
         /// <summary>
         /// Invokes action if needed

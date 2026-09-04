@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
-using DataPerformer.Portable.Interfaces;
 
 using Diagram.UI;
 using Diagram.UI.Aliases;
@@ -10,14 +9,14 @@ using Diagram.UI.Labels;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable.Wrappers
 {
     /// <summary>
     /// Performer of operations
     /// </summary>
-    public class Performer
+    public class Performer : Portable.Performer
     {
         /// <summary>
         /// Finds Alias name object
@@ -108,8 +107,6 @@ namespace DataPerformer.Portable.Wrappers
             return null;
 
         }
-
-
 
         /// Finds alias 
         /// </summary>

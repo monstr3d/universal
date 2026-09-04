@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CategoryTheory;
 
 using Diagram.UI.Labels;
 
-using Event.Basic.Events;
 using Event.Basic.Data.Events;
 
 using Event.UI.UserControls;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.UI.Labels
 {

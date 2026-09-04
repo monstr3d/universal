@@ -105,7 +105,7 @@ namespace Motion6D.UI.Forms
                 double[] p = new double[3];
                 for (int i = 0; i < 3; i++)
                 {
-                    p[i] = Double.Parse(coord[i].Text);
+                    p[i] = double.Parse(coord[i].Text);
                 }
                 return p;
             }
@@ -136,7 +136,7 @@ namespace Motion6D.UI.Forms
                 double[] p = frame.RelativePosition;
                 for (int i = 0; i < 3; i++)
                 {
-                    p[i] = Double.Parse(coord[i].Text);
+                    p[i] = double.Parse(coord[i].Text);
                 }
                 frame.Init();
             }
@@ -154,7 +154,7 @@ namespace Motion6D.UI.Forms
             try
             {
                 double[] p = Coordinates;
-                double a = Double.Parse(textBoxRot.Text);
+                double a = double.Parse(textBoxRot.Text);
                 double[,] m = Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 Fill(m);
             }

@@ -1,14 +1,15 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Runtime;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
-using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable.Advanced.Accumulators
 {

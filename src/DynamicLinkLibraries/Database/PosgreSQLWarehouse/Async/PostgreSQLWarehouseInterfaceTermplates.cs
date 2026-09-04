@@ -1,7 +1,7 @@
-﻿using DataWarehouse.Interfaces;
+﻿using System.Data;
+using DataWarehouse.Interfaces;
 using ErrorHandler;
 using Npgsql;
-using System.Data;
 
 namespace PostgreSQLWarehouse.Async
 {

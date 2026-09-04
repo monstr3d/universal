@@ -22,7 +22,7 @@ namespace Localization.Helper
         public static double Convert(this string str)
         {
             string s = str.Replace(".", DecimalSeparator);
-            return Double.Parse(s);
+            return double.Parse(s);
         }
 
         /// <summary>

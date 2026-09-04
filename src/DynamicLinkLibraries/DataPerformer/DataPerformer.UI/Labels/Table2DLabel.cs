@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Windows.Forms;
 using CategoryTheory;
-using DataPerformer;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer.UI.Labels

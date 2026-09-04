@@ -16,6 +16,7 @@ using DataSetService.Forms;
 using ResourceService;
 using DataPerformer.UI;
 using Diagram.UI.Interfaces;
+using DataSetService.Pure.Interfaces;
 
 
 namespace Database.UI.Forms

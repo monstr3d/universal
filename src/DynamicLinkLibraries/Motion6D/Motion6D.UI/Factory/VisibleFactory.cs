@@ -16,6 +16,7 @@ using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable;
+using System.Threading.Tasks;
 
 namespace Motion6D.UI.Factory
 {
@@ -63,13 +64,14 @@ namespace Motion6D.UI.Factory
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
             string kind = button.Kind; // Kind of the object
             Type type = button.ReflectionType;
+            ICategoryObject categoryObject = null;
             if (type.IsSubclassOf(typeof(Camera)))
             {
-                return factory.NewCamera();
+                categoryObject = factory.NewCamera();
             }
             if (type.Equals(typeof(SerializablePosition)))
             {
@@ -83,10 +85,14 @@ namespace Motion6D.UI.Factory
                         IPositionObject po = ob as IPositionObject;
                         po.Position = pos;
                     }
-                    return pos;
+                    categoryObject = pos;
                 }
             }
-            return null;
+            if (categoryObject == null)
+            {
+                return null;
+            }
+            return Task.FromResult(categoryObject); 
         }
 
         /// <summary>

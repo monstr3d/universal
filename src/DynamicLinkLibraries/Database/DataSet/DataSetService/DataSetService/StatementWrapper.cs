@@ -1,15 +1,11 @@
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using System.Data.Common;
 using System.Runtime.Serialization;
-
-
-using CategoryTheory;
-
-using Diagram.UI;
-using ErrorHandler;
 
 namespace DataSetService
 {
@@ -17,7 +13,7 @@ namespace DataSetService
     /// Wrapper of statement
     /// </summary>
     [Serializable()]
-    public class StatementWrapper : AbstractDataProvider, IDisposable
+    public class StatementWrapper : Pure.StatementWrapper, ISerializable
     {
 
         #region Fields
@@ -65,8 +61,25 @@ namespace DataSetService
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
         private StatementWrapper(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
+            connectionString = info.GetValue("ConnectionString", typeof(string)) + "";
+            statement = info.GetValue("Statement", typeof(string)) + "";
+            try
+            {
+                desktop = info.GetValue("Desktop", typeof(object)) as IDataSetDesktop;
+            }
+            catch (Exception ex)
+            {
+                ex.HandleException(-1);
+            }
+            try
+            {
+                parameters = info.GetValue("Parameters", typeof(Dictionary<string, string>)) as Dictionary<string, string>;
+            }
+            catch (Exception exc)
+            {
+                exc.HandleException(10);
+            }
             factoryName = info.GetValue("FactoryName", typeof(string)) + "";
             Init(info, context);
         }
@@ -81,30 +94,24 @@ namespace DataSetService
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            base.GetObjectData(info, context);
+            info.AddValue("ConnectionString", connectionString);
+            info.AddValue("Statement", statement);
+            info.AddValue("Parameters", parameters, typeof(Dictionary<string, string>));
+            if (desktop != null)
+            {
+                if (desktop is ISerializable)
+                {
+                    info.AddValue("Desktop", desktop);
+                }
+            }
             info.AddValue("FactoryName", factoryName);
         }
 
         #endregion
 
-        #region Members
         
-        /// <summary>
-        /// Schema of dataset
-        /// </summary>
-        public DataSet Schema
-        {
-            get
-            {
-                IDataSetFactory factory = DataSetFactoryChooser.Chooser[factoryName];
-                DbConnection connection = factory.Connection;
-                connection.ConnectionString = connectionString.ConvertConnectionString();
-                return factory.GetData(connection);
-            }
-        }
-
         /// <summary>
         /// Provided data set
         /// </summary>
@@ -180,18 +187,6 @@ namespace DataSetService
             adapter.SelectCommand = command;
         }
 
-        #endregion
-
-        #region IRemovableObject Members
-
-        void IDisposable.Dispose()
-        {
-            if (dataSet != null)
-            {
-                dataSet.Dispose();
-            }
-        }
-
-        #endregion
+ 
     }
 }

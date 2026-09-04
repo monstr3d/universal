@@ -10,7 +10,7 @@ using BaseTypes;
 
 
 using Localization.Helper;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Regression.Portable;

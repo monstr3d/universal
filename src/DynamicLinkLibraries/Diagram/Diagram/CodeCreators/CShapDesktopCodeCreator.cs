@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 
 using BaseTypes.Attributes;
+
 using CategoryTheory;
+
 using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 
@@ -32,5 +34,11 @@ namespace Diagram.UI.CodeCreators
             dictionary = performer.Enumerate(collection);
             return collection.CreateInitDesktopCSharpCode(namespacE, className, staticClass);
         }
+
+        protected virtual Dictionary<object, string> Loaded { get; } = new Dictionary<object, string>();
+
+        Dictionary<object, string> IDesktopCodeCreator.Loaded => Loaded;
+
+
     }
 }

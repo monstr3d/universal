@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
@@ -14,7 +12,7 @@ using DataPerformer.Interfaces;
 
 using RealMatrixProcessor;
 using DataPerformer.Portable.Measurements;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Helpers
 {

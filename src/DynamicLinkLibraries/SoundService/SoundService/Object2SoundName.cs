@@ -8,7 +8,7 @@ using CategoryTheory;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using DataPerformer.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace SoundService
 {

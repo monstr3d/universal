@@ -1,6 +1,6 @@
 ﻿using System;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataWarehouse.Interfaces

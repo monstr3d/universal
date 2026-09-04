@@ -13,7 +13,7 @@ using ErrorHandler;
 
 using Motion6D.Drawing.Interfaces;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 using SerializationInterface;
 

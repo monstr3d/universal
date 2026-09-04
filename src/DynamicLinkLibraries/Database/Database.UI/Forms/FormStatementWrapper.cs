@@ -23,6 +23,8 @@ using DataPerformer.UI;
 using Diagram.UI.Interfaces;
 using Database.UI.Labels;
 using ErrorHandler;
+using DataSetService.Pure.Interfaces;
+using DataSetService.Pure;
 
 namespace Database.UI.Forms
 {
@@ -30,7 +32,7 @@ namespace Database.UI.Forms
     {
         IObjectLabel label;
 
-        StatementWrapper provider;
+        DataSetService.Pure.StatementWrapper provider;
 
         UserControlControlDatabaseDriver udd;
       //!!!TEMP  UserControlControlDatabaseDriverWeb uddw;
@@ -52,11 +54,11 @@ namespace Database.UI.Forms
         {
             ResourceService.Resources.LoadControlResources(this, Database.UI.Utils.ControlUtilites.Resources);
             this.label = label;
-            provider = label.Object as StatementWrapper;
+            provider = label.Object as DataSetService.Pure.StatementWrapper;
             this.showNumberDelegate = showNumber;
             this.showTableDelegate = showTable;
             this.show = show;
-            if (provider.GetType().Equals(typeof(StatementWrapper)))
+            if (provider.GetType().Equals(typeof(DataSetService.StatementWrapper)))
             {
                 udd = new UserControlControlDatabaseDriver();
                 udd.Dock = DockStyle.Fill;

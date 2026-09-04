@@ -1,0 +1,170 @@
+﻿@using OnlineGameConverter.Server.Classes.Orbital
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model OrbitalForecastConditionDateTime
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="body-main">
+    <font color="green"> <p><h1>Obrital forecast</h1></font></p>
+    <form asp-action="OrbitalMVCForm" method="post" class="m-2">
+        <dl>
+            <dt>
+                <table class="fon-index" width="90%" border="1">
+                    <tr>
+                        <td>Parameter</td>
+                        <td>Value</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Begin"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="Begin" asp-for="Begin"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="End"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="End"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="X"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="X" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Y"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="Y" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Z"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="Z"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Vx"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="Vx"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Vy"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="Vy"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Vz"></label>
+                        </td>
+                        <td>
+                            <input class="form-control" asp-for="Vz"  />
+                        </td>
+                    </tr>
+                </table>
+            </dt>
+        </dl>
+        <input asp-page-handler="Start" class="btnsumbit-filter-index"
+               type="submit" value="Start" />
+
+        @{
+            var items = Model.Items;
+            if (items.Any())
+            {
+                <table>
+
+                    @foreach (var item in items)
+                    {
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        @{
+                                            var dt = item.DateTime;
+                                            <td>Time </td>
+                                            <td>@dt</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            var x = item.X;
+                                            <td>X</td>
+                                            <td>@x</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            var y = item.Y;
+                                            <td>Y</td>
+                                            <td>@y</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            var z = item.Z;
+                                            <td>Z</td>
+                                            <td>@z</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            var Vx = item.Vx;
+                                            <td>Vx</td>
+                                            <td>@Vx</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            var Vy = item.Vy;
+                                            <td>Vy</td>
+                                            <td>@Vy</td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            <td>Vz</td>
+                                            <td>@item.Vz</td>
+                                        }
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        }
+
+
+    </form>
+
+
+</body>
+</html>
+

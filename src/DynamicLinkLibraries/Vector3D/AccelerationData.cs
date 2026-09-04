@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vector3D.Interfaces;
+﻿using Vector3D.Interfaces;
 
 namespace Vector3D
 {

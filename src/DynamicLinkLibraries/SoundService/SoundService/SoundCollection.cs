@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
@@ -7,7 +8,7 @@ using DataPerformer.Portable;
 using Diagram.UI;
 using ErrorHandler;
 using Event.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 using SoundService.Interfaces;
 
 namespace SoundService

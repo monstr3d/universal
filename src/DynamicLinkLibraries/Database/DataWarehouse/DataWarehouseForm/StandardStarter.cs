@@ -1,8 +1,10 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Diagnostics;
-
+using BaseTypes.Interfaces;
 using DataWarehouse.Interfaces;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DataWarehouse
 {
@@ -49,19 +51,6 @@ namespace DataWarehouse
             {
                 return null;
             }
-            set
-            {
-                if (!start.ContainsKey(ext))
-                {
-                    return;
-                }
-                string cmd = start[ext];
-                string fn = directory + "0." + ext;
-                Stream stream = File.OpenWrite(fn);
-                stream.Write(value, 0, value.Length);
-                stream.Close();
-                Process.Start(cmd, fn);
-            }
         }
 
         string IBlob.Extension
@@ -74,6 +63,26 @@ namespace DataWarehouse
             {
                 ext = value.ToLower().Trim();
             }
+        }
+
+        Task IBlob.SetBytesAsync(byte[] bytes, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(Ask);
+        }
+
+        void Ask(byte[] bytes, CancellationToken cancellationToken)
+        {
+            if (!start.ContainsKey(ext))
+            {
+                return;
+            }
+            string cmd = start[ext];
+            string fn = directory + "0." + ext;
+            using Stream stream = File.OpenWrite(fn);
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Close();
+            Process.Start(cmd, fn);
+
         }
 
         #endregion

@@ -69,9 +69,9 @@ namespace Motion6D.UI.UserControls
         {
             try
             {
-                forecast.CoordinateError = Double.Parse(textBoxCoordinate.Text);
-                forecast.AngleError = Double.Parse(textBoxAngle.Text) * Math.PI / 180;
-                forecast.ForecastTime = TimeSpan.FromSeconds(Double.Parse(textBoxForecastTime.Text));
+                forecast.CoordinateError = double.Parse(textBoxCoordinate.Text);
+                forecast.AngleError = double.Parse(textBoxAngle.Text) * Math.PI / 180;
+                forecast.ForecastTime = TimeSpan.FromSeconds(double.Parse(textBoxForecastTime.Text));
             }
             catch (Exception exception)
             {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel;
 using System.Text;
 using System.Xml;
 
@@ -19,7 +20,7 @@ namespace Abstract3DConverters
 
         NamedTree.Performer performer = new NamedTree.Performer();
 
-        protected static readonly char[] sep = "\r\n ".ToCharArray();
+        protected static  char[] sep = "\r\n ".ToCharArray();
 
         Func<string, bool> checkFile;
 
@@ -27,8 +28,14 @@ namespace Abstract3DConverters
 
         #endregion
 
-
         #region Cror
+
+        static Service()
+        {
+            var sr = new string(sep);
+            sr += ",";
+            sep = sr.ToCharArray();
+        }
 
         /// <summary>
         /// Changes path of image
@@ -108,7 +115,6 @@ namespace Abstract3DConverters
         }
 
         #endregion
-
 
         #region Public Members
 
@@ -953,7 +959,7 @@ namespace Abstract3DConverters
         /// <param name="str">The string</param>
         /// <returns>The array</returns>
         public T[] ToRealArray<T>(string str) where T : struct
-        {
+        { 
             string[] ss = str.Split(sep);
             var l = new List<T>();
             foreach (string s in ss)

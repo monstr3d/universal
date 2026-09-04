@@ -4,7 +4,7 @@ using DataWarehouse.Interfaces;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace PostgreSQLWarehouse
 {
@@ -148,6 +148,21 @@ namespace PostgreSQLWarehouse
         void SetDescription(string description)
         {
             throw new OwnNotImplemented();
+        }
+
+        public override bool Check(INamed named)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Add(INamed named)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Remove(INamed named)
+        {
+            throw new NotImplementedException();
         }
     }
 }

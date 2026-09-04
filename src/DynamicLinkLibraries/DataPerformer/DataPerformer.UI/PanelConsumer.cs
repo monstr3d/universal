@@ -1,13 +1,10 @@
-using CategoryTheory;
-using DataPerformer;
-using DataPerformer.Interfaces;
-using NamedTree;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+
+using DataPerformer.Interfaces;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.UI
 {

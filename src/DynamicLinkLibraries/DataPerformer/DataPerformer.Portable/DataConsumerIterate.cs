@@ -1,6 +1,5 @@
-﻿using System;
-
-using DataPerformer.Interfaces;
+﻿using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {
@@ -31,8 +30,8 @@ namespace DataPerformer.Portable
 
         void IIteratorConsumer.Add(IIterator iterator)
         {
-            if (iterator == null) throw new ArgumentNullException();
-            if (this.iterator != null) throw new ArgumentException();
+            if (iterator == null) throw new OwnArgumentNullException();
+            if (this.iterator != null) throw new OwnArgumentException();
             this.iterator = iterator;
         }
 

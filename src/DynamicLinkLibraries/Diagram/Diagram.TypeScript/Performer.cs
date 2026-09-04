@@ -1,4 +1,5 @@
 ﻿using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI.TypeScript
 {
@@ -7,6 +8,19 @@ namespace Diagram.UI.TypeScript
     {
 
         public Performer() : base() { }
+
+
+        public  List<string> CreatePure(string preffix, string name)
+        {
+            var l = new List<string>();
+            var s = ClassString(preffix, name);
+            l.Add(s);
+            l.Add("{");
+            AddObjectConstructor(l);
+            l.Add("\t}");
+            l.Add("}");
+            return l;
+        }
 
 
         public void AddObjectConstructor(List<string> l)
@@ -29,21 +43,30 @@ namespace Diagram.UI.TypeScript
      
         public string StringValue(object o)
         {
-            if (o == null)
+            Exception exception = null;
+            try
             {
+                if (o == null)
+                {
 
+                }
+                Type t = o.GetType();
+                if (t.Equals(typeof(double)))
+                {
+                    double a = (double)o;
+                    return DoubleToString(a);
+                }
+                if (t.Equals(typeof(bool)))
+                {
+                    return ((bool)o) ? "true" : "false";
+                }
+                return o + "";
             }
-            Type t = o.GetType();
-            if (t.Equals(typeof(double)))
+            catch (Exception ex)
             {
-                double a = (double)o;
-                return DoubleToString(a);
+                exception = ex;
             }
-            if (t.Equals(typeof(bool)))
-            {
-                return ((bool)o) ? "true" : "false";
-            }
-            return o + "";
+            throw IncludedException.Get(exception);
         }
 
         /// <summary>
@@ -74,6 +97,20 @@ namespace Diagram.UI.TypeScript
             {
                 l.Add(id + ".push(\"" + item + "\");");
             }
+            return l;
+        }
+
+        public List<string> Get(string id, double[] x)
+        {
+            var l = new List<string>();
+            var r = "\tthis." + id;
+            l.Add(r + " = [];");
+            foreach (var v in x)
+            {
+                var s = DoubleToString(v);
+                l.Add(r + ".push(" + s + ");");
+            }
+            l.Add("");
             return l;
         }
 
@@ -134,10 +171,7 @@ namespace Diagram.UI.TypeScript
             return l;
         }
 
-
-
-
-        public List<string> CreateTSAliasList(string id,  IAlias alias)
+       public List<string> CreateTSAliasList(string id,  IAlias alias)
         {
             List<string> l = new List<string>();
             var al = alias.AliasNames;

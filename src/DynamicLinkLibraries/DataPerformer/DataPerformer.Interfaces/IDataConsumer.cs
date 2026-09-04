@@ -1,5 +1,5 @@
 using System;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Interfaces
 {

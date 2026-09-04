@@ -10,6 +10,8 @@ using CategoryTheory;
 using MathGraph;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 
@@ -60,9 +62,9 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="bytes">Soure bytes</param>
         /// <returns>Thrue in success and false otherwise</returns>
-        protected override bool LoadDesktop(byte[] bytes)
+        protected override async Task<bool> LoadDesktop(byte[] bytes, CancellationToken ? token)
         {
-            return (desktop as PureDesktopPeer).Load(bytes, false);
+            return await (desktop as PureDesktopPeer).Load(bytes, false, token);
         }
     }
 

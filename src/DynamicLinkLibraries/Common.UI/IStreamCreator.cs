@@ -1,6 +1,6 @@
 using System.IO;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Common.UI
 {

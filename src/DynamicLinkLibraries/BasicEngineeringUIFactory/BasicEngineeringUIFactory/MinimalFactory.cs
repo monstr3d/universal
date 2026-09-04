@@ -16,6 +16,7 @@ using DataPerformer;
 using DataPerformer.UI;
 using DataPerformer.UI.Forms;
 using DataPerformer.Helpers;
+using System.Threading.Tasks;
 
 namespace BasicEngineering.UI.Factory
 {
@@ -54,19 +55,24 @@ namespace BasicEngineering.UI.Factory
         /// </summary>
         /// <param name="button">Corresponding button</param>
         /// <returns>The object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
             var type = button.ReflectionType;
             var kind = button.Kind;
+            ICategoryObject categoryObject = null;
             if (type.Equals(typeof(DataConsumer)))
             {
-                return new DataConsumer(0);
+                categoryObject = new DataConsumer(0);
             }
             if (type.Equals(typeof(DataPerformer.Base.Filters.FilterWrapper)))
             {
-                return new DataPerformer.Base.Filters.FilterWrapper(0);
+               categoryObject = new DataPerformer.Base.Filters.FilterWrapper(0);
             }
-            return null;
+            if (categoryObject == null)
+            {
+                return null;
+            }
+            return Task.FromResult(categoryObject);
         }
 
 

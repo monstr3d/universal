@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -104,15 +105,18 @@ namespace Diagram.UI.Zip
         }
 
 
-        private void DragDrop(object sender, DragEventArgs e)
+        private async void  DragDrop(object sender, DragEventArgs e)
         {
+            var ct = new CancellationToken();
             if (Detect(e))
             {
                 if (dictionary.Count == 1)
                 {
                     foreach (byte[] b in dictionary.Values)
                     {
-                        desktop.Load(b);
+                        var d = new PureDesktopPeer();
+
+                        await desktop.Load(b, ct);
                     }
                     return;
                 }

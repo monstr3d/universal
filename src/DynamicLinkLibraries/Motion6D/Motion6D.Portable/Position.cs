@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-using CategoryTheory;
 using Motion6D.Interfaces;
+
 using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D.Portable
 {
@@ -210,7 +210,7 @@ namespace Motion6D.Portable
             {
                 if (parent == null)
                 {
-                    return Motion6D.Motion6DFrame.Base;
+                    return Motion6DFrame.Base;
                 }
                 return parent.Own;
             }

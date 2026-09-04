@@ -1,25 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-
-using BaseTypes.Interfaces;
-
+﻿using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
-
+using DataPerformer.Portable.Comparation;
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Attributes;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-
-using NamedTree;
-
 using ErrorHandler;
+using NamedTree.Interfaces;
+
+using System;
+using System.Collections.Generic;
 
 
 namespace DataPerformer.Portable
 {
     public class Performer : DataPerformer.Interfaces.Performer
     {
+        MeasurementsComparer measurementsComparer = new();
+
+        /// <summary>
+        /// Gets ditcionary of measurements
+        /// </summary>
+        /// <param name="consumer">The consumer</param>
+        /// <returns>The dictionary</returns>
+        public Dictionary<string, IMeasurement> GetMeasuremetDictionary(IDataConsumer consumer)
+        {
+            var d = new Dictionary<string, IMeasurement>();
+            for (var i = 0; i < consumer.Count; i++)
+            {
+                var mm = consumer[i];
+                var name = GetRelativeName(consumer as IAssociatedObject, mm as IAssociatedObject) + ".";
+                for (var j = 0; j < mm.Count; j++)
+                {
+                    var m = mm[j];
+                    d[name + m.Name] = m;
+                }
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Gets dependent measurements
+        /// </summary>
+        /// <param name="measurements">Source</param>
+        /// <param name="list">Dependent objects</param>
+        /// <param name="dependent">Dependent measurements</param>
+        public  void GetDependentMeasurements(IEnumerable<IMeasurements> measurements,
+            List<object> list, List<IMeasurements> dependent)
+        {
+            dependent.Clear();
+            list.Clear();
+            foreach (IMeasurements m in measurements)
+            {
+                if (m is IRuntimeUpdate)
+                {
+                    if (!(m as IRuntimeUpdate).ShouldRuntimeUpdate)
+                    {
+                        continue;
+                    }
+                }
+                dependent.Insert(0, m);
+                if (m is IDataConsumer)
+                {
+                    (m as IDataConsumer).GetDependentObjects(list);
+                    foreach (object o in list)
+                    {
+                        if (o is IMeasurements)
+                        {
+                            IMeasurements mm = o as IMeasurements;
+                            if (!dependent.Contains(mm))
+                            {
+                                dependent.Insert(0, mm);
+                            }
+                        }
+                    }
+                }
+            }
+            SortMeasurements(dependent);
+        }
+
+
+
+
+        /// <summary>
+        /// Gets dependent objects
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="list">Objects</param>
+        /// <param name="dependent">Dependent objects</param>
+        public void GetDependent(IDataConsumer consumer,
+            List<object> list, List<IMeasurements> dependent)
+        {
+           GetDependent(GetMeasurements(consumer), list, dependent);
+        }
+
+        /// <summary>
+        /// Sorts measurements
+        /// </summary>
+        /// <param name="measurements">Measurements for sort</param>
+        public void SortMeasurements(List<IMeasurements> measurements)
+        {
+            ClearDoubleObjectsFormList(measurements);
+            SortPatriallyOrderedSet(measurements, measurementsComparer);
+        }
 
         Type tvcc = typeof(IVariablesCodeCreator);
 
@@ -87,7 +171,7 @@ namespace DataPerformer.Portable
                     }
                 }
             }
-            return null; 
+            return null;
         }
 
         /// <summary>
@@ -118,15 +202,15 @@ namespace DataPerformer.Portable
                 }
             }
         }
-       
-        
+
+
         /// <summary>
         /// Gets dependent measurements
         /// </summary>
         /// <param name="measurements">Source</param>
         /// <param name="list">Dependent objects</param>
         /// <param name="dependent">Dependent measurements</param>
-        public  void GetDependent(IEnumerable<IMeasurements> measurements,
+        public void GetDependent(IEnumerable<IMeasurements> measurements,
             List<object> list, List<IMeasurements> dependent)
         {
             dependent.Clear();
@@ -157,7 +241,23 @@ namespace DataPerformer.Portable
                     }
                 }
             }
-            dependent.SortMeasurements();
+            SortMeasurements(dependent);
+        }
+
+        /// <summary>
+        /// Gets measurements of data consumer
+        /// </summary>
+        /// <param name="consumer">Consumer</param>
+        /// <returns>Measurements</returns>
+        public  List<IMeasurements> GetMeasurements(IDataConsumer consumer)
+        {
+            int n = consumer.Count;
+            List<IMeasurements> l = new List<IMeasurements>();
+            for (int i = 0; i < n; i++)
+            {
+                l.Add(consumer[i]);
+            }
+            return l;
         }
 
 
@@ -225,7 +325,7 @@ namespace DataPerformer.Portable
         /// <returns>Initial value</returns>
         public IInitialValue InitialValue(IAlias alias, IMeasurement measurement)
         {
-            if (measurement is  IValue measurementValue)
+            if (measurement is IValue measurementValue)
             {
                 var attr = GetAttribute<CodeCreatorAttribute>(measurement);
                 if (attr != null)
@@ -276,7 +376,7 @@ namespace DataPerformer.Portable
         /// <param name="desktop">Desktop</param>
         /// <param name="alias">Alias name</param>
         /// <returns>Alias</returns>
-        public  AliasName FindAliasName( IDataConsumer consumer,
+        public AliasName FindAliasName(IDataConsumer consumer,
             IDesktop desktop, string alias)
         {
             string ali = alias;
@@ -306,7 +406,7 @@ namespace DataPerformer.Portable
         /// <param name="desktop">Desktop</param>
         /// <param name="alias">Alias name</param>
         /// <returns>Alias</returns>
-        public  object[] FindAlias(IDataConsumer consumer, IDesktop desktop, string alias)
+        public object[] FindAlias(IDataConsumer consumer, IDesktop desktop, string alias)
         {
             for (int i = 0; i < consumer.Count; i++)
             {
@@ -351,7 +451,25 @@ namespace DataPerformer.Portable
         }
 
 
-
-
+        /// <summary>
+        /// Resets data consumer and all depenent objects
+        /// </summary>
+        /// <param name="consumer">The consumer</param>
+        public void FullReset(IDataConsumer consumer)
+        {
+            if (consumer is IMeasurements mea)
+            {
+                mea.IsUpdated = false;
+            }
+            for (int i = 0; i < consumer.Count; i++)
+            {
+                var m = consumer[i];
+                m.IsUpdated = false;
+                if (m is IDataConsumer c)
+                {
+                    c.Reset();
+                }
+            }
+        }
     }
 }

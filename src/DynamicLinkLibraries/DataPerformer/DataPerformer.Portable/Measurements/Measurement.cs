@@ -7,7 +7,7 @@ using DataPerformer.Interfaces;
 
 using Diagram.UI;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable.Measurements
 {

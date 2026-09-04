@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 
 using Event.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Event.Basic.Events

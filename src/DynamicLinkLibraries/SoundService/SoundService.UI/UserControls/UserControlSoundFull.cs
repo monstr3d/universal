@@ -26,7 +26,7 @@ namespace SoundService.UI.UserControls
             InitializeComponent();
             userControlSoundCollection.OnAccept += () =>
             {
-                acceptTest(Double.Parse(textBoxStart.Text), Double.Parse(textBoxStep.Text), Int32.Parse(textBoxStepCount.Text));
+                acceptTest(double.Parse(textBoxStart.Text), double.Parse(textBoxStep.Text), Int32.Parse(textBoxStepCount.Text));
             };
         }
 

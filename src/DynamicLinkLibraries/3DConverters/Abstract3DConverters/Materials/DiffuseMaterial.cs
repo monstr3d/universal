@@ -42,14 +42,11 @@ namespace Abstract3DConverters.Materials
 
             }
             AmbientColor = ambient;
-            Color = color;
+            this.Color = color;
         }
 
         #endregion
-
- 
-        public Color Color { get; private set; }
-
+    
 
         public Color AmbientColor { get; private set; }
 

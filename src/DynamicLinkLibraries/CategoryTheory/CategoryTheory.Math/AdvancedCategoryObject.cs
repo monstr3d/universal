@@ -1,4 +1,4 @@
-﻿using NamedTree;
+﻿using NamedTree.Interfaces;
 
 namespace CategoryTheory.Math
 {

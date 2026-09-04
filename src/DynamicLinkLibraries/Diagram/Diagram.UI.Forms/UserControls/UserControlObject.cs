@@ -13,6 +13,7 @@ using CategoryTheory;
 using Diagram.UI.Labels;
 using ErrorHandler;
 using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.UserControls
 {

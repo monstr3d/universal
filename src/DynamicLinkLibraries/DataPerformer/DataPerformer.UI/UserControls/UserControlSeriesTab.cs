@@ -261,8 +261,8 @@ namespace DataPerformer.UI.UserControls
             try
             {
                 CreateTree();
-                double start = Double.Parse(textBoxStart.Text);
-                double step = Double.Parse(textBoxStep.Text);
+                double start = double.Parse(textBoxStart.Text);
+                double step = double.Parse(textBoxStep.Text);
                 int stepCount = Int32.Parse(textBoxStepCount.Text);
                 double[,] xy = new double[stepCount, 2];
                 for (int i = 0; i < stepCount; i++)

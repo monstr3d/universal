@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 using BaseTypes.Attributes;
 using BaseTypes.CodeCreator.Interfaces;
+
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Attributes;
 using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Diagram.UI
 {
@@ -24,8 +30,54 @@ namespace Diagram.UI
     public class Performer : NamedTree.Performer
     {
 
+        public async Task Initialze(IComponentCollection components, CancellationToken cancellationToken)
+        {
+            var tasks = new List<Task>();
+            ForEach(components, (IInitializeTask task) => 
+            { tasks.Add(task.InitializeAsync(cancellationToken)); });
+            await Task.WhenAll(tasks);
+        }
 
-   
+        /// <summary>
+        /// Saves components
+        /// </summary>
+        /// <param name="saver"></param>
+        /// <param name="components"></param>
+        /// <param name="url"></param>
+        public void Save(ISaveDesktopInformation saver, IComponentCollection components, 
+            string url)
+        {
+            if (saver == null)
+            {
+                return;
+            }
+            if (saver.Save(components, url))
+            {
+                return;
+            }
+            var l = new List<object>();
+            components.ForAll((ICategoryObject o) =>
+            {
+                if (l.Contains(o))
+                {
+                    return;
+                }
+                saver.Save(o, url);
+                l.Add(o);
+
+            }, true);
+            components.ForAll((ICategoryArrow a) =>
+            {
+                if (l.Contains(a))
+                {
+                    return;
+                }
+                saver.Save(a, url);
+                l.Add(a);
+
+            }, true);
+        }
+
         /// <summary>
         /// Dictionary from alias
         /// </summary>
@@ -41,8 +93,6 @@ namespace Diagram.UI
             }
             return d;
         }
-
-
 
         readonly Type tclassdcc = typeof(IDesktopCodeCreator);
 
@@ -110,13 +160,15 @@ namespace Diagram.UI
             var att = GetAttribute<LanguageAttribute>(o);
             if (att == null)
             {
-                return null;
+                var rr = GetAttribute<AdditionalCodeLanguageAttribute>(o);
+                if (rr == null)
+                {
+                    return null;
+                }
+                return rr.Language;
             }
             return att.Language;
         }
-
-
-
 
         /// <summary>
         /// Gets relative name
@@ -145,7 +197,16 @@ namespace Diagram.UI
             out Dictionary<ICategoryArrow, int> arrows)
         {
             var lab = Get<IObjectLabel>(collection);
-            categoryObjects = (from ll in lab select ll.Object).ToList();
+            var l = new List<ICategoryObject>();
+            collection.ForEach((ICategoryObject co) =>
+            {
+                if (!l.Contains(co))
+                {
+                    l.Add(co);
+                }
+            }, true);
+            categoryObjects = l;
+           // categoryObjects = collection.ForEach< (from ll in lab select ll.Object).ToList();
             var al = Get<IArrowLabel>(collection);
             categoryArrows = (from la in al select la.Arrow).ToList(); 
             objects = new Dictionary<ICategoryObject, int>();
@@ -158,7 +219,6 @@ namespace Diagram.UI
             {
                 arrows[categoryArrows[i]] = i;
             }
-
         }
 
 
@@ -345,7 +405,6 @@ namespace Diagram.UI
             return nc.Desktop;
         }
 
-
         /// <summary>
         /// Gets root  name of an object
         /// </summary>
@@ -432,17 +491,12 @@ namespace Diagram.UI
         /// <param name="aliases">Dictionary of aliases</param>
         public void SetAliases(IDesktop desktop, Dictionary<string, object> aliases)
         {
-            IEnumerable<object> l = GetObjectsAndArrows<object>(desktop);
-            foreach (object o in l)
+            IEnumerable<IAlias> l = GetObjectsAndArrows<IAlias>(desktop);
+            foreach (var al in l)
             {
-                if (!(o is IAlias))
-                {
-                    continue;
-                }
-                IAssociatedObject ao = o as IAssociatedObject;
+                IAssociatedObject ao = al as IAssociatedObject;
                 INamedComponent nc = ao.Object as INamedComponent;
                 string name = nc.GetName(desktop);
-                IAlias al = o as IAlias;
                 IList<string> an = al.AliasNames;
                 foreach (string nam in an)
                 {
@@ -819,23 +873,42 @@ namespace Diagram.UI
                     Execute(t, action, find);
                     continue;
                 }
-                if (o is IObjectLabel)
+                if (o is IObjectLabel l)
                 {
-                    IObjectLabel l = o as IObjectLabel;
                     object obj = l.Object;
                     Execute(obj, action, find);
+                    if (obj is IChildren<T> children)
+                    {
+                        foreach (var child in children.Children)
+                        {
+                            if (child != null)
+                            {
+                                Execute(child, action, find);
+                            }
+                        }
+                    }
+                    if (obj is IChildren<ICategoryObject> co)
+                    {
+                        foreach (var child in co.Children)
+                        {
+                            if (child != null)
+                            {
+                                Execute(child, action, find);
+                            }
+                        }
+                    }
+
                 }
-                if (o is IArrowLabel)
+                if (o is IArrowLabel al)
                 {
-                    IArrowLabel l = o as IArrowLabel;
-                    object obj = l.Arrow;
+                    object obj = al.Arrow;
                     Execute(obj, action, find);
                 }
                 if (o is IAssociatedObject)
                 {
                     Execute(o, action, find);
                 }
-            }
+              }
         }
 
         /// <summary>
@@ -1416,16 +1489,25 @@ namespace Diagram.UI
                     var o = (a as IObjectLabel).Object;
                     if (o is T tt)
                     {
-                      Execute(tt, action, find);
+                        Execute(tt, action, find);
                     }
                     if (o is IObjectContainer)
                     {
                         ForAll((o as IObjectContainer).Desktop, action, find);
                     }
+                    if (o is IChildren<T> children)
+                    {
+                        foreach (var child in children.Children)
+                        {
+                            if (child != null)
+                            {
+                                Execute(child, action, find);
+                            }
+                        }
+                    }
                 }
             }
         }
-
  
 
         /// <summary>
@@ -2047,7 +2129,7 @@ namespace Diagram.UI
         /// <returns>Double</returns>
         public double ParseDouble(string str)
         {
-            return Double.Parse(str,
+            return double.Parse(str,
                 System.Globalization.CultureInfo.InvariantCulture);
         }
 

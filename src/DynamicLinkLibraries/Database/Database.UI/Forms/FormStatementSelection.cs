@@ -25,6 +25,8 @@ using DataPerformer.UI;
 using DataSetSerializable;
 using DataSetService.Forms;
 using ErrorHandler;
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
 
 
 
@@ -36,7 +38,7 @@ namespace Database.UI.Forms
     {
         IObjectLabel label;
 
-        StatementWrapper provider;
+        DataSetService.Pure.StatementWrapper provider;
         private FormStatementSelection()
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace Database.UI.Forms
             InitializeComponent();
             ResourceService.Resources.LoadControlResources(this, Database.UI.Utils.ControlUtilites.Resources);
             this.label = label;
-            provider = label.Object as StatementWrapper;
+            provider = label.Object as DataSetService.Pure.StatementWrapper;
             string[] d = DataSetFactoryChooser.Chooser.Names;
             foreach (string name in d)
             {

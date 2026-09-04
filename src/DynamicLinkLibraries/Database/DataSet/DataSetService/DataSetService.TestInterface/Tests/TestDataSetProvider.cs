@@ -1,7 +1,8 @@
 ﻿using System.Data;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
@@ -57,7 +58,7 @@ namespace DataSetService.TestInterface.Tests
             get
             {
                 var d = collection.GetObject<IDataSetProvider>(name).DataSet;
-                if  (data.ComputateDiff(d) == null)
+                if  (data.ComputeDiff(d) == null)
                 {
                     return new Tuple<bool, object>(true, "Success. Object - " + name);
                 }

@@ -125,7 +125,7 @@ namespace DataPerformer.UI.UserControls
             panel25 = new System.Windows.Forms.Panel();
             tabPageCadr = new System.Windows.Forms.TabPage();
             panel31 = new System.Windows.Forms.Panel();
-            userControlCadr = new Graph.UserControlCadr();
+            userControlCadr = new DataPerformer.UI.UserControls.Graph.UserControlCadr();
             panel32 = new System.Windows.Forms.Panel();
             panel33 = new System.Windows.Forms.Panel();
             panel34 = new System.Windows.Forms.Panel();
@@ -146,6 +146,7 @@ namespace DataPerformer.UI.UserControls
             showRuntimeIndicatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             backgroundWorkerReatimeAnalysis = new System.ComponentModel.BackgroundWorker();
             backgroundWorkerTextRealtimeAnalysis = new System.ComponentModel.BackgroundWorker();
+            checkBoxAllParameters = new System.Windows.Forms.CheckBox();
             panelCenter.SuspendLayout();
             panelDraw.SuspendLayout();
             tabControlMain.SuspendLayout();
@@ -608,28 +609,28 @@ namespace DataPerformer.UI.UserControls
             // 
             panelText.AutoScroll = true;
             panelText.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelText.Location = new System.Drawing.Point(5, 45);
+            panelText.Location = new System.Drawing.Point(5, 62);
             panelText.Margin = new System.Windows.Forms.Padding(4);
             panelText.Name = "panelText";
-            panelText.Size = new System.Drawing.Size(615, 262);
+            panelText.Size = new System.Drawing.Size(615, 245);
             panelText.TabIndex = 11;
             // 
             // panel9
             // 
             panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            panel9.Location = new System.Drawing.Point(620, 45);
+            panel9.Location = new System.Drawing.Point(620, 62);
             panel9.Margin = new System.Windows.Forms.Padding(4);
             panel9.Name = "panel9";
-            panel9.Size = new System.Drawing.Size(1, 262);
+            panel9.Size = new System.Drawing.Size(1, 245);
             panel9.TabIndex = 10;
             // 
             // panel7
             // 
             panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            panel7.Location = new System.Drawing.Point(4, 45);
+            panel7.Location = new System.Drawing.Point(4, 62);
             panel7.Margin = new System.Windows.Forms.Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new System.Drawing.Size(1, 262);
+            panel7.Size = new System.Drawing.Size(1, 245);
             panel7.TabIndex = 9;
             // 
             // panelTextBottom
@@ -651,18 +652,19 @@ namespace DataPerformer.UI.UserControls
             panel8.Location = new System.Drawing.Point(4, 4);
             panel8.Margin = new System.Windows.Forms.Padding(4);
             panel8.Name = "panel8";
-            panel8.Size = new System.Drawing.Size(617, 41);
+            panel8.Size = new System.Drawing.Size(617, 58);
             panel8.TabIndex = 6;
             // 
             // panel10
             // 
             panel10.ContextMenuStrip = contextMenuStripTextTab;
+            panel10.Controls.Add(checkBoxAllParameters);
             panel10.Controls.Add(comboBoxCond);
             panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             panel10.Location = new System.Drawing.Point(167, 6);
             panel10.Margin = new System.Windows.Forms.Padding(4);
             panel10.Name = "panel10";
-            panel10.Size = new System.Drawing.Size(439, 35);
+            panel10.Size = new System.Drawing.Size(439, 52);
             panel10.TabIndex = 23;
             // 
             // comboBoxCond
@@ -681,7 +683,7 @@ namespace DataPerformer.UI.UserControls
             panel11.Location = new System.Drawing.Point(606, 6);
             panel11.Margin = new System.Windows.Forms.Padding(4);
             panel11.Name = "panel11";
-            panel11.Size = new System.Drawing.Size(11, 35);
+            panel11.Size = new System.Drawing.Size(11, 52);
             panel11.TabIndex = 22;
             // 
             // panel12
@@ -692,7 +694,7 @@ namespace DataPerformer.UI.UserControls
             panel12.Location = new System.Drawing.Point(0, 6);
             panel12.Margin = new System.Windows.Forms.Padding(4);
             panel12.Name = "panel12";
-            panel12.Size = new System.Drawing.Size(167, 35);
+            panel12.Size = new System.Drawing.Size(167, 52);
             panel12.TabIndex = 21;
             // 
             // label7
@@ -811,7 +813,6 @@ namespace DataPerformer.UI.UserControls
             userControlTimeType.Name = "userControlTimeType";
             userControlTimeType.Size = new System.Drawing.Size(144, 26);
             userControlTimeType.TabIndex = 1;
-            userControlTimeType.TimeUnit = BaseTypes.Attributes.TimeType.Second;
             // 
             // label9
             // 
@@ -989,7 +990,6 @@ namespace DataPerformer.UI.UserControls
             userControlTimeUnitAnimation.Name = "userControlTimeUnitAnimation";
             userControlTimeUnitAnimation.Size = new System.Drawing.Size(175, 26);
             userControlTimeUnitAnimation.TabIndex = 41;
-            userControlTimeUnitAnimation.TimeUnit = BaseTypes.Attributes.TimeType.Second;
             // 
             // numericUpDownPause
             // 
@@ -1264,6 +1264,16 @@ namespace DataPerformer.UI.UserControls
             backgroundWorkerTextRealtimeAnalysis.DoWork += backgroundWorkerTextRealtimeAnalysis_DoWork;
             backgroundWorkerTextRealtimeAnalysis.RunWorkerCompleted += backgroundWorkerTextRealtimeAnalysis_RunWorkerCompleted;
             // 
+            // checkBoxAllParameters
+            // 
+            checkBoxAllParameters.AutoSize = true;
+            checkBoxAllParameters.Location = new System.Drawing.Point(10, 29);
+            checkBoxAllParameters.Name = "checkBoxAllParameters";
+            checkBoxAllParameters.Size = new System.Drawing.Size(106, 19);
+            checkBoxAllParameters.TabIndex = 1;
+            checkBoxAllParameters.Text = "All parametters";
+            checkBoxAllParameters.UseVisualStyleBackColor = true;
+            // 
             // UserControlGraph
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1294,6 +1304,7 @@ namespace DataPerformer.UI.UserControls
             contextMenuStripTextTab.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel10.ResumeLayout(false);
+            panel10.PerformLayout();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             tabPageRealTime.ResumeLayout(false);
@@ -1425,5 +1436,6 @@ namespace DataPerformer.UI.UserControls
         private Graph.UserControlCadr userControlCadr;
         private System.Windows.Forms.CheckBox checkBoxDirectoryIteration;
         private System.Windows.Forms.CheckBox checkBoxIterator;
+        private System.Windows.Forms.CheckBox checkBoxAllParameters;
     }
 }

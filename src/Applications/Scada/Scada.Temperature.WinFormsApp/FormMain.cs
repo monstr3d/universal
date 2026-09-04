@@ -21,12 +21,12 @@ namespace Scada.Temperature.WinFormsApp
         }
 
 
-        void CreateScada()
+        async void CreateScada()
         {
 
             StaticExtensionEventInterfaces.TimerEventFactory = Event.Windows.Forms.WindowsTimerFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
-            scada = Properties.Resources.temprerature_control.ScadaFromBytes("Chart",
+            scada = await Properties.Resources.temprerature_control.ScadaFromBytes("Chart",
                 BaseTypes.Attributes.TimeType.Second, false, null);
         }
     }

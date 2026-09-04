@@ -9,7 +9,7 @@ using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.Portable.Events
 {

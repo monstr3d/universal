@@ -9,10 +9,6 @@ namespace Abstract3DConverters.Meshes
     [CommonVetrices]
     class AbstractMeshObj : AbstractMeshPolygon
     {
-        Dictionary<int, int[]> Global
-        {
-            get;
-        } = new();
 
         internal int Shift
         {
@@ -32,7 +28,7 @@ namespace Abstract3DConverters.Meshes
             private set;
         }
 
-        List<Tuple<Effect, List<int[][]>>> Indexes
+        new List<Tuple<Effect, List<int[][]>>> Indexes
         {
             get;
             set;
@@ -42,7 +38,8 @@ namespace Abstract3DConverters.Meshes
         internal List<float[]> IntTextures { get; private set; }
         internal List<float[]> IntNormals { get; private set; }
 
-        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : base(parent, creator.MeshName, null, creator)
+        private AbstractMeshObj(AbstractMeshObj parent, Tuple<Effect, List<int[][]>> tuple, Obj3DCreator creator) : 
+            base(parent, creator.MeshName, null, creator)
         {
             try
             {
@@ -110,14 +107,6 @@ namespace Abstract3DConverters.Meshes
             try
             {
                 Effect = creator.Default;
-           /*     var el = creator.EffectList;
-                if (el != null)
-                {
-                    if (number < el.Count)
-                    {
-                        Effect = el[number];
-                    }
-                }*/
                 IntVertices = creator.Vertices;
                 IntTextures = creator.Textures;
                 IntNormals = creator.Normals;
@@ -197,7 +186,7 @@ namespace Abstract3DConverters.Meshes
         }
 
 
-
+/*
         internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(null, name, null, null, objCreator)
         {
             nextName = "";
@@ -394,6 +383,6 @@ namespace Abstract3DConverters.Meshes
             {
                 exception.HandleExceptionDouble("AbstractMeshObj 2");
             }
-        }
+        }*/
     }
 }

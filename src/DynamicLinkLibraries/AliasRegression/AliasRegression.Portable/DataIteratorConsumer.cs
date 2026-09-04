@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Regression.Portable
 {

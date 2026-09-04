@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Drawing;
 
@@ -13,7 +12,7 @@ using BitmapConsumer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace ImageTransformations
 {

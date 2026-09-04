@@ -1,11 +1,10 @@
 ﻿using BaseTypes.Attributes;
 using CategoryTheory;
-
 using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.TypeScript
 {
@@ -13,6 +12,7 @@ namespace Diagram.UI.TypeScript
     internal class DesktopCodeCreator : IDesktopCodeCreator
     {
         UI.Performer performer = new ();
+
  
         
         Performer p = new();
@@ -31,6 +31,12 @@ namespace Diagram.UI.TypeScript
 
         Tuple<Dictionary<ICategoryObject, int>, Dictionary<ICategoryArrow, int>> IDesktopCodeCreator.Enumeration => dictionary;
 
+        protected virtual Dictionary<object, string> Loaded { get; } = new Dictionary<object, string>();
+
+        Dictionary<object, string> IDesktopCodeCreator.Loaded => Loaded;
+
+
+
         public DesktopCodeCreator() { this.AddDesktopCodeCreator(); }
 
 
@@ -42,12 +48,15 @@ namespace Diagram.UI.TypeScript
         /// <param name="className">Name of desktop class</param>
         /// <param name="staticClass">The "static class" sign</param>
         /// <returns>The code</returns>
-        List<string> IDesktopCodeCreator.CreateCode(IComponentCollection desktop, string namespacE, string className, bool staticClass)
+        List<string> IDesktopCodeCreator.CreateCode(IComponentCollection desktop, string namespacE, 
+            string className, bool staticClass)
         {
             Exception ex;
+
             try
             {
-                this.collection = desktop;
+                Loaded.Clear();
+                collection = desktop;
                 dictionary = performer.Enumerate(desktop);
                 List<ICategoryObject> categoryObjects;
                 List<ICategoryArrow> categoryArrows;
@@ -55,17 +64,26 @@ namespace Diagram.UI.TypeScript
                 Dictionary<ICategoryArrow, int> arrows;
                 performer.Get(desktop, out categoryObjects, out categoryArrows, out objects, out arrows);
                 IClassCodeCreator classCodeCreator = performer.GetLaguageObject<IClassCodeCreator>(this);
-                    // StaticExtensionDiagramUI.Creators["TS"]
+                classCodeCreator.DesktopCodeCreator = this;
                 var l = new List<string>();
-                for (int i = 0; i < categoryObjects.Count; i++)
+                int j = 0;
+                foreach  (var categoryObject in categoryObjects)
                 {
-                    var categoryObject = categoryObjects[i];
-                    var pr = className + "_" + "CategoryObject_" + i;
+                    if (Loaded.ContainsKey(categoryObject))
+                    {
+                        continue;
+                    }
+                    var pr = className + "_" + "CategoryObject_" + j;
                     Current = pr;
                     var c = classCodeCreator.CreateCode(pr, categoryObject, null);
+                    if (!Loaded.ContainsKey(categoryObject))
+                    {
+                        Loaded[categoryObject] = pr;
+                    }
                     l.AddRange(c);
                     l.Add("");
-                }
+                    ++j;
+                 }
                 for (int i = 0; i < categoryArrows.Count; i++)
                 {
                     var categoryArrow = categoryArrows[i];
@@ -76,23 +94,45 @@ namespace Diagram.UI.TypeScript
                 }
                 l.Add("");
                 l.Add("");
+
                 var s = p.ClassString(className, "Desktop");
                 l.Add("export " + s);
                 l.Add("{");
-                l.Add("\tconstructor()");
-
+                l.Add("");
+                l.Add("\tpublic static async getDesktopAsync(controller : AbortController, factory?: IFactory): Promise<IDesktop> {");
+                l.Add("\t\tlet d = new " + className + "(factory)");
+                l.Add("\t\tawait d.loadAsync(controller)");
+                l.Add("\t\treturn d");
+                l.Add("\t}");
+                l.Add("");
+                l.Add("\tconstructor(factory? : IFactory)");
                 l.Add("\t{");
-                l.Add("\t\tsuper();");
+                l.Add("\t\tsuper(factory);");
                 l.Add("");
                 l.Add("\t\tthis.name = \"" + className + "\";");
                 l.Add("");
+                var lco = new List<ICategoryObject>();
                 for (var i = 0; i < categoryObjects.Count; i++)
                 {
                     var categoryObject = categoryObjects[i] as IAssociatedObject;
+                    if (categoryObject is IChildren<ICategoryObject> ch)
+                    {
+                        foreach (var child in ch.Children)
+                        {
+                            lco.Add(child);
+                        }
+                    }
+                    if (lco.Contains(categoryObject))
+                    {
+                        continue;
+                    }
                     var nac = categoryObject.Object as INamedComponent;
                     string name = nac.RootName;
                     name = "\"" + name + "\"";
-                    var pr = "\t\tnew " + className + "_" + "CategoryObject_" + i + "(this, " + name + ");";
+                    var cn = Loaded[categoryObject];
+                    
+                    var cnn = "\"" + cn + "\""; 
+                    var pr = "\t\tthis.mapObjects.set(" + cnn + ", new " + cn + "(this, " + name + "))";
                     l.Add(pr);
                 }
                 for (var i = 0; i < categoryArrows.Count; i++)
@@ -104,7 +144,15 @@ namespace Diagram.UI.TypeScript
                     var pr = "\t\tnew " + className + "_" + "CategoryArrow_" + i + "(this, " + name + ");";
                     l.Add(pr);
                 }
+                if (!staticClass)
+                {
+                    l.Add("\tthis.finish()");
+                }
+                l.Add("}");
                 l.Add("");
+
+                l.Add("finish() : void");
+                l.Add("{");
 
                 l.Add("\t\tlet objects = this.getCategoryObjects();");
                 l.Add("\t\tlet arrows = this.getCategoryArrows();");
@@ -112,10 +160,14 @@ namespace Diagram.UI.TypeScript
                 for (int i = 0; i < categoryArrows.Count; i++)
                 {
                     var categoryArrow = categoryArrows[i];
-                    var sn = objects[categoryArrow.Source];
-                    var tn = objects[categoryArrow.Target];
-                    l.Add("\t\tarrows[" + i + "].setSource(objects[" + sn + "]);");
-                    l.Add("\t\tarrows[" + i + "].setTarget(objects[" + tn + "]);");
+                    var sn = "\"" + Loaded[categoryArrow.Source] + "\"";
+                    var tn = "\"" + Loaded[categoryArrow.Target] + "\"";
+                    var ss = "s" + i;
+                    var tt = "t" + i;
+                    l.Add("\t\tlet " + ss + " = this.mapObjects.get(" + sn + ")");
+                    l.Add("\t\tif(" + ss + " != undefined)    arrows[" + i + "].setSource(" + ss + ");");
+                    l.Add("\t\tlet " + tt + " = this.mapObjects.get(" + tn + ")");
+                    l.Add("\t\tif(" + tt + " != undefined)    arrows[" + i + "].setTarget(" + tt + ");");
                 }
                 for (int i = 0; i < categoryArrows.Count; i++)
                 {

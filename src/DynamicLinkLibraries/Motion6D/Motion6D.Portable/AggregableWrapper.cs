@@ -9,7 +9,9 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
-using NamedTree;
+
+using NamedTree.Interfaces;
+
 using Vector3D;
 
 namespace Motion6D.Portable

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
@@ -11,7 +10,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer
 {

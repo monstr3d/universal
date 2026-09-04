@@ -307,7 +307,7 @@ namespace Xml.Parser.Library
             {
                 try
                 {
-                    d[i] = Double.Parse(s[i], style, provider);
+                    d[i] = double.Parse(s[i], style, provider);
                 }
                 catch (Exception ex)
                 {

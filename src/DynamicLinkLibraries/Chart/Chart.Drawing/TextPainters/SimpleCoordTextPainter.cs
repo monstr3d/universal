@@ -102,7 +102,7 @@ namespace Chart.Drawing.TextPainters
                 if (s.Length > 3 & s.IndexOf('E') < 0 & s.IndexOf('e') < 0)
                 {
                     String s1 = s.Substring(0, s.Length - 1);
-                    double d1 = Double.Parse(s1);
+                    double d1 = double.Parse(s1);
                     if (Math.Abs(d - d1) < 0.5 * sc)
                     {
                         s = s1;

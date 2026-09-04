@@ -43,12 +43,7 @@ namespace Abstract3DConverters.Creators
             Extension = Path.GetExtension(Filename);
         }
 
-
         string IMeshCreator.Directory => Directory;
-
-
-        public abstract void Load(byte[] bytes);
-
 
         IEnumerable<IMesh> IMeshCreator.Meshes => Meshes;
 
@@ -58,6 +53,9 @@ namespace Abstract3DConverters.Creators
 
 
         protected abstract IEnumerable<IMesh> Meshes { get;  }
+
+
+        protected abstract void Load(object obj);
 
    
         protected abstract void CreateAll();
@@ -107,6 +105,11 @@ namespace Abstract3DConverters.Creators
                 }
             }
             return [];
+        }
+
+        void IMeshCreator.Load(object obj)
+        {
+            Load(obj);
         }
     }
 }

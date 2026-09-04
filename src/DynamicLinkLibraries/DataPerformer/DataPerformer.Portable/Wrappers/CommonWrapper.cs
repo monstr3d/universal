@@ -1,22 +1,46 @@
-﻿using System;
-
-using BaseTypes;
-
+﻿using BaseTypes;
 using CategoryTheory;
-
-using Diagram.UI;
-
-
 using DataPerformer.Interfaces;
-
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 using NamedTree;
+using NamedTree.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DataPerformer.Portable.Wrappers
 {
+    /// <summary>
+    /// Common Wrapper
+    /// </summary>
     public class CommonWrapper
     {
 
-        readonly Double a = 0;
+        readonly double a = 0;
+
+        protected Performer performer = new();
+
+
+        /// <summary>
+        /// Starts component collection
+        /// </summary>
+        /// <param name="componentCollection">The collection</param>
+        /// <param name="cancellationToken">The token</param>
+        /// <returns>The task</returns>
+        public async Task StartAsync(IComponentCollection componentCollection,
+            CancellationToken cancellationToken)
+        {
+            var l = new List<Task>();
+            performer.ForEach(componentCollection, (IStartTask t) =>
+            {
+                l.Add(t.StartAsync(cancellationToken));
+            });
+            await Task.WhenAll(l);
+        }
+
+
 
         /// <summary>
         /// Gets double value of measure

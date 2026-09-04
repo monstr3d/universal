@@ -17,12 +17,13 @@ namespace WpfInterface.UI
     [InitAssembly]
     public static class StaticExtensionWpfInterfaceUI
     {
+  
         public const string deleteTexture = "delete_texture_file_";
 
 
         static double[] x = new double[3];
         private static Dictionary<string, Func<string, Visual3D>> dic =
-               new Dictionary<string, Func<string, Visual3D>>();
+               new ();
 
         /// <summary>
         /// Initialize itself
@@ -61,8 +62,7 @@ namespace WpfInterface.UI
              { "Collada 1.4 file format", new Tuple<string[], string>([ ".dae" ], "1.4.1")},
                { "WPF XAML file format", new Tuple<string[], string>([ ".xaml" ], null)}
         };
-
-
+       
         }
 
         class FilenameGenerator : IFilenameGenerator
@@ -86,10 +86,11 @@ namespace WpfInterface.UI
                     {
                         try
                         {
-                            System.IO.File.Delete(file);
+                            File.Delete(file);
                         }
                         catch (Exception)
                         {
+
                         }
                     }
                 }

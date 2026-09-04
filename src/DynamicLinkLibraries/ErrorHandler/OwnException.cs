@@ -15,7 +15,6 @@
             Init(message);
         }
 
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -33,7 +32,6 @@
         {
 
         }
-
 
     }
 }

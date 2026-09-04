@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.Serialization;
-using System.Text;
+
 using BitmapConsumer;
 using CategoryTheory;
 using DataPerformer.Interfaces;
@@ -10,7 +10,7 @@ using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace ImageTransformations
 {

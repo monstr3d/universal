@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using AssemblyService;
+﻿using AssemblyService;
 using BaseTypes.Attributes;
 using DataPerformer.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Scada.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Scada.Desktop.Serializable
 {
@@ -42,11 +43,12 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
-        public static IScadaInterface ScadaFromBytes(this byte[] buffer,
+        public static async Task<IScadaInterface> ScadaFromBytes(this byte[] buffer,
             string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
             IAsynchronousCalculation realtimeStep)
         {
-            IDesktop desktop = buffer.DesktopFromBytes();
+            var ct = new CancellationToken();
+            IDesktop desktop = await buffer.DesktopFromBytes(ct);
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
@@ -59,11 +61,12 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
-        public static IScadaInterface ScadaFromBytes(this System.IO.Stream stream,
+        public static async Task<IScadaInterface> ScadaFromBytes(this System.IO.Stream stream,
             string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
             IAsynchronousCalculation realtimeStep)
         {
-            IDesktop desktop = stream.DesktopFromStream();
+            CancellationToken ct = new CancellationToken();
+            IDesktop desktop = await stream.DesktopFromStream(ct);
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
@@ -76,11 +79,12 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
-        public static IScadaInterface ScadaFromFile(this string fileName,
+        public static async Task<IScadaInterface> ScadaFromFile(this string fileName,
             string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
             IAsynchronousCalculation realtimeStep)
         {
-            IDesktop desktop = fileName.DesktopFromFile();
+  
+            IDesktop desktop = await fileName.DesktopFromFile();
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
@@ -93,10 +97,11 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
-        public static IScadaInterface ScadaFromString(this string buffer,
+        public static async Task<IScadaInterface> ScadaFromString(this string buffer,
             string dataConsumer, TimeType timeType, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
         {
-            return buffer.StringToBytes().ScadaFromBytes(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            var ct = new CancellationToken();
+            return await buffer.StringToBytes().ScadaFromBytes(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
         }
 
         /// <summary>

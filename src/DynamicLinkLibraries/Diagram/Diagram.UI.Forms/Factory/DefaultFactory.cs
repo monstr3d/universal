@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-
-using CategoryTheory;
-
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces.Labels;
+﻿using CategoryTheory;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Interfaces.Labels;
+using Diagram.UI.Labels;
+using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Diagram.UI.Factory
 {
@@ -57,7 +54,7 @@ namespace Diagram.UI.Factory
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>The object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override async Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
             if (button.ReflectionType.Equals(typeof(LibraryObjectWrapper)))
             {
@@ -65,7 +62,7 @@ namespace Diagram.UI.Factory
             }
             if (button.ReflectionType.Equals(typeof(ObjectContainer)))
             {
-                return load(button.Kind);
+                return await load(button.Kind);
             }
             return null;
         }
@@ -107,7 +104,7 @@ namespace Diagram.UI.Factory
 
         #region Members
 
-        ICategoryObject load(string str)
+        async Task<ICategoryObject> load(string str)
         {
             Stream stream = null;
             bool cont = true;
@@ -125,7 +122,7 @@ namespace Diagram.UI.Factory
             {
                 return loadContainer(stream) as ICategoryObject;
             }
-            return loadMultilibrary(stream);
+            return await loadMultilibrary(stream);
         }
 
         IObjectContainer loadContainer(Stream stream)
@@ -136,12 +133,13 @@ namespace Diagram.UI.Factory
             return ob;
         }
 
-        MultiLibraryObject loadMultilibrary(Stream stream)
+        async Task<MultiLibraryObject>  loadMultilibrary(Stream stream)
         {
             BinaryFormatter binary = StaticExtensionDiagramUISerializable.CreateBinaryFormatter();
             SerializationBinder binder = SerializationInterface.StaticExtensionSerializationInterface.Binder;
             PureDesktopPeer d = new PureDesktopPeer();
-            d.Load(stream, binder, true);
+            var ct = new CancellationToken();
+            await d.Load(stream, binder, true, ct);
             stream.Close();
             IObjectLabel l = null;
             foreach (IObjectLabel ll in d.Objects)

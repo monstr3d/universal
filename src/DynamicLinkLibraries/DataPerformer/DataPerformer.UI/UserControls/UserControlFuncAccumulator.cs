@@ -132,8 +132,8 @@ namespace DataPerformer.UI.UserControls
         {
             try
             {
-                double st = Double.Parse(start.Text);
-                double s = Double.Parse(step.Text);
+                double st = double.Parse(start.Text);
+                double s = double.Parse(step.Text);
                 int n = (int)stepCount.Value;
                 double[] arg = new double[n];
                 for (int i = 0; i < arg.Length; i++)

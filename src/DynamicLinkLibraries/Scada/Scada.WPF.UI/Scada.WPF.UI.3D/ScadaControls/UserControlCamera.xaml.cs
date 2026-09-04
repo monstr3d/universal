@@ -128,19 +128,9 @@ namespace Scada.WPF.UI._3D.ScadaControls
 
         static UserControlCamera()
         {
-            Application.Current.Exit += Current_Exit;
         }
 
-        static void Current_Exit(object sender, ExitEventArgs e)
-        {
-            DeleteTextures();
-        }
-
-        static void DeleteTextures()
-        {
-            StaticExtensionWpfLoader.DeleteTextures();
-      }
-
+    
 
         #endregion
 

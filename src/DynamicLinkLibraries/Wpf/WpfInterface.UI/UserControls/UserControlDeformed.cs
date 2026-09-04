@@ -14,7 +14,8 @@ using DataPerformer.Portable;
 using Motion6D.Interfaces;
 
 using WpfInterface.Objects3D;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 
 namespace WpfInterface.UI.UserControls

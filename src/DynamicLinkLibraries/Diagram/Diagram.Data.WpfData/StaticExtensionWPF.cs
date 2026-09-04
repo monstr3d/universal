@@ -58,7 +58,7 @@ namespace Diagram.Data.WpfData
         /// <returns>Double</returns>
         public static double ToDouble(this string str)
         {
-            return Double.Parse(str, culture);
+            return double.Parse(str, culture);
         }
 
         /// <summary>

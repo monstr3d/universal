@@ -4,13 +4,24 @@ using DataWarehouse.Interfaces;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataWarehouse.Classes
 {
     public class Directory : Abstract.Directory
     {
-         #region Ctor
+        protected override object Id { get => base.Id; set => base.Id = value; }
+        protected override string Name { get => base.Name; set => base.Name = value; }
+        protected override string Extension { get => base.Extension; set => base.Extension = value; }
+        protected override string Description { get => base.Description; set => base.Description = value; }
+
+        protected override INode Value => base.Value;
+
+        protected override INode<INode> Parent { get => base.Parent; set => base.Parent = value; }
+        protected override IEnumerable<INode<INode>> Nodes { get => base.Nodes; set => base.Nodes = value; }
+        protected override IEnumerable<IDirectory> Children { get => base.Children; set => base.Children = value; }
+        protected override IEnumerable<ILeaf> Leaves { get => base.Leaves; set => base.Leaves = value; }
+        #region Ctor
 
 
         public Directory(object Id, string Name, string Description, string Extension, bool children) : 
@@ -99,6 +110,96 @@ namespace DataWarehouse.Classes
         protected override ILeaf AddToDatabase(ILeaf leaf)
         {
             throw new OwnNotImplemented("Directory Add");
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        protected override void RemoveAllChildren()
+        {
+            base.RemoveAllChildren();
+        }
+
+        public override void Add(string name)
+        {
+            base.Add(name);
+        }
+
+        public override void Remove(string name)
+        {
+            base.Remove(name);
+        }
+
+        protected override bool UpdateName(string name)
+        {
+            return base.UpdateName(name);
+        }
+
+        protected override bool UpdateDescription(string description)
+        {
+            return base.UpdateDescription(description);
+        }
+
+        protected override void RemoveChild(IDirectory child)
+        {
+            base.RemoveChild(child);
+        }
+
+        protected override void RemoveChild(ILeaf child)
+        {
+            base.RemoveChild(child);
+        }
+
+        protected override List<IDirectory> GetFuncInitial()
+        {
+            return base.GetFuncInitial();
+        }
+
+        protected override List<ILeaf> GetFuncLeafInitial()
+        {
+            return base.GetFuncLeafInitial();
+        }
+
+        protected override bool AcceptUpdate(string name)
+        {
+            return base.AcceptUpdate(name);
+        }
+
+        protected override bool Change(INamed named, string newname)
+        {
+            return base.Change(named, newname);
+        }
+
+        protected override bool Post()
+        {
+            return base.Post();
+        }
+
+        public override bool Check(INamed named)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override bool Add(INamed named)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override bool Remove(INamed named)
+        {
+            throw new System.NotImplementedException();
         }
 
 

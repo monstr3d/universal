@@ -175,6 +175,7 @@ namespace DataPerformer.UI.Labels
             info.AddValue("CodeAliases", CodeAliases, typeof(Dictionary<string, string>));
             var c = this.FindChild<TabControl>("tabControlMain");
             info.AddValue("TabSelectedIndex", c.SelectedIndex);
+            info.AddValue("AllVaues", AllVaues);
         }
 
         #endregion
@@ -548,6 +549,14 @@ namespace DataPerformer.UI.Labels
                 {
 
                 }
+                try
+                {
+                    AllVaues = info.GetBoolean("AllVaues");
+                }
+                catch
+                {
+
+                }
 
 
             }
@@ -556,16 +565,18 @@ namespace DataPerformer.UI.Labels
                 ex.HandleException(10);
             }
         }
+        
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal bool AllVaues
+        {
+            get;
+            set;
+        }
 
-        #endregion
 
-        #region Internal Members
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
-        #endregion
-
-        #region Internal Members
 
         internal int CadrNumber
         {

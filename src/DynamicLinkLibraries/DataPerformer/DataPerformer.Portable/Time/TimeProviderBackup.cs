@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 using CategoryTheory;
 
@@ -7,8 +9,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
-using NamedTree;
-using System.Linq;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable.Time
 {
@@ -19,6 +20,13 @@ namespace DataPerformer.Portable.Time
     public class TimeProviderBackup : IDisposable
     {
         #region Fields
+
+
+        /// <summary>
+        /// Performer
+        /// </summary>
+        protected Performer performer = new();
+
 
         Dictionary<ITimeMeasurementConsumer, IMeasurement> dictionary = new Dictionary<ITimeMeasurementConsumer, IMeasurement>();
 
@@ -397,7 +405,7 @@ namespace DataPerformer.Portable.Time
             List<IMeasurements> add = new List<IMeasurements>();
             l.Sort(StaticExtensionDiagramUI.ObjectComparer);
             measurements = l;
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
         }
 
         #endregion

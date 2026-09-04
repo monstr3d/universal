@@ -10,7 +10,7 @@ using DataWarehouse.Interfaces.Async;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataWarehouse

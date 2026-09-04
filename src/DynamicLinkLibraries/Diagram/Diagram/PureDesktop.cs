@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 using CategoryTheory;
 
@@ -12,7 +14,7 @@ using Diagram.UI.Interfaces;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 
@@ -21,9 +23,17 @@ namespace Diagram.UI
     /// <summary>
     /// Base class of desktop
     /// </summary>
-    public class PureDesktop : IDesktop
+    public class PureDesktop : IDesktop, IFactoryConsumer
     {
+        /// <summary>
+        /// Collection
+        /// </summary>
         IComponentCollection collection;
+
+        /// <summary>
+        /// Factory
+        /// </summary>
+        protected IFactory factory;
 
         /// <summary>
         /// All objects
@@ -76,6 +86,41 @@ namespace Diagram.UI
                 onRemove -= value;
             }
         }
+
+        public async Task GetDesktopAsync(CancellationToken token)
+        {
+            await FinalAsync(token);
+            Final();
+        }
+
+        protected async Task FinalAsync(CancellationToken token)
+        {
+            var tasks = new List<Task>();
+            foreach (var item in CategoryObjects)
+            {
+                if (item is IInitializeTask task)
+                {
+                    tasks.Add(task.InitializeAsync(token));
+                }
+            }
+            foreach (var item in CategoryArrows)
+            {
+                if (item is IInitializeTask task)
+                {
+                    tasks.Add(task.InitializeAsync(token));
+                }
+            }
+            await Task.WhenAll(tasks);
+        }
+
+        protected bool Final()
+        {
+            bool pl = PostLoad();
+            bool pd = PostDeserialize();
+            var b = pl & pd;
+            PostLoad(this);
+            return b;
+       }
 
         protected virtual void Add(INode<IComponentCollection> collection)
         {
@@ -143,6 +188,11 @@ namespace Diagram.UI
 
         #region Ctor
 
+        public PureDesktop(IFactory factory) : this()
+        {
+            this.factory = factory;
+        }
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -154,8 +204,13 @@ namespace Diagram.UI
 
         #endregion
 
-
         #region IComponentCollection Members
+
+        T IComponentCollection.Get<T>(string name)
+        {
+            return performer.GetObject<T>(this, name);
+        }
+
 
         IEnumerable<object> IComponentCollection.AllComponents
         {
@@ -200,8 +255,6 @@ namespace Diagram.UI
 
 
         #endregion
-
-
 
         #region IDesktop Members
 
@@ -282,9 +335,10 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="arrows">Arrows</param>
         /// <param name="associated">Sign for setting associated objects</param>
-        protected virtual void Copy(IEnumerable<IObjectLabel> objects, 
+        protected virtual async void Copy(IEnumerable<IObjectLabel> objects, 
             IEnumerable<IArrowLabel> arrows, bool associated)
         {
+            var ct = new CancellationToken();
             List<IObjectLabel> objs = new List<IObjectLabel>();
             List<IObjectLabel> tobjs = new List<IObjectLabel>();
             foreach (IObjectLabel l in objects)
@@ -299,7 +353,7 @@ namespace Diagram.UI
                 {
                     IObjectContainer oc = l.Object as IObjectContainer;
                     oc.SetParents(this);
-                    oc.Load();
+                   await oc.LoadAsync(ct);
                 }
                 // components.Add(lab);
                 table[l.Name] = lab;
@@ -1073,8 +1127,9 @@ namespace Diagram.UI
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                var ex = IncludedException.Get(e);
                 ex.HandleException(10, "PureDesktop.PostDeserialize");
                 if (exceptions != null)
                 {
@@ -1190,7 +1245,11 @@ namespace Diagram.UI
             get;
             set;
         }
-       
+
+        protected virtual IFactory Factory { get => factory; set => factory = value; }
+
+       IFactory  IFactoryConsumer.Factory { get => Factory; set => Factory = value; }
+
 
         /// <summary>
         /// Gets all arrows and objects

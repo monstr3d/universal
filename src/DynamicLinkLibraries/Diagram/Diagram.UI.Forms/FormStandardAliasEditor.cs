@@ -145,7 +145,7 @@ namespace Diagram.UI
                     }
                     if (bt.Equals(d))
                     {
-                        return Double.Parse(textValue.Text);
+                        return double.Parse(textValue.Text);
                     }
                     if (bt.Equals(i))
                     {
@@ -196,7 +196,7 @@ namespace Diagram.UI
                     for (int i = 0; i < dd.Length; i++)
                     {
                         DataGridViewRow row = dataGridViewVector.Rows[i];
-                        dd[i] = Double.Parse(row.Cells[1].FormattedValue + "");
+                        dd[i] = double.Parse(row.Cells[1].FormattedValue + "");
                     }
                     return dd;
                 }
@@ -250,7 +250,7 @@ namespace Diagram.UI
                         DataGridViewRow row = dataGridViewMatrix.Rows[i];
                         for (int j = 0; j < dd.GetLength(1); j++)
                         {
-                            dd[i, j] = Double.Parse(row.Cells[j + 1].FormattedValue + "");
+                            dd[i, j] = double.Parse(row.Cells[j + 1].FormattedValue + "");
                         }
                     }
                     return dd;

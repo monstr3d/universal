@@ -1,28 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using CategoryTheory;
-
-using Diagram.UI.Utils;
 using Diagram.UI;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Interfaces.Labels;
-using Diagram.UI.Labels;
 
 using Event.Interfaces;
 using Event.Basic.Data.Events;
 
 // !!!REMOVED using Event.Remote;
-
-using Web.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.UI.UserControls
 {

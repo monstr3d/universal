@@ -1,15 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
-using Motion6D;
+
 using Diagram.UI;
 using CategoryTheory;
-using Diagram.UI.Labels;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D.UI
 {

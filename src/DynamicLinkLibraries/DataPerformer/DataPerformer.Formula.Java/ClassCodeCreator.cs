@@ -1,9 +1,7 @@
 ﻿using BaseTypes.Attributes;
 using BaseTypes.CodeCreator.Interfaces;
-using BaseTypes.CSharp;
 using DataPerformer.Interfaces;
 using Diagram.UI;
-using Diagram.UI.Attributes;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
 using FormulaEditor;
@@ -49,8 +47,17 @@ namespace DataPerformer.Formula.Java
     
         List<string> CreateObjectTreeObject(string prefix, object obj)
         {
-            CurrentObject = obj;
-            return CreateTreeCollection(prefix, obj as ITreeCollection);
+            Exception  exception = null;
+            try
+            {
+                CurrentObject = obj;
+                return CreateTreeCollection(prefix, obj as ITreeCollection);
+            }
+            catch (Exception e)
+            {
+                exception = e;
+            }
+            throw new IncludedException(exception, obj);
         }
 
         protected virtual Dictionary<string, List<string>> CreateCode(object obj, ObjectFormulaTree[] trees,
@@ -58,8 +65,6 @@ namespace DataPerformer.Formula.Java
         {
             throw new OwnNotImplemented();
         }
-
-       
 
         Dictionary<string, List<string>> IVariablesCodeCreator.Create(IMeasurements measurements)
         {
@@ -71,48 +76,50 @@ namespace DataPerformer.Formula.Java
 
         public  List<string> CreateJavaVariableList(IMeasurements measurements)
         {
-
-            var l = new List<string>();
-       /*     var attr = Performer.GetAttribute<CodeCreatorAttribute>(measurements);
-            if (attr == null) return l;
-            if (!attr.InitialState)
+            Exception exception = null;
+            try
             {
-             //   return l;
-            }*/
-            var typeCreator = Performer.GetLaguageObject<ITypeCreator>(this);
-            if (measurements is IStarted start)
-            {
-                start.Start(0);
-            }
-            var n = measurements.Count;
-            if (n > 0)
-            {
-                l.Add("Object o;");
-            }
-            for (int i = 0; i < n; i++)
-            {
-                var m = measurements[i];
-                var name = "\"" + m.Name + "\"";
-                var type = m.Type;
-                var v = typeCreator.GetType(type);
-                if (v.Contains("[]")) 
+                var l = new List<string>();
+                var typeCreator = Performer.GetLaguageObject<ITypeCreator>(this);
+                if (measurements is IStarted start)
                 {
-                    v = v.Replace("[]", "[0]");
-                    v = "new " + v;
+                    start.Start(0);
                 }
-                l.Add("o = " + v + ";");
-                var pr = m.Parameter();
-                var st = Performer.StringValue(pr);
-                l.Add("addVariableValue(" + name + ", o);");
+                var n = measurements.Count;
+                if (n > 0)
+                {
+                    l.Add("Object o;");
+                }
+                for (int i = 0; i < n; i++)
+                {
+                    var m = measurements[i];
+                    var name = "\"" + m.Name + "\"";
+                    var type = m.Type;
+                    var v = typeCreator.GetType(type);
+                    if (v.Contains("[]"))
+                    {
+                        v = v.Replace("[]", "[0]");
+                        v = "new " + v;
+                    }
+                    l.Add("o = " + v + ";");
+                    var pr = m.Parameter();
+                //    var st = Performer.StringValue(pr);
+                    l.Add("addVariableValue(" + name + ", o);");
 
+                }
+                return l;
             }
-            return l;
+            catch (Exception e)
+            {
+                exception = e;
+            }
+            throw IncludedException.Get(exception);
         }
 
 
         protected virtual List<string> CreateTreeCollection(string preffix, ITreeCollection obj)
         {
-            Exception exceprion;
+            Exception  exception;
             try
             {
                 var l = new List<string>();
@@ -135,9 +142,6 @@ namespace DataPerformer.Formula.Java
                         l.Add("");
                     }
                 }
-         //       var cs = creator.CreateCode(preffix, obj, "BaseClassName");
-          //      l.Add(cs[0]);
-          //      l.Add("{");
                 var constructor = creator.CreateCode(preffix, obj, "constructor");
                 l.AddRange(constructor);
                 if (obj is IAlias ali)
@@ -161,7 +165,6 @@ namespace DataPerformer.Formula.Java
                     foreach (var k in dic)
                     {
                         var iname = "\"" + k.Key + "\"";
-                        // !!!!   l.Add("\t\tthis.initial.set(" + iname + ", " + k.Value + ");");
                     }
                 }
                 l.Add("\t}");
@@ -182,9 +185,9 @@ namespace DataPerformer.Formula.Java
             }
             catch (Exception ex)
             {
-                exceprion = IncludedException.Get(ex);
+                 exception = IncludedException.Get(ex);
             }
-            throw exceprion;
+            throw  exception;
         }
 
         

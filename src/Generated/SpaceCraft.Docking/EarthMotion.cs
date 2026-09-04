@@ -853,7 +853,7 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameData
 				{
 				
 					internal CategoryObject()
@@ -882,7 +882,7 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameData
 				{
 				
 					internal CategoryObject()
@@ -911,7 +911,7 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameData
 				{
 				
 					internal CategoryObject()
@@ -940,7 +940,7 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameData
 				{
 				
 					internal CategoryObject()

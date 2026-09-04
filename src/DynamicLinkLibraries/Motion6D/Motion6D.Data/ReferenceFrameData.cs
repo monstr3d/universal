@@ -1,16 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
-
-using CategoryTheory;
-using Diagram.UI;
-
-using DataPerformer;
-using DataPerformer.Interfaces;
-
-using Motion6D.Interfaces;
 using ErrorHandler;
 
 
@@ -20,7 +11,7 @@ namespace Motion6D
     /// Reference frame controlled by data
     /// </summary>
     [Serializable()]
-    public class ReferenceFrameData : Portable.ReferenceFrameDataBase, ISerializable
+    public class ReferenceFrameData : Portable.ReferenceFrameData, ISerializable
     {
 
         #region Constructors

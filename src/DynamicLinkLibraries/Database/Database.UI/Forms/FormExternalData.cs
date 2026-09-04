@@ -12,6 +12,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataSetService;
+using DataSetService.Pure.Interfaces;
 
 
 namespace Database.UI.Forms

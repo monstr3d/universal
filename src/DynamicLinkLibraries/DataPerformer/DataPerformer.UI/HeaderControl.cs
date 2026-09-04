@@ -2,17 +2,12 @@ using System;
 using System.Windows.Forms;
 using System.Collections;
 
-//using SpatialUI;
-using Diagram.UI;
-using DataPerformer;
-
-using CategoryTheory;
 
 using Diagram.UI.Labels;
 using Diagram.UI.UserControls;
 
 using DataPerformer.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer.UI

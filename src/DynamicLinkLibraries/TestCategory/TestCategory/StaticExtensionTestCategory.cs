@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-
-using Diagram.UI;
+﻿using Diagram.UI;
 using Diagram.UI.Interfaces;
-
-
-using TestCategory.Interfaces;
 using ErrorHandler;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using TestCategory.Interfaces;
 
 
 
@@ -59,20 +58,22 @@ namespace TestCategory
         /// <param name="stream">Stream</param>
         /// <param name="collection">Component collection</param>
         /// <returns>Test</returns>
-        public static ITest Load(this Stream stream, out IComponentCollection collection)
+        public static async Task<Tuple<ITest, IComponentCollection>> Load(this Stream stream)
         {
+            var ct = new CancellationToken();
+
             PureDesktopPeer d = new PureDesktopPeer();
-            d.Load(stream, SerializationInterface.StaticExtensionSerializationInterface.Binder, true);
-            collection = d;
+            await d.Load(stream, SerializationInterface.StaticExtensionSerializationInterface.Binder, 
+                true, ct);
             BinaryFormatter bf = new BinaryFormatter();
             while (true)
             {
                 try
                 {
                     object o = bf.Deserialize(stream);
-                    if (o is ITest)
+                    if (o is ITest t)
                     {
-                        return o as ITest;
+                        return new Tuple<ITest, IComponentCollection>(t, d);
                     }
                 }
                 catch (Exception ex)
@@ -90,13 +91,13 @@ namespace TestCategory
         /// </summary>
         /// <param name="bytes">Bytes</param>
         /// <returns>Test result</returns>
-        public static Tuple<bool, object> Test(this byte[] bytes)
+        public static async Task<Tuple<bool, object>> Test(this byte[] bytes)
         {
             try
             {
                 using (var stream = new MemoryStream(bytes))
                 {
-                    var o = stream.Test();
+                    var o = await stream.Test();
                     return o;
                 }
             }
@@ -107,11 +108,11 @@ namespace TestCategory
             }
         }
 
-        public static Tuple<bool, object> Test(this string filename)
+        public static async Task<Tuple<bool, object>> Test(this string filename)
         {
             using (var stream = File.OpenRead(filename))
             {
-                return stream.Test();
+                return await stream.Test();
             }
         }
 
@@ -138,15 +139,14 @@ namespace TestCategory
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <returns>Test object</returns>
-        public static Tuple<bool, object> Test(this Stream stream)
+        public static async Task<Tuple<bool, object>> Test(this Stream stream)
         {
-            IComponentCollection collection;
-            ITest t = stream.Load(out collection);
+            var t = await stream.Load();
             if (t == null)
             {
                 return null;
             }
-            return t[collection];
+            return  t.Item1[t.Item2];
         }
 
         /// <summary>
@@ -154,13 +154,12 @@ namespace TestCategory
         /// </summary>
         /// <param name="stream">Stream to save</param>
         /// <param name="testInterface">Test interface</param>
-        public static void CreateTestReport(this Stream stream, ITestInterface testInterface)
+        public static async Task CreateTestReport(this Stream stream, ITestInterface testInterface)
         {
-            IComponentCollection collection;
-            ITest test = stream.Load(out collection);
+            var test = await stream.Load();
             if (test != null)
             {
-                testInterface.CreateTestReport(test, collection);
+                testInterface.CreateTestReport(test.Item1, test.Item2);
             }
         }
 

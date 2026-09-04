@@ -62,6 +62,11 @@ namespace DataPerformer.Portable.Runtime
         protected List<object> components = new List<object>();
 
         /// <summary>
+        /// Performer
+        /// </summary>
+        protected Performer performer = new();
+
+        /// <summary>
         /// Step
         /// </summary>
         protected double dstep;
@@ -411,7 +416,7 @@ namespace DataPerformer.Portable.Runtime
         private void GetMeasurements()
         {
             GetMeasurements(consumer);
-            measurements.SortMeasurements();
+            performer.SortMeasurements(measurements);
         }
 
         /// <summary>

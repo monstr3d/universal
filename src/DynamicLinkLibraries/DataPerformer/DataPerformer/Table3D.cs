@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-using System.IO;
 
 
 using CategoryTheory;
 
-using BaseTypes.Interfaces;
 using BaseTypes;
-
 
 using Diagram.UI;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer

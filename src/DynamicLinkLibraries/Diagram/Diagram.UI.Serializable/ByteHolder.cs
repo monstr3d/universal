@@ -4,6 +4,8 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Diagram.UI
 {
@@ -82,23 +84,25 @@ namespace Diagram.UI
             }
         }
 
+        public async Task<PureDesktopPeer> GetDesktopPeerAsync(CancellationToken cancellationToken)
+        {
+            if (desktop == null)
+            {
+                desktop = new PureDesktopPeer();
+                if (bytes.Length > 0)
+                {
+                   await  desktop.Load(bytes, true, cancellationToken);
+                }
+            }
+            return desktop;
+
+        }
+
         /// <summary>
         /// Desktop
         /// </summary>
         public PureDesktopPeer Desktop
         {
-            get
-            {
-                if (desktop == null)
-                {
-                    desktop = new PureDesktopPeer();
-                    if (bytes.Length > 0)
-                    {
-                        desktop.Load(bytes, true);
-                    }
-                }
-                return desktop;
-            }
             set
             {
                 desktop = null;

@@ -1,0 +1,62 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CategoryObject = void 0;
+const Performer_1 = require("./Performer");
+class CategoryObject {
+    desktop;
+    obj;
+    name;
+    checker;
+    variable;
+    types = ["IObject", "ICategoryObject", "CategoryObject"];
+    typeName = "CategoryObject";
+    performer = new Performer_1.Performer();
+    fic;
+    constructor(desktop, name) {
+        this.desktop = desktop;
+        this.name = name;
+        desktop.addCategoryObject(this);
+        desktop.addObject(this);
+        this.checker = desktop.getCheck();
+    }
+    getName() {
+        return this.name;
+    }
+    getClassName() {
+        return this.typeName;
+    }
+    imlplementsType(type) {
+        return this.types.includes(type);
+    }
+    convert(a) {
+        return this.performer.convertFromAny(a);
+    }
+    getDesktop() {
+        return this.desktop;
+    }
+    getObject() {
+        return this.obj;
+    }
+    setObject(obj) {
+        this.obj = obj;
+    }
+    getCategoryObjectName() {
+        return this.name;
+    }
+    check(x) {
+        if (this.checker == undefined) {
+            return false;
+        }
+        return this.checker.check(x);
+    }
+    getObjectT(s, type) {
+        return this.performer.convertObject(s, type);
+    }
+    detectFactory() {
+        let fc = this.desktop;
+        if (fc === undefined)
+            return undefined;
+        return fc.getConsumerFactory();
+    }
+}
+exports.CategoryObject = CategoryObject;

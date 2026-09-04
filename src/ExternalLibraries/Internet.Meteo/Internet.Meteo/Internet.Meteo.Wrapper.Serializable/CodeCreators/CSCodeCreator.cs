@@ -17,12 +17,11 @@ namespace Internet.Meteo.Wrapper.Serializable.CodeCreators
            this.AddClassCodeCreator();
         }
 
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
-   
         protected virtual string BaseClassString(string prefix, object obj)
         {
             return obj.GetType().Name;

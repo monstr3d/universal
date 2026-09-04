@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="XmlObjectFactory\**" />
+    <EmbeddedResource Remove="XmlObjectFactory\**" />
+    <None Remove="XmlObjectFactory\**" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BaseTypes\BaseTypes\BaseTypes.csproj" />
     <ProjectReference Include="..\..\BaseTypes\BaseTypes.Extended\BaseTypes.Extended.csproj" />
     <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj" />
     <ProjectReference Include="..\Diagram\Diagram.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="XmlObjectFactory\" />
   </ItemGroup>
 </Project>

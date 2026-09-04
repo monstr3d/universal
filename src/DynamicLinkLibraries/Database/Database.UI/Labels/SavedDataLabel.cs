@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,7 +14,7 @@ using DataSetService;
 using Web.Interfaces;
 
 using Database.UI.Forms;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Database.UI.Labels
 {

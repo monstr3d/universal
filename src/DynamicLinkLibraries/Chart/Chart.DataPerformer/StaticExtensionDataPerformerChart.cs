@@ -1,21 +1,28 @@
-﻿using Chart.DataPerformer.Interfaces;
+﻿using BaseTypes;
+using BaseTypes.Interfaces;
+using CategoryTheory;
+using Chart.DataPerformer.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI;
-using Diagram.UI.Interfaces;
+using System.Xml;
+using System.Xml.Linq;
 
 
 namespace Chart.DataPerformer
 {
     public static class StaticExtensionDataPerformerChart
     {
+        static IDisassemblyObject disassembly =
+         new DisassemblyObjectList();
+
         /// <summary>
         /// Attached to point factory
         /// </summary>
         static public IAttachedToPointFactory AttachedToPointFactory
         { get; set; } = null;
 
-   
+
         public static object AttachedToPoint(this object value)
         {
             if (AttachedToPointFactory == null)
@@ -52,12 +59,12 @@ namespace Chart.DataPerformer
                     continue;
                 }
                 object t = val.Type;
-                if (t.IsDoubleType())
+                var b = t.GetType() == typeof(bool);
+                if (t.IsDoubleType() | b)
                 {
 
                     var ps =
                         new MeasurementSeries(arg.ToValueHolder(), val);
-
                     d[key] = ps;
                     m.Add(ps);
                     o = ps;
@@ -69,18 +76,19 @@ namespace Chart.DataPerformer
         }
 
         public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer,
-         double start, double step, int count,  string argument, string[] values,
+         double start, double step, int count, string argument, string[] values,
      out MeasurementSeries[] series,
          Func<bool> stop)
         {
-            
+
             MeasurementSeries[] ss = null;
 
             var dic = consumer.CreateMeasurements(argument, values, out ss);
-        //    consumer.PerformFixed()
+            //    consumer.PerformFixed()
             series = ss;
             return dic;
         }
+
 
         /// <summary>
         /// Performs iterator
@@ -89,12 +97,11 @@ namespace Chart.DataPerformer
         /// <param name="iterator">Iterator</param>
         /// <param name="argument">Argument</param>
         /// <param name="values">Values</param>
-        /// <param name="series">Series</param>
         /// <param name="stop">Stop funcion</param>
         /// <returns>Output</returns>
-        public static Dictionary<string, object> PerformIterator(this IDataConsumer consumer,
-         IIterator iterator, string argument, string[] values,
-     out MeasurementSeries[] series,
+        public static async Task<Tuple<Dictionary<string, object>, MeasurementSeries[]>> PerformIteratorAsync(
+            this IDataConsumer consumer,
+         IIterator iterator, CancellationToken cancellationToken, string argument, string[] values,
          Func<bool> stop)
         {
             MeasurementSeries[] ss = null;
@@ -103,46 +110,16 @@ namespace Chart.DataPerformer
             {
                 dic = consumer.CreateMeasurements(argument, values, out ss);
             };
-            consumer.PerformIterator(iterator, () =>
+            await consumer.PerformIteratorAsync(iterator, () =>
             {
                 foreach (var s in ss)
                 {
                     s.Step();
                 }
 
-            }, stop, preparation);
-            series = ss;
-            return dic;
+            }, cancellationToken, stop, preparation);
+            return new Tuple<Dictionary<string, object>, MeasurementSeries[]>(dic, ss);
         }
 
-        // !!! OLD DELETE !!!
-        public static Dictionary<string, object> PerformIteratorOLD(this IDataConsumer consumer,
-            IIterator iterator, string argument, string[] values,
-        out MeasurementSeries[] series,
-            Func<bool> stop)
-        {
-            iterator.Reset();
-            consumer.ResetAll();
-            var rt = consumer.CreateRuntime(null);
-            Dictionary<string, object> dic = consumer.CreateMeasurements(argument, values, out series);
-            var coll = consumer.GetDependentCollection();
-             coll.ForEach((IRunning s) => s.IsRunning = true);
-            do
-            {
-                if (stop())
-                {
-                    break;
-                }
-                rt.UpdateAll();
-                foreach (var s in series)
-                {
-                    s.Step();
-                }
-            }
-            while (iterator.Next());
-            return dic;
-        }
-
-   }
-
+    }
 }

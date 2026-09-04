@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 using Collada.Converters.Classes.Elementary;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Collada.Converters.Classes.Complicated
@@ -64,7 +60,8 @@ namespace Collada.Converters.Classes.Complicated
 
         float[] IGeometry.TransformationMatrix => throw new  ErrorHandler.WriteProhibitedException();
 
-       
+  
+   
 
         private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
@@ -253,5 +250,6 @@ namespace Collada.Converters.Classes.Complicated
         {
             throw new ErrorHandler.WriteProhibitedException();
         }
-    }
+
+     }
 }

@@ -8,7 +8,7 @@ using DataWarehouse.Interfaces;
 
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace SQLServerWarehouse

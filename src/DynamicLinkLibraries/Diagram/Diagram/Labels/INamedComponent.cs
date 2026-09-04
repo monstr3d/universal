@@ -1,5 +1,6 @@
 using Diagram.UI.Interfaces;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Labels
 {

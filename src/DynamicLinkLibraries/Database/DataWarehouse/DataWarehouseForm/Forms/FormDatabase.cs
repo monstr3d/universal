@@ -11,7 +11,7 @@ using DataWarehouse.Interfaces.Async;
 using DataWarehouse.Utils;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 using ResourceService;
 using WindowsExtensions;
 
@@ -361,8 +361,6 @@ namespace DataWarehouse.Forms
 
         }
 
-
-
         private void buttonCreateDir_Click(object sender, EventArgs e)
         {
             try
@@ -477,7 +475,7 @@ namespace DataWarehouse.Forms
             data.Data = b;
         }
 
-        private void buttonLoad_Click(object sender, EventArgs e)
+        private async void buttonLoad_Click(object sender, EventArgs e)
         {
             if (Selected == null)
             {
@@ -486,7 +484,8 @@ namespace DataWarehouse.Forms
             byte[] b = (Selected as IData).Data;
             Close();
             blob.Extension = ext[0];
-            blob.Bytes = b;
+            CancellationToken ct = new CancellationToken();
+            await blob.SetBytesAsync(b, ct);
         }
 
         byte[] getData(ref string ext)

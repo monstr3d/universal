@@ -4,6 +4,8 @@ using System.Text;
 using System.Data;
 
 using DataSetService;
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
 
 
 namespace DataSetService.Forms

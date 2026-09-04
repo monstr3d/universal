@@ -1,8 +1,8 @@
 ﻿using CategoryTheory;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
-using NamedTree;
-using System;
+
+using NamedTree.Interfaces;
 
 namespace Motion6D.Portable
 {

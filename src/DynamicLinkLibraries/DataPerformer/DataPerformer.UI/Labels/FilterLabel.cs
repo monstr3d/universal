@@ -3,8 +3,10 @@ using System.Runtime.Serialization;
 using System.Windows.Forms;
 
 using CategoryTheory;
+
 using DataPerformer.Base.Filters;
 using DataPerformer.UI.UserControls;
+
 using Diagram.UI.Labels;
 
 

@@ -11,7 +11,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Helpers
 {

@@ -1,9 +1,7 @@
 ﻿using System.Windows.Forms;
 
-using CategoryTheory;
-
 using Diagram.UI;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Web.Interfaces.UI
 {

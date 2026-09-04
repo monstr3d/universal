@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Vector3D;
-using RealMatrixProcessor;
 using Motion6D.Interfaces;
 
 namespace Motion6D
@@ -26,6 +20,7 @@ namespace Motion6D
         
         double[] tempV = new double[3];
 
+
         #endregion
 
         #region Overriden
@@ -46,10 +41,10 @@ namespace Motion6D
             double[,] m = Matrix;
             double[] relativeOmega = relativeAngularVelocity.Omega;
             double[] baseOmega = baseAngulatVelocity.Omega;
-            vp.VectorPoduct(baseOmega, relativeVelocity.Velocity, tempV);
+            vp.VectorProduct(baseOmega, relativeVelocity.Velocity, tempV);
             double om2 = vp.Square3d(baseOmega);
             double[] eps = arn.AngularAcceleration;
-            vp.VectorPoduct(eps, rp, temp);
+            vp.VectorProduct(eps, rp, temp);
             for (int i = 0; i < 3; i++)
             {
                 tempV[i] *= 2;
@@ -59,7 +54,7 @@ namespace Motion6D
             IOrientation relativeOrientation = relative;
             double[,] relativeMatrix = relativeOrientation.Matrix;
             realMatrix.Multiply(baseOmega, relativeMatrix, temp);
-            vp.VectorPoduct(temp, relativeOmega, tempV);
+            vp.VectorProduct(temp, relativeOmega, tempV);
             for (int i = 0; i < 3; i++)
             {
                 temp[i] = eps[i] + tempV[i];

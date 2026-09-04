@@ -1,3 +1,4 @@
+using ErrorHandler;
 using System;
 
 namespace CustomControls.Data
@@ -21,7 +22,7 @@ namespace CustomControls.Data
 			if ( enumType.BaseType == typeof( Enum ) )
 				this._enumType = enumType;
 			else
-				throw new ArgumentException( "Argument must be of type Enum" );
+				throw new OwnArgumentException( "Argument must be of type Enum" );
 		}
 
 		#endregion

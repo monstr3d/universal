@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataWarehouse.Forms
 {

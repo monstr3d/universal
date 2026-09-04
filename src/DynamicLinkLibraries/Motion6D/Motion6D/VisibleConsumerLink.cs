@@ -2,9 +2,6 @@ using System;
 using System.Runtime.Serialization;
 
 
-using CategoryTheory;
-using Motion6D.Interfaces;
-
 namespace Motion6D
 {
     /// <summary>
@@ -34,6 +31,7 @@ namespace Motion6D
         }
 
         #endregion
+
         #region ISerializable Members
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)

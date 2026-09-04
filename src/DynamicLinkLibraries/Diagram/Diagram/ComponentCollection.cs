@@ -6,7 +6,7 @@ using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI
 {
@@ -19,7 +19,7 @@ namespace Diagram.UI
     {
         #region Fields
 
-        Performer pefrormer = new Performer();
+        Performer performer = new Performer();
 
         IComponentCollection collection;
 
@@ -164,7 +164,7 @@ namespace Diagram.UI
 
         IEnumerable<T> IComponentCollection.Get<T>() where T : class
         {
-            return pefrormer.GetObjectsAndArrows<T>(this);
+            return performer.GetObjectsAndArrows<T>(this);
         }
 
         void INode<IComponentCollection>.Add(INode<IComponentCollection> node)
@@ -175,6 +175,11 @@ namespace Diagram.UI
         void INode<IComponentCollection>.Remove(INode<IComponentCollection> node)
         {
             Remove(node);
+        }
+
+        T IComponentCollection.Get<T>(string name)
+        {
+            return performer.GetObject<T>(this, name);
         }
 
         INode<IComponentCollection> INode<IComponentCollection>.Parent { get => Parent; set { Parent = value; } }

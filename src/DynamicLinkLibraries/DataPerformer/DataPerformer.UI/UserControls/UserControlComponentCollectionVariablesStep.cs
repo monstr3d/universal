@@ -52,7 +52,7 @@ namespace DataPerformer.UI.UserControls
         {
             get
             {
-               return  Double.Parse(textBox.Text);
+               return  double.Parse(textBox.Text);
             }
             set
             {

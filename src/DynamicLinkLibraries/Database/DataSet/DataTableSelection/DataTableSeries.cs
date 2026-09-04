@@ -17,6 +17,7 @@ using DataPerformer;
 using DataPerformer.Interfaces;
 
 using DataSetService;
+using DataSetService.Pure.Interfaces;
 
 
 namespace DataTableSelection

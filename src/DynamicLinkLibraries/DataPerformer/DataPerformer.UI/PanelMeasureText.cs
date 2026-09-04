@@ -8,6 +8,7 @@ using System.Drawing;
 
 using DataPerformer;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 
 namespace DataPerformer.UI
 {
@@ -41,9 +42,11 @@ namespace DataPerformer.UI
         /// <param name="dic">Ditionary</param>
         /// <param name="name">Name</param>
         /// <param name="selected">The "selected" sign</param>
-        public PanelMeasureText(IDataConsumer consumer, IMeasurements measurements, int width, Dictionary<TextBox, IMeasurement> dic, string name,
+        public PanelMeasureText(IDataConsumer consumer, IMeasurements measurements, int width, 
+            Dictionary<TextBox, Tuple<IMeasurement, string>> dic, string name,
             Dictionary<string, string> selected)
         {
+            var rn = consumer.GetRelativeMeasurementsName(measurements);
             this.consumer = consumer;
             this.name = name;
             int y = 0;
@@ -76,7 +79,7 @@ namespace DataPerformer.UI
                 {
                     tb.Text = selected[sel];
                 }
-                dic[tb] = m;
+                dic[tb] = new Tuple<IMeasurement, string> (m, rn + "." + m.Name);
                 tb.Top = l.Top;
                 tb.Left = width / 2;
                 Controls.Add(tb);

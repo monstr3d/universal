@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 using CategoryTheory;
-
-using Diagram.UI;
 
 using BaseTypes;
 using BaseTypes.Interfaces;
@@ -15,8 +11,8 @@ using DataPerformer.Interfaces;
 using Diagram.UI.Labels;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
-using NamedTree;
-using System.Diagnostics;
+using NamedTree.Interfaces;
+
 
 namespace DataPerformer.Portable
 {

@@ -198,7 +198,7 @@ namespace Gravity_36_36.Wrapper.Serializable
             }
             try
             {
-                a = Double.Parse(current, System.Globalization.CultureInfo.InvariantCulture);
+                a = double.Parse(current, System.Globalization.CultureInfo.InvariantCulture);
                 return true;
             }
             catch (Exception)

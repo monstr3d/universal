@@ -100,7 +100,7 @@ namespace FbxTools
                 reader.Byte(out nameLen);
             }
             else {
-                throw new NotSupportedException($"Format version '{version}' is not supported.");
+                throw new NotSupportedException($"Format version '{version}' is not supported. ");
             }
             var isNullRecord = (endOfRecord == 0) && (propertyCount == 0) && (propertyListLen == 0) && (nameLen == 0);
             if(isNullRecord) {

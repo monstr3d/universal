@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+
 using Motion6D.Interfaces;
 
 namespace Motion6D.Portable

@@ -4,13 +4,15 @@ using System.Text;
 using System.Runtime.Serialization;
 
 using DataSetService;
+using DataSetService.Pure;
+using DataSetService.Pure.Interfaces;
 
 namespace DataSetSerializable
 {
     /// <summary>
     /// Serializable table
     /// </summary>
-    [SerializableAttribute()]
+    [Serializable()]
     public class TableSerializable : AbstractTable, ISerializable
     {
         #region Constructors
@@ -64,7 +66,7 @@ namespace DataSetSerializable
     /// <summary>
     /// Sertializable limk
     /// </summary>
-    [SerializableAttribute()]
+    [Serializable()]
     public class LinkSerializable : AbstractLink, ISerializable
     {
         #region Constructors
@@ -181,7 +183,7 @@ namespace DataSetSerializable
     /// <summary>
     /// Serializable desktop
     /// </summary>
-    [SerializableAttribute()]
+    [Serializable()]
     public class DataDesktopSerializable : AbstractDataSetDesktop, ISerializable
     {
 

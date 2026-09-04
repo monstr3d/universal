@@ -24,7 +24,7 @@ namespace Motion6D.UI.Labels
         /// </summary>
         protected UserControlFrameData userControlFrameData;
 
-        Portable.ReferenceFrameDataBase frame;
+        Portable.ReferenceFrameData frame;
 
         #endregion
 
@@ -92,11 +92,11 @@ namespace Motion6D.UI.Labels
             }
             set
             {
-                if (!(value is Portable.ReferenceFrameDataBase))
+                if (!(value is Portable.ReferenceFrameData))
                 {
                     CategoryException.ThrowIllegalSourceException();
                 }
-                frame = value as Portable.ReferenceFrameDataBase;
+                frame = value as Portable.ReferenceFrameData;
                 userControlFrameData.Frame = frame;
             }
         }

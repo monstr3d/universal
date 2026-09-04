@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Motion6D.Interfaces
+﻿namespace Motion6D.Interfaces
 {
    /// <summary>
     /// Object the sets relative state

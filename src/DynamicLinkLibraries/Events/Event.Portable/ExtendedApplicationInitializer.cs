@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Diagram.UI;
+﻿using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Portable;

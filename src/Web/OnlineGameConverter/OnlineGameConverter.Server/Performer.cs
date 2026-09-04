@@ -6,7 +6,8 @@ using DataPerformer.Portable.Wrappers;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using OnlineGameConverter.Server.BusinessLogic.Orbital;
-using OnlineGameConverter.Server.Classes;
+using OnlineGameConverter.Server.Classes.Orbital;
+using System.Diagnostics;
 
 namespace OnlineGameConverter.Server
 {
@@ -35,18 +36,23 @@ namespace OnlineGameConverter.Server
 
         }
 
+        
+
         public Task<OrbitalForecastItemNumberPure> GetInitialAsync()
         {
             return Task.FromResult(GetInitial());
         }
 
-        OrbitalForecastItemNumberPure GetInitial()
+        public OrbitalForecastItemNumberPure GetInitial()
         {
             var dt = DateTime.Now;
+            var b = dt.ToOADate() * 86400;
+            var e = b + 20000;
+
             return new OrbitalForecastItemNumberPure
             {
-                Begin = dateToDouble(dt),
-                End = dateToDouble(dt) + 20000,
+                Begin = b,
+                End = e,
                 X = condition.X,
                 Y = condition.Y,
                 Z = condition.Z,
@@ -59,7 +65,24 @@ namespace OnlineGameConverter.Server
 
         }
 
+        public OrbitalForecastConditionNumber GetInitialNumber()
+        {
+            var dt = DateTime.Now;
+            return new OrbitalForecastConditionNumber
+            {
+                Begin = dateToDouble(dt),
+                End = dateToDouble(dt) + 20000,
+                X = condition.X,
+                Y = condition.Y,
+                Z = condition.Z,
+                Vx = condition.Vx,
+                Vy = condition.Vy,
+                Vz = condition.Vz,
 
+            };
+
+
+        }
 
 
         Func<DateTime, double> dateToDouble;
@@ -72,7 +95,7 @@ namespace OnlineGameConverter.Server
             return Task.FromResult(CalculateOrbitalForecastItemNumber(condition, token));
         }
 
-        public Task<List<OrbitalForecastItemDateTime>> CalculateOrbitalForecastFromDatetimeAsync(OrbitalForecastConditionDateTime condition,
+        public Task<List<OrbitaForecastItem>> CalculateOrbitalForecastFromDatetimeAsync(OrbitalForecastConditionDateTime condition,
          CancellationToken token)
         {
             return Task.FromResult(CalculateOrbitalForecastItemDateTime(condition, token));
@@ -153,7 +176,7 @@ namespace OnlineGameConverter.Server
 
 
 
-        internal List<OrbitalForecastItemDateTime> CalculateOrbitalForecastItemDateTime(OrbitalForecastConditionDateTime condition,
+        internal List<OrbitaForecastItem> CalculateOrbitalForecastItemDateTime(OrbitalForecastConditionDateTime condition,
     CancellationToken token)
         {
             try
@@ -161,17 +184,17 @@ namespace OnlineGameConverter.Server
                 var prp = PrepareCalculation(condition);
                 if (prp == null)
                 {
-                    return Enumerable.Empty<OrbitalForecastItemDateTime>().ToList();
+                    return Enumerable.Empty<OrbitaForecastItem>().ToList();
                 }
                 var parameters = prp.Item5;
 
-                var l = new List<OrbitalForecastItemDateTime>();
+                var l = new List<OrbitaForecastItem>();
 
                 var act = () =>
                 {
                     var t = prp.Item2.Time;
 
-                    var it = new OrbitalForecastItemDateTime
+                    var it = new OrbitaForecastItem
                     {
                         DateTime =  doubleToDate(t),
                         X = parameters["Motion equations.x"](),
@@ -202,11 +225,21 @@ namespace OnlineGameConverter.Server
 
 
 
-        internal List<OrbitalForecastItemNumber> CalculateOrbitalForecastItemNumber(OrbitalForecastConditionNumber condition,
+        public List<OrbitalForecastItemNumber> CalculateOrbitalForecastItemNumber(OrbitalForecastConditionNumber condition)
+        {
+            var ct = new CancellationToken();
+            return CalculateOrbitalForecastItemNumber(condition, ct);
+        }
+
+
+
+        public List<OrbitalForecastItemNumber> CalculateOrbitalForecastItemNumber(OrbitalForecastConditionNumber condition,
             CancellationToken token)  
         {
             try
             {
+                var sw = new Stopwatch();
+                sw.Start();
                 var prp = PrepareCalculation(condition);
                 if (prp == null)
                 {
@@ -219,19 +252,19 @@ namespace OnlineGameConverter.Server
                 var act = () =>
                  {
                      var t = prp.Item2.Time;
-
+                     sw.Stop();
                      var it = new OrbitalForecastItemNumber
                      {
-                         DateTime = t,
+                         OrbitalTime = t,
                          X = parameters["Motion equations.x"](),
                          Y = parameters["Motion equations.y"](),
                          Z = parameters["Motion equations.z"](),
                          Vx = parameters["Motion equations.u"](),
                          Vy = parameters["Motion equations.v"](),
-                         Vz = parameters["Motion equations.w"]()
-
+                         Vz = parameters["Motion equations.w"](),
+                         Duration = sw.ElapsedMilliseconds
                      };
-              
+                     sw.Start();
                      l.Add(it);
                     // var dt = DateTime.F
 

@@ -5,8 +5,6 @@ using System.Runtime.Serialization;
 
 using CategoryTheory;
 
-using Diagram.UI;
-
 using SerializationInterface;
 
 using Event.Interfaces;
@@ -14,7 +12,7 @@ using Event.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.Basic.Data.Events
 {

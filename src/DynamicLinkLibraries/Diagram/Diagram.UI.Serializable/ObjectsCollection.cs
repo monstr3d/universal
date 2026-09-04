@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using System.Dynamic;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Diagram.UI
 {
@@ -110,8 +109,6 @@ namespace Diagram.UI
 
 
         #endregion
-
-
 
 
 
@@ -227,6 +224,10 @@ namespace Diagram.UI
 
         #region IComponentCollection Members
 
+        T IComponentCollection.Get<T>(string name)
+        {
+            return performer.GetObject<T>(this, name);
+        }
 
 
         IEnumerable<object> IComponentCollection.AllComponents

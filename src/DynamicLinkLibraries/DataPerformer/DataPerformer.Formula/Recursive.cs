@@ -21,7 +21,7 @@ using FormulaEditor.Symbols;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 
 namespace DataPerformer.Formula
@@ -276,8 +276,6 @@ namespace DataPerformer.Formula
 			}
 		}
 
-
-
 		void IMeasurements.UpdateMeasurements()
 		{
 			if (IsUpdated)
@@ -385,7 +383,7 @@ namespace DataPerformer.Formula
 		/// <summary>
 		/// List of alias names
 		/// </summary>
-		public IList<string> AliasNames
+		IList<string> IAlias.AliasNames
 		{
 			get
 			{
@@ -415,22 +413,32 @@ namespace DataPerformer.Formula
 			}
 			set
 			{
-				if (aliases.ContainsKey(alias[0]))
-				{
-					aliases[alias[0]] = value;
-					return;
-				}
-				object[] o = vars[alias[0]] as object[];
-				o[2] = value;
+				SetAlias(alias, value);
 			}
 		}
 
 		/// <summary>
-		/// Gets object type
+		/// Sets alias
 		/// </summary>
-		/// <param name="name">Object name</param>
-		/// <returns>Returns type of alias object</returns>
-		public object GetType(string name)
+		/// <param name="alias">Name</param>
+		/// <param name="value">Value</param>
+		protected virtual void SetAlias(string alias, object value)
+		{
+			if (aliases.ContainsKey(alias[0]))
+			{
+				aliases[alias[0]] = value;
+				return;
+			}
+			object[] o = vars[alias[0]] as object[];
+			o[2] = value;
+		}
+
+        /// <summary>
+        /// Gets object type
+        /// </summary>
+        /// <param name="name">Object name</param>
+        /// <returns>Returns type of alias object</returns>
+        object IAlias.GetType(string name)
 		{
 			IAlias al = this;
 			return AliasTypeDetector.Detector.DetectType(al[name]);
@@ -927,7 +935,7 @@ namespace DataPerformer.Formula
 			{
 				VariablesL[c] = new object[4];
 			}
-			IList<string> an = AliasNames;
+			IList<string> an = al.AliasNames;
 			List<ObjectFormulaTree> tt = new List<ObjectFormulaTree>();
 			string proh = "\u03B4";
 			foreach (char c in parameters.Keys)
@@ -944,7 +952,7 @@ namespace DataPerformer.Formula
 				object[] os = vars[c] as object[];
 				if (an.Contains(c + ""))
 				{
-					t = GetType(c + "");
+					t = al.GetType(c + "");
 				}
 				else
 				{
@@ -962,7 +970,7 @@ namespace DataPerformer.Formula
 				object t = null;
 				if (an.Contains(c + ""))
 				{
-					t = GetType(c + "");
+					t = al.GetType(c + "");
 				}
 				else
 				{
@@ -1040,21 +1048,6 @@ namespace DataPerformer.Formula
 				feedbackAliasCollection.Set();
 				return;
 
-				foreach (char c in varc)
-				{
-				}
-				oldStep = step;
-				tempAliases.Clear();
-				foreach (var alias in aliases.Keys)
-				{
-					tempAliases[alias] = aliases[alias];
-				}
-				return;
-			}
-			return;
-			foreach (var alias in tempAliases.Keys)
-			{
-				aliases[alias] = tempAliases[alias];
 			}
 		}
 
@@ -1254,10 +1247,11 @@ namespace DataPerformer.Formula
             /// <param name="r">Parent</param>
             protected Variable(char key, Recursive r)
 			{
+				IAlias a = r;
 				this.key = key;
 				Recursive = r;
 				name = key + "";
-				type = r.GetType(name);
+				type = a.GetType(name);
 				formulaGet = GetInitial;
 				tree = new ObjectFormulaTree(this);
 			}
@@ -1297,7 +1291,7 @@ namespace DataPerformer.Formula
 
 			object IObjectOperation.ReturnType
 			{
-				get { return Recursive.GetType(key + ""); }
+				get { return (Recursive as IAlias).GetType(key + ""); }
 			}
 
 			bool IPowered.IsPowered

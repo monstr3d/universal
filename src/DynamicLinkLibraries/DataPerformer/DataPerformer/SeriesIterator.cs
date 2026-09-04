@@ -5,7 +5,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer
 {

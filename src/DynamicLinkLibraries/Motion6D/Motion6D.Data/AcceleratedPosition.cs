@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
-using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 
@@ -17,6 +15,7 @@ using Motion6D.Interfaces;
 using Vector3D;
 using ErrorHandler;
 using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D
 {

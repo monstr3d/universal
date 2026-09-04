@@ -2,13 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Labels
 {

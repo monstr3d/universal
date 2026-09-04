@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CategoryTheory;
@@ -15,7 +10,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
 
 using Event.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.UI.UserControls
 {

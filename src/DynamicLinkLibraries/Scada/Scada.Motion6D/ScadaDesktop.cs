@@ -17,14 +17,13 @@ using Event.Interfaces;
 using Event.Portable.Interfaces;
 
 using Scada.Interfaces;
-using Scada.Desktop;
 using Scada.Motion6D.Interfaces;
 
 using Animation.Interfaces;
 
 using Motion6D.Portable;
 using Motion6D.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Scada.Motion6D
 {

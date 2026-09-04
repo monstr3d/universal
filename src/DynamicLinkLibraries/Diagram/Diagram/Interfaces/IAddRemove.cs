@@ -1,5 +1,6 @@
 ﻿using System;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Interfaces
 {

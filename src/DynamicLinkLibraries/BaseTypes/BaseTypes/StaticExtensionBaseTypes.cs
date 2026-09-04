@@ -411,7 +411,7 @@ namespace BaseTypes
         /// <returns>Double</returns>
         public static double ParseDouble(this string str)
         {
-            return Double.Parse(str, CultureInfo.InvariantCulture); 
+            return double.Parse(str, CultureInfo.InvariantCulture); 
         }
 
         /// <summary>

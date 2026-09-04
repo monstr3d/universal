@@ -1,15 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 
 using CategoryTheory;
-
-using Motion6D.Interfaces;
-
-using Vector3D;
-using Motion6D.Portable;
 
 namespace Motion6D
 {

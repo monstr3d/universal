@@ -11,12 +11,19 @@ namespace BasicEngineering.UI.Factory
 
         }
 
+ 
+
         public static string ConversionLanguage
         {
             get => Properties.Settings.Default.ConversionLanguage;
             set => Properties.Settings.Default.ConversionLanguage = value;
         }
 
+        public static string AdditionalLanguage
+        {
+            get => Properties.Settings.Default.AdditionalLanguage;
+            set => Properties.Settings.Default.AdditionalLanguage = value;
+        }
 
         public static bool StaticClassGenerated
         {
@@ -38,6 +45,22 @@ namespace BasicEngineering.UI.Factory
                 Properties.Settings.Default.Server = value;
             }
         }
+
+        /// <summary>
+        /// Server
+        /// </summary>
+        public static string AdditionalSaveURL
+        {
+            get
+            {
+                return Properties.Settings.Default.AdditionalSaveURL;
+            }
+            set
+            {
+                Properties.Settings.Default.AdditionalSaveURL = value;
+            }
+        }
+
 
         /// <summary>
         /// The "has log" sign
@@ -390,8 +413,25 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
+        // DirectoryOfAdditionalGeneratedFiles
         /// <summary>
-        /// Level of checking
+        /// Directory of generated files
+        /// </summary>
+        public static string DirectoryOfAdditionalGeneratedFiles
+        {
+            get
+            {
+                return Properties.Settings.Default.DirectoryOfAdditionalGeneratedFiles;
+            }
+            set
+            {
+                Properties.Settings.Default.DirectoryOfAdditionalGeneratedFiles = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Directory of generated files
         /// </summary>
         public static string DirectoryOfGeneratedFiles
         {

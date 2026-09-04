@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using CategoryTheory;
 
@@ -10,7 +11,7 @@ using Diagram.UI.Interfaces;
 
 using Motion6D.Aggregates;
 using Motion6D.UI.Forms;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D.UI.Factory
 {
@@ -111,8 +112,9 @@ namespace Motion6D.UI.Factory
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        public override ICategoryObject CreateObject(IPaletteButton button)
+        public override Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
+            ICategoryObject categoryObject = null;
             Type type = button.ReflectionType;
             string kind = button.Kind;  // Kind of object
             if (type.Equals(typeof(SerializablePosition)))
@@ -125,7 +127,7 @@ namespace Motion6D.UI.Factory
                     p.Parameters = ph;
                     Interfaces.IPositionObject po = ph;
                     po.Position = p;
-                    return p;
+                    categoryObject = p;
                 }
                 if (kind.Equals(Measurements_of_3D_field))
                 {
@@ -133,7 +135,7 @@ namespace Motion6D.UI.Factory
                     p.Parameters = ph;
                     Motion6D.Interfaces.IPositionObject po = ph;
                     po.Position = p;
-                    return p;
+                    categoryObject = p;
                 }
                 if (kind.Equals(InertialNavigationSystem))
                 {
@@ -141,7 +143,7 @@ namespace Motion6D.UI.Factory
                     p.Parameters = sensor;
                     Motion6D.Interfaces.IPositionObject po = sensor;
                     po.Position = p;
-                    return p;
+                    categoryObject = p;
                 }
                 if (kind.Equals(Field3D))
                 {
@@ -150,10 +152,14 @@ namespace Motion6D.UI.Factory
                     p.Parameters = ph;
                     Interfaces.IPositionObject po = ph;
                     po.Position = p;
-                    return p;
+                    categoryObject = p;
                 }
             }
-            return null;
+            if (categoryObject == null)
+            {
+                return null;
+            }
+            return Task.FromResult(categoryObject);
         }
 
         /// <summary>

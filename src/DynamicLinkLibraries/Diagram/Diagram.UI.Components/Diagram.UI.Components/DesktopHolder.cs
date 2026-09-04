@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Design;
 using System.IO;
+using System.Threading;
 
 namespace Diagram.UI.Components
 {
@@ -107,11 +108,13 @@ namespace Diagram.UI.Components
         /// Desktop
         /// </summary>
         [Browsable(false)]
-        public virtual PureDesktopPeer Desktop
+        public virtual  PureDesktopPeer Desktop
         {
             get
             {
-                return content.Desktop;
+                var ct = new CancellationToken();
+                var d = content.GetDesktopPeerAsync(ct);
+                return d.Result;
             }
         }
 
@@ -119,7 +122,7 @@ namespace Diagram.UI.Components
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Stream stream = File.OpenRead(openFileDialog.FileName);
+                using var stream = File.OpenRead(openFileDialog.FileName);
                 byte[] b = new byte[stream.Length];
                 stream.Read(b, 0, b.Length);
                 content.Bytes = b;

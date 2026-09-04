@@ -13,7 +13,7 @@ using Diagram.UI.Forms.Interfaces;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Labels
 {

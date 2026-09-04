@@ -1,12 +1,14 @@
 ﻿using System.Reflection;
 using System.Xml;
+
 using Abstract3DConverters;
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Meshes;
+
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
+
 using ErrorHandler;
 
 
@@ -64,15 +66,6 @@ namespace Collada.Converters.MeshCreators
         internal Dictionary<string, Abstract3DConverters.Image> ImagesIntrenal => Images;
 
         internal Dictionary<string, GeometryObject> Geom { get; private set; } = new();
-        /*
-                public Dictionary<string, geometry> Geometries { get; private set; }
-
-                public Dictionary<string, common_newparam_type> NewParam { get; private set; }
-
-
-                Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
-
-        */
 
         static ColladaMeshCreator()
         {
@@ -197,7 +190,7 @@ namespace Collada.Converters.MeshCreators
 
         object ICollada.Get(string s)
         {
-            throw new IllegalSetPropetryException("Collada get is not supported");
+            throw new IllegalSetPropetryException("Collada get is not supported ");
         }
 
         void ICollada.Init(XmlElement xmlElement)

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using CategoryTheory;
 
 using Diagram.UI;
-using Diagram.UI.Interfaces;
 
 using BaseTypes.Interfaces;
 using BaseTypes;
@@ -15,7 +14,7 @@ using FormulaEditor.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 using ErrorHandler;
 

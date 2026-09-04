@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
+
 using Diagram.UI.Labels;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Portable
 {
@@ -112,6 +115,12 @@ namespace Diagram.UI.Portable
 
         #region IComponentCollection Members
 
+        T IComponentCollection.Get<T>(string name)
+        {
+            return perf.GetObject<T>(this, name);
+        }
+
+
         IEnumerable<T> IComponentCollection.Get<T>() where T : class
         {
             return performer.GetObjectsAndArrows<T>(this);
@@ -130,9 +139,9 @@ namespace Diagram.UI.Portable
         /// Loaded Desktop
         /// </summary>
         /// <returns></returns>
-        public virtual IDesktop LoadDesktop()
+        public virtual Task<IDesktop> LoadDesktop(CancellationToken token)
         {
-            return desktop;
+            return Task.FromResult(desktop);
         }
 
         /// <summary>
@@ -157,16 +166,11 @@ namespace Diagram.UI.Portable
             }
         }
 
-
-        /// <summary>
-        /// Loads itself
-        /// </summary>
-        /// <returns>True in success</returns>
         public virtual bool Load()
         {
             if (isLoaded)
             {
-                return false;
+                return isLoaded;
             }
             isLoaded = true;
             if (desktop is PureDesktop pure)
@@ -175,6 +179,26 @@ namespace Diagram.UI.Portable
             }
             LoadProtected();
             return true;
+        }
+
+
+        /// <summary>
+        /// Loads itself
+        /// </summary>
+        /// <returns>True in success</returns>
+        public virtual Task<bool> LoadAsync(CancellationToken ? token)
+        {
+            if (isLoaded)
+            {
+                return Task<bool>.FromResult(isLoaded);
+            }
+            isLoaded = true;
+            if (desktop is PureDesktop pure)
+            {
+                pure.HasParent = true;
+            }
+            LoadProtected();
+            return Task<bool>.FromResult(true);
         }
 
         /// <summary>
@@ -261,7 +285,6 @@ namespace Diagram.UI.Portable
 
 
         #endregion
-
 
         #region Public Members
 
@@ -425,6 +448,11 @@ namespace Diagram.UI.Portable
         void INode<IComponentCollection>.Remove(INode<IComponentCollection> node)
         {
             Remove(node);
+        }
+
+        Task<IDesktop> IObjectContainer.LoadDesktop(CancellationToken token)
+        {
+            throw new NotImplementedException();
         }
 
         INode<IComponentCollection> INode<IComponentCollection>.Parent { get => Parent; set { Parent = value; } }

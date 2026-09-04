@@ -13,7 +13,8 @@ using Event.Interfaces;
 
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Motion6D.Portable
 {
@@ -251,7 +252,6 @@ namespace Motion6D.Portable
         // !!! DELETE       protected abstract void RealtimeUpdate();
 
         #endregion
-
    
         #region Virtual Members
 
@@ -397,7 +397,11 @@ namespace Motion6D.Portable
             }
         }
 
-        string INamed.Name { get => performer.GetAssociatedName(this); set =>new  ErrorHandler.WriteProhibitedException(); }
+        string INamed.Name 
+        { 
+            get => performer.GetAssociatedName(this); 
+            set => new  ErrorHandler.WriteProhibitedException(); 
+        }
        
 
         /// <summary>

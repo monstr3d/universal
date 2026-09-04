@@ -1,15 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
-
-
-using CategoryTheory;
+﻿using System.Windows.Forms;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using ErrorHandler;
 using Motion6D.Portable.Aggregates;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D.UI.Forms
 {

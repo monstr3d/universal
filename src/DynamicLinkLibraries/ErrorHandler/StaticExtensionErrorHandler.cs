@@ -8,6 +8,7 @@ namespace ErrorHandler
     public static class StaticExtensionErrorHandler
     {
 
+        #region Ctor
 
         /// <summary>
         /// Empty handles exception for debug
@@ -16,6 +17,8 @@ namespace ErrorHandler
         {
 
         }
+
+        #endregion
 
         #region Fields
 
@@ -27,7 +30,7 @@ namespace ErrorHandler
         /// </summary>
         static IExceptionHandler? exceptionHandler = null;
 
-        
+
 
         #endregion
 
@@ -57,9 +60,8 @@ namespace ErrorHandler
             HandleException();
             if (!exception.IsFiction(obj))
             {
-
+                exceptionHandler?.HandleException(exception, obj);
             }
-            exceptionHandler?.HandleException(exception, obj);
         }
 
         /// <summary>
@@ -73,6 +75,12 @@ namespace ErrorHandler
             exceptionHandler?.HandleException(exception, Fiction);
         }
 
+        /// <summary>
+        /// Gers attribute
+        /// </summary>
+        /// <typeparam name="T">Output type</typeparam>
+        /// <param name="obj">Input</param>
+        /// <returns>Output</returns>
         private static T GetAttribute<T>(object obj) where T : Attribute
         {
             if (obj == null)
@@ -85,11 +93,9 @@ namespace ErrorHandler
             var ti = IntrospectionExtensions.GetTypeInfo(type);
             var at = CustomAttributeExtensions.GetCustomAttribute<T>(ti);
             return at;
-           
 #pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning restore CS8603 // Possible null reference return.
         }
-
 
         public static bool IsFiction(this Exception exception, params object[] obj)
         {
@@ -147,5 +153,6 @@ namespace ErrorHandler
         }
 
         #endregion
+
     }
 }

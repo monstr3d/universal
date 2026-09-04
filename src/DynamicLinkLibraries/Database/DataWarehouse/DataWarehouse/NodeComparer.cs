@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using DataWarehouse.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataWarehouse
 {

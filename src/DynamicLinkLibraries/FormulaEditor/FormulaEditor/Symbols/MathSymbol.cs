@@ -175,7 +175,7 @@ namespace FormulaEditor.Symbols
             string c = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
             string d = e.GetAttribute("DoubleValue");
             d = d.Replace(".", c);
-            doubleValue = Double.Parse(d);
+            doubleValue = double.Parse(d);
             ulongValue = UInt64.Parse(e.GetAttribute("UlongValue"));
             string str = e.GetAttribute("BoolValue");
             if (str.ToLower().Contains("true"))
@@ -832,7 +832,7 @@ namespace FormulaEditor.Symbols
                             }
                         }
                         str = str.Replace('.', DecimalSep[0]);
-                        doubleValue = Double.Parse(str);
+                        doubleValue = double.Parse(str);
                         symbol = '?';
                         return sym;
                     }
@@ -840,7 +840,7 @@ namespace FormulaEditor.Symbols
                     {
                         children[0] = sym.children[0];
                         str = str.Replace('.', DecimalSep[0]);
-                        doubleValue = Double.Parse(str);
+                        doubleValue = double.Parse(str);
                         sym.Remove();
                         return Next;
                     }

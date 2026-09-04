@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 using RealMatrixProcessor;
 
 namespace DataPerformer.Portable.Abstract

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
 
@@ -12,7 +9,8 @@ using BaseTypes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable.Objects
 {

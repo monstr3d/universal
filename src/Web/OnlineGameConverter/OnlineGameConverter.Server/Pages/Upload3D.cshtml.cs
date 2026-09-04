@@ -35,7 +35,9 @@ namespace OnlineGameConverter.Server.Pages
 
         
 
-        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink, IExceptionSingleton exceptionSingleton, IHttpContextAccessor httpContextAccessor)
+        public Upload3DModel(IConfiguration config, IBytesSingleton hyperLink, 
+            IExceptionSingleton exceptionSingleton, 
+            IHttpContextAccessor httpContextAccessor)
         {
             HyperLink = hyperLink;
             Tuple = hyperLink.Tuple;

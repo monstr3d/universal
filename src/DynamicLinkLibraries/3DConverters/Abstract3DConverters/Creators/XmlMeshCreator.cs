@@ -3,6 +3,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Abstract3DConverters.Creators
 {
@@ -40,8 +41,9 @@ namespace Abstract3DConverters.Creators
             Load(bytes);
         }
 
-        public override void Load(byte[] bytes)
+        protected override void Load(object obj)
         {
+            var bytes = obj as byte[];
             using var stream = new MemoryStream(bytes);
 
             using var reader = new StreamReader(stream);

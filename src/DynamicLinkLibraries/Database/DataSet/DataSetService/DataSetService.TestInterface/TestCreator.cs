@@ -14,6 +14,7 @@ using Diagram.UI.Labels;
 using TestCategory.Interfaces;
 using TestCategory;
 using DataSetService.TestInterface.Tests;
+using DataSetService.Pure.Interfaces;
 
 namespace DataSetService.TestInterface
 {

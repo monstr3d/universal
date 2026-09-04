@@ -2,7 +2,7 @@
 
 using Diagram.UI.Labels;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Diagram.UI.Interfaces
@@ -40,6 +40,8 @@ namespace Diagram.UI.Interfaces
         IEnumerable<CategoryTheory.ICategoryArrow> CategoryArrows { get; }
 
         IEnumerable<T> Get<T>() where T : class;
+
+       T Get<T>(string name) where T : class;
 
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 
 using CategoryTheory;
@@ -10,7 +9,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using PhysicalField.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace PhysicalField.Portable

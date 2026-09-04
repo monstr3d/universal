@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 //using DataSetWeb;
 using DataSetService;
+using DataSetService.Pure;
 
 namespace Database.UI.UserControls
 {

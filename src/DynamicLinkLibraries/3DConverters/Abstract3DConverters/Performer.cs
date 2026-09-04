@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.IO.Compression;
+﻿using System.IO.Compression;
+
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 
@@ -31,7 +31,6 @@ namespace Abstract3DConverters
         /// </summary>
         public Performer()
         {
-
         }
 
         /// <summary>

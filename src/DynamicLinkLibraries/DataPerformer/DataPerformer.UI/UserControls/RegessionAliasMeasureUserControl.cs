@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 using System.Collections;
-using DataPerformer;
-using CategoryTheory;
+
 using Diagram.UI.Labels;
 using DataPerformer.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.UI.UserControls
 {

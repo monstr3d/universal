@@ -31,6 +31,38 @@ namespace RealMatrixProcessor
         }
 
         /// <summary>
+        /// Partial norm of vector
+        /// </summary>
+        /// <param name="x">The vector</param>
+        /// <param name="startIndex">startIndex</param>
+        /// <param name="length">Length</param>
+        /// <returns>The partial norm</returns>
+        public double PartialNorm(double[] x, int startIndex, int length)
+        {
+            return Math.Sqrt(PartialSquare(x, startIndex, length));
+        }
+
+
+        /// <summary>
+        /// Partial square of vector
+        /// </summary>
+        /// <param name="x">The vector</param>
+        /// <param name="startIndex">startIndex</param>
+        /// <param name="length">Length</param>
+        /// <returns>The partial square</returns>
+        public double PartialSquare(double[] x, int startIndex, int length)
+        {
+            double a = 0;
+            for (int i = 0; i < length; i++)
+            {
+                double c = x[i + startIndex];
+                a += c * c;
+            }
+            return a;
+        }
+
+
+        /// <summary>
         /// Normalization of vector
         /// </summary>
         /// <param name="inp">Input</param>
@@ -612,6 +644,18 @@ namespace RealMatrixProcessor
             }
         }
 
+        /// <summary>
+        /// Copies sign
+        /// </summary>
+        /// <param name="a">Valur</param>
+        /// <param name="b">Sign</param>
+        /// <returns>Value with sign</returns>
+        public double CopySign(double a, double b)
+        {
+            return Math.Abs(a) * Math.Sign(b);
+        }
+
+
 
         /// <summary>
         /// Square of vector
@@ -696,7 +740,7 @@ namespace RealMatrixProcessor
         /// <param name="vector">The vector</param>
         /// <param name="matrix">The matrix</param>
         /// <param name="product">The product</param>
-		 public void Multiply(double[] vector, double[,] matrix, double[] product)
+        public void Multiply(double[] vector, double[,] matrix, double[] product)
         {
             if ((matrix.GetLength(0) != vector.Length) | (matrix.GetLength(1) != product.Length))
             {

@@ -2,7 +2,7 @@
 using DataWarehouse.Interfaces;
 using DataWarehouse.Interfaces.Async;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace PostgreSQLWarehouse.Async
 {
@@ -214,6 +214,21 @@ namespace PostgreSQLWarehouse.Async
         protected override List<IDirectory> GetDirectoriesFormDatabase()
         {
             throw new OwnNotImplemented();
+        }
+
+        public override bool Check(INamed named)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Add(INamed named)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Remove(INamed named)
+        {
+            throw new NotImplementedException();
         }
     }
 }

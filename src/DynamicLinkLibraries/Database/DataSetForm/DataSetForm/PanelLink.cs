@@ -7,6 +7,8 @@ using System.Data;
 
 using DataSetService;
 using System.ComponentModel;
+using DataSetService.Pure.Interfaces;
+using DataSetService.Pure;
 
 
 namespace DataSetService.Forms

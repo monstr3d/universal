@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
 using SerializationInterface;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI
 {

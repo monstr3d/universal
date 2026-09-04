@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using NamedTree;
+﻿using Microsoft.EntityFrameworkCore;
+using NamedTree.Interfaces;
 using SQLServerWarehouse.Models;
 
 #nullable disable

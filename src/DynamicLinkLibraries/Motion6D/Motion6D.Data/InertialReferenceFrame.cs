@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Motion6D.Interfaces;
-using NamedTree;
-using RealMatrixProcessor;
-using Vector3D;
+using NamedTree.Interfaces;
 
 namespace Motion6D
 {
@@ -23,6 +21,8 @@ namespace Motion6D
         IDataConsumer, IStarted, IVelocity, IOrientation, IAngularVelocity
     {
         #region Fields
+
+        IReferenceFrame oup;
 
         /// <summary>
         /// Change input event
@@ -197,7 +197,7 @@ namespace Motion6D
         public InertialReferenceFrame()
         {
             ClearAliases();
-             init();
+            init();
         }
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace Motion6D
                 linAccAbsolute[i] = forces[i] * unMass + aux[i];
             }
             realMatrix.Multiply(J, omega, aux);
-            vp.VectorPoduct(omega, aux, aux1);
+            vp.VectorProduct(omega, aux, aux1);
             realMatrix.Add(aux1, 0, forces, 9, aux, 0, 3);
             Array.Copy(forces, 3, aux1, 0, 3);
             realMatrix.Multiply(aux1, T, aux2);

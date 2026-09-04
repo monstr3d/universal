@@ -173,7 +173,7 @@ namespace DataPerformer.UI.UserControls
                     DataGridViewRow row = dataGridView.Rows[i];
                     for (int j = 0; j < 3; j++)
                     {
-                        double a = Double.Parse(row.Cells[j + 1].Value + "");
+                        double a = double.Parse(row.Cells[j + 1].Value + "");
                         old[j][i] = a;
                     }
                 }
@@ -213,7 +213,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 if (arg3 is string)
                 {
-                    a[arg1, arg2] = Double.Parse(arg3 + "");
+                    a[arg1, arg2] = double.Parse(arg3 + "");
                 }
             }
             catch (Exception e)

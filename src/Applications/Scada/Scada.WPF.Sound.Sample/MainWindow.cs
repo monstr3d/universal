@@ -17,13 +17,11 @@ namespace Scada.WPF.Sound.Sample
     {
         private void CreateScada()
         {
-            //Scada.WPF.UI._3D.ScadaControls.UserControlCamera c = new UI._3D.ScadaControls.UserControlCamera
+            /*
             StaticExtensionEventInterfaces.TimerEventFactory = WpfTimerEventFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
             scada = Properties.Resources.atis_sound_event_tu154.ScadaFromBytes("Chart",
                 BaseTypes.Attributes.TimeType.Second, false, null);
-            //(scada as Scada.Motion6D.Factory.ScadaDesktopMotion6D).AnimationType =
-           //     Animation.Interfaces.Enums.AnimationType.Synchronous;
             chart.Output = new List<Tuple<string, Color, double[]>>()
             {
                 new Tuple<string, Color, double[]>("Motion.Formula_1",
@@ -31,7 +29,7 @@ namespace Scada.WPF.Sound.Sample
                 new Tuple<string, Color, double[]>("Motion.Formula_2",
                 Color.FromRgb(0x90, 0xEE, 0x90), new double[] {0, 4000}),
             };
-
+            */
         }
     }
 }

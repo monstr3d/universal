@@ -740,7 +740,7 @@ namespace Motion6D.Portable.Aggregates
             // Velocity
             Array.Copy(state, v3d, 3);
             Array.Copy(state, 10, v3d1, 0, 3);
-            vp.VectorPoduct(v3d, v3d1, v3d2);
+            vp.VectorProduct(v3d, v3d1, v3d2);
             realMatrix.Multiply(orientation, v3d2, v3d);
             for (int i = 0; i < 3; i++)
             {
@@ -801,7 +801,7 @@ namespace Motion6D.Portable.Aggregates
             // Velocity
             Array.Copy(connectionExternal, 3, state, 3, 3);
             Array.Copy(connectionInrernal, v3d, 3);
-            vp.VectorPoduct(omega, v3d, v3d1);
+            vp.VectorProduct(omega, v3d, v3d1);
             realMatrix.Multiply(orientation, v3d, v3d2);
             for (int i = 0; i < 3; i++)
             {
@@ -940,7 +940,7 @@ namespace Motion6D.Portable.Aggregates
             AddForce();
             Array.Copy(state, 10, omega, 0, 3);
             realMatrix.Multiply(momentOfInertia,omega, omegaAdd);
-            vp.VectorPoduct(omega, omegaAdd, omegaAddP);
+            vp.VectorProduct(omega, omegaAdd, omegaAddP);
             for (int i = 0; i < 3; i++)
             {
                 internalAcceleration[i + 3] += omegaAddP[i];
@@ -984,15 +984,15 @@ namespace Motion6D.Portable.Aggregates
             // Linear acceleration
             Array.Copy(internalAcceleration, 3, v3d, 0, 3);
             Array.Copy(x, v3d1, 3);
-            vp.VectorPoduct(v3d, v3d1, v3d2);
+            vp.VectorProduct(v3d, v3d1, v3d2);
             realMatrix.Multiply(v3d2, orientation, v3d1);
             for (int i = 0; i < 3; i++)
             {
                 acc[i] = internalAcceleration[i] + v3d1[i];
             }
             Array.Copy(x, v3d1, 3);
-            vp.VectorPoduct(omega, v3d1, v3d2);
-          vp.VectorPoduct(omega, v3d2, v3d1);
+            vp.VectorProduct(omega, v3d1, v3d2);
+          vp.VectorProduct(omega, v3d2, v3d1);
             realMatrix.Multiply(v3d1, orientation, v3d);
             for (int i = 0; i < 3; i++)
             {

@@ -1,27 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-using CategoryTheory;
-using Diagram.UI;
+
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 
-
-using DataPerformer;
-using DataPerformer.Interfaces;
-
-using Motion6D;
-using Motion6D.Interfaces;
-
-using PhysicalField;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Motion6D.UI.Forms

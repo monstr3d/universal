@@ -117,14 +117,14 @@ namespace WpfInterface.UI.Forms
         {
             try
             {
-                camera.FieldOfView = Double.Parse(toolStripTextBoxFieldOfView.Text);
-                camera.NearPlaneDistance = Double.Parse(toolStripTextBoxNearPlaneDistance.Text);
-                camera.FarPlaneDistance = Double.Parse(toolStripTextBoxFarPlaneDistance.Text);
-                camera.Scale = Double.Parse(toolStripTextBoxScale.Text);
+                camera.FieldOfView = double.Parse(toolStripTextBoxFieldOfView.Text);
+                camera.NearPlaneDistance = double.Parse(toolStripTextBoxNearPlaneDistance.Text);
+                camera.FarPlaneDistance = double.Parse(toolStripTextBoxFarPlaneDistance.Text);
+                camera.Scale = double.Parse(toolStripTextBoxScale.Text);
                 Motion6D.Interfaces.ILinear6DForecast forecast = camera;
-                forecast.CoordinateError = Double.Parse(toolStripTextBoxCoordinateError.Text);
-                forecast.AngleError = Double.Parse(toolStripTextBoxAngleError.Text) * Math.PI / 180;
-                forecast.ForecastTime = TimeSpan.FromSeconds(Double.Parse(toolStripTextBoxForecatTime.Text));
+                forecast.CoordinateError = double.Parse(toolStripTextBoxCoordinateError.Text);
+                forecast.AngleError = double.Parse(toolStripTextBoxAngleError.Text) * Math.PI / 180;
+                forecast.ForecastTime = TimeSpan.FromSeconds(double.Parse(toolStripTextBoxForecatTime.Text));
             }
             catch (Exception ex)
             {

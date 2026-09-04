@@ -18,8 +18,8 @@ namespace OnlineGameConverter.Server.Controllers
             _logger = logger;
         }
 
-        [HttpGet("ttts")]
-        public IEnumerable<WeatherForecast> GetTTTT()
+        [HttpGet(Name = "GetWeatherForecast")]
+        public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

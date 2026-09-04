@@ -2,7 +2,7 @@ using System;
 using System.Runtime.Serialization;
 
 
-using NamedTree;
+using NamedTree.Interfaces;
 using CategoryTheory;
 using Motion6D.Interfaces;
 

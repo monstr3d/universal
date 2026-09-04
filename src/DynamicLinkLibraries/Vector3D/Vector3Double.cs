@@ -16,7 +16,7 @@ namespace Vector3D
 
         RealMatrix realMatrix = new ();
 
-        static RealMatrix rm = new();
+        static readonly RealMatrix rm = new();
 
  
         #endregion

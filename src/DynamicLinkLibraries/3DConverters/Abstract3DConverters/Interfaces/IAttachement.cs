@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Abstract3DConverters.Interfaces
+﻿namespace Abstract3DConverters.Interfaces
 {
     /// <summary>
     /// Attachement

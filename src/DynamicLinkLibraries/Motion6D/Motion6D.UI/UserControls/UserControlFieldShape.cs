@@ -1,4 +1,10 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
@@ -8,13 +14,8 @@ using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using ErrorHandler;
 using Motion6D.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 using PhysicalField.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Motion6D.UI.UserControls
 {

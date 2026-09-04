@@ -12,7 +12,7 @@ using Event.Interfaces;
 
 using ErrorHandler;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -21,7 +21,7 @@ namespace DataPerformer.Portable
     /// Data consumer
     /// </summary>
     public class DataConsumer : CategoryObject,  IDataConsumer,
-        IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
+        IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason, IPostSetArrow
     {
 
         #region Fields
@@ -320,7 +320,7 @@ namespace DataPerformer.Portable
                 this.Throw("Measurements aldeady exists");
             }
             measurementsData.Add(measurements);
-            Performer.GetDependent(measurementsData, list, Dependent);
+            Performer.GetDependentMeasurements(measurementsData as List<IMeasurements>, list, Dependent);
             onChangeInput?.Invoke();
         }
 
@@ -331,7 +331,7 @@ namespace DataPerformer.Portable
         public void Remove(IMeasurements measurements)
         {
             measurementsData.Remove(measurements);
-            measurementsData.GetDependent(list, Dependent);
+            Performer.GetDependent(measurementsData, list, Dependent);
             onChangeInput?.Invoke();
         }
 
@@ -528,6 +528,16 @@ namespace DataPerformer.Portable
 
         void IChildren<object>.RemoveChild(object child)
         {
+        }
+
+        protected virtual void PostSetArrow()
+        {
+
+        }
+
+        void IPostSetArrow.PostSetArrow()
+        {
+            PostSetArrow();
         }
 
         #endregion

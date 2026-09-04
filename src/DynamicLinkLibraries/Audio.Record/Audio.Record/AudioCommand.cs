@@ -5,7 +5,7 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
-using NamedTree;
+using NamedTree.Interfaces;
 
 using Audio.Record.Interfaces;
 
@@ -99,7 +99,7 @@ namespace Audio.Record
 
         #endregion
 
-        #region IAddRemove Members
+        #region IDisposable Members
 
         void IDisposable.Dispose()
         {

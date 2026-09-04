@@ -7,7 +7,7 @@ using BaseTypes.Interfaces;
 using FormulaEditor.Attributes;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace FormulaEditor
 {

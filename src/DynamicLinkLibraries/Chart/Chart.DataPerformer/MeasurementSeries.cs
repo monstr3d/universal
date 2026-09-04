@@ -28,6 +28,11 @@ namespace Chart.DataPerformer
             this.measurement = measurement;
             yCount = 1;
             var t = measurement.Type;
+            if (t.GetType() == typeof(bool))
+            {
+                step = BooleanStep;
+                return;
+            }
             step = SimpleStep;
             if (t is ArrayReturnType)
             {
@@ -40,6 +45,21 @@ namespace Chart.DataPerformer
         {
             step();
         }
+
+        void BooleanStep()
+        {
+            var a = x()();
+            var b = measurement.ToNullable<bool>();
+            if (a == null || b == null)
+            {
+                return;
+            }
+            double v = b.Value ? 1 : 0;
+            IPoint p = new PointBase((double)a, v);
+            p.Properties = measurement.AttachedToPoint();
+            points.Add(p);
+        }
+
 
         void SimpleStep()
         {

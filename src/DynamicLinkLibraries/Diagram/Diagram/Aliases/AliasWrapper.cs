@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 using Diagram.UI.Interfaces;
-using CategoryTheory;
-using NamedTree;
+using NamedTree.Interfaces;
 using ErrorHandler;
 
 namespace Diagram.UI.Aliases

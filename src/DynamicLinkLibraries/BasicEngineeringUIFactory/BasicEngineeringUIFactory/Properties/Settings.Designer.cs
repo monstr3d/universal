@@ -12,7 +12,7 @@ namespace BasicEngineering.UI.Factory.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -357,6 +357,42 @@ namespace BasicEngineering.UI.Factory.Properties {
             }
             set {
                 this["ConversionLanguage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AdditionalSaveURL {
+            get {
+                return ((string)(this["AdditionalSaveURL"]));
+            }
+            set {
+                this["AdditionalSaveURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DirectoryOfAdditionalGeneratedFiles {
+            get {
+                return ((string)(this["DirectoryOfAdditionalGeneratedFiles"]));
+            }
+            set {
+                this["DirectoryOfAdditionalGeneratedFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AdditionalLanguage {
+            get {
+                return ((string)(this["AdditionalLanguage"]));
+            }
+            set {
+                this["AdditionalLanguage"] = value;
             }
         }
     }

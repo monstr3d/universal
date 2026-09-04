@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
 using System.Xml;
+using System.ComponentModel;
 
 using CategoryTheory;
 
@@ -11,8 +12,7 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
 using ErrorHandler;
-using System.ComponentModel;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Labels
 {
@@ -429,7 +429,7 @@ namespace Diagram.UI.Labels
 			g.DrawString(ComponentName, font, textBrush, 5F, 5F);
             if (theObject != null)
             {
-                if (theObject is NamedTree.INamed no)
+                if (theObject is NamedTree.Interfaces.INamed no)
                 {
                     string name = no.Name;
                   //  g.DrawString(name, font, nameBrush, 5, captionHeight + 2); 

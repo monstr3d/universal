@@ -1,5 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Abstract3DConverters.Materials
 {

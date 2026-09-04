@@ -16,6 +16,8 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
     /// </summary>
     public abstract class DifferentialEquationProcessor : IDifferentialEquationProcessor
     {
+
+        protected Performer performer = new();
  
         /// <summary>
         /// The is busy sign
@@ -117,7 +119,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                     measurements.Add(o as IMeasurements);
                 }
             }
-            measurements.SortMeasurements();
+           performer.SortMeasurements(measurements);
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using CategoryTheory;
 using Diagram.UI.Interfaces;
+
 using System;
 using System.Collections.Generic;
 
@@ -31,5 +32,11 @@ namespace Diagram.UI.CodeCreators.Interfaces
         /// </summary>
         Tuple<Dictionary<ICategoryObject, int>, Dictionary<ICategoryArrow, int>> Enumeration { get; }
 
+        /// <summary>
+        /// Loaded objects
+        /// </summary>
+        Dictionary<object, string> Loaded { get; }
+
+   
     }
 }

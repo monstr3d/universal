@@ -5,8 +5,6 @@ using System.Runtime.Serialization;
 
 using CategoryTheory;
 
-using Diagram.UI;
-
 using BaseTypes;
 using BaseTypes.Utils;
 
@@ -14,7 +12,8 @@ using DataSetService;
 
 using Regression.Portable;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
+using DataSetService.Pure.Interfaces;
 
 
 namespace DataTableSelection
@@ -384,7 +383,7 @@ namespace DataTableSelection
                         {
                             ex.HandleException(10);
                             string s = o + "";
-                            a = Double.Parse(s);
+                            a = double.Parse(s);
                         }
                         /*                     if (dc.DataType.Equals(it))
                                              {

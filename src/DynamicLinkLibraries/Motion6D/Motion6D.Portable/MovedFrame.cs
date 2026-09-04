@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Motion6D.Interfaces;
 
 namespace Motion6D.Portable

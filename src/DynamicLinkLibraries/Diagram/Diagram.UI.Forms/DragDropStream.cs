@@ -65,6 +65,7 @@ namespace Diagram.UI
 
         private async void dragDrop(object sender, DragEventArgs e)
         {
+            var token = new CancellationToken();
             string[] s = e.Data.GetFormats();
             if (s == null)
             {
@@ -83,15 +84,15 @@ namespace Diagram.UI
                 {
                     ICancellation c = desktop;
                     var ct = c.CreateCancellationToken();
-                    var t = desktop.LoadAsync(async,
+                    await desktop.LoadAsync(async,
                         SerializationInterface.StaticExtensionSerializationInterface.Binder, 
-                        desktop.Extension, desktop.Extension, ct);
-                    await t;
+                        desktop.Extension, desktop.Extension, token);
                     return;
                 }
                 Stream stream = cr.Stream;
-                desktop.LoadFromStream(stream,
-                    SerializationInterface.StaticExtensionSerializationInterface.Binder, desktop.Extension, desktop.Extension);
+                await desktop.LoadFromStream(stream,
+                    SerializationInterface.StaticExtensionSerializationInterface.Binder, 
+                    desktop.Extension, desktop.Extension, token);
                 afterDrag(stream);
             }
         }

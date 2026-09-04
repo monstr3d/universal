@@ -13,9 +13,8 @@ using FormulaEditor.Symbols;
 using Regression.Portable;
 
 using DataPerformer.Interfaces;
-using System;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Formula.Regression
 

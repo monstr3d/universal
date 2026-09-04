@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using BaseTypes.Interfaces;
 
 using Diagram.UI.Interfaces;

@@ -1,6 +1,5 @@
 ﻿using System;
 
-using CategoryTheory;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -12,7 +11,7 @@ using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
 using Event.Portable.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Event.Portable.Runtime
 {

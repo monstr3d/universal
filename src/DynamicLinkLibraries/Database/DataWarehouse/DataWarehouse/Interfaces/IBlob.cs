@@ -1,3 +1,6 @@
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace DataWarehouse.Interfaces
 {
     /// <summary>
@@ -11,8 +14,15 @@ namespace DataWarehouse.Interfaces
         byte[] Bytes
         {
             get;
-            set;
         }
+
+        /// <summary>
+        /// Sets bytes
+        /// </summary>
+        /// <param name="bytes">Bytes</param>
+        /// <param name="cancellationToken">token</param>
+        /// <returns>Async tast</returns>
+        Task SetBytesAsync(byte[] bytes, CancellationToken cancellationToken);
 
         /// <summary>
         /// Extension

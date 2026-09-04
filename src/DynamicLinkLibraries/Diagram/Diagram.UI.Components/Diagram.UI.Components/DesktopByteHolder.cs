@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Text;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Drawing.Design;
 using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Diagram.UI.Components
 {
@@ -90,12 +91,14 @@ namespace Diagram.UI.Components
         {
             get
             {
+                var ct = new CancellationToken();
+
                 if (desktop == null)
                 {
                     if (content.Length > 0)
                     {
                         desktop = new PureDesktopPeer();
-                        desktop.Load(content);
+                        desktop.Load(content, ct);
                     }
                 }
                 return desktop;

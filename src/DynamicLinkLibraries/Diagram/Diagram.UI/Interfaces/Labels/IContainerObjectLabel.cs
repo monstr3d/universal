@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Diagram.UI.Interfaces.Labels
 {
@@ -12,6 +13,6 @@ namespace Diagram.UI.Interfaces.Labels
         /// <summary>
         /// Expands label
         /// </summary>
-        void Expand();
+        Task Expand();
     }
 }

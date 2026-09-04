@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-
+using System.Threading;
+using System.Threading.Tasks;
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
@@ -69,10 +69,11 @@ namespace Diagram.UI.XmlObjectFactory
  
         #endregion
 
-        private void Load()
+        private async Task Load()
         {
+            var t = new CancellationToken();
             PureDesktopPeer d = new PureDesktopPeer();
-            d.Load(bytes);
+            await d.Load(bytes, t);
             pattern = d;
         }
     }

@@ -15,8 +15,8 @@ namespace Abstract3DConverters.Interfaces
         /// <summary>
         /// Loads itself
         /// </summary>
-        /// <param name="bytes">Bytes</param>
-        void Load(byte[] bytes);
+        /// <param name="obj">Object</param>
+        void Load(object obj);
 
         /// <summary>
         /// Meshes

@@ -14,7 +14,7 @@ using Vector3D;
 using Motion6D.Interfaces;
 
 using RealMatrixProcessor;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D.Portable
 {

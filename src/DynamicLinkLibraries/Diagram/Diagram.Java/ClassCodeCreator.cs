@@ -57,11 +57,12 @@ namespace Diagram.Java
    
         }
 
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
+
+
         #region Interface
-
-
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
 
    
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)

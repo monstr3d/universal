@@ -1,13 +1,7 @@
 ﻿using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using TestCategory.Interfaces;
 
 namespace TestCategory

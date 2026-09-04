@@ -1,12 +1,11 @@
-﻿using System.Reflection;
-
-using BaseTypes;
+﻿using BaseTypes;
 using BaseTypes.Attributes;
 using BaseTypes.CodeCreator.Interfaces;
-using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-namespace Diagram.TypeScript
+using System.Reflection;
+
+namespace Diagram.UI.TypeScript
 {
     [Language("TS")]
     public class CodeCreator : ITypeCreator, IDictionaryCodeCreator<string, string>,
@@ -17,16 +16,7 @@ namespace Diagram.TypeScript
     {
         #region Fields
 
-        public static ITypeCreator TypeCreator
-        {
-            get;
-
-        } = new CodeCreator();
-
-
-        static protected UI.TypeScript.Performer performer = new();
-
-
+        static protected Performer performer = new();
 
 
         static public readonly Dictionary<Type, string> Dictionary =
@@ -62,7 +52,7 @@ namespace Diagram.TypeScript
         }
 
 
-        private CodeCreator()
+        internal CodeCreator()
         {
            this.AddTypeCreator();
         }
@@ -290,7 +280,7 @@ namespace Diagram.TypeScript
                     l.Add("setFeedback(): void {");
                     var ll = dcc.Create("map", fa.Dictionary).Values.ToArray()[0];
                     ll.Add("this.feedback = new FeedbackAliasCollection(map, this, this);");
-                    performer.Add(l, ll, 1);
+                    Add(l, ll, 1);
                     l.Add("}");
                 }
             }
@@ -300,6 +290,11 @@ namespace Diagram.TypeScript
         Dictionary<string, List<string>> IEnumerableCodeCreator<string>.Create(string id, IEnumerable<string> values)
         {
             return new Dictionary<string, List<string>>();  
+        }
+
+        protected void Add(List<string> l, List<string> ll, int shift)
+        {
+            performer.Add(l, ll, shift);
         }
     }
 }

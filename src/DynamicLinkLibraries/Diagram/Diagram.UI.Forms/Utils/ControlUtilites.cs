@@ -5,13 +5,12 @@ using System.IO;
 using System.Resources;
 using System.Windows.Forms;
 
-using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Utils
 {
@@ -152,7 +151,7 @@ namespace Diagram.UI.Utils
              }*/
             string message = ex.Message;
             string url = null;
-            if (ex is NamedTree.INamed na)
+            if (ex is NamedTree.Interfaces.INamed na)
             {
                 url = na.Name;
             }
@@ -1079,7 +1078,7 @@ namespace Diagram.UI.Utils
             double[] arr = new double[boxes.Length];
             for (int i = 0; i < boxes.Length; i++)
             {
-                double a = Double.Parse(boxes[i].Text);
+                double a = double.Parse(boxes[i].Text);
                 arr[i] = a;
             }
             return arr;

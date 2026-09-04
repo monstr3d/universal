@@ -22,7 +22,7 @@ namespace Motion6D.UI.UserControls
 
         const Double a = 0;
 
-        private Portable.ReferenceFrameDataBase frame;
+        private Portable.ReferenceFrameData frame;
 
         private IDataConsumer dc;
 
@@ -67,7 +67,7 @@ namespace Motion6D.UI.UserControls
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        internal virtual Portable.ReferenceFrameDataBase Frame
+        internal virtual Portable.ReferenceFrameData Frame
         {
             set
             {

@@ -1,7 +1,9 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Collada.Converters.Classes.Complicated
 {

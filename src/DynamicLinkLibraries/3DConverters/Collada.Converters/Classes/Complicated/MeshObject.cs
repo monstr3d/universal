@@ -4,10 +4,10 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
-using Collada.Converters.Classes.Elementary;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
+using Collada.Converters.Classes.Elementary;
 
 
 namespace Collada.Converters.Classes.Complicated

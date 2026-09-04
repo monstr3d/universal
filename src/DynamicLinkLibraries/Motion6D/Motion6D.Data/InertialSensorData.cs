@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
-using Diagram.UI;
 using BaseTypes;
 
 using DataPerformer;
@@ -12,7 +10,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Motion6D
 {

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 
 
@@ -13,9 +11,8 @@ using Diagram.UI;
 using SerializationInterface;
 
 using DataPerformer.Interfaces;
-using DataPerformer;
 using DataPerformer.Portable;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Mappinng
 {

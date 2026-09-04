@@ -19,7 +19,7 @@ using Motion6D.Interfaces;
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
 using Wpf.Loader;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 

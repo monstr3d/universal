@@ -42,7 +42,7 @@ namespace FormulaEditor
         {
             get
             {
-                return Double.Parse(x[0] + "");
+                return double.Parse(x[0] + "");
             }
         }
 

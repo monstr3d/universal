@@ -3,7 +3,8 @@
 using CategoryTheory;
 
 using Event.Interfaces;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Event.Portable.Arrows
 {

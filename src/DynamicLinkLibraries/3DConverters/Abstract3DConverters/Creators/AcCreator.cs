@@ -1,7 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 

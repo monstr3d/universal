@@ -7,6 +7,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces.Labels;
+using System.Threading.Tasks;
 
 namespace Diagram.UI.Factory
 {
@@ -29,7 +30,7 @@ namespace Diagram.UI.Factory
         /// </summary>
         /// <param name="button">The button</param>
         /// <returns>Created object</returns>
-        public virtual ICategoryObject CreateObject(IPaletteButton button)
+        public virtual Task<ICategoryObject> CreateObject(IPaletteButton button)
         {
             return null;
         }

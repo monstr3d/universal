@@ -77,8 +77,8 @@ namespace DataPerformer.UI.UserControls
             {
                 object[] o = new object[3];
                 o[0] = cb.SelectedItem.ToString();
-                o[1] = Double.Parse(dispEdi.Text);
-                o[2] = Double.Parse(deltaEdi.Text);
+                o[1] = double.Parse(dispEdi.Text);
+                o[2] = double.Parse(deltaEdi.Text);
                 return o;
             }
             set

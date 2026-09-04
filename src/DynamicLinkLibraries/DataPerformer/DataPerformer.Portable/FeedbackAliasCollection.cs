@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using BaseTypes.Interfaces;
+
 using DataPerformer.Interfaces;
 
 using Diagram.UI.Interfaces;
@@ -19,8 +21,6 @@ namespace DataPerformer.Portable
             this.dataConsumer = dataConsumer;
             Holder = holder;
         }
-
-
 
         public FeedbackAliasCollection(IDataConsumer dataConsumer, IFeedbackCollectionHolder holder,
             Dictionary<string, string> dictionary) : this(dataConsumer, holder)

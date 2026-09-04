@@ -8,9 +8,9 @@ using CategoryTheory;
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-
 using Diagram.UI;
 using Diagram.UI.Aliases;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using ErrorHandler;
@@ -19,7 +19,7 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
     
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataPerformer.Formula
 {
@@ -29,7 +29,7 @@ namespace DataPerformer.Formula
     public class VectorFormulaConsumer :
        DataConsumerMeasurements, IStarted, IVariableDetector,
        IRuntimeUpdate, ITreeCollection, ITimeVariable, 
-        IReplaceMeasurements, IPostSetArrow
+        IReplaceMeasurements, IFeedbackCollectionHolder,  IPostSetArrow
     {
 
         #region Fields
@@ -113,6 +113,7 @@ namespace DataPerformer.Formula
                 //         performer.UpdateChildrenData(this, feedbackCollection);
                 update();
                 isUpdated = true;
+                feedbackCollection.Set();
             }
             catch (Exception exception)
             {
@@ -157,17 +158,7 @@ namespace DataPerformer.Formula
             {
                 fm.Reset();
             }
-         //   performer.UpdateChildrenData(this, feedbackCollection);
-            update();
-            if (forward.Count > 0)
-            {
-                isUpdated = false;
-                /*        th.UpdateMeasurements();
-                        foreach (IMeasurement m in forward.Keys)
-                        {
-                            forward[m].Value = m.Parameter();
-                        }*/
-            }
+         //   feedbackCollection = new FeedbackAliasCollection(this, this, AliasNames)
         }
 
         #endregion
@@ -316,7 +307,7 @@ namespace DataPerformer.Formula
                     }
                 }
                 timeVariable = null;
-                IMeasurement timeMeasurement = 
+                IMeasurement timeMeasurement =
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
                 foreach (string s in arguments)
                 {
@@ -342,6 +333,8 @@ namespace DataPerformer.Formula
                     }
                 }
                 PostSetUnary();
+                CreateFeedback();
+                Feedback = feedback;
             }
             catch (Exception ex)
             {
@@ -379,22 +372,7 @@ namespace DataPerformer.Formula
         }
 
 
-        /// <summary>
-        /// Forward alias
-        /// </summary>
-        public Dictionary<int, string> ForwardAliases
-        {
-            get
-            {
-                return forwardAliases;
-            }
-            set
-            {
-                forwardAliases = value;
-                SetForward();
-            }
-        }
-
+ 
         /// <summary>
         /// Numbers of operations
         /// </summary>
@@ -776,14 +754,6 @@ namespace DataPerformer.Formula
             creator = VariableDetector.GetCreator(this);
         }
 
-        /// <summary>
-        /// Sets forward aliases
-        /// </summary>
-        protected void SetForward()
-        {
-            this.SetMeasureAliasLinks(forwardAliases, forward);
-        }
-
         #endregion
 
         #region Private Members
@@ -814,8 +784,6 @@ namespace DataPerformer.Formula
             }
 
         }
-
-  
         private void SetOperationNames(Dictionary<int, IOperationAcceptor> table)
         {
             operationNames.Clear();
@@ -840,7 +808,13 @@ namespace DataPerformer.Formula
 
         protected override void CreateFeedback()
         {
-            throw new OwnNotImplemented();
+            Dictionary<string, string> d = new();
+             foreach (var k in feedback)
+            {
+                var m = measurements[k.Key];
+                d[m.Name] = k.Value;
+            }
+            feedbackCollection = new FeedbackAliasCollection(this, this, d);
         }
 
         /// <summary>
@@ -872,8 +846,12 @@ namespace DataPerformer.Formula
             }
         }
 
+        IFeedbackCollection IFeedbackCollectionHolder.Feedback => feedbackCollection;
+
 
         #endregion
+
+        
 
     }
 }

@@ -1,8 +1,10 @@
-﻿using Diagram.UI;
-using NamedTree;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Diagram.UI;
+
+using NamedTree.Interfaces;
+
 
 namespace BitmapConsumer
 {

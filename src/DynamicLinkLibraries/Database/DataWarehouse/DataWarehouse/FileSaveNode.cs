@@ -4,7 +4,7 @@ using System.IO;
 using DataWarehouse.Interfaces;
 
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace DataWarehouse

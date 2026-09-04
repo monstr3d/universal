@@ -1,14 +1,20 @@
 using System.IO;
+
 using System.Windows.Markup;
 using System.Windows.Media.Media3D;
+
 using Abstract3DConverters;
+
 using ErrorHandler;
 
 namespace Wpf.Loader
 {
     public static class StaticExtensionWpfLoader
     {
-        static  IFilenameGenerator FilenameGenerator 
+        public const string deleteTexture = "delete_texture_file_";
+
+
+        static IFilenameGenerator FilenameGenerator 
         { 
             get;  
             set; 
@@ -43,12 +49,43 @@ namespace Wpf.Loader
         {
             FileLoad[".xaml"] = Load;
             StaticExtensionAbstract3DConverters.CheckFile = CheckFile.Check;
+            AppDomain.CurrentDomain.ProcessExit += CurrentDomain_DomainUnload;
+            DeleteTextures();
         }
 
+        private static void CurrentDomain_DomainUnload(object? sender, EventArgs e)
+        {
+            DeleteTextures();
+        }
 
         static public void DeleteTextures()
         {
-            FilenameGenerator.Clean();
+            if (FilenameGenerator != null)
+            {
+                FilenameGenerator.Clean();
+                return;
+            }
+            string dir = AppDomain.CurrentDomain.BaseDirectory;
+            if (dir[dir.Length - 1] != Path.DirectorySeparatorChar)
+            {
+                dir += Path.DirectorySeparatorChar;
+            }
+            string[] files = Directory.GetFiles(dir);
+            foreach (string file in files)
+            {
+                if (file.Contains("delete_texture_file"))
+                {
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
+
         }
 
 
@@ -381,7 +418,8 @@ namespace Wpf.Loader
         static public void InvertZ(this Visual3D v3d)
         {
             v3d.Transform((Point3D p) => { return new Point3D(p.X, p.Y, -p.Z); },
-                (System.Windows.Media.Media3D.Vector3D v) => { return new System.Windows.Media.Media3D.Vector3D(v.X, v.Y, -v.Z); });
+                (System.Windows.Media.Media3D.Vector3D v) => 
+                { return new System.Windows.Media.Media3D.Vector3D(v.X, v.Y, -v.Z); });
         }
 
 
@@ -470,7 +508,7 @@ namespace Wpf.Loader
                     int i = 0;
                     foreach (string sppp in ppp)
                     {
-                        s += ((Double.Parse(sppp.Replace(".", ",")) * scale) + "").Replace(",", ".");
+                        s += ((double.Parse(sppp.Replace(".", ",")) * scale) + "").Replace(",", ".");
                         if (i < 2)
                         {
                             s += ",";

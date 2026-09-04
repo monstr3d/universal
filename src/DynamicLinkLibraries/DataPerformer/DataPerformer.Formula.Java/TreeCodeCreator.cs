@@ -13,6 +13,8 @@ using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.CodeCreators.Interfaces;
 using FormulaEditor.Interfaces;
+using System.CodeDom;
+using System.Reflection;
 using System.Text;
 
 namespace DataPerformer.Formula.Java
@@ -55,7 +57,7 @@ new Dictionary<string, string[]> {
             {"A", new string[] {"Math.abs(", "[0])"}},
 };
 
-        private static readonly string[] squareRoot = new string[] { "Math.sqrt(", "[0]);" };
+        private static readonly string[] squareRoot = new string[] { "Math.sqrt(", "[0]));" };
 
         private static readonly string[] root = new string[] { "Math.pow(", ", 1 /(", "[0]));" };
 
@@ -72,14 +74,14 @@ new Dictionary<string, string[]> {
         private static readonly string[] optionalSeparator = new string[] { "(", "[0]) ? (", "[0]) : (", "[0]);" };
 
         private static readonly string[] power = new string[]
-        { "Math.pow(", "[0], ", "[0]);" };
+        { "Math.pow(", "[0], ", "[0]));" };
 
 
         private static Dictionary<string, string[]> elementaryBinary = new Dictionary<string, string[]>()
         {
-            {"+", new string[] {"(", "[0]) + (", "[0]);" }},
-            {"-", new string[] {"(", "[0]) - (", "[0]);" }},
-            {"*", new string[] {"(", "[0]) * (", "[0]);" }},
+            {"+", new string[] {"(", "[0]) + (", "[0]));" }},
+            {"-", new string[] {"(", "[0]) - (", "[0]));" }},
+            {"*", new string[] {"(", "[0]) * (", "[0]));" }},
         };
 
         private static readonly Dictionary<string, string[]> comparation = new Dictionary<string, string[]>()
@@ -103,7 +105,7 @@ new Dictionary<string, string[]> {
         private static string[] fraction = new string[] { "(", ") / (", ");" };
 
 
-        private static string[] equals = new string[] { "(", ").Equals(", ");" };
+        private static string[] equals = new string[] { "(", "[0]) == (", "[0]));" };
 
         #endregion
 
@@ -151,7 +153,7 @@ new Dictionary<string, string[]> {
             }
             if (op is NegationOperation)
             {
-                return new string[] { " = !", ";" };
+                return new string[] { "!", "[0]);" };
             }
             if (op is ElementaryBinaryOperation)
             {
@@ -276,6 +278,9 @@ new Dictionary<string, string[]> {
 
 
 
+
+    
+
         private List<string> CreateJavaCode(object obj, ObjectFormulaTree tree, string ret, string[] parameters,
             out IList<string> variables, out IList<string> initializers)
         {
@@ -290,6 +295,10 @@ new Dictionary<string, string[]> {
             if (type == typeof(double))
             {
                 prefix = "(double[])";
+            }
+            if (type == typeof(bool))
+            {
+                prefix = "(boolean[])";
             }
             if (att != null)
             {
@@ -405,8 +414,16 @@ new Dictionary<string, string[]> {
                 }
                 else
                 {
-                    s += ");";
+                    if (op is OptionalOperation)
+                    {
+                        s += ");";
+                    }
+                    s += ";";
                 }
+            }
+            else
+            {
+
             }
             list.Add(s);
             list.Add("if (check(" + ret + ")) { success = false; return; } ");

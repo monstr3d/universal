@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Diagram.UI.Interfaces;
 using ErrorHandler;
@@ -39,28 +40,26 @@ namespace Diagram.UI.TaskProviders
 
         #region IDesktopTaskProvider Members
 
-        IDesktop IDesktopTaskProvider.this[string name]
+        async Task<IDesktop> IDesktopTaskProvider.Get(string name)
         {
-            get 
+
+            var c = new CancellationToken();
+
+            if (dic.ContainsKey(name))
             {
-                if (dic.ContainsKey(name))
+                IDesktop d = dic[name];
+                foreach (object o in d.Objects)
                 {
-                   IDesktop d = dic[name];
-                   foreach (object o in d.Objects)
-                   {
-                       return d;
-                   }
-                }
-                using (Stream stream = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + name))
-                {
-                    PureDesktopPeer desktop = new PureDesktopPeer();
-                    desktop.Load(stream);
-                    dic[name] = desktop;
-                    return desktop;
+                    return d;
                 }
             }
+            using var stream = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + name);
+            PureDesktopPeer desktop = new PureDesktopPeer();
+            var b = await desktop.Load(stream, c);
+            dic[name] = desktop;
+            return desktop;
         }
-
+ 
         string IDesktopTaskProvider.GetTask(string name)
         {
             using (StreamReader reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + name))

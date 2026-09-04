@@ -17,9 +17,9 @@ namespace Gravity_36_36.Wrapper.TypeScript
             this.AddClassCodeCreator();
         }
 
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
@@ -85,16 +85,7 @@ namespace Gravity_36_36.Wrapper.TypeScript
 
         public static List<string> Get(string id, double[] x)
         {
-            var l = new List<string>();
-            var r = "\tthis." + id; 
-            l.Add(r + " = [];");
-            foreach (var v in x)
-            {
-                var s = performer.DoubleToString(v);
-                l.Add(r + ".push(" + s + ");");
-            }
-            l.Add("");
-            return l;
+            return performer.Get(id, x).ToList(); ;
         }
     }
 }

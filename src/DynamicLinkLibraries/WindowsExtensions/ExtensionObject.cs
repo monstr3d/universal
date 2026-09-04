@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WindowsExtensions.Interfaces;
 
 namespace WindowsExtensions
 {
+    internal delegate Task ActionAsync();
+
     /// <summary>
     /// Extension object 
     /// </summary>
@@ -185,6 +189,19 @@ namespace WindowsExtensions
         #endregion
 
         #region Invoke if needed 
+
+        public async Task InvokeIfNeededAsync(Control control, Action doit, CancellationToken token)
+        {
+              if (control != null)
+            {
+                if (!control.IsDisposed & control.InvokeRequired)
+                {
+                    await control.InvokeAsync(doit, token);
+                    return;
+                }
+            }
+            doit();
+        }
 
         /// <summary>
         /// Invokes action if needed

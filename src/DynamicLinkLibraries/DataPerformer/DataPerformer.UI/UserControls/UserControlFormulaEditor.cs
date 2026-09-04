@@ -110,19 +110,13 @@ namespace DataPerformer.UI.UserControls
                 setComboboxes();
                 userControlFeedBack.Reset();
                 userControlFeedBack.Set(consumer.Feedback);
-                userControlForward.Measurements = consumer;
-                userControlForward.Items = consumer.ForwardAliases;
-                userControlForward.OnChange += (Dictionary<int, string> d) =>
-                    {
-                        consumer.ForwardAliases = userControlForward.Items;
-                    };
+      //          userControlForward.Measurements = consumer;
                 IRuntimeUpdate start = consumer;
-
-                checkBoxRuntimeUpdate.Checked = start.ShouldRuntimeUpdate;
+       /*         checkBoxRuntimeUpdate.Checked = start.ShouldRuntimeUpdate;
                 checkBoxRuntimeUpdate.CheckStateChanged += (object o, EventArgs e) =>
                     {
                         start.ShouldRuntimeUpdate = checkBoxRuntimeUpdate.Checked;
-                    };
+                    };*/
             }
             catch (Exception ex)
             {

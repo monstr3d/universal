@@ -1,4 +1,4 @@
-﻿using NamedTree;
+﻿using NamedTree.Interfaces;
 
 namespace Motion6D.Interfaces
 {
@@ -19,7 +19,7 @@ namespace Motion6D.Interfaces
         /// <summary>
         /// Parent frame
         /// </summary>
-        IReferenceFrame Parent
+        new IReferenceFrame Parent
         {
             get;
             set;

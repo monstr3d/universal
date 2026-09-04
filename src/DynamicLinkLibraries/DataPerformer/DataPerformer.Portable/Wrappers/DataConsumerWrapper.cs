@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Reflection;
 using System.Threading;
-
-
+using System.Threading.Tasks;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -14,7 +13,8 @@ using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 
 namespace DataPerformer.Portable.Wrappers
@@ -22,7 +22,7 @@ namespace DataPerformer.Portable.Wrappers
     /// <summary>
     /// Wrapper of data consumer
     /// </summary>
-    public class DataConsumerWrapper
+    public class DataConsumerWrapper : CommonWrapper
     {
         /// <summary>
         /// The data consumer
@@ -44,22 +44,123 @@ namespace DataPerformer.Portable.Wrappers
         /// Performs iterator
         /// </summary>
         /// <param name="iterator">The iterator</param>
-        /// <param name="action">The action</param>
+        /// <param name="output">The output map</param>
+        /// <param name="cancellation">Cancellation</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="preparation">Preparation</param>
+        /// <param name="errorHandler">Eroor handler</param>
+        /// <returns>Result</returns>
+      public async Task<List<Dictionary<string, object>>> PerformIteratorAsync(IIterator iterator,
+      Dictionary<string, string> output,
+      CancellationToken cancellation,
+      Func<bool> stop = null, Action preparation = null,
+       IExceptionHandler errorHandler = null)
+        {
+            var d = new Dictionary<string, IMeasurement>();
+            try
+            {
+                foreach (var entry in output)
+                {
+                    var m = FindMeasurement(entry.Value);
+                    if (m == null)
+                    {
+                        return null;
+                    }
+                    d[entry.Key] = FindMeasurement(entry.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleException(ex);
+                return null;
+            }
+            return await PerformIteratorAsync(iterator, d, cancellation, stop, 
+                preparation, errorHandler);
+        }
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="iterator">The iterator</param>
         /// <param name="stop">The stop</param>
         /// <param name="preparation">The preparation action</param>
         /// <param name="errorHandler">The error handler</param>
-        public void PerformIterator(IIterator iterator,
-           Action action, Func<bool> stop = null, Action preparation = null,
+        public async Task<List<Dictionary<string, object>>> PerformIteratorAsync(IIterator iterator,
+          CancellationToken cancellation,
+          Func<bool> stop = null, Action preparation = null,
+           IExceptionHandler errorHandler = null)
+        {
+            var d = performer.GetMeasuremetDictionary(Consumer);
+            return await PerformIteratorAsync(iterator, d, cancellation,
+           stop, preparation,
+             errorHandler);
+        }
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="output">The output</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public async Task<List<Dictionary<string, object>>> PerformIteratorAsync(IIterator iterator,
+          Dictionary<string, IMeasurement> output, 
+          CancellationToken cancellation, 
+          Func<bool> stop = null, Action preparation = null,
            IExceptionHandler errorHandler = null)
         {
             Func<bool> st = (stop == null) ? () => false : stop;
             var b = true;
+            var l = new List<Dictionary<string, object>>();
+            var action = () =>
+            {
+                var dic = new Dictionary<string, object>();
+                foreach (var i in output)
+                { 
+                    var o = i.Value.Parameter();
+                    if (o is ICloneable cl)
+                    {
+                        o = cl.Clone();
+                    }
+                    dic[i.Key] = o;
+                }
+                l.Add(dic);
+            };
+            await PerformIteratorAsync(iterator, action, cancellation, stop, preparation, errorHandler);
+            return l;
+        }
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="action">The action</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public async Task PerformIteratorAsync(IIterator iterator,
+           Action action, CancellationToken cancellation, Func<bool> stop = null,
+           Action preparation = null,
+           IExceptionHandler errorHandler = null)
+        {
+            Func<bool> st = (stop == null) ? () => false : stop;
+            var b = true;
+            IComponentCollection coll;
             try
             {
+                var d = Consumer.GetRootConsumerDesktop();
+                await StartAsync(d, cancellation);
                 iterator.Reset();
                 Consumer.ResetAll();
                 var rt = Consumer.CreateRuntime(null);
-                Action act = () => { rt.UpdateAll(); };
+                coll = Consumer.GetDependentCollection();
+                coll.ForEach((IRunning s) => s.IsRunning = true);
+
+                Action act = () =>
+                {
+                    rt.UpdateAll();
+                };
                 var attr = CustomAttributeExtensions.GetCustomAttribute<IteratorTypeAttribute>
                     (IntrospectionExtensions.GetTypeInfo(iterator.GetType()));
                 if (attr != null)
@@ -69,11 +170,13 @@ namespace DataPerformer.Portable.Wrappers
                         act = () => { };
                     }
                 }
-                var coll = Consumer.GetDependentCollection();
-                coll.ForEach((IRunning s) => s.IsRunning = true);
                 preparation?.Invoke();
                 while (true)
                 {
+                    if (cancellation.IsCancellationRequested)
+                    {
+                        return;
+                    }
                     if (st())
                     {
                         return;
@@ -97,82 +200,9 @@ namespace DataPerformer.Portable.Wrappers
                     e.HandleException(null);
                 }
             }
+            coll = Consumer.GetDependentCollection();
+            coll.ForEach((IRunning s) => s.IsRunning = false);
         }
-
-
-        /*  IEnumerable<object> PerformIterator(IEnumerable<double> times,
-              ITimeMeasurementProvider provider,
-                IDifferentialEquationProcessor processor, string reason,
-               int priority, Func<object> func, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-               IErrorHandler errorHandler = null)
-          {
-              ITimeMeasurementProvider old = processor.TimeProvider;
-              var stp = stop;
-              if (stp == null)
-              {
-                  stp = () => false;
-              }
-              Func<bool> f = () => true;
-              if (condition != null) 
-              {
-                  f = () => (bool)condition.Parameter();
-              }
-              try
-              {
-                  using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
-                  {
-                     bool first = true;
-                      Action<double, double, long> act;
-                      foreach (var time in times)
-                      {
-                          if (first)
-                          {
-                              first = false;
-                              provider.Time = time;
-                              IDataRuntime runtime = backup.Runtime;
-                              runtime.StartAll(time);
-                              processor.TimeProvider = provider;
-                              IStep st = null;
-                              if (runtime is IStep)
-                              {
-                                  st = runtime as IStep;
-                              }
-                              provider.Time = time;
-                              double t = time;
-                              double last = t;
-                              act = runtime.Step(processor,
-                              (time) =>
-                              {
-                                  provider.Time = time;
-                              }
-                              , reason, asynchronousCalculation);
-                              continue;
-                          }
-                          if (stp())
-                          {
-                              break;
-                          }
-                          t = testc;
-                          act(last, t, i);
-                          last = t;
-                          acts();
-                      }
-                  }
-              }
-              catch (Exception ex)
-              {
-                  if (errorHandler != null)
-                  {
-                      errorHandler.HandleException(ex, 10);
-                  }
-                  else
-                  {
-                      ex.HandleException(10);
-                  }
-              }
-              processor.TimeProvider = old;
-          }
-      }*/
 
 
         #endregion
@@ -242,40 +272,38 @@ namespace DataPerformer.Portable.Wrappers
             }
             try
             {
-                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                using var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority);
+                var p = backup.Processor;
+                provider.Time = start;
+                IDataRuntime runtime = backup.Runtime;
+                runtime.TimeProvider = provider;
+                runtime.StartAll(start);
+                p.TimeProvider = provider;
+                IStep st = null;
+                if (runtime is IStep)
                 {
-                    var p = backup.Processor;
-                    provider.Time = start;
-                    IDataRuntime runtime = backup.Runtime;
-                    runtime.TimeProvider = provider;
-                    runtime.StartAll(start);
-                    p.TimeProvider = provider;
-                    IStep st = null;
-                    if (runtime is IStep)
+                    st = runtime as IStep;
+                }
+                provider.Time = start;
+                double t = start;
+                double last = t;
+                Action<double, double, long>
+                    act = runtime.Step(p,
+                    (time) =>
                     {
-                        st = runtime as IStep;
+                        provider.Time = time;
                     }
-                    provider.Time = start;
-                    double t = start;
-                    double last = t;
-                    Action<double, double, long>
-                        act = runtime.Step(p,
-                        (time) =>
-                        {
-                            provider.Time = time;
-                        }
-                        , reason, asynchronousCalculation);
-                    for (int i = 0; i < count; i++)
+                    , reason, asynchronousCalculation);
+                for (int i = 0; i < count; i++)
+                {
+                    if (stp())
                     {
-                        if (stp())
-                        {
-                            break;
-                        }
-                        t = start + i * step;
-                        act(last, t, i);
-                        last = t;
-                        acts?.Invoke();
+                        break;
                     }
+                    t = start + i * step;
+                    act(last, t, i);
+                    last = t;
+                    acts?.Invoke();
                 }
             }
             catch (Exception ex)
@@ -378,198 +406,39 @@ namespace DataPerformer.Portable.Wrappers
             return list;
         }
 
-
-        /// <summary>
-        /// Performs action with fixed step
-        /// </summary>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <param name="provider">Provider of time measure</param>
-        /// <param name="processor">Differential equation processor</param>
-        /// <param name="reason">Reason</param>
-        /// <param name="priority">Priority</param>
-        /// <param name="action">Additional action</param>
-        /// <param name="condition">Condition</param>
-        /// <param name="stop">Stop function</param>
-        /// <param name="errorHandler">Error handler</param>
-        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-        /// <param name="errorHandler">Asynchronous calculation</param>
-        /*   public void PerformFixed(double start, double step, int count,
-           ITimeMeasurementProvider provider,
-             IDifferentialEquationProcessor processor, string reason,
-            int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-            IErrorHandler errorHandler = null)
-           {
-               ITimeMeasurementProvider old = processor.TimeProvider;
-               Func<bool> stp = stop;
-               if (stp == null)
-               {
-                   stp = () => false;
-               }
-               try
-               {
-                   using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
-                   {
-                       provider.Time = start;
-                       IDataRuntime runtime = backup.Runtime;
-                       runtime.StartAll(start);
-                       processor.TimeProvider = provider;
-                       IStep st = null;
-                       if (runtime is IStep)
-                       {
-                           st = runtime as IStep;
-                       }
-                       provider.Time = start;
-                       double t = start;
-                       double last = t;
-                       Action<double, double, long>
-                           act = runtime.Step(processor,
-                           (time) =>
-                           {
-                               provider.Time = time;
-                           }
-                           , reason, asynchronousCalculation);
-                       for (int i = 0; i < count; i++)
-                       {
-                           if (stp())
-                           {
-                               break;
-                           }
-                           t = start + i * step;
-                           act(last, t, i);
-                           last = t;
-                           if ((bool)condition.Parameter())
-                           {
-                               action();
-                           }
-                       }
-                   }
-               }
-               catch (Exception ex)
-               {
-                   if (errorHandler != null)
-                   {
-                       errorHandler.HandleException(ex, 10);
-                   }
-                   else
-                   {
-                       ex.HandleException(10);
-                   }
-               }
-               processor.TimeProvider = old;
-           }*/
-
-
-        /// <summary>
-        /// Performs action with fixed step
-        /// </summary>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <param name="reason">Reason</param>
-        /// <param name="priority">Priority</param>
-        /// <param name="action">Additional action</param>
-        /*      public void PerformFixed(double start, double step, int count, string reason,
-                 int priority, Action action, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
-              {
-                  PerformFixed(start, step, count,
-                         StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                         DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
-                      reason, priority, action, stop, asynchronousCalculation, errorHandler);
-              }*/
-
-
         #endregion
 
         #region CreateXmlDocument
 
-        /// <summary>
+
+        ///<summary>
         /// Creates Xml document
         /// </summary>
-        /// <param name="input">Input</param>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count</param>
-        /// <returns>Result</returns>
-        /*      public XmlDocument CreateXmlDocument(
-                  XmlDocument input, double start, double step,
-                  int count)
-              {
-                  List<string> p = new List<string>();
-                  IMeasurement cond = null;
-                  string arg = null;
-                  Dictionary<string, Func<Func<object>>> d = new Dictionary<string, Func<Func<object>>>();
-                  XmlElement r = input.DocumentElement;
-                  foreach (XmlElement e in r.ChildNodes)
-                  {
-                      string name = e.Name;
-                      if (name.Equals("Condition"))
-                      {
-                          cond = FindMeasurement(e.InnerText, true);
-                          continue;
-                      }
-                      if (name.Equals("Argument"))
-                      {
-                          arg = e.InnerText;
-                          continue;
-                      }
-                      if (name.Equals("Parameters"))
-                      {
-                          XmlNodeList nl = e.ChildNodes;
-                          foreach (XmlElement xp in nl)
-                          {
-                              string pn = null;
-                              string pv = null;
-                              foreach (XmlElement xpp in xp.ChildNodes)
-                              {
-                                  string npp = xpp.Name;
-                                  if (npp.Equals("Name"))
-                                  {
-                                      pn = xpp.InnerText;
-                                      continue;
-                                  }
-                                  pv = xpp.InnerText;
-                              }
-                              IMeasurement mcc = FindMeasurement(pn, false);
-                              d[pv] = mcc.ToValueHolder();
-                          }
-                      }
-                  }
-                  XmlParameterWriter xpv = new XmlParameterWriter(null);
-                  IParameterWriter pvv = xpv;
-                  Action acts = () =>
-                  {
-                      Dictionary<string, string> dpp = new Dictionary<string, string>();
-                      foreach (string k in d.Keys)
-                      {
-                          object v = d[k]()();
-                          dpp[k] = v + "";
-                      }
-                      pvv.Write(dpp);
-                  };
+        /// <param name="iterator">The iterator</param>
+        /// <param name="output">Output parameters</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <returns>The Xml document</returns>
 
-                  Action act = (cond == null) ? acts : () =>
-                  {
-                      foreach (string k in d.Keys)
-                      {
-                          object v = d[k]()();
-                      }
-                      if ((bool)cond.Parameter())
-                      {
-                          acts();
-                      }
-                  };
-                  try
-                  {
-                      //PerformFixedT(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
-                  }
-                  catch (Exception e)
-                  {
-                      e.HandleException(10);
-                  }
-                  return xpv.Document;
-              }*/
+        public async Task<XmlDocument> CreateXmlDocumentAsync(IIterator iterator, Dictionary<string, string> output,
+         CancellationToken token, ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, IExceptionHandler errorHandler = null)
+        {
+            XmlParameterWriter xpv = new XmlParameterWriter(null);
+            IParameterWriter pvv = xpv;
+            var d = FindMeasurements(output);
+            Action action = () =>
+            {
+                Dictionary<string, string> dpp = new Dictionary<string, string>();
+                foreach (var k in d)
+                {
+                    object v = k.Value;
+                    dpp[k.Key] = v + "";
+                }
+                pvv.Write(dpp);
+            };
+            await PerformIteratorAsync(iterator, action, token, null, null, errorHandler);
+            return xpv.Document;
+        }
 
         ///<summary>
         /// Creates Xml document
@@ -627,12 +496,8 @@ namespace DataPerformer.Portable.Wrappers
             {
                 cond = FindMeasurement(condition);
             }
-            var d = new Dictionary<string, IMeasurement>();
-            foreach (var a in output.Keys)
-            {
-                d[a] = FindMeasurement(a);
-            }
-            XmlParameterWriter xpv = new XmlParameterWriter(null);
+            var d = FindMeasurements(output);
+             XmlParameterWriter xpv = new XmlParameterWriter(null);
             IParameterWriter pvv = xpv;
             Action act = () =>
             {
@@ -661,6 +526,22 @@ namespace DataPerformer.Portable.Wrappers
         #endregion
 
         #region Public members
+
+        /// <summary>
+        /// Finds measurements
+        /// </summary>
+        /// <param name="measurements">Input dictionary</param>
+        /// <returns>Output dictionary</returns>
+        public Dictionary<string, IMeasurement> FindMeasurements(Dictionary<string, string> measurements)
+        {
+            var d = new Dictionary<string, IMeasurement>();
+            foreach (var a in measurements)
+            {
+                d[a.Key] = FindMeasurement(a.Value);
+            }
+            return d;
+        }
+
 
         /// <summary>
         /// Finds a measurement
@@ -764,8 +645,9 @@ namespace DataPerformer.Portable.Wrappers
             getIterators(Consumer, iterators);
         }
 
-        #endregion 
+        #endregion
 
+        #region Private Members
         static void getIterators(IDataConsumer consumer, List<IIterator> list)
         {
             for (int i = 0; i < consumer.Count; i++)
@@ -786,6 +668,8 @@ namespace DataPerformer.Portable.Wrappers
                 }
             }
         }
+
+        #endregion
 
     }
 }

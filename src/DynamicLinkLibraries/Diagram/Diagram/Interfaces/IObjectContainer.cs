@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using CategoryTheory;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Diagram.UI.Labels;
 
@@ -58,6 +54,8 @@ namespace Diagram.UI.Interfaces
         /// Loads itself
         /// </summary>
         /// <returns>True in success</returns>
+        Task<bool> LoadAsync(CancellationToken ? token);
+
         bool Load();
 
         /// <summary>
@@ -72,7 +70,7 @@ namespace Diagram.UI.Interfaces
         /// Loads desktop
         /// </summary>
         /// <returns>Desktop</returns>
-        IDesktop LoadDesktop();
+        Task<IDesktop> LoadDesktop(CancellationToken token);
 
     }
 }

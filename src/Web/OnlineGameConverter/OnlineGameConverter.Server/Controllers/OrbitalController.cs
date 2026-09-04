@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using OnlineGameConverter.Server.Classes;
+using OnlineGameConverter.Server.Classes.Orbital;
 
 namespace OnlineGameConverter.Server.Controllers
 {
@@ -37,8 +37,7 @@ namespace OnlineGameConverter.Server.Controllers
                 return Enumerable.Empty<OrbitalForecastItemNumber>().ToArray();
             }
             return result.ToArray();
-
-        }
+       }
 
 /*
         [HttpPost(Name = "forecastfromnumber")]

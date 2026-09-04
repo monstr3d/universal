@@ -7,21 +7,15 @@ using System.Text;
 using System.Xml.Linq;
 
 using AssemblyService;
-
-using BaseTypes.Attributes;
-
+using BaseTypes.CodeCreator.Interfaces;
 using CategoryTheory;
-
+using Diagram.UI.Attributes;
 using Diagram.UI.CodeCreators;
 using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
-using Diagram.UI.Attributes;
 using Diagram.UI.Labels;
-
 using ErrorHandler;
-
-using NamedTree;
-using BaseTypes.CodeCreator.Interfaces;
+using NamedTree.Interfaces;
 
 
 namespace Diagram.UI
@@ -64,6 +58,13 @@ namespace Diagram.UI
             get;
         }
         = new Dictionary<string, IDesktopCodeCreator>();
+
+        static public Dictionary<string, IAdditionalCodeGenerator> AdditionalCodeGenerators
+        {
+            get;
+        }
+        = new Dictionary<string, IAdditionalCodeGenerator>();
+
 
 
         /// <summary>
@@ -190,6 +191,21 @@ namespace Diagram.UI
             }
             DesktopCreators.Add(lang, creator);
         }
+
+        /// <summary>
+        /// Adds code creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void AddAdditinalCodeCreator(this IAdditionalCodeGenerator creator)
+        {
+            var lang = performer.GetLanguage(creator);
+            if (lang == null)
+            {
+                throw new OwnNotImplemented("AdditionalClassCodeCreator");
+            }
+            AdditionalCodeGenerators.Add(lang, creator);
+        }
+
 
 
 
@@ -477,7 +493,8 @@ namespace Diagram.UI
 
         static StaticExtensionDiagramUI()
         {
-            new ObjectContainerClassCodeCreator();
+            new ClassCodeCreator();
+            new BaseClassCodeCreator();
             new CShapDesktopCodeCreator();
         }
 
@@ -555,7 +572,12 @@ namespace Diagram.UI
                 string preffixFull = pr + className;
                 l.Add(className + " : Diagram.UI.PureDesktop");
                 l.Add("{");
-                l.Add("\t" + constructorType + className + "()");
+                l.Add("\t" + constructorType + className + "(NamedTree.Interfaces.IFactory factory = null) : this(false, factory)");
+                l.Add("\t{");
+                l.Add("");
+                l.Add("\t}");
+                l.Add("");
+                l.Add("\tinternal "  + className + "(bool begin, NamedTree.Interfaces.IFactory factory = null) : base(factory)");
                 l.Add("\t{");
                 int ko = 0;
                 var ignoredObjs = new List<IObjectLabel>();
@@ -593,12 +615,6 @@ namespace Diagram.UI
                 }
                 if (postLoad)
                 {
-                    /*           l.Add("\t\tforeach (IObjectLabel l in objects)");
-                               l.Add("\t\t{");
-                               l.Add("\t\t\tl.Desktop = this;");
-                               l.Add("\t\t}");*/
-                    l.Add("\t\tbool pl = PostLoad();");
-                    l.Add("\t\tbool pd = PostDeserialize();");
                     if (check != null)
                     {
                         l.Add("\t\t" + check);
@@ -694,8 +710,13 @@ namespace Diagram.UI
             Exception ex;
             try
             {
-                List<string> l = new List<string>();
+                var l = new List<string>();
                 l.Add(StandardHeader);
+                if (staticClass)
+                {
+                    l.Add("using System.Threading.Tasks;");
+                    l.Add("");
+                }
                 l.Add("namespace " + namespacE);
                 l.Add("{");
                 if (staticClass)
@@ -705,10 +726,15 @@ namespace Diagram.UI
                     l.Add("");
                     l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
                     l.Add("");
-                    l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }");
+                    l.Add("\t\tpublic static async Task<Diagram.UI.Interfaces.IDesktop> GetDesktopAsync(System.Threading.CancellationToken token, NamedTree.Interfaces.IFactory factory = null)");
+                    l.Add("\t\t{");
+                    l.Add("\t\t\tvar desk = new InternalDesktop(factory);");
+                    l.Add("\t\t\tawait desk.GetDesktopAsync(token);");
+                    l.Add("\t\t\treturn desk;");
+                    l.Add("\t\t}");
                     l.Add("");
                     List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "InternalDesktop",
-                        "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
+                        "if (begin){ SuccessLoad = Final(); };\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
                     l.Add("\t\tinternal class " + lt[0]);
                     for (int i = 1; i < lt.Count; i++)
                     {
@@ -1612,6 +1638,30 @@ namespace Diagram.UI
         }
 
         /// <summary>
+        /// Saver of the desktop information
+        /// </summary>
+        public static ISaveDesktopInformation SaveDesktopInformation { get; set; }
+
+        /// <summary>
+        /// Set save information
+        /// </summary>
+        /// <param name="saveDesktopInformation">save information</param>
+        public static void SetSaveDesktopInformation(this ISaveDesktopInformation saveDesktopInformation)
+        {
+            SaveDesktopInformation = saveDesktopInformation;
+        }
+
+        /// <summary>
+        /// Saves collection of componente
+        /// </summary>
+        /// <param name="collection">The collection</param>
+        /// <param name="url">The url</param>
+        public static void Save(this IComponentCollection collection, string url)
+        {
+             performer.Save(SaveDesktopInformation, collection, url);
+        }
+
+        /// <summary>
         /// Performs action for each collection objects
         /// </summary>
         /// <typeparam name="T">Type of object</typeparam>
@@ -1635,7 +1685,6 @@ namespace Diagram.UI
             IDesktop desktop = GetRootDesktop(obj);
             desktop.ForEach(action, find);
         }
-
   
         /// <summary>
         /// Gets root desktop
@@ -2284,7 +2333,7 @@ namespace Diagram.UI
         /// <returns>Double</returns>
         public static double ParseDouble(this string str)
         {
-            return Double.Parse(str, 
+            return double.Parse(str, 
                 System.Globalization.CultureInfo.InvariantCulture);
         }
 
@@ -3417,7 +3466,6 @@ namespace Diagram.UI
         }
 
         #endregion
-
 
         #region Object Comparer Class
 

@@ -71,7 +71,6 @@ namespace Abstract3DConverters.Converters
 
         #endregion
 
-
         #region Protected
 
         protected override object Combine(IEnumerable<object> meshes)

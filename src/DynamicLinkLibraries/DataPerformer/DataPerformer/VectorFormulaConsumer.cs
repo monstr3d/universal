@@ -52,6 +52,7 @@ namespace DataPerformer
         /// </summary>
         public VectorFormulaConsumer()
         {
+
         } 
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace DataPerformer
                 deriOrder = (int)info.GetValue("DerivationOrder", typeof(int));
                 try
                 {
-                    feedback = info.Deserialize<Dictionary<int, string>>("Feedback");
+                   feedback = info.Deserialize<Dictionary<int, string>>("Feedback");
                 }
                 catch (Exception exc)
                 {
@@ -101,7 +102,7 @@ namespace DataPerformer
                 }
                 try
                 {
-                    forwardAliases = info.Deserialize<Dictionary<int, string> >("ForwardAliases");
+                   // forwardAliases = info.Deserialize<Dictionary<int, string> >("ForwardAliases");
                 }
                 catch (Exception exc)
                 {
@@ -173,7 +174,7 @@ namespace DataPerformer
             info.AddValue("DerivationOrder", deriOrder);
             info.Serialize("Feedback", feedback);
             info.AddValue("ShouldRuntimeUpdate", shouldRuntimeUpdate);
-            info.Serialize("ForwardAliases", forwardAliases);
+           // info.Serialize("ForwardAliases", forwardAliases);
         }
 
         #endregion

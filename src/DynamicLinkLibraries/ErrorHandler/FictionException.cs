@@ -3,7 +3,7 @@ namespace ErrorHandler
 {
     public class FictionException : Exception, IFictionException
     {
-        [FictionExceptionAttribute()]
+        [FictionException()]
         public FictionException(string message) : base(message)
         {
 

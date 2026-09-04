@@ -1,11 +1,12 @@
-﻿using NamedTree;
+﻿using NamedTree.Interfaces;
+
 
 namespace DataWarehouse.Interfaces
 {
     /// <summary>
     /// Node
     /// </summary>
-    public interface INode : INamed, NamedTree.INode<INode>, IDescription
+    public interface INode : INamed, INode<INode>, IDescription
     {
         /// <summary>
         /// Id

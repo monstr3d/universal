@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using DataWarehouse.Classes;
 using DataWarehouse.Interfaces;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 using WindowsExtensions;
 

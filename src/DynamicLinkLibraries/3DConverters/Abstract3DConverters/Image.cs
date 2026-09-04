@@ -1,6 +1,4 @@
-﻿using System.IO;
-using Abstract3DConverters.Interfaces;
-using ErrorHandler;
+﻿using ErrorHandler;
 
 namespace Abstract3DConverters
 {

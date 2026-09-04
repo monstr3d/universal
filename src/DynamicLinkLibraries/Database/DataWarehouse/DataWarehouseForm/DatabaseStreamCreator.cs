@@ -2,7 +2,7 @@ using System.IO;
 
 using Common.UI;
 using DataWarehouse.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace DataWarehouse
 {

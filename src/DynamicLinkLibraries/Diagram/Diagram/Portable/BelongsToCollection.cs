@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace Diagram.UI.Portable
 {

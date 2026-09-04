@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Windows.Media.Media3D;
+using System.Windows.Markup;
 
 using BaseTypes;
 
@@ -10,10 +11,15 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
+using ErrorHandler;
+
+using NamedTree.Interfaces;
+
 using SerializationInterface;
 
 using Motion6D;
 using Motion6D.Interfaces;
+using Motion6D.Portable.Interfaces;
 
 using Event.Interfaces;
 
@@ -21,11 +27,8 @@ using Animation.Interfaces.Enums;
 
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
-using Motion6D.Portable.Interfaces;
+
 using Wpf.Loader;
-using System.Windows.Markup;
-using ErrorHandler;
-using NamedTree;
 
 namespace WpfInterface.Objects3D
 {

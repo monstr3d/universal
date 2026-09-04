@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using DataSetService;
+using DataSetService.Pure;
 
 namespace Database.UI.UserControls
 {
@@ -15,7 +16,7 @@ namespace Database.UI.UserControls
 
         #region Fields
 
-        StatementWrapper wrapper;
+        DataSetService.Pure.StatementWrapper wrapper;
 
         #endregion
 
@@ -30,7 +31,7 @@ namespace Database.UI.UserControls
 
 
          [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        internal StatementWrapper Wrapper
+        internal DataSetService.Pure.StatementWrapper Wrapper
         {
             get
             {

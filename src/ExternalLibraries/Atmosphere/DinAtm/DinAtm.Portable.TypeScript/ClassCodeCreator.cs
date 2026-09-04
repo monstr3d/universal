@@ -1,5 +1,6 @@
 ﻿using BaseTypes.Attributes;
 using Diagram.UI;
+using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 
 namespace DinAtm.Portable.TypeScript
@@ -17,7 +18,10 @@ namespace DinAtm.Portable.TypeScript
         }
 
 
-    
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
+
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
         {

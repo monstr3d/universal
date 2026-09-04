@@ -7,6 +7,8 @@ using Diagram.UI;
 using Diagram.UI.CodeCreators.Interfaces;
 using Diagram.UI.Interfaces;
 
+using ErrorHandler;
+
 using FormulaEditor.Interfaces;
 
 namespace DataPerformer.Formula.TypeScript
@@ -31,10 +33,6 @@ namespace DataPerformer.Formula.TypeScript
         }
 
 
-
-
-
-
         static Diagram.UI.TypeScript.Performer performer = new();
 
         #region Ctor
@@ -55,8 +53,9 @@ namespace DataPerformer.Formula.TypeScript
           };
 
 
-        protected IDesktopCodeCreator DesktopCodeCreator
-        { get; set; }
+        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
+
+        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
 
 
@@ -105,7 +104,14 @@ namespace DataPerformer.Formula.TypeScript
             var l = new List<string>();
             if (measurements is IStarted start)
             {
-                start.Start(0);
+                try
+                {
+                    start.Start(0);
+                }
+                catch (Exception e)
+                {
+                    e.HandleFictionException();
+                }
             }
             var n = measurements.Count;
             for (int i = 0; i < n; i++)
@@ -114,8 +120,16 @@ namespace DataPerformer.Formula.TypeScript
                 var name = "\"" + m.Name + "\"";
                 var type = m.Type;
                 var v = typeCreator.GetDefaultValue(type);
+                var st = v;
                 var pr = m.Parameter();
-                var st = performer.StringValue(pr);
+                if (pr != null)
+                {
+                    st = performer.StringValue(pr);
+                }
+                else
+                {
+
+                }
                 l.Add("this.addVariableValue(" + name + ", " + v + ", " + st + ");");
 
             }
@@ -123,7 +137,7 @@ namespace DataPerformer.Formula.TypeScript
         }
 
 
-        static List<string> CreateTreeCollection(string preffix, ITreeCollection obj, Diagram.TypeScript.CodeCreator creator)
+        static List<string> CreateTreeCollection(string preffix, ITreeCollection obj, Diagram.UI.TypeScript.CodeCreator creator)
         {
             var l = new List<string>();
             bool check = true;
@@ -161,8 +175,6 @@ namespace DataPerformer.Formula.TypeScript
                 var la = CreateTSVariableList(m);
                 performer.Add(l, la, 2);
             }
-
-
             if (obj is IInitialDictionary d) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             {
 
@@ -175,26 +187,53 @@ namespace DataPerformer.Formula.TypeScript
             }
             l.Add("\t}");
             l.Add("");
-            performer.Add(l, lt.Values.ToArray()[0], 1);
+            performer.Add(l, lt["code"], 1);
             AddPost(l);
             if (obj is IFeedbackCollectionHolder feedback)
             {
                 var dcc = creator as IFeedbackCollectionCodeCreator;
-                var ll = dcc.Create(feedback).Values.ToArray()[0];
+                var ddd = dcc.Create(feedback);
+                var ll = ddd["code"];
                 performer.Add(l, ll, 1);
+            }
+            if (lt.ContainsKey("reset"))
+            {
+                var rst = lt["reset"] as List<string>;
+                if (rst.Count > 0)
+                {
+                    l.Add("");
+                    l.Add("\treset() : void");
+                    l.Add("\t{");
+                    performer.Add(l, rst, 2);
+                    l.Add("\t}");
+                    l.Add("");
+                }
+            }
+            if (lt.ContainsKey("print"))
+            {
+                var rst = lt["print"] as List<string>;
+                if (rst.Count > 0)
+                {
+                    l.Add("");
+                    l.Add("\tprint(printer: IPrinter): void");
+                    l.Add("\t{");
+                    performer.Add(l, rst, 2);
+                    l.Add("\t}");
+                    l.Add("");
+                }
             }
 
             l.Add("}");
             return l;
         }
 
-        static List<string> CreateRecursive(string preffix, object obj, Diagram.TypeScript.CodeCreator cc)
+        static List<string> CreateRecursive(string preffix, object obj, Diagram.UI.TypeScript.CodeCreator cc)
         {
             return CreateTreeCollection(preffix, obj as ITreeCollection, cc);
         }
 
 
-        static List<string> CreateDifferentialSolver(string preffix, object obj, Diagram.TypeScript.CodeCreator cc)
+        static List<string> CreateDifferentialSolver(string preffix, object obj, Diagram.UI.TypeScript.CodeCreator cc)
         {
             return CreateTreeCollection(preffix, obj as ITreeCollection, cc);
         }
@@ -213,13 +252,10 @@ namespace DataPerformer.Formula.TypeScript
         }
 
 
-        static List<string> CreateVectorConsumer(string preffix, object obj, Diagram.TypeScript.CodeCreator cc)
+        static List<string> CreateVectorConsumer(string preffix, object obj, Diagram.UI.TypeScript.CodeCreator cc)
         {
             return CreateTreeCollection(preffix, obj as ITreeCollection, cc);
         }
-
-  
-   
 
         public static Dictionary<string, List<string>> Create(string id, Dictionary<string, string> dictionary)
         {

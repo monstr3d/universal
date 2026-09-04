@@ -12,6 +12,8 @@ using DataWarehouse;
 
 using TestCategory;
 using ErrorHandler;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace TestCategory.UI
 {
@@ -81,12 +83,13 @@ namespace TestCategory.UI
         /// <param name="ext">Extension</param>
         /// <param name="extd">Required extension</param>
         /// <returns>Test exception</returns>
-        public Exception TestBuffer(byte[] buffer, SerializationBinder binder, PanelDesktop pan, string ext, string extd)
+        public async Task<Exception> TestBuffer(byte[] buffer, SerializationBinder binder, PanelDesktop pan, string ext, string extd)
         {
             try
             {
-                MemoryStream ms = new MemoryStream(buffer);
-                pan.LoadFromStream(ms, binder, ext, extd);
+                var ct = new CancellationToken();
+                using    MemoryStream ms = new MemoryStream(buffer);
+                await pan.LoadFromStream(ms, binder, ext, extd, ct);
                 foreach (object o in pan.Controls)
                 {
                     if (o is IShowForm)

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
-
 using Motion6D.Interfaces;
 
 namespace Motion6D
@@ -62,17 +57,17 @@ namespace Motion6D
         public override void Set(ReferenceFrame baseFrame, ReferenceFrame relative)
         {
             base.Set(baseFrame, relative);
-            IOrientation baseOrientation = baseFrame as IOrientation;
-            IVelocity baseVelicity = baseFrame as IVelocity;
-            IVelocity relativeVelicity = relative as IVelocity;
+            IOrientation baseOrientation = baseFrame;
+            IVelocity baseVelocity = baseFrame as IVelocity;
+            IVelocity relativeVelocity = relative as IVelocity;
             IAngularVelocity baseAngular = baseFrame as IAngularVelocity;
             IAngularVelocity ra = relative as IAngularVelocity;
-            double[] velocityBase = baseVelicity.Velocity;
-            double[] velocityRelative = relativeVelicity.Velocity;
+            double[] velocityBase = baseVelocity.Velocity;
+            double[] velocityRelative = relativeVelocity.Velocity;
             double[,] mb = baseOrientation.Matrix;
             double[] om = baseAngular.Omega;
             double[] pos = relative.Position;
-            vp.VectorPoduct(om, pos, hv);
+            vp.VectorProduct(om, pos, hv);
             for (int i = 0; i < 3; i++)
             {
                 velocity[i] = velocityBase[i];

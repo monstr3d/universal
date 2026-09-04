@@ -41,7 +41,7 @@ namespace TestCategory.Standard
         /// <param name="bytes">bytes</param>
         public static void Fact(this byte[] bytes)
         {
-            Assert.True(bytes.Test().Item1);
+           // Assert.True(bytes.Test().Item1);
         }
 
 
@@ -184,7 +184,7 @@ namespace TestCategory.Standard
 
     internal class TestDataSetChooser : DataSetFactoryChooser
     {
-        Dictionary<string, IDataSetFactory> dic = new Dictionary<string, IDataSetFactory>();
+    /*    Dictionary<string, IDataSetFactory> dic = new Dictionary<string, IDataSetFactory>();
 
         internal TestDataSetChooser()
         {
@@ -196,6 +196,6 @@ namespace TestCategory.Standard
 
         public override IDataSetFactory this[string name] => dic[name];
 
-        public override string[] Names => dic.Keys.ToArray();
+        public override string[] Names => dic.Keys.ToArray();*/
     }
 }

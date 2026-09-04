@@ -1,6 +1,8 @@
 using OnlineGameConverter.Server;
 using OnlineGameConverter.Server.Classes;
+using OnlineGameConverter.Server.Classes.Orbital;
 using OnlineGameConverter.Server.Interfaces;
+using Trading.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -10,6 +12,7 @@ var ff = (from c in cf where c.Path == "Frontend" select c).ToArray();
 var fc = ff[0].GetChildren();
 var fe = (from cc in  fc select cc.Value).ToArray();
 
+StaticExtensionTradingDatabase.ConnectionString = configuration["TradingHistoryConnectionStaring"];
 
 var services = builder.Services;
 
@@ -83,6 +86,10 @@ app.UseCors("CorsPolicy"); // Enable CORS for your app
 
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=OrbitalMVC}/{action=Index}/{id?}");
 
 app.UseEndpoints(static endpoints =>
 {

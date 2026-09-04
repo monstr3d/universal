@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Motion6D.Interfaces;
 
 namespace Motion6D
@@ -48,7 +44,7 @@ namespace Motion6D
             base.Set(baseFrame, relative);
             IAngularVelocity ab = baseFrame as IAngularVelocity;
             IAngularVelocity ar = relative as IAngularVelocity;
-            IOrientation ore = relative as IOrientation;
+            IOrientation ore = relative;
             double[,] m = ore.Matrix;
             double[] ob = ab.Omega;
             double[] or = ar.Omega;

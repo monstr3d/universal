@@ -1,14 +1,12 @@
 ﻿using CategoryTheory;
 
-using Diagram.UI;
-
-
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
 using ErrorHandler;
-using NamedTree;
+
+using NamedTree.Interfaces;
 
 namespace Internet.Meteo.Wrapper
 {

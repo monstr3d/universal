@@ -7,7 +7,7 @@ using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
-using NamedTree;
+using NamedTree.Interfaces;
 
 
 namespace Collada.Converters.MeshConverters

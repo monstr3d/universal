@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 
 using Abstract3DConverters;
-using Abstract3DConverters.Fartories.Creators;
+using Abstract3DConverters.Factories.Creators;
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;

@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
 
-using Diagram.UI;
 using Diagram.UI.Labels;
 
 using BitmapConsumer;
@@ -14,7 +12,7 @@ using BitmapConsumer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using ErrorHandler;
-using NamedTree;
+using NamedTree.Interfaces;
 
 namespace ImageNavigation
 {

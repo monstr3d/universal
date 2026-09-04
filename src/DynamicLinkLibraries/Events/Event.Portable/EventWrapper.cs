@@ -2,12 +2,7 @@
 using ErrorHandler;
 using Event.Interfaces;
 using Event.Portable.Interfaces;
-using NamedTree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NamedTree.Interfaces;
 
 namespace Event.Portable
 {
