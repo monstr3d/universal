@@ -13,8 +13,7 @@ using FormulaEditor;
 using FormulaEditor.CodeCreators;
 using FormulaEditor.CodeCreators.Interfaces;
 using FormulaEditor.Interfaces;
-using System.CodeDom;
-using System.Reflection;
+
 using System.Text;
 
 namespace DataPerformer.Formula.Java

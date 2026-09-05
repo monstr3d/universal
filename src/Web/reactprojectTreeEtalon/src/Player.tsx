@@ -7,6 +7,7 @@ import {useFrame} from "@react-three/fiber";
 import { usePersonControls } from "./hooks";
 import { useAimingStore } from "./store/AimingStore";
 import { Weapon } from "./Weapon";
+import { getActor } from "./App";
 
 const MOVE_SPEED = 5;
 const direction = new THREE.Vector3();
@@ -14,6 +15,10 @@ const frontVector = new THREE.Vector3();
 const sideVector = new THREE.Vector3();
 const rotation = new THREE.Vector3();
 const easing = TWEEN.Easing.Quadratic.Out;
+
+export const getVector = (): THREE.Vector3[] => {
+    return [frontVector, sideVector]
+}
 
 export const Player = () => {
     const playerRef = useRef();
@@ -36,9 +41,10 @@ export const Player = () => {
 
         // moving player
         const velocity = playerRef.current.linvel();
-
         frontVector.set(0, 0, backward - forward);
         sideVector.set(left - right, 0, 0);
+        let a = getActor()
+        a.setXY(backward - forward, left - right)
         direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(MOVE_SPEED).applyEuler(state.camera.rotation);
 
         playerRef.current.wakeUp();

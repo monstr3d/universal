@@ -5,19 +5,30 @@ import {create} from "zustand";
 import { Physics } from "@react-three/rapier";
 import { Cubes } from "./Cube";
 import { Ground } from "./Ground";
-import { Player } from "./Player";
-import { Cessna } from "./Cessna";
+import { getVector, Player } from "./Player";
+import { Actor } from "./Actor";
+import { usePersonControls } from "./hooks";
+
 const shadowOffset = 50;
+let actor = new Actor
+
+export const getActor = () : Actor =>
+{
+    return actor
+}
 
 export const usePointerLockControlsStore = create(() => ({
     isLock: false,
 }));
 
+
 export const App = () => {
-    let cs = new Cessna()
-    console.log(cs)
+
     useFrame(() => {
         TWEEN.update();
+        let t = TWEEN.now()
+        let v = getVector()
+       actor.set(t, v)
     });
 
     const pointerLockControlsLockHandler = () => {

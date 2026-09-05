@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 
 
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataPerformer;
-
-using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using CommonService;
@@ -21,7 +14,6 @@ using CommonService;
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Advanced.Forms;
 using ErrorHandler;
-using System.CodeDom;
 
 
 

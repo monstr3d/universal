@@ -1,0 +1,43 @@
+export default class ShaderProgram {
+    gl: WebGL2RenderingContext;
+    program: WebGLProgram;
+    constructor(gl: WebGL2RenderingContext);
+    dispose(): void;
+    attach(source: string, type: number): boolean;
+    link(): boolean;
+    use(): void;
+    setUniform1f(name: string, x: number): void;
+    setUniform1fv(name: string, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform1i(name: string, x: number): void;
+    setUniform1iv(name: string, data: Int32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform1ui(name: string, x: number): void;
+    setUniform1uiv(name: string, data: Uint32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform2f(name: string, v: Float32Array | ArrayLike<number>): void;
+    setUniform2fv(name: string, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform2i(name: string, v: Int32Array | ArrayLike<number>): void;
+    setUniform2iv(name: string, data: Int32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform2ui(name: string, v: Uint32Array): void;
+    setUniform2uiv(name: string, data: Uint32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform3f(name: string, v: Float32Array | ArrayLike<number>): void;
+    setUniform3fv(name: string, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform3i(name: string, v: Int32Array | ArrayLike<number>): void;
+    setUniform3iv(name: string, data: Int32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform3ui(name: string, v: Uint32Array | ArrayLike<number>): void;
+    setUniform3uiv(name: string, data: Uint32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform4f(name: string, v: Float32Array | ArrayLike<number>): void;
+    setUniform4fv(name: string, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform4i(name: string, v: Int32Array | ArrayLike<number>): void;
+    setUniform4iv(name: string, data: Int32Array, srcOffset?: number, srcLength?: number): void;
+    setUniform4ui(name: string, v: Uint32Array | ArrayLike<number>): void;
+    setUniform4uiv(name: string, data: Uint32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix2fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix2x3fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix2x4fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix3fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix3x2fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix3x4fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix4fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix4x2fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+    setUniformMatrix4x3fv(name: string, transpose: boolean, data: Float32Array, srcOffset?: number, srcLength?: number): void;
+}
+//# sourceMappingURL=shader-program.d.ts.map

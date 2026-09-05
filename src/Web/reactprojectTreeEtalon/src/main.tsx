@@ -16,3 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </div>
   </React.StrictMode>,
 )
+
+// npm install three @react-three/fiber @react-three/drei @react-three/rapier zustand @tweenjs/tween.js
