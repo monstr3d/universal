@@ -857,40 +857,76 @@ so there is $\xi \in \mathfrak{PreGelfand}\left(A \right)_{p}= \subset  \mathfra
 
 The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}.
 \begin{lemma}\label{lem_g_lem} (Generalized commutative Gelfand theorem).
-	If $\sX$ is a locally compact (cf. Definition \ref{top_locally_compact_defn}), Hausdorff  space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C_0\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ is the Gelfand space.
+	If $\sX$ is compact (cf. Definition \ref{top_compact_defn}), Hausdorff  space then  is a natural  homeomorphism $ \mathfrak{Gelfand}_\sX: \mathfrak{Gelfand}\left(C\left( \sX\right) \right)\cong \sX$, where  $\mathfrak{Gelfand}\left(C\left( \sX\right)\right)$ is the Gelfand space.
 \end{lemma}
-\begin{proof}!!!
+\begin{proof}
 	
 	From the Lemma \ref{top_lattices_iso_lem}  it turns out that for any locally compact space $\sX$ (cf. Definition \ref{top_locally_compact_defn}) there is an isomorphism of  meet-semilattices
 	
 	\bean
 	\begin{split}
-		\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
+		\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
 		%	I \mapsto\sX \setminus \left\{x \in \sX | \forall a \in I \quad a(x) = 0\right\}.
 	\end{split}
 	\eean  
 	It follows that there is a homeomorphism 
 	$$
-	\mathfrak{Ultrafilters}_\sX : \mathfrak{Ultrafilters}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Ultrafilters}\left(\sX \right)
+	\mathfrak{Ultrafilters}_\sX : \mathfrak{Ultrafilters}\left( C\left(  \sX\right)\right)\cong \mathfrak{Ultrafilters}\left(\sX \right)
 	$$ 	
-	of spaces of ultrafilters. If $\xi \in \mathfrak{Ultrafilters}\left( C_0\left(  \sX\right)\right)$ then  denote by 
-	$$
-	\sV_\xi\bydef 	\bigcap_{\sU \in \xi }\sU
-	$$
-	
-	If $x \in \mathfrak{Gelfand}\left( C_0\left(  \sX\right)\right)$ then there if $a \in K\left( C_0\left( \sX\right) \right) \cong C_c\left( \sX\right)$ such that
-	$$
-	aA \in \xi
-	$$
-	or equivalently $\sV_\xi\subset  \supp a$ and the set $\supp a$ is compact (cf. Definition \ref{top_compact_defn}).
-	The set 
-	$$
-	\xi_a \bydef 	\left\{\left.\sU \cap \supp a \right| \sU \in \xi \right\}\in \mathfrak{Ultrafilters}\left( {\supp a}\right) 
-	$$
-	is an ultrafilter on the compact set $\supp a$.
-	From the Proposition \ref{top_ultra_prop}  it turns out that $\xi_a$ has the unique limit. This limit corresponds to $\mathfrak{Gelfand}_\sX\left( \xi\right)= \mathfrak{Gelfand}_{\supp a}\left( \xi_a\right)$. So we have the map is the set theoretic bijection. From the equation \ref{topology_eqn} one can deduce that the any open subset of $\mathfrak{Gelfand}\left(C_0\left( \sX\right)\right)$ with  corresponds to an open subset of $\sX$ and vice versa. 
+	of spaces of ultrafilters. Now this lemma follows from the Proposition \ref{top_ultra_prop}.
 \end{proof}
-\subsection{Good $*$-homomorphisms and Gelfand functor}
+		\begin{lemma}\label{one_point_s_lem}
+	If $A$ is a nonunital $C^*$ algebra and $A^+\bydef A \oplus \C$ is a unitization 
+	then the difference $\mathfrak{Gelfand}_r\left(A^+ \right)\setminus \mathfrak{Gelfand}_r\left(A \right)$ contains the single point.
+\end{lemma}
+\begin{proof}!!!
+	$A \subset A^+$ is the maximal left ideal, it correspond to an open projection of $p_A \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_A \bydef 1-p_A$ is the minimal projection in $\left( A^+\right)^{**}$.  If $p_1, p_2 \in \left(  A^+\right)^{**}$ are two open projections with $p_1 > p'_A$ and $p_2 > p'_A$ ans $L_1, L_2 \subset A^+$ are corresponding to $p_1$ and $p_2$  closed ideals then $L_1\cap L_2 \neq \{0\}$. So the set $\left\{L_\la \right\}_{\la \in \La}$ of all closed ideals which correspond to open projection which exceed $p'$ is a filter. There are two types of ultrafilter 
+	\begin{itemize}
+		\item The ultrafilter $\left\{p_\a \right\}_{\a  \in \mathscr{A} }$ is of type $I$ is
+		\bean
+	\forall \a  \in \mathscr{A} p' \le \overline{p}_\a
+		\eean 
+			\item The ultrafilter $\left\{L_\a \right\}_{\a  \in \mathscr{A} }$ is of type $II$ is
+		\bean
+	\forall \a  \in \mathscr{A} p' \not\le \overline{p}_\a
+	\eean 
+			where $\overline{p}_\a$ is the closure of $p_\a$ (cf. Definition \ref{closure_defn})
+		
+	\end{itemize}
+	
+	
+	Let $\xi'_0 \in  \mathfrak{Gelfand}_r\left(A^+ \right)$ a point which corresponds to an ultrafilter which exceeds $\left\{L_\la \right\}$ and $\xi_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)$ is the image of $\xi'_0$ in $\mathfrak{Gelfand}_r\left(A^+ \right) =\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right)$. If $\eta_0\in \mathfrak{Gelfand}_r\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}_r\left(A \right)\cup \left\{\xi_0\right\}\right)$ then since the space $\mathfrak{Gelfand}_r\left(A^+ \right)$ is Hausdorff there are closed left ideals $L_{\xi_0}, L_{\eta_0}\subset A$ with
+	\bean
+	\xi_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}, \\
+	\eta_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}},\\
+	\mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}\cap \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}}= \emptyset\quad \Rightarrow \quad   L_{\xi_0}\cap L_{\eta_0}= \{0\} \quad \Rightarrow \\ \Rightarrow\quad  p_{L_{\xi_0}}\perp p_{ L_{\eta_0}}\quad \Rightarrow \quad  p'_A\perp p_{ L_{\eta_0}}.\quad \Rightarrow\quad  p_{ L_{\eta_0}}< p_A\quad \Rightarrow\quad L_{\eta_0} \subset A.
+	\eean 
+	
+	+++++
+	
+	If $\left\{L_\la \right\}$ is not an ultrafilter then there is a nontrivial left ideal $L\subset A$ such that
+	\bean
+	\forall \la\in \La \quad L \cap L_\la \neq \{0\},\\
+	p'_A \not\le p_L\quad\Rightarrow\quad  p'\wedge p_L < p'_A
+	\eean 
+	where $p_L\in \left( A^+\right)^{**}$ corresponds to the ideal $L$. However  $p'\wedge p_L\in \left( A^+\right)^{**}$ and  $p'\wedge p_L < p'$ contradicts means that $p'$ is not minimal projection of $\left( A^+\right)^{**}$. So $\left\{L_\la \right\}$ is an ultrafilter which corresponds to a point $\xi_0\in  \mathfrak{Gelfand}\left(A^+ \right)= \mathfrak{Ultrafilters}\left(A^+ \right)$. If  $\xi \in \mathfrak{Ultrafilters}\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}\left(A \right)\cup \left\{\xi_0\right\}\right)$, then there is $L' \in \xi$ with $p'_A\wedge p_{L'} < p'_A$. Since $p'$ is minimal one has $p'_A\wedge p_{L'}=0$ and $L' \subset A$.!!!
+\end{proof}
+\begin{lemma}
+	Any maximal ideal of $C^*$ algebra $A$ yields a point of $\mathfrak{Gelfand}\left(A \right)$
+\end{lemma}
+\begin{proof}
+	!!!!
+\end{proof}
+
+
+\begin{lemma}\label{one_point_r_lem}
+	If $A$ is a nonunital $C^*$-algebra  then $\mathfrak{Gelfand}_r\left(A^+ \right) \cong \mathfrak{Gelfand}_r\left(A \right)^+$.
+\end{lemma}
+\begin{proof}
+	Follows from the Lemma \ref{one_point_s_lem}.
+\end{proof}
+
+\subsection{Unital $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
 If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
 %\be\label{unital_notation_eqn}
@@ -1096,45 +1132,10 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\end{definition}
 	
 	\begin{remark}
-		From the Lemma \ref{lem_g_lem} it follows that in case of commutative $C^*$-algebras the theory of coverings of $C^*$-algebras coincides with the theory of coverings of topological spaces.
+		From the Lemma \ref{lem_g_lem} !!! COMPACT !!! it follows that in case of commutative $C^*$-algebras the theory of coverings of $C^*$-algebras coincides with the theory of coverings of topological spaces.
 	\end{remark}
 	\subsection{Maps onto spaces of maximal ideals}
 	\paragraph{}
-		\begin{lemma}\label{one_point_s_lem}
-		If $A$ is a nonunital $C^*$ algebra and $A^+\bydef A \oplus \C$ is a unitization 
-		then the difference $\mathfrak{Gelfand}_r\left(A^+ \right)\setminus \mathfrak{Gelfand}_r\left(A \right)$ contains the single point.
-	\end{lemma}
-		\begin{proof}
-		$A \subset A^+$ is the maximal left ideal, it correspond to an open projection of $p_A \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_A \bydef 1-p_A$ is the minimal projection in $\left( A^+\right)^{**}$.  If $p_1, p_2 \in \left(  A^+\right)^{**}$ are two open projections with $p_1 > p'_A$ and $p_2 > p'_A$ ans $L_1, L_2 \subset A^+$ are corresponding to $p_1$ and $p_2$  closed ideals then $L_1\cap L_2 \neq \{0\}$. So the set $\left\{L_\la \right\}_{\la \in \La}$ of all closed ideals which correspond to open projection which exceed $p'$ is a filter. Let $\xi'_0 \in  \mathfrak{Gelfand}_r\left(A^+ \right)$ a point which corresponds to an ultrafilter which exceeds $\left\{L_\la \right\}$ and $\xi_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)$ is the image of $\xi'_0$ in $\mathfrak{Gelfand}_r\left(A^+ \right) =\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right)$. If $\eta_0\in \mathfrak{Gelfand}_r\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}_r\left(A \right)\cup \left\{\xi_0\right\}\right)$ then since the space $\mathfrak{Gelfand}_r\left(A^+ \right)$ is Hausdorff there are closed left ideals $L_{\xi_0}, L_{\eta_0}\subset A$ with
-		\bean
-		\xi_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}, \\
-		\eta_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}},\\
-		\mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}\cap \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}}= \emptyset\quad \Rightarrow \quad   L_{\xi_0}\cap L_{\eta_0}= \{0\} \quad \Rightarrow \\ \Rightarrow\quad  p_{L_{\xi_0}}\perp p_{ L_{\eta_0}}\quad \Rightarrow \quad  p'_A\perp p_{ L_{\eta_0}}.\quad \Rightarrow\quad  p_{ L_{\eta_0}}< p_A\quad \Rightarrow\quad L_{\eta_0} \subset A.
-		\eean 
-		
-		+++++
-		
-		If $\left\{L_\la \right\}$ is not an ultrafilter then there is a nontrivial left ideal $L\subset A$ such that
-		\bean
-		\forall \la\in \La \quad L \cap L_\la \neq \{0\},\\
-		p'_A \not\le p_L\quad\Rightarrow\quad  p'\wedge p_L < p'_A
-		\eean 
-		where $p_L\in \left( A^+\right)^{**}$ corresponds to the ideal $L$. However  $p'\wedge p_L\in \left( A^+\right)^{**}$ and  $p'\wedge p_L < p'$ contradicts means that $p'$ is not minimal projection of $\left( A^+\right)^{**}$. So $\left\{L_\la \right\}$ is an ultrafilter which corresponds to a point $\xi_0\in  \mathfrak{Gelfand}\left(A^+ \right)= \mathfrak{Ultrafilters}\left(A^+ \right)$. If  $\xi \in \mathfrak{Ultrafilters}\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}\left(A \right)\cup \left\{\xi_0\right\}\right)$, then there is $L' \in \xi$ with $p'_A\wedge p_{L'} < p'_A$. Since $p'$ is minimal one has $p'_A\wedge p_{L'}=0$ and $L' \subset A$.!!!
-	\end{proof}
-		\begin{lemma}
-		Any maximal ideal of $C^*$ algebra $A$ yields a point of $\mathfrak{Gelfand}\left(A \right)$
-	\end{lemma}
-	\begin{proof}
-		!!!!
-	\end{proof}
-	
-	
-	\begin{lemma}\label{one_point_r_lem}
-		If $A$ is a nonunital $C^*$-algebra  then $\mathfrak{Gelfand}_r\left(A^+ \right) \cong \mathfrak{Gelfand}_r\left(A \right)^+$.
-	\end{lemma}
-	\begin{proof}
-		Follows from the Lemma \ref{one_point_s_lem}.
-	\end{proof}
 	
 !!!	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
 \begin{empt}\label{max_map_empt} Let $A$ be an unital $C^*$-algebra. Consider an equivalence relation on  $\mathfrak{Gelfand}\left(A \right)$ 
@@ -3631,7 +3632,7 @@ $\sX'' \bydef \mathfrak{Gelfand}_r\left(C\left(\T^{n + 1}_\th \right)\right)\set
 %	$$
 %	\mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}_r\left(\phi_j \right)}\mathfrak{Gelfand}_r\left(C\left( U_j\right)  \right)
 %	$$
-%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} it follows that there is a homeomorphism  $\mathfrak{Gelfand}_r\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}_r\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
+%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem} !!! COMPACT !!! it follows that there is a homeomorphism  $\mathfrak{Gelfand}_r\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}_r\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
 %\be\label{torus_map_eqn}
 %	\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}_r\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
 %\ee
@@ -5068,7 +5069,7 @@ may be interpreted as a bilinear map
 	\begin{definition}\label{ultra_filter_defn}\cite{johnstone:stone_spaces} 
 		A maximal filter is an \textit{ultrafilter}.
 	\end{definition}
-	\begin{remark}\label{ultra_filter_rem}
+		\begin{remark}\label{ultra_filter_rem}
 		From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
 	\end{remark}
 
@@ -6234,9 +6235,35 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	For each non-degenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
 \end{thm}
 \subsection{A Gelfand representation theory for $C^*$-algebra}
+\begin{empt}\label{min_empt} Here I follow to \cite{akerman_gelfand}.
+	Consider the $W^*$-algebra $A^{**}$, the second
+	Banach space dual of $A$. There exists a central projection
+	$z \in A^{**}$ which is the supremum of all the minimal projections in $A^{**}$. Set 
+	\be\label{min_eqnt}
+	M \bydef z A^{**}
+	\ee.
+	 The minimal projections of $M$ are in
+	one to one correspondence with the maximal left ideals of $A$, so that we can define a structure on this set of minimal
+	projections instead of directly on the maximal left ideals. Naturally
+	the first thing we "build" is the algebra $M$. 
+	We can consider $A\subset N$ since $A \subset A^{**}$ and $A \hookto z A$ is
+	a $*$-isomorphism. (Also we can view $M$ as the direct sum
+	of irreducible representations of $A$, one from each equivalence class.)
+	A projection $p$ in $M$ is open if there exists a closed left ideal $I$ of
+	$A$ such that the weak$*$ closure $\overline{I}$ of $I$ in $M$ is of the form $Mp$. 
+	The {\it open} projections are analogous to the open sets of a topology.
+	If $A$ were Abelian, $M$ would be the algebra of all bounded complex
+	function on its maximal ideal space $K$. The open projections
+	would be characteristic functions of open sets of $K$ for the hull-kernel
+	topology. A self-adjoint operator $b$ in $M$ actually lies in
+	$A$ if and only if the spectral projections of $b$ corresponding to
+	open sets of real numbers are open projections in the above sense. This is a restatement of Gelfand's theorem since a function is continuous
+	if and only if its inverse images of open sets are open.
+	
+\end{empt}
 \begin{definition}\label{open_close_ideal_defn}\cite{akerman_stone}
 	%DEFINITION 11.1. 
-	A projection $p \in A''= A^{**}$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
+	A projection $p \in M$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
 	net $\left\{a_\la \right\}_{\la \in \La}$ such that $0\ge a_\la \uparrow p$
 	$$
 	\lim_{\la\in \La} a_\la = p
@@ -6249,37 +6276,38 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 
 \begin{proposition}\label{open_close_ideal_prop}\cite{akerman_stone}
 	%PROPOSITION 11.4. 
-	The minimal closed projections in  $A''= A^{**}$ are the
+	The minimal closed projections in  $M$ are the
 	minimal projections.
 \end{proposition}
+\begin{definition}\label{closure_defn}\cite{akerman_stone}!!!!
+DEFINITION 11.1 I. If $p \in M$ is a projection, we denote by $\overline{p}$ the
+{\it closure} of $p$ which is the smallest closed projection majorizing $p$.
+\end{definition}
 
-\begin{empt} Here I follow to \cite{akerman_gelfand}.
-Consider the $W^*$-algebra $A^{**}$, the second
-Banach space dual of $A$. There exists a central projection
-$z \in A^{**}$ which is the supremum of all the minimal projections in $A^{**}$. Set $M \bydef z A^{**}$. The minimal projections of M are in
-one to one correspondence with the maximal left ideals of $A$, so that we can define a structure on this set of minimal
-projections instead of directly on the maximal left ideals. Naturally
-the first thing we "build" is the algebra $M$. 
-We can consider $A\subset N$ since $A \subset A^{**}$ and $A \hookto z A$ is
-a $*$-isomorphism. (Also we can view M as the direct sum
-of irreducible representations of A, one from each equivalence class.)
-A projection $p$ in $M$ is open if there exists a closed left ideal $I$ of
-$A$ such that the weak$*$ closure $\overline{I}$ of $I$ in $M$ is of the form $Mp$. 
-The {\it open} projections are analogous to the open sets of a topology.
-If A were Abelian, M would be the algebra of all bounded complex
-function on its maximal ideal space $K$. The open projections
-would be characteristic functions of open sets of $K$ for the hull-kernel
-topology. A self-adjoint operator $b$ in $M$ actually lies in
-$A$ if and only if the spectral projections of $b$ corresponding to
-open sets of real numbers are open projections in the above sense. This is a restatement of Gelfand's theorem since a function is continuous
-if and only if its inverse images of open sets are open.
-
-\end{empt}
 \begin{definition}\label{compact_p_defn}\cite{akerman_gelfand}
 %DEFINITION ?.l.
- A projection $p\in M$ is {\it compact} if $p$ is {\it closed}
+ A projection $p\in M$ is {\it compact} if $p$ is {closed}
 and there exists $b \in A_+$ with $bp = p$.
 \end{definition}
+\begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}!!!
+
+DEFINITION III.2. A self-adjoint operator be M is continuous
+if each spectral projection of b corresponding to an open subset of
+the spectrum of b is also g-open.
+Now we can state our best Gelfand representation theorem.
+\end{definition}
+
+\begin{theorem}\label{coninuous_p_thm}\cite{akerman_gelfand}!!!
+THEOREM III.3. The self-adjoint elements of A are exactly those
+q-continuous elements b of M such that the spectral projections of b
+corresponding to closed subsets of the spectrum of b which don't contain
+0 are q-compact (i.e., b "vanishes at ¡o ").
+	content...
+\end{theorem}
+\begin{proposition}\label{close_int_akk}\cite{akerman_stone}!!!
+PROPOSITION 11.5. If {pa} is a set of closed projections, then
+p = A, p, is closed.
+\end{proposition}
 
 \begin{conjecture}\cite{akerman_gelfand}
 %Conjecture ?.2. 
@@ -6294,6 +6322,10 @@ Suppose $B$ is a $C^*$-algebra, $b \in B^+$, $p \in B^{**}$ a projection
 and $\left\{a_\a\right\}\subset B$ an increasing net of positive elements with
 $\left\|b^{1/2} - b^{1/2} a_\a\right\| \xrightarrow[\a]{~}   0$ If $b \ge p$ (considering $B \subset B^{**}$),then $\left\|b^{1/2} - b^{1/2} a_\a\right\| \xrightarrow[\a]{~}  0$.
 \end{lemma}
+\begin{proposition}\label{open_closed}\cite{akerman_stone}
+	PROPOSITION II. 18. A projection $p \in M$ is open and closed if and only if
+	$p \in A$.
+\end{proposition}
 		\subsection{Hilbert modules and compact operators}\label{hilbert_modules_chap}
 %\paragraph{} We refer to \cite{blackadar:ko} for definition of Hilbert $C^*$-modules, or simply Hilbert modules.
 \begin{definition}\label{banach_non_defn}\cite{rae:ctr_morita}

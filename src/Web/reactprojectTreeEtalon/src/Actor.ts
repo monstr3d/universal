@@ -33,6 +33,7 @@ import { GameFactory } from "./GameFactory";
 import { usePersonControls } from "./hooks";
 import { exp } from "three/src/nodes/TSL.js";
 import * as THREE from "three";
+import { extend } from "@react-three/fiber";
 
 class GA extends EmptyObject implements IGameActionFactory, IGameAction, IAction {
     constructor() {
@@ -80,11 +81,12 @@ export class Actor implements IAction, IActionT<number>, IFunc<number> {
         let ii = scada.getScadaInputs()
         for (var i of ii) this.inputs.push(i)
         var ea = sc.getInternalAction()
-        ea.addAction(new A("scene"));
+        ea.addAction(new Action(scada))
+   /*     ea.addAction(new A("scene"));
         ea.addAction(new B(sc, g));
         var ena = g.getEngineAction()
         ena.addActionT(new TT())
-
+        */
         this.loadGame()
     }
 
@@ -105,17 +107,26 @@ export class Actor implements IAction, IActionT<number>, IFunc<number> {
     public set(t: number, v : THREE.Vector3[]): void {
         this.actionT(t)
         this.inputs[0].setInputValue("x", this.x)
-        console.log("X", this.x)
+    //    console.log("X", this.x)
     }
 
-    public setXY(x: number, y: number): void {
+    public setXYZ(x: number, y: number, z: number) : void {
         this.x = x
         this.y = y
-        console.log("XXX", x, y)
+        this.z = z
+    //    console.log("XXX", x, y, z)
     }
+
+
+    public setBollean(x: boolean): void {
+       this.x = x ? 0.001 : -0.001
+        //    console.log("XXX", x, y, z)
+    }
+
 
     x: number = 0
     y: number = 0
+    z : number = 0
 
     actionT(t: number): void {
    //     const { forward, backward, left, right, jump } = usePersonControls();
@@ -151,8 +162,48 @@ export class Actor implements IAction, IActionT<number>, IFunc<number> {
 
     }
 
-}
+    public setMotion(forward: boolean, backward: boolean, left: boolean, right: boolean, jump: boolean): void {
+        let v = 0;
+        if (forward) v = 0.001
+        if (backward) v = -0.01
+        this.inputs[0].setInputValue("X", v)
+        v = 0
+        if (left) v = 0.001
+        if (right) v = -0.01
+        this.inputs[0].setInputValue("Y", v)
 
+     }
+
+}
+class Action extends AbstractAction {
+    action(): void {
+        var mmm = this.dataConsumer.getAllMeasurements()
+        var mm = mmm[0];
+        var m = mm.getMeasurement(0)
+        var v = m.getMeasurementValue()
+        //  console.log("Value " + v)
+        mm = mmm[2]
+        m = mm.getMeasurement(3)
+        let n = m.getMeasurementName();
+        v = m.getMeasurementValue()
+        console.log(n + " " + v)
+        m = mm.getMeasurement(4)
+        n = m.getMeasurementName();
+        v = m.getMeasurementValue()
+        console.log(n + " " + v)
+    }
+    dataConsumer !: IDataConsumer
+    scada !: IScadaInterface
+    
+    constructor(scada: IScadaInterface) {
+        super()
+        {
+            this.scada = scada
+            this.dataConsumer = scada.getScadaObject<IDataConsumer>("Chart", "IDataConsumer")[0]
+
+        }
+    }
+}
 export class A extends AbstractAction {
     s: string = ""
     i: number = 0
@@ -162,7 +213,7 @@ export class A extends AbstractAction {
     }
     action(): void {
         ++this.i
-        console.log(this.s + " " + this.i)
+       // console.log(this.s + " " + this.i)
     }
 
 }
@@ -190,7 +241,7 @@ class B extends AbstractAction {
         var mm = mmm[0];
         var m = mm.getMeasurement(0)
         var v = m.getMeasurementValue()
-        console.log("Value " + v)
+      //  console.log("Value " + v)
         mm = mmm[2]
         m = mm.getMeasurement(3)
         let n = m.getMeasurementName();
@@ -201,7 +252,7 @@ class B extends AbstractAction {
 
 class TT extends AbstractActionT<number> {
     actionT(t: number): void {
-        console.log("2 * time " + 2 * t)
+       // console.log("2 * time " + 2 * t)
     }
 
 }
@@ -218,10 +269,10 @@ class TA extends AbstractActionT<number> {
         this.inputs = inputs
     }
     actionT(t: number): void {
-        console.log("time " + t)
+        //console.log("time " + t)
         if (t > 2) {
-            console.log("FORCE")
-            this.inputs[0].setInputValue("X", 1)
+           // console.log("FORCE")
+           // this.inputs[0].setInputValue("X", 1)
         }
         if (t > 5) {
           //  this.game.startItself(false)

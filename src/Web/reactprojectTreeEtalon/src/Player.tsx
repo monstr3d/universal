@@ -41,11 +41,11 @@ export const Player = () => {
 
         // moving player
         const velocity = playerRef.current.linvel();
-        frontVector.set(0, 0, backward - forward);
-        sideVector.set(left - right, 0, 0);
-        let a = getActor()
-        a.setXY(backward - forward, left - right)
-        direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(MOVE_SPEED).applyEuler(state.camera.rotation);
+      //  frontVector.set(0, 0, backward - forward);
+      //  sideVector.set(left - right, 0, 0);
+          frontVector.set(0, 0, 0);
+         sideVector.set(0, 0, 0);
+    direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(MOVE_SPEED).applyEuler(state.camera.rotation);
 
         playerRef.current.wakeUp();
         playerRef.current.setLinvel({ x: direction.x, y: velocity.y, z: direction.z });
@@ -60,6 +60,9 @@ export const Player = () => {
         // moving camera
         const {x, y, z} = playerRef.current.translation();
         state.camera.position.set(x, y, z);
+        let a = getActor()
+        a.setMotion(forward, backward, left, right, jump)
+
 
         // moving object in hand for the player
         objectInHandRef.current.rotation.copy(state.camera.rotation);

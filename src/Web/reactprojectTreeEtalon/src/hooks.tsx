@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getActor } from "./App";
 
 export const usePersonControls = () => {
     const keys = {
@@ -20,6 +21,9 @@ export const usePersonControls = () => {
     });
 
     const setMovementStatus = (code, status) => {
+
+        let a = getActor()
+        a.setBollean(code)
         setMovement((m) => ({...m, [code]: status}))
     }
 
