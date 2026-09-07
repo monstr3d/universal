@@ -739,15 +739,72 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 
 
 \subsection{Basic construction}
-\paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent. If both $\sX$ and $\sY$ are compact spaces then any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$  yields a continuous  map $\sY\to \sX$. Below we will prove that for any locally compact spaces a homomorphism $f: C\left( \sX\right) \to C\left( \sY\right)$ yields a continuous map  $\sY\to \sX$ is and only if $f$ is unital in the sense of the Definition \ref{nonunital_principal_defn}.
+\paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
+\begin{definition}\label{good_ultrafilter_defn}
+	An ultrafilter of open subsets sets  on locally compact Hausdorff  space  is a {\it finite point} if contains an open set with compact closure.
+\end{definition}
+\begin{remark}\label{good_ultrafilter_rem}
+	From the Proposition \ref{top_ultra_prop} it follows that any locally compact Hausdorff  space is a set of its good ultrafilters.
+\end{remark}
+Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yields a continuous  map $\sY\to \sX$. Any $*$-homomorphisms $C_0\left( \sX\right) \to C_b\left( \sY\right)$ can be uniquely extended up to a $*$-homomorphism $C_b\left( \sX\right) \to C_b\left( \sY\right)$ and yields a continuous map $f:\bt\sY \to \bt \sX$ where both $\bt\sX$ and $\bt \sY$ are {Stone-\v{C}ech compactifications} (cf. Definition \ref{top_stone_cech_defn}.
+For any $C^*$-algebra $A$ there is the natural inclusion $M\left(A \right)  \hookto A^{**}$ of the multiplier into enveloping $W^*$-algebra (cf. Definition \ref{env_alg_defn}). For any $C^*$-algebra $B$ a $*$-homomorphism $\varphi :M\left(A \right) \to M\left(B \right)$ induces a homomorphism
+\be\label{w*_eqn} 
+\varphi^{**} : A^{**} \to B^{**}.
+\ee 
+\begin{lemma}\label{proj_lem}
+If both $A$ and $B$ are $C^*$-algebras  and  $\varphi : M\left(  A\right)  \to M\left( B\right) $ is a $*$ homomorphism then for any open projection $p \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}) the projection $\varphi^{**}\left( p\right) \in  B^{**}$ is open.
+\end{lemma}
+\begin{proof}
+There is a closed left ideal  of $L \subset B$ such that
+\be\label{lb_eqn}
+L \bydef \left\{b \in B\left| b =b \varphi^{**} \left(p \right) \right.\right\} 
+\ee 
+The Lemma \ref{left_ideal_thm} yields an increasing  net  $\left\{b_\la \right\}_{\la \in \La}\subset B$ such that
+\be\label{inc_eqn}
+\forall b \in B \quad \lim_{\la\in \la}\left\| b - b b_\la \right\| = 0.
+\ee
+From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a  projection $q \in B^{**}$  such that $0\ge b_\la \uparrow q$
+$$
+\lim_{\la\in \La} b_\la = q
+$$
+in the weak* topology of $B^{**}$. 	According to the Definition \ref{open_close_ideal_defn}
+the projection $q$ is open. From \eqref{inc_eqn} it turns out that
+\be\label{lbq_eqn}
+L = \left\{b \in B\left| b =b q \right.\right\}.
+\ee
+Comparison of \eqref{lb_eqn} and \eqref{lbq_eqn} yields $\varphi^{**} \left(p \right) = q$.
+\end{proof}
+\begin{definition}\label{good_hom_defn}
+	If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is {\it good} if for any compact projection $q \in B^{**}$ (cf. Definition \ref{compact_p_defn}) there is a compact projection $p \in A^{**}$ such that
+	\be \label{good_hom_eqn}
+	q \le \varphi^{**}\left(p \right). 
+	\ee
+\end{definition}
+
+\begin{lemma}
+	A homomorphism $\varphi: C_b\left( \sX\right) \to C_b\left( \sY\right)$ is good  if and only if  it induces the continuous map  $f: \bt\sY \to \bt\sX$ such that $f\left(\sY \right) \subset \sX$.
+\end{lemma}
+\begin{proof}
+	$\Rightarrow$ If $y\in \sY$ then there is a compact neighborhood $\sV\subset \sY$ of $y$ which   corresponds to compact $q \in C_0\left(\sY \right)^{**}$. There is compact projection $p \in C_0\left(\sX \right)^{**}$ such that
+	\bean
+	q \le \varphi^{**}\left(p \right)
+		\eean 
+		The above equation means that $f\left( \sV\right) \subset \sU$ where $\sU \subset \sX$ is a corresponding to $p$ compact subset.\\
+	$\Leftarrow$  Any compact projection $q \in C_0\left(\sY \right)^{**}$ corresponds to a compact subset $\sV\subset \sY$. The image 
+	$
+	f\left(\sV \right) 
+$ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \right)^{**}$. It turns out that 	$q \le \varphi^{**}\left(p \right)$.
+\end{proof}
 \begin{definition}\label{gelfand_category_defn}
-	The {\it principal $C^*$ category} $C^*$-$\mathfrak{Principal}$ is such that:
+	The {\it Gelfand category} $C^*$-$\mathfrak{Gelfand}$ is such that:
 	\begin{itemize}
-		\item objects of $C^*$-$\mathfrak{Principal}$ are $C^*$-algebras,
-		\item arrows of of $C^*$-$\mathfrak{Principal}$ are principal $*$-homomorphisms in the sense of the Definition \ref{nonunital_principal_defn}
+		\item objects of $C^*$-$\mathfrak{Gelfand}$ are $C^*$-algebras,
+		\item for any two objects $A$ and $B$ of $C^*$-$\mathfrak{Gelfand}$ the set of arrows from $A$ to $B$ is a set of good $*$-homomorphisms from $M\left(A \right)\to M\left( B\right)$, 
 	\end{itemize}
 	
 \end{definition}
+
+\paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent. If both $\sX$ and $\sY$ are compact spaces then any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$  yields a continuous  map $\sY\to \sX$. Below we will prove that for any locally compact spaces a homomorphism $f: C\left( \sX\right) \to C\left( \sY\right)$ yields a continuous map  $\sY\to \sX$ is and only if $f$ is unital in the sense of the Definition \ref{nonunital_principal_defn}.
 \begin{definition}\label{lattice_a_defn}
 	If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of open projections of  $A$ (cf. Definition \ref{open_close_ideal_defn})
 	A filter (resp, an ultrafilter) of $A$-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$  (resp.  $\mathfrak{Ultrafilters}\left( A\right)$) the  set of $A$-filters  (resp. $A$-ultrafilters).
@@ -926,9 +983,9 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	Follows from the Lemma \ref{one_point_s_lem}.
 \end{proof}
 
-\subsection{Unital $*$-homomorphisms and Gelfand functor}
+\subsection{Good $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
-If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( \widetilde{A}\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
+If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( B\right)$ is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn})
 %\be\label{unital_notation_eqn}
 %A^\sim\bydef\begin{cases}
 	%	A & \text{if }A \text{ is unital}\\
@@ -942,22 +999,22 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	then there is the natural homomorphism of lattices
 	\be\label{lat_mor_eqn}
 	\begin{split}
-		\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi \right)}\mathfrak{Lattice} \left( \widetilde A\right),\\
-		L \mapsto \text{ the $C^*$-norm closure of } \widetilde A \varphi\left(L \right).
+		\mathfrak{Lattice}\left(  A\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi \right)}\mathfrak{Lattice} \left( B\right),\\
+		p \mapsto \varphi^{**} \left( p \right) \quad \text{(cf. equation \eqref{w*_eqn})}.
 	\end{split}
 	\ee
 	On the other hand the homomorphism $\mathfrak{Lattice}\left(\varphi \right)$ yields a mapping of filters
 	\be\label{fil_mor_eqn}
 	\begin{split}
-		\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi \right)}\mathfrak{Filters} \left( \widetilde A\right),\\
-		\left\{L_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by } \bigcup_{\la \in \La} \left\{\mathfrak{Lattice}\left(\varphi \right)\left( L_\la\right) \right\}_{\la \in \La}
+		\mathfrak{Filters}\left(  A\right) \xrightarrow{\mathfrak{Filters}\left(\varphi \right)}\mathfrak{Filters} \left( B\right),\\
+		\left\{p_\la\right\}_{\la \in \La} \mapsto \text{ a filter generated by }  \left\{\mathfrak{Lattice}\left(\varphi \right)\left( p_\la\right) \right\}_{\la \in \La}
 	\end{split}
 	\ee
 	If $\xi \in \mathfrak{Ultrafilters}\left(  A\right) $ is an ultrafilter then we define a set
 	\be\label{uphi-inv_eqn}
-	\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right) \bydef\left\{\left.\widetilde \xi \in \mathfrak{Ultrafilters}\left(\widetilde  A\right)\right|\forall \widetilde{L}'\in \mathfrak{Filters}\left(\varphi\right)\left( \xi\right)\subset \widetilde \xi \right\}
+	\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right) \bydef\left\{\left.\eta \in \mathfrak{Ultrafilters}\left(B\right)\right|\forall q\in \mathfrak{Filters}\left(\varphi\right)\left( \xi\right)\quad q \in  \eta \right\}
 	\ee
-	For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $L' \in \xi'$ and $L'' \in \xi''$ such that $L'\cap L'' = \{0\}$. It turns out that
+	For all $\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ there are $p' \in \xi'$ and $p'' \in \xi''$ such that $p'\wedge p'' = 0$. It turns out that
 	\bean
 	\xi', \xi''\in \mathfrak{Ultrafilters}\left(A \right)\quad \xi' \neq \xi'' \quad \Rightarrow\\
 	\Rightarrow \quad \mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi' \right)\cap \mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi ''\right)= \emptyset
@@ -965,31 +1022,27 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	Using the above map one can construct the natural map
 	\be\label{ultra_mor_eqn}
 	\begin{split}
-		\mathfrak{Ultrafilters}\left(\varphi \right)\left( \widetilde \xi\right) = \xi \quad \Leftrightarrow \quad \widetilde \xi \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
-		\mathfrak{Ultrafilters}\left(\widetilde  A\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi \right)}\mathfrak{Ultrafilters} \left( A\right).
+		\mathfrak{Ultrafilters}\left(\varphi \right)\left( \eta\right) = \xi \quad \Leftrightarrow \quad \eta \in \mathfrak{Ultrafilters}\left(\varphi_M \right)^{-1}\left(\xi \right),\\
+		\mathfrak{Ultrafilters}\left(B\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi \right)}\mathfrak{Ultrafilters} \left( A\right).
 	\end{split}
 	\ee
-	Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the continuous map 
-	\be\label{gelfand_map_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
+	Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the natural  map 
+		\be\label{gelfand_map_eqn}
+	\mathfrak{PreGelfand}\left(B \right)\xrightarrow{\mathfrak{PreGelfand}\left(\varphi \right)}\mathfrak{PreGelfand}\left(A \right).
 	\ee
 	\begin{theorem}\label{good_thm}
 	One has
 			\begin{enumerate}
-				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
+				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( B\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
 				\item[(ii)] If $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} is surjective.
 			\end{enumerate}
 			
 	\end{theorem}
-	\begin{proof}(i) 		If $L \subset A$ is a closed left ideal and 
+	\begin{proof}(i) 		If $p \in  A^{**}$ is an open projection (cf. Definition \ref{open_close_ideal_defn}) and $q = \varphi^{**}\left(p \right)\in B^{**}$ then $q$ is an open projection (cf. Lemma \ref{proj_lem})	
 		\bean
-		\widetilde L\bydef \text{ the $C^*$-norm closure of } \widetilde A \varphi\left(L \right).
-		\eean	
-		then $\widetilde L$ is a closed left ideal and	
-		\bean
-		\mathfrak{Gelfand}\left(\varphi \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_L\right) \subset \mathfrak{Gelfand}\left(\widetilde A \right)_{\widetilde L}
+		\mathfrak{Gelfand}\left(\varphi \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_p\right) = \mathfrak{Gelfand}\left(\widetilde A \right)_{q}
 		\eean 
-		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(\widetilde A\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
+		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
 		
 		(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 		
@@ -1007,8 +1060,8 @@ If both  $A$ and $\widetilde{A}$ are $C^*$-algebras and $\varphi :M\left(  A\rig
 	\begin{definition}\label{gelfand_functor_defn}
 		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors} from 
 		\bea\label{gelfand_functor_eqn}
-		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Top},\\\label{gelfand_h_functor_eqn}
-			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand}_r \bydef \mathfrak{Hausdorff}~\circ~\mathfrak{Gelfand}}\mathfrak{Hausdorff}
+		C^*\text{-}\mathfrak{PreGelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Top},\\\label{gelfand_h_functor_eqn}
+			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{PreGelfand}_r \bydef \mathfrak{Hausdorff}~\circ~\mathfrak{Gelfand}}\mathfrak{Hausdorff}
 		\eea
 	the Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the categories   $\mathfrak{Top}$ (resp. $\mathfrak{Hausdorff}$ of topological (resp. Hausdorff locally compact) spaces and continuous maps.  
 		Any functor  $\mathfrak{Top}\to \mathscr C$ and/or $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
@@ -6263,7 +6316,7 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 \end{empt}
 \begin{definition}\label{open_close_ideal_defn}\cite{akerman_stone}
 	%DEFINITION 11.1. 
-	A projection $p \in M$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
+	A projection $p \in A^{**}$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
 	net $\left\{a_\la \right\}_{\la \in \La}$ such that $0\ge a_\la \uparrow p$
 	$$
 	\lim_{\la\in \La} a_\la = p
@@ -8603,6 +8656,8 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 
+\bibitem{dauns:w_envelope} John Dauns. {\it Enveloping $W^*$-algebras}. 
+Rocky Mountain J. Math. 8(4): 589-626 (Fall 1978). DOI: 10.1216/RMJ-1978-8-4-589, 1978.
 
 \bibitem{dorin:cuntz_repr}Dorin Ervin Dutkay, John Haussermann, Palle E.T.Jorgensen. {\it Atomic representations of Cuntz algebras}. J. Math. Anal. Appl. 421(2015)215Ð243, 2015.
 
