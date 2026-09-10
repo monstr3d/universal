@@ -14,7 +14,7 @@ let actImmelmann: ActImmelman = getActImmelman()
 
 let update: IUpdateRef = actor.getMeshUpdaterPosition("pLANE")
 
-let updateI: IUpdateRef = actImmelmann.getMeshUpdaterPositionCalibrated("Plane", 1, 2, 0, 1)
+let updateI: IUpdateRef = actImmelmann.getMeshUpdaterPositionCalibrated("Plane", -1, -1, 0, 0.01)
 
 let b: boolean = true
 

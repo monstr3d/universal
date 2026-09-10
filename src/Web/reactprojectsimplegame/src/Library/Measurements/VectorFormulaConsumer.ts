@@ -8,7 +8,6 @@
 import type { IDesktop } from "../Interfaces/IDesktop";
 import type { IFeedbackCollection } from "../Interfaces/IFeedbackCollection";
 import type { IPostSetArrow } from "../Interfaces/IPostSetArrow";
-import type { IPrintedObject } from "../Interfaces/IPrintedObject";
 import type { IRunning } from "../Interfaces/IRunning";
 import { DataConsumerVariableMeasurements } from "./DataConsumerVariableMeasurements";
 

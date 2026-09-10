@@ -8,9 +8,6 @@ export class UpdateMeshByPositionCalibrated implements IUpdateRef {
     rmat: RealMatrix = new RealMatrix()
     mp: Motion6DPerformer = new Motion6DPerformer
     postition !: IPosition
-    rf !: ReferenceFrame
-    rb: ReferenceFrame = new ReferenceFrame()
-    rr: ReferenceFrame = new ReferenceFrame()
     i: number = 0
     aux: number[] = [0, 0, 0]
     a: number[] = [0, 0, 0]
@@ -25,33 +22,22 @@ export class UpdateMeshByPositionCalibrated implements IUpdateRef {
         this.a = [x, y, z]
         this.scale = scale
         this.postition = postition
-        let r = this.mp.getOwnFrame(postition)
-        if (r === undefined) return
-        this.rf = r
     }
 
     updateRef(m: React.MutableRefObject<undefined>): void {
         if (m.current === undefined) return
         try {
-            this.rr.setReferenceFrame(this.rb, this.rf)
-            let pp = this.rf.getPosition()
-            if (pp[0] != 0 || pp[1] != 0) {
-                if (this.i < 2) {
-                    console.log(this.rf)
-                    ++this.i
-                }
-            }
-            let mt = this.rr.getMatrix();
-            let c = this.postition.getPosition();
-            this.rmat.multiplyRight(mt, c, this.aux)
-            let d = this.rr.getPosition()
+            let r = this.mp.getOwnFrame(this.postition)
+            if (r === undefined) return
+            let x = r.getPosition()
             for (let i = 0; i < 3; i++) {
-                this.aux[i] += d[i] * this.scale + this.a[i]
+                this.aux[i] = this.scale * x[i]
+                this.aux[i] += this.a[i]
             }
             m.current.position.x = this.aux[0]
             m.current.position.y = this.aux[1]
             m.current.position.z = this.aux[2]
-            let q = this.rr.getQuaternion()
+            let q = r.getQuaternion()
             m.current.quaternion.w = q[3]
             m.current.quaternion.x = q[0]
             m.current.quaternion.y = q[1]

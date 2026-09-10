@@ -1,6 +1,6 @@
+import { PerformerMeasuremets } from "./PerformerMeasuremets";
 import { CategoryObject } from "../CategoryObject";
 import { ActionArray } from "../Utilities/Generic/ActionArray";
-import { PerformerMeasuremets } from "./PerformerMeasuremets";
 import type { IAction } from "../Interfaces/IAction";
 import type { IActionAddRemove } from "../Interfaces/IActionAddRemove";
 import type { IAddRemove } from "../Interfaces/IAddRemove";

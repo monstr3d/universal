@@ -219,18 +219,23 @@ export class RigidReferenceFrame extends CategoryObject implements IReferenceFra
     addNodeT(node: INodeT<IPosition>): void {
         this.nodes.push(node);
     }
+
     removeNodeT(node: INodeT<IPosition>): void {
         this.nodes = this.performer.remove(this.nodes, node)
     }
+
     getOwnFrame(): ReferenceFrame {
         return this.own;
     }
+
     getPosition(): number[] {
         return this.own.getPosition();
     }
+
     getParentFrame(): IReferenceFrame | undefined {
         return this.parent;
     }
+
     setParentFrame(parent: IReferenceFrame): void {
         if ((parent != undefined) && this.parent != undefined) {
             throw new OwnError("Parent", "", "");
@@ -254,7 +259,7 @@ export class RigidReferenceFrame extends CategoryObject implements IReferenceFra
         let b = this.getBaseFrame();
         if (b === undefined)
         {
-            this.relative.copyReferenceFrameFrom(own)
+            own.copyReferenceFrameFrom(this.relative)
         }
         else
         {

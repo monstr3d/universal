@@ -11,17 +11,14 @@ export class Vector3DProcessor {
 
     protected collectionProcessor: CollectionProcessor = new CollectionProcessor();
 
-    public quaternionNormalize(quaternion: number[]): void{
-       let a = 0;
-        for (let q of quaternion)
-        {
+    public quaternionNormalize(quaternion: number[]): void {
+        let a = 0;
+        for (let q of quaternion) {
             a += q * q;
-
         }
-        a = 1 / Math.sqrt(a);
+        let b = 1 / Math.sqrt(a);
         for (var i = 0; i < 4; i++) {
-            quaternion[i] *= a;
-
+            quaternion[i] *= b;
         }
     }
 

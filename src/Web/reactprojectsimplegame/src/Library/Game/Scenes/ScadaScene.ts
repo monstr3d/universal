@@ -13,14 +13,20 @@ import { AbstractScene } from "../../Game/Abstract/AbstractScene"
 
 export class ScadaScene extends AbstractScene implements IScadaConsumer
 {
-    constructor(game: IGame, collection: IComponentCollection, chart: string) {
+    constructor(game: IGame, collection: IComponentCollection, chart: string, engine?: IPlayEngine | undefined) {
         super(game, chart)
         this.types.push("IScadaConsumer")
         this.collection = collection
-        var engine = this.performer.convertObject<IPlayEngine, IObject>(game, "IPlayEngine")
-        if (engine.length > 0) this.scada = new ScadaDesktopEngine(collection, engine[0],
-            this.factory, this.name)
-        else this.scada = new ScadaDesktop(collection)
+        if (engine !== undefined) {
+            this.scada = new ScadaDesktopEngine(collection, engine,
+                this.factory, this.name)
+        }
+        else {
+            var eng = this.performer.convertObject<IPlayEngine, IObject>(game, "IPlayEngine")
+            if (eng.length > 0) this.scada = new ScadaDesktopEngine(collection, eng[0],
+                this.factory, this.name)
+            else this.scada = new ScadaDesktop(collection)
+        }
         
         var lc = this.factory.getFactory<IGameLoaderFactory>("IGameLoaderFactory")
         var loader = lc?.getLoader(this)

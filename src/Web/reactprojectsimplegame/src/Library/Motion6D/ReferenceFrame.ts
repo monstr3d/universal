@@ -30,19 +30,16 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
         return this;
     }
 
-    public copyReferenceFrameFromArrays(m: number[][], p: number[]): void {
-        var mm = this.matrix;
-        for (var i = 0; i < m.length; i++) {
-            var c = m[i]
-            var cc = mm[i]
-            for (var j = 0; j < cc.length; j++) {
-                cc[j] = c[i]
-            }
+    public copyReferenceFrameFromArrays(q: number[], p: number[]): void {
+        var mm = this.quaternion;
+        for (var i = 0; i < mm.length; i++) {
+            mm[i] = q[i]
         }
         var pp = this.position
         for (var i = 0; i < p.length; i++) {
             pp[i] = p[i]
         }
+        this.setMatrix()
     }
 
     public copyReferenceFrameFromPositionQuatetnion(position: number[], quaternion: number[]): void {
@@ -59,7 +56,7 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
 
 
     public copyReferenceFrameFrom(frame: ReferenceFrame): void {
-        this.copyReferenceFrameFromArrays(frame.matrix, frame.position)
+        this.copyReferenceFrameFromArrays(frame.quaternion, frame.position)
     }
 
 
@@ -129,18 +126,21 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
         }
         this.vp.quaternionMultiply(baseFrame.quaternion, relative.quaternion, this.quaternion);
         this.setMatrix();
-    }
+  }
 
 
     getQuaternion(): number[] {
         return this.quaternion;
     }
+
     getMatrix(): number[][] {
         return this.matrix;
     }
+
     getPosition(): number[] {
         return this.position;
     }
+
     getParentFrame(): IReferenceFrame | undefined {
         return this.parent;
     }
@@ -152,7 +152,9 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
     getParameters() {
         return this.parameters;
     }
+
     updateReferenceFrame(): void {
+        console.log("TTT", this)
         let p = this.getParentFrame();
         if (p === undefined) {
             return;

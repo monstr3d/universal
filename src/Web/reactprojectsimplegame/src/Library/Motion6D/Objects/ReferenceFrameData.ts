@@ -75,24 +75,29 @@ export class ReferenceFrameData extends RigidReferenceFrame implements IDataCons
         this.types.push("ReferenceFrameData");
     }
 
-
     resetDataConsumer(): void {
     }
+
     getMeasurementName(): string {
         return "Frame";
     }
+
     getMeasurementType() {
         return "Frame";
     }
+
     getMeasurementValue() {
         return this.own;
     }
+
     getMeasurementsCount(): number {
         return this.outmeasurements.length;
     }
+
     getMeasurement(i: number): IMeasurement {
         return this.outmeasurements[i];
     }
+
     updateMeasurements(): void {
     }
 
@@ -102,14 +107,12 @@ export class ReferenceFrameData extends RigidReferenceFrame implements IDataCons
         this.measuremrntPerformrer.fullReset(this);
         var rel = this.relative;
         var x = rel.getPosition();
-       // var parent = this.getParentFrame();
         for (let i = 0; i < 3; i++) {
             var o = this.measurements[i].getMeasurementValue();
             if (o === undefined) {
                 return;
             }
             x[i] = this.performer.convert<number, number>(o);
-
         }
         var vela = this.performer.convertObject<IVelocity, ReferenceFrame>(rel, "IVelocity");
         if (vela.length > 0) {
@@ -133,10 +136,8 @@ export class ReferenceFrameData extends RigidReferenceFrame implements IDataCons
             var val = m.getMeasurementValue();
             var y = this.performer.convert<number, number>(val);
             qua[i] = y;
-
         }
         rel.setMatrix();
-       // var matrix = rel.getMatrix()
         var anga = this.performer.convertObject<IAngularVelocity, ReferenceFrame>(rel, "IAngularVelocity");
         if (anga.length > 0) {
             let ang = anga[0];
@@ -245,6 +246,17 @@ export class ReferenceFrameData extends RigidReferenceFrame implements IDataCons
     getOmegaZ(): any {
         return this.angularVelocity.getAngularVelocityZ();
     }
+
+    postSetArrow(): void {
+        super.postSetArrow();
+        this.measurements = []
+        let n = this.parametersList.length;
+          for (var i = 0; i < n; i++) {
+              let m = this.performer.getMeasurementDC(this, this.parametersList[i])
+              this.measurements.push(m)
+        }
+    }
+
 
     createMeasurements(): void {
         let lm: IMeasurement[] = [];
