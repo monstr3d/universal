@@ -54,8 +54,36 @@ import type { IActionAddRemoveT4 } from "./Interfaces/IActionAddRemoveT4";
 
 
 
-export class Performer
-{
+export class Performer implements IObject,  IFactoryConsumer {
+    constructor(factory?: IFactory) {
+        this.mCompatator = new MeasurementsComparator(this);
+        if (factory !== undefined) this.factory = factory
+    }
+
+    getName(): string {
+        return this.name;
+    }
+
+
+    getClassName(): string {
+        return this.typeName;
+    }
+
+    imlplementsType(type: string): boolean {
+        return this.types.includes(type);
+    }
+
+    protected typeName: string = "Performer"
+
+    protected types: string[] = ["IObject", "IFactoryConsumer", "Performer"]
+
+    protected name: string = ""
+    setConsumerFactory(factory: IFactory): void {
+        if (factory !== undefined) this.factory = factory
+    }
+    getConsumerFactory(): IFactory {
+        return this.factory
+    }
 
     public toShidtedString(str: string, shift : string) {
         if (str.startsWith(shift)) {
@@ -70,9 +98,6 @@ export class Performer
         return a.getArray(node)
     }
 
-    constructor() {
-        this.mCompatator = new MeasurementsComparator(this);
-    }
 
     static desktop: IDesktop;
 
@@ -106,6 +131,8 @@ export class Performer
     protected mCompatator !: IComparator<IMeasurements>;
 
     protected printer !: IPrinter
+
+    protected factory !: IFactory
 
 
     public toOneDimensdional<T>(t: T[][]): T[] {
@@ -436,7 +463,7 @@ export class Performer
         return map;
     }
 
-    public getName(obj: any): string {
+    public getNamOfObject(obj: any): string {
         var o = this.convertArray<IObject, any>(obj, "IObject")
         return o[0].getName()
     }

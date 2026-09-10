@@ -1,11 +1,11 @@
 import type { IDesktop } from "../../Interfaces/IDesktop";
 import type { ICamera } from "../Interfaces/ICamera";
-import { BasicPosition } from "../Objects/BasicPosition";
 import type { IVisible } from "./Interfaces/IVisible";
 import type { IVisibleConsumer } from "./Interfaces/IVisibleConsumer";
+import { BasicPosition } from "../Objects/BasicPosition";
 
 
-export abstract class BasicCamera extends BasicPosition implements IVisibleConsumer, ICamera {
+export  class BasicCamera extends BasicPosition implements IVisibleConsumer, ICamera {
 
     constructor(desktop: IDesktop, name: string) {
         super(desktop, name);
@@ -35,7 +35,9 @@ export abstract class BasicCamera extends BasicPosition implements IVisibleConsu
         this.performer.remove<IVisible>(this.visible, object);
     }
 
-    abstract postVisibleObject(object: IVisible): void;
+    postVisibleObject(object: IVisible): void {
+
+    }
 
 
     protected visible: IVisible[] = [];

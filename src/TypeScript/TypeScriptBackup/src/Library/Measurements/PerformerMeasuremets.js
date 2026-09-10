@@ -8,8 +8,10 @@ const UpdateMeasurementsAction_1 = require("./UpdateMeasurementsAction");
 const EmptyExceptionHandler_1 = require("../ErrorHandler/EmptyExceptionHandler");
 class PerformerMeasuremets extends Performer_1.Performer {
     constructor(factory) {
-        super();
+        super(factory);
         this.errorHandler = new EmptyExceptionHandler_1.EmptyExceptionHandler();
+        this.types.push("PerformerMeasuremets");
+        this.typeName = "PerformerMeasuremets";
         if (factory === undefined)
             return;
         var p = factory.getFactory("IDifferentialEquationProcessor");
@@ -63,6 +65,17 @@ class PerformerMeasuremets extends Performer_1.Performer {
                 tm[0].setTimeMeasurement(timeProvider);
             }
         }
+    }
+    setTimeProviderFactoryCollection(objects) {
+        let tm = this.convertObject(objects, "IFactoryConsumer");
+        if (tm.length == 0)
+            return;
+        let fc = tm[0];
+        let f = fc.getConsumerFactory();
+        let tp = f.getFactory("ITimeMeasurementProvider");
+        if (tp == undefined)
+            return;
+        this.setTimeProviderCollection(objects, tp);
     }
     getArrayMeasurements(array) {
         var n = array.getMeasurementNames().length;

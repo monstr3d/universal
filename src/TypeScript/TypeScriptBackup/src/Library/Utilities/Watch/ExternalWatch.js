@@ -7,6 +7,28 @@ class ExternalWatch extends ActionWatch_1.ActionWatch {
         super(interval, external);
         this.ct = 0;
         this.start = 0;
+        this.step = 0;
+    }
+    getTimeMeasurement() {
+        return this;
+    }
+    getTime() {
+        return this.currentTime();
+    }
+    getStep() {
+        return this.step;
+    }
+    setStep(time) {
+        this.step = time;
+    }
+    getMeasurementName() {
+        return "Time";
+    }
+    getMeasurementType() {
+        return 0;
+    }
+    getMeasurementValue() {
+        return this.currentTime;
     }
     actionT(t) {
         if (!this.enabled)
@@ -15,7 +37,6 @@ class ExternalWatch extends ActionWatch_1.ActionWatch {
         if (this.last > t) {
             this.last = t;
             this.startTime = t;
-            this.setTime(t);
             return;
         }
         this.action();

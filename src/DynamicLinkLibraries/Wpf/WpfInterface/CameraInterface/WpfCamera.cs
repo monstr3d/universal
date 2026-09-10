@@ -4,6 +4,8 @@ using System.Runtime.Serialization;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 
+using NamedTree.Interfaces;
+
 using Diagram.UI;
 
 using DataPerformer.Interfaces;
@@ -19,7 +21,6 @@ using Motion6D.Interfaces;
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
 using Wpf.Loader;
-using NamedTree.Interfaces;
 
 
 

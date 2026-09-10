@@ -365,8 +365,6 @@ export class RelativeMeasurements extends CategoryObject implements IMeasurement
         return [];
     }
 
-
-
     createConside(): boolean {
         let ua: IActionAddRemove = new ActionArray();
         let rf = this.performer.convertObject<IReferenceFrame, IPosition>(this.target, "IReferenceFrame");

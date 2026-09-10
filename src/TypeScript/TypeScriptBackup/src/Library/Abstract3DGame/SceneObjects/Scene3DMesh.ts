@@ -50,6 +50,7 @@ export class Scene3DMesh extends AssociatedSceneObject implements IMeshHolder,
 
     loadMesh(load: boolean): void {
         if (!load) return
+        /*
         var res = this.shape.getResources()
         for (var r of res) {
             if (r.ext == ".obj") {
@@ -58,7 +59,7 @@ export class Scene3DMesh extends AssociatedSceneObject implements IMeshHolder,
                 this.meshes = creator.getMeshCreatorMeshes()
                break;
             }
-        }
+        }*/
     }
 
  

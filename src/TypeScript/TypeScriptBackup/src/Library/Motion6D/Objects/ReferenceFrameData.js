@@ -203,6 +203,15 @@ class ReferenceFrameData extends RigidReferenceFrame_1.RigidReferenceFrame {
     getOmegaZ() {
         return this.angularVelocity.getAngularVelocityZ();
     }
+    postSetArrow() {
+        super.postSetArrow();
+        this.measurements = [];
+        let n = this.parametersList.length;
+        for (var i = 0; i < n; i++) {
+            let m = this.performer.getMeasurementDC(this, this.parametersList[i]);
+            this.measurements.push(m);
+        }
+    }
     createMeasurements() {
         let lm = [];
         lm.push(this);

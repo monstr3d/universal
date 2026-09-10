@@ -5,15 +5,20 @@ const ScadaDesktop_1 = require("../../Scada/ScadaDesktop");
 const ScadaDesktopEngine_1 = require("../../Scada/ScadaDesktopEngine");
 const AbstractScene_1 = require("../../Game/Abstract/AbstractScene");
 class ScadaScene extends AbstractScene_1.AbstractScene {
-    constructor(game, collection, chart) {
+    constructor(game, collection, chart, engine) {
         super(game, chart);
         this.types.push("IScadaConsumer");
         this.collection = collection;
-        var engine = this.performer.convertObject(game, "IPlayEngine");
-        if (engine.length > 0)
-            this.scada = new ScadaDesktopEngine_1.ScadaDesktopEngine(collection, engine[0], this.factory, this.name);
-        else
-            this.scada = new ScadaDesktop_1.ScadaDesktop(collection);
+        if (engine !== undefined) {
+            this.scada = new ScadaDesktopEngine_1.ScadaDesktopEngine(collection, engine, this.factory, this.name);
+        }
+        else {
+            var eng = this.performer.convertObject(game, "IPlayEngine");
+            if (eng.length > 0)
+                this.scada = new ScadaDesktopEngine_1.ScadaDesktopEngine(collection, eng[0], this.factory, this.name);
+            else
+                this.scada = new ScadaDesktop_1.ScadaDesktop(collection);
+        }
         var lc = this.factory.getFactory("IGameLoaderFactory");
         var loader = lc?.getLoader(this);
         if (loader != undefined) {

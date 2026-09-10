@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Actor_1 = require("./Actor");
-let act = new Actor_1.Actor(false);
+const ActorGameImmelman_1 = require("./src/ActorGameImmelman");
+new ActorGameImmelman_1.ActorGameImmelman;
+// new Actor(false)
+//new ActorGame()
 //
 //act.actPI()
 console.log('Hello world');

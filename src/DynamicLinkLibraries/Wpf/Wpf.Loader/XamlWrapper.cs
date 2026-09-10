@@ -544,12 +544,15 @@ namespace Wpf.Loader
         {
             var d = new Dictionary<string, string>();
             var p = Attachment;
-            foreach (var item in p)
+            if (p != null)
             {
-                var f = Path.GetFileName(item.Key);
-                d[Replace(f)] = f;
-                
-             }
+                foreach (var item in p)
+                {
+                    var f = Path.GetFileName(item.Key);
+                    d[Replace(f)] = f;
+
+                }
+            }
             foreach (var item in Textures)
             {
                 var f = Path.GetFileName(item.Key);

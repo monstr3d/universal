@@ -32,6 +32,8 @@ class BasicCamera extends BasicPosition_1.BasicPosition {
     removeVisibleObject(object) {
         this.performer.remove(this.visible, object);
     }
+    postVisibleObject(object) {
+    }
 }
 exports.BasicCamera = BasicCamera;
 //# sourceMappingURL=BasicCamera.js.map

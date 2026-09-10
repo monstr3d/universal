@@ -11,17 +11,10 @@ const SortingAlgorithms_1 = require("./Utilities/Sort/SortingAlgorithms");
 const ActionArray_1 = require("./Utilities/Generic/ActionArray");
 const DateTimeConverter_1 = require("./Utilities/DateTime/DateTimeConverter");
 class Performer {
-    toShidtedString(str, shift) {
-        if (str.startsWith(shift)) {
-            return str.substring(shift.length).replace("\"", "").trim();
-        }
-        return null;
-    }
-    getObjectArrayFromNode(node, func) {
-        let a = new ArrayOfObjects(func, this);
-        return a.getArray(node);
-    }
-    constructor() {
+    constructor(factory) {
+        this.typeName = "Performer";
+        this.types = ["IObject", "IFactoryConsumer", "Performer"];
+        this.name = "";
         this.a = 0;
         this.b = false;
         this.s = "";
@@ -32,6 +25,34 @@ class Performer {
         this.load = new Load();
         this.unload = new Unload();
         this.mCompatator = new MeasurementsComparator_1.MeasurementsComparator(this);
+        if (factory !== undefined)
+            this.factory = factory;
+    }
+    getName() {
+        return this.name;
+    }
+    getClassName() {
+        return this.typeName;
+    }
+    imlplementsType(type) {
+        return this.types.includes(type);
+    }
+    setConsumerFactory(factory) {
+        if (factory !== undefined)
+            this.factory = factory;
+    }
+    getConsumerFactory() {
+        return this.factory;
+    }
+    toShidtedString(str, shift) {
+        if (str.startsWith(shift)) {
+            return str.substring(shift.length).replace("\"", "").trim();
+        }
+        return null;
+    }
+    getObjectArrayFromNode(node, func) {
+        let a = new ArrayOfObjects(func, this);
+        return a.getArray(node);
     }
     static getCurrentDesktop() {
         return this.desktop;
@@ -315,7 +336,7 @@ class Performer {
         }
         return map;
     }
-    getName(obj) {
+    getNamOfObject(obj) {
         var o = this.convertArray(obj, "IObject");
         return o[0].getName();
     }

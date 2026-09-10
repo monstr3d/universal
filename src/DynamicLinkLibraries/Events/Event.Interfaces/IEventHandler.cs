@@ -8,5 +8,6 @@ namespace Event.Interfaces
     /// </summary>
     public interface IEventHandler : IChildren<IEvent>
     {
+
     }
 }

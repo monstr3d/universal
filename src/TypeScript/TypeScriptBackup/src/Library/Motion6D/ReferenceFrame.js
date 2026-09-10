@@ -116,6 +116,7 @@ class ReferenceFrame {
         return this.parameters;
     }
     updateReferenceFrame() {
+        console.log("TTT", this);
         let p = this.getParentFrame();
         if (p === undefined) {
             return;

@@ -76,22 +76,6 @@ export class Motion6DPerformer {
         return (p as IReferenceFrame).getOwnFrame();
     }
 
-    /*
-
-        /// <summary>
-        /// Parent frame
-        /// </summary>
-        /// <param name="position">Position</param>
-        /// <returns>Parent frame</returns>
-        static public ReferenceFrame GetParentFrame(this IPosition position)
-        {
-             {
-                return Motion6DFrame.Base;
-            }
-            return performer.GetParentOwn(position);
-        }
-
-    */
 
     public getRelative(baseFrame: ReferenceFrame, relative: ReferenceFrame): ReferenceFrame {
         let frame !: ReferenceFrame;

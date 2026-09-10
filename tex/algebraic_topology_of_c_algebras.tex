@@ -716,22 +716,36 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 		is commutative.
 	\end{itemize}
 \end{definition}
-\begin{lemma}
-	For any topological space $\sX$ there is the initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}.
+\begin{lemma}\label{haudorff_lem}
+	One has:
+	\begin{enumerate}
+		\item [(i)] for any topological space $\sX$ there is the natural, by $\mathfrak{Hausdorff}\left( \sX\right)$  initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category}, 
+		\item [(ii)] every continuous map $\sX \to \sY$ yields the commutative diagram 
+		\be\label{haudorff_eqn}
+		\begin{tikzcd}
+		\sX  \arrow[r, two heads, "~"] \arrow[d, "f"]   & \mathfrak{Hausdorff}\left( \sX\right) \arrow[d, "\mathfrak{Hausdorff}(f)"]  \\
+		\sY  \arrow[r, two heads]    & \mathfrak{Hausdorff}\left( \sY\right)	
+		\end{tikzcd}
+		\ee
+	\end{enumerate}
 \end{lemma}
-\begin{proof}
+\begin{proof}(i)
 	Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
 	$$
 	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
 	$$
 	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence of $\sY''$ is impossible.  
+	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence of $\sY''$ is impossible. \\
+	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bonded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
+	B  \cong C_b\left( \mathfrak{Hausdorff}\left( \sY\right)\right)\to A  \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)
+	$$
+	which induces the natural continuous map $\bt~\mathfrak{Hausdorff}(f): \bt~\mathfrak{Hausdorff}\left(\sX \right) \to \bt~\mathfrak{Hausdorff}\left(\sY \right)$. This lemma follows from $\bt~\mathfrak{Hausdorff}(f)\left( \mathfrak{Hausdorff}\left(\sX \right)\right) = \mathfrak{Hausdorff}\left(\sY \right)$.
 \end{proof}
 \begin{definition}\label{blowing_uni_h_defn}
 	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
 \end{definition}
 \begin{definition}\label{hausdorff_funct_defn}
-	The map $\sX \mapsto \mathfrak{Hausdorff}\left(\sX \right)$ yields the {\it Hausdorff functor}
+	The Lemma \ref{haudorff_lem} yields the {\it Hausdorff functor}
 	\be\label{hausdorff_funct_eqn}
 	\mathfrak{Top} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
 	from the category $\mathfrak{Top}$ of topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
@@ -775,7 +789,7 @@ L = \left\{b \in B\left| b =b q \right.\right\}.
 Comparison of \eqref{lb_eqn} and \eqref{lbq_eqn} yields $\varphi^{**} \left(p \right) = q$.
 \end{proof}
 \begin{definition}\label{good_hom_defn}
-	If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is {\it good} if for any compact projection $q \in B^{**}$ (cf. Definition \ref{compact_p_defn}) there is a compact projection $p \in A^{**}$ such that
+	If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is {\it open} if for any compact projection $q \in B^{**}$ (cf. Definition \ref{compact_p_defn}) there is a compact projection $p \in A^{**}$ such that
 	\be \label{good_hom_eqn}
 	q \le \varphi^{**}\left(p \right). 
 	\ee
@@ -853,19 +867,29 @@ The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology},
 \begin{proof}
 Follows the Proposition the Proposition \ref{top_ultra_prop},
 \end{proof}
-\begin{definition}\label{gelfand_space_defn}
+	\begin{definition}\label{gelfand_space_defn}!!!
 	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi = \left\{p_\la\right\}\in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial compact projection $p$ (cf. Definition \ref{compact_p_defn}) such that there is $\la\in \La$ with $p_\la < p$.
 	The \textit{pre}-\textit{Gelfand space} $\mathfrak{PreGelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{PreGelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the   Gelfand topology (cf. Definition \ref{topology_defn}. The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreGelfand}\left(A \right)$ (cf. Definition \ref{blowing_uni_h_defn}), i.e. $\mathfrak{Gelfand}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right) \right)$ (cf. equation \eqref{hausdorff_funct_eqn}).
-	\end{definition}
+\end{definition}
 \begin{notation}
 Similarly to \eqref{topology_eqn} we will use the following notation
 	\be\label{topology_q_eqn}
 \mathfrak{Gelfanf}\left(A \right)_p	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)_p \right)
 \ee
-for the basis of the topology of the Gelfand space.
+for the basis of the topology of the Gelfand space. If $p'$ is a closed projection then we define
+	\be\label{topology_q_closed_eqn}
+	\begin{split}
+	\mathfrak{PreGelfand}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{PreGelfand}\left(A \right)\right| \exists p \in \xi\quad p \le p' \right\},\\
+	\mathfrak{Gelfanf}\left(A \right)^{p'}	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)^{p'} \right)
+	\end{split}
+\ee
+
 \end{notation}
+\begin{rem}\label{compact_compact_rem}
+If $p'$ is a compact projection (cf. Definition \ref{compact_p_defn}) then the from the Theorem \ref{gelfand_compact_thm} it follows that both  sets $\mathfrak{PreGelfand}\left(A \right)^{p'}$ and $\mathfrak{Gelfand}\left(A \right)^{p'}$ are compact.
+\end{rem}
 	\begin{lemma}\label{gelfand_compact_lem}
-	If $A$ is an unital  $C^*$-algebra then the space  $\mathfrak{Gelfand}\left(A \right)$ is  compact.
+	If $A$ is an unital  $C^*$-algebra then both  spaces $\mathfrak{PreGelfand}\left(A \right)$ and $\mathfrak{Gelfand}\left(A \right)$ are  compact.
 \end{lemma}
 \begin{proof}
 	From $p \le 1_A$ for any projection  it follows that  $\mathfrak{PreGelfand}\left(A \right)= \mathfrak{Ultrafilters}\left(A \right)$.  However the space $\mathfrak{Ultrafilters}\left(A \right)$ is compact (cf. Lemma \ref{gelfand_u_compact_lem}). The space  $\mathfrak{Gelfand}\left(A \right)$ is compact since it is an epimorphic image of the compact space $\mathfrak{PreGelfand}\left(A \right)$.
@@ -932,12 +956,62 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	$$ 	
 	of spaces of ultrafilters. Now this lemma follows from the Proposition \ref{top_ultra_prop}.
 \end{proof}
+\begin{empt}\label{one_point_empt}
+If  $A$ is an unital $C^*$ algebra and  $I\subset A$ is is the maximal proper left ideal then $I$ corresponds to an open projection $p_I \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_I \bydef 1-p_I\in A^{**}$ in minimal. So for any projection $p \in A^{**}$ one has 
+\bean
+p \wedge p'_I \neq 0 \quad \Rightarrow \quad  p \wedge p'_I= p'_I \quad \Rightarrow \quad p'_I \le p
+\eean 
+From the above equation it follows that the set
+\be\label{fa_filter_eqn}
+\mathfrak{F}_I \bydef \left\{\left. p \in \mathfrak{Lattice}\left( A\right)\right| p'_I < p \right\}
+\ee
+\end{empt}
+\begin{lem}\label{one_point_lem}
+The set
+\be 
+ S \bydef \mathfrak{Hausdorff}\left(\left\{\left.\xi \in \mathfrak{PreGelfand}\left(A\right)\right| \eta \le \mathfrak{F}_I \right\} \right)
+\ee
+is a singleton, i.e. there is the unique $\xi_I \in \mathfrak{PreGelfand}\left(A^+ \right)$ such that $S = \{\xi_I\}$.
+\end{lem}
+\begin{proof}
+If there are $\xi', \xi'' \in S$ with  $\xi' \neq \xi''$  then there are $\eta', \eta'' \in  \mathfrak{PreGelfand}\left(A^+ \right)$ with  $\mathfrak{Hausdorff}\left(\eta' \right) = \xi'$ and $\mathfrak{Hausdorff}\left(\eta'' \right) = \xi''$. Since  $\mathfrak{PreGelfand}\left(A^+ \right)$ is compact and Hausdorff   there are open  neighborhoods $\sU'$ and $\sU''$ with $\sU'\cap \sU''= \emptyset$. One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sU'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sU''\right)$ correspond to $p' \in \mathfrak{Lattice}\left( A^+\right)$ and $p'' \in \mathfrak{Lattice}\left( A^+\right)$ with $p'\wedge p'' = 0$. There are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that closures of $\sV'$ and $\sV''$ are subsets of $\sU'$ and $\sU''$.  One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sV'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sV''\right)$ correspond to $q' \in \mathfrak{Lattice}\left( A^+\right)$ and $q'' \in \mathfrak{Lattice}\left( A^+\right)$. If both  $\overline{q}'$ and  $\overline{q}''$ are closures of  $q'$ and $q''$ then $\overline{q}' < p'$ and $\overline{q}'' < p''$ with $\overline{q}'\wedge \overline{q}''=0$. If $p \in \mathfrak{F}_I$ then from $\eta', \eta'' \ge \mathfrak{F}_I$ it turns out that
+\bea\label{ee1_eqn}
+\forall p' \in  \mathfrak{Lattice}\left( A^+\right) \quad p' \in \eta' \quad\Rightarrow \quad  p' \wedge  p \neq 0,\\
+\label{ee2_eqn}
+\forall p'' \in  \mathfrak{Lattice}\left( A^+\right) \quad p'' \in \eta'' \quad\Rightarrow \quad  p'' \wedge  p \neq 0. 
+\eea
+If $p_I \not \le  \overline{q}'$ then $p_I \le 1 - \overline{q}'$ and $ 1 - \overline{q}'\in \mathfrak{F}_I$. From $p_I \not \le  \overline{q}'$  it follows that $q' \wedge\left( 1 - \overline{q}'\right) = 0$. This fact contradicts with \eqref{ee1_eqn}. From this contradiction rejects the hypothesis $p_I \not \le  \overline{q}'$, so $p_I \le  \overline{q}'$. Similarly one has $p_I \le  \overline{q}''$. But both  inequalities 
+\bean
+p_I \le  \overline{q}',
+p_I \le  \overline{q}''
+\eean 
+are incompatible with  $\overline{q}'\wedge \overline{q}''=0$. This contradiction proves this lemma.
+\end{proof}
+\begin{theorem}\label{one_point_thm}
+	If $A$ is an unital $C^*$ algebra then there is the natural injective map
+	\be\label{from_max_to_gelfand_eqn}
+	\mathfrak{LeftMax}\left(A\right) \hookto \mathfrak{Gelfand}\left(A\right)
+	\ee
+	From the set 	$\mathfrak{LeftMax}\left(A\right)$ of maximal left ideals of $A$ into the Gelfand space.
+\end{theorem}
+\begin{proof}
+	The map \eqref{from_max_to_gelfand_eqn} is given by
+	\bean
+	I \mapsto \xi_I
+	\eean 
+where  $\xi_I \in \mathfrak{Gelfand}\left(A\right)$ the given by the Lemma \ref{one_point_lem} point.
+\end{proof}
+\begin{corollary}
+If  $A$ is an nonunital $C^*$ algebra and  $A^+\bydef A \oplus \C$ is the  minimal unitization (cf. Definition \ref{multiplier_min_defn}) then $\mathfrak{Gelfand}\left(A^+\right)= \mathfrak{Gelfand}\left(A\right)\cup \left\{\xi_A\right\}$ the given by the Lemma \ref{one_point_lem} point.
+\end{corollary}
+\begin{proof}
+	!!!
+\end{proof}
 		\begin{lemma}\label{one_point_s_lem}
-	If $A$ is a nonunital $C^*$ algebra and $A^+\bydef A \oplus \C$ is a unitization 
-	then the difference $\mathfrak{Gelfand}_r\left(A^+ \right)\setminus \mathfrak{Gelfand}_r\left(A \right)$ contains the single point.
+	If $A$ is an unital $C^*$ algebra then any .
 \end{lemma}
 \begin{proof}!!!
-	$A \subset A^+$ is the maximal left ideal, it correspond to an open projection of $p_A \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_A \bydef 1-p_A$ is the minimal projection in $\left( A^+\right)^{**}$.  If $p_1, p_2 \in \left(  A^+\right)^{**}$ are two open projections with $p_1 > p'_A$ and $p_2 > p'_A$ ans $L_1, L_2 \subset A^+$ are corresponding to $p_1$ and $p_2$  closed ideals then $L_1\cap L_2 \neq \{0\}$. So the set $\left\{L_\la \right\}_{\la \in \La}$ of all closed ideals which correspond to open projection which exceed $p'$ is a filter. There are two types of ultrafilter 
+	$A \subset A^+$ is the maximal left ideal, it correspond to an open projection of $p_I \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_I \bydef 1-p_I$ is the minimal projection in $\left( A^+\right)^{**}$.  If $p_1, p_2 \in \left(  A^+\right)^{**}$ are two open projections with $p_1 > p'_I$ and $p_2 > p'_I$ ans $L_1, L_2 \subset A^+$ are corresponding to $p_1$ and $p_2$  closed ideals then $L_1\cap L_2 \neq \{0\}$. So the set $\left\{L_\la \right\}_{\la \in \La}$ of all closed ideals which correspond to open projection which exceed $p'$ is a filter. There are two types of ultrafilter 
 	\begin{itemize}
 		\item The ultrafilter $\left\{p_\a \right\}_{\a  \in \mathscr{A} }$ is of type $I$ is
 		\bean
@@ -1026,27 +1100,36 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 		\mathfrak{Ultrafilters}\left(B\right) \xrightarrow{\mathfrak{Ultrafilters}\left(\varphi \right)}\mathfrak{Ultrafilters} \left( A\right).
 	\end{split}
 	\ee
-	Since $\varphi$ is good the map \eqref{ultra_mor_eqn} naturally yields the natural  map 
-		\be\label{gelfand_map_eqn}
-	\mathfrak{PreGelfand}\left(B \right)\xrightarrow{\mathfrak{PreGelfand}\left(\varphi \right)}\mathfrak{PreGelfand}\left(A \right).
-	\ee
+
 	\begin{theorem}\label{good_thm}
 	One has
 			\begin{enumerate}
-				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( B\right)$ good 	  then the map \eqref{gelfand_map_eqn} is continuous (cf. Definition \ref{top_continuous_defn}).
-				\item[(ii)] If $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} is surjective.
+				\item [(i)] 	If the  homomorphism $\varphi : M\left( A\right) \to M\left( B\right)$ good 	  then the map \eqref{ultra_mor_eqn} naturally yields a continuous map
+				\be\label{gelfand_map_eqn}
+				\mathfrak{Gelfand}\left(\varphi \right) :	\mathfrak{Gelfand}\left( B\right) \to \mathfrak{Gelfand}\left( A\right) 
+				\ee 
+				
+				\item[(ii)] If $\varphi$ is injective then the map  \eqref{ultra_mor_eqn} is surjective.
 			\end{enumerate}
 			
 	\end{theorem}
 	\begin{proof}(i) 		If $p \in  A^{**}$ is an open projection (cf. Definition \ref{open_close_ideal_defn}) and $q = \varphi^{**}\left(p \right)\in B^{**}$ then $q$ is an open projection (cf. Lemma \ref{proj_lem})	
 		\bean
-		\mathfrak{Gelfand}\left(\varphi \right)^{-1}\left( \mathfrak{Gelfand}\left(A \right)_p\right) = \mathfrak{Gelfand}\left(\widetilde A \right)_{q}
+		\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left( \mathfrak{Ultrafilters}\left(B \right)_p\right) = \mathfrak{Ultrafilters}\left(A \right)_{q}
 		\eean 
-		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{gelfand_map_eqn} is continuous. 
-		
-		(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
+		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{ultra_mor_eqn} is continuous. Using this fact one can prove that the map \ref{ultra_mor_eqn} yields the natural continuous map between pre-Gelfand spaces (cf. Definition \ref{gelfand_space_defn})
+		\bean
+		\begin{split}
+				\mathfrak{PreGalfanf}\left(B\right) \xrightarrow{\mathfrak{PreGalfanf}\left(\varphi \right)}\mathfrak{PreGalfanf} \left( A\right).
+		\end{split}
+		\eean
+		Now the continuity of the map \eqref{gelfand_map_eqn} follows from the Lemma \ref{haudorff_lem}.\\
+		(ii)!!! If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 		
 	\end{proof}
+	
+
+	
 	\begin{corollary}\label{good_cor}
 	Any good $*$-homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ yields the natural continuous map
 		\be\label{gelfandr_map_eqn}
@@ -6287,12 +6370,14 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 \begin{thm}\label{env_alg_thm}\cite{pedersen:ca_aut}
 	For each non-degenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
 \end{thm}
+
+
 \subsection{A Gelfand representation theory for $C^*$-algebra}
 \begin{empt}\label{min_empt} Here I follow to \cite{akerman_gelfand}.
 	Consider the $W^*$-algebra $A^{**}$, the second
 	Banach space dual of $A$. There exists a central projection
 	$z \in A^{**}$ which is the supremum of all the minimal projections in $A^{**}$. Set 
-	\be\label{min_eqnt}
+	\be\label{min_eqn}
 	M \bydef z A^{**}
 	\ee.
 	 The minimal projections of $M$ are in
@@ -6342,6 +6427,9 @@ DEFINITION 11.1 I. If $p \in M$ is a projection, we denote by $\overline{p}$ the
  A projection $p\in M$ is {\it compact} if $p$ is {closed}
 and there exists $b \in A_+$ with $bp = p$.
 \end{definition}
+\begin{theorem}\cite{akerman_gelfand}
+THEOREM II.5. !!! If p is q-dosed and there exists be A with $b \ge p$,
+then p is q-compact.\end{theorem}
 \begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}!!!
 
 DEFINITION III.2. A self-adjoint operator be M is continuous
@@ -6361,14 +6449,26 @@ corresponding to closed subsets of the spectrum of b which don't contain
 PROPOSITION 11.5. If {pa} is a set of closed projections, then
 p = A, p, is closed.
 \end{proposition}
-
-\begin{conjecture}\cite{akerman_gelfand}
+\begin{definition}\label{fin_p_defn}\cite{akerman_stone}
+	A family $\left\{p_\la\right\}_{\la \in \La}$ family of closed projections is a \textit{family with the finite intersection property} if for any subset $\mathscr L \subset \La$ one has
+	\be
+\left( \forall \text{ finite set } K\subset \mathscr L \quad 	\bigwedge_{\la \in K} p_\la \neq 0\right)  \quad \Rightarrow \quad \bigwedge_{\la\in  \mathscr L} p_\la = 0,
+	\ee
+\end{definition}
+\begin{proposition}\label{fin_int_prop}\cite{akerman_stone}
+PROPOSITION II. 10. Suppose (pa> is a family of closed projections
+in $A^{**}$ with the finite intersection property (i.e. $\wedge_{\la \in K} p_\la \neq 0$ for each finite set $K$). Then $\wedge_{\la} p_\la = 0$,
+\end{proposition}
+\begin{conjecture}\label{comp_conj}\cite{akerman_gelfand}
 %Conjecture ?.2. 
 A regular  projection $p \in M$ is {\it compact}
 if for every family $\left\{p_\a\right\}$ of closed projections such that the
-family $\left\{p_\a \wedge p\right\}$ has the finite intersection property, then $p \wedge \bigwedge_\a p_\a\neq 0$.
+family $\left\{p_\a \wedge p\right\}$ has the finite intersection property (cf. Proposition \ref{fin_int_prop}), then $p \wedge \bigwedge_\a p_\a\neq 0$.
 \end{conjecture}
 !!! REGULAR EXPL
+\begin{theorem}\label{gelfand_compact_thm}\cite{akerman_gelfand}
+THEOREM II.7. If p is q-compact, then for any family  $\left\{p_\la\right\}_{\la\in \La}$ of closed projections such that the family $\left\{p_\la \wedge p\right\}$ has the finite intersection property (cf. Definition  \ref{fin_p_defn}), then $p \wedge \bigwedge_{\la\in \La} p_\la\neq 0$.
+\end{theorem}
 \begin{lemma}\cite{akerman_gelfand}
 %LEMMA ?.3. 
 Suppose $B$ is a $C^*$-algebra, $b \in B^+$, $p \in B^{**}$ a projection

@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Scene3DMesh = void 0;
-const Obj3DCreator_1 = require("../../Abstract3DConverters/MeshCreators/Obj3DCreator");
 const AssociatedSceneObject_1 = require("../../Game/Abstract/AssociatedSceneObject");
 class Scene3DMesh extends AssociatedSceneObject_1.AssociatedSceneObject {
     constructor(scene, object) {
@@ -38,14 +37,16 @@ class Scene3DMesh extends AssociatedSceneObject_1.AssociatedSceneObject {
     loadMesh(load) {
         if (!load)
             return;
-        var res = this.shape.getResources();
+        /*
+        var res = this.shape.getResources()
         for (var r of res) {
             if (r.ext == ".obj") {
-                var creator = new Obj3DCreator_1.Obj3DCreator(r.url, r.name, "", this.scene, this.factory, this.textReader);
-                this.meshes = creator.getMeshCreatorMeshes();
-                break;
+                var creator = new Obj3DCreator(r.url, r.name,
+                    "", this.scene, this.factory, this.textReader);
+                this.meshes = creator.getMeshCreatorMeshes()
+               break;
             }
-        }
+        }*/
     }
 }
 exports.Scene3DMesh = Scene3DMesh;

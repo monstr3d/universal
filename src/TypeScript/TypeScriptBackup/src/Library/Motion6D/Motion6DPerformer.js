@@ -58,22 +58,6 @@ class Motion6DPerformer {
         }
         return p.getOwnFrame();
     }
-    /*
-
-        /// <summary>
-        /// Parent frame
-        /// </summary>
-        /// <param name="position">Position</param>
-        /// <returns>Parent frame</returns>
-        static public ReferenceFrame GetParentFrame(this IPosition position)
-        {
-             {
-                return Motion6DFrame.Base;
-            }
-            return performer.GetParentOwn(position);
-        }
-
-    */
     getRelative(baseFrame, relative) {
         let frame;
         let bf = this.performer.convertObject(baseFrame, "Motion6DAcceleratedFrame");

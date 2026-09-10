@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 import { Actor } from "./Actor";
-import { Earcut } from "three/src/extras/Earcut.js";
+import { ActImmelman } from "./ActImmelman";
 
 let actor = new Actor
 
+let actImmelmann = new ActImmelman
+
+
 export const getActor = (): Actor => actor
+
+export const getActImmelman = (): ActImmelman => actImmelmann
+
+
 
 
 export const usePersonControls = () => {

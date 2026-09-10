@@ -1,12 +1,43 @@
 import { ActionWatch } from "./ActionWatch";
-import { IActionAddRemove } from "../../Interfaces/IActionAddRemove";
-import { IActionT } from "../../Interfaces/IActionT";
+import type { IActionAddRemove } from "../../Interfaces/IActionAddRemove";
+import type { IActionT } from "../../Interfaces/IActionT";
+import type { IMeasurement } from "../../Measurements/Interfaces/IMeasurement";
+import type { ITimeMeasurementProvider } from "../../Measurements/Interfaces/ITimeMeasurementProvider";
 
-export class ExternalWatch extends ActionWatch implements IActionT<number> {
+export class ExternalWatch extends ActionWatch implements IActionT<number>, IMeasurement, ITimeMeasurementProvider {
 
     constructor(interval: number, external: IActionAddRemove) {
         super(interval, external)
     }
+    getTimeMeasurement(): IMeasurement {
+        return this;
+    }
+
+    getTime(): number {
+        return this.currentTime()
+    }
+
+    getStep(): number {
+        return this.step
+    }
+
+    setStep(time: number): void {
+        this.step = time;
+    }
+
+    getMeasurementName(): string {
+        return "Time";
+    }
+
+    getMeasurementType() {
+        return 0;
+    }
+
+    getMeasurementValue() {
+        return this.currentTime
+    }
+
+
 
     actionT(t: number): void {
         if (!this.enabled) return;
@@ -14,7 +45,6 @@ export class ExternalWatch extends ActionWatch implements IActionT<number> {
         if (this.last > t) {
             this.last = t;
             this.startTime = t;
-            this.setTime(t)
             return
         }
         this.action();
@@ -41,6 +71,10 @@ export class ExternalWatch extends ActionWatch implements IActionT<number> {
     protected ct: number = 0
 
     protected start: number = 0
+
+    protected step: number = 0
+
+
 
 
 }

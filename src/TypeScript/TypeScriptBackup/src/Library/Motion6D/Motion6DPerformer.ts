@@ -39,7 +39,7 @@ export class Motion6DPerformer {
     public createUpdateFramesAction(collection: IObjectCollection): IActionAddRemove {
         let act = new ActionArray();
         let mea = this.performer.getAll<IPosition>(collection, "IPosition")
-        let mm = this.sorting.mergesort(mea, this.comparer)
+        let mm = this.sorting.mergesort(mea, this.comparer);
         for (let m of mm) {
             act.addAction(new UpdatePositionAction(m))
         }
@@ -76,23 +76,6 @@ export class Motion6DPerformer {
         return (p as IReferenceFrame).getOwnFrame();
     }
 
-    /*
-
-        /// <summary>
-        /// Parent frame
-        /// </summary>
-        /// <param name="position">Position</param>
-        /// <returns>Parent frame</returns>
-        static public ReferenceFrame GetParentFrame(this IPosition position)
-        {
-             {
-                return Motion6DFrame.Base;
-            }
-            return performer.GetParentOwn(position);
-        }
-
-    */
-
     public getRelative(baseFrame: ReferenceFrame, relative: ReferenceFrame): ReferenceFrame {
         let frame !: ReferenceFrame;
         let bf = this.performer.convertObject<Motion6DAcceleratedFrame, ReferenceFrame>(baseFrame, "Motion6DAcceleratedFrame")
@@ -106,9 +89,6 @@ export class Motion6DPerformer {
         frame.setReferenceFrame(baseFrame, relative);
         return frame;
     }
-
-    
-   
 
     public getRelativeFrame(baseFrame: ReferenceFrame, targetFrame: ReferenceFrame, relative: ReferenceFrame): void
     {

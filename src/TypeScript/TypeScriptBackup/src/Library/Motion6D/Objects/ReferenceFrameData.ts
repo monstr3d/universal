@@ -246,6 +246,17 @@ export class ReferenceFrameData extends RigidReferenceFrame implements IDataCons
         return this.angularVelocity.getAngularVelocityZ();
     }
 
+    postSetArrow(): void {
+        super.postSetArrow();
+        this.measurements = []
+        let n = this.parametersList.length;
+          for (var i = 0; i < n; i++) {
+              let m = this.performer.getMeasurementDC(this, this.parametersList[i])
+              this.measurements.push(m)
+        }
+    }
+
+
     createMeasurements(): void {
         let lm: IMeasurement[] = [];
         lm.push(this);

@@ -246,12 +246,7 @@ namespace Motion6D.Portable
         /// </summary>
         protected abstract void SetCalculationReason();
 
-        /// <summary>
-        /// Updates realtime
-        /// </summary>
-        // !!! DELETE       protected abstract void RealtimeUpdate();
-
-        #endregion
+         #endregion
    
         #region Virtual Members
 

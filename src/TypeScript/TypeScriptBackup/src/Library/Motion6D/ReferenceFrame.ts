@@ -135,12 +135,15 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
     getQuaternion(): number[] {
         return this.quaternion;
     }
+
     getMatrix(): number[][] {
         return this.matrix;
     }
+
     getPosition(): number[] {
         return this.position;
     }
+
     getParentFrame(): IReferenceFrame | undefined {
         return this.parent;
     }
@@ -152,7 +155,9 @@ export class ReferenceFrame implements IPosition, IOrientation, IObject {
     getParameters() {
         return this.parameters;
     }
+
     updateReferenceFrame(): void {
+        console.log("TTT", this)
         let p = this.getParentFrame();
         if (p === undefined) {
             return;
