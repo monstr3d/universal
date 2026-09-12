@@ -80,8 +80,8 @@ export class Actor implements IAction, IActionT<number>, IFunc<number> {
         let scada = sc.getConsumerScada();
         let ii = scada.getScadaInputs()
         for (var i of ii) this.inputs.push(i)
-        var ea = sc.getInternalAction()
-        ea.addAction(new Action(scada))
+      /*  var ea = sc.getInternalAction()
+    /    ea.addAction(new Action(scada))
    /*     ea.addAction(new A("scene"));
         ea.addAction(new B(sc, g));
         var ena = g.getEngineAction()
