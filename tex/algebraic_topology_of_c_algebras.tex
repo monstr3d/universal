@@ -735,7 +735,7 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 	$$
 	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
 	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence of $\sY''$ is impossible. \\
-	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bonded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
+	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bounded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
 	B  \cong C_b\left( \mathfrak{Hausdorff}\left( \sY\right)\right)\to A  \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)
 	$$
 	which induces the natural continuous map $\bt~\mathfrak{Hausdorff}(f): \bt~\mathfrak{Hausdorff}\left(\sX \right) \to \bt~\mathfrak{Hausdorff}\left(\sY \right)$. This lemma follows from $\bt~\mathfrak{Hausdorff}(f)\left( \mathfrak{Hausdorff}\left(\sX \right)\right) = \mathfrak{Hausdorff}\left(\sY \right)$.
@@ -752,20 +752,39 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 
 
 \subsection{Basic construction}
-\paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
+\paragraph{} Any topological space $\sX$ yields the natural  meet-semilattice of open subsets (cf. Definition \ref{lattice_defn} and Appendix \ref{fbt_sec}). 
+It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
 \begin{definition}\label{good_ultrafilter_defn}
 	An ultrafilter of open subsets sets  on locally compact Hausdorff  space  is a {\it finite point} if contains an open set with compact closure.
 \end{definition}
 \begin{remark}\label{good_ultrafilter_rem}
 	From the Proposition \ref{top_ultra_prop} it follows that any locally compact Hausdorff  space is a set of its good ultrafilters.
 \end{remark}
+\begin{definition}\label{lattice_a_defn}
+If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of open projections of  $A$ (cf. Definition \ref{open_close_ideal_defn}). We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
+A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$  (resp.  $\mathfrak{Ultrafilters}\left( A\right)$) the  set of $A$-filters  (resp. $A$-ultrafilters).
+\end{definition}
+\begin{lemma}\label{top_lattices_iso_lem}
+For any  compact Hausdorff space $\sX$ (cf. Definition \ref{top_locally_compact_defn}) there is an isomorphism of  meet-semilattices
+\be
+\begin{split}
+	\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
+	%	L \mapsto\sX \setminus \left\{x \in \sX | \forall a \in L \quad a(x) = 0\right\}.
+\end{split}
+\ee	
+where  $\mathfrak{Lattice}\left(\sX \right)$ is the lattice of open subsets of $\sX$.
+\end{lemma}
+\begin{proof}
+	Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
+\end{proof}
+
 Any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$ of unital yields a continuous  map $\sY\to \sX$. Any $*$-homomorphisms $C_0\left( \sX\right) \to C_b\left( \sY\right)$ can be uniquely extended up to a $*$-homomorphism $C_b\left( \sX\right) \to C_b\left( \sY\right)$ and yields a continuous map $f:\bt\sY \to \bt \sX$ where both $\bt\sX$ and $\bt \sY$ are {Stone-\v{C}ech compactifications} (cf. Definition \ref{top_stone_cech_defn}.
 For any $C^*$-algebra $A$ there is the natural inclusion $M\left(A \right)  \hookto A^{**}$ of the multiplier into enveloping $W^*$-algebra (cf. Definition \ref{env_alg_defn}). For any $C^*$-algebra $B$ a $*$-homomorphism $\varphi :M\left(A \right) \to M\left(B \right)$ induces a homomorphism
 \be\label{w*_eqn} 
 \varphi^{**} : A^{**} \to B^{**}.
 \ee 
 \begin{lemma}\label{proj_lem}
-If both $A$ and $B$ are $C^*$-algebras  and  $\varphi : M\left(  A\right)  \to M\left( B\right) $ is a $*$ homomorphism then for any open projection $p \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}) the projection $\varphi^{**}\left( p\right) \in  B^{**}$ is open.
+If both $A$ and $B$ are $C^*$-algebras  and  $\varphi : M\left(  A\right)  \to M\left( B\right) $ is a $*$=homomorphism then for any open projection $p \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}) the projection $\varphi^{**}\left( p\right) \in  B^{**}$ is open.
 \end{lemma}
 \begin{proof}
 There is a closed left ideal  of $L \subset B$ such that
@@ -774,7 +793,7 @@ L \bydef \left\{b \in B\left| b =b \varphi^{**} \left(p \right) \right.\right\}
 \ee 
 The Lemma \ref{left_ideal_thm} yields an increasing  net  $\left\{b_\la \right\}_{\la \in \La}\subset B$ such that
 \be\label{inc_eqn}
-\forall b \in B \quad \lim_{\la\in \la}\left\| b - b b_\la \right\| = 0.
+\forall b \in L \quad \lim_{\la\in \la}\left\| b - b b_\la \right\| = 0.
 \ee
 From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a  projection $q \in B^{**}$  such that $0\ge b_\la \uparrow q$
 $$
@@ -798,12 +817,11 @@ Comparison of \eqref{lb_eqn} and \eqref{lbq_eqn} yields $\varphi^{**} \left(p \r
 	A homomorphism $\varphi: C_b\left( \sX\right) \to C_b\left( \sY\right)$ is good  if and only if  it induces the continuous map  $f: \bt\sY \to \bt\sX$ such that $f\left(\sY \right) \subset \sX$.
 \end{lemma}
 \begin{proof}
-	$\Rightarrow$ If $y\in \sY$ then there is a compact neighborhood $\sV\subset \sY$ of $y$ which   corresponds to compact $q \in C_0\left(\sY \right)^{**}$. There is compact projection $p \in C_0\left(\sX \right)^{**}$ such that
+	$\Rightarrow$ If $y\in \sY$ then there is a compact neighborhood $\sV\subset \sY$ of $y$ which   corresponds to compact $q \in C_0\left(\sY \right)^{**}$ (cf. the Definition \ref{compact_p_defn} and the Remark \ref{compact_p_rem}). The set $\sU \bydef f\left(\sV \right)\subset \sX$ is also compact, so it naturally yields the compact projection $p \in C_0\left(\sX \right)^{**}$. From $f\left( \sV\right) = \sU$ it follows that 
 	\bean
-	q \le \varphi^{**}\left(p \right)
+	q = \varphi^{**}\left(p \right).
 		\eean 
-		The above equation means that $f\left( \sV\right) \subset \sU$ where $\sU \subset \sX$ is a corresponding to $p$ compact subset.\\
-	$\Leftarrow$  Any compact projection $q \in C_0\left(\sY \right)^{**}$ corresponds to a compact subset $\sV\subset \sY$. The image 
+	$\Leftarrow$   Any compact projection $q \in C_0\left(\sY \right)^{**}$ corresponds to a compact subset $\sV\subset \sY$. The image 
 	$
 	f\left(\sV \right) 
 $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \right)^{**}$. It turns out that 	$q \le \varphi^{**}\left(p \right)$.
@@ -812,29 +830,12 @@ $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \righ
 	The {\it Gelfand category} $C^*$-$\mathfrak{Gelfand}$ is such that:
 	\begin{itemize}
 		\item objects of $C^*$-$\mathfrak{Gelfand}$ are $C^*$-algebras,
-		\item for any two objects $A$ and $B$ of $C^*$-$\mathfrak{Gelfand}$ the set of arrows from $A$ to $B$ is a set of good $*$-homomorphisms from $M\left(A \right)\to M\left( B\right)$, 
+		\item for any two objects $A$ and $B$ of $C^*$-$\mathfrak{Gelfand}$ the set of arrows from $A$ to $B$ is a set of good $*$-homomorphisms from $M\left(A \right)\to M\left( B\right)$. 
 	\end{itemize}
 	
 \end{definition}
 
 \paragraph{} It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent. If both $\sX$ and $\sY$ are compact spaces then any $*$-homomorphisms $C\left( \sX\right) \to C\left( \sY\right)$  yields a continuous  map $\sY\to \sX$. Below we will prove that for any locally compact spaces a homomorphism $f: C\left( \sX\right) \to C\left( \sY\right)$ yields a continuous map  $\sY\to \sX$ is and only if $f$ is unital in the sense of the Definition \ref{nonunital_principal_defn}.
-\begin{definition}\label{lattice_a_defn}
-	If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of open projections of  $A$ (cf. Definition \ref{open_close_ideal_defn}). We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
-	A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$  (resp.  $\mathfrak{Ultrafilters}\left( A\right)$) the  set of $A$-filters  (resp. $A$-ultrafilters).
-\end{definition}
-\begin{lemma}\label{top_lattices_iso_lem}
-	For any locally compact Hausdorff space $\sX$ (cf. Definition \ref{top_locally_compact_defn}) there is an isomorphism of  meet-semilattices
-	\be
-	\begin{split}
-		\mathfrak{Lattice}_\sX : \mathfrak{Lattice}\left( C_0\left(  \sX\right)\right)\cong \mathfrak{Lattice}\left(\sX \right).
-		%	L \mapsto\sX \setminus \left\{x \in \sX | \forall a \in L \quad a(x) = 0\right\}.
-	\end{split}
-	\ee	
-	where  $\mathfrak{Lattice}\left(\sX \right)$ is the lattice of open subsets of $\sX$.
-\end{lemma}
-\begin{proof}
-	Any left ideal of  $C_0\left(  \sX\right)$ is a two-sided ideal. This lemma can be deduced from the proof of the Theorem \ref{gelfand-naimark_thm}.
-\end{proof}
 \begin{empt}\label{topology_empt} 
 	If $\mathfrak{Ultrafilters}\left(A \right)$ 
 	is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) then foe any for any open projection $p$ (cf. Definition \ref{open_close_ideal_defn}) we define a set
@@ -964,21 +965,21 @@ From the above equation it follows that the set
 \be\label{fa_filter_eqn}
 \mathfrak{F}_I \bydef \left\{\left. p \in \mathfrak{Lattice}\left( A\right)\right| p'_I < p \right\}
 \ee
-is a filter.!!!
+is a filter.
 \end{empt}
 \begin{lem}\label{one_point_lem}
-The set
+Fro any unital $C^*$-algebra $A$ the set
 \be 
- S \bydef \mathfrak{Hausdorff}\left(\left\{\left.\xi \in \mathfrak{PreGelfand}\left(A\right)\right| \eta \le \mathfrak{F}_I \right\} \right)
+ S \bydef \mathfrak{Hausdorff}\left(\left\{\left.\eta \in \mathfrak{PreGelfand}\left(A\right)\right| \eta \ge \mathfrak{F}_I \right\} \right)
 \ee
-is a singleton, i.e. there is the unique $\xi_I \in \mathfrak{PreGelfand}\left(A^+ \right)$ such that $S = \{\xi_I\}$.
+is a singleton, i.e. there is the unique $\xi_I \in \mathfrak{Gelfand}\left(A^+ \right)$ such that $S = \{\xi_I\}$.
 \end{lem}
 \begin{proof}
-If there are $\xi', \xi'' \in S$ with  $\xi' \neq \xi''$  then there are $\eta', \eta'' \in  \mathfrak{PreGelfand}\left(A^+ \right)$ with  $\mathfrak{Hausdorff}\left(\eta' \right) = \xi'$ and $\mathfrak{Hausdorff}\left(\eta'' \right) = \xi''$. Since  $\mathfrak{PreGelfand}\left(A^+ \right)$ is compact and Hausdorff   there are open  neighborhoods $\sU'$ and $\sU''$ with $\sU'\cap \sU''= \emptyset$. One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sU'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sU''\right)$ correspond to $p' \in \mathfrak{Lattice}\left( A^+\right)$ and $p'' \in \mathfrak{Lattice}\left( A^+\right)$ with $p'\wedge p'' = 0$. There are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that closures of $\sV'$ and $\sV''$ are subsets of $\sU'$ and $\sU''$.  One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sV'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sV''\right)$ correspond to $q' \in \mathfrak{Lattice}\left( A^+\right)$ and $q'' \in \mathfrak{Lattice}\left( A^+\right)$. If both  $\overline{q}'$ and  $\overline{q}''$ are closures of  $q'$ and $q''$ then $\overline{q}' < p'$ and $\overline{q}'' < p''$ with $\overline{q}'\wedge \overline{q}''=0$. If $p \in \mathfrak{F}_I$ then from $\eta', \eta'' \ge \mathfrak{F}_I$ it turns out that
+If there are $\xi', \xi'' \in S$ with  $\xi' \neq \xi''$  then there are $\eta', \eta'' \in  \mathfrak{PreGelfand}\left(A \right)$ with  $\mathfrak{Hausdorff}\left(\eta' \right) = \xi'$ and $\mathfrak{Hausdorff}\left(\eta'' \right) = \xi''$. Since  $\mathfrak{Gelfand}\left(A \right)$ is compact and Hausdorff   there are open  neighborhoods $\sU'$ and $\sU''$ of $\xi'$ and $\xi''$ with $\sU'\cap \sU''= \emptyset$. One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sU'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sU''\right)$ correspond to $p' \in \mathfrak{Lattice}\left( A\right)$ and $p'' \in \mathfrak{Lattice}\left( A\right)$ with $p'\wedge p'' = 0$. There are neighborhoods $\sV'$ and $\sV''$ of $\xi'$ and $\xi''$ such that closures of $\sV'$ and $\sV''$ are subsets of $\sU'$ and $\sU''$.  One can suppose that $\mathfrak{Hausdorff}^{-1}\left( \sV'\right)$ and $\mathfrak{Hausdorff}^{-1}\left( \sV''\right)$ correspond to $q' \in \mathfrak{Lattice}\left( A\right)$ and $q'' \in \mathfrak{Lattice}\left( A\right)$. If both  $\overline{q}'$ and  $\overline{q}''$ are closures (cf. Definition \ref{closure_defn}) of  $q'$ and $q''$ then $\overline{q}' < p'$ and $\overline{q}'' < p''$ with $\overline{q}'\wedge \overline{q}''=0$. If $p \in \mathfrak{F}_I$ then from $\eta', \eta'' \ge \mathfrak{F}_I$ it turns out that
 \bea\label{ee1_eqn}
-\forall p' \in  \mathfrak{Lattice}\left( A^+\right) \quad p' \in \eta' \quad\Rightarrow \quad  p' \wedge  p \neq 0,\\
+\forall p' \in  \mathfrak{Lattice}\left( A\right) \quad p' \in \eta' \quad\Rightarrow \quad  p' \wedge  p \neq 0,\\
 \label{ee2_eqn}
-\forall p'' \in  \mathfrak{Lattice}\left( A^+\right) \quad p'' \in \eta'' \quad\Rightarrow \quad  p'' \wedge  p \neq 0. 
+\forall p'' \in  \mathfrak{Lattice}\left( A\right) \quad p'' \in \eta'' \quad\Rightarrow \quad  p'' \wedge  p \neq 0. 
 \eea
 If $p_I \not \le  \overline{q}'$ then $p_I \le 1 - \overline{q}'$ and $ 1 - \overline{q}'\in \mathfrak{F}_I$. From $p_I \not \le  \overline{q}'$  it follows that $q' \wedge\left( 1 - \overline{q}'\right) = 0$. This fact contradicts with \eqref{ee1_eqn}. From this contradiction rejects the hypothesis $p_I \not \le  \overline{q}'$, so $p_I \le  \overline{q}'$. Similarly one has $p_I \le  \overline{q}''$. But both  inequalities 
 \bean
@@ -988,7 +989,7 @@ p_I \le  \overline{q}''
 are incompatible with  $\overline{q}'\wedge \overline{q}''=0$. This contradiction proves this lemma.
 \end{proof}
 \begin{theorem}\label{one_point_thm}
-	If $A$ is an unital $C^*$ algebra then there is the natural injective map
+	If $A$ is an unital $C^*$-algebra then there is the natural injective map
 	\be\label{from_max_to_gelfand_eqn}
 	\mathfrak{LeftMax}\left(A\right) \hookto \mathfrak{Gelfand}\left(A\right)
 	\ee
@@ -1005,57 +1006,9 @@ where  $\xi_I \in \mathfrak{Gelfand}\left(A\right)$ the given by the Lemma \ref{
 If  $A$ is an nonunital $C^*$ algebra and  $A^+\bydef A \oplus \C$ is the  minimal unitization (cf. Definition \ref{multiplier_min_defn}) then $\mathfrak{Gelfand}\left(A^+\right)= \mathfrak{Gelfand}\left(A\right)\cup \left\{\xi_A\right\}$ the given by the Lemma \ref{one_point_lem} point.
 \end{corollary}
 \begin{proof}
-	!!!
-\end{proof}
-		\begin{lemma}\label{one_point_s_lem}
-	If $A$ is an unital $C^*$ algebra then any .
-\end{lemma}
-\begin{proof}!!!
-	$A \subset A^+$ is the maximal left ideal, it correspond to an open projection of $p_I \in \left( A^+\right)^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_I \bydef 1-p_I$ is the minimal projection in $\left( A^+\right)^{**}$.  If $p_1, p_2 \in \left(  A^+\right)^{**}$ are two open projections with $p_1 > p'_I$ and $p_2 > p'_I$ ans $L_1, L_2 \subset A^+$ are corresponding to $p_1$ and $p_2$  closed ideals then $L_1\cap L_2 \neq \{0\}$. So the set $\left\{L_\la \right\}_{\la \in \La}$ of all closed ideals which correspond to open projection which exceed $p'$ is a filter. There are two types of ultrafilter 
-	\begin{itemize}
-		\item The ultrafilter $\left\{p_\a \right\}_{\a  \in \mathscr{A} }$ is of type $I$ is
-		\bean
-	\forall \a  \in \mathscr{A} p' \le \overline{p}_\a
-		\eean 
-			\item The ultrafilter $\left\{L_\a \right\}_{\a  \in \mathscr{A} }$ is of type $II$ is
-		\bean
-	\forall \a  \in \mathscr{A} p' \not\le \overline{p}_\a
-	\eean 
-			where $\overline{p}_\a$ is the closure of $p_\a$ (cf. Definition \ref{closure_defn})
-		
-	\end{itemize}
-	
-	
-	Let $\xi'_0 \in  \mathfrak{Gelfand}_r\left(A^+ \right)$ a point which corresponds to an ultrafilter which exceeds $\left\{L_\la \right\}$ and $\xi_0 \in \mathfrak{Gelfand}_r\left(A^+ \right)$ is the image of $\xi'_0$ in $\mathfrak{Gelfand}_r\left(A^+ \right) =\mathfrak{Hausdorff}\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right)$. If $\eta_0\in \mathfrak{Gelfand}_r\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}_r\left(A \right)\cup \left\{\xi_0\right\}\right)$ then since the space $\mathfrak{Gelfand}_r\left(A^+ \right)$ is Hausdorff there are closed left ideals $L_{\xi_0}, L_{\eta_0}\subset A$ with
-	\bean
-	\xi_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}, \\
-	\eta_0 \in \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}},\\
-	\mathfrak{Gelfand}_r\left(A \right)_{L_{\xi_0}}\cap \mathfrak{Gelfand}_r\left(A \right)_{L_{\eta_0}}= \emptyset\quad \Rightarrow \quad   L_{\xi_0}\cap L_{\eta_0}= \{0\} \quad \Rightarrow \\ \Rightarrow\quad  p_{L_{\xi_0}}\perp p_{ L_{\eta_0}}\quad \Rightarrow \quad  p'_A\perp p_{ L_{\eta_0}}.\quad \Rightarrow\quad  p_{ L_{\eta_0}}< p_A\quad \Rightarrow\quad L_{\eta_0} \subset A.
-	\eean 
-	
-	+++++
-	
-	If $\left\{L_\la \right\}$ is not an ultrafilter then there is a nontrivial left ideal $L\subset A$ such that
-	\bean
-	\forall \la\in \La \quad L \cap L_\la \neq \{0\},\\
-	p'_A \not\le p_L\quad\Rightarrow\quad  p'\wedge p_L < p'_A
-	\eean 
-	where $p_L\in \left( A^+\right)^{**}$ corresponds to the ideal $L$. However  $p'\wedge p_L\in \left( A^+\right)^{**}$ and  $p'\wedge p_L < p'$ contradicts means that $p'$ is not minimal projection of $\left( A^+\right)^{**}$. So $\left\{L_\la \right\}$ is an ultrafilter which corresponds to a point $\xi_0\in  \mathfrak{Gelfand}\left(A^+ \right)= \mathfrak{Ultrafilters}\left(A^+ \right)$. If  $\xi \in \mathfrak{Ultrafilters}\left(A^+ \right)\setminus \left( \mathfrak{Gelfand}\left(A \right)\cup \left\{\xi_0\right\}\right)$, then there is $L' \in \xi$ with $p'_A\wedge p_{L'} < p'_A$. Since $p'$ is minimal one has $p'_A\wedge p_{L'}=0$ and $L' \subset A$.!!!
-\end{proof}
-\begin{lemma}
-	Any maximal ideal of $C^*$ algebra $A$ yields a point of $\mathfrak{Gelfand}\left(A \right)$
-\end{lemma}
-\begin{proof}
-	!!!!
+Since the $C*$-algebra is unital and $A \subset A^+$ is a maximal left ideal this corollary is a consequence of the Lemma \ref{one_point_lem}
 \end{proof}
 
-
-\begin{lemma}\label{one_point_r_lem}
-	If $A$ is a nonunital $C^*$-algebra  then $\mathfrak{Gelfand}_r\left(A^+ \right) \cong \mathfrak{Gelfand}_r\left(A \right)^+$.
-\end{lemma}
-\begin{proof}
-	Follows from the Lemma \ref{one_point_s_lem}.
-\end{proof}
 
 \subsection{Good $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
@@ -1124,27 +1077,16 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 		\end{split}
 		\eean
 		Now the continuity of the map \eqref{gelfand_map_eqn} follows from the Lemma \ref{haudorff_lem}.\\
-		(ii)!!! If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
+		(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 		
 	\end{proof}
 	
 
-	
-	\begin{corollary}\label{good_cor}
-	Any good $*$-homomorphism $\varphi : M\left( A\right) \to M\left( \widetilde{A}\right)$ yields the natural continuous map
-		\be\label{gelfandr_map_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi \right)}\mathfrak{Gelfand}\left(A \right).
-	\ee
-	of reduced Gelfand !!! DELETE !!! spaces (cf. Definition \ref{gelfand_r_defn}  !!!! DELETE !!!!). Moreover if $\varphi$ is injective then $\mathfrak{Gelfand}\left(\varphi \right)$ is surjective.
-	\end{corollary}
-	\begin{proof}
-	Follows from the Theorem \ref{good_thm} and the Definition \ref{gelfand_r_defn}  !!!! DELETE !!!!.
-	\end{proof}
 	\begin{definition}\label{gelfand_functor_defn}
 		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors} from 
 		\bea\label{gelfand_functor_eqn}
-		C^*\text{-}\mathfrak{PreGelfand}\xrightarrow{\mathfrak{Gelfand}}\mathfrak{Top},\\\label{gelfand_h_functor_eqn}
-			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{PreGelfand}_r \bydef \mathfrak{Hausdorff}~\circ~\mathfrak{Gelfand}}\mathfrak{Hausdorff}
+		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{PreGelfand}}\mathfrak{Top},\\\label{gelfand_h_functor_eqn}
+			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand} \bydef \mathfrak{Hausdorff}~\circ~\mathfrak{PreGelfand}}\mathfrak{Hausdorff}
 		\eea
 	the Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the categories   $\mathfrak{Top}$ (resp. $\mathfrak{Hausdorff}$ of topological (resp. Hausdorff locally compact) spaces and continuous maps.  
 		Any functor  $\mathfrak{Top}\to \mathscr C$ and/or $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
@@ -1152,7 +1094,7 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 	\end{definition}
 		
 	
-	\begin{lemma}\label{product_lem}
+	\begin{lemma}\label{product_lem}!!!
 		For any $C^*$-algebra $A$ and any locally compact Hausdorff space $\sX$ there is the natural homeomorphism
 		\be\label{suspension_g_eqn}
 		\begin{split}
@@ -5209,7 +5151,7 @@ may be interpreted as a bilinear map
 		From the Theorem \ref{zorn_thm} it follows that any filter is a subset of an	ultrafilter. (cf. \cite{johnstone:stone_spaces}).
 	\end{remark}
 
-	\subsection{Filter base topology}
+	\subsection{Filter base topology}\label{fbt_sec}
 	\begin{defn}\label{filted_conv_defn}
 	\cite{engelking:general_topology}
 	By a {\it filter} (a {\it filter-base}) in a topological space $\sX$ we mean a filter (a filter-base) in the
@@ -6428,7 +6370,7 @@ DEFINITION 11.1 I. If $p \in M$ is a projection, we denote by $\overline{p}$ the
 and there exists $b \in A_+$ with $bp = p$.
 \end{definition}
 \begin{theorem}\cite{akerman_gelfand}
-THEOREM II.5. !!! If p is q-dosed and there exists be A with $b \ge p$,
+THEOREM II.5. !!! If p is closed and there exists be A with $b \ge p$,
 then p is q-compact.\end{theorem}
 \begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}!!!
 
@@ -6465,10 +6407,13 @@ A regular  projection $p \in M$ is {\it compact}
 if for every family $\left\{p_\a\right\}$ of closed projections such that the
 family $\left\{p_\a \wedge p\right\}$ has the finite intersection property (cf. Proposition \ref{fin_int_prop}), then $p \wedge \bigwedge_\a p_\a\neq 0$.
 \end{conjecture}
-!!! REGULAR EXPL
 \begin{theorem}\label{gelfand_compact_thm}\cite{akerman_gelfand}
 THEOREM II.7. If p is q-compact, then for any family  $\left\{p_\la\right\}_{\la\in \La}$ of closed projections such that the family $\left\{p_\la \wedge p\right\}$ has the finite intersection property (cf. Definition  \ref{fin_p_defn}), then $p \wedge \bigwedge_{\la\in \La} p_\la\neq 0$.
 \end{theorem}
+\begin{remark}\label{compact_p_rem}
+	It is explained in \cite{akerman_stone} that the Theorem \ref{gelfand_compact_thm} means that the Definition \ref{compact_p_defn} is a generalization of compact subspace of any topological space.
+\end{remark}
+
 \begin{lemma}\cite{akerman_gelfand}
 %LEMMA ?.3. 
 Suppose $B$ is a $C^*$-algebra, $b \in B^+$, $p \in B^{**}$ a projection
