@@ -2,7 +2,6 @@ import type { IComponentCollection } from "../../Interfaces/IComponentCollection
 import type { IDesktop } from "../../Interfaces/IDesktop";
 import type { IFactory } from "../../Interfaces/IFactory";
 import type { IInput } from "../../Interfaces/IInput";
-import type { IGame } from "../../Game/Interfaces/IGame";
 import type { IDataConsumer } from "../../Measurements/Interfaces/IDataConsumer";
 import type { IActionT } from "../../Interfaces/IActionT";
 import type { IAction } from "../../Interfaces/IAction";

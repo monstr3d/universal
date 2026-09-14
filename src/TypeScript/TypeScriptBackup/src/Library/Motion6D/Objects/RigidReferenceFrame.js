@@ -10,8 +10,8 @@ const Motion6DFrame_1 = require("../Motion6DFrame");
 const RotatedFrame_1 = require("../RotatedFrame");
 const MovedFrame_1 = require("../MovedFrame");
 const RealMatrix_1 = require("../../RealMatrixProcessor/RealMatrix");
-const Vector3DProcessor_1 = require("../../Vector3D/Vector3DProcessor");
 const PerformerMeasuremets_1 = require("../../Measurements/PerformerMeasuremets");
+const Vector3DProcessor_1 = require("../../Vector3D/Vector3DProcessor");
 class RigidReferenceFrame extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);
@@ -191,7 +191,7 @@ class RigidReferenceFrame extends CategoryObject_1.CategoryObject {
         let own = this.getOwnFrame();
         let b = this.getBaseFrame();
         if (b === undefined) {
-            this.relative.copyReferenceFrameFrom(own);
+            own.copyReferenceFrameFrom(this.relative);
         }
         else {
             own.setReferenceFrame(b, this.relative);

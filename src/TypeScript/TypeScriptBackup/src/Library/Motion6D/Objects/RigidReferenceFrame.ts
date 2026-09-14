@@ -7,8 +7,8 @@ import { Motion6DFrame } from "../Motion6DFrame";
 import { RotatedFrame } from "../RotatedFrame";
 import { MovedFrame } from "../MovedFrame";
 import { RealMatrix } from "../../RealMatrixProcessor/RealMatrix";
-import { Vector3DProcessor } from "../../Vector3D/Vector3DProcessor";
 import { PerformerMeasuremets } from "../../Measurements/PerformerMeasuremets";
+import { Vector3DProcessor } from "../../Vector3D/Vector3DProcessor";
 import type { IDesktop } from "../../Interfaces/IDesktop";
 import type { INodeT } from "../../NamedTree/Interfaces/INodeT";
 import type { IPosition } from "../Interfaces/IPosition";
@@ -219,18 +219,23 @@ export class RigidReferenceFrame extends CategoryObject implements IReferenceFra
     addNodeT(node: INodeT<IPosition>): void {
         this.nodes.push(node);
     }
+
     removeNodeT(node: INodeT<IPosition>): void {
         this.nodes = this.performer.remove(this.nodes, node)
     }
+
     getOwnFrame(): ReferenceFrame {
         return this.own;
     }
+
     getPosition(): number[] {
         return this.own.getPosition();
     }
+
     getParentFrame(): IReferenceFrame | undefined {
         return this.parent;
     }
+
     setParentFrame(parent: IReferenceFrame): void {
         if ((parent != undefined) && this.parent != undefined) {
             throw new OwnError("Parent", "", "");
@@ -254,7 +259,7 @@ export class RigidReferenceFrame extends CategoryObject implements IReferenceFra
         let b = this.getBaseFrame();
         if (b === undefined)
         {
-            this.relative.copyReferenceFrameFrom(own)
+            own.copyReferenceFrameFrom(this.relative)
         }
         else
         {

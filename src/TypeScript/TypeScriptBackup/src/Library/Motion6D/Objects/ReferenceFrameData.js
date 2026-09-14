@@ -75,7 +75,6 @@ class ReferenceFrameData extends RigidReferenceFrame_1.RigidReferenceFrame {
         this.measuremrntPerformrer.fullReset(this);
         var rel = this.relative;
         var x = rel.getPosition();
-        // var parent = this.getParentFrame();
         for (let i = 0; i < 3; i++) {
             var o = this.measurements[i].getMeasurementValue();
             if (o === undefined) {
@@ -107,7 +106,6 @@ class ReferenceFrameData extends RigidReferenceFrame_1.RigidReferenceFrame {
             qua[i] = y;
         }
         rel.setMatrix();
-        // var matrix = rel.getMatrix()
         var anga = this.performer.convertObject(rel, "IAngularVelocity");
         if (anga.length > 0) {
             let ang = anga[0];

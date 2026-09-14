@@ -6,7 +6,6 @@ const OwnError_1 = require("../../ErrorHandler/OwnError");
 const MeasurementDerivation_1 = require("../../Measurements/MeasurementDerivation");
 const RealMatrix_1 = require("../../RealMatrixProcessor/RealMatrix");
 const EulerAngles_1 = require("../../Vector3D/EulerAngles");
-const Vector3DProcessor_1 = require("../../Vector3D/Vector3DProcessor");
 const EulerMeasurement_1 = require("../Measurements/EulerMeasurement");
 const Motion6DAcceleratedFrame_1 = require("../Motion6DAcceleratedFrame");
 const Motion6DPerformer_1 = require("../Motion6DPerformer");
@@ -14,6 +13,7 @@ const ReferenceFrame_1 = require("../ReferenceFrame");
 const ActionArray_1 = require("../../Utilities/Generic/ActionArray");
 const NumberMeasurement_1 = require("../../Measurements/NumberMeasurement");
 const OwnNotImplemented_1 = require("../../ErrorHandler/OwnNotImplemented");
+const Vector3DProcessor_1 = require("../../Vector3D/Vector3DProcessor");
 class RelativeMeasurements extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);

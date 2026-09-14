@@ -56,19 +56,16 @@ class ReferenceFrame {
     getNodeValueT() {
         return this;
     }
-    copyReferenceFrameFromArrays(m, p) {
-        var mm = this.matrix;
-        for (var i = 0; i < m.length; i++) {
-            var c = m[i];
-            var cc = mm[i];
-            for (var j = 0; j < cc.length; j++) {
-                cc[j] = c[i];
-            }
+    copyReferenceFrameFromArrays(q, p) {
+        var mm = this.quaternion;
+        for (var i = 0; i < mm.length; i++) {
+            mm[i] = q[i];
         }
         var pp = this.position;
         for (var i = 0; i < p.length; i++) {
             pp[i] = p[i];
         }
+        this.setMatrix();
     }
     copyReferenceFrameFromPositionQuatetnion(position, quaternion) {
         var p = this.position;
@@ -82,7 +79,7 @@ class ReferenceFrame {
         this.setMatrix();
     }
     copyReferenceFrameFrom(frame) {
-        this.copyReferenceFrameFromArrays(frame.matrix, frame.position);
+        this.copyReferenceFrameFromArrays(frame.quaternion, frame.position);
     }
     setReferenceFrame(baseFrame, relative) {
         let m = baseFrame.getMatrix();
@@ -116,7 +113,6 @@ class ReferenceFrame {
         return this.parameters;
     }
     updateReferenceFrame() {
-        console.log("TTT", this);
         let p = this.getParentFrame();
         if (p === undefined) {
             return;

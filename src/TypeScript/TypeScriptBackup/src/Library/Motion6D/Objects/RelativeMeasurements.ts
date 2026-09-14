@@ -3,7 +3,6 @@ import { OwnError } from "../../ErrorHandler/OwnError";
 import { MeasurementDerivation } from "../../Measurements/MeasurementDerivation";
 import { RealMatrix } from "../../RealMatrixProcessor/RealMatrix";
 import { EulerAngles } from "../../Vector3D/EulerAngles";
-import { Vector3DProcessor } from "../../Vector3D/Vector3DProcessor";
 import { EulerMeasurement } from "../Measurements/EulerMeasurement";
 import { Motion6DAcceleratedFrame } from "../Motion6DAcceleratedFrame";
 import { Motion6DPerformer } from "../Motion6DPerformer";
@@ -22,6 +21,7 @@ import type { IReferenceFrame } from "../Interfaces/IReferenceFrame";
 import type { IVelocity } from "../Interfaces/IVelocity";
 import { NumberMeasurement } from "../../Measurements/NumberMeasurement";
 import { OwnNotImplemented } from "../../ErrorHandler/OwnNotImplemented";
+import { Vector3DProcessor } from "../../Vector3D/Vector3DProcessor";
 
 
 

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataConsumer = void 0;
+const PerformerMeasuremets_1 = require("./PerformerMeasuremets");
 const CategoryObject_1 = require("../CategoryObject");
 const ActionArray_1 = require("../Utilities/Generic/ActionArray");
-const PerformerMeasuremets_1 = require("./PerformerMeasuremets");
 class DataConsumer extends CategoryObject_1.CategoryObject {
     constructor(desktop, name) {
         super(desktop, name);

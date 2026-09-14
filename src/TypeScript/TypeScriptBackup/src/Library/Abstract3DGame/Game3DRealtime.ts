@@ -1,23 +1,22 @@
-import type { IDesktop } from "../Interfaces/IDesktop";
-import type { IFactory } from "../Interfaces/IFactory";
-import type { IRealtimeCollectionFactory } from "../Interfaces/IRealtimeCollectionFactory";
-import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor ";
-import type { IMtlDetector } from "../Abstract3DConverters/Interfaces/IMtlDetector";
-import type { IGameAction } from "../Game/Interfaces/IGameAction";
-import type { IGameActionFactory } from "../Game/Interfaces/IGameActionFactory";
-import type { IGameLoaderFactory } from "../Game/Interfaces/IGameLoaderFactory";
-import type { ISceneObject } from "../Game/Interfaces/ISceneObject";
-import type { IAction } from "../Interfaces/IAction";
-import type { IStringSplitter } from "../Utilities/String/Interfaces/IStringSplitter";
-import { RungeProcessor } from "../Measurements/DifferentialEquations/Processors/RungeProcessor";
-import { Motion6DRealtimeFactory } from "../Motion6D/Runtime/Event/Motion6DRealtimeFactory";
-import { PerformerRealtime } from "../Event/Wrappers/PerformerRealtime";
-import { Motion6DFactory } from "../Motion6D/Motion6DFactory";
-import { ResourceFuncFactory } from "../Resources/ResourceFuncFactory";
-import { UniversalFactory } from "../UniversalFactory";
-import { LineEndSplitter } from "../Utilities/String/LineEndSplitter";
-import { BasicGameLoaderFactory } from "./Factory/BacicGameLoaderFactory";
-import { EmptyObject } from "../EmptyObject";
+import { EmptyObject } from "../EmptyObject"
+import { PerformerRealtime } from "../Event/Wrappers/PerformerRealtime"
+import { IGameAction } from "../Game/Interfaces/IGameAction"
+import { IGameActionFactory } from "../Game/Interfaces/IGameActionFactory"
+import { IGameLoaderFactory } from "../Game/Interfaces/IGameLoaderFactory"
+import { ISceneObject } from "../Game/Interfaces/ISceneObject"
+import { IAction } from "../Interfaces/IAction"
+import { IDesktop } from "../Interfaces/IDesktop"
+import { IFactory } from "../Interfaces/IFactory"
+import { IRealtimeCollectionFactory } from "../Interfaces/IRealtimeCollectionFactory"
+import { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor "
+import { RungeProcessor } from "../Measurements/DifferentialEquations/Processors/RungeProcessor"
+import { Motion6DFactory } from "../Motion6D/Motion6DFactory"
+import { Motion6DRealtimeFactory } from "../Motion6D/Runtime/Event/Motion6DRealtimeFactory"
+import { ResourceFuncFactory } from "../Resources/ResourceFuncFactory"
+import { UniversalFactory } from "../UniversalFactory"
+import { IStringSplitter } from "../Utilities/String/Interfaces/IStringSplitter"
+import { LineEndSplitter } from "../Utilities/String/LineEndSplitter"
+import { BasicGameLoaderFactory } from "./Factory/BacicGameLoaderFactory"
 
 
 export class Game3DRealtime extends PerformerRealtime {

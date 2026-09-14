@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFactory = exports.Game3DRealtime = void 0;
-const RungeProcessor_1 = require("../Measurements/DifferentialEquations/Processors/RungeProcessor");
-const Motion6DRealtimeFactory_1 = require("../Motion6D/Runtime/Event/Motion6DRealtimeFactory");
+const EmptyObject_1 = require("../EmptyObject");
 const PerformerRealtime_1 = require("../Event/Wrappers/PerformerRealtime");
+const RungeProcessor_1 = require("../Measurements/DifferentialEquations/Processors/RungeProcessor");
 const Motion6DFactory_1 = require("../Motion6D/Motion6DFactory");
+const Motion6DRealtimeFactory_1 = require("../Motion6D/Runtime/Event/Motion6DRealtimeFactory");
 const ResourceFuncFactory_1 = require("../Resources/ResourceFuncFactory");
 const UniversalFactory_1 = require("../UniversalFactory");
 const LineEndSplitter_1 = require("../Utilities/String/LineEndSplitter");
 const BacicGameLoaderFactory_1 = require("./Factory/BacicGameLoaderFactory");
-const EmptyObject_1 = require("../EmptyObject");
 class Game3DRealtime extends PerformerRealtime_1.PerformerRealtime {
     constructor(factory, desktop, interval, chart) {
         super(factory, desktop, interval, chart);
