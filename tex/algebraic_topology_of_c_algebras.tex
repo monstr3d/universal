@@ -684,7 +684,7 @@
 Here we would like construct a category such that objects of it are all $C^*$-algebras and a functor to the category of topological  spaces  and continuous maps.
 \subsection{Preliminaries}
 \paragraph{}
-	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
+	Let $A$ be a $C^*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
 	\be\label{unital_notation_eqn}
 	A^\sim\bydef\begin{cases}
 		A & \text{if }A \text{ is unital}\\
@@ -693,7 +693,14 @@ Here we would like construct a category such that objects of it are all $C^*$-al
 	\ee
 	where $A^+$ is given by \eqref{a_plus_eqn}.
 	If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
-	is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
+	is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}). If $\sX$ is a locally compact Hausdorff space then we denote by 
+	\be\label{compact_notation_eqn}
+\sX^\sim\bydef\begin{cases}
+	\sX & \text{if }\sX \text{ is compact}\\
+	\sX^+ & \text{if }\sX \text{ is not compact}\\
+\end{cases}
+\ee
+where $\sX^+$ is the natural  one point compactification of $\sX$.	
 \begin{definition}\label{nonunital_principal_defn}
 Let both $A$ and $B$ be  $C^*$-algebras. If  $A$ and $B$ are not unital then a $*$-homomorphism $f: A \to B$ is \textit{principal} if it can be extended up to the principal in the sense  of Definition \ref{principal_defn}. homomorphism $f^+:A^+ \to B^+$. If both $A$ and $B$ are  unital them $A \to B$  is \textit{principal} if it is principal in the sense  of Definition \ref{principal_defn}. 
 \end{definition}
@@ -1094,7 +1101,7 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 	\end{definition}
 		
 	
-	\begin{lemma}\label{product_lem}!!!
+	\begin{lemma}\label{product_lem}
 		For any $C^*$-algebra $A$ and any locally compact Hausdorff space $\sX$ there is the natural homeomorphism
 		\be\label{suspension_g_eqn}
 		\begin{split}
@@ -1104,75 +1111,89 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 	\end{lemma}
 	
 	\begin{proof}
-		There are natural injective $*$-homomorphisms 
+		If both  $A^\sim$ and $\sX^\sim$ are given by the equations \eqref{unital_notation_eqn} and \eqref{compact_notation_eqn} then both  $A^\sim$ and $C\left( \sX^\sim\right)$ are unital $C^*$-algebras.
+	Let $A$ be a $C^*$-algebra.  It follows that both natural injective $*$-homomorphisms 
 		\bean
-		\phi_A : A \hookto M\left(C_0\left(\sX, A \right)  \right),\\ 
-		\phi_\sX : C_0\left( \sX\right)  \hookto M\left(C_0\left(\sX, A \right)  \right) 
+		\varphi_A : A^\sim \hookto C\left(\sX^\sim\right)  \otimes A^\sim,\\ 
+		\varphi_\sX : C\left( \sX^\sim\right) \hookto  C\left(\sX^\sim \right) \otimes A^\sim
 		\eean
-		so the Theorem \ref{good_thm}  yields surjective continuous maps
+		are good (cf. Definition \ref{good_hom_defn}).
+		So the Theorem \ref{good_thm}  yields surjective continuous maps
 		\bean
-		\varphi_A:		\mathfrak{Gelfand}\left(C_0\left(\sX, A \right) \right)\onto \mathfrak{Gelfand}\left(A  \right),\\
-		\varphi_\sX:			\mathfrak{Gelfand}\left(C_0\left(\sX, A \right) \right)\onto  \mathfrak{Gelfand}\left(C_0\left(\sX \right)   \right)\cong \sX.
+		\varphi_A:		\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim \right) \right)\onto \mathfrak{Gelfand}\left(A^\sim  \right),\\
+		\varphi_\sX:		\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim \right) \right)\onto  \sX^\sim.
 		\eean
-		These maps naturally yield a continuous map  
+		These maps naturally yield a surjective continuous map  
 		\be\label{dir_map_eqn}
 		\begin{split}
-			\mathfrak{Gelfand}\left(C_0\left(\sX, A \right)\right)   \to 	\mathfrak{Gelfand}\left(A  \right)\times \sX.
+		\varphi:	\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)   \onto  \sX^\sim \times 	\mathfrak{Gelfand}\left(A^\sim  \right)
 		\end{split}
 		\ee
+		If the map $	\varphi$ is not injective then 
+		there are different $\xi', \xi'' \in 	\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)$ such that
+		\bea\label{pp_ax_eqn}
+		\varphi_A  \left( \xi' \right)= \varphi_A  \left( \xi'' \right), \\ 
+		\varphi_\sX  \left( \xi' \right)= \varphi_\sX  \left( \xi'' \right) 
+		\eea 
+		The space $\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)$ is Hausdorff, so there are open subsets $\sU', \sU''\subset \mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)$ with
+		\be\label{su_ssu_eqn}
+		\begin{split}
+	\xi' \in \sU',\\
+\xi'' \in \sU'',\\
+\sU' \cap \sU'' = \emptyset.
+		\end{split}
+			\ee
+		From the above equations it follows that 
+		\bean
+		\left(\sU' \cap \varphi^{-1}_\sX\left( x\right)\right)  \bigcap \left(\sU'' \cap \varphi^{-1}_\sX\left( x \right)\right) = \emptyset
+		\eean 
+		where $x \bydef \varphi_\sX\left( \xi'\right)= \varphi_\sX\left( \xi''\right)$. On the other hand  $\varphi^{-1}_\sX\left( x\right)\cong \mathfrak{Gelfand}\left(A^\sim\right)$ so both $\xi'$ and $\xi''$ can be regarded as elements of  $\mathfrak{Gelfand}\left(A^\sim\right)$. From \eqref{su_ssu_eqn} it turns out that  $\xi'$ and $\xi''$  are different  elements of  $\mathfrak{Gelfand}\left(A^\sim\right)$. This circumstance contradicts with the hypothesis \eqref{dir_map_eqn}. From these contradiction one deduce that the map $\varphi$ is injective, therefore $\varphi$ is bijective. Otherwise both spaces $\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)$ and $\sX^\sim \times 	\mathfrak{Gelfand}\left(A^\sim  \right)$ are compact and Hausdorff, so from the Theorem \ref{comp_to_thm} it follows that the map $\varphi$ is a homeomorphism. This lemma follows from the equation
+		\bean
+		\varphi\left(C_0\left(\sX \right)\otimes  A \right) = \sX \times \mathfrak{Gelfand}\left(A \right)
+		\eean 
 		
-		If $\left(x, r \right)\in \sX \times \mathfrak{Gelfand}\left(A  \right)$, both $\left\{\sV_\la\right\}_{\la\in \La}$ and $\left\{\sU_\la\right\}_{\la\in \La}$ ares bases on neighborhoods of $x$ and $r$ then $\left\{\sV_\la\times \sU_\la\right\}_{\la\in \La}$ is a  basis of neighborhoods of $\left(x, r \right)$. If $\sU_\la$ (resp. $\sV_\la$) corresponds to the closed left ideal $L^A_\la \subset A$ (resp. $L^\sX_\la \subset C_0\left(\sX \right)$) and
-		\bean
-		\begin{split}
-			\widetilde L^\sX_\la \bydef \left\{ \left.f \in C_0\left(\sX, A \right) \right|\supp f \subset \sV_\la\right\},\\
-			\widetilde L^A_\la \bydef \left\{ \left.f \in C_0\left(\sX, A \right) \right| f\left( \sX\right)  \subset \sU_\la\right\}
-		\end{split}
-		\eean
-		then 
-		\bean
-		\begin{split}
-			L_\la \bydef\widetilde L^\sX_\la \cap \widetilde L^A_\la.
-		\end{split}
-		\eean
-		is a closed left ideal of $ C_0\left(\sX,A \right) $. There is a filter $\left\{L_\la\right\}$. If the filter $\left\{L_\la\right\}$ is not an ultrafilter then there are $y', y'' \in \mathfrak{Gelfand}\left(C_0\left(\sX,A \right)  \right)$ such that $y'\neq y''$ and corresponding to $y'$ and $y''$ ultrafilters  $\left\{L'_\la\right\}$ and $\left\{L''_\la\right\}$ exceed $\left\{L_\la\right\}$. There is $\la_0\in \La$ such that
-		\be\label{intsec_eqn}
-		\begin{split}
-			\forall \la \in \La \quad \la \ge \la_0 \quad L'_\la \cap L''_\la = \{0\}\quad \Rightarrow\\\Rightarrow \quad \left(  L'_\la\cap \widetilde L^\sX_\la \cap \widetilde L^A_\la \right) \bigcap \left( L''_\la\cap \widetilde L^\sX_\la \cap \widetilde L^A_\la\right)  = \{0\}
-		\end{split}
-		\ee
-		If $ \left( L'_\la\cap \widetilde L^A_\la\right)
-		\bigcap  \left( L''_\la\cap \widetilde L^A_\la\right)  = \{0\}$ for any $\la \ge \la_0$ then $\varphi_A(y')\neq  \varphi_A(y'')$ but it is impossible since $\varphi_A(y')= x$ and $\varphi_A(y'')=x$. Now the condition \eqref{intsec_eqn} holds if 
-		$ \left( L'_\la\cap \widetilde L^\sX_\la\right)
-		\bigcap  \left( L''_\la\cap \widetilde L^\sX_\la\right)  = \{0\}$ for any $\la \ge \la_0$. Then one has $\varphi_\sX(y')\neq  \varphi_\sY(y'')$ but it is impossible since $\varphi_\sX(y')= r$ and $\varphi_\E(y'')=r$. So the filter $\left\{L_\la\right\}$ is an ultrafilter which yields the unique $y \in  \mathfrak{Gelfand}\left(SA  \right)$. In result one has a  continuous map 
-		\bean
-		\begin{split}
-			\mathfrak{Gelfand}\left(A  \right)\times \sX\to 	\mathfrak{Gelfand}\left(C_0\left(\sX,A \right)\right) ,\\
-			\left(x, r \right)\mapsto y 
-		\end{split}
-		\eean
-		which is inverse to the map \eqref{dir_map_eqn}.
+		\end{proof}
+		\begin{empt}
+		Let $A$ be an unital $C^*$-algebra. If $a \in A$ is a normal element then the Proposition \ref{sp_comm_prop} yields the natural injective $*$-homomorphism $C_0\left( \mathfrak{Sp}_A\left(x \right)\right) \hookto A$ There Theorem \ref{good_thm} yields the natural surjective continuous map $\varphi : \mathfrak{Gelfand}\left(A  \right) \onto \mathfrak{Sp}_A\left(x \right)$. There is the natural injective $*$-homomorphism $C_0\left( \varphi\right) C_0\left( \mathfrak{Sp}_A\left(x \right)\right) \hookto C\left( \mathfrak{Gelfand}\left(A  \right)\right)$. One can consider $a$ as an element of  $C_0\left( \mathfrak{Sp}_A\left(x \right)\right)$ so one has a map
+		\be\label{global_map_eqn}
+	\mathfrak{Image}:	a \mapsto C_0\left( \varphi\right)\left(a \right) 
+		\ee 
+		from the set of normal elements of $A$ to $C\left( \mathfrak{Gelfand}\left(A  \right)\right)$. 
+		\end{empt}
 		
-	\end{proof}
-	\begin{definition}\label{image_defn}
-		If  $f \in C_b\left( \mathfrak{Gelfand}\left(A \right) \right)$ an element $a \in K\left( A\right)$ is the \textit{image} of $f$ if for any $x \in  \mathfrak{Gelfand}\left(A \right)$ with $f\left(x \right)\neq 0$  and any $\eps > 0$ there is an ideal $L \subset A$ such that 
-		\begin{enumerate}
-			\item[(a)] $\quad x \in \mathfrak{Gelfand}\left(A \right)_L$ (cf. equation \eqref{topology_eqn}), i.e. $L$ represents a neighborhood of $x$.
-			\item[(b) ]	$\quad \forall b \in L \setminus \{0\}\quad   \left\| f\left( x\right) b - ab\right\| < \eps \left\| b\right\|$
-			
-		\end{enumerate}
-		We write $a = \mathfrak{Image}\left( f\right)$.
-	\end{definition}
-	\begin{exercise}
-		Using the Spectral Theorem (cf. \ref{spectral_thm}) prove that if the image exists then it is unique.
-	\end{exercise}
-	\begin{lemma}\label{image_lem}
-		If $A$ is a $C^*$-algebra then 
-		any normal element $a$ (cf. Definition \ref{normal_defn}) in  $K\left(A \right) $ is the image (cf. Definition \ref{image_defn}) of an element in $C_b\left( \mathfrak{Gelfand}\left(A \right)\right)$
+	\begin{lemma}\label{normal_map_lem}
+	If $A$ is an unital $C^*$-algebra then the given by  \eqref{global_map_eqn} map $\mathfrak{Image}$ is a bijection.
 	\end{lemma}
 	\begin{proof}
-		Let  $a \in K\left(A \right) $ is a normal element (cf. Definition \ref{normal_defn}). If $C_0\left(\sX \right)\subset K\left(A \right) $ is the generated by $a$ commutative $C^*$-subalgebra then the Theorem \ref{good_thm} yields a continuous map $\phi: \mathfrak{Gelfand}\left(A  \right)\onto \mathfrak{Gelfand}\left(C_0\left(\sX \right)   \right)\cong \sX$. If $f\in C_0\left( \sX\right)$ corresponds to $a$ then $a$ is the image of $f\circ \varphi$ where $\varphi: \mathfrak{Gelfand}\left(A  \right)\onto \sX$ comes from $\phi$.  
+	Let both $a', a'' \in A$ be different  normal elements. If $\mathfrak{Sp}_A\left(a' \right)\neq \mathfrak{Sp}_A\left(a'' \right)$ then it is clear that $\mathfrak{Image}\left(a' \right) \neq \mathfrak{Image}\left(a'' \right)$. Otherwise if $\mathfrak{Sp}_A\left(a' \right)= \mathfrak{Sp}_A\left(a'' \right)$ then $a'$ and $a''$ are different element of $C_0\left( \mathfrak{Sp}_A\left(a' \right)\right) = C_0\left( \mathfrak{Sp}_A\left(a'' \right)\right)$, so $\mathfrak{Image}\left(a' \right) \neq \mathfrak{Image}\left(a'' \right)$. Thus the map  \eqref{global_map_eqn} is injective. 
+	
+	If $b \in C\left( \mathfrak{Gelfand}\left(A  \right)\right)$ then $b = b' + i b''$ where both $b'$ and $b''$ a self-adjoint. There are real $c', c'' \in \R_+$ such that both $b' + c'$ and $b'' + c''$ are positive operators. From  $b' + c'+ b'' + c''\ge b' + c'$ and $b' + c'+ b'' + c''\ge b'' + c''$. It follows that there are continuous functions $f', f'' : \R_+ \to \left[0, 1\right]$ such that 
+	\bean
+b' + c'=	f' \left(b' + c'+ b'' + c'' \right),\\
+b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
+	\eean 
+	If $f \bydef f' + i f'' : \R_+ \to \C $ then $b + c' + i c'' = f\left(b' + c'+ b'' + c'' \right)$. The Theorem \ref{spectral_thm}  yields an element $a^{**}\in A^{**}$ which corresponds to $b' + c'+ b'' + c''$. From the Theorem \ref{coninuous_p_thm} it follows that $a^{**}\in A$. Clearly $a \bydef f\left(a^{**} \right) - c_1 - ic_2\in A$ is normal and $\mathfrak{Image}\left(a \right)= b$.
 	\end{proof}
-	\begin{definition}\label{covering_defn}
+	\begin{definition}\label{coninuous_p_defn!!}\cite{akerman_gelfand}
+		%DEFINITION III.2. 
+		A self-adjoint operator be $A^{**}$ is {\it continuous}
+		if each spectral projection of $b$ corresponding to an open subset of
+		the spectrum of  $p$ is also g-open.
+		Now we can state our best Gelfand representation theorem.
+	\end{definition}
+	
+	\begin{theorem}\label{coninuous_p_thm!!!}\cite{akerman_gelfand}
+		%THEOREM III.3. 
+		The self-adjoint elements of $A$ are exactly those
+		continuous elements $b$ of $A^{**}$ such that the spectral projections of $b$
+		corresponding to closed subsets of the spectrum of $b$ which don't contain
+		$0$ are compact (i.e., b "vanishes at $\infty$").
+	\end{theorem}
+	
+	\begin{proof}
+	!!!
+	\end{proof}
+\begin{definition}\label{covering_defn}
 		Let   $A$ and  $\widetilde{A}$ be  $C^*$-algebras.  An injective good     $*$-homomorphism $\lift: M(A) \hookto M\left( \widetilde{A}\right)$ (cf. Definition 
 		\ref{good_hom_defn}) is a \textit{noncommutative covering} if
 		the given by \eqref{gelfand_map_eqn}	
@@ -1215,7 +1236,7 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 	\subsection{Maps onto spaces of maximal ideals}
 	\paragraph{}
 	
-!!!	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
+!!!	If $A$ is a  $C^*$-algebra and $\mathfrak{Gelfand}\left(A \right)$ is the  Gelfand  space (cf. Definition \ref{red_defn}) then from the Lemma \ref{image_lem} !!! DELETE !!! it follows that the $C^*$ algebra $C\left( \mathfrak{Gelfand}\left(A \right)\right)$ is unital.
 \begin{empt}\label{max_map_empt} Let $A$ be an unital $C^*$-algebra. Consider an equivalence relation on  $\mathfrak{Gelfand}\left(A \right)$ 
 \be
 \begin{split}
@@ -1505,7 +1526,7 @@ i.e. 	$C\left( \mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A \right)\right)_{\ma
 \end{remark}
 Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology.	
 For any $n \in \N$ there is an $*$-isomorphisms $\left( A\otimes \K \right)^+ \cong  \mathbb{M}_n\left( A\otimes \K\right)^+$ which yields a homeomorphism $$\mathfrak{Gelfand}_r\left(\mathbb{M}_n\left(A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+  \right).$$ 
-So any projection in $\mathbb{M}_n\left(A \otimes \K \right)^+$  yields a projection in $\left( A\otimes \K\right)^+$ and vice versa.  On the other hand any projector in $\left(A \otimes \K \right)^+$ yields a projection in $C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right) \right)$ (cf. Lemma \ref{image_lem}).
+So any projection in $\mathbb{M}_n\left(A \otimes \K \right)^+$  yields a projection in $\left( A\otimes \K\right)^+$ and vice versa.  On the other hand any projector in $\left(A \otimes \K \right)^+$ yields a projection in $C\left(\mathfrak{Gelfand}_r\left(\left(A \otimes \K \right)^+\right) \right)$ (cf. Lemma \ref{image_lem} !!! DELETE !!!).
 According to the  Shilov Idempotent Theorem any projector in\\ $C\left(\mathfrak{Gelfand}_r\left(A\otimes \K \right)^+ \right)$ corresponds to an element of the group of cohomology \\$H^0_c\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong C\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+ \right); \Z \right)$ with compact support (cf. \ref{commutative_k_empt}). The $C^*$-algebra $\left(A\otimes \K \right)^+$ is unital so the space $\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right)$ is compact (cf. Lemma \ref{gelfand_compact_lem}) so one has $H^0_c\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong H^0\left(\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right); \Z \right)$. From the Lemma \ref{one_point_r_lem} it follows that $\mathfrak{Gelfand}_r\left(\left( A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}_r\left( A\otimes \K \right)^+$. 	 There are natural actions
 
 \bea\label{g_act_eqn}
@@ -1607,7 +1628,7 @@ In result one has
 			it turns that $g$ yields a ring automorphisms.
 		\end{proof}
 	Suppose that $A$ is a \textbf{stable} $C^*$-algebra. 
-Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} there is an unitary 
+Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} !!! DELETE !!! there is an unitary 
 $$
 u_{\left[0, 1\right]\times\mathfrak{Gelfand}_r\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
 $$
@@ -1617,7 +1638,7 @@ such that
 	u_{\left[0, 1\right]} =  \mathfrak{Image}\left( u_{\left[0, 1\right]\times\mathfrak{Gelfand}_r\left(A^+ \right)} \right) .
 \end{split}
 \eean
-Using this circumstance and  the Lemma \ref{image_lem}one concludes that there are following isomorphisms of groups 
+Using this circumstance and  the Lemma \ref{normal_map_lem} \ref{image_lem} !!! DELETE !!!one concludes that there are following isomorphisms of groups 
 \bean
 \begin{split}
 	U_1\left( A ^+ \right)\cong U_1\left(C\left(  \mathfrak{Gelfand}_r\left(A^+ \right)\right) \right),\\
@@ -1809,7 +1830,7 @@ If $p\in \mathbb{M}_m\left( C\left(\sX \right) \right)$ and $q \in\mathbb{M}_q\l
 \iota\left(p \otimes q \right) = \iota'\left(p \right) \iota''\left(q \right).
 \end{split}
 \eean
-There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset C\left( \sX\right) \otimes \K$. If $P \in C\left( \sX\right) \otimes \K$ is the projector onto $\left( A \otimes\K\right) 1_{\mathbb{M}_{mn}\left( C\left(\sX \right) \right)}$  then  the image  $\mathfrak{Image}\left( P\right)\in C_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right)\right)$ (cf. Definition \ref{image_defn}) of $P$ is a projector. From our construction it turns out that 
+There is an  inclusion $\mathbb{M}_{mn}\left( C\left(\sX \right) \right)\subset C\left( \sX\right) \otimes \K$. If $P \in C\left( \sX\right) \otimes \K$ is the projector onto $\left( A \otimes\K\right) 1_{\mathbb{M}_{mn}\left( C\left(\sX \right) \right)}$  then  the image  $\mathfrak{Image}\left( P\right)\in C_c\left( \mathfrak{Gelfand}_r\left(C_0\left(\sX \right)\otimes \K \right)\right)$ (cf. Definition \ref{image_defn} !!! DELETE !!!) of $P$ is a projector. From our construction it turns out that 
 \bean
 \mathfrak{Image}\left( \iota\left( p\otimes q\right) \right)\le \mathfrak{Image}\left( P\right),\\
 \mathfrak{Image}\left( \iota'\left(p\right) \right)\le \mathfrak{Image}\left( P\right),\\
@@ -3538,7 +3559,7 @@ From  the Appendix \ref{rieffel_sec} it turns out  that
 \be\label{iprod_u_tor_eqn}
 \iota_*\left( \left[1_{u_{S^1}}\right]\right) = \left[p_\th\right]\in K_0\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right)
 \ee
-where $p_\th$ is  the Powers - Rieffel projector. If $\mathfrak{Image}\left( p_\th\right)\in C\left( \mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right)\right) $ is the image of $p_\th$ (cf. Definition \ref{image_defn}) then $\mathfrak{Image}\left( p_\th\right)$ is a projector represents 
+where $p_\th$ is  the Powers - Rieffel projector. If $\mathfrak{Image}\left( p_\th\right)\in C\left( \mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right)\right) $ is the image of $p_\th$ (cf. Definition \ref{image_defn} !!! DELETE !!!) then $\mathfrak{Image}\left( p_\th\right)$ is a projector represents 
 \bean
 \left[\mathfrak{Image}\left( p_\th\right)\right]=\in H^0\left(\mathfrak{Gelfand}_r\left(  C\left(u \right)\rtimes_\a \Z\right);\Z \right). 
 \eean
@@ -4311,7 +4332,7 @@ $Proj(A)$ for the set of all the equivalence classes.
 (Milnor) The projective module group $K_0\left(R \right)$ is the group
 defined by generators and relations as follows. For each elements $P$ of
 $Proj(A)$ we take a generator $\left[P\right]$ and for each pair $\left[P\right]$, $\left[Q\right]$ of generators
-we dene the relation
+we define the relation
 \bean
 \left[P\right]+\left[Q\right]\bydef \left[P \oplus Q\right]
 \eean
@@ -4842,7 +4863,14 @@ closure equals $\sY$, then $\sY$ is said to be a {\it compactification} of $\sX$
 point, then $\sY$ is called the {\it one-point compactification} of X.
 %We have shown that X has a one-point compactification Y if and only if X isa locally compact Hausdorff space that is not itself compact. We speak of Y as "the"one-point compactification because Y is uniquely determined up to a homeomorphism.
 \end{definition} 
+\begin{theorem}\label{comp_to_thm}\cite{munkres:topology}
+%	Theorem 26.6.
+ Let $f : \sX \to \sY$ be a bijective continuous function. If $\sX$ is compact
+	and $\sY$ is Hausdorff, then $f$ is a homeomorphism
 
+\end{theorem}	
+	
+	
 	\subsection{Algebraic topology}
 \subsubsection{Coverings and fundamental groups}
 \paragraph*{}
@@ -5168,7 +5196,84 @@ may be interpreted as a bilinear map
 			\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
 		\end{enumerate} 
 	\end{proposition}
+\subsection{Algebraic $K$-theory}\label{algebraic_k_theory}!!!
+\paragraph{} Let $R$ be a ring with unit. To define $K_0\left(R \right)$  we consider the following equivalence
+relation. We say that two finitely projective $R$-modules $P$ and $Q$ are equivalent
+if and only if they are isomorphic, i.e. if there is an isomorphism of
+$A$-modules $P$ and $Q$ This is clearly an equivalence relation.
+We note $\overline{P}$ for the equivalence class of the projective $A$-module $P$ and
+$Proj(A)$ for the set of all the equivalence classes.
+\begin{definition}\cite{bass,isely:akt}
+	%Denition 2.1 
+	(Milnor) The projective module group $K_0\left(R \right)$ is the group
+	defined by generators and relations as follows. For each elements $P$ of
+	$Proj(A)$ we take a generator $\left[P\right]$ and for each pair $\left[P\right]$, $\left[Q\right]$ of generators
+	we dene the relation
+	\bean
+	\left[P\right]+\left[Q\right]\bydef \left[P \oplus Q\right]
+	\eean
+\end{definition}
+\begin{proposition}\cite{bass,isely:akt}
+	%Proposition 2.2 
+	Every element of $K_0\left(R\right)$  can be expressed by the formal
+	difference $\left[P\right]-\left[Q\right]$ of two generators.
+	
+\end{proposition}
+\begin{definition}\cite{bass,isely:akt}
+	%Denition 3.4
+	Let $n \in \N$: A matrix in $GL_n\left(R \right) $ is called {\it elementary} if
+	it coincides with the identity matrix except for a single off-diagonal entry.
+	We note $E_n\left(A \right)$  the subgroup of $GL_n\left(A \right) $ generated by all the elementary
+	matrices.
+\end{definition}
+\begin{remark}\cite{bass,isely:akt}
+	Since $i_n : E_n\left( A\right) \subset E_{n+1}\left(R\right)$ we can embed $E_{n}\left( R\right)$ in $E_{n+1}\left( R\right)$ for all $n \in \N$.
+	
+\end{remark}
 
+\begin{definition}\cite{bass,isely:akt}
+	%Denition 3.5 
+	We define $E(R) \bydef \bigcup_{n \in \N} E_n\left(R\right)$ 
+	
+\end{definition}
+\begin{definition}\cite{bass,isely:akt}
+	%Denition 3.8 
+	(Whitehead) We define $K_1\left(A \right)$  by the quotient
+	\bean
+	K_1\left( R\right)\bydef GL\left(R \right)/E\left(R \right)
+	\eean
+\end{definition}
+\begin{remark}\label{ho_top_rem}
+	If $A$ is a $C^*$-algebra  then $K_0\left(A \right)\cong \pi_1\left(GL^{\mathrm{top}}\left(A \right)  \right)$. Using this fact one can prove that the functor $A \mapsto K_0\left(A \otimes \K \right)$ is homotopy invariant.  
+\end{remark}
+\begin{empt}\label{excision_empt}
+	Here I follow to \cite{suslin:exc}. The algebraic  $K$-theory groups $K_j\left(R \right)$ of a ring with unit $R$ are defined as a homotopy groups of $BGL\left(R \right)^+$, the Quillen plus construction applied to $BGL\left(R \right)$:
+	\be\label{kr_pi_eqn}
+	\begin{split}
+		K_j\left(R \right) \cong \pi_j\left( BGL\left(R \right)^+\right) \quad j \ge 1
+	\end{split}
+	\ee
+	If $A\subset R$ is a two-sided ideal, let $F\left(R, A \right)$ denote the homotopy of the map $ BGL\left(R \right)^+\to \overline{BGL}\left(R/A \right)^+$, where $ \overline {GL}\left(R \right)\bydef \im \left(GL\left(R \right)\to GL\left(R /A\right) \right)$. The relative $K$-groups $K_j\left(R, A \right), \quad j \ge 1$, are defined as homotopy groups of $F\left(R, A \right)$ so that one gets, with respect to a pair $\left(R. A \right)$, a functorial long exact sequence  
+	\be\label{kr_spi_eqn}
+	\begin{split}
+		K_j\left(R \right)\to 	K_j\left(R, A \right)\to 	K_j\left(R/A \right)\to 	K_{j-1}\left(R, A \right) \to ...\\
+		\to K_1\left(R \right)\to 	K_1\left(R, A \right)\to 	K_1\left(R/A \right).
+	\end{split}
+	\ee
+	Algebraic $K$-theory is extended to the category of rings by setting
+	\be\label{kr_npi_eqn}
+	\begin{split}
+		K_j\left( A\right) = K_j\left(\widetilde A, A \right) \quad j \ge 1,
+	\end{split}
+	\ee
+	where $	 \widetilde A= \Z \rtimes A$ denotes the ring obtained from $A$ by adjoining the unit.
+	
+	A ring $A$ is said to satisfy {\it excision}  in algebraic $K$-theory if for every ring with unit $R$, which contains $A$ as a two-sided ideal, the canonical map $K_*\left( A\right) \to K_*\left(R, A\right)$ is an isomorphism.
+\end{empt}
+
+
+
+\
 	\section{Sheaves and cohomology}
 	\subsection{Basic definitions}
 	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -5825,10 +5930,22 @@ to show that
 \begin{definition}\label{normal_defn}\cite{murphy}
 If $A$ is a $C^*$algebra then $a\in A$ is {\it normal} if $a^*a = aa^*$. In this case the $*$-algebra it generates is commutative and is in fact the $\C$-linear span of all $a^ma^{*n}$, where $m, n \in \N$ and $m + n > 0$.
 \end{definition}
+\begin{definition}\label{sp_mea}\cite{murphy}
+%The normal operators form one of the best understood and most tractable of classes of operators. The principal reason for this is the spectraltheorem, a powerful structure theorem that answers many (not all) ques-tions about these operators. In this section we actually prove a more generalresult than the spectral theorem for normal operators (Theorem 2.5.6), andwe get this extra useful generality without any increase in difficulty of theproofs. Indeed, the more general situation illustrates nicely the connectionbetween spectral measures and representations of abelian C*-algebras
+Let $\Om$ be a compact Hausdorff space and $\H$ a Hilbert space. A {\it spectral
+measure} $E$ relative to $\left(\Om, \sH\right)$ is a map from the $\sigma$-algebra of all Borel sets
+of $\Om$ to the set of projections in $B\left( \sH\right)$  such that
+\begin{enumerate}
+	\item [(a)] $E\left(\emptyset \right) = 0$;
+\item [(b)] $E(S_1 \cap  S_2) = E(S_1 )E(5_2 )$ for all Borel sets $S_1, S_2$ of $\Om$;
+	\item [(c)] for all $x, y \in \H$, the function $E_{x,y}: S \mapsto \left(E\left( S\right) x, y  \right)$, is a regular
+	Borel complex measure on $\Om$.
+\end{enumerate}
+\end{definition}
 \begin{theorem}\label{spectral_thm}\cite{murphy}
 %2.5.5. Theorem. 
 Let  $\Om$ be a compact Hausdorff  space and $\sH$ a Hilbert
-space, and suppose that $\varphi: \Om \to B\left(\sH \right)$  is a unital $*$-homomorphisms.
+space, and suppose that $\varphi: C\left( \Om\right)  \to B\left(\sH \right)$  is a unital $*$-homomorphisms.
 Then there is a unique spectral measure $E$ relative to $\left(\Om, \sH \right)$  such that
 \bean
 \begin{split}
@@ -5838,6 +5955,12 @@ Then there is a unique spectral measure $E$ relative to $\left(\Om, \sH \right)$
 Moreover, if $u \in  B\left(\sH \right)$ , then $u$ commutes with $\varphi \left(f \right)$  for all $f \in C\left(\Om \right)$  if and
 only if $u$ commutes with $E(S)$ for all Borel sets $S$ of $\Om$.
 \end{theorem}
+\begin{proposition}\label{sp_comm_prop}\cite{pedersen:ca_aut}
+%1.1.8. PROPOSITION. 
+Let $x$ be a normal element of a $C^*$-algebra $A$, and let $B$ 
+denote the smallest $C^*$-subalgebra of $A$ containing $x$. Then $B\cong C_0\left(  \mathfrak{Sp}_A\left(x \right)\right) $ 
+and $\mathfrak{Sp}_A\left(x \right)\cong \mathfrak{Sp}_B\left(x \right)$. 
+\end{proposition}
 
 	\begin{defn}\label{approximate_unit_defn} \cite{pedersen:ca_aut}
 	Let $A$ be a $C^*$-algebra. A net $\left\{u_\la \right\}_{\la \in \La}$ in $A_+$ with $\left\|u_\la \right\| \le 1$ for all $\la \in \La$ is called an \textit{approximate unit} for $A$ if $\la < \mu$ implies $u_\la < u_\mu$ and if $\lim \left\|x- xu_\la \right\| = 0$ for each $x$ in $A$. Then, of course, $\lim \left\|x- u_\la x \right\| = 0$ as well.
@@ -6356,11 +6479,12 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 
 \begin{proposition}\label{open_close_ideal_prop}\cite{akerman_stone}
 	%PROPOSITION 11.4. 
-	The minimal closed projections in  $M$ are the
+	The minimal closed projections in  $A^{**}$ are the
 	minimal projections.
 \end{proposition}
-\begin{definition}\label{closure_defn}\cite{akerman_stone}!!!!
-DEFINITION 11.1 I. If $p \in M$ is a projection, we denote by $\overline{p}$ the
+\begin{definition}\label{closure_defn}\cite{akerman_stone}
+%DEFINITION 11.1 I. 
+If $p \in A^{**}$ is a projection, we denote by $\overline{p}$ the
 {\it closure} of $p$ which is the smallest closed projection majorizing $p$.
 \end{definition}
 
@@ -6370,25 +6494,27 @@ DEFINITION 11.1 I. If $p \in M$ is a projection, we denote by $\overline{p}$ the
 and there exists $b \in A_+$ with $bp = p$.
 \end{definition}
 \begin{theorem}\cite{akerman_gelfand}
-THEOREM II.5. !!! If p is closed and there exists be A with $b \ge p$,
-then p is q-compact.\end{theorem}
-\begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}!!!
-
-DEFINITION III.2. A self-adjoint operator be M is continuous
-if each spectral projection of b corresponding to an open subset of
-the spectrum of b is also g-open.
+%THEOREM II.5. 
+If $p$ is closed and there exists be A with $b \ge p$,
+then $p$ is compact.\end{theorem}
+\begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}
+%DEFINITION III.2. 
+A self-adjoint operator be $A^{**}$ is {\it continuous}
+if each spectral projection of $b$ corresponding to an open subset of
+the spectrum of  $p$ is also open.
 Now we can state our best Gelfand representation theorem.
 \end{definition}
 
-\begin{theorem}\label{coninuous_p_thm}\cite{akerman_gelfand}!!!
-THEOREM III.3. The self-adjoint elements of A are exactly those
-q-continuous elements b of M such that the spectral projections of b
-corresponding to closed subsets of the spectrum of b which don't contain
-0 are q-compact (i.e., b "vanishes at ¡o ").
-	content...
+\begin{theorem}\label{coninuous_p_thm}\cite{akerman_gelfand}
+%THEOREM III.3. 
+The self-adjoint elements of $A$ are exactly those
+continuous elements $b$ of $A^{**}$ such that the spectral projections of $b$
+corresponding to closed subsets of the spectrum of $b$ which don't contain
+$0$ are compact (i.e., b "vanishes at $\infty$").
 \end{theorem}
 \begin{proposition}\label{close_int_akk}\cite{akerman_stone}!!!
-PROPOSITION 11.5. If {pa} is a set of closed projections, then
+%PROPOSITION 11.5.
+ If $\left\{p_\la \right\}$ is a set of closed projections, then
 p = A, p, is closed.
 \end{proposition}
 \begin{definition}\label{fin_p_defn}\cite{akerman_stone}
@@ -7368,7 +7494,7 @@ Then $K_i\left(A \rtimes_\a \Z \right)\cong K_{1-i}\left( M_\a\right)$  for $i =
 
 
 	
-	\section{Karoubi conjecture}
+	
 		\subsection{Karoubi conjecture}
 	
 	\begin{theorem}\label{rosen_ak1_thm}\cite{rosen:algebraicK}
