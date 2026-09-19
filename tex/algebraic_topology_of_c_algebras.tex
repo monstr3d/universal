@@ -722,7 +722,7 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 		is commutative.
 	\end{itemize}
 \end{definition}
-\begin{lemma}\label{haudorff_lem}
+\begin{lemma}\label{hausdorff_lem}
 	One has:
 	\begin{enumerate}
 		\item [(i)] for any locally compact topological space $\sX$ there is the natural,   initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category} denoted by by $\mathfrak{Hausdorff}\left( \sX\right)$. 
@@ -751,7 +751,7 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
 \end{definition}
 \begin{definition}\label{hausdorff_funct_defn}
-	The Lemma \ref{haudorff_lem} yields the {\it Hausdorff functor}
+	The Lemma \ref{hausdorff_lem} yields the {\it Hausdorff functor}
 	\be\label{hausdorff_funct_eqn}
 	\mathfrak{Top} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
 	from the category $\mathfrak{Top}$ of topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
@@ -1009,11 +1009,11 @@ are incompatible with  $\overline{q}'\wedge \overline{q}''=0$. This contradictio
 	\eean 
 where  $\xi_I \in \mathfrak{Gelfand}\left(A\right)$ the given by the Lemma \ref{one_point_lem} point.
 \end{proof}
-\begin{corollary}
-If  $A$ is an nonunital $C^*$ algebra and  $A^+\bydef A \oplus \C$ is the  minimal unitization (cf. Definition \ref{multiplier_min_defn}) then $\mathfrak{Gelfand}\left(A^+\right)= \mathfrak{Gelfand}\left(A\right)\cup \left\{\xi_A\right\}$ the given by the Lemma \ref{one_point_lem} point.
+\begin{corollary}\label{one_point_cor}
+If  $A$ is an nonunital $C^*$ algebra and  $A^+\bydef A \oplus \C$ is the  minimal unitization (cf. Definition \ref{multiplier_min_defn}) then $\mathfrak{Gelfand}\left(A^+\right)= \mathfrak{Gelfand}\left(A\right)^+=\mathfrak{Gelfand}\left(A\right)\cup \left\{\xi_A\right\}$ where $\xi_A$ is  the given by the Lemma \ref{one_point_lem} point.
 \end{corollary}
 \begin{proof}
-Since the $C*$-algebra is unital and $A \subset A^+$ is a maximal left ideal this corollary is a consequence of the Lemma \ref{one_point_lem}
+Since the $C^*$-algebra is unital and $A \subset A^+$ is a maximal left ideal this corollary is a consequence of the Lemma \ref{one_point_lem}
 \end{proof}
 
 
@@ -1083,7 +1083,7 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 				\mathfrak{PreGalfanf}\left(B\right) \xrightarrow{\mathfrak{PreGalfanf}\left(\varphi \right)}\mathfrak{PreGalfanf} \left( A\right).
 		\end{split}
 		\eean
-		Now the continuity of the map \eqref{gelfand_map_eqn} follows from the Lemma \ref{haudorff_lem}.\\
+		Now the continuity of the map \eqref{gelfand_map_eqn} follows from the Lemma \ref{hausdorff_lem}.\\
 		(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 		
 	\end{proof}
@@ -1161,10 +1161,10 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 		from the set of normal elements of $A$ to $C\left( \mathfrak{Gelfand}\left(A  \right)\right)$. 
 		\end{empt}
 		
-	\begin{lemma}\label{normal_map_lem} One has:
+	\begin{lemma}\label{normal_map_lem} if $A$ is an unital $C^*$-algebra then one has:
 		\begin{enumerate}
-			\item [(i)] 	if $A$ is an unital $C^*$-algebra then the given by  \eqref{global_map_eqn} map $\mathfrak{Image}$ is surjective,
-			\item[(ii)] if $b \in  C\left( \mathfrak{Gelfand}\left(A  \right)\right)$ is self-adjoint then there is the unique  self-adjoint $a \in A$ such that $b = \mathfrak{Image}\left( a\right)$.
+			\item [(i)]  the given by  \eqref{global_map_eqn} map $\mathfrak{Image}$ is surjective,
+			\item[(ii)] there is a one-to-one correspondence between  self-adjoint elements $a \in A$ and real-valued functions $b \in  C\left( \mathfrak{Gelfand}\left(A  \right), \R\right)$.
 		\end{enumerate}
  	\end{lemma}
 	\begin{proof}(i)	If $b \in C\left( \mathfrak{Gelfand}\left(A  \right)\right)$ then $b = b' + i b''$ where both $b'$ and $b''$ a self-adjoint. There are real $c', c'' \in \R_+$ such that both $b' + c'$ and $b'' + c''$ are positive operators. From  $b' + c'+ b'' + c''\ge b' + c'$ and $b' + c'+ b'' + c''\ge b'' + c''$. It follows that there are continuous functions $f', f'' : \R_+ \to \left[0, 1\right]$ such that 
@@ -1172,10 +1172,15 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 b' + c'=	f' \left(b' + c'+ b'' + c'' \right),\\
 b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
 	\eean 
-	If $f \bydef f' + i f'' : \R_+ \to \C $ then $b + c' + i c'' = f\left(b' + c'+ b'' + c'' \right)$. The Theorem \ref{spectral_thm}  yields an element $a^{**}\in A^{**}$ which corresponds to $b' + c'+ b'' + c''$. From the Theorem \ref{coninuous_p_thm} it follows that $a^{**}\in A$. Clearly $a \bydef f\left(a^{**} \right) - c_1 - ic_2\in A$ is normal and $\mathfrak{Image}\left(a \right)= b$.\\
-	(b) If both  $a', a'' \in  A$ are such that $a' \neq a''$ and $\mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a'' \right) = b$ then $a' - a'' \neq 0$ and $\mathfrak{Image}\left(a'' \right) - \mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a' = a'' \right)\neq 0$. It contradicts with the hypothesis $\mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a'' \right) = b$.
+	If $f \bydef f' + i f'' : \R_+ \to \C $ then $b + c' + i c'' = f\left(b' + c'+ b'' + c'' \right)$. The Theorem \ref{spectral_thm}  yields an element $a^{**}\in A^{**}$ which corresponds to $b' + c'+ b'' + c''$. From the Definition \ref{coninuous_p_defn} and the Theorem \ref{coninuous_p_thm} it follows that $a^{**}\in A$. Clearly $a \bydef f\left(a^{**} \right) - c_1 - ic_2\in A$ is normal and $\mathfrak{Image}\left(a \right)= b$.\\
+	(ii) If $a \in A$ is a self-adjoint element then form the the Definition \ref{coninuous_p_defn} and the Theorem \ref{coninuous_p_thm} it follows that $a$ corresponds to a continuous function $\mathfrak{PreGelfand}\left(A  \right)\to \R$. However there is a one-to-one correspondence between sets of continuous functions  $\mathfrak{PreGelfand}\left(A  \right)\to \R$ and $\mathfrak{Gelfand}\left(A  \right)\to \R$ (cf. proof of the Lemma \ref{hausdorff_lem}). So $a$ yields a  continuous function $b : \mathfrak{Gelfand}\left(A  \right)\to \R$. 	If both self-adjoint elements   $a', a'' \in  A$ are such that $a' \neq a''$ and $\mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a'' \right) = b$ then $a' - a'' \neq 0$ and $\mathfrak{Image}\left(a'' \right) - \mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a' - a'' \right)\neq 0$. It contradicts with the hypothesis $\mathfrak{Image}\left(a' \right)= \mathfrak{Image}\left(a'' \right) = b$. 
 	\end{proof}
-
+	\begin{remark}
+	One has
+	\begin{equation}\label{unity_image_eqn}
+	\mathfrak{Image}\left(1_A \right)= 1_{C\left( \mathfrak{Gelfand}\left(A  \right)\right)  } 
+	\end{equation}
+	\end{remark}
 \begin{definition}\label{covering_defn}
 		Let   $A$ and  $\widetilde{A}$ be  $C^*$-algebras.  An injective good     $*$-homomorphism $\lift: M(A) \hookto M\left( \widetilde{A}\right)$ (cf. Definition 
 		\ref{good_hom_defn}) is a \textit{noncommutative covering} if
@@ -1237,8 +1242,15 @@ b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
 		\end{pmatrix}\in \K\left( L^2\left( \{1,...,n\} \right)\right) = \mathbb{M}_n\left(A\right). 
 	\end{split}
 	\ee
-	
-	
+	The diagram \eqref{ba_eqn} yields the exact sequence
+		\bean
+	\{0\}\hookto K_0\left( A\right) \xrightarrow{\phi} K_0\left(A^+\right)\xrightarrow{\phi}\Z \onto \{0\}
+	\eean
+	such that
+	\be\label{unity_k_eqn}
+	\forall x \in K_0\left(A \right)\quad \forall z \in \Z \quad  \psi\left(z \left[1_A\right] + \phi\left(x \right)  \right) = z.
+	\ee
+		
 	\begin{definition}\label{elementary_defn}
 		If $A$ is an unital  $C^*$-algebra then a given by \eqref{inf_m_eqn} element $a\in 	 \mathbb{M}_n\left(A \right)$ is  $j,k$-\textit{elementary} if 
 		\be\label{elementary_eqn}
@@ -1413,15 +1425,209 @@ The construction \ref{k_0_empt} yields the natural isomorphisms
 \eean 
 where $K^{\text{alg}}$ means the algebraic $K$ theory (cf. Appendix \ref{algebraic_k_theory}). This lemma follows from the Theorem \ref{rosen_ak2_thm}.
 \end{proof}
-\begin{remark}\label{k_0_rem}
-	Using the Theorem \ref{k_0_thm} one can prove that
-		\bean
-	K_0\left( A\right) \cong K_0\left( C_0\left( \mathfrak{Gelfand}\left(A \right)\right) \right). 
+		\begin{empt}
+	Let $A$ be  an unital  $C^*$-algebra. From \eqref{stab_k1_eqn} it follows that 
+	\bean
+	K_1\left(A \right) \cong U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0.
 	\eean
-	For any $C^*$-algebra $A$.	
-	\end{remark}
+	If $u \in U_1\left( \left( A \otimes \K\right)^+\right) $  there is the given by \eqref{diag_eqn} continuous map
+	\bean
+	\begin{split}
+	\Phi: [0,1] \to \mathbb{M}_2 \left(\left( A \otimes \K\right)^+\right) \subset \mathbb{M}_\infty \left(\left( A \otimes \K\right)^+\right),\\
+t \mapsto	\begin{pmatrix}
+		u & 0\\
+		0 & 1_{\left( A \otimes \K\right)^+}
+	\end{pmatrix} 
+	\begin{pmatrix}
+		\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+		\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+	\end{pmatrix}
+	\begin{pmatrix}
+		u^* & 0\\
+		0 & 1_{\left( A \otimes \K\right)^+}
+	\end{pmatrix}	\begin{pmatrix}
+		\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+		\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+	\end{pmatrix}
+	\end{split}
+	\eean 
+	such that 
+	\bean
+	\Phi\left(0 \right) = \begin{pmatrix}
+		1_{\left( A \otimes \K\right)^+} & 0\\
+		0 & 1_{\left( A \otimes \K\right)^+}
+	\end{pmatrix}\\
+	\Phi\left(1 \right) = \begin{pmatrix}
+		u & 0\\
+		0 & u^*
+	\end{pmatrix}
+	\eean
+	Similarly to the proof of the Theorem \ref{suspension_thm}
+	set
+	\bean
+	e_t \bydef \Phi\left( t\right) \begin{pmatrix}
+		1_{\left( A \otimes \K\right)^+} & 0\\
+		0 &0
+	\end{pmatrix}\Phi^{-1}\left(t \right) 
+	\eean 
+	Then $e \bydef (e_t)$ is an idempotent in $\mathbb{M}_{2}\left(\left( S\left( A \otimes \K\right)^+\right)^+  \right)$, so one has a map
+	\be\label{u_to_k_0eqn}
+	U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0 \to K_0\left(\left( S\left( A \otimes \K\right)^+\right)^+ \right) 
+	\ee 
+	The diagram  \eqref{ba_eqn} yields the following exact sequence
+	\be\label{u_to_ex_0eqn}
+	\{0\}\hookto K_0\left( S\left( A \otimes \K\right)^+\right) \hookto K_0\left( \left( S\left( A \otimes \K\right)^+\right)^+\right)\xrightarrow{\phi}\Z \onto \{0\}
+	\ee
+		According to the Theorem \ref{suspension_thm}  the equation \eqref{u_to_k_0eqn} yields the isomorphism 
+	\be\label{u_to+p_k_0eqn}
+	U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0 \cong \ker \phi\cong K_0\left( S\left( A \otimes \K\right)^+\right)
+	\ee 
+	of Abelian groups.
+	Let  $\mathfrak{Image}\left( u\right)  \in U_1\left(C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)  $ be a given by the Lemma \ref{normal_map_lem}/  there is the given by \eqref{diag_eqn} continuous map
+	\bean
+	\Psi: [0,1] \to \mathbb{M}_2\left( C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)  \subset\mathbb{M}_\infty\left( C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right),\\
+	t \mapsto	\begin{pmatrix}
+		\mathfrak{Image}\left( u\right) & 0\\
+		0 & 1
+	\end{pmatrix} 
+	\begin{pmatrix}
+		\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+		\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+	\end{pmatrix}
+	\begin{pmatrix}
+		\mathfrak{Image}\left( u^*\right) & 0\\
+		0 & 1
+	\end{pmatrix}	\begin{pmatrix}
+		\cos \frac{\pi}{2} t &  -\sin \frac{\pi}{2} t\\
+		\sin \frac{\pi}{2} t &  \cos \frac{\pi}{2} t.
+	\end{pmatrix}
+	\eean 
+	such that 
+	\bean
+	\Psi\left(0 \right) = \begin{pmatrix}
+		1 & 0\\
+		0 & 1
+	\end{pmatrix}\\
+	\Psi\left(1 \right) = \begin{pmatrix}
+		\mathfrak{Image}\left( u\right) & 0\\
+		0 & \mathfrak{Image}\left( u^*\right)
+	\end{pmatrix}
+	\eean
+	Similarly to the proof of the Theorem \ref{suspension_thm}
+	set
+	\bean
+	f_t \bydef \Psi\left( t\right) \begin{pmatrix}
+		1_{\Psi} & 0\\
+		0 &0
+	\end{pmatrix}\Psi \left( t\right)^{-1} 
+	\eean 
+	Then $f \bydef (f_t)$ is an idempotent in $\mathbb{M}_{2}\left(\left( S\left(C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+\right)^+  \right)$.  
+	Similarly to the equations \eqref{u_to_k_0eqn}, \eqref{u_to_ex_0eqn} and \eqref{u_to+p_k_0eqn} one has following homomorphisms
+		\be\label{gu_to_k_0eqn}
+		\begin{split}
+	U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)  \right) / U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)  \right)_0 \to\\\to K_0\left( S\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+ \right) ,\\
+	\{0\}\hookto K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right) \hookto \\ \hookto K_0\left( S\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+ \right)\xrightarrow{\psi}\Z \onto \{0\},\\
+	U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)/ U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)_0  \cong \\\cong  \ker \psi\cong  K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right) 
+\end{split}
+	\ee 
+	One has $S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)= C_0\left( S\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)$ 
+From the Lemma \ref{product_lem} it follows that $S\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\cong \mathfrak{Gelfand}\left( S\left(  A \otimes \K\right)^+\right) $. From the Corollary \ref{one_point_cor} it turns out that 
+$$
+ C_0\left(\mathfrak{Gelfand}\left( S\left(  A \otimes \K\right)^+\right)\right)^+ \cong C\left( \mathfrak{Gelfand}\left( S\left(  A \otimes \K\right)^+\right)^+\right) 
+ $$ Taking into account the Theorem \ref{k_0_thm} one has
+ $$
+ K_0\left(C\left( \mathfrak{Gelfand}\left( S\left(  A \otimes \K\right)^+\right)^+\right) \right) \cong  K_0\left( S\left( \left(  A \otimes \K\right)^+\right)^+ \right)
+ $$
+From the above calculation one can obtain the following isomorphism 
+$$
+\varphi: K_0\left( S\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+ \right)\cong K_0\left( S\left( \left(  A \otimes \K\right)^+\right)^+ \right).
+$$
+The equations \eqref{u_to_ex_0eqn} and \eqref{gu_to_k_0eqn} contain following exact sequences 
+\bean
+	\{0\}\hookto K_0\left( S\left( A \otimes \K\right)^+\right) \hookto K_0\left( \left( S\left( A \otimes \K\right)^+\right)^+\right)\xrightarrow{\phi}\Z \onto \{0\},\\
+		\{0\}\hookto K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right) \hookto \\ \hookto K_0\left( S\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+ \right)\xrightarrow{\psi}\Z \onto \{0\}
+\eean
+From the equations \ref{unity_image_eqn} and \eqref{unity_k_eqn} one can deduce that the diagram
+\bean
+\begin{tikzcd}
+ K_0\left( S\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)^+ \right) \arrow[r, "\psi"] \arrow[d, "\varphi"]& \Z \arrow[d, "\cong"]\\
+K_0\left( \left( S\left( A \otimes \K\right)^+\right)^+\right) \arrow[r, "\phi"]& \Z
+\end{tikzcd}
+\eean 
+ is commutative. 
+The above exact sequences, the diagram and the five homomorphism lemma yield the natural isomorphism 
+\be\label{k_0_iso_eqn}
+ K_0\left( S\left(\left(  A \otimes \K\right)^+\right) \right)\cong K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right). 
+\ee
+From the equations \eqref{u_to+p_k_0eqn}, \eqref{gu_to_k_0eqn} it follows that there is the natural isomorphism
+		\be\label{uu_iso_0eqn}
+\begin{split}
+	U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0	\cong\\\cong 	U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)/ U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)_0
+\end{split}
+\ee 
 
-
+\end{empt}
+\begin{lemma}\label{k_1_coh_lem}
+For any unital $C^*$-algebra $A$ there is the natural isomorphism
+\be\label{k_1_coh_eqn}
+K_1\left(A \right) \cong H^1_c\left( \mathfrak{Gelfand}\left(  A \otimes \K\right); \Z \right). 
+\ee
+\end{lemma}
+\begin{proof}
+The equations \eqref{uu_iso_0eqn} and \eqref{stab_k1_eqn} yield the natural isomorphism 
+$$
+K_1\left(A \right) \cong 	U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)/ U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)_0.
+$$
+Now isomorphism \eqref{k_1_coh_eqn} is a consequence of the equations \eqref{local_eqn} and \eqref{royden_eqn}.
+\end{proof}
+\begin{theorem}\label{k_gelfand_thm}
+	For any $C^*$-algebra $A$ one has
+	\be\label{k_gelfand_eqn}
+	\forall j = 0, 1 \quad K_j\left(A \right) \cong K_j\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^j\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right).
+	\ee
+\end{theorem}
+\begin{proof}
+	From the equation \eqref{k_0_iso_eqn} it follows that 
+	\bean
+	K_0\left( S\left(\left(  A \otimes \K\right)^+\right) \right)\cong K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right) . 
+	\eean 
+	and taking into account !!!
+	\bean
+		K_1\left( \left(  A \otimes \K\right)^+ \right)\cong K_1\left(  C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right)\cong  K^1\left(   \mathfrak{Gelfand}\left(  A \otimes \K\right)^+ \right). 
+	\eean
+	From \eqref{k_1_coh_eqn} it follows that 
+	\bean
+	K_1\left( \left(  A \otimes \K\right)^+ \right)\cong H_c^1\left( \mathfrak{Gelfand}\left(  \left( A \otimes \K\right)^+\right) \right)\cong H^1\left( \mathfrak{Gelfand}\left(  \left( A \otimes \K\right)^+\right) \right) 
+	\eean 
+	From $\mathfrak{Gelfand}\left(  \left( A \otimes \K\right)^+\right) = \mathfrak{Gelfand}\left(  A \otimes \K\right)\cup \{x_0\}$ one can deduce
+	\bean
+	K^1\left(   \mathfrak{Gelfand}\left(  A \otimes \K\right)^+ \right)\cong 	K^1\left(   \mathfrak{Gelfand}\left(  A \otimes \K\right)\right),\\
+H^1\left( \mathfrak{Gelfand}\left(  \left( A \otimes \K\right)^+\right) \right) \cong H_c^1\left( \mathfrak{Gelfand}\left(   A \otimes \K\right) \right) 	
+	\eean 
+	in result one has 
+	$$
+K_1\left(A \otimes \K\right) \cong K_1\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^1\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)
+	$$
+	From $K_1\left(A \otimes \K\right) \cong K_1\left(A \right)$ it follows that
+	\be\label{k_1t_eqn}
+	K_1\left(A \right) \cong K_1\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^1\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)
+	\ee
+	From $K_1\left( SA \right)  \cong K_0\left( A\right)$ and taking into account \eqref{k_1t_eqn} one has
+	\bean
+	K_0\left(A \right)\cong K^1\left(S \mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  
+	\eean 
+	However
+	\bean
+	 K^1\left(S \mathfrak{Gelfand}\left(  A \otimes \K\right) \right)\cong  K^0\left( \mathfrak{Gelfand}\left(  A \otimes \K\right) \right).
+	\eean 
+	so one has
+	\be\label{k_0t_eqn}
+K_0\left(A \right) \cong K_0\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)
+\ee
+The equation \eqref{k_gelfand_eqn}	is the combination of the \eqref{k_1t_eqn}, \eqref{k_0t_eqn} ones.
+	
+\end{proof}
+\paragraph{title} !!!! DELERE !!!
 According to the  Shilov Idempotent Theorem any projector in\\ $C\left(\mathfrak{Gelfand}\left(A\otimes \K \right)^+ \right)$ corresponds to an element of the group of cohomology \bean H^0_c\left(\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong C\left(\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+ \right); \Z \right)\eean with compact support (cf. \ref{commutative_k_empt}). The $C^*$-algebra $\left(A\otimes \K \right)^+$ is unital so the space $\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right)$ is compact (cf. Lemma \ref{gelfand_compact_lem}) so one has $H^0_c\left(\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right); \Z \right)\cong H^0\left(\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right); \Z \right)$.
 
  From the Lemma \ref{one_point_lem} it follows that $\mathfrak{Gelfand}\left(\left( A\otimes \K \right)^+\right)\cong \mathfrak{Gelfand}\left( A\otimes \K \right)^+$. 	 There are natural actions
@@ -1503,7 +1709,8 @@ In result one has
 			%	\end{empt}
 		%	
 		%	\paragraph{title}
-		\begin{lemma}\label{ring_auto_lem}
+		\paragraph{title} !!!! DELERE !!!
+		\begin{lemma}\label{ring_auto_lem}  !!! DELETE !!!
 			Any $g \in U\left(\left(A\otimes \K \right) ^+ \right)$ yields a ring automorphism of $H^0_c\left(\mathfrak{Gelfand}\left(A\otimes \K \right)\right) $ with respect to the cup-product (cf. Definition \ref{cup_sheaf_thm}).
 		\end{lemma}	
 		
@@ -1527,9 +1734,9 @@ In result one has
 		\begin{empt}
 	If $A$ is a $C^*$-algebra then
 \bean
-K_1\left(A \right) \cong U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0.
+K_1\left(A \right) \cong U_1\left( \left( A \otimes \K\right)^+ \right) / {hausdorff_lem}\left( \left( A \otimes \K\right)^+ \right)_0.
 \eean
- If $u \in U_1\left( \left( A \otimes \K\right)^+\right) $  there is the given by \eqref{diag_eqn} continuous map
+ If $u \in {hausdorff_lem}\left( \left( A \otimes \K\right)^+\right) $  there is the given by \eqref{diag_eqn} continuous map
  \bean
  \Phi_{\left( A \otimes \K\right)^+}: [0,1] \to \mathbb{M}_2 \left(\left( A \otimes \K\right)^+\right) \subset \mathbb{M}_\infty \left(\left( A \otimes \K\right)^+\right)
  \eean 
@@ -1562,7 +1769,7 @@ According to the Theorem \ref{suspension_thm} $\th_A([u])$ is the image of $\lef
  	\end{enumerate}
  \end{lemma}
  
-Let  $\mathfrak{Image}\left( u\right)  \in U_1\left(C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)  $ be a given by the Lemma \ref{normal_map_lem},  there is the given by \eqref{diag_eqn} continuous map
+Let  $\mathfrak{Image}\left( u\right)  \in  C\left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)  $ be a given by the Lemma \ref{normal_map_lem},  there is the given by \eqref{diag_eqn} continuous map
 \bean
 \Phi_{C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)}: [0,1] \to \mathbb{M}_2\left( C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)  \subset\mathbb{M}_\infty\left( C \left(\mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right) 
 \eean 
@@ -1592,9 +1799,9 @@ According to the Theorem \ref{suspension_thm} $\th_A([u])$ is the image of $\lef
 
 		\end{empt}
 	Suppose that $A$ is a \textbf{stable} $C^*$-algebra. 
-Any homotopy $\left[0, 1\right]\to U_1\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes U_1\left( A ^+ \right)$. So from the Lemma \ref{image_lem} !!! DELETE !!! there is an unitary 
+Any homotopy $\left[0, 1\right]\to {hausdorff_lem}\left( A^+ \right)$ corresponds to the normal operator  $u_{\left[0, 1\right]}\in C\left(  \left[0, 1\right]\right) \otimes {hausdorff_lem}\left( A ^+ \right)$. So from the Lemma \ref{image_lem} !!! DELETE !!! there is an unitary 
 $$
-u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in U_1\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
+u_{\left[0, 1\right]\times\mathfrak{Gelfand}\left(A \right)}\in {hausdorff_lem}\left(C\left(  \left[0, 1\right]\right)\otimes  A ^+\right)
 $$
 such that 
 \bean
@@ -6969,19 +7176,24 @@ K_1\left(A \right) \bydef GL_\infty(A)/GL_\infty(A)_0 = \lim_{n \to \infty}  GL_
 	$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
 	In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
 \end{cor}
-\begin{remark}\label{k1_u_rem}\cite{blackadar:ko}
-	If $A$ is a $C^*$-algebra then
-	\be\label{stab_k1_eqn}
-	K_1\left(A \right) \cong U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0.
-	\ee	
-\end{remark}
 \begin{proof}
-		%Proof.
+	%Proof.
 	As $A \otimes \K$ is the $C^*$-inductive limit of  $\mathbb{M}_n\left( A\right)$ , $K_1\left(A \otimes \K \right) = \varinjlim K_1\left( \mathbb{M}_n\left( A\right)\right) $. 
 	%	n(A)) = Ki{A). %according to 7.1.7 and 7.1.8. 
 		
 		Consequently, if $A\otimes \K \cong B\otimes \K$,  $\quad K_1\left( A\right) = K_1\left(A \otimes \K \right) =  K_1\left(B \otimes \K \right)= K_1\left(B \right)$. 
 	\end{proof}
+\begin{remark}\label{k1_u_rem}\cite{blackadar:ko}
+	If $A$ is a $C^*$-algebra then
+	\be\label{stab_k1_eqn}
+	K_1\left(A \right) \cong U_1\left( \left( A \otimes \K\right)^+ \right) / U_1\left( \left( A \otimes \K\right)^+ \right)_0.
+	\ee
+	If $A$ is a local $C^*$-algebra, then 
+		\be\label{local_eqn}
+\forall n \in \N \quad GL_n\left( A \right) / GL_n\left( A \right)_0\cong U_n\left( A \right) / U_n\left( A \right)_0
+	\ee
+	
+\end{remark}
 \begin{definition}\label{suspension_defn}\cite{blackadar:ko}
 	%Definition 8.2.1.
 	The \textit{suspension} of $A$, denoted $SA$, is
