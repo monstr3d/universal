@@ -1,5 +1,3 @@
-import { Airplane } from "../scenes/Airplane";
-import { Cessna } from "../Cessna";
 import { IMtlDetector } from "./Library/Abstract3DConverters/Interfaces/IMtlDetector";
 import { BasicGameLoaderFactory } from "./Library/Abstract3DGame/Factory/BacicGameLoaderFactory";
 import { Game3DRealtime, getFactory } from "./Library/Abstract3DGame/Game3DRealtime";
@@ -22,11 +20,12 @@ import { IScadaInterface } from "./Library/Scada/Interfaces/IScadaInterface";
 import { UniversalFactory } from "./Library/UniversalFactory";
 import { IStringSplitter } from "./Library/Utilities/String/Interfaces/IStringSplitter";
 import { LineEndSplitter } from "./Library/Utilities/String/LineEndSplitter";
+import { Immelman } from "./scenes/Immelman"
 
 export class ActorGame extends Game3DRealtime {
 
     constructor() {
-        super(getFactory(), new Cessna, 0.5, "Chart")
+        super(getFactory(), new Immelman, 0.5, "Chart")
         this.game.getExternalAction().addAction(new A("game"));
         var ea = this.scene.getInternalAction()
         ea.addAction(new A("scene"));

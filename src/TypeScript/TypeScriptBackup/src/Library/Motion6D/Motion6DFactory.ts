@@ -1,5 +1,5 @@
 import type { IRealtimeCollectionFactory } from "../Interfaces/IRealtimeCollectionFactory";
-import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor ";
+import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor";
 import { RungeProcessor } from "../Measurements/DifferentialEquations/Processors/RungeProcessor";
 import { UniversalFactory } from "../UniversalFactory";
 import { Motion6DRealtimeFactory } from "./Runtime/Event/Motion6DRealtimeFactory";

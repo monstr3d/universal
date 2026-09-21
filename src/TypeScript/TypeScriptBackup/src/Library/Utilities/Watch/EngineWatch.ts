@@ -2,12 +2,12 @@ import { AbstractEngine } from "./AbstracrtEngine";
 
 export class EngineWatch extends AbstractEngine  {
 
-	constructor(interval: number) {
-		super(interval)
+    constructor(interval: number) {
+        super(interval)
         this.typeName = "EngineWatch"
         this.types.push("EngineWatch")
 
-  }
+    }
 
 
     setEngineEnabled(enabled: boolean): boolean {
@@ -20,7 +20,6 @@ export class EngineWatch extends AbstractEngine  {
             }
             this.start = this.currentTime()
             this.timerID = setInterval(() => tick(), this.interval);
-
         }
         else {
             clearInterval(this.timerID);

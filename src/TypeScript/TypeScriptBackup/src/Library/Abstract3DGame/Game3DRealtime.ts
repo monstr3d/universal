@@ -1,25 +1,24 @@
-import { EmptyObject } from "../EmptyObject"
-import { PerformerRealtime } from "../Event/Wrappers/PerformerRealtime"
-import { IGameAction } from "../Game/Interfaces/IGameAction"
-import { IGameActionFactory } from "../Game/Interfaces/IGameActionFactory"
-import { IGameLoaderFactory } from "../Game/Interfaces/IGameLoaderFactory"
-import { ISceneObject } from "../Game/Interfaces/ISceneObject"
-import { IAction } from "../Interfaces/IAction"
-import { IDesktop } from "../Interfaces/IDesktop"
-import { IFactory } from "../Interfaces/IFactory"
-import { IRealtimeCollectionFactory } from "../Interfaces/IRealtimeCollectionFactory"
-import { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor "
+import type { IGameAction } from "../Game/Interfaces/IGameAction"
+import type { IGameActionFactory } from "../Game/Interfaces/IGameActionFactory"
+import type { IGameLoaderFactory } from "../Game/Interfaces/IGameLoaderFactory"
+import type { ISceneObject } from "../Game/Interfaces/ISceneObject"
+import type { IAction } from "../Interfaces/IAction"
+import type { IDesktop } from "../Interfaces/IDesktop"
+import type { IFactory } from "../Interfaces/IFactory"
+import type { IRealtimeCollectionFactory } from "../Interfaces/IRealtimeCollectionFactory"
+import type { IStringSplitter } from "../Utilities/String/Interfaces/IStringSplitter"
+import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor"
 import { RungeProcessor } from "../Measurements/DifferentialEquations/Processors/RungeProcessor"
 import { Motion6DFactory } from "../Motion6D/Motion6DFactory"
 import { Motion6DRealtimeFactory } from "../Motion6D/Runtime/Event/Motion6DRealtimeFactory"
 import { ResourceFuncFactory } from "../Resources/ResourceFuncFactory"
 import { UniversalFactory } from "../UniversalFactory"
-import { IStringSplitter } from "../Utilities/String/Interfaces/IStringSplitter"
 import { LineEndSplitter } from "../Utilities/String/LineEndSplitter"
 import { BasicGameLoaderFactory } from "./Factory/BacicGameLoaderFactory"
+import { EmptyObject } from "../EmptyObject"
+import { GameRealtime } from "../Game/GameRealtime"
 
-
-export class Game3DRealtime extends PerformerRealtime {
+export class Game3DRealtime extends GameRealtime {
 
     constructor(factory: IFactory, desktop: IDesktop, interval: number, chart: string) {
         super(factory, desktop, interval, chart)
@@ -61,10 +60,14 @@ class GA extends EmptyObject implements IGameActionFactory, IGameAction, IAction
         return true
     }
     functT(s: ISceneObject): IAction | undefined {
+        this.any = s
         return this
     }
     getGameAction(object: any): IGameAction | undefined {
+        this.any = object
         return this
     }
+
+    any : any
 }
 

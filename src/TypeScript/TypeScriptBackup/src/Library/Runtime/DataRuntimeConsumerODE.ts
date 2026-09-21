@@ -5,7 +5,7 @@
 import { OwnNotImplemented } from "../ErrorHandler/OwnNotImplemented";
 import { DataRuntimeConsumer } from "./DataRuntimeConsumer";
 import type { IFactory } from "../Interfaces/IFactory";
-import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor ";
+import type { IDifferentialEquationProcessor } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationProcessor";
 import type { IDifferentialEquationSolver } from "../Measurements/DifferentialEquations/Interfaces/IDifferentialEquationSolver";
 import type { IDataConsumer } from "../Measurements/Interfaces/IDataConsumer";
 import type { IStepActionHolder } from "../Measurements/Interfaces/IStepActionHolder";

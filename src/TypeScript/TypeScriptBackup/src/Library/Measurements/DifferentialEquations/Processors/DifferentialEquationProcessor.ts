@@ -7,7 +7,7 @@ import { Performer } from "../../../Performer";
 import type { IMeasurements } from "../../Interfaces/IMeasurements";
 import type { INormalizable } from "../../Interfaces/INormalizable";
 import type { ITimeMeasurementProvider } from "../../Interfaces/ITimeMeasurementProvider";
-import type { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor ";
+import type { IDifferentialEquationProcessor } from "../Interfaces/IDifferentialEquationProcessor";
 import type { IDifferentialEquationSolver } from "../Interfaces/IDifferentialEquationSolver";
 
 

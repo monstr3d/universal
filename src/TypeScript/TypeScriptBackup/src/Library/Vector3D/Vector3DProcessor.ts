@@ -23,6 +23,9 @@ export class Vector3DProcessor {
         }
     }
 
+ 
+
+
     public quaternionNormalizeQ(quaternion: Quaternion): void {
         let a = quaternion.W * quaternion.W + quaternion.X * quaternion.X + quaternion.Y * quaternion.Y + quaternion.Z * quaternion.Z
         let b = 1 / Math.sqrt(a);
@@ -33,13 +36,13 @@ export class Vector3DProcessor {
     }
 
 
-    quaternionToeulerAngles(angles: EulerAngles, quaternion: number[]): void {
-        this.quaternionToeulerAnglesXYZW(angles, quaternion[1], quaternion[2], quaternion[3], quaternion[0])
+    quaternionToEulerAngles(angles: EulerAngles, quaternion: number[]): void {
+        this.quaternionToEulerAnglesXYZW(angles, quaternion[1], quaternion[2], quaternion[3], quaternion[0])
 
     }
 
 
-    quaternionToeulerAnglesXYZW(angles: EulerAngles, x: number, y: number, z: number, w: number): void {
+    quaternionToEulerAnglesXYZW(angles: EulerAngles, x: number, y: number, z: number, w: number): void {
         // roll (x-axis rotation)
         let sinr_cosp = 2 * (w * x + y * z);
         let cosr_cosp = 1 - 2 * (x * x + y * y);

@@ -5,7 +5,6 @@ import type { ISelfLoad } from "../../Interfaces/ISelfLoad";
 import type { ITextReaderFactory } from "../../IO/Interfaces/ITextReaderFactory";
 import type { IResourceCollection } from "../../Resources/Infrefaces/IResouceCollection";
 import type { IResourceItem } from "../../Resources/Infrefaces/IResourceItem";
-import { Obj3DCreator } from "../../Abstract3DConverters/MeshCreators/Obj3DCreator";
 import { AssociatedSceneObject } from "../../Game/Abstract/AssociatedSceneObject";
 import { Basic3DShape } from "../../Motion6D/Objects/Shapes/Basic3DShape";
 

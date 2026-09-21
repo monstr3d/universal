@@ -1,11 +1,12 @@
 import type { IActionAddRemove } from "../Interfaces/IActionAddRemove";
+import type { ICategoryObject } from "../Interfaces/ICategoryObject";
 import type { IObjectCollection } from "../Interfaces/IObjectCollection";
+import type { IPosition } from "./Interfaces/IPosition";
+import type { IReferenceFrame } from "./Interfaces/IReferenceFrame";
 import { Performer } from "../Performer";
 import { ActionArray } from "../Utilities/Generic/ActionArray";
 import { SortingAlgorithms } from "../Utilities/Sort/SortingAlgorithms";
 import { PositionComparer } from "./Comparators/PositionComparer";
-import type { IPosition } from "./Interfaces/IPosition";
-import type { IReferenceFrame } from "./Interfaces/IReferenceFrame";
 import { Motion6DAcceleratedFrame } from "./Motion6DAcceleratedFrame";
 import { Motion6DFrame } from "./Motion6DFrame";
 import { ReferenceFrame } from "./ReferenceFrame";
@@ -118,4 +119,17 @@ export class Motion6DPerformer {
             }
         }
     }
+
+    public addRecursive(frame : IReferenceFrame, objects : ICategoryObject[])
+    {
+        let co = frame as unknown as ICategoryObject
+        if (co != undefined)
+        {
+        if (!objects.includes(co)) objects.push(co)
+
+        }
+        let p = frame.getParentFrame()
+        if (p != undefined) 
+        this.addRecursive(p, objects)
+    }        
 }

@@ -24,7 +24,6 @@ export  class DataRuntimeConsumer extends EmptyObject implements IDataRuntime, I
 
     protected name: string = "";
 
-    protected addRemove: ICategoryObject[] = []
 
     protected performer: Performer = new Performer();
 
@@ -74,10 +73,6 @@ export  class DataRuntimeConsumer extends EmptyObject implements IDataRuntime, I
     }
 
     protected prepare(dataConsumer: IDataConsumer): void {
-        let arem = this.performer.convertObject<IAddRemove, IDataConsumer>(dataConsumer, "IAddRemove");
-        if (arem.length > 0) {
-            this.addRemove = arem[0].getAddRemoveObjects()
-        }
         let nm: IMeasurements[] = [];
         this.addDataConsumer(dataConsumer, nm);
         for (let i = nm.length - 1; i >= 0; i--) {

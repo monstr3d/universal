@@ -36,7 +36,7 @@ export  class BasicCamera extends BasicPosition implements IVisibleConsumer, ICa
     }
 
     postVisibleObject(object: IVisible): void {
-
+        this.any = object
     }
 
 
@@ -47,6 +47,8 @@ export  class BasicCamera extends BasicPosition implements IVisibleConsumer, ICa
     protected nearDistance: number = 0;
 
     protected farDistance: number = 0;
+
+    protected any : any
 
 
 }

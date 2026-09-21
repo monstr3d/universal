@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const ActorCessna_1 = require("./src/ActorCessna");
 const Quaternion_1 = require("./src/Library/Vector3D/Quaternion");
 const Vector3DProcessor_1 = require("./src/Library/Vector3D/Vector3DProcessor");
+new ActorCessna_1.ActorCessna;
 //new ActorGameImmelman
-// new Actor(false)
+//new Actor(false)
 //new ActorGame()
 //
 //act.actPI()
 console.log('Hello world');
-testQ();
+//testQ()
 //act.loadGame()
 console.log("");
 function testQ() {

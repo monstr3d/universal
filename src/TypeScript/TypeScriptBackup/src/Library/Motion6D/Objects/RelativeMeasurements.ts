@@ -214,7 +214,7 @@ export class RelativeMeasurements extends CategoryObject implements IMeasurement
     public updateFrame(): void {
         this.performer.copyArray(this.relativePos, this.relativeFrame.getPosition());
         this.performer.copyArray(this.quaternion, this.relativeFrame.getQuaternion());
-        this.vp.quaternionToeulerAngles(this.angles, this.quaternion);
+        this.vp.quaternionToEulerAngles(this.angles, this.quaternion);
 
     }
 

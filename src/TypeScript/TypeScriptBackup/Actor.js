@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.A = exports.Actor = void 0;
-const AirplaneScene_1 = require("./scenes/AirplaneScene");
 const FileGameFactory_1 = require("./src/Console/FileGameFactory");
 const ReferenceFrameGameActionFactory_1 = require("./src/Library/Abstract3DGame/GameActions/ReferenceFrameGameActionFactory");
 const ScadaFind3DFrame_1 = require("./src/Library/Abstract3DGame/GameActions/ScadaFind3DFrame");
@@ -13,10 +12,13 @@ const ActionArray_1 = require("./src/Library/Utilities/Generic/ActionArray");
 const EngineWatch_1 = require("./src/Library/Utilities/Watch/EngineWatch");
 const ExternalWatch_1 = require("./src/Library/Utilities/Watch/ExternalWatch");
 const PIAct_1 = require("./test/wrappers/PIAct");
+const ScadaScene_1 = require("./src/Library/Game/Scenes/ScadaScene");
+const Cessna_1 = require("./src/scenes/Cessna");
 class Actor {
     //engine: FictiveEngine = new FictiveEngine()
     constructor(b) {
         this.dir = "C:\\AUsers\\1MySoft\\CSharp\\src\\TypeScript\\WebGLConsole/static/models";
+        let cessna = new Cessna_1.Cessna;
         this.dir = this.dir.replaceAll("\\", "/");
         var find = new ScadaFind3DFrame_1.ScadaFind3dFrame("Camera");
         var ga = new ReferenceFrameGameActionFactory_1.ReferenceFrameGameActionFactory(find, undefined);
@@ -30,7 +32,7 @@ class Actor {
             var g = new EngineGame_1.EngineGame("", this.factory, engine, false);
             g.getExternalAction().addAction(new A("game"));
             this.game = g;
-            var sc = new AirplaneScene_1.AirplaneScene(this.game, "Chart");
+            var sc = new ScadaScene_1.ScadaScene(this.game, cessna, "Chart");
             var ea = sc.getInternalAction();
             ea.addAction(new A("scene"));
             ea.addAction(new B(sc, g));
@@ -44,7 +46,7 @@ class Actor {
             var g = new EngineGame_1.EngineGame("", this.factory, engine, false);
             g.getExternalAction().addAction(new A("game"));
             this.game = g;
-            var sc = new AirplaneScene_1.AirplaneScene(this.game, "Chart");
+            var sc = new ScadaScene_1.ScadaScene(this.game, cessna, "Chart");
             var ea = sc.getInternalAction();
             ea.addAction(new A("scene"));
             ea.addAction(new B(sc, g));
@@ -96,6 +98,8 @@ class B extends AbstractAction_1.AbstractAction {
         let scada = scene.getConsumerScada();
         this.inputs = scada.getScadaInputs();
         let dc = scada.getScadaObject("Chart", "IDataConsumer");
+        let f = scada.getScadaObject("Unity", "IReferenceFrame");
+        this.frame = f[0];
         this.dataConsumer = dc[0];
         let timer = scada.getScadaObject("Timer", "TimerObject");
         timer[0].eventActionT().addActionT(new TA(this.game, this.inputs));
@@ -111,6 +115,7 @@ class B extends AbstractAction_1.AbstractAction {
         let n = m.getMeasurementName();
         v = m.getMeasurementValue();
         console.log(n + " " + v);
+        console.log(this.frame.getPosition());
     }
 }
 class TT extends AbstractActionT_1.AbstractActionT {

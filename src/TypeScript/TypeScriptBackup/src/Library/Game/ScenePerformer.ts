@@ -1,12 +1,10 @@
 import type { IScene } from "../Game/Interfaces/IScene";
 import type { ISceneObject } from "../Game/Interfaces/ISceneObject";
-import type { IFactory } from "../Interfaces/IFactory";
 import { GamePerformer } from "./GamePerformer";
 import { SceneObjectAction } from "./SceneObjectAction.";
 
 export class ScenePerformer extends GamePerformer {
     scene!: IScene;
-    factory!: IFactory;
 
     constructor(scene: IScene) {
         super();

@@ -29,5 +29,4 @@ export class Motion6DRealtimeFactory extends FactoryObject implements IRealtimeC
         return new DataRuntimeConsumerMotion6DEvent(consumer, this.mF)
     }
 
-
 }

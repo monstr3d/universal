@@ -1,4 +1,3 @@
-import { Cessna } from "../Cessna"
 import { Game3DRealtime, getFactory } from "./Library/Abstract3DGame/Game3DRealtime"
 import { Immelman } from "./scenes/Immelman"
 

@@ -172,6 +172,7 @@ export class DataConsumer extends CategoryObject implements IDataConsumer, IPost
         if (add) this.addRemoveobjects.push(object)
         return true
     }
+
     getAddRemoveObjects(): ICategoryObject[] {
         return this.addRemoveobjects;
     }
