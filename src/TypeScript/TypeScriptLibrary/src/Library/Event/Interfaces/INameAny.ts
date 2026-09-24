@@ -1,1 +1,0 @@
-export interface INameAny { name: string, any : any}

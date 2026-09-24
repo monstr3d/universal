@@ -1,1 +1,0 @@
-export interface IShowData { sender: any, show : any, name?: string | undefined}
