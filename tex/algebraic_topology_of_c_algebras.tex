@@ -1633,13 +1633,12 @@ $$
 Now isomorphism \eqref{k_1_coh_eqn} is a consequence of the equations \eqref{local_eqn} and \eqref{royden_eqn}.
 \end{proof}
 \begin{theorem}\label{k_gelfand_thm}
-	For any unital $C^*$-algebra $A$ one has
+	For any  unital $C^*$-algebra $A$ one has
 	\be\label{k_gelfand_eqn}
 	\forall j = 0, 1 \quad K_j\left(A \right) \cong K_j\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^j\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right).
 	\ee
 \end{theorem}
-\begin{proof}
-	From the equation \eqref{k_0_iso_eqn} it follows that 
+\begin{proof} Suppose that $A$ is unital. From the equation \eqref{k_0_iso_eqn} it follows that 
 	\bean
 	K_0\left( S\left(\left(  A \otimes \K\right)^+\right) \right)\cong K_0\left( S C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right) \right) . 
 	\eean 
@@ -1675,8 +1674,47 @@ K_1\left(A \otimes \K\right) \cong K_1\left(C_0\left(\mathfrak{Gelfand}\left(  A
 	\be\label{k_0t_eqn}
 K_0\left(A \right) \cong K_0\left(C_0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)  \right)\cong K^0\left(\mathfrak{Gelfand}\left(  A \otimes \K\right) \right)
 \ee
-The equation \eqref{k_gelfand_eqn}	is the combination of the \eqref{k_1t_eqn}, \eqref{k_0t_eqn} ones.
+The equation \eqref{k_gelfand_eqn}	is the combination of the \eqref{k_1t_eqn}, \eqref{k_0t_eqn} ones.	
+\end{proof}
+\begin{corollary}\label{k_gelfand_cor}
+	For any   $C^*$-algebra $A$ one has
+	\be\label{k_gelfand_c_eqn}
+	\forall j = 0, 1 \quad K_j\left(A \right) \cong \cong K^j\left(\mathfrak{Gelfand}\left(  A \right) \right).
+	\ee
+\end{corollary}
+\begin{proof}
+	If $A$ is unital then the statement is the direct consequence of the Theorem \ref{k_gelfand_thm} and the following strong Morita equivalences
+	\bean
+A \sim 	A \otimes \K,\\
+C\left(\mathfrak{Gelfand}\left(  A \right) \right) \sim C\left( \mathfrak{Gelfand}\left(  A \right)\right) \otimes \K.
+	\eean 
 	
+	 If $A$ is not unital then $A^+$ is unital, and there is the diagram
+	\bean
+	\begin{tikzcd}
+		K_0\left( A\right) \arrow[r, hook, "\phi'"] \arrow[d, dashed, "\varphi"]& K_0\left( A^+\right)  \arrow[d, "\kappa"]\\
+		K^0\left( \mathfrak{Gelfand}\left( A\right) \right) \arrow[r, hook,"\phi''"]& K^0\left( \mathfrak{Gelfand}\left( A\right)^+ \right) 
+	\end{tikzcd}
+	\eean 
+	where the existence of the isomorphism $\kappa$ is already proven. One needs prove thee existence of $\varphi$. Using \eqref{ba_eqn} on can extend the above diagram up to following one,
+	\be\label{k_dia_g_eqn}
+	\begin{tikzcd}
+		K_0\left( A\right) \arrow[r, hook, "\phi'"] \arrow[d, dashed, "\varphi"]& K_0\left( A^+\right)  \arrow[d, "\kappa"] \arrow[r, two heads, "\psi'"]& K_0\left(\C \right)\arrow[d,  "\cong"] \cong \Z\\
+		K^0\left( \mathfrak{Gelfand}\left( A\right) \right) \arrow[r, hook,"\phi''"]& K^0\left( \mathfrak{Gelfand}\left( A\right)^+ \right)\arrow[r,two heads, "\psi''"] & K^0\left(\{+\} \right)\cong \Z
+	\end{tikzcd}
+	\ee
+	where $\{+\} \bydef \mathfrak{Gelfand}\left( A\right)^+\setminus \mathfrak{Gelfand}\left( A\right)$. The commutativity of the right square of \eqref{k_dia_g_eqn} follows from the equations
+	\bean
+	\kappa\left(\left[A^+\right]\right) = \left[\mathfrak{Gelfand}\left( A\right)^+\right],\\
+	\forall z \in \Z \quad \forall x \in K_0\left( A\right) \quad \psi'\left(\phi'\left( x\right)  + z \left[A^+\right]\right) = z\left[1_\C\right],\\
+	\forall z \in \Z \quad \forall x \in K^0\left( \mathfrak{Gelfand}\left( A\right) \right) \quad \psi'\left(\phi'\left( x\right)  + z \left[C\left(\mathfrak{Gelfand}\left( A\right)^+  \right) \right]\right) = z\left[1_{C\left(\{+\} \right) }\right].
+	\eean 
+	The existence of $\varphi$ follows from the  commutativity of the right square of \eqref{k_dia_g_eqn}. From the 5-lemma it turns out that $\varphi$ is an isomorphism, i.e.
+	\bean
+	\varphi :	K_0\left( A\right)\cong K^0\left( \mathfrak{Gelfand}\left( A\right) \right)
+	\eean 
+	For any $C^*$-algebra $B$ the isomorphism $K_1\left(B\right)\cong K^1\left( \mathfrak{Gelfand}\left(B\right) \right)$ follows from the Theorem \ref{suspension_thm}
+	and the isomorphisms $K_1\left( SB\right)\cong K_0\left( SC_0\left( \mathfrak{Gelfand}\left( B\right)\right)  \right)\cong K^0\left( S\mathfrak{Gelfand}\left( B\right)\right)$.
 \end{proof}
 
 \begin{theorem}\label{full_k_thm}
