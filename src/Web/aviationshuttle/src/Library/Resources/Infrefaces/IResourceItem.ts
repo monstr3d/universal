@@ -1,0 +1,1 @@
+export interface IResourceItem { name: string, url: string, type: 'text' | 'json' | 'image', ext : string }
