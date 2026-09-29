@@ -875,32 +875,9 @@ The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology},
 Follows the Proposition \ref{top_ultra_prop},
 \end{proof}
 	\begin{definition}\label{gelfand_space_defn}
-	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi = \left\{p_\la\right\}\in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial compact projection $p$ (cf. Definition \ref{compact_p_defn}) such that there is $\la\in \La$ with $p_\la < p$.
+	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi = \left\{p_\la\right\}\in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial compact projection $p$ (cf. Definition \ref{compact_p_defn}) such that $p_\la \wedge  p\neq \{0\}$ for all $\la\in \La$.
 	The \textit{pre}-\textit{Gelfand space} $\mathfrak{PreGelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{PreGelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the   Gelfand topology (cf. Definition \ref{topology_defn}. The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreGelfand}\left(A \right)$ (cf. Definition \ref{blowing_uni_h_defn}), i.e. $\mathfrak{Gelfand}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right) \right)$ (cf. equation \eqref{hausdorff_funct_eqn}).
 \end{definition}
-\begin{notation}
-Similarly to \eqref{topology_eqn} we will use the following notation
-	\be\label{topology_q_eqn}
-\mathfrak{Gelfanf}\left(A \right)_p	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)_p \right)
-\ee
-for the basis of the topology of the Gelfand space. If $p'$ is a closed projection then we define
-	\be\label{topology_q_closed_eqn}
-	\begin{split}
-	\mathfrak{PreGelfand}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{PreGelfand}\left(A \right)\right| \exists p \in \xi\quad p \le p' \right\},\\
-	\mathfrak{Gelfanf}\left(A \right)^{p'}	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)^{p'} \right)
-	\end{split}
-\ee
-
-\end{notation}
-\begin{rem}\label{compact_compactem}
-If $p'$ is a compact projection (cf. Definition \ref{compact_p_defn}) then the from the Theorem \ref{gelfand_compact_thm} it follows that both  sets $\mathfrak{PreGelfand}\left(A \right)^{p'}$ and $\mathfrak{Gelfand}\left(A \right)^{p'}$ are compact.
-\end{rem}
-	\begin{lemma}\label{gelfand_compact_lem}
-	If $A$ is an unital  $C^*$-algebra then both  spaces $\mathfrak{PreGelfand}\left(A \right)$ and $\mathfrak{Gelfand}\left(A \right)$ are  compact.
-\end{lemma}
-\begin{proof}
-	From $p \le 1_A$ for any projection  it follows that  $\mathfrak{PreGelfand}\left(A \right)= \mathfrak{Ultrafilters}\left(A \right)$.  However the space $\mathfrak{Ultrafilters}\left(A \right)$ is compact (cf. Lemma \ref{gelfand_u_compact_lem}). The space  $\mathfrak{Gelfand}\left(A \right)$ is compact since it is an epimorphic image of the compact space $\mathfrak{PreGelfand}\left(A \right)$.
- \end{proof}
 \begin{remark}\label{topology_base_herdem}
 	Using the Definition \ref{open_close_ideal_defn} the semilattice $\mathfrak{Lattice}\left(A \right)$ can be replaced with the semilattice of closed left ideals of $A$.
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any ultrafilter $\xi$ we use a following notation
@@ -908,6 +885,96 @@ If $p'$ is a compact projection (cf. Definition \ref{compact_p_defn}) then the f
 	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
 	\ee
 \end{remark}
+\begin{notation}
+Similarly to \eqref{topology_eqn} we will use the following notation
+	\be\label{topology_q_eqn}
+\mathfrak{Gelfanf}\left(A \right)_p	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)_p \right)
+\ee
+for the basis of the topology of the Gelfand space. If $p'$ is a closed projection then we define
+	\bea\label{u_topology_q_closed_eqn}
+	\mathfrak{Ultrafilers}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{Ultrafilers}\left(A \right)\right| \forall \in \xi\quad p \wedge  p'\neq \{0\} \right\},\\\label{topology_q_closed_eqn}	\mathfrak{PreGelfand}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{PreGelfand}\left(A \right)\right| \forall \in \xi\quad p \wedge  p'\neq \{0\} \right\},\\
+	\label{topology_gq_closed_eqn}
+\mathfrak{Gelfanf}\left(A \right)^{p'}	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)^{p'} \right),\\
+\eea
+Above subsets correspond to the following $C^*$-algebras
+\bea\label{algebra_open_eqn}
+A_p \bydef \left\{\left. a \in A\right| pap = a\right\}\subset A,\\
+\label{algebra_closed_eqn}
+A^{p'} \bydef A^{**} \cap p' A p'\subset A^{**}.
+\eea
+\end{notation}
+\begin{lemma}\label{ultra_cloded_lem}
+For any closed projection $p$ one has natural homeomorphisms
+\bea\label{ultra_cloded_eqn}
+	\mathfrak{Ultrafilers}\left(A \right)^{p}\cong 	\mathfrak{Ultrafilers}\left(A^{p} \right)
+	\eea
+\end{lemma}
+
+\begin{proof}
+According to the Remark \ref{topology_base_herdem} we consider both  $\mathfrak{Lattice}\left( A\right)$ and  $\mathfrak{Lattice}\left( A^p\right)$ (cf. Definition \ref{lattice_a_defn}) as sets of hereditary $C^*$-subalgebra of $A$ and $A^p$ respectively. There are following homomorphisms
+\be\label{ip_l_eqn}
+\begin{split}
+\pi: \mathfrak{Lattice}\left( A\right)\onto \mathfrak{Lattice}\left( A^p\right),\\
+B \mapsto pBp;\\
+\iota : \mathfrak{Lattice}\left( A^p\right)\onto \mathfrak{Lattice}\left( A\right),\\
+C \mapsto \text{the } C^*\text{-norm closure of } \bigcup_{\substack{B \subset A \\ pBp \subset C }} B.
+\end{split}
+\ee
+From $\iota \circ \pi = \Id_{\mathfrak{Lattice}\left( A^p\right)}$ it follows that the homomorphism $\iota$ naturally yields the injective map  
+\be\label{u_iota_eqn}
+\mathfrak{Ultrafilers}\left(\iota \right) : 	\mathfrak{Ultrafilers}\left(A^p \right)\hookto 	\mathfrak{Ultrafilers}\left(A \right).
+\ee
+According to the Definition \ref{topology_defn} the  bases of topologies of $\mathfrak{Ultrafilers}\left(A \right)$ and $\mathfrak{Ultrafilers}\left(A^p \right)$ are $\mathfrak{Lattice}\left(A \right)$ and $\mathfrak{Lattice}\left(A^p \right)$ respectively. From this fact one can deduce that the map \eqref{u_iota_eqn} is continuous. If $\xi \in \mathfrak{Ultrafilers}\left(A \right)$ is represented by the family $\left\{B_\la\right\}_{\la\in \La}$ of hereditary $C^*$-subalgebras (cf. Remark \ref{topology_base_herdem}) then from \eqref{ip_l_eqn} it follows that
+\be
+\xi \notin \mathfrak{Ultrafilers}\left(\iota \right)\left( 	\mathfrak{Ultrafilers}\left(A^p \right)\right)\quad \Leftrightarrow \quad \exists \la \in \La \quad p B_\la p   = \{0\}.
+\ee 
+Equivalently if $\xi$ is is represented by the family $\left\{p_\la\right\}_{\la\in \La}$ of open  projections then 
+\be\label{nn_ee_eqn}
+\begin{split}
+\xi \notin \mathfrak{Ultrafilers}\left(\iota \right)\left( 	\mathfrak{Ultrafilers}\left(A^p \right)\right)\quad \Leftrightarrow \quad \exists \la \in \La \quad p \wedge p_\la  = 0\quad \Leftrightarrow\\
+\Leftrightarrow \quad \xi \notin \mathfrak{Ultrafilers}\left(A\right)^p
+\end{split}
+\ee 
+The equation \eqref{nn_ee_eqn} means that 
+\be\label{nnn_ee_eqn}
+\begin{split}
+\mathfrak{Ultrafilers}\left(A\right) \setminus \mathfrak{Ultrafilers}\left(\iota \right)\left( 	\mathfrak{Ultrafilers}\left(A^p \right)\right)=\mathfrak{Ultrafilers}\left(A\right) \setminus 	\mathfrak{Ultrafilers}\left(A \right)^p
+\end{split}
+\ee 
+The statement of this lemma is a direct consequence of the equation \eqref{nnn_ee_eqn}
+\end{proof}
+
+	\begin{lemma}\label{gelfand_compact_lem}
+	If $A$ is an unital  $C^*$-algebra then both  spaces $\mathfrak{PreGelfand}\left(A \right)$ and $\mathfrak{Gelfand}\left(A \right)$ are  compact.
+\end{lemma}
+\begin{proof}
+	From $p \le 1_A$ for any projection  it follows that  $\mathfrak{PreGelfand}\left(A \right)= \mathfrak{Ultrafilters}\left(A \right)$.  However the space $\mathfrak{Ultrafilters}\left(A \right)$ is compact (cf. Lemma \ref{gelfand_u_compact_lem}). The space  $\mathfrak{Gelfand}\left(A \right)$ is compact since it is an epimorphic image of the compact space $\mathfrak{PreGelfand}\left(A \right)$.
+ \end{proof}
+ \begin{corollary}\label{gelfand_compact_cor}
+ 	If $p\in A^{**}$ is a compact projection  (cf. Definition \ref{compact_p_defn}) then
+  one has:
+ 	\begin{enumerate}
+ 		\item [(i)] the given by \eqref{algebra_closed_eqn} $C^*$-algebra $A^p$
+ 		is unital,
+ 		\item[(ii)] both spaces $\mathfrak{PreGelfand}\left(A \right)^{p}\cong \mathfrak{Ultrafilers}\left(A \right)^{p}$ and $ \mathfrak{Gelfand}\left(A \right)^{p}$ are compact.
+ 	\end{enumerate}
+ 	 \end{corollary}
+ 	 \begin{proof}(i)
+	 If $b \in A_+$ is such that $bp = p$ then
+\be
+\forall a \in A^p \quad \left( pbp \right) a = a, \quad a \left( pbp\right)  = a,
+\ee
+i.e.
+\be
+pbp = 1_{A^p}
+\ee
+(ii) Is a  consequence of (i) and the Lemma \ref{gelfand_compact_lem}.
+ 	 \end{proof}
+ 
+ \begin{rem}\label{compact_compactem}
+ The (ii) of the Corollary \ref{gelfand_compact_cor} is also direct consequence of  the Theorem \ref{gelfand_compact_thm}.
+ \end{rem}
+ 
 
 \begin{lemma}\label{ineq_lem}
 If $A$ is an unital $C^*$-algebra and $p', p''$ are two open projections  then one has
@@ -1943,14 +2010,14 @@ If both $A$ and $B$ are $C^*$-algebras then a homomorphism $\phi: K_*\left(A \ri
 The Theorems \ref{suspension_thm} and \ref{bott_map_thm} yield isomorphisms  $K_*\left(A \right) \cong K_*\left(SA \right)$  and  $K_*\left(SA \right) \cong K_*\left(A \right)$ of degree 1.
 \end{example}
 \begin{definition}\label{degr_1_defn}
-Suppose that a homomorphism  $\phi: K_*\left(A \right) \to K_*\left(B \right)$ of Abelian groups {has degree 1} and both   $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(B \right)\cong  K_*\left(SB \right)$ are given by the Example \ref{degr_1_exanple}.. We say that $\phi$ is a \textit{degree 1 ring homomorphism} if both compositions
+Suppose that a homomorphism  $\phi: K_*\left(A \right) \to K_*\left(B \right)$ of Abelian groups {has degree 1} and both   $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(SA \right)\cong  K_*\left(A \right)$ are given by the Example \ref{degr_1_exanple}.. We say that $\phi$ is a \textit{degree 1 ring homomorphism} if both compositions
 \be
 \begin{split}
 K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)\cong  K_*\left(SB \right),\\
 K_*\left(SA \right)\cong K_*\left(A \right) \xrightarrow{\phi} K_*\left(B \right)
 \end{split}
 \ee
-are the ring homomorphisms.  Both $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(B \right)\cong  K_*\left(SB \right)$ are degree 1 ring homomorphisms.
+are the ring homomorphisms.  Both $K_*\left(B \right)\cong  K_*\left(SB \right)$ and $K_*\left(SA \right)\cong  K_*\left(A \right)$ are degree 1 ring homomorphisms.
 \end{definition}
 
 \subsection{Standard Exact Sequence}\label{standard_exact_sequence_sec}
@@ -1978,10 +2045,9 @@ The Theorem \ref{standard_exact_sequence_thm} yields the following
 	K_*\left(A/J \right) \arrow[u, "\partial"] & \arrow[l, "\pi_*"]K_*\left( A\right) &\arrow[l, "\iota_*"] K_*\left(J \right) 
 \end{tikzcd}
 \ee
-	
-Using  the Corollary \ref{good_thm}  !!! REPLACE THEOREM !!!, the Theorem \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cupem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}\left(J\right)$ is an open subset of $\mathfrak{Gelfand}\left(A\right)$. There are continuous maps
+	Using  the Theorems  \ref{good_thm}  and \ref{full_k_thm}, the equation \eqref{cohom_mor_eqn} and the Remark \ref{pres_cupem} one can deduce that both $\iota_*$ and $\pi_*$ in \eqref{sisf_ext_eqn} are grading preserving  ring homomorphisms. Let us prove that $\partial$ is a degree 1 ring homomorphism. One can suppose that $A$, $J$ and $A/J$ are stable $C^*$-algebras. Since $J$ is a closed left ideal of $A$ the set $\mathfrak{Gelfand}\left(J\right)$ is an open subset of $\mathfrak{Gelfand}\left(A\right)$. There are continuous maps
 \bea\label{map_j_eqn}
-\mathfrak{Gelfand}\left(J\right)\hookto \mathfrak{Gelfand}\left(A\right),\\\label{map_aj_eqn} \mathfrak{Gelfand}\left(A/J\right)\to \mathfrak{Gelfand}\left(A\right)
+\mathfrak{Gelfand}\left(J\right)\hookto \mathfrak{Gelfand}\left(A\right),\\\label{map_aj_eqn} \mathfrak{Gelfand}\left(A/J\right)\hookto \mathfrak{Gelfand}\left(A\right)
 \eea
 where the map \eqref{map_aj_eqn} is given by the equation \eqref{gelfand_map_eqn}. From our construction it turns out that
 \bean
@@ -1995,7 +2061,7 @@ The set $\mathfrak{Gelfand}\left(A/J\right)$ is closed in $\mathfrak{Gelfand}\le
 	{0} \hookto  H^0_c\left(\mathfrak{Gelfand}\left(J\right);\Z  \right) \xrightarrow{\iota_*} H^0_c\left(\mathfrak{Gelfand}\left(A\right);\Z  \right) \xrightarrow{\pi_*} \\ \xrightarrow{\pi_*} H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)\xrightarrow{\dl}H^1_{c}\left(\mathfrak{Gelfand}\left(J\right);\Z \right)\to ...
 \end{split}
 \ee
-Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$ can represented by  $c \in C_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$. The support of $c$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}\left(A\right); \Z\right)$ such that 
+Let us prove that $\dl$ in \eqref{coh_x_eqn} yields the homomorphism $\partial K_0\left( A/J\right) \to K_1\left( J\right)$. Any $\left[c\right] \in H^0_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$ can be represented by  $c \in C_{c}\left(\mathfrak{Gelfand}\left(A/J\right);\Z \right)$. The support of $c$ is compact  there is  valued $b \in C_c\left( \mathfrak{Gelfand}\left(A\right); \Z\right)$ such that 
 \be
 \forall \xi \in \mathfrak{Gelfand}\left(A/J\right)\quad c\left( \xi\right) = y\left( \xi\right) 
 \ee 
@@ -2125,7 +2191,7 @@ where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\
 \end{definition}
 
 \begin{remark}\label{blowingem}
-	$	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A$ is dense in $A$ if and only if $A\cdot 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations iuclusions  \eqref{blowing_eqn} are equivalent.
+	$	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)\cdot A$ is dense in $A$ if and only if $A\cdot 	\mathfrak {Blowing}_{\sX-A }\left( 	C_c\left( \sX\right)\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}), i.e. both equations inclusions  \eqref{blowing_eqn} are equivalent.
 \end{remark}
 \begin{remark}
 	The inclusion $
@@ -2352,16 +2418,103 @@ where the ring homomorphism 	$K_*\left( A\right)	\to K_*\left( B \rtimes_\bt \R\
 	However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
 \end{proof}
 \begin{remark}\label{blowing_gelfandem}
-The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
-\be\label{blowing_gelfand_eqn}
+	The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
+	\be\label{blowing_gelfand_eqn}
 	\mathfrak{Gelfand}\left(A \right) \onto \sX
-\ee
-(cf. Theorem \ref{good_thm}).
+	\ee
+	(cf. Theorem \ref{good_thm}).
 \end{remark}
 
 \begin{remark}
 	The Theorem \ref{blowing_pedersen_compact_thm} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
 \end{remark}
+
+
+
+
+%\begin{lemma}\label{pedersen_eps_lem}
+%	Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
+%	\begin{equation}\label{f_eps_eqn}
+%		f_\eps\left( x\right)  \bydef\left\{
+%		\begin{array}{c l}
+%			0 &x \le \eps \\
+%			x - \eps & x > \eps
+%		\end{array}\right.
+%	\end{equation}
+%	If $A$ is a $C^*$-algebra 
+%	then one has
+%	\bea\label{k0_ped_e_eqn}
+%	K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|~a \in A_+, \quad \eps > 0 \right.\right\},~~~\\
+%	\label{kp_ped_e_eqn}
+%	K\left( A \right)_+ = \left\{a \in A_+ \left|a \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\quad j=1,...,n\right.\right\}~~
+%	\eea
+%	where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{pedersen_k0_eqn} and \eqref{pedersen_k_plus_eqn} respectively
+%\end{lemma}
+%\begin{proof}
+%	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi_\eps \in K(]0, \infty [$ is given by 
+%	\bean
+%	\phi_\eps\left( x\right)  =\left\{
+%	\begin{array}{c l}
+%		0 &x \le \eps \\
+%		x - \eps &  \eps \le x \le \left\| a\right\|\\
+%		2	\left\| a\right\| - \eps - x & \left\| a\right\| \le x \le 2\left\| a\right\|-\eps\\
+%		0 & x \ge 2 \left\| a\right\| -\eps\\
+%	\end{array}\right.
+%	\eean
+%	It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $a \in	K\left( A \right)_0$ then from \eqref{pedersen_k0_eqn} it turns out that there is $b \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
+%	\bean
+%	\psi\left( x\right)  =\left\{
+%	\begin{array}{c l}
+%		0 &x \le 0 \\
+%		x &0 \le x \le \eps \\
+%		\varphi\left(x\right) + \eps &\eps \le x \le c \\
+%		\eps + c - x&  c \le x \le c+ \eps\\
+%		0 & x \ge c + \eps
+%	\end{array}\right.
+%	\eean
+%	then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b' \right)$ where $b' \bydef \psi\left(b\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{pedersen_k_plus_eqn} ones.
+%\end{proof}
+
+
+
+
+
+%\begin{theorem}\label{blowing_pedersen_compact_thm}
+%	If  $C_0\left( \sX\right)\hookto M\left( A\right)$ is Hausdorff  blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact (cf. Definition \ref{top_compact_defn}).
+%\end{theorem}
+%\begin{proof}
+%	If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element   $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).	If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation  then there is $\xi \in \H$ such that
+%	\bean\label{blowing_ac_eqn}
+%	\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
+%	\eean
+%	From $\left\|c - b \right\|  < \eps/2$ if follows that
+%	\be\label{blowing_acc_eqn}
+%	\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
+%	\ee
+%	On the other hand from $a =f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
+%	\bean
+%	\left\| \xi \right\| = 1,\\
+%	\rho\left(a \right) \xi = \la \xi,\\
+%	\rho\left(b \right)\xi = \left( \la+\eps \right) \xi,\\
+%	\rho\left(a \right)\xi = \la  \xi,\\
+%	\left( \xi, \rho\left( b \right) \xi\right) - \left( \xi, \rho\left( a \right) \xi\right)= \eps
+%	\eean
+%	and taking into account \eqref{blowing_acc_eqn} one has
+%	$$
+%	\left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}.
+%	$$
+%	Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$.
+%	If $\supp a \subsetneqq \supp c$ then there is a nonempty  open set  $\sU \subset \supp a\setminus \supp c$. For any $f \in C_0\left(\sU \right)\setminus \{0\}$ one has
+%	\bean
+%	faf^* > 0,\\
+%	fcf^* = 0.
+%	\eean
+%	However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
+%\end{proof}
+
+%\begin{remark}
+%	The Theorem \ref{blowing_pedersen_compact_thm} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
+%\end{remark}
 
 
 \begin{remark}
@@ -2416,6 +2569,74 @@ The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\math
 \subsection{Noncommutative coverings}
 \paragraph{}
 Here we suppose that we have Hausdorff blowing-up and investigate conditions when they enable us to construct given by the Definition \ref{covering_defn} noncommutative coverings.
+\begin{theorem}
+Let $\varphi : M\left(A \right) \hookto M\left(\widetilde{A} \right)$ be a good injective $*$-homomorphism (cf. Definition \ref{good_hom_defn}). If every of both inclusions  
+\bean
+\mathfrak {Blowing}_{\sY-A }:C_0\left( \sY\right) \hookto M\left(A \right),\\
+\mathfrak {Blowing}_{\widetilde\sY- \widetilde A }:C_0\left( \widetilde\sY\right) \hookto M\left( \widetilde A \right)
+\eean 
+is a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), such that one has:
+\begin{itemize}
+	\item the covering $\pi: \widetilde\sY \to \sY$,
+	\item the natural commutative diagram
+	\bean
+	\begin{tikzcd}
+	C_b\left(\sY \right) \arrow[rrr, hook, "\mathfrak {Blowing}_{\sY-A }"] \arrow[d, hook, "C_b\left( \pi\right)"] & & & M\left(A \right)\arrow [d, hook, "\varphi"]\\ 
+		C_b\left(\widetilde \sY \right) \arrow[rrr, hook, "\mathfrak {Blowing}_{\widetilde\sY-\widetilde A }"]& & & M\left(\widetilde A \right)
+	\end{tikzcd}
+	\eean 
+\end{itemize}
+then $\varphi$ is a covering (cf. Definition \ref{covering_defn})
+\end{theorem}
+\begin{proof}
+	The Theorem \ref{good_thm} yields the natural commutative diagram
+	\bean
+	\begin{tikzcd}
+	\sY   & \arrow[l, two heads, "\phi"]	\mathfrak{Gelfand}\left(A \right)\\ 
+\widetilde \sY \arrow[u, two heads, "\pi"] &  \arrow[l, two heads, "\widetilde\phi"]	\mathfrak{Gelfand}\left(\widetilde A \right) \arrow[u, two heads, "\mathfrak{Gelfand}\left( \varphi\right) "]
+\end{tikzcd}
+\eean 
+If $\xi \in \mathfrak{Gelfand}\left(A \right)$ and $y = \phi\left(\xi \right)$ then from the Definition \ref{top_covering_defn} it follows that there is an open neighborhood $\sU\subset \sY$ of $y$  such that there is the disconnected union 
+\be\label{pre_u_eqn}
+\pi^{-1}\left( \sU \right) = \bigsqcup_{\la \in \La} \widetilde{\sU}_\la 
+\ee
+such that for every $\la\in \La$ the restriction
+\bean
+\pi|_{\widetilde{\sU}_\la}: \widetilde{\sU}_\la \cong \sU
+\eean 	
+is a homeomorphism. The given by the Definition \ref{blowing_ideals_au_ua_defn} closed left ideal $A_\sU$ yields an open projection $p_\sU\in A^{**}$. The set $\mathfrak{Gelfand}\left(A \right)_{p_\sU}$ is a neighborhood of $\xi$. Since $\mathfrak{Gelfand}\left(A \right)_{p_\sU}$ is locally compact there is a compact neighborhood $\sV$ of $\xi$ with $\sV \subset \sU$. One can suppose that $\sV$ corresponds to a compact projection $p \in A^{**}$ (cf. Corollary \ref{gelfand_compact_cor}) such that $p < p_\sU$ and
+\bean
+ p_\sU A^p p_\sU = A^p
+\eean 
+where $A^p$ is given by \eqref{algebra_closed_eqn}. For any $\la \in \La$ the  closed left ideal $\widetilde A_{\widetilde \sU_\la}$ yields an open projection $p_{\widetilde\sU_\la}\in A^{**}$ such that one has
+\bea\label{lc_1_eqn} 
+	\mathfrak{Gelfand}\left(\varphi\right)^{-1}\left(\sV  \right) = \bigsqcup_{\la \in \La} \widetilde{\sV}_\la \quad \text{where} \quad \widetilde{\sV}_\la = \mathfrak{Gelfand}\left(\varphi\right)^{-1}\left(\sV  \right)\cap \widetilde \phi^{-1} \left( \widetilde{\sU}_\la\right).
+\eea 
+If $p_\la \bydef \varphi^{**}\left(p\right)\wedge p_{\widetilde\sU_\la}$ then for any $\la \in \La$ there is the natural $*$-homomorphism
+\bean
+A \to \widetilde A^{p_\la},\\
+a \mapsto p_\la a p_\la
+\eean 
+which induces the natural $*$-isomorphism $
+A^p \to  \widetilde A^{p_\la}
+$.
+From the Lemma \ref{ultra_cloded_lem} this $*$-isomorphism yields the natural homeomorphism
+\bean
+	\mathfrak{Ultrafilers}\left(A^{p}\right) \cong 	\mathfrak{Ultrafilers}\left(\widetilde A^{p_\la} \right)
+\eean 
+and taking into account that  both $A^{p}$ and $\widetilde A^{p_\la}$ are unital one has the natural homeomorphisms
+\bean
+\mathfrak{PreGelfand}\left(A^{p}\right) \cong 	\mathfrak{PreGelfand}\left(\widetilde A^{p_\la} \right),\\
+\mathfrak{Gelfand}\left(A^{p}\right) \cong 	\mathfrak{Gelfand}\left(\widetilde A^{p_\la}\right) ,\\
+\mathfrak{Gelfand}\left(A\right)^{p} \cong 	\mathfrak{Gelfand}\left(\widetilde A \right)^{p_\la}
+\eean 
+or equivalently 
+\be\label{lc_2_eqn}
+\forall \la \in \La \quad \sV \cong \widetilde \sV_\la.
+\ee
+This lemma is a consequence of both \eqref{lc_1_eqn} and \eqref{lc_2_eqn}.
+
+\end{proof}
 
 \begin{empt}\label{desc__empt}
 	Let  $\pi: \widetilde{\sX}\to \sX$ is a covering (cf. Definition \ref{top_covering_defn}) where both $\sX$ and $\widetilde{\sX}$ are locally compact Hausdorff spaces. If $\widetilde f \in C_c\left(\widetilde{\sX} \right)$ then for each $x \in \sX$ the set $$\left\{\left.\widetilde x \in \widetilde \sX\right| \widetilde f\left( \widetilde x\right)= x, \quad \widetilde f \left( \widetilde x\right) \neq 0 \right\}$$ finite.  
@@ -2786,8 +3007,7 @@ The equation \eqref{h_c_eqn} means that the nap $\varphi$ is the topological cov
 In this section we consider locally-compact groupoids $\G$ (cf. Definition \ref{groupoid_topological_defn}) such that $\G^0$ is Hausdorff.
 
 \begin{empt}\label{top_cov_empt}
-	Let $p: \widetilde{\sX}\to \sX$ be a   covering (cf. Definition \ref{top_covering_defn}) such that 
-	$\sX \cong \widetilde{\sX}/G$ where $G$ is  properly discontinuous group of homeomorphisms (cf. Definition \ref{top_properly_disc_group_defn}). Suppose that the space $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}). Let
+	Let $p: \widetilde{\sX}\to \sX$ be a   covering (cf. Definition \ref{top_covering_defn}). Suppose that the space $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}). Let
 	$$
 	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}
 	$$
@@ -5118,7 +5338,7 @@ group of $\sX$ with coefficients  in $\Q$.
 \paragraph{} Here I follow to \cite{karoubi:k}. 
 	\begin{empt}\label{etp_empt}
 	%4.9. 
-	Let $E$ and $F$ be vector bundles with bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
+	Let $E$ and $F$ be vector bundles with compact bases $\sX$ and $\sY$ respectively. We define the "{\it external Whitney sum}" of $E$ and $F$ as the vector bundle $E\boxplus F$ on $\sX\times \sY$, where $E\boxplus F\bydef \pi_1^*\left(E \right)\oplus \pi_2^*\left(F \right)$  with $\pi_1\left( \sX \times \sY\right)\onto \sX$  and $\pi_2\left( \sX \times \sY\right)\onto \sY$. Obviously we 	have $E\boxplus F=E\times  F $ and $\left( E\boxplus F\right)_{\left(x,y \right) }= E_x \oplus E_y$, In the same way, the "external 	tensor product" of $F$ and $E$ is the vector bundle $E\boxtimes F\bydef \pi_1^*\left(E \right)\otimes \pi_2^*\left(F \right)$  on $\sX \times \sY$, where $\left( E\boxtimes F\right)_{\left(x,y \right) }= E_x \otimes E_y$
 \end{empt}
 \begin{empt}\label{k_cup_empt}
 %5.1. 
