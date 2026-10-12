@@ -14,6 +14,9 @@ namespace Event.Windows.Forms
 
         event Action ev = () => { };
 
+        event Action proxy;
+
+
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
         bool isEnabled = false;
@@ -30,6 +33,7 @@ namespace Event.Windows.Forms
 
         internal Timer()
         {
+            proxy = () => { ev?.Invoke(); };
             timer.Tick += (object sender, EventArgs e) => 
             {
                 Event();
@@ -73,6 +77,20 @@ namespace Event.Windows.Forms
             remove { ev -= value; }
         }
 
+        event Action<Action> IEventProxy.OnCreate
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
         bool IEvent.IsEnabled
         {
             get
@@ -102,6 +120,8 @@ namespace Event.Windows.Forms
             }
         }
 
+        Action IEventProxy.Proxy { get => proxy; set => proxy = value; }
+
         #endregion
 
         #region IDisposable Members
@@ -129,7 +149,12 @@ namespace Event.Windows.Forms
 
         void Event()
         {
-            ev();
+            proxy();
+        }
+
+        void IEventProxy.CreateProxy()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

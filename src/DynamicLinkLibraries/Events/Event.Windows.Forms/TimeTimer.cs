@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Event.Interfaces;
 
 namespace Event.Windows.Forms
@@ -12,7 +8,7 @@ namespace Event.Windows.Forms
 
         TimeSpan timeSpan;
 
-         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
        // System.Threading.Timer timer = new System.Threading.Timer(null);
 
@@ -23,6 +19,7 @@ namespace Event.Windows.Forms
         {
             this.timeSpan = timeSpan;
             timer.Interval = (int)timeSpan.TotalMilliseconds;
+            
             timer.Tick += (object sender, EventArgs e) =>
             {
                 ev();

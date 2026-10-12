@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using WindowsExtensions;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -52,8 +53,13 @@ namespace DataPerformer.UI.UserControls
 
         #region Event handlers
 
-
         private void InputChange()
+        {
+            this.InvokeIfNeeded(InputChangeAct);
+        }
+
+
+        private void InputChangeAct()
         {
             propertyGridInitial.SetArrayEditor(input.Types, input.Initial);
             propertyGridValues.SetArrayEditor(input.Types, input.Data);

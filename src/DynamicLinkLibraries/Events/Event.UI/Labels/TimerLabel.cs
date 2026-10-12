@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CategoryTheory;
@@ -13,6 +9,7 @@ using Diagram.UI.Labels;
 
 using Event.Interfaces;
 using Event.UI.UserControls;
+using WindowsExtensions;
 
 
 namespace Event.UI.Labels
@@ -35,6 +32,7 @@ namespace Event.UI.Labels
 
         #region Ctor
 
+ 
         /// <summary>
         /// Constructor
         /// </summary>
@@ -45,6 +43,8 @@ namespace Event.UI.Labels
             : base(type, kind, icon)
         {
             BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            Disposed += TimerLabel_Disposed;
+
         }
 
 
@@ -57,6 +57,8 @@ namespace Event.UI.Labels
             : base(info, context)
         {
             BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            Disposed += TimerLabel_Disposed;
+
         }
 
 
@@ -92,7 +94,17 @@ namespace Event.UI.Labels
                 {
                     uc.Timer = value as ITimerEvent;
                 }
+                timer.OnCreate += Timer_OnCreate;
              }
+        }
+
+        private void Timer_OnCreate(Action obj)
+        {
+            var a = () =>
+            {
+                this.InvokeIfNeeded(obj);
+            };
+            timer.Proxy = a;
         }
 
         /// <summary>
@@ -113,6 +125,16 @@ namespace Event.UI.Labels
         {
             
         }
+
+        private void TimerLabel_Disposed(object sender, EventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.OnCreate -= Timer_OnCreate;
+            }
+
+        }
+
 
         #endregion
     }

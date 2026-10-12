@@ -1,4 +1,7 @@
 ﻿
+using Event.Interfaces;
+using System;
+
 namespace Event.Portable.Factory
 {
     /// <summary>
@@ -67,9 +70,12 @@ namespace Event.Portable.Factory
         {
             System.Action ev;
 
+            System.Action proxy;
+
             System.TimeSpan Event.Interfaces.ITimerEvent.TimeSpan { get; set; }
             
             bool Event.Interfaces.IEvent.IsEnabled { get; set; }
+            Action IEventProxy.Proxy { get => proxy; set => proxy = value; }
 
             event System.Action Event.Interfaces.IEvent.Event
             {
@@ -82,6 +88,24 @@ namespace Event.Portable.Factory
                 {
                     ev -= value;
                 }
+            }
+
+            event Action<Action> IEventProxy.OnCreate
+            {
+                add
+                {
+                    throw new NotImplementedException();
+                }
+
+                remove
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            void IEventProxy.CreateProxy()
+            {
+                throw new NotImplementedException();
             }
         }
 

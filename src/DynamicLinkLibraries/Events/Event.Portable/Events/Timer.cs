@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using NamedTree.Interfaces;
+
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
-using NamedTree.Interfaces;
 
 
 namespace Event.Portable.Events
@@ -24,7 +25,10 @@ namespace Event.Portable.Events
 
         protected TimeSpan timeSpan;
 
-        protected event Action ev;
+        protected event Action act;
+
+        protected event Action proxy;
+
 
         protected Action locked;
 
@@ -36,6 +40,7 @@ namespace Event.Portable.Events
 
         DateTime start;
 
+        protected event Action<Action> onCreate;
 
         #endregion
 
@@ -95,11 +100,11 @@ namespace Event.Portable.Events
         {
             add
             {
-                ev += value;
+                act += value;
             }
             remove
             {
-                ev -= value;
+                act -= value;
             }
         }
 
@@ -125,6 +130,19 @@ namespace Event.Portable.Events
             }
         }
 
+        event Action<Action> IEventProxy.OnCreate
+        {
+            add
+            {
+                onCreate += value;
+            }
+
+            remove
+            {
+                onCreate -= value;
+            }
+        }
+
         bool IEvent.IsEnabled
         {
             get
@@ -143,11 +161,12 @@ namespace Event.Portable.Events
                     if (value)
                     {
                         onPrepare();
-                        timer.Event += locked;
+                        CreateProxy();
+                        timer.Event += proxy;
                     }
                     else
                     {
-                        timer.Event -= locked;
+                        timer.Event -= proxy;
                     }
                     timer.IsEnabled = value;
                 }
@@ -180,7 +199,7 @@ namespace Event.Portable.Events
         /// </summary>
         void INativeEvent.Force()
         {
-            ev?.Invoke();
+            act?.Invoke();
         }
 
         #endregion
@@ -189,7 +208,7 @@ namespace Event.Portable.Events
 
         void Event()
         {
-            ev?.Invoke();
+            act?.Invoke();
         }
 
         #endregion
@@ -216,6 +235,8 @@ namespace Event.Portable.Events
 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => [measurement];
 
+        Action IEventProxy.Proxy { get => proxy; set => proxy = value; }
+
         void IMeasurements.UpdateMeasurements()
         {
 
@@ -229,6 +250,18 @@ namespace Event.Portable.Events
 
         void IChildren<IMeasurement>.RemoveChild(IMeasurement child)
         {
+        }
+
+        void IEventProxy.CreateProxy()
+        {
+            CreateProxy();
+        }
+
+        protected void CreateProxy()
+        {
+            proxy = () => {locked?.Invoke(); };
+            onCreate?.Invoke(locked);
+
         }
 
         #endregion

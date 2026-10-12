@@ -13,6 +13,9 @@ namespace Event.WPF
 
         event Action ev;
 
+        event Action proxy;
+
+
         bool isEnabled = false;
 
         #endregion
@@ -35,6 +38,7 @@ namespace Event.WPF
                 isEnabled = value;
                 if (isEnabled)
                 {
+                    CreateProxy();
                     timer.Tick += Timer_Tick;
                     timer.Start();
                     return;
@@ -57,6 +61,8 @@ namespace Event.WPF
             }
         }
 
+        Action IEventProxy.Proxy { get => proxy; set => proxy = value; }
+
         event Action IEvent.Event
         {
             add
@@ -67,6 +73,21 @@ namespace Event.WPF
             remove
             {
                 ev -= value;
+            }
+        }
+
+        protected event Action<Action> onCreate;
+
+        event Action<Action> IEventProxy.OnCreate
+        {
+            add
+            {
+                onCreate += value;
+            }
+
+            remove
+            {
+                onCreate -= value;
             }
         }
 
@@ -87,7 +108,19 @@ namespace Event.WPF
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            ev?.Invoke(); 
+            proxy();
+        }
+
+        void IEventProxy.CreateProxy()
+        {
+            CreateProxy();
+        }
+
+        protected void CreateProxy()
+        {
+            proxy = () => { ev?.Invoke(); };
+            onCreate?.Invoke(ev);
+
         }
     }
 }
