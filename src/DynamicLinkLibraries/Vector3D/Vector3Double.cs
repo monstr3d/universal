@@ -99,10 +99,18 @@ namespace Vector3D
         public double Norm
         { get => realMatrix.Norm(x); }
 
-       
+
+        /// <summary>
+        /// Norm
+        /// </summary>
+        public double Norm2
+        { get => realMatrix.Square(x); }
+
+
+
         #region Overloaded operators
 
-  
+
 
         #endregion
 

@@ -46,21 +46,34 @@
 \usepackage[T1]{fontenc}
 \usepackage[babel=true]{microtype}
 
+\newcommand{\Sh}{\ensuremath{\mathrm{Sh}}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\cat}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\CA}{{\mathcal A}}
 \newcommand{\Wedgem}{\Wedge^{\mathrm{max}}}
 \DeclareMathOperator{\inv}{inv}
-
-
+\newcommand{\Ccstar}{\Cat{cCStar}\xspace}
+\newcommand{\Sets}{\mbox{\textbf{Sets}}}
+\newcommand{\Cat}[1]{\ensuremath{\mathrm{\textbf{#1}}}}
+\newcommand{\context}{\ensuremath{\mathcal{C}}}
+\newcommand{\alg}[1]{\ensuremath{#1}}
 \newcommand{\cs}{\mbox{\upshape C}\ensuremath{{}^*}} 
 \newcommand{\csr}{{\mathrm C}^*_{\mathrm r}}
 \newcommand{\csm}{\cs_{\mathrm{max}}}
 \newcommand{\co}{\mathbb{C}}
 \newcommand{\Grp}{\mathsf{G}}
 \newcommand{\Sig}{{\sf\Sigma}}
+\newcommand{\asstopos}{\ensuremath{\mathcal{T}}}
 \newcommand{\PI}{{\sf\Pi}}
+\newcommand{\functor}[1]{\ensuremath{\underline{#1}}}
+\newcommand{\ca}{C*-algebra} 
 \DeclareMathOperator{\Pair}{Pair}
 \DeclareMathOperator{\Tw}{Tw}
 \newcommand{\BS}{\text{B-S}}
-
+\newcommand{\TA}{\mathcal{T}(A)}
+\newcommand{\Set}{\Cat{Sets}\xspace}
+\newcommand{\uA}{\underline{A}}
+\newcommand{\er}{\eqref}
 
 \newcommand{\Alg}{\mathsf{A}}
 \newcommand{\p}{\mathfrak{P}}
@@ -161,7 +174,7 @@
 \newcommand{\TR}{{\rm TR}\;}
 \newcommand{\res}{{\rm res}\;}
 
-
+\newcommand{\sa}{\ensuremath{_{\mathrm{sa}}}}
 \newcommand\ci{${\mathcal C}^{\infty}$}
 \newcommand\CI{{\mathcal C}^{\infty}}
 \newcommand\CIc{{\mathcal C}^{\infty}_{\text{c}}}
@@ -603,7 +616,7 @@
 	\newcommand{\Diff}{\mathrm{Diff}}       %%
 	\newcommand{\im}{\mathrm{im}}       %%
 	
-	
+	\newcommand{\eg}{\textit{e.g.}}
 	\newcommand{\SO}{\mathrm{SO}}       %%
 	\newcommand{\SU}{SU}       %%
 	\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
@@ -613,7 +626,24 @@
 	\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
 	\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
 	\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+	\newcommand{\ulS}{\functor{\Sigma}}
+	\newcommand{\ulR}{\underline{\mathbb{R}}}
+	\newcommand{\ulA}{\underline{A}}
+	\makeatletter
+	\providecommand*{\xmapstofill@}{%
+		\arrowfill@{\mapstochar\relbar}\relbar\rightarrow
+	}
+	\providecommand*{\xmapsto}[2][]{%
+		\ext@arrow 0395\xmapstofill@{#1}{#2}%
+	}
 	
+	\providecommand*{\xhookrightfill@}{%
+		\arrowfill@{\lhook\joinrel\relbar}\relbar\rightarrow
+	}
+	\providecommand*{\xhookrightarrow}[2][]{%
+		\ext@arrow 0395\xhookrightfill@{#1}{#2}%
+	}
+	\makeatother
 	%\newcommand{\bes}{\begin{equation}\begin{split}}
 			%\newcommand{\ees}{\end{split}\end{equation}}
 	%\NewEnviron{split.enviro}{%
@@ -674,6 +704,109 @@
 \paragraph{}	Any $C^*$-algebra can be regarded as a generalization of locally compact, Hausdorff  topological space $\mathcal X$. From the commutative  Gelfand-Na\u{\i}mark theorem it follows that the spectrum of any commutative $C^*$-algebra is a locally  compact, Hausdorff  space which have the exact information about the $C^*$-algebra.  Here we consider a Gelfand spaces of $C^*$-algebras which can be regarded as a generalization of the spectrum. In case of commutative $C^*$-algebras the Gelfand space coincides with the spectrum. Generally Gelfand spaces are not Hausdorff and provide more detailed information of noncommutative  $C^*$-algebras. Usage of Gelfand spaces of $C^*$-algebra enables us to define some $C^*$-algebraic analogs of several notions of the classical algebraic topology, e.g. fundamental group, cohomology,  multiplicative structure of $K$-theory and Adams operations.
 \end{abstract}
 
+\section{Spaces of ultrafilters}
+\paragraph{} Here we define topological spaces related to meet-semilattice (cf. Definition \ref{lattice_defn}).
+\begin{definition}\label{lattice_s_defn}
+	If $\mathscr L$ is  the meet-semilattice (cf. Definition \ref{lattice_defn}) then denote by   $\mathfrak{Filters}\left( \mathscr L\right)$  (resp.  $\mathfrak{Ultrafilters}\left( \mathscr L\right)$) the  set of filters  (resp. ultrafilters) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).
+\end{definition}
+
+\begin{lemma}\label{topology_lem} 
+	Under the hypothesis of the Definition \ref{lattice_s_defn}	 the set 
+		\be\label{topology_eqn}
+		 \left\{\mathfrak{Ultrafilters}\left( \mathscr L\right)_L \bydef\left( \left\{ \left.\xi \in \mathfrak{Ultrafilters}\left( \mathscr L\right)\right| L \in \xi\right\}\subset \mathfrak{Ultrafilters}\left( \mathscr L\right)\right)  \right\}_{L \in \mathscr L}
+		\ee
+		is a basis of topology on the set  $\mathfrak{Ultrafilters}\left( \mathscr L\right)$).
+\end{lemma}
+
+\begin{proof}
+	One needs check conditions (a) and (b) of the Definition \ref{top_base_defn},\\
+	(a) If $\xi \bydef \left\{ L_\la \right\}_{\la \in \La}\in  \mathfrak{Ultrafilters}\left(\mathscr L \right)$ then 
+	$$
+	\forall \la \in \La\quad  \xi \in 	\mathfrak{Ultrafilters}\left(\mathscr L\right)_{L_\la}.
+	$$
+	(b) 
+	\bean
+	\forall \la', \la'' \in \La\quad \exists \la \in \La\quad L_\la = L_{\la'}\wedge L_{\la''},\\
+	\mathfrak{Ultrafilters}\left(\mathscr L \right)_{L_{\la'}}\cap\mathfrak{Ultrafilters}\left(\mathscr L \right)_{L_{\la''}}=\mathfrak{Ultrafilters}\left(\mathscr L \right)_{L_{\la}}.
+	\eean
+\end{proof}
+\begin{definition}\label{topology_defn} 
+If 	$\mathscr L$ is  the meet-semilattice (cf. Definition \ref{lattice_defn}) then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ (cf. Definition \ref{lattice_s_defn}) supplied with the given by the Lemma \ref{topology_lem} topology is the {\it space of ultrafilters} of $\mathscr L$.
+\end{definition}
+\begin{remark}\label{ultra_com_rem}
+	From the Proposition \ref{top_ultra_prop} it turns out that the {space of ultrafilters} of $\mathscr L$ is compact.
+\end{remark}
+
+\begin{definition}\label{hausdorff_defn}
+	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{H}\left( \sX\right)$ is such that 
+	\begin{itemize}
+		\item objects of $\mathfrak{H}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact (cf. Definition \ref{top_locally_compact_defn}) space $\sY$, 
+		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous  map  $\sY' \onto \sY''$ such that the diagram 
+		\bean
+		\begin{tikzcd}
+			&\sX \arrow[ld] \arrow[rd] & \\
+			\sY' \arrow[rr]	&& \sY''
+		\end{tikzcd}
+		\eean
+		is commutative.
+	\end{itemize}
+\end{definition}
+\begin{lemma}\label{hausdorff_lem}
+	One has:
+	\begin{enumerate}
+		\item [(i)] for any locally compact topological space $\sX$ there is the natural,   initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category} denoted by by $\mathfrak{Hausdorff}\left( \sX\right)$; 
+		\item [(ii)] if both $\sX$ and $\sY$ are locally compact spaces then every continuous map $\sX \to \sY$ yields the commutative diagram 
+		\be\label{haudorff_eqn}
+		\begin{tikzcd}
+			\sX  \arrow[r, two heads, "~"] \arrow[d, "f"]   & \mathfrak{Hausdorff}\left( \sX\right) \arrow[d, "\mathfrak{Hausdorff}(f)"]  \\
+			\sY  \arrow[r, two heads]    & \mathfrak{Hausdorff}\left( \sY\right)	
+		\end{tikzcd}
+		\ee
+	\end{enumerate}
+\end{lemma}
+\begin{proof}(i)
+	Let $A$ be a commutative $C^*$-algebra of all bounded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
+	$$
+	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
+	$$
+	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
+	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq C_0\left(\sY'' \right)$. It is a contradiction which proves that the existence of $\sY''$ is impossible. \\
+	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bounded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
+	B  \cong C_b\left( \mathfrak{Hausdorff}\left( \sY\right)\right)\to A  \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)
+	$$
+	which induces the natural continuous map $\bt~\mathfrak{Hausdorff}(f): \bt~\mathfrak{Hausdorff}\left(\sX \right) \to \bt~\mathfrak{Hausdorff}\left(\sY \right)$. This lemma follows from $\bt~\mathfrak{Hausdorff}(f)\left( \mathfrak{Hausdorff}\left(\sX \right)\right) = \mathfrak{Hausdorff}\left(\sY \right)$.
+\end{proof}
+\begin{definition}\label{blowing_uni_h_defn}
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
+\end{definition}
+\begin{definition}\label{hausdorff_funct_defn}
+	The Lemma \ref{hausdorff_lem} yields the {\it Hausdorff functor}
+	\be\label{hausdorff_funct_eqn}
+	\mathfrak{LocComp} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
+	from the category $\mathfrak{LocComp}$ of locally compact topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
+\end{definition}
+\begin{lemma}!!!!
+	Any surjective homomorphism $\phi: \mathscr L' \onto  \mathscr L''$ of meet semi-lattices yields the surjective continuous maps
+	\bea 
+	\psi: \mathfrak{Ultrafilters}\left(\mathscr L' \right)\onto 	\mathfrak{Ultrafilters}\left(\mathscr L'' \right),\\
+\varphi:	\mathfrak{Hausdorff}\left( \mathfrak{Ultrafilters}\left(\mathscr L' \right)\right) \onto \mathfrak{Hausdorff}\left( 	\mathfrak{Ultrafilters}\left(\mathscr L'' \right)\right) 
+	\eea 
+\end{lemma}
+\begin{proof}
+	If $p \in  A^{**}$ is an open projection (cf. Definition \ref{open_close_ideal_defn}) and $q = \varphi^{**}\left(p \right)\in B^{**}$ then $q$ is an open projection (cf. Lemma \ref{proj_lem})	
+\bean
+\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left( \mathfrak{Ultrafilters}\left(B \right)_p\right) = \mathfrak{Ultrafilters}\left(A \right)_{q}
+\eean 
+So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out that the map \ref{ultra_mor_eqn} is continuous. Using this fact one can prove that the map \ref{ultra_mor_eqn} yields the natural continuous map between pre-Gelfand spaces (cf. Definition \ref{gelfand_space_defn})
+\bean
+\begin{split}
+	\mathfrak{PreGalfanf}\left(B\right) \xrightarrow{\mathfrak{PreGalfanf}\left(\varphi \right)}\mathfrak{PreGalfanf} \left( A\right).
+\end{split}
+\eean
+Now the continuity of the map \eqref{gelfand_map_eqn} follows from the Lemma \ref{hausdorff_lem}.\\
+(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{uphi-inv_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{ultra_mor_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
+
+\end{proof}
 
 \section{Gelfand category and Gelfand functor}
 \paragraph{} The commutative  Gelfand-Na\u{\i}mark \ref{gelfand-naimark_thm} theorem yields the equivalence between  following categories:
@@ -708,54 +841,6 @@ Let both $A$ and $B$ be  $C^*$-algebras. If  $A$ and $B$ are not unital then a $
 If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A \to B$ can be  extended up to the unique principal  in the sense  of Definition \ref{principal_defn} homomorphism $f^\sim:A^\sim \to B^\sim$ (cf. equation \eqref{unital_notation_eqn}).
 \end{remark}
 
-\begin{definition}\label{hausdorff_defn}
-	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{H}\left( \sX\right)$ is such that 
-	\begin{itemize}
-		\item objects of $\mathfrak{H}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact (cf. Definition \ref{top_locally_compact_defn}) space $\sY$, 
-		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous  map  $\sY' \onto \sY''$ such that the diagram 
-		\bean
-		\begin{tikzcd}
-			&\sX \arrow[ld] \arrow[rd] & \\
-			\sY' \arrow[rr]	&& \sY''
-		\end{tikzcd}
-		\eean
-		is commutative.
-	\end{itemize}
-\end{definition}
-\begin{lemma}\label{hausdorff_lem}
-	One has:
-	\begin{enumerate}
-		\item [(i)] for any locally compact topological space $\sX$ there is the natural,   initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category} denoted by by $\mathfrak{Hausdorff}\left( \sX\right)$; 
-		\item [(ii)] if both $\sX$ and $\sY$ are locally compact spaces then every continuous map $\sX \to \sY$ yields the commutative diagram 
-		\be\label{haudorff_eqn}
-		\begin{tikzcd}
-		\sX  \arrow[r, two heads, "~"] \arrow[d, "f"]   & \mathfrak{Hausdorff}\left( \sX\right) \arrow[d, "\mathfrak{Hausdorff}(f)"]  \\
-		\sY  \arrow[r, two heads]    & \mathfrak{Hausdorff}\left( \sY\right)	
-		\end{tikzcd}
-		\ee
-	\end{enumerate}
-\end{lemma}
-\begin{proof}(i)
-	Let $A$ be a commutative $C^*$-algebra of all bounded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-	$$
-	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-	$$
-	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq C_0\left(\sY'' \right)$. It is a contradiction which proves that the existence of $\sY''$ is impossible. \\
-	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bounded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
-	B  \cong C_b\left( \mathfrak{Hausdorff}\left( \sY\right)\right)\to A  \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)
-	$$
-	which induces the natural continuous map $\bt~\mathfrak{Hausdorff}(f): \bt~\mathfrak{Hausdorff}\left(\sX \right) \to \bt~\mathfrak{Hausdorff}\left(\sY \right)$. This lemma follows from $\bt~\mathfrak{Hausdorff}(f)\left( \mathfrak{Hausdorff}\left(\sX \right)\right) = \mathfrak{Hausdorff}\left(\sY \right)$.
-\end{proof}
-\begin{definition}\label{blowing_uni_h_defn}
-	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
-\end{definition}
-\begin{definition}\label{hausdorff_funct_defn}
-	The Lemma \ref{hausdorff_lem} yields the {\it Hausdorff functor}
-	\be\label{hausdorff_funct_eqn}
-	\mathfrak{LocComp} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
-	from the category $\mathfrak{LocComp}$ of locally compact topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
-\end{definition}
 \begin{empt}
 	If $A$ is a $C^*$-algebra then one has
 	\be\label{four_decompositon_eqn}
@@ -977,7 +1062,7 @@ pbp = 1_{A^p}
 (ii) Is a  consequence of (i) and the Lemma \ref{gelfand_compact_lem}.
  	 \end{proof}
  
- \begin{rem}\label{compact_compactem}!!!
+ \begin{rem}\label{compact_compactem}
  The (ii) of the Corollary \ref{gelfand_compact_cor} is also direct consequence of  the Theorem \ref{gelfand_compact_thm}.
  \end{rem}
  
@@ -1037,7 +1122,7 @@ The following Lemma is a generalization of the Theorem \ref{gelfand-naimark_thm}
 	of spaces of ultrafilters. Now this lemma follows from the Proposition \ref{top_ultra_prop}.
 \end{proof}
 \begin{empt}\label{one_point_empt}
-If  $A$ is an unital $C^*$ algebra and  $I\subset A$ is is the maximal proper left ideal then $I$ corresponds to an open projection $p_I \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_I \bydef 1-p_I\in A^{**}$ is a minimal projection. So for any projection $p \in A^{**}$ one has 
+If  $A$ is an unital $C^*$-algebra and  $I\subset A$ is is a maximal proper left ideal then $I$ corresponds to an open projection $p_I \in A^{**}$ (cf. Definition \ref{open_close_ideal_defn}). From the Proposition \ref{open_close_ideal_prop} it turns out that $p'_I \bydef 1-p_I\in A^{**}$ is a minimal projection. So for any projection $p \in A^{**}$ one has 
 \bean
 p \wedge p'_I \neq 0 \quad \Rightarrow \quad  p \wedge p'_I= p'_I \quad \Rightarrow \quad p'_I \le p
 \eean 
@@ -1061,9 +1146,9 @@ If there are $\xi', \xi'' \in S$ with  $\xi' \neq \xi''$  then there are $\eta',
 \label{ee2_eqn}
 \forall p'' \in  \mathfrak{Lattice}\left( A\right) \quad p'' \in \eta'' \quad\Rightarrow \quad  p'' \wedge  p \neq 0. 
 \eea
-If $p'_I \not \le  \overline{q}'$ then $p_I \le 1 - \overline{q}'$ and $ 1 - \overline{q}'\in \mathfrak{F}_I$. However the equality $q' \wedge\left( 1 - \overline{q}'\right) = 0$ contradicts with \eqref{ee1_eqn}. From this contradiction rejects the hypothesis $p_I \not \le  \overline{q}'$, so $p_I \le  \overline{q}'$. Similarly one has $p_I \le  \overline{q}''$. But both  inequalities 
+If $p'_I \not \le  \overline{q}'$ then $p_I \le 1 - \overline{q}'$ and $ 1 - \overline{q}'\in \mathfrak{F}_I$. However the equality $q' \wedge\left( 1 - \overline{q}'\right) = 0$ contradicts with \eqref{ee1_eqn}. This contradiction rejects the hypothesis $p_I \not \le  \overline{q}'$, so $p_I \le  \overline{q}'$. Similarly one has $p_I \le  \overline{q}''$. But both  inequalities 
 \bean
-p_I \le  \overline{q}',
+p_I \le  \overline{q}',\\
 p_I \le  \overline{q}''
 \eean 
 are incompatible with  $\overline{q}'\wedge \overline{q}''=0$. This contradiction proves this lemma.
@@ -1086,10 +1171,11 @@ where  $\xi_I \in \mathfrak{Gelfand}\left(A\right)$ the given by the Lemma \ref{
 If  $A$ is an nonunital $C^*$ algebra and  $A^+\bydef A \oplus \C$ is the  minimal unitization (cf. Definition \ref{multiplier_min_defn}) then $\mathfrak{Gelfand}\left(A^+\right)= \mathfrak{Gelfand}\left(A\right)^+=\mathfrak{Gelfand}\left(A\right)\cup \left\{\xi_A\right\}$ where $\xi_A$ is  the given by the Lemma \ref{one_point_lem} point.
 \end{corollary}
 \begin{proof}
-Since the $C^*$-algebra is unital and $A \subset A^+$ is a maximal left ideal this corollary is a consequence of the Lemma \ref{one_point_lem}
+Since the $C^*$-algebra $ A^+$ is unital and $A \subset A^+$ is a maximal left ideal this corollary is a consequence of the Lemma \ref{one_point_lem}
 \end{proof}
 \subsection{The map to the spectrum}
-From the Theorem \ref{good_thm} if follows that for any good inclusion $
+\paragraph{}
+From the Theorem \ref{good_thm} it follows that for any good inclusion $
 \phi: C_0\left( 
 \sX\right) \hookto M\left(A \right)$ there is the natural  open continuous map 
 \be
@@ -1180,7 +1266,7 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 		\bean
 		\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left( \mathfrak{Ultrafilters}\left(B \right)_p\right) = \mathfrak{Ultrafilters}\left(A \right)_{q}
 		\eean 
-		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out turns out that the map \ref{ultra_mor_eqn} is continuous. Using this fact one can prove that the map \ref{ultra_mor_eqn} yields the natural continuous map between pre-Gelfand spaces (cf. Definition \ref{gelfand_space_defn})
+		So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Gelfand}\left(A\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Gelfand}\left(B\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out that the map \ref{ultra_mor_eqn} is continuous. Using this fact one can prove that the map \ref{ultra_mor_eqn} yields the natural continuous map between pre-Gelfand spaces (cf. Definition \ref{gelfand_space_defn})
 		\bean
 		\begin{split}
 				\mathfrak{PreGalfanf}\left(B\right) \xrightarrow{\mathfrak{PreGalfanf}\left(\varphi \right)}\mathfrak{PreGalfanf} \left( A\right).
@@ -1273,7 +1359,7 @@ a_1 \otimes f_1 + ... + a_1 \otimes f_1\mapsto \left( x \mapsto a_1f_1(x) + ... 
 		\eean 
 		where $x \bydef \varphi_\sX\left( \xi'\right)= \varphi_\sX\left( \xi''\right)$. On the other hand  $\varphi^{-1}_\sX\left( x\right)\cong \mathfrak{Gelfand}\left(A^\sim\right)$ so both $\xi'$ and $\xi''$ can be regarded as elements of  $\mathfrak{Gelfand}\left(A^\sim\right)$. From \eqref{su_ssu_eqn} it turns out that  $\xi'$ and $\xi''$  are different  elements of  $\mathfrak{Gelfand}\left(A^\sim\right)$. This circumstance contradicts with the hypothesis \eqref{dir_map_eqn}. From these contradiction one deduce that the map $\varphi$ is injective, therefore $\varphi$ is bijective. Otherwise both spaces $\mathfrak{Gelfand}\left(C\left(\sX^\sim, A^\sim\right)\right)$ and $\sX^\sim \times 	\mathfrak{Gelfand}\left(A^\sim  \right)$ are compact and Hausdorff, so from the Theorem \ref{comp_to_thm} it follows that the map $\varphi$ is a homeomorphism. This lemma follows from the equation
 		\bean
-		\varphi\left(C_0\left(\sX \right)\otimes  A \right) = \sX \times \mathfrak{Gelfand}\left(A \right)
+		\varphi\left(C_0\left(\sX \right)\otimes  A \right) = \sX \times \mathfrak{Gelfand}\left(A \right).
 		\eean 
 		
 		\end{proof}
@@ -1345,7 +1431,26 @@ b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
 	\begin{remark}
 		From the Lemma \ref{lem_g_lem}  it follows that in case of commutative $C^*$-algebras the theory of coverings of $C^*$-algebras coincides with the theory of coverings of topological spaces.
 	\end{remark}
-	
+	\subsection{Bohr space}
+	\paragraph{}
+	 Let $A$ be an unital $C^*$-algebra The Gelfand spectrum $\ulS(\uA)$ is a topos  (cf. Definition \ref{gelfand_spectrum_defn}) but it is not a topological space. If is naturally define a single  space  which contains the full information about  $\ulS(\uA)$. The natural way to define this space by the following equation 
+	$$
+	G\left( A\right) \bydef \lim_{C \in \mathcal{C}(A)} \Sigma \left(C \right) = \varprojlim \Sigma \circ  \functor{\alg{A}} 
+		$$
+		where the limit  $ \varprojlim$ of functor is explained in the Appendix \ref{limits_of_functors_sec}. However Kochen-Specker Theorem \ref{prop:kochenspecker} implies a structural collapse. If \(A = \mathbb{M}_n(\mathbb{C})\) for $n \ge 3$ (e.g., standard matrix quantum mechanics), the colimit of \(\mathcal{C}(A)\) in commutative \(C^{*}\)-algebras collapses to $0$, meaning this limit yields the trivial (empty) locale.  However form the Theorem \ref{good_thm} it turns out that is   $C \subset A$ is an unital commutative $C^*$-subalgebra then there is the natural inclusion $\phi_C : C \hookto C\left(\mathfrak{Gelfand}\left( A \right)\right)$ 
+		\begin{definition}
+		The generated by the union $\bigcup_{C \in \mathcal{C}(A)} \phi_C\left( C\right) \subset C\left(\mathfrak{Gelfand}\left( A \right)\right)$ commutative $C^*$-subalgebra is the {\it Both algebra}. The corresponding to the Bohr algebra quotient space of $\mathfrak{Gelfand}\left( A \right)$ is the {\it Bohr space} denoted by $\mathfrak{Boht}\left( A \right)$.
+		\end{definition}
+		\begin{remark}
+		If $A$ is an unital commutative $C^*$-algebra then the natural surjective map
+		\be\label{gelfand_to_bohr_eqn}
+		\mathfrak{Gelfand}\left( A \right)\onto \mathfrak{Bohr}\left( A \right)
+	\ee
+	is a homeomorphism.  It is not known whether the map \eqref{gelfand_to_bohr_eqn}is a homeomorphism for any unital  $C^*$-algebra $A$.
+		\end{remark}
+		
+		
+		
 	\section{Gelfand space and $K$-theory}
 		\subsection{Basic constructions}
 	\paragraph{}
@@ -1423,7 +1528,7 @@ b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
 \begin{proof}
 	There is the direct sum of left $\mathbb{M}_n\left(A \right)$-ideals
 	$$
-	A \cong \bigoplus_{j = 1}^n \mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A.
+\mathbb{M}_n\left(A \right) \cong \bigoplus_{j = 1}^n \mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A.
 	$$
 	This direct sum  corresponds to decomposition of $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ into disconnected union of open closed subsets. For every $j = 1,..., n$ the left  ideal $\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A$  yields a hereditary $C^*$-subalgebra $ \mathfrak{e}^{j,j}_A\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A$ (cf. Lemma \ref{hered_ideal_lem}). There is the natural isomorphism $\mathfrak{e}^{j,j}_A\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A \cong A$ of $A$-$A$-bimodules. From this isomorphism and the Remark \ref{topology_base_herdem} one can deduce that the corresponding to the ideal $\mathbb{M}_n\left(A \right) \mathfrak{e}^{j,j}_A$ subspace of $\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)$ is homeomorphic to $\mathfrak{Gelfand}\left(A\right)$. From this fact one has the following homeomorphism of spaces and isomorphism of $\mathfrak{Gelfand}\left(A\right)$-modules.
 	\bea\label{top_n_eqn}
@@ -2278,7 +2383,7 @@ Let us describe an  analogy  between algebraic counterpart of geometric quotient
 
 \section{Algebraic topology of the noncommutative torus}
 \paragraph*{}
-From  the Theorem \ref{k_0_tor_thm} (resp \ref{k_1_tor_thm})  element of $K_0\left(C\left(\T^2_\th \right)  \right)$  (resp. $K_1\left(C\left(\T^2_\th \right)  \right)$) is represented by an idempotent (resp. invertible element) of $C\left(\T^2_\th \right)$. From this circumstance the given by the Theorem \ref{k_h_thm} equations 
+From  the Theorem \ref{k_0_tor_thm} (resp \ref{k_1_tor_thm})  element of $K_0\left(C\left(\T^2_\th \right)  \right)$  (resp. $K_1\left(C\left(\T^2_\th \right)  \right)$) is represented by an idempotent (resp. invertible element) of $C\left(\T^2_\th \right)$. From this circumstance the given by the Theorem \ref{k_gelfand_thm} equations 
 \bean
 K_0\left(C\left(\T^2_\th \right) \right) =H^0_c\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\otimes \K \right); \Z \right)/U\left(\left(C\left(\T^2_\th \right) \otimes \K \right) ^+ \right),\\
 K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1_c\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right) \otimes \K\right); \Z \right) 
@@ -2288,7 +2393,6 @@ can be replaced with following ones,
 K_0\left( C\left(\T^2_\th \right) \right) =H^0\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right) \right); \Z \right)/U\left(C\left(\T^2_\th \right)  \right),\\ \label{k_1_nt_eqn}
 K_{1}\left(C\left(\T^2_\th \right) \right) \cong H^1\left(\mathfrak{Gelfand}\left(C\left(\T^2_\th \right)\right); \Z \right). 
 \eea
-
 It is known that $C\left(\T^2_\th \right)$ is an universal $C^*$-algebra generated by two unitaries $u, v \in C\left(\T^2_\th \right)$ such that $uv = e^{2\pi i \th}vu$. It is also known 
 that $C\left(\T^2_\th \right) \cong C\left(u_{S^1} \right)\rtimes_{\a_u} \Z$, where $u_{S^1} \in C\left( u_{S^1}\right) \cong C(S^1)$ is unitary,  $\a^{u_{S^1}}\in \Aut\left(C\left( S^1\right)  \right) \cong \Aut\left(C\left( u_{S^1}\right)  \right)$ is a $*$- automorphism given by $u_{S^1} \mapsto e^{2\pi i \th} u_{S^1}$.
 The Theorem \ref{p_v_theorem} yields  a cyclic six-term exact sequence
@@ -2310,7 +2414,7 @@ From the isomorphisms
 $$
 K_0\left( C\left(u \right)\right)\cong 	K_1\left( C\left(u \right)\right)\cong \Z
 $$	
-it follow that $\a^{u_{S^1}}_*$ is identical, $1=\a^{u_{S^1}}_*= 0$, so there are the exact sequences
+it follow that $\a^{u_{S^1}}_*$ is identical, $1-\a^{u_{S^1}}_*= 0$, so there are the exact sequences
 \bea\label{kk_0_nt_eqn}
 \{0\}\hookto	K_0\left( C\left({u_{S^1}} \right)\right) \xrightarrow{\iota^u_*} K_0\left( C\left(u \right)  \rtimes_\a \Z \right) \xrightarrow{\partial} K_1\left( C\left({u_{S^1}} \right)\right) \onto \{0\}, \\ \label{kk_1_nt_eqn}
 \{0\}\hookto	K_1\left( C\left(u \right)\right) \xrightarrow{\iota^{u_{S^1}}_*} K_1\left( C\left({u_{S^1}} \right)  \rtimes_\a \Z \right) \xrightarrow{\partial} K_0\left( C\left({u_{S^1}} \right)\right) \onto \{0\}.	
@@ -2504,7 +2608,7 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 %	$$
 %	\mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right) \right)\xrightarrow{\mathfrak{Gelfand}\left(\phi_j \right)}\mathfrak{Gelfand}\left(C\left( U_j\right)  \right)
 %	$$
-%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem}  COMPACT it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
+%	From $C\left( U_j\right) \cong C\left(S^1 \right)$ and the Lemma \ref{lem_g_lem}  \mathcal OMPACT it follows that there is a homeomorphism  $\mathfrak{Gelfand}\left(C\left( U_j\right)\right)   \cong S^1$, so the map $\mathfrak{Gelfand}\left(\phi_j \right)$ is equivalent to the $\varphi_j : \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right) \to S^1$ one. There is the natural continuous map 
 %\be\label{torus_map_eqn}
 %	\varphi\bydef \varphi_1 \times ... \times \varphi_n :  \mathfrak{Gelfand}\left( C\left(\T^n _{\theta}\right)\right)  \to \underbrace{S^1\times ...\times S^1}_{n-\text{times}}\cong \T^n
 %\ee
@@ -2537,7 +2641,7 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 %\varphi_1\left( w_1\right)\varphi_2\left( w_2\right)\neq 0,\\
 %L_1 \cap L^*_2 \neq \{0\}.
 %\eean 
-%From the equation \eqref{hered_ideal_eqn} if follows that 
+%From the equation \eqref{hered_ideal_eqn} it follows that 
 %\be\label{l12_eqn}
 %L_1 \cap L_2 \neq \{0\}
 %\ee Similarly to the above construction  any neighborhood 
@@ -2780,7 +2884,7 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 	\bean\label{blowing_ac_eqn}
 	\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
 	\eean
-	From $\left\|c - b \right\|  < \eps/2$ if follows that
+	From $\left\|c - b \right\|  < \eps/2$ it follows that
 	\be\label{blowing_acc_eqn}
 	\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
 	\ee
@@ -2879,7 +2983,7 @@ dense $*$-subalgebra of $A$ is said to be the \textit{algebra of compactly suppo
 %	\bean\label{blowing_ac_eqn}
 %	\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
 %	\eean
-%	From $\left\|c - b \right\|  < \eps/2$ if follows that
+%	From $\left\|c - b \right\|  < \eps/2$ it follows that
 %	\be\label{blowing_acc_eqn}
 %	\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
 %	\ee
@@ -4305,31 +4409,6 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 
 
 
-\subsection{Restriction of foliation}
-
-
-\begin{lemma}\label{foles_lem}\cite{connes:ncg94}
-If $\sU \subset M$ is an open set and  $\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right) $ is the {restriction}   of $\left(M,\mathcal F \right)$ {to}  $\mathcal{U}$ then the graph 
-$\G\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)$ is an open set in the graph $\G\left(M,\mathcal F \right)$, and the inclusion
-$$
-\Coo\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)\hookto\Coo\left(M,\mathcal F \right)
-$$
-extends to an isometric *-homomorphism of $C^*$-algebras
-$$
-C^*\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right)\hookto C^*\left(M,\mathcal F \right).
-$$
-\end{lemma}
-
-\begin{remark}\label{folesem}\cite{connes:ncg94}
-This lemma, which is still valid in the non-Hausdorff  case \cite{connes:foli_survey}, allows one to reflect
-algebraically the local triviality of the foliation.
-Thus one can cover the manifold $M$ by
-open sets $\sU_\la$ such that $\sF$ restricted to $\sU_\la$ has a Hausdorff  space of leaves, $\sV_{\la} = \sU_\la/\sF$. and hence such that the C*-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$  are strongly Morita equivalent to the commutative $C^*$-algebras $C_0\left( B_\la\right)$. These subalgebras $C^*$-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$ generate $ C^*\left(M,\mathcal F \right)$. 
-but of course they fit together in a very complicated way which is related to the global
-properties of the foliation.
-\end{remark}
-
-
 
 \begin{appendices}
 			\section{Category theory}
@@ -4489,6 +4568,27 @@ F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\
 \ee
 (cf. Notation \ref{category_not}).
 
+\subsection{Limits of functors}\label{limits_of_functors_sec}	
+\paragraph{} Here I follow to \cite{cat:work}. Given categories $C, J$,
+and the diagonal functor $\Dl : C \to C^J$ , a {\it limit} for a functor $F: J \to C$.
+is a universal arrow $\left\langle r, \nu\right\rangle$  from $\Dl$ to $F$. It consists of an object $r$ of $C$,
+usually written $r = \varinjlim F$ or $\lim~F$ and called the {\it limit} object (the
+"inverse limit" or "projective limit") of the functor $F$, together with a
+natural transformation $\nu : \Dl r \xrightarrow{\cdot } F$ which is universal among natural
+transformations $\tau : \Dl c \xrightarrow{\cdot } F$, for objects $c$ of $C$. Since $\Dl c \xrightarrow{\cdot } F$ is the
+functor constantly $c$, this natural transformation $\tau$ consists of one arrow
+$\tau_j : c\to F_j$ of C for each object $j$ of $J$ such that for every arrow $u: i \to j$ 
+of $J$ one has $T_j  = Fu \circ \tau_i$. We may call $\tau : c \xrightarrow{\cdot } F$ a {\it cone} to the base $F$ from
+the vertex $c$. (We say "cone to the base $F$" rather than "cocone"). The
+universal property of $\nu$ is this: It is a cone to the base $F$ from the vertex
+$\varprojlim F$; for any cone $\tau$ to $F$ from an object $c$, there is a unique arrow $t : c \to \varprojlim F$ such that $\tau_i = v_i t$ for all $i$. The situation may be pictured as
+\bean
+\begin{tikzcd}
+	c \arrow[r, "t"] \arrow[d, "\tau_i"] \arrow[rd, "\tau_j"]&  \varprojlim F\arrow[d, "\nu_j"] \arrow[ld, "\nu_i"]\\
+	F_i \arrow[r, "Fu"]  & F_j
+\end{tikzcd}.
+\eean 
+
 	
 	
 \subsection{Equivalence relations}
@@ -4637,7 +4737,506 @@ A ring $A$ is said to satisfy {\it excision}  in algebraic $K$-theory if for eve
 	$$
 	M = \sum_{\la \in \La_0} A_\la.
 	$$
-\end{theorem} 
+\end{theorem}
+\subsection{Adjoint functors}\label{adjoint_functor_sec}
+\paragraph*{}
+
+If both $\mathscr C$ and $\mathscr D$ are categories then a pair of functors $\mathscr C \substack{ \xrightarrow{F}\\\xleftarrow[G]{}}\mathscr D$ are \textit{adjoint functors} if for any $\mathscr C$-object $A$ and $\mathscr D$-object $B$ there is a natural bijection
+$$
+\Hom_{\mathscr D}\left(F\left(A \right), B  \right) \cong \Hom_{\mathscr C}\left(A, G\left(B \right)  \right).
+$$
+A pair of {adjoint functors} can be defined via counitÐunit adjunction, i.e. there are natural transformations
+\bean
+\eps : FG \to 1_{\mathscr C},\\
+\eta : 1_{\mathscr  D} \to  GF 
+\eean
+respectively called the \textit{counit} and the \textit{unit} of the adjunction (terminology from universal algebra), such that the compositions
+\be\label{id_thens_eqn}
+\begin{split}
+	F{\xrightarrow {\;F\eta \;}}FGF{\xrightarrow {\;\varepsilon F\,}}F,\\
+	G{\xrightarrow {\;\eta G\;}}GFG{\xrightarrow {\;G\varepsilon \,}}G
+\end{split}
+\ee
+are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F$ is said to be \textit{left adjoint} $G$, and $G$ is \textit{right adjoint} $F$.
+ 
+\subsection{Toposes}
+
+\begin{definition}\label{topos_defn}\cite{johnstone:topos}
+	A category $\mathcal E$ is called an (elementary) \textit{topos} if
+	\begin{enumerate}
+		\item [(a)]  $\mathcal E$ has all finite limits (Equivalently,  $\mathcal E$ has pullbacks and a terminal object).
+		\item[(b)]  $\mathcal E$ is \textit{cartesian closed}, i.e. for each object $X$ we have an \textit{exponential functor} $\left(-\right)^X$ which is right adjoint to the functor $\left(-\right)\times X$.
+		\item[(c)] $\mathcal E$ has a \textit{subobject classifier}, i.e. an object $\Om$ and a morphism $1 \xrightarrow{t} \Om$ (called "true") such that for each monomorphism $Y \xhookrightarrow{\sigma} X$ there is a unique $\phi_\sigma: X \to \Om$ (the \textit{classifying map} of $\sigma$) making 
+		\newline
+		\begin{tikzcd}
+			Y \arrow[d, hook, "\sigma"] \arrow[r]
+			& 1 \arrow[d, "t"]\\
+			X\arrow[r, "\phi_\sigma"]	& \Om
+		\end{tikzcd}
+		\\
+		a pullback diagram.
+	\end{enumerate}
+\end{definition}
+\begin{example}\label{sets_exm}\cite{johnstone:topos}
+	A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{sets_cat_defn}) of sets is a topos.
+\end{example}
+\begin{definition}\label{geometric_morphism_defn}\cite{johnstone:topos}
+	% 1.16 
+	If both $\mathscr E$, $\mathscr F$ are toposes then \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr F\xrightarrow{f_*}\mathscr E$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ (called the \textit{direct} and \textit{inverse images}) such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
+\end{definition}
+%\begin{definition}\label{relative_topos_defn}\cite{johnstone:topos}
+%For any topos $\mathscr E$ there is a category $\mathfrak {Top}/\mathscr E$. Objects of  $\mathfrak {Top}/\mathscr E$ are $\mathscr E$-\textit{toposes}, i.e. toposes $\mathscr F$ with geometric $\mathfrak {Top}/\mathscr E$-morphisms $\mathscr F\to \mathscr E$, morphisms are commutative diagrams
+%		\newline
+%\begin{tikzcd}
+%\mathscr F' \arrow[rr]\arrow[rd] && \mathscr F''\arrow[ld]\\
+%& \mathscr E &
+%\end{tikzcd}
+%\\
+
+%\end{definition}
+	\section{Grothendieck topology and sheaves}
+
+\subsection{Sites and sheaves}\label{appendix_etale_sec}
+
+\begin{definition}\label{pretopology_defn}\cite{johnstone:topos,milne:lec}
+	Let  $\mathscr C$  be a category with pullbacks. Suppose that  for each object $U$ of $\mathscr C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
+	satisfying the following axioms: 
+	\begin{enumerate}
+		\item[(a)] for any covering $\left\{U_\iota \to U\right\}_{\iota\in I}$ and any morphism $U \to V$ in $\mathscr C$, the fibre products 
+		$U_\iota\times_U V$ exist, and $\left\{U_\iota\times_U V \to V\right\}_{\iota\in I}$ is a covering of $V$; 
+		\item[(b)] if $\left\{U_\iota \to U \right\}_{\iota\in I}$ is a covering of $U$, and if for each $\iota \in I$, $\left\{V_{\iota j} \to U_\iota  \right\}_{j \in I_\iota}$	is a 
+		covering of $U_\iota$, then the family $\left\{V_{\iota j }\to U\right\}_{\iota j}$ is a covering of $U$; 
+		\item[(c)] for any $U$ in $\mathscr C$, the family $\left\{U\xrightarrow{\Id}U \right\}$ consisting of a single map is a covering of $U$. 
+	\end{enumerate}
+	The system of coverings is then called a \textit{Grothendieck pretopology}.
+\end{definition}
+\begin{example}\label{top_gro_exm}
+	If $\sX$ is a topological space then one has a category of open subsets and their inclusions. If both $\sU_1, \sU_2 \subset \sX$ are open subsets then one can define a fibre product (cf. Definition \ref{pullback_defn}) by the following way
+	$$
+	\sU_1\times_\sX \sU_2 \bydef \sU_1 \cap \sU_2.	
+	$$
+	If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \subset \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{pretopology_defn}) if and only if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is a specialization of Grothendieck topology. 
+\end{example}
+\begin{definition}\label{top_gro_definition}
+	In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX}$ \textit{arising} from $\sX$.
+\end{definition}
+
+\begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
+	A \textit{presheaf of sets} on a category $\mathscr C$
+	is a contravariant functor $\mathscr F$ from $\mathscr C$ to the category of sets. Thus,  $\mathscr F$
+	to each object $U$ in $\mathscr C$ 
+	attaches a set $\mathscr F\left(U \right)$ , and to each morphism $\varphi: U \to V$
+	in $\mathscr C$, a map $\mathscr F\left(\varphi\right):\mathscr F\left(V \right)\to \mathscr F\left(U \right)$. Note that the notion of a presheaf on $\mathscr C$ 
+	does not depend on the 
+	coverings. We sometimes denote $\mathscr F\left(\varphi\right)$ by $a \mapsto a|_U$.
+	
+\end{definition}
+Similarly, a presheaf of (Abelian) groups or rings for the Grothendieck pretopology is a contravariant functor from
+$\mathscr C$ to the category of (Abelian) groups or rings.
+\begin{definition}\label{etale_sheaf_defn}\cite{milne:lec}
+	A \textit{sheaf} for the Grothendieck pretopology
+	is a presheaf $\mathscr F$ 
+	that satisfies the sheaf condition, that is a sequence 
+	\be\label{etale_sheaf_eqn}
+	\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
+	\ee
+	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
+	is a sheaf if the map 
+	$$
+	f \mapsto \left\{f|_{U_\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
+	$$
+	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f|_{U_\iota }\right\}$ such that 
+	$$
+	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
+	$$
+	for all $\iota, j \in I$. 
+	When $\mathbf T$ 
+	is the site arising from a topological space then these definitions coincide with the 
+	topological ones. 
+	
+\end{definition}
+\begin{empt}\cite{johnstone:topos}
+	Two different Grothendieck pretopologies can give the same sheaves. To remove this disadvantage we consider those families which are "saturated" in the sense that $\left(V \xrightarrow{\a}U\right) \in R$ implies $\left(W\xrightarrow{\a\bt}U\right)\in \R$ for any $W \xrightarrow{\bt} V$. Such a family is called a \textit{sieve}.
+\end{empt}
+\begin{defn}\label{grotendieck_topolgy_defn}\cite{johnstone:topos}
+	Let $\mathscr C$ be a small category. A \textit{Grothendieck topology} on $\mathscr C$ is defined by specifying, for each object $U$ of $\mathscr C$ a set $J\left(U\right)$ of {sieves} called \textit{covering sieves} of the topology such that
+	\begin{enumerate}
+		\item [(a)] For any $U$, the maximal sieve $\left\{\a | \text{codomain}(a)= U\right\}$ is in $J\left(U \right)$.
+		\item[(b)] if $R \in J\left( U\right)$ and $V\xrightarrow{f} U$ is a morphism of $\mathscr C$ then the sieve
+		$$
+		f^*\left( R\right) \bydef \left\{W\xrightarrow{a}V| f\a \in R \right\}
+		$$
+		is in $J\left(V\right)$.
+		\item[(c)] If $R \in J\left(U \right)$ is sieve on $U$ such that for each $V\xrightarrow{f}U$ in $R$ we have $f^*\left( S\right)\in J\left( V\right)$, then $S\in J\left( U\right)$.    
+		
+	\end{enumerate}
+	A category $\mathscr C$  together with 
+	the Grothendieck  topology is called a \textit{site} $\mathbf T\bydef \left( \mathscr C, J\right)$. Then $\mathrm{Cat}\left( \mathbf T\right)\bydef \mathscr C$ denotes the underlying category. 
+	
+\end{defn}
+\begin{rem}\label{pretopology_to_topology_rem}\cite{johnstone:topos}
+	If we are given a pretopology $P$ on  $\mathscr C$, we can replace it be a topology having same sheaves, by defining a sieve to be $J$-covering if and only if it contains $P$-covering family.
+\end{rem}
+\begin{definition}\label{forget_sheaf_defn}
+	There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a \textit{forgetful functor} $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\end{definition}
+
+\begin{statement}\label{associated_sheaf_stmnt}\cite{johnstone:topos}
+	There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the  forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$ (cf. Definition \ref{forget_sheaf_defn}).
+\end{statement}	
+\begin{defn}\label{associated_sheaf_defn}\cite{johnstone:topos}
+	The given by the Statement  \ref{associated_sheaf_stmnt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
+\end{defn}
+\begin{statement}\label{site_enough_stmt}\cite{johnstone:topos}
+	%8.13$
+	If $\mathbf T$ is a site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
+\end{statement}
+\begin{definition}\label{grothenidieck_topos_defn}\cite{johnstone:topos}
+	If $\mathbf T$ is a site then  a category  $\mathbf{Sh}\left( \mathbf T \right)$ of sheaves of sets is a \textit{Grothendieck topos}.
+\end{definition}
+\begin{definition}\label{grothendiek_topos_defn}\cite{johnstone:topos}
+	A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
+\end{definition}
+
+
+\begin{proposition}\label{grothenidieck_topos_prop}\cite{johnstone:topos}
+	Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_defn}.
+\end{proposition}
+%\begin{remark}\cite{johnstone:topos}
+%If $\mathscr E$ is  a {Grothendieck topos} and $\mathscr S$ is a category of sets and functions then $\mathscr E$ is $\mathscr S$-topos (cf. Definition \ref{relative_topos_defn}).
+%\end{remark}
+
+%\begin{rem}\label{geom_mor_g_rem}\cite{johnstone:topos}
+% 1.16 Grothendieck
+%If both $\mathscr E$, $\mathscr F$ are Grothendieck toposes and  $\mathscr F\xrightarrow{f}\mathscr E$ is {geometric morphism} then direct image $f^*$ is left exact. 
+%\end{rem}
+\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
+	If $X$ is an object of $\mathrm{Cat}\left( \mathbf T\right)$ (cf. Definition \ref{pretopology_defn}    then for any set $F$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all $\mathrm{Cat}\left( \mathbf T\right)/X$-morphism $f: U\to V$.
+	We use a following notation
+	\be\label{constant_presheaf_eqn}
+	F_X \bydef \mathscr P.
+	\ee
+\end{definition}
+\subsection{Localic topoi}
+\begin{definition}\label{frame_defn}\cite{topos:intro}
+	A \textit{frame} is partially  ordered set with all joins and all finite meets which satisfies the infinite distributive law:
+	$$
+	x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
+	$$
+	A \textit{frame homomorphism} 
+	is a function which preserves finite meets and arbitrary joins. Frames and frame homomorphisms form a category $\mathbf{Frm}$.
+\end{definition}
+\begin{definition}\label{locale_defn}\cite{topos:intro}
+	The category $\mathbf{ Locale}$ of \textit{locales} is the opposite of the category of frames
+	$$
+	\mathbf{ Locale} \bydef \mathbf{Frm}^\text{op}.
+	$$
+	If $X$ is  a locale  denote by $\mathcal O\left( X\right)$ the corresponding  frame.
+\end{definition}
+The definition  of sheaves on a topological space depends
+only on the lattice of open sets of that space, and so extends at once to
+define sheaves on a locale $X$. Thus an "open" object $U$ is underlying category is said to be
+covered by a family $\left\{U_\iota \right\}$ of "opens" of $X$ with each $U_\iota \le U$  if and only if $U= \bigvee_\iota V_\iota$ thus
+\be\label{localic_site}
+\left\{U_\iota\subset U \right\} \text{ covers } U \text{ if and only if } U= \bigvee_\iota V_\iota
+\ee
+The equation \eqref{localic_site} yields a Grothendieck pretopology, so one obtains a Grothendieck topology. In result we obtain a site and a Grothendieck topos.
+
+\begin{definition}\label{localic_topos_defn}\cite{topos:intro}
+	A Grothendieck topos obtained from a locale is said to be \textit{localic}.
+\end{definition}
+\begin{theorem}\label{locale_thm}\cite{topos:intro}
+	For a Grothendieck topos $\mathscr E$ the following are equivalent:
+	\begin{enumerate}
+		\item [(i)] $\mathscr E$ is localic,
+		\item[(ii)] there exists a site for $\mathscr E$ with a patrially ordered set as underlying category,
+		\item[(iii)] $\mathcal{E}$ is generated by the subobjects of its terminal object 1.
+	\end{enumerate}
+\end{theorem}
+
+
+\begin{proposition}\label{locale_funct_prop}\cite{topos:intro}
+	%Proposition 2. 
+	The natural  functor $X \mapsto \mathbf{ Sh}(X)$ from locales to topoi induces
+	for any two locales $X$ and $Y$ an equivalence of categories
+	$$
+	\mathbf{Maps}(X, Y) \xrightarrow{\cong} \Hom\left( \mathbf{Sh}(X), \mathbf{Sh}(Y)\right) 
+	$$
+	of locales and localic toposes.
+	
+\end{proposition}
+
+\begin{definition}\label{loc_emp_sup_defn}\cite{topos:intro}
+	A map $X \to Y$ of locales is an \textit{embedding}
+	(respectively a \textit{surjection}) if and only if the corresponding morphism of frames
+	$\mathcal O \left(Y \right)  \to \mathcal O \left(X \right)$ is surjective (resp. is injective).
+\end{definition}
+
+\begin{definition}\label{open_locale_mor_defn}\cite{topos:intro}
+	%Definition 1. 
+	A map $f : X \to Y$ of locales is \textit{open} if and only if the corresponding
+	map $f^{-1}: \mathcal O\left( Y\right) \to  \mathcal O\left( X\right)$ of posets has a left adjoint $f_!$ which
+	satisfies the Frobenius identity
+	\be\label{open_locale_mor_eqn}
+	f_!(V \wedge  f^{-1} U) = f_!(V) \wedge U\quad  \text{ for all }\quad U\in O\left( X\right), \quad V \in O\left( Y\right).
+	\ee
+\end{definition}
+%\begin{definition}
+%A partially ordered set is \textit{complete} if and only if every subset of $P$ has an 1. u. b. (a "sup" or a join) and a g.1.b. (an "inf" or a meet); actually it suffices to require the existence of all 1.u.b.s. Thus $P$ is complete as a poset if and only if  $P$ as a category has all limits and all colimits.
+%\end{definition}	
+\subsection{Spatial locales}\label{spatial_toposes_sec}
+\paragraph*{}	
+Any topological space $\sX$ yields a Grothendieck topology, so 	a Grothendieck topology is a generalization of the classical topology. A topos is \textit{spatial} if it corresponds to a classical topology.
+%\begin{definition}\label{topos_point_defn}\cite{johnstone:topos}
+%Let $\mathscr S$ be a category of sets and functions, and let $\mathscr E \xrightarrow{\ga} \mathscr S$ be an $\mathscr S$-topos (cf. Definition \ref{relative_topos_defn}). By a \text{point} of $\mathscr E$ we mean a Geometric morphism $\mathscr S \xrightarrow{p} \mathcal E$ over $\mathscr S$. If $K$ is a class of points, we say that $K$ is \textit{sufficient} if the family of functors $\left\{\left.p^*\right| p\in K\right\}$ is conservative, i.e. if any $X \xrightarrow{f} Y$ in $\mathscr E$ such that $p^*\left(f \right)$ is iso for all $K$ is necessary iso. We say that $\mathscr E$ \text{has enough points} if the class of all points of $\mathscr E$ is sufficient.
+%\end{definition}
+%\begin{example}\label{top_points_exm}\cite{johnstone:topos}
+%Let  $\mathcal E \bydef \mathbf{Sh}\left( \sX\right)$,  $\sX$ is a topological space. Then any point $x$ of $\sX$ corresponds to a continuous map ${x} \xrightarrow{x}\sX$. Moreover, the set of points which arise in this way is sufficient.
+%\end{example}
+
+
+\begin{definition}\label{locale_point_defn}\cite{topos:intro}
+	A	\textit{point} $p: 1\to X$ of a locale $X$ is the same thing
+	as a frame morphism to the initial frame
+	\be\label{locale_point_eqn}
+	p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}.
+	\ee
+\end{definition}
+The map $p^{-1}$ can be conveniently presented in terms of its \textit{kernel} $K \bydef
+\left\{U \left.| p^{-1} \left( U \right)  = 0\right.\right\}$, a subset of $X$ with the following properties
+\be\label{k_p_eqn}
+\begin{split}
+	1 \notin K,\\
+	U \wedge V \in K\quad  \Leftrightarrow \quad U \in K \text{ or } V \in K,\\
+	\bigvee V_\iota \in K \quad  \Leftrightarrow \quad \forall \iota \quad V_\iota \in K
+\end{split}
+\ee
+If
+\be\label{p_p_eqn}
+P \bydef  \bigvee K \bydef \left( \bigvee_{U\in K} U\right) \in \mathcal O\left( X\right) 
+\ee
+then
+\bea\label{prime_eqn}
+U\wedge V = P  \quad  \Leftrightarrow \quad U = P \text{ or } V = P,\\
+\label{pprime_eqn}
+1 \neq P
+\eea
+A satisfying to \eqref{prime_eqn} element $P\in \mathcal O\left(X \right)$ is said to be \textit{prime}, if it also satisfies to  \eqref{pprime_eqn} then we say that $P$ is. \textit{properly prime}.
+\begin{lemma}\label{point_lem}\cite{topos:intro}
+	The points of a locale $X$ may be described in any of the
+	following three equivalent ways:
+	\begin{enumerate}
+		\item[(i)] as maps of locales $p: 1 \to X$; i.e., as frame morphisms
+		$p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}$;
+		\item[(ii)] as subsets $K \subset \mathcal{O}\left( X \right)$ satisfying the three conditions of \eqref{k_p_eqn};
+		\item[(iii)] as proper prime elements $P \in  \mathcal{O}\left( X \right)$); i.e., as elements $P\in \mathcal{O}\left( X \right)$ satisfying \eqref{prime_eqn} and \eqref{pprime_eqn}.
+	\end{enumerate}
+\end{lemma}
+
+%\begin{remark}
+%If a topos is localic then the any point of the topos corresponds to a point of locale.
+%\end{remark}
+
+
+%\begin{remark}\label{spatial_toposes_rem}\cite{johnstone:topos}
+%Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology yields more general Heyting algebra (also known as pseudo-Boolean algebra). Heyting algebras serve as the algebraic models of propositional intuitionistic logic in the same way Boolean algebras model propositional classical logic.
+%\end{remark}
+%\begin{definition}
+%A subset / of a join-semilattice A is said to be an ideal if (i) / is a sub-join-semilattice of A; i.e. 0 e /, and a el,b e I imply avb el; and (ii) / is a lower set; i.e. a e / and fc<a imply b el. \end{definition}
+%To determine the surjective part of a lattice homomorphism f:A-+B, we thus have to look at the inverse images of other elements of ? besides 0. In particular, we may consider {a e A \f(a)= 1}, which clearly satisfies axioms dual to those defining an ideal; we call such a subset of A a filter. 
+%\begin{proposition}
+%Let / be an ideal of a lattice A. The following conditions are equivalent: (i) The complement of / in A is a filter, (ii) 1 £/, and (??b e/) implies either a el or b el. (iii) / is the kernel of a lattice homomorphism f:A-*2, where 2 denotes the two-element lattice {0, 1}. 
+%\end{proposition}
+
+%\begin{definition}
+%An ideal satisfying the equivalent conditions of the Proposition is 
+%called a prime ideal; its complement (which of course satisfies conditions 
+%dual to those of (ii)) is called a prime filter. 
+
+%\end{definition}
+%1.3 Given a locale, can we find a space which 'best approximates' it? Since a point of a space X is the same thing as a continuous map 1 -*X, where 1 is the one-point space, it seems reasonable to define a point of a locale A to be a continuous map Q(l) = 2->/4, i.e. a frame homomorphism p : A-+2. By I 2.2, such a map is completely determined by its kernel p~l@) or its dual kernel p~l(l), which are respectively a prime ideal and a prime filter of A. But since p preserves arbitrary joins, it is clear that p"'@) must be a principal ideal, since we have p( V(p~'@))) = 0 and so p~l(O) = i(V(p~'@))). (Equivalently, p^) must be a completely prime filter, i.e. one satisfying VS ?/?'(I)È Cs e S)(s ?/??? Thus points of A correspond bijectively to prime elements of A, i.e. elements generating prime principal ideals. We write pt(/4) for the set of points of A. Now let ae A. Define ?(?) to be the set of points p : A-+2 such that p(a)= 1 (or equivalently the set of prime elements x£ A with x 
+%? is a frame homomorphism ,4->P(pt(,4)); in particular its image is a topology on pt(A). 
+This set of points carries a natural
+topology for which the open sets are the sets of the form
+$$
+\mathrm{pt}(U) = \left\lbrace p \in \mathrm{pt}(X) \left| p^{-1}\left( U\right)  = 1\right.\right\rbrace \subset \mathrm{pt}(X)\quad \text{ for some }\quad U \in \mathcal O\left(X\right)
+$$
+Similarly to a map $X\to Y$ of locales one can construct a continuous map $\mathrm{pt}(X)\to \mathrm{pt}(Y)$ of topological spaces. Thus there is a functor 
+\be\label{point_f_eqn}
+\mathrm{pt}: \mathbf{Locales}\to \mathbf{Spaces}
+\ee
+from the category of locales to the category of topological spaces (cf. \cite{topos:intro} for details).
+\begin{theorem}
+The functor $\mathrm{pt}: \mathbf{Locales}\to \mathbf{Spaces}$ is right adjoint
+to the functor $\mathrm{Loc} : \mathbf{Spaces} \to \mathbf{Locales}$.
+\end{theorem}
+
+\begin{definition}\label{sober_defn}\cite{topos:intro}
+A topological space $\sX$ is said to be \textit{sober} if and only is for any
+open subset $\sU\subset \sX$ such that
+\begin{enumerate}
+	\item[(a)] $\sU \neq \sX$,
+	\item[(b)] $\sV \cap \mathcal W \subset \sU \Rightarrow \sV \subset \sU$ or $\mathcal W\subset \sU$ (all open $\sV , \mathcal W\subset \sU$,
+\end{enumerate}
+there is a unique point $x \in \sX$ with   $\sU = \sX \setminus \overline{\{x\}}$ where  $\overline{\{x\}}$ is the  closure of the one-point set $\{x\}$.
+\end{definition}
+\begin{remark}\label{sober_rem}\cite{topos:intro}
+A closed	subset $F \subset \sX$ is called \textit{irreducible} if it can not be written as the union of two smaller closed subsets; that is, whenever $F_1$ and $F_2$ are closed sets
+with $F= F_1 \cup F_2$, then $F_1 = F$ or $F_2 = F$. Clearly, if $x$ is a point of $\sX$,
+then a closure of $\{x\}$ is an irreducible closed set. Thus $\sX$ is sober if and only if every nonempty
+irreducible closed set is the closure of a unique point.
+\end{remark}
+
+\begin{proposition}\label{sober_prop}\cite{topos:intro}
+For any topological space $\sX$, the following are equivalent: 
+\begin{enumerate}
+	\item[(i)] $\sX$ is sober;
+	\item[(ii)] the unit of the adjunction $\sX \mapsto \mathrm{pt}\circ \mathrm{Loc}\left( \sX\right)$  is a homeomorphism;
+	\item[(iii)] there is a homeomorphism $\sX \cong \mathrm{pt}(X)$ for some locale $X$.
+\end{enumerate}	
+\end{proposition}
+\begin{remark}\label{pointless_loc}\cite{topos:intro}
+The functor $\mathrm{pt}$ from locales to spaces is by no means faithful. In
+fact, there are many locales which have no points at all.
+\end{remark}
+\begin{definition}\label{enough_points_defn}\cite{topos:intro}
+A locale $X$ is said to have \textit{enough points} (or to be \textit{spatial}) if elements of the lattice $\mathcal O(X)$ can be distinguished by points of $X$. Specifically, this means
+that for any two distinct elements $U, V \in  \mathcal O(X)$, there exists a point
+$p : 1 \to X$ such that $p^{-1}\left( U\right)\neq p^{-1}\left(V \right)$, i.e.
+\be\label{enough_points_p_eqn}
+\forall U, V\in \mathcal O\left(X \right) \quad U \neq V \quad \Rightarrow\quad \exists p \in \mathrm{pt} (X)\quad p^{-1}\left(U \right) \neq p^{-1}\left(V \right) 
+\ee
+
+Equivalently, $X$ has enough points if and only if, for any  $U, V \in  \mathcal O(X)$.
+\be\label{enough_points_eqn}
+\mathrm{pt}(U) = \mathrm{pt}(V) \quad \Rightarrow \quad U = V.
+\ee
+\end{definition}
+
+\begin{proposition}\label{enough_points_prop}\cite{topos:intro}
+For any locale X, the following are equivalent:
+\begin{enumerate}
+	\item[(i)] $X$ has enough points;
+	\item[(ii)] the counit $\mathrm{Loc}\circ\mathrm{pt} X \to X$ is an isomorphism of locales;
+	\item[(iii)] $X \cong \mathrm{Loc}\left(\sX \right)$  for some topological space $\sX$.
+\end{enumerate}
+
+\end{proposition}
+% And we define the \textit{upper interval topology} $\Phi(X, \le)$ (sometimes called the weak topology) to be the smallest topology for which all sets of the form $\downarrow\left(  x\right) $ are closed, i.e. the topology based by sets of the form 
+%$$
+%X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
+%$$
+
+
+\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
+\paragraph*{}
+Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. The functor
+\bean
+\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
+\mathscr F \mapsto \mathscr F\left(X \right) 
+\eean
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution (cf. Statement \ref{site_enough_stmt})
+$$
+0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
+$$
+and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+\be\label{complex_eqn}
+0 \hookto\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
+\ee
+which is no longer exact (in general). For any $r\ge 0$ the complex \eqref{complex_eqn} yields the $r^{\text{th}}$ \textit{cohomology
+group}  
+\be\label{etale_coh_eqn}
+H^r\left(X,\ \mathscr F \right)\bydef\begin{cases}
+\ker \dl^0 & r = 0\\
+\ker~ \dl_{r} / \im~ \dl_{r - 1}  & r > 0
+\end{cases},
+\ee
+which does not depend on choice of injective resolution up to isomorphism.
+
+\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+%8.17 
+Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geometric_morphism_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
+%	\begin{enumerate}		\item [(i)] 
+	if $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q\ge 0$ which is functorial in $f$ and natural in $A$.
+	%	\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left(\mathscr F, B \right)$ which is natural in $B$.
+	%	\end{enumerate}
+	\end{proposition}
+	\begin{notation}\label{const_shef_coh_not}
+If  $F$ is an Abelian group and $F_X$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
+\be\label{const_shef_coh_eqn}
+\forall r\ge 0\quad H^r\left(X, F \right) \bydef H^r\left(X, \mathfrak{Ass} \left( F_X\right)  \right).
+\ee
+where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}).
+\end{notation}
+
+
+
+
+\subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
+\paragraph*{} Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
+\be\label{cech_eqn}
+C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
+\ee
+For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
+$$
+d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},..., \iota_{r + 1}} \right)  
+$$
+$\mathrm{res}_j$ is the restriction map corresponding to the projection map
+$$
+U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}.
+$$
+As in the classical case, one verifies by a straightforward calculation that
+$$
+C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
+$$
+is a complex. Define
+\be\label{cech_coh_eqn}
+\check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(C^\bullet\left( \mathscr U, \mathscr P\right)   \right)= \begin{cases}
+\ker d_0 & r = 0\\
+\ker d_r / \im d_{r-1} & r > 0
+\end{cases}. 
+\ee
+It is called the $r^{\text{th}}$ \textit{\v{C}ech cohomology group} of $\mathscr P$ relative to the covering $\mathscr U$.
+Note that
+$$
+\check{H}^0\left( \mathscr U, \mathscr P\right)= \ker\left(\prod \mathscr P_\iota \rightrightarrows \prod \mathscr P_{\iota,j} \right) 
+$$
+Therefore, for a sheaf $\mathscr F$ one has
+$$
+\check{H}^0\left( \mathscr U, \mathscr F\right)=\Ga\left( \mathscr U, \mathscr F\right).
+$$
+A second covering $\mathscr V \bydef \left\{V_j\to X \right\}_{j \in J}$ of $X$ is called a \textit{refinement} of $\mathscr U$ if there is a
+map $\tau : J\to I$ such that $V_j \to X$ factors through $U_{\tau_j}\to X$ for all $j \in J$ . The choice of
+a $\tau$ and $X$-morphisms $\varphi_{j}: V_j \to U_{\tau_j}$ for each $j$ determines a map of complexes
+\bean
+\tau^\bullet: C^\bullet\left( \mathscr U, \mathscr P\right)\to C^\bullet\left( \mathscr V, \mathscr P\right),\\
+\left( \tau^r s_{j_0,..., j_{r}} \right) \bydef s_{\tau j_0,..., \tau j_{r}}.
+\eean
+As in the classical case, one verifies that the map on cohomology groups
+$$
+\rho \left(\mathscr U, \mathscr V \right): \check{H}^r\left( \mathscr U, \mathscr P\right)\to \check{H}^r \left( \mathscr V, \mathscr P\right)
+$$
+is independent of all choices. We may pass to the limit over all coverings, and so obtain limits
+\be\label{chech_eqn}
+\check{H}^r\left(X, \mathscr P\right)\bydef \varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, \mathscr P\right).
+\ee
+
+\begin{defn}\label{chech_defn}\cite{bryl:loop,milne:lec}
+The  \textit{\v{C}ech cohomology groups} are given by equation \eqref{chech_eqn}.
+\end{defn}
+These groups  have the following properties:
+\begin{enumerate}
+\item [(a)] $\check{H}^0\left(X, \mathscr F\right)= \Ga\left( X, \mathscr F\right)$ for any sheaf $\mathscr F$ on $X$;
+\item[(b)] $\check{H}^r\left(X, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$
+\end{enumerate}
+(cf \cite{milne:lec} for details).
+\begin{empt}
+For any Abelian group $F$ one can define a constant presheaf $F_X$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
+We use a following notation
+\be\label{etale_hom_a_eqn}
+\check{H}^r\left(X, F\right)\bydef \check{H}^r\left(X, F_X\right).
+\ee
+\end{empt}
 
 
 \section{Topology}
@@ -5682,16 +6281,6 @@ may be interpreted as a bilinear map
 			\item[(2)] for each $x \in \sU$, there is a neighbourhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
 		\end{itemize}
 	\end{empt}
-	\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
-		If $F$ is a set and $\sX$ is a topological space then the $F$-\textit{constant presheaf} is given by
-		\bean
-		\sU \mapsto F.
-		\eean
-		The $F$-\textit{locally constant sheaf} is the sheaf associated with the $F$-{constant presheaf}. We denote it by
-		\be\label{constant_presheaf_eqn}
-		{F}_\sX \bydef \text{ the sheaf associated with } F-\text{locally constant sheaf}.
-		\ee
-	\end{definition}
 	
 	
 	\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
@@ -6271,10 +6860,10 @@ to show that
 	\end{enumerate}
 \end{lemma}
 \begin{definition}\label{normal_defn}\cite{murphy}
-If $A$ is a $C^*$algebra then $a\in A$ is {\it normal} if $a^*a = aa^*$. In this case the $*$-algebra it generates is commutative and is in fact the $\C$-linear span of all $a^ma^{*n}$, where $m, n \in \N$ and $m + n > 0$.
+If $A$ is a $C^*$-algebra then $a\in A$ is {\it normal} if $a^*a = aa^*$. In this case the $*$-algebra it generates is commutative and is in fact the $\C$-linear span of all $a^ma^{*n}$, where $m, n \in \N$ and $m + n > 0$.
 \end{definition}
 \begin{definition}\label{sp_mea}\cite{murphy}
-%The normal operators form one of the best understood and most tractable of classes of operators. The principal reason for this is the spectraltheorem, a powerful structure theorem that answers many (not all) ques-tions about these operators. In this section we actually prove a more generalresult than the spectral theorem for normal operators (Theorem 2.5.6), andwe get this extra useful generality without any increase in difficulty of theproofs. Indeed, the more general situation illustrates nicely the connectionbetween spectral measures and representations of abelian C*-algebras
+%The normal operators form one of the best understood and most tractable of classes of operators. The principal reason for this is the spectraltheorem, a powerful structure theorem that answers many (not all) ques-tions about these operators. In this section we actually prove a more generalresult than the spectral theorem for normal operators (Theorem 2.5.6), andwe get this extra useful generality without any increase in difficulty of theproofs. Indeed, the more general situation illustrates nicely the connectionbetween spectral measures and representations of abelian$C^*$-algebras
 Let $\Om$ be a compact Hausdorff space and $\H$ a Hilbert space. A {\it spectral
 measure} $E$ relative to $\left(\Om, \sH\right)$ is a map from the $\sigma$-algebra of all Borel sets
 of $\Om$ to the set of projections in $B\left( \sH\right)$  such that
@@ -6748,7 +7337,7 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 
 
 \begin{corollary}\label{dominep_cor}\cite{pedersen:ca_aut}
-	%3.3.8. COROLLARY. 
+	%3.3.8. \mathcal OROLLARY. 
 	If $\varphi$ and $\psi$ are positive functionals on a $C^*$-algebra $A$ and $\psi$  
 	is dominated by a multiple of $\varphi$ then the representation $\pi_\psi: A \to B\left( \H_\psi\right)$  is spatially 
 	equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\right)$. 
@@ -6845,7 +7434,7 @@ continuous elements $b$ of $A^{**}$ such that the spectral projections of $b$
 corresponding to closed subsets of the spectrum of $b$ which don't contain
 $0$ are compact (i.e., b "vanishes at $\infty$").
 \end{theorem}
-\begin{proposition}\label{close_int_akk}\cite{akerman_stone}!!!
+\begin{proposition}\label{close_int_akk}\cite{akerman_stone}
 %PROPOSITION 11.5.
  If $\left\{p_\la \right\}$ is a set of closed projections, then
 p = A, p, is closed.
@@ -6857,8 +7446,9 @@ p = A, p, is closed.
 	\ee
 \end{definition}
 \begin{proposition}\label{fin_int_prop}\cite{akerman_stone}
-PROPOSITION II. 10. Suppose (pa> is a family of closed projections
-in $A^{**}$ with the finite intersection property (i.e. $\wedge_{\la \in K} p_\la \neq 0$ for each finite set $K$). Then $\wedge_{\la} p_\la = 0$,
+%PROPOSITION II. 10. 
+Suppose $\left\{p_\a\right\}$ is a family of closed projections
+in $A^{**}$ with the finite intersection property (i.e. $\wedge_{\la \in K} p_\la \neq 0$ for each finite set $K$). Then $\wedge_{\a} p_\a \neq 0$,
 \end{proposition}
 \begin{conjecture}\label{comp_conj}\cite{akerman_gelfand}
 %Conjecture ?.2. 
@@ -7937,7 +8527,7 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 
 \end{theorem}
 \begin{remark}\label{ab_nuclear_rem}\cite{blackadar:ko}
-	Any commutative $C^*$algebra is nuclear.
+	Any commutative $C^*$-algebra is nuclear.
 \end{remark}
 	
 	
@@ -8559,7 +9149,7 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 	\end{definition}
 	The symbol $\mathbb{F}^p$ denotes either the full Euclidean space $\R^p$ or Euclidean half space $\mathbb{H}^p = \left\{\left.\left(x_1,..., x_n \right) \in \mathbb{R}^p\right| x_1 \le 0 \right\}$.
 	\begin{definition}\label{foliect_defn}\cite{candel:foliI}
-		A rectangular neighborhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allowing the possibility of manifolds with boundary and (convex) COI'Ile1'S.
+		A rectangular neighborhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allowing the possibility of manifolds with boundary and (convex) \mathcal OI'Ile1'S.
 	\end{definition}
 	\begin{definition}\label{foli_chart_defn}\cite{candel:foliI}
 		% 	Definition 1.1.17 \\
@@ -9007,7 +9597,7 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 	This lemma, which is still valid in the non-Hausdorff  case \cite{connes:foli_survey}, allows one to reflect
 	algebraically the local triviality of the foliation.
 	Thus one can cover the manifold $M$ by
-	open sets $\sU_\la$ such that $\sF$ restricted to $\sU_\la$ has a Hausdorff  space of leaves, $\sV_{\la} = \sU_\la/\sF$. and hence such that the C*-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$  are strongly Morita equivalent to the commutative $C^*$-algebras $C_0\left( B_\la\right)$. These subalgebras $C^*$-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$ generate $ C^*\left(M,\mathcal F \right)$. 
+	open sets $\sU_\la$ such that $\sF$ restricted to $\sU_\la$ has a Hausdorff  space of leaves, $\sV_{\la} = \sU_\la/\sF$. and hence such that the $C^*$-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$  are strongly Morita equivalent to the commutative $C^*$-algebras $C_0\left( B_\la\right)$. These subalgebras $C^*$-algebras $C^*\left(\mathcal{U}_\la,\mathcal F|_{\mathcal{U}_\la}\right)$ generate $ C^*\left(M,\mathcal F \right)$. 
 	but of course they fit together in a very complicated way which is related to the global
 	properties of the foliation.
 	\end{remark}
@@ -9266,15 +9856,144 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 		connected component of the set of projections in $\mathbb{M}_m\left(C\left(\T^n_\th \right) \right)$.
 	\end{theorem}
 	
+\section{Bohr locales}
+\paragraph*{}
+The aim of Bohr toposes is to relate algebraic quantum mechanics to
+topos theory, so as to construct new foundations for quantum logic
+and quantum spaces.	Bohr toposes provide the topos-theoretical notion of a space which
+intrinsically carries the intuitionistic logical structure of a Heyting algebra. We need the following.
+\begin{definition}\label{alex_top_defn}\cite{johnstone:stone_spaces}.
+	Let $X$ be a partially ordered set. We define the \textit{Alexandrov topology} $\Upsilon(X, \le)$ (or simply 
+	$\Upsilon(X)$, if the partial order is obvious) to be the collection of all \textit{upper sets}
+	in $X$ (i.e. sets $U$ such that $x \in  U$ and $x \le y$ imply $y \in U$); this is clearly a 
+	topology, since it is closed under arbitrary unions and intersections. 
 	
-	
-	
-	
-	
-	
-	\end{appendices}
-\section*{Acknowledgment}
+\end{definition}
 
+\begin{remark}\label{alex_not_sober}\cite{beyond_sober_duality}
+	Alexandrov topology are not always sober.
+\end{remark} 
+For any $C^*$-algebra 
+one can consider the partially ordered set $\mathcal C(A)$  of commutative
+subalgebras of $A$, ordered by inclusion. The assignment of this partially ordered to
+a $C^*$-algebra induces a functor $\mathcal C$ from the category of $C^*$-algebras to the category of partially ordered sets, since one has for any
+homomorphism $A \xrightarrow{h}B$ a functor $
+\mathcal C(A)\xrightarrow{\mathcal C}  \mathcal C(B)$
+\newline
+\begin{tikzcd}
+	C \arrow[d] \arrow[r, mapsto]
+	& h(C) \arrow[d]\\
+	B\arrow[r, mapsto]	&h (B)
+\end{tikzcd}
+\\
+\\
+A partially ordered set yields an Alexandrov space $L(A)$.
+\begin{definition}\label{bohr_topos_defn}\cite{joost:borification}
+	The \textit{Bohr topos} of $C^*$-algebra $A$ is a  topos sheaves $\mathbf{Sh}\left( L(A)\right)$ over an Alexandrov space $L(A)$.
+\end{definition}
+\begin{remark}
+	The open sets of the Alexandrov space is a partially ordered set, so from the Theorem \ref{locale_thm} it follows that the {Bohr topos} is localic. 
+\end{remark}
+\begin{definition}\label{bohr_locale_defn}
+	The locale of the {Bohr topos} of $C^*$-algebra $A$ is said to be the \textit{Bohr} $A$-\textit{locale}, denoted by $\mathfrak{BohrLocale}(A)$.
+\end{definition}
+\begin{remark}\label{bohr_not_spat_rem}
+	From the Remark \ref{alex_not_sober} and the Proposition \ref{sober_prop} it follows that the {Bohr topos} should not be always spatial.
+\end{remark}
+
+
+
+	
+\subsection{Bohrification}
+Here I follow to \cite{topos_quant}.
+\paragraph{}Whereas the previous subsection considered the topos
+$\asstopos(\alg{A})$ associated to a $C^*$-algebra $\alg{A}$, this
+one is devoted to a particular object $\functor{\alg{A}}$ in this
+topos.
+In fact, the definition of $\functor{\alg{A}}$ is `tautological' in a literal
+sense.
+\begin{definition}
+	\label{def:internalalgebra}
+	Let $\alg{A}$ be a $C^*$-algebra in $\Sets$.
+	The functor $\functor{\alg{A}} :
+	\mathcal C\left(A \right) \to \Sets$ is given on objects by
+	\[
+	\functor{\alg{A}}(\alg{C}) = \alg{C},
+	\]
+	and on morphisms $\alg{D} \subseteq \alg{C}$ of
+	$\sC \left( A\right) $ as the inclusion $\functor{\alg{A}}(\alg{D})
+	\hookrightarrow \functor{\alg{A}}(\alg{C})$.
+\end{definition}
+Note that the functor
+$\functor{\alg{A}} : \sC\left( A\right)  \to\Sets$ factors through $\bf{Cstar}$ or $\cat{cCstar}$
+via the  forgetful embedding of $\bf{CStar}$ or $\cat{cCstar}$ in the ambient topos
+$\Sets$.
+
+\emph{The functor $\functor{\alg{A}}$ is our internal
+	$C^*$-algebra} or {\it Bohrification} of $A$. % By changing the universe of discourse from the ambient
+topos \Sets\ to $\asstopos(\alg{A})$, the (generally) noncommutative
+ $C^*$-algebra $\alg{A}$ has become a commutative $C^*$-algebra $\functor{\alg{A}}$.
+Multiplication of two non-commuting operators is no longer
+defined, since they live in different commutative subalgebras.{Kochen
+	and Specker refer to such a structure as a partial
+	algebra~\cite{kochenspecker67} and stress its relevance for
+	the foundations of quantum theory; in a partial algebra both  addition
+	and multiplication need only be defined for commuting operators.}
+	\begin{definition}\label{gelfand_spectrum_defn}
+		If we consider a functor 
+	\bean
+\Sigma : \cat{cCstar} \to \cat{Top},\\
+C\left(\sX \right) \mapsto \sX
+\eean 
+then the composition $\Sigma \circ  \functor{\alg{A}}$ is functor. The image of  $\Sigma \circ  \functor{\alg{A}}$ is a topos denoted by $\ulS(\uA)$. We say that $\ulS(\uA)$ is the {\it Gelfand spectrum} of $A$.
+
+	\end{definition}
+
+
+	
+\subsection{The Kochen--Specker Theorem}
+\label{sec:spectrum}
+The previous discussion yields a mapping $A\mapsto\ulS(\uA)$, which associates a certain internal
+locale
+to a (generally) noncommutative \ca. As argued in the Introduction,  $\ulS(\uA)$
+describes the quantum logic of the physical system whose algebra of observables
+is $A$.
+
+An important property of the  internal spectrum $\underline{\Sigma}$  is that it may
+typically be
+highly non-spatial from an external point of view.
+\begin{theorem}
+	\label{prop:kochenspecker}
+	Let $H$ be a Hilbert space with $\dim(\sH)>2$ and let $\alg{A}$ be the
+	$C^*$-algebra of bounded operators on $\sH$. Then the locale $\ulS(\uA)$
+	has no  points.
+\end{theorem}
+\subsection{Valuations}
+ We say that a \emph{valuation} on a $C^*$-algebra $A$ is a nonzero map $\la:A_{\mathrm{sa}}\to \R$  that is linear on commuting operators and dispersion-free, i.e., $\la(a^2)=\la(a)^2$ for all $a\in A_{\mathrm{sa}}$. 
+If $A$ is commutative, the Gelfand spectrum $\Sg(A)$ consists precisely of the valuations on $A$.{
+\begin{theorem}\label{t3}
+	There is a bijective correspondence between:
+	\begin{itemize}
+		\item 
+		Valuations on $A$;
+		\item Points  of $\underline{\Sg}(\uA)$  in $\Sh(\CA)$;
+		\item Continuous cross-sections $\sg:\CA\to\Sg$  of the bundle $\pi:  \Sg\to \CA$.% of Theorem \ref{t2}.
+	\end{itemize}
+	In particular, this bundle admits no continuous cross-sections as soon as $A$ has no valuations,\footnote{The claim following this footnote sign  is the content of the original Kochen--Specker Theorem \cite{kochenspecker67}.} as in the case $A=B(H)$ with $\dim(H)>2$.
+\end{theorem}
+	Physically, a valuation correspond to a so-called \emph{noncontextual hidden variable}, which
+assigns a sharp value to each observable $a$ \emph{per se}. A \emph{contextual hidden variable}
+gives a sharp value to $a$ \emph{seen in a specific measurement context in which it, in particular, may be measured}.  
+See, e.g., \cite{Redhead}. In our mathematization,  measurement contexts are identified with commutative $C^*$-subalgebras of some ambient noncommutative C*-algebra $A$, so that a contextual  hidden variable assigns a value to a pair $(a,C)$ where $a\in C$. Hence Theorem \ref{t3} identifies \emph{noncontextual} hidden variables with \emph{continuous} cross-section of $\pi:  \Sg\to\CA$, 
+\emph{contextual} hidden variable corresponding to possibly \emph{discontinuous} cross-sections.
+
+The mathematics neatly fits the physics here, but it should be realized that specific examples of C*-algebras $A$ may suggest coarser natural topologies on $\CA$ than the Alexandrov topology (like the Scott topology), which in turn may imply stronger continuity conditions. We thank the referee for this comment.} 
+	
+		\end{appendices}
+	
+	
+	
+\section*{Acknowledgment}
 
 \paragraph*{}
 Author would like to acknowledge members of the Moscow State University Seminars
@@ -9299,7 +10018,7 @@ Vol. 39, No. 1, 1971/
 \bibitem{atiyah:kt}\textit{$K$-theory}.
 By Michael Atiyah
 W. A. BENJAMIN, INC. New York, Amsterdam 1967
-Work for these note is was partially supported by NSF Grant GP-1217. 1967.
+i for these note is was partially supported by NSF Grant GP-1217. 1967.
 
 
 \bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
@@ -9314,6 +10033,7 @@ Work for these note is was partially supported by NSF Grant GP-1217. 1967.
 
 		
 \bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
+
 
 	
 \bibitem{bredon:topology_geometry} Bredon, Glen E. \textit{Topology and geometry} (Graduate texts in mathematics) Corr. 2nd print Edition, 1993.
@@ -9389,6 +10109,13 @@ Rocky Mountain J. Math. 8(4): 589-626 (Fall 1978). DOI: 10.1216/RMJ-1978-8-4-589
 	 	All other rights reserved.  2017.
 	 	
 	 %\bibitem{hermann:obstruction}  Robert Hermann {\it Obstruction theory for fibre spaces}.	 Illinois J. Math. 4(1): 9-27 (March 1960). DOI: 10.1215/ijm/1255455733. 1960;
+	
+	
+	 \bibitem{topos_quant} Chris Heunen, Nicolaas P. Landsman, Bas Spitters, Sander Wolters, {\it A topos for algebraic quantum theory.}  	arXiv:0709.4364 [quant-ph], 2017.
+	 
+	 \bibitem{gelfand_spec} Chris Heunen, Nicolaas P. Landsman, Bas Spitters, Sander Wolters, {\it The Gelfand spectrum of a noncommutative $C^*$-algebra: a topos-theoretic approach.}  arXiv:1010.2050 [math-ph], 2024.
+	 
+		 
 	 
 	\bibitem{hilsum_scandalis:stab}Hilsum, Michel; Skandalis, Georges. \textit{Stabilit\'{e} des {$C\sp{\ast} $}-alg\`ebres de feuilletages}. Annales de l'Institut Fourier, Volume 33 (1983) no. 3, p. 201-208, 1983.  
 	\bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
@@ -9405,9 +10132,15 @@ Rocky Mountain J. Math. 8(4): 589-626 (Fall 1978). DOI: 10.1216/RMJ-1978-8-4-589
 	
 \bibitem{karoubi:k} M. Karoubi. {\it K-theory, An Introduction.} Springer-Verlag. 1978. 
 	
+	
+	\bibitem{cat:work} Saunders Mac Lane.	\textit{Categories for the Working Mathematician}.  Springer Graduate Texts in Mathematics series, with a second edition following in 1998. 1998.
+	
+	
 			\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 	Translations of Mathematical Monographs, vol. 226, 2005.
 	
+\bibitem{kochenspecker67}Simon Kochen and Ernst Specker. {\it The problem of hidden variables in quantum mechanics}.
+Journal of Mathematics and Mechanics, 17:59Ð87, 1967.
 
 \bibitem{topos:intro} Saunders Mac Lane, Ieke Moerdijk
 \textit{Sheaves in Geometry and Logic. A First Introduction to Topos Theory}. Springer-Verlag - Berlin : New York. 1994.

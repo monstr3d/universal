@@ -99,7 +99,7 @@ namespace RealMatrixProcessor
                 float b = inp[i];
                 a += b * b;
             }
-            a = MathF.Sqrt(a);
+            a = (float)Math.Sqrt(a);
             float c = 1 / a;
             for (int i = 0; i < outp.Length; i++)
             {
@@ -704,7 +704,7 @@ namespace RealMatrixProcessor
         /// <returns>Norm</returns>
         public float Norm(float[] vector)
         {
-            return MathF.Sqrt(Square(vector));
+            return (float)Math.Sqrt(Square(vector));
         }
 
 
@@ -1540,7 +1540,7 @@ namespace RealMatrixProcessor
                 float b = x[i];
                 a += b * b;
             }
-            a = 1 / MathF.Sqrt(a);
+            a = (float)(1 / Math.Sqrt(a));
             for (int i = 0; i < x.Length; i++)
             {
                 x[i] *= a;
@@ -1562,7 +1562,7 @@ namespace RealMatrixProcessor
                 float b = x[i];
                 a += b * b;
             }
-            a = 1 / MathF.Sqrt(a);
+            a = (float)(1 / Math.Sqrt(a));
             for (int i = offset; i < k; i++)
             {
                 x[i] *= a;

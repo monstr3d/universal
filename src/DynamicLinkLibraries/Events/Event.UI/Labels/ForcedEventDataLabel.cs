@@ -26,7 +26,7 @@ namespace Event.UI.Labels
     {
         #region Fields
 
-        UserControlEventData uc;
+        UserControlEventDataFull uc;
 
         ForcedEventData forced;
 
@@ -72,7 +72,7 @@ namespace Event.UI.Labels
         {
             get
             {
-                uc = new UserControlEventData();
+                uc = new UserControlEventDataFull();
                 return uc;
             }
         }

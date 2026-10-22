@@ -89,13 +89,61 @@ namespace BaseTypes
         /// <summary>
         /// Diñtionary of types
         /// </summary>
-        private static Dictionary<Type, object> dtypes;
+        private static Dictionary<Type, object> dtypes = new Dictionary<Type, object>()
+            {
+                {typeof(double), Double    },
+                {typeof(float), Single},
+                { typeof(byte), Byte},
+                { typeof(sbyte), SByte},
+                { typeof(string), String},
+                { typeof(short), Int16},
+                { typeof(ushort), UInt16},
+                { typeof(int), Int32},
+                { typeof(uint), UInt32},
+                { typeof(long), Int64},
+                { typeof(ulong), UInt64},
+                { typeof(bool), Boolean},
+               { typeof(DateTime), DateTimeType}
+            };
 
-        private static Dictionary<object, string> shortNames;
+        private static Dictionary<object, string> shortNames = new Dictionary<object, string>()
+            {
+                {Double, "double"},
+                {Single, "float"},
+                {Byte, "byte"},
+                {SByte, "sByte"},
+                {String, "string"},
+                {Int16, "short"},
+                {UInt16, "ushort"},
+                {Int32, "int"},
+                {UInt32, "uint"},
+                {Int64, "long"},
+                {UInt64, "ulong"},
+                {Boolean, "bool"},
+               {DateTimeType, "DateTime"}
+            };
 
-        private static Dictionary<EnumType, object> eTypes;
 
-        private static Dictionary<object, EnumType> tEnum = new Dictionary<object,EnumType>();
+        private static Dictionary<EnumType, object> eTypes = new Dictionary<EnumType, object>()
+            {
+             {EnumType.Double, Double   },
+                {EnumType.Single, Single},
+                { EnumType.Byte, Byte},
+                { EnumType.SByte, SByte},
+                { EnumType.String, String},
+                { EnumType.Int16, Int16},
+                { EnumType.UInt16, UInt16},
+                { EnumType.Int32, Int32},
+                { EnumType.UInt32, UInt32},
+                { EnumType.Int64, Int64},
+                { EnumType.UInt64, UInt64},
+                { EnumType.Boolean, Boolean},
+                { EnumType.DateTime, DateTimeType}
+
+ };
+
+
+private static Dictionary<object, EnumType> tEnum = new Dictionary<object,EnumType>();
 
 
         #endregion
@@ -185,63 +233,13 @@ namespace BaseTypes
         /// </summary>
         static FixedTypes()
         {
-            dtypes = new Dictionary<Type, object>()
-            {
-                {typeof(Double), Double},
-                {typeof(Single), Single},
-                {typeof(Byte), Byte},
-                {typeof(SByte), SByte},
-                {typeof(String), String},
-                {typeof(Int16), Int16},
-                {typeof(UInt16), UInt16},
-                {typeof(Int32), Int32},
-                {typeof(UInt32), UInt32},
-                {typeof(Int64), Int64},
-                {typeof(UInt64), UInt64},
-                {typeof(Boolean), Boolean},
-               {typeof(DateTime), DateTimeType}
-            };
-
-            eTypes = new Dictionary<EnumType, object>()
-            {
-             {EnumType.Double, Double},
-                {EnumType.Single, Single},
-                {EnumType.Byte, Byte},
-                {EnumType.SByte, SByte},
-                {EnumType.String, String},
-                {EnumType.Int16, Int16},
-                {EnumType.UInt16, UInt16},
-                {EnumType.Int32, Int32},
-                {EnumType.UInt32, UInt32},
-                {EnumType.Int64, Int64},
-                {EnumType.UInt64, UInt64},
-                {EnumType.Boolean, Boolean},
-                {EnumType.DateTime, DateTimeType}
-   
-            };
-
+      
             foreach (EnumType key in eTypes.Keys)
             {
                 tEnum[eTypes[key]] = key;
             }
 
-            shortNames = new Dictionary<object, string>()
-            {
-                {Double, "double"},
-                {Single, "float"},
-                {Byte, "byte"},
-                {SByte, "sByte"},
-                {String, "string"},
-                {Int16, "short"},
-                {UInt16, "ushort"},
-                {Int32, "int"},
-                {UInt32, "uint"},
-                {Int64, "long"},
-                {UInt64, "ulong"},
-                {Boolean, "bool"},
-               {DateTimeType, "DateTime"}
-            };
-
+     
         }
 
         #endregion

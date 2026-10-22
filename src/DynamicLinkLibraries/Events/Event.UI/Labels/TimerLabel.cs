@@ -9,6 +9,8 @@ using Diagram.UI.Labels;
 
 using Event.Interfaces;
 using Event.UI.UserControls;
+
+
 using WindowsExtensions;
 
 
@@ -135,7 +137,7 @@ namespace Event.UI.Labels
 
         }
 
-
         #endregion
+
     }
 }
