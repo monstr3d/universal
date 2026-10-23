@@ -1,16 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Xml.Linq;
 
 namespace KeyboardHMI
 {
     public static class StaticExtensionKeyBoard
-
     {
-        static InputControlAttribute[] attributes = new InputControlAttribute[]
+        static Dictionary<Key, string> keyString = new Dictionary<Key, string>();
+
+        static Dictionary<uint, InputControlAttribute> intAttr = new ();
+
+        static Dictionary<InputControlAttribute, uint> attrInt = new();
+
+        static Dictionary<string, Key> stringKey = new Dictionary<string, Key>();
+
+        static Dictionary<uint, Key> uiKey = new Dictionary<uint, Key>();
+        static Dictionary<Key, uint> keyUI = new();
+
+
+
+
+        static StaticExtensionKeyBoard()
+        {
+
+            foreach (var key in Enum.GetValues<Key>())
             {
-        new () {name = "anyKey", displayName = "Any Key", layout = "AnyKey", bit = 1, sizeInBits = kSizeInBits, synthetic = true},
+                var ui = (uint)key;
+                uiKey[ui] = key;
+               keyUI[key] = ui;
+            }
+            foreach (var att in attributes)
+            {
+                var ui = (uint)att.bit;
+                intAttr[ui] = att;
+                attrInt[att] = ui;
+
+                foreach (var key in Enum.GetValues<Key>())
+                {
+
+                }
+            }
+
+        }
+
+        static InputControlAttribute[] attributes = [
         new () {name = "anyKey", displayName = "Any Key", layout = "AnyKey", bit = 1, sizeInBits = kSizeInBits, synthetic = true},
         new () {name = "escape", displayName = "Escape", layout = "Key", usages = new string[] { "Back", "Cancel" }, bit = (int)Key.Escape},
         new () {name = "space", displayName = "Space", layout = "Key", bit = (int)Key.Space},
@@ -142,7 +177,7 @@ namespace KeyboardHMI
         new () {name = "mediaForward", displayName = "MediaForward", layout = "Key", bit = (int)Key.MediaForward},
       //  new () {name = "IMESelected", layout = "Button", bit = (int)KeyEx.RemappedIMESelected, synthetic = true}, // Use the last bit to hold IME selected state.
       //  new () {name = "IMESelectedObsoleteKey", layout = "Key", bit = (int)KeyEx.RemappedIMESelected, synthetic = true}
-        };
+        ];
 
         public static FourCC Format => new FourCC('K', 'E', 'Y', 'S');
 

@@ -43,11 +43,6 @@ namespace Diagram.UI.UserControls
 
         #region Public Members
 
-
-        #endregion
-
-        #region Public Members
-
         /// <summary>
         /// Types
         /// </summary>

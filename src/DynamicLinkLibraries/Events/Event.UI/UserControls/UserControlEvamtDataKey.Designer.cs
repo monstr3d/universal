@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             panelCenter = new System.Windows.Forms.Panel();
-            panelRight = new System.Windows.Forms.Panel();
-            panelLeft = new System.Windows.Forms.Panel();
-            panelTop = new System.Windows.Forms.Panel();
-            panelBottom = new System.Windows.Forms.Panel();
             panel1 = new System.Windows.Forms.Panel();
-            panel2 = new System.Windows.Forms.Panel();
-            panel3 = new System.Windows.Forms.Panel();
-            panel4 = new System.Windows.Forms.Panel();
-            panel5 = new System.Windows.Forms.Panel();
-            label1 = new System.Windows.Forms.Label();
             dataGridView = new System.Windows.Forms.DataGridView();
             columnUp = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ColumnDown = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            panel2 = new System.Windows.Forms.Panel();
+            panel3 = new System.Windows.Forms.Panel();
+            panel4 = new System.Windows.Forms.Panel();
+            panel5 = new System.Windows.Forms.Panel();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            panelBottom = new System.Windows.Forms.Panel();
             panelCenter.SuspendLayout();
-            panelTop.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            panelTop.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
@@ -63,43 +63,6 @@
             panelCenter.Size = new System.Drawing.Size(340, 221);
             panelCenter.TabIndex = 20;
             // 
-            // panelRight
-            // 
-            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(340, 27);
-            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(0, 221);
-            panelRight.TabIndex = 18;
-            // 
-            // panelLeft
-            // 
-            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelLeft.Location = new System.Drawing.Point(0, 27);
-            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(0, 221);
-            panelLeft.TabIndex = 17;
-            // 
-            // panelTop
-            // 
-            panelTop.Controls.Add(label1);
-            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(340, 27);
-            panelTop.TabIndex = 16;
-            // 
-            // panelBottom
-            // 
-            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 248);
-            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(340, 0);
-            panelBottom.TabIndex = 19;
-            // 
             // panel1
             // 
             panel1.Controls.Add(dataGridView);
@@ -109,6 +72,39 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(340, 221);
             panel1.TabIndex = 20;
+            // 
+            // dataGridView
+            // 
+            dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { columnUp, ColumnDown, ColumnType });
+            dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView.Location = new System.Drawing.Point(0, 0);
+            dataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dataGridView.Name = "dataGridView";
+            dataGridView.Size = new System.Drawing.Size(340, 221);
+            dataGridView.TabIndex = 1;
+            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
+            dataGridView.RowsAdded += dataGridView_RowsAdded;
+            dataGridView.RowsRemoved += dataGridView_RowsRemoved;
+            // 
+            // columnUp
+            // 
+            columnUp.HeaderText = "KeyUp";
+            columnUp.Name = "columnUp";
+            // 
+            // ColumnDown
+            // 
+            ColumnDown.HeaderText = "KeyDown";
+            ColumnDown.Name = "ColumnDown";
+            ColumnDown.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            ColumnDown.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ColumnType
+            // 
+            ColumnType.HeaderText = "Type";
+            ColumnType.Name = "ColumnType";
+            ColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            ColumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel2
             // 
@@ -146,6 +142,34 @@
             panel5.Size = new System.Drawing.Size(340, 0);
             panel5.TabIndex = 19;
             // 
+            // panelRight
+            // 
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(340, 27);
+            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(0, 221);
+            panelRight.TabIndex = 18;
+            // 
+            // panelLeft
+            // 
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 27);
+            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(0, 221);
+            panelLeft.TabIndex = 17;
+            // 
+            // panelTop
+            // 
+            panelTop.Controls.Add(label1);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(340, 27);
+            panelTop.TabIndex = 16;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -155,35 +179,14 @@
             label1.TabIndex = 0;
             label1.Text = "Keyboard input";
             // 
-            // dataGridView
+            // panelBottom
             // 
-            dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { columnUp, ColumnDown, ColumnType });
-            dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView.Location = new System.Drawing.Point(0, 0);
-            dataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            dataGridView.Name = "dataGridView";
-            dataGridView.Size = new System.Drawing.Size(340, 221);
-            dataGridView.TabIndex = 1;
-            // 
-            // columnUp
-            // 
-            columnUp.HeaderText = "KeyUp";
-            columnUp.Name = "columnUp";
-            // 
-            // ColumnDown
-            // 
-            ColumnDown.HeaderText = "KeyDown";
-            ColumnDown.Name = "ColumnDown";
-            ColumnDown.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            ColumnDown.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ColumnType
-            // 
-            ColumnType.HeaderText = "Type";
-            ColumnType.Name = "ColumnType";
-            ColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            ColumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 248);
+            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(340, 0);
+            panelBottom.TabIndex = 19;
             // 
             // UserControlEvamtDataKey
             // 
@@ -197,10 +200,10 @@
             Name = "UserControlEvamtDataKey";
             Size = new System.Drawing.Size(340, 248);
             panelCenter.ResumeLayout(false);
-            panelTop.ResumeLayout(false);
-            panelTop.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
             ResumeLayout(false);
         }
 

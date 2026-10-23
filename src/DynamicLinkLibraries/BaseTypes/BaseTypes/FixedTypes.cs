@@ -80,7 +80,7 @@ namespace BaseTypes
         public static readonly DateTime DateTimeType = new DateTime((long)0, DateTimeKind.Utc);
 
 
-      //  private
+        //  private
 
         #endregion
 
@@ -143,7 +143,7 @@ namespace BaseTypes
  };
 
 
-private static Dictionary<object, EnumType> tEnum = new Dictionary<object,EnumType>();
+        private static Dictionary<object, EnumType> tEnum = new Dictionary<object, EnumType>();
 
 
         #endregion
@@ -233,18 +233,15 @@ private static Dictionary<object, EnumType> tEnum = new Dictionary<object,EnumTy
         /// </summary>
         static FixedTypes()
         {
-      
+
             foreach (EnumType key in eTypes.Keys)
             {
                 tEnum[eTypes[key]] = key;
             }
 
-     
         }
 
         #endregion
 
     }
-
- 
 }
