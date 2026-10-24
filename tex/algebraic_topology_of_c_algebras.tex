@@ -1447,17 +1447,34 @@ b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right)
 	 \begin{definition}
 	 Let  $A$ be an unital $C^*$-algebra, and let $\mathfrak{Comm}\left( A\right)$ be  the meet-semilattice (cf. Definition \ref{lattice_defn}) of commutative $C^*$-subalgebras of $A$. The {\it pre}-{\it Bohr space} of $A$ (write $\mathfrak{PreBohr}\left(A \right)$ ) is the { space of ultrafilters} of $\mathfrak{Comm}\left( A\right)$ (cf. Definition \ref{lattice_s_defn}).   The \textit{Bohr space} $\mathfrak{Bohr}\left(A \right)$ of $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreBohr}\left(A \right)$ (cf. Definition \ref{blowing_uni_h_defn}), i.e. $\mathfrak{Bohr}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreBohr}\left(A \right) \right)$ (cf. equation \eqref{hausdorff_funct_eqn}).
 	 \end{definition}
-	 \begin{remark}
-	 There is the natural inclusion of the meet-semilattice $ \mathcal{C}(A)$ into the Lattice of open subsets of $\mathfrak{PreBohr}\left(A \right)$. The second lattice is directed. There is the diagram 
-	 \end{remark}
-		\begin{remark}
-		If $A$ is an unital commutative $C^*$-algebra then the natural surjective map
-		\be\label{gelfand_to_bohr_eqn}
-		\mathfrak{Gelfand}\left( A \right)\onto \mathfrak{Bohr}\left( A \right)
+	 For any $C \in  \mathcal{C}(A)$ there is the natural inclusion $ \phi_C : \Sigma \left(C \right)\hookto \mathfrak{Bohr}\left(A \right)$. If $\left\{\sX_\la\subset \mathfrak{Bohr}\left(A \right)\right\}_{\la \in \La}$ is a set of finite unions given by
+	 \bean
+	 \forall \la \in \La\quad \exists ~C_1, ..., C_n \in \mathcal{C}(A)\quad \sX_\la = \Sigma \left(C_1 \right) \cup ... \cup \Sigma \left(C_n \right)
+	 \eean
+	 then the set $\left\{\sX_\la\right\}$ is directed (cf. Definition \ref{directed_set_defn}). Moreover one has
+	 \be \label{bohr_invlim_eqn}
+	 \mathfrak{Bohr}\left(A \right)= \varprojlim_{\la\in \La} \sX_\la
+	 \ee
+	 (cf. Definitions \ref{colim_defn} and \ref{top_init_defn})
+	 The equation \eqref{bohr_lim_eqn} can be regarded as a correct proxy of the \eqref{bohr_lim_eqn} one. From the Theorem \ref{good_thm} it turns out that for any $C \in \mathcal{C}(A)$ there is a surjective continuous map
+	 \be\label{bohr_c_eqn} 
+	 \mathfrak{Gelfand}\left( A \right)\onto	 \Sigma \left(C \right).
+	 \ee
+	Using  \eqref{bohr_c_eqn} one can construct following surjective continuous  maps
+	\bean
+	\forall \la \in \La \quad  \mathfrak{Gelfand}\left( A \right)\onto \sX_\la
+	\eean
+	and taking into account \eqref{bohr_invlim_eqn} one has the natural surjective continuous map
+			\be\label{gelfand_to_bohr_eqn}
+	\mathfrak{Gelfand}\left( A \right)\onto \mathfrak{Bohr}\left( A \right)
 	\ee
+	
+	 
+	 		\begin{remark}
+		If $A$ is an unital commutative $C^*$-algebra then the natural surjective map \eqref{gelfand_to_bohr_eqn}
 	is a homeomorphism.  It is not known whether the map \eqref{gelfand_to_bohr_eqn}is a homeomorphism for any unital  $C^*$-algebra $A$.
 		\end{remark}
-	If $A$ an unital $C^*$-algebra then for any 
+	
 		
 		
 	\section{Gelfand space and $K$-theory}
@@ -4546,7 +4563,19 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 				
 			\end{definition} 
 		
-			
+	\begin{definition}\label{colim_defn}
+By duality we define {\it co}-{\it cone} $\left\{f_\iota : d_\iota \to c\right\}$ for diagram $D$ to consist of an 
+object $c$, and arrows $f_\iota : d_\iota \to c$ for each object $d_\iota$ in $D$. A {\it colimit} for $D$ is 
+then a co-cone $\left\{f_\iota : d_\iota \to c\right\}$ with the {\it co-universal property} that for any 
+other co-cone $\left\{f'_\iota : d_\iota \to c'\right\}$ there is exactly one arrow $f:c\to c'$ such 
+	\bean
+	\begin{tikzcd}
+	& d_\iota \arrow[dl, "f_\iota"] \arrow[dr, "f'_\iota"]&\\
+	c\arrow[rr, dashed, "f"] && c'
+	\end{tikzcd}
+	\eean
+commutes for every $d_\iota$ in $D$. 
+	\end{definition}		
 			
 \subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
@@ -6982,9 +7011,6 @@ and $\mathfrak{Sp}_A\left(x \right)\cong \mathfrak{Sp}_B\left(x \right)$.
 		\item $M$ is strongly closed.
 	\end{itemize}
 \end{thm}
-	\begin{definition}\label{principal_defn}\cite{takeda:inductive}
-	An  injective $*$-homomorphism  $\phi: A \hookto B$ of unital $C^*$-algebras is said to be \textit{unital} if and only if $\phi\left(1_A\right)= 1_B$. 
-\end{definition}
 
 \begin{defn}\cite{pedersen:ca_aut}
 	Any $C^*$-algebra $M$ is said to be a {\it von Neumann algebra} or a {\it $W^*$- algebra} if $M$ satisfies to the conditions of the Theorem \ref{vN_thm}.
@@ -8538,7 +8564,66 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 \begin{remark}\label{ab_nuclear_rem}\cite{blackadar:ko}
 	Any commutative $C^*$-algebra is nuclear.
 \end{remark}
-	
+\section{Inductive limits of $C^*$-algebras}
+\begin{definition}\label{principal_defn}\cite{takeda:inductive}
+	An  injective $*$-homomorphism  $\phi: A \hookto B$ of unital $C^*$-algebras is said to be \textit{unital} if and only if $\phi\left(1_A\right)= 1_B$. 
+\end{definition}
+\begin{remark}
+	In the cited text \cite{takeda:inductive} the word "principal" used instead "unital". In this book all entries of the word "principal $*$-homomorphism" are replaced with "unital $*$-homomorphism".
+\end{remark}
+\begin{definition}\label{inductive_lim_defn}\cite{takeda:inductive}
+	Let $\La$ be an increasingly directed set and $A_\la$ be a $C^*$-algebra
+	having an identity $1_\la$ associated with $\la \in \La$ If there exists a $C^*$-algebra $A$ with the identity $1$ and a unital isomorphism $f_\la$ of $A_\la$ into $A$ for every $\la \in \La$ such that
+	$$
+	f_\mu\left(A_\mu\right)\subset f_\nu\left(A_\nu\right) \quad \text{ if } \quad \nu < \mu; \quad \mu, \nu \in \La
+	$$
+	and that the join of $f_\la\left(A_\la\right)$ ($\la \in \La$) is uniformly dense in $A$, $A$ is called the $C^*$-\textit{inductive limit} of $A_\la$, and is denoted by $C^*\text{-}\varinjlim_\La A_\la$ or  $C^*\text{-}\varinjlim A_\la$
+\end{definition}
+\begin{theorem}\label{inductive_lim_thm}\cite{takeda:inductive}
+	Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an increasingly directed set. If, for every $\mu, \nu$ with $\mu < \nu$, there exists a unital injective $*$-homomorphism $f_{\mu\nu}: A_\mu \to A_\nu$ satisfying
+	$$
+	f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}\quad~\mathrm{where} \quad \mu < \la < \nu.
+	$$
+	then there exists the $C^*$-inductive limit of $A_\la$.
+\end{theorem}
+\begin{remark}\label{inductive_lim_rem}
+	A proof of the Theorem is presented in \cite{takeda:inductive}. Roughly speaking the union $\bigcup A_\la$ has the natural structure of $*$-algebra with $C^*$-norm. The $C^*$-algebra $A$ is the $C^*$-norm completion of $\bigcup A_\la$. Moreover  one has
+	\be\label{inductive_lim_eqn}
+	\forall a \in A \quad \exists \left(a_\la\right)_{\la\in \La} \in \prod A_\la\quad  a = \lim_{\la \in \La}a_\la
+	\ee
+	where the $C^*$-norm limit is implied.
+\end{remark}
+
+\begin{empt}\label{inductive_lim_empt}
+	Let $\Om$ and $\Om_{\la}$ be state spaces of $A$ and $A_\la$ respectively. When $A$ is a $C^*$-
+	inductive limit of $\left\{A_\la\right\}$, every state $\tau$ of $A$ defines a state $\tau_{\la}$ on $A_\la$.
+	Then, for every $\mu, \nu \in \La$ such as $\mu < \nu$, we put $f^*_{\mu\nu}$ the conjugate mapping of 	the principal isomorphism $f_{\mu\nu}$ of $A_\mu$ into $A_\nu$ which maps $\Om_{\nu}$ onto  $\Om_{\nu}$
+	has the following properties
+	\be\label{ind_7_eqn}
+	\tau_\mu = f^*_{\mu\nu}\left(\tau_\nu \right) 
+	\ee
+	\be\label{ind_8_eqn}
+	f^*_{\mu\nu}= f^*_{\mu\la}\circ f^*_{\la\nu}\quad \text{ if }\quad \mu < \la < \nu.
+	\ee
+	Conversely, a system of states $\left\{\tau_\la \in \Om_{\la} \right\}_{\la \in \La}$ which satisfies the condition \eqref{ind_7_eqn}  defines a state on $A$ since every positive bounded linear functional on the algebraic inductive limit $A^0$ of  $\left\{A_\la\right\}$, is uniquely extended over $A$.
+\end{empt}
+\begin{prop}\label{inductive_lim_prop}\cite{takeda:inductive}
+	Let a $C^*$-algebra $A$ be a $C^*$-inductive limit of $\left\{A_\la\right\}_{\la \in \La}$, and $\La'$ be a cofinal subset in $\La$, then $A$ is the $C^*$-inductive limit of $\left\{A_{\la'})\right\}_{\la' \in \La'}$.
+\end{prop}
+\begin{theorem}\label{inductive_lim_state_thm}\cite{takeda:inductive}
+	If a $C^*$-algebra $A$ is a $C^*$-inductive limit of $A_\la$ ($\la \in \La$), the
+	state space $\Om$ of A is homeomorphic to the projective limit of the state spaces $\Om_\la$ of $A_\la$.
+\end{theorem}
+\begin{corollary}\label{inductive_lim_state_cor}\cite{takeda:inductive}
+	If a commutative $C^*$-algebra $A$ is a $C^*$-inductive limit of the
+	commutative  $C^*$-algebras $A_\la$ ($\la \in \La$), the spectrum $\mathcal X$ of $A$ is the projective limit of spectra $\mathcal X_\la$ of $A_\la$ ($\la \in \La$).
+\end{corollary}
+
+
+
+
+
+\	
 	
 		\subsection{Karoubi conjecture}
 	
