@@ -2721,6 +2721,8 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 
 
 
+
+
 %\begin{empt}\label{blowing_k_theory_empt}
 %	If $A$ be is  stable $C^*$-algebra then $A \cong \K\otimes A\cong A\otimes \K$. Moreover  if  $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff  blowing-up then one has a  natural action 
 %	\bean
@@ -2934,17 +2936,34 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 	\eean
 	However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersen_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
 \end{proof}
+\begin{remark}
+	The Theorem \ref{blowing_pedersen_compact_thm} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
+\end{remark}
+
 \begin{remark}\label{blowing_gelfandem}
 	The Lemma means that any Hausdorff blowing-up is a good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ (cf. Definition \ref{good_hom_defn}), so there is the natural surjective continuous map
 	\be\label{blowing_gelfand_eqn}
-	\mathfrak{Gelfand}\left(A \right) \onto \sX
+p_{\mathfrak{Gelfand}\left(A \right) - \sX}	:\mathfrak{Gelfand}\left(A \right) \onto \sX
 	\ee
 	(cf. Theorem \ref{good_thm}).
 \end{remark}
 
-\begin{remark}
-	The Theorem \ref{blowing_pedersen_compact_thm} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
-\end{remark}
+\begin{definition}\label{blowing_dix_douady_defn}
+Let $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ be {Hausdorff  blowing-up} of $A$ (cf. Definition \ref{blowing_defn}). Assume that following conditions hold:
+\begin{itemize}
+	\item There is no continuous map $s: \sX \mathfrak{Gelfand}\left(A \right)$ with
+	$$
+	p_{\mathfrak{Gelfand}\left(A \right) - \sX}\circ s = \Id_\sX
+	$$
+	where $p_{\mathfrak{Gelfand}\left(A \right) - \sX}$ is a specialization og \eqref{blowing_gelfand_eqn},
+	\item  there is a contravariant functor $F : \mathfrak{Top}\to \mathfrak{Ad}$ from the category of topological spaces to Abelian groups one, and a nonzero element $\a \in F\left(\sX \right)\setminus \{0\}$ such that
+	\bean
+	F\left( 	p_{\mathfrak{Gelfand}\left(A \right) - \sX}\right) \left( \a\right) = 0.
+	\eean  
+\end{itemize}
+The element $\a$ is a {\it generalized Dixmier-Douady obstruction}.
+\end{definition}
+
 \begin{definition}\label{blowing_compact_supp_defn}
 	The given by
 	\be\label{blowing_compact_supp_eqn}
@@ -4252,6 +4271,27 @@ Any    is a $\G$-regular   covering  $q: \widetilde \G^0\to  \G^0$  (cf. Definit
 	Follows from the Theorems \ref{hausdorff_covering_theorem} and \ref{groupoid_lift_thm}.
 \end{proof}
 
+\subsection{Generalized Dixmier–Douady obstruction}
+\ref{foli_bundle_thm} 
+!!!!
+
+\begin{definition}\label{blowing_dix_douady_defn!} !!!!
+	Let $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ be {Hausdorff  blowing-up} of $A$ (cf. Definition \ref{blowing_defn}). Assume that following conditions hold:
+	\begin{itemize}
+		\item There is no continuous map $s: \sX \mathfrak{Gelfand}\left(A \right)$ with
+		$$
+		p_{\mathfrak{Gelfand}\left(A \right) - \sX}\circ s = \Id_\sX
+		$$
+		where $p_{\mathfrak{Gelfand}\left(A \right) - \sX}$ is a specialization og \eqref{blowing_gelfand_eqn},
+		\item  there is a contravariant functor $F : \mathfrak{Top}\to \mathfrak{Ad}$ from the category of topological spaces to Abelian groups one, and a nonzero element $\a \in F\left(\sX \right)\setminus \{0\}$ such that
+		\bean
+		F\left( 	p_{\mathfrak{Gelfand}\left(A \right) - \sX}\right) \left( \a\right) = 0.
+		\eean  
+	\end{itemize}
+	The element $\a$ is a {\it generalized Dixmier-Douady obstruction}.
+\end{definition}
+
+
 \section{Gelfand spaces of continuous trace $C^*$-algebras}
 \subsection{Basic construction}
 \paragraph{}
@@ -4404,7 +4444,7 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 \end{remark}
 
 
-\subsection{Cohomology}
+\subsection{Generalized Dixmier–Douady obstruction}
 
 \paragraph{}
 Let $CT\left(\sX, \dl \right)$ be a stable separable algebra $A$ of continuous trace over a second-countable locally compact Hausdorff space $\sX$ with  Dixmier–Douady class $\dl \in \check{H}^3\left(\sX, \Z \right)$ (cf. Proposition \ref{ctr_bundle_prop}).  
@@ -4440,10 +4480,26 @@ There is the natural commutative diagram
 where the map $\varphi$ is a specialization of the  \eqref{to_spec_eqn} one. The above diagram yields the diagram !!!
 \bean
 \begin{tikzcd}
-\check{H}^3\left( 	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}; \Z\right)  \arrow[rd, two heads]   && \check{H}^3\left( \sX;\Z\right) \arrow[ll,  "\check{H}^3\left(\hat\phi; \Z\right)"]  \\
-	&\check{H}^3\left( \G^\dl; \Z \right)  \arrow[ru, two heads]  & 
+\check{H}^3\left( 	\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)_{\mathfrak{Gelfand}}; \Z\right)   && \check{H}^3\left( \sX;\Z\right)\arrow[ld] \arrow[ll,  "\check{H}^3\left(\hat\phi; \Z\right)"]  \\
+	&\check{H}^3\left( \G^\dl; \Z \right) \arrow[lu]   & 
 \end{tikzcd}
 \eean
+
+\begin{definition}\label{blowing_dix_douady_defn!}!!!
+	Let $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right)\hookto M\left( A\right)$ be {Hausdorff  blowing-up} of $A$ (cf. Definition \ref{blowing_defn}). Assume that following conditions hold:
+	\begin{itemize}
+		\item There is no continuous map $s: \sX \mathfrak{Gelfand}\left(A \right)$ with
+		$$
+		p_{\mathfrak{Gelfand}\left(A \right) - \sX}\circ s = \Id_\sX
+		$$
+		where $p_{\mathfrak{Gelfand}\left(A \right) - \sX}$ is a specialization og \eqref{blowing_gelfand_eqn},
+		\item  there is a contravariant functor $F : \mathfrak{Top}\to \mathfrak{Ad}$ from the category of topological spaces to Abelian groups one, and a nonzero element $\a \in F\left(\sX \right)\setminus \{0\}$ such that
+		\bean
+		F\left( 	p_{\mathfrak{Gelfand}\left(A \right) - \sX}\right) \left( \a\right) = 0.
+		\eean  
+	\end{itemize}
+	The element $\a$ is a {\it generalized Dixmier-Douady obstruction}.
+\end{definition}
 
 \begin{appendices}
 			\section{Category theory}
@@ -5972,6 +6028,7 @@ A simply connected covering space of a connected locally path-connected space $\
 	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
 	\ee
 \end{definition}
+
 
 
 	
@@ -8707,7 +8764,7 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 		%	\end{proposition}
 	
 	
-	\subsection{Dixmier Douady theory of spaces}
+	\subsection{Dixmier Douady theory}
 	\paragraph*{} Here I follow to \cite{bryl:loop}
 	If $M$ is a manifold then $H^2\left(M, \Z \right)$ is the group of isomorphism  classes of line bundles over $M$
 	Given a paracompact space $M$, we wish to describe bundles over $M$ which 
@@ -9191,6 +9248,10 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 		The \textit{reduced $C^*$ -algebra} $C^*\left(\G, \sigma \right)$ of $\G$ is the completion of
 		$C^*\left(\G, \sigma \right)$ for the reduced norm $\left\|\cdot  \right\|$.
 	\end{definition}
+		\begin{thm}\label{foli_bundle_thm}\cite{candel:foliII}
+		%	Theorem 1.5.12. 
+		Assume that $\left(M, \sF\right)$ is given by the fibers of a fibration $p : M \to B$ with fiber $F$. Then $C^*\left(M, \sF\right)$ is isomorphic to $C_0\left(B\right)\otimes \K\left(L^2\left(\F\right)\right)$.
+	\end{thm}
 	
 	
 	\subsection{$C^*$-algebras of non-Hausdorff \'etale groupoids}
