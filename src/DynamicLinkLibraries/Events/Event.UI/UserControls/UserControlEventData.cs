@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Diagram.UI;
 
 using Event.Basic.Data.Events;
+using Event.Interfaces;
 
 namespace Event.UI.UserControls
 {
@@ -23,6 +19,12 @@ namespace Event.UI.UserControls
 
         ForcedEventData forced;
 
+        UserControlEventDataFull parent;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal List<Tuple<string, object>> Types
+        {  get; set; } = new List<Tuple<string, object>>();
+
         #endregion
 
         #region Ctor
@@ -33,6 +35,7 @@ namespace Event.UI.UserControls
         public UserControlEventData()
         {
             InitializeComponent();
+            parent = this.FindParent<UserControlEventDataFull>();
         }
 
         #endregion
@@ -45,9 +48,12 @@ namespace Event.UI.UserControls
             set
             {
                 forced = value;
-                userControlTypeList.Types = value.Types;
-                userControlTypeList.OnChange += (List<Tuple<string, object>> types)  =>
-                    { value.Types = types; };
+                userControlTypeList.Types = GetTypes();
+                userControlTypeList.OnChange += (List<Tuple<string, object>> types) =>
+                    {
+                        Types = userControlTypeList.Types;
+                        parent.UpdateAll();
+                    };
                 ForcedChange();
                 forced.OnChangeTypes += ForcedChange;
                 propertyGridValues.PropertyValueChanged += (object s, PropertyValueChangedEventArgs e) =>
@@ -55,15 +61,70 @@ namespace Event.UI.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal object[] Initial
+        {
+            get;
+            set;
+        } = new object[0];
+
+
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal object[] Data
+        {
+            get;
+            set;
+        } = new object[0];
+
+
         #endregion
 
         #region Event handlers
 
-   
+
         private void ForcedChange()
         {
-            propertyGridInitial.SetArrayEditor(forced.Types, forced.Initial);
-            propertyGridValues.SetArrayEditor(forced.Types, forced.Data);
+            var kb = StaticExtensionEventInterfaces.Keyboard;
+            var i = 0;
+            var ini = new List<object>();
+            var d = new List<object>();
+            var l = new List<Tuple<string, object>>();
+            foreach (var t in forced.Types)
+            {
+                var k = t.Item1;
+                if (!k.StartsWith(kb))
+                {
+                    l.Add(t);
+                    ini.Add(forced.Initial[i]);
+                    d.Add(forced.Data[i]);
+                }
+                ++i;
+            }
+            Initial = ini.ToArray();
+            Data = d.ToArray();
+            propertyGridInitial.SetArrayEditor(l, Initial);
+            propertyGridValues.SetArrayEditor(l, Data);
+        }
+
+        #endregion
+
+        #region Private
+
+        List<Tuple<string, object>> GetTypes()
+        {
+
+            var kb = StaticExtensionEventInterfaces.Keyboard;
+            var l = new List<Tuple<string, object>>();
+            foreach (var t in forced.Types)
+            {
+                var k = t.Item1;
+                if (!k.StartsWith(kb))
+                {
+                    l.Add(t);
+                }
+            }
+            return l;
         }
 
         #endregion

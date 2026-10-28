@@ -1,6 +1,6 @@
 ﻿namespace Event.UI.UserControls
 {
-    partial class UserControlEvamtDataKey
+    partial class UserControlEventDataKey
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,8 +32,8 @@
             panel1 = new System.Windows.Forms.Panel();
             dataGridView = new System.Windows.Forms.DataGridView();
             columnUp = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            ColumnDown = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            columnDown = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            columnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             panel2 = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
@@ -76,7 +76,7 @@
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { columnUp, ColumnDown, ColumnType });
+            dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { columnUp, columnDown, columnType });
             dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView.Location = new System.Drawing.Point(0, 0);
             dataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -92,19 +92,19 @@
             columnUp.HeaderText = "KeyUp";
             columnUp.Name = "columnUp";
             // 
-            // ColumnDown
+            // columnDown
             // 
-            ColumnDown.HeaderText = "KeyDown";
-            ColumnDown.Name = "ColumnDown";
-            ColumnDown.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            ColumnDown.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            columnDown.HeaderText = "KeyDown";
+            columnDown.Name = "columnDown";
+            columnDown.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            columnDown.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // ColumnType
+            // columnType
             // 
-            ColumnType.HeaderText = "Type";
-            ColumnType.Name = "ColumnType";
-            ColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            ColumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            columnType.HeaderText = "Type";
+            columnType.Name = "columnType";
+            columnType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            columnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel2
             // 
@@ -222,7 +222,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewComboBoxColumn columnUp;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnDown;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnDown;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnType;
     }
 }

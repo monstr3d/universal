@@ -23,6 +23,7 @@ namespace Event.UI
     [InitAssembly]
     public static class StaticExtensionEventUI
     {
+
         /// <summary>
         /// Initialize itself
         /// </summary>

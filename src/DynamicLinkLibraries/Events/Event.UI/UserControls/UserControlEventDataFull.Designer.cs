@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             panelCenter = new System.Windows.Forms.Panel();
-            panelRight = new System.Windows.Forms.Panel();
-            panelLeft = new System.Windows.Forms.Panel();
-            panelTop = new System.Windows.Forms.Panel();
-            panelBottom = new System.Windows.Forms.Panel();
             tabControlMain = new System.Windows.Forms.TabControl();
             tabDigital = new System.Windows.Forms.TabPage();
-            tabKeyBoard = new System.Windows.Forms.TabPage();
             panel1 = new System.Windows.Forms.Panel();
+            userControlEventData = new UserControlEventData();
             panel2 = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
             panel5 = new System.Windows.Forms.Panel();
-            userControlEventData = new UserControlEventData();
+            tabKeyBoard = new System.Windows.Forms.TabPage();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            panelBottom = new System.Windows.Forms.Panel();
+            userControlEventDataKey = new UserControlEventDataKey();
             panelCenter.SuspendLayout();
             tabControlMain.SuspendLayout();
             tabDigital.SuspendLayout();
             panel1.SuspendLayout();
+            tabKeyBoard.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
@@ -57,42 +59,6 @@
             panelCenter.Name = "panelCenter";
             panelCenter.Size = new System.Drawing.Size(411, 354);
             panelCenter.TabIndex = 20;
-            // 
-            // panelRight
-            // 
-            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(411, 0);
-            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(0, 354);
-            panelRight.TabIndex = 18;
-            // 
-            // panelLeft
-            // 
-            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelLeft.Location = new System.Drawing.Point(0, 0);
-            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(0, 354);
-            panelLeft.TabIndex = 17;
-            // 
-            // panelTop
-            // 
-            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(411, 0);
-            panelTop.TabIndex = 16;
-            // 
-            // panelBottom
-            // 
-            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 354);
-            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(411, 0);
-            panelBottom.TabIndex = 19;
             // 
             // tabControlMain
             // 
@@ -120,16 +86,6 @@
             tabDigital.Text = "Digital input";
             tabDigital.UseVisualStyleBackColor = true;
             // 
-            // tabKeyBoard
-            // 
-            tabKeyBoard.Location = new System.Drawing.Point(4, 24);
-            tabKeyBoard.Name = "tabKeyBoard";
-            tabKeyBoard.Padding = new System.Windows.Forms.Padding(3);
-            tabKeyBoard.Size = new System.Drawing.Size(403, 326);
-            tabKeyBoard.TabIndex = 1;
-            tabKeyBoard.Text = "Keyboard";
-            tabKeyBoard.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             panel1.Controls.Add(userControlEventData);
@@ -139,6 +95,15 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(397, 320);
             panel1.TabIndex = 20;
+            // 
+            // userControlEventData
+            // 
+            userControlEventData.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlEventData.Location = new System.Drawing.Point(0, 0);
+            userControlEventData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userControlEventData.Name = "userControlEventData";
+            userControlEventData.Size = new System.Drawing.Size(397, 320);
+            userControlEventData.TabIndex = 0;
             // 
             // panel2
             // 
@@ -176,16 +141,62 @@
             panel5.Size = new System.Drawing.Size(397, 0);
             panel5.TabIndex = 19;
             // 
-            // userControlEventData
+            // tabKeyBoard
             // 
-            userControlEventData.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlEventData.Location = new System.Drawing.Point(0, 0);
-            userControlEventData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            userControlEventData.Name = "userControlEventData";
-            userControlEventData.Size = new System.Drawing.Size(397, 320);
-            userControlEventData.TabIndex = 0;
+            tabKeyBoard.Controls.Add(userControlEventDataKey);
+            tabKeyBoard.Location = new System.Drawing.Point(4, 24);
+            tabKeyBoard.Name = "tabKeyBoard";
+            tabKeyBoard.Padding = new System.Windows.Forms.Padding(3);
+            tabKeyBoard.Size = new System.Drawing.Size(403, 326);
+            tabKeyBoard.TabIndex = 1;
+            tabKeyBoard.Text = "Keyboard";
+            tabKeyBoard.UseVisualStyleBackColor = true;
             // 
-            // UserControlDataFull
+            // panelRight
+            // 
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(411, 0);
+            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(0, 354);
+            panelRight.TabIndex = 18;
+            // 
+            // panelLeft
+            // 
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 0);
+            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(0, 354);
+            panelLeft.TabIndex = 17;
+            // 
+            // panelTop
+            // 
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(411, 0);
+            panelTop.TabIndex = 16;
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 354);
+            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(411, 0);
+            panelBottom.TabIndex = 19;
+            // 
+            // userControlEventDataKey
+            // 
+            userControlEventDataKey.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlEventDataKey.Location = new System.Drawing.Point(3, 3);
+            userControlEventDataKey.Name = "userControlEventDataKey";
+            userControlEventDataKey.Size = new System.Drawing.Size(397, 320);
+            userControlEventDataKey.TabIndex = 0;
+            // 
+            // UserControlEventDataFull
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,12 +205,13 @@
             Controls.Add(panelLeft);
             Controls.Add(panelTop);
             Controls.Add(panelBottom);
-            Name = "UserControlDataFull";
+            Name = "UserControlEventDataFull";
             Size = new System.Drawing.Size(411, 354);
             panelCenter.ResumeLayout(false);
             tabControlMain.ResumeLayout(false);
             tabDigital.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            tabKeyBoard.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -219,5 +231,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private UserControlEventData userControlEventData;
+        private UserControlEventDataKey userControlEventDataKey;
     }
 }

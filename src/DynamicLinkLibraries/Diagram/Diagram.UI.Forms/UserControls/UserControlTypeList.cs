@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BaseTypes;
@@ -36,7 +31,8 @@ namespace Diagram.UI.UserControls
         {
             InitializeComponent();
             columnType.ValueType = typeof(EnumType);
-            columnType.DataSource = Enum.GetValues(typeof(EnumType));
+            columnType.DataSource = Enum.GetValues<EnumType>();
+
         }
 
         #endregion

@@ -15,6 +15,7 @@ namespace Event.Interfaces
 
         #region Fields
 
+
         protected List<object> list = new List<object>();
 
 

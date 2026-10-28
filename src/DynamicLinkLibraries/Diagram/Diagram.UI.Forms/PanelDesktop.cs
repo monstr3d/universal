@@ -250,91 +250,98 @@ namespace Diagram.UI
         /// <param name="associated">Sign for setting associated objects</param>
         protected virtual void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
         {
-            List<IObjectLabel> objs = new List<IObjectLabel>();
-            List<IObjectLabel> obb = objects.ToList<IObjectLabel>();
-            foreach (IObjectLabel l in objects)
+            try
             {
+                List<IObjectLabel> objs = new List<IObjectLabel>();
+                List<IObjectLabel> obb = objects.ToList<IObjectLabel>();
+                foreach (IObjectLabel l in objects)
+                {
 
-                IObjectLabelUI lab = null;
-                IObjectLabelHolder lh = l.GetSimpleObject<IObjectLabelHolder>();
-                if (lh != null)
-                {
-                    lab = lh.Label.GetSimpleObject<IObjectLabelUI>();
+                    IObjectLabelUI lab = null;
+                    IObjectLabelHolder lh = l.GetSimpleObject<IObjectLabelHolder>();
+                    if (lh != null)
+                    {
+                        lab = lh.Label.GetSimpleObject<IObjectLabelUI>();
+                    }
+                    if (lab == null)
+                    {
+                        lab = tools.Factory.CreateLabel(l.Object);
+                    }
+                    if (lab == null)
+                    {
+                        lab = tools.Factory.CreateObjectLabel(tools.FindButton(l));
+                    }
+                    lab.X = l.X;
+                    lab.Y = l.Y;
+                    IObjectLabel la = lab;
+                    lab.ComponentName = l.Name;
+                    lab.Object = l.Object;
+                    lab.Initialize();
+                    AddNewObjectLabel(lab);
+                    objs.Add(lab);
+                    if (lab is IContainerObjectLabel)
+                    {
+                        IContainerObjectLabel cl = lab as IContainerObjectLabel;
+                        cl.Expand();
+                    }
+                    StaticExtensionDiagramUIForms.PostLabelLoad(lab);
                 }
-                if (lab == null)
+                List<IArrowLabel> arrs = new List<IArrowLabel>();
+                foreach (IArrowLabel l in arrows)
                 {
-                    lab = tools.Factory.CreateLabel(l.Object);
+                    IArrowLabelUI lab = null;
+                    IArrowLabelHolder lh = l.GetSimpleObject<IArrowLabelHolder>();
+                    if (lh != null)
+                    {
+                        lab = lh.Label.GetSimpleObject<IArrowLabelUI>();
+                    }
+                    IObjectLabel source = PureDesktop.Find(obb, objs, l.Source, l.Desktop);
+                    IObjectLabel target = PureDesktop.Find(obb, objs, l.Target, l.Desktop);
+                    if (lab == null)
+                    {
+                        lab = tools.Factory.CreateArrowLabel(tools.FindButton(l), l.Arrow, source, target);
+                    }
+                    lab.ComponentName = l.Name;
+                    lab.Arrow = l.Arrow;
+                    lab.Source = source;
+                    lab.Target = target;
+                    arrs.Add(lab);
                 }
-                if (lab == null)
+                if (!associated)
                 {
-                    lab = tools.Factory.CreateObjectLabel(tools.FindButton(l));
+                    return;
                 }
-                lab.X = l.X;
-                lab.Y = l.Y;
-                IObjectLabel la = lab;
-                lab.ComponentName = l.Name;
-                lab.Object = l.Object;
-                lab.Initialize();
-                AddNewObjectLabel(lab);
-                objs.Add(lab);
-                if (lab is IContainerObjectLabel)
+                this.SetParents();
+                IEnumerable<IObjectLabel> objj = Objects;
+                PureObjectLabel.SetLabels(objj);
+                PureArrowLabel.SetLabels(arrs);
+                foreach (IObjectLabel l in objj)
                 {
-                    IContainerObjectLabel cl = lab as IContainerObjectLabel;
-                    cl.Expand();
+                    tools.AddObjectNode(l);
                 }
-                StaticExtensionDiagramUIForms.PostLabelLoad(lab);
-            }
-            List<IArrowLabel> arrs = new List<IArrowLabel>();
-            foreach (IArrowLabel l in arrows)
-            {
-                IArrowLabelUI lab = null;
-                IArrowLabelHolder lh = l.GetSimpleObject<IArrowLabelHolder>();
-                if (lh != null)
+                foreach (IArrowLabel l in arrs)
                 {
-                    lab = lh.Label.GetSimpleObject<IArrowLabelUI>();
+                    AddArrowLabel(l);
                 }
-                IObjectLabel source = PureDesktop.Find(obb, objs, l.Source, l.Desktop);
-                IObjectLabel target = PureDesktop.Find(obb, objs, l.Target, l.Desktop);
-                if (lab == null)
+                foreach (object o in Objects)
                 {
-                    lab = tools.Factory.CreateArrowLabel(tools.FindButton(l), l.Arrow, source, target);
-                }
-                lab.ComponentName = l.Name;
-                lab.Arrow = l.Arrow;
-                lab.Source = source;
-                lab.Target = target;
-                arrs.Add(lab);
-            }
-            if (!associated)
-            {
-                return;
-            }
-            this.SetParents();
-            IEnumerable<IObjectLabel> objj = Objects;
-            PureObjectLabel.SetLabels(objj);
-            PureArrowLabel.SetLabels(arrs);
-            foreach (IObjectLabel l in objj)
-            {
-                tools.AddObjectNode(l);
-            }
-            foreach (IArrowLabel l in arrs)
-            {
-                AddArrowLabel(l);
-            }
-            foreach (object o in Objects)
-            {
-                if (o is Control post)
-                {
-                    post.PostSet();
-                }
+                    if (o is Control post)
+                    {
+                        post.PostSet();
+                    }
 
-            }
-            foreach (object o in Arrows)
-            {
-                if (o is Control control)
-                {
-                    control.PostSet();
                 }
+                foreach (object o in Arrows)
+                {
+                    if (o is Control control)
+                    {
+                        control.PostSet();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               throw  IncludedException.Get(ex, null, "Copy Panel desktop");
             }
         }
 

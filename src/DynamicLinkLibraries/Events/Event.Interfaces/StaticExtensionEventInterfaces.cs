@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 using CategoryTheory;
+
 using ErrorHandler;
 
 
@@ -11,8 +13,15 @@ namespace Event.Interfaces
     /// Static extension methods
     /// </summary>
     public static class StaticExtensionEventInterfaces
+
     {
         #region Fields
+
+        /// <summary>
+        /// Keyboard string
+        /// </summary>
+        public const string Keyboard = "Keyboard_";
+
 
         /// <summary>
         /// Realtime
