@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Diagram.UI;
+using Diagram.UI.PropertyEditors;
+using Event.Basic.Data.Events;
+using Event.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-
-using Diagram.UI;
-
-using Event.Basic.Data.Events;
-using Event.Interfaces;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Event.UI.UserControls
 {
@@ -61,22 +61,7 @@ namespace Event.UI.UserControls
             }
         }
 
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        internal object[] Initial
-        {
-            get;
-            set;
-        } = new object[0];
-
-
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        internal object[] Data
-        {
-            get;
-            set;
-        } = new object[0];
-
+ 
 
         #endregion
 
@@ -86,25 +71,22 @@ namespace Event.UI.UserControls
         private void ForcedChange()
         {
             var kb = StaticExtensionEventInterfaces.Keyboard;
+            var types = forced.Types;
+            var l = new List<int>();
             var i = 0;
-            var ini = new List<object>();
-            var d = new List<object>();
-            var l = new List<Tuple<string, object>>();
-            foreach (var t in forced.Types)
+            
+            foreach (var t in types)
             {
                 var k = t.Item1;
                 if (!k.StartsWith(kb))
                 {
-                    l.Add(t);
-                    ini.Add(forced.Initial[i]);
-                    d.Add(forced.Data[i]);
-                }
+                    l.Add(i);
+               }
                 ++i;
             }
-            Initial = ini.ToArray();
-            Data = d.ToArray();
-            propertyGridInitial.SetArrayEditor(l, Initial);
-            propertyGridValues.SetArrayEditor(l, Data);
+            var d = l.ToArray();
+            propertyGridInitial.SetArrayEditor(types,  forced.Initial, d);
+            propertyGridValues.SetArrayEditor(types, forced.Data, d);
         }
 
         #endregion

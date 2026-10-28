@@ -32,16 +32,15 @@ namespace Event.Basic.Data.Events
         protected ForcedEventData(SerializationInfo info, StreamingContext context)
         {
             Types = info.Deserialize<List<Tuple<string, object>>>("Types");
-            initial = info.Deserialize<object[]>("Initial");
-            data = new object[initial.Length];
-            for (int i = 0; i < initial.Length; i++)
+            Initial = info.Deserialize<object[]>("Initial");
+            for (int i = 0; i < Initial.Length; i++)
             {
-                if (initial[i] == null)
+                if (Initial[i] == null)
                 {
-                    initial[i] = types[i].Item2.GetDefaultValue();
+                    Initial[i] = types[i].Item2.GetDefaultValue();
                 }
             }
-            Array.Copy(initial, data, data.Length);
+            Array.Copy(Initial, Data, Data.Length);
         }
 
         #endregion
@@ -51,7 +50,7 @@ namespace Event.Basic.Data.Events
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.Serialize<List<Tuple<string, object>>>("Types", types);
-            info.Serialize<object[]>("Initial", initial);
+            info.Serialize<object[]>("Initial", Initial);
         }
 
         #endregion

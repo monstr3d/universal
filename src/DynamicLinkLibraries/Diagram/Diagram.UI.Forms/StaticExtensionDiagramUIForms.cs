@@ -978,9 +978,9 @@ namespace Diagram.UI
         /// <param name="grid">Grid</param>
         /// <param name="types">Types</param>
         /// <param name="array">Array</param>
-        static public void SetArrayEditor(this PropertyGrid grid, List<Tuple<string, object>> types, object[] array)
+        static public void SetArrayEditor(this PropertyGrid grid, List<Tuple<string, object>> types, object[] array, int[] d)
         {
-            grid.SelectedObject = new PropertyEditors.ListArrayEditor(types, array);
+            grid.SelectedObject = new PropertyEditors.ListArrayEditor(types, array, d);
         }
 
         /// <summary>

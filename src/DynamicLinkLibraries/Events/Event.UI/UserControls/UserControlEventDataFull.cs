@@ -45,7 +45,7 @@ namespace Event.UI.UserControls
             var ini = new List<object>();
             var d = new List<object>();
             var i = 0;
-            foreach (var item in udata.Types)
+     /*       foreach (var item in udata.Types)
             {
                 l.Add(item);
                 ini.Add(udata.Initial[i]);
@@ -70,6 +70,7 @@ namespace Event.UI.UserControls
             forced.Types = l;
             forced.Initial = ini.ToArray();
             forced.Data = d.ToArray();
+     */
         }
     }
 }

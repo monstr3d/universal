@@ -61,8 +61,8 @@ namespace DataPerformer.UI.UserControls
 
         private void InputChangeAct()
         {
-            propertyGridInitial.SetArrayEditor(input.Types, input.Initial);
-            propertyGridValues.SetArrayEditor(input.Types, input.Data);
+          //  propertyGridInitial.SetArrayEditor(input.Types, input.Initial);
+           // propertyGridValues.SetArrayEditor(input.Types, input.Data);
         }
 
         #endregion

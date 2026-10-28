@@ -21,11 +21,11 @@ namespace Diagram.UI.PropertyEditors
 
         #region Ctor
 
-        internal ListArrayEditor(List<Tuple<string, object>> types, object[] array)
+        internal ListArrayEditor(List<Tuple<string, object>> types, object[] array, int[] d)
         {
-            for (int i = 0;  i < array.Length; i++)
+            foreach (var i in d)
             {
-                ListArrayItem it = new ListArrayItem(types[i].Item1, array, i);
+                var it = new ListArrayItem(types[i].Item1, array, i);
                 Add(it);
             }
         }

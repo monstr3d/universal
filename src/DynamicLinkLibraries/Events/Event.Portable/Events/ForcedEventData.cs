@@ -26,16 +26,31 @@ namespace Event.Portable.Events
 
         IMeasurement[] measurements = new IMeasurement[0];
 
+        private object[] data = new object[0];
+
+
         /// <summary>
         /// Data
         /// </summary>
-        protected object[] data = new object[0];
+        public object[] Data
+        {
+            get => data;
+            set
+            {
+                data = value;
+                ev();
+            }
+        }   
 
         /// <summary>
         /// Initial values
         /// </summary>
-        protected object[] initial = new object[0];
-
+        public object[] Initial
+        {
+            get;
+            set;
+        }
+            = new object[0];
         event Action ev = () => { };
 
         Action force = () => { };
@@ -118,7 +133,7 @@ namespace Event.Portable.Events
                 isEnabled = value;
                 if (isEnabled)
                 {
-                    Array.Copy(initial, data, initial.Length);
+                    Array.Copy(Initial, Data, Initial.Length);
                 }
             }
         }
@@ -137,12 +152,12 @@ namespace Event.Portable.Events
             get
             {
                 int i = ltypes.IndexOf(name);
-                return data[i];
+                return Data[i];
             }
             set
             {
                 int i = ltypes.IndexOf(name);
-                data[i] = value;
+                Data[i] = value;
                 force();
                 onChangeAlias(this, name);
             }
@@ -189,37 +204,7 @@ namespace Event.Portable.Events
             }
         }
 
-        /// <summary>
-        /// Data
-        /// </summary>
-        public object[] Data
-        {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                data = value;
-                ev();
-            }
-        }
-
-        /// <summary>
-        /// Initial data
-        /// </summary>
-        public object[] Initial
-        {
-            get
-            {
-                return initial;
-            }
-            set
-            {
-                initial = value;
-            }
-        }
-
+ 
         IEnumerable<IMeasurement> IChildren<IMeasurement>.Children => measurements;
 
         /// <summary>
@@ -269,7 +254,7 @@ namespace Event.Portable.Events
         {
             List<IMeasurement> l = new List<IMeasurement>();
             int i = 0;
-            data = new object[types.Count];
+            Data = new object[types.Count];
             ltypes.Clear();
             List<string> ls = new List<string>();
             foreach (Tuple<string, object> t in types)
@@ -282,37 +267,37 @@ namespace Event.Portable.Events
                 int[] k = new int[] { i };
                 Func<object> f = () => 
                 { 
-                    return data[k[0]]; 
+                    return Data[k[0]]; 
                 };
                 ltypes.Add(t.Item1);
                 IMeasurement m = new ReplacedParameterMeasurement(t.Item2, f, t.Item1, this);
-                data[i] = t.Item2.GetDefaultValue();
+                Data[i] = t.Item2.GetDefaultValue();
                 l.Add(m);
                 ++i;
             }
             measurements = l.ToArray();
-            object[] ini = initial;
-            initial = new object[data.Length];
-            for (i = 0; i < initial.Length; i++)
+            object[] ini = Initial;
+            Initial = new object[Data.Length];
+            for (i = 0; i < Initial.Length; i++)
             {
-                object n = data[i];
+                object n = Data[i];
                 if (i < ini.Length)
                 {
                     object p = ini[i];
                     if (p.GetType().Equals(n.GetType()))
                     {
-                        initial[i] = p;
+                        Initial[i] = p;
                         continue;
                     }
                 }
-                initial[i] = n;
+                Initial[i] = n;
             }
             changeTypes();
         }
 
         void IChildren<IMeasurement>.AddChild(IMeasurement child)
         {
-            throw new ErrorHandler.OwnException();
+            throw new OwnException();
 
         }
 
