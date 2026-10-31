@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BaseTypes
 {
@@ -105,6 +106,20 @@ namespace BaseTypes
                 { typeof(bool), Boolean},
                { typeof(DateTime), DateTimeType}
             };
+
+        private static Dictionary<Type, object[]> dtypesA = new  ()
+            {
+                {typeof(double), [(double)(-1) ,(double)0, (double) 1 ]},
+                {typeof(float), [(float)(-1) ,(float)0, (float) 1 ]},
+                { typeof(short), [(short)(-1) ,(short)0, (short) 1 ]},
+                { typeof(ushort), [(ushort)0, (ushort) 1 ]},
+                { typeof(int), [(double)(-1) ,(double)0, (double) 1 ]},
+                { typeof(uint), [(int)(-1) ,(int)0, (int) 1 ]},
+                { typeof(long), [(long)(-1) ,(long)0, (long) 1 ]},
+                { typeof(ulong), [(ulong)0, (long) 1 ]},
+                { typeof(bool), [false, true ]},
+            };
+
 
         private static Dictionary<object, string> shortNames = new Dictionary<object, string>()
             {
@@ -227,6 +242,21 @@ namespace BaseTypes
             }
             return null;
         }
+
+        /// <summary>
+        /// Gets object code of type
+        /// </summary>
+        /// <param name="type">The type</param>
+        /// <returns>The objcet code type</returns>
+        internal static object[] GetTypeA(Type type)
+        {
+            if (dtypesA.ContainsKey(type))
+            {
+                return dtypesA[type];
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// Static initializer

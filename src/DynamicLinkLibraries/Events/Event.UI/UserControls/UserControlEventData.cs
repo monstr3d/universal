@@ -74,7 +74,6 @@ namespace Event.UI.UserControls
             var types = forced.Types;
             var l = new List<int>();
             var i = 0;
-            
             foreach (var t in types)
             {
                 var k = t.Item1;

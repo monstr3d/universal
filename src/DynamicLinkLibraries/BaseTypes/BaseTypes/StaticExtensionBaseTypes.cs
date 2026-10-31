@@ -6,7 +6,7 @@ using System.Reflection;
 using BaseTypes.Interfaces;
 using BaseTypes.Attributes;
 
-using ErrorHandler;
+
 
 namespace BaseTypes
 {
@@ -365,6 +365,17 @@ namespace BaseTypes
         }
 
         /// <summary>
+        /// Converts to string
+        /// </summary>
+        /// <param name="a">Double value</param>
+        /// <returns>String</returns>
+        public static string DoubleToString(this double a)
+        {
+            return a.ToString("G17", CultureInfo.InvariantCulture);
+        }
+
+
+        /// <summary>
         /// Gets string type
         /// </summary>
         /// <param name="str">String</param>
@@ -423,6 +434,18 @@ namespace BaseTypes
         {
             return FixedTypes.GetType(type);
         }
+
+        /// <summary>
+        /// Gets object representation of type
+        /// </summary>
+        /// <param name="type">The type</param>
+        /// <returns>Object representation</returns>
+        public static object[] GetObjectFromTypeA(this Type type)
+        {
+            return FixedTypes.GetTypeA(type);
+        }
+
+
 
         /// <summary>
         /// Converts day to date time

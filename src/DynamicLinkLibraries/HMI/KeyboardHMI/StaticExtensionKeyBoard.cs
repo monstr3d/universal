@@ -19,6 +19,19 @@ namespace KeyboardHMI
         static Dictionary<uint, Key> uiKey = new Dictionary<uint, Key>();
         static Dictionary<Key, uint> keyUI = new();
 
+        static public Key ToKeyType(this string  key)
+        {
+            return stringKey[key];
+        }
+
+
+
+
+        static public string KeyToSrting(this Key key)
+        {
+            return keyString[key];
+        }
+
 
 
 
@@ -27,8 +40,8 @@ namespace KeyboardHMI
 
             foreach (var key in Enum.GetValues<Key>())
             {
-                var ui = (uint)key;
-                uiKey[ui] = key;
+               var ui = (uint)key;
+               uiKey[ui] = key;
                keyUI[key] = ui;
             }
             foreach (var att in attributes)
@@ -36,12 +49,11 @@ namespace KeyboardHMI
                 var ui = (uint)att.bit;
                 intAttr[ui] = att;
                 attrInt[att] = ui;
-
-                foreach (var key in Enum.GetValues<Key>())
-                {
-
-                }
+                Key key = (Key)ui;
+                keyString[key] = att.name;
+                stringKey[att.name] = key;
             }
+
 
         }
 

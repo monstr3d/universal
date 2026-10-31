@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
 
+using AssemblyService.Attributes;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -13,7 +14,8 @@ using Event.Interfaces;
 using Event.UI.Forms;
 
 using WindowsExtensions;
-using AssemblyService.Attributes;
+
+using KeyboardHMI;
 
 namespace Event.UI
 {
@@ -23,6 +25,8 @@ namespace Event.UI
     [InitAssembly]
     public static class StaticExtensionEventUI
     {
+
+        static Dictionary<Key, Keys> dkeys = new Dictionary<Key, Keys>();
 
         /// <summary>
         /// Initialize itself
@@ -38,6 +42,44 @@ namespace Event.UI
         static StaticExtensionEventUI()
         {
             new Binder();
+
+            var k = Enum.GetValues<Key>();
+            var d = new Dictionary<string, Key>();
+            foreach (var x in k)
+            {
+                var y = x + "";
+                d[y] = x;
+                if (y.EndsWith("Arrow"))
+                {
+                    var z = y.Substring(0, y.Length - "Arrow".Length);
+                    d[z] = x;
+                }
+            }
+            var kk = Enum.GetValues<Keys>();
+            var dk = new Dictionary<string, Keys>();
+            foreach (var x in kk)
+            {
+                dk[x + ""] = x;
+            }
+            foreach (var x in d)
+            {
+                var val = x.Value + "";
+                if (dk.ContainsKey(val))
+                {
+                    dkeys[x.Value] = dk[val];
+                }
+                else if (val.EndsWith("Arrow"))
+                {
+                    var z = val.Substring(0, val.Length - "Arrow".Length);
+                    dkeys[x.Value] = dk[z];
+                }
+            }
+        }
+
+        static public Keys ToKeyType(this string key)
+        {
+            var k = StaticExtensionKeyBoard.ToKeyType(key);
+            return dkeys[k];
         }
 
         /// <summary>

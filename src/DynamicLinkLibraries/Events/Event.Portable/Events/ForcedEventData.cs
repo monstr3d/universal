@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using BaseTypes;
 using CategoryTheory;
 using DataPerformer.Interfaces;
@@ -27,6 +26,8 @@ namespace Event.Portable.Events
         IMeasurement[] measurements = new IMeasurement[0];
 
         private object[] data = new object[0];
+
+        protected Dictionary<string, object> ini = new Dictionary<string, object>();
 
 
         /// <summary>
@@ -58,6 +59,9 @@ namespace Event.Portable.Events
         bool isEnabled = false;
 
         event Action changeTypes = () => { };
+
+        event Action<bool> onEnable;
+
 
         event Action<IAlias, string> onChangeAlias = (IAlias a, string s) => { };
 
@@ -131,6 +135,7 @@ namespace Event.Portable.Events
                     return;
                 }
                 isEnabled = value;
+                onEnable?.Invoke(value);
                 if (isEnabled)
                 {
                     Array.Copy(Initial, Data, Initial.Length);
@@ -199,6 +204,15 @@ namespace Event.Portable.Events
             }
             set
             {
+                ini.Clear();
+                for (int i = 0; i < types.Count; i++) 
+                {
+                    if (i >= Initial.Length)
+                    {
+                        break;
+                    }
+                    ini[types[i].Item1] = Initial[i];
+                }
                 types = value;
                 Set();
             }
@@ -223,6 +237,17 @@ namespace Event.Portable.Events
             add { changeTypes += value; }
             remove { changeTypes -= value; }
         }
+
+        /// <summary>
+        /// The "enable" event
+        /// </summary>
+        public event Action<bool> OnEnable
+        {
+            add { onEnable += value; }
+            remove { onEnable -= value; }
+        }
+
+
 
         event Action<IMeasurement> IChildren<IMeasurement>.OnAdd
         {
@@ -253,45 +278,31 @@ namespace Event.Portable.Events
         private void Set()
         {
             List<IMeasurement> l = new List<IMeasurement>();
-            int i = 0;
             Data = new object[types.Count];
-            ltypes.Clear();
+            Initial = new object[types.Count];
             List<string> ls = new List<string>();
-            foreach (Tuple<string, object> t in types)
+            for (int i = 0; i < types.Count; i++)
             {
-                if (ls.Contains(t.Item1))
+                var t = types[i];
+                var name = t.Item1;
+                var type = t.Item2;
+                if (ls.Contains(name))
                 {
-                    throw new OwnException(t.Item1 + " already exists");
+                    throw new OwnException(name + " already exists");
                 }
-                ls.Add(t.Item1);
+                ls.Add(name);
                 int[] k = new int[] { i };
-                Func<object> f = () => 
-                { 
-                    return Data[k[0]]; 
+                Func<object> f = () =>
+                {
+                    return Data[k[0]];
                 };
-                ltypes.Add(t.Item1);
-                IMeasurement m = new ReplacedParameterMeasurement(t.Item2, f, t.Item1, this);
-                Data[i] = t.Item2.GetDefaultValue();
+                IMeasurement m = new ReplacedParameterMeasurement(type, f, name, this);
                 l.Add(m);
-                ++i;
+                var o = (ini.ContainsKey(name)) ? ini[name] : type.GetDefaultValue();
+                Data[i] = o;
+                Initial[i] = o;
             }
             measurements = l.ToArray();
-            object[] ini = Initial;
-            Initial = new object[Data.Length];
-            for (i = 0; i < Initial.Length; i++)
-            {
-                object n = Data[i];
-                if (i < ini.Length)
-                {
-                    object p = ini[i];
-                    if (p.GetType().Equals(n.GetType()))
-                    {
-                        Initial[i] = p;
-                        continue;
-                    }
-                }
-                Initial[i] = n;
-            }
             changeTypes();
         }
 
