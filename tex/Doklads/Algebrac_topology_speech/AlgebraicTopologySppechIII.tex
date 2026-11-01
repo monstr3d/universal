@@ -206,7 +206,6 @@ In particular there are followings results.
 	\end{enumerate}
 \end{definition}
 \end{frame}
-\section{Gelfand space}
 \begin{frame}
 		Any homomorphism $\phi : L' \to L''$ of {semi}-{lattices} yields a map
 		of filers
@@ -232,68 +231,157 @@ In particular there are followings results.
 
 		
 	\end{frame}
-\section{Gelfand representation}
-The \alert{Gelfand representation} is known since 1960 S
-
-\section{Gelfand space}
-	\begin{frame}
-\begin{definition}\label{lattice_a_defn}
-	If $A$ be a $C^*$-algebra then $A$-\alert{semi}-\alert{lattice} is a meet-semilattice of closed left ideals such that 
-	\be\label{meet_eqn}
-	\begin{split}
-		L' \wedge L''\bydef L' \cap L'',\\
-		L' \le L'' \quad \Leftrightarrow\quad L' \subset L'',\\
-		0 \bydef \{0\}\subset A
-	\end{split}
-	\ee
-	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$ and denote by $\mathfrak{Filters}\left( A\right)$  a set of filers.
-\end{definition}
-\begin{definition}\label{ultrafilters_space_defn}
-	If $\mathfrak{Ultrafilters}\left(A \right)$ is a set of ultrafilters of the meet-semilattice $\mathfrak{Lattice}\left( A\right)$ then for any closed left ideal $L \subset A$ denote by
-	$$
-	\mathfrak{Ultrafilters}\left(A \right)_L	\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right) \right| \exists L' \in x\quad L'\cap L = \{0\} \right\}
-	$$
-	The \alert{space of} $A$-\alert{ultrafilters} is a set $\mathfrak{Ultrafilters}\left(A \right)$ with a  the smallest topology o such that all sets $\mathfrak{Ultrafilters}\left(A \right)_L$ are open.
-	
-\end{definition}
-\end{frame}
+	\section{Spaces of ultrafilters}
 \begin{frame}
+\begin{definition}\label{lattice_s_defn}
+	If $\mathscr L$ is  the meet-semilattice  then denote by   $\mathfrak{Filters}\left( \mathscr L\right)$  (resp.  $\mathfrak{Ultrafilters}\left( \mathscr L\right)$) the  set of filters  (resp. ultrafilters). \end{definition}
+\begin{lemma}\label{topology_l_lem} 
+	The set of given by 
+	\bean\label{topology_l_eqn}
+\mathfrak{Ultrafilters}\left( \mathscr L\right)_L \bydef \left\{ \left.\xi \in \mathfrak{Ultrafilters}\left( \mathscr L\right)\right| L \in \xi\right\}\quad L \in \mathscr L  
+	\eean
+subsets of $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ 	is a basis of topology.
+\end{lemma}
+\begin{definition}\label{topology_l_defn} 
+	If 	$\mathscr L$ is  a meet-semilattice then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$  supplied with the given by the Lemma  topology is the \alert{space of ultrafilters} of $\mathscr L$.
+\end{definition}
 
-\begin{rem}
-If $A = C_0\left( \sX\right)$ then $\mathfrak{Lattice}\left( A\right)\cong \mathfrak{Lattice}\left(\sX\right)$, $\mathfrak{Filters}\left( A\right)\cong \mathfrak{Filters}\left(\sX\right)$ and $\mathfrak{Ultrafilters}\left( A\right)\cong \mathfrak{Ultrafilters}\left(\sX\right)$.
-\end{rem}
-\begin{thm}
+\end{frame}	
+\begin{frame}
+		\begin{prop}\label{top_ultra_prop}
 	One has:
 	\begin{enumerate}
-		\item [(a)] 	A topological space $\sX$ is Hausdorff if and only if every ultrafilter on $\sX$ has at most one limit.
+		\item [(a)] 	A topological space $\sX$ is Hausdorff  if and only if every ultrafilter on $\sX$ has at most one limit.
 		\item[(b)]   	A topological space $\sX$ is compact if and only if every ultrafilter has at least one limit.
 	\end{enumerate} 
-\end{thm}	
+\end{prop}
 \begin{rem}
-	If $\sX$ is locally compact then there are "infinite ultrafilters" which do not correspond to points of $\sX$.
+From the above proposition it follows that the space of ultrafilters is always compact.
 \end{rem}
 \end{frame}
 \begin{frame}
-Here we would like exclude "infinite ultrafilters".
-	\begin{thm}\label{pedersen_ideal_thm}  
-	% THEOREM 5.6.1
-	For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
-	which is minimal among dense ideals.
-	\end{thm}
-\begin{definition}\label{pedersen_ideal_defn}
-	The ideal $K\left( A\right) $  is said to be the \alert{ Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
+\begin{definition}\alert{Petr Ivankov}\\
+	Let $\sX$ be a topological space. The $\sX$-\alert{Hausdorff category}  $\mathfrak{H}\left( \sX\right)$ is such that 
+	\begin{itemize}
+		\item objects of $\mathfrak{H}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact  space $\sY$, 
+		\item a morphism form $f':\sX \onto \sY'$ to $f'':\sX \onto \sY''$ is a continuous  map  $f: \sY' \onto \sY''$ such that there is the commutative diagram
+		\begin{figure}
+			\includegraphics[width=0.5\textwidth]{hauscat.png}
+			%		\caption{A boat.}
+			%		\label{fig:boat1}
+		\end{figure}
+		
+	\end{itemize}
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\begin{lemma}\alert{Petr Ivankov}\\
+	One has:
+	\begin{enumerate}
+		\item [(i)] for any locally compact topological space $\sX$ there is the natural,   initial object of the  $\sX$-{Hausdorff category} denoted by by $\mathfrak{Hausdorff}\left( \sX\right)$; 
+		\item [(ii)] if both $\sX$ and $\sY$ are locally compact spaces then every continuous map $\sX \to \sY$ yields the commutative diagram 	\begin{figure}
+			\includegraphics[width=0.5\textwidth]{hausdorff.png}
+			%		\caption{A boat.}
+			%		\label{fig:boat1}
+		\end{figure}
+		
+		
+	\end{enumerate}
+\end{lemma}
+\end{frame}
+\begin{frame}
+\begin{definition}\alert{Petr Ivankov}\\
+	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \alert{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
+\end{definition}
+\begin{definition}\label{hausdorff_funct_defn}\alert{Petr Ivankov}\\
+	The above lemma yields the \alert{Hausdorff functor}
+	\be\label{hausdorff_funct_eqn}
+	\mathfrak{LocComp} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
+	from the category $\mathfrak{LocComp}$ of locally compact topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
 	\end{definition}
-	One has $K\left( C_0\left( \sX\right) \right) = C_c\left(\sX \right)$ 
-	\begin{definition}\label{gelfand_space_defn}(\alert{ Ivankov})
-		An ultrafilter  $x \in \mathfrak{Ultrafilters}\left(A \right)$ is a \alert{finite point} if there is a nontrivial element $a\in K\left( A\right)\setminus\{0\}$ such that 
-		$$
-		Aa \in x.
-		$$
-		The \alert{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is a topological subspace  of the {space of} $A$-{ultrafilters} (cf. Definition \ref{ultrafilters_space_defn})
-		$$
-		\mathfrak{Gelfand}\left(A \right)\bydef \left\{\left. x \in \mathfrak{Ultrafilters}\left(A \right)\right| \exists L \in x \quad L \text{ is a finite point}\right\}.
-		$$
-	\end{definition}
+\end{frame}
+\section{Gelfand representation}
+\begin{frame}
+The \alert{Gelfand representation} is known since 1960s. It yields a generalization of the commutative Gelfand-Na\u{\i}mark theorem.
+\begin{definition}\label{open_close_ideal_defn}
+	%DEFINITION 11.1. 
+	A projection $p \in A^{**}$  is \alert{ open} if there exists a
+	net $\left\{a_\la \right\}_{\la \in \La}\subset A$ such that $0\ge a_\la \uparrow p$
+	$$
+	\lim_{\la\in \La} a_\la = p
+	$$
+	in the weak* topology of $A^{**}$. If $p$ is open, we say $p' \bydef 1=p$ is \alert{closed}.
+\end{definition}
+\begin{definition}\label{compact_p_defn}
+	%DEFINITION ?.l.
+	A projection $p\in A^{**}$ is \alert{ compact} if $p$ is {closed}
+	and there exists $b \in A_+$ with $bp = p$.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\begin{definition}\label{coninuous_p_defn}
+	%DEFINITION III.2. 
+	A self-adjoint operator be $b\in A^{**}$ is \alert{continuous}
+	if each spectral projection of $b$ corresponding to an open subset of
+	the spectrum of  $b$ is also open.
+\end{definition}
+The following theorem a generalization of the commutative Gelfand-Na\u{\i}mark theorem.
+\begin{theorem}\label{coninuous_p_thm}
+	%THEOREM III.3. 
+	The self-adjoint elements of $A$ are exactly those
+	continuous elements $b$ of $A^{**}$ such that the spectral projections of $b$
+	corresponding to closed subsets of the spectrum of $b$ which don't contain
+	$0$ are compact (i.e., b "vanishes at $\infty$").
+\end{theorem}
+
+\end{frame}
+
+\section{Gelfand space}
+\begin{frame}
+The commutative  Gelfand-Na\u{\i}mark \ref{gelfand-naimark_thm} theorem yields the equivalence between  following categories:
+\begin{itemize}
+	\item  unital commutative $C^*$-algebras and $*$-homomorphisms,
+	\item compact Hausdorff  spaces and continuous maps.
+\end{itemize} 
+Here we would like construct a category such that objects of it are all $C^*$-algebras and a functor to the category of locally compact Hausdorff topological  spaces  and continuous maps.
+\begin{definition}\alert{Petr Ivankov}\\
+	If $A$ is a $C^*$-algebra then $A$-\alert{semi-lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice  of open projections of  $A$. We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
+	A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\alert{filter} (resp. an $A$-\alert{ultrafilter}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. Denote by $\mathfrak{Ultrafilters}\left( A\right)$ the topological space of ultrafilters of the $\mathfrak{Lattice}\left( A\right)$. 
+\end{definition}
+
+\end{frame}
+	\begin{frame}
+		For any $C^*$-algebra $A$ there is the natural inclusion $M\left(A \right)  \hookto A^{**}$ of the multiplier into enveloping $W^*$-algebra. For any $C^*$-algebra $B$ a $*$-homomorphism $\varphi :M\left(A \right) \to M\left(B \right)$ induces a homomorphism
+		\be\label{w*_eqn} 
+		\varphi^{**} : A^{**} \to B^{**}.
+		\ee 
+		\begin{lemma}\alert{Petr Ivankov}\\
+			If both $A$ and $B$ are $C^*$-algebras  and  $\varphi : M\left(  A\right)  \to M\left( B\right) $ is a $*$-homomorphism then for any open projection $p \in A^{**}$  the projection $\varphi^{**}\left( p\right) \in  B^{**}$ is open.
+		\end{lemma}
+		\begin{rem}
+			From the Lemma it turns out that there is the natural continuous map $\mathfrak{Ultrafilters}\left(B\right)\to \mathfrak{Ultrafilters}\left(A \right)$.
+		\end{rem}
+		
+\end{frame}
+\begin{frame}
+\begin{definition}\label{good_hom_defn}\alert{Petr Ivankov}\\
+	If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is \alert{good} if for any compact projection $q \in B^{**}$ there is a compact projection $p \in A^{**}$ such that
+	\be 
+	q \le \varphi^{**}\left(p \right). 
+	\ee
+\end{definition}
+
+\begin{lemma}\alert{Petr Ivankov}\\
+	A homomorphism $\varphi: C_b\left( \sX\right) \to C_b\left( \sY\right)$ is good  if and only if  it induces the continuous map  $f: \bt\sY \to \bt\sX$ such that $f\left(\sY \right) \subset \sX$, i.e. there is the natural continuous map $\sY \to \sX$.
+\end{lemma}
+
+\end{frame}
+\begin{frame}
+!!!	\begin{definition}\label{gelfand_space_defn}\alert{Petr Ivankov}\\
+	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi = \left\{p_\la\right\}\in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\alert{finite point} if there is a nontrivial compact projection $p$  such that $p_\la \wedge  p\neq \{0\}$ for all $\la\in \La$.
+	The \alert{pre-Gelfand space} $\mathfrak{PreGelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology  given by the natural inclusion $\mathfrak{PreGelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the   Gelfand topology. The \alert{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreGelfand}\left(A \right)$ , i.e. $\mathfrak{Gelfand}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right) \right)$ \end{definition}
 	
 \end{frame}
 \begin{frame}
