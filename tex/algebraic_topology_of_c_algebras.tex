@@ -730,7 +730,7 @@
 	\eean
 \end{proof}
 \begin{definition}\label{topology_l_defn} 
-If 	$\mathscr L$ is  the meet-semilattice (cf. Definition \ref{lattice_defn}) then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ (cf. Definition \ref{lattice_s_defn}) supplied with the given by the Lemma \ref{topology_l_lem} topology is the {\it space of ultrafilters} of $\mathscr L$.
+If 	$\mathscr L$ is  a meet-semilattice (cf. Definition \ref{lattice_defn}) then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ (cf. Definition \ref{lattice_s_defn}) supplied with the given by the Lemma \ref{topology_l_lem} topology is the {\it space of ultrafilters} of $\mathscr L$.
 \end{definition}
 \begin{remark}\label{ultra_com_rem}
 	From the Proposition \ref{top_ultra_prop} it turns out that the {space of ultrafilters} of $\mathscr L$ is compact.
@@ -815,7 +815,7 @@ So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\
 	\item  unital commutative $C^*$-algebras and $*$-homomorphisms,
 	\item compact Hausdorff  spaces and continuous maps.
 \end{itemize} 
-Here we would like construct a category such that objects of it are all $C^*$-algebras and a functor to the category of topological  spaces  and continuous maps.
+Here we would like construct a category such that objects of it are all $C^*$-algebras and a functor to the category of locally compact Hausdorff topological  spaces  and continuous maps.
 \subsection{Preliminaries}
 \paragraph{}
 	Let $A$ be a $C^*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
@@ -861,7 +861,7 @@ It is known that there are ultrafilters on locally compact space which are not c
 \end{remark}
 \begin{definition}\label{lattice_a_defn}
 If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of open projections of  $A$ (cf. Definition \ref{open_close_ideal_defn}). We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
-A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. Denote by $\mathfrak{Filters}\left( A\right)$ the topological space of ultrafilters (cf. Definition \ref{topology_l_defn}) of the $\mathfrak{Lattice}\left( A\right)$.
+A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. Denote by $\mathfrak{Ultrafilters}\left( A\right)$ the topological space of ultrafilters (cf. Definition \ref{topology_l_defn}) of the $\mathfrak{Lattice}\left( A\right)$.
 \end{definition}
 
 
@@ -907,6 +907,9 @@ L = \left\{b \in B\left| b =b q \right.\right\}.
 \ee
 Comparison of \eqref{lb_eqn} and \eqref{lbq_eqn} yields $\varphi^{**} \left(p \right) = q$.
 \end{proof}
+\begin{remark}
+From the Lemma \ref{proj_lem} and (c) of the Theorem \ref{top_continuous_thm} it turns out that there is the natural continuous map $\mathfrak{Ultrafilters}\left(B\right)\to \mathfrak{Ultrafilters}\left(A \right)$.
+\end{remark}
 \begin{definition}\label{good_hom_defn}
 	If both $A$ and $B$ are $C^*$-algebras  then a $*$-homomorphism $\varphi : M\left(  A\right)  \to M\left( B\right) $ is {\it good} if for any compact projection $q \in B^{**}$ (cf. Definition \ref{compact_p_defn}) there is a compact projection $p \in A^{**}$ such that
 	\be \label{good_hom_eqn}
@@ -948,22 +951,13 @@ $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \righ
 	The set of given by \eqref{topology_eqn} sets is a basis of topology on $\mathfrak{Ultrafilters}\left(A \right)$  (cf. Definition \ref{top_base_defn}).
 \end{lem}
 \begin{proof}
-One needs check conditions (a) and (b) of the Definition \ref{top_base_defn},\\
-(a) If $\xi \in \left\{ p_\la \right\}_{\la \in \La} \mathfrak{Ultrafilters}\left(A \right)$ then 
-$$
-\forall \la \in \La\quad  \xi \in 	\mathfrak{Ultrafilters}\left(A \right)_{p_\la}.
-$$
-(b) 
-\bean
-\forall \la', \la'' \in \La\quad \exists \la \in \La\quad p_\la = p_{\la'}\wedge p_{\la''},\\
-\mathfrak{Ultrafilters}\left(A \right)_{p_{\la'}}\cap\mathfrak{Ultrafilters}\left(A \right)_{p_{\la''}}=\mathfrak{Ultrafilters}\left(A \right)_{p_{\la}}.
-\eean
+	Follows from the Lemma \ref{topology_l_lem}.
 \end{proof}
 \begin{definition}\label{topology_defn} 
 The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology}, so the set  $\mathfrak{Ultrafilters}\left(A \right)$ becomes a topological space.
 \end{definition}
 	\begin{lemma}\label{gelfand_u_compact_lem}
-	If $A$ is an unital $C^*$-algebra then the space  $\mathfrak{Ultrafilters}\left(A \right)$ is compact. 
+	If $A$ is an unital $C^*$-algebra then both spaces  $\mathfrak{PreGelfand}\left(A \right)\cong \mathfrak{Ultrafilters}\left(A \right)$ and $\mathfrak{Gelfand}\left(A \right)$ are compact. 
 \end{lemma}
 \begin{proof}
 Follows the Proposition \ref{top_ultra_prop},
@@ -1281,12 +1275,12 @@ If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\le
 	\end{proof}
 	
 	\begin{definition}\label{gelfand_functor_defn}
-		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors} from 
+		The Theorem \ref{good_thm} yields  a contravariant {\it Gelfand functors}  
 		\bea\label{gelfand_functor_eqn}
 		C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{PreGelfand}}\mathfrak{LocComp},\\\label{gelfand_h_functor_eqn}
 			C^*\text{-}\mathfrak{Gelfand}\xrightarrow{\mathfrak{Gelfand} \bydef \mathfrak{Hausdorff}~\circ~\mathfrak{PreGelfand}}\mathfrak{Hausdorff}
 		\eea
-	the Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the categories   $\mathfrak{LocComp}$ (resp. $\mathfrak{Hausdorff}$ of locally compact (resp. Hausdorff locally compact) spaces and continuous maps.  
+from	the Gelfand category (cf. Definition \ref{gelfand_category_defn}) to the categories   $\mathfrak{LocComp}$ (resp. $\mathfrak{Hausdorff}$ of locally compact (resp. Hausdorff locally compact) spaces and continuous maps.  
 		Any functor  $\mathfrak{LocComp}\to \mathscr C$ and/or $\mathfrak{Hausdorff}\to \mathscr C$ naturally yields the functor $ C^*\text{-}\mathfrak{Gelfand}
 		\to \mathscr C$. This circumstance is a motivation of the term "algebraic topology of $C^*$-algebras".
 	\end{definition}
@@ -2017,7 +2011,7 @@ If $A$ is an unital $C^*$-algebra then from the equation \eqref{k_1_coh_eqn} it 
 \be\label{cup_prodcc_eqn}
 \smile : K_p\left(A \right) \otimes K_q\left(A \right) \to K_{p+q~ \mathrm{mod}~2}\left(A \right) \quad \forall p, q \in \{0, 1\}.
 \ee
-of the product \eqref{k_top_p_eqn}
+of the product \eqref{k_top_p_eqn}.
 According to \cite{bredon:sheaf} one has
 \be\label{kunnet_sheafrr_eqn}
 \begin{split}
@@ -2035,7 +2029,7 @@ If $\sX$ is a locally compact Hausdorff space then Theorem \ref{kunnet_sheaf_thm
 \ee
 and taking into account \eqref{kunnet_sheafr_eqn} we have
 \be\label{shift_hom_eqn}
-H^p_c\left( \sX \times \R^k\right) = H^{p + k}_c\left( \sX\right).
+H^p_c\left( \sX \times \R^k;\Z\right) = H^{p + k}_c\left( \sX; \Z\right).
 \ee
 
 If $A$ is a {\bf stable} $C^*$-algebra then from the Lemma \ref{product_lem} and the Theorem \ref{full_k_thm} it turns out that
@@ -4285,7 +4279,7 @@ Then there is a presheaf  $\mathscr P_{\sX\text{-}A}$ (cf. Definition \ref{presh
 	C \mapsto C \cap ~_\sV A _\sV.
 \end{split}
 \ee
-and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ (cf. Exercise \ref{sheaf_etale_exer}) with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$.
+and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathscr P_{\sX\text{-}A}$ (cf. Exercise \ref{sheaf_etale_exer}) with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$.
 For any hereditary $C^*$-subalgebra $B \subset A$ we define
 \be\label{u_b_eqn} 
 \mathscr U_B \bydef \left\{\left.C_x \in \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)\right|\exists C \in \mathfrak{Comm}\left( A\right)\quad C \subset B \right\}\subset \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)
@@ -4393,6 +4387,7 @@ Any $\eta \in \mathscr U$ has an an $\mathscr U$-{ representative of} $\eta$ sin
 	$$
 	and $C''' \bydef B'' \cap ~_{\sU''} A_{\sU''}\subset A$ is a commutative $C^*$-algebra such that $C''' \in \xi$.
 \end{proof}
+
 \begin{theorem}\label{ctr_gelfand_thm}
 	If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
 	\bean
@@ -4486,6 +4481,15 @@ Summarize above constructions of has the following diagram
 \end{tikzcd}
 \ee
 The image of $\dl\left( B\right)$ in both $\check{H}^3\left( \G^{\dl\left(B \right)}; \Z \right)$ and $\check{H}^3\left(\mathfrak{Gelfand}\left( B\right); \Z \right)$ is always trivial. If the image of $\dl\left( B\right)$ in $\check{H}^3\left(\mathfrak{Gelfand}\left( B\right); \Z \right)$ is not trivial then $\varphi$ is not a homeomorphism, i.e. one has a generalized Dixmier-Douady obstruction (cf. Definition \ref{dixmier_douady_defn}).
+\begin{remark}
+	Indeed the Dixmier-Douady class is an obstruction to the section $s$  in the following diagram
+	\bean
+\begin{tikzcd}
+	&	\mathfrak{Gelfand}\left( A\right)  \\
+	\mathfrak{Gelfand}\left( A\right) \arrow[ru, equal] \arrow[r, "\hat \phi"]&\sX \arrow[u, dashed, "s"]
+\end{tikzcd}.
+\eean
+\end{remark}
 
 \begin{appendices}
 	\section{Category theory}
@@ -7502,11 +7506,11 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 \begin{definition}\label{open_close_ideal_defn}\cite{akerman_stone}
 	%DEFINITION 11.1. 
 	A projection $p \in A^{**}$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
-	net $\left\{a_\la \right\}_{\la \in \La}$ such that $0\ge a_\la \uparrow p$
+	net $\left\{a_\la \right\}_{\la \in \La}\subset A$ such that $0\ge a_\la \uparrow p$
 	$$
 	\lim_{\la\in \La} a_\la = p
 	$$
-	in the weak* topology of $A^{**}$). If $p$ is open, we say $p' \bydef 1=p$ is {\it closed}.
+	in the weak* topology of $A^{**}$. If $p$ is open, we say $p' \bydef 1=p$ is {\it closed}.
 \end{definition}
 \begin{remark}
 	The net $\left\{a_\la \right\}_{\la \in \La}$ can be chosen by the Theorem \ref{left_ideal_thm}
@@ -7534,9 +7538,9 @@ If $p$ is closed and there exists be A with $b \ge p$,
 then $p$ is compact.\end{theorem}
 \begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}
 %DEFINITION III.2. 
-A self-adjoint operator be $A^{**}$ is {\it continuous}
+A self-adjoint operator be $b \in A^{**}$ is {\it continuous}
 if each spectral projection of $b$ corresponding to an open subset of
-the spectrum of  $p$ is also open.
+the spectrum of  $b$ is also open.
 Now we can state our best Gelfand representation theorem.
 \end{definition}
 

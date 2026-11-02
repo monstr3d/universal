@@ -486,7 +486,7 @@ These homomorphisms are actually isomorphisms.
 The other isomorphism can then be obtained
 using Bott periodicity. The \alert{Shilov Idempotent Theorem} which states that every idempotent in $C_0(\sX)$ is in the image of $\ga$, and hence that the group of integer
 linear combinations of idempotents in $A$ is isomorphic to $H^0_c\left(\sX; \Z \right) \cong C_c\left( \sX, \Z\right)$. 
-The \alert{Arens-Royden Theorem} , which states that  induces an isomorphism of
+The \alert{Arens-Royden Theorem}, which states that  induces an isomorphism of
 $\text{GL}_1\left( A\right) / \text{GL}_1\left( A\right)_0$ with 
 \bean
 \text{GL}_1\left(  C_0\left(\sX \right)\right) / \text{GL}_1\left( C_0\left(\sX \right)\right)_0\cong H^1_c\left( \sX, \Z\right)	
@@ -522,7 +522,17 @@ $\text{GL}_1\left( A\right) / \text{GL}_1\left( A\right)_0$ with
 		The Karoubi Conjecture is true. In other words, if $A \cong A \otimes \K$  is a stable $C^*$-algebra, then the comparison map $c : K(A)\to K^{\mathrm{top}}(A)$ of
 	above	Theorem  is an equivalence.
 	\end{theorem}
+\begin{rem}
+	If $A$ is a $C^*$-algebra then
+	\bean
+	K_1\left(A \right) \cong U_1\left(  A \otimes \K \right) / U_1\left( A \otimes \K \right)_0.
+	\eean
+	If $A$ is a local $C^*$-algebra, then 
+	\bean
+	\forall n \in \N \quad K_1\left(A \right) \quad \mathrm{GL}_n\left( A \right) / \mathrm{GL}_n\left( A \right)_0\cong U_n\left( A \right) / U_n\left( A \right)_0
+	\eean
 	
+\end{rem}	
 \end{frame}
 
 \section{Helper theorems}
@@ -533,21 +543,11 @@ $\text{GL}_1\left( A\right) / \text{GL}_1\left( A\right)_0$ with
 \eean
 from the set of normal elements of $A$ to $C\left( \mathfrak{Gelfand}\left(A  \right)\right)$. 
 
-\begin{lemma}\label{normal_map_lem} if $A$ is an unital $C^*$-algebra then one has:
+\begin{lemma}\alert{Petr Ivankov}\\if $A$ is an unital $C^*$-algebra then one has:
 \begin{enumerate}
 	\item [(i)]  the  map $\mathfrak{Image}$ is surjective,
 	\item[(ii)] there is a one-to-one correspondence between  self-adjoint elements $a \in A$ and bounded real-valued functions $b \in  C\left( \mathfrak{Gelfand}\left(A  \right), \R\right)$.
 \end{enumerate}
-\end{lemma}
-\end{frame}
-\begin{frame}
-	\begin{lemma}
-	For any $C^*$-algebra $A$ and any locally compact Hausdorff space $\sX$ there is the natural homeomorphism
-	\bean
-	\begin{split}
-		\mathfrak{Gelfand}\left(C_0\left(\sX \right)\otimes  A \cong C_0\left(\sX, A \right) \right) \cong \sX \times \mathfrak{Gelfand}\left(A \right),
-	\end{split}
-	\eean
 \end{lemma}
 \end{frame}
 \begin{frame}
@@ -603,55 +603,194 @@ If $A$ is an unital $C^*$ algebra then the diagonal map
 \end{frame}
 
 \begin{frame}
-\begin{lemma}
+\begin{lemma}\alert{Petr Ivankov}\\
 If $A$ is an unital $C^*$-algebra $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \right)$ is a finitely generated projective 	$C\left( \mathfrak{Gelfand}\left(A \right)\right)$-module. Indeed there is the natural isomorphism of left $C\left( \mathfrak{Gelfand}\left(A\right)\right)$-modules $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\right) \cong C\left( \mathfrak{Gelfand}\left(A\right)\right) ^n$.
 \end{lemma}
+If  
+$p \in \mathbb{M}_n\left(A \right)$ is a projector then one has the natural disjoint union of open sets
+\bean\label{matrppbu_eqn}
+\begin{split}
+	\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)=\\ \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\bigsqcup \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }
+\end{split}
+\eean
+or equivalently
+\bean
+\begin{split}
+	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)\right)=\\=	C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)\bigoplus\\\bigoplus  C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right).  
+\end{split}
+\eean
+
 \end{frame}
 \begin{frame}
 
-\begin{lemma}\alert{Ivankov}
-	Any good $*$-homomorphism 	
-	\bean
-	\varphi_M: A \hookto M\left(\widetilde A\right)	\eean
-naturally yields a continuous mapping 
-	\be\label{gelfand_map_eqn}
-	\mathfrak{Gelfand}\left(\widetilde A \right)\xrightarrow{\mathfrak{Gelfand}\left(\varphi_M \right)}\mathfrak{Gelfand}\left(A \right)
-	\ee
-	\end{lemma}
-\end{frame}
-\section{$K$-theory of $C^*$-algebra and its Gelfand space}
-\begin{frame}
-\begin{theorem}\label{k_0_alg_top_thm}
+Both $C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p} \right)$ and $C\left(  \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)\left(1_{\mathbb{M}_n\left(A \right)} -p\right) }\right)$ are left $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-modules.
+i.e. 	$C\left( \mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right)_{\mathbb{M}_n\left(A \right)p}\right) $ is a finitely generated $C\left(\mathfrak{Gelfand}\left(A \right) \right)$-module. In result one has the following Theorem 
+\begin{theorem}\alert{Petr Ivankov}\\
 	If $A$ is an unital $C^*$-algebra then one has.
 	\begin{enumerate}
 		\item [(i)] There is the natural one-to-one correspondence between isomorphism classes of  finitely generated projective $A$-modules and complex vector bundles on the Gelfand space  $\mathfrak{Gelfand}\left(A \right)$.
 		\item[(ii)] There is the natural isomorphism
-		\be\label{k_0_alg_top_eqn} 
+		\bean
 		K_0\left( A\right) \cong K^0\left( \mathfrak{Gelfand}\left(A \right)\right). 
-		\ee 
+		\eean
 	\end{enumerate}
+	\end{theorem}\end{frame}
+\section{$K$-theory of $C^*$-algebra and its Gelfand space}
+\begin{frame}
+Here we prove that $K$-theory of $C^*$-algebras can be formulated in terms of the sheaf cohomology. If  $A$ is an unital $C^*$-algebra then denote by $\mathfrak{FinProj}\left( A\right)$ the set of finitely generated left $A$-modules. For any $P, Q \in \mathfrak{FinProj}\left( A\right)$ we write $P \sim Q$ if $P$ and $Q$ are isomorphic $A$-modules. The group  $K^{\mathrm{alg}}_0\left( A\right)$ of the algebraic $K$-theory is the universal Abelian group such that
+\begin{enumerate}
+	\item[(a)]  $\mathfrak{FinProj}\left( A\right)$ is the set of generators of $K^{\mathrm{alg}}_0\left( A\right)$.
+	\item[(b)] Foe any pair $P, Q\in \mathfrak{FinProj}\left( A\right)$ satisfy to the following relations:
+	\bean
+	\left[P \oplus Q\right] = \left[P\right]+\left[Q\right],\\
+	P \sim Q \quad \Leftrightarrow \quad \left[P\right]=\left[Q\right]
+	\eean
+	where $\left[P\right],\left[Q\right], \left[P \oplus Q\right]\in K^{\mathrm{alg}}_0\left( A\right)$ are represented by $P, Q, P\oplus Q$ respectively.
+\end{enumerate}
+For any   $P \in \mathfrak{FinProj}\left( A\right)$ there is a projection $p \in A \otimes \K$ such that
+\bean
+P \sim p\left( A \otimes \K\right) 
+\eean 
+
+\end{frame}
+\begin{frame}
+	Following theorem is a consequence of the above construction and Shilov idempotent theorem.
+\begin{theorem}\label{k_0_thm}\alert{Petr Ivankov}\\
+	If $A$ is an unital $C^*$-algebra then there are following  natural isomorphisms
+	\bean\label{k_00_eqn}
+	K_0\left( A\right) \cong K_0\left( C\left( \mathfrak{Gelfand}\left(A \right)\right) \right)\cong  H^0_c\left(\mathfrak{Gelfand}\left( A\otimes \K \right); \Z \right)/\sim
+	\eean
+	where the equivalence relation $\sim$ comes from isomorphism of $C\left( \mathfrak{Gelfand}\left(A \right)\right)$-modules.	
 \end{theorem}
 \end{frame}
 \begin{frame}
-	\begin{definition}\label{fund_den}
-		If $A$ is a $C^*$ -algebra then a noncommutative covering $\lift: A  \hookto M\left( \widetilde{A}\right) $ is \alert{universal}, if for any noncommutative covering   $\lift': A  \hookto M\left( \widetilde{A}'\right) $ there is natural noncommutative covering $\lift'': \widetilde{A}' \hookto M\left( \widetilde{A}\right)$ with commutative diagram
-	\begin{figure}
-	\includegraphics[width=0.5\textwidth]{Covering.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
-		
+Application of the Arens-Royden theorem yields the following.
+\begin{theorem}\label{k_1_coh_lem}\alert{Petr Ivankov}\\
+	For any unital $C^*$-algebra $A$ there is the natural isomorphism
+	\bean
+	K_1\left(A \right) \cong U_1\left( A \otimes \K \right) / U_1\left( A \otimes \K \right)_0\cong \\ 	U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)/ U_1\left( C\left( \mathfrak{Gelfand}\left(  A \otimes \K\right)^+\right)\right)_0 \cong \\ \cong H^1_c\left( \mathfrak{Gelfand}\left(  A \otimes \K\right); \Z \right). 
+	\eean 
+\end{theorem}
 
-			\end{definition}
-		where $M\left( \lift''\right)$ is the unique extension of $\lift''$.
-If the universal covering exists then  the \alert{fundamental group} of $A$ is given by
-\be\label{fund_eqn}
-\pi_1\left(A \right) \bydef G\left(\left.\widetilde{A} \right| A\right)
-\ee
-where $G\left(\left.\widetilde{A} \right| A\right)$ is the covering group (cf. Definition \ref{covering_defn}).
+\begin{theorem}\alert{Petr Ivankov}\\
+	For any   $C^*$-algebra $A$ one has
+	\bean
+ \quad K_1\left(A \right)  \cong K^1\left(\mathfrak{Gelfand}\left(  A \right) \right).
+	\eean
+\end{theorem}
 
 \end{frame}
 
+\section{Multiplicative structure}
+\begin{frame}
+	\begin{lemma}\alert{Petr Ivankov}\\
+		For any $C^*$-algebra $A$ and any locally compact Hausdorff space $\sX$ there is the natural homeomorphism
+		\bean
+		\begin{split}
+			\mathfrak{Gelfand}\left(C_0\left(\sX \right)\otimes  A \cong C_0\left(\sX, A \right) \right) \cong \sX \times \mathfrak{Gelfand}\left(A \right),
+		\end{split}
+		\eean
+	\end{lemma}
+	From the above Lemma and Bott periodicity one can prove the following theorem
+	\begin{theorem}\alert{Petr Ivankov}\\
+		For any unital $C^*$-algebra $A$ and every	 $k \ge 0$ one has
+			\bean
+		K_{r+1~ \mathrm{mod}~2 }\left(A \right) \cong H^1_c\left(S^{r}\mathfrak{Gelfand}\left(A \otimes \K\right); \Z \right)\cong \\ \cong H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{r}; \Z \right)
+		\eean
+		for each $r \ge 0$.
+	\end{theorem}
+	
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}
+		%7.1. Theorem. 
+		Let $\Phi$ and $\Psi$ be families of supports on $\sX$. Then there exists
+		a unique natural transformation of functors (on the category of sheaves on
+		X to Abelian groups)
+		\bean\label{cup_p_eqn}
+		\begin{split}
+			\smile : H^p_\Phi\left(\sX, \mathscr A \right) \otimes  H^p_\Psi\left(\sX, \mathscr B \right)\to H^p_{\Phi\cap\Psi}\left(\sX, \mathscr A \otimes \mathscr B\right)
+		\end{split}
+		\eean
+		called the {\it cup product} and satisfying the following three properties:
+		\begin{enumerate}
+			\item [(a)] For $p = q = 0, ~ \smile \Ga_\Phi\left( \mathscr A\right) \Ga_\Psi\left( \mathscr B\right)\to \Ga_{\Phi\cap \Psi}\left(\mathscr A \otimes \mathscr B \right)$  is the transformation
+			induced by the canonical map $\mathscr A\left(\sX\right)\otimes \mathscr B\left(\sX\right)\to \left(\mathscr A \otimes \mathscr A \right)\left(\sX \right)$.   % of I-Section 5.
+			\item [(b)] If $0 \hookto \mathscr A' \hookto \mathscr A \onto \mathscr A'' \onto 0$ and $0 \hookto \mathscr A' \otimes \mathscr B\hookto \mathscr A \otimes \mathscr B\onto \mathscr A'' \otimes \mathscr B \onto 0$  , are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \dl \a  \smile \bt$.
+			\item [(c)] If $0 \hookto \mathscr B' \hookto \mathscr B \onto \mathscr B'' \onto 0$ and $0 \hookto \mathscr A \otimes\mathscr B' \hookto\mathscr A \otimes \mathscr B \onto \mathscr A \otimes\mathscr B'' \onto 0$, are exact then for $\a \in H^p_\Phi\left(\sX, \mathscr A \right)$ and $\bt \in H^q_\Psi\left(\sX, \mathscr B \right)$ we have $\dl\left( \a \smile \bt\right)= \left(-1 \right)^p  \a  \smile \dl\bt$.
+			
+		\end{enumerate}
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}
+		%15.2. Theorem. 
+		(\text{K\"{u}nneth.}) If $\sX$ and $\sY$ are locally compact Hausdorff 
+		spaces and if $\mathscr A$ and $\mathscr B$ are sheaves on $\sX$ and $\sY$ respectively with $\mathrm{Tor}_L\left(\mathscr A, \mathscr B \right) = \{0\}$
+		then there is a natural exact sequence (over the principal ideal domain $L$
+		as base ring)
+		\bean
+		\begin{split}
+			\bigoplus_{p+q = n} H^p_c\left(\sX; \mathscr A \right) \otimes H^q_c\left(\sY; \mathscr A \right)\hookto H^n_c\left(\sX\times \sY; \mathscr A\otimes_L\mathscr B \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX; \mathscr A \right),  H^p_c\left(\sX; \mathscr B \right) \right). 
+		\end{split}
+		\eean
+		that splits nonnaturally.	
+	\end{theorem}
+	
+\end{frame}
+\begin{frame}
+	From 
+	\be\label{kunnet_sheafrr_eqn}
+	\begin{split}
+		H^p_c\left(\R^r; \Z \right)= \begin{cases}
+			0 & p \neq r,\\
+			1 & p = r
+		\end{cases}
+	\end{split}
+	\ee
+	it follows that $\sX$ is a locally compact Hausdorff space then one has
+	\bean\label{kunnet_sheafr_eqn}
+	\begin{split}
+		\bigoplus_{p+q = n} H^p_c\left(\sX ; \Z \right) \otimes H^q_c\left(\R^r; \Z \right)\hookto H^{n}_c\left(\sX \times \R^{r}; \Z \otimes \Z \right)\onto\\ \onto  \bigoplus_{p+q = n+1} \mathrm{Tor}\left( H^p_c\left(\sX ; \Z \right),  H^p_c\left(\R^r; \Z \right) \right). 
+	\end{split}
+	\eean
+	
+	\bean\label{shift_hom_eqn}
+	H^p_c\left( \sX \times \R^k\right) = H^{p + k}_c\left( \sX\right).
+	\eean
+\end{frame}
+\begin{frame}
+	There is  the cup  product on the topological $K$-theory given by 
+	\bean\label{k_top_p_eqn}
+	\begin{split}
+		\smile : K^p\left( \sX \right)\times  K^q\left( \sX \right) \to K^{p+q~ \mathrm{mod}~2}\left( \sX \right)
+	\end{split}
+	\eean
+	Here for any unital $C^*$-algebra we find a generalization 
+	
+	\bean\label{cup_prodcc_eqn}
+	\smile : K_p\left(A \right) \otimes K_q\left(A \right) \to K_{p+q~ \mathrm{mod}~2}\left(A \right) \quad \forall p, q \in \{0, 1\}.
+	\eean
+	of the above product. We will construct the product $\smile : K_p\left(A \right) \otimes K_q\left(A \right) \to K_{p+q~ \mathrm{mod}~2}\left(A \right)$ using the product of sheaf cohomology.
+\end{frame}
+\begin{frame}
+	Suppose that $x \in K_p\left( A\right)$  and $y \in  \in K_q\left( A\right)$ are represented by $u \in H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{p + 1 + 2n}; \Z \right)$ and $v \in H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{q + 1 + 2m}; \Z \right)$.
+	There is the cup product
+	\bean
+	u \smile v \in H^2_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{p+ q + 2 + 2m + 2n}; \Z \right)
+	\eean
+	The product  $u \smile v$ uniquely defines and element $w \in H^1_c\left(\mathfrak{Gelfand}\left(A \otimes \K\right)\times \R^{p+ q + 1 + 2m + 2n}; \Z \right)$. The element $w$ uniquely defines $z \in K_r\left( A\right)$ such that $p + q = r~\mathrm{mod}~2$;. We define
+	\bean
+	x \smile y \bydef z.
+	\eean 
+	It is proven that the product of $K$-theory of topological spaces is a specialization of the above product.
+	
+	{\bf Conclusion } \alert{The $K$-theory of spaces or/and $C^*$-algebras including their multiplicative structures can be expressed by the cohomology of Gelfand spaces}.\\
+		{\bf Question } \alert{Can Adams operations be expressed by the cohomology of Gelfand spaces?}
+	
+\end{frame}
 
 \section{$C^*$-algebra of compact operators}
 \begin{frame}
@@ -687,7 +826,7 @@ where $f_* \mathscr F$ is the direct image of $\mathscr F$.
  \end{theorem}
  The above cohomology are not integrable. It would be good find integral cohomology. The Zariski topology is such that any open subset is dense. However there is the \alert{Chow ring} which can be regarded as integral cohomology. The {Chow ring} is an algebraic geometry analog of the representation of homology by smooth manifolds. Here we consider an analog of the {Chow ring} for the Gelfand space $\C P^n_{\mathfrak{Gelfand}}$.
  \end{frame}
- \section{Dimension and codimension}
+  
  \begin{frame}
  	{\Large Dimension and codimension} 
  		\begin{definition}\label{top_irreducible_defn}
