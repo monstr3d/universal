@@ -476,21 +476,45 @@ where $\hat A$ is the primitive spectrum.
 		%Proposition 9.11 (P. Green [51,96,104]). 
 		Let $\sX$ be a second-countable locally compact
 		Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over $\sX$.
-		Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
+		Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_{C_0\left( \sX\right) } B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
 		$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
 	\end{prop}
+	If both $A$ and $B$ are  stable algebras of continuous trace over $\sX$ with $\dl(A)\neq \dl(B)$ from inclusions  $C_0\left(\sX \right)\subset  M\left( A\right)$  and $C_0\left(\sX \right)\subset  M\left( B\right)$ it turns out that there are surjective continuous maps $\phi_A:\mathfrak{Gelfand}\left( A\right)\onto \sX$ and $\phi_B:\mathfrak{Gelfand}\left( B\right)\onto \sX$. There are homomorphisms then there are homomorphisms $\check{H}^3\left(\mathfrak{Gelfand}\left( \phi_A\right); \Z \right): \check{H}^3\left(\sX; \Z \right) \to \check{H}^3\left(\mathfrak{Gelfand}\left( A\right); \Z \right)$ and $\check{H}^3\left(\mathfrak{Gelfand}\left( \phi_B\right); \Z \right): \check{H}^3\left(\sX; \Z \right) \to \check{H}^3\left(\mathfrak{Gelfand}\left( B\right); \Z \right)$.
+\end{frame}
+\begin{frame}
+	One can prove that $\check{H}^3\left(\mathfrak{Gelfand}\left( \phi_A\right); \Z \right)\left(\dl\left( A\right)  \right) = 0$ and $\check{H}^3\left(\mathfrak{Gelfand}\left( \phi_B\right); \Z \right)\left(\dl\left( B\right)  \right) = 0$. From $B = A \otimes_{C_0\left( \sX\right) } C$ with $\dl\left(C \right)  = \dl\left( B\right) - \dl\left(A \right)$ one can prove that there are $*$-homomorphisms $A \to M\left( B\right)$, $\varphi: M\left( A\right)\to M\left( B\right)$. There is the following commutative diagram
+		\begin{figure}
+		\includegraphics[width=0.5\textwidth]{dd_h3.png}
+		%		\caption{A boat.}
+		%		\label{fig:boat1}
+	\end{figure}
+	The homomorphism $\check{H}^3\left(\varphi; \Z \right)$ is not isomorphism sins the image of $\dl\left(B \right)$ in  $\check{H}^3\left(\mathfrak{Gelfand}\left( B\right); \Z \right)$ is trivial but the image of  of $\dl\left(B \right)$ in  $\check{H}^3\left(\mathfrak{Gelfand}\left( A\right); \Z \right)$ is not trivial. So the natural surjective map $\mathfrak{Gelfand}\left( B\right)\to \mathfrak{Gelfand}\left( A\right)$ is not isomorphism.
+	
+	  
+
+\end{frame}
+\begin{frame}
+		\begin{definition}\alert{Petr Ivankov}\\
+		If both  $A$ and $B$ are $C^*$-algebras and $\varphi :M\left(  A\right) \to M\left( B\right)$ is a good $*$-homomorphism then there is a continuous map
+		\be\label{gelfand_dd_map_eqn}
+		\mathfrak{Gelfand}\left(\varphi \right) :	\mathfrak{Gelfand}\left( B\right) \to \mathfrak{Gelfand}\left( A\right). 
+		\ee 
+		If $	\mathfrak{Gelfand}\left(\varphi \right) $ is not a homeomorphism then there  is a \alert{generalized Dixmier-Douady obstruction}.
+	\end{definition}
 \begin{lemma}\alert{Petr Ivankov}\\
 	The Dixmier-Douady class is an obstruction to the section $s$  in the following diagram
-following commutative diagram
-\begin{figure}
-	\includegraphics[width=0.5\textwidth]{dd_obstr.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
+	following commutative diagram
+	\begin{figure}
+		\includegraphics[width=0.5\textwidth]{dd_obstr.png}
+		%		\caption{A boat.}
+		%		\label{fig:boat1}
+	\end{figure}
 \end{lemma}	
 \end{frame}
 \section{Useful results}
 \begin{frame}
+							{\Large Gelfand space and $K$-theory}
+	
 Let $A$ be a commutative Banach algebra with maximal ideal space $\sX$.
 Then there is a natural homomorphism  $\ga : A \to C_0\left(\sX \right)$, the Gelfand transform induces homomorphisms 
 \bean
@@ -500,15 +524,13 @@ These homomorphisms are actually isomorphisms.
 The other isomorphism can then be obtained
 using Bott periodicity. The \alert{Shilov Idempotent Theorem} which states that every idempotent in $C_0(\sX)$ is in the image of $\ga$, and hence that the group of integer
 linear combinations of idempotents in $A$ is isomorphic to $H^0_c\left(\sX; \Z \right) \cong C_c\left( \sX, \Z\right)$. 
-The \alert{Arens-Royden Theorem}, which states that  induces an isomorphism of
-$\text{GL}_1\left( A\right) / \text{GL}_1\left( A\right)_0$ with 
+The \alert{Arens-Royden Theorem} states that   an isomorphism
 \bean
 \text{GL}_1\left(  C_0\left(\sX \right)\right) / \text{GL}_1\left( C_0\left(\sX \right)\right)_0\cong H^1_c\left( \sX, \Z\right)	
 \eean
 
 \end{frame}
 \begin{frame}
-						{\Large Gelfand space and $K$-theory}
 	
 		\begin{theorem}
 		%	Theorem 2.1. 
@@ -535,7 +557,7 @@ $\text{GL}_1\left( A\right) / \text{GL}_1\left( A\right)_0$ with
 	
 	\begin{theorem}
 		%Theorem 3.3. 
-		The Karoubi Conjecture is true. In other words, if $A \cong A \otimes \K$  is a stable $C^*$-algebra, then the comparison map $c : K(A)\to K^{\mathrm{top}}(A)$ of
+		The Karoubi Conjecture is true for stable $C^*$-algebras, i.e. if $A \cong A \otimes \K$  is a stable $C^*$-algebra, then the comparison map $c : K(A)\to K^{\mathrm{top}}(A)$ of
 	above	Theorem  is an equivalence.
 	\end{theorem}
 \begin{rem}
@@ -568,7 +590,6 @@ from the set of normal elements of $A$ to $C\left( \mathfrak{Gelfand}\left(A  \r
 \end{frame}
 %\section{Gelfand space and $K$-theory}
 \begin{frame}
-			{\Large Gelfand space and $K$-theory} 
 	
 \begin{definition}\label{elementary_defn}
 	If $A$ is an unital  $C^*$-algebra then a given by 
