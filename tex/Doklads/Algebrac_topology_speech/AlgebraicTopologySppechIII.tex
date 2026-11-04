@@ -511,7 +511,7 @@ where $\hat A$ is the primitive spectrum.
 	\end{figure}
 \end{lemma}	
 \end{frame}
-\section{Useful results}
+\section{Gelfand space and $K$-theory}
 \begin{frame}
 							{\Large Gelfand space and $K$-theory}
 	
@@ -573,7 +573,6 @@ The \alert{Arens-Royden Theorem} states that   an isomorphism
 \end{rem}	
 \end{frame}
 
-\section{Helper theorems}
 \begin{frame}
 		Let $A$ be an unital $C^*$-algebra. If $a \in A$ is a normal element then there is the natural injective $*$-homomorphism $C_0\left( \mathfrak{Sp}_A\left(x \right)\right) \hookto A$. One has the natural surjective continuous map $\varphi : \mathfrak{Gelfand}\left(A  \right) \onto \mathfrak{Sp}_A\left(x \right)$. There is the natural injective $*$-homomorphism $C_0\left( \varphi\right): C_0\left( \mathfrak{Sp}_A\left(x \right)\right) \hookto C\left( \mathfrak{Gelfand}\left(A  \right)\right)$. One can consider $a$ as an element of  $C_0\left( \mathfrak{Sp}_A\left(x \right)\right)$ so one has a map
 \bean
@@ -627,7 +626,7 @@ If $A$ is an unital $C^*$ algebra then the diagonal map
 		\end{pmatrix}
 	\end{split}
 	\eean
-	is a good $*$-homomorphism (cf. Definition \ref{good_hom_defn}), it follows that there is a surjective continuous map 
+	is a good $*$-homomorphism, it follows that there is a surjective continuous map 
 	\bean\label{ge_fc_eqn}
 	\begin{split}
 		\mathfrak{Gelfand}\left(\mathbb{M}_n\left(A \right)\right) \onto \mathfrak{Gelfand}\left(A \right)
@@ -893,9 +892,45 @@ it turns out than the space $\mathfrak{Gelfand}\left(C\left(\mathbb{T}^n_{\Theta
 		
 \end{lemma}
  \end{frame}
+  \section{Bohr topos}
   
  \begin{frame}
  	{\Large Bohr topos} 
+ 	The aim of Bohr toposes is to relate algebraic quantum mechanics to
+ 	topos theory, so as to construct new foundations for quantum logic
+ 	and quantum spaces.	Bohr toposes provide the topos-theoretical notion of a space which
+ 	intrinsically carries the intuitionistic logical structure of a Heyting algebra. We need the following.
+  	
+ 	
+ 	\begin{definition}\label
+ 		A \alert{frame} is partially  ordered set with all joins and all finite meets which satisfies the infinite distributive law:
+ 		$$
+ 		x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
+ 		$$
+ 		A \alert{frame homomorphism} 
+ 		is a function which preserves finite meets and arbitrary joins. Frames and frame homomorphisms form a category $\mathfrak{Frm}$.
+ 	\end{definition}
+ 	
+ \end{frame}
+ \begin{frame}
+ 	\begin{definition}\label{locale_defn}
+ 		The category $\mathfrak{ Locale}$ of \alert{locales} is the opposite of the category of frames
+ 		$$
+ 		\mathfrak{ Locale} \bydef \mathfrak{Frm}^\text{op}.
+ 		$$
+ 		If $X$ is  a locale  denote by $\mathcal O\left( X\right)$ the corresponding  frame.
+ 	\end{definition}
+ 	The definition  of sheaves on a topological space depends
+ 	only on the lattice of open sets of that space, and so extends at once to
+ 	define sheaves on a locale $X$. Thus an "open" object $U$ is underlying category is said to be
+ 	covered by a family $\left\{U_\iota \right\}$ of "opens" of $X$ with each $U_\iota \le U$  if and only if $U= \bigvee_\iota V_\iota$ thus
+ 	\bean\label{localic_site}
+ 	\left\{U_\iota\subset U \right\} \text{ covers } U \text{ if and only if } U= \bigvee_\iota V_\iota
+ 	\eean
+ 	The equation  yields a Grothendieck pretopology, so one obtains a Grothendieck topology. In result we obtain a site and a Grothendieck topos.
+ 	
+\end{frame}
+\begin{frame}
 \begin{definition}
 	Let $X$ be a partially ordered set. We define the \alert{Alexandrov topology} $\Upsilon(X, \le)$ (or simply 
 	$\Upsilon(X)$, if the partial order is obvious) to be the collection of all \textit{upper sets}
@@ -908,6 +943,7 @@ it turns out than the space $\mathfrak{Gelfand}\left(C\left(\mathbb{T}^n_{\Theta
 	\end{rem}
 \end{frame}
 \begin{frame}
+	
 For any $C^*$-algebra 
 one can consider the partially ordered set $\mathcal C(A)$  of commutative
 subalgebras of $A$, ordered by inclusion. The assignment of this partially ordered to
@@ -921,660 +957,25 @@ homomorphism $A \xrightarrow{h}B$ a functor $
 \end{figure}
 \begin{definition}\label{bohr_topos_defn}
 	The \alert{Bohr locale} of $C^*$-algebra $A$ is  an Alexandrov space $L(A)$.
-	The \alert{Bohr topos} of $C^*$-algebra $A$ is a  topos sheaves $\mathbf{Sh}\left( L(A)\right)$ over the Bohr locale.
+	The \alert{Bohr topos} of $C^*$-algebra $A$ is a  topos sheaves $\mathfrak{Sh}\left( L(A)\right)$ over the Bohr locale.
 \end{definition}
 \end{frame}
 \begin{frame}
 \begin{definition}
-	Let  $A$ be an unital $C^*$-algebra, and let $\mathfrak{Comm}\left( A\right)$ be  the meet-semilattice of commutative $C^*$-subalgebras of $A$. The \alert{ pre-Bohr space} of $A$ (write $\mathfrak{PreBohr}\left(A \right)$ ) is the { space of ultrafilters} of $\mathfrak{Comm}\left( A\right)$ (cf. Definition \ref{lattice_s_defn}).   The \alert{Bohr space} $\mathfrak{Bohr}\left(A \right)$ of $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreBohr}\left(A \right)$, i.e. $\mathfrak{Bohr}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreBohr}\left(A \right) \right)$.
+	
+	Let  $A$ be an unital $C^*$-algebra, and let $\mathfrak{Comm}\left( A\right)$ be  the meet-semilattice of commutative $C^*$-subalgebras of $A$. The \alert{ pre-Bohr space} of $A$ (write $\mathfrak{PreBohr}\left(A \right)$ ) is the { space of ultrafilters} of $\mathfrak{Comm}\left( A\right)$.   The \alert{Bohr space} $\mathfrak{Bohr}\left(A \right)$ of $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreBohr}\left(A \right)$, i.e. $\mathfrak{Bohr}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreBohr}\left(A \right) \right)$.
 \end{definition}
 \begin{rem}
 The Bohr space is obtained from the Bohr locale by refinement of topology.
 \end{rem}
-
-One has the natural surjective continuous map
+\begin{lemma}\alert{Petr Ivankov}
+	If $A$ is an unital $C^*$-algebra then 
+one has the natural surjective continuous map
 \bean
 \mathfrak{Gelfand}\left( A \right)\onto \mathfrak{Bohr}\left( A \right)
 \eean
+\end{lemma}
  \end{frame}
-\section{Chow ring}
-  \begin{frame}
-  	{\Large Chow ring}
-  	Homology of smooth manifolds can be calculated using 
-  cycles represented by submanifolds are closed homology classes that can be realized by the image of a smooth, often embedded, manifold within a larger manifold. Algebraic geometry has similar construction, i.e. cycles can be represented by algebraic subvarieties.
-  	.
-  In algebraic geometry, the \alert{Chow groups} (named after Wei-Liang Chow by Claude Chevalley  of an algebraic variety over any field are algebro-geometric analogs of the homology of a topological space. The elements of the Chow group are formed out of subvarieties (so-called algebraic cycles) in a similar way to how simplicial or cellular homology groups are formed out of subcomplexes. When the variety is smooth, the Chow groups can be interpreted as cohomology groups (compare Poincaré duality) and have a multiplication called the intersection product. The Chow groups carry rich information about an algebraic variety. If we consider a complex variety $\sX\subset \C P^n$ then its  Chow groups are naturally isomorphic to cohomology groups $H^*\left( \sX ; \mathbb{Z}\right)$. 
-  \end{frame}
-  \begin{frame}
-\begin{definition}\label{prime_divisor_dern}
-	%	Definition. 
- A \alert{ prime divisor} on $\sX$ is a closed integral subscheme $\sY$ of codimension one. A \alert{ Weil divisor} is an element of the free Abelian group $\mathrm{Div}\sX$ generated by the prime divisors. We write a divisor as $D =\sum_{j=1}^n n_j \sY_j $  where the $\sY_j$ are prime divisors, the $n_j$ are integers, and 
-	only finitely many $n_j$ are different from zero. If all the $n_j \ge 0$, we say 
-	that $D$ is \alert{ effective}. 
-\end{definition}
-Algebraic geometry operates with equivalence relation on the group of divisors. Two divisors are 
-\alert{linearly equivalent} if there are an algebraic maps $f_\iota : \sX \to \mathbb P^1$ to one dimensional projective space
-\be\label{projective_sum_eqn}
-\sum n_\iota \left(\left[f^{-1}\iota\left(0 \right) \right]- \left[f^{-1}_\iota\left(\infty \right) \right] \right) 
-\ee 
-The linear equivalence is an algebraic geometry analog of the algebraic topology notion of homotopy.
-  \end{frame} 
-  \begin{frame}
- Let $\sX$ be any variety over field  $k$. A \alert{ cycle of codimension} $r$ on $\sX$ is an element 
- of the free Abelian group generated by the closed irreducible subvarieties of $\sX$ 
- of codimension $r$. So we write a cycle as $\sY = \sum n_j \sY_j$ where the $\sY_j$ are subvarieties, and $n_j \in \mathbb Z$. 
- Let $f: \sX \to \sX'$ be a morphism of varieties, and let $\sY$ be a subvariety of $\sX$. 
- If $\dim f\left(\sY \right) < \dim \sY$, we set $f_*\left( \sY\right)= 0$ . If $\dim f\left(\sY \right) = \dim \sY$, then the 
- function field $K\left(\sY \right)$  is a finite extension field of $K\left(f\left( \sY \right) \right)$, and we set 
- $$
- f\left( \sY\right)\bydef \left[K\left(\sY \right):K\left(f\left( \sY\right)  \right)\right]\cdot \overline{f\left(\sY \right) } 
- $$
- 	Extending by linearity defines a homomorphism  $f_*$ of the group of cycles on $\sX$
- to the group of cycles on $\sX'$.	  
- Now we come to the definition of rational equivalence For any subvariety 
- $\sV$ of $\sX$, let $f: \widetilde \sV\to \sV$ be the normalization of $\sV$.\end{frame}
- 
- \begin{frame}
-  Whenever $D$ and $D'$ are linearly equivalent Weil divisors on V, we say 
- that $f_*D$ and $f_*D'$ are \alert{ rationally equivalent} as cycles on $\sX$. Then we define 
- rational equivalence of cycles on $\sX$ in general by dividing out by the group 
- generated by all such $f_*D'\sim f_*D'$ for all subvarieties $\sV$, and all linearly 
- equivalent Weil divisors $D, D'$ on $\sV$. In particular, if $\sX$  itself is normal, then 
- rational equivalence for cycles of codimension 1 coincides with linear 
- equivalence of Weil divisors. 
- For each $r$ we let $A^r\left(\sX \right)$  be the group of cycles of codimension $r$ on $\sX$ 
- modulo rational equivalence. We denote by $A\left(\sX\right)= \bigoplus_{r= 0}^n A^r\left( \sX\right)$  the graded group  where $n = \dim \sX$. Note that $A^0\left( \sX\right)= \mathbb Z$ , and that $A^r\left(\sX \right)= 0$  for $r > \dim \sX$.
-  \end{frame}
-  \begin{frame}
-  An \alert{ intersection theory} on a class of varieties $\mathfrak{B}$ consists of giving a 
-  pairing $A^r\left(\sX \right)\times A^s\left(\sX \right)\to A^{r + s}\left(\sX \right)$  for each $r,s$, and for each $\sX \in \mathfrak{B}$, satisfying 
-  the axioms listed below. If $\sY \in A^r\left(\sX \right)$ and $\sZ \in A^s\left(\sX \right)$ we denote the intersection cycle class by $\sY.\sZ$. 
-  Before stating the axioms, for any morphism  $f : \sX \to \sX'$ of varieties in $\mathfrak{B}$ 
-  we assume that $\sX \times \sX'$ is also in $\mathfrak{B}$, and we define a homomorphism 
-  $f^*: \left(\sX' \right) \to \left(\sX \right)$ as follows. For a subvariety $\sY'\subset \sY$ we define 
-  \bean
-  f^*\left(\sY' \right)\bydef p_{1*} \left( \Ga_f. p^{-1}_2\left( \sY'\right) \right) 
-  \eean
-  where $p_1$ and $p_2$ are the projections of $\sX \times \sX'$ to $\sX$ and $\sX'$, and $\Ga_f$ is the 
-  graph of $f$, considered as a cycle on $\sX \times \sX'$. 
-  This data is now subject to the following requirements. 
-\end{frame}
-
-  \begin{enumerate}
-  	\item[A1.] The intersection pairing makes $A\left( \sX\right)$  into a commutative associative 
-  	graded ring with identity, for every $\sX \in \mathfrak{B}$. It is called the \alert{ Chow ring} of $\sX$. 
-  	\item[A2.] For any morphism $f : \sX \to \sX '$ of varieties in $\mathfrak{B} ~,~ f^*: A(\sX')\to A(\sX)$ is a
-  	ring homomorphism. If $f : \sX' \to \sX''$ is another morphism, then $g^* \circ f^* = \left(g \circ f \right)^*$. 
-  	\item[A3.] For any proper morphism $f : \sX \to \sX '$ of varieties in $\mathfrak{B}$, $f : \sX \to \sX '$ is a homomorphism of graded groups (which shifts degrees). If 
-  	$g : \sX' \to \sX ''$ is another morphism, then  $g_* \circ f_* = \left(g \circ f \right)_*$. 
-  	\item[A4.] \alert{ Projection formula}. If $f : \sX \to \sX '$ is a proper morphism, if $x \in  A\left( \sX\right)$  
-  	and $y \in  A\left( \sX'\right)$, then 
-  	\bean
-  	f_*\left(x. f^*y \right) = f_*\left( x\right).y
-  	\eean 
-  	\item[A5.] \alert{ Reduction to the diagonal}. If $\sY$ and $\sZ$ are cycles on $\sX$, and if $\Dl \sX \to \sX \times \sX$ is the diagonal morphism, then 
-  	$$
-  	\sY.\sZ = \Dl^*\left(\sY \times \sZ \right)/ 
-  	$$
-  	\item[A6.] \alert{ Local nature}. If $\sY$ and $\sZ$ are subvarieties of $\sX$ which \alert{ intersect properly} 
-  	(meaning that every irreducible component of $\sY \cap \sZ$ has codimension equal 
-  	to $\codim \sY + \codim \sZ$), then we can write
-  	\bean
-  	\sY.\sZ = \sum i\left( \sY, \sZ; \mathcal W_\iota \right) \mathcal W_\iota
-  	\eean  
-  	where the sum runs over the irreducible components $\mathcal W_\iota$ of $\sY$ and $\sZ$, and where 
-  	the integer $i\left( \sY, \sZ; \mathcal W_\iota \right)$ depends only on a neighborhood of the generic point 
-  	of $\mathcal W_\iota$ on $\sX$. We call $i\left( \sY, \sZ; \mathcal W_\iota \right)$ the \alert{ local intersection multiplicity} of $\sY$ and $\sZ$
-  	along $\mathcal W_\iota$. 
-  	\item[A7.] \alert{ Normalization}. If $\sY$ is a subvariety of $\sY$, and $\sZ$ is an effective Cartier 
-  	divisor meeting $\sY$ properly, then $\sY.\sZ$ is just the cycle associated to the Cartier 
-  	divisor $\sY \cap \sZ$ on $\sY$, which is defined by restricting the local equation of 
-  	$\sZ$ to $\sY$ (This implies in particular that transversal intersections of non singular subvarieties have multiplicity 1.) 
-  	
-  \end{enumerate}
-  
-  \begin{frame}
-  
-  \begin{theorem}
-  	%Theorem 1.1. 
-  	Let $\mathfrak{B}$ be the class of nonsingular quasi-projective varieties over 
-  	a fixed algebraically closed field $k$. Then there is a unique intersection 
-  	theory for cycles modulo rational equivalence on the varieties $\sX \in \mathfrak{B}$ which 
-  	satisfies the axioms A1-A7 above. 
-  \end{theorem}
-  
-  The Chow ring does not depend on the Zariski topology. The Chow ring of  $\C P^n_{\mathfrak{Gelfand}}$ have much more easy structure which uniquely depends of the topology of Gelfand space.
-  \end{frame}
-  
-  \section{Synthetic and analytic projective geometry}
-  
-  \begin{frame}
-  	{\Large  Synthetic and analytic projective geometry}
-  	There is the \alert{synthetic projective geometry} given by the system of axioms. The axioms yield \alert{ projective spaces}, its \alert{points}, \alert{lines}, linear subspaces. 
-  	\begin{definition}
-  		%Definition. 
-  		Let $V$ be a vector space of dimension $d \ge 3$ over a division ring
-  		$F$. We define the rank 2 geometry $\mathbb{P}(V)$ as follows:
-  		\begin{itemize}
-  			\item the points of $\mathbb{P}(V)$ are the 1-dimensional subspaces of $V$,
-  			\item the lines of $\mathbb{P}(V)$ are the 2-dimensional subspaces of $V$,
-  			\item the incidence of  $\mathbb{P}(V)$ is set-theoretical containment.
-  		\end{itemize}
-  	\end{definition}
-  	\begin{theorem}
-  		%2.1.1 Theorem. 
-  		Let $V$ be a vector space of dimension $d \ge 3$ over a division
-  		ring $F$. Then $\mathbb{P}(V)$ is a projective space. We call $\mathbb{P}(V)$  the projective space
-  		coordinatized by $F$,
-  	\end{theorem}
-  	The above theorem states a one-to-one correspondence between \alert{synthetic and analytic projective geometry}.
-  \end{frame}
-  \section{Topological projective geometry}
-  \begin{frame}
-  	{\Large  Topological projective geometry}
-  	Any Gelfand space $\C P^n_{\mathfrak{Gelfand}}$ yields a \alert{topological projective geometry} where points are elements of $\C P^n_{\mathfrak{Gelfand}}$, lines are one-dimensional subspaces of $\C P^n_{\mathfrak{Gelfand}}$, etc.
-  \end{frame}
-  \section{Category of projective spaces}
-  \begin{frame}
-  	{\Large  Surjective projective maps}
-  	According to our construction if the division ring is the field $\C$ then synthetic, analytic and topological  projective geometries are equivalent. We define a one-dimensional projective space a a line of any $\C P^n$.
-  	\begin{definition}
-  		%Definition. 
-  		Let $Q$ be a point of the projective space $\mathbb P$. The rank 2 geometry $\mathbb P/Q$ whose points are
-  		the lines of $\mathbb P$ through $Q$, whose lines are the planes of $\mathbb P$ through $Q$, and whose
-  		incidence is the incidence induced by $Q$ is called the {\it quotient geometry} of $Q$.
-  		We also speak of $\mathbb P$ {\it modulo the point} $Q$.
-  	\end{definition}
-  	\begin{theorem}
-  		%!!! 1.4.1 Theorem.
-  		Let $\mathbb P$ be a $d$-dimensional projective space, and let $Q$ be a
-  		point of $\mathbb P$. Then the quotient geometry $\mathbb P/ Q$ of $\mathbb P$ modulo $Q$ is a projective space of dimension $d - 1$.
-  	\end{theorem}
-  \end{frame}
-  \begin{frame}
-  	{\Large  Complex projective category}
-  	Using the above construction  if $m 
-  	\le n$ then one can construct a surjective maps $\C P^n\onto \C P^m$. Also there are inclusions  $\C P^m\hookto\C P^n$.
-  	\begin{definition}
-  		There is the \alert{ complex projective category} $\C P$ such that 
-  		\begin{itemize}
-  			\item objects are the spaces $\C P^n$,
-  			\item any morphism is a map $f: \C P^n\to \C P^m$ such that there is surjective maps $g:\C P^n\onto \C P^k$ and an inclusion $h:\C P^k\onto \C P^m$ with $f = h \circ g$,
-  		\end{itemize}
-  	\end{definition}
-  	From the topological projective geometry it follows that the complex projective category is a subcategory of the category of topological spaces and continuous maps. The synthetic, analytic and topological structure are equivalent. The complex projective category can be regarded as a category of Gelfand spaces $\C P^n_{\mathfrak{Gelfand}}$ and continuous maps between them.
-  	
-  \end{frame}
-  \begin{frame}
-  	
-  	
-  	The dimension of any irreducible  closed subset $\sY\subset  \C P^n_{\mathfrak{Gelfand}}$ equals to the dimension of $\sY$ as a projective subspace of $\C P^n_{\mathfrak{Gelfand}}$. There is the one-to-one correspondence between homeomorphisms of $\C P^n_{\mathfrak{Gelfand}}$ and collineations of $\C P^n$, i.e. the topology of $\C P^n_{\mathfrak{Gelfand}}$ uniquely defines a projective structure of $\C P^n$.
-  	
-  \end{frame}
-   \section{Chow ring  of $\C P^n_{\mathfrak{Gelfand}}$}
-   
-   \begin{frame}
-   	{\Large Chow ring  of $\C P^n_{\mathfrak{Gelfand}}$}
-   Similarly to the algebraic geometry define a \alert{prime divisor}  as an irreducible closed subset  of $\C P^n_{\mathfrak{Gelfand}}$ having codimension 1 . One can define the group Abelian group $\mathrm{Div}~\C P^n$ which is an analog of $\mathrm{Div}~\sX$ and any divisor correspond to a injective linear map $\C P^{n - 1} \hookto \C P^n$.
-     There is the natural correspondence between the  set of continuous maps  $\C P^n_{\mathfrak{Gelfand}}\to \C P^1_{\mathfrak{Gelfand}}\cong \C P^n_{\mathfrak{Zariski}}$ and the set of linear in sense of analytical geometry  maps $\C P^n\to \C P^1$. Any linear map $f: \C P^n\to \C P^1$ one can define an analog of the \alert{ principal divisor} given by 
-   	$$
-   	f^{-1}\left( 0\right) - f^{-1}\left(\infty \right). 
-   	$$
-      There is a notion of \alert{ linearly equivalent} divisors  For any two different linear maps $\phi' :\C P^{n - 1} \hookto \C P^n$ and $\phi'': \C P^{n - 1} \hookto \C P^n$ there is a linear map $f: \C P^n\to \C P^1$ such that 
-   \bean
-   f\left(0 \right) = \phi'\left(\C P^{n - 1} \right),\\ 
-   f\left(\infty \right) = \phi''\left(\C P^{n - 1} \right),
-   \eean 
-   i.e. any prime divisors are linearly equivalent.
-\end{frame}
-\begin{frame}
-Using the linear equivalence one can define the \alert{group of classes of divisors}
-  \bean
-   \mathrm {Cl}~\C P^n_{\mathfrak{Gelfand}}\cong \Z\left[\C P^{n-1}\right]
-  \eean
-   where $\left[\C P^{n-1}\right]\in \mathrm {Cl}~\C P^n_{\mathfrak{Gelfand}}$ is an analog an element of divisor class group. One can define \alert{ cycle of codimension} $r$ on $\C P^n$ is an element 
-   of the free Abelian group generated by the closed irreducible subspaces  of $\C P^n_{\mathfrak{Gelfand}}$ of codimension $r$. If both $\sY', \sY'' \subset \C P^n_{\mathfrak{Gelfand}}$ are two    closed irreducible subspaces  of $\C P^n_{\mathfrak{Gelfand}}$ of codimension $r$ such that the intersection $\sY' \cap \sY''$ has codimension $2r$ then there are:
-\begin{enumerate}
-	\item [(a)] the natural closed irreducible subspace $\sZ \subset \C P^n_{\mathfrak{Gelfand}}$ of codimension  $r - 1$ with $\sY' \cup \sY''\subset \sX$,
-	\item [(b)] a continuous with respect to Gelfand topology  map $f: \sZ \to \C P^1$ with
-	\be\label{lc_eq_eqn}
-	\sY' = f^{-1}\left(0 \right),\quad 
-	\sY'' = f^{-1}\left(\infty \right)
-	\ee 
-	\end{enumerate}
-i.e. cycles are \alert{ rationally equivalent}.\end{frame}
-\begin{frame}
-
-There is the group $A^r\left(\C P^n_{\mathfrak{Gelfand}} \right)$ of rationally equivalent  classes of $r$-cycles. The cycles $\sY'$ and $\sY''$ are rationally equivalent, i.e.
-\be\label{ar_c_eqn}
-\left[\sX'\right]= \left[\sX''\right]\in A^r\left(\C P^n_{\mathfrak{Gelfand}} \right).
-\ee
-Using the equation \eqref{ar_c_eqn} one can deduce that for any $r = 0,..., n$ there is the natural isomorphism
-\be
-A^r\left(\C P^n_{\mathfrak{Gelfand}} \right) = \Z \left[\C P^{n-r}\right]
-\ee
-where  $\left[\C P^{n-r}\right]$ is represented by a cycle $\C P^{n-r} \subset \C P^n_{\mathfrak{Gelfand}}$.
-\end{frame}
-\section{The ring structure}
-\begin{frame}
-Any $m$-dimensional irreducible subspace  of $\C P^n_{\mathfrak{Gelfand}}$ can be represented by an element of the set
-$$
-L^m_n \bydef \left\{\left.\psi \in \Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right) \right| \rank \psi = m + 1 \right\}\subset \Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right).
-$$
-where $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ is the  $\C$-linear space of  $\C$-linear homomorphisms. There is the \alert{ Gelfand  topology} on $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ which is the minimal among the topologies such that any $\C$-linear subspace of $\Hom_\C\left(\C^{m + 1}, \C^{n+1}  \right)$ is closed. This topology yields the natural (Gelfand) topology on both $L^m_n$ and the set $C^m_n$ of $m$-dimensional irreducible subspace  of $\C P^n_{\mathfrak{Gelfand}}$  If $\sY' \in C^{m'}_n$ then there is an open dense subset $\sU^{m''}_n \subset C^{m''}_m$ such that
-\be\label{gen_pos_eqn}
-\forall \sY'' \in \sU^{m''}_n \quad \sY' \cap \sY'' \cong \C P^{n - m' - m''}
-\ee
-\end{frame}
-\begin{frame}
-We say that the hypothesis \eqref{gen_pos_eqn} is the \alert{general position} (cf. Remark \ref{gen_pos_eqn}). Similarly to the algebraic geometry we define the ring structure on $\C P^n_{\mathfrak{Gelfand}}$ such that
-\be
-\left[\C P^{n-m'}\right]\cdot \left[\C P^{n-m''}\right]= \left[\C P^{n-m'-m''}\right]
-\ee
-From out construction one has the natural isomorphism
-$$
-A\left( \C P^n_{\mathfrak{Gelfand}}\right) \cong \Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^{n-1}\right] \right)^{n+1}
-$$
-There is the following mapping between Zariski and Gelfand topology.
-\end{frame}
-\section{Cobordism interpretation}
-\begin{frame}
-	{\Large Cobordism category}
-\begin{definition}\label{cobordism_category_defn}
-	A \alert{cobordism category} $\left(\mathscr C, \partial, j\right)$ is a triple in which
-	\begin{enumerate}
-		\item [(a)] $\mathscr C$ is a category having finite sums and an initial object;
-		\item[(b)] $\partial:  \mathscr C \to \mathscr C$ is an additive  functor such that for each object $X$ of $\mathscr C$, $~\partial \partial \left( X\right)$ is the initial object;
-		\item[(c)] $j :\partial \to \Id_{\mathscr C}$ is a natural transformation of additive from $\partial$ to the identity functor $\Id_{\mathscr C}$; and 
-		\item[(d)] There is a small category $\Id_{\mathscr C_0}$ or $\Id_{\mathscr C}$ such that each object of $\mathscr C$ is isomorphic  to an object of $\mathscr C_0$.
-	\end{enumerate} 
-\end{definition}
-\end{frame}
-\section{Cobordism interpretation}
-\begin{frame}
-	{\Large Cobordism interpretation}
-There is an interpretation of the Chow ring it terms of the cobordism category.
-Let $n \in \N$, and let $\mathscr{L}\left(n \right) $ be a category such that
-\begin{itemize}
-	\item any  $\mathscr{L}\left(n \right)$-object is a pair $\left(\sX, f \right)$ where $\sX \subset \C P^n_{\mathfrak{Gelfand}}$ is an irreducible closed subset and $f: \sX \to \C P^1_{\mathfrak{Gelfand}}\cong \C P^1_{\mathfrak{Zariski}}$ is a continuous map with $0 \in f\left( \sX\right)$. 
-		\begin{figure}
-		\includegraphics[width=0.4\linewidth]{cobord.png}
-		%		\caption{A boat.}
-		%		\label{fig:boat1}
-	\end{figure}
-	
-	\item an arrow from $\left(\sX', f' \right)$ to $\left(\sX'', f'' \right)$ is an injective  continuous  map $\phi: \sX' \hookto \sX''$ satisfying to the following conditions:
-\end{itemize}
-\end{frame}
-\begin{frame}
-Let $\mathscr{C}\left(n \right)$ be a category (cf. Definition \ref{category_defn}) such that
-be a category such that
-\begin{itemize}
-	\item any object of $\mathscr{C}\left(n \right)$ is a $\Z$-linear combination of $\mathscr{L}\left(n \right)$ objects,
-	\item if $f_1, ..., f_{m'}, g_1, ..., g_{m''}$ are $\mathscr{L}\left(n \right)$-objects then there is the unique  $\mathscr{C}\left(n \right)$-arrow from $\sum_{j = 1}^{m'}c_j f_j$ to $\sum_{\iota = 1}^{m''}d_\iota g_\iota$ with integer $c_\iota, ~d_\iota$ if and only if for any $\iota' \in 1,..., m'$ there is  $\iota'' \in 1,..., m''$ and $\mathscr{L}\left(n \right)$-arrow $f_{\iota'}\xrightarrow{\phi} g_{\iota''}$.
-\end{itemize}
-So the set of $\mathscr{C}\left(n \right)$ objects is the Grothendieck group of the category $\mathscr{L}\left(n \right)$.
-We suppose that there is the natural two=point subset $\left\{0, \infty\right\}\subset \C P^1$. For any $\mathscr{L}\left(n \right)$-object $\left(\sX, f \right)$ we define two objects $\left(\sX_0\bydef f^{-1}\left(0 \right) , f_0 \right)$  and $\left(\sX_1\bydef f^{-1}\left(\infty \right) , f_1 \right)$ where $f_0\left(\sX_0 \right) = f_1\left(\sX_1 \right)= {0} \in \C P^1_{\mathfrak{Gelfand}}$. If $\sX_1 = \emptyset$ then we set $f_1\left(\sX_1 \right)= \emptyset$.
-If $1_\Z \cdot \left(\sX, f \right)$ is $\mathscr{C}\left(n \right)$-object then we define
-\be\label{co_d_eqn}
-\partial \left( 1_\Z \cdot \left(\sX, f \right)\right)  \bydef \begin{cases}
-	1_\Z \cdot \left(\sX_0, f_0 \right) - 1_\Z \cdot \left(\sX_1, f_1 \right) & \infty \in f\left(\sX \right) \\
-	0_{\mathscr{C}\left(n \right)} &  \infty \notin f\left(\sX \right)
-\end{cases}
-\ee 
-The $\Z$-linearity yields the unique additive  functor $\mathscr{C}\left(n \right)\xrightarrow{\partial} \mathscr{C}\left(n \right)$.
-\end{frame}
-\begin{frame}
-\begin{lemma}
-	Under the above hypothesis  $\mathscr{C}\left(n \right)$ is the cobordism category.
-\end{lemma}
-
-\begin {table}[H]
-\caption {Mapping between Zariski and Gelfand topology } \label{main_mapping_table} 
-	\begin{tabular}{|c|c|c|}
-		\hline
-		&	 Gelfand topology &  Zariski topology\\
-		\hline
-		& & 	\\
-		The space & $\C P^n_{\mathfrak{Gelfand}}$ &  $\C P^n_{\mathfrak{Zariski}}$ \\
-		&&	\\
-		Cycles 	&	Linear subspace  & Algebraic subvariety \\
-		& $\C P^m \subset \C P^n$ & $\sX \subset \C P^n$	\\
-		& &\\
-		Equivalence  & Cobordism & Rational equivalence\\
-	relation	&& \\
-	&& \\
-		Chow ring	& $\Z\left[\left[\C P^{n-1}\right]\right] /\left( \left[\C P^1\right] \right)^{n+1}$	& $\Z\left[\left[\C P^1\right]\right] /\left( \left[\C P^{n-1}\right] \right)^{n+1}$\\
-		&& \\
-		\hline
-	\end{tabular}
-\end {table}
-\end{frame}
-
-
-\section{Hausdorff blowing-up}
-\begin{frame}
-	\begin{definition}\label{blowing_defn}
-	If $A$ is a $C^*$-algebra then any good $*$-homomorphism  $\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)$  (or equivalently $C_0\left( \sX\right) \subset M\left(A \right)$ ) is \alert{Hausdorff blowing-up}.
-\end{definition}
-	\begin{rem}
-The "blowing-up" word is inspired by following reasons:
-\begin{itemize}
-	\item Sometimes there is  the natural partially defined  surjective  map from  Hausdorff blowing-up to the spectrum.
-	\item  In the algebraic geometry   "blowing-up" means  excluding of singular points.
-\end{itemize}
-\end{rem}
-\end{frame}
-\section{Universal blowing-up}
-\begin{frame}
-	If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right) \to M\left(A \right)$ is Hausdorff blowing-up then the action $C_b\left(
-\sX \right) \times C_c\left(\sX \right)\to  C_c\left(\sX \right)$ yields  the action $C_b\left(
-\sX \right) \times\left(  C_c\left(\sX \right) A\right) \to  C_c\left(\sX \right)A$. Since $  C_c\left(\sX \right)A$ is dense in $A$ one the action $C_b\left(
-\sX \right) \times\left(  C_c\left(\sX \right) A\right) \to  C_c\left(\sX \right)A$ can be naturally extended up to the action $C_b\left(
-\sX \right) \times A \to  A$. Similarly one has the natural right action $A \times C_b\left(
-\sX \right) \to  A$. One can prove that both these actions yield an inclusion
-\be\label{blowing_b_eqn} 
-C_b\left(\sX \right)\to M\left(A \right).  
-\ee
-\end{frame}
-\begin{frame}
-\begin{definition}\label{hausdorff_defn}
-	Let $\sX$ be a topological space. The $\sX$-\alert{ Hausdorff category}  $\mathfrak{Hausdorff}\left( \sX\right)$ is such that 
-	
-	\begin{itemize}
-		\item objects of $\mathfrak{Hausdorff}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact  space $\sY$, 
-		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous surjective map  $\sY' \onto \sY''$ such that the diagram 
-			\begin{figure}
-		\includegraphics[width=0.4\linewidth]{hauscat.png}
-		%		\caption{A boat.}
-		%		\label{fig:boat1}
-	\end{figure}
-		
-		is commutative.
-	\end{itemize}
-	
-\end{definition}
-\begin{lemma}
-	For any topological space $\sX$ there is the initial object  of the  $\sX$-{Hausdorff category}.
-\end{lemma}
-
-\end{frame}
-\begin{frame}
-	\begin{proof}
-		Let $A$ be a commutative $C^*$-algebra of all bonded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-		$$
-		I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-		$$
-		The ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. It turns out that the spaces $\sY'$ and $\sY$ are locally compact  and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-		\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq A$. It is a contradiction which proves that the existence jf $\sY''$ is impossible.  
-			\end{proof}
-\end{frame}
-\begin{frame}
-	\begin{definition}\label{blowing_uni_h_defn}
-	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \alert{universal Hausdorff quotient space}.
-\end{definition}	
-
-\begin{lemma}\label{final_blowing_lem}
-	Let $A$ be a $C^*$-algebra. If  a category $\mathfrak{Blowing}\left(A\right)$  such that 
-	\begin{enumerate}
-		\item[(a)] any object of $\mathfrak{Blowing}\left(A\right)$ is Hausdorff blowing-up, 
-		\item[(b)] a morphism from $C_0\left( \sX'\right) \hookto M\left(A \right)$ to $C_0\left( \sX''\right) \hookto M\left(A \right)$ is an injective *-homomorphism $C_b\left( \sX'\right) \hookto C_b\left( \sX''\right)$ such that the diagram 
-		such that the diagram 			\begin{figure}
-			\includegraphics[width=0.6\linewidth]{unibl.png}
-			%		\caption{A boat.}
-			%		\label{fig:boat1}
-		\end{figure}
-		
-		is commutative.
-	\end{enumerate}
-	then there is the final object $\mathfrak{Blowing}\left(A\right)$.
-	\end{lemma}
-	
-\end{frame}
-\begin{frame}
-\begin{proof}
-	If $\sY$ is the $\mathfrak{Gelfand}\left( A\right)
-	$ {universal Hausdorff quotient space} and $C_0\left( \sX'\right) \to M\left(\sX  \right)$ is Hausdorff blowing-up, then   there are:
-	\begin{itemize}
-		\item the natural surjective continuous map $\sY \to \sX$,
-		\item The natural  inclusion $C_0\left(\sX \right)\subset C_b\left(\sY \right)$. 
-	\end{itemize}
-	If $\left\{C_0\left(\sX_\la \right) \right\}_{\la \in \La}$  is family of all Blowing-ups then the $C^*$-norm completion of the included into  $C_b\left(\sY \right)$ union $\bigcup_{\la\in \La} C_0\left(\sX_\la \right)$ is a commutative $C^*$-algebra $C_0\left( \sX\right)$. One can proof that the natural inclusion  $C_0\left(\sX \right) \subset M\left( A\right)$ is the final object of the category  $\mathfrak{Blowing}\left(A\right)$.
-\end{proof}
-\begin{definition}\label{blowing_universal_defn}
-	The final object of the category $\mathfrak{Blowing}\left(A\right)$  of this category $C_0\left( \sX\right) \hookto M\left(A \right)$ is  \alert{universal Hausdorff blowing-up of} $A$.
-\end{definition}	
-\end{frame}
-\begin{frame}
-\begin{definition}\label{blowing_ideals_au_ua_defn}
-	Let  $ C_0\left( \sY\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$, and let $\sU \subset \sY$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \alert{left} $\sU$-\alert{ideal} and the \alert{right} $\sU$-\alert{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
-	\be\label{blowing_hereditary_u_eqn} 
-	\begin{split}
-		_\sU A_\sU \bydef	~	_\sU A\cap  A_\sU = A^*	_\sU \cap  A_\sU\\ %(\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_bab_lem}}).
-	\end{split}
-	\ee	
-	is the $ \sU$-\alert{subalgebra}.
-	
-\end{definition}
-	\begin{definition}\label{blowing_support_defn}
-	If $C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$,  $a \in A$ and
-	$
-	\sU_a \bydef\bigcap 
-	\left\{\left.{\sU} \subset \sX\right| a\in~_\sU A_{\sU} \right\}
-	$
-	then the  closure $\sV_a$  of $\sU_a$ is said to be the \alert{support} of $a$. We write $\supp~ a \bydef \sV_a$.
-\end{definition}
-\end{frame}
-\begin{frame}
-	\begin{lemma}\label{blowing_pedersen_compact_lem}
-	If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$  then the support of $a$  is compact.
-\end{lemma}
-	From the above Lemma it follows that the injective homomorphism $\varphi_\sY : C_0\left(\sX \right) \hookto M\left(A \right)$ is good. So there is the natural surjective continuous map
-\bean
-\phi_A : \mathfrak{Gelfand}\left(A \right) \to \sY.
-\eean
-\end{frame}
-
-
-\section{Continuous trace $C^*$-algebras}
-\begin{frame}
-\begin{definition}\label{abelian_element_defn}
-	A positive element in $C^*$ - algebra $A$ is \alert{ Abelian} if subalgebra $xAx \subset A$ is commutative.
-\end{definition}
-\begin{definition}\label{continuous_trace_c_alt_defn}
-	%Definition 5.13. 
-	A \alert{continuous-trace} $C^*$-\alert{algebra} is a $C^*$-algebra $A$ with Hausdorff
-	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighbourhood $\sU$ of $x_0$ and $a\in A$ such that $\rep_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$.
-	\end{definition}
-	\begin{empt}
-If $A$ is a continuous-trace $C^*$-algebra then from Dauns-Hofmann theorem it follows that one has Hausdorff blowing-up
-\bean
-C_0\left( \sX\right)\hookto M\left( A\right)
-\eean 
-where $\sX$ is the spectrum of $A$.
-	\end{empt}
-	\end{frame}
-	\begin{frame}
-
-		Let   $A$  be a {continuous-trace} $C^*$-{algebra} with the spectrum $\sX$, and let
-\bean
-\mathfrak{Comm}\left( A\right)  \text{ is a set of all commutative } C^*\text{-subalgebras of } A.
-\eean
-Then there is a presheaf  $\mathscr P_{\sX\text{-}A}$  of sets such that for any open $\sU \subset \sX$  one has
-\bean
-\begin{split}
-	\mathscr P_{\sX\text{-}A}\left(\sU \right)\bydef \left\{ C \in	\mathfrak{Comm}\left( A\right) \left|~ C \subset ~_\sU A_\sU \right. \right\};\\
-	\rho_{\sU\sV} : \mathscr P_{\sX\text{-}A}\left(\sU \right)\to \mathscr P_{\sX\text{-}A}\left(\sV \right),\\
-	C \mapsto C \cap ~_\sV A _\sV.
-\end{split}
-\eean
-and let $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$ be the \'espace etal\'e of the presheaf $\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the natural local homeomorphism $p_{\mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)} : \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right) \onto \sX$.
-	\end{frame}
-	\begin{frame}
-		\begin{theorem}\label{ctr_gelfand_thm}
-			If $A$ is a {continuous-trace} $C^*$-{algebra}  with the spectrum $\sX$ then there is the natural bijective set theoretic map $\phi_{\mathscr P}:\mathfrak{Gelfand}\left( A\right) \cong \mathrm{Sp\acute{e}}\left(\mathscr P_{\sX\text{-}A} \right)$  with the following commutative diagram
-			\begin{figure}
-	\includegraphics[width=0.6\linewidth]{ctretale.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
-			where $\hat \phi$ is a specialization of the continuous map from the Gelfand space to the spectrum.
-		\end{theorem}	
-	\end{frame}
-	\begin{frame}
-\begin{definition}\label{bicommutant_defn}
-	Let $A$ be a $C^*$-algebra. If $\xi \in \mathfrak{Gelfand}\left(A \right)$ and the set
-	\bean
-	\xi'' \bydef \left\{\left. a \in \rep_{\hat \phi\left( \xi\right) }\left(A \right)\right| \forall L \in \xi \quad  a^* \rep_{\hat \phi\left( \xi\right) }\left(L \right) = \{0\}
-	\right\}\subset \rep_{\hat \phi\left( \xi\right) }\left(A \right)
-	\eean
-	is a proper left ideal of $\rep_{\hat \phi\left( \xi\right) }\left(A \right)$ then $\xi''$ is the \alert{bicommutant} of $\xi$. If for any $\xi \in \mathfrak{Gelfand}\left(A \right)$ the bicommutant exists then there is 
-	is the natural surjective  map 
-	\bean
-	\mathfrak{Gelfand} \left(A \right) \xrightarrow{\phi''}  \mathfrak{Gelfand} \left(A \right)''
-	\eean
-	where $\mathfrak{Gelfand} \left(A \right)''$ is the set of all bicommutants. We consider the final with respect to the map $\phi''$   topology on $\mathfrak{Gelfand} \left(A \right)''$ and say that the space $\mathfrak{Gelfand} \left(A \right)''$ is the \alert{bicommutant} of $\mathfrak{Gelfand} \left(A \right)$.
-	\end{definition}	
-\end{frame}
-\begin{frame}
-	\begin{prop}\alert{Dixmier–Douady}
-		%Proposition 5.59. 
-		%Theorem 9.9 
-		Any stable separable algebra $A$ of continuous
-		trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
-		$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
-		over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
-		such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
-		The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
-		algebra A is called its Dixmier–Douady class.
-	\end{prop}
-	\begin{theorem}\alert{Ivankov}
-	Suppose that $A$ is the given by the above proposition   locally trivial   fibre bundle $\F$ with fibre $\K = \K\left(\sH \right)$. There is a subbundle $\E \subset \F$ such that fibers of $\E$ are  rank-one positive operators. It gives a locally trivial bundle $\C P\left(\E \right)\xrightarrow{\phi_\E} \sX$ such that any fibre of $\phi_\E$ is a complex projective space $\C P\left(\sH \right)$. Then there is  the natural set theoretic bijective map
-\bean
-\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)''.
-\eean
-\end{theorem}	
-\end{frame}
-\begin{frame}
-Under the hypothesis of the above theorem is the natural bijective continuous map 
-\bean\label{ctr_bundle_eqn}
-\C P\left(\E \right)_{\mathfrak{Hausdorff}}\xrightarrow{\phi_{\C P\left( \E\right) }} \C P\left(\E \right)_{\mathfrak{Gelfand}}
-\eean
-where $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ is the set $\C P\left(\E \right)$ having well known Hausdorff topology, and $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ has a topology induced by the natural set theoretic bijective map
-$
-\phi_C: \C P\left(\E \right)\cong  \mathfrak{Gelfand}\left(A \right)''.
-$  The topological invariants of $\C P\left(\E \right)_{\mathfrak{Hausdorff}}$ are well known. The invariants of $\C P\left(\E \right)_{\mathfrak{Gelfand}}$ should be developed. Theory of motives is a good prototype for the theory of invariants of  $\C P\left(\E \right)_{\mathfrak{Gelfand}}$.
-\end{frame}
-	\section{Classical and quantum projective modules}
-	\begin{frame}
-\begin{definition}\label{projection_equivalences_defn}
-	%Definition 5.2.1. 
-	Projections $p$ and $q$ in a $C^*$-algebra $A$ are said to be 
-	\begin{itemize}
-		\item\alert{ equivalent}, denoted $p\sim q$, when $p = v^*v$ and $q = vv^*$,  $v\in A$ being 
-		a partial isometry; 
-		\item\alert{ unitarily equivalent}, denoted $p\sim_uq$, when $p = u^*qu$, $u \in A^+$l 
-		being unitary; 
-		\item\alert{ homotopic}, denoted $p \sim_h q$, when $p$ and $q$ are connected by a norm 
-		continuous path of projections in $A$. 
-	\end{itemize}
-	
-\end{definition}
-\begin{definition}\label{projection_equivalence_defn}
-	%Definition 6.1.1. 
-	Call projections $p, q \in \mathbb{M}_\infty\left(A \right)$ \alert{ equivalent}, denoted $p\sim q$, when there is a $v \in \mathbb{M}_\infty\left(A \right)$ such that $p = v^*v$ and $q = vv^*$ 
-	The equivalence classes are denoted $[\cdot]$ and the set of all these is 
-	\be
-	V\left(A \right) \bydef \left\{[p]\left| p = p^* = p^2\in \mathbb{M}_\infty\left(A \right)\right.\right\}
-	\ee
-	
-	\alert{ Addition} in $V\left( A\right)$ is defined by 
-	\bean
-	[p] + [q] = \left[p' \oplus q'\right]
-	\eean
-	if $p' \sim p$, $q' \sim  q$, $p'\perp q'$. 
-\end{definition}
-	\end{frame}
-\begin{frame}
-If $A$ is a $C^*$-algebra and  $C_0\left( \sX\right)\subset M\left(A\otimes \K \right)$ is universal Hausdorff blowing-up  then there is a  homomorphism 	$\mathfrak{Blowing}^+_{\sX-A\otimes \K }:C\left( \sX^+\right) \hookto M\left(A\otimes \K \right)$ and there is a diagram
-
-	\begin{figure}
-	\includegraphics[width=0.9\linewidth]{pmodules.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
-
-\begin{definition}\label{classic_quant_defn}
-	An equivalence class of projections   $\sV\in V\left(A^+ \right)$  represented by $e_A\in 	\mathbb{M}_\infty \left( A^+\right)$  is \alert{ classical} if there is the unique class  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ such that $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where is $\sim$ cobordism. An equivalence class of projections   $\sV\in V\left(A^+ \right)$ is \alert{ quantum} if it is not classical.
-	\end{definition}\end{frame}
-\begin{frame}
-\begin{definition}\label{chern_defn}
-	Let  $\sV\in V\left(A^+ \right)$ be a classical  class of projections represented by $e_A\in 	\mathbb{M}_\infty \left( A^+\right)$ . If  $\sV_\sX\in V\left(C\left(\sX^+ \right) \right) $ represented by $e_\sX\in 	\mathbb{M}_\infty \left(C\left( \sX^+\right) \right)$ with $\phi_A \circ \phi\left(e_A \right)\sim\phi_\sX\left( e_\sX\right)$ where $\sim$ is given by the Definition \ref{projection_equivalence_defn}. 
-	The \alert{$K$-theoretical} (resp. \alert{cohomological}) \alert{ Chern classes} $c^K_j\left(\sV \right) \in K\left(\sX^+ \right)$   (resp. $c^H_j\left(\sV \right)\in H^{2j}\left(\sX^+, \Z \right)$) of $\sV$ are {Chern classes} $c^K_j\left(\sV_\sX \right)$ (resp. $c^H_j\left(\sV_\sX \right)$) of $\sV_\sX$ , i.e.
-	\bean\label{chern_defn_eqn}
-	\forall j\in \N \quad c^K_j\left(\sV \right)\bydef c^K_j\left(\sV_\sX \right);\quad c^H_j\left(\sV \right)\bydef c^H_j\left(\sV_\sX \right)
-	\eean
-\end{definition}
-If $C^*_r\left(\T^2, \F_\theta \right)$ is the reduced $C^*$-algebra of the Kronecker  foliation then there is  a $*$-isomorphism $C\left( \T^2_\theta\right) \otimes \K\cong C^*_r\left(\T^2, \F_\theta \right)$ where $C\left( \T^2_\theta\right)$ is the noncommutative torus. There are natural isomorphisms $K_n\left(C\left( \T^2_\theta\right) \right) \cong K_n\left(C^*_r\left(\T^2, \F_\theta \right) \right)$. There is universal Hausdorff blowing-up $C\left( \T^2\right) \hookto M\left( (C^*_r\left(\T^2, \F_\theta \right)\right)$, The corresponding to the Rieffel projection class is quantum. The Chern classes of the suspension $C^*$-algebra of $C^*_r\left(\T^2, \F_\theta \right)$ are calculated. 
-\end{frame}
-
-\section{Algebraic counterpart of geometric quotient}
-\begin{frame}
-	{\Large Algebraic counterpart of geometric quotient}
-Alain Connes  formulated the algebraic counterpart of the geometric operation of forming the
-quotient of a space by an equivalence relation, and show how to handle non-Hausdorff quotients by using noncommutative $C^*$-algebras. 
-A foliated manifold $\left(M, \F \right)$ contains a differential manifold $M$ such that
-$$
-M = \bigsqcup_{\la \in \La} \mathcal L_\la
-$$
-where $\left\{\mathcal L_\la\right\}_{\la \in \La}$ is a set of leaves. If any leaf simply connected then any irreducible representation correspond to a leaf. There is an equivalence relation on $M$ such that
-$$
-x' \sim x'' \quad \exists \la\in \La \quad x', x'' \in \mathcal L_\la
-$$
-In result one has the following diagram with Hausdorff $M$ and non Hausdorff $M/\sim$. 
-	\begin{figure}
-	\includegraphics[width=0.5\linewidth]{folidgm.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
-\end{frame}
-\section{Quantization}
-\begin{frame}
-Roughly speaking the quotient is a map from Hausdorff blowing-up $M$ to the spectrum $M/\sim$. Hausdorff blowing-up is inverse operation. The following picture illustrates this statement
-	\begin{figure}
-	\includegraphics[width=0.5\linewidth]{nt.png}
-	%		\caption{A boat.}
-	%		\label{fig:boat1}
-\end{figure}
-
-\end{frame}
-\section{Connes quantization}
-\begin{frame}
-	{\Large Quantization}
-	In general the quantization yields a passage from the classical physics to the quantum one. In particular there is a quantization which yields an the transformation from commutative $C^*$-algebra $B$ to noncommutative one. In particular a commutative  $C^*$-algebra $B$ with the product $\times$ is a depending on real parameter $\hslash$  limit of continuous fields  of noncommutative $C^*$-algebras $\overline B_\hslash$ with product $\times_\hslash$ such that
-	\begin{itemize}
-		\item Any $\overline B_\hslash$ is isomorphic to $B$ with the $C^*$-norm $f \mapsto \left\|f \right\|_{\hslash}$ which is continuous of $\hslash$ for any $f \in B$. 
-		\item For any $f, g \in B$ we have $\left\|\left(f\times_\hslash g - g\times_\hslash f \right) /\hslash - i\left\{f, g\right\} \right\|_{\hslash}$ as $\hslash\to 0$, where $\left\{ ,\right\}_J$ is the Poisson bracket'
-	\end{itemize}
-\end{frame}
-\section{Connes quantization}
-\begin{frame}
- {\Large Quantization}
- Hausdorff blowing-up equation
-\be\label{blowing_r_eqn}
-\mathfrak {Blowing}_{\sX-A }:C_0\left( \sX\right) \hookto M\left(A \right)
-\ee
-contains both a commutative $C^*$-algebra $C_0\left( \sX\right)$ and  a noncommutative one $A$. Elements of  $C_0\left( \sX\right)$  are limits of elements of $A$ with respect to the strict topology of $M\left(A \right)$, i.e. one has passage form noncommutative $C^*$-algebra to commutative one.
-
-
-
- This duality can have rich structure. It is known the physical fields (e.g. electromagnetic, electroweak etc.) correspond to vector bundles, or equivalently projective modules. We have constructed is  a bridge between projective $C\left(\sX^+ \right)$-modules and  $A^+$-modules. Physically it means that there is a set of classical projective modules  are common fields belonging to classical geometry and noncommutative one. The Rieffel projection on the noncommutative torus  correspond to a quantum projective module. This circumstance can have following physical interpretation. Classical fields correspond  to the "experimentally  proven" phenomena.  
-\end{frame}
-\begin{frame}
-Rieffel projection is responsible for phenomena which cannot be easily detected, e.g. vanishing of the divergences.  	This analogy can be extended. For example the Dirac operator of noncommutative torus coincides with commutative one.
-Sometimes this duality comes from the given by Alain Connes  algebraic counterpart of geometric quotient  which makes a non Hausdorff spectrum from a Hausdorff space. In this case we say that there is  \alert{ Connes quantization}. Roughly speaking physics of noncommutative torus contains all elementary particles of commutative one. Besides common "elementary particles" noncommutative torus contains very massive particles which could not be easy detected.
-
-	\end{frame}
 
 \begin{frame}
 	\alert{Thank you}
