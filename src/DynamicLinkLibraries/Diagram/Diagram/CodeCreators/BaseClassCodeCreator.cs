@@ -41,7 +41,16 @@ namespace Diagram.UI.CodeCreators
         {
             if (obj is ICategoryArrow arrow)
             {
-                var str = arrow.GetType().FullName;
+                var t = arrow.GetType();
+                var tt = t.BaseType;
+                if (tt != null)
+                {
+                    if (t.Name == tt.Name)
+                    {
+                        t = tt;
+                    }
+                }
+                var str = t.FullName;
                 List<string> l = new List<string>();
                 l.Add(str);
                 l.Add("{");

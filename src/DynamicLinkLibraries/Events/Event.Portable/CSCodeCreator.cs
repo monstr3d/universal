@@ -1,20 +1,19 @@
 ﻿using BaseTypes.Attributes;
 using Diagram.UI;
-using Diagram.UI.CodeCreators.Interfaces;
-using Diagram.UI.Interfaces;
+using Diagram.UI.CodeCreators;
 using Event.Interfaces;
 using Event.Portable.Arrows;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Event.Portable
 {
     [Language("C#")]
-
-    class CSCodeCreator : IClassCodeCreator
+    class CSCodeCreator : BaseClassCodeCreator
     {
 
-        internal CSCodeCreator()
+        internal CSCodeCreator() : base(false)
         {
            this.AddClassCodeCreator();
         }
@@ -23,19 +22,13 @@ namespace Event.Portable
         #region IClassCodeCreator Members
 
 
-        protected virtual string BaseClassString(string prefix, object obj)
+        protected override List<string> CreateCode(string preffix, object obj, string volume)
         {
-            return obj.GetType().Name;
-        }
-
-        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
-
-        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
-
-
-
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
-        {
+            var s = base.CreateCode(preffix, obj, volume);
+            if (s != null)
+            {
+                return s;
+            }
             List<string> l = new List<string>();
             string str = null;
             if ((obj is EventLink))
