@@ -1396,7 +1396,7 @@ namespace GeneratedProject
 				obj.Object = this;
 			}
 	
-			internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+			internal class CategoryObject : Motion6D.Portable.ReferenceFrameData
 			{
 			
 				internal CategoryObject()
@@ -1404,7 +1404,7 @@ namespace GeneratedProject
 					parameters = new List<string>()
 					{
 			"Motion.Formula_1",
-			"Motion.Formula_2",
+			"Motion.FoReferenceFrameData datarmula_2",
 			"Motion.Formula_3",
 			"Motion.Formula_4",
 			"Motion.Formula_5",
@@ -1595,7 +1595,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel0.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : DataPerformer.Portable.DataLink
+			internal class CategoryArrow : DataPerformer.DataLink
 			{
 			}
 		}
@@ -1621,7 +1621,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel2.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : DataPerformer.Portable.DataLink
+			internal class CategoryArrow : DataPerformer.DataLink
 			{
 			}
 		}
@@ -1634,7 +1634,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel3.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : DataPerformer.Portable.DataLink
+			internal class CategoryArrow : DataPerformer.DataLink
 			{
 			}
 		}
@@ -1673,7 +1673,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel6.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}
@@ -1686,7 +1686,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel7.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}
@@ -1699,7 +1699,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel8.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : DataPerformer.Portable.DataLink
+			internal class CategoryArrow : DataPerformer.DataLink
 			{
 			}
 		}
@@ -1725,7 +1725,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel10.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}
@@ -1738,7 +1738,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel11.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}
@@ -1751,7 +1751,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel12.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}
@@ -1764,7 +1764,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel13.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.Portable.BelongsToCollection
+			internal class CategoryArrow : Diagram.UI.BelongsToCollection
 			{
 			}
 		}

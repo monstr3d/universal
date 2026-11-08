@@ -46,6 +46,10 @@ namespace Diagram.UI
 
 
 
+        static public  Dictionary<string, List<Assembly>> ProhibitedCodeCreationAssemblies
+        {
+            get;
+        } = new();
 
         static public Dictionary<string, CombinedCodeCreator> Creators
         {
@@ -150,6 +154,63 @@ namespace Diagram.UI
                 throw new OwnNotImplemented();
             }
             AliasCreators[lang] = creator;
+        }
+
+        static public void AddProhibitedCodeCreationAssembly(this Assembly assenmly, string language)
+        {
+            List<Assembly> l = new List<Assembly>();
+            if (ProhibitedCodeCreationAssemblies.ContainsKey(language))
+            {
+                l = ProhibitedCodeCreationAssemblies[language];
+            }
+            else
+            {
+                l = new List<Assembly>();
+                ProhibitedCodeCreationAssemblies[language] = l;
+            }
+
+            if (!l.Contains(assenmly))
+            {
+                l.Add(assenmly);
+            }
+        }
+
+        static public bool RejectAssembly(this IClassCodeCreator codeCreator, object o)
+        {
+            var ass = o.GetType().Assembly;
+            var an = ass.FullName;
+            if (ProhibitedCodeCreationAssemblies.ContainsKey(""))
+            {
+                var l = ProhibitedCodeCreationAssemblies[""];
+                if (l.Contains(ass))
+                {
+                    return true;
+                }
+                foreach (var a in l)
+                {
+                    if (a.FullName == an)
+                    {
+                        return true;
+                    }
+                }
+            }
+            var language = performer.GetLanguage(codeCreator);
+            if (ProhibitedCodeCreationAssemblies.ContainsKey(language))
+            {
+                var l = ProhibitedCodeCreationAssemblies[language];
+                if (l.Contains(ass))
+                {
+                    return true;
+                }
+                foreach (var a in l)
+                {
+                    if (a.FullName == an)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
 

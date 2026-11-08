@@ -141,6 +141,26 @@ namespace NamedTree
             return l;
         }
 
+        /// <summary>
+        /// Gets assembly type
+        /// </summary>
+        /// <param name="type">The type</param>
+        /// <param name="assembly">The assembly  name</param>
+        /// <returns>The type</returns>
+        public Type GetType(Type type, string assembly, bool recursive = false)
+        {
+            if (type == null)
+            {
+                return null;
+            }
+            if (type.Assembly.FullName == assembly)
+            {
+                return type;
+            }
+            return (recursive) ? GetType(type.BaseType, assembly) : null;
+            
+        }
+
 
         /// <summary>
         /// Sorts partially ordered set

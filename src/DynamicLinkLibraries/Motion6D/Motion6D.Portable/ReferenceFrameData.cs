@@ -240,7 +240,6 @@ namespace Motion6D.Portable
 
         #endregion
 
-
         #region Overriden Members
 
         /// <summary>

@@ -11,6 +11,7 @@ using Event.Interfaces;
 using Event.Log.Database;
 using Event.Log.Database.Interfaces;
 using Event.Basic.Logs;
+using Diagram.UI;
 
 namespace Event.Basic
 {
@@ -45,6 +46,8 @@ namespace Event.Basic
                 TransformDeserialize;
             DataPerformer.Interfaces.StaticExtensionDataPerformerInterfaces.ObjectToBytes =
                   TransformSerialize;
+            var ass = typeof(StaticExtensionEventBasic).Assembly;
+            ass.AddProhibitedCodeCreationAssembly("");
         }
 
         #endregion

@@ -14,10 +14,13 @@ namespace Diagram.UI.CodeCreators
 
         static protected NamedTree.Performer performer = new();
 
-        protected Dictionary<Func<object, bool>, Func<string, object, List<string>>> dictionary =
-            new Dictionary<Func<object, bool>, Func<string, object, List<string>>>();
+        protected Dictionary<Func<object, bool>, Func<string, object, List<string>>> dictionary = new();
 
         protected virtual IDesktopCodeCreator DesktopCodeCreator {  get; set; }
+
+        protected List<string> assemblyNames = new List<string>();
+
+        protected virtual List<string> AssemblyNames => assemblyNames;
 
         IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
 
@@ -41,15 +44,11 @@ namespace Diagram.UI.CodeCreators
         {
             if (obj is ICategoryArrow arrow)
             {
-                var t = arrow.GetType();
-                var tt = t.BaseType;
-                if (tt != null)
+                if (this.RejectAssembly(obj))
                 {
-                    if (t.Name == tt.Name)
-                    {
-                        t = tt;
-                    }
+                    return null;
                 }
+                var t = arrow.GetType();
                 var str = t.FullName;
                 List<string> l = new List<string>();
                 l.Add(str);
@@ -75,7 +74,7 @@ namespace Diagram.UI.CodeCreators
             }
             foreach (Func<object, bool> key in dictionary.Keys)
             {
-                if (key(obj))
+                if (key(obj) & (!this.RejectAssembly(obj)))
                 {
                     return dictionary[key](prefix, obj);
                 }

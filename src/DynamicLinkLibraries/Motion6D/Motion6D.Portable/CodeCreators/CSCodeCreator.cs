@@ -1,87 +1,64 @@
 ﻿using BaseTypes.Attributes;
 using Diagram.UI;
-using Diagram.UI.CodeCreators.Interfaces;
-using Diagram.UI.Interfaces;
+using Diagram.UI.CodeCreators;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Aggregates;
+using System;
 using System.Collections.Generic;
 
 namespace Motion6D.Portable.CodeCreators
 {
     [Language("C#")]
-    class CSCodeCreator : IClassCodeCreator
+    class CSCodeCreator : BaseClassCodeCreator
     {
 
-        internal CSCodeCreator()
+        static string an = typeof(CSCodeCreator).Assembly.FullName;
+
+        protected Dictionary<Func<object, bool>, Func<object, List<string>>> dict;
+
+        internal CSCodeCreator() : base(false)
         {
            this.AddClassCodeCreator();
+            dict = new()
+            {
+                    { (o) => { return o is ReferenceFrameData; }, CreateRefetenceFrameData },
+                    { (o) => { return o is RigidReferenceFrame; } , CreateRigidReferenceFrame },
+                    { (o) => { return o is MechanicalAggregateLink; } , CreateMechanicalAggregateLink },
+                    { (o) => { return o is AggregableWrapper; } , CreateAggregableWrapper },
+                    { (o) => { return o is ReferenceFrameArrow; } , CreateString },
+                    { (o) => { return o is RelativeMeasurementsLink; } , CreateString },
+                    { (o) => { return o is RelativeMeasurements; } , CreateString },
+       };
+
+
+
         }
 
         #region IClassCodeCreator Members
 
 
-        protected virtual IDesktopCodeCreator DesktopCodeCreator { get; set; }
-
-        IDesktopCodeCreator IClassCodeCreator.DesktopCodeCreator { get => DesktopCodeCreator; set => DesktopCodeCreator = value; }
-
-        protected virtual string BaseClassString(string prefix, object obj)
-        {
-            return obj.GetType().Name;
-        }
-
-        List<string> IClassCodeCreator.CreateCode(string preffix, object obj, string volume)
+        protected override List<string> CreateCode(string preffix, object obj, string volume)
         {
             List<string> l = new List<string>();
-            string name = obj.GetType().FullName;
-            string str = null;
-            if (obj is ReferenceFrameData)
+            foreach (var item in dict)
             {
-                if (name.Contains("ReferenceFrameDataBase") | name.Contains("Motion6D.ReferenceFrameData"))
+                if (item.Key(obj))
                 {
-                    return CreateRefetenceFrameData(obj as ReferenceFrameData);
+                    var t = item.Value(obj);
+                    if (t != null)
+                    {
+                        return t;
+                    }
                 }
             }
-            if (obj is RigidReferenceFrame)
-            {
-                if (name.Contains("RigidReferenceFrame"))
-                {
-                    return CreateRigidReferenceFrame(obj as RigidReferenceFrame);
-                }
-            }
-            if (obj is ReferenceFrameArrow)
-            {
-                str = "Motion6D.Portable.ReferenceFrameArrow";
-            }
-            if (obj is RelativeMeasurementsLink)
-            {
-                str = "Motion6D.Portable.RelativeMeasurementsLink";
-            }
-            if (obj is RelativeMeasurements)
-            {
-                str = "Motion6D.Portable.RelativeMeasurements";
-            }
-            if (obj is MechanicalAggregateLink)
-            {
-                return CreateMechanicalAggregateLink(obj as MechanicalAggregateLink);
-            }
-            if (obj is AggregableWrapper)
-            {
-                return CreateAggregableWrapper(obj as AggregableWrapper);
-            }
-            if (str == null)
-            {
-                return null;
-            }
-            l.Add(str);
-            l.Add("{");
-            l.Add("}");
-            return l;
+            return null;
         }
 
         #endregion
 
-        List<string> CreateAggregableWrapper(AggregableWrapper data)
-        {
+        List<string> CreateAggregableWrapper(object o)
+        { 
+            AggregableWrapper data = o as AggregableWrapper;
             List<string> l = new List<string>();
             l.Add("Motion6D.Portable.AggregableWrapper");
             l.Add("{");
@@ -113,8 +90,9 @@ namespace Motion6D.Portable.CodeCreators
             return l;
         }
 
-        List<string> CreateRigidBody(RigidBody data)
+        List<string> CreateRigidBody(object o)
         {
+            var data = o as RigidBody;
             List<string> l = new List<string>();
             l.Add("Motion6D.Portable.Aggregates.RigidBody");
             l.Add("{");
@@ -163,8 +141,9 @@ namespace Motion6D.Portable.CodeCreators
             return l;
         }
 
-        List<string> CreateMechanicalAggregateLink(MechanicalAggregateLink data)
+        List<string> CreateMechanicalAggregateLink(object o)
         {
+            var data = o as MechanicalAggregateLink;
             List<string> l = new List<string>();
             l.Add("Motion6D.Portable.MechanicalAggregateLink");
             int s = data.SourceConnection;
@@ -178,8 +157,9 @@ namespace Motion6D.Portable.CodeCreators
             return l;
         }
 
-        List<string> CreateRigidReferenceFrame(RigidReferenceFrame data)
+        List<string> CreateRigidReferenceFrame(object o)
         {
+            var data = o as RigidReferenceFrame;
             List<string> l = new List<string>();
             l.Add("Motion6D.Portable.RigidReferenceFrame");
             l.Add("{");
@@ -207,12 +187,42 @@ namespace Motion6D.Portable.CodeCreators
             return l;
         }
 
-
-
-        List<string> CreateRefetenceFrameData(ReferenceFrameData data)
+        List<string> CreateString(object data)
         {
+            var t = data.GetType();
+            string s = null;
+            if (t.Assembly.FullName == an)
+            {
+                s = t.FullName;
+            }
+            else
+            {
+                t = t.BaseType;
+                if (t.Assembly.FullName == an)
+                {
+                    s = t.FullName;
+                }
+
+            }
+            if (s != null)
+            {
+                var l = new List<string>();
+                l.Add(s);
+                l.Add("{");
+                l.Add("}");
+                return l;
+
+            }
+            return null;
+
+        }
+
+
+        List<string> CreateRefetenceFrameData(object o)
+        {
+            var data = o as ReferenceFrameData;
             List<string> l = new List<string>();
-            l.Add("Motion6D.Portable.ReferenceFrameDataBase");
+            l.Add("Motion6D.Portable.ReferenceFrameData");
             l.Add("{");
             l.Add("");
             l.Add("\tinternal CategoryObject()");

@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml;
 
 using BaseTypes;
 
-using CategoryTheory;
-
 using Diagram.UI;
-using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.SeriesTypes;
@@ -34,6 +29,9 @@ namespace DataPerformer
         static StaticExtensionDataPerformerAdvanced()
         {
             new Binder();
+            var ass = typeof(StaticExtensionDataPerformerAdvanced).Assembly;
+            ass.AddProhibitedCodeCreationAssembly("");
+
         }
 
         /// <summary>

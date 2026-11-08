@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections;
-
-using CategoryTheory;
 
 using Diagram.UI;
-using Diagram.UI.Interfaces;
-
-using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable;
 using AssemblyService.Attributes;
@@ -34,6 +26,9 @@ namespace Motion6D
                     PositionObjectFactory.BaseFactory =
                         AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<IPositionObjectFactory>();
                 }
+                var ass = typeof(StaticExtensionMotion6D).Assembly;
+                ass.AddProhibitedCodeCreationAssembly("");
+
             }
             catch (Exception ex)
             {
