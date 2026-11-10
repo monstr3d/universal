@@ -68,6 +68,7 @@
 \newcommand{\functor}[1]{\ensuremath{\underline{#1}}}
 \newcommand{\ca}{C*-algebra} 
 \DeclareMathOperator{\Pair}{Pair}
+\DeclareUnicodeCharacter{0182}{\onehalf}
 \DeclareMathOperator{\Tw}{Tw}
 \newcommand{\BS}{\text{B-S}}
 \newcommand{\TA}{\mathcal{T}(A)}
@@ -853,18 +854,95 @@ If both $A$ and $B$ be  $C^*$-algebras then a principal a $*$-homomorphism $f:A 
 \subsection{Basic construction}
 \paragraph{} Any topological space $\sX$ yields the natural  meet-semilattice of open subsets (cf. Definition \ref{lattice_defn} and Appendix \ref{fbt_sec}). 
 It is known that there are ultrafilters on locally compact space which are not convergent (cf. Proposition \ref{top_ultra_prop}). However from the Proposition \ref{top_ultra_prop} it follows that if an ultrafilter contains an open set with compact closure then it is convergent.
-\begin{definition}\label{good_ultrafilter_defn}
-	An ultrafilter of open subsets sets  on locally compact Hausdorff  space  is a {\it finite point} if contains an open set with compact closure.
+\begin{definition}\label{comp_cl_defn}
+ An open  projection $p\in A^{**}$ of  $A$ (cf. Definition \ref{open_close_ideal_defn}) {\it has compact closure} if there is a compact projection $q \in  A^{**}$ (cf. Definition \ref{compact_p_defn}) such that $p < q$.
 \end{definition}
-\begin{remark}\label{good_ultrafilterem}
-	From the Proposition \ref{top_ultra_prop} it follows that any locally compact Hausdorff  space $\sX$ is a set of its finite points.
-\end{remark}
+\begin{lemma}\label{lat_lem}
+If both open projections $p', p''\in $ has compact closure then $p'\wedge p''$ is also an open projection having compact closure.
+\end{lemma}
+\begin{proof}
+Let $0\le a_\la \uparrow p'$ and  $0\le b_\a \uparrow p''$ are required by the Definition Definition \ref{open_close_ideal_defn} nets then there is a net $\left\{c_\a\bydef a_\a^{\nicefrac{1}{2}}~b_\a a_\a^{\nicefrac{1}{2}} \right\}$ is an increasing. From the Proposition \ref{increasing_convergent_w_lem} it turns out that the net  $\left\{c_\a \right\}$ is convergent in the weak* topology of $A^{**}$. From our construction it follows that
+\bean
+\lim_{\a} c_\a \xi = \begin{cases}
+\xi &	\xi \in \im p' \cap \im p''\\
+0 & \xi \notin \im p' \cap \im p''
+\end{cases}
+\eean 
+From the above equation it turns out that $0 \le \lim_{\a} c_\a\up  p'\wedge p''$.
+\end{proof}
+
 \begin{definition}\label{lattice_a_defn}
-If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of open projections of  $A$ (cf. Definition \ref{open_close_ideal_defn}). We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
-A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}).	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. Denote by $\mathfrak{Ultrafilters}\left( A\right)$ the topological space of ultrafilters (cf. Definition \ref{topology_l_defn}) of the $\mathfrak{Lattice}\left( A\right)$.
+If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lattice}\left( A\right)$ is the meet-semilattice (cf. Definition \ref{lattice_defn}) of having compact closure open projections of  $A$ (cf. Definitions \ref{comp_cl_defn} and  \ref{open_close_ideal_defn}). We denote by  $\mathfrak{Lattice}\left( A\right)$ the $A$-{semi}-{lattice}.
+A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} 	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. 
+ Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. 
 \end{definition}
+\begin{lemma}\label{topology_lem}
+If  $\Xi$ be a set of ultrafilters of $A$-lattice. If for any $p \in \mathfrak{Lattice}\left( A\right)$ denote by
+\be\label{open_eqn}
+\Xi_p \bydef \left\{\xi \in \Xi | p \in \xi\right\}
+\ee
+then the set
+$
+\left\{\Xi_p\right\}_{p\in \mathfrak{Lattice}\left( A\right)}
+$
+is a basis of topology on $\Xi$ (cf. Definition \ref{top_base_defn}).
 
-
+\end{lemma}
+\begin{proof}
+	One needs check conditions (a) and (b) of the Definition \ref{top_base_defn},\\
+	(a) If $\xi \bydef \left\{ p_\la \right\}_{\la \in \La}\in  \Xi$ then 
+	$$
+	\forall \la \in \La\quad  \xi \in  \Xi_{p_\la}.
+	$$
+	(b) 
+	\bean
+	\forall p', p'' \in  \mathfrak{Lattice}\left( A\right)\quad  \xi \in \Xi_{p'}\cap  \Xi_{p''}\quad \Leftrightarrow \quad \xi \in \Xi_{p'\cap p''}.
+	\eean
+\end{proof}
+	\begin{definition}\label{gelfand_space_defn}
+		Under the hypothesis of the Lemma \ref{topology_lem} the set of  $A$-{ultrafilters} with topology given by the basis $\left\{\Xi_p\right\}_{p\in \mathfrak{Lattice}\left( A\right)}$
+ is the {\it Gelfand space} of $A$ denoted by $\mathfrak{Gelfand}\left( A\right)$. The elements of basis $\left\{\Xi_p\right\}$ will be denoted by 
+ 		\be\label{topology_eqn}
+\forall p \in \mathfrak{Lattice}\left( A\right) \quad  \mathfrak{Gelfand}\left(A \right)_p	\bydef \left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| p \in \xi\right.\right\}\subset 	\mathfrak{Gelfand}\left(A \right)
+ \ee
+\end{definition}
+\begin{lemma}\label{hausdorff_geland_lem}
+For any $C^*$-algebra $A$ the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is Hausdorff.
+\end{lemma}
+\begin{proof}
+	Let $\xi', \xi'' \in \mathfrak{Gelfand}\left(A \right)$ with $\xi' \neq \x''$ be represented by nets $\left\{p'_\la\right\}_{\la \in \La}$ and $\left\{p''_\la\right\}_{\la \in \La}$. If 
+	\be\label{hausdorff_geland_eqn}
+	\forall \la\in \La \quad p'_\la \wedge p''_\la \neq 0
+	\ee
+	then the net $\left\{p'_\la\wedge p''_\la\right\}_{\la \in \La}$ yields an ultrafilter which corresponds to the unique $\xi \in \mathfrak{Gelfand}\left(A \right)$. From our construction it turns out that $\xi = \xi' = \xi''$. It is impossible, so the condition \eqref{hausdorff_geland_eqn} is impossible, i.e.
+	\bean
+\exists \la_0\in \La \quad p'_{\la_0} \wedge p''_{\la_0} = 0
+\eean
+It follows that 
+\bean
+\xi' \in \mathfrak{Gelfand}\left(A \right)_{p'_{\la_0}}, \\
+\xi'' \in \mathfrak{Gelfand}\left(A \right)_{p''_{\la_0}}, \\
+\mathfrak{Gelfand}\left(A \right)_{p'_{\la_0}}\cap \mathfrak{Gelfand}\left(A \right)_{p''_{\la_0}}= \emptyset.
+\eean 	
+\end{proof}
+\begin{notation}
+	For any closed $p \in A^{**}$ denote by
+	\be\label{closed_geland_eqn}
+	\mathfrak{Gelfand}\left(A \right)^p \bydef \left\{\left. \left\{p_\la\right\}_{\la \in \La}\in 	\mathfrak{Gelfand}\left(A \right)\right| \forall \la \in \La \quad p \wedge p_\la \neq 0 \right\}
+	\ee 
+\end{notation}
+\begin{lemma}\label{gelfand_compact_s_lem}
+For any compact $p \in A^{**}$ (cf. Definition \ref{compact_p_defn}) the set $\mathfrak{Gelfand}\left(A \right)^p$ is compact.
+\end{lemma}
+\begin{proof}
+	Follows from the Theorem \ref{gelfand_compact_thm}.
+\end{proof}
+\begin{corollary}
+For any $C^*$-algebra $A$ the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff.
+\end{corollary}
+\begin{proof}
+Follows from the Lemmas \ref{hausdorff_geland_lem} and \ref{gelfand_compact_s_lem}.
+\end{proof}
 \begin{lemma}\label{top_lattices_iso_lem}
 For any  compact Hausdorff space $\sX$ (cf. Definition \ref{top_locally_compact_defn}) there is an isomorphism of  meet-semilattices
 \be
@@ -940,32 +1018,12 @@ $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \righ
 \end{definition}
 
 
-\begin{empt}\label{topology_empt} 
-	If $\mathfrak{Ultrafilters}\left(A \right)$ 
-	is a set of $A$-ultrafilters (cf. Definition \ref{lattice_a_defn}) then foe any for any open projection $p$ (cf. Definition \ref{open_close_ideal_defn}) we define a set
-	\be\label{topology_eqn}
-	\mathfrak{Ultrafilters}\left(A \right)_p	\bydef \left\{ \xi \in \mathfrak{Ultrafilters}\left(A \right) \left| p \in \xi\right.\right\}\subset 	\mathfrak{Ultrafilters}\left(A \right)
-	\ee
-\end{empt}
-\begin{lem}\label{topology_lem} 
-	The set of given by \eqref{topology_eqn} sets is a basis of topology on $\mathfrak{Ultrafilters}\left(A \right)$  (cf. Definition \ref{top_base_defn}).
-\end{lem}
-\begin{proof}
-	Follows from the Lemma \ref{topology_l_lem}.
-\end{proof}
-\begin{definition}\label{topology_defn} 
-The given by the Lemma \ref{topology_lem} topology is \textit{Gelfand topology}, so the set  $\mathfrak{Ultrafilters}\left(A \right)$ becomes a topological space.
-\end{definition}
 	\begin{lemma}\label{gelfand_u_compact_lem}
 	If $A$ is an unital $C^*$-algebra then both spaces  $\mathfrak{PreGelfand}\left(A \right)\cong \mathfrak{Ultrafilters}\left(A \right)$ and $\mathfrak{Gelfand}\left(A \right)$ are compact. 
 \end{lemma}
 \begin{proof}
 Follows the Proposition \ref{top_ultra_prop},
 \end{proof}
-	\begin{definition}\label{gelfand_space_defn}
-	If $A$ is a $C^*$-algebra then	an ultrafilter  $\xi = \left\{p_\la\right\}\in \mathfrak{Ultrafilters}\left(A \right)$ is an $A$-\textit{finite point} if there is a nontrivial compact projection $p$ (cf. Definition \ref{compact_p_defn}) such that $p_\la \wedge  p\neq \{0\}$ for all $\la\in \La$.
-	The \textit{pre}-\textit{Gelfand space} $\mathfrak{PreGelfand}\left(A \right)$ of $C^*$-algebra $A$ is a space  of finite points with the final topology (cf. Definition \ref{top_final_defn}) given by the natural inclusion $\mathfrak{PreGelfand}\left(A \right) \hookto \mathfrak{Ultrafilters}\left(A \right)$, where the topology on $\mathfrak{Ultrafilters}\left(A \right)$ is the   Gelfand topology (cf. Definition \ref{topology_defn}. The \textit{Gelfand space} $\mathfrak{Gelfand}\left(A \right)$ of $C^*$-algebra $A$ is the universal Hausdorff  quotient space of $\mathfrak{PreGelfand}\left(A \right)$ (cf. Definition \ref{blowing_uni_h_defn}), i.e. $\mathfrak{Gelfand}\left(A \right)\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right) \right)$ (cf. equation \eqref{hausdorff_funct_eqn}).
-\end{definition}
 \begin{remark}\label{topology_base_herdem}
 	Using the Definition \ref{open_close_ideal_defn} the semilattice $\mathfrak{Lattice}\left(A \right)$ can be replaced with the semilattice of closed left ideals of $A$.
 	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any ultrafilter $\xi$ we use a following notation
@@ -4709,7 +4767,7 @@ F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\
 
 \subsection{Limits of functors}\label{limits_of_functors_sec}	
 \paragraph{} Here I follow to \cite{cat:work}. Given categories $C, J$,
-and the diagonal functor $\Dl : C \to C^J$ , a {\it limit} for a functor $F: J \to C$.
+and the diagonal functor $l : C \to C^J$ , a {\it limit} for a functor $F: J \to C$.
 is a universal arrow $\left\langle r, \nu\right\rangle$  from $\Dl$ to $F$. It consists of an object $r$ of $C$,
 usually written $r = \varinjlim F$ or $\lim~F$ and called the {\it limit} object (the
 "inverse limit" or "projective limit") of the functor $F$, together with a
@@ -7513,7 +7571,7 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 \begin{definition}\label{open_close_ideal_defn}\cite{akerman_stone}
 	%DEFINITION 11.1. 
 	A projection $p \in A^{**}$ (cf. Definition \ref{env_alg_defn}) is {\it open} if there exists a
-	net $\left\{a_\la \right\}_{\la \in \La}\subset A$ such that $0\ge a_\la \uparrow p$
+	net $\left\{a_\la \right\}_{\la \in \La}\subset A$ such that $0\le a_\la \uparrow p$
 	$$
 	\lim_{\la\in \La} a_\la = p
 	$$
@@ -7536,12 +7594,12 @@ If $p \in A^{**}$ is a projection, we denote by $\overline{p}$ the
 
 \begin{definition}\label{compact_p_defn}\cite{akerman_gelfand}
 %DEFINITION ?.l.
- A projection $p\in M$ is {\it compact} if $p$ is {closed}
+ A projection $p\in A^{**}$ is {\it compact} if $p$ is {closed}
 and there exists $b \in A_+$ with $bp = p$.
 \end{definition}
 \begin{theorem}\cite{akerman_gelfand}
 %THEOREM II.5. 
-If $p$ is closed and there exists be A with $b \ge p$,
+If $p$ is closed and there exists $b \in A$ with $b \ge p$,
 then $p$ is compact.\end{theorem}
 \begin{definition}\label{coninuous_p_defn}\cite{akerman_gelfand}
 %DEFINITION III.2. 
@@ -7561,7 +7619,7 @@ $0$ are compact (i.e., b "vanishes at $\infty$").
 \begin{proposition}\label{close_int_akk}\cite{akerman_stone}
 %PROPOSITION 11.5.
  If $\left\{p_\la \right\}$ is a set of closed projections, then
-p = A, p, is closed.
+$\bigwedge p_\la$ is closed.
 \end{proposition}
 \begin{definition}\label{fin_p_defn}\cite{akerman_stone}
 	A family $\left\{p_\la\right\}_{\la \in \La}$ family of closed projections is a \textit{family with the finite intersection property} if for any subset $\mathscr L \subset \La$ one has
@@ -7582,7 +7640,7 @@ family $\left\{p_\a \wedge p\right\}$ has the finite intersection property (cf. 
 \end{conjecture}
 \begin{theorem}\label{gelfand_compact_thm}\cite{akerman_gelfand}
 %THEOREM II.7. 
-If p is q-compact, then for any family  $\left\{p_\la\right\}_{\la\in \La}$ of closed projections such that the family $\left\{p_\la \wedge p\right\}$ has the finite intersection property (cf. Definition  \ref{fin_p_defn}), then $p \wedge \bigwedge_{\la\in \La} p_\la\neq 0$.
+If p is compact, then for any family  $\left\{p_\la\right\}_{\la\in \La}$ of closed projections such that the family $\left\{p_\la \wedge p\right\}$ has the finite intersection property (cf. Definition  \ref{fin_p_defn}), then $p \wedge \bigwedge_{\la\in \La} p_\la\neq 0$.
 \end{theorem}
 \begin{remark}\label{compact_pem}
 	It is explained in \cite{akerman_stone} that the Theorem \ref{gelfand_compact_thm} means that the Definition \ref{compact_p_defn} is a generalization of compact subspace of any topological space.
