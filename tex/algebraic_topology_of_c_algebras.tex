@@ -707,8 +707,36 @@
 
 \section{Spaces of ultrafilters}
 \paragraph{} Here we define topological spaces related to meet-semilattice (cf. Definition \ref{lattice_defn}).
+\begin{definition}\label{nu_lattice_defn}
+A {\it nonunital meet-semilattice}  $\mathscr L$  is partially ordered which supports for any finite set the  greatest lower bound and the existence of maximal element does not required. (cf. Definition \ref{lattice_defn})
+ \end{definition}
+ 
+ \begin{definition}\label{nu_filter_defn}
+ 	A subset $\mathfrak F$ of a nonunital meet-semilattice $A$ is said to be an {\it filter} if
+ 	\begin{enumerate}
+ 		\item [(a)]  $a, b \in \mathfrak F$  imply  	$a \wedge b \in \mathfrak F$; and
+ 		\item [(b)] $\mathfrak F$ is a lower set; i.e. $a \in \mathfrak F$ and $ a\le b$ imply $b \in \mathfrak F$.  
+ 		 		\item [(c)] $0 \notin \mathfrak F$.
+ 	\end{enumerate}
+ \end{definition}
+   	\begin{remark}\label{nu_fil_homem}
+   	Any homomorphism $\phi : L' \to L''$ of {semi}-{lattices} yields a map
+   	of filers
+   	\be\label{nu_filtermap_eqn}
+   	\left\{I_\la\right\}_{\la \in \La}	\mapsto \text{ minimal filter containing } \left\{\phi\left( I_\la\right) \right\}_{\la \in \La}
+   	\ee
+   \end{remark}
+   
+     
+   \begin{definition}\label{nu_ultra_filter_defn}
+   	A maximal filter on  { nonunital meet-semilattice}  $\mathscr L$ is an {\it ultrafilter}.
+   \end{definition}
+   
+   
+
 \begin{definition}\label{lattice_s_defn}
-	If $\mathscr L$ is  the meet-semilattice (cf. Definition \ref{lattice_defn}) then denote by   $\mathfrak{Filters}\left( \mathscr L\right)$  (resp.  $\mathfrak{Ultrafilters}\left( \mathscr L\right)$) the  set of filters  (resp. ultrafilters) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}). \end{definition}
+	If $\mathscr L$ is  a nonunital  meet-semilattice (cf. Definition \ref{lattice_defn}) then denote by   $\mathfrak{Filters}\left( \mathscr L\right)$  (resp.  $\mathfrak{Ultrafilters}\left( \mathscr L\right)$) the  set of filters  (resp. ultrafilters) (cf. Definitions \ref{filter_defn} and \ref{ultra_filter_defn}). 
+	\end{definition}
 
 \begin{lemma}\label{topology_l_lem} 
 	Under the hypothesis of the Definition \ref{lattice_s_defn}	 the set 
@@ -731,65 +759,31 @@
 	\eean
 \end{proof}
 \begin{definition}\label{topology_l_defn} 
-If 	$\mathscr L$ is  a meet-semilattice (cf. Definition \ref{lattice_defn}) then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ (cf. Definition \ref{lattice_s_defn}) supplied with the given by the Lemma \ref{topology_l_lem} topology is the {\it space of ultrafilters} of $\mathscr L$.
+If 	$\mathscr L$ is  a nonunital meet-semilattice (cf. Definition \ref{nu_lattice_defn}) then the set $\mathfrak{Ultrafilters}\left( \mathscr L\right)$ (cf. Definition \ref{lattice_s_defn}) supplied with the given by the Lemma \ref{topology_l_lem} topology is the {\it space of ultrafilters} of $\mathscr L$.
 \end{definition}
-\begin{remark}\label{ultra_com_rem}
-	From the Proposition \ref{top_ultra_prop} it turns out that the {space of ultrafilters} of $\mathscr L$ is compact.
-\end{remark}
-
-\begin{definition}\label{hausdorff_defn}
-	Let $\sX$ be a topological space. The $\sX$-{\it Hausdorff category} (cf. Definition \ref{category_defn}) $\mathfrak{H}\left( \sX\right)$ is such that 
-	\begin{itemize}
-		\item objects of $\mathfrak{H}\left( \sX\right)$ are continuous surjective maps $\sX \onto \sY$ onto Hausdorff locally compact (cf. Definition \ref{top_locally_compact_defn}) space $\sY$, 
-		\item a morphism form $\sX \onto \sY'$ to $\sX \onto \sY''$ is a continuous  map  $\sY' \onto \sY''$ such that the diagram 
-		\bean
-		\begin{tikzcd}
-			&\sX \arrow[ld] \arrow[rd] & \\
-			\sY' \arrow[rr]	&& \sY''
-		\end{tikzcd}
-		\eean
-		is commutative.
-	\end{itemize}
-\end{definition}
-\begin{lemma}\label{hausdorff_lem}
-	One has:
-	\begin{enumerate}
-		\item [(i)] for any locally compact topological space $\sX$ there is the natural,   initial object (cf. Definition \ref{initial_ob_defn}) of the  $\sX$-{Hausdorff category} denoted by by $\mathfrak{Hausdorff}\left( \sX\right)$; 
-		\item [(ii)] if both $\sX$ and $\sY$ are locally compact spaces then every continuous map $\sX \to \sY$ yields the commutative diagram 
-		\be\label{haudorff_eqn}
-		\begin{tikzcd}
-			\sX  \arrow[r, two heads, "~"] \arrow[d, "f"]   & \mathfrak{Hausdorff}\left( \sX\right) \arrow[d, "\mathfrak{Hausdorff}(f)"]  \\
-			\sY  \arrow[r, two heads]    & \mathfrak{Hausdorff}\left( \sY\right)	
-		\end{tikzcd}
-		\ee
-	\end{enumerate}
+\begin{lemma}\label{lattice_hausdorff_lem}
+If 	$\mathscr L$ is  a nonunital meet-semilattice (cf. Definition \ref{nu_lattice_defn}) then the space of ultrafilters is Hausdorff.
 \end{lemma}
-\begin{proof}(i)
-	Let $A$ be a commutative $C^*$-algebra of all bounded continuous maps from $\sX$ to $\C$ and let $\sY'$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).  Any $x \in \sX$ yields the maximal ideal 
-	$$
-	I_x \bydef \left\{ f \in A | f\left( x\right) = 0\right\}
-	$$
-	From the Theorem \ref{gelfand-naimark_thm} the ideal $I_x$ yield a point $y \in \sY'$. So there is the natural  map $\phi' :\sX \to \sY'$. If $\sY \bydef \phi'\left( \sX\right)$ then $\phi'$ yields  the surjective map  $\phi :\sX \onto \sY$. One can prove that the map is continuous. From the Theorem \ref{gelfand-naimark_thm} it turns out that the spaces $\sY'$ and $\sY$ are locally compact (cf. Definition \ref{top_locally_compact_defn}) and Hausdorff.  If there is and an object $\sX \onto \sY''$ with nonidentical morphism $\phi'' : \sY''\onto \sY$ then there are $y_1, y_2 \in \sY''$ with $y_1 \neq y_2$ and $\phi''\left( y_1\right) = \phi''\left( y_2\right)$. There is $f \in C_0\left( \sY''\right)$ such that $f\left( y_1\right)  \neq f\left( y_2\right)$. Clearly $f \in A$ but $f \notin C_0\left(
-	\sY \right)$ i.e. $C_0\left(\sY \right)  \subsetneqq C_0\left(\sY'' \right)$. It is a contradiction which proves that the existence of $\sY''$ is impossible. \\
-	(ii) If both $A$ and $B$ commutative $C^*$-algebras of all bounded continuous maps from $\sX$ and $\sY$ to $\C$ then $A \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)$ and $B \cong C_b\left( \mathfrak{Hausdorff}\left( B\right)\right)$ the map $f$ yields the natural $*$-homomorphism $$
-	B  \cong C_b\left( \mathfrak{Hausdorff}\left( \sY\right)\right)\to A  \cong C_b\left( \mathfrak{Hausdorff}\left( \sX\right)\right)
-	$$
-	which induces the natural continuous map $\bt~\mathfrak{Hausdorff}(f): \bt~\mathfrak{Hausdorff}\left(\sX \right) \to \bt~\mathfrak{Hausdorff}\left(\sY \right)$. This lemma follows from $\bt~\mathfrak{Hausdorff}(f)\left( \mathfrak{Hausdorff}\left(\sX \right)\right) = \mathfrak{Hausdorff}\left(\sY \right)$.
+\begin{proof}
+	Let $\xi', \xi'' \in \mathfrak{Ultrafilters}\left(A \right)$ with $\xi' \neq \xi''$ be represented by nets $\left\{L'_\la\right\}_{\la \in \La}$ and $\left\{L''_\la\right\}_{\la \in \La}$. If 
+	\be\label{hausdorff_geland_eqn}
+	\forall \la\in \La \quad L'_\la \wedge L''_\la \neq 0
+	\ee
+	then the net $\left\{L'_\la\wedge L''_\la\right\}_{\la \in \La}$ yields an ultrafilter which corresponds to the unique $\xi \in \mathfrak{Ultrafilters}\left(\mathscr L \right)$. From our construction it turns out that $\xi = \xi' = \xi''$. It is impossible, so the condition \eqref{hausdorff_geland_eqn} is impossible, i.e.
+	\bean
+	\exists \la_0\in \La \quad L'_{\la_0} \wedge L''_{\la_0} = 0
+	\eean
+	It follows that 
+	\bean
+	\xi' \in \mathfrak{Ultrafilters}\left(A \right)_{L'_{\la_0}}, \\
+	\xi'' \in \mathfrak{Ultrafilters}\left(A \right)_{L''_{\la_0}}, \\
+	\mathfrak{Ultrafilters}\left(A \right)_{L'_{\la_0}}\cap \mathfrak{Ultrafilters}\left(A \right)_{L''_{\la_0}}= \emptyset.
+	\eean 	
 \end{proof}
-\begin{definition}\label{blowing_uni_h_defn}
-	The initial object of the category $\sX$-{Hausdorff category} is the	$\sX$ - \textit{universal Hausdorff quotient space} denoted by $\mathfrak{Hausdorff}\left(\sX \right)$, 
-\end{definition}
-\begin{definition}\label{hausdorff_funct_defn}
-	The Lemma \ref{hausdorff_lem} yields the {\it Hausdorff functor}
-	\be\label{hausdorff_funct_eqn}
-	\mathfrak{LocComp} \xrightarrow{\mathfrak{Hausdorff}} \mathfrak{Hausdorff}	\ee
-	from the category $\mathfrak{LocComp}$ of locally compact topological spaces and continuous maps to the category of Hausdorff locally compact spaces and continuous maps. 
-\end{definition}
 \begin{lemma}
-	Any surjective homomorphism $\varphi: \mathscr L' \onto  \mathscr L''$ of meet semi-lattices yields the surjective continuous maps
+	Any surjective homomorphism $\varphi: \mathscr L' \onto  \mathscr L''$ of meet semi-lattices yields the surjective continuous map
 	\bea 
 	\psi: \mathfrak{Ultrafilters}\left(\mathscr L' \right)\onto 	\mathfrak{Ultrafilters}\left(\mathscr L'' \right),\\
-\phi:	\mathfrak{Hausdorff}\left( \mathfrak{Ultrafilters}\left(\mathscr L' \right)\right) \onto \mathfrak{Hausdorff}\left( 	\mathfrak{Ultrafilters}\left(\mathscr L'' \right)\right) 
 	\eea 
 \end{lemma}
 \begin{proof}
@@ -807,7 +801,7 @@ If 	$\mathscr L$ is  a meet-semilattice (cf. Definition \ref{lattice_defn}) then
 \mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left( \mathfrak{Ultrafilters}\left(\mathscr L''\right)_{L''}\right)  = \mathfrak{Ultrafilters}\left(\mathscr L'\right)_{L'}
 \eean 
 (cf. Notation \ref{topology_l_eqn})
-So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Ultrafilters}\left(\mathscr L''\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Ultrafilters}\left(\mathscr L'\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out that the map $\psi$ is continuous. Using this fact ans the Lemma \ref{hausdorff_lem} one can prove that the map $\phi$ is continuous.
+So any  set of basis (cf. Definition \ref{top_base_defn}) of the topology of  $\mathfrak{Ultrafilters}\left(\mathscr L''\right)$  corresponds to a set of subbasis of the topology of $\mathfrak{Ultrafilters}\left(\mathscr L'\right)$. From (c) of the Theorem \ref{top_continuous_thm} it turns out that the map $\psi$ is continuous. 
 \end{proof}
 
 \section{Gelfand category and Gelfand functor}
@@ -861,14 +855,20 @@ It is known that there are ultrafilters on locally compact space which are not c
 If both open projections $p', p''\in $ has compact closure then $p'\wedge p''$ is also an open projection having compact closure.
 \end{lemma}
 \begin{proof}
-Let $0\le a_\la \uparrow p'$ and  $0\le b_\a \uparrow p''$ are required by the Definition Definition \ref{open_close_ideal_defn} nets then there is a net $\left\{c_\a\bydef a_\a^{\nicefrac{1}{2}}~b_\a a_\a^{\nicefrac{1}{2}} \right\}$ is an increasing. From the Proposition \ref{increasing_convergent_w_lem} it turns out that the net  $\left\{c_\a \right\}$ is convergent in the weak* topology of $A^{**}$. From our construction it follows that
+Let $0\le a_\la \uparrow p'$ and  $0\le b_\a \uparrow p''$ are required by the Definition  \ref{open_close_ideal_defn} nets. If both $L'$ and $L''$ are $C^*$-norm closures of generated by the nets  $\left\{a_\a \right\}$ and $\left\{b_\a \right\}$  ideals then
 \bean
-\lim_{\a} c_\a \xi = \begin{cases}
-\xi &	\xi \in \im p' \cap \im p''\\
-0 & \xi \notin \im p' \cap \im p''
-\end{cases}
+L' = \left\{a \in A | a p' = a\right\},\\
+L'' = \left\{a \in A | a p'' = a\right\},
 \eean 
-From the above equation it turns out that $0 \le \lim_{\a} c_\a\up  p'\wedge p''$.
+From the Lemma \ref{left_ideal_thm} it turns out that there is a net $\left\{c_\a \right\}\in A_+$ such that
+\bean
+L' \cap L'' = \left\{a \in A \left| \lim_\a \left\| a - ac_\a \right\| = 0\right.\right\}
+\eean 
+Proposition \ref{increasing_convergent_w_lem} it turns out that the net  $\left\{c_\a \right\}$ is convergent in the weak* topology of $A^{**}$, i.e. there is a projector $p \in A^{**}$ with $0\le c_\la \uparrow p$, i,e. $p$ is closed on the other hand from 
+\bean
+L' \cap L'' = \left\{a \in A | a p = a\right\}
+\eean 
+it turns out that $p = p'\wedge p''$.
 \end{proof}
 
 \begin{definition}\label{lattice_a_defn}
@@ -876,61 +876,19 @@ If $A$ is a $C^*$-algebra then $A$-\textit{semi}-\textit{lattice} $\mathfrak{Lat
 A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} 	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. 
  Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. 
 \end{definition}
-\begin{lemma}\label{topology_lem}
-If  $\Xi$ be a set of ultrafilters of $A$-lattice. If for any $p \in \mathfrak{Lattice}\left( A\right)$ denote by
-\be\label{open_eqn}
-\Xi_p \bydef \left\{\xi \in \Xi | p \in \xi\right\}
-\ee
-then the set
-$
-\left\{\Xi_p\right\}_{p\in \mathfrak{Lattice}\left( A\right)}
-$
-is a basis of topology on $\Xi$ (cf. Definition \ref{top_base_defn}).
-
-\end{lemma}
-\begin{proof}
-	One needs check conditions (a) and (b) of the Definition \ref{top_base_defn},\\
-	(a) If $\xi \bydef \left\{ p_\la \right\}_{\la \in \La}\in  \Xi$ then 
-	$$
-	\forall \la \in \La\quad  \xi \in  \Xi_{p_\la}.
-	$$
-	(b) 
-	\bean
-	\forall p', p'' \in  \mathfrak{Lattice}\left( A\right)\quad  \xi \in \Xi_{p'}\cap  \Xi_{p''}\quad \Leftrightarrow \quad \xi \in \Xi_{p'\cap p''}.
-	\eean
-\end{proof}
-	\begin{definition}\label{gelfand_space_defn}
-		Under the hypothesis of the Lemma \ref{topology_lem} the set of  $A$-{ultrafilters} with topology given by the basis $\left\{\Xi_p\right\}_{p\in \mathfrak{Lattice}\left( A\right)}$
- is the {\it Gelfand space} of $A$ denoted by $\mathfrak{Gelfand}\left( A\right)$. The elements of basis $\left\{\Xi_p\right\}$ will be denoted by 
- 		\be\label{topology_eqn}
-\forall p \in \mathfrak{Lattice}\left( A\right) \quad  \mathfrak{Gelfand}\left(A \right)_p	\bydef \left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| p \in \xi\right.\right\}\subset 	\mathfrak{Gelfand}\left(A \right)
- \ee
+\begin{definition}\label{gelfand_space_defn}
+		The space of ultrafilters (cf. Definition \ref{topology_l_defn}) of nonunital $A$-{semi}-{lattice} $\mathfrak{Lattice}\left( A\right)$ (cf. Definition \ref{lattice_a_defn}) is the {\it Gelfand space} of $A$ denoted by $\mathfrak{Gelfand}\left(A \right)$.
 \end{definition}
-\begin{lemma}\label{hausdorff_geland_lem}
-For any $C^*$-algebra $A$ the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is Hausdorff.
-\end{lemma}
-\begin{proof}
-	Let $\xi', \xi'' \in \mathfrak{Gelfand}\left(A \right)$ with $\xi' \neq \x''$ be represented by nets $\left\{p'_\la\right\}_{\la \in \La}$ and $\left\{p''_\la\right\}_{\la \in \La}$. If 
-	\be\label{hausdorff_geland_eqn}
-	\forall \la\in \La \quad p'_\la \wedge p''_\la \neq 0
-	\ee
-	then the net $\left\{p'_\la\wedge p''_\la\right\}_{\la \in \La}$ yields an ultrafilter which corresponds to the unique $\xi \in \mathfrak{Gelfand}\left(A \right)$. From our construction it turns out that $\xi = \xi' = \xi''$. It is impossible, so the condition \eqref{hausdorff_geland_eqn} is impossible, i.e.
-	\bean
-\exists \la_0\in \La \quad p'_{\la_0} \wedge p''_{\la_0} = 0
-\eean
-It follows that 
-\bean
-\xi' \in \mathfrak{Gelfand}\left(A \right)_{p'_{\la_0}}, \\
-\xi'' \in \mathfrak{Gelfand}\left(A \right)_{p''_{\la_0}}, \\
-\mathfrak{Gelfand}\left(A \right)_{p'_{\la_0}}\cap \mathfrak{Gelfand}\left(A \right)_{p''_{\la_0}}= \emptyset.
-\eean 	
-\end{proof}
+
 \begin{notation}
-	For any closed $p \in A^{**}$ denote by
-	\be\label{closed_geland_eqn}
+	For any open  $p \in A^{**}$ and closed  $q \in A^{**}$ denote by
+	\bea\label{topology_eqn}
+	\mathfrak{Gelfand}\left(A \right)_p	\bydef \left\{ \xi \in \mathfrak{Gelfand}\left(A \right) \left| p \in \xi\right.\right\}\\\label{closed_geland_eqn}
 	\mathfrak{Gelfand}\left(A \right)^p \bydef \left\{\left. \left\{p_\la\right\}_{\la \in \La}\in 	\mathfrak{Gelfand}\left(A \right)\right| \forall \la \in \La \quad p \wedge p_\la \neq 0 \right\}
-	\ee 
+	\eea
+	The set of the  given by \eqref{topology_eqn} is a basis of topology of $\mathfrak{Gelfand}\left(A \right)$.
 \end{notation}
+
 \begin{lemma}\label{gelfand_compact_s_lem}
 For any compact $p \in A^{**}$ (cf. Definition \ref{compact_p_defn}) the set $\mathfrak{Gelfand}\left(A \right)^p$ is compact.
 \end{lemma}
@@ -941,7 +899,7 @@ For any compact $p \in A^{**}$ (cf. Definition \ref{compact_p_defn}) the set $\m
 For any $C^*$-algebra $A$ the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is locally compact and Hausdorff.
 \end{corollary}
 \begin{proof}
-Follows from the Lemmas \ref{hausdorff_geland_lem} and \ref{gelfand_compact_s_lem}.
+Follows from the Lemmas \ref{lattice_hausdorff_lem} and \ref{gelfand_compact_s_lem}.
 \end{proof}
 \begin{lemma}\label{top_lattices_iso_lem}
 For any  compact Hausdorff space $\sX$ (cf. Definition \ref{top_locally_compact_defn}) there is an isomorphism of  meet-semilattices
@@ -1025,24 +983,13 @@ $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \righ
 Follows the Proposition \ref{top_ultra_prop},
 \end{proof}
 \begin{remark}\label{topology_base_herdem}
-	Using the Definition \ref{open_close_ideal_defn} the semilattice $\mathfrak{Lattice}\left(A \right)$ can be replaced with the semilattice of closed left ideals of $A$.
-	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any ultrafilter $\xi$ we use a following notation
+	Using the constructionist of the proof of the Lemma \ref{lat_lem} and Definition \ref{open_close_ideal_defn} one can replace  the semilattice $\mathfrak{Lattice}\left(A \right)$ with the semilattices of closed left, right  ideals of $A$.
+	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any  $\xi$ we use a following notation
 	\be\label{hered_ideal_eqn}
 	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
 	\ee
 \end{remark}
-\begin{notation}
-Similarly to \eqref{topology_eqn} we will use the following notation
-	\be\label{topology_q_eqn}
-\mathfrak{Gelfanf}\left(A \right)_p	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)_p \right)
-\ee
-for the basis of the topology of the Gelfand space. If $p'$ is a closed projection then we define
-	\bea\label{u_topology_q_closed_eqn}
-	\mathfrak{Ultrafilers}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{Ultrafilers}\left(A \right)\right| \forall \in \xi\quad p \wedge  p'\neq \{0\} \right\},\\\label{topology_q_closed_eqn}	\mathfrak{PreGelfand}\left(A \right)^{p'}\bydef \left\{\left.\xi \in  \mathfrak{PreGelfand}\left(A \right)\right| \forall \in \xi\quad p \wedge  p'\neq \{0\} \right\},\\
-	\label{topology_gq_closed_eqn}
-\mathfrak{Gelfanf}\left(A \right)^{p'}	\bydef \mathfrak{Hausdorff}\left(\mathfrak{PreGelfand}\left(A \right)^{p'} \right),\\
-\eea
-Above subsets correspond to the following $C^*$-algebras
+\begin{notation} The following notations will be useds
 \bea\label{algebra_open_eqn}
 A_p \bydef \left\{\left. a \in A\right| pap = a\right\}\subset A,\\
 \label{algebra_closed_eqn}
@@ -1052,7 +999,7 @@ A^{p'} \bydef A^{**} \cap p' A p'\subset A^{**}.
 \begin{lemma}\label{ultra_cloded_lem}
 For any closed projection $p$ one has natural homeomorphisms
 \bea\label{ultra_cloded_eqn}
-	\mathfrak{Ultrafilers}\left(A \right)^{p}\cong 	\mathfrak{Ultrafilers}\left(A^{p} \right)
+	\mathfrak{Gelfand}\left(A \right)^{p}\cong 	\mathfrak{Gelfand}\left(A^{p} \right)
 	\eea
 \end{lemma}
 
@@ -1070,7 +1017,7 @@ From $\iota \circ \pi = \Id_{\mathfrak{Lattice}\left( A^p\right)}$ it follows th
 \be\label{u_iota_eqn}
 \mathfrak{Ultrafilers}\left(\iota \right) : 	\mathfrak{Ultrafilers}\left(A^p \right)\hookto 	\mathfrak{Ultrafilers}\left(A \right).
 \ee
-According to the Definition \ref{topology_defn} the  bases of topologies of $\mathfrak{Ultrafilers}\left(A \right)$ and $\mathfrak{Ultrafilers}\left(A^p \right)$ are $\mathfrak{Lattice}\left(A \right)$ and $\mathfrak{Lattice}\left(A^p \right)$ respectively. From this fact one can deduce that the map \eqref{u_iota_eqn} is continuous. If $\xi \in \mathfrak{Ultrafilers}\left(A \right)$ is represented by the family $\left\{B_\la\right\}_{\la\in \La}$ of hereditary $C^*$-subalgebras (cf. Remark \ref{topology_base_herdem}) then from \eqref{ip_l_eqn} it follows that
+According to the Definition \ref{topology_l_defn} the  bases of topologies of $\mathfrak{Ultrafilers}\left(A \right)$ and $\mathfrak{Ultrafilers}\left(A^p \right)$ are $\mathfrak{Lattice}\left(A \right)$ and $\mathfrak{Lattice}\left(A^p \right)$ respectively. From this fact one can deduce that the map \eqref{u_iota_eqn} is continuous. If $\xi \in \mathfrak{Ultrafilers}\left(A \right)$ is represented by the family $\left\{B_\la\right\}_{\la\in \La}$ of hereditary $C^*$-subalgebras (cf. Remark \ref{topology_base_herdem}) then from \eqref{ip_l_eqn} it follows that
 \be
 \xi \notin \mathfrak{Ultrafilers}\left(\iota \right)\left( 	\mathfrak{Ultrafilers}\left(A^p \right)\right)\quad \Leftrightarrow \quad \exists \la \in \La \quad p B_\la p   = \{0\}.
 \ee 
