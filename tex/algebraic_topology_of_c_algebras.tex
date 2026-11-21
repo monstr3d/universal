@@ -881,12 +881,46 @@ From the Lemma \ref{hausdorff_geland_eqn}  and the Proposition \ref{filted_conv_
 \end{remark}
 
 \begin{definition}\label{comp_cl_defn}
-If $A$ is a $C^*$-algebra then an element $a \in A$ is {\it compactly supported} if there is $b \in A_+$ such that $ab = a$. A closed ideal $L\in \mathfrak{Lattice}\left( A\right)$ of $A$-lattice (cf. Definition \ref{lattice_a_defn}) is  {\it compactly  supported} if there is  $b \in A_+$ such that
+If $A$ is a $C^*$-algebra then an element $a \in A$ is {\it compactly supported} if there is $b \in A_+$ such that $ab = a$. A closed left ideal $L\in \mathfrak{Lattice}\left( A\right)$ of $A$-lattice (cf. Definition \ref{lattice_a_defn}) is  {\it compactly  supported} if there is  $b \in A_+$ such that
 \bean
 \forall a \in L\quad ab = a.
 \eean
- An open  projection $p\in A^{**}$ of  $A$ (cf. Definition \ref{open_close_ideal_defn}) {\it has compact closure} if there is a compact projection $q \in  A^{**}$ (cf. Definition \ref{compact_p_defn}) such that $p < q$.
+ 
 \end{definition}
+\begin{lemma}\label{dense_lem}
+If $A$ is a $C^*$-algebra then the set of  compactly  supported elements of $A$ is a dense with respect to $C^*$-norm topology $*$-subalgebra of $A$.
+\end{lemma}
+\begin{proof}
+If $a \in A_+$ is a positive element $\eps \in \R_+\setminus\{0\}$ and
+	\bea\label{f_eps_eqn}
+	f_\eps\left( x\right)  \bydef	\begin{cases}
+		
+		0 &x \le \eps \\
+		x - \eps & x > \eps
+	\end{cases},\\
+	\label{f_0_eqn}
+	f_\uparrow\left( x\right)\bydef  	\begin{cases}
+		
+		0 &x \le 0 \\
+		x & 0 < x \le 1 \\
+		1 & x > 1
+	\end{cases}
+\eea
+then the elements 
+\bean
+a_\eps \bydef f_\eps\left(a \right),\\
+b_\eps \bydef f_\uparrow\left( \frac{a}{\eps}\right) 
+\eean
+then one has
+\bea	\label{cs_eqn}
+a_\eps b_\eps = a_\eps,\\
+\label{denss_eqn}
+\left\| a - a_eps\right\| < \eps
+\eea
+From \eqref{cs_eqn} it follows that $a_\eps$ is compactly supported. Using this circumstance and the equations \eqref{four_decompositon_eqn}, \eqref{denss_eqn} one can prove that the set of compactly supported elements is dense. We leave to the reader the proof of that the set of compactly supported elements is a $*$-algebra of $A$,
+\end{proof}
+
+
 \begin{lemma}\label{lat_lem}
 	If both open projections $p', p''\in $ has compact closure then $p'\wedge p''$ is also an open projection having compact closure.
 \end{lemma}
@@ -1318,42 +1352,24 @@ From the Theorem \ref{good_thm} it follows that for any good inclusion $
 
 \subsection{Nondegenerate $*$-homomorphisms and Gelfand functor}
 \paragraph*{}
-Let both  $A$ and $B$ be $C^*$-algebras, and let $\varphi :M\left(  A\right) \to M\left( B\right)$ be a good $*$-homomorphism (cf. Definition \ref{good_hom_defn}). If $q \in \mathfrak{Lattice} \left( B\right)$ the from the Definition \ref{lattice_cont_lem} $q\in B^{**}$ is an open projection (cf. Definition \ref{open_close_ideal_defn}) and there is a compact projection $\overline{q} \in B^{**}$ (cf. Definition \ref{compact_p_defn}) with $q <\overline q$. From the Definition \ref{good_hom_defn} it follows that there is a compact projection $\overline p \in A^{**}$ such that
+Let both  $A$ and $B$ be unital $C^*$-algebras, and let $\varphi :A \to B$ an unital  $*$-homomorphism, i.e. $\varphi\left( 1_{Q }\right) = 1_{B }$.There is the natural homomorphism of nonunital meet-semilattices
 \bean
-\varphi^{**}\left(\overline p \right) > \overline q.
-\eean 
-From this circumstance one can prove  that there is $p \in \mathfrak{Lattice} \left( B\right)$ such that
+\mathfrak{Lattice}\left(\varphi \right) :	\mathfrak{Lattice}\left( A \right) \to 	\mathfrak{Lattice}\left( B  \right) ,\\
+\forall 	L_A\in \mathfrak{Lattice}\left(A\right)\quad \mathfrak{Lattice}\left(\varphi \right)\left( L_A\right)  \bydef \text{the $C^*$-norm closure of } B\varphi\left(L_A \right). 
+\eean
+From
+$$
+\forall L_B \in \mathfrak{Lattice}\left(B \right): \mathfrak{Lattice}\left(\varphi \right)\left( A\right) \ge L_B
+$$   
+and the Lemma \ref{lattice_cont_lem} it turns out that there is the natural continuous map 
 \bean
-\varphi^{**}\left( p \right) >  q.
+\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(B \right)\to 	\mathfrak{Ultrafilters}\left(A\right).
 \eean 
-We leave details of the proof to the reader.
-Let us consider the set of open projections $\left\{p_\la \right\}_{\la \in \La}\subset A^{**}$ such that 
-$$
-\forall \la \in \La \quad \varphi^{**}\left(p_\la \right)  \ge q.
-$$
-For any $\la \in \La$ one has a closed left ideal $L_\la \subset A$ given by
-$$
-L_\la \bydef \left\{ a \in A | a p_\la = a\right\}
-$$
-From $\varphi^{**}\left(p_\la \right)  \ge q$ it follows that the intersection 
-$$
-L \bydef \bigcap_\la L_\la
-$$
-is a nontrivial left ideal. The Theorem  \ref{left_ideal_thm} yields an increasing net $\left\{u_\a\right\}_{\a \in \mathscr A} \subset A_+$ such that
-$$
-L = \left\{a \in A | \lim_\a \left\| a - a u_\a\right\|= 0 \right\}.
-$$
-From the Lemma  \ref{increasing_convergent_w_lem} it follows that the net $\left\{u_\a\right\}$ is convergent with respect to the weak* topology of $A^{**}$ and its limit is an open projection $p\in A^{**}$ such that
-$$
-L = \left\{a \in A |ap = a \right\}.
-$$
- From the Definition \ref{good_hom_defn} it follows that there is a compact projection $\overline p \in A^{**}$ such that $\varphi^{**}\left( \overline p\right) > \overline q$. So one has $p < \overline p$ and from the Definition  \ref{gelfand_space_defn} it turns out that $p \in \mathfrak{Lattice} \left( A\right)$. The mapping $q \mapsto p$ yields a homomorphism
-	\be\label{lat_mor_eqn}
-	\begin{split}
-		\mathfrak{Lattice}\left(  B\right) \xrightarrow{\mathfrak{Lattice}\left(\varphi \right)}\mathfrak{Lattice} \left( A\right)
-	\end{split}
-	\ee
-	of lattices.
+
+
+
+
+
 	\begin{theorem}\label{good_thm}
 	If  $\varphi : M\left( A\right) \to M\left( B\right)$ is a  good $*$-homomorphism then one has:
 			\begin{enumerate}
@@ -2787,14 +2803,7 @@ From the equation \eqref{torhkx_prodw_eqn} one can deduce is good (cf. Definitio
 \end{definition}
 
 \begin{lemma}\label{pedersen_eps_lem}
-	Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
-	\begin{equation}\label{f_eps_eqn}
-		f_\eps\left( x\right)  \bydef\left\{
-		\begin{array}{c l}
-			0 &x \le \eps \\
-			x - \eps & x > \eps
-		\end{array}\right.
-	\end{equation}
+	Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by the equation \eqref{f_eps_eqn}
 	If $A$ is a $C^*$-algebra 
 	then one has
 	\bea\label{k0_ped_e_eqn}
