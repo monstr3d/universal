@@ -781,22 +781,44 @@ If 	$\mathscr L$ is  a nonunital meet-semilattice (cf. Definition \ref{nu_lattic
 	\eean 	
 \end{proof}
 
-\begin{empt}\label{lattice_cont_empt}
-	Let  $\varphi: \mathscr L' \to  \mathscr L''$ be a homomorphism of  meet semi-lattices. Suppose that any open subset of $\mathfrak{Ultrafilters}\left(\mathscr L'  \right)$ and $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ corresponds to an element of $\mathscr L'$ and $\mathscr L'$ respectively. Assume that any minimal proper closed set of $\mathfrak{Ultrafilters}\left(\mathscr L' \right)$ and $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ is a singleton. Then the map $\varphi: \mathscr L' \to  \mathscr L''$ yields a map from the set of open sets of   to the  $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$  to the  $\mathfrak{Ultrafilters}\left(\mathscr L' \right)$ one. Suppose that the preimage  of any maximal proper open subset of $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ is a maximal proper open subset of $\mathfrak{Ultrafilters}\left(\mathscr L' \right)$. So there is the natural map from the set of  maximal proper closed  subsets of $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ to $\mathfrak{Ultrafilters}\left(\mathscr L'\right)$ one. Since any minimal proper closed set of $\mathfrak{Ultrafilters}\left(\mathscr L' \right)$ and $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ is a singleton one has the natural map 
-	\be\label{lattice_cont_eqn}
-\psi: \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
-\ee
-	\end{empt}
 \begin{lemma}\label{lattice_cont_lem}
-Under the hypothesis \ref{lattice_cont_empt} the map \eqref{lattice_cont_eqn} is continuous.
+		If   $\varphi: \mathscr L' \to  \mathscr L''$ be a homomorphism of  meet semi-lattices, such that for any $L'' \in  \mathscr L''$ there is $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then there is the natural continuous map
+	\be\label{lattice_cont_eqn}
+\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
+\ee
 \end{lemma}
 \begin{proof}
-	Let $\xi'' \in \mathfrak{Ultrafilters}\left(\mathscr L''\right)$, and let $\xi' \bydef \psi \left( \xi''\right)\in  \mathfrak{Ultrafilters}\left(\mathscr L'\right)$. If $L' \in \mathscr L'$ is such that $\mathfrak{Ultrafilters}\left(\mathscr L'\right)_{L'}$ is an open neighborhood of $\xi'$ then $$\mathfrak{Ultrafilters}\left(\mathscr L'\right)_{L'}\subsetneqq  \mathfrak{Ultrafilters}\left(\mathscr L'\right)\setminus \{\xi'\}.$$ It follows that 
-	$$\mathfrak{Ultrafilters}\left(\mathscr L''\right)_{\varphi\left( L'\right) }\subsetneqq  \mathfrak{Ultrafilters}\left(\mathscr L''\right)\setminus \{\xi''\}.$$, and $\mathfrak{Ultrafilters}\left(\mathscr L''\right)_{\varphi\left( L'\right) }$ is  is an open neighborhood of $\xi''$. From
+	Let $\xi'' \in \mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ be represented by a net $\left\{L''_\la\right\}_{\la \in \La}\subset \mathscr L''$. If 	$\xi' \bydef \left\{L'_\a \right\}_{\a \in \mathscr A}$ is such that
+	\bean
+\left\{L'_\a \right\}\bydef \left\{L' \in  \mathscr L' ~|~\exists \la \in \La \quad \varphi\left(  L'\right) \ge L''_\la\right\}
+	\eean
+	then $\xi'$ is a filter.  If  $\left\{L'_\a \right\}$ is not an ultrafilter then from the Lemma \ref{lattice_hausdorff_lem} there are $\a_0 \in \mathscr A$ and elements $L'_1, L'_2 \in \mathscr L'$ such that
+	\be\label{non_u1_eqn}
+	\begin{split}
+	L'_1 \wedge L'_2 = 0,\\
+\forall \a \in \mathscr A \quad \a \ge \a_0\quad \Rightarrow \quad  L'_\a \wedge  L'_1 \neq 0 \quad\text{AND}\quad  L'_\a \wedge  L'_2 \neq 0.
+	\end{split}
+	\ee
+	From \eqref{non_u1_eqn} it follows that there are $\la_0 \in \La$ then
+		\be\label{non_u2_eqn}
+	\begin{split}
+	\varphi\left( 	L'_1 \right) \wedge \varphi\left( 	L'_2 \right)= 0,\\
+		\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \quad  L''_\la \wedge  	\varphi\left( 	L'_1 \right)\neq 0 \quad\text{AND}\quad  L''_\la \wedge  	\varphi\left( 	L'_1 \right) \neq 0.
+	\end{split}
+	\ee
+	From \eqref{non_u2_eqn} it turns out that $\xi''$ is not an ultrafilter. This contradiction proves that $\xi'$ is an ultrafilter. We  define the map \eqref{lattice_cont_eqn} by the following way
 	$$
-	\mathfrak{Ultrafilters}\left(\mathscr L'\right)_{L'} = \psi^{-1}\left( \mathfrak{Ultrafilters}\left(\mathscr L''\right)_{\varphi\left( L'\right) }\right) 
+\mathfrak{Ultrafilters}\left(\varphi \right)\left(\xi'' \right) = \xi'.	
 	$$
-	it follows that the map $\psi$ is continuous.
+If 	$L'' \in  \mathscr L''$ and  $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then
+$$
+\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} \right)\subset  \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{\varphi\left(  L'\right)} 
+$$
+Taking into account that 
+$
+	 \left\{ \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} | L'' \in \xi''\right\}
+$ is a basics of neighborhoods of $\xi''$ and (c) of the Theorem \ref{top_continuous_thm} one concludes that the map $\mathfrak{Ultrafilters}\left(\varphi \right)$ is continuous.
+
 \end{proof}
 
 \begin{lemma}\label{lattice_cont_lem!}!!!!
@@ -7177,6 +7199,10 @@ and $\mathfrak{Sp}_A\left(x \right)\cong \mathfrak{Sp}_B\left(x \right)$.
 %Let $A$ be a nonunital $C^*$-algebra, let  $A^m$ be a set of elements in $A''$ which can be approximated
 %weakly from below with self-adjoint operators of the form $x +\al$ a with $x \in A$ and $\al \in \R$. Denote by $A_m = - A^m$. The set $A^m \bigcap A_m$, is equal to the self-adjoint part of $M\left( A\right)$. 
 %\end{thm}
+ 	\begin{thm}\label{mult_m_m_thm}\cite{ped_semi}
+	Let $A$ be a nonunital $C^*$-algebra, let  $A^m$ be a set of elements in $A''$ which can be approximated
+	weakly from below with self-adjoint operators of the form $x +\al$ a with $x \in A$ and $\al \in \R$. Denote by $A_m = - A^m$. The set $A^m \bigcap A_m$, is equal to the self-adjoint part of $M\left( A\right)$. 
+\end{thm}
 
 
 
@@ -10212,7 +10238,7 @@ of this work.
  	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973. 	
 	
 \bibitem{akerman_gelfand} C.A. Akemann,{\it A Gelfand representation theory for $C*$-algebras}. PACIFIC JOURNAL OF MATHEMATICS
-Vol. 39, No. 1, 1971/
+Vol. 39, No. 1, 1971.
 	
 	
 	
