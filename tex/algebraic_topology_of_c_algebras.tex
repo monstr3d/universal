@@ -820,7 +820,9 @@ $
 $ is a basics of neighborhoods of $\xi''$ and (c) of the Theorem \ref{top_continuous_thm} one concludes that the map $\mathfrak{Ultrafilters}\left(\varphi \right)$ is continuous.
 
 \end{proof}
-
+\begin{empt}
+	Similarly to the Appendix \ref{cat_part_map_sec} !!!
+\end{empt}
 
 \section{Nondegenerate category and Gelfand functor}
 \paragraph{} The commutative  Gelfand-Na\u{\i}mark \ref{gelfand-naimark_thm} theorem yields the equivalence between  following categories:
@@ -4896,6 +4898,32 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 %\\
 
 %\end{definition}
+
+\subsection{Categories of partial maps}\label{cat_part_map_sec}
+
+\paragraph{} Here I follow to \cite{cat_part_map}. Consider
+a category $\mathscr A$ and to define a partial map between objects $A$ and $B$ of $\mathscr A$ as a pair $\left(m : B \hookto A, \phi : D \to B\right)$ consisting of a monomorphism and a
+map in $\mathscr A$N. However, one immediately recognizes that if the map $j : E \to D$
+is an isomorphism, then essentially the same information is supplied by the
+pair  $\left(mj : E \hookto A, \phi j : E \to B\right)$ (we have an isomorphism over both $A$ and $B$). Hence we define officially a {\it partial map} $\left[m, \phi \right]: A \to B$ between objects
+of $\mathscr A$ as an equivalence class of pairs $\left(m : D \hookto A, \phi : D \to B\right)$ with respect
+to isomorphic variations of $D$. It follows that given a partial map $\left[m, \phi \right]: A \to B$ its domain of definition can only be determined up to isomorphism,
+and so is the subobject $\left[m : \hookto A\right]$ represented by $m$.
+Next one aims to define a “category” $\mathfrak{Ptl}(\mathscr A)$ of partial maps on $\mathscr A$ by
+letting the composition of $\left[m. \phi \right]: A \to B$ and $\left[n, \psi \right]: B \to C$ defined as
+the equivalence classes determined by the outmost sides in
+\be\label{partial_eqn}
+\begin{tikzcd}
+\phi^{-1}{E} \arrow[r]\arrow[d, hook]& E \arrow[r, "\psi"] \arrow[d, hook, "n"]& C\\
+D \arrow[r, "\phi"] \arrow[d, hook, "m"]&B & \\
+A&  & 
+\end{tikzcd}
+\ee
+where the square is a pullback. To ensure that this exists, A must have
+inverse images ( =pullbacks of monomorphisms); but given that, it is easy to prove
+that composition is independent of the choice of representatives and that
+the identity maps are $[id, id]: A \to A$.
+
 	\section{Grothendieck topology and sheaves}
 
 \subsection{Sites and sheaves}\label{appendix_etale_sec}
@@ -10240,6 +10268,8 @@ of this work.
 
 \begin{thebibliography}{10}
 	
+	
+	
  	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973. 	
 	
 \bibitem{akerman_gelfand} C.A. Akemann,{\it A Gelfand representation theory for $C*$-algebras}. PACIFIC JOURNAL OF MATHEMATICS
@@ -10421,7 +10451,10 @@ J., 39 (1972), 431-450, 1972.
 	
 \bibitem{p-v:irr} M. V. Pimsner and D. Voiculescu, {\it Imbedding the irrational rotation $C^*$-algebra into an AF-algebra}, J. Oper. Theory 4 (1980), 201–210.  1980.
 
-\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980.
+ 
+\bibitem{cat_part_map}	E. Robinson, G. Rosolini,
+{\it Categories of partial maps},	Information and Computation,	Volume 79, Issue 2,	1988,	Pages 95-130,	ISSN0 890-5401, 1988.
 
 \bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
