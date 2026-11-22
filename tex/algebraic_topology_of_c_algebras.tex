@@ -876,7 +876,7 @@ where $L', L'' \subset A$ are closed ideals
 	A filter (resp, an ultrafilter) of $A$-semi-lattice is an $A$-\textit{filter} (resp. an $A$-\textit{ultrafilter}) (cf. Definitions \ref{filter_defn} 	We denote this semilattice by $\mathfrak{Lattice}\left( A\right)$. 
 	Denote by $\mathfrak{Filters}\left( A\right)$   the  set of $A$-filters. Denote by  $\mathfrak{Ultrafilters}\left( A\right)$   the  topological space of $A$-{ultrafilters} such that the topology of it is a specialization of given by the Definition \ref{topology_l_defn} one.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{compact_rem}
 From the Lemma \ref{hausdorff_geland_eqn}  and the Proposition \ref{filted_conv_defn} it follows that the space  $\mathfrak{Ultrafilters}\left( A\right)$ is Hausdorff and compact.
 \end{remark}
 
@@ -917,10 +917,60 @@ a_\eps b_\eps = a_\eps,\\
 \label{denss_eqn}
 \left\| a - a_eps\right\| < \eps
 \eea
-From \eqref{cs_eqn} it follows that $a_\eps$ is compactly supported. Using this circumstance and the equations \eqref{four_decompositon_eqn}, \eqref{denss_eqn} one can prove that the set of compactly supported elements is dense. We leave to the reader the proof of that the set of compactly supported elements is a $*$-algebra of $A$,
+From \eqref{cs_eqn} it follows that $a_\eps$ is compactly supported. Using this circumstance and the equations \eqref{four_decompositon_eqn}, \eqref{denss_eqn} one can prove that the set of compactly supported elements is dense in $A$. We leave to the reader the proof of that the set of compactly supported elements is a $*$-algebra of $A$,
+\end{proof}
+Clearly that the set of compactly supported subsets of $\mathfrak{Lattice}\left( A\right)$ is a nonunital  meet {semi}-{lattice} (cf. Definition \ref{nu_lattice_defn})
+\begin{definition}\label{gelfand_space_defn}
+Denote by $\mathfrak{LatticeCompact}\left( A\right)\subset \mathfrak{Lattice}\left( A\right)$ the set of  compactly supported elements of $A$-meet-semilattice. The space of ultrafilters of $\mathfrak{LatticeCompact}\left( A\right)$ (cf. Definition \ref{topology_l_defn}) is the {\it Gelfand space} of $A$. We denote it by $\mathfrak{Gelfand}\left( A\right)$.
+\end{definition}
+
+	\begin{lemma}\label{gelfand_u_compact_lem}
+	If $A$ is an unital $C^*$-algebra then then the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is Hausdorff and compact. 
+\end{lemma}
+\begin{proof}
+	Follows from the equality $\mathfrak{Gelfand}\left(A \right)\cong \mathfrak{Ultrafilters}\left(A \right)$ and the Remark \ref{compact_rem}.
+\end{proof}
+\begin{theorem}
+If $A$ is a nonunital $C^*$-algebra then one has
+\be
+\mathfrak{Gelfand}\left(A^+ \right)= \mathfrak{Gelfand}\left(A \right)^+
+\ee
+where $A^+$ is given by \eqref{a_plus_eqn} and $\mathfrak{Gelfand}\left(A \right)^+$ is the one-point compactification of $\mathfrak{Gelfand}\left(A \right)$ (cf. Definition \ref{one_point_compactification_defn}. In particular the space $\mathfrak{Gelfand}\left(A \right)$ is locally compact.
+\end{theorem}
+\begin{proof}
+	One needs check that the spaces $\mathfrak{Gelfand}\left(A \right)$ and $\mathfrak{Gelfand}\left(A^+ \right)$ satisfy to conditions (a)-(c) of the Theorem \ref{locally_compact_hausdorff_thm}.\\
+	(a) Follows from inclusion 
+	$$
+	\mathfrak{LatticeCompact}\left( A\right)\subset \mathfrak{LatticeCompact}\left( A^+\right).
+	$$
+(b) If $\xi \in \mathfrak{Gelfand}\left(A \right)$ corresponds to a net $\left\{L_\la\right\}_{\la\in \La}\subset \mathfrak{LatticeCompact}\left( A\right)$ then for any $\la \in \La$ the set
+$$
+\mathfrak{Gelfand}\left(A \right)_{L_\la}\subset \mathfrak{Gelfand}\left(A \right)\subsetneqq \mathfrak{Gelfand}\left(A \right)^+
+$$
+is an open neighborhood of $\xi$. So $\mathfrak{Gelfand}\left(A \right)$ is an open subset of $\mathfrak{Gelfand}\left(A \right)^+$. If $\xi', \xi'' \in \mathfrak{Gelfand}\left(A \right)^+\setminus \mathfrak{Gelfand}\left(A \right)$ with $\xi'\neq \xi''$ then there are $L', L'' \in  \mathfrak{Lattice}\left(A^+ \right)$ such that
+\bean
+\xi' \in \mathfrak{Gelfand}\left(A \right)^+_{L'}.\\
+\xi'' \in \mathfrak{Gelfand}\left(A \right)^+_{L''},\\
+L', L'' \subsetneqq A,\\
+\mathfrak{Gelfand}\left(A^+ \right)_{L'}\cap \mathfrak{Gelfand}\left(A^+ \right)_{L''}= \emptyset.
+\eean
+From the above equation it follows that
+\bean
+A \subsetneqq A + L',\\
+L'' \subseteqq A + L',\\
+A + L' \subsetneqq A^+,
+\eean 
+i.e. $A$ is not a maximal proper ideal of $A^+$. It is contradiction, from the contradiction it follows that $\mathfrak{Gelfand}\left(A \right)= \mathfrak{Gelfand}\left(A^+\right)\setminus \{\xi_+\}$. \\
+(c) Follows from the Lemma \ref{gelfand_u_compact_lem}.
 \end{proof}
 
-
+\begin{remark}\label{topology_base_herdem}
+	Using the constructionist of the proof of the Lemma \ref{lat_lem} and Definition \ref{open_close_ideal_defn} one can replace  the semilattice $\mathfrak{Lattice}\left(A \right)$ with the semilattices of closed left, right  ideals of $A$.
+	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any  $\xi$ we use a following notation
+	\be\label{hered_ideal_eqn}
+	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
+	\ee
+\end{remark}
 \begin{lemma}\label{lat_lem}
 	If both open projections $p', p''\in $ has compact closure then $p'\wedge p''$ is also an open projection having compact closure.
 \end{lemma}
@@ -941,7 +991,7 @@ From \eqref{cs_eqn} it follows that $a_\eps$ is compactly supported. Using this 
 	it turns out that $p = p'\wedge p''$.
 \end{proof}
 
-\begin{definition}\label{gelfand_space_defn}
+\begin{definition}!!!!
 	The space of ultrafilters (cf. Definition \ref{topology_l_defn}) of nonunital $A$-{semi}-{lattice} $\mathfrak{Lattice}\left( A\right)$ (cf. Definition \ref{lattice_a_defn}) is the {\it Gelfand space} of $A$ denoted by $\mathfrak{Gelfand}\left(A \right)$.
 \end{definition}
 If $A$ is a $C^*$-algebra and $p \in A^{**}$ is a projection then there a two sided ideal $A_p \in A$ such that
@@ -1117,19 +1167,7 @@ $ is compact so it corresponds to a compact projection $p \in C_0\left(\sX \righ
 \end{proof}
 
 
-	\begin{lemma}\label{gelfand_u_compact_lem}
-	If $A$ is an unital $C^*$-algebra then then the Gelfand space $\mathfrak{Gelfand}\left(A \right)$ is compact compact. 
-\end{lemma}
-\begin{proof}
-Follows the Proposition \ref{top_ultra_prop},
-\end{proof}
-\begin{remark}\label{topology_base_herdem}
-	Using the constructionist of the proof of the Lemma \ref{lat_lem} and Definition \ref{open_close_ideal_defn} one can replace  the semilattice $\mathfrak{Lattice}\left(A \right)$ with the semilattices of closed left, right  ideals of $A$.
-	Using the Lemma \ref{hered_ideal_lem} one can replace the closed left ideals in the Definition \ref{gelfand_space_defn} with right ones or hereditary $C^*$-subalgebras. For any  $\xi$ we use a following notation
-	\be\label{hered_ideal_eqn}
-	L \in \xi \quad \Leftrightarrow \quad B \bydef L \cap L^* \in \xi\quad \Leftrightarrow \quad L^* \in \xi.
-	\ee
-\end{remark}
+
 \begin{notation} The following notations will be useds
 \bea\label{algebra_open_eqn}
 A_p \bydef \left\{\left. a \in A\right| pap = a\right\}\subset A,\\
@@ -1351,29 +1389,39 @@ From the Theorem \ref{good_thm} it follows that for any good inclusion $
 \end{empt}
 
 \subsection{Nondegenerate $*$-homomorphisms and Gelfand functor}
-\paragraph*{}
-Let both  $A$ and $B$ be unital $C^*$-algebras, and let $\varphi :A \to B$ an unital  $*$-homomorphism, i.e. $\varphi\left( 1_{Q }\right) = 1_{B }$.There is the natural homomorphism of nonunital meet-semilattices
-\bean
-\mathfrak{Lattice}\left(\varphi \right) :	\mathfrak{Lattice}\left( A \right) \to 	\mathfrak{Lattice}\left( B  \right) ,\\
-\forall 	L_A\in \mathfrak{Lattice}\left(A\right)\quad \mathfrak{Lattice}\left(\varphi \right)\left( L_A\right)  \bydef \text{the $C^*$-norm closure of } B\varphi\left(L_A \right). 
-\eean
+\paragraph{} If both  $A$ and $B$ are $C^*$-algebras then  there is the  natural homomorphism of nonunital meet-semilattices (cf. Definition \ref{nu_lattice_defn}) given by
+\be\label{lat_ab_hom_eqn} 
+\begin{split}
+	\mathfrak{Lattice}\left(\varphi \right) :	\mathfrak{Lattice}\left( A \right) \to 	\mathfrak{Lattice}\left( B  \right) ,\\
+\forall 	L_A\in \mathfrak{Lattice}\left(A\right)\quad \mathfrak{Lattice}\left(\varphi \right)\left( L_A\right)  \bydef \text{the $C^*$-norm closure of } B\varphi\left(L_A \right), 
+\end{split}
+\ee
+where 	$\mathfrak{Lattice}\left( A  \right)$ and 	$\mathfrak{Lattice}\left( B  \right)$ is the $A$-semi-lattice and $B$-semi-lattice respectively (cf. Definition \ref{lattice_a_defn}).
+\begin{lemma}
+Let both  $A$ and $B$ be unital $C^*$-algebras, and let $\varphi :A \to B$ an unital  $*$-homomorphism, i.e. $\varphi\left( 1_{A }\right) = 1_{B }$. Then the given by \eqref{lat_ab_hom_eqn} homomorphism of nonunital meet-semilattices yields the natural continuous map
+ \bean
+\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(B \right)\to 	\mathfrak{Ultrafilters}\left(A\right).
+\eean 
+\end{lemma}
+\begin{proof}
 From
 $$
-\forall L_B \in \mathfrak{Lattice}\left(B \right): \mathfrak{Lattice}\left(\varphi \right)\left( A\right) \ge L_B
+\forall L_B \in \mathfrak{Lattice}\left(B \right)\quad  \mathfrak{Lattice}\left(\varphi \right)\left( A\right)= B \ge L_B
 $$   
 and the Lemma \ref{lattice_cont_lem} it turns out that there is the natural continuous map 
 \bean
 \mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(B \right)\to 	\mathfrak{Ultrafilters}\left(A\right).
 \eean 
+\end{proof}
 
 
 
 
 
 	\begin{theorem}\label{good_thm}
-	If  $\varphi : M\left( A\right) \to M\left( B\right)$ is a  good $*$-homomorphism then one has:
+	  $\varphi: A \to M\left(B \right)$  is a  nondegenerate  $*$-homomorphism (cf. Definition \ref{non_deg_hom_defn}) then one has:
 			\begin{enumerate}
-				\item [(i)] the homomorphism \eqref{lat_mor_eqn} of meet semi-lattices naturally yields the natural continuous map
+				\item [(i)] the given by \eqref{lat_ab_hom_eqn} homomorphism of nonunital meet-semilattices yields the natural continuous map
 				\be\label{gelfand_map_eqn}
 				\mathfrak{Gelfand}\left(\varphi \right) :	\mathfrak{Gelfand}\left( B\right) \to \mathfrak{Gelfand}\left( A\right),
 				\ee 
@@ -1381,49 +1429,29 @@ and the Lemma \ref{lattice_cont_lem} it turns out that there is the natural cont
 				\item[(ii)] moreover if $\varphi$ is injective then the map  \eqref{gelfand_map_eqn} is surjective.
 			\end{enumerate}
 			
-	\end{theorem}	\begin{proof}(i) Let   $\eta \in \mathfrak{Gelfand}\left( B\right)$ be a point, and let $\left\{q_\la\right\}_{\la \in \La}\in \mathfrak{Lattice} \left( B\right)$ be the corresponding to $\eta$ ultrafilter. There 
-	\begin{itemize}
-		\item the ultrafilter $\left\{q_\la\right\}_{\la \in \La}$ which represents $\eta$,
-		\item The compact projection $\overline q\in B^{**}$ such that there is $q' \in \left\{q_\la\right\}$ with $
-		\overline q > q'$.
-	\end{itemize}
-	For any $\la \in \La$ we define a set $\Xi_\la \subset \mathfrak{Gelfand}\left( A\right)$ such that 
-	\bean
-	\forall p' \in \Xi_\la \quad  q_\la p' q_\la = q_\la
-	\eean 
-	
-	
-	
-	Let $\left\{q_\la\right\}_{\la \in \La} \subset B^{**}$ be a set of compact projections for any $\la \in \La$ there is an open projection $q \in B^{**}$ which yields a neighborhood of $\eta$ and $q < q_\la$. Let $\left\{p_\a\right\}_{\a \in \mathscr A} \subset A^{**}$ be a set of compact projections such that for any $\a \in \mathscr A$ there is $\la_\a \in \La$ such that $\varphi^{**}\left( p_\a\right)> q_\la$. From 
-	\bean
-	q', q'' \in \left\{q_\la\right\} \quad q' \wedge q'' \neq 0
-	\eean
-	\\
-	if follows that 
-	\bean
-	p', p'' \in \left\{p_\a\right\} \quad p' \wedge p'' \neq 0
-	\eean
-	it follows that $\left\{p_\a\right\}$ is a filter. If $\la_0 \in \La$ then for any $\a \in \mathscr A$ the projection
-	$$
-	q_\a \bydef q_{\la_0}\wedge\varphi^{**}\left( p_\a\right) 
-	$$
-	corresponds to a compact subset $\sU_\a\subset \mathfrak{Gelfand}\left( B\right)$ with $\eta \in \sU_\a$. Any $p_\la$ corresponds  to a compact subset $\sU_\la \subset  \mathfrak{Gelfand}\left( B\right)$. Both  intersections 
-	\bean
-	\sV \bydef \bigcap_\la \sV_\la \subset \mathfrak{Gelfand}\left( B\right),\\
-	\sU \bydef \bigcap_\a \sU_\a \subset \mathfrak{Gelfand}\left(A\right)
-	\eean 
-	are compact. If the number of points of $\sU$ exceeds 1 then there are tho compact subsets $\sU', \sU'' \subsetneqq \sU$ such that $\sU = \sU' \cup \sU''$.
-	If $p', p'' \in A^{**}$ correspond to $\sU', \sU''$ then
-	\bean
-	\sV = \sV' \cup \sV'' 
-	\eean 
-	where $\sV'$ and $\sV''$ correspond to $q_{\la_0}$
-	
-	
+	\end{theorem}
+	\begin{lemma}\label{lattice_cont_lem!}
+		If   $\varphi: \mathscr L' \to  \mathscr L''$ be a homomorphism of  meet semi-lattices, such that for any $L'' \in  \mathscr L''$ there is $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then there is the natural continuous map
+		\be\label{lattice_cont_eqn!}
+		\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
+		\ee
+	\end{lemma}
+		\begin{proof}
+	Using the Definition \ref{non_deg_hom_defn} and the $*$-operation one can suppose that f $B$ is the  $C^*$-algebra generated by  $B \varphi\left( A\right) $ .\\
+		
+		(i) If $L_B \in \mathfrak{LatticeCompact}\left( B\right)$ is a compactly supported  element of 
+		\ref{gelfand_space_defn}
 	
 	(ii) If $\varphi$ is injective   then for any $\xi \in \mathfrak{Gelfand}\left(A\right)$   the given by \eqref{phiM1_eqn} set $\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\xi \right)$ is not empty. From \eqref{phis_eqn} it follows that $\xi \in  \mathfrak{Gelfand}\left(\varphi\right)\left( \mathfrak{Gelfand}\left(A\right) \right)$.
 	
 	\end{proof}
+	\begin{definition}\label{gelfand_space_defn!}!!!
+		Denote by $\mathfrak{LatticeCompact}\left( A\right)\subset \mathfrak{Lattice}\left( A\right)$ the set of  compactly supported elements of $A$-meet-semilattice. The space of ultrafilters of $\mathfrak{LatticeCompact}\left( A\right)$ (cf. Definition \ref{topology_l_defn}) is the {\it Gelfand space} of $A$. We denote it by $\mathfrak{Gelfand}\left( A\right)$.
+	\end{definition}
+	
+	\begin{definition}\label{gelfand_space_defn!!}!!!~
+		Denote by $\mathfrak{LatticeCompact}\left( A\right)\subset \mathfrak{Lattice}\left( A\right)$ the a nonunital  meet {semi}-{lattice} of compactly supported lattices. The space of ultrafilters of $\mathfrak{LatticeCompact}\left( A\right)$ (cf. Definition \ref{topology_l_defn}) is the {\it Gelfand space} of $A$. We denote it by $\mathfrak{Gelfand}\left( A\right)$.
+	\end{definition}
 	
 	
 	\begin{empt}!!!
@@ -5752,16 +5780,16 @@ if there exists a space $\sY$ satisfying the following conditions:
 \begin{enumerate}
 	\item[(a)] $\sX$ is a subspace of $\sY$.
 		\item[(b)] The set $\sY \setminus\sX$ consists of a single point.
-		\item[(a)] $\sY$ is a compact Hausdorff space.
-	Jf $\sY$ and $\sY'$ are two spaces satisfying these conditions, then there is a homeomorphism of $\sY$ with $\sY'$ that equals the identity map on $\sX$
+		\item[(c)] $\sY$ is a compact Hausdorff space.
 \end{enumerate}
+	Jf $\sY$ and $\sY'$ are two spaces satisfying these conditions, then there is a homeomorphism of $\sY$ with $\sY'$ that equals the identity map on $\sX$
 \end{theorem}	
 
 
 \begin{definition}\label{one_point_compactification_defn}\cite{munkres:topology}
 If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$  whose
 closure equals $\sY$, then $\sY$ is said to be a {\it compactification} of $\sX$. If $\sY \setminus\sX$ equals a single
-point, then $\sY$ is called the {\it one-point compactification} of X.
+point, then $\sY$ is called the {\it one-point compactification} of $\sX$.
 %We have shown that X has a one-point compactification Y if and only if X isa locally compact Hausdorff space that is not itself compact. We speak of Y as "the"one-point compactification because Y is uniquely determined up to a homeomorphism.
 \end{definition} 
 \begin{theorem}\label{comp_to_thm}\cite{munkres:topology}
@@ -8697,7 +8725,7 @@ such that $(a \otimes b)^* = a^* \otimes b^*$ for all $a$ and $b$. The $C^*$-nor
 	\subsection{Nondegenerate homomorphisms}
 	\begin{definition}\cite{mt_lcqg}\label{non_deg_hom_defn}
  A $*$-homomorphism $\pi\colon A\to B$
-between $C^*$-algebras is said to be \emph{nondegenerate} if $B$ is the generated by  $ \pi ( A) B$  $C^*$-algebra.
+between $C^*$-algebras is said to be \emph{nondegenerate} if $B$ is the  $C^*$-algebra generated by  $ \pi ( A) B$ .
  Given a nondegenerate $*$-homomorphism $\pi \colon A\rightarrow M(B)$, we
 also denote by $\pi $ its unique extension to a (unital, strictly continuous)%
 \emph{\ }*-homomorphism $\pi \colon M( A) \rightarrow M( B) $.	
