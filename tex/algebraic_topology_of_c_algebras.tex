@@ -781,50 +781,84 @@ If 	$\mathscr L$ is  a nonunital meet-semilattice (cf. Definition \ref{nu_lattic
 	\eean 	
 \end{proof}
 
-\begin{lemma}\label{lattice_cont_lem}
-		If   $\varphi: \mathscr L' \to  \mathscr L''$ be a homomorphism of  meet semi-lattices, such that for any $L'' \in  \mathscr L''$ there is $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then there is the natural continuous map
-	\be\label{lattice_cont_eqn}
-\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
+\begin{defn}\label{part_top_defn}
+If both $\sX_1$ and $\sX_2$ are topological spaces then a {\it partial continuous map } $\varphi : \sX_1 \to \sX_2$ is a pair $\left( \sU, \phi\right)$ such that
+\begin{itemize}
+	\item $\sU \subset \sX_1$ is a subspace,
+	\item $\phi: \sU \to \sX_2$ is a continuous map.
+\end{itemize}
+If both  $\varphi_1 : \sX_1\to \sX_2$ and $\varphi_2 : \sX_2 \to \sX_3$  are partial continuous maps given by the pairs $\left( \sU_1, \phi_1\right)$ and  $\left( \sU_2, \phi_2\right)$  then the {\it composition} $\varphi_2 \circ \varphi_1 : \sX_1 \to \sX_3$ is a partial continuous map given by the pair $\left( \sU_1 \cap \phi_1^{-1}\left( \sU_2\right) , \phi_2 \circ \phi_1|_{ \sU_1 \cap \phi_1^{-1}\left( \sU_2\right)}\right)$.
+\end{defn}
+\begin{remark}
+The Definition \ref{part_top_defn} complies with the explained int the Appendix \ref{cat_part_map_sec} theory of partial maps.
+\end{remark}
+\begin{empt}\label{part_lat_empt}
+		Let   $\varphi: \mathscr L' \to  \mathscr L''$ be a homomorphism of  meet semi-lattices. Denote by 
+		\be\label{semi_major_eqn}
+		\begin{split}
+	\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi \bydef\\ \left\{\xi'' \in 	\mathfrak{Ultrafilters}\left(\mathscr L'' \right)\left| \exists L' \in\mathscr L'~~\exists L'' \in\mathscr L''~~ L'' \in \xi''\text{ AND } L'' \le \varphi\left( L'\right) \right.\right\}	
+		\end{split}
+		\ee
+	Suppose $\xi'' \in \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi$ is  represented by a net $\left\{L''_\la\right\}_{\la \in \La}\subset \mathscr L''$. If 	$\xi' \bydef \left\{L'_\a \right\}_{\a \in \mathscr A}$ is such that
+\bean
+\left\{L'_\a \right\}\bydef \left\{L' \in  \mathscr L' ~|~\exists \la \in \La \quad \varphi\left(  L'\right) \ge L''_\la\right\}
+\eean
+then $\xi'$ is a filter.  If  $\left\{L'_\a \right\}$ is not an ultrafilter then from the Lemma \ref{hausdorff_lattice_lem} there are $\a_0 \in \mathscr A$ and elements $L'_1, L'_2 \in \mathscr L'$ such that
+\be\label{non_u1_eqn}
+\begin{split}
+	L'_1 \wedge L'_2 = 0,\\
+	\forall \a \in \mathscr A \quad \a \ge \a_0\quad \Rightarrow \quad  L'_\a \wedge  L'_1 \neq 0 \quad\text{AND}\quad  L'_\a \wedge  L'_2 \neq 0.
+\end{split}
 \ee
+From \eqref{non_u1_eqn} it follows that there are $\la_0 \in \La$ then
+\be\label{non_u2_eqn}
+\begin{split}
+	\varphi\left( 	L'_1 \right) \wedge \varphi\left( 	L'_2 \right)= 0,\\
+	\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \quad  L''_\la \wedge  	\varphi\left( 	L'_1 \right)\neq 0 \quad\text{AND}\quad  L''_\la \wedge  	\varphi\left( 	L' \right) \neq 0.
+\end{split}
+\ee
+From \eqref{non_u2_eqn} it turns out that $\xi''$ is not an ultrafilter. it contradicts with the above hypothesis. This contradiction proves that $\xi'$ is an ultrafilter. Having $\xi'$ and $\xi''$   we  define the map 
+\be\label{non_u2_eqn}
+\begin{split}
+\phi: \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi \to \mathfrak{Ultrafilters}\left(\mathscr L'' \right),\\
+\phi\left(\xi'' \right) \bydef \xi'.
+\end{split}
+\ee
+		
+\end{empt}
+\begin{rem}
+The set 	$\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi$ given by \eqref{semi_major_eqn}  is an open subset of 	$\mathfrak{Ultrafilters}\left(\mathscr L'' \right)$,
+\end{rem}
+\begin{lemma}\label{part_lat_lem}
+	Under the hypothesis \ref{part_lat_empt} one has partial continuous map (cf. Definition \ref{part_top_defn}) 
+		\be\label{lattice_partial_eqn}
+	\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
+	\ee
+	given by the pair 
+	\be\label{lattice_partial_p_eqn}
+\left(  \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi, \phi\right).	
+	\ee 
 \end{lemma}
 \begin{proof}
-	Let $\xi'' \in \mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ be represented by a net $\left\{L''_\la\right\}_{\la \in \La}\subset \mathscr L''$. If 	$\xi' \bydef \left\{L'_\a \right\}_{\a \in \mathscr A}$ is such that
-	\bean
-\left\{L'_\a \right\}\bydef \left\{L' \in  \mathscr L' ~|~\exists \la \in \La \quad \varphi\left(  L'\right) \ge L''_\la\right\}
-	\eean
-	then $\xi'$ is a filter.  If  $\left\{L'_\a \right\}$ is not an ultrafilter then from the Lemma \ref{hausdorff_lattice_lem} there are $\a_0 \in \mathscr A$ and elements $L'_1, L'_2 \in \mathscr L'$ such that
-	\be\label{non_u1_eqn}
-	\begin{split}
-	L'_1 \wedge L'_2 = 0,\\
-\forall \a \in \mathscr A \quad \a \ge \a_0\quad \Rightarrow \quad  L'_\a \wedge  L'_1 \neq 0 \quad\text{AND}\quad  L'_\a \wedge  L'_2 \neq 0.
-	\end{split}
-	\ee
-	From \eqref{non_u1_eqn} it follows that there are $\la_0 \in \La$ then
-		\be\label{non_u2_eqn}
-	\begin{split}
-	\varphi\left( 	L'_1 \right) \wedge \varphi\left( 	L'_2 \right)= 0,\\
-		\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \quad  L''_\la \wedge  	\varphi\left( 	L'_1 \right)\neq 0 \quad\text{AND}\quad  L''_\la \wedge  	\varphi\left( 	L' \right) \neq 0.
-	\end{split}
-	\ee
-	From \eqref{non_u2_eqn} it turns out that $\xi''$ is not an ultrafilter. it contradicts with the above hypothesis. This contradiction proves that $\xi'$ is an ultrafilter. Having $\x'$ and $\xi''$   we  define the map \eqref{lattice_cont_eqn} by the following way
-	$$
-\mathfrak{Ultrafilters}\left(\varphi \right)\left(\xi'' \right) = \xi'.	
-	$$
 If 	$L'' \in  \mathscr L''$ and  $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then
 $$
-\mathfrak{Ultrafilters}\left(\varphi \right)^{-1}\left(\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} \right)\subset  \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{\varphi\left(  L'\right)} 
+\phi^{-1}\left(\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} \right)\subset  \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{\varphi\left(  L'\right)} 
 $$
 Taking into account that 
 $
-	 \left\{ \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} | L'' \in \xi''\right\}
-$ is a basics of neighborhoods of $\xi''$ and (c) of the Theorem \ref{top_continuous_thm} one concludes that the map $\mathfrak{Ultrafilters}\left(\varphi \right)$ is continuous.
-
+\left\{ \mathfrak{Ultrafilters}\left(\mathscr L'' \right)_{L''} | L'' \in \xi''\right\}
+$ is a basics of neighborhoods of $\xi''$ and (c) of the Theorem \ref{top_continuous_thm} one concludes that the map $\phi$ is continuous.
 \end{proof}
-\begin{empt}
-	Similarly to the Appendix \ref{cat_part_map_sec} !!!
-\end{empt}
-
-\section{Nondegenerate category and Gelfand functor}
+\begin{corollary}\label{lattice_cont_cor} 
+		If   $\varphi: \mathscr L' \to  \mathscr L''$ is a homomorphism of  meet semi-lattices, such that for any $L'' \in  \mathscr L''$ there is $L' \in \mathscr L''$ with $\varphi\left(  L'\right) \ge L''$ then there is the natural continuous map
+	\be\label{lattice_cont_eqn}
+\mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(\mathscr L'' \right)\to 	\mathfrak{Ultrafilters}\left(\mathscr L'\right).
+\ee
+\end{corollary}
+\begin{proof}
+From the hypothesis of this corollary it follows that $\mathfrak{Ultrafilters}\left(\mathscr L'' \right)_\varphi = \mathfrak{Ultrafilters}\left(\mathscr L'' \right)$ (cf. equation \eqref{lattice_partial_p_eqn}).
+\end{proof}
+\section{Category of $C^*$-algebras and Gelfand functor}
 \paragraph{} The commutative  Gelfand-Na\u{\i}mark \ref{gelfand-naimark_thm} theorem yields the equivalence between  following categories:
 \begin{itemize}
 	\item  unital commutative $C^*$-algebras and $*$-homomorphisms,
@@ -1390,7 +1424,7 @@ From the Theorem \ref{good_thm} it follows that for any good inclusion $
 	\ee
 \end{empt}
 
-\subsection{Nondegenerate $*$-homomorphisms and Gelfand functor}
+\subsection{Gelfand functor}
 \paragraph{} If both  $A$ and $B$ are $C^*$-algebras then  there is the  natural homomorphism of nonunital meet-semilattices (cf. Definition \ref{nu_lattice_defn}) given by
 \be\label{lat_ab_hom_eqn} 
 \begin{split}
@@ -1399,6 +1433,16 @@ From the Theorem \ref{good_thm} it follows that for any good inclusion $
 \end{split}
 \ee
 where 	$\mathfrak{Lattice}\left( A  \right)$ and 	$\mathfrak{Lattice}\left( B  \right)$ is the $A$-semi-lattice and $B$-semi-lattice respectively (cf. Definition \ref{lattice_a_defn}).
+\begin{lemma}
+If  both  $A$ and $B$ are  $C^*$-algebras, and let $\varphi :A \to B$ is an   $*$-homomorphism then the homomorphism \ref{lat_ab_hom_eqn} yields  the natural partial continuous map (cf. Definition \ref{part_top_defn})
+
+			\be\label{gelfand_map_p_eqn}
+\mathfrak{Gelfand}\left(\varphi \right) :	\mathfrak{Gelfand}\left( B\right) \to \mathfrak{Gelfand}\left( A\right),
+\ee 
+\end{lemma}
+\begin{proof}
+	Follows from the Lemma \ref{part_lat_lem}.
+\end{proof}
 \begin{lemma}
 Let both  $A$ and $B$ be unital $C^*$-algebras, and let $\varphi :A \to B$ an unital  $*$-homomorphism, i.e. $\varphi\left( 1_{A }\right) = 1_{B }$. Then the given by \eqref{lat_ab_hom_eqn} homomorphism of nonunital meet-semilattices yields the natural continuous map
  \bean
@@ -1410,7 +1454,7 @@ From
 $$
 \forall L_B \in \mathfrak{Lattice}\left(B \right)\quad  \mathfrak{Lattice}\left(\varphi \right)\left( A\right)= B \ge L_B
 $$   
-and the Lemma \ref{lattice_cont_lem} it turns out that there is the natural continuous map 
+and the Lemma \ref{lattice_cont_cor} !!! COROLLARY !!! it turns out that there is the natural continuous map 
 \bean
 \mathfrak{Ultrafilters}\left(\varphi \right) : \mathfrak{Ultrafilters}\left(B \right)\to 	\mathfrak{Ultrafilters}\left(A\right).
 \eean 
