@@ -1057,19 +1057,18 @@ then $L'= L_p$ is $p$-ideal (cf. Definition \ref{ideal_proj_defn}), so the map $
 \begin{notation}\label{normal_not}
 	If $A$ is an  $C^*$-algebra then we denote by  $\mathfrak{Normal}\left( A\right)$ the set of normal elements (cf. Definition \ref{normal_defn})
 \end{notation}
-\begin{lemma}\label{normali_one_one_c_lem}
-	If $A$ is a $C^*$-algebra then  is the natural bijective map $\mathfrak{Normal}_A: \mathfrak{Normal}\left( A\right)\to C_0\left(\mathfrak{Gelfand}\left( A\right) \right)$ (cf. Notation \ref{normal_not}) such that
+\begin{theorem}\label{normali_one_one_c_thn}
+	If $A$ is a $C^*$-algebra then  is the natural bijective. continuous with respect to $C^*$-norm topology map $\mathfrak{Normal}_A: \mathfrak{Normal}\left( A\right)\to C_0\left(\mathfrak{Gelfand}\left( A\right) \right)$ (cf. Notation \ref{normal_not}) such that
 	\bea\label{normali_one_one_o_eqn}
 	\forall a', a'' \in A_{\mathrm{s.a.}} \quad a' \ge a'' \quad \Leftrightarrow  \quad \mathfrak{Normal}_A\left(a' \right) \ge  \mathfrak{Normal}_A\left(a'' \right),\\
-	\label{normali_one_one_m_eqn}
-	\forall a \in \mathfrak{Normal}\left( A\right)~~ \forall  f \in C_b\left(\mathfrak{Gelfand}\left( A\right) \right)_{\mathrm{s.a.}}  ~~ \Leftrightarrow  ~~ \mathfrak{Normal}_A\left(af \right)= \mathfrak{Normal}_A\left(a \right)f,\\
+\mathfrak{Normal}_A\left(a \right)f,\\
 	\label{normali_one_one_st_eqn}
 \forall a \in \mathfrak{Normal}\left( A\right)\quad    \mathfrak{Normal}_A\left(a^* \right)= \mathfrak{Normal}_A\left(a \right)^*,\\
 	\label{normali_one_one_c_eqn}
 	\mathfrak{Normal}_A\left(A_c \right) = C_c\left(\mathfrak{Gelfand}\left( A\right) \right)
 	\eea
 where $A_c \subset A$ is the left ideal of compactly supported elements (cf. Definition \ref{compactly_supported_defn}) and $A_{\mathrm{s.a.}}\subset A$ is the $\R$-linear subspace of self-adjoint elements.	
-	 \end{lemma}
+	 \end{theorem}
 \begin{proof}
 	Let $B\bydef A^\sim$ (cf. Definition \ref{unital_notation_eqn})
 	If $B\to B\left(\H \right)$ is the universal representation (cf. Definition \ref{universal_repr_defn}) then 
@@ -1132,18 +1131,30 @@ where $A_c \subset A$ is the left ideal of compactly supported elements (cf. Def
 	\eean 
 	then the map $\mathfrak{Normal}_B$ satisfies to the condition \eqref{normali_one_one_st_eqn}.
 	
-	 There are real $c', c'' \in \R_+$ such that both $b' + c'$ and $b'' + c''$ are positive operators. From  $b' + c'+ b'' + c''\ge b' + c'$ and $b' + c'+ b'' + c''\ge b'' + c''$. It follows that there are continuous functions $f', f'' : \R_+ \to \left[0, 1\right]$ such that 
-	\bean
-	b' + c'=	f' \left(b' + c'+ b'' + c'' \right),\\
-	b'' + c''=	f'' \left(b' + c'+ b'' + c'' \right).
-	\eean 
-	If $f \bydef f' + i f'' : \R_+ \to \C $ then $b + c' + i c'' = f\left(b' + c'+ b'' + c'' \right)$. The Theorem \ref{spectral_thm}  yields an element $a^{**}\in A^{**}$ which corresponds to $b' + c'+ b'' + c''$. From the Definition \ref{coninuous_p_defn} and the Theorem \ref{coninuous_p_thm} it follows that $a^{**}\in A$. Clearly $a \bydef f\left(a^{**} \right) - c_1 - ic_2\in A$ is normal and $\mathfrak{Normal} !!!!\left(a \right)= b$.\\
-	(ii) If $a \in A$ is a self-adjoint element then form the the Definition \ref{coninuous_p_defn} and the Theorem \ref{coninuous_p_thm} it follows that $a$ corresponds to a continuous function $b:\mathfrak{Gelfand}\left(A  \right)\to \R$. If both self-adjoint elements   $a', a'' \in  A$ are such that $a' \neq a''$ and $\mathfrak{Normal} !!!!\left(a' \right)= \mathfrak{Normal} !!!!\left(a'' \right) = b$ then $a' - a'' \neq 0$ and $\mathfrak{Normal} !!!!\left(a'' \right) - \mathfrak{Normal} !!!!\left(a' \right)= \mathfrak{Normal} !!!!\left(a' - a'' \right)\neq 0$. It contradicts with the hypothesis $\mathfrak{Normal} !!!!\left(a' \right)= \mathfrak{Normal} !!!!\left(a'' \right) = b$. .
 	
-If $A$ is not unital then $B = A^+$ and $\mathfrak{Gelfand}(B) = \mathfrak{Gelfand}(A) \cup \{x^+\}$ (cf. Theorem \ref{gelfand_u_compact_thm}). 
-
 	
 \end{proof}
+
+
+\begin{lemma}\label{normali_one_one_c_lem}
+	Under the hypothesis of the theorem \ref{normali_one_one_c_thn} one has
+	If $A$ is a $C^*$-algebra then  is the natural bijective. continuous with respect to $C^*$-norm topology map $\mathfrak{Normal}_A: \mathfrak{Normal}\left( A\right)\to C_0\left(\mathfrak{Gelfand}\left( A\right) \right)$ (cf. Notation \ref{normal_not}) such that
+	\be\label{normali_one_one_comm_eqn}
+	\begin{split}
+	\forall a', a'' \in \mathfrak{Normal}\left(A \right)  \quad  a'  a'' = a''a' \quad \Rightarrow \\  
+	\Rightarrow \quad \mathfrak{Normal}_A\left(a'a''\right)=\mathfrak{Normal}_A\left(a'\right)\mathfrak{Normal}_A\left(a''\right),
+	\end{split}
+	\ee
+	\be
+ \\ \label{normali_one_one_c_eqn}
+	\mathfrak{Normal}_A\left(A_c \right) = C_c\left(\mathfrak{Gelfand}\left( A\right) \right)
+	\ee
+	where $A_c \subset A$ is the left ideal of compactly supported elements (cf. Definition \ref{compactly_supported_defn}) and $A_{\mathrm{s.a.}}\subset A$ is the $\R$-linear subspace of self-adjoint elements.	
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
+
 \begin{theorem}\label{global_map_lem}
 	If $A$ is an  $C^*$-algebra and $\mathfrak{Normal}\left( A\right)$ is a set of normal elements (cf. Definition \ref{normal_defn}) then there is the natural bijective map $\mathfrak{Normal}_A :  \mathfrak{Normal}\left( A\right) \cong C_0\left(\mathfrak{Geldand}\left( A\right) \right)$ such that $\mathfrak{Normal}_A \left( A_c \right)  = C_c\left(\mathfrak{Geldand}\left( A\right) \right)$ where $A_c \subset A$ is the ideal of compactly supported elements (cf. Definition \ref{compactly_supported_defn}).
 \end{theorem}
